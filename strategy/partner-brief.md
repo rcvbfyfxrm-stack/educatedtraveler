@@ -1,5 +1,5 @@
 # EducatedTraveler Partner Brief
-## Transforming Education Through Extended Immersion & Blockchain Identity
+## Skill Adventures at Source | One Week to Get Certified. 6 Months to Change Your Life.
 
 **December 2025 | Version 1.0**
 
@@ -7,14 +7,14 @@
 
 ## The Opportunity in 60 Seconds
 
-EducatedTraveler is building the world's first **gamified quest system for extended immersion education** (3-6 months), combining:
+EducatedTraveler offers **certified skill adventures at premium destinations worldwide**—from wingsuit flying in Switzerland to sushi mastery in Tokyo, from RYA sailing in Greece to freediving in Egypt.
 
-✅ **Real-world certifications** (PADI, RYA, Yoga Alliance, WSET)  
-✅ **Blockchain-verified credentials** (Soul-Bound NFTs on Polygon)  
-✅ **Lifelong community bonds** (pre-trip cohorts to alumni forever)  
-✅ **Source-born mastery** (learn yoga in Bali, diving in Thailand, sailing in Greece)
+✅ **Real-world certifications** (PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu)
+✅ **Blockchain-verified credentials** (Soul-Bound NFTs on Polygon)
+✅ **Lifelong community bonds** (pre-trip cohorts to alumni forever)
+✅ **Source-born mastery** (learn at the birthplace of each skill)
 
-**The Model:** Small cohorts (8-12) stack 21-day certification modules into 6-month "Immersion Sagas" worth $25,000-$40,000 per participant.
+**The Model:** Small cohorts (8-12) choose their depth—7 days to get certified, 6 months to change their life.
 
 **The Market:** 2M+ digital nomads + 15M professionals seeking sabbaticals = $50B+ addressable market.
 
@@ -32,32 +32,33 @@ EducatedTraveler is building the world's first **gamified quest system for exten
 - Online courses = no community, no accountability, 5% completion rates
 
 **Our Solution:**
-Extended immersion (3-6 months) at the source of skills creates **permanent transformation** through:
-- Daily practice with master practitioners
+A spectrum of skill adventures—from one-week certifications to life-changing 6-month transformations:
+- Daily practice with master practitioners at the source
 - Unbreakable bonds with 8-12 cohort members
 - Industry-recognized certifications enabling career pivots
 - Blockchain identity that travels with you forever
 
 **Target Customers:**
+- Adventure seekers wanting certified skills (wingsuit, freediving, mountaineering)
 - Digital nomads (25-40) seeking career pivots
-- Mid-career professionals (35-50) on sabbatical
+- Mid-career professionals using vacation time or sabbaticals
 - Lifelong learners prioritizing depth over breadth
 - Community-oriented individuals valuing genuine connection
 
 ### HOW: Four Unique Forces
 
-**1. Modular Stacking:** 21-day blocks → 60-day tracks → 180-day sagas  
-**2. Living-Like-Practitioners:** Study where skills originate, with active professionals  
-**3. Optimized Rhythms:** Peak performance nutrition, rest weeks, burnout prevention  
-**4. Unbreakable Community:** Pre-trip formation (3 months) → lifelong alumni network
+**1. Spectrum Depth:** 7-21 days (get certified) → 1-3 months (go deeper) → 6 months (change your life)
+**2. Living-Like-Practitioners:** Study where skills originate—Interlaken for wingsuit, Dahab for freediving, Fez for tilework
+**3. Optimized Rhythms:** Peak performance nutrition, rest weeks, burnout prevention
+**4. Unbreakable Community:** Pre-trip formation → lifelong alumni network
 
-### WHAT: Three Product Tiers
+### WHAT: Choose Your Depth
 
-| Tier | Duration | Price | XP | Example |
+| Tier | Duration | Price | XP | Examples |
 |------|----------|-------|----|----|
-| **Foundation** | 7-21 days | $3,500-$6,500 | 100-200 | Bali Yoga 200hr, Thailand PADI Open Water |
-| **Mastery** | 30-60 days | $9,500-$12,000 | 400-500 | Bali Yoga 500hr, Thailand Divemaster |
-| **Saga** | 90-180 days | $25,000-$40,000 | 1,200-2,000 | Bali Complete Wellness (6 months) |
+| **Get Certified** | 7-21 days | $3,500-$6,500 | 100-200 | Freediving (Dahab), Wingsuit Ground School (Interlaken), RYA Day Skipper (Greece), WSET (Burgundy) |
+| **Go Deeper** | 1-3 months | $9,500-$18,000 | 300-600 | Le Cordon Bleu Pastry (Paris), Muay Thai Trainer (Thailand), RYA Yachtmaster (Mediterranean) |
+| **Change Your Life** | 6 months | $25,000-$40,000 | 1,200-2,000 | Mediterranean Sailing Odyssey, Complete Culinary Arts (Tokyo → Paris → Barcelona) |
 
 ---
 
@@ -254,7 +255,7 @@ Extended immersion (3-6 months) at the source of skills creates **permanent tran
 **Who:** Villa owners, hostels, boutique hotels, coworking spaces
 
 **What We Need:**
-- Long-term stays (21-180 days) with discounted rates
+- Stays from 7-180 days with discounted rates
 - Private/semi-private accommodations for small groups
 - Access to communal spaces (yoga shalas, kitchens, coworking)
 - Flexible booking and cancellation policies
@@ -279,10 +280,10 @@ Extended immersion (3-6 months) at the source of skills creates **permanent tran
 
 ## Why Partner with EducatedTraveler?
 
-### 1. First-Mover in Extended Immersion + Web3
+### 1. First-Mover in Certified Skill Adventures + Web3
 
 We're the first platform combining:
-- 3-6 month commitments (vs. Airbnb's 3-hour experiences)
+- Real certifications from 7 days to 6 months (vs. Airbnb's 3-hour activities)
 - Blockchain credentials (vs. paper certificates)
 - Lifelong community (vs. transactional tours)
 
@@ -382,9 +383,9 @@ This isn't just business—it's transformation at scale:
 - 🎯 Mint 500 certification NFTs on mainnet
 - 🎯 Launch mobile app for in-journey tracking
 
-### Phase 3: Saga Launch (Q1-Q2 2027)
-- 🚀 Introduce 5 immersion sagas (90-180 days)
-- 🚀 Onboard 50 saga participants
+### Phase 3: Life Transformation Track (Q1-Q2 2027)
+- 🚀 Introduce 5 life transformation journeys (6 months)
+- 🚀 Onboard 50 transformation participants
 - 🚀 Launch governance token $EDUTRAV
 - 🚀 First annual alumni festival (Bali, 200 attendees)
 
@@ -456,7 +457,7 @@ We're not building another Web3 speculation platform.
 
 ---
 
-*"Live the source for months—emerge certified, connected, unstoppable."*
+*"One week to get certified. 6 months to change your life."*
 
-**EducatedTraveler: 6-month source mastery with unbreakable bonds.**  
-**Only us scales immersion to transformation.**
+**EducatedTraveler: Skill Adventures at Source.**
+**From wingsuit flying in Switzerland to sushi mastery in Tokyo—choose your depth.**

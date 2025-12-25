@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Thank you for your interest! We're building EducatedTraveler—a new way to learn real skills through extended immersive journeys at the source (like earning your yoga certification in Bali, diving certification in Thailand, or sailing certification in Greece).
+Thank you for your interest! We're building EducatedTraveler—**Skill Adventures at Source**. From wingsuit flying in Switzerland to sushi mastery in Tokyo, from RYA sailing in Greece to freediving in Egypt—earn real certifications at premium destinations worldwide.
+
+*One week to get certified. 6 months to change your life.*
 
 This survey takes about 5-7 minutes. Your honest feedback will help us shape the perfect experience.
 
@@ -91,10 +93,10 @@ This survey takes about 5-7 minutes. Your honest feedback will help us shape the
 
 ## SECTION 3: The Core Concept
 
-**EducatedTraveler offers 3 types of journeys:**
-- **Foundation** (7-21 days): Earn entry-level certifications like PADI Open Water, Yoga Alliance 200hr, WSET Wine Level 2
-- **Mastery** (30-60 days): Earn advanced certifications like PADI Divemaster, Yoga 500hr, RYA Yachtmaster
-- **Sagas** (90-180 days): Complete multi-certification transformations with 3-6 month immersions
+**Choose your depth—EducatedTraveler offers 3 levels:**
+- **Get Certified** (7-21 days): Freediving in Dahab, Wingsuit Ground School in Interlaken, RYA Day Skipper in Greece, WSET Wine in Burgundy
+- **Go Deeper** (1-3 months): Le Cordon Bleu Pastry in Paris, Muay Thai Trainer Cert in Thailand, RYA Yachtmaster in the Mediterranean
+- **Change Your Life** (6 months): Mediterranean Sailing Odyssey (Greece → Croatia → Spain), Complete Culinary Arts (Tokyo → Paris → Barcelona)
 
 All programs include:
 - International certification from recognized bodies
@@ -115,12 +117,11 @@ All programs include:
 - Not interested
 
 **11. What duration appeals to you most?** (Select all that apply)
-- [ ] 7-14 days (Foundation)
-- [ ] 21 days (Foundation)
-- [ ] 30-45 days (Mastery)
-- [ ] 60 days (Mastery)
-- [ ] 90+ days (Saga)
-- [ ] 180 days (Full Saga)
+- [ ] 7-14 days (Get Certified)
+- [ ] 21 days (Get Certified)
+- [ ] 1 month (Go Deeper)
+- [ ] 3 months (Go Deeper)
+- [ ] 6 months (Change Your Life)
 
 **12. What price range would you consider for a 21-day certified journey?** (includes instruction, certification, accommodation)
 - $3,000-$3,999
@@ -135,21 +136,23 @@ All programs include:
 ## SECTION 4: Journey Categories
 
 **13. Which journey types interest you most?** (Select up to 3)
-- [ ] **Adventure** (diving, surfing, kitesurfing, climbing, mountaineering)
-- [ ] **Culinary** (wine certification, cooking, pastry, spirits, cheese)
-- [ ] **Wellness** (yoga teacher training, meditation, wellness coaching, breathwork)
-- [ ] **Sailing** (RYA certifications, navigation, racing)
-- [ ] **Creative** (photography, filmmaking, writing, art, pottery, music)
+- [ ] **Adventure** (wingsuit flying, freediving, whitewater kayaking, mountaineering, falconry)
+- [ ] **Culinary** (sushi mastery Tokyo, Le Cordon Bleu Paris, molecular gastronomy, whisky distilleries)
+- [ ] **Wellness** (yoga pilgrimage India, breathwork certification, Vipassana silent retreat, Muay Thai)
+- [ ] **Sailing** (RYA certifications, Atlantic crossing, America's Cup training, Arctic expedition)
+- [ ] **Creative** (Magnum Photos workshop, Japanese pottery, Moroccan zellige tilework, Italian fresco)
 - [ ] **Professional** (leadership, public speaking, business, digital marketing)
 - [ ] **Language** (Spanish, French, Italian, Japanese immersion)
 
 **14. Which specific programs would you book?** (Select all that apply)
-- [ ] Bali Yoga Teacher Training (200hr, 21 days, ~$4,500)
-- [ ] Thailand PADI Divemaster (45 days, ~$9,500)
-- [ ] Tuscany Wine Certification (WSET 2-3, 14-21 days, ~$6,500)
-- [ ] Greece Sailing RYA Certification (7-30 days, ~$5,800-$11,000)
-- [ ] Iceland Photography Mastery (14 days, ~$6,000)
-- [ ] Costa Rica Spanish Immersion (21 days, ~$4,200)
+- [ ] Freediving with world-record holders (Dahab, Egypt, 14 days, ~$5,500)
+- [ ] Wingsuit Ground School (Interlaken, Switzerland, 14 days, ~$8,000)
+- [ ] Sushi Mastery at Michelin sushiya (Tokyo, 5 weeks, ~$12,000)
+- [ ] RYA Sailing Certification (Greece, 7-21 days, ~$4,500-$8,000)
+- [ ] America's Cup Foiling Training (New Zealand, 14 days, ~$9,500)
+- [ ] Whitewater Kayaking (Futaleufú River, Patagonia, 14 days, ~$6,500)
+- [ ] Moroccan Zellige Tilework (Fez, 14 days, ~$5,000)
+- [ ] Yoga Pilgrimage Delhi→Rishikesh→Dharamsala (21 days, ~$5,500)
 - [ ] None of these specifically
 
 ---
@@ -219,7 +222,7 @@ All programs include:
 - Skeptical (seems unnecessary)
 - Not interested (would prefer without)
 
-**21. Would you be interested in "stacking" certifications into longer sagas?** (e.g., start with 21-day yoga foundation, return for 60-day advanced mastery, build toward 6-month complete wellness transformation)
+**21. Would you be interested in "stacking" certifications to go deeper?** (e.g., start with 7-day freediving, return for 21-day advanced course, or begin with RYA Day Skipper and progress toward full Yachtmaster)
 - Yes, I love the progression system
 - Maybe, depends on the first experience
 - No, prefer one-time experiences
@@ -308,4 +311,4 @@ Your feedback is invaluable. If you selected "Yes" to being contacted, we'll rea
 - Instagram: @educatedtraveler
 - Email: hello@educatedtraveler.com
 
-*"Skills last. Tans fade."*
+*"One week to get certified. 6 months to change your life. Skills last, tans fade."*
