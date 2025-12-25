@@ -159,17 +159,12 @@
             <p class="text-slate-400 text-center mb-8 text-sm">Tell us about yourself and what you're looking for. We read every response.</p>
 
             <!--
-                SETUP INSTRUCTIONS:
-                1. Go to https://formspree.io and create a free account
-                2. Create a new form called "Instructor Applications"
-                3. Copy your form ID (the part after /f/ in the URL)
-                4. Replace YOUR_FORM_ID below with your actual ID
-                5. Submissions will go directly to your email
-
-                See SETUP-FORMS.md for detailed instructions.
+                GOOGLE SHEETS INTEGRATION
+                See SETUP-FORMS.md for setup instructions.
+                Replace GOOGLE_SCRIPT_URL with your deployed Apps Script URL.
             -->
 
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-8">
+            <form id="instructor-form" class="space-y-8">
 
                 <!-- About You -->
                 <div class="space-y-5">
@@ -357,14 +352,21 @@
 
                 <!-- Submit -->
                 <div class="pt-4">
-                    <button type="submit"
+                    <button type="submit" id="submit-btn"
                         class="w-full py-4 bg-cyan-600 hover:bg-cyan-500 rounded-lg font-medium transition-colors">
                         Send
                     </button>
-                    <p class="text-slate-500 text-xs text-center mt-4">We'll get back to you within a week.</p>
+                    <p class="text-slate-500 text-xs text-center mt-4" id="form-status">We'll get back to you within a week.</p>
                 </div>
 
             </form>
+
+            <!-- Success Message (hidden by default) -->
+            <div id="success-message" class="hidden text-center py-12">
+                <div class="text-4xl mb-4">✓</div>
+                <h3 class="text-xl font-semibold mb-2">Thank you!</h3>
+                <p class="text-slate-400">We've received your information and will be in touch soon.</p>
+            </div>
         </div>
 
         <!-- Footer -->
@@ -375,6 +377,80 @@
         </div>
 
     </div>
+
+    <script>
+        // ============================================
+        // GOOGLE SHEETS INTEGRATION
+        // ============================================
+        // 1. Create a Google Sheet with these columns:
+        //    Timestamp | Name | Email | Location | Website | Discipline | Credentials | Approach | Excitement | Ideal Students | Locations | Availability | Additional
+        //
+        // 2. Go to Extensions > Apps Script
+        // 3. Paste the code from SETUP-FORMS.md
+        // 4. Deploy as web app (Anyone can access)
+        // 5. Replace the URL below with your deployed URL
+        // ============================================
+
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+
+        document.getElementById('instructor-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const submitBtn = document.getElementById('submit-btn');
+            const formStatus = document.getElementById('form-status');
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.classList.add('opacity-50');
+
+            // Collect form data
+            const formData = new FormData(form);
+
+            // Handle checkbox array for locations
+            const locations = formData.getAll('locations[]').join(', ');
+
+            const data = {
+                timestamp: new Date().toISOString(),
+                name: formData.get('name'),
+                email: formData.get('email'),
+                location: formData.get('location'),
+                website: formData.get('website'),
+                discipline: formData.get('discipline'),
+                credentials: formData.get('credentials'),
+                approach: formData.get('approach'),
+                excitement: formData.get('excitement'),
+                ideal_students: formData.get('ideal_students'),
+                locations: locations,
+                availability: formData.get('availability'),
+                additional: formData.get('additional')
+            };
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Required for Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // Show success (no-cors means we can't read response, but it worked)
+                form.classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error:', error);
+                formStatus.textContent = 'Something went wrong. Please try again or email us directly.';
+                formStatus.classList.add('text-red-400');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send';
+                submitBtn.classList.remove('opacity-50');
+            }
+        });
+    </script>
 
 </body>
 </html>
