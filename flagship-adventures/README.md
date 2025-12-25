@@ -12,7 +12,7 @@ These are our signature skill adventures—three transformative journeys that de
 |-----------|----------|----------|---------------|
 | **[Sushi Mastery](sushi-mastery-tokyo.md)** | 1 month | Tokyo, Japan | Professional Sushi Chef |
 | **[Sacred Yoga Pilgrimage](yoga-pilgrimage-india.md)** | 21-30 days | India (Delhi → Rishikesh → Dharamsala) | Yoga Alliance RYT-200 |
-| **[Ocean Sailing Odyssey](ocean-sailing-rya.md)** | 21-90 days | Mediterranean & Atlantic | RYA Yachtmaster |
+| **[Ocean Sailing Odyssey](ocean-sailing-rya.md)** | 21-90 days | Gibraltar → Canary Islands | RYA Yachtmaster |
 
 ---
 
@@ -22,7 +22,7 @@ These are our signature skill adventures—three transformative journeys that de
 
 **Sacred Yoga Pilgrimage** — Follow the Ganges from Delhi through Rishikesh to Dharamsala. Practice where yoga was born, study with lineage holders, and potentially meet His Holiness the Dalai Lama. This isn't a retreat; it's a pilgrimage that transforms how you move, breathe, and live.
 
-**Ocean Sailing Odyssey** — The sea doesn't care about your resume. Learn celestial navigation, weather systems, and seamanship from captains who've crossed oceans. Emerge with globally-recognized RYA credentials and the confidence to skipper anywhere on Earth.
+**Ocean Sailing Odyssey** — Fast-track from Gibraltar to the Canaries. Learn celestial navigation, weather systems, and seamanship from captains who've crossed oceans. Emerge with globally-recognized RYA credentials and the confidence to skipper anywhere on Earth.
 
 ---
 

@@ -1,6 +1,6 @@
 # Ocean Sailing Odyssey
 
-## From Land-Lover to Yachtmaster — Master the Sea
+## Gibraltar to Canaries — Fast-Track to Yachtmaster
 
 *"The sea finds out everything you did wrong."*
 
@@ -10,7 +10,9 @@
 
 The ocean doesn't care about your credentials, your career, or your confidence. It reveals who you truly are—and who you can become.
 
-This odyssey takes you from complete beginner to RYA Yachtmaster, the gold standard in sailing certification recognized in over 50 countries. You'll learn celestial navigation by the stars your ancestors used. You'll read weather in the clouds and the waves. You'll develop the seamanship to cross oceans and the judgment to know when to stay in port.
+This odyssey takes you from complete beginner to RYA Yachtmaster, the gold standard in sailing certification recognized in over 50 countries. Departing from the Rock of Gibraltar, you'll sail the Atlantic coast of Morocco and Western Sahara before reaching the legendary Canary Islands — the historic launchpad for every Atlantic crossing since Columbus.
+
+You'll learn celestial navigation by the stars your ancestors used. You'll read weather in the clouds and the waves. You'll develop the seamanship to cross oceans and the judgment to know when to stay in port.
 
 By the end, you won't just know how to sail. You'll be a captain.
 
@@ -21,27 +23,27 @@ By the end, you won't just know how to sail. You'll be a captain.
 ### Option A: Complete Odyssey (90 Days)
 **Zero to Yachtmaster — Full Transformation**
 
-**Phase 1: Greece — Foundation (Days 1-30)**
-*Learn to sail in the cradle of maritime civilization*
+**Phase 1: Gibraltar — Foundation (Days 1-30)**
+*Learn to sail where the Mediterranean meets the Atlantic*
 
 - RYA Competent Crew (Week 1)
 - RYA Day Skipper Theory & Practical (Weeks 2-3)
-- Flotilla sailing through the Cyclades (Week 4)
-- Night passages, anchoring, Mediterranean mooring
+- Coastal sailing around the Strait of Gibraltar (Week 4)
+- Night passages, anchoring, tidal navigation
 
-**Phase 2: Croatia — Advanced Skills (Days 31-60)**
-*Master coastal navigation in the Adriatic*
+**Phase 2: Atlantic Coast — Advanced Skills (Days 31-60)**
+*Master ocean passages along the African coast*
 
 - RYA Coastal Skipper certification
-- Advanced navigation and passage planning
-- Weather systems and meteorology
+- Passage planning for offshore sailing
+- Weather systems and Atlantic meteorology
 - Heavy weather sailing techniques
-- Solo skippered passages
+- Multi-day offshore passages
 
-**Phase 3: Atlantic Crossing (Days 61-90)**
-*The ultimate test — ocean passage*
+**Phase 3: Canary Islands (Days 61-90)**
+*The ultimate proving ground*
 
-- Canary Islands to Caribbean crossing
+- Island hopping through the archipelago
 - RYA Yachtmaster Offshore preparation
 - Celestial navigation (sextant, stars, sun)
 - Watch systems and ocean routines
@@ -53,7 +55,7 @@ By the end, you won't just know how to sail. You'll be a captain.
 For those with limited time who want real credentials:
 - RYA Competent Crew certification
 - RYA Day Skipper (theory + practical)
-- Confidence to charter bareboat in protected waters
+- Gibraltar coastal sailing experience
 - Foundation for future advancement
 
 ### Option C: Coastal Mastery (45 Days)
@@ -129,14 +131,14 @@ More importantly, they know how to teach. They'll push you to your edge—and he
 
 ## The Waters
 
-**Greece (Aegean Sea)**
-The birthplace of Western sailing. Island-hop through the Cyclades, navigating the same waters Odysseus sailed. Perfect conditions for learning—reliable winds, countless anchorages, stunning beauty.
+**Gibraltar (Strait of Gibraltar)**
+Where the Mediterranean meets the Atlantic. Strong currents, busy shipping lanes, and dramatic scenery. The perfect classroom for mastering tidal navigation and boat handling in challenging conditions.
 
-**Croatia (Adriatic Sea)**
-Over a thousand islands. Complex navigation, tidal considerations, and the notorious Bora wind. The ideal training ground for advanced skills.
+**Atlantic Coast (Morocco & Western Sahara)**
+Open ocean sailing along the African coast. Trade winds, long swells, and the skills that separate coastal sailors from offshore captains. Multi-day passages that build confidence and seamanship.
 
-**Atlantic Ocean**
-The classic trade wind route. Canary Islands to the Caribbean—2,800 nautical miles of open ocean. The proving ground for offshore sailors since Columbus.
+**Canary Islands**
+The legendary archipelago where every Atlantic crossing begins. Seven islands, diverse conditions, and the proving ground for sailors since Columbus. Perfect for final Yachtmaster preparation.
 
 ---
 
