@@ -1,6 +1,8 @@
 # Instructor Outreach Email Templates
 
-These templates are designed to connect with instructors who share EducatedTraveler's philosophy: transformation through time, place, and community.
+These templates are designed to connect with instructors who share EducatedTraveler's philosophy: **Skill Adventures at the Source**.
+
+*One week to get certified. 6 months to change your life.*
 
 ---
 
@@ -21,7 +23,7 @@ I came across your [specific content: post about teaching methodology / video on
 
 I'm working on something called EducatedTraveler and wanted to see if it might resonate with you.
 
-The idea is simple: extended immersive programs (21 days to 6 months) where small groups earn real certifications while living at the source of their craft. Yoga in Bali. Sailing in Greece. That kind of thing.
+The idea: **certified skill adventures at the source**—from 7-day immersions to 6-month transformations. Wingsuit flying in Interlaken. Freediving in Dahab. Sushi mastery in Tokyo. RYA sailing in Greece. Real credentials at premium destinations worldwide.
 
 We're building around three rhythms—adventure, immersion, and optimization—because we believe transformation needs all three: the body engaged, the mind focused, and enough space to actually absorb what's being learned.
 
@@ -54,7 +56,7 @@ Hi [Name],
 
 Just floating this back up in case it got buried—I know inboxes are relentless.
 
-The short version: I'm building extended immersive programs (21+ days) where small groups learn at the source of their craft. Looking for instructors who believe depth matters.
+The short version: I'm building certified skill adventures—from 7-day immersions to 6-month transformations—where small groups earn real credentials at premium destinations. Wingsuit in Interlaken, freediving in Dahab, sushi mastery in Tokyo. Looking for instructors who believe depth matters.
 
 If you're curious: [Link to instructors.html]
 
@@ -96,7 +98,7 @@ I read your [post / watched your video] about [specific thing] and it really lan
 
 The part about [specific insight or philosophy]—that's exactly what we're trying to build at EducatedTraveler.
 
-We're creating extended immersive programs where small groups (8-12 people) spend 21 days to 6 months learning at the source. Yoga in Bali. Sailing in Greece. Wine in Tuscany.
+We're creating certified skill adventures where small groups (8-12 people) spend 7 days to 6 months earning real credentials at the source. Wingsuit flying in Interlaken. Freediving in Dahab. Sushi mastery in Tokyo. RYA sailing in Greece. Zellige tilework in Fez.
 
 The idea is built around three rhythms: adventure, immersion, and optimization. Movement to open the body. Depth to develop the skill. Space to absorb without burning out.
 
@@ -115,13 +117,13 @@ EducatedTraveler
 
 ## Email 5: Short Version (LinkedIn / DM)
 
-**Subject:** Interested in teaching 21-day immersions?
+**Subject:** Interested in teaching skill adventures at the source?
 
 ---
 
 Hi [Name],
 
-Building EducatedTraveler—extended programs where small groups earn certifications at the source (Bali, Greece, Thailand, etc.).
+Building EducatedTraveler—certified skill adventures (7 days to 6 months) at premium destinations. Wingsuit in Interlaken, freediving in Dahab, sushi in Tokyo, sailing in Greece, pottery in Bizen.
 
 Looking for instructors who'd rather go deep with committed students than wide with casual ones.
 
@@ -139,23 +141,36 @@ No pressure either way.
 
 ### Where to Find Instructors
 
-**Yoga:**
-- Yoga Alliance E-RYT 500 directory
-- Instagram hashtags: #yogateachertraining #e-ryt500 #yogateacher
-- Bali-based yoga schools (ask who their best teachers are)
-- Yoga teacher Facebook groups
-
-**Diving:**
-- PADI Course Director listings
-- Dive instructor forums
-- Koh Tao diving community
-- Instagram: #padicourseadvisor #divemaster
+**Adventure:**
+- Wingsuit: Interlaken BASE community, Skydive Switzerland
+- Freediving: AIDA instructors, Dahab diving community, Bahamas freedivers
+- Whitewater Kayaking: Futaleufú guides, ACA instructors
+- Mountaineering: IFMGA guides, Chamonix community
+- Falconry: British Falconers Club, UAE falconry schools
 
 **Sailing:**
 - RYA instructor directory
-- Sailing school alumni networks
+- America's Cup veteran networks (NZ, Barcelona)
 - Greek charter companies
-- SailNet forums
+- Arctic expedition crews (Svalbard operators)
+
+**Culinary:**
+- Tokyo Sushi Academy alumni
+- Le Cordon Bleu graduate networks
+- WSET educators directory
+- Michelin-starred restaurant alumni
+
+**Wellness:**
+- Yoga Alliance E-RYT 500 directory
+- Rishikesh ashram networks
+- Alchemy of Breath certified facilitators
+- Muay Thai camps (Thailand)
+
+**Creative:**
+- Magnum Photos workshop alumni
+- VAWAA artist network
+- Traditional craft masters (Fez, Bizen, Tuscany)
+- Documentary photography communities
 
 ### Personalization Research
 
@@ -224,4 +239,4 @@ To set up Formspree:
 
 ---
 
-*"Mastery lives where skills are born."*
+*"One week to get certified. 6 months to change your life. Skill adventures at the source—from Interlaken to Tokyo to Patagonia."*
