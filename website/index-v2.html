@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EducatedTraveler — Skills Last. Tans Fade.</title>
+
+    <!-- Link Preview -->
+    <meta name="description" content="One week to get certified. Six months to change your life. Skill adventures at the source.">
+    <meta property="og:title" content="EducatedTraveler — Master Skills at the Source">
+    <meta property="og:description" content="Sushi mastery in Tokyo. Yoga pilgrimage in India. RYA sailing from Gibraltar. Real credentials, real transformation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.netlify.app">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #000;
+        }
+
+        /* Glass effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Ambient glow */
+        .glow {
+            box-shadow: 0 0 80px rgba(6, 182, 212, 0.15);
+        }
+
+        /* Smooth hover */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Netflix-style image overlay */
+        .image-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+        }
+
+        /* Fade in animation */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .fade-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+        /* Scroll indicator */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen overflow-x-hidden">
+
+    <!-- Hero Section - Full Screen -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background video/image -->
+        <div class="absolute inset-0">
+            <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
+                alt="Ocean horizon"
+                class="w-full h-full object-cover opacity-40"
+            >
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <p class="text-cyan-400/80 text-sm tracking-[0.3em] uppercase mb-6 fade-up fade-up-delay-1">
+                Coming 2026
+            </p>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-8 fade-up fade-up-delay-2">
+                <span class="gradient-text">Skills Last.</span><br>
+                <span class="text-white/40">Tans Fade.</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-white/60 font-light max-w-2xl mx-auto mb-12 leading-relaxed fade-up fade-up-delay-3">
+                One week to get certified.<br>
+                Six months to change your life.
+            </p>
+
+            <div class="fade-up fade-up-delay-4">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform"
+                   target="_blank"
+                   class="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-white/90 transition-all duration-300 hover:scale-105">
+                    <span>Join the Waitlist</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 scroll-indicator">
+            <div class="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
+                <div class="w-1 h-2 bg-white/40 rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do - Minimal -->
+    <section class="py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-1">
+                <div class="glass rounded-2xl p-10 card-hover">
+                    <div class="text-5xl font-light text-white/20 mb-6">01</div>
+                    <h3 class="text-xl font-medium mb-4">Real Credentials</h3>
+                    <p class="text-white/50 font-light leading-relaxed">
+                        PADI. Yoga Alliance. RYA. Le Cordon Bleu. Certifications recognized worldwide.
+                    </p>
+                </div>
+                <div class="glass rounded-2xl p-10 card-hover">
+                    <div class="text-5xl font-light text-white/20 mb-6">02</div>
+                    <h3 class="text-xl font-medium mb-4">At the Source</h3>
+                    <p class="text-white/50 font-light leading-relaxed">
+                        Sushi in Tokyo. Yoga in Rishikesh. Sailing from Gibraltar. Where mastery was born.
+                    </p>
+                </div>
+                <div class="glass rounded-2xl p-10 card-hover">
+                    <div class="text-5xl font-light text-white/20 mb-6">03</div>
+                    <h3 class="text-xl font-medium mb-4">Your Depth</h3>
+                    <p class="text-white/50 font-light leading-relaxed">
+                        7 days to 6 months. From certification sprint to life transformation. You choose.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flagship Adventures - Netflix Style -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <p class="text-cyan-400/60 text-sm tracking-widest uppercase mb-3">Flagship Adventures</p>
+                    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight">Choose Your Path</h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Sushi Mastery -->
+                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] card-hover cursor-pointer">
+                    <img
+                        src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=800&q=80"
+                        alt="Sushi Mastery"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    >
+                    <div class="absolute inset-0 image-overlay"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div class="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
+                            <p class="text-amber-400 text-sm font-medium tracking-wide mb-2">Tokyo, Japan</p>
+                            <h3 class="text-2xl font-semibold mb-3">Sushi Mastery</h3>
+                            <p class="text-white/60 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                One month with a master itamae. Rice, knife work, philosophy. Return as a certified chef.
+                            </p>
+                            <div class="flex items-center gap-4 text-sm">
+                                <span class="text-white/80">30 days</span>
+                                <span class="text-white/40">•</span>
+                                <span class="text-white/60">$12,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Glow effect on hover -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                         style="box-shadow: inset 0 0 100px rgba(251, 191, 36, 0.1)"></div>
+                </div>
+
+                <!-- Sacred Yoga -->
+                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] card-hover cursor-pointer">
+                    <img
+                        src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=80"
+                        alt="Sacred Yoga Pilgrimage"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    >
+                    <div class="absolute inset-0 image-overlay"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div class="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
+                            <p class="text-orange-400 text-sm font-medium tracking-wide mb-2">Delhi → Rishikesh → Dharamsala</p>
+                            <h3 class="text-2xl font-semibold mb-3">Sacred Yoga Pilgrimage</h3>
+                            <p class="text-white/60 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                Follow the Ganges. RYT-200 where yoga was born. Potential audience with the Dalai Lama.
+                            </p>
+                            <div class="flex items-center gap-4 text-sm">
+                                <span class="text-white/80">25-28 days</span>
+                                <span class="text-white/40">•</span>
+                                <span class="text-white/60">$5,500</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                         style="box-shadow: inset 0 0 100px rgba(251, 146, 60, 0.1)"></div>
+                </div>
+
+                <!-- Ocean Sailing -->
+                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] card-hover cursor-pointer">
+                    <img
+                        src="https://images.unsplash.com/photo-1500514966906-fe245eea9344?w=800&q=80"
+                        alt="Ocean Sailing Odyssey"
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    >
+                    <div class="absolute inset-0 image-overlay"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div class="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
+                            <p class="text-cyan-400 text-sm font-medium tracking-wide mb-2">Gibraltar → Canary Islands</p>
+                            <h3 class="text-2xl font-semibold mb-3">Ocean Sailing Odyssey</h3>
+                            <p class="text-white/60 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                Fast-track to RYA Yachtmaster. Ocean passages, celestial navigation. Skipper anywhere on Earth.
+                            </p>
+                            <div class="flex items-center gap-4 text-sm">
+                                <span class="text-white/80">21-90 days</span>
+                                <span class="text-white/40">•</span>
+                                <span class="text-white/60">From $6,500</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                         style="box-shadow: inset 0 0 100px rgba(6, 182, 212, 0.1)"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="py-32 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <blockquote class="text-3xl md:text-4xl lg:text-5xl font-light leading-snug tracking-tight">
+                <span class="text-white/30">"</span>
+                <span class="gradient-text">The best souvenirs are the skills you bring home.</span>
+                <span class="text-white/30">"</span>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-strong rounded-3xl p-12 md:p-16 glow">
+                <h2 class="text-3xl md:text-4xl font-semibold mb-12 text-center">This is for you if...</h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <p class="text-white/70 font-light">You want more than beach vacations and tourist photos</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <p class="text-white/70 font-light">You value experiences over possessions</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <p class="text-white/70 font-light">You want tangible proof of your adventures</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <p class="text-white/70 font-light">You're ready to invest in yourself, not souvenirs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-32 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-white/40 text-sm tracking-widest uppercase mb-6">First cohorts launching 2026</p>
+            <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mb-8">
+                Ready to begin?
+            </h2>
+            <p class="text-xl text-white/50 font-light mb-12">
+                5 minutes. Help shape what we build.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform"
+               target="_blank"
+               class="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-medium rounded-full hover:bg-white/90 transition-all duration-300 hover:scale-105 text-lg">
+                <span>Take the Survey & Join Waitlist</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <p class="text-xl font-medium mb-2">EducatedTraveler</p>
+                    <p class="text-white/40 text-sm">Skill adventures at the source.</p>
+                </div>
+                <div class="flex gap-8 text-sm text-white/40">
+                    <a href="instructors.html" class="hover:text-white transition-colors">For Instructors</a>
+                    <a href="#" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/5 text-center">
+                <p class="text-white/20 text-sm">
+                    © 2025 EducatedTraveler. Skills last, tans fade.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
