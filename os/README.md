@@ -11,9 +11,12 @@ os/
 ├── daemon.md                    # Core DNA — principles, values, non-negotiables
 ├── products.md                  # Complete product catalog
 ├── economics.md                 # Unit economics and financial model
-└── playbooks/
-    ├── partner-onboarding.md    # Partner recruitment templates
-    └── revenue-calculator.md    # Financial modeling templates
+├── playbooks/
+│   ├── partner-onboarding.md    # Partner recruitment templates
+│   └── revenue-calculator.md    # Financial modeling templates
+└── brand/
+    ├── design-system.md         # Visual language, components, colors
+    └── landing-pages.md         # Proven copy patterns and templates
 ```
 
 ---
@@ -51,6 +54,7 @@ os/
 2. **Pricing a new program?** Use `economics.md` and `playbooks/revenue-calculator.md`
 3. **Recruiting a partner?** Follow `playbooks/partner-onboarding.md`
 4. **Need product details?** Reference `products.md`
+5. **Building a page?** Use `brand/design-system.md` + `brand/landing-pages.md`
 
 ---
 
