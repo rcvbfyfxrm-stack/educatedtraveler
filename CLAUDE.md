@@ -41,25 +41,43 @@ npm run preview
 ## Repository Structure
 
 ```
-├── flagship-adventures/    # THE 3 MAIN SHOWCASES
-│   ├── README.md          # Overview of flagship offerings
+├── os/                     # CORE OPERATING SYSTEM — Start here
+│   ├── daemon.md          # Core DNA, principles, non-negotiables
+│   ├── products.md        # Complete product catalog
+│   ├── economics.md       # Unit economics and financial model
+│   └── playbooks/         # Operational templates
+│       ├── partner-onboarding.md   # Partner recruitment
+│       └── revenue-calculator.md   # Financial modeling
+├── flagship-adventures/    # The 3 signature programs
 │   ├── sushi-mastery-tokyo.md      # 1 month — Professional Sushi Chef
 │   ├── yoga-pilgrimage-india.md    # 21-30 days — RYT-200 + Dalai Lama
 │   └── ocean-sailing-rya.md        # 21-90 days — RYA Yachtmaster
 ├── top-experiences/        # Full catalog by category
-│   └── README.md          # Adventure, Sailing, Wellness, Culinary, Creative
-├── strategy/               # Core business documents
-│   ├── whitepaper.md      # Full quest system architecture
-│   ├── partner-brief.md   # Partnership opportunities
-│   ├── survey.md          # Market research survey
-│   └── roadmap.md         # Development roadmap
-├── outreach/               # Partner and instructor outreach
+├── strategy/               # Extended business documents
 ├── agents/                 # AI agent definitions (CEO, Marketing, Operations)
+├── outreach/               # Partner and instructor outreach
 ├── prototype/              # React + Vite + TypeScript application
 ├── business/               # Formal business documents (PDFs)
 ├── website/                # Static landing page
 └── changelog/              # Session changelogs
 ```
+
+## Core OS (`os/`)
+
+The `os/` folder is the single source of truth for company fundamentals. Start here.
+
+| File | Purpose |
+|------|---------|
+| `daemon.md` | Mission, principles, non-negotiables, brand voice |
+| `products.md` | Duration spectrum, flagships, full catalog, certifications |
+| `economics.md` | Unit economics, metrics, instructor compensation, investment terms |
+| `playbooks/partner-onboarding.md` | Templates for recruiting instructors, venues, cert bodies |
+| `playbooks/revenue-calculator.md` | Templates for modeling new programs and partners |
+
+**When to reference**:
+- New initiative? Check `daemon.md` for mission alignment
+- Pricing a program? Use `economics.md` + `revenue-calculator.md`
+- Recruiting partners? Follow `partner-onboarding.md`
 
 ## Prototype Architecture
 
