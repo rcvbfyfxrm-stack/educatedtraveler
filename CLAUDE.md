@@ -17,67 +17,62 @@ The website leads with accessible 7-21 day adventures—the entry point. Longer 
 
 ## Development Commands
 
+### Prototype (React App)
+
 All commands run from the `prototype/` directory:
 
 ```bash
 cd prototype
+npm install          # Install dependencies
+npm run dev          # Start dev server with HMR
+npm run build        # Type-check and build for production
+npm run lint         # Run ESLint
+npm run preview      # Preview production build
+```
 
-# Install dependencies
-npm install
+### Website (Static HTML)
 
-# Start dev server with HMR
-npm run dev
+The `website/` directory contains static HTML pages. Open directly in browser or serve locally:
 
-# Type-check and build for production
-npm run build
-
-# Run ESLint
-npm run lint
-
-# Preview production build
-npm run preview
+```bash
+# From repository root
+open website/index.html                    # Main landing page
+open website/instructors.html              # Instructors page
+python3 -m http.server 8000 --directory website  # Local server
 ```
 
 ## Repository Structure
 
 ```
-├── os/                     # CORE OPERATING SYSTEM — Start here
-│   ├── daemon.md          # Core DNA, principles, non-negotiables
-│   ├── products.md        # Complete product catalog
-│   ├── economics.md       # Unit economics and financial model
-│   └── playbooks/         # Operational templates
-│       ├── partner-onboarding.md   # Partner recruitment
-│       └── revenue-calculator.md   # Financial modeling
-├── flagship-adventures/    # The 3 signature programs
-│   ├── sushi-mastery-tokyo.md      # 1 month — Professional Sushi Chef
-│   ├── yoga-pilgrimage-india.md    # 21-30 days — RYT-200 + Dalai Lama
-│   └── ocean-sailing-rya.md        # 21-90 days — RYA Yachtmaster
-├── top-experiences/        # Full catalog by category
-├── strategy/               # Extended business documents
-├── agents/                 # AI agent definitions (CEO, Marketing, Operations)
-├── outreach/               # Partner and instructor outreach
+├── os/                     # CORE OPERATING SYSTEM — Single source of truth
+│   ├── daemon.md          # Mission, principles, brand voice, non-negotiables
+│   ├── products.md        # Complete product catalog with pricing
+│   ├── economics.md       # Unit economics, metrics, instructor compensation
+│   ├── playbooks/         # Operational templates
+│   │   ├── partner-onboarding.md   # Partner recruitment
+│   │   └── revenue-calculator.md   # Financial modeling
+│   └── brand/             # Design system and copy
+│       ├── design-system.md        # Colors, typography, components
+│       └── landing-pages.md        # Proven copy patterns
 ├── prototype/              # React + Vite + TypeScript application
+├── website/                # Static landing pages (production HTML)
 ├── business/               # Formal business documents (PDFs)
-├── website/                # Static landing page
-└── changelog/              # Session changelogs
+└── _archive/               # Legacy documents (deprecated)
 ```
 
 ## Core OS (`os/`)
 
-The `os/` folder is the single source of truth for company fundamentals. Start here.
+The `os/` folder is the single source of truth for company fundamentals. **Start here for any new work.**
 
-| File | Purpose |
-|------|---------|
-| `daemon.md` | Mission, principles, non-negotiables, brand voice |
-| `products.md` | Duration spectrum, flagships, full catalog, certifications |
-| `economics.md` | Unit economics, metrics, instructor compensation, investment terms |
-| `playbooks/partner-onboarding.md` | Templates for recruiting instructors, venues, cert bodies |
-| `playbooks/revenue-calculator.md` | Templates for modeling new programs and partners |
-
-**When to reference**:
-- New initiative? Check `daemon.md` for mission alignment
-- Pricing a program? Use `economics.md` + `revenue-calculator.md`
-- Recruiting partners? Follow `partner-onboarding.md`
+| File | When to Reference |
+|------|-------------------|
+| `daemon.md` | Mission alignment, brand voice, non-negotiables |
+| `products.md` | Program details, pricing, certifications, cohort structure |
+| `economics.md` | Financial modeling, instructor compensation |
+| `playbooks/partner-onboarding.md` | Recruiting instructors, venues, cert bodies |
+| `playbooks/revenue-calculator.md` | Modeling new programs |
+| `brand/design-system.md` | Colors, typography, component patterns |
+| `brand/landing-pages.md` | Copy templates, proven patterns |
 
 ## Prototype Architecture
 
@@ -85,77 +80,76 @@ The `prototype/` directory contains a Vite + React 19 + TypeScript application:
 
 - **Build tool**: Vite 7.x with React plugin
 - **Framework**: React 19 with TypeScript 5.9
-- **Styling**: Currently uses CSS modules; quest component uses Tailwind classes (Tailwind not yet installed)
-- **Icons**: Quest component expects lucide-react (not yet installed)
+- **Styling**: CSS modules (no Tailwind yet)
 
-The `educated-traveler-quest.tsx` component is a standalone prototype that demonstrates:
+The `educated-traveler-quest.tsx` component is a standalone prototype demonstrating:
 - Quest progression (Foundation → Mastery → Saga)
 - XP/leveling system (500 XP per level)
 - Certification tracking with prerequisite-based unlocking
-- Persona card showing progress
 
-**Note**: This component is not yet integrated into the main App.tsx and requires Tailwind CSS and lucide-react to be installed.
+**Note**: This component requires Tailwind CSS and lucide-react to be integrated.
+
+## Website Architecture
+
+The `website/` directory contains production static HTML pages:
+
+- `index.html` — Main landing page
+- `instructors.html` — Instructor recruitment page
+- `SETUP-FORMS.md` — Form integration instructions
+
+These pages follow the design system in `os/brand/design-system.md`:
+- Dark theme (black backgrounds, glass effects)
+- Inter font family
+- Netflix-style adventure cards
+- Mobile-first responsive design
 
 ## Business Domain Context
 
-Key concepts for understanding the codebase:
-
 **Duration Spectrum** (always lead with shorter options):
-| Duration | Name | XP | Positioning |
-|----------|------|-----|-------------|
-| 7-21 days | **Skill Immersions** | 100-200 | Entry point—get certified |
-| 1 month | **Mastery Quests** | 300-400 | Go deeper |
-| 3 months | **Extended Mastery** | 600-800 | Advanced commitment |
-| 6 months | **Life Transformation** | 1,200-2,000 | Change your life |
+| Duration | Name | Price | Positioning |
+|----------|------|-------|-------------|
+| 7-21 days | **Foundation** | $3,500-$6,500 | Get certified |
+| 30-60 days | **Mastery** | $9,500-$12,000 | Go deeper |
+| 90-180 days | **Saga** | $25,000-$40,000 | Change your life |
 
-**Other Concepts**:
-- **Soul-Bound Tokens (SBTs)**: Non-transferable NFTs representing real-world certifications
-- **Cohorts**: Small groups of 8-12 people completing journeys together
+**Key Concepts**:
+- **Cohorts**: 8-12 max (6-8 for sailing)
+- **Source**: Learn where the skill originated
+- **Soul-Bound Tokens (SBTs)**: Non-transferable NFTs for certifications (planned)
 
-## Top Experiences Reference
+**Non-Negotiables** (from `os/daemon.md`):
+- Cohort size: 8-12 maximum
+- Instructor quality: 5+ years experience, certified
+- No sitting blocks > 90 minutes
+- Rest days: 1/week minimum
 
-When describing adventures, use exciting examples from `top-experiences/README.md`:
+## Brand Voice
 
-**Adventure**: Wingsuit flying (Interlaken), Freediving (Dahab), Whitewater kayaking (Patagonia), Arctic sailing (Svalbard), Falconry (UAE), Wilderness tracking (Kalahari)
+**Use:**
+- "Skill adventures at the source"
+- "One week to get certified. 6 months to change your life."
+- "Choose your depth"
+- "Certified" (not just "learning")
+- "Cohort" (not "group" or "class")
 
-**Sailing**: Atlantic crossing, America's Cup training (NZ), Celestial navigation, Classic yacht restoration, Regatta circuit (Fastnet)
+**Avoid:**
+- "Life-changing" (overused)
+- "Journey" alone (too generic)
+- "Luxury" (we're premium, not indulgent)
+- "Easy" or "effortless" (dishonest)
 
-**Culinary**: Sushi mastery (Tokyo), Le Cordon Bleu (Paris), Molecular gastronomy (Basque), Whisky (Scotland/Japan), Zellige tilework (Fez)
+## Design Principles
 
-**Creative**: Magnum Photos workshop, Japanese pottery (Bizen), Italian fresco painting, Literary mentorship (Tuscany)
-
-**Wellness**: Yoga pilgrimage (Delhi→Rishikesh→Dharamsala), Alchemy of Breath (Bali), Vipassana silent retreat, Muay Thai (Thailand)
-
-## Vault Folder Structure Guidelines
-
-When organizing content in this Obsidian vault:
+From `os/brand/design-system.md`:
 
 ```
-├── Skill Immersions/       # PRIMARY: 7-21 day certified programs
-│   ├── Bali Wellness/      # Yoga Alliance, meditation retreats
-│   ├── Italy Culinary/     # Sommelier, culinary certifications
-│   ├── Greece Sailing/     # RYA certifications
-│   └── Dive Destinations/  # PADI programs
-├── Extended Options/       # OPTIONAL: 6-month deep dives
-│   └── (Label clearly as optional for advanced adventurers)
-├── Documentation Add-ons/  # Premium photo/video packages (not core)
-├── strategy/               # Core business documents
-├── business/               # Formal business documents
-├── prototype/              # React application
-└── website/                # Static landing page
+Primary bg:     #000000 (pure black)
+Glass surface:  rgba(255,255,255,0.03)
+Text primary:   #FFFFFF
+Text secondary: rgba(255,255,255,0.60)
+Accent cyan:    #06B6D4 (sailing, primary action)
+Accent amber:   #F59E0B (culinary)
+Accent orange:  #F97316 (wellness)
 ```
 
-**Content Guidelines**:
-- Always lead with 7-21 day options as the entry point
-- Present duration as a spectrum: "One week to get certified. 6 months to change your life."
-- Use "Skill Adventures at Source" for adventurous, certification-focused branding
-- Never position 6-month programs as the primary offering—they're the deepest option on a spectrum
-- All durations are valid; let users choose their depth
-
-## Blockchain Architecture (Planned)
-
-- Polygon network for smart contracts
-- ERC-721 for Soul-Bound certification tokens
-- ERC-1155 for transferable achievement NFTs
-- $EDUTRAV governance token for alumni voting
-- IPFS for NFT metadata storage
+Philosophy: Apple glass meets Netflix minimal. Darkness as canvas, content glows.
