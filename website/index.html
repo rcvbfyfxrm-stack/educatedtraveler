@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EducatedTraveler — Skills Last. Tans Fade.</title>
+    <title>EducatedTraveler — What Life Brought Me, Can Bring You</title>
 
     <!-- Link Preview -->
-    <meta name="description" content="One week to get certified. Six months to change your life. Skill adventures at the source.">
-    <meta property="og:title" content="EducatedTraveler — Master Skills at the Source">
-    <meta property="og:description" content="Sushi mastery in Tokyo. Yoga pilgrimage in India. RYA sailing from Gibraltar. Real credentials, real transformation.">
+    <meta name="description" content="At 18, I traded a science degree for a one-way ticket. 50,000+ nautical miles later, I built EducatedTraveler. Your adventure is waiting.">
+    <meta property="og:title" content="EducatedTraveler — A Founder's Journey">
+    <meta property="og:description" content="What life brought me — and can bring you. Skills last, tans fade.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://educatedtraveler.netlify.app">
+    <meta property="og:url" content="https://educatedtraveler.app">
     <meta name="twitter:card" content="summary_large_image">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
         tailwind.config = {
@@ -23,6 +26,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
                     },
                 }
             }
@@ -37,7 +41,83 @@
 
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: #000;
+            background: #0a0a0a;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero section */
+        .hero-gradient {
+            background: linear-gradient(
+                180deg,
+                rgba(10, 10, 10, 0) 0%,
+                rgba(10, 10, 10, 0.4) 40%,
+                rgba(10, 10, 10, 0.9) 80%,
+                rgba(10, 10, 10, 1) 100%
+            );
+        }
+
+        /* Chapter cards */
+        .chapter-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .chapter-card:hover {
+            transform: scale(1.03);
+        }
+
+        .chapter-card.active {
+            transform: scale(1.05);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Image overlay for text readability */
+        .image-overlay {
+            background: linear-gradient(
+                to top,
+                rgba(10, 10, 10, 0.95) 0%,
+                rgba(10, 10, 10, 0.6) 40%,
+                rgba(10, 10, 10, 0.3) 70%,
+                rgba(10, 10, 10, 0.1) 100%
+            );
+        }
+
+        /* Story sections */
+        .story-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .story-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Horizontal scroll for chapters */
+        .chapters-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 2rem 0;
+        }
+
+        .chapters-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Quote styling */
+        .pull-quote {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 3px solid rgba(6, 182, 212, 0.5);
         }
 
         /* Glass effect */
@@ -45,45 +125,21 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .glass-strong {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* CTA button */
+        .cta-button {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            transition: all 0.3s ease;
         }
 
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
         }
 
-        /* Ambient glow */
-        .glow {
-            box-shadow: 0 0 80px rgba(6, 182, 212, 0.15);
-        }
-
-        /* Smooth hover */
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card-hover:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Netflix-style image overlay */
-        .image-overlay {
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
-        }
-
-        /* Fade in animation */
+        /* Fade animations */
         @keyframes fadeUp {
             from {
                 opacity: 0;
@@ -96,1972 +152,594 @@
         }
 
         .fade-up {
-            animation: fadeUp 0.8s ease-out forwards;
+            animation: fadeUp 1s ease-out forwards;
         }
 
-        .fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
-        .fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
-        .fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
-        .fade-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        .delay-4 { animation-delay: 0.8s; opacity: 0; }
 
         /* Scroll indicator */
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(8px); }
+            50% { transform: translateY(10px); }
         }
-        .scroll-indicator {
+
+        .scroll-bounce {
             animation: bounce 2s infinite;
         }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #444;
-        }
-
-        /* Filter pill active state */
-        .filter-pill.active {
-            background: white;
-            color: black;
-        }
-
-        /* Locked card styles */
-        .card-locked {
-            position: relative;
-            pointer-events: none;
-        }
-
-        .card-locked img {
-            filter: grayscale(100%) brightness(0.4);
-        }
-
-        .card-locked .card-content {
-            opacity: 0.5;
-        }
-
-        .card-locked .lock-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 20;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .card-locked .lock-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .card-locked .lock-text {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 500;
-        }
-
-        /* Netflix-style row */
-        .netflix-row {
-            position: relative;
-        }
-
-        .netflix-row .cards-container {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding-right: 60px;
-        }
-
-        .netflix-row .cards-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .netflix-row .card-item {
-            flex: 0 0 calc(25% - 0.75rem);
-            min-width: 180px;
-            max-width: 220px;
+        /* Photo grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
         }
 
         @media (max-width: 768px) {
-            .netflix-row .card-item {
-                flex: 0 0 calc(50% - 0.5rem);
-            }
-        }
-
-        .netflix-row .show-more {
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(to right, transparent, rgba(0,0,0,0.9) 50%);
-            cursor: pointer;
-            pointer-events: auto;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .netflix-row .show-more:hover {
-            background: linear-gradient(to right, transparent, rgba(0,0,0,1) 30%);
-        }
-
-        .netflix-row .show-more:hover .arrow-icon {
-            transform: scale(1.2);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .netflix-row .arrow-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .netflix-row .more-count {
-            position: absolute;
-            bottom: -24px;
-            right: 10px;
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-            overflow-y: auto;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0;
-            transform: translateY(30px);
-            transition: transform 0.4s ease;
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .modal-close {
-            position: fixed;
-            top: 24px;
-            right: 24px;
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
-        }
-
-        .modal-hero {
-            position: relative;
-            height: 70vh;
-            min-height: 500px;
-            overflow: hidden;
-        }
-
-        .modal-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, #000 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 100%);
-        }
-
-        .modal-hero-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 60px;
-        }
-
-        /* Experience Badges */
-        .exp-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .badge-immersive {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.3));
-            border: 1px solid rgba(6, 182, 212, 0.4);
-            color: #67e8f9;
-        }
-
-        .badge-transformative {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.3));
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            color: #d8b4fe;
-        }
-
-        .badge-certified {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(16, 185, 129, 0.3));
-            border: 1px solid rgba(34, 197, 94, 0.4);
-            color: #86efac;
-        }
-
-        .badge-adventure {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(239, 68, 68, 0.3));
-            border: 1px solid rgba(249, 115, 22, 0.4);
-            color: #fdba74;
-        }
-
-        .badge-spiritual {
-            background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(245, 158, 11, 0.3));
-            border: 1px solid rgba(251, 191, 36, 0.4);
-            color: #fde047;
-        }
-
-        .badge-elite {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(200, 200, 200, 0.2));
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-        }
-
-        /* Instructor Card */
-        .instructor-card {
-            display: flex;
-            gap: 20px;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-        }
-
-        .instructor-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Journey Timeline */
-        .journey-stop {
-            position: relative;
-            padding-left: 40px;
-            padding-bottom: 32px;
-        }
-
-        .journey-stop::before {
-            content: '';
-            position: absolute;
-            left: 12px;
-            top: 8px;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.05));
-        }
-
-        .journey-stop:last-child::before {
-            display: none;
-        }
-
-        .journey-stop::after {
-            content: '';
-            position: absolute;
-            left: 4px;
-            top: 4px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: #000;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .journey-stop.highlight::after {
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            border-color: #06b6d4;
-        }
-
-        /* Stat boxes */
-        .stat-box {
-            text-align: center;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-        }
-
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff, rgba(255,255,255,0.7));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Included list */
-        .included-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .included-icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: rgba(34, 197, 94, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 768px) {
-            .modal-hero {
-                height: 50vh;
-                min-height: 350px;
-            }
-            .modal-hero-content {
-                padding: 24px;
-            }
-            .instructor-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            .instructor-photo {
-                margin: 0 auto;
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
-<body class="bg-black text-white min-h-screen overflow-x-hidden">
+<body class="text-white">
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-5">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-lg font-semibold tracking-tight hover:opacity-80 transition-opacity">EducatedTraveler</a>
-            <div class="flex items-center gap-6">
-                <a href="about.html" class="text-white/60 hover:text-white text-sm transition-colors hidden md:block">The Story</a>
-                <a href="instructors.html" class="text-white/60 hover:text-white text-sm transition-colors hidden md:block">Teach With Us</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform" target="_blank" class="px-5 py-2.5 bg-white/10 backdrop-blur text-white text-sm font-medium rounded-full hover:bg-white/20 transition-colors border border-white/10">
-                    Join Waitlist
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-semibold tracking-tight">
+                Educated<span class="text-cyan-400">Traveler</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#story" class="text-sm text-white/60 hover:text-white transition-colors">My Story</a>
+                <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">The Vision</a>
+                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">What We Offer</a>
+                <a href="mailto:ceo-educatedtraveler@pm.me" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    Get in Touch
                 </a>
             </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white/60">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#story" class="block py-2 text-white/60 hover:text-white">My Story</a>
+            <a href="vision.html" class="block py-2 text-white/60 hover:text-white">The Vision</a>
+            <a href="offerings.html" class="block py-2 text-white/60 hover:text-white">What We Offer</a>
+            <a href="mailto:ceo-educatedtraveler@pm.me" class="block py-2 text-white/60 hover:text-white">Get in Touch</a>
         </div>
     </nav>
 
-    <!-- Hero Section - Full Screen -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background - Sailing at golden hour -->
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-end">
+        <!-- Background Image -->
         <div class="absolute inset-0">
             <img
-                src="https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=1920&q=80"
-                alt="Sailing yacht at sunset"
-                class="w-full h-full object-cover opacity-50"
+                src="images/story/sailing-5.png"
+                alt="Sailing across the ocean"
+                class="w-full h-full object-cover"
             >
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black"></div>
+            <div class="absolute inset-0 hero-gradient"></div>
         </div>
 
         <!-- Hero Content -->
-        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
-            <p class="text-cyan-400/80 text-sm tracking-[0.3em] uppercase mb-6 fade-up fade-up-delay-1">
-                Coming 2026
+        <div class="relative z-10 max-w-7xl mx-auto px-6 pb-24 pt-32">
+            <p class="text-cyan-400 text-sm uppercase tracking-widest mb-4 fade-up">
+                The Founder's Journey
             </p>
-
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight mb-8 fade-up fade-up-delay-2">
-                <span class="gradient-text">Skills Last.</span><br>
-                <span class="text-white/40">Tans Fade.</span>
+            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-medium leading-tight mb-6 fade-up delay-1">
+                What Life Brought Me<br>
+                <span class="text-white/70 italic">Can Bring You</span>
             </h1>
-
-            <p class="text-xl md:text-2xl text-white/60 font-light max-w-2xl mx-auto mb-12 leading-relaxed fade-up fade-up-delay-3">
-                One week to get certified.<br>
-                Six months to change your life.
+            <p class="text-lg md:text-xl text-white/70 max-w-2xl mb-8 fade-up delay-2">
+                At 18, I traded a science degree for a one-way ticket. What followed:
+                50,000+ nautical miles, kitchens from Michelin to midnight markets,
+                Himalayan summits, freedives in crystal waters.
+            </p>
+            <p class="text-xl md:text-2xl font-light text-white mb-12 fade-up delay-3">
+                Not a gap year — <em class="font-serif">a life.</em>
             </p>
 
-            <div class="fade-up fade-up-delay-4">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform"
-                   target="_blank"
-                   class="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-medium rounded-full hover:bg-white/90 transition-all duration-300 hover:scale-105">
-                    <span>Join the Waitlist</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            <!-- Scroll indicator -->
+            <div class="flex flex-col items-start fade-up delay-4">
+                <span class="text-xs uppercase tracking-widest text-white/40 mb-2">Scroll to discover</span>
+                <div class="scroll-bounce">
+                    <svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                     </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Question -->
+    <section id="story" class="py-24 md:py-32 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="story-section">
+                <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter I</p>
+                <h2 class="font-serif text-3xl md:text-5xl mb-8">The Question</h2>
+                <div class="space-y-6 text-lg text-white/70 leading-relaxed">
+                    <p>
+                        I got my Bac in science at 18 and thought: <em class="text-white font-serif">now what?</em>
+                    </p>
+                    <p>
+                        Everyone expected what came next: university, career, the usual path.
+                    </p>
+                    <p class="text-white text-xl">
+                        I had a different question: <span class="text-cyan-400">What if I just... went?</span>
+                    </p>
+                    <p>
+                        So I did. Australia first. I landed with enough money for a few weeks
+                        and a willingness to figure it out. I found work in kitchens — not because
+                        I dreamed of being a chef, but because restaurants always need hands,
+                        and I needed to eat.
+                    </p>
+                    <p class="pull-quote text-white/90 italic">
+                        That's how it started. Not with a master plan. With curiosity and a plane ticket.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter Navigation Cards -->
+    <section class="py-12 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-white/40 text-sm uppercase tracking-widest mb-8">The Chapters</p>
+
+            <div class="chapters-scroll">
+                <!-- The Kitchens -->
+                <a href="#kitchens" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
+                    <div class="aspect-[4/5] relative">
+                        <img src="images/story/chef-plating.jpg" alt="Working in professional kitchens" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter II</p>
+                            <h3 class="font-serif text-2xl mb-2">The Kitchens</h3>
+                            <p class="text-white/60 text-sm">From Michelin stars to midnight markets</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- The Wine -->
+                <a href="#wine" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
+                    <div class="aspect-[4/5] relative">
+                        <img src="images/story/sailing-1.png" alt="Cycling through French vineyards" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter III</p>
+                            <h3 class="font-serif text-2xl mb-2">The Wine</h3>
+                            <p class="text-white/60 text-sm">A month cycling South of France vineyards</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- The Ocean -->
+                <a href="#ocean" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
+                    <div class="aspect-[4/5] relative">
+                        <img src="images/story/sailing-4.png" alt="Sailing across oceans" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter IV</p>
+                            <h3 class="font-serif text-2xl mb-2">The Ocean</h3>
+                            <p class="text-white/60 text-sm">50,000+ nautical miles</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- The Depths -->
+                <a href="#depths" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
+                    <div class="aspect-[4/5] relative">
+                        <img src="images/story/freedive-line.png" alt="Freediving in crystal waters" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter V</p>
+                            <h3 class="font-serif text-2xl mb-2">The Depths</h3>
+                            <p class="text-white/60 text-sm">Where breath meets the blue</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- The Mountains -->
+                <a href="#mountains" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
+                    <div class="aspect-[4/5] relative">
+                        <img src="images/story/mountain-climb.jpg" alt="Climbing mountains" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 image-overlay"></div>
+                        <div class="absolute bottom-0 left-0 right-0 p-6">
+                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter VI</p>
+                            <h3 class="font-serif text-2xl mb-2">The Mountains</h3>
+                            <p class="text-white/60 text-sm">Himalayan humility</p>
+                        </div>
+                    </div>
                 </a>
             </div>
         </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 scroll-indicator">
-            <div class="w-6 h-10 border-2 border-white/20 rounded-full flex justify-center pt-2">
-                <div class="w-1 h-2 bg-white/40 rounded-full"></div>
-            </div>
-        </div>
     </section>
 
-    <!-- Find Your Adventure - Browse Section -->
-    <section class="py-24 px-6" id="explore">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <p class="text-cyan-400/60 text-sm tracking-widest uppercase mb-4">Find Your Adventure</p>
-                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">How do you want to explore?</h2>
-                <p class="text-white/50 font-light max-w-xl mx-auto">Choose your entry point — by the skill you want to master, the place calling you, or the time you have.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- By Skill -->
-                <div class="glass rounded-3xl p-8 card-hover group cursor-pointer">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">By Skill</h3>
-                    <p class="text-white/50 text-sm mb-6">What do you want to master?</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Culinary</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Sailing</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Yoga</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Diving</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Wine</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Photography</span>
-                    </div>
-                </div>
-
-                <!-- By Location -->
-                <div class="glass rounded-3xl p-8 card-hover group cursor-pointer">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">By Location</h3>
-                    <p class="text-white/50 text-sm mb-6">Where is calling you?</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Japan</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">India</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Gibraltar</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">France</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Thailand</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">Morocco</span>
+    <!-- The Kitchens -->
+    <section id="kitchens" class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="story-section">
+                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter II</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mb-8">The Kitchens</h2>
+                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
+                        <p>
+                            Cooking became the thread that connected everything.
+                        </p>
+                        <p>
+                            <strong class="text-white">In France</strong>, I trained with chefs who'd spent their lives
+                            chasing perfection. 5 AM prep. Service that felt like battle. Standards that
+                            seemed impossible until they became natural.
+                        </p>
+                        <p>
+                            <strong class="text-white">In Southeast Asia</strong>, I discovered that mastery doesn't
+                            require Michelin stars. A grandmother in Bangkok making the same pad thai for
+                            40 years. A pho vendor in Vietnam whose broth was three generations old.
+                        </p>
+                        <p>
+                            <strong class="text-white">On superyachts</strong>, I cooked for guests who'd eaten at
+                            every famous restaurant. The job taught me to source — dawn markets in Provence,
+                            fishermen in Greek harbors.
+                        </p>
+                        <p class="pull-quote text-white/90 italic">
+                            Each kitchen was a classroom. Each chef, a teacher. The world's cuisines
+                            became mine — not through study, but through fire and repetition.
+                        </p>
                     </div>
                 </div>
-
-                <!-- By Duration -->
-                <div class="glass rounded-3xl p-8 card-hover group cursor-pointer">
-                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">By Duration</h3>
-                    <p class="text-white/50 text-sm mb-6">How much time do you have?</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">1 Week</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">2-3 Weeks</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">1 Month</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">3 Months</span>
-                        <span class="px-3 py-1.5 rounded-full bg-white/5 text-white/60 text-xs">6 Months</span>
+                <div class="story-section">
+                    <div class="relative rounded-2xl overflow-hidden">
+                        <img src="images/story/kitchen-flames.png" alt="Cooking with flames" class="w-full">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What We Do - Minimal -->
-    <section class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-3 gap-1">
-                <div class="glass rounded-2xl p-10 card-hover">
-                    <div class="text-5xl font-light text-white/20 mb-6">01</div>
-                    <h3 class="text-xl font-medium mb-4">Real Credentials</h3>
-                    <p class="text-white/50 font-light leading-relaxed">
-                        PADI. Yoga Alliance. RYA. Le Cordon Bleu. Certifications recognized worldwide.
+    <!-- The Ocean -->
+    <section id="ocean" class="py-24 md:py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="story-section order-2 md:order-1">
+                    <div class="photo-grid">
+                        <img src="images/story/sailing-1.png" alt="Sailing" class="rounded-lg">
+                        <img src="images/story/sailing-2.png" alt="Sailing" class="rounded-lg">
+                        <img src="images/story/sailing-3.png" alt="Sailing" class="rounded-lg">
+                        <img src="images/story/sailing-4.png" alt="Sailing" class="rounded-lg">
+                        <img src="images/story/sailing-5.png" alt="Sailing" class="rounded-lg col-span-2">
+                    </div>
+                </div>
+                <div class="story-section order-1 md:order-2">
+                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter IV</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mb-8">The Ocean</h2>
+                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
+                        <p>
+                            The dream started with books — those classic navigator stories, sailors
+                            crossing oceans alone, reading the stars.
+                        </p>
+                        <p>
+                            Then I stepped onto a regatta sailboat in Sydney harbor. The heel of the boat
+                            under your feet. The crew working as one organism. The wind not as obstacle but
+                            as language.
+                        </p>
+                        <p class="text-white text-xl">
+                            In that moment, I knew: <span class="text-cyan-400">this is what I want.</span>
+                        </p>
+                        <p>
+                            I earned my RYA in Thailand — warm water, steady winds. At 22, I joined my first
+                            passage boat. The owner taught me everything: navigation, engineering, the patience
+                            to wait out weather.
+                        </p>
+                        <div class="glass rounded-xl p-6 mt-8">
+                            <p class="text-3xl font-light text-white mb-2">50,000+</p>
+                            <p class="text-white/60 text-sm">Nautical miles across every ocean</p>
+                        </div>
+                        <p class="pull-quote text-white/90 italic">
+                            The ocean doesn't care about your resume. It cares about your judgment.
+                            That education can't be faked.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Depths -->
+    <section id="depths" class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="story-section">
+                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter V</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mb-8">The Depths</h2>
+                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
+                        <p>
+                            Freediving found me in Thailand.
+                        </p>
+                        <p>
+                            Not the tourist version — the real practice. Learning to descend on a single breath.
+                            Discovering that depth reveals who you are when everything else is stripped away.
+                        </p>
+                        <p>
+                            The instructors taught more than technique. They taught <strong class="text-white">presence</strong>.
+                            The ability to be completely where you are, with nothing but your breath and the blue.
+                        </p>
+                        <p>
+                            In the Galapagos, I dove with sharks. Open water. No cage. Guided by people who'd
+                            spent decades understanding these animals.
+                        </p>
+                        <p class="pull-quote text-white/90 italic">
+                            Fear transformed into respect. Respect into something like connection.
+                        </p>
+                    </div>
+                </div>
+                <div class="story-section">
+                    <div class="space-y-4">
+                        <img src="images/story/freedive-line.png" alt="Freediving on the line" class="w-full rounded-2xl">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="images/story/freedive-cenote.png" alt="Freediving in cenote" class="rounded-xl">
+                            <img src="images/story/shark-dive-1.png" alt="Diving with sharks" class="rounded-xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Mountains -->
+    <section id="mountains" class="py-24 md:py-32 bg-gradient-to-b from-transparent via-slate-900/30 to-transparent">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="story-section order-2 md:order-1">
+                    <div class="space-y-4">
+                        <img src="images/story/mountain-climb.jpg" alt="Mountain climbing" class="w-full rounded-2xl">
+                        <img src="images/story/mountains-snow.png" alt="Trekking in snow" class="w-full rounded-2xl">
+                    </div>
+                </div>
+                <div class="story-section order-1 md:order-2">
+                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter VI</p>
+                    <h2 class="font-serif text-3xl md:text-5xl mb-8">The Mountains</h2>
+                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
+                        <p>
+                            The Himalayas called, and I answered.
+                        </p>
+                        <p>
+                            Weeks of trekking. Annapurna Base Camp at 4,130 meters. Thin air, heavy pack,
+                            views that made the suffering worth it.
+                        </p>
+                        <p>
+                            <strong class="text-white">India especially changed me.</strong> The chaos of Delhi.
+                            The ghats of Varanasi at sunrise. The backwaters of Kerala. The mountains of Ladakh.
+                        </p>
+                        <p>
+                            The spirituality there wasn't something people performed — it was how they lived.
+                            The pace was different. Conversations went deeper. Strangers became friends in hours.
+                        </p>
+                        <p class="pull-quote text-white/90 italic">
+                            On those roads, I met photographers who taught light, trekkers who knew every plant,
+                            teachers who'd renounced everything except the joy of sharing what they knew.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Pattern -->
+    <section class="py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="story-section text-center">
+                <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter VII</p>
+                <h2 class="font-serif text-3xl md:text-5xl mb-12">The Pattern</h2>
+
+                <p class="text-xl text-white/70 mb-12">
+                    Somewhere in all those miles, I noticed something.
+                </p>
+
+                <div class="text-left space-y-8 mb-16">
+                    <p class="text-lg text-white/70">
+                        Every skill worth having came the same way:
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="text-4xl mb-4">1</div>
+                            <h3 class="text-white font-semibold mb-2">A Place</h3>
+                            <p class="text-white/60 text-sm">Where the knowledge lived</p>
+                        </div>
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="text-4xl mb-4">2</div>
+                            <h3 class="text-white font-semibold mb-2">A Person</h3>
+                            <p class="text-white/60 text-sm">Who'd mastered it and was willing to share</p>
+                        </div>
+                        <div class="glass rounded-xl p-6 text-center">
+                            <div class="text-4xl mb-4">3</div>
+                            <h3 class="text-white font-semibold mb-2">Total Immersion</h3>
+                            <p class="text-white/60 text-sm">Not a weekend — weeks or months of focus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xl text-white/70 mb-8">
+                    Not YouTube videos at 2 AM. Not online courses I'd never finish.
+                    <span class="text-white">Real learning. At the source. With people who'd dedicated their lives to it.</span>
+                </p>
+
+                <p class="text-2xl text-white font-light">
+                    And I realized: <span class="text-cyan-400">this path is available to anyone.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why EducatedTraveler -->
+    <section class="py-24 md:py-32 bg-gradient-to-b from-cyan-950/20 via-cyan-950/10 to-transparent">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="story-section text-center">
+                <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter VIII</p>
+                <h2 class="font-serif text-3xl md:text-5xl mb-12">Why EducatedTraveler</h2>
+
+                <div class="text-left space-y-6 text-lg text-white/70 leading-relaxed mb-12">
+                    <p>
+                        I built EducatedTraveler because finding this path shouldn't be so hard.
+                    </p>
+                    <p>
+                        The masters exist — but they don't advertise. The places exist — but the logistics
+                        overwhelm people. The transformation is real — but most never get there because
+                        the friction stops them.
+                    </p>
+                    <p class="text-2xl text-white text-center py-8">
+                        So I built the bridge.
                     </p>
                 </div>
-                <div class="glass rounded-2xl p-10 card-hover">
-                    <div class="text-5xl font-light text-white/20 mb-6">02</div>
-                    <h3 class="text-xl font-medium mb-4">At the Source</h3>
-                    <p class="text-white/50 font-light leading-relaxed">
-                        Sushi in Tokyo. Yoga in Rishikesh. Sailing from Gibraltar. Where mastery was born.
+
+                <div class="grid md:grid-cols-2 gap-6 text-left mb-12">
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-white font-semibold mb-2">Real certifications</h3>
+                        <p class="text-white/60 text-sm">PADI, RYA, Yoga Alliance, WSET — credentials that open doors worldwide</p>
+                    </div>
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-white font-semibold mb-2">The actual source</h3>
+                        <p class="text-white/60 text-sm">Tokyo fish markets. Rishikesh ashrams. Atlantic passages. Where the knowledge was born.</p>
+                    </div>
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-white font-semibold mb-2">Masters who teach</h3>
+                        <p class="text-white/60 text-sm">Decades of expertise, not social media followers. People who know what they know because they've lived it.</p>
+                    </div>
+                    <div class="glass rounded-xl p-6">
+                        <h3 class="text-white font-semibold mb-2">Cohorts who bond</h3>
+                        <p class="text-white/60 text-sm">8-12 people who become connected through shared challenge. The way crews and teams bond.</p>
+                    </div>
+                </div>
+
+                <p class="text-xl text-white/80 mb-4">
+                    What took me a decade, you can experience in weeks or months.
+                </p>
+                <p class="text-lg text-white/60">
+                    Structured. Supported. Real.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Turn CTA -->
+    <section class="py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="story-section">
+                <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter IX</p>
+                <h2 class="font-serif text-3xl md:text-5xl mb-8">Your Turn</h2>
+
+                <p class="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+                    The world is full of skills waiting to be learned, places waiting to be experienced,
+                    masters waiting to teach.
+                </p>
+
+                <p class="text-2xl text-white font-light mb-4">
+                    The only thing standing between you and that version of yourself
+                    is the decision to go.
+                </p>
+
+                <p class="text-xl text-white/70 mb-12">
+                    I can't give you my journey. But I can give you access to the same kind of teachers,
+                    the same kind of places, the same kind of transformation.
+                </p>
+
+                <div class="glass rounded-2xl p-8 md:p-12 max-w-2xl mx-auto mb-12">
+                    <p class="text-white/60 text-sm uppercase tracking-widest mb-4">The promise</p>
+                    <p class="text-2xl md:text-3xl font-light text-white mb-6">
+                        One week to get certified.<br>
+                        Six months to change your life.
+                    </p>
+                    <p class="text-lg text-white/60 italic">
+                        Whatever depth you're ready for.
                     </p>
                 </div>
-                <div class="glass rounded-2xl p-10 card-hover">
-                    <div class="text-5xl font-light text-white/20 mb-6">03</div>
-                    <h3 class="text-xl font-medium mb-4">Your Depth</h3>
-                    <p class="text-white/50 font-light leading-relaxed">
-                        7 days to 6 months. From certification sprint to life transformation. You choose.
-                    </p>
+
+                <p class="font-serif text-3xl md:text-4xl text-white mb-12 italic">
+                    "Your adventure is waiting where it's always been: at the source."
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="vision.html" class="cta-button px-8 py-4 rounded-full text-white font-medium text-lg">
+                        Discover the Vision
+                    </a>
+                    <a href="mailto:ceo-educatedtraveler@pm.me" class="px-8 py-4 rounded-full border border-white/20 text-white font-medium text-lg hover:bg-white/10 transition-colors">
+                        Get in Touch
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Flagship Adventures - Netflix Style -->
-    <section class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex items-end justify-between mb-12">
-                <div>
-                    <p class="text-cyan-400/60 text-sm tracking-widest uppercase mb-3">Flagship Adventures</p>
-                    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight">Choose Your Path</h2>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-
-                <!-- Sushi Mastery - Tsukiji market / chef at work -->
-                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] card-hover cursor-pointer" onclick="openModal('sushi-modal')">
-                    <img
-                        src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=800&q=80"
-                        alt="Sushi chef preparing fish at Tsukiji"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
-                    <div class="absolute inset-0 image-overlay"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <div class="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
-                            <p class="text-xs text-white/50 mb-2">Master Itamae Takeshi Yamamoto</p>
-                            <p class="text-amber-400 text-sm font-medium tracking-wide mb-2">Tokyo, Japan</p>
-                            <h3 class="text-2xl font-semibold mb-3">Sushi Mastery</h3>
-                            <p class="text-white/60 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                One month with a master itamae. Toyosu market at dawn. Rice, knife work, philosophy. Return as a certified chef.
-                            </p>
-                            <div class="flex items-center gap-4 text-sm">
-                                <span class="text-white/80">30 days</span>
-                                <span class="text-white/40">•</span>
-                                <span class="text-white/60">$12,000</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                         style="box-shadow: inset 0 0 100px rgba(251, 191, 36, 0.1)"></div>
-                </div>
-
-                <!-- Sacred Yoga - Ganges at Rishikesh -->
-                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] card-hover cursor-pointer" onclick="openModal('yoga-modal')">
-                    <img
-                        src="https://images.unsplash.com/photo-1591291621164-2c6367723315?w=800&q=80"
-                        alt="Ganges river at Rishikesh with temples"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
-                    <div class="absolute inset-0 image-overlay"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <div class="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
-                            <p class="text-xs text-white/50 mb-2">Guru Ananda Devi, E-RYT 500</p>
-                            <p class="text-orange-400 text-sm font-medium tracking-wide mb-2">Delhi → Rishikesh → Dharamsala</p>
-                            <h3 class="text-2xl font-semibold mb-3">Sacred Yoga Pilgrimage</h3>
-                            <p class="text-white/60 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                Follow the Ganges to where yoga was born. RYT-200 at sunrise on the ghats. Potential audience with the Dalai Lama.
-                            </p>
-                            <div class="flex items-center gap-4 text-sm">
-                                <span class="text-white/80">25-28 days</span>
-                                <span class="text-white/40">•</span>
-                                <span class="text-white/60">$5,500</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                         style="box-shadow: inset 0 0 100px rgba(251, 146, 60, 0.1)"></div>
-                </div>
-
-                <!-- Ocean Sailing - Gibraltar/Atlantic -->
-                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] card-hover cursor-pointer" onclick="openModal('sailing-modal')">
-                    <img
-                        src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80"
-                        alt="Sailing yacht crew on Atlantic passage"
-                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    >
-                    <div class="absolute inset-0 image-overlay"></div>
-                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
-                        <div class="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-4">
-                            <p class="text-xs text-white/50 mb-2">Captain James Whitmore, RYA Yachtmaster Ocean</p>
-                            <p class="text-cyan-400 text-sm font-medium tracking-wide mb-2">Gibraltar → Canary Islands</p>
-                            <h3 class="text-2xl font-semibold mb-3">Ocean Sailing Odyssey</h3>
-                            <p class="text-white/60 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                Fast-track to RYA Yachtmaster. Ocean passages, celestial navigation, night watches. Skipper anywhere on Earth.
-                            </p>
-                            <div class="flex items-center gap-4 text-sm">
-                                <span class="text-white/80">21-90 days</span>
-                                <span class="text-white/40">•</span>
-                                <span class="text-white/60">From $6,500</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                         style="box-shadow: inset 0 0 100px rgba(6, 182, 212, 0.1)"></div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- More Adventures - Locked/Coming Soon -->
-    <section class="py-20 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex items-end justify-between mb-12">
-                <div>
-                    <p class="text-white/30 text-sm tracking-widest uppercase mb-3">More Adventures</p>
-                    <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-white/40">Coming Soon</h2>
-                </div>
-            </div>
-
-            <!-- Adventure Category -->
-            <div class="mb-16">
-                <h3 class="text-lg font-medium text-white/30 mb-6 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-red-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </span>
-                    Adventure
-                </h3>
-                <div class="netflix-row">
-                    <div class="cards-container">
-                        <!-- Freediving -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=60" alt="Freediving" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Dahab, Egypt</p>
-                                <h4 class="text-sm font-medium text-white/50">Freediving</h4>
-                            </div>
-                        </div>
-                        <!-- Wingsuit -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=400&q=60" alt="Wingsuit" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Interlaken</p>
-                                <h4 class="text-sm font-medium text-white/50">Wingsuit</h4>
-                            </div>
-                        </div>
-                        <!-- Whitewater Kayaking -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1530866495561-507c9faab2ed?w=400&q=60" alt="Whitewater Kayaking" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Patagonia</p>
-                                <h4 class="text-sm font-medium text-white/50">Whitewater Kayaking</h4>
-                            </div>
-                        </div>
-                        <!-- Rock Climbing -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?w=400&q=60" alt="Rock Climbing" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Kalymnos, Greece</p>
-                                <h4 class="text-sm font-medium text-white/50">Rock Climbing</h4>
-                            </div>
-                        </div>
-                        <!-- Muay Thai -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&q=60" alt="Muay Thai" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Thailand</p>
-                                <h4 class="text-sm font-medium text-white/50">Muay Thai</h4>
-                            </div>
-                        </div>
-                        <!-- Wilderness Tracking -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&q=60" alt="Wilderness Tracking" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Kalahari</p>
-                                <h4 class="text-sm font-medium text-white/50">Wilderness Tracking</h4>
-                            </div>
-                        </div>
-                        <!-- Falconry -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1611689342806-0f0e9e5e6f08?w=400&q=60" alt="Falconry" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">UAE / Scotland</p>
-                                <h4 class="text-sm font-medium text-white/50">Falconry</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Show More Arrow -->
-                    <div class="show-more" onclick="this.previousElementSibling.scrollBy({left: 300, behavior: 'smooth'})">
-                        <div class="arrow-icon">
-                            <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </div>
-                        <span class="more-count">+3 more</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Culinary Category -->
-            <div class="mb-16">
-                <h3 class="text-lg font-medium text-white/30 mb-6 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-amber-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                        </svg>
-                    </span>
-                    Culinary
-                </h3>
-                <div class="netflix-row">
-                    <div class="cards-container" style="padding-right: 0;">
-                        <!-- WSET Wine -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&q=60" alt="Wine" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-amber-400/50 text-xs mb-1">Burgundy / Bordeaux</p>
-                                <h4 class="text-sm font-medium text-white/50">WSET Wine</h4>
-                            </div>
-                        </div>
-                        <!-- French Pastry -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=60" alt="French Pastry" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-amber-400/50 text-xs mb-1">Paris</p>
-                                <h4 class="text-sm font-medium text-white/50">French Pastry</h4>
-                            </div>
-                        </div>
-                        <!-- Molecular Gastronomy -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=60" alt="Molecular Gastronomy" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-amber-400/50 text-xs mb-1">Basque Country</p>
-                                <h4 class="text-sm font-medium text-white/50">Molecular Gastronomy</h4>
-                            </div>
-                        </div>
-                        <!-- Whisky -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=400&q=60" alt="Whisky" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-amber-400/50 text-xs mb-1">Scotland / Japan</p>
-                                <h4 class="text-sm font-medium text-white/50">Whisky Mastery</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wellness Category -->
-            <div class="mb-16">
-                <h3 class="text-lg font-medium text-white/30 mb-6 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-orange-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                        </svg>
-                    </span>
-                    Wellness
-                </h3>
-                <div class="netflix-row">
-                    <div class="cards-container" style="padding-right: 0;">
-                        <!-- Yoga 200hr -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=60" alt="Yoga" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-orange-400/50 text-xs mb-1">Bali / India</p>
-                                <h4 class="text-sm font-medium text-white/50">Yoga 200hr</h4>
-                            </div>
-                        </div>
-                        <!-- Yoga 500hr -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=400&q=60" alt="Yoga 500hr" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-orange-400/50 text-xs mb-1">Bali / India</p>
-                                <h4 class="text-sm font-medium text-white/50">Yoga 500hr</h4>
-                            </div>
-                        </div>
-                        <!-- Breathwork -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=400&q=60" alt="Breathwork" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-orange-400/50 text-xs mb-1">Bali</p>
-                                <h4 class="text-sm font-medium text-white/50">Breathwork</h4>
-                            </div>
-                        </div>
-                        <!-- Vipassana -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=400&q=60" alt="Vipassana" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-orange-400/50 text-xs mb-1">Myanmar / Thailand</p>
-                                <h4 class="text-sm font-medium text-white/50">Vipassana</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Creative Category -->
-            <div class="mb-16">
-                <h3 class="text-lg font-medium text-white/30 mb-6 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-purple-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                        </svg>
-                    </span>
-                    Creative
-                </h3>
-                <div class="netflix-row">
-                    <div class="cards-container" style="padding-right: 0;">
-                        <!-- Photography -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=400&q=60" alt="Photography" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-purple-400/50 text-xs mb-1">Rajasthan / Patagonia</p>
-                                <h4 class="text-sm font-medium text-white/50">Photography</h4>
-                            </div>
-                        </div>
-                        <!-- Ceramics -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&q=60" alt="Ceramics" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-purple-400/50 text-xs mb-1">Bizen, Japan</p>
-                                <h4 class="text-sm font-medium text-white/50">Ceramics</h4>
-                            </div>
-                        </div>
-                        <!-- Zellige Tilework -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?w=400&q=60" alt="Zellige Tilework" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-purple-400/50 text-xs mb-1">Fez, Morocco</p>
-                                <h4 class="text-sm font-medium text-white/50">Zellige Tilework</h4>
-                            </div>
-                        </div>
-                        <!-- Literary Mentorship -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&q=60" alt="Literary Mentorship" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-purple-400/50 text-xs mb-1">Tuscany</p>
-                                <h4 class="text-sm font-medium text-white/50">Literary Mentorship</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sailing Category -->
-            <div class="mb-8">
-                <h3 class="text-lg font-medium text-white/30 mb-6 flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-cyan-400/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
-                        </svg>
-                    </span>
-                    Sailing
-                </h3>
-                <div class="netflix-row">
-                    <div class="cards-container" style="padding-right: 0;">
-                        <!-- RYA Day Skipper -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1500514966906-fe245eea9344?w=400&q=60" alt="RYA Day Skipper" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Greece / Croatia</p>
-                                <h4 class="text-sm font-medium text-white/50">RYA Day Skipper</h4>
-                            </div>
-                        </div>
-                        <!-- Atlantic Crossing -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=400&q=60" alt="Atlantic Crossing" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Canaries → Caribbean</p>
-                                <h4 class="text-sm font-medium text-white/50">Atlantic Crossing</h4>
-                            </div>
-                        </div>
-                        <!-- Celestial Navigation -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&q=60" alt="Celestial Navigation" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Open Ocean</p>
-                                <h4 class="text-sm font-medium text-white/50">Celestial Navigation</h4>
-                            </div>
-                        </div>
-                        <!-- Arctic Expedition -->
-                        <div class="card-item card-locked relative rounded-2xl overflow-hidden aspect-[3/4]">
-                            <img src="https://images.unsplash.com/photo-1517783999520-f068d7431a60?w=400&q=60" alt="Arctic Expedition" class="absolute inset-0 w-full h-full object-cover">
-                            <div class="absolute inset-0 image-overlay"></div>
-                            <div class="lock-overlay">
-                                <div class="lock-icon">
-                                    <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                </div>
-                                <span class="lock-text">Coming Soon</span>
-                            </div>
-                            <div class="card-content absolute inset-0 p-4 flex flex-col justify-end">
-                                <p class="text-cyan-400/50 text-xs mb-1">Svalbard</p>
-                                <h4 class="text-sm font-medium text-white/50">Arctic Expedition</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Quote Section -->
-    <section class="py-32 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <blockquote class="text-3xl md:text-4xl lg:text-5xl font-light leading-snug tracking-tight">
-                <span class="text-white/30">"</span>
-                <span class="gradient-text">The best souvenirs are the skills you bring home.</span>
-                <span class="text-white/30">"</span>
-            </blockquote>
-        </div>
-    </section>
-
-    <!-- Who It's For -->
-    <section class="py-20 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="glass-strong rounded-3xl p-12 md:p-16 glow">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-12 text-center">This is for you if...</h2>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                        </div>
-                        <p class="text-white/70 font-light">You want more than beach vacations and tourist photos</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                        </div>
-                        <p class="text-white/70 font-light">You value experiences over possessions</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                        </div>
-                        <p class="text-white/70 font-light">You want tangible proof of your adventures</p>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                        </div>
-                        <p class="text-white/70 font-light">You're ready to invest in yourself, not souvenirs</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="py-32 px-6">
-        <div class="max-w-3xl mx-auto text-center">
-            <p class="text-white/40 text-sm tracking-widest uppercase mb-6">First cohorts launching 2026</p>
-            <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mb-8">
-                Ready to begin?
-            </h2>
-            <p class="text-xl text-white/50 font-light mb-12">
-                5 minutes. Help shape what we build.
-            </p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform"
-               target="_blank"
-               class="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-medium rounded-full hover:bg-white/90 transition-all duration-300 hover:scale-105 text-lg">
-                <span>Take the Survey & Join Waitlist</span>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-            </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="text-center md:text-left">
-                    <p class="text-xl font-medium mb-2">EducatedTraveler</p>
-                    <p class="text-white/40 text-sm mb-2">Skill adventures at the source.</p>
-                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-cyan-400/60 hover:text-cyan-400 text-sm transition-colors">
-                        ceo-educatedtraveler@pm.me
-                    </a>
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <p class="text-xl font-semibold mb-2">
+                        Educated<span class="text-cyan-400">Traveler</span>
+                    </p>
+                    <p class="text-white/40 text-sm">Skills last, tans fade.</p>
                 </div>
-                <div class="flex gap-8 text-sm text-white/40">
-                    <a href="about.html" class="hover:text-white transition-colors">The Story</a>
-                    <a href="instructors.html" class="hover:text-white transition-colors">For Instructors</a>
+                <div class="flex gap-6">
+                    <a href="vision.html" class="text-white/60 hover:text-white text-sm transition-colors">The Vision</a>
+                    <a href="offerings.html" class="text-white/60 hover:text-white text-sm transition-colors">What We Offer</a>
+                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/60 hover:text-white text-sm transition-colors">Contact</a>
                 </div>
             </div>
-            <div class="mt-12 pt-8 border-t border-white/5 text-center">
-                <p class="text-white/20 text-sm">
-                    © 2025 EducatedTraveler. Skills last, tans fade.
+            <div class="mt-8 pt-8 border-t border-white/5 text-center">
+                <p class="text-white/30 text-xs">
+                    2026 EducatedTraveler. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- SUSHI MASTERY MODAL -->
-    <div id="sushi-modal" class="modal-overlay" onclick="if(event.target === this) closeModal('sushi-modal')">
-        <div class="modal-close" onclick="closeModal('sushi-modal')">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </div>
-        <div class="modal-content">
-            <!-- Hero -->
-            <div class="modal-hero">
-                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=1600&q=80" alt="Sushi preparation in Tokyo">
-                <div class="modal-hero-overlay"></div>
-                <div class="modal-hero-content">
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="exp-badge badge-immersive">Total Immersion</span>
-                        <span class="exp-badge badge-certified">Professionally Certified</span>
-                        <span class="exp-badge badge-elite">Master-Led</span>
-                        <span class="exp-badge badge-transformative">Life-Defining</span>
-                    </div>
-                    <p class="text-amber-400 text-sm font-medium tracking-widest uppercase mb-3">Tokyo, Japan • 30 Days</p>
-                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Sushi Mastery</h1>
-                    <p class="text-xl md:text-2xl text-white/70 font-light max-w-2xl">
-                        Transform from enthusiast to certified sushi chef under the guidance of a Michelin-recognized master itamae.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Content -->
-            <div class="px-6 md:px-16 py-16 space-y-16">
-
-                <!-- Opening Statement -->
-                <div class="max-w-3xl">
-                    <p class="text-2xl md:text-3xl font-light leading-relaxed text-white/80">
-                        At 4:47 AM, while Tokyo still sleeps, you'll walk through the gates of Toyosu Market. The air is cold, sharp with the scent of the sea. This is where your transformation begins—not as a tourist, but as an apprentice to a craft perfected over centuries.
-                    </p>
-                </div>
-
-                <!-- Stats Row -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="stat-box">
-                        <div class="stat-value">30</div>
-                        <p class="text-white/50 text-sm mt-2">Days of Training</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">8-12</div>
-                        <p class="text-white/50 text-sm mt-2">Cohort Size</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">30+</div>
-                        <p class="text-white/50 text-sm mt-2">Years Master Experience</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">1</div>
-                        <p class="text-white/50 text-sm mt-2">Michelin Star Kitchen</p>
-                    </div>
-                </div>
-
-                <!-- Instructor -->
-                <div>
-                    <h2 class="text-xs font-medium text-amber-400/80 uppercase tracking-widest mb-6">Your Master</h2>
-                    <div class="instructor-card">
-                        <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=200&q=80" alt="Master Takeshi Yamamoto" class="instructor-photo">
-                        <div>
-                            <h3 class="text-xl font-semibold mb-1">Master Itamae Takeshi Yamamoto</h3>
-                            <p class="text-amber-400/80 text-sm mb-3">30+ Years Experience • Former Head Chef, Sukiyabashi Jiro Affiliate</p>
-                            <p class="text-white/60 font-light leading-relaxed">
-                                Yamamoto-san trained for 12 years before touching his first fish. His philosophy: sushi is 80% rice, 20% topping, and 100% respect. He has personally trained 23 chefs who now run their own establishments across Japan, New York, and London. His quiet intensity and exacting standards will push you beyond what you thought possible.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- The Journey -->
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h2 class="text-xs font-medium text-amber-400/80 uppercase tracking-widest mb-6">Your Journey</h2>
-                        <div class="space-y-0">
-                            <div class="journey-stop highlight">
-                                <h3 class="font-semibold text-lg">Week 1: The Foundation</h3>
-                                <p class="text-white/50 text-sm mt-1">Shari (Rice) Mastery</p>
-                                <p class="text-white/60 font-light mt-2">You'll wash rice until your hands memorize the motion. Learn the 23-step process to perfect sushi rice. By week's end, you'll understand why masters say "sushi is rice."</p>
-                            </div>
-                            <div class="journey-stop">
-                                <h3 class="font-semibold text-lg">Week 2: The Blade</h3>
-                                <p class="text-white/50 text-sm mt-1">Knife Work & Fish Preparation</p>
-                                <p class="text-white/60 font-light mt-2">Your knife becomes an extension of your hand. Master the five essential cuts. Learn to read fish—its freshness, origin, optimal preparation. Daily sessions at Toyosu with the masters.</p>
-                            </div>
-                            <div class="journey-stop">
-                                <h3 class="font-semibold text-lg">Week 3: The Art</h3>
-                                <p class="text-white/50 text-sm mt-1">Nigiri Technique</p>
-                                <p class="text-white/60 font-light mt-2">Two movements, three seconds, one perfect piece. The hand pressure, the rice count, the marriage of fish and shari. You'll make 500 pieces before the first one satisfies Yamamoto-san.</p>
-                            </div>
-                            <div class="journey-stop highlight">
-                                <h3 class="font-semibold text-lg">Week 4: The Service</h3>
-                                <p class="text-white/50 text-sm mt-1">Full Omakase (8-12 Courses)</p>
-                                <p class="text-white/60 font-light mt-2">You'll serve a complete omakase to real guests. Reading the room, pacing each course, the choreography of hospitality. Your certification dinner—friends and family invited.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h2 class="text-xs font-medium text-amber-400/80 uppercase tracking-widest mb-6">Places You'll Experience</h2>
-                        <div class="space-y-4">
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Toyosu Fish Market</h4>
-                                <p class="text-white/50 text-sm">Daily 5AM visits. Watch the famous tuna auctions. Build relationships with vendors who've supplied Tokyo's best for generations.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Private Sushiya Kitchen</h4>
-                                <p class="text-white/50 text-sm">Train in a real 8-seat omakase restaurant. Learn the intimacy of counter service.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Sake Breweries of Niigata</h4>
-                                <p class="text-white/50 text-sm">Day trip to Japan's sake heartland. Learn pairing. Return with bottles for your certification dinner.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Knife Forges of Sakai</h4>
-                                <p class="text-white/50 text-sm">Visit the 600-year-old bladesmithing capital. Select your professional knife set—yours to keep forever.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- What's Included -->
-                <div>
-                    <h2 class="text-xs font-medium text-amber-400/80 uppercase tracking-widest mb-6">Everything Included</h2>
-                    <div class="grid md:grid-cols-2 gap-x-12">
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Professional knife set (¥180,000 value) — yours to keep</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">30 nights boutique accommodation in Ginza</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Daily breakfast + lunch during training</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">All market visits and cultural excursions</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Niigata sake tour + Sakai knife forge visit</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Professional Sushi Chef certification</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Certification dinner for friends & family</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Lifetime alumni network access</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA -->
-                <div class="glass-strong rounded-3xl p-10 md:p-16 text-center">
-                    <p class="text-amber-400/60 text-sm tracking-widest uppercase mb-4">Next Cohort: March 2026</p>
-                    <h2 class="text-3xl md:text-4xl font-semibold mb-4">$12,000</h2>
-                    <p class="text-white/50 mb-8">30 days • All-inclusive • 8-12 participants</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform" target="_blank"
-                       class="inline-flex items-center gap-3 px-10 py-5 bg-amber-500 text-black font-semibold rounded-full hover:bg-amber-400 transition-all duration-300 hover:scale-105">
-                        Reserve Your Spot
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                    <p class="text-white/30 text-sm mt-6">$2,000 deposit to secure • Balance due 60 days before</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- YOGA PILGRIMAGE MODAL -->
-    <div id="yoga-modal" class="modal-overlay" onclick="if(event.target === this) closeModal('yoga-modal')">
-        <div class="modal-close" onclick="closeModal('yoga-modal')">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </div>
-        <div class="modal-content">
-            <!-- Hero -->
-            <div class="modal-hero">
-                <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=1600&q=80" alt="Yoga at sunrise on the Ganges">
-                <div class="modal-hero-overlay"></div>
-                <div class="modal-hero-content">
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="exp-badge badge-spiritual">Sacred Journey</span>
-                        <span class="exp-badge badge-certified">Yoga Alliance RYT-200</span>
-                        <span class="exp-badge badge-transformative">Soul-Awakening</span>
-                        <span class="exp-badge badge-adventure">Multi-City Pilgrimage</span>
-                    </div>
-                    <p class="text-orange-400 text-sm font-medium tracking-widest uppercase mb-3">Delhi → Rishikesh → Dharamsala • 25-28 Days</p>
-                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Sacred Yoga Pilgrimage</h1>
-                    <p class="text-xl md:text-2xl text-white/70 font-light max-w-2xl">
-                        Walk the path where yoga was born. Train on the banks of the Ganges. Conclude with Tibetan teachings and potential blessing from the Dalai Lama.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Content -->
-            <div class="px-6 md:px-16 py-16 space-y-16">
-
-                <!-- Opening Statement -->
-                <div class="max-w-3xl">
-                    <p class="text-2xl md:text-3xl font-light leading-relaxed text-white/80">
-                        The Ganges moves past you in the pre-dawn darkness. Incense rises from a thousand temples. You fold into your first Surya Namaskar as the sun breaks over the Himalayas. This isn't a yoga retreat—it's a pilgrimage to where it all began.
-                    </p>
-                </div>
-
-                <!-- Stats Row -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="stat-box">
-                        <div class="stat-value">200+</div>
-                        <p class="text-white/50 text-sm mt-2">Contact Hours</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">3</div>
-                        <p class="text-white/50 text-sm mt-2">Sacred Cities</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">10-12</div>
-                        <p class="text-white/50 text-sm mt-2">Cohort Size</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">1</div>
-                        <p class="text-white/50 text-sm mt-2">Possible Dalai Lama Audience</p>
-                    </div>
-                </div>
-
-                <!-- Instructor -->
-                <div>
-                    <h2 class="text-xs font-medium text-orange-400/80 uppercase tracking-widest mb-6">Your Guide</h2>
-                    <div class="instructor-card">
-                        <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=200&q=80" alt="Guru Ananda Devi" class="instructor-photo">
-                        <div>
-                            <h3 class="text-xl font-semibold mb-1">Guru Ananda Devi</h3>
-                            <p class="text-orange-400/80 text-sm mb-3">E-RYT 500 • 25 Years Teaching • Born in Rishikesh</p>
-                            <p class="text-white/60 font-light leading-relaxed">
-                                Ananda grew up watching her grandmother practice on the ghats of Rishikesh. She trained under three masters across India before teaching at ashrams in Mysore, Pune, and her home city. Her approach weaves traditional Hatha and Ashtanga with the philosophy that made yoga a path to liberation—not just flexibility. She has guided over 2,000 students to their RYT-200 certification.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- The Journey -->
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h2 class="text-xs font-medium text-orange-400/80 uppercase tracking-widest mb-6">The Pilgrimage Route</h2>
-                        <div class="space-y-0">
-                            <div class="journey-stop">
-                                <h3 class="font-semibold text-lg">Delhi</h3>
-                                <p class="text-white/50 text-sm mt-1">Days 1-3 • Arrival & Acclimatization</p>
-                                <p class="text-white/60 font-light mt-2">Land in India's vibrant capital. Settle into our heritage hotel. Begin morning practice. Walk through Old Delhi's ancient lanes. Prepare your mind and body for the journey ahead.</p>
-                            </div>
-                            <div class="journey-stop highlight">
-                                <h3 class="font-semibold text-lg">Rishikesh</h3>
-                                <p class="text-white/50 text-sm mt-1">Days 4-17 • Core 200-Hour Training</p>
-                                <p class="text-white/60 font-light mt-2">The yoga capital of the world. Train at a traditional ashram overlooking the Ganges. 6AM and 4PM practice. Study asana, pranayama, meditation, anatomy, philosophy. Attend the nightly Ganga Aarti ceremony. This is where Beatles came seeking enlightenment.</p>
-                            </div>
-                            <div class="journey-stop highlight">
-                                <h3 class="font-semibold text-lg">Dharamsala</h3>
-                                <p class="text-white/50 text-sm mt-1">Days 18-24 • Tibetan Teachings</p>
-                                <p class="text-white/60 font-light mt-2">Home of the Dalai Lama and Tibetan government-in-exile. Study Buddhist philosophy with resident monks. Practice in Himalayan mountain air. Attend a public teaching—potential audience with His Holiness depending on schedule.</p>
-                            </div>
-                            <div class="journey-stop">
-                                <h3 class="font-semibold text-lg">Delhi</h3>
-                                <p class="text-white/50 text-sm mt-1">Days 25-27 • Integration & Ceremony</p>
-                                <p class="text-white/60 font-light mt-2">Return transformed. Final teaching practice. Certification ceremony. Farewell dinner with your cohort—bonds forged for life. Departure with your Yoga Alliance credentials.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h2 class="text-xs font-medium text-orange-400/80 uppercase tracking-widest mb-6">Sacred Experiences</h2>
-                        <div class="space-y-4">
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Ganga Aarti at Triveni Ghat</h4>
-                                <p class="text-white/50 text-sm">Nightly fire ceremony on the Ganges. Thousands of flames float downstream. Ancient chants fill the air. Witness devotion that has continued unbroken for millennia.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Beatles Ashram</h4>
-                                <p class="text-white/50 text-sm">Meditate where John, Paul, George, and Ringo wrote the White Album. Now reclaimed by the jungle—a spiritual time capsule.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Dalai Lama Temple Complex</h4>
-                                <p class="text-white/50 text-sm">Morning kora (circumambulation) with Tibetan pilgrims. Butter tea with monks. Teachings on compassion in the temple where he lives.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Himalayan Sunrise Practice</h4>
-                                <p class="text-white/50 text-sm">Practice asana as the sun rises over snow-capped peaks. At 6,000 feet, the air is pure, the silence complete.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- What's Included -->
-                <div>
-                    <h2 class="text-xs font-medium text-orange-400/80 uppercase tracking-widest mb-6">Everything Included</h2>
-                    <div class="grid md:grid-cols-2 gap-x-12">
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Yoga Alliance RYT-200 certification (200+ contact hours)</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">All accommodation (ashram + boutique hotels)</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Three vegetarian meals daily (sattvic cuisine)</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">All internal transport (Delhi-Rishikesh-Dharamsala-Delhi)</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Dalai Lama public teaching access</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">All excursions and temple visits</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Yoga materials and course manuals</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Airport transfers and cohort coordination</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA -->
-                <div class="glass-strong rounded-3xl p-10 md:p-16 text-center">
-                    <p class="text-orange-400/60 text-sm tracking-widest uppercase mb-4">Next Pilgrimage: February 2026</p>
-                    <h2 class="text-3xl md:text-4xl font-semibold mb-4">$5,500</h2>
-                    <p class="text-white/50 mb-8">25-28 days • All-inclusive • 10-12 participants</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform" target="_blank"
-                       class="inline-flex items-center gap-3 px-10 py-5 bg-orange-500 text-black font-semibold rounded-full hover:bg-orange-400 transition-all duration-300 hover:scale-105">
-                        Begin Your Pilgrimage
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                    <p class="text-white/30 text-sm mt-6">$1,000 deposit to secure • Balance due 60 days before</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SAILING ODYSSEY MODAL -->
-    <div id="sailing-modal" class="modal-overlay" onclick="if(event.target === this) closeModal('sailing-modal')">
-        <div class="modal-close" onclick="closeModal('sailing-modal')">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </div>
-        <div class="modal-content">
-            <!-- Hero -->
-            <div class="modal-hero">
-                <img src="https://images.unsplash.com/photo-1500514966906-fe245eea9344?w=1600&q=80" alt="Sailing yacht on Atlantic passage">
-                <div class="modal-hero-overlay"></div>
-                <div class="modal-hero-content">
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="exp-badge badge-adventure">Ocean Passage</span>
-                        <span class="exp-badge badge-certified">RYA Certified</span>
-                        <span class="exp-badge badge-immersive">Live Aboard</span>
-                        <span class="exp-badge badge-elite">Career Launchpad</span>
-                    </div>
-                    <p class="text-cyan-400 text-sm font-medium tracking-widest uppercase mb-3">Gibraltar → Canary Islands • 21-90 Days</p>
-                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Ocean Sailing Odyssey</h1>
-                    <p class="text-xl md:text-2xl text-white/70 font-light max-w-2xl">
-                        From landlubber to RYA Yachtmaster. Navigate by stars. Command night watches. Earn the credentials to skipper anywhere on Earth.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Content -->
-            <div class="px-6 md:px-16 py-16 space-y-16">
-
-                <!-- Opening Statement -->
-                <div class="max-w-3xl">
-                    <p class="text-2xl md:text-3xl font-light leading-relaxed text-white/80">
-                        It's 3 AM. The North Star hangs above the bow. Your crew sleeps below as you helm through 15-foot swells, 200 miles from the nearest land. In this moment, you're not learning to sail—you're becoming a sailor.
-                    </p>
-                </div>
-
-                <!-- Three Tracks -->
-                <div>
-                    <h2 class="text-xs font-medium text-cyan-400/80 uppercase tracking-widest mb-6">Choose Your Track</h2>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="glass rounded-2xl p-8 border border-white/10">
-                            <p class="text-cyan-400/60 text-xs uppercase tracking-widest mb-3">Foundation</p>
-                            <h3 class="text-2xl font-bold mb-2">Day Skipper</h3>
-                            <p class="text-3xl font-light text-white/80 mb-4">$6,500</p>
-                            <p class="text-white/50 text-sm mb-6">21 days • Entry point for new sailors. Master the fundamentals. Skipper in daylight, familiar waters.</p>
-                            <p class="text-white/40 text-xs">RYA Day Skipper Certification</p>
-                        </div>
-                        <div class="glass-strong rounded-2xl p-8 border border-cyan-400/30 relative overflow-hidden">
-                            <div class="absolute top-4 right-4 bg-cyan-400 text-black text-xs font-bold px-3 py-1 rounded-full">POPULAR</div>
-                            <p class="text-cyan-400/60 text-xs uppercase tracking-widest mb-3">Mastery</p>
-                            <h3 class="text-2xl font-bold mb-2">Coastal Skipper</h3>
-                            <p class="text-3xl font-light text-white/80 mb-4">$14,000</p>
-                            <p class="text-white/50 text-sm mb-6">45 days • Full coastal competence. Night passages. Crew management. Chart work. Weather routing.</p>
-                            <p class="text-white/40 text-xs">RYA Coastal Skipper Certification</p>
-                        </div>
-                        <div class="glass rounded-2xl p-8 border border-white/10">
-                            <p class="text-cyan-400/60 text-xs uppercase tracking-widest mb-3">Complete Odyssey</p>
-                            <h3 class="text-2xl font-bold mb-2">Yachtmaster</h3>
-                            <p class="text-3xl font-light text-white/80 mb-4">$28,000</p>
-                            <p class="text-white/50 text-sm mb-6">90 days • The full journey. Ocean passages. Celestial navigation. Command certification. Career ready.</p>
-                            <p class="text-white/40 text-xs">RYA Yachtmaster Offshore Certification</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stats Row -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="stat-box">
-                        <div class="stat-value">800+</div>
-                        <p class="text-white/50 text-sm mt-2">Nautical Miles</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">6-8</div>
-                        <p class="text-white/50 text-sm mt-2">Per Yacht</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">45ft</div>
-                        <p class="text-white/50 text-sm mt-2">Bluewater Cruisers</p>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value">50+</div>
-                        <p class="text-white/50 text-sm mt-2">Countries Accept RYA</p>
-                    </div>
-                </div>
-
-                <!-- Instructor -->
-                <div>
-                    <h2 class="text-xs font-medium text-cyan-400/80 uppercase tracking-widest mb-6">Your Captain</h2>
-                    <div class="instructor-card">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80" alt="Captain James Whitmore" class="instructor-photo">
-                        <div>
-                            <h3 class="text-xl font-semibold mb-1">Captain James Whitmore</h3>
-                            <p class="text-cyan-400/80 text-sm mb-3">RYA Yachtmaster Ocean • 40,000+ NM Logged • Former ARC Rally Skipper</p>
-                            <p class="text-white/60 font-light leading-relaxed">
-                                James crossed his first ocean at 22 and never looked back. He's skippered Atlantic crossings for the ARC rally, delivered yachts from Cape Town to the Caribbean, and trained over 300 sailors to RYA certification. His calm in storms is legendary—because he's seen everything the ocean can throw. He teaches through trust: you will helm in conditions that scare you, and you will emerge confident.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- The Journey -->
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h2 class="text-xs font-medium text-cyan-400/80 uppercase tracking-widest mb-6">The Passage</h2>
-                        <div class="space-y-0">
-                            <div class="journey-stop highlight">
-                                <h3 class="font-semibold text-lg">Gibraltar</h3>
-                                <p class="text-white/50 text-sm mt-1">Days 1-5 • Safety, Systems, Seamanship</p>
-                                <p class="text-white/60 font-light mt-2">Where the Mediterranean meets the Atlantic. Learn the boat inside-out. Safety drills until they're muscle memory. First day sails in the strait—one of the world's busiest shipping lanes.</p>
-                            </div>
-                            <div class="journey-stop">
-                                <h3 class="font-semibold text-lg">Portuguese Coast</h3>
-                                <p class="text-white/50 text-sm mt-1">Days 6-14 • Coastal Navigation</p>
-                                <p class="text-white/60 font-light mt-2">Your first overnight passages. Lagos, Sagres (where Henry the Navigator planned his expeditions), Lisbon. Learn to read weather windows. Night watches begin—3 AM helm with only stars for company.</p>
-                            </div>
-                            <div class="journey-stop highlight">
-                                <h3 class="font-semibold text-lg">Open Atlantic</h3>
-                                <p class="text-white/50 text-sm mt-1">Days 15-18 • Ocean Passage</p>
-                                <p class="text-white/60 font-light mt-2">600 nautical miles to Madeira. No land for 4 days. This is where sailors are made. Celestial navigation. Watch rotations. Self-reliance. You'll see why ancient mariners called this the Wine Dark Sea.</p>
-                            </div>
-                            <div class="journey-stop">
-                                <h3 class="font-semibold text-lg">Canary Islands</h3>
-                                <p class="text-white/50 text-sm mt-1">Days 19-21+ • Arrival & Certification</p>
-                                <p class="text-white/60 font-light mt-2">Tenerife, Gran Canaria, Lanzarote. Island hopping, night sails, final assessments. Your certification exam. Then celebration—you've crossed an ocean under your own command.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h2 class="text-xs font-medium text-cyan-400/80 uppercase tracking-widest mb-6">What You'll Master</h2>
-                        <div class="space-y-4">
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Celestial Navigation</h4>
-                                <p class="text-white/50 text-sm">Navigate by sun, moon, and stars. When GPS fails 500 miles offshore, you'll know exactly where you are using a sextant and centuries-old mathematics.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Weather Routing</h4>
-                                <p class="text-white/50 text-sm">Read GRIB files. Understand pressure systems. Time your passages with weather windows. The difference between a pleasant sail and a survival situation.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Night Watch Command</h4>
-                                <p class="text-white/50 text-sm">Solo helm responsibility while your crew sleeps. Collision avoidance. Navigation lights. The profound solitude and alertness of commanding through darkness.</p>
-                            </div>
-                            <div class="glass rounded-xl p-5">
-                                <h4 class="font-medium mb-1">Heavy Weather Sailing</h4>
-                                <p class="text-white/50 text-sm">Reefing in 30 knots. Heaving-to in storms. When to run and when to stand. You'll train for conditions you hope to never see—and know what to do if you do.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Career Outcomes -->
-                <div>
-                    <h2 class="text-xs font-medium text-cyan-400/80 uppercase tracking-widest mb-6">Where This Takes You</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="text-center p-6 glass rounded-xl">
-                            <p class="text-2xl mb-2">⛵</p>
-                            <p class="font-medium">Charter Skipper</p>
-                            <p class="text-white/40 text-xs mt-1">Caribbean, Med, Pacific</p>
-                        </div>
-                        <div class="text-center p-6 glass rounded-xl">
-                            <p class="text-2xl mb-2">🚢</p>
-                            <p class="font-medium">Delivery Captain</p>
-                            <p class="text-white/40 text-xs mt-1">Ocean passages worldwide</p>
-                        </div>
-                        <div class="text-center p-6 glass rounded-xl">
-                            <p class="text-2xl mb-2">🎓</p>
-                            <p class="font-medium">Sailing Instructor</p>
-                            <p class="text-white/40 text-xs mt-1">RYA schools globally</p>
-                        </div>
-                        <div class="text-center p-6 glass rounded-xl">
-                            <p class="text-2xl mb-2">🛥️</p>
-                            <p class="font-medium">Superyacht Crew</p>
-                            <p class="text-white/40 text-xs mt-1">Entry to luxury vessels</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- What's Included -->
-                <div>
-                    <h2 class="text-xs font-medium text-cyan-400/80 uppercase tracking-widest mb-6">Everything Included</h2>
-                    <div class="grid md:grid-cols-2 gap-x-12">
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">RYA certification (Day Skipper, Coastal, or Yachtmaster)</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Live-aboard accommodation on 45-50ft yacht</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">All meals prepared together as crew</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">All marina fees and fuel</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Safety equipment and foul weather gear</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Sextant and navigation instruments use</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">VHF radio license training</span>
-                        </div>
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg class="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <span class="text-white/70">Career placement assistance</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA -->
-                <div class="glass-strong rounded-3xl p-10 md:p-16 text-center">
-                    <p class="text-cyan-400/60 text-sm tracking-widest uppercase mb-4">Next Departure: April 2026</p>
-                    <h2 class="text-3xl md:text-4xl font-semibold mb-4">From $6,500</h2>
-                    <p class="text-white/50 mb-8">21-90 days • Live-aboard • 6-8 per yacht</p>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform" target="_blank"
-                       class="inline-flex items-center gap-3 px-10 py-5 bg-cyan-400 text-black font-semibold rounded-full hover:bg-cyan-300 transition-all duration-300 hover:scale-105">
-                        Set Sail
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                    <p class="text-white/30 text-sm mt-6">$1,500 deposit to secure • Balance due 60 days before</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal JavaScript -->
+    <!-- Scripts -->
     <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-            document.body.style.overflow = '';
-        }
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-        // Close on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-                    modal.classList.remove('active');
-                });
-                document.body.style.overflow = '';
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.story-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll for chapter links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
-
 </body>
 </html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What We Offer — EducatedTraveler</title>
+
+    <!-- Link Preview -->
+    <meta name="description" content="Certified skill immersions at the source. Real credentials from PADI, RYA, Yoga Alliance, WSET. What makes us different.">
+    <meta property="og:title" content="What We Offer — EducatedTraveler">
+    <meta property="og:description" content="The only platform offering certified skill immersions at the source, taught by masters, in transformative cohorts.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #0a0a0a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        /* Fade animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+        .comparison-card {
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-xl font-semibold tracking-tight">
+                Educated<span class="text-cyan-400">Traveler</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="/" class="text-sm text-white/60 hover:text-white transition-colors">My Story</a>
+                <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">The Vision</a>
+                <a href="offerings.html" class="text-sm text-white hover:text-white transition-colors">What We Offer</a>
+                <a href="mailto:ceo-educatedtraveler@pm.me" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    Get in Touch
+                </a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-white/60">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="/" class="block py-2 text-white/60 hover:text-white">My Story</a>
+            <a href="vision.html" class="block py-2 text-white/60 hover:text-white">The Vision</a>
+            <a href="offerings.html" class="block py-2 text-white hover:text-white">What We Offer</a>
+            <a href="mailto:ceo-educatedtraveler@pm.me" class="block py-2 text-white/60 hover:text-white">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6 fade-up">What We Offer</p>
+            <h1 class="font-serif text-4xl md:text-6xl mb-8 fade-up delay-1">
+                Something That<br>
+                <span class="text-white/70 italic">Didn't Exist Before</span>
+            </h1>
+            <p class="text-xl text-white/70 max-w-2xl mx-auto fade-up delay-2">
+                The only platform offering certified skill immersions at the source,
+                taught by masters, in transformative cohorts.
+            </p>
+        </div>
+    </section>
+
+    <!-- The USP Stack -->
+    <section class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-serif text-3xl md:text-4xl mb-4 text-center">The 5 Elements</h2>
+            <p class="text-white/60 text-center mb-16 max-w-xl mx-auto">
+                No competitor combines all five. That's what makes us different.
+            </p>
+
+            <div class="grid md:grid-cols-5 gap-4">
+                <div class="feature-card glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Certified</h3>
+                    <p class="text-white/50 text-sm">Real credentials from recognized bodies</p>
+                </div>
+
+                <div class="feature-card glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">At Source</h3>
+                    <p class="text-white/50 text-sm">Learn where the skill was born</p>
+                </div>
+
+                <div class="feature-card glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Masters</h3>
+                    <p class="text-white/50 text-sm">Decades of expertise, not followers</p>
+                </div>
+
+                <div class="feature-card glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Cohorts</h3>
+                    <p class="text-white/50 text-sm">8-12 people, lifelong bonds</p>
+                </div>
+
+                <div class="feature-card glass rounded-2xl p-6 text-center">
+                    <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Immersive</h3>
+                    <p class="text-white/50 text-sm">Full-time focus, not weekends</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="py-20 px-6 bg-gradient-to-b from-transparent via-slate-900/20 to-transparent">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-serif text-3xl md:text-4xl mb-4 text-center">The Gap We Fill</h2>
+            <p class="text-white/60 text-center mb-16 max-w-xl mx-auto">
+                Between "watch a video" and "quit your job for culinary school"
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- What exists -->
+                <div>
+                    <h3 class="text-white/40 text-sm uppercase tracking-widest mb-6">What exists</h3>
+                    <div class="space-y-4">
+                        <div class="comparison-card glass rounded-xl p-5">
+                            <h4 class="text-white font-medium mb-2">Online Courses</h4>
+                            <p class="text-white/50 text-sm">Masterclass, Skillshare, Udemy</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">No credentials</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">No immersion</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">10% completion</span>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card glass rounded-xl p-5">
+                            <h4 class="text-white font-medium mb-2">Tourist Experiences</h4>
+                            <p class="text-white/50 text-sm">3-hour cooking class, day trips</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">No depth</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">Forgotten in a week</span>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card glass rounded-xl p-5">
+                            <h4 class="text-white font-medium mb-2">Traditional Schools</h4>
+                            <p class="text-white/50 text-sm">Culinary institutes, sailing academies</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">2-4 years</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">$50-100k</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">Career changers only</span>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card glass rounded-xl p-5">
+                            <h4 class="text-white font-medium mb-2">Wellness Retreats</h4>
+                            <p class="text-white/50 text-sm">Spa vacations, yoga retreats</p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">Relaxation, not transformation</span>
+                                <span class="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">No lasting skills</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EducatedTraveler -->
+                <div>
+                    <h3 class="text-cyan-400 text-sm uppercase tracking-widest mb-6">EducatedTraveler</h3>
+                    <div class="glass rounded-xl p-6 border-cyan-500/30">
+                        <h4 class="text-white font-semibold text-xl mb-4">The Sweet Spot</h4>
+                        <p class="text-white/70 mb-6">
+                            Accessible depth. Real credentials. Life-changing.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white font-medium">Real certifications</p>
+                                    <p class="text-white/50 text-sm">PADI, RYA, Yoga Alliance, WSET</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white font-medium">At the source</p>
+                                    <p class="text-white/50 text-sm">Tokyo, India, Atlantic Ocean, French vineyards</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white font-medium">Total immersion</p>
+                                    <p class="text-white/50 text-sm">7 days to 6 months of full focus</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white font-medium">Cohort community</p>
+                                    <p class="text-white/50 text-sm">8-12 people who become lifelong friends</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-5 h-5 rounded-full bg-cyan-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <svg class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-white font-medium">Accessible timeline</p>
+                                    <p class="text-white/50 text-sm">One week to get certified. Six months to change your life.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Duration Spectrum -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-serif text-3xl md:text-4xl mb-4 text-center">Choose Your Depth</h2>
+            <p class="text-white/60 text-center mb-16 max-w-xl mx-auto">
+                Whatever time you have. Whatever transformation you're ready for.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-8 text-center">
+                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-4">Foundation</p>
+                    <p class="text-4xl font-light text-white mb-2">7-21 days</p>
+                    <p class="text-white/60 mb-6">Get certified</p>
+                    <div class="text-left space-y-2 text-sm text-white/50">
+                        <p>PADI diving certification</p>
+                        <p>RYA sailing foundations</p>
+                        <p>WSET wine credentials</p>
+                        <p>Yoga Alliance basics</p>
+                    </div>
+                    <p class="mt-6 text-white/40 text-sm">$3,500 - $6,500</p>
+                </div>
+
+                <div class="glass rounded-2xl p-8 text-center border-cyan-500/30">
+                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-4">Mastery</p>
+                    <p class="text-4xl font-light text-white mb-2">1-2 months</p>
+                    <p class="text-white/60 mb-6">Go deeper</p>
+                    <div class="text-left space-y-2 text-sm text-white/50">
+                        <p>Sushi mastery in Tokyo</p>
+                        <p>Yoga pilgrimage in India</p>
+                        <p>RYA Day Skipper</p>
+                        <p>Advanced culinary arts</p>
+                    </div>
+                    <p class="mt-6 text-white/40 text-sm">$9,500 - $12,000</p>
+                </div>
+
+                <div class="glass rounded-2xl p-8 text-center">
+                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-4">Transformation</p>
+                    <p class="text-4xl font-light text-white mb-2">3-6 months</p>
+                    <p class="text-white/60 mb-6">Change your life</p>
+                    <div class="text-left space-y-2 text-sm text-white/50">
+                        <p>Atlantic ocean crossing</p>
+                        <p>Full Yachtmaster certification</p>
+                        <p>Extended culinary mastery</p>
+                        <p>Multiple skill combinations</p>
+                    </div>
+                    <p class="mt-6 text-white/40 text-sm">$25,000 - $40,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="py-20 px-6 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-serif text-3xl md:text-4xl mb-4 text-center">Credentials That Matter</h2>
+            <p class="text-white/60 text-center mb-16 max-w-xl mx-auto">
+                Real certifications from real bodies. Not participation trophies.
+            </p>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass rounded-xl p-6 text-center">
+                    <p class="text-2xl font-semibold text-white mb-2">PADI</p>
+                    <p class="text-white/50 text-sm">Professional Association of Diving Instructors</p>
+                    <p class="text-white/30 text-xs mt-4">Open Water to Divemaster</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <p class="text-2xl font-semibold text-white mb-2">RYA</p>
+                    <p class="text-white/50 text-sm">Royal Yachting Association</p>
+                    <p class="text-white/30 text-xs mt-4">Day Skipper to Yachtmaster</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <p class="text-2xl font-semibold text-white mb-2">Yoga Alliance</p>
+                    <p class="text-white/50 text-sm">International Yoga Registry</p>
+                    <p class="text-white/30 text-xs mt-4">RYT-200 to E-RYT 500</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <p class="text-2xl font-semibold text-white mb-2">WSET</p>
+                    <p class="text-white/50 text-sm">Wine & Spirit Education Trust</p>
+                    <p class="text-white/30 text-xs mt-4">Level 2 to Level 4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner With Us -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-serif text-3xl md:text-4xl mb-4 text-center">Partner With Us</h2>
+            <p class="text-white/60 text-center mb-16 max-w-xl mx-auto">
+                We're building a network of masters, venues, and certification partners worldwide.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Instructors</h3>
+                    <p class="text-white/60 text-sm mb-4">
+                        You've spent decades mastering your craft. We bring you students who actually want to learn.
+                    </p>
+                    <p class="text-white/40 text-xs">Fair compensation. Handled logistics. Serious students.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Venues</h3>
+                    <p class="text-white/60 text-sm mb-4">
+                        Premium clients who stay longer, spend more, and treat properties with respect.
+                    </p>
+                    <p class="text-white/40 text-xs">Guaranteed bookings. Long-term partnerships.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Certification Bodies</h3>
+                    <p class="text-white/60 text-sm mb-4">
+                        Volume candidates, quality students, co-marketing opportunities.
+                    </p>
+                    <p class="text-white/40 text-xs">Authorized center partnerships.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="mailto:ceo-educatedtraveler@pm.me" class="cta-button inline-block px-8 py-4 rounded-full text-white font-medium">
+                    Let's Talk Partnership
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="font-serif text-3xl md:text-4xl mb-6">Ready to Begin?</h2>
+            <p class="text-xl text-white/70 mb-8">
+                Whether you want to get certified in a week or transform your life over six months,
+                the path starts with a conversation.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="vision.html" class="cta-button px-8 py-4 rounded-full text-white font-medium text-lg">
+                    See the Vision
+                </a>
+                <a href="mailto:ceo-educatedtraveler@pm.me" class="px-8 py-4 rounded-full border border-white/20 text-white font-medium text-lg hover:bg-white/10 transition-colors">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <p class="text-xl font-semibold mb-2">
+                        Educated<span class="text-cyan-400">Traveler</span>
+                    </p>
+                    <p class="text-white/40 text-sm">Skills last, tans fade.</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="/" class="text-white/60 hover:text-white text-sm transition-colors">My Story</a>
+                    <a href="vision.html" class="text-white/60 hover:text-white text-sm transition-colors">The Vision</a>
+                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/60 hover:text-white text-sm transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-white/5 text-center">
+                <p class="text-white/30 text-xs">
+                    2026 EducatedTraveler. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
