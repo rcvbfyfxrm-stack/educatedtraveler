@@ -10,7 +10,7 @@ From 10-second hooks to 10-minute deep dives. Every version of the story, crafte
 ### 10 Seconds — The Hook
 ```
 "We send people to master real skills where they were born—
-sushi in Tokyo, sailing in Gibraltar, yoga at the Ganges.
+sushi in Tokyo, sailing across the Atlantic, yoga at the Ganges.
 They come back certified, transformed, and connected for life."
 ```
 
@@ -22,9 +22,8 @@ cut it, and figuring out how to actually do it is overwhelming.
 
 EducatedTraveler solves this. We run certified skill adventures
 at the source—30 days training sushi under a Michelin master
-in Tokyo, earning your RYA sailing license crossing from
-Gibraltar to the Canaries, getting your yoga certification
-where yoga was born.
+in Tokyo, earning your RYA sailing license crossing the Atlantic
+Ocean, getting your yoga certification where yoga was born.
 
 Small cohorts. Real credentials. Transformation guaranteed.
 One week to get certified. Six months to change your life."
@@ -41,7 +40,7 @@ By day 30, you're not a tourist who took a cooking class—you're
 a certified sushi chef with your own knife set, relationships
 at the fish market, and skills you'll have forever.
 
-That's what we do. Yoga in India. Sailing from Gibraltar.
+That's what we do. Yoga in India. Sailing across the Atlantic.
 Freediving in Egypt. Real certifications—PADI, RYA, Yoga Alliance—
 earned at the source, with masters who've dedicated their lives
 to the craft.
@@ -322,7 +321,7 @@ We built it. It took years. And it works."
 ```
 "Right now, we run a handful of experiences in select
 destinations. Sushi in Tokyo. Yoga in India. Sailing
-from Gibraltar.
+across the Atlantic.
 
 Here's where this goes:
 
@@ -446,7 +445,7 @@ usually logistics, not motivation.
 
 EducatedTraveler closes that gap. We run certified skill
 immersions at the source—sushi mastery in Tokyo, yoga
-certification in India, sailing licenses from Gibraltar.
+certification in India, sailing licenses crossing the Atlantic.
 
 Real credentials. Total immersion. Cohorts who become
 family.
