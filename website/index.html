@@ -273,21 +273,34 @@
                 <span class="text-white">at the source.</span>
             </p>
 
-            <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
+            <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
                 <input type="hidden" name="form-name" value="waitlist">
                 <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        required
-                        class="flex-1 px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-cyan-400/50 transition-all"
-                    >
-                    <button type="submit" class="cta-button px-8 py-4 rounded-full text-white font-medium whitespace-nowrap">
-                        Join Waitlist
-                    </button>
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                    class="w-full px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-cyan-400/50 transition-all"
+                >
+
+                <div class="text-left space-y-3">
+                    <p class="text-white/50 text-sm">I want to:</p>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" name="interest" value="waitlist" class="w-4 h-4 rounded bg-white/5 border-white/20 text-cyan-500 focus:ring-cyan-500/50">
+                        <span class="text-white/70 text-sm group-hover:text-white transition-colors">Join the waitlist for adventures</span>
+                    </label>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" name="interest" value="build" class="w-4 h-4 rounded bg-white/5 border-white/20 text-cyan-500 focus:ring-cyan-500/50">
+                        <span class="text-white/70 text-sm group-hover:text-white transition-colors">Help build the project</span>
+                    </label>
                 </div>
+
+                <button type="submit" class="cta-button w-full px-8 py-4 rounded-full text-white font-medium">
+                    Join
+                </button>
+
                 <p class="text-white/30 text-sm">Early access + founding member pricing. No spam.</p>
             </form>
         </div>
