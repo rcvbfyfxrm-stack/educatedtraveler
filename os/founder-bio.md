@@ -1,25 +1,23 @@
 # Founder Bio
-## *The Path That Built EducatedTraveler*
+## *The People and Places That Taught Me*
 
 ---
 
 ## The Short Version (50 words)
 
-I left France at 18 to learn by living. 50,000+ nautical miles. Kitchens on three continents. Himalayan summits. Freedives in Indonesian waters. Every credential earned at the source—RYA, WSET, PADI. Now I build the platform I wish existed: certified skill adventures where mastery was born.
+I left France at 18 to learn by doing. 50,000+ nautical miles sailed—taught by captains who became mentors. Kitchens on three continents—guided by chefs who shared everything. Trails, oceans, markets, ashrams. The people I met along the way shaped who I am. EducatedTraveler exists to create those connections for others.
 
 ---
 
 ## The Medium Version (150 words)
 
-At 18, I walked away from a science degree in France. Not because I didn't want to learn—because I wanted to learn differently.
+At 18, I got my Bac in science and left France. Not because I had answers—because I had questions that classrooms couldn't touch.
 
-What followed was a decade of deliberate immersion. I sailed 50,000+ nautical miles across the Atlantic, Pacific, Mediterranean, and beyond. I trained in Michelin kitchens, then became a chef on the world's finest superyachts. I earned my RYA in Thailand, my WSET cycling through French vineyards, my diving credentials in waters from the Galápagos to Indonesia.
+What followed wasn't a solo journey. It was a decade of being taught by remarkable people. Captains who trusted me with night watches and showed me how to read the sea. Chefs who let me into their kitchens and shared techniques passed down through generations. Freedivers who taught me that the ocean reveals who you are. Trekkers on Himalayan trails who knew plants, paths, and patience I'd never find in books.
 
-I trekked to Annapurna Base Camp. Raced blue-water sailboats. Freedived with masters who taught breath, not just depth. Every skill came from the source—learned where the knowledge lived, from people who had dedicated their lives to it.
+I sailed 50,000+ miles because people believed in me before I believed in myself. I cooked on superyachts because mentors opened doors. Every skill I have came from someone generous enough to teach me.
 
-EducatedTraveler is the company I wish existed when I started. Real credentials. Total immersion. Transformation at the source.
-
-*Skills last, tans fade.*
+EducatedTraveler connects those teachers with those ready to learn. That's all it is.
 
 ---
 
@@ -34,159 +32,164 @@ Then I did something my classmates didn't understand.
 I left.
 ```
 
-Not to another university. Not to a gap year resort. To Australia—to work, to learn, to discover what I was made of when nobody was watching.
+Not because I was special. Because I was restless. Traditional academia felt like watching life through a window. I wanted to be in it.
 
-The classroom had given me formulas. The world gave me fire.
+Australia was the first stop. I showed up with not much more than curiosity and willingness to work. I found kitchens that would have me, and I started cooking—badly at first, then less badly, then with something resembling competence.
 
-I started cooking in Australian kitchens where speed and precision weren't grades—they were survival. I learned that skills aren't acquired in theory. They're forged in pressure, repetition, and the humility of being terrible before becoming good.
+What I didn't expect: the people. Chefs who had no reason to teach me but did anyway. Travelers who shared roads and stories. Locals who showed me their country through their eyes, not a guidebook.
 
-That first year taught me everything I'd build my life around: **Go to the source. Learn from masters. Earn it firsthand.**
+That first year taught me something I've never forgotten: **the best teachers aren't in institutions. They're in the world, doing the work, willing to share if you're willing to listen.**
 
 ---
 
 ### II. The Kitchens
 
-My culinary education happened in places that didn't hand out diplomas.
+I didn't set out to become a chef. I set out to eat, and cooking was how I could afford to.
 
-**France**: Training under Michelin-starred chefs who accepted nothing less than perfection. Learning that a sauce isn't a recipe—it's a philosophy. Understanding that French cuisine isn't about ingredients; it's about discipline, tradition, and the arrogance to believe food can be art.
+But kitchens became classrooms.
 
-**Southeast Asia**: Night markets in Bangkok where a grandmother's pad thai taught me more about balance than any textbook. Vietnamese kitchens where pho simmers for 24 hours because shortcuts insult the craft. Malaysian hawker stalls where chefs have made the same dish for 40 years—and it's perfect every time.
+**France**: I was lucky enough to train under chefs who had spent their lives perfecting their craft. They were demanding—sometimes brutally so—but they shared everything. Not just recipes. Philosophy. Standards. The understanding that food carries culture, history, memory.
 
-**The World's Oceans**: As a chef on luxury superyachts, I cooked for guests who had eaten everywhere. My classroom became Provençal fish markets at dawn, Greek harbors where fishermen sold the morning catch dockside, Caribbean islands where the best ingredients had no labels.
+**Southeast Asia**: The real education happened in markets and street stalls. A grandmother in Bangkok who let me watch her make pad thai the same way she'd made it for 40 years. A pho vendor in Vietnam who explained that the broth was her grandmother's recipe, simmered the same way for three generations. They didn't have to share. They chose to.
 
-I learned that world cuisine isn't a category. It's a lifetime. And the only way to understand it is to go where it lives.
+**The Superyachts**: Working as a chef on luxury vessels taught me precision under pressure. But more than that, it taught me sourcing—showing up at dawn in Provençal markets, learning which fisherman to trust in Greek harbors, understanding that ingredients have stories.
+
+Every kitchen I entered, someone took the time to teach me. I was the student far more often than the expert. That never changed.
 
 ---
 
-### III. The Ocean
+### III. The Wine
 
-Sailing found me in Thailand.
+I got my WSET certification in Paris. The classroom gave me vocabulary, structure, theory.
 
-I earned my RYA Day Skipper there—not because it was convenient, but because I wanted to feel the tropics while I learned. The certification was just paper. The real education came later.
+But where I really learned wine was different.
 
-At 22, I joined my first sailboat. The owner was the captain, the engineer, the navigator—everything. He taught me that the ocean doesn't care about your credentials. It cares about your judgment, your preparation, your ability to stay calm when the weather turns.
+For a month, I cycled through the vineyards of the South of France. Village to village. Winemaker to winemaker. Tasting rooms where the person pouring was the person who grew the grapes, crushed them, waited years for the result.
+
+They told me about soil and sun and generations of family knowledge. They let me taste wines that never left the region. They explained why this hill produced something different than the hill across the road.
+
+No certification teaches that. Only the source does. Only the people who live it.
+
+---
+
+### IV. The Ocean
+
+Sailing started with a dream—the kind you get from reading navigator books, imagining yourself at the helm crossing oceans.
+
+But the dream became real in Sydney.
+
+I crewed on a regatta sailboat in the bay, and the moment I stepped on that deck, everything changed. The heel of the boat. The coordination of the crew. The way the wind wasn't an obstacle but a language you could learn to speak.
+
+I wanted more.
+
+I earned my RYA Day Skipper in Thailand—where warm water and steady winds made learning feel like living. Then I joined my first long-passage sailboat at 22. The owner was also the captain, the engineer, the navigator. He did everything, and he taught me while he did it.
+
+**That man changed my life.** Not through formal instruction. Through patience, trust, and letting me make mistakes when the stakes were low so I wouldn't make them when the stakes were high.
 
 What followed:
 
-**50,000+ nautical miles** across the Mediterranean, the Atlantic, the Pacific, Thailand's waters, and passages most sailors only read about.
+- **50,000+ nautical miles** across the Mediterranean, Atlantic, Pacific, and Thailand's waters
+- **Blue-water racing** where I learned that teamwork under pressure reveals character
+- **Night watches** where senior sailors taught me to read stars and swells
+- **Passages** where the only teacher was the sea itself
 
-**Blue-water racing** on ocean sailboats where every second matters and mistakes cost races—or worse.
-
-**Night watches** where the only navigation was stars and swells, where I learned that technology fails but seamanship doesn't.
-
-**Regattas in Australia. Crossings to the Caribbean. Passages where land disappeared for weeks.**
-
-The ocean taught me that competence is earned in conditions, not classrooms. That real sailors are made by the sea, not by simulators. That there is no substitute for being there.
+Every captain I sailed with gave me something. A technique. A story. A way of seeing. I collected mentors the way some people collect stamps.
 
 ---
 
-### IV. The Depths
+### V. The Depths
 
-Freediving came in Thailand and Indonesia.
+Freediving found me in Thailand and Indonesia.
 
-Not the tourist version—the real practice. Learning to descend on a single breath. Understanding that the ocean's pressure reveals who you are. Discovering that mastery of depth is mastery of mind.
+The instructors weren't just teaching breath-holding. They were teaching presence. The ability to be completely where you are—not thinking about the surface, not thinking about depth, just being in the moment between breaths.
 
-In the Galápagos, I scuba dived with sharks. Not in a cage. In open water, where respect for the animal is the only protection. That kind of experience doesn't exist in most people's reality. It exists at the source—where the wild things are, with guides who've spent decades understanding them.
+In the Galápagos, I dove with sharks. Not in a cage. In open water, guided by people who had spent years understanding these animals. They taught me that fear is information, and respect is the only real protection.
 
-Every dive reinforced what I already knew: **The simulation is not the thing. The thing is the thing.**
-
----
-
-### V. The Mountains
-
-The Himalayas called, and I answered.
-
-Weeks of trekking. The Annapurna Circuit. Base camp at 4,130 meters, where the air is thin and the views are earned.
-
-I met photographers on India's mountain roads who taught light to anyone willing to listen. Hikers who knew every medicinal plant on the trail. Holy men who had renounced everything except wisdom.
-
-India, especially, changed me. The difference of culture. The philosophies that had no Western equivalent. The spirituality that wasn't performed but lived. The human contact—real, unhurried, profound. The art that came from traditions older than my country's history.
-
-I traveled all over: the chaos of Delhi, the ghats of Varanasi, the backwaters of Kerala, the mountains of Ladakh. Each place revealed that the world contains infinitely more than any single culture can imagine.
+Every dive instructor I trained with shared something beyond technique. They shared relationship—with the water, with breath, with the creatures we visited.
 
 ---
 
-### VI. The Accumulation
+### VI. The Mountains
 
-By my late twenties, I had:
+The Himalayas humbled me.
 
-- **Sailed 50,000+ nautical miles** across every major ocean
-- **Cooked in kitchens** from Michelin-starred to midnight market stalls
-- **Earned certifications** at the source: RYA, WSET (after cycling vineyard to vineyard in the South of France), PADI
-- **Freedived** in the waters where the sport was perfected
-- **Trekked** the world's great ranges
-- **Windsurfed** in Cape Verde and the Caribbean
-- **Raced** sailboats competitively in Australia
-- **Worked as a superyacht chef** on some of the finest vessels afloat
-- **Explored** India, Mexico, Brazil, Panama, Vietnam, Thailand, Cambodia, Australia, New Zealand, Nepal, Costa Rica, Malaysia, Singapore, and everywhere in between
+Weeks of trekking to Annapurna Base Camp. 4,130 meters. Thin air and thick gratitude.
 
-Not as tourism. As education. As transformation. As proof that learning at the source is different—fundamentally, irreversibly different—from learning anywhere else.
+But the mountain wasn't the teacher. The people were.
+
+On India's roads, I met a photographer who stopped for anyone willing to learn about light. On the trails, hikers who knew every plant, every shortcut, every story of the villages we passed. In ashrams, teachers who had renounced everything except the willingness to share what they'd learned.
+
+India especially marked me. The spirituality wasn't performance—it was life. The human contact was unhurried, real. People took time. They asked questions. They listened to answers.
+
+I traveled all over: the chaos of Delhi, the ghats of Varanasi, the backwaters of Kerala, the mountains of Ladakh. Each place, someone taught me something I couldn't have learned anywhere else.
 
 ---
 
-### VII. The Realization
+### VII. The Pattern
 
-Somewhere in all those miles, a pattern emerged.
+Somewhere in all those miles, I noticed something.
 
-Every skill I valued had come the same way: **from masters, at the source, through total immersion.**
+Every skill I valued—sailing, cooking, diving, wine—had come the same way:
 
-Not from courses I half-finished. Not from YouTube videos I watched at 2 AM. Not from retreats that promised transformation and delivered relaxation.
+**From a person. At a place. Through generous teaching.**
 
-From the real thing. The hard thing. The thing that demanded I show up completely.
+Not from courses I took alone. Not from videos I watched at 2 AM. From human beings who knew something deeply and chose to share it.
 
-And I realized: most people want this. They dream of mastering something real. But the logistics defeat them. The complexity overwhelms them. The risk of wasting time and money paralyzes them.
+The captains who let me helm through the night. The chefs who showed me their mother's recipe. The freedivers who taught me to trust my breath. The winemakers who poured from bottles they'd never sell.
 
-So they book another beach vacation and tell themselves "someday."
+These connections made me who I am.
 
-**EducatedTraveler is the end of someday.**
-
----
-
-### VIII. The Mission
-
-I built EducatedTraveler to be the platform I wished existed when I was 18.
-
-**Real certifications**: PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu—credentials that open doors, not participation trophies.
-
-**Source authenticity**: Tokyo fish markets, Rishikesh ashrams, Atlantic passages, French vineyards. Learn where the knowledge was born.
-
-**Master instruction**: People who've dedicated decades to their craft, not influencers with followings.
-
-**Cohort community**: 8-12 people who become bonded through shared challenge. The way I met the people who changed my life—on the road, on the water, on the trail.
-
-**Accessible depth**: One week to get certified. Six months to change your life. Whatever depth you're ready for.
-
-This isn't luxury tourism dressed as education. It's not gap-year wandering hoping something sticks. It's focused, certified, transformative immersion with masters at the source.
-
-The way I learned. But structured so you don't need a decade to do it.
+And I realized: **most people never get them.** Not because they don't want to learn—because the logistics are impossible. The masters don't advertise. The paths aren't marked. The friction stops people before they start.
 
 ---
 
-### IX. The Philosophy
+### VIII. Why EducatedTraveler Exists
 
-I live at the marrow of life.
+I built EducatedTraveler to create the connections I was lucky enough to find.
 
-Not the surface. Not the simulation. The source.
+That's all it is.
 
-I've always believed that life rewards those who show up completely. Who choose the real thing over the comfortable approximation. Who understand that skills earned at the source become part of who you are—not just what you can do.
+**The masters**: People who've spent decades perfecting their craft and want to pass it on. I know how rare and generous that is. I've been the beneficiary my whole adult life.
 
-**Source before simulation.** That's not a marketing line. It's how I've lived since I was 18. And it's the only way I know how to build a company.
+**The places**: Where the knowledge lives. Tokyo fish markets. Rishikesh ashrams. Atlantic passages. South of France vineyards. You can't learn these things in a simulation. You have to go there.
+
+**The cohorts**: 8-12 people who become connected through shared challenge. The way I connected with crews, with fellow travelers, with kitchen teams. Those bonds last.
+
+**The certifications**: PADI, RYA, Yoga Alliance, WSET—real credentials that open doors. Because I know what it means to have proof of what you've learned.
+
+I'm not offering something I invented. I'm offering what I received—structured so others don't need a decade of lucky breaks to find it.
+
+---
+
+### IX. What I Believe
+
+I don't think I'm special. I think I was fortunate.
+
+Fortunate that people taught me. Fortunate that I said yes when opportunities appeared. Fortunate that the world is full of generous experts if you know where to look.
+
+EducatedTraveler is my way of making that fortune accessible.
+
+**Source before simulation.** Not because it sounds good—because it's true. The places where skills were born hold something that can't be exported.
+
+**Masters before influencers.** Decades of expertise over thousands of followers. The people who taught me didn't have Instagram accounts. They had calluses and patience.
+
+**Cohorts before crowds.** Small groups who become connected. The way every meaningful relationship I formed happened—through shared experience, not shared content.
 
 ---
 
 ### X. The Invitation
 
-From my path emerges yours.
+The people who taught me didn't ask for anything in return.
 
-Not as a copy. As your own.
+But they gave me a debt I can only repay forward.
 
-You don't need to spend a decade figuring it out. You don't need to stumble through the logistics alone. You don't need to wonder if it's legitimate or if you're wasting your time.
+If you're ready to learn something real—not watch it, not read about it, actually learn it—EducatedTraveler is the bridge.
 
-We've done that work. We've built the relationships. We've earned the trust of masters who don't partner with just anyone.
+I can't give you my journey. But I can connect you with the same kind of teachers who shaped mine.
 
-All you need to do is choose your skill. Choose your depth. And show up.
+From the people who taught me, to the people you'll learn from.
 
-The transformation is waiting where it's always been: at the source.
+That's the thread.
 
 **Skills last, tans fade.**
 
@@ -195,56 +198,50 @@ The transformation is waiting where it's always been: at the source.
 ## Pull Quotes
 
 ```
-"I left France at 18 to learn by living. The world became my classroom."
+"The best teachers aren't in institutions. They're in the world, doing the work, willing to share if you're willing to listen."
 
-"50,000 nautical miles taught me that competence is earned in conditions, not classrooms."
+"Every skill I have came from someone generous enough to teach me."
 
-"Every skill I value came the same way: from masters, at the source, through total immersion."
+"I collected mentors the way some people collect stamps."
 
-"EducatedTraveler is the end of someday."
+"I'm not offering something I invented. I'm offering what I received."
 
-"Source before simulation—that's not a marketing line. It's how I've lived since I was 18."
+"I don't think I'm special. I think I was fortunate."
 
-"From my path emerges yours. Not as a copy. As your own."
+"The people who taught me didn't ask for anything in return. But they gave me a debt I can only repay forward."
 ```
 
 ---
 
 ## Quick Facts
 
-| Credential | Where Earned |
-|------------|--------------|
-| RYA Day Skipper | Thailand |
-| WSET | Paris + South of France vineyards |
-| PADI / Freediving | Thailand, Indonesia |
-| Culinary | Michelin kitchens (France), global |
-| Sailing miles | 50,000+ |
+| Credential | How I Really Learned |
+|------------|---------------------|
+| RYA Day Skipper | Thailand—then 50,000+ miles with captains who became mentors |
+| WSET | Paris certification + 1 month cycling vineyard to vineyard in South of France |
+| PADI / Freediving | Thailand, Indonesia—with instructors who taught presence, not just technique |
+| Culinary | Michelin kitchens + street vendors + superyacht sourcing |
 
-| Experience | Locations |
-|------------|-----------|
-| Blue-water racing | Ocean passages |
-| Superyacht chef | World's finest vessels |
-| Himalayan trekking | Annapurna Base Camp |
-| Shark diving | Galápagos |
-| Windsurfing | Cape Verde, Caribbean |
-| Regattas | Australia |
-
-| Countries Explored |
-|-------------------|
-| India, Mexico, Brazil, Panama, Vietnam, Thailand, Cambodia, Australia, New Zealand, Nepal, Costa Rica, Malaysia, Singapore, France, and many more |
+| Experience | What It Taught Me |
+|------------|-------------------|
+| Blue-water racing | Teamwork reveals character |
+| Superyacht chef | Precision, sourcing, global ingredients |
+| Annapurna Base Camp | Humility, patience, human connection |
+| India travels | Spirituality as life, not performance |
+| Sydney regattas | Where the sailing dream became real |
 
 ---
 
 ## The One-Liner
 
-**"I spent a decade learning at the source. Now I've built the platform so you can too."**
+**"The people who taught me changed my life. EducatedTraveler connects you with teachers like them."**
 
 ---
 
 ## Social Bio (150 characters)
 
 ```
-Left France at 18. 50,000+ miles sailed. Superyacht chef. Built EducatedTraveler: certified skill adventures at the source. Skills last, tans fade.
+Left France at 18. Taught by captains, chefs, masters along the way. 50,000+ miles. Built EducatedTraveler to share those connections. Skills last.
 ```
 
 ---
@@ -253,21 +250,21 @@ Left France at 18. 50,000+ miles sailed. Superyacht chef. Built EducatedTraveler
 
 ### The Founder
 
-I left France at 18 with a simple belief: the best education happens at the source.
+I left France at 18 with a Bac in science and more questions than answers.
 
-What followed was a decade of proving it. I sailed 50,000+ nautical miles across the Atlantic, Pacific, and Mediterranean—earning my RYA in Thailand, racing blue-water sailboats, standing night watches guided by stars. I trained in Michelin kitchens in France, then became a chef on the world's finest superyachts, sourcing ingredients from markets on three continents. I trekked to Annapurna Base Camp, freedived in Indonesian waters, scuba dived with sharks in the Galápagos.
+What followed was a decade of being taught by remarkable people. Captains who trusted me with night watches across 50,000+ nautical miles. Chefs who let me into Michelin kitchens and street stalls alike. Winemakers in the South of France who shared bottles they'd never sell. Freedivers who taught me that the ocean reveals who you are.
 
-Every skill I have was earned firsthand—from masters, in the places where that mastery was born.
+Every skill I have came from someone generous enough to teach me.
 
-EducatedTraveler exists because this path shouldn't require a decade to walk. We connect you directly to the masters, the locations, the certifications—all the things I had to discover alone.
+EducatedTraveler exists to create those connections for others. The masters I was lucky to find. The places where knowledge lives. The cohorts who become bonded through shared learning.
 
-Your transformation is waiting at the source. I've spent my life proving it's worth the journey.
+I'm not offering something I invented. I'm offering what I received—structured so you don't need a decade of lucky breaks to find it.
 
 **Skills last, tans fade.**
 
 ---
 
-**Version**: 1.0
+**Version**: 2.0
 **Last Updated**: January 2026
 
-*The path that built this company is the proof that it works.*
+*The people who taught me are the reason this company exists.*
