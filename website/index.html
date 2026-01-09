@@ -3,775 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EducatedTraveler — What Life Brought Me, Can Bring You</title>
+    <title>EDUCATEDTRAVELER — Skills Last, Tans Fade</title>
 
-    <!-- Link Preview -->
-    <meta name="description" content="At 18, I traded a science degree for a one-way ticket. 50,000+ nautical miles later, I built EducatedTraveler. Your adventure is waiting.">
-    <meta property="og:title" content="EducatedTraveler — A Founder's Journey">
-    <meta property="og:description" content="What life brought me — and can bring you. Skills last, tans fade.">
+    <meta name="description" content="Certified skill immersions at the source. One week to get certified. Six months to change your life.">
+    <meta property="og:title" content="EDUCATEDTRAVELER">
+    <meta property="og:description" content="What took me a decade, you can experience in weeks. Your adventure is waiting.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://educatedtraveler.app">
-    <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-
     <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        html { scroll-behavior: smooth; }
 
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: #0a0a0a;
-            overflow-x: hidden;
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Hero section */
-        .hero-gradient {
-            background: linear-gradient(
-                180deg,
-                rgba(10, 10, 10, 0) 0%,
-                rgba(10, 10, 10, 0.4) 40%,
-                rgba(10, 10, 10, 0.9) 80%,
-                rgba(10, 10, 10, 1) 100%
-            );
-        }
-
-        /* Chapter cards */
-        .chapter-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .chapter-card:hover {
-            transform: scale(1.03);
-        }
-
-        .chapter-card.active {
-            transform: scale(1.05);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Image overlay for text readability */
-        .image-overlay {
-            background: linear-gradient(
-                to top,
-                rgba(10, 10, 10, 0.95) 0%,
-                rgba(10, 10, 10, 0.6) 40%,
-                rgba(10, 10, 10, 0.3) 70%,
-                rgba(10, 10, 10, 0.1) 100%
-            );
-        }
-
-        /* Story sections */
-        .story-section {
+        /* Slideshow */
+        .slide {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.8s ease;
+            position: absolute;
+            inset: 0;
+        }
+        .slide.active { opacity: 1; }
+
+        /* Progress bar */
+        .progress-bar {
+            transition: width 5s linear;
         }
 
-        .story-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Horizontal scroll for chapters */
-        .chapters-scroll {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding: 2rem 0;
-        }
-
-        .chapters-scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Quote styling */
-        .pull-quote {
-            position: relative;
-            padding-left: 1.5rem;
-            border-left: 3px solid rgba(6, 182, 212, 0.5);
-        }
-
-        /* Glass effect */
+        /* Glass */
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        /* CTA button */
+        /* CTA */
         .cta-button {
             background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
             transition: all 0.3s ease;
         }
-
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
         }
 
-        /* Fade animations */
+        /* Fade in */
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .fade-up {
-            animation: fadeUp 1s ease-out forwards;
-        }
-
+        .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
         .delay-2 { animation-delay: 0.4s; opacity: 0; }
-        .delay-3 { animation-delay: 0.6s; opacity: 0; }
-        .delay-4 { animation-delay: 0.8s; opacity: 0; }
-
-        /* Scroll indicator */
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-
-        .scroll-bounce {
-            animation: bounce 2s infinite;
-        }
-
-        /* Photo grid */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .photo-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
     </style>
 </head>
 <body class="text-white">
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-xl font-semibold tracking-tight">
-                Educated<span class="text-cyan-400">Traveler</span>
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-lg font-semibold tracking-wider">
+                EDUCATED<span class="text-cyan-400">TRAVELER</span>
             </a>
             <div class="hidden md:flex items-center gap-8">
-                <a href="#story" class="text-sm text-white/60 hover:text-white transition-colors">My Story</a>
-                <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">The Vision</a>
-                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">What We Offer</a>
-                <a href="mailto:ceo-educatedtraveler@pm.me" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
-                    Get in Touch
+                <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">Vision</a>
+                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Offerings</a>
+                <a href="#waitlist" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    Join Waitlist
                 </a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-white/60">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#story" class="block py-2 text-white/60 hover:text-white">My Story</a>
-            <a href="vision.html" class="block py-2 text-white/60 hover:text-white">The Vision</a>
-            <a href="offerings.html" class="block py-2 text-white/60 hover:text-white">What We Offer</a>
-            <a href="mailto:ceo-educatedtraveler@pm.me" class="block py-2 text-white/60 hover:text-white">Get in Touch</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-end">
-        <!-- Background Image -->
-        <div class="absolute inset-0">
-            <img
-                src="images/story/sailing-5.png"
-                alt="Sailing across the ocean"
-                class="w-full h-full object-cover"
-            >
-            <div class="absolute inset-0 hero-gradient"></div>
-        </div>
-
-        <!-- Hero Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-6 pb-24 pt-32">
-            <p class="text-cyan-400 text-sm uppercase tracking-widest mb-4 fade-up">
-                The Founder's Journey
-            </p>
-            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-medium leading-tight mb-6 fade-up delay-1">
-                What Life Brought Me<br>
-                <span class="text-white/70 italic">Can Bring You</span>
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="max-w-3xl text-center">
+            <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6 fade-up">The Founder's Journey</p>
+            <h1 class="text-4xl md:text-6xl font-light leading-tight mb-8 fade-up delay-1">
+                What took me a decade,<br>
+                <span class="text-white/60">you can experience in weeks.</span>
             </h1>
-            <p class="text-lg md:text-xl text-white/70 max-w-2xl mb-8 fade-up delay-2">
-                At 18, I traded a science degree for a one-way ticket. What followed:
-                50,000+ nautical miles, kitchens from Michelin to midnight markets,
-                Himalayan summits, freedives in crystal waters.
+            <p class="text-lg text-white/50 mb-12 fade-up delay-2">
+                50,000+ nautical miles. Michelin kitchens to midnight markets. Himalayan summits to crystal depths.<br>
+                I built EDUCATEDTRAVELER so your path doesn't take a decade.
             </p>
-            <p class="text-xl md:text-2xl font-light text-white mb-12 fade-up delay-3">
-                Not a gap year — <em class="font-serif">a life.</em>
-            </p>
+            <a href="#story" class="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors fade-up delay-2">
+                <span class="text-sm">Discover the story</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
 
-            <!-- Scroll indicator -->
-            <div class="flex flex-col items-start fade-up delay-4">
-                <span class="text-xs uppercase tracking-widest text-white/40 mb-2">Scroll to discover</span>
-                <div class="scroll-bounce">
-                    <svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+    <!-- Story Slideshow -->
+    <section id="story" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Slideshow Container -->
+            <div class="relative aspect-[16/9] md:aspect-[2/1] rounded-2xl overflow-hidden mb-8">
+
+                <!-- Slide 1: The Question -->
+                <div class="slide active" data-slide="0">
+                    <img src="images/story/sailing-5.png" alt="Sailing" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter I</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">The Question</h2>
+                        <p class="text-white/70 max-w-xl">
+                            At 18, I got my Bac in science. Everyone expected university, career, the usual path.
+                            I had a different question: <span class="text-white">What if I just... went?</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: The Kitchens -->
+                <div class="slide" data-slide="1">
+                    <img src="images/story/kitchen-flames.png" alt="Kitchen" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter II</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">The Kitchens</h2>
+                        <p class="text-white/70 max-w-xl">
+                            Michelin kitchens in France. Street vendors in Bangkok. Superyacht galleys across the Mediterranean.
+                            <span class="text-white">Each kitchen was a classroom. Each chef, a teacher.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 3: The Ocean -->
+                <div class="slide" data-slide="2">
+                    <img src="images/story/sailing-3.png" alt="Ocean" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter III</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">The Ocean</h2>
+                        <p class="text-white/70 max-w-xl">
+                            50,000+ nautical miles. RYA in Thailand. Atlantic crossings. Night watches under stars.
+                            <span class="text-white">The ocean doesn't care about your résumé. It cares about your judgment.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 4: The Depths -->
+                <div class="slide" data-slide="3">
+                    <img src="images/story/freedive-cenote.png" alt="Freediving" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter IV</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">The Depths</h2>
+                        <p class="text-white/70 max-w-xl">
+                            Freediving in Thailand. Shark diving in the Galápagos. No cage. Open water.
+                            <span class="text-white">Fear transformed into respect. Respect into connection.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 5: The Mountains -->
+                <div class="slide" data-slide="4">
+                    <img src="images/story/mountains-snow.png" alt="Mountains" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter V</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">The Mountains</h2>
+                        <p class="text-white/70 max-w-xl">
+                            Annapurna Base Camp at 4,130m. The chaos of Delhi. The ghats of Varanasi.
+                            <span class="text-white">Strangers became friends in hours.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
-                </div>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
-        </div>
-    </section>
 
-    <!-- The Question -->
-    <section id="story" class="py-24 md:py-32 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="story-section">
-                <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter I</p>
-                <h2 class="font-serif text-3xl md:text-5xl mb-8">The Question</h2>
-                <div class="space-y-6 text-lg text-white/70 leading-relaxed">
-                    <p>
-                        I got my Bac in science at 18 and thought: <em class="text-white font-serif">now what?</em>
-                    </p>
-                    <p>
-                        Everyone expected what came next: university, career, the usual path.
-                    </p>
-                    <p class="text-white text-xl">
-                        I had a different question: <span class="text-cyan-400">What if I just... went?</span>
-                    </p>
-                    <p>
-                        So I did. Australia first. I landed with enough money for a few weeks
-                        and a willingness to figure it out. I found work in kitchens — not because
-                        I dreamed of being a chef, but because restaurants always need hands,
-                        and I needed to eat.
-                    </p>
-                    <p class="pull-quote text-white/90 italic">
-                        That's how it started. Not with a master plan. With curiosity and a plane ticket.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Chapter Navigation Cards -->
-    <section class="py-12 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <p class="text-white/40 text-sm uppercase tracking-widest mb-8">The Chapters</p>
-
-            <div class="chapters-scroll">
-                <!-- The Kitchens -->
-                <a href="#kitchens" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
-                    <div class="aspect-[4/5] relative">
-                        <img src="images/story/chef-plating.jpg" alt="Working in professional kitchens" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 image-overlay"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6">
-                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter II</p>
-                            <h3 class="font-serif text-2xl mb-2">The Kitchens</h3>
-                            <p class="text-white/60 text-sm">From Michelin stars to midnight markets</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- The Wine -->
-                <a href="#wine" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
-                    <div class="aspect-[4/5] relative">
-                        <img src="images/story/sailing-1.png" alt="Cycling through French vineyards" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 image-overlay"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6">
-                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter III</p>
-                            <h3 class="font-serif text-2xl mb-2">The Wine</h3>
-                            <p class="text-white/60 text-sm">A month cycling South of France vineyards</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- The Ocean -->
-                <a href="#ocean" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
-                    <div class="aspect-[4/5] relative">
-                        <img src="images/story/sailing-4.png" alt="Sailing across oceans" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 image-overlay"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6">
-                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter IV</p>
-                            <h3 class="font-serif text-2xl mb-2">The Ocean</h3>
-                            <p class="text-white/60 text-sm">50,000+ nautical miles</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- The Depths -->
-                <a href="#depths" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
-                    <div class="aspect-[4/5] relative">
-                        <img src="images/story/freedive-line.png" alt="Freediving in crystal waters" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 image-overlay"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6">
-                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter V</p>
-                            <h3 class="font-serif text-2xl mb-2">The Depths</h3>
-                            <p class="text-white/60 text-sm">Where breath meets the blue</p>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- The Mountains -->
-                <a href="#mountains" class="chapter-card flex-shrink-0 w-80 md:w-96 rounded-2xl overflow-hidden relative group cursor-pointer">
-                    <div class="aspect-[4/5] relative">
-                        <img src="images/story/mountain-climb.jpg" alt="Climbing mountains" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 image-overlay"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6">
-                            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-2">Chapter VI</p>
-                            <h3 class="font-serif text-2xl mb-2">The Mountains</h3>
-                            <p class="text-white/60 text-sm">Himalayan humility</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Kitchens -->
-    <section id="kitchens" class="py-24 md:py-32">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="story-section">
-                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter II</p>
-                    <h2 class="font-serif text-3xl md:text-5xl mb-8">The Kitchens</h2>
-                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
-                        <p>
-                            Cooking became the thread that connected everything.
-                        </p>
-                        <p>
-                            <strong class="text-white">In France</strong>, I trained with chefs who'd spent their lives
-                            chasing perfection. 5 AM prep. Service that felt like battle. Standards that
-                            seemed impossible until they became natural.
-                        </p>
-                        <p>
-                            <strong class="text-white">In Southeast Asia</strong>, I discovered that mastery doesn't
-                            require Michelin stars. A grandmother in Bangkok making the same pad thai for
-                            40 years. A pho vendor in Vietnam whose broth was three generations old.
-                        </p>
-                        <p>
-                            <strong class="text-white">On superyachts</strong>, I cooked for guests who'd eaten at
-                            every famous restaurant. The job taught me to source — dawn markets in Provence,
-                            fishermen in Greek harbors.
-                        </p>
-                        <p class="pull-quote text-white/90 italic">
-                            Each kitchen was a classroom. Each chef, a teacher. The world's cuisines
-                            became mine — not through study, but through fire and repetition.
-                        </p>
-                    </div>
-                </div>
-                <div class="story-section">
-                    <div class="relative rounded-2xl overflow-hidden">
-                        <img src="images/story/kitchen-flames.png" alt="Cooking with flames" class="w-full">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Ocean -->
-    <section id="ocean" class="py-24 md:py-32 bg-gradient-to-b from-transparent via-cyan-950/10 to-transparent">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="story-section order-2 md:order-1">
-                    <div class="photo-grid">
-                        <img src="images/story/sailing-1.png" alt="Sailing" class="rounded-lg">
-                        <img src="images/story/sailing-2.png" alt="Sailing" class="rounded-lg">
-                        <img src="images/story/sailing-3.png" alt="Sailing" class="rounded-lg">
-                        <img src="images/story/sailing-4.png" alt="Sailing" class="rounded-lg">
-                        <img src="images/story/sailing-5.png" alt="Sailing" class="rounded-lg col-span-2">
-                    </div>
-                </div>
-                <div class="story-section order-1 md:order-2">
-                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter IV</p>
-                    <h2 class="font-serif text-3xl md:text-5xl mb-8">The Ocean</h2>
-                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
-                        <p>
-                            The dream started with books — those classic navigator stories, sailors
-                            crossing oceans alone, reading the stars.
-                        </p>
-                        <p>
-                            Then I stepped onto a regatta sailboat in Sydney harbor. The heel of the boat
-                            under your feet. The crew working as one organism. The wind not as obstacle but
-                            as language.
-                        </p>
-                        <p class="text-white text-xl">
-                            In that moment, I knew: <span class="text-cyan-400">this is what I want.</span>
-                        </p>
-                        <p>
-                            I earned my RYA in Thailand — warm water, steady winds. At 22, I joined my first
-                            passage boat. The owner taught me everything: navigation, engineering, the patience
-                            to wait out weather.
-                        </p>
-                        <div class="glass rounded-xl p-6 mt-8">
-                            <p class="text-3xl font-light text-white mb-2">50,000+</p>
-                            <p class="text-white/60 text-sm">Nautical miles across every ocean</p>
-                        </div>
-                        <p class="pull-quote text-white/90 italic">
-                            The ocean doesn't care about your resume. It cares about your judgment.
-                            That education can't be faked.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Depths -->
-    <section id="depths" class="py-24 md:py-32">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="story-section">
-                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter V</p>
-                    <h2 class="font-serif text-3xl md:text-5xl mb-8">The Depths</h2>
-                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
-                        <p>
-                            Freediving found me in Thailand.
-                        </p>
-                        <p>
-                            Not the tourist version — the real practice. Learning to descend on a single breath.
-                            Discovering that depth reveals who you are when everything else is stripped away.
-                        </p>
-                        <p>
-                            The instructors taught more than technique. They taught <strong class="text-white">presence</strong>.
-                            The ability to be completely where you are, with nothing but your breath and the blue.
-                        </p>
-                        <p>
-                            In the Galapagos, I dove with sharks. Open water. No cage. Guided by people who'd
-                            spent decades understanding these animals.
-                        </p>
-                        <p class="pull-quote text-white/90 italic">
-                            Fear transformed into respect. Respect into something like connection.
-                        </p>
-                    </div>
-                </div>
-                <div class="story-section">
-                    <div class="space-y-4">
-                        <img src="images/story/freedive-line.png" alt="Freediving on the line" class="w-full rounded-2xl">
-                        <div class="grid grid-cols-2 gap-4">
-                            <img src="images/story/freedive-cenote.png" alt="Freediving in cenote" class="rounded-xl">
-                            <img src="images/story/shark-dive-1.png" alt="Diving with sharks" class="rounded-xl">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Mountains -->
-    <section id="mountains" class="py-24 md:py-32 bg-gradient-to-b from-transparent via-slate-900/30 to-transparent">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="story-section order-2 md:order-1">
-                    <div class="space-y-4">
-                        <img src="images/story/mountain-climb.jpg" alt="Mountain climbing" class="w-full rounded-2xl">
-                        <img src="images/story/mountains-snow.png" alt="Trekking in snow" class="w-full rounded-2xl">
-                    </div>
-                </div>
-                <div class="story-section order-1 md:order-2">
-                    <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter VI</p>
-                    <h2 class="font-serif text-3xl md:text-5xl mb-8">The Mountains</h2>
-                    <div class="space-y-6 text-lg text-white/70 leading-relaxed">
-                        <p>
-                            The Himalayas called, and I answered.
-                        </p>
-                        <p>
-                            Weeks of trekking. Annapurna Base Camp at 4,130 meters. Thin air, heavy pack,
-                            views that made the suffering worth it.
-                        </p>
-                        <p>
-                            <strong class="text-white">India especially changed me.</strong> The chaos of Delhi.
-                            The ghats of Varanasi at sunrise. The backwaters of Kerala. The mountains of Ladakh.
-                        </p>
-                        <p>
-                            The spirituality there wasn't something people performed — it was how they lived.
-                            The pace was different. Conversations went deeper. Strangers became friends in hours.
-                        </p>
-                        <p class="pull-quote text-white/90 italic">
-                            On those roads, I met photographers who taught light, trekkers who knew every plant,
-                            teachers who'd renounced everything except the joy of sharing what they knew.
-                        </p>
-                    </div>
-                </div>
+            <!-- Progress Dots -->
+            <div class="flex justify-center gap-2">
+                <button onclick="goToSlide(0)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="0"></button>
+                <button onclick="goToSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="1"></button>
+                <button onclick="goToSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="2"></button>
+                <button onclick="goToSlide(3)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="3"></button>
+                <button onclick="goToSlide(4)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="4"></button>
             </div>
         </div>
     </section>
 
     <!-- The Pattern -->
-    <section class="py-24 md:py-32">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="story-section text-center">
-                <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter VII</p>
-                <h2 class="font-serif text-3xl md:text-5xl mb-12">The Pattern</h2>
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-white/50 mb-8">Every skill worth having came the same way:</p>
 
-                <p class="text-xl text-white/70 mb-12">
-                    Somewhere in all those miles, I noticed something.
-                </p>
-
-                <div class="text-left space-y-8 mb-16">
-                    <p class="text-lg text-white/70">
-                        Every skill worth having came the same way:
-                    </p>
-
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="glass rounded-xl p-6 text-center">
-                            <div class="text-4xl mb-4">1</div>
-                            <h3 class="text-white font-semibold mb-2">A Place</h3>
-                            <p class="text-white/60 text-sm">Where the knowledge lived</p>
-                        </div>
-                        <div class="glass rounded-xl p-6 text-center">
-                            <div class="text-4xl mb-4">2</div>
-                            <h3 class="text-white font-semibold mb-2">A Person</h3>
-                            <p class="text-white/60 text-sm">Who'd mastered it and was willing to share</p>
-                        </div>
-                        <div class="glass rounded-xl p-6 text-center">
-                            <div class="text-4xl mb-4">3</div>
-                            <h3 class="text-white font-semibold mb-2">Total Immersion</h3>
-                            <p class="text-white/60 text-sm">Not a weekend — weeks or months of focus</p>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="glass rounded-xl p-6">
+                    <div class="text-3xl text-cyan-400 mb-3">1</div>
+                    <h3 class="font-medium mb-2">A Place</h3>
+                    <p class="text-white/50 text-sm">Where the knowledge lives</p>
                 </div>
-
-                <p class="text-xl text-white/70 mb-8">
-                    Not YouTube videos at 2 AM. Not online courses I'd never finish.
-                    <span class="text-white">Real learning. At the source. With people who'd dedicated their lives to it.</span>
-                </p>
-
-                <p class="text-2xl text-white font-light">
-                    And I realized: <span class="text-cyan-400">this path is available to anyone.</span>
-                </p>
+                <div class="glass rounded-xl p-6">
+                    <div class="text-3xl text-cyan-400 mb-3">2</div>
+                    <h3 class="font-medium mb-2">A Person</h3>
+                    <p class="text-white/50 text-sm">Who's mastered it</p>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <div class="text-3xl text-cyan-400 mb-3">3</div>
+                    <h3 class="font-medium mb-2">Total Immersion</h3>
+                    <p class="text-white/50 text-sm">Not weekends — weeks</p>
+                </div>
             </div>
+
+            <p class="text-xl text-white/70">
+                Not YouTube at 2 AM. Not courses you'll never finish.<br>
+                <span class="text-white">Real learning. At the source. With masters.</span>
+            </p>
         </div>
     </section>
 
-    <!-- Why EducatedTraveler -->
-    <section class="py-24 md:py-32 bg-gradient-to-b from-cyan-950/20 via-cyan-950/10 to-transparent">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="story-section text-center">
-                <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter VIII</p>
-                <h2 class="font-serif text-3xl md:text-5xl mb-12">Why EducatedTraveler</h2>
+    <!-- The Bridge -->
+    <section class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-light mb-8">So I built the bridge.</h2>
 
-                <div class="text-left space-y-6 text-lg text-white/70 leading-relaxed mb-12">
-                    <p>
-                        I built EducatedTraveler because finding this path shouldn't be so hard.
-                    </p>
-                    <p>
-                        The masters exist — but they don't advertise. The places exist — but the logistics
-                        overwhelm people. The transformation is real — but most never get there because
-                        the friction stops them.
-                    </p>
-                    <p class="text-2xl text-white text-center py-8">
-                        So I built the bridge.
-                    </p>
+            <div class="grid sm:grid-cols-2 gap-4 text-left mb-12">
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white font-medium mb-1">Real certifications</p>
+                    <p class="text-white/50 text-sm">PADI, RYA, Yoga Alliance, WSET</p>
                 </div>
-
-                <div class="grid md:grid-cols-2 gap-6 text-left mb-12">
-                    <div class="glass rounded-xl p-6">
-                        <h3 class="text-white font-semibold mb-2">Real certifications</h3>
-                        <p class="text-white/60 text-sm">PADI, RYA, Yoga Alliance, WSET — credentials that open doors worldwide</p>
-                    </div>
-                    <div class="glass rounded-xl p-6">
-                        <h3 class="text-white font-semibold mb-2">The actual source</h3>
-                        <p class="text-white/60 text-sm">Tokyo fish markets. Rishikesh ashrams. Atlantic passages. Where the knowledge was born.</p>
-                    </div>
-                    <div class="glass rounded-xl p-6">
-                        <h3 class="text-white font-semibold mb-2">Masters who teach</h3>
-                        <p class="text-white/60 text-sm">Decades of expertise, not social media followers. People who know what they know because they've lived it.</p>
-                    </div>
-                    <div class="glass rounded-xl p-6">
-                        <h3 class="text-white font-semibold mb-2">Cohorts who bond</h3>
-                        <p class="text-white/60 text-sm">8-12 people who become connected through shared challenge. The way crews and teams bond.</p>
-                    </div>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white font-medium mb-1">The actual source</p>
+                    <p class="text-white/50 text-sm">Tokyo. Rishikesh. The Atlantic.</p>
                 </div>
-
-                <p class="text-xl text-white/80 mb-4">
-                    What took me a decade, you can experience in weeks or months.
-                </p>
-                <p class="text-lg text-white/60">
-                    Structured. Supported. Real.
-                </p>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white font-medium mb-1">Masters who teach</p>
+                    <p class="text-white/50 text-sm">Decades of expertise, not followers</p>
+                </div>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white font-medium mb-1">Cohorts who bond</p>
+                    <p class="text-white/50 text-sm">8-12 people, shared journey</p>
+                </div>
             </div>
+
+            <p class="text-2xl font-light text-white/80 mb-2">
+                One week to get certified.
+            </p>
+            <p class="text-2xl font-light text-white/50">
+                Six months to change your life.
+            </p>
         </div>
     </section>
 
-    <!-- Your Turn CTA -->
-    <section class="py-24 md:py-32">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="story-section">
-                <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6">Chapter IX</p>
-                <h2 class="font-serif text-3xl md:text-5xl mb-8">Your Turn</h2>
+    <!-- Waitlist CTA -->
+    <section id="waitlist" class="py-24 px-6">
+        <div class="max-w-xl mx-auto text-center">
+            <p class="text-lg text-white/70 mb-8">
+                Your adventure is waiting where it's always been:<br>
+                <span class="text-white">at the source.</span>
+            </p>
 
-                <p class="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
-                    The world is full of skills waiting to be learned, places waiting to be experienced,
-                    masters waiting to teach.
-                </p>
-
-                <p class="text-2xl text-white font-light mb-4">
-                    The only thing standing between you and that version of yourself
-                    is the decision to go.
-                </p>
-
-                <p class="text-xl text-white/70 mb-12">
-                    I can't give you my journey. But I can give you access to the same kind of teachers,
-                    the same kind of places, the same kind of transformation.
-                </p>
-
-                <div class="glass rounded-2xl p-8 md:p-12 max-w-2xl mx-auto mb-12">
-                    <p class="text-white/60 text-sm uppercase tracking-widest mb-4">The promise</p>
-                    <p class="text-2xl md:text-3xl font-light text-white mb-6">
-                        One week to get certified.<br>
-                        Six months to change your life.
-                    </p>
-                    <p class="text-lg text-white/60 italic">
-                        Whatever depth you're ready for.
-                    </p>
+            <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
+                <input type="hidden" name="form-name" value="waitlist">
+                <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                        class="flex-1 px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-cyan-400/50 transition-all"
+                    >
+                    <button type="submit" class="cta-button px-8 py-4 rounded-full text-white font-medium whitespace-nowrap">
+                        Join Waitlist
+                    </button>
                 </div>
-
-                <p class="font-serif text-3xl md:text-4xl text-white mb-12 italic">
-                    "Your adventure is waiting where it's always been: at the source."
-                </p>
-
-                <!-- Waitlist Signup -->
-                <div class="max-w-xl mx-auto mb-12">
-                    <p class="text-white/60 text-sm uppercase tracking-widest mb-6">Be the first to know</p>
-                    <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
-                        <input type="hidden" name="form-name" value="waitlist">
-                        <p class="hidden">
-                            <label>Don't fill this out: <input name="bot-field"></label>
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Enter your email"
-                                required
-                                class="flex-1 px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all"
-                            >
-                            <button
-                                type="submit"
-                                class="cta-button px-8 py-4 rounded-full text-white font-medium text-lg whitespace-nowrap"
-                            >
-                                Join the Waitlist
-                            </button>
-                        </div>
-                        <p class="text-white/40 text-sm">
-                            Get early access to adventures + founding member pricing. No spam, ever.
-                        </p>
-                    </form>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="vision.html" class="px-8 py-4 rounded-full border border-white/20 text-white font-medium text-lg hover:bg-white/10 transition-colors">
-                        Discover the Vision
-                    </a>
-                    <a href="offerings.html" class="px-8 py-4 rounded-full border border-white/20 text-white font-medium text-lg hover:bg-white/10 transition-colors">
-                        What We Offer
-                    </a>
-                </div>
-            </div>
+                <p class="text-white/30 text-sm">Early access + founding member pricing. No spam.</p>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6">
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <p class="text-xl font-semibold mb-2">
-                        Educated<span class="text-cyan-400">Traveler</span>
-                    </p>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-cyan-400">TRAVELER</span></p>
                     <p class="text-white/40 text-sm">Skills last, tans fade.</p>
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="vision.html" class="text-white/60 hover:text-white text-sm transition-colors">The Vision</a>
-                    <a href="offerings.html" class="text-white/60 hover:text-white text-sm transition-colors">What We Offer</a>
-                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/60 hover:text-white text-sm transition-colors">Contact</a>
-                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="text-white/60 hover:text-white transition-colors">
+                    <a href="vision.html" class="text-white/50 hover:text-white text-sm transition-colors">Vision</a>
+                    <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Offerings</a>
+                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
+                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="text-white/50 hover:text-white transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-white/5 text-center">
-                <p class="text-white/30 text-xs">
-                    2026 EducatedTraveler. All rights reserved.
-                </p>
-            </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        let currentSlide = 0;
+        const totalSlides = 5;
+        let autoplayInterval;
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        function showSlide(index) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.slide-dot').forEach(d => {
+                d.classList.remove('bg-white');
+                d.classList.add('bg-white/30');
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.story-section').forEach(section => {
-            observer.observe(section);
-        });
+            document.querySelector(`[data-slide="${index}"]`).classList.add('active');
+            document.querySelector(`[data-dot="${index}"]`).classList.remove('bg-white/30');
+            document.querySelector(`[data-dot="${index}"]`).classList.add('bg-white');
 
-        // Smooth scroll for chapter links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % totalSlides);
+            resetAutoplay();
+        }
+
+        function prevSlide() {
+            showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+            resetAutoplay();
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetAutoplay();
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Initialize
+        showSlide(0);
+        autoplayInterval = setInterval(nextSlide, 5000);
     </script>
 </body>
 </html>
