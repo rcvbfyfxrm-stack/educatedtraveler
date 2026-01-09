@@ -28,7 +28,7 @@ EducatedTraveler is the company I wish existed when I started. Real credentials.
 ### I. The Departure
 
 ```
-At 18, I finished my A-levels in science.
+At 18, I got my Bac in science.
 Then I did something my classmates didn't understand.
 
 I left.
