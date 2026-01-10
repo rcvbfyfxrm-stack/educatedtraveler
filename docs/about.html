@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story — EducatedTraveler</title>
+    <meta name="description" content="Why I built EducatedTraveler. A journey from leaving France at 18 to creating skill adventures at the source.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background: #000;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .image-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+        }
+
+        /* Journey line */
+        .journey-section {
+            position: relative;
+        }
+
+        .journey-section::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0.1) 90%, transparent);
+        }
+
+        @media (max-width: 768px) {
+            .journey-section::before {
+                left: 24px;
+            }
+        }
+
+        .journey-dot {
+            width: 12px;
+            height: 12px;
+            background: #000;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        .journey-dot.active {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            border-color: #06b6d4;
+        }
+
+        @media (max-width: 768px) {
+            .journey-dot {
+                left: 24px;
+            }
+        }
+
+        /* Map dots */
+        .map-container {
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.02) 0%, transparent 70%);
+        }
+
+        .location-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(6, 182, 212, 0.6);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .location-dot::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            animation: ping 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes ping {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        .quote-mark {
+            font-size: 120px;
+            line-height: 1;
+            opacity: 0.1;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+        }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-lg font-semibold tracking-tight hover:opacity-80 transition-opacity">
+                EducatedTraveler
+            </a>
+            <a href="index.html" class="text-white/60 hover:text-white text-sm transition-colors">
+                Back to Experiences
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-[70vh] flex items-end pb-20 pt-32 px-6">
+        <div class="absolute inset-0">
+            <img
+                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1600&q=80"
+                alt="Ocean horizon at dawn"
+                class="w-full h-full object-cover opacity-30"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40"></div>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto">
+            <p class="text-cyan-400/80 text-sm tracking-widest uppercase mb-6">The Story</p>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-8">
+                I left France at 18<br>
+                <span class="text-white/50">to learn by living.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/60 font-light max-w-2xl leading-relaxed">
+                Not drawn to traditional academia, I chose a different classroom: the world itself.
+                What I found became EducatedTraveler.
+            </p>
+        </div>
+    </section>
+
+    <!-- Intro Statement -->
+    <section class="px-6 py-20">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-2xl md:text-3xl font-light leading-relaxed text-white/80">
+                Some people learn in lecture halls. I learned on night watches in the Pacific, in kitchens where no one spoke my language, on trails where the map ended. Every skill I have was earned firsthand—and I built EducatedTraveler so others could do the same.
+            </p>
+        </div>
+    </section>
+
+    <!-- Journey Section 1: Skills at the Source -->
+    <section class="px-6 py-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-cyan-400/80 text-xs tracking-widest uppercase mb-4">Chapter One</p>
+                    <h2 class="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+                        Skills at the Source
+                    </h2>
+                    <div class="space-y-6 text-white/60 font-light leading-relaxed">
+                        <p>
+                            Sailing taught me everything the ocean could. Across Asia, Australia, the Atlantic, the Mediterranean, and the Pacific—I learned navigation not from textbooks, but from stars and swells and the hard lessons of open water.
+                        </p>
+                        <p>
+                            Cooking started in France, training under Michelin-starred chefs who demanded perfection. It evolved into years as a superyacht chef on the world's finest vessels, feeding owners and guests while sourcing ingredients from Provençal markets to Tokyo fish stalls.
+                        </p>
+                        <p>
+                            Every skill came adventurously, firsthand—from bustling markets in Southeast Asia to remote anchorages where the only sound was the wind. This is what I mean by <em>source before simulation</em>: learn where the knowledge lives.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"
+                            alt="Sailing on open water"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 glass rounded-xl p-4 max-w-xs">
+                        <p class="text-sm text-white/70">
+                            "The ocean doesn't care about your credentials. It only respects what you can actually do."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="px-6 py-20">
+        <div class="max-w-5xl mx-auto">
+            <div class="glass rounded-3xl p-8 md:p-12">
+                <p class="text-white/40 text-xs tracking-widest uppercase mb-8 text-center">Places That Shaped Me</p>
+                <div class="flex flex-wrap justify-center gap-3 text-sm">
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">France</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Thailand</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Indonesia</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Australia</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">New Zealand</span>
+                    <span class="px-4 py-2 rounded-full bg-cyan-400/20 text-cyan-400 border border-cyan-400/30">India</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Nepal</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Japan</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Morocco</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Spain</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Portugal</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Greece</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Croatia</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">USA</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Mexico</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Guatemala</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Colombia</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Peru</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Chile</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Argentina</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Fiji</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Canary Islands</span>
+                    <span class="px-4 py-2 rounded-full bg-white/5 text-white/60">Caribbean</span>
+                </div>
+                <p class="text-center text-white/30 text-sm mt-8">India highlighted: where the idea for EducatedTraveler took root.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section 2: Connections -->
+    <section class="px-6 py-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 relative">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+                            alt="Himalayan mountains"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 glass rounded-xl p-4 max-w-xs">
+                        <p class="text-sm text-white/70">
+                            "Every master I met was already teaching. I just needed to connect them to the people ready to learn."
+                        </p>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <p class="text-orange-400/80 text-xs tracking-widest uppercase mb-4">Chapter Two</p>
+                    <h2 class="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+                        Connections That<br>Inspired the Mission
+                    </h2>
+                    <div class="space-y-6 text-white/60 font-light leading-relaxed">
+                        <p>
+                            The roads introduced me to remarkable people. Photographers on northern India's Himalayan roads, teaching light to anyone who would listen. Hikers tracing the Annapurna circuit who knew every medicinal plant. Ceramicists in Japan who'd spent decades mastering a single glaze.
+                        </p>
+                        <p>
+                            India kept calling me back. During multiple visits, sharing meals in ashrams and conversations with yoga teachers who'd trained since childhood, the idea crystallized: these masters are everywhere, teaching their craft at its source. Why aren't more people learning from them?
+                        </p>
+                        <p>
+                            Cooking aboard yachts, I'd meet guests who'd pay anything for authentic experiences but didn't know where to find them. Andean artisans, Balinese yogis, Tokyo sushi masters—all willing to teach, all hidden in plain sight.
+                        </p>
+                        <p class="text-white/80">
+                            The mission became simple: <span class="text-white">connect the masters to the learners</span>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="px-6 py-24">
+        <div class="max-w-4xl mx-auto text-center relative">
+            <span class="quote-mark">"</span>
+            <blockquote class="text-2xl md:text-4xl font-light leading-relaxed text-white/80 relative z-10">
+                Link the passionate souls willing to teach<br>
+                with the curious ones ready to learn—<br>
+                at the source, not the simulation.
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Journey Section 3: Bringing It To You -->
+    <section class="px-6 py-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-amber-400/80 text-xs tracking-widest uppercase mb-4">Chapter Three</p>
+                    <h2 class="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+                        Bringing It to You
+                    </h2>
+                    <div class="space-y-6 text-white/60 font-light leading-relaxed">
+                        <p>
+                            EducatedTraveler makes this accessible. Not luxury tourism. Not gap-year wandering. Focused, certified skill immersion with masters at the source—the way I learned, but structured so you don't need a decade to do it.
+                        </p>
+                        <p>
+                            Small cohorts of 8-12 people. Real certifications: PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu, and more. Authentic origins: Tokyo fish markets, Rishikesh ashrams, Atlantic passages. Bonds formed the way global roads formed mine—through shared challenge and transformation.
+                        </p>
+                        <p class="text-white/80">
+                            From my path emerges yours. Not as a copy, but as your own: <span class="text-white">transformation through genuine immersion</span>.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+                        <img
+                            src="https://images.unsplash.com/photo-1523287562758-66c7fc58967f?w=800&q=80"
+                            alt="Small group learning together"
+                            class="w-full h-full object-cover"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What This Means -->
+    <section class="px-6 py-20">
+        <div class="max-w-5xl mx-auto">
+            <div class="glass rounded-3xl p-10 md:p-16">
+                <h2 class="text-2xl md:text-3xl font-semibold mb-10 text-center">What This Means For You</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-7 h-7 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold mb-2">Vetted Sources</h3>
+                        <p class="text-white/50 text-sm">Every instructor and location has been personally experienced or rigorously verified. No middlemen, no compromises.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-orange-400/10 border border-orange-400/20 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-7 h-7 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold mb-2">Real Community</h3>
+                        <p class="text-white/50 text-sm">Small cohorts create lasting bonds. Your fellow travelers become your global network, just as mine did.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-7 h-7 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold mb-2">Proven Skills</h3>
+                        <p class="text-white/50 text-sm">You return with credentials that matter—certifications recognized worldwide that prove what you can do.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="px-6 py-24">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-semibold mb-6">Your path is waiting.</h2>
+            <p class="text-white/60 text-lg mb-10 max-w-xl mx-auto">
+                I spent years finding these masters and places. You can start with any of them tomorrow.
+            </p>
+            <a href="index.html"
+               class="inline-flex items-center gap-3 px-10 py-5 bg-white text-black font-semibold rounded-full hover:bg-white/90 transition-all duration-300 hover:scale-105">
+                Explore Experiences
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <div class="text-white/30 text-sm mb-2">
+                    EducatedTraveler — Skill adventures at the source.
+                </div>
+                <a href="mailto:ceo-educatedtraveler@pm.me" class="text-cyan-400/60 hover:text-cyan-400 text-sm transition-colors">
+                    ceo-educatedtraveler@pm.me
+                </a>
+            </div>
+            <div class="flex items-center gap-8 text-sm text-white/40">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="instructors.html" class="hover:text-white transition-colors">Become an Instructor</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

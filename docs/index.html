@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUCATEDTRAVELER — Skills Last, Tans Fade</title>
+
+    <meta name="description" content="Certified skill immersions at the source. One week to get certified. Six months to change your life.">
+    <meta property="og:title" content="EDUCATEDTRAVELER">
+    <meta property="og:description" content="What took me a decade, you can experience in weeks. Your adventure is waiting.">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        html { scroll-behavior: smooth; }
+
+        /* Slideshow */
+        .slide {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            position: absolute;
+            inset: 0;
+        }
+        .slide.active { opacity: 1; }
+
+        /* Progress bar */
+        .progress-bar {
+            transition: width 5s linear;
+        }
+
+        /* Glass */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* CTA */
+        .cta-button {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Fade in */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.8s ease-out forwards; }
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-lg font-semibold tracking-wider">
+                EDUCATED<span class="text-cyan-400">TRAVELER</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">Vision</a>
+                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Offerings</a>
+                <a href="#survey" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    Take Survey
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="max-w-3xl text-center">
+            <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6 fade-up">The Founder's Journey</p>
+            <h1 class="text-4xl md:text-6xl font-light leading-tight mb-8 fade-up delay-1">
+                What took me a decade,<br>
+                <span class="text-white/60">you can experience in weeks.</span>
+            </h1>
+            <p class="text-lg text-white/50 mb-12 fade-up delay-2">
+                50,000+ nautical miles. Michelin kitchens to midnight markets. Himalayan summits to crystal depths.<br>
+                I built EDUCATEDTRAVELER so your path doesn't take a decade.
+            </p>
+            <a href="#story" class="inline-flex items-center gap-2 text-white/40 hover:text-white transition-colors fade-up delay-2">
+                <span class="text-sm">Discover the story</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Story Slideshow -->
+    <section id="story" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Slideshow Container -->
+            <div class="relative aspect-[16/9] md:aspect-[2/1] rounded-2xl overflow-hidden mb-8">
+
+                <!-- Slide 1: The Question -->
+                <div class="slide active" data-slide="0">
+                    <img src="images/story/sailing-5.png" alt="Setting sail" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter I</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">The Beginning</h2>
+                        <p class="text-white/70 max-w-xl">
+                            At 18, I finished high school. Everyone expected university, career, the usual path.
+                            I had a different question: <span class="text-white">What is really out there?</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Culinary Arts -->
+                <div class="slide" data-slide="1">
+                    <img src="images/story/chef-plating.jpg" alt="Professional kitchen" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter II</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">Culinary Arts</h2>
+                        <p class="text-white/70 max-w-xl">
+                            Michelin kitchens in France. Street vendors in Bangkok. WSET certified in Paris. Private chef on some of the world's finest yachts.
+                            <span class="text-white">Each kitchen was a classroom. Each chef, a teacher.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Sailing -->
+                <div class="slide" data-slide="2">
+                    <img src="images/story/sailing-4.png" alt="Ocean sailing" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter III</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">Sailing</h2>
+                        <p class="text-white/70 max-w-xl">
+                            50,000+ nautical miles. RYA in Thailand. Regattas in Sydney Bay. Sailboat deliveries worldwide.
+                            <span class="text-white">The ocean doesn't care about your résumé. It cares about your judgment.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Adventures -->
+                <div class="slide" data-slide="3">
+                    <img src="images/story/freedive-line.png" alt="Adventures" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter IV</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">Adventures</h2>
+                        <p class="text-white/70 max-w-xl">
+                            Molchanov freediving in Mexico. Shark diving in the Galápagos. Annapurna Base Camp at 4,130m.
+                            <span class="text-white">Fear transformed into respect. Strangers became friends.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Wellness -->
+                <div class="slide" data-slide="4">
+                    <img src="images/story/mountain-climb.jpg" alt="Wellness" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter V</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">Wellness</h2>
+                        <p class="text-white/70 max-w-xl">
+                            Breathwork training in Bali. Ayurvedic medicine in India. Learning to heal from within.
+                            <span class="text-white">The body knows. You just have to listen.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Creativity -->
+                <div class="slide" data-slide="5">
+                    <img src="images/story/sailing-1.png" alt="Creativity" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter VI</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">Creativity</h2>
+                        <p class="text-white/70 max-w-xl">
+                            [Your creativity story here]
+                            <span class="text-white">[Highlight phrase]</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Progress Dots -->
+            <div class="flex justify-center gap-2">
+                <button onclick="goToSlide(0)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="0"></button>
+                <button onclick="goToSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="1"></button>
+                <button onclick="goToSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="2"></button>
+                <button onclick="goToSlide(3)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="3"></button>
+                <button onclick="goToSlide(4)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="4"></button>
+                <button onclick="goToSlide(5)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="5"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Pattern -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-white/50 mb-8">Every skill worth having came the same way:</p>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="glass rounded-xl p-6">
+                    <div class="text-3xl text-cyan-400 mb-3">1</div>
+                    <h3 class="font-medium mb-2">A Place</h3>
+                    <p class="text-white/50 text-sm">Where the knowledge lives</p>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <div class="text-3xl text-cyan-400 mb-3">2</div>
+                    <h3 class="font-medium mb-2">A Person</h3>
+                    <p class="text-white/50 text-sm">Who's mastered it</p>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <div class="text-3xl text-cyan-400 mb-3">3</div>
+                    <h3 class="font-medium mb-2">Total Immersion</h3>
+                    <p class="text-white/50 text-sm">Not weekends — weeks</p>
+                </div>
+            </div>
+
+            <p class="text-xl text-white/70">
+                Not YouTube at 2 AM. Not courses you'll never finish.<br>
+                <span class="text-white">Real learning. At the source. With masters.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- The Bridge -->
+    <section class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-light mb-8">So I built the bridge.</h2>
+
+            <div class="grid sm:grid-cols-2 gap-4 text-left mb-12">
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white font-medium mb-1">Real certifications</p>
+                    <p class="text-white/50 text-sm">PADI, RYA, Yoga Alliance, WSET</p>
+                </div>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white font-medium mb-1">The actual source</p>
+                    <p class="text-white/50 text-sm">Tokyo. Rishikesh. The Atlantic.</p>
+                </div>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white font-medium mb-1">Masters who teach</p>
+                    <p class="text-white/50 text-sm">Decades of expertise, not followers</p>
+                </div>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white font-medium mb-1">Cohorts who bond</p>
+                    <p class="text-white/50 text-sm">8-12 people, shared journey</p>
+                </div>
+            </div>
+
+            <p class="text-2xl font-light text-white/80 mb-2">
+                One week to get certified.
+            </p>
+            <p class="text-2xl font-light text-white/50">
+                Six months to change your life.
+            </p>
+        </div>
+    </section>
+
+    <!-- Survey CTA -->
+    <section id="survey" class="py-24 px-6">
+        <div class="max-w-xl mx-auto text-center">
+            <p class="text-lg text-white/70 mb-4">
+                Your adventure is waiting where it's always been:<br>
+                <span class="text-white">at the source.</span>
+            </p>
+            <p class="text-white/50 mb-8">Help us shape what we're building.</p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform" target="_blank" class="cta-button inline-flex items-center gap-3 px-10 py-5 rounded-full text-white font-medium text-lg">
+                <span>Take the Survey</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </a>
+
+            <p class="text-white/30 text-sm mt-6">2 minutes. Your input shapes everything.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-cyan-400">TRAVELER</span></p>
+                    <p class="text-white/40 text-sm">Skills last, tans fade.</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="vision.html" class="text-white/50 hover:text-white text-sm transition-colors">Vision</a>
+                    <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Offerings</a>
+                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
+                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="text-white/50 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 6;
+        let autoplayInterval;
+
+        function showSlide(index) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.slide-dot').forEach(d => {
+                d.classList.remove('bg-white');
+                d.classList.add('bg-white/30');
+            });
+
+            document.querySelector(`[data-slide="${index}"]`).classList.add('active');
+            document.querySelector(`[data-dot="${index}"]`).classList.remove('bg-white/30');
+            document.querySelector(`[data-dot="${index}"]`).classList.add('bg-white');
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            showSlide((currentSlide + 1) % totalSlides);
+            resetAutoplay();
+        }
+
+        function prevSlide() {
+            showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+            resetAutoplay();
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+            resetAutoplay();
+        }
+
+        function resetAutoplay() {
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Initialize
+        showSlide(0);
+        autoplayInterval = setInterval(nextSlide, 5000);
+    </script>
+</body>
+</html>
