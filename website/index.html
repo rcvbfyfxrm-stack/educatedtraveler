@@ -76,6 +76,9 @@
                 <a href="#survey" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     Take Survey
                 </a>
+                <a href="#community" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    Join Community
+                </a>
             </div>
         </div>
     </nav>
@@ -285,6 +288,239 @@
         </div>
     </section>
 
+    <!-- Explorer Quest -->
+    <section id="quest" class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10">
+                <p class="text-xs uppercase tracking-[0.3em] text-cyan-400/80 mb-4">Explore what fits you</p>
+                <h2 class="text-3xl font-light mb-3">Find your next Skill Adventure.</h2>
+                <p class="text-white/50 text-sm">
+                    Answer a few quick prompts. Well suggest a few programs that feel right for where you are now.
+                </p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 md:p-8 space-y-8">
+                <!-- Q1: Element -->
+                <div>
+                    <p class="text-sm text-white/70 mb-3">1. Which element calls you right now?</p>
+                    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="ocean">
+                            Ocean & wind
+                            <span class="block text-xs text-white/40">Sailing, diving, crossings</span>
+                        </button>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="mountain">
+                            Summits & air
+                            <span class="block text-xs text-white/40">Mountains, cliffs, edges</span>
+                        </button>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="city">
+                            City lights
+                            <span class="block text-xs text-white/40">Tokyo counters, night markets</span>
+                        </button>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="temple">
+                            Temples & stillness
+                            <span class="block text-xs text-white/40">Ashrams, monasteries, breath</span>
+                        </button>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="desert">
+                            Heat & dust
+                            <span class="block text-xs text-white/40">Kitchens, deserts, fight gyms</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Q2: Outcome -->
+                <div>
+                    <p class="text-sm text-white/70 mb-3">2. What do you want to come home with?</p>
+                    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="certification">
+                            A real certification
+                            <span class="block text-xs text-white/40">Something that lives on your CV</span>
+                        </button>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="reset">
+                            Nervous system reset
+                            <span class="block text-xs text-white/40">Sleep, sun, breath, stillness</span>
+                        </button>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="stories">
+                            Stories worth telling
+                            <span class="block text-xs text-white/40">The ones people lean in to hear</span>
+                        </button>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="career">
+                            A new career path
+                            <span class="block text-xs text-white/40">From dabbler to working pro</span>
+                        </button>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="creative">
+                            A finished creative work
+                            <span class="block text-xs text-white/40">Book draft, portfolio, collection</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Q3: Time -->
+                <div>
+                    <p class="text-sm text-white/70 mb-3">3. How long can you disappear?</p>
+                    <div class="flex flex-wrap gap-3 text-sm">
+                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="time" data-value="foundation">
+                            710 days
+                        </button>
+                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="time" data-value="mastery">
+                            2 14 weeks
+                        </button>
+                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="time" data-value="mastery-long">
+                            1 112 months
+                        </button>
+                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="time" data-value="saga">
+                            3 116 months
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Q4: Intensity -->
+                <div>
+                    <p class="text-sm text-white/70 mb-3">4. Turn the intensity dial.</p>
+                    <div class="flex flex-wrap gap-3 text-sm">
+                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="intensity" data-value="1">
+                            Soft landing
+                        </button>
+                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="intensity" data-value="2">
+                            Bring it on
+                        </button>
+                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="intensity" data-value="3">
+                            Full send
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pt-2 space-y-3">
+                    <button id="quest-submit" type="button" class="cta-button w-full md:w-auto px-8 py-3 rounded-full text-sm font-medium">
+                        See your matches
+                    </button>
+                    <p id="quest-status" class="text-xs text-white/40">
+                        You can change answers as much as you like.
+                    </p>
+                </div>
+
+                <div id="quest-results" class="hidden border-t border-white/10 pt-6 mt-2">
+                    <div class="mb-6">
+                        <p class="text-xs uppercase tracking-[0.3em] text-cyan-400/80 mb-2">Your profile</p>
+                        <h3 id="quest-persona-title" class="text-2xl font-light mb-1">Explorer</h3>
+                        <p id="quest-persona-subtitle" class="text-sm text-white/50">
+                            We 19ll tune this once you reveal your quest.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                        <div id="quest-primary-card" class="glass rounded-xl p-4">
+                            <p class="text-[10px] uppercase tracking-[0.25em] text-cyan-400/80 mb-2">Recommended match</p>
+                            <h4 id="quest-primary-name" class="text-base font-medium mb-1">Quest Name</h4>
+                            <p id="quest-primary-summary" class="text-white/50 text-xs mb-2"></p>
+                            <p id="quest-primary-meta" class="text-white/40 text-[11px]"></p>
+                        </div>
+                        <div id="quest-secondary-card" class="glass rounded-xl p-4">
+                            <p class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">Alternative option</p>
+                            <h4 id="quest-secondary-name" class="text-base font-medium mb-1">Quest Name</h4>
+                            <p id="quest-secondary-summary" class="text-white/50 text-xs mb-2"></p>
+                            <p id="quest-secondary-meta" class="text-white/40 text-[11px]"></p>
+                        </div>
+                        <div id="quest-saga-card" class="glass rounded-xl p-4">
+                            <p class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">Longer path</p>
+                            <h4 id="quest-saga-name" class="text-base font-medium mb-1">Quest Name</h4>
+                            <p id="quest-saga-summary" class="text-white/50 text-xs mb-2"></p>
+                            <p id="quest-saga-meta" class="text-white/40 text-[11px]"></p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 text-xs text-white/50 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                        <p>
+                            These are real Skill Adventures from our catalog. We 19ll invite you when matching cohorts open.
+                        </p>
+                        <a href="#community" class="cta-button inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-medium">
+                            Join the community to stay in the loop
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community CTA -->
+    <section id="community" class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-xl mx-auto text-center">
+            <p class="text-xs uppercase tracking-[0.3em] text-cyan-400/80 mb-4">
+                Join the community
+            </p>
+            <h2 class="text-3xl font-light mb-4">
+                Be first to hear about cohorts and adventures.
+            </h2>
+            <p class="text-white/50 text-sm mb-8">
+                Early access to new Skill Adventures at the source, behind-the-scenes dispatches,
+                and invitations to founding cohorts.
+            </p>
+
+            <form id="community-form" class="space-y-4 max-w-md mx-auto">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="you@email.com"
+                        class="flex-1 rounded-full px-4 py-3 text-sm bg-white/5 border border-white/20 text-white placeholder:text-white/30"
+                    />
+                    <button
+                        type="submit"
+                        id="community-submit"
+                        class="cta-button px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap"
+                    >
+                        Join community
+                    </button>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-3 text-left text-xs text-white/60">
+                    <div>
+                        <label class="block mb-1">What are you most interested in?</label>
+                        <select
+                            name="interest"
+                            class="w-full rounded-lg px-3 py-2 bg-white/5 border border-white/20 text-xs"
+                        >
+                            <option value="">Choose one (optional)</option>
+                            <option value="sailing">Sailing / RYA</option>
+                            <option value="diving">Diving / PADI</option>
+                            <option value="culinary">Culinary / Wine</option>
+                            <option value="wellness">Yoga / Breathwork</option>
+                            <option value="adventure">Adventure (mountains, freedive...)</option>
+                            <option value="not-sure">Not sure yet</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-1">Rough timeline</label>
+                        <select
+                            name="timeline"
+                            class="w-full rounded-lg px-3 py-2 bg-white/5 border border-white/20 text-xs"
+                        >
+                            <option value="">When are you thinking?</option>
+                            <option value="this-year">Within 12 months</option>
+                            <option value="next-year">In 1 112 years</option>
+                            <option value="exploring">Just exploring for now</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p class="text-[11px] text-white/30">
+                    Are you an instructor or partner?
+                    <a href="instructors.html" class="text-cyan-400/80 hover:text-cyan-400 underline">
+                        Start here instead
+                    </a>.
+                </p>
+
+                <p id="community-status" class="text-white/30 text-xs mt-2">
+                    No spam. A few high-signal updates per month.
+                </p>
+            </form>
+
+            <div id="community-success" class="hidden mt-8 text-sm text-white/70">
+                Youre in. Check your email for the next dispatch from the source.
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-12 border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6">
@@ -347,6 +583,381 @@
         // Initialize
         showSlide(0);
         autoplayInterval = setInterval(nextSlide, 5000);
+    </script>
+
+    <script>
+        const COMMUNITY_SCRIPT_URL = 'YOUR_COMMUNITY_GOOGLE_SCRIPT_URL_HERE';
+
+        const communityForm = document.getElementById('community-form');
+        if (communityForm) {
+            communityForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const form = e.target;
+                const submitBtn = document.getElementById('community-submit');
+                const statusEl = document.getElementById('community-status');
+                const successEl = document.getElementById('community-success');
+
+                if (!submitBtn || !statusEl || !successEl) return;
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Joining...';
+                submitBtn.classList.add('opacity-60');
+
+                const formData = new FormData(form);
+                const data = {
+                    timestamp: new Date().toISOString(),
+                    email: formData.get('email'),
+                    interest: formData.get('interest'),
+                    timeline: formData.get('timeline'),
+                    source: 'homepage-community'
+                };
+
+                try {
+                    await fetch(COMMUNITY_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    form.classList.add('hidden');
+                    successEl.classList.remove('hidden');
+                } catch (err) {
+                    console.error(err);
+                    statusEl.textContent = 'Something went wrong. Please try again.';
+                    statusEl.classList.add('text-red-400');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Join community';
+                    submitBtn.classList.remove('opacity-60');
+                }
+            });
+        }
+    </script>
+
+    <script>
+        // Lightweight quest algorithm
+        const questChoices = document.querySelectorAll('.quest-choice');
+        const questSubmit = document.getElementById('quest-submit');
+        const questStatus = document.getElementById('quest-status');
+        const questResults = document.getElementById('quest-results');
+        const questPersonaTitle = document.getElementById('quest-persona-title');
+        const questPersonaSubtitle = document.getElementById('quest-persona-subtitle');
+
+        const primaryNameEl = document.getElementById('quest-primary-name');
+        const primarySummaryEl = document.getElementById('quest-primary-summary');
+        const primaryMetaEl = document.getElementById('quest-primary-meta');
+
+        const secondaryCardEl = document.getElementById('quest-secondary-card');
+        const secondaryNameEl = document.getElementById('quest-secondary-name');
+        const secondarySummaryEl = document.getElementById('quest-secondary-summary');
+        const secondaryMetaEl = document.getElementById('quest-secondary-meta');
+
+        const sagaCardEl = document.getElementById('quest-saga-card');
+        const sagaNameEl = document.getElementById('quest-saga-name');
+        const sagaSummaryEl = document.getElementById('quest-saga-summary');
+        const sagaMetaEl = document.getElementById('quest-saga-meta');
+
+        const experiences = [
+            {
+                id: 'ocean-sailing-odyssey-foundation',
+                name: 'Ocean Sailing Odyssey  14 Foundation (Day Skipper)',
+                category: 'sailing',
+                tier: 'foundation',
+                minDays: 21,
+                maxDays: 21,
+                minPrice: 6500,
+                maxPrice: 6500,
+                envTags: ['ocean', 'wind', 'boat'],
+                desireTags: ['certification', 'stories', 'career'],
+                intensity: 2,
+                summary: 'RYA Day Skipper certification on a 21-day Atlantic training leg  14 small crew, big sea.',
+                meta: '21 days  b7 ~$6.5k  b7 RYA Day Skipper'
+            },
+            {
+                id: 'sacred-yoga-pilgrimage',
+                name: 'Sacred Yoga Pilgrimage  14 India',
+                category: 'wellness',
+                tier: 'foundation',
+                minDays: 25,
+                maxDays: 28,
+                minPrice: 5500,
+                maxPrice: 5500,
+                envTags: ['temple'],
+                desireTags: ['certification', 'reset', 'stories'],
+                intensity: 2,
+                summary: 'Ashrams, Rishikesh and Dharamsala over ~4 weeks to earn your RYT-200 at the source.',
+                meta: '25 1128 days  b7 ~$5.5k  b7 Yoga Alliance RYT-200'
+            },
+            {
+                id: 'sushi-mastery-tokyo',
+                name: 'Sushi Mastery  14 Tokyo',
+                category: 'culinary',
+                tier: 'mastery',
+                minDays: 30,
+                maxDays: 30,
+                minPrice: 12000,
+                maxPrice: 12000,
+                envTags: ['city'],
+                desireTags: ['certification', 'career', 'creative', 'stories'],
+                intensity: 2,
+                summary: 'Thirty days on the other side of the counter with a master itamae in Tokyo.',
+                meta: '30 days  b7 ~$12k  b7 Professional sushi certification'
+            },
+            {
+                id: 'freedive-dahab-foundation',
+                name: 'Freediving Foundation  14 Dahab',
+                category: 'adventure',
+                tier: 'foundation',
+                minDays: 14,
+                maxDays: 21,
+                minPrice: 3500,
+                maxPrice: 5500,
+                envTags: ['ocean', 'desert'],
+                desireTags: ['stories', 'reset'],
+                intensity: 3,
+                summary: 'Blue Hole training, breathwork and depth progression on the Red Sea.',
+                meta: '14 1121 days  b7 ~$3.5k 115.5k  b7 AIDA/SSI freediving'
+            },
+            {
+                id: 'photography-rajasthan',
+                name: 'Photography at the Edge of Light  14 Rajasthan',
+                category: 'creative',
+                tier: 'foundation',
+                minDays: 14,
+                maxDays: 21,
+                minPrice: 5500,
+                maxPrice: 7500,
+                envTags: ['desert', 'city'],
+                desireTags: ['creative', 'stories'],
+                intensity: 2,
+                summary: 'Golden hour safaris, blue cities and festival streets with a Magnum-level mentor.',
+                meta: '14 1121 days  b7 ~$5.5k 117.5k  b7 Portfolio-ready work'
+            },
+            {
+                id: 'ocean-sailing-odyssey-saga',
+                name: 'Ocean Sailing Odyssey  14 Complete Saga',
+                category: 'sailing',
+                tier: 'saga',
+                minDays: 90,
+                maxDays: 90,
+                minPrice: 28000,
+                maxPrice: 28000,
+                envTags: ['ocean', 'wind', 'boat'],
+                desireTags: ['career', 'stories', 'certification'],
+                intensity: 3,
+                summary: 'Three months of bluewater passages toward Yachtmaster-level competence.',
+                meta: '90 days  b7 ~$28k  b7 RYA Yachtmaster track'
+            }
+        ];
+
+        const personaByCategory = {
+            sailing: {
+                title: 'Ocean Tactician',
+                subtitle: 'You think in wind shifts and watch rotations. The sea is a moving chessboard.'
+            },
+            wellness: {
+                title: 'Quiet Storm',
+                subtitle: 'You want the kind of calm that survives real life, not just retreats.'
+            },
+            culinary: {
+                title: 'Kitchen Alchemist',
+                subtitle: 'Precise, obsessive, willing to repeat the same cut a thousand times.'
+            },
+            adventure: {
+                title: 'Edgewalker',
+                subtitle: 'You chase the edge to see who you become on the other side of fear.'
+            },
+            creative: {
+                title: 'Storyteller at Source',
+                subtitle: 'You collect moments and turn them into something people can feel.'
+            }
+        };
+
+        function collectAnswers() {
+            const selected = {
+                elements: [],
+                desires: [],
+                time: null,
+                intensity: null
+            };
+
+            questChoices.forEach((btn) => {
+                if (btn.dataset.selected === 'true') {
+                    const group = btn.dataset.group;
+                    const value = btn.dataset.value;
+                    if (group === 'elements' || group === 'desires') {
+                        selected[group].push(value);
+                    } else if (group === 'time') {
+                        selected.time = value;
+                    } else if (group === 'intensity') {
+                        selected.intensity = parseInt(value, 10);
+                    }
+                }
+            });
+
+            return selected;
+        }
+
+        function tierFromTimeValue(value) {
+            if (value === 'foundation') return 'foundation';
+            if (value === 'saga') return 'saga';
+            // both mid options lean mastery
+            return 'mastery';
+        }
+
+        function scoreExperience(exp, answers) {
+            let score = 0;
+
+            // Environment
+            exp.envTags.forEach((tag) => {
+                if (answers.elements.includes(tag)) {
+                    score += 5;
+                }
+            });
+
+            // Desires
+            exp.desireTags.forEach((tag) => {
+                if (answers.desires.includes(tag)) {
+                    score += 7;
+                }
+            });
+
+            // Tier / time
+            const preferredTier = tierFromTimeValue(answers.time || 'foundation');
+            if (exp.tier === preferredTier) {
+                score += 8;
+            } else if (
+                (exp.tier === 'mastery' && preferredTier === 'foundation') ||
+                (exp.tier === 'foundation' && preferredTier === 'mastery') ||
+                (exp.tier === 'mastery' && preferredTier === 'saga') ||
+                (exp.tier === 'saga' && preferredTier === 'mastery')
+            ) {
+                score += 3;
+            }
+
+            // Intensity closeness
+            if (answers.intensity != null) {
+                const diff = Math.abs(exp.intensity - answers.intensity);
+                if (diff === 0) score += 6;
+                else if (diff === 1) score += 2;
+            }
+
+            return score;
+        }
+
+        function pickPersona(topExp) {
+            if (!topExp) {
+                return {
+                    title: 'Explorer',
+                    subtitle: 'You 19re drawn to skills that leave a mark. Let 19s find the right one.'
+                };
+            }
+            const config = personaByCategory[topExp.category];
+            if (config) return config;
+            return {
+                title: 'Explorer',
+                subtitle: 'You 19re drawn to skills that leave a mark. Let 19s find the right one.'
+            };
+        }
+
+        if (questChoices && questChoices.length && questSubmit) {
+            // Choice toggle behaviour
+            questChoices.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const group = btn.dataset.group;
+
+                    if (group === 'elements' || group === 'desires') {
+                        // Multi-select groups
+                        const isSelected = btn.dataset.selected === 'true';
+                        btn.dataset.selected = isSelected ? 'false' : 'true';
+                    } else {
+                        // Single-select groups
+                        questChoices.forEach((other) => {
+                            if (other.dataset.group === group) {
+                                other.dataset.selected = 'false';
+                            }
+                        });
+                        btn.dataset.selected = 'true';
+                    }
+
+                    if (btn.dataset.selected === 'true') {
+                        btn.classList.add('bg-white', 'text-black');
+                    } else {
+                        btn.classList.remove('bg-white', 'text-black');
+                    }
+                });
+            });
+
+            questSubmit.addEventListener('click', () => {
+                const answers = collectAnswers();
+
+                if (!answers.elements.length || !answers.desires.length || !answers.time || !answers.intensity) {
+                    if (questStatus) {
+                        questStatus.textContent = 'Choose at least one element, one outcome, a time window and an intensity.';
+                        questStatus.classList.remove('text-white/40');
+                        questStatus.classList.add('text-amber-300');
+                    }
+                    return;
+                }
+
+                const scored = experiences
+                    .map((exp) => ({ exp, score: scoreExperience(exp, answers) }))
+                    .filter((s) => s.score > 0)
+                    .sort((a, b) => b.score - a.score);
+
+                if (!scored.length) {
+                    if (questStatus) {
+                        questStatus.textContent = 'You 19re a rare combination. We 19ll design a program for you  14 leave your email below.';
+                        questStatus.classList.remove('text-white/40');
+                        questStatus.classList.add('text-amber-300');
+                    }
+                    return;
+                }
+
+                const primary = scored[0]?.exp;
+                const secondary = scored[1]?.exp;
+                const saga = scored.find((s) => s.exp.tier === 'saga')?.exp || scored[2]?.exp;
+
+                const persona = pickPersona(primary);
+                if (questPersonaTitle) questPersonaTitle.textContent = persona.title;
+                if (questPersonaSubtitle) questPersonaSubtitle.textContent = persona.subtitle;
+
+                if (primary) {
+                    if (primaryNameEl) primaryNameEl.textContent = primary.name;
+                    if (primarySummaryEl) primarySummaryEl.textContent = primary.summary;
+                    if (primaryMetaEl) primaryMetaEl.textContent = primary.meta;
+                }
+
+                if (secondary && secondaryCardEl) {
+                    secondaryCardEl.classList.remove('hidden');
+                    if (secondaryNameEl) secondaryNameEl.textContent = secondary.name;
+                    if (secondarySummaryEl) secondarySummaryEl.textContent = secondary.summary;
+                    if (secondaryMetaEl) secondaryMetaEl.textContent = secondary.meta;
+                } else if (secondaryCardEl) {
+                    secondaryCardEl.classList.add('hidden');
+                }
+
+                if (saga && sagaCardEl) {
+                    sagaCardEl.classList.remove('hidden');
+                    if (sagaNameEl) sagaNameEl.textContent = saga.name;
+                    if (sagaSummaryEl) sagaSummaryEl.textContent = saga.summary;
+                    if (sagaMetaEl) sagaMetaEl.textContent = saga.meta;
+                } else if (sagaCardEl) {
+                    sagaCardEl.classList.add('hidden');
+                }
+
+                if (questResults) {
+                    questResults.classList.remove('hidden');
+                }
+
+                if (questStatus) {
+                    questStatus.textContent = 'Matches generated. Scroll down to join the community and stay close to updates.';
+                    questStatus.classList.remove('text-amber-300');
+                    questStatus.classList.add('text-white/40');
+                }
+            });
+        }
     </script>
 </body>
 </html>
