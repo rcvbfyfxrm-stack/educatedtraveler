@@ -2,6 +2,8 @@
 
 The visual language of EducatedTraveler. Apple glass meets Netflix minimal.
 
+> For brand rules and ethics that all design and copy must follow, see `os/brand/brand-guardrails.md`.
+
 ---
 
 ## Philosophy

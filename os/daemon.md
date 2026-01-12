@@ -407,6 +407,8 @@ When all else fails, return to this:
 **Last Updated**: January 2026
 **Powered By**: Foundation Agent + Ultimate Agent
 
+> For brand-specific guardrails on copy, UX, and product framing, see `os/brand/brand-guardrails.md`.
+
 ---
 
 *"The only thing that matters is getting to product-market fit."*
