@@ -105,6 +105,72 @@
             50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.5); }
         }
         .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+        /* Fun animations */
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 9999;
+            animation: confetti-fall 3s ease-out forwards;
+        }
+        @keyframes xp-popup {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            20% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+            80% { transform: translateY(-40px) scale(1); opacity: 1; }
+            100% { transform: translateY(-60px) scale(0.8); opacity: 0; }
+        }
+        .xp-popup {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            animation: xp-popup 1.5s ease-out forwards;
+            font-weight: bold;
+            text-shadow: 0 0 20px currentColor;
+        }
+        @keyframes achievement-unlock {
+            0% { transform: scale(0) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+            70% { transform: scale(0.95) rotate(-2deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        .achievement-toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            animation: achievement-unlock 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(-1deg); }
+            75% { transform: translateX(5px) rotate(1deg); }
+        }
+        .shake { animation: shake 0.5s ease-in-out; }
+        @keyframes level-up {
+            0% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.1); filter: brightness(1.5); }
+            100% { transform: scale(1); filter: brightness(1); }
+        }
+        .level-up { animation: level-up 0.8s ease-out; }
+        @keyframes bounce-in {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.15); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+        .bounce-in { animation: bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+        .wiggle:hover { animation: wiggle 0.3s ease-in-out; }
     </style>
 </head>
 <body class="text-white">
@@ -342,14 +408,16 @@
             <!-- Sign In Bar (shown when not signed in) -->
             <div id="signin-bar" class="glass rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="text-center md:text-left">
-                    <h3 class="text-lg font-medium mb-1">Save your quest progress</h3>
-                    <p class="text-white/50 text-sm">Sign in to track your skill adventures and build your explorer profile.</p>
+                    <h3 class="text-lg font-medium mb-1 flex items-center gap-2 justify-center md:justify-start">
+                        <span class="text-2xl wiggle inline-block">🎮</span> Start your adventure
+                    </h3>
+                    <p class="text-white/50 text-sm">Earn XP, unlock badges, and discover your perfect skill quest. No boring forms, we promise.</p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                    <input type="email" id="signin-email" placeholder="your@email.com"
+                    <input type="email" id="signin-email" placeholder="hero@adventure.com"
                         class="px-4 py-3 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30 w-full sm:w-64">
-                    <button id="signin-btn" class="cta-button px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap">
-                        Get magic link
+                    <button id="signin-btn" class="cta-button px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap wiggle">
+                        ✨ Get magic link
                     </button>
                 </div>
             </div>
@@ -357,15 +425,13 @@
             <!-- Magic Link Sent Message -->
             <div id="magic-link-sent" class="hidden glass rounded-2xl p-8 mb-8 text-center">
                 <div class="w-16 h-16 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4 pulse-glow">
-                    <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
+                    <span class="text-3xl">📬</span>
                 </div>
-                <h3 class="text-xl font-medium mb-2">Check your email</h3>
-                <p class="text-white/50 text-sm mb-4">We sent a magic link to <span id="sent-email" class="text-cyan-400"></span></p>
-                <p class="text-white/30 text-xs">Click the link to sign in — no password needed.</p>
-                <button id="signin-demo-btn" class="mt-6 text-cyan-400/60 hover:text-cyan-400 text-xs underline">
-                    Demo: Sign in now →
+                <h3 class="text-xl font-medium mb-2">Magic incoming! ✨</h3>
+                <p class="text-white/50 text-sm mb-4">We teleported a link to <span id="sent-email" class="text-cyan-400"></span></p>
+                <p class="text-white/30 text-xs">One click and you're in. No passwords. No friction. Just adventure.</p>
+                <button id="signin-demo-btn" class="mt-6 cta-button px-6 py-2 rounded-full text-sm">
+                    🚀 Skip the wait (Demo mode)
                 </button>
             </div>
 
@@ -374,41 +440,44 @@
                 <div class="flex flex-col md:flex-row gap-6 items-start">
                     <!-- Avatar & Basic Info -->
                     <div class="flex gap-4 items-center">
-                        <div class="profile-avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold text-white">
+                        <div id="profile-avatar-container" class="profile-avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold text-white cursor-pointer wiggle">
                             <span id="profile-initials">ET</span>
                         </div>
                         <div>
                             <h2 id="profile-name" class="text-2xl font-light">Explorer</h2>
-                            <p id="profile-title" class="text-cyan-400 text-sm">Novice Adventurer</p>
-                            <p class="text-white/40 text-xs mt-1">Member since <span id="profile-joined">Jan 2026</span></p>
+                            <p id="profile-title" class="text-cyan-400 text-sm flex items-center gap-1">
+                                <span id="profile-title-text">Novice Adventurer</span>
+                                <span id="profile-title-emoji" class="text-lg">🌱</span>
+                            </p>
+                            <p id="profile-tagline" class="text-white/30 text-xs mt-1 italic">"Every expert was once a beginner"</p>
                         </div>
                     </div>
 
                     <!-- Level & XP -->
                     <div class="flex-1 w-full md:w-auto">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-sm text-white/60">Level <span id="profile-level" class="text-cyan-400 font-medium">1</span></span>
+                            <span class="text-sm text-white/60">Level <span id="profile-level" class="text-cyan-400 font-medium">1</span> <span id="level-emoji">⚡</span></span>
                             <span class="text-xs text-white/40"><span id="profile-xp">0</span> / <span id="profile-xp-next">500</span> XP</span>
                         </div>
-                        <div class="xp-bar h-2 rounded-full">
+                        <div class="xp-bar h-3 rounded-full">
                             <div id="xp-fill" class="xp-fill h-full rounded-full" style="width: 0%"></div>
                         </div>
-                        <p class="text-white/30 text-xs mt-2">Complete quests and adventures to level up</p>
+                        <p id="xp-message" class="text-white/30 text-xs mt-2">Keep going! Every adventure adds to your legend.</p>
                     </div>
 
                     <!-- Quick Stats -->
-                    <div class="flex gap-4 text-center">
-                        <div>
+                    <div class="flex gap-6 text-center">
+                        <div class="cursor-pointer hover:scale-110 transition-transform">
                             <p id="stat-skills" class="text-2xl font-light text-cyan-400">0</p>
-                            <p class="text-white/40 text-xs">Skills</p>
+                            <p class="text-white/40 text-xs">🎯 Skills</p>
                         </div>
-                        <div>
+                        <div class="cursor-pointer hover:scale-110 transition-transform">
                             <p id="stat-adventures" class="text-2xl font-light text-cyan-400">0</p>
-                            <p class="text-white/40 text-xs">Adventures</p>
+                            <p class="text-white/40 text-xs">🗺️ Quests</p>
                         </div>
-                        <div>
+                        <div class="cursor-pointer hover:scale-110 transition-transform">
                             <p id="stat-badges" class="text-2xl font-light text-cyan-400">0</p>
-                            <p class="text-white/40 text-xs">Badges</p>
+                            <p class="text-white/40 text-xs">🏆 Badges</p>
                         </div>
                     </div>
                 </div>
@@ -423,59 +492,55 @@
             <div id="profile-experience" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
                 <div class="flex items-center justify-between mb-6">
                     <h3 class="text-lg font-medium flex items-center gap-2">
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                        </svg>
-                        Your Experience
+                        <span class="text-xl">🎒</span>
+                        Your Backstory
                     </h3>
-                    <button id="add-experience-btn" class="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                        </svg>
-                        Add Experience
+                    <button id="add-experience-btn" class="cta-button px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 wiggle">
+                        <span>+</span> Add Chapter (+XP!)
                     </button>
                 </div>
 
                 <!-- Add Experience Form (hidden by default) -->
-                <div id="add-experience-form" class="hidden mb-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                <div id="add-experience-form" class="hidden mb-6 p-5 rounded-xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20">
+                    <p class="text-white/60 text-sm mb-4">Tell us about your adventures so far. No verification needed — we trust you. 🤝</p>
                     <div class="grid md:grid-cols-2 gap-4 mb-4">
                         <div>
-                            <label class="block text-xs text-white/50 mb-2">Category</label>
+                            <label class="block text-xs text-white/50 mb-2">🎯 What world have you explored?</label>
                             <select id="exp-category" class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm">
-                                <option value="">Select category</option>
-                                <option value="sailing">Sailing & Ocean</option>
-                                <option value="diving">Diving & Freediving</option>
-                                <option value="culinary">Culinary & Wine</option>
-                                <option value="wellness">Yoga & Wellness</option>
-                                <option value="adventure">Adventure & Outdoors</option>
-                                <option value="creative">Creative & Arts</option>
+                                <option value="">Pick your realm...</option>
+                                <option value="sailing">⛵ Sailing & Ocean</option>
+                                <option value="diving">🤿 Diving & Freediving</option>
+                                <option value="culinary">👨‍🍳 Culinary & Wine</option>
+                                <option value="wellness">🧘 Yoga & Wellness</option>
+                                <option value="adventure">🏔️ Adventure & Outdoors</option>
+                                <option value="creative">🎨 Creative & Arts</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs text-white/50 mb-2">Skill Level</label>
+                            <label class="block text-xs text-white/50 mb-2">💪 How deep have you gone?</label>
                             <select id="exp-level" class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm">
-                                <option value="">Select level</option>
-                                <option value="curious">Curious (No experience yet)</option>
-                                <option value="beginner">Beginner (Tried it once or twice)</option>
-                                <option value="intermediate">Intermediate (Regular practice)</option>
-                                <option value="advanced">Advanced (Years of experience)</option>
-                                <option value="expert">Expert (Professional level)</option>
+                                <option value="">Be honest (no judgment!)...</option>
+                                <option value="curious">🌱 Curious — Haven't started yet, but dreaming</option>
+                                <option value="beginner">🐣 Beginner — Dipped my toes in</option>
+                                <option value="intermediate">🔥 Intermediate — I've got some reps</option>
+                                <option value="advanced">⭐ Advanced — Years in the game</option>
+                                <option value="expert">👑 Expert — I could teach this</option>
                             </select>
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-xs text-white/50 mb-2">Specific Skills or Certifications (optional)</label>
-                        <input type="text" id="exp-details" placeholder="e.g., PADI Open Water, RYA Day Skipper, 200hr YTT..."
+                        <label class="block text-xs text-white/50 mb-2">📜 Any certs or bragging rights? (optional)</label>
+                        <input type="text" id="exp-details" placeholder="PADI Open Water, RYA Day Skipper, that one time you didn't burn dinner..."
                             class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm placeholder:text-white/30">
                     </div>
                     <div class="mb-4">
-                        <label class="block text-xs text-white/50 mb-2">Tell us more (optional)</label>
-                        <textarea id="exp-notes" rows="2" placeholder="Where did you learn? What did you love about it?"
+                        <label class="block text-xs text-white/50 mb-2">📖 Got a story? (optional but we love stories)</label>
+                        <textarea id="exp-notes" rows="2" placeholder="Where'd you learn? Best moment? Worst wipeout? We're all ears..."
                             class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm placeholder:text-white/30"></textarea>
                     </div>
-                    <div class="flex gap-3">
-                        <button id="save-experience-btn" class="cta-button px-4 py-2 rounded-full text-sm font-medium">
-                            Save Experience (+75 XP)
+                    <div class="flex gap-3 items-center">
+                        <button id="save-experience-btn" class="cta-button px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2">
+                            <span>🎮</span> Claim XP
                         </button>
                         <button id="cancel-experience-btn" class="px-4 py-2 rounded-full text-sm text-white/50 hover:text-white border border-white/20">
                             Cancel
@@ -1226,6 +1291,115 @@
 
         const STORAGE_KEY = 'educatedtraveler_profile';
 
+        // ========================================
+        // FUN STUFF - Celebrations & Animations
+        // ========================================
+
+        const confettiColors = ['#06b6d4', '#3b82f6', '#f59e0b', '#10b981', '#ec4899', '#8b5cf6'];
+
+        function spawnConfetti(count = 50) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 30);
+            }
+        }
+
+        function showXpPopup(amount, x, y) {
+            const popup = document.createElement('div');
+            popup.className = 'xp-popup text-cyan-400 text-xl';
+            popup.textContent = `+${amount} XP`;
+            popup.style.left = (x || window.innerWidth / 2) + 'px';
+            popup.style.top = (y || window.innerHeight / 2) + 'px';
+            document.body.appendChild(popup);
+            setTimeout(() => popup.remove(), 1500);
+        }
+
+        function showAchievement(title, description, icon = '🏆') {
+            const toast = document.createElement('div');
+            toast.className = 'achievement-toast glass rounded-xl p-4 max-w-xs';
+            toast.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <span class="text-3xl">${icon}</span>
+                    <div>
+                        <p class="font-medium text-cyan-400">${title}</p>
+                        <p class="text-white/60 text-sm">${description}</p>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.5s';
+                setTimeout(() => toast.remove(), 500);
+            }, 4000);
+        }
+
+        function celebrateLevelUp(newLevel) {
+            spawnConfetti(100);
+            showAchievement(
+                `Level ${newLevel} Unlocked!`,
+                levelUpMessages[Math.min(newLevel - 1, levelUpMessages.length - 1)],
+                '⚡'
+            );
+            const avatar = document.getElementById('profile-avatar-container');
+            if (avatar) {
+                avatar.classList.add('level-up');
+                setTimeout(() => avatar.classList.remove('level-up'), 800);
+            }
+        }
+
+        const levelUpMessages = [
+            "You're officially not a tourist anymore!",
+            "The adventure bug has bitten. No cure.",
+            "Your friends are starting to get jealous.",
+            "Plot twist: You're actually good at this.",
+            "Legend status loading... 80% complete.",
+            "They'll write songs about you someday.",
+            "You ARE the main character."
+        ];
+
+        const xpMessages = [
+            "Nice! Keep stacking those XP.",
+            "Your legend grows stronger.",
+            "The universe rewards the curious.",
+            "XP goes brrr!",
+            "You're basically printing experience points.",
+            "Another day, another adventure.",
+            "Skills > Degrees. Always."
+        ];
+
+        const achievementMessages = {
+            firstExperience: { title: "Origin Story", desc: "Added your first experience!", icon: "📖" },
+            fiveExperiences: { title: "Chapter Master", desc: "5 experiences added. You've lived!", icon: "📚" },
+            firstBadge: { title: "Badge Collector", desc: "Earned your first badge!", icon: "🏅" },
+            allBadges: { title: "Completionist", desc: "Collected all badges. Respect.", icon: "👑" },
+            oceanExplorer: { title: "Salty Dog", desc: "You belong on the water.", icon: "🌊" },
+            mountainClimber: { title: "Peak Performer", desc: "Altitude is your attitude.", icon: "🏔️" },
+            zenMaster: { title: "Inner Peace Unlocked", desc: "Namaste, legend.", icon: "🧘" },
+            questComplete: { title: "Quest Complete!", desc: "Your path reveals itself.", icon: "🗺️" }
+        };
+
+        // Fun taglines based on level
+        const levelTaglines = [
+            '"Every expert was once a beginner"',
+            '"The journey of 1000 miles begins with a single step"',
+            '"Not all who wander are lost"',
+            '"Adventure is worthwhile in itself"',
+            '"Life begins at the end of your comfort zone"',
+            '"The world is big and I want to have a good look at it"',
+            '"LEGENDARY STATUS ACHIEVED"'
+        ];
+
+        const levelEmojis = ['🌱', '🔥', '⭐', '💎', '🚀', '👑', '🌟'];
+
         const skillBadges = {
             ocean: { name: 'Ocean Explorer', icon: '🌊', color: 'cyan' },
             mountain: { name: 'Summit Seeker', icon: '⛰️', color: 'emerald' },
@@ -1240,13 +1414,13 @@
         };
 
         const levelTitles = [
-            'Novice Adventurer',
-            'Curious Explorer',
-            'Aspiring Wanderer',
-            'Skilled Traveler',
-            'Seasoned Voyager',
-            'Master Explorer',
-            'Legendary Pathfinder'
+            'Fresh Adventurer',
+            'Curious Wanderer',
+            'Rising Explorer',
+            'Skilled Voyager',
+            'Seasoned Legend',
+            'Master Pathfinder',
+            'ABSOLUTE LEGEND'
         ];
 
         function getProfile() {
@@ -1350,32 +1524,38 @@
             // Update profile header
             const initialsEl = document.getElementById('profile-initials');
             const nameEl = document.getElementById('profile-name');
-            const titleEl = document.getElementById('profile-title');
-            const joinedEl = document.getElementById('profile-joined');
+            const titleTextEl = document.getElementById('profile-title-text');
+            const titleEmojiEl = document.getElementById('profile-title-emoji');
+            const taglineEl = document.getElementById('profile-tagline');
             const levelEl = document.getElementById('profile-level');
+            const levelEmojiEl = document.getElementById('level-emoji');
             const xpEl = document.getElementById('profile-xp');
             const xpNextEl = document.getElementById('profile-xp-next');
             const xpFill = document.getElementById('xp-fill');
+            const xpMessageEl = document.getElementById('xp-message');
             const statSkills = document.getElementById('stat-skills');
             const statAdventures = document.getElementById('stat-adventures');
             const statBadges = document.getElementById('stat-badges');
 
+            const levelIndex = Math.min(profile.level - 1, levelTitles.length - 1);
+
             if (initialsEl) initialsEl.textContent = profile.initials;
             if (nameEl) nameEl.textContent = profile.name;
-            if (titleEl) titleEl.textContent = levelTitles[Math.min(profile.level - 1, levelTitles.length - 1)];
-            if (joinedEl) {
-                const joined = new Date(profile.joinedDate);
-                joinedEl.textContent = joined.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-            }
+            if (titleTextEl) titleTextEl.textContent = levelTitles[levelIndex];
+            if (titleEmojiEl) titleEmojiEl.textContent = levelEmojis[levelIndex];
+            if (taglineEl) taglineEl.textContent = levelTaglines[levelIndex];
             if (levelEl) levelEl.textContent = profile.level;
+            if (levelEmojiEl) levelEmojiEl.textContent = levelEmojis[levelIndex];
             if (xpEl) xpEl.textContent = profile.xp;
             if (xpNextEl) xpNextEl.textContent = profile.level * 500;
             if (xpFill) xpFill.style.width = getXpProgress(profile.xp) + '%';
+            if (xpMessageEl) xpMessageEl.textContent = xpMessages[Math.floor(Math.random() * xpMessages.length)];
 
             // Stats
-            if (statSkills) statSkills.textContent = profile.elements.length + profile.desires.length;
-            if (statAdventures) statAdventures.textContent = profile.adventures.length;
-            if (statBadges) statBadges.textContent = profile.badges.length;
+            const skillCount = (profile.elements?.length || 0) + (profile.desires?.length || 0) + (profile.experiences?.length || 0);
+            if (statSkills) statSkills.textContent = skillCount;
+            if (statAdventures) statAdventures.textContent = profile.adventures?.length || 0;
+            if (statBadges) statBadges.textContent = profile.badges?.length || 0;
 
             // Show badges section if user has any
             if (profile.badges.length > 0 && profileSkills) {
@@ -1486,6 +1666,17 @@
                 saveProfile(profile);
                 sessionStorage.removeItem('pending_email');
                 updateProfileUI();
+
+                // 🎉 Welcome celebration!
+                spawnConfetti(80);
+                showXpPopup(100, window.innerWidth / 2, window.innerHeight / 3);
+                setTimeout(() => {
+                    showAchievement(
+                        "Welcome, Adventurer! 🎉",
+                        "Your quest begins. +100 XP to start your journey!",
+                        "🚀"
+                    );
+                }, 500);
             });
         }
 
@@ -1825,10 +2016,17 @@
 
                 profile.experiences.push(newExp);
 
+                // Track for celebrations
+                const oldLevel = profile.level;
+                const oldBadgeCount = profile.badges.length;
+                const isFirstExperience = profile.experiences.length === 1;
+                const isFifthExperience = profile.experiences.length === 5;
+
                 // Award XP based on level
                 const xpGain = levelXP[level] || 50;
                 profile.xp += xpGain;
-                profile.level = calculateLevel(profile.xp);
+                const newLevel = calculateLevel(profile.xp);
+                profile.level = newLevel;
 
                 // Add category badge if not already earned
                 const categoryToBadge = {
@@ -1840,10 +2038,13 @@
                     creative: 'creative'
                 };
 
+                let badgeEarned = null;
                 const badgeId = categoryToBadge[category];
                 if (badgeId && !profile.badges.includes(badgeId)) {
                     profile.badges.push(badgeId);
                     profile.xp += 50;
+                    profile.level = calculateLevel(profile.xp);
+                    badgeEarned = skillBadges[badgeId];
                 }
 
                 saveProfile(profile);
@@ -1852,6 +2053,42 @@
                 updateProfileUI();
                 renderExperienceList();
                 updateRecommendations();
+
+                // 🎉 CELEBRATIONS!
+                // XP popup
+                const btn = document.getElementById('save-experience-btn');
+                const rect = btn?.getBoundingClientRect();
+                showXpPopup(xpGain + (badgeEarned ? 50 : 0), rect?.left, rect?.top);
+
+                // First experience achievement
+                if (isFirstExperience) {
+                    setTimeout(() => {
+                        showAchievement(achievementMessages.firstExperience.title, achievementMessages.firstExperience.desc, achievementMessages.firstExperience.icon);
+                    }, 500);
+                }
+
+                // Fifth experience achievement
+                if (isFifthExperience) {
+                    setTimeout(() => {
+                        spawnConfetti(30);
+                        showAchievement(achievementMessages.fiveExperiences.title, achievementMessages.fiveExperiences.desc, achievementMessages.fiveExperiences.icon);
+                    }, 500);
+                }
+
+                // Badge earned celebration
+                if (badgeEarned) {
+                    setTimeout(() => {
+                        spawnConfetti(50);
+                        showAchievement(`${badgeEarned.icon} ${badgeEarned.name} Unlocked!`, "New badge added to your collection!", '🏅');
+                    }, 800);
+                }
+
+                // Level up celebration
+                if (newLevel > oldLevel) {
+                    setTimeout(() => {
+                        celebrateLevelUp(newLevel);
+                    }, badgeEarned ? 1500 : 500);
+                }
             });
         }
 
@@ -1873,7 +2110,13 @@
 
             const profile = getProfile();
             if (!profile || !profile.experiences || profile.experiences.length === 0) {
-                container.innerHTML = '<p class="text-white/40 text-sm">Add your past experiences to get personalized recommendations.</p>';
+                container.innerHTML = `
+                    <div class="text-center py-6">
+                        <p class="text-3xl mb-2">🎒</p>
+                        <p class="text-white/60 text-sm mb-1">Your adventure log is empty!</p>
+                        <p class="text-white/40 text-xs">Add your first experience to unlock personalized recommendations and earn XP.</p>
+                    </div>
+                `;
                 return;
             }
 
@@ -1884,11 +2127,11 @@
                 if (!catInfo) return;
 
                 const levelLabels = {
-                    curious: 'Curious',
-                    beginner: 'Beginner',
-                    intermediate: 'Intermediate',
-                    advanced: 'Advanced',
-                    expert: 'Expert'
+                    curious: '🌱 Curious',
+                    beginner: '🐣 Beginner',
+                    intermediate: '🔥 Intermediate',
+                    advanced: '⭐ Advanced',
+                    expert: '👑 Expert'
                 };
 
                 const el = document.createElement('div');
