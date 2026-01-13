@@ -419,6 +419,103 @@
                 </div>
             </div>
 
+            <!-- Your Experience Section (shown when signed in) -->
+            <div id="profile-experience" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-medium flex items-center gap-2">
+                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                        Your Experience
+                    </h3>
+                    <button id="add-experience-btn" class="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        Add Experience
+                    </button>
+                </div>
+
+                <!-- Add Experience Form (hidden by default) -->
+                <div id="add-experience-form" class="hidden mb-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs text-white/50 mb-2">Category</label>
+                            <select id="exp-category" class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm">
+                                <option value="">Select category</option>
+                                <option value="sailing">Sailing & Ocean</option>
+                                <option value="diving">Diving & Freediving</option>
+                                <option value="culinary">Culinary & Wine</option>
+                                <option value="wellness">Yoga & Wellness</option>
+                                <option value="adventure">Adventure & Outdoors</option>
+                                <option value="creative">Creative & Arts</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs text-white/50 mb-2">Skill Level</label>
+                            <select id="exp-level" class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm">
+                                <option value="">Select level</option>
+                                <option value="curious">Curious (No experience yet)</option>
+                                <option value="beginner">Beginner (Tried it once or twice)</option>
+                                <option value="intermediate">Intermediate (Regular practice)</option>
+                                <option value="advanced">Advanced (Years of experience)</option>
+                                <option value="expert">Expert (Professional level)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-xs text-white/50 mb-2">Specific Skills or Certifications (optional)</label>
+                        <input type="text" id="exp-details" placeholder="e.g., PADI Open Water, RYA Day Skipper, 200hr YTT..."
+                            class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm placeholder:text-white/30">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-xs text-white/50 mb-2">Tell us more (optional)</label>
+                        <textarea id="exp-notes" rows="2" placeholder="Where did you learn? What did you love about it?"
+                            class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm placeholder:text-white/30"></textarea>
+                    </div>
+                    <div class="flex gap-3">
+                        <button id="save-experience-btn" class="cta-button px-4 py-2 rounded-full text-sm font-medium">
+                            Save Experience (+75 XP)
+                        </button>
+                        <button id="cancel-experience-btn" class="px-4 py-2 rounded-full text-sm text-white/50 hover:text-white border border-white/20">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Experience List -->
+                <div id="experience-list" class="space-y-3">
+                    <p class="text-white/40 text-sm">Add your past experiences to get personalized recommendations.</p>
+                </div>
+            </div>
+
+            <!-- Recommended Next Steps (shown when user has experience) -->
+            <div id="profile-recommendations" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
+                <h3 class="text-lg font-medium mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                    Your Personalized Path
+                </h3>
+                <p id="recommendation-intro" class="text-white/50 text-sm mb-6">Based on your experience, here's what we recommend next.</p>
+
+                <!-- Skill Progression -->
+                <div id="skill-progression" class="mb-6">
+                    <p class="text-xs uppercase tracking-wider text-white/40 mb-3">Level Up Your Skills</p>
+                    <div id="progression-cards" class="grid md:grid-cols-2 gap-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Cross-skill Recommendations -->
+                <div id="cross-recommendations">
+                    <p class="text-xs uppercase tracking-wider text-white/40 mb-3">Explore Related Adventures</p>
+                    <div id="cross-cards" class="grid md:grid-cols-3 gap-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
             <!-- Skills & Badges Section (shown when signed in) -->
             <div id="profile-skills" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
                 <h3 class="text-lg font-medium mb-4 flex items-center gap-2">
@@ -1400,6 +1497,545 @@
         }
 
         // Check for existing session on load
+        updateProfileUI();
+
+        // ========================================
+        // EXPERIENCE & RECOMMENDATION SYSTEM
+        // ========================================
+
+        const categoryInfo = {
+            sailing: {
+                name: 'Sailing & Ocean',
+                icon: '⛵',
+                color: 'cyan',
+                progressionPath: ['Competent Crew', 'Day Skipper', 'Coastal Skipper', 'Yachtmaster Offshore', 'Yachtmaster Ocean'],
+                relatedCategories: ['diving', 'adventure'],
+                adventures: ['ocean-sailing-odyssey-foundation', 'ocean-sailing-odyssey-saga']
+            },
+            diving: {
+                name: 'Diving & Freediving',
+                icon: '🤿',
+                color: 'blue',
+                progressionPath: ['Discover Scuba', 'Open Water', 'Advanced Open Water', 'Rescue Diver', 'Divemaster', 'Instructor'],
+                relatedCategories: ['sailing', 'adventure'],
+                adventures: ['freedive-dahab-foundation']
+            },
+            culinary: {
+                name: 'Culinary & Wine',
+                icon: '👨‍🍳',
+                color: 'amber',
+                progressionPath: ['Home Cook', 'Culinary Basics', 'Specialty Cuisine', 'Professional Kitchen', 'Master Chef'],
+                relatedCategories: ['creative', 'wellness'],
+                adventures: ['sushi-mastery-tokyo']
+            },
+            wellness: {
+                name: 'Yoga & Wellness',
+                icon: '🧘',
+                color: 'purple',
+                progressionPath: ['Curious Practitioner', 'Regular Practice', 'RYT-200', 'RYT-500', 'E-RYT/Lead Trainer'],
+                relatedCategories: ['adventure', 'creative'],
+                adventures: ['sacred-yoga-pilgrimage']
+            },
+            adventure: {
+                name: 'Adventure & Outdoors',
+                icon: '🏔️',
+                color: 'emerald',
+                progressionPath: ['Day Hiker', 'Multi-day Trekker', 'Technical Skills', 'Expedition Ready', 'Guide Level'],
+                relatedCategories: ['diving', 'sailing', 'wellness'],
+                adventures: ['freedive-dahab-foundation', 'photography-rajasthan']
+            },
+            creative: {
+                name: 'Creative & Arts',
+                icon: '🎨',
+                color: 'rose',
+                progressionPath: ['Hobbyist', 'Serious Amateur', 'Portfolio Ready', 'Professional', 'Master/Mentor'],
+                relatedCategories: ['culinary', 'wellness'],
+                adventures: ['photography-rajasthan']
+            }
+        };
+
+        const levelWeights = {
+            curious: 0,
+            beginner: 1,
+            intermediate: 2,
+            advanced: 3,
+            expert: 4
+        };
+
+        const levelXP = {
+            curious: 25,
+            beginner: 50,
+            intermediate: 75,
+            advanced: 100,
+            expert: 150
+        };
+
+        // Recommendation algorithm
+        function generateRecommendations(userExperiences) {
+            const recommendations = {
+                progressions: [],
+                crossSkills: [],
+                adventures: []
+            };
+
+            if (!userExperiences || userExperiences.length === 0) {
+                return recommendations;
+            }
+
+            // Analyze user's experience profile
+            const experienceByCategory = {};
+            let highestLevel = 'curious';
+            let dominantCategory = null;
+            let maxWeight = -1;
+
+            userExperiences.forEach(exp => {
+                if (!experienceByCategory[exp.category]) {
+                    experienceByCategory[exp.category] = [];
+                }
+                experienceByCategory[exp.category].push(exp);
+
+                const weight = levelWeights[exp.level] || 0;
+                if (weight > maxWeight) {
+                    maxWeight = weight;
+                    dominantCategory = exp.category;
+                    highestLevel = exp.level;
+                }
+            });
+
+            // 1. Generate skill progression recommendations
+            Object.keys(experienceByCategory).forEach(category => {
+                const catInfo = categoryInfo[category];
+                if (!catInfo) return;
+
+                const userExps = experienceByCategory[category];
+                const highestExp = userExps.reduce((max, exp) =>
+                    (levelWeights[exp.level] > levelWeights[max.level]) ? exp : max
+                );
+
+                const currentLevelIndex = levelWeights[highestExp.level];
+                const nextLevelIndex = Math.min(currentLevelIndex + 1, catInfo.progressionPath.length - 1);
+
+                if (currentLevelIndex < catInfo.progressionPath.length - 1) {
+                    recommendations.progressions.push({
+                        category: category,
+                        categoryName: catInfo.name,
+                        icon: catInfo.icon,
+                        currentLevel: catInfo.progressionPath[currentLevelIndex] || 'Getting Started',
+                        nextLevel: catInfo.progressionPath[nextLevelIndex],
+                        progress: ((currentLevelIndex + 1) / catInfo.progressionPath.length) * 100,
+                        suggestion: getProgressionSuggestion(category, highestExp.level),
+                        adventures: catInfo.adventures
+                    });
+                }
+            });
+
+            // 2. Generate cross-skill recommendations based on synergies
+            const exploredCategories = Object.keys(experienceByCategory);
+            const unexploredCategories = Object.keys(categoryInfo).filter(
+                cat => !exploredCategories.includes(cat)
+            );
+
+            // Score unexplored categories by how related they are to user's experience
+            const crossScores = unexploredCategories.map(cat => {
+                const catInfo = categoryInfo[cat];
+                let relationScore = 0;
+
+                exploredCategories.forEach(expCat => {
+                    if (catInfo.relatedCategories.includes(expCat)) {
+                        relationScore += levelWeights[experienceByCategory[expCat][0].level] + 2;
+                    }
+                });
+
+                return { category: cat, score: relationScore };
+            });
+
+            crossScores.sort((a, b) => b.score - a.score);
+
+            crossScores.slice(0, 3).forEach(item => {
+                if (item.score > 0) {
+                    const catInfo = categoryInfo[item.category];
+                    recommendations.crossSkills.push({
+                        category: item.category,
+                        categoryName: catInfo.name,
+                        icon: catInfo.icon,
+                        reason: getCrossSkillReason(item.category, exploredCategories),
+                        adventures: catInfo.adventures
+                    });
+                }
+            });
+
+            // 3. Recommend specific adventures based on experience level
+            const allRecommendedAdventures = new Set();
+
+            recommendations.progressions.forEach(prog => {
+                prog.adventures.forEach(advId => allRecommendedAdventures.add(advId));
+            });
+
+            recommendations.crossSkills.forEach(cross => {
+                cross.adventures.forEach(advId => allRecommendedAdventures.add(advId));
+            });
+
+            recommendations.adventures = Array.from(allRecommendedAdventures)
+                .map(advId => experiences.find(e => e.id === advId))
+                .filter(Boolean)
+                .slice(0, 4);
+
+            return recommendations;
+        }
+
+        function getProgressionSuggestion(category, currentLevel) {
+            const suggestions = {
+                sailing: {
+                    curious: 'Start with a day sailing experience to feel the wind and waves.',
+                    beginner: 'Our Foundation course will get you to Day Skipper level.',
+                    intermediate: 'Ready for ocean crossings? Join an Atlantic leg.',
+                    advanced: 'The Yachtmaster track awaits — command your own vessel.',
+                    expert: 'Lead expeditions or teach the next generation.'
+                },
+                diving: {
+                    curious: 'Discover the underwater world with a try-dive experience.',
+                    beginner: 'Advanced Open Water opens up deeper adventures.',
+                    intermediate: 'Freediving in Dahab will transform your relationship with depth.',
+                    advanced: 'Rescue Diver or Divemaster — become the safety net.',
+                    expert: 'Instructor training or technical diving specialties.'
+                },
+                culinary: {
+                    curious: 'A week in a real kitchen will change how you see food.',
+                    beginner: 'Specialize in a cuisine — sushi, pastry, or regional traditions.',
+                    intermediate: 'Tokyo awaits — learn from a master itamae.',
+                    advanced: 'Professional certification opens restaurant doors.',
+                    expert: 'Create your signature style or mentor others.'
+                },
+                wellness: {
+                    curious: 'A yoga retreat will show you what's possible.',
+                    beginner: 'Deepen your practice with a pilgrimage to the source.',
+                    intermediate: 'RYT-200 in India — become certified at yoga\'s birthplace.',
+                    advanced: 'RYT-500 and specializations await.',
+                    expert: 'Lead retreats and share your practice globally.'
+                },
+                adventure: {
+                    curious: 'Start with a guided trek to build confidence.',
+                    beginner: 'Multi-day expeditions teach self-reliance.',
+                    intermediate: 'Add technical skills — climbing, kayaking, or mountaineering.',
+                    advanced: 'Lead expeditions or tackle extreme environments.',
+                    expert: 'Guide certification or first ascents.'
+                },
+                creative: {
+                    curious: 'A workshop in a inspiring location sparks creativity.',
+                    beginner: 'Build your portfolio with intensive training.',
+                    intermediate: 'Learn from masters — photography in Rajasthan, pottery in Japan.',
+                    advanced: 'Professional-level work and exhibitions.',
+                    expert: 'Teach, mentor, or create your masterwork.'
+                }
+            };
+
+            return suggestions[category]?.[currentLevel] || 'Keep pushing your boundaries.';
+        }
+
+        function getCrossSkillReason(newCategory, existingCategories) {
+            const reasons = {
+                sailing: {
+                    diving: 'Sailors who dive understand the ocean in 3D.',
+                    adventure: 'Your outdoor skills transfer perfectly to life at sea.',
+                    wellness: 'The meditative rhythm of sailing complements your practice.'
+                },
+                diving: {
+                    sailing: 'Every sailor should know what's beneath the hull.',
+                    adventure: 'Add underwater exploration to your adventure toolkit.',
+                    wellness: 'Freediving is moving meditation — breath is everything.'
+                },
+                culinary: {
+                    wellness: 'Food and wellness are deeply connected — nourish completely.',
+                    creative: 'Cooking is edible art — combine your creative instincts.'
+                },
+                wellness: {
+                    adventure: 'Physical challenge and inner calm go hand in hand.',
+                    culinary: 'Ayurveda teaches that food is the first medicine.',
+                    creative: 'Creative expression is a form of meditation.'
+                },
+                adventure: {
+                    diving: 'Take your adventures underwater.',
+                    sailing: 'The ultimate adventure — crossing oceans.',
+                    wellness: 'Balance intensity with restoration.'
+                },
+                creative: {
+                    culinary: 'Plating is art, flavor is poetry.',
+                    wellness: 'Many artists find clarity through yoga and breathwork.',
+                    adventure: 'The best stories come from real adventures.'
+                }
+            };
+
+            for (const existingCat of existingCategories) {
+                if (reasons[newCategory]?.[existingCat]) {
+                    return reasons[newCategory][existingCat];
+                }
+            }
+            return 'Expand your horizons with a new skill domain.';
+        }
+
+        // Experience form handlers
+        const addExperienceBtn = document.getElementById('add-experience-btn');
+        const addExperienceForm = document.getElementById('add-experience-form');
+        const saveExperienceBtn = document.getElementById('save-experience-btn');
+        const cancelExperienceBtn = document.getElementById('cancel-experience-btn');
+
+        if (addExperienceBtn && addExperienceForm) {
+            addExperienceBtn.addEventListener('click', () => {
+                addExperienceForm.classList.toggle('hidden');
+            });
+        }
+
+        if (cancelExperienceBtn && addExperienceForm) {
+            cancelExperienceBtn.addEventListener('click', () => {
+                addExperienceForm.classList.add('hidden');
+                clearExperienceForm();
+            });
+        }
+
+        if (saveExperienceBtn) {
+            saveExperienceBtn.addEventListener('click', () => {
+                const category = document.getElementById('exp-category')?.value;
+                const level = document.getElementById('exp-level')?.value;
+                const details = document.getElementById('exp-details')?.value || '';
+                const notes = document.getElementById('exp-notes')?.value || '';
+
+                if (!category || !level) {
+                    alert('Please select a category and skill level.');
+                    return;
+                }
+
+                const profile = getProfile();
+                if (!profile) return;
+
+                // Initialize experiences array if not exists
+                if (!profile.experiences) {
+                    profile.experiences = [];
+                }
+
+                // Add the experience
+                const newExp = {
+                    id: Date.now(),
+                    category,
+                    level,
+                    details,
+                    notes,
+                    addedAt: new Date().toISOString(),
+                    verified: false
+                };
+
+                profile.experiences.push(newExp);
+
+                // Award XP based on level
+                const xpGain = levelXP[level] || 50;
+                profile.xp += xpGain;
+                profile.level = calculateLevel(profile.xp);
+
+                // Add category badge if not already earned
+                const categoryToBadge = {
+                    sailing: 'ocean',
+                    diving: 'ocean',
+                    culinary: 'city',
+                    wellness: 'temple',
+                    adventure: 'mountain',
+                    creative: 'creative'
+                };
+
+                const badgeId = categoryToBadge[category];
+                if (badgeId && !profile.badges.includes(badgeId)) {
+                    profile.badges.push(badgeId);
+                    profile.xp += 50;
+                }
+
+                saveProfile(profile);
+                clearExperienceForm();
+                addExperienceForm.classList.add('hidden');
+                updateProfileUI();
+                renderExperienceList();
+                updateRecommendations();
+            });
+        }
+
+        function clearExperienceForm() {
+            const catSelect = document.getElementById('exp-category');
+            const levelSelect = document.getElementById('exp-level');
+            const detailsInput = document.getElementById('exp-details');
+            const notesInput = document.getElementById('exp-notes');
+
+            if (catSelect) catSelect.value = '';
+            if (levelSelect) levelSelect.value = '';
+            if (detailsInput) detailsInput.value = '';
+            if (notesInput) notesInput.value = '';
+        }
+
+        function renderExperienceList() {
+            const container = document.getElementById('experience-list');
+            if (!container) return;
+
+            const profile = getProfile();
+            if (!profile || !profile.experiences || profile.experiences.length === 0) {
+                container.innerHTML = '<p class="text-white/40 text-sm">Add your past experiences to get personalized recommendations.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+
+            profile.experiences.forEach(exp => {
+                const catInfo = categoryInfo[exp.category];
+                if (!catInfo) return;
+
+                const levelLabels = {
+                    curious: 'Curious',
+                    beginner: 'Beginner',
+                    intermediate: 'Intermediate',
+                    advanced: 'Advanced',
+                    expert: 'Expert'
+                };
+
+                const el = document.createElement('div');
+                el.className = 'flex items-center gap-4 p-3 rounded-xl bg-white/5 border border-white/10';
+                el.innerHTML = `
+                    <div class="text-2xl">${catInfo.icon}</div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2">
+                            <span class="font-medium">${catInfo.name}</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400">${levelLabels[exp.level]}</span>
+                            ${exp.verified ? '<span class="text-xs text-green-400">✓ Verified</span>' : '<span class="text-xs text-white/30">Unverified</span>'}
+                        </div>
+                        ${exp.details ? `<p class="text-white/50 text-sm">${exp.details}</p>` : ''}
+                    </div>
+                    <button class="delete-exp-btn text-white/30 hover:text-red-400 text-sm" data-exp-id="${exp.id}">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                `;
+                container.appendChild(el);
+            });
+
+            // Add delete handlers
+            container.querySelectorAll('.delete-exp-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const expId = parseInt(btn.dataset.expId);
+                    deleteExperience(expId);
+                });
+            });
+        }
+
+        function deleteExperience(expId) {
+            const profile = getProfile();
+            if (!profile || !profile.experiences) return;
+
+            profile.experiences = profile.experiences.filter(exp => exp.id !== expId);
+            saveProfile(profile);
+            renderExperienceList();
+            updateRecommendations();
+        }
+
+        function updateRecommendations() {
+            const profile = getProfile();
+            const recsSection = document.getElementById('profile-recommendations');
+            const progressionCards = document.getElementById('progression-cards');
+            const crossCards = document.getElementById('cross-cards');
+            const introEl = document.getElementById('recommendation-intro');
+
+            if (!profile || !profile.experiences || profile.experiences.length === 0) {
+                if (recsSection) recsSection.classList.add('hidden');
+                return;
+            }
+
+            const recs = generateRecommendations(profile.experiences);
+
+            if (recs.progressions.length === 0 && recs.crossSkills.length === 0) {
+                if (recsSection) recsSection.classList.add('hidden');
+                return;
+            }
+
+            if (recsSection) recsSection.classList.remove('hidden');
+
+            // Update intro text based on experience
+            if (introEl) {
+                const expCount = profile.experiences.length;
+                const highestLevel = profile.experiences.reduce((max, exp) =>
+                    (levelWeights[exp.level] > levelWeights[max]) ? exp.level : max
+                , 'curious');
+
+                const intros = {
+                    curious: `You're at the beginning of your journey. Here's where to start.`,
+                    beginner: `You've taken the first steps. Here's how to level up.`,
+                    intermediate: `You've got solid foundations. Time to specialize.`,
+                    advanced: `You're experienced. Here are mastery-level opportunities.`,
+                    expert: `You're at the top of your game. Lead, teach, or explore new domains.`
+                };
+                introEl.textContent = intros[highestLevel];
+            }
+
+            // Render progression cards
+            if (progressionCards) {
+                progressionCards.innerHTML = '';
+                recs.progressions.forEach(prog => {
+                    const el = document.createElement('div');
+                    el.className = 'adventure-card-mini rounded-xl p-4';
+                    el.innerHTML = `
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-2xl">${prog.icon}</span>
+                            <div>
+                                <p class="font-medium">${prog.categoryName}</p>
+                                <p class="text-xs text-white/40">${prog.currentLevel} → ${prog.nextLevel}</p>
+                            </div>
+                        </div>
+                        <div class="xp-bar h-1.5 rounded-full mb-3">
+                            <div class="xp-fill h-full rounded-full" style="width: ${prog.progress}%"></div>
+                        </div>
+                        <p class="text-white/60 text-sm">${prog.suggestion}</p>
+                    `;
+                    progressionCards.appendChild(el);
+                });
+
+                if (recs.progressions.length === 0) {
+                    progressionCards.innerHTML = '<p class="text-white/40 text-sm col-span-2">You\'re at expert level in all your skills! Consider exploring new domains.</p>';
+                }
+            }
+
+            // Render cross-skill cards
+            if (crossCards) {
+                crossCards.innerHTML = '';
+                recs.crossSkills.forEach(cross => {
+                    const el = document.createElement('div');
+                    el.className = 'adventure-card-mini rounded-xl p-4 cursor-pointer';
+                    el.innerHTML = `
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xl">${cross.icon}</span>
+                            <span class="font-medium text-sm">${cross.categoryName}</span>
+                        </div>
+                        <p class="text-white/50 text-xs">${cross.reason}</p>
+                    `;
+                    crossCards.appendChild(el);
+                });
+
+                if (recs.crossSkills.length === 0) {
+                    crossCards.innerHTML = '<p class="text-white/40 text-sm col-span-3">You\'ve explored many domains! Keep deepening your existing skills.</p>';
+                }
+            }
+        }
+
+        // Update the main updateProfileUI function to include experience section
+        const originalUpdateProfileUI = updateProfileUI;
+        updateProfileUI = function() {
+            originalUpdateProfileUI();
+
+            const profile = getProfile();
+            const experienceSection = document.getElementById('profile-experience');
+
+            if (profile && profile.email && experienceSection) {
+                experienceSection.classList.remove('hidden');
+                renderExperienceList();
+                updateRecommendations();
+            } else if (experienceSection) {
+                experienceSection.classList.add('hidden');
+            }
+        };
+
+        // Re-run to apply the extended function
         updateProfileUI();
     </script>
 </body>
