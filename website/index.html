@@ -60,6 +60,51 @@
         .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
         .delay-2 { animation-delay: 0.4s; opacity: 0; }
+
+        /* Profile styles */
+        .profile-avatar {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+        .xp-bar {
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        .xp-fill {
+            background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 100%);
+            transition: width 1s ease-out;
+        }
+        .skill-badge {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            background: rgba(6, 182, 212, 0.2);
+            transform: translateY(-2px);
+        }
+        .skill-badge.locked {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.5;
+        }
+        .adventure-card-mini {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+        .adventure-card-mini:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(6, 182, 212, 0.3);
+            transform: translateY(-2px);
+        }
+        .stat-ring {
+            background: conic-gradient(#06b6d4 var(--progress), rgba(255,255,255,0.1) 0);
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.5); }
+        }
+        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
     </style>
 </head>
 <body class="text-white">
@@ -290,9 +335,117 @@
         </div>
     </section>
 
-    <!-- Explorer Quest -->
+    <!-- Explorer Quest / Profile -->
     <section id="quest" class="py-24 px-6 border-t border-white/5">
-        <div class="max-w-3xl mx-auto">
+        <div class="max-w-4xl mx-auto">
+
+            <!-- Sign In Bar (shown when not signed in) -->
+            <div id="signin-bar" class="glass rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-medium mb-1">Save your quest progress</h3>
+                    <p class="text-white/50 text-sm">Sign in to track your skill adventures and build your explorer profile.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <input type="email" id="signin-email" placeholder="your@email.com"
+                        class="px-4 py-3 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30 w-full sm:w-64">
+                    <button id="signin-btn" class="cta-button px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap">
+                        Get magic link
+                    </button>
+                </div>
+            </div>
+
+            <!-- Magic Link Sent Message -->
+            <div id="magic-link-sent" class="hidden glass rounded-2xl p-8 mb-8 text-center">
+                <div class="w-16 h-16 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4 pulse-glow">
+                    <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-medium mb-2">Check your email</h3>
+                <p class="text-white/50 text-sm mb-4">We sent a magic link to <span id="sent-email" class="text-cyan-400"></span></p>
+                <p class="text-white/30 text-xs">Click the link to sign in — no password needed.</p>
+                <button id="signin-demo-btn" class="mt-6 text-cyan-400/60 hover:text-cyan-400 text-xs underline">
+                    Demo: Sign in now →
+                </button>
+            </div>
+
+            <!-- Signed In Profile Header -->
+            <div id="profile-header" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <!-- Avatar & Basic Info -->
+                    <div class="flex gap-4 items-center">
+                        <div class="profile-avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold text-white">
+                            <span id="profile-initials">ET</span>
+                        </div>
+                        <div>
+                            <h2 id="profile-name" class="text-2xl font-light">Explorer</h2>
+                            <p id="profile-title" class="text-cyan-400 text-sm">Novice Adventurer</p>
+                            <p class="text-white/40 text-xs mt-1">Member since <span id="profile-joined">Jan 2026</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Level & XP -->
+                    <div class="flex-1 w-full md:w-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-white/60">Level <span id="profile-level" class="text-cyan-400 font-medium">1</span></span>
+                            <span class="text-xs text-white/40"><span id="profile-xp">0</span> / <span id="profile-xp-next">500</span> XP</span>
+                        </div>
+                        <div class="xp-bar h-2 rounded-full">
+                            <div id="xp-fill" class="xp-fill h-full rounded-full" style="width: 0%"></div>
+                        </div>
+                        <p class="text-white/30 text-xs mt-2">Complete quests and adventures to level up</p>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="flex gap-4 text-center">
+                        <div>
+                            <p id="stat-skills" class="text-2xl font-light text-cyan-400">0</p>
+                            <p class="text-white/40 text-xs">Skills</p>
+                        </div>
+                        <div>
+                            <p id="stat-adventures" class="text-2xl font-light text-cyan-400">0</p>
+                            <p class="text-white/40 text-xs">Adventures</p>
+                        </div>
+                        <div>
+                            <p id="stat-badges" class="text-2xl font-light text-cyan-400">0</p>
+                            <p class="text-white/40 text-xs">Badges</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sign Out -->
+                <div class="mt-4 pt-4 border-t border-white/5 flex justify-end">
+                    <button id="signout-btn" class="text-white/40 hover:text-white text-xs">Sign out</button>
+                </div>
+            </div>
+
+            <!-- Skills & Badges Section (shown when signed in) -->
+            <div id="profile-skills" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
+                <h3 class="text-lg font-medium mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                    </svg>
+                    Skill Badges
+                </h3>
+                <div id="badges-container" class="flex flex-wrap gap-3">
+                    <!-- Badges will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Adventure Wishlist (shown when signed in) -->
+            <div id="profile-adventures" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
+                <h3 class="text-lg font-medium mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    Your Adventure Wishlist
+                </h3>
+                <div id="adventures-container" class="grid md:grid-cols-2 gap-4">
+                    <!-- Adventures will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Quest Section Header -->
             <div class="text-center mb-10">
                 <p class="text-xs uppercase tracking-[0.3em] text-cyan-400/80 mb-4">Explore what fits you</p>
                 <h2 class="text-3xl font-light mb-3">Find your next Skill Adventure.</h2>
@@ -962,8 +1115,292 @@
                     questStatus.classList.remove('text-amber-300');
                     questStatus.classList.add('text-white/40');
                 }
+
+                // Save to profile if signed in
+                if (isSignedIn()) {
+                    saveQuestToProfile(answers, scored);
+                }
             });
         }
+
+        // ========================================
+        // PROFILE & SIGN-IN SYSTEM
+        // ========================================
+
+        const STORAGE_KEY = 'educatedtraveler_profile';
+
+        const skillBadges = {
+            ocean: { name: 'Ocean Explorer', icon: '🌊', color: 'cyan' },
+            mountain: { name: 'Summit Seeker', icon: '⛰️', color: 'emerald' },
+            city: { name: 'Urban Artisan', icon: '🏙️', color: 'amber' },
+            temple: { name: 'Inner Voyager', icon: '🧘', color: 'purple' },
+            desert: { name: 'Desert Walker', icon: '🏜️', color: 'orange' },
+            certification: { name: 'Certified Pro', icon: '📜', color: 'blue' },
+            reset: { name: 'Zen Master', icon: '☯️', color: 'teal' },
+            stories: { name: 'Storyteller', icon: '📖', color: 'pink' },
+            career: { name: 'Career Changer', icon: '🚀', color: 'indigo' },
+            creative: { name: 'Creative Soul', icon: '🎨', color: 'rose' }
+        };
+
+        const levelTitles = [
+            'Novice Adventurer',
+            'Curious Explorer',
+            'Aspiring Wanderer',
+            'Skilled Traveler',
+            'Seasoned Voyager',
+            'Master Explorer',
+            'Legendary Pathfinder'
+        ];
+
+        function getProfile() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            return stored ? JSON.parse(stored) : null;
+        }
+
+        function saveProfile(profile) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+        }
+
+        function isSignedIn() {
+            const profile = getProfile();
+            return profile && profile.email;
+        }
+
+        function createProfile(email) {
+            const name = email.split('@')[0];
+            const initials = name.slice(0, 2).toUpperCase();
+            return {
+                email: email,
+                name: name.charAt(0).toUpperCase() + name.slice(1),
+                initials: initials,
+                joinedDate: new Date().toISOString(),
+                xp: 100, // Starting XP for signing up
+                level: 1,
+                badges: [],
+                elements: [],
+                desires: [],
+                adventures: [],
+                completedQuests: 0
+            };
+        }
+
+        function calculateLevel(xp) {
+            const xpPerLevel = 500;
+            return Math.floor(xp / xpPerLevel) + 1;
+        }
+
+        function getXpProgress(xp) {
+            const xpPerLevel = 500;
+            return (xp % xpPerLevel) / xpPerLevel * 100;
+        }
+
+        function saveQuestToProfile(answers, scored) {
+            const profile = getProfile();
+            if (!profile) return;
+
+            // Add XP for completing quest
+            profile.xp += 150;
+            profile.completedQuests++;
+            profile.level = calculateLevel(profile.xp);
+
+            // Save elements and desires
+            profile.elements = [...new Set([...profile.elements, ...answers.elements])];
+            profile.desires = [...new Set([...profile.desires, ...answers.desires])];
+
+            // Add badges for new elements/desires
+            const allTags = [...answers.elements, ...answers.desires];
+            allTags.forEach(tag => {
+                if (!profile.badges.includes(tag) && skillBadges[tag]) {
+                    profile.badges.push(tag);
+                    profile.xp += 50; // Bonus XP for new badge
+                }
+            });
+
+            // Save top adventures to wishlist
+            if (scored && scored.length) {
+                const newAdventures = scored.slice(0, 3).map(s => s.exp.id);
+                profile.adventures = [...new Set([...profile.adventures, ...newAdventures])];
+            }
+
+            profile.level = calculateLevel(profile.xp);
+            saveProfile(profile);
+            updateProfileUI();
+        }
+
+        function updateProfileUI() {
+            const profile = getProfile();
+            const signinBar = document.getElementById('signin-bar');
+            const magicLinkSent = document.getElementById('magic-link-sent');
+            const profileHeader = document.getElementById('profile-header');
+            const profileSkills = document.getElementById('profile-skills');
+            const profileAdventures = document.getElementById('profile-adventures');
+
+            if (!profile || !profile.email) {
+                // Not signed in
+                if (signinBar) signinBar.classList.remove('hidden');
+                if (magicLinkSent) magicLinkSent.classList.add('hidden');
+                if (profileHeader) profileHeader.classList.add('hidden');
+                if (profileSkills) profileSkills.classList.add('hidden');
+                if (profileAdventures) profileAdventures.classList.add('hidden');
+                return;
+            }
+
+            // Signed in - show profile
+            if (signinBar) signinBar.classList.add('hidden');
+            if (magicLinkSent) magicLinkSent.classList.add('hidden');
+            if (profileHeader) profileHeader.classList.remove('hidden');
+
+            // Update profile header
+            const initialsEl = document.getElementById('profile-initials');
+            const nameEl = document.getElementById('profile-name');
+            const titleEl = document.getElementById('profile-title');
+            const joinedEl = document.getElementById('profile-joined');
+            const levelEl = document.getElementById('profile-level');
+            const xpEl = document.getElementById('profile-xp');
+            const xpNextEl = document.getElementById('profile-xp-next');
+            const xpFill = document.getElementById('xp-fill');
+            const statSkills = document.getElementById('stat-skills');
+            const statAdventures = document.getElementById('stat-adventures');
+            const statBadges = document.getElementById('stat-badges');
+
+            if (initialsEl) initialsEl.textContent = profile.initials;
+            if (nameEl) nameEl.textContent = profile.name;
+            if (titleEl) titleEl.textContent = levelTitles[Math.min(profile.level - 1, levelTitles.length - 1)];
+            if (joinedEl) {
+                const joined = new Date(profile.joinedDate);
+                joinedEl.textContent = joined.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+            }
+            if (levelEl) levelEl.textContent = profile.level;
+            if (xpEl) xpEl.textContent = profile.xp;
+            if (xpNextEl) xpNextEl.textContent = profile.level * 500;
+            if (xpFill) xpFill.style.width = getXpProgress(profile.xp) + '%';
+
+            // Stats
+            if (statSkills) statSkills.textContent = profile.elements.length + profile.desires.length;
+            if (statAdventures) statAdventures.textContent = profile.adventures.length;
+            if (statBadges) statBadges.textContent = profile.badges.length;
+
+            // Show badges section if user has any
+            if (profile.badges.length > 0 && profileSkills) {
+                profileSkills.classList.remove('hidden');
+                renderBadges(profile.badges);
+            }
+
+            // Show adventures section if user has any
+            if (profile.adventures.length > 0 && profileAdventures) {
+                profileAdventures.classList.remove('hidden');
+                renderAdventures(profile.adventures);
+            }
+        }
+
+        function renderBadges(badges) {
+            const container = document.getElementById('badges-container');
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            // Render earned badges
+            badges.forEach(badgeId => {
+                const badge = skillBadges[badgeId];
+                if (!badge) return;
+
+                const el = document.createElement('div');
+                el.className = 'skill-badge px-4 py-2 rounded-full flex items-center gap-2';
+                el.innerHTML = `
+                    <span class="text-lg">${badge.icon}</span>
+                    <span class="text-sm font-medium">${badge.name}</span>
+                `;
+                container.appendChild(el);
+            });
+
+            // Show locked badges
+            Object.keys(skillBadges).forEach(badgeId => {
+                if (badges.includes(badgeId)) return;
+                const badge = skillBadges[badgeId];
+
+                const el = document.createElement('div');
+                el.className = 'skill-badge locked px-4 py-2 rounded-full flex items-center gap-2';
+                el.innerHTML = `
+                    <span class="text-lg opacity-50">🔒</span>
+                    <span class="text-sm text-white/40">${badge.name}</span>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        function renderAdventures(adventureIds) {
+            const container = document.getElementById('adventures-container');
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            adventureIds.forEach(advId => {
+                const adv = experiences.find(e => e.id === advId);
+                if (!adv) return;
+
+                const el = document.createElement('div');
+                el.className = 'adventure-card-mini rounded-xl p-4';
+                el.innerHTML = `
+                    <div class="flex items-start justify-between mb-2">
+                        <span class="text-xs uppercase tracking-wider text-cyan-400/80">${adv.category}</span>
+                        <span class="text-xs text-white/40">${adv.tier}</span>
+                    </div>
+                    <h4 class="font-medium mb-1">${adv.name}</h4>
+                    <p class="text-white/50 text-xs mb-2">${adv.summary}</p>
+                    <p class="text-white/30 text-xs">${adv.meta}</p>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        // Sign-in handlers
+        const signinBtn = document.getElementById('signin-btn');
+        const signinEmail = document.getElementById('signin-email');
+        const signinDemoBtn = document.getElementById('signin-demo-btn');
+        const signoutBtn = document.getElementById('signout-btn');
+
+        if (signinBtn && signinEmail) {
+            signinBtn.addEventListener('click', () => {
+                const email = signinEmail.value.trim();
+                if (!email || !email.includes('@')) {
+                    signinEmail.classList.add('border-red-500');
+                    return;
+                }
+                signinEmail.classList.remove('border-red-500');
+
+                // Show magic link sent message
+                const signinBar = document.getElementById('signin-bar');
+                const magicLinkSent = document.getElementById('magic-link-sent');
+                const sentEmail = document.getElementById('sent-email');
+
+                if (signinBar) signinBar.classList.add('hidden');
+                if (magicLinkSent) magicLinkSent.classList.remove('hidden');
+                if (sentEmail) sentEmail.textContent = email;
+
+                // Store email temporarily for demo
+                sessionStorage.setItem('pending_email', email);
+            });
+        }
+
+        if (signinDemoBtn) {
+            signinDemoBtn.addEventListener('click', () => {
+                const email = sessionStorage.getItem('pending_email') || 'explorer@email.com';
+                const profile = createProfile(email);
+                saveProfile(profile);
+                sessionStorage.removeItem('pending_email');
+                updateProfileUI();
+            });
+        }
+
+        if (signoutBtn) {
+            signoutBtn.addEventListener('click', () => {
+                localStorage.removeItem(STORAGE_KEY);
+                updateProfileUI();
+            });
+        }
+
+        // Check for existing session on load
+        updateProfileUI();
     </script>
 </body>
 </html>
