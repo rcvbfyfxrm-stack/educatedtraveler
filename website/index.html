@@ -231,7 +231,9 @@
                         <h2 class="text-2xl md:text-4xl font-light mb-4">The Beginning</h2>
                         <p class="text-white/70 max-w-xl">
                             At 18, I finished high school. Everyone expected university, career, the usual path.
-                            I had a different question: <span class="text-white">What is really out there?</span>
+                            But I kept asking myself: <span class="text-white">Is this the life I actually want to live?</span>
+                            I didn't want to sit in a classroom watching simulations of the world—I wanted to suck the marrow out of life itself.
+                            I thought there had to be something more out there. <span class="text-white">So I decided to find out.</span>
                         </p>
                     </div>
                 </div>
@@ -405,208 +407,6 @@
     <section id="quest" class="py-24 px-6 border-t border-white/5">
         <div class="max-w-4xl mx-auto">
 
-            <!-- Sign In Bar (shown when not signed in) -->
-            <div id="signin-bar" class="glass rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="text-center md:text-left">
-                    <h3 class="text-lg font-medium mb-1 flex items-center gap-2 justify-center md:justify-start">
-                        <span class="text-2xl wiggle inline-block">🎮</span> Start your adventure
-                    </h3>
-                    <p class="text-white/50 text-sm">Earn XP, unlock badges, and discover your perfect skill quest. No boring forms, we promise.</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-                    <input type="email" id="signin-email" placeholder="hero@adventure.com"
-                        class="px-4 py-3 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30 w-full sm:w-64">
-                    <button id="signin-btn" class="cta-button px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap wiggle">
-                        ✨ Get magic link
-                    </button>
-                </div>
-            </div>
-
-            <!-- Magic Link Sent Message -->
-            <div id="magic-link-sent" class="hidden glass rounded-2xl p-8 mb-8 text-center">
-                <div class="w-16 h-16 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-4 pulse-glow">
-                    <span class="text-3xl">📬</span>
-                </div>
-                <h3 class="text-xl font-medium mb-2">Magic incoming! ✨</h3>
-                <p class="text-white/50 text-sm mb-4">We teleported a link to <span id="sent-email" class="text-cyan-400"></span></p>
-                <p class="text-white/30 text-xs">One click and you're in. No passwords. No friction. Just adventure.</p>
-                <button id="signin-demo-btn" class="mt-6 cta-button px-6 py-2 rounded-full text-sm">
-                    🚀 Skip the wait (Demo mode)
-                </button>
-            </div>
-
-            <!-- Signed In Profile Header -->
-            <div id="profile-header" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
-                <div class="flex flex-col md:flex-row gap-6 items-start">
-                    <!-- Avatar & Basic Info -->
-                    <div class="flex gap-4 items-center">
-                        <div id="profile-avatar-container" class="profile-avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold text-white cursor-pointer wiggle">
-                            <span id="profile-initials">ET</span>
-                        </div>
-                        <div>
-                            <h2 id="profile-name" class="text-2xl font-light">Explorer</h2>
-                            <p id="profile-title" class="text-cyan-400 text-sm flex items-center gap-1">
-                                <span id="profile-title-text">Novice Adventurer</span>
-                                <span id="profile-title-emoji" class="text-lg">🌱</span>
-                            </p>
-                            <p id="profile-tagline" class="text-white/30 text-xs mt-1 italic">"Every expert was once a beginner"</p>
-                        </div>
-                    </div>
-
-                    <!-- Level & XP -->
-                    <div class="flex-1 w-full md:w-auto">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-sm text-white/60">Level <span id="profile-level" class="text-cyan-400 font-medium">1</span> <span id="level-emoji">⚡</span></span>
-                            <span class="text-xs text-white/40"><span id="profile-xp">0</span> / <span id="profile-xp-next">500</span> XP</span>
-                        </div>
-                        <div class="xp-bar h-3 rounded-full">
-                            <div id="xp-fill" class="xp-fill h-full rounded-full" style="width: 0%"></div>
-                        </div>
-                        <p id="xp-message" class="text-white/30 text-xs mt-2">Keep going! Every adventure adds to your legend.</p>
-                    </div>
-
-                    <!-- Quick Stats -->
-                    <div class="flex gap-6 text-center">
-                        <div class="cursor-pointer hover:scale-110 transition-transform">
-                            <p id="stat-skills" class="text-2xl font-light text-cyan-400">0</p>
-                            <p class="text-white/40 text-xs">🎯 Skills</p>
-                        </div>
-                        <div class="cursor-pointer hover:scale-110 transition-transform">
-                            <p id="stat-adventures" class="text-2xl font-light text-cyan-400">0</p>
-                            <p class="text-white/40 text-xs">🗺️ Quests</p>
-                        </div>
-                        <div class="cursor-pointer hover:scale-110 transition-transform">
-                            <p id="stat-badges" class="text-2xl font-light text-cyan-400">0</p>
-                            <p class="text-white/40 text-xs">🏆 Badges</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sign Out -->
-                <div class="mt-4 pt-4 border-t border-white/5 flex justify-end">
-                    <button id="signout-btn" class="text-white/40 hover:text-white text-xs">Sign out</button>
-                </div>
-            </div>
-
-            <!-- Your Experience Section (shown when signed in) -->
-            <div id="profile-experience" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
-                <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-lg font-medium flex items-center gap-2">
-                        <span class="text-xl">🎒</span>
-                        Your Backstory
-                    </h3>
-                    <button id="add-experience-btn" class="cta-button px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 wiggle">
-                        <span>+</span> Add Chapter (+XP!)
-                    </button>
-                </div>
-
-                <!-- Add Experience Form (hidden by default) -->
-                <div id="add-experience-form" class="hidden mb-6 p-5 rounded-xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20">
-                    <p class="text-white/60 text-sm mb-4">Tell us about your adventures so far. No verification needed — we trust you. 🤝</p>
-                    <div class="grid md:grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <label class="block text-xs text-white/50 mb-2">🎯 What world have you explored?</label>
-                            <select id="exp-category" class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm">
-                                <option value="">Pick your realm...</option>
-                                <option value="sailing">⛵ Sailing & Ocean</option>
-                                <option value="diving">🤿 Diving & Freediving</option>
-                                <option value="culinary">👨‍🍳 Culinary & Wine</option>
-                                <option value="wellness">🧘 Yoga & Wellness</option>
-                                <option value="adventure">🏔️ Adventure & Outdoors</option>
-                                <option value="creative">🎨 Creative & Arts</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs text-white/50 mb-2">💪 How deep have you gone?</label>
-                            <select id="exp-level" class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm">
-                                <option value="">Be honest (no judgment!)...</option>
-                                <option value="curious">🌱 Curious — Haven't started yet, but dreaming</option>
-                                <option value="beginner">🐣 Beginner — Dipped my toes in</option>
-                                <option value="intermediate">🔥 Intermediate — I've got some reps</option>
-                                <option value="advanced">⭐ Advanced — Years in the game</option>
-                                <option value="expert">👑 Expert — I could teach this</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-xs text-white/50 mb-2">📜 Any certs or bragging rights? (optional)</label>
-                        <input type="text" id="exp-details" placeholder="PADI Open Water, RYA Day Skipper, that one time you didn't burn dinner..."
-                            class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm placeholder:text-white/30">
-                    </div>
-                    <div class="mb-4">
-                        <label class="block text-xs text-white/50 mb-2">📖 Got a story? (optional but we love stories)</label>
-                        <textarea id="exp-notes" rows="2" placeholder="Where'd you learn? Best moment? Worst wipeout? We're all ears..."
-                            class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/20 text-sm placeholder:text-white/30"></textarea>
-                    </div>
-                    <div class="flex gap-3 items-center">
-                        <button id="save-experience-btn" class="cta-button px-5 py-2 rounded-full text-sm font-medium flex items-center gap-2">
-                            <span>🎮</span> Claim XP
-                        </button>
-                        <button id="cancel-experience-btn" class="px-4 py-2 rounded-full text-sm text-white/50 hover:text-white border border-white/20">
-                            Cancel
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Experience List -->
-                <div id="experience-list" class="space-y-3">
-                    <p class="text-white/40 text-sm">Add your past experiences to get personalized recommendations.</p>
-                </div>
-            </div>
-
-            <!-- Recommended Next Steps (shown when user has experience) -->
-            <div id="profile-recommendations" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
-                <h3 class="text-lg font-medium mb-2 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                    </svg>
-                    Your Personalized Path
-                </h3>
-                <p id="recommendation-intro" class="text-white/50 text-sm mb-6">Based on your experience, here's what we recommend next.</p>
-
-                <!-- Skill Progression -->
-                <div id="skill-progression" class="mb-6">
-                    <p class="text-xs uppercase tracking-wider text-white/40 mb-3">Level Up Your Skills</p>
-                    <div id="progression-cards" class="grid md:grid-cols-2 gap-4">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-
-                <!-- Cross-skill Recommendations -->
-                <div id="cross-recommendations">
-                    <p class="text-xs uppercase tracking-wider text-white/40 mb-3">Explore Related Adventures</p>
-                    <div id="cross-cards" class="grid md:grid-cols-3 gap-4">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skills & Badges Section (shown when signed in) -->
-            <div id="profile-skills" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
-                <h3 class="text-lg font-medium mb-4 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                    </svg>
-                    Skill Badges
-                </h3>
-                <div id="badges-container" class="flex flex-wrap gap-3">
-                    <!-- Badges will be populated by JS -->
-                </div>
-            </div>
-
-            <!-- Adventure Wishlist (shown when signed in) -->
-            <div id="profile-adventures" class="hidden glass rounded-2xl p-6 md:p-8 mb-8">
-                <h3 class="text-lg font-medium mb-4 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                    </svg>
-                    Your Adventure Wishlist
-                </h3>
-                <div id="adventures-container" class="grid md:grid-cols-2 gap-4">
-                    <!-- Adventures will be populated by JS -->
-                </div>
-            </div>
-
             <!-- Quest Section Header -->
             <div class="text-center mb-10">
                 <p class="text-xs uppercase tracking-[0.3em] text-cyan-400/80 mb-4">Explore what fits you</p>
@@ -745,13 +545,19 @@
                         </div>
                     </div>
 
-                    <div class="mt-6 text-xs text-white/50 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                        <p>
-                            These are real Skill Adventures from our catalog. We'll invite you when matching cohorts open.
-                        </p>
-                        <a href="#community" class="cta-button inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-medium">
-                            Join the community to stay in the loop
-                        </a>
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                        <div id="quest-email-form" class="flex flex-col sm:flex-row gap-3 items-center">
+                            <p class="text-sm text-white/70">Save your matches and get notified when cohorts open:</p>
+                            <input type="email" id="quest-email" placeholder="your@email.com"
+                                class="flex-1 max-w-xs px-4 py-2 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30">
+                            <button type="button" id="quest-save-btn" class="cta-button px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                                Save my matches
+                            </button>
+                        </div>
+                        <div id="quest-email-success" class="hidden text-center py-4">
+                            <p class="text-lg text-white mb-1">You're in!</p>
+                            <p class="text-sm text-white/50">We'll notify you when matching cohorts open.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -836,8 +642,10 @@
                 </p>
             </form>
 
-            <div id="community-success" class="hidden mt-8 text-sm text-white/70">
-                You're in. Check your email for the next dispatch from the source.
+            <div id="community-success" class="hidden mt-8 text-center">
+                <p class="text-lg text-white mb-2">You're in!</p>
+                <p class="text-sm text-white/70 mb-4">We'll keep you updated on new Skill Adventures and founding cohorts.</p>
+                <p class="text-xs text-white/40">Taking you to your profile...</p>
             </div>
         </div>
     </section>
@@ -926,24 +734,60 @@
                 submitBtn.classList.add('opacity-60');
 
                 const formData = new FormData(form);
+                const email = formData.get('email');
                 const data = {
                     timestamp: new Date().toISOString(),
-                    email: formData.get('email'),
+                    email,
                     interest: formData.get('interest'),
                     timeline: formData.get('timeline'),
                     source: 'homepage-community'
                 };
 
+                // Only attempt fetch if a real URL is configured
+                const hasRealUrl = COMMUNITY_SCRIPT_URL && !COMMUNITY_SCRIPT_URL.includes('YOUR_') && COMMUNITY_SCRIPT_URL.startsWith('http');
+
                 try {
-                    await fetch(COMMUNITY_SCRIPT_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
-                    });
+                    if (hasRealUrl) {
+                        await fetch(COMMUNITY_SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+                    }
+
+                    // Treat community join as a login on the site
+                    try {
+                        const alreadySignedIn = typeof isSignedIn === 'function' && isSignedIn();
+                        if (!alreadySignedIn && typeof createProfile === 'function' && typeof saveProfile === 'function' && typeof updateProfileUI === 'function') {
+                            if (email && String(email).includes('@')) {
+                                const profile = createProfile(String(email));
+                                saveProfile(profile);
+                                updateProfileUI();
+
+                                // Light celebration so it feels successful
+                                if (typeof spawnConfetti === 'function') {
+                                    spawnConfetti(50);
+                                }
+                                if (typeof showXpPopup === 'function') {
+                                    showXpPopup(100, window.innerWidth / 2, window.innerHeight / 2);
+                                }
+                            }
+                        }
+                    } catch (innerErr) {
+                        console.error('Error creating profile from community join', innerErr);
+                    }
 
                     form.classList.add('hidden');
                     successEl.classList.remove('hidden');
+
+                    // Scroll to profile after a brief moment
+                    setTimeout(() => {
+                        const profileHeader = document.getElementById('profile-header');
+                        if (profileHeader) {
+                            profileHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 1500);
                 } catch (err) {
                     console.error(err);
                     statusEl.textContent = 'Something went wrong. Please try again.';
@@ -957,27 +801,40 @@
     </script>
 
     <script>
-        // Lightweight quest algorithm
-        const questChoices = document.querySelectorAll('.quest-choice');
-        const questSubmit = document.getElementById('quest-submit');
-        const questStatus = document.getElementById('quest-status');
-        const questResults = document.getElementById('quest-results');
-        const questPersonaTitle = document.getElementById('quest-persona-title');
-        const questPersonaSubtitle = document.getElementById('quest-persona-subtitle');
+        // ========================================
+        // QUEST SELECTION SYSTEM
+        // ========================================
+        (function() {
+            'use strict';
 
-        const primaryNameEl = document.getElementById('quest-primary-name');
-        const primarySummaryEl = document.getElementById('quest-primary-summary');
-        const primaryMetaEl = document.getElementById('quest-primary-meta');
+            // State to track selections
+            const questState = {
+                elements: [],
+                desires: [],
+                time: null,
+                intensity: null
+            };
 
-        const secondaryCardEl = document.getElementById('quest-secondary-card');
-        const secondaryNameEl = document.getElementById('quest-secondary-name');
-        const secondarySummaryEl = document.getElementById('quest-secondary-summary');
-        const secondaryMetaEl = document.getElementById('quest-secondary-meta');
+            const questChoices = document.querySelectorAll('.quest-choice');
+            const questSubmit = document.getElementById('quest-submit');
+            const questStatus = document.getElementById('quest-status');
+            const questResults = document.getElementById('quest-results');
+            const questPersonaTitle = document.getElementById('quest-persona-title');
+            const questPersonaSubtitle = document.getElementById('quest-persona-subtitle');
 
-        const sagaCardEl = document.getElementById('quest-saga-card');
-        const sagaNameEl = document.getElementById('quest-saga-name');
-        const sagaSummaryEl = document.getElementById('quest-saga-summary');
-        const sagaMetaEl = document.getElementById('quest-saga-meta');
+            const primaryNameEl = document.getElementById('quest-primary-name');
+            const primarySummaryEl = document.getElementById('quest-primary-summary');
+            const primaryMetaEl = document.getElementById('quest-primary-meta');
+
+            const secondaryCardEl = document.getElementById('quest-secondary-card');
+            const secondaryNameEl = document.getElementById('quest-secondary-name');
+            const secondarySummaryEl = document.getElementById('quest-secondary-summary');
+            const secondaryMetaEl = document.getElementById('quest-secondary-meta');
+
+            const sagaCardEl = document.getElementById('quest-saga-card');
+            const sagaNameEl = document.getElementById('quest-saga-name');
+            const sagaSummaryEl = document.getElementById('quest-saga-summary');
+            const sagaMetaEl = document.getElementById('quest-saga-meta');
 
         const experiences = [
             {
@@ -1095,30 +952,14 @@
             }
         };
 
-        function collectAnswers() {
-            const selected = {
-                elements: [],
-                desires: [],
-                time: null,
-                intensity: null
-            };
-
-            questChoices.forEach((btn) => {
-                if (btn.dataset.selected === 'true') {
-                    const group = btn.dataset.group;
-                    const value = btn.dataset.value;
-                    if (group === 'elements' || group === 'desires') {
-                        selected[group].push(value);
-                    } else if (group === 'time') {
-                        selected.time = value;
-                    } else if (group === 'intensity') {
-                        selected.intensity = parseInt(value, 10);
-                    }
-                }
-            });
-
-            return selected;
-        }
+            function collectAnswers() {
+                return {
+                    elements: [...questState.elements],
+                    desires: [...questState.desires],
+                    time: questState.time,
+                    intensity: questState.intensity
+                };
+            }
 
         function tierFromTimeValue(value) {
             if (value === 'foundation') return 'foundation';
@@ -1171,44 +1012,58 @@
             if (!topExp) {
                 return {
                     title: 'Explorer',
-                    subtitle: 'You're drawn to skills that leave a mark. Let's find the right one.'
+                    subtitle: "You're drawn to skills that leave a mark. Let's find the right one."
                 };
             }
             const config = personaByCategory[topExp.category];
             if (config) return config;
             return {
                 title: 'Explorer',
-                subtitle: 'You're drawn to skills that leave a mark. Let's find the right one.'
+                subtitle: "You're drawn to skills that leave a mark. Let's find the right one."
             };
         }
 
-        if (questChoices && questChoices.length && questSubmit) {
-            // Choice toggle behaviour
-            questChoices.forEach((btn) => {
-                btn.addEventListener('click', () => {
+            // Attach click handlers to quest choices
+            questChoices.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
                     const group = btn.dataset.group;
+                    const value = btn.dataset.value;
 
                     if (group === 'elements' || group === 'desires') {
-                        // Multi-select groups
-                        const isSelected = btn.dataset.selected === 'true';
-                        btn.dataset.selected = isSelected ? 'false' : 'true';
-                    } else {
-                        // Single-select groups
-                        questChoices.forEach((other) => {
-                            if (other.dataset.group === group) {
-                                other.dataset.selected = 'false';
-                            }
+                        // Multi-select: toggle selection
+                        const idx = questState[group].indexOf(value);
+                        if (idx > -1) {
+                            questState[group].splice(idx, 1);
+                            btn.classList.remove('bg-white', 'text-black');
+                        } else {
+                            questState[group].push(value);
+                            btn.classList.add('bg-white', 'text-black');
+                        }
+                    } else if (group === 'time') {
+                        // Single-select: deselect others first
+                        document.querySelectorAll('.quest-choice[data-group="time"]').forEach(function(other) {
+                            other.classList.remove('bg-white', 'text-black');
                         });
-                        btn.dataset.selected = 'true';
+                        questState.time = value;
+                        btn.classList.add('bg-white', 'text-black');
+                    } else if (group === 'intensity') {
+                        // Single-select: deselect others first
+                        document.querySelectorAll('.quest-choice[data-group="intensity"]').forEach(function(other) {
+                            other.classList.remove('bg-white', 'text-black');
+                        });
+                        questState.intensity = parseInt(value, 10);
+                        btn.classList.add('bg-white', 'text-black');
                     }
 
-                    if (btn.dataset.selected === 'true') {
-                        btn.classList.add('bg-white', 'text-black');
-                    } else {
-                        btn.classList.remove('bg-white', 'text-black');
-                    }
+                    // Debug: log current state
+                    console.log('Quest state:', questState);
                 });
             });
+
+            if (questSubmit) {
 
             questSubmit.addEventListener('click', () => {
                 const answers = collectAnswers();
@@ -1229,7 +1084,7 @@
 
                 if (!scored.length) {
                     if (questStatus) {
-                        questStatus.textContent = 'You're a rare combination. We'll design a program for you — leave your email below.';
+                        questStatus.textContent = "You're a rare combination. We'll design a program for you — leave your email below.";
                         questStatus.classList.remove('text-white/40');
                         questStatus.classList.add('text-amber-300');
                     }
@@ -1279,12 +1134,49 @@
                 }
 
                 // Save to profile if signed in
-                if (isSignedIn()) {
-                    saveQuestToProfile(answers, scored);
+                if (typeof isSignedIn === 'function' && isSignedIn()) {
+                    if (typeof saveQuestToProfile === 'function') {
+                        saveQuestToProfile(answers, scored);
+                    }
                 }
             });
-        }
+            }
 
+            // Handle quest email save button
+            const questSaveBtn = document.getElementById('quest-save-btn');
+            const questEmailInput = document.getElementById('quest-email');
+            const questEmailForm = document.getElementById('quest-email-form');
+            const questEmailSuccess = document.getElementById('quest-email-success');
+
+            if (questSaveBtn && questEmailInput) {
+                questSaveBtn.addEventListener('click', function() {
+                    const email = questEmailInput.value.trim();
+                    if (!email || !email.includes('@')) {
+                        questEmailInput.classList.add('border-red-500');
+                        return;
+                    }
+                    questEmailInput.classList.remove('border-red-500');
+
+                    // Create profile with email
+                    if (typeof createProfile === 'function' && typeof saveProfile === 'function' && typeof updateProfileUI === 'function') {
+                        const profile = createProfile(email);
+                        saveProfile(profile);
+                        updateProfileUI();
+                    }
+
+                    // Show success, hide form
+                    if (questEmailForm) questEmailForm.classList.add('hidden');
+                    if (questEmailSuccess) questEmailSuccess.classList.remove('hidden');
+
+                    // Celebration
+                    if (typeof spawnConfetti === 'function') spawnConfetti(30);
+                    if (typeof showXpPopup === 'function') showXpPopup(100, window.innerWidth / 2, window.innerHeight / 2);
+                });
+            }
+        })();
+    </script>
+
+    <script>
         // ========================================
         // PROFILE & SIGN-IN SYSTEM
         // ========================================
@@ -1636,6 +1528,7 @@
         const signinDemoBtn = document.getElementById('signin-demo-btn');
         const signoutBtn = document.getElementById('signout-btn');
 
+        // Make the primary button log the user in directly on the site
         if (signinBtn && signinEmail) {
             signinBtn.addEventListener('click', () => {
                 const email = signinEmail.value.trim();
@@ -1645,20 +1538,25 @@
                 }
                 signinEmail.classList.remove('border-red-500');
 
-                // Show magic link sent message
-                const signinBar = document.getElementById('signin-bar');
-                const magicLinkSent = document.getElementById('magic-link-sent');
-                const sentEmail = document.getElementById('sent-email');
+                // Create a local profile and treat this as a successful sign-in
+                const profile = createProfile(email);
+                saveProfile(profile);
+                updateProfileUI();
 
-                if (signinBar) signinBar.classList.add('hidden');
-                if (magicLinkSent) magicLinkSent.classList.remove('hidden');
-                if (sentEmail) sentEmail.textContent = email;
-
-                // Store email temporarily for demo
-                sessionStorage.setItem('pending_email', email);
+                // 🎉 Welcome celebration so it "feels" successful
+                spawnConfetti(80);
+                showXpPopup(100, window.innerWidth / 2, window.innerHeight / 3);
+                setTimeout(() => {
+                    showAchievement(
+                        "Welcome, Adventurer! 🎉",
+                        "Your quest begins. +100 XP to start your journey!",
+                        "🚀"
+                    );
+                }, 500);
             });
         }
 
+        // Demo button kept as a secondary way to trigger sign-in if needed
         if (signinDemoBtn) {
             signinDemoBtn.addEventListener('click', () => {
                 const email = sessionStorage.getItem('pending_email') || 'explorer@email.com';
@@ -1667,7 +1565,6 @@
                 sessionStorage.removeItem('pending_email');
                 updateProfileUI();
 
-                // 🎉 Welcome celebration!
                 spawnConfetti(80);
                 showXpPopup(100, window.innerWidth / 2, window.innerHeight / 3);
                 setTimeout(() => {
@@ -1898,9 +1795,9 @@
                     expert: 'Create your signature style or mentor others.'
                 },
                 wellness: {
-                    curious: 'A yoga retreat will show you what's possible.',
+                    curious: "A yoga retreat will show you what's possible.",
                     beginner: 'Deepen your practice with a pilgrimage to the source.',
-                    intermediate: 'RYT-200 in India — become certified at yoga\'s birthplace.',
+                    intermediate: "RYT-200 in India — become certified at yoga's birthplace.",
                     advanced: 'RYT-500 and specializations await.',
                     expert: 'Lead retreats and share your practice globally.'
                 },
@@ -1931,7 +1828,7 @@
                     wellness: 'The meditative rhythm of sailing complements your practice.'
                 },
                 diving: {
-                    sailing: 'Every sailor should know what's beneath the hull.',
+                    sailing: "Every sailor should know what's beneath the hull.",
                     adventure: 'Add underwater exploration to your adventure toolkit.',
                     wellness: 'Freediving is moving meditation — breath is everything.'
                 },
