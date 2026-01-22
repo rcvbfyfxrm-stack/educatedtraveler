@@ -38,7 +38,7 @@ python3 -m http.server 8000 --directory website
   - `daemon.md` — Mission, principles, non-negotiables
   - `products.md` — Full product catalog with pricing
   - `brand/design-system.md` — Colors, typography, components
-  - `brand/landing-pages.md` — Copy patterns
+  - `foundation-agent.md` / `ultimate-agent.md` — AI decision frameworks
 - **`website/`** — Production static HTML (forms → Google Sheets via Apps Script)
 - **`prototype/`** — React + Vite + TypeScript (work in progress)
 
