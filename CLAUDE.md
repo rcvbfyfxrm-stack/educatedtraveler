@@ -2,154 +2,70 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Repository Overview
+## What We're Building
 
-This is an Obsidian vault containing planning and documentation materials for **EducatedTraveler**, an educational travel startup offering **Skill Adventures at Source**—certified skill immersions at premium destinations worldwide. The platform combines real-world certifications (PADI, RYA, Yoga Alliance, WSET) with blockchain-verified credentials and gamified progression.
-
-**Product Spectrum**:
-- **7-21 days**: Get certified (PADI diving, RYA sailing, culinary arts, yoga credentials)
-- **1-3 months**: Go deeper with advanced mastery
-- **6 months**: Change your life with full transformation
+**EducatedTraveler** offers certified skill immersions at premium destinations worldwide. Learn diving in Thailand, sailing in Greece, yoga in Bali—and leave with real credentials (PADI, RYA, Yoga Alliance, WSET).
 
 *"One week to get certified. 6 months to change your life."*
 
-The website leads with accessible 7-21 day adventures—the entry point. Longer options (1, 3, 6 months) are available for those ready to go deeper. Always position short immersions as the gateway, not the 6-month commitment.
+**The spectrum:**
+- **7-21 days** ($3,500-$6,500) — Get certified. This is the entry point.
+- **1-3 months** ($9,500-$12,000) — Go deeper.
+- **6 months** ($25,000-$40,000) — Transform your life.
 
-## Development Commands
+Always lead with shorter options. The 7-day certification is the gateway, not the 6-month commitment.
 
-### Prototype (React App)
+## Commands
 
-All commands run from the `prototype/` directory:
-
+**Prototype** (React app in `prototype/`):
 ```bash
-cd prototype
-npm install          # Install dependencies
-npm run dev          # Start dev server with HMR
-npm run build        # Type-check and build for production
-npm run lint         # Run ESLint
-npm run preview      # Preview production build
+cd prototype && npm install
+npm run dev      # Dev server
+npm run build    # Production build
+npm run lint     # ESLint
 ```
 
-### Website (Static HTML)
-
-The `website/` directory contains static HTML pages. Open directly in browser or serve locally:
-
+**Website** (static HTML in `website/`):
 ```bash
-# From repository root
-open website/index.html                    # Main landing page
-open website/instructors.html              # Instructors page
-python3 -m http.server 8000 --directory website  # Local server
+python3 -m http.server 8000 --directory website
 ```
 
-## Repository Structure
+**Deployment**: Pushes to main auto-deploy via Netlify (`educatedtraveler.app`).
 
-```
-├── os/                     # CORE OPERATING SYSTEM — Single source of truth
-│   ├── daemon.md          # Mission, principles, brand voice, non-negotiables
-│   ├── products.md        # Complete product catalog with pricing
-│   ├── economics.md       # Unit economics, metrics, instructor compensation
-│   ├── playbooks/         # Operational templates
-│   │   ├── partner-onboarding.md   # Partner recruitment
-│   │   └── revenue-calculator.md   # Financial modeling
-│   └── brand/             # Design system and copy
-│       ├── design-system.md        # Colors, typography, components
-│       └── landing-pages.md        # Proven copy patterns
-├── prototype/              # React + Vite + TypeScript application
-├── website/                # Static landing pages (production HTML)
-├── business/               # Formal business documents (PDFs)
-└── _archive/               # Legacy documents (deprecated)
-```
+## Key Directories
 
-## Core OS (`os/`)
+- **`os/`** — Single source of truth. Start here for any new work.
+  - `daemon.md` — Mission, principles, non-negotiables
+  - `products.md` — Full product catalog with pricing
+  - `brand/design-system.md` — Colors, typography, components
+  - `brand/landing-pages.md` — Copy patterns
+- **`website/`** — Production static HTML (forms → Google Sheets via Apps Script)
+- **`prototype/`** — React + Vite + TypeScript (work in progress)
 
-The `os/` folder is the single source of truth for company fundamentals. **Start here for any new work.**
+## Non-Negotiables
 
-| File | When to Reference |
-|------|-------------------|
-| `daemon.md` | Mission alignment, brand voice, non-negotiables |
-| `products.md` | Program details, pricing, certifications, cohort structure |
-| `economics.md` | Financial modeling, instructor compensation |
-| `playbooks/partner-onboarding.md` | Recruiting instructors, venues, cert bodies |
-| `playbooks/revenue-calculator.md` | Modeling new programs |
-| `brand/design-system.md` | Colors, typography, component patterns |
-| `brand/landing-pages.md` | Copy templates, proven patterns |
-
-## Prototype Architecture
-
-The `prototype/` directory contains a Vite + React 19 + TypeScript application:
-
-- **Build tool**: Vite 7.x with React plugin
-- **Framework**: React 19 with TypeScript 5.9
-- **Styling**: CSS modules (no Tailwind yet)
-
-The `educated-traveler-quest.tsx` component is a standalone prototype demonstrating:
-- Quest progression (Foundation → Mastery → Saga)
-- XP/leveling system (500 XP per level)
-- Certification tracking with prerequisite-based unlocking
-
-**Note**: This component requires Tailwind CSS and lucide-react to be integrated.
-
-## Website Architecture
-
-The `website/` directory contains production static HTML pages:
-
-- `index.html` — Main landing page
-- `instructors.html` — Instructor recruitment page
-- `SETUP-FORMS.md` — Form integration instructions
-
-These pages follow the design system in `os/brand/design-system.md`:
-- Dark theme (black backgrounds, glass effects)
-- Inter font family
-- Netflix-style adventure cards
-- Mobile-first responsive design
-
-## Business Domain Context
-
-**Duration Spectrum** (always lead with shorter options):
-| Duration | Name | Price | Positioning |
-|----------|------|-------|-------------|
-| 7-21 days | **Foundation** | $3,500-$6,500 | Get certified |
-| 30-60 days | **Mastery** | $9,500-$12,000 | Go deeper |
-| 90-180 days | **Saga** | $25,000-$40,000 | Change your life |
-
-**Key Concepts**:
-- **Cohorts**: 8-12 max (6-8 for sailing)
-- **Source**: Learn where the skill originated
-- **Soul-Bound Tokens (SBTs)**: Non-transferable NFTs for certifications (planned)
-
-**Non-Negotiables** (from `os/daemon.md`):
-- Cohort size: 8-12 maximum
-- Instructor quality: 5+ years experience, certified
-- No sitting blocks > 90 minutes
+- Cohorts: 8-12 max
+- Instructors: 5+ years, certified
+- No sitting blocks over 90 minutes
 - Rest days: 1/week minimum
 
 ## Brand Voice
 
-**Use:**
-- "Skill adventures at the source"
-- "One week to get certified. 6 months to change your life."
-- "Choose your depth"
-- "Certified" (not just "learning")
-- "Cohort" (not "group" or "class")
+**Say:** "Skill adventures at the source" · "Choose your depth" · "Certified" · "Cohort"
 
-**Avoid:**
-- "Life-changing" (overused)
-- "Journey" alone (too generic)
-- "Luxury" (we're premium, not indulgent)
-- "Easy" or "effortless" (dishonest)
+**Don't say:** "Life-changing" (overused) · "Journey" alone · "Luxury" · "Easy"
 
-## Design Principles
+## Design
 
-From `os/brand/design-system.md`:
+Apple glass meets Netflix minimal. Darkness as canvas, content glows.
 
 ```
-Primary bg:     #000000 (pure black)
-Glass surface:  rgba(255,255,255,0.03)
-Text primary:   #FFFFFF
-Text secondary: rgba(255,255,255,0.60)
-Accent cyan:    #06B6D4 (sailing, primary action)
-Accent amber:   #F59E0B (culinary)
-Accent orange:  #F97316 (wellness)
+Background:      #000000
+Glass:           rgba(255,255,255,0.03)
+Text:            #FFFFFF / rgba(255,255,255,0.60)
+Cyan (sailing):  #06B6D4
+Amber (culinary): #F59E0B
+Orange (wellness): #F97316
 ```
 
-Philosophy: Apple glass meets Netflix minimal. Darkness as canvas, content glows.
+Font: Inter. Mobile-first. Netflix-style cards.
