@@ -1,4 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="4" fill="#000"/>
-  <text x="16" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#06B6D4" text-anchor="middle" letter-spacing="-1">ET</text>
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="#000000"/>
+  <rect x="1" y="1" width="30" height="30" rx="5" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <text x="16" y="22" font-family="Inter, -apple-system, system-ui, sans-serif" font-size="16" font-weight="600" fill="url(#textGrad)" text-anchor="middle" letter-spacing="-0.5" filter="url(#glow)">ET</text>
 </svg>
