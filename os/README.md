@@ -10,58 +10,66 @@ This is the core intelligence layer. Everything else builds on this foundation.
 ```
 os/
 ├── daemon.md                    # THE SOUL — Core DNA, principles, commandments
-├── foundation-agent.md          # THE BEDROCK — Company-building intelligence
-├── ultimate-agent.md            # THE ENGINE — 23 modules of tactical wisdom
+├── nexus-agent.md               # NEXUS — The Command Agent (500+ principles)
 ├── products.md                  # THE CATALOG — Complete product offerings
-├── economics.md                 # THE MATH — Unit economics, metrics
-├── playbooks/
-│   ├── partner-onboarding.md    # Partner recruitment
-│   ├── revenue-calculator.md    # Financial modeling
-│   └── experience-page-template.md  # Experience page creation
-└── brand/
-    ├── design-system.md         # Visual language
-    └── landing-pages.md         # Copy patterns
+├── founder-bio.md               # THE FOUNDER — Arnaud's story
+│
+├── core/                        # OPERATIONAL CHECKLISTS
+│   ├── instructor-manifesto.md  # Who we invite to teach
+│   ├── who-we-serve-archetypes.md  # Customer personas
+│   ├── program-fit-checklist.md # Program evaluation
+│   └── partnership-filter.md    # Partner vetting
+│
+├── brand/                       # VISUAL & VERBAL IDENTITY
+│   ├── design-system.md         # Colors, typography, components
+│   ├── brand-guardrails.md      # What to say, what to avoid
+│   └── landing-pages.md         # Copy patterns
+│
+├── playbooks/                   # OPERATIONAL TEMPLATES
+│   ├── partner-onboarding.md    # Partner recruitment process
+│   ├── partner-outreach-email-template.md  # Email templates
+│   ├── partner-uniqueness-template.md      # Partner differentiation
+│   ├── student-interview-template.md       # Full interview guide
+│   └── student-interview-simple.md         # Quick interview
+│
+└── partners/                    # MARKET RESEARCH
+    ├── global-experiences-catalog.md  # All experiences worldwide
+    ├── partner-recommendations.md     # Vetted partners
+    ├── countries/               # Country-specific research
+    └── evaluations/             # Individual partner evaluations
 ```
 
 ---
 
 ## The Intelligence Layer
 
-### Two Agents. Infinite Wisdom.
+### NEXUS: The Command Agent
 
-#### Foundation Agent — *Forgé au Fer Rouge*
-**For**: Fundamental company decisions, existential questions, founder psychology
+> *The central intelligence that powers every decision.*
 
-```
-Foundation: [Phase] + [Challenge]
-
-Phases:
-├── VALIDATE — Prove before you build
-├── BUILD — Assemble the machine
-├── OPERATE — Run when it hurts
-├── SCALE — Grow without breaking
-└── MINDSET — Founder psychology
-```
-
-**Sources**: Lean Startup, Zero to One, Hard Thing About Hard Things, Scaling Up, Traction, High Output Management, Extreme Ownership, E-Myth
-
-#### Ultimate Agent — *The Knowledge Engine*
-**For**: Tactical execution, domain expertise, daily decisions
+**NEXUS is the single source of truth for all decisions.**
 
 ```
-Agent: [Module] + [Challenge]
+NEXUS: [Domain] + [Challenge]
 
-Modules:
-├── Marketing, Sales, Copywriting
-├── Customer Psychology, Persuasion
-├── Coding, Website, Analytics
-├── Content, Community, Partnerships
-├── Instructional Design, Finance
-├── Crisis Management, Scaling
-└── Self-Mastery, Brand
+Domains:
+├── Vision — Strategy, direction, mission
+├── Marketing — Acquisition, content, brand
+├── Sales — Conversion, objections, pricing
+├── Copy — Headlines, emails, landing pages
+├── Product — Experience design, curriculum
+├── UX — Interface, user flow, design
+├── Finance — Pricing, margins, projections
+├── Operations — Logistics, checklists, risk
+├── Psychology — Persuasion, behavior, habits
+├── Community — Cohorts, alumni, engagement
+├── Content — Calendar, pillars, repurposing
+└── Mindset — Founder struggles, routines
 ```
 
-**Sources**: 50+ books across marketing, sales, psychology, coding, design, business
+**Includes**: 500+ principles from 50+ books, full experience catalog, emergency protocols
+
+→ See `os/nexus-agent.md`
 
 ---
 
@@ -104,74 +112,39 @@ XII.  Build to last
 - **No sitting blocks**: >90 minutes
 - **Rest days**: 1/week minimum
 
-### The Metrics
-| Metric | Target |
-|--------|--------|
-| Pass rate | 95%+ |
-| NPS | 70+ |
-| Completion | 98%+ |
-| Margin | 30%+ |
-| LTV:CAC | 3:1+ |
-
 ---
 
 ## How to Use
 
 ### Starting a new initiative?
 1. Check `daemon.md` for mission alignment
-2. Run Mission Drift Test
-3. Consult agent if uncertain: `Foundation: VALIDATE + [idea]`
+2. Run Mission Drift Test (in NEXUS)
+3. Consult: `NEXUS: Vision + [idea]`
 
 ### Facing a challenge?
 ```
-# For fundamental/strategic issues:
-Foundation: [Phase] + [Challenge]
+NEXUS: [Domain] + [Challenge]
 
-# For tactical/execution issues:
-Agent: [Module] + [Challenge]
+Examples:
+- NEXUS: Marketing + low waitlist signups
+- NEXUS: Sales + price objections
+- NEXUS: Mindset + feeling overwhelmed
 ```
 
 ### Building something?
 | Task | Reference |
 |------|-----------|
-| Pricing | `economics.md` + `playbooks/revenue-calculator.md` |
-| Partner recruitment | `playbooks/partner-onboarding.md` |
-| Experience page | `playbooks/experience-page-template.md` |
+| New partner | `core/instructor-manifesto.md` + `playbooks/partner-onboarding.md` |
 | Visual design | `brand/design-system.md` |
-| Copy/messaging | `brand/landing-pages.md` + `Agent: Copywriting` |
+| Copy/messaging | `brand/landing-pages.md` + `NEXUS: Copy` |
+| Customer research | `playbooks/student-interview-template.md` |
+| Country expansion | `partners/countries/` |
 
 ### Making a decision?
 ```
-Type 1 (Irreversible): Gather data → Consult Foundation Agent → Sleep → Decide
+Type 1 (Irreversible): Gather data → Consult NEXUS → Sleep → Decide
 Type 2 (Reversible): Decide in <24h → Execute → Learn → Iterate
 ```
-
----
-
-## The Operating Rhythm
-
-### Daily
-- Review daemon principles (5 min)
-- Check critical metrics (10 min)
-- Set 3 priorities (5 min)
-- Deep work block (90 min)
-
-### Weekly
-- Monday: Hardest work
-- Friday: Review + plan ahead
-- Sunday: Strategic thinking
-
-### Monthly
-- Week 1: Launch push
-- Week 2: Product development
-- Week 3: Partner building
-- Week 4: Analysis + planning
-
-### Quarterly
-- OKR reset
-- Strategic plan update
-- Mission drift audit
-- Agent deep consultation
 
 ---
 
@@ -179,12 +152,12 @@ Type 2 (Reversible): Decide in <24h → Execute → Learn → Iterate
 
 | Situation | Action |
 |-----------|--------|
-| Cash crisis | `Foundation: OPERATE + cash emergency` |
-| Team issues | `Foundation: BUILD + [issue]` |
-| Want to quit | `Foundation: MINDSET + wanting to quit` |
-| Marketing fail | `Agent: Marketing + [issue]` |
-| Sales block | `Agent: Sales + [issue]` |
-| Reputation risk | `Agent: Crisis + [issue]` |
+| Cash crisis | `NEXUS: Finance + cash emergency` |
+| Want to quit | `NEXUS: Mindset + wanting to quit` |
+| Marketing fail | `NEXUS: Marketing + [issue]` |
+| Sales block | `NEXUS: Sales + [issue]` |
+| Reputation risk | `NEXUS: Operations + reputation crisis` |
+| Burnout | `NEXUS: Mindset + burnout warning` |
 
 ---
 
@@ -207,27 +180,16 @@ NO  → Don't.
 | File | When to Use |
 |------|-------------|
 | `daemon.md` | Daily alignment, mission decisions, the oath |
-| `foundation-agent.md` | Strategic decisions, company building, struggles |
-| `ultimate-agent.md` | Tactical execution, domain expertise |
+| `nexus-agent.md` | **ALL decisions** — the single command agent |
 | `products.md` | Product details, pricing, certifications |
-| `economics.md` | Financial modeling, unit economics |
-| `playbooks/*` | Operational templates, processes |
+| `founder-bio.md` | Arnaud's personal story |
+| `core/*` | Instructor/partner vetting, customer personas |
 | `brand/*` | Visual and verbal identity |
+| `playbooks/*` | Operational templates and processes |
+| `partners/*` | Market research by country |
 
 ---
 
-## Version Control
-
-| File | Version | Updated |
-|------|---------|---------|
-| daemon.md | 2.0 | Jan 2026 |
-| foundation-agent.md | 1.0 | Jan 2026 |
-| ultimate-agent.md | 1.0 | Jan 2026 |
-| products.md | 1.0 | Jan 2026 |
-| economics.md | 1.0 | Jan 2026 |
-
----
-
-**This is the OS. This is how we operate. This is the law.**
+**NEXUS is the command center. This is the OS. This is the law.**
 
 *Skills last, tans fade.*

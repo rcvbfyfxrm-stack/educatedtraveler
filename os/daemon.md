@@ -19,12 +19,30 @@ We exist to transform lives through certified mastery at the source. Not tourism
 
 ## The Intelligence Layer
 
-This daemon is powered by two agent systems that encode the wisdom of 100+ books and battle-tested principles:
+This daemon is powered by **NEXUS** — the command agent that encodes 500+ principles from 50+ books.
+
+### NEXUS: The Command Agent
+`NEXUS: [Domain] + [Challenge]`
+
+> *The central intelligence that powers every decision.*
+
+**NEXUS is the main agent. All decisions flow through NEXUS.**
+
+Domains:
+- Vision, Strategy, Brand, Marketing
+- Sales, Copywriting, Psychology
+- Product, UX, Analytics, Content
+- Partnerships, Community, Finance
+- Operations, Crisis, Scaling, Mindset
+
+**Includes**: Full Experience Spectrum — from flagship experiences (sushi, diving, yoga, sailing) to surprising adventures (sword making, Gnawa music, truffle hunting)
+
+→ See `os/nexus-agent.md`
 
 ### Foundation Agent — *Forgé au Fer Rouge*
 `Foundation: [Phase] + [Challenge]`
 
-The bedrock. For fundamental company decisions:
+For deep strategic/existential decisions (defers to NEXUS for tactical):
 - **VALIDATE**: Prove before you build
 - **BUILD**: Assemble the machine
 - **OPERATE**: Run when it hurts
@@ -32,17 +50,6 @@ The bedrock. For fundamental company decisions:
 - **MINDSET**: Founder psychology
 
 → See `os/foundation-agent.md`
-
-### Ultimate Agent — *The Knowledge Engine*
-`Agent: [Module] + [Challenge]`
-
-Tactical excellence across 23 domains:
-- Marketing, Sales, Copywriting, Psychology
-- Coding, Website, Analytics, Content
-- Partnerships, Community, Finance
-- Instructional Design, Crisis Management
-
-→ See `os/ultimate-agent.md`
 
 ---
 
@@ -199,7 +206,7 @@ WEEK 4: Analysis, planning, course correction
 ├── One-Page Strategic Plan update
 ├── Financial health deep-dive
 ├── Mission drift audit
-└── Agent consultation for next quarter challenges
+└── NEXUS consultation for next quarter challenges
 ```
 
 ---
@@ -283,7 +290,7 @@ When facing any significant decision:
 ### Type 1 Decisions (Irreversible)
 ```
 ├── Gather data (but not forever)
-├── Consult Foundation Agent
+├── Consult NEXUS
 ├── Sleep on it
 ├── Decide with conviction
 └── Own the outcome
@@ -299,9 +306,7 @@ When facing any significant decision:
 
 ### When Stuck
 ```
-Foundation: [Phase] + [Your Challenge]
-or
-Agent: [Module] + [Your Challenge]
+NEXUS: [Domain] + [Your Challenge]
 ```
 
 ---
@@ -367,19 +372,20 @@ I will see this through.
 
 ## Emergency Invocations
 
-When you need guidance:
+When you need guidance — **invoke NEXUS**:
 
 | Situation | Invocation |
 |-----------|------------|
-| Company direction | `Foundation: VALIDATE + [issue]` |
-| Team/hiring | `Foundation: BUILD + [issue]` |
-| Crisis/struggle | `Foundation: OPERATE + [issue]` |
-| Growth decisions | `Foundation: SCALE + [issue]` |
-| Personal struggle | `Foundation: MINDSET + [issue]` |
-| Marketing problem | `Agent: Marketing + [issue]` |
-| Sales obstacle | `Agent: Sales + [issue]` |
-| Financial question | `Agent: Financial + [issue]` |
-| Copy/messaging | `Agent: Copywriting + [issue]` |
+| Company direction | `NEXUS: Vision + [issue]` |
+| Team/hiring | `NEXUS: Operations + [issue]` |
+| Crisis/struggle | `NEXUS: Crisis + [issue]` |
+| Growth decisions | `NEXUS: Strategy + [issue]` |
+| Personal struggle | `NEXUS: Mindset + [issue]` |
+| Marketing problem | `NEXUS: Marketing + [issue]` |
+| Sales obstacle | `NEXUS: Sales + [issue]` |
+| Financial question | `NEXUS: Finance + [issue]` |
+| Copy/messaging | `NEXUS: Copy + [issue]` |
+| Experience design | `NEXUS: Product + [issue]` |
 
 ---
 
@@ -403,9 +409,9 @@ When all else fails, return to this:
 
 ---
 
-**Version**: 2.0
+**Version**: 2.1
 **Last Updated**: January 2026
-**Powered By**: Foundation Agent + Ultimate Agent
+**Powered By**: NEXUS — The Command Agent
 
 > For brand-specific guardrails on copy, UX, and product framing, see `os/brand/brand-guardrails.md`.
 
