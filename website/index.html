@@ -186,10 +186,10 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Offerings</a>
-                <a href="#survey" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                <a href="survey.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     Take Survey
                 </a>
-                <a href="#community" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     Join Community
                 </a>
             </div>
@@ -395,28 +395,6 @@
         </div>
     </section>
 
-    <!-- Survey CTA -->
-    <section id="survey" class="py-24 px-6">
-        <div class="max-w-xl mx-auto text-center">
-            <p class="text-lg text-white/70 mb-4">
-                Your adventure is waiting where it's always been:<br>
-                <span class="text-white">at the source.</span>
-            </p>
-            <p class="text-white/50 mb-8">
-                From 7-day certifications to 6-month transformations—tell us what you wish existed, and we'll build the cohorts around it.
-            </p>
-
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeE2O5z5IvEqLtd-fSaQzWl6_9ia6scCaLc4NcoIp9aFlfb5g/viewform" target="_blank" class="cta-button inline-flex items-center gap-3 px-10 py-5 rounded-full text-white font-medium text-lg">
-                <span>Take the Survey</span>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
-            </a>
-
-            <p class="text-white/30 text-sm mt-6">2 minutes. Your input shapes everything.</p>
-        </div>
-    </section>
-
     <!-- Explorer Quest / Profile -->
     <section id="quest" class="py-24 px-6 border-t border-white/5">
         <div class="max-w-4xl mx-auto">
@@ -578,96 +556,6 @@
         </div>
     </section>
 
-    <!-- Community CTA -->
-    <section id="community" class="py-24 px-6 border-t border-white/5">
-        <div class="max-w-xl mx-auto text-center">
-            <p class="text-xs uppercase tracking-[0.3em] text-cyan-400/80 mb-4">
-                Join the community
-            </p>
-            <h2 class="text-3xl font-light mb-4">
-                Be first to hear about cohorts and adventures.
-            </h2>
-            <p class="text-white/50 text-sm mb-8">
-                Early access to new Skill Adventures at the source, behind-the-scenes dispatches,
-                and invitations to founding cohorts.
-            </p>
-
-            <form id="community-form" class="space-y-4 max-w-md mx-auto">
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <input
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="you@email.com"
-                        class="flex-1 rounded-full px-4 py-3 text-sm bg-white/5 border border-white/20 text-white placeholder:text-white/30"
-                    />
-                    <button
-                        type="submit"
-                        id="community-submit"
-                        class="cta-button px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap"
-                    >
-                        Join community
-                    </button>
-                </div>
-
-                <div class="grid sm:grid-cols-2 gap-3 text-left text-xs text-white/60">
-                    <div>
-                        <label class="block mb-1">What certification interests you most?</label>
-                        <select
-                            name="interest"
-                            class="w-full rounded-lg px-3 py-2 bg-white/5 border border-white/20 text-xs"
-                        >
-                            <option value="">Choose one (optional)</option>
-                            <option value="rya-sailing">RYA Sailing (Day Skipper to Yachtmaster)</option>
-                            <option value="padi-diving">PADI Diving (Divemaster / Instructor)</option>
-                            <option value="aida-freedive">AIDA Freediving (Instructor)</option>
-                            <option value="culinary-lcb">Le Cordon Bleu / ALMA Culinary</option>
-                            <option value="wset-wine">WSET Wine & Spirits</option>
-                            <option value="yoga-ryt">Yoga Alliance (RYT-200 / RYT-500)</option>
-                            <option value="itm-massage">ITM Thai Massage</option>
-                            <option value="fgasa-safari">FGASA Safari Guide</option>
-                            <option value="iko-kite">IKO Kitesurfing Instructor</option>
-                            <option value="ifmga-mountain">IFMGA Mountaineering</option>
-                            <option value="adventure-sports">Adventure sports (kayak, surf, cave diving)</option>
-                            <option value="long-saga">3-6 month multi-certification saga</option>
-                            <option value="not-sure">Not sure yet — just exploring</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block mb-1">Rough timeline for your first Skill Adventure</label>
-                        <select
-                            name="timeline"
-                            class="w-full rounded-lg px-3 py-2 bg-white/5 border border-white/20 text-xs"
-                        >
-                            <option value="">When are you thinking?</option>
-                            <option value="foundation-soon">Next 3-6 months (Foundation — 7-21 days)</option>
-                            <option value="mastery-year">Within 12 months (Mastery — ~1 month)</option>
-                            <option value="saga-future">Planning a 3-6 month Saga in the next 1-2 years</option>
-                            <option value="exploring">Just exploring for now</option>
-                        </select>
-                    </div>
-                </div>
-
-                <p class="text-[11px] text-white/30">
-                    Are you an instructor or partner?
-                    <a href="instructors.html" class="text-cyan-400/80 hover:text-cyan-400 underline">
-                        Start here instead
-                    </a>.
-                </p>
-
-                <p id="community-status" class="text-white/30 text-xs mt-2">
-                    No spam. A few high-signal updates per month.
-                </p>
-            </form>
-
-            <div id="community-success" class="hidden mt-8 text-center">
-                <p class="text-lg text-white mb-2">You're in!</p>
-                <p class="text-sm text-white/70 mb-4">We'll keep you updated on new Skill Adventures and founding cohorts.</p>
-                <p class="text-xs text-white/40">Taking you to your profile...</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="py-12 border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6">
@@ -730,92 +618,6 @@
         // Initialize
         showSlide(0);
         autoplayInterval = setInterval(nextSlide, 20000);
-    </script>
-
-    <script>
-        const COMMUNITY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcvU2CbMwi7XImIY_BHir4KKCrqVT_dD8MerlBW3SS_2mAlis7AP9utWGqZiuXR9tB/exec';
-
-        const communityForm = document.getElementById('community-form');
-        if (communityForm) {
-            communityForm.addEventListener('submit', async function (e) {
-                e.preventDefault();
-
-                const form = e.target;
-                const submitBtn = document.getElementById('community-submit');
-                const statusEl = document.getElementById('community-status');
-                const successEl = document.getElementById('community-success');
-
-                if (!submitBtn || !statusEl || !successEl) return;
-
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Joining...';
-                submitBtn.classList.add('opacity-60');
-
-                const formData = new FormData(form);
-                const email = formData.get('email');
-                const data = {
-                    timestamp: new Date().toISOString(),
-                    email,
-                    interest: formData.get('interest'),
-                    timeline: formData.get('timeline'),
-                    source: 'homepage-community'
-                };
-
-                // Only attempt fetch if a real URL is configured
-                const hasRealUrl = COMMUNITY_SCRIPT_URL && !COMMUNITY_SCRIPT_URL.includes('YOUR_') && COMMUNITY_SCRIPT_URL.startsWith('http');
-
-                try {
-                    if (hasRealUrl) {
-                        await fetch(COMMUNITY_SCRIPT_URL, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(data)
-                        });
-                    }
-
-                    // Treat community join as a login on the site
-                    try {
-                        const alreadySignedIn = typeof isSignedIn === 'function' && isSignedIn();
-                        if (!alreadySignedIn && typeof createProfile === 'function' && typeof saveProfile === 'function' && typeof updateProfileUI === 'function') {
-                            if (email && String(email).includes('@')) {
-                                const profile = createProfile(String(email));
-                                saveProfile(profile);
-                                updateProfileUI();
-
-                                // Light celebration so it feels successful
-                                if (typeof spawnConfetti === 'function') {
-                                    spawnConfetti(50);
-                                }
-                                if (typeof showXpPopup === 'function') {
-                                    showXpPopup(100, window.innerWidth / 2, window.innerHeight / 2);
-                                }
-                            }
-                        }
-                    } catch (innerErr) {
-                        console.error('Error creating profile from community join', innerErr);
-                    }
-
-                    form.classList.add('hidden');
-                    successEl.classList.remove('hidden');
-
-                    // Scroll to profile after a brief moment
-                    setTimeout(() => {
-                        const profileHeader = document.getElementById('profile-header');
-                        if (profileHeader) {
-                            profileHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }, 1500);
-                } catch (err) {
-                    console.error(err);
-                    statusEl.textContent = 'Something went wrong. Please try again.';
-                    statusEl.classList.add('text-red-400');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Join community';
-                    submitBtn.classList.remove('opacity-60');
-                }
-            });
-        }
     </script>
 
     <script>
