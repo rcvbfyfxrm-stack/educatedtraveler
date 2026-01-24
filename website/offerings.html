@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Offerings — EDUCATEDTRAVELER</title>
 
-    <meta name="description" content="Certified skill immersions at the source. Real credentials from PADI, RYA, Yoga Alliance, WSET.">
+    <meta name="description" content="Certified skill immersions at the source. Real credentials from PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu, and more.">
     <meta property="og:title" content="Offerings — EDUCATEDTRAVELER">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -36,6 +36,38 @@
             box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
         }
 
+        .experience-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+        .experience-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(6, 182, 212, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .flagship-card {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+        .flagship-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+        }
+
+        .badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .badge-ocean { background: rgba(6, 182, 212, 0.2); color: #06b6d4; }
+        .badge-culinary { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .badge-wellness { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+        .badge-adventure { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .badge-wildlife { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -56,7 +88,10 @@
                 <a href="/" class="text-sm text-white/60 hover:text-white transition-colors">Story</a>
                 <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="text-sm text-white hover:text-white transition-colors">Offerings</a>
-                <a href="/#community" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                <a href="survey.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    Take Survey
+                </a>
+                <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     Join Community
                 </a>
             </div>
@@ -66,83 +101,286 @@
     <!-- Hero -->
     <section class="pt-32 pb-16 px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6 fade-up">What We Offer</p>
+            <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6 fade-up">Skill Adventures</p>
             <h1 class="text-4xl md:text-5xl font-light mb-6 fade-up delay-1">
                 Certified. At Source. With Masters.
             </h1>
             <p class="text-lg text-white/50">
-                No competitor combines all five elements. That's the difference.
+                Every experience includes a globally recognized certification, learned where the skill was born.
             </p>
         </div>
     </section>
 
     <!-- 5 Elements -->
-    <section class="py-16 px-6">
+    <section class="py-12 px-6">
         <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-5 gap-4">
-                <div class="glass rounded-xl p-5 text-center">
-                    <div class="text-2xl mb-3">1</div>
-                    <h3 class="font-medium mb-1">Certified</h3>
-                    <p class="text-white/40 text-xs">Real credentials</p>
+            <div class="grid grid-cols-5 gap-3 text-center text-xs">
+                <div class="glass rounded-lg p-3">
+                    <p class="text-white/80 mb-1">Certified</p>
+                    <p class="text-white/30">Real credentials</p>
                 </div>
-                <div class="glass rounded-xl p-5 text-center">
-                    <div class="text-2xl mb-3">2</div>
-                    <h3 class="font-medium mb-1">At Source</h3>
-                    <p class="text-white/40 text-xs">Where it was born</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="text-white/80 mb-1">At Source</p>
+                    <p class="text-white/30">Where it was born</p>
                 </div>
-                <div class="glass rounded-xl p-5 text-center">
-                    <div class="text-2xl mb-3">3</div>
-                    <h3 class="font-medium mb-1">Masters</h3>
-                    <p class="text-white/40 text-xs">Decades of expertise</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="text-white/80 mb-1">Masters</p>
+                    <p class="text-white/30">Decades of expertise</p>
                 </div>
-                <div class="glass rounded-xl p-5 text-center">
-                    <div class="text-2xl mb-3">4</div>
-                    <h3 class="font-medium mb-1">Cohorts</h3>
-                    <p class="text-white/40 text-xs">8-12 people</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="text-white/80 mb-1">Cohorts</p>
+                    <p class="text-white/30">8-12 people</p>
                 </div>
-                <div class="glass rounded-xl p-5 text-center">
-                    <div class="text-2xl mb-3">5</div>
-                    <h3 class="font-medium mb-1">Immersive</h3>
-                    <p class="text-white/40 text-xs">Full-time focus</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="text-white/80 mb-1">Immersive</p>
+                    <p class="text-white/30">Full-time focus</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The Gap -->
+    <!-- Flagship Experiences - Launching Soon -->
     <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl font-light text-center mb-12">The gap we fill</h2>
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Launching Soon</p>
+                <h2 class="text-2xl font-light mb-2">Flagship Experiences</h2>
+                <p class="text-white/40 text-sm">First cohorts forming now</p>
+            </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <p class="text-white/40 text-xs uppercase tracking-widest mb-4">What exists</p>
-                    <div class="space-y-3 text-sm">
-                        <div class="glass rounded-lg p-4">
-                            <p class="text-white/70">Online courses</p>
-                            <p class="text-white/30 text-xs">No credentials, 10% completion</p>
-                        </div>
-                        <div class="glass rounded-lg p-4">
-                            <p class="text-white/70">Tourist experiences</p>
-                            <p class="text-white/30 text-xs">No depth, forgotten in a week</p>
-                        </div>
-                        <div class="glass rounded-lg p-4">
-                            <p class="text-white/70">Traditional schools</p>
-                            <p class="text-white/30 text-xs">2-4 years, $50-100k</p>
-                        </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- RYA Sailing - Greece -->
+                <div class="flagship-card rounded-xl p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge badge-ocean">Ocean</span>
+                        <span class="text-xs text-cyan-400">Launching Soon</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">RYA Day Skipper — Greek Islands</h3>
+                    <p class="text-white/50 text-sm mb-4">Cradle of Mediterranean sailing. RYA Day Skipper certification through the Cyclades.</p>
+                    <div class="flex items-center justify-between text-xs text-white/40">
+                        <span>14-21 days</span>
+                        <span>$5,500-$7,500</span>
+                        <span>RYA Day Skipper</span>
                     </div>
                 </div>
 
-                <div>
-                    <p class="text-cyan-400 text-xs uppercase tracking-widest mb-4">EDUCATEDTRAVELER</p>
-                    <div class="glass rounded-lg p-6 border-cyan-500/20">
-                        <p class="text-white font-medium mb-4">The sweet spot</p>
-                        <div class="space-y-2 text-sm text-white/60">
-                            <p>Real certifications (PADI, RYA, WSET)</p>
-                            <p>At the source (Tokyo, India, Atlantic)</p>
-                            <p>7 days to 6 months</p>
-                            <p>8-12 person cohorts</p>
-                        </div>
+                <!-- PADI Diving - French Med -->
+                <div class="flagship-card rounded-xl p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge badge-ocean">Ocean</span>
+                        <span class="text-xs text-cyan-400">Launching Soon</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">PADI Divemaster — French Mediterranean</h3>
+                    <p class="text-white/50 text-sm mb-4">Where Cousteau invented modern diving. Open Water to Divemaster on the Côte d'Azur.</p>
+                    <div class="flex items-center justify-between text-xs text-white/40">
+                        <span>21-28 days</span>
+                        <span>$6,500-$8,500</span>
+                        <span>PADI Divemaster</span>
+                    </div>
+                </div>
+
+                <!-- WSET Wine - Bordeaux -->
+                <div class="flagship-card rounded-xl p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge badge-culinary">Culinary</span>
+                        <span class="text-xs text-cyan-400">Launching Soon</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">WSET Level 3 — Bordeaux</h3>
+                    <p class="text-white/50 text-sm mb-4">WSET Level 3 in the world's most legendary wine region. Château visits, cellar tastings.</p>
+                    <div class="flex items-center justify-between text-xs text-white/40">
+                        <span>14-21 days</span>
+                        <span>$6,500-$8,500</span>
+                        <span>WSET Level 3</span>
+                    </div>
+                </div>
+
+                <!-- Yoga - Rishikesh -->
+                <div class="flagship-card rounded-xl p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge badge-wellness">Wellness</span>
+                        <span class="text-xs text-cyan-400">Launching Soon</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">Yoga Alliance RYT-200 — Rishikesh</h3>
+                    <p class="text-white/50 text-sm mb-4">Birthplace of yoga. RYT-200 certification in ashrams on the Ganges.</p>
+                    <div class="flex items-center justify-between text-xs text-white/40">
+                        <span>25-28 days</span>
+                        <span>$5,500-$6,500</span>
+                        <span>Yoga Alliance RYT-200</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="community.html" class="cta-button inline-block px-8 py-3 rounded-full text-white font-medium text-sm">
+                    Join waitlist for founding cohorts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Catalog -->
+    <section class="py-16 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-light mb-2">Full Experience Catalog</h2>
+                <p class="text-white/40 text-sm">All experiences include globally recognized certifications</p>
+            </div>
+
+            <!-- Ocean & Sailing -->
+            <div class="mb-12">
+                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
+                    <span class="badge badge-ocean">Ocean & Sailing</span>
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">RYA Coastal Skipper — Atlantic Passage</h4>
+                        <p class="text-white/50 text-xs mb-3">Blue water passage across the Atlantic. RYA Coastal Skipper certification.</p>
+                        <div class="text-xs text-white/30">21-28 days · $7.5k-$9.5k · RYA Coastal Skipper</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">AIDA Freediving Instructor — Dahab</h4>
+                        <p class="text-white/50 text-xs mb-3">The Blue Hole. Where world records are set. AIDA 1-4 plus Instructor.</p>
+                        <div class="text-xs text-white/30">21-28 days · $4.5k-$6.5k · AIDA Instructor</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">IKO Kitesurfing Instructor — Tarifa</h4>
+                        <p class="text-white/50 text-xs mb-3">Wind capital of Europe. IKO Level 1 through Instructor certification.</p>
+                        <div class="text-xs text-white/30">21-28 days · $5.5k-$7.5k · IKO Instructor</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">ISA Surf Instructor — Bali</h4>
+                        <p class="text-white/50 text-xs mb-3">World-class breaks in Uluwatu and Canggu. ISA Level 1-2 certification.</p>
+                        <div class="text-xs text-white/30">21-28 days · $5.5k-$7.5k · ISA Surf Instructor</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">PADI Cave Diver — Yucatan Cenotes</h4>
+                        <p class="text-white/50 text-xs mb-3">World's longest underwater cave systems. Full PADI Cave Diver certification.</p>
+                        <div class="text-xs text-white/30">14-21 days · $6.5k-$8.5k · PADI Cave Diver</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">ACA Whitewater Instructor — Costa Rica</h4>
+                        <p class="text-white/50 text-xs mb-3">Class III-V rapids in the jungle. ACA Level 4 Whitewater Kayak Instructor.</p>
+                        <div class="text-xs text-white/30">21-28 days · $5.5k-$7.5k · ACA Level 4</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Culinary -->
+            <div class="mb-12">
+                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
+                    <span class="badge badge-culinary">Culinary & Wine</span>
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">Le Cordon Bleu Pastry — Paris</h4>
+                        <p class="text-white/50 text-xs mb-3">The gold standard. Le Cordon Bleu Diplôme de Pâtisserie in Paris.</p>
+                        <div class="text-xs text-white/30">1-2 months · $15k-$25k · Le Cordon Bleu Diplôme</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">ALMA Italian Cuisine — Parma</h4>
+                        <p class="text-white/50 text-xs mb-3">Italy's premier culinary school. ALMA professional certification.</p>
+                        <div class="text-xs text-white/30">1-2 months · $12k-$18k · ALMA Certificate</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">SSI Sake Sommelier — Niigata</h4>
+                        <p class="text-white/50 text-xs mb-3">Japan's premier sake region. SSI certification with brewery immersion.</p>
+                        <div class="text-xs text-white/30">14-21 days · $6.5k-$8.5k · SSI Sake Sommelier</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wellness -->
+            <div class="mb-12">
+                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
+                    <span class="badge badge-wellness">Wellness & Healing</span>
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">Yoga Alliance RYT-500 — Rishikesh</h4>
+                        <p class="text-white/50 text-xs mb-3">Advanced teacher training at the source. For serious practitioners.</p>
+                        <div class="text-xs text-white/30">60-90 days · $9.5k-$12k · Yoga Alliance RYT-500</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">ITM Thai Massage — Chiang Mai</h4>
+                        <p class="text-white/50 text-xs mb-3">Original Thai massage tradition. ITM Level 1-3 certification from masters.</p>
+                        <div class="text-xs text-white/30">14-21 days · $3.5k-$4.5k · ITM Certification</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">Wim Hof Method Instructor — Poland</h4>
+                        <p class="text-white/50 text-xs mb-3">Train at the source with WHM Academy. Full instructor certification.</p>
+                        <div class="text-xs text-white/30">7-14 days · $4.5k-$6.5k · WHM Instructor</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adventure -->
+            <div class="mb-12">
+                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
+                    <span class="badge badge-adventure">Adventure & Mountains</span>
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">IFMGA Alpinism — Chamonix</h4>
+                        <p class="text-white/50 text-xs mb-3">Birthplace of alpinism. Train with IFMGA guides toward aspirant certification.</p>
+                        <div class="text-xs text-white/30">21-28 days · $7.5k-$9.5k · IFMGA Aspirant</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wildlife -->
+            <div class="mb-12">
+                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
+                    <span class="badge badge-wildlife">Wildlife & Conservation</span>
+                </h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">FGASA Safari Guide — South Africa</h4>
+                        <p class="text-white/50 text-xs mb-3">Industry gold standard. FGASA Level 1 Field Guide in the African bush.</p>
+                        <div class="text-xs text-white/30">55 days · $9.5k-$12k · FGASA Level 1</div>
+                    </div>
+                    <div class="experience-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">PADI Marine Conservation — Great Barrier Reef</h4>
+                        <p class="text-white/50 text-xs mb-3">Largest coral reef on Earth. PADI Coral Reef Conservation specialty.</p>
+                        <div class="text-xs text-white/30">21-28 days · $6.5k-$8.5k · PADI Specialty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Saga Experiences -->
+    <section class="py-16 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">The Deep End</p>
+                <h2 class="text-2xl font-light mb-2">90-Day Sagas</h2>
+                <p class="text-white/40 text-sm">Multi-certification journeys for complete transformation</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="experience-card rounded-xl p-6 border-cyan-500/20">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge badge-ocean">Ocean</span>
+                        <span class="text-xs text-white/40">90 days</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">RYA Yachtmaster — 90-Day Saga</h3>
+                    <p class="text-white/50 text-sm mb-4">Day Skipper through Yachtmaster Offshore. 90 days of ocean passages across multiple seas.</p>
+                    <div class="flex items-center justify-between text-xs text-white/40">
+                        <span>~$28,000</span>
+                        <span>RYA Yachtmaster Offshore</span>
+                    </div>
+                </div>
+
+                <div class="experience-card rounded-xl p-6 border-cyan-500/20">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge badge-ocean">Ocean</span>
+                        <span class="text-xs text-white/40">90 days</span>
+                    </div>
+                    <h3 class="text-xl font-medium mb-2">PADI Instructor Development — 90-Day Saga</h3>
+                    <p class="text-white/50 text-sm mb-4">Open Water to PADI Instructor. Mediterranean training with IDC and IE.</p>
+                    <div class="flex items-center justify-between text-xs text-white/40">
+                        <span>$15k-$18k</span>
+                        <span>PADI Open Water Scuba Instructor</span>
                     </div>
                 </div>
             </div>
@@ -160,19 +398,19 @@
                     <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Foundation</p>
                     <p class="text-3xl font-light mb-1">7-21 days</p>
                     <p class="text-white/40 text-sm mb-4">Get certified</p>
-                    <p class="text-white/30 text-xs">$3,500 - $6,500</p>
+                    <p class="text-white/30 text-xs">$3,500 - $8,500</p>
                 </div>
                 <div class="glass rounded-xl p-6 text-center border-cyan-500/20">
                     <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Mastery</p>
                     <p class="text-3xl font-light mb-1">1-2 months</p>
                     <p class="text-white/40 text-sm mb-4">Go deeper</p>
-                    <p class="text-white/30 text-xs">$9,500 - $12,000</p>
+                    <p class="text-white/30 text-xs">$9,500 - $25,000</p>
                 </div>
                 <div class="glass rounded-xl p-6 text-center">
-                    <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Transformation</p>
+                    <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Saga</p>
                     <p class="text-3xl font-light mb-1">3-6 months</p>
                     <p class="text-white/40 text-sm mb-4">Change your life</p>
-                    <p class="text-white/30 text-xs">$25,000 - $40,000</p>
+                    <p class="text-white/30 text-xs">$15,000 - $40,000</p>
                 </div>
             </div>
         </div>
@@ -180,54 +418,75 @@
 
     <!-- Certifications -->
     <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             <h2 class="text-2xl font-light text-center mb-12">Credentials that matter</h2>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="glass rounded-lg p-5 text-center">
-                    <p class="text-xl font-semibold mb-1">PADI</p>
+            <div class="grid grid-cols-3 md:grid-cols-6 gap-3 text-center">
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">PADI</p>
                     <p class="text-white/40 text-xs">Diving</p>
                 </div>
-                <div class="glass rounded-lg p-5 text-center">
-                    <p class="text-xl font-semibold mb-1">RYA</p>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">RYA</p>
                     <p class="text-white/40 text-xs">Sailing</p>
                 </div>
-                <div class="glass rounded-lg p-5 text-center">
-                    <p class="text-xl font-semibold mb-1">Yoga Alliance</p>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">AIDA</p>
+                    <p class="text-white/40 text-xs">Freediving</p>
+                </div>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">WSET</p>
+                    <p class="text-white/40 text-xs">Wine</p>
+                </div>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">Le Cordon Bleu</p>
+                    <p class="text-white/40 text-xs">Culinary</p>
+                </div>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">ALMA</p>
+                    <p class="text-white/40 text-xs">Italian Cuisine</p>
+                </div>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">Yoga Alliance</p>
                     <p class="text-white/40 text-xs">Yoga</p>
                 </div>
-                <div class="glass rounded-lg p-5 text-center">
-                    <p class="text-xl font-semibold mb-1">WSET</p>
-                    <p class="text-white/40 text-xs">Wine</p>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">ITM</p>
+                    <p class="text-white/40 text-xs">Thai Massage</p>
+                </div>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">FGASA</p>
+                    <p class="text-white/40 text-xs">Safari Guide</p>
+                </div>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">IKO</p>
+                    <p class="text-white/40 text-xs">Kitesurfing</p>
+                </div>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">ISA</p>
+                    <p class="text-white/40 text-xs">Surfing</p>
+                </div>
+                <div class="glass rounded-lg p-4">
+                    <p class="font-semibold mb-1">IFMGA</p>
+                    <p class="text-white/40 text-xs">Mountaineering</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Partners -->
+    <!-- CTA -->
     <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl font-light mb-4">Partner with us</h2>
-            <p class="text-white/40 mb-12">Masters, venues, certification bodies</p>
-
-            <div class="grid md:grid-cols-3 gap-6 text-left mb-12">
-                <div class="glass rounded-xl p-5">
-                    <p class="text-white font-medium mb-2">Instructors</p>
-                    <p class="text-white/40 text-sm">Serious students. Fair compensation. We handle logistics.</p>
-                </div>
-                <div class="glass rounded-xl p-5">
-                    <p class="text-white font-medium mb-2">Venues</p>
-                    <p class="text-white/40 text-sm">Premium clients. Longer stays. Guaranteed bookings.</p>
-                </div>
-                <div class="glass rounded-xl p-5">
-                    <p class="text-white font-medium mb-2">Cert Bodies</p>
-                    <p class="text-white/40 text-sm">Volume candidates. Quality students. Co-marketing.</p>
-                </div>
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-2xl font-light mb-4">Ready to start?</h2>
+            <p class="text-white/50 mb-8">Take the survey to tell us which experiences interest you most, or join the community for early access to founding cohorts.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="survey.html" class="cta-button px-8 py-4 rounded-full text-white font-medium">
+                    Take the Survey
+                </a>
+                <a href="community.html" class="px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-colors">
+                    Join Community
+                </a>
             </div>
-
-            <a href="mailto:ceo-educatedtraveler@pm.me" class="cta-button inline-block px-8 py-4 rounded-full text-white font-medium">
-                Let's Talk
-            </a>
         </div>
     </section>
 
