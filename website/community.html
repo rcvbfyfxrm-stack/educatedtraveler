@@ -227,6 +227,7 @@
                 const hasRealUrl = COMMUNITY_SCRIPT_URL && !COMMUNITY_SCRIPT_URL.includes('YOUR_') && COMMUNITY_SCRIPT_URL.startsWith('http');
 
                 try {
+                    // Send to Google Sheets
                     if (hasRealUrl) {
                         await fetch(COMMUNITY_SCRIPT_URL, {
                             method: 'POST',
@@ -235,6 +236,20 @@
                             body: JSON.stringify(data)
                         });
                     }
+
+                    // Send email notification
+                    const emailFormData = new FormData();
+                    emailFormData.append('email', email);
+                    emailFormData.append('_subject', 'New Community Signup: ' + email);
+                    emailFormData.append('interest', data.interest || '');
+                    emailFormData.append('timeline', data.timeline || '');
+                    emailFormData.append('source', 'community-page');
+                    emailFormData.append('_template', 'table');
+
+                    await fetch('https://formsubmit.co/ajax/arnaudcallier@pm.me', {
+                        method: 'POST',
+                        body: emailFormData
+                    });
 
                     form.classList.add('hidden');
                     successEl.classList.remove('hidden');

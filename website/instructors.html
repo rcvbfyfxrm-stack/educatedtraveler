@@ -543,7 +543,7 @@
     </footer>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcvU2CbMwi7XImIY_BHir4KKCrqVT_dD8MerlBW3SS_2mAlis7AP9utWGqZiuXR9tB/exec';
 
         document.getElementById('instructor-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -572,15 +572,35 @@
                 ideal_students: formData.get('ideal_students'),
                 locations: locations,
                 availability: formData.get('availability'),
-                additional: formData.get('additional')
+                additional: formData.get('additional'),
+                source: 'instructor-application'
             };
 
             try {
+                // Send to Google Sheets
                 await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
+                });
+
+                // Send email notification
+                const emailFormData = new FormData();
+                emailFormData.append('_subject', 'New Instructor Application: ' + data.name);
+                emailFormData.append('name', data.name);
+                emailFormData.append('email', data.email);
+                emailFormData.append('location', data.location);
+                emailFormData.append('discipline', data.discipline);
+                emailFormData.append('credentials', data.credentials);
+                emailFormData.append('approach', data.approach);
+                emailFormData.append('excitement', data.excitement);
+                emailFormData.append('website', data.website || '');
+                emailFormData.append('_template', 'table');
+
+                await fetch('https://formsubmit.co/ajax/arnaudcallier@pm.me', {
+                    method: 'POST',
+                    body: emailFormData
                 });
 
                 form.classList.add('hidden');

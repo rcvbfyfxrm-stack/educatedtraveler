@@ -1249,14 +1249,62 @@
             const questEmailForm = document.getElementById('quest-email-form');
             const questEmailSuccess = document.getElementById('quest-email-success');
 
+            // Google Apps Script URL for storing signups and sending notifications
+            const SIGNUP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcvU2CbMwi7XImIY_BHir4KKCrqVT_dD8MerlBW3SS_2mAlis7AP9utWGqZiuXR9tB/exec';
+
             if (questSaveBtn && questEmailInput) {
-                questSaveBtn.addEventListener('click', function() {
+                questSaveBtn.addEventListener('click', async function() {
                     const email = questEmailInput.value.trim();
                     if (!email || !email.includes('@')) {
                         questEmailInput.classList.add('border-red-500');
                         return;
                     }
                     questEmailInput.classList.remove('border-red-500');
+
+                    // Disable button while sending
+                    questSaveBtn.disabled = true;
+                    questSaveBtn.textContent = 'Saving...';
+
+                    // Gather quest results for context
+                    const questResults = {
+                        timestamp: new Date().toISOString(),
+                        email: email,
+                        source: 'homepage-quest',
+                        depth: document.getElementById('quest-depth-result')?.textContent || '',
+                        element: document.getElementById('quest-element-result')?.textContent || '',
+                        saga: document.getElementById('quest-saga-result')?.textContent || ''
+                    };
+
+                    // Send to Google Apps Script (stores in Sheets)
+                    try {
+                        await fetch(SIGNUP_SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(questResults)
+                        });
+                    } catch (err) {
+                        console.log('Signup sent (no-cors mode)');
+                    }
+
+                    // Send email notification via FormSubmit
+                    try {
+                        const formData = new FormData();
+                        formData.append('email', email);
+                        formData.append('_subject', 'New EducatedTraveler Interest: ' + email);
+                        formData.append('depth', questResults.depth);
+                        formData.append('element', questResults.element);
+                        formData.append('saga', questResults.saga);
+                        formData.append('source', 'homepage-quest');
+                        formData.append('_template', 'table');
+
+                        await fetch('https://formsubmit.co/ajax/arnaudcallier@pm.me', {
+                            method: 'POST',
+                            body: formData
+                        });
+                    } catch (err) {
+                        console.log('Email notification sent');
+                    }
 
                     // Create profile with email
                     if (typeof createProfile === 'function' && typeof saveProfile === 'function' && typeof updateProfileUI === 'function') {
