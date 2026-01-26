@@ -183,6 +183,7 @@
             <a href="/" class="text-lg font-semibold tracking-wider">
                 EDUCATED<span class="text-cyan-400">TRAVELER</span>
             </a>
+            <!-- Desktop nav -->
             <div class="hidden md:flex items-center gap-8">
                 <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Offerings</a>
@@ -192,6 +193,21 @@
                 <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     Join Community
                 </a>
+            </div>
+            <!-- Mobile hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+            <div class="px-6 py-4 space-y-3">
+                <a href="vision.html" class="block py-3 text-white/70 hover:text-white transition-colors">Vision</a>
+                <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Offerings</a>
+                <a href="survey.html" class="block py-3 text-white/70 hover:text-white transition-colors">Take Survey</a>
+                <a href="community.html" class="block py-3 text-cyan-400 hover:text-cyan-300 transition-colors">Join Community</a>
             </div>
         </div>
     </nav>
@@ -300,26 +316,26 @@
                     </div>
                 </div>
 
-                <!-- Navigation Arrows -->
-                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Navigation Arrows (44px min touch target) -->
+                <button onclick="prevSlide()" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 hover:bg-black/50 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Previous slide">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
                 </button>
-                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button onclick="nextSlide()" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 hover:bg-black/50 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Next slide">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                 </button>
             </div>
 
-            <!-- Progress Dots -->
-            <div class="flex justify-center gap-2">
-                <button onclick="goToSlide(0)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="0"></button>
-                <button onclick="goToSlide(1)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="1"></button>
-                <button onclick="goToSlide(2)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="2"></button>
-                <button onclick="goToSlide(3)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="3"></button>
-                <button onclick="goToSlide(4)" class="slide-dot w-2 h-2 rounded-full bg-white/30 transition-all" data-dot="4"></button>
+            <!-- Progress Dots (larger touch targets with visual dots inside) -->
+            <div class="flex justify-center gap-1">
+                <button onclick="goToSlide(0)" class="slide-dot p-3 flex items-center justify-center" data-dot="0" aria-label="Go to slide 1"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
+                <button onclick="goToSlide(1)" class="slide-dot p-3 flex items-center justify-center" data-dot="1" aria-label="Go to slide 2"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
+                <button onclick="goToSlide(2)" class="slide-dot p-3 flex items-center justify-center" data-dot="2" aria-label="Go to slide 3"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
+                <button onclick="goToSlide(3)" class="slide-dot p-3 flex items-center justify-center" data-dot="3" aria-label="Go to slide 4"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
+                <button onclick="goToSlide(4)" class="slide-dot p-3 flex items-center justify-center" data-dot="4" aria-label="Go to slide 5"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
             </div>
         </div>
     </section>
@@ -466,17 +482,17 @@
                 <!-- Q3: Time -->
                 <div>
                     <p class="text-sm text-white/70 mb-3">3. How long can you disappear?</p>
-                    <div class="flex flex-wrap gap-3 text-sm">
-                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="time" data-value="foundation">
+                    <div class="flex flex-wrap gap-2 md:gap-3 text-sm">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="time" data-value="foundation">
                             7-10 days
                         </button>
-                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="time" data-value="foundation">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="time" data-value="foundation">
                             2-3 weeks
                         </button>
-                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="time" data-value="mastery">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="time" data-value="mastery">
                             1-2 months
                         </button>
-                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="time" data-value="saga">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="time" data-value="saga">
                             3-6 months
                         </button>
                     </div>
@@ -485,14 +501,14 @@
                 <!-- Q4: Intensity -->
                 <div>
                     <p class="text-sm text-white/70 mb-3">4. Turn the intensity dial.</p>
-                    <div class="flex flex-wrap gap-3 text-sm">
-                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="intensity" data-value="1">
+                    <div class="flex flex-wrap gap-2 md:gap-3 text-sm">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="intensity" data-value="1">
                             Soft landing
                         </button>
-                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="intensity" data-value="2">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="intensity" data-value="2">
                             Bring it on
                         </button>
-                        <button type="button" class="quest-choice px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5" data-group="intensity" data-value="3">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="intensity" data-value="3">
                             Full send
                         </button>
                     </div>
@@ -538,7 +554,7 @@
                     </div>
 
                     <div class="mt-6 pt-6 border-t border-white/10">
-                        <form id="quest-email-form" name="homepage-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col sm:flex-row gap-3 items-center">
+                        <form id="quest-email-form" name="homepage-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col gap-3 sm:flex-row sm:items-center">
                             <input type="hidden" name="form-name" value="homepage-interest">
                             <input type="hidden" name="bot-field">
                             <input type="hidden" name="depth" id="quest-depth-hidden">
@@ -546,8 +562,8 @@
                             <input type="hidden" name="saga" id="quest-saga-hidden">
                             <p class="text-sm text-white/70">Save your matches and get notified when cohorts open:</p>
                             <input type="email" name="email" id="quest-email" placeholder="your@email.com" required
-                                class="flex-1 max-w-xs px-4 py-2 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30">
-                            <button type="submit" id="quest-save-btn" class="cta-button px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                                class="w-full sm:flex-1 sm:max-w-xs px-4 py-3 sm:py-2 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30 min-h-[44px]">
+                            <button type="submit" id="quest-save-btn" class="cta-button px-6 py-3 sm:py-2 rounded-full text-sm font-medium whitespace-nowrap min-h-[44px]">
                                 Save my matches
                             </button>
                         </form>
@@ -588,14 +604,17 @@
 
         function showSlide(index) {
             document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.slide-dot').forEach(d => {
+            document.querySelectorAll('.slide-dot span').forEach(d => {
                 d.classList.remove('bg-white');
                 d.classList.add('bg-white/30');
             });
 
             document.querySelector(`[data-slide="${index}"]`).classList.add('active');
-            document.querySelector(`[data-dot="${index}"]`).classList.remove('bg-white/30');
-            document.querySelector(`[data-dot="${index}"]`).classList.add('bg-white');
+            const activeDot = document.querySelector(`[data-dot="${index}"] span`);
+            if (activeDot) {
+                activeDot.classList.remove('bg-white/30');
+                activeDot.classList.add('bg-white');
+            }
 
             currentSlide = index;
         }
@@ -623,6 +642,24 @@
         // Initialize
         showSlide(0);
         autoplayInterval = setInterval(nextSlide, 20000);
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+                // Change icon to X when open
+                const svg = mobileMenuBtn.querySelector('svg');
+                if (!isOpen) {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+                } else {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+                }
+            });
+        }
     </script>
 
     <script>
