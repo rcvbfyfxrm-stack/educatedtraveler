@@ -79,7 +79,9 @@
                 and invitations to founding cohorts.
             </p>
 
-            <form id="community-form" class="space-y-4 max-w-md mx-auto fade-up delay-2">
+            <form id="community-form" name="community-signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4 max-w-md mx-auto fade-up delay-2">
+                <input type="hidden" name="form-name" value="community-signup">
+                <input type="hidden" name="bot-field">
                 <div class="flex flex-col sm:flex-row gap-3">
                     <input
                         type="email"
@@ -196,8 +198,6 @@
     </footer>
 
     <script>
-        const COMMUNITY_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcvU2CbMwi7XImIY_BHir4KKCrqVT_dD8MerlBW3SS_2mAlis7AP9utWGqZiuXR9tB/exec';
-
         const communityForm = document.getElementById('community-form');
         if (communityForm) {
             communityForm.addEventListener('submit', async function (e) {
@@ -214,41 +214,13 @@
                 submitBtn.textContent = 'Joining...';
                 submitBtn.classList.add('opacity-60');
 
-                const formData = new FormData(form);
-                const email = formData.get('email');
-                const data = {
-                    timestamp: new Date().toISOString(),
-                    email,
-                    interest: formData.get('interest'),
-                    timeline: formData.get('timeline'),
-                    source: 'community-page'
-                };
-
-                const hasRealUrl = COMMUNITY_SCRIPT_URL && !COMMUNITY_SCRIPT_URL.includes('YOUR_') && COMMUNITY_SCRIPT_URL.startsWith('http');
-
                 try {
-                    // Send to Google Sheets
-                    if (hasRealUrl) {
-                        await fetch(COMMUNITY_SCRIPT_URL, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(data)
-                        });
-                    }
-
-                    // Send email notification
-                    const emailFormData = new FormData();
-                    emailFormData.append('email', email);
-                    emailFormData.append('_subject', 'New Community Signup: ' + email);
-                    emailFormData.append('interest', data.interest || '');
-                    emailFormData.append('timeline', data.timeline || '');
-                    emailFormData.append('source', 'community-page');
-                    emailFormData.append('_template', 'table');
-
-                    await fetch('https://formsubmit.co/ajax/arnaudcallier@pm.me', {
+                    // Submit to Netlify Forms
+                    const formData = new FormData(form);
+                    await fetch('/', {
                         method: 'POST',
-                        body: emailFormData
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
                     });
 
                     form.classList.add('hidden');

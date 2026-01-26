@@ -333,7 +333,9 @@
                     See SETUP-FORMS.md for setup instructions.
                 -->
 
-                <form id="instructor-form" class="space-y-8">
+                <form id="instructor-form" name="instructor-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-8">
+                    <input type="hidden" name="form-name" value="instructor-application">
+                    <input type="hidden" name="bot-field">
 
                     <!-- About You -->
                     <div class="space-y-5">
@@ -543,8 +545,6 @@
     </footer>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcvU2CbMwi7XImIY_BHir4KKCrqVT_dD8MerlBW3SS_2mAlis7AP9utWGqZiuXR9tB/exec';
-
         document.getElementById('instructor-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -556,51 +556,13 @@
             submitBtn.textContent = 'Sending...';
             submitBtn.classList.add('opacity-50');
 
-            const formData = new FormData(form);
-            const locations = formData.getAll('locations[]').join(', ');
-
-            const data = {
-                timestamp: new Date().toISOString(),
-                name: formData.get('name'),
-                email: formData.get('email'),
-                location: formData.get('location'),
-                website: formData.get('website'),
-                discipline: formData.get('discipline'),
-                credentials: formData.get('credentials'),
-                approach: formData.get('approach'),
-                excitement: formData.get('excitement'),
-                ideal_students: formData.get('ideal_students'),
-                locations: locations,
-                availability: formData.get('availability'),
-                additional: formData.get('additional'),
-                source: 'instructor-application'
-            };
-
             try {
-                // Send to Google Sheets
-                await fetch(GOOGLE_SCRIPT_URL, {
+                // Submit to Netlify Forms
+                const formData = new FormData(form);
+                await fetch('/', {
                     method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-
-                // Send email notification
-                const emailFormData = new FormData();
-                emailFormData.append('_subject', 'New Instructor Application: ' + data.name);
-                emailFormData.append('name', data.name);
-                emailFormData.append('email', data.email);
-                emailFormData.append('location', data.location);
-                emailFormData.append('discipline', data.discipline);
-                emailFormData.append('credentials', data.credentials);
-                emailFormData.append('approach', data.approach);
-                emailFormData.append('excitement', data.excitement);
-                emailFormData.append('website', data.website || '');
-                emailFormData.append('_template', 'table');
-
-                await fetch('https://formsubmit.co/ajax/arnaudcallier@pm.me', {
-                    method: 'POST',
-                    body: emailFormData
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
                 });
 
                 form.classList.add('hidden');

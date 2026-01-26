@@ -538,14 +538,19 @@
                     </div>
 
                     <div class="mt-6 pt-6 border-t border-white/10">
-                        <div id="quest-email-form" class="flex flex-col sm:flex-row gap-3 items-center">
+                        <form id="quest-email-form" name="homepage-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col sm:flex-row gap-3 items-center">
+                            <input type="hidden" name="form-name" value="homepage-interest">
+                            <input type="hidden" name="bot-field">
+                            <input type="hidden" name="depth" id="quest-depth-hidden">
+                            <input type="hidden" name="element" id="quest-element-hidden">
+                            <input type="hidden" name="saga" id="quest-saga-hidden">
                             <p class="text-sm text-white/70">Save your matches and get notified when cohorts open:</p>
-                            <input type="email" id="quest-email" placeholder="your@email.com"
+                            <input type="email" name="email" id="quest-email" placeholder="your@email.com" required
                                 class="flex-1 max-w-xs px-4 py-2 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30">
-                            <button type="button" id="quest-save-btn" class="cta-button px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                            <button type="submit" id="quest-save-btn" class="cta-button px-6 py-2 rounded-full text-sm font-medium whitespace-nowrap">
                                 Save my matches
                             </button>
-                        </div>
+                        </form>
                         <div id="quest-email-success" class="hidden text-center py-4">
                             <p class="text-lg text-white mb-1">You're in!</p>
                             <p class="text-sm text-white/50">We'll notify you when matching cohorts open.</p>
@@ -1243,67 +1248,42 @@
             });
             }
 
-            // Handle quest email save button
-            const questSaveBtn = document.getElementById('quest-save-btn');
-            const questEmailInput = document.getElementById('quest-email');
+            // Handle quest email form submission
             const questEmailForm = document.getElementById('quest-email-form');
             const questEmailSuccess = document.getElementById('quest-email-success');
 
-            // Google Apps Script URL for storing signups and sending notifications
-            const SIGNUP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcvU2CbMwi7XImIY_BHir4KKCrqVT_dD8MerlBW3SS_2mAlis7AP9utWGqZiuXR9tB/exec';
+            if (questEmailForm) {
+                questEmailForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
 
-            if (questSaveBtn && questEmailInput) {
-                questSaveBtn.addEventListener('click', async function() {
+                    const form = e.target;
+                    const questSaveBtn = document.getElementById('quest-save-btn');
+                    const questEmailInput = document.getElementById('quest-email');
                     const email = questEmailInput.value.trim();
-                    if (!email || !email.includes('@')) {
-                        questEmailInput.classList.add('border-red-500');
-                        return;
-                    }
-                    questEmailInput.classList.remove('border-red-500');
+
+                    // Populate hidden fields with quest results
+                    const depthHidden = document.getElementById('quest-depth-hidden');
+                    const elementHidden = document.getElementById('quest-element-hidden');
+                    const sagaHidden = document.getElementById('quest-saga-hidden');
+
+                    if (depthHidden) depthHidden.value = document.getElementById('quest-depth-result')?.textContent || '';
+                    if (elementHidden) elementHidden.value = document.getElementById('quest-element-result')?.textContent || '';
+                    if (sagaHidden) sagaHidden.value = document.getElementById('quest-saga-result')?.textContent || '';
 
                     // Disable button while sending
                     questSaveBtn.disabled = true;
                     questSaveBtn.textContent = 'Saving...';
 
-                    // Gather quest results for context
-                    const questResults = {
-                        timestamp: new Date().toISOString(),
-                        email: email,
-                        source: 'homepage-quest',
-                        depth: document.getElementById('quest-depth-result')?.textContent || '',
-                        element: document.getElementById('quest-element-result')?.textContent || '',
-                        saga: document.getElementById('quest-saga-result')?.textContent || ''
-                    };
-
-                    // Send to Google Apps Script (stores in Sheets)
+                    // Submit to Netlify Forms
                     try {
-                        await fetch(SIGNUP_SCRIPT_URL, {
+                        const formData = new FormData(form);
+                        await fetch('/', {
                             method: 'POST',
-                            mode: 'no-cors',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(questResults)
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: new URLSearchParams(formData).toString()
                         });
                     } catch (err) {
-                        console.log('Signup sent (no-cors mode)');
-                    }
-
-                    // Send email notification via FormSubmit
-                    try {
-                        const formData = new FormData();
-                        formData.append('email', email);
-                        formData.append('_subject', 'New EducatedTraveler Interest: ' + email);
-                        formData.append('depth', questResults.depth);
-                        formData.append('element', questResults.element);
-                        formData.append('saga', questResults.saga);
-                        formData.append('source', 'homepage-quest');
-                        formData.append('_template', 'table');
-
-                        await fetch('https://formsubmit.co/ajax/arnaudcallier@pm.me', {
-                            method: 'POST',
-                            body: formData
-                        });
-                    } catch (err) {
-                        console.log('Email notification sent');
+                        console.log('Form submitted');
                     }
 
                     // Create profile with email
