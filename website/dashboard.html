@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Your adventure profile, saved experiences, and preferences.">
+    <meta property="og:title" content="My Dashboard — EDUCATEDTRAVELER">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        html { scroll-behavior: smooth; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        .profile-avatar {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+
+        .xp-bar {
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        .xp-fill {
+            background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 100%);
+            transition: width 1s ease-out;
+        }
+
+        .skill-badge {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            background: rgba(6, 182, 212, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .adventure-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+        .adventure-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(6, 182, 212, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.8s ease-out forwards; }
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .spinner { animation: spin 1s linear infinite; }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-lg font-semibold tracking-wider">
+                EDUCATED<span class="text-cyan-400">TRAVELER</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">Vision</a>
+                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Offerings</a>
+                <a href="survey.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    Take Survey
+                </a>
+                <a href="dashboard.html" class="text-sm px-4 py-2 rounded-full border border-cyan-400/50 text-cyan-400">
+                    My Dashboard
+                </a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+            <div class="px-6 py-4 space-y-3">
+                <a href="vision.html" class="block py-3 text-white/70 hover:text-white transition-colors">Vision</a>
+                <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Offerings</a>
+                <a href="survey.html" class="block py-3 text-white/70 hover:text-white transition-colors">Take Survey</a>
+                <a href="dashboard.html" class="block py-3 text-cyan-400 hover:text-cyan-300 transition-colors">My Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading State -->
+    <div id="loading-state" class="min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-4 border-2 border-cyan-400/30 border-t-cyan-400 rounded-full spinner"></div>
+            <p class="text-white/50 text-sm">Loading your dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Not Signed In State -->
+    <div id="not-signed-in-state" class="hidden min-h-screen flex items-center justify-center px-6">
+        <div class="text-center max-w-md">
+            <div class="text-5xl mb-6">🔐</div>
+            <h1 class="text-2xl font-light mb-4">Sign in to view your dashboard</h1>
+            <p class="text-white/50 text-sm mb-8">Your saved adventures, preferences, and badges are waiting for you.</p>
+            <button id="sign-in-cta" class="cta-button px-8 py-4 rounded-full text-white font-medium">
+                Sign In with Email
+            </button>
+        </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <main id="dashboard-content" class="hidden pt-24 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Profile Header -->
+            <section class="mb-12 fade-up">
+                <div class="glass rounded-2xl p-8">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+                        <!-- Avatar -->
+                        <div class="profile-avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-semibold">
+                            <span id="profile-initials">--</span>
+                        </div>
+
+                        <!-- Info -->
+                        <div class="flex-1">
+                            <h1 id="profile-name" class="text-2xl font-light mb-1">Explorer</h1>
+                            <p id="profile-email" class="text-white/50 text-sm mb-4">Loading...</p>
+
+                            <!-- XP Bar -->
+                            <div class="flex items-center gap-4">
+                                <div class="flex-1 max-w-xs">
+                                    <div class="flex items-center justify-between text-xs mb-1">
+                                        <span class="text-white/50">Level <span id="profile-level">1</span></span>
+                                        <span class="text-cyan-400"><span id="profile-xp">0</span> XP</span>
+                                    </div>
+                                    <div class="xp-bar h-2 rounded-full">
+                                        <div id="xp-fill" class="xp-fill h-full rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sign Out -->
+                        <button id="sign-out-btn" class="text-sm text-white/50 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Badges -->
+            <section class="mb-12 fade-up delay-1">
+                <h2 class="text-lg font-light mb-4">Your Badges</h2>
+                <div id="badges-container" class="flex flex-wrap gap-3">
+                    <p id="no-badges" class="text-white/30 text-sm">Complete the quest to earn badges!</p>
+                </div>
+            </section>
+
+            <!-- Saved Adventures -->
+            <section class="mb-12 fade-up delay-2">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-light">Saved Adventures</h2>
+                    <a href="/#quest" class="text-sm text-cyan-400 hover:text-cyan-300 transition-colors">Find more</a>
+                </div>
+                <div id="adventures-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <p id="no-adventures" class="text-white/30 text-sm col-span-full">No saved adventures yet. Take the quest to discover your matches!</p>
+                </div>
+            </section>
+
+            <!-- Preferences -->
+            <section class="mb-12 fade-up delay-2">
+                <h2 class="text-lg font-light mb-4">Your Preferences</h2>
+                <div class="glass rounded-xl p-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-xs text-white/40 uppercase tracking-wider mb-2">Elements</p>
+                            <div id="pref-elements" class="flex flex-wrap gap-2">
+                                <span class="text-white/30 text-sm">Not set</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white/40 uppercase tracking-wider mb-2">Desires</p>
+                            <div id="pref-desires" class="flex flex-wrap gap-2">
+                                <span class="text-white/30 text-sm">Not set</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white/40 uppercase tracking-wider mb-2">Time Commitment</p>
+                            <p id="pref-time" class="text-white/70 text-sm">Not set</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white/40 uppercase tracking-wider mb-2">Intensity</p>
+                            <p id="pref-intensity" class="text-white/70 text-sm">Not set</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-white/10">
+                        <a href="/#quest" class="text-sm text-cyan-400 hover:text-cyan-300 transition-colors">
+                            Update preferences via the quest →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-cyan-400">TRAVELER</span></p>
+                    <p class="text-white/40 text-sm">Skills last, tans fade.</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="vision.html" class="text-white/50 hover:text-white text-sm transition-colors">Vision</a>
+                    <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Offerings</a>
+                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
+                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="text-white/50 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
+
+    <script>
+        // Badge definitions
+        const skillBadges = {
+            ocean: { name: 'Ocean Explorer', icon: '🌊', color: 'cyan' },
+            mountain: { name: 'Summit Seeker', icon: '⛰️', color: 'emerald' },
+            city: { name: 'Culinary Master', icon: '👨‍🍳', color: 'amber' },
+            temple: { name: 'Inner Voyager', icon: '🧘', color: 'purple' },
+            wild: { name: 'Wild Guide', icon: '🦁', color: 'orange' },
+            certification: { name: 'Certified Pro', icon: '📜', color: 'blue' },
+            career: { name: 'Career Changer', icon: '🚀', color: 'indigo' },
+            stories: { name: 'Adventurer', icon: '🗺️', color: 'pink' },
+            reset: { name: 'Zen Master', icon: '☯️', color: 'teal' },
+            rare: { name: 'Edge Seeker', icon: '⚡', color: 'gold' }
+        };
+
+        const timeLabels = {
+            foundation: '7-10 days to 2-3 weeks',
+            mastery: '1-2 months',
+            saga: '3-6 months'
+        };
+
+        const intensityLabels = {
+            1: 'Soft landing',
+            2: 'Bring it on',
+            3: 'Full send'
+        };
+
+        const elementLabels = {
+            ocean: 'Ocean & Blue Water',
+            mountain: 'Mountains & Adventure',
+            city: 'Kitchens & Wine Cellars',
+            temple: 'Ashrams & Healing',
+            wild: 'Wildlife & Conservation'
+        };
+
+        const desireLabels = {
+            certification: 'Certification',
+            career: 'Career Change',
+            stories: 'Stories',
+            reset: 'Deep Reset',
+            rare: 'Rare Challenge'
+        };
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+                const svg = mobileMenuBtn.querySelector('svg');
+                if (!isOpen) {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+                } else {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+                }
+            });
+        }
+
+        // Dashboard initialization
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loadingState = document.getElementById('loading-state');
+            const notSignedInState = document.getElementById('not-signed-in-state');
+            const dashboardContent = document.getElementById('dashboard-content');
+            const signInCta = document.getElementById('sign-in-cta');
+            const signOutBtn = document.getElementById('sign-out-btn');
+
+            // Wait for auth to initialize
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            const user = await window.auth.getUser();
+
+            if (!user) {
+                // Not signed in
+                loadingState.classList.add('hidden');
+                notSignedInState.classList.remove('hidden');
+
+                signInCta.addEventListener('click', () => {
+                    window.auth.showSignInModal();
+                });
+
+                // Listen for auth changes
+                window.auth.onAuthStateChange((user) => {
+                    if (user) {
+                        window.location.reload();
+                    }
+                });
+
+                return;
+            }
+
+            // User is signed in - load dashboard data
+            try {
+                const data = await window.db.getDashboardData(user.id);
+                renderDashboard(user, data);
+
+                loadingState.classList.add('hidden');
+                dashboardContent.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+                loadingState.innerHTML = `
+                    <div class="text-center">
+                        <p class="text-red-400 mb-4">Error loading dashboard</p>
+                        <button onclick="window.location.reload()" class="text-cyan-400 hover:text-cyan-300">Try again</button>
+                    </div>
+                `;
+            }
+
+            // Sign out handler
+            signOutBtn.addEventListener('click', async () => {
+                await window.auth.signOut();
+                window.location.href = '/';
+            });
+        });
+
+        function renderDashboard(user, data) {
+            const { profile, preferences, adventures, badges } = data;
+
+            // Profile info
+            const name = profile?.name || user.email.split('@')[0];
+            const initials = name.slice(0, 2).toUpperCase();
+
+            document.getElementById('profile-initials').textContent = initials;
+            document.getElementById('profile-name').textContent = name;
+            document.getElementById('profile-email').textContent = user.email;
+            document.getElementById('profile-level').textContent = profile?.level || 1;
+            document.getElementById('profile-xp').textContent = profile?.xp || 100;
+
+            // XP bar (500 XP per level)
+            const xp = profile?.xp || 100;
+            const xpInLevel = xp % 500;
+            const xpPercentage = Math.min((xpInLevel / 500) * 100, 100);
+            document.getElementById('xp-fill').style.width = xpPercentage + '%';
+
+            // Badges
+            const badgesContainer = document.getElementById('badges-container');
+            const noBadges = document.getElementById('no-badges');
+
+            if (badges && badges.length > 0) {
+                noBadges.classList.add('hidden');
+                badgesContainer.innerHTML = badges.map(badge => {
+                    const badgeInfo = skillBadges[badge.badge_key] || { name: badge.badge_key, icon: '🏅' };
+                    return `
+                        <div class="skill-badge px-4 py-2 rounded-full flex items-center gap-2">
+                            <span>${badgeInfo.icon}</span>
+                            <span class="text-sm">${badgeInfo.name}</span>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Saved adventures
+            const adventuresContainer = document.getElementById('adventures-container');
+            const noAdventures = document.getElementById('no-adventures');
+
+            if (adventures && adventures.length > 0) {
+                noAdventures.classList.add('hidden');
+                adventuresContainer.innerHTML = adventures.map(adv => `
+                    <div class="adventure-card rounded-xl p-5">
+                        <h4 class="font-medium mb-2">${adv.adventure_name || adv.adventure_id}</h4>
+                        <p class="text-white/40 text-xs">Saved ${new Date(adv.saved_at).toLocaleDateString()}</p>
+                    </div>
+                `).join('');
+            }
+
+            // Preferences
+            if (preferences) {
+                // Elements
+                const prefElements = document.getElementById('pref-elements');
+                if (preferences.elements && preferences.elements.length > 0) {
+                    prefElements.innerHTML = preferences.elements.map(el =>
+                        `<span class="px-3 py-1 rounded-full bg-white/5 text-white/70 text-xs">${elementLabels[el] || el}</span>`
+                    ).join('');
+                }
+
+                // Desires
+                const prefDesires = document.getElementById('pref-desires');
+                if (preferences.desires && preferences.desires.length > 0) {
+                    prefDesires.innerHTML = preferences.desires.map(d =>
+                        `<span class="px-3 py-1 rounded-full bg-white/5 text-white/70 text-xs">${desireLabels[d] || d}</span>`
+                    ).join('');
+                }
+
+                // Time
+                const prefTime = document.getElementById('pref-time');
+                if (preferences.time_preference) {
+                    prefTime.textContent = timeLabels[preferences.time_preference] || preferences.time_preference;
+                }
+
+                // Intensity
+                const prefIntensity = document.getElementById('pref-intensity');
+                if (preferences.intensity) {
+                    prefIntensity.textContent = intensityLabels[preferences.intensity] || 'Level ' + preferences.intensity;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

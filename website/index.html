@@ -193,6 +193,14 @@
                 <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     Join Community
                 </a>
+                <div id="auth-nav">
+                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition-colors">
+                        Sign In
+                    </button>
+                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition-colors">
+                        My Dashboard
+                    </a>
+                </div>
             </div>
             <!-- Mobile hamburger -->
             <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
@@ -207,7 +215,9 @@
                 <a href="vision.html" class="block py-3 text-white/70 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Offerings</a>
                 <a href="survey.html" class="block py-3 text-white/70 hover:text-white transition-colors">Take Survey</a>
-                <a href="community.html" class="block py-3 text-cyan-400 hover:text-cyan-300 transition-colors">Join Community</a>
+                <a href="community.html" class="block py-3 text-white/70 hover:text-white transition-colors">Join Community</a>
+                <button id="mobile-sign-in-btn" class="block w-full text-left py-3 text-cyan-400 hover:text-cyan-300 transition-colors">Sign In</button>
+                <a href="dashboard.html" id="mobile-dashboard-link" class="hidden block py-3 text-cyan-400 hover:text-cyan-300 transition-colors">My Dashboard</a>
             </div>
         </div>
     </nav>
@@ -1484,6 +1494,139 @@
         }
 
         updateProfileUI();
+    </script>
+
+    <!-- Supabase SDK and Auth -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
+
+    <script>
+        // ========================================
+        // SUPABASE QUEST INTEGRATION
+        // ========================================
+        (function() {
+            'use strict';
+
+            // Override the quest email form submission to use Supabase
+            const questEmailForm = document.getElementById('quest-email-form');
+            if (questEmailForm) {
+                // Remove existing listeners by cloning
+                const newForm = questEmailForm.cloneNode(true);
+                questEmailForm.parentNode.replaceChild(newForm, questEmailForm);
+
+                newForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    const questSaveBtn = document.getElementById('quest-save-btn');
+                    const questEmailInput = document.getElementById('quest-email');
+                    const questEmailSuccess = document.getElementById('quest-email-success');
+                    const email = questEmailInput.value.trim();
+
+                    // Get quest state from the current selections
+                    const questState = {
+                        elements: [],
+                        desires: [],
+                        time: null,
+                        intensity: null
+                    };
+
+                    // Collect current selections
+                    document.querySelectorAll('.quest-choice.bg-white').forEach(btn => {
+                        const group = btn.dataset.group;
+                        const value = btn.dataset.value;
+                        if (group === 'elements' || group === 'desires') {
+                            questState[group].push(value);
+                        } else if (group === 'time') {
+                            questState.time = value;
+                        } else if (group === 'intensity') {
+                            questState.intensity = parseInt(value, 10);
+                        }
+                    });
+
+                    // Get matched adventures from the displayed results
+                    const matchedAdventures = [];
+                    const primaryName = document.getElementById('quest-primary-name')?.textContent;
+                    const secondaryName = document.getElementById('quest-secondary-name')?.textContent;
+                    const sagaName = document.getElementById('quest-saga-name')?.textContent;
+
+                    if (primaryName && primaryName !== 'Quest Name') {
+                        matchedAdventures.push({ id: primaryName.toLowerCase().replace(/\s+/g, '-'), name: primaryName });
+                    }
+                    if (secondaryName && secondaryName !== 'Quest Name') {
+                        matchedAdventures.push({ id: secondaryName.toLowerCase().replace(/\s+/g, '-'), name: secondaryName });
+                    }
+                    if (sagaName && sagaName !== 'Quest Name') {
+                        matchedAdventures.push({ id: sagaName.toLowerCase().replace(/\s+/g, '-'), name: sagaName });
+                    }
+
+                    // Disable button while processing
+                    questSaveBtn.disabled = true;
+                    questSaveBtn.textContent = 'Saving...';
+
+                    // Check if user is signed in
+                    const user = window.auth?.getCurrentUser();
+
+                    if (user) {
+                        // User is signed in - save directly to Supabase
+                        try {
+                            await window.db.saveQuestResults(questState, matchedAdventures);
+
+                            // Also submit to Netlify Forms for backup
+                            const formData = new FormData(newForm);
+                            fetch('/', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body: new URLSearchParams(formData).toString()
+                            }).catch(() => {});
+
+                            // Show success
+                            newForm.classList.add('hidden');
+                            if (questEmailSuccess) questEmailSuccess.classList.remove('hidden');
+
+                            // Celebration
+                            if (typeof spawnConfetti === 'function') spawnConfetti(30);
+                            if (typeof showXpPopup === 'function') showXpPopup(150, window.innerWidth / 2, window.innerHeight / 2);
+                        } catch (error) {
+                            console.error('Error saving quest:', error);
+                            questSaveBtn.disabled = false;
+                            questSaveBtn.textContent = 'Save my matches';
+                        }
+                    } else {
+                        // User not signed in - store pending data and show sign-in modal
+                        sessionStorage.setItem('pendingQuest', JSON.stringify({
+                            questState,
+                            matchedAdventures
+                        }));
+
+                        // Also submit to Netlify Forms
+                        const formData = new FormData(newForm);
+                        fetch('/', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: new URLSearchParams(formData).toString()
+                        }).catch(() => {});
+
+                        // Show sign-in modal with prefilled email
+                        window.auth.showSignInModal(email);
+
+                        // Show success message
+                        newForm.classList.add('hidden');
+                        if (questEmailSuccess) {
+                            questEmailSuccess.innerHTML = `
+                                <p class="text-lg text-white mb-1">Check your email!</p>
+                                <p class="text-sm text-white/50">Click the magic link to sign in and access your matches from any device.</p>
+                            `;
+                            questEmailSuccess.classList.remove('hidden');
+                        }
+
+                        // Celebration
+                        if (typeof spawnConfetti === 'function') spawnConfetti(20);
+                    }
+                });
+            }
+        })();
     </script>
 
 </body>
