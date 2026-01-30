@@ -328,8 +328,7 @@
     // INITIALIZE
     // ========================================
 
-    // Check initial auth state on page load
-    document.addEventListener('DOMContentLoaded', async () => {
+    async function initAuth() {
         const session = await getSession();
         currentUser = session?.user || null;
         updateAuthUI();
@@ -344,7 +343,14 @@
         if (mobileSignInBtn) {
             mobileSignInBtn.addEventListener('click', () => showSignInModal());
         }
-    });
+    }
+
+    // Run immediately if DOM is ready, otherwise wait
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAuth);
+    } else {
+        initAuth();
+    }
 
     // ========================================
     // EXPORTS
