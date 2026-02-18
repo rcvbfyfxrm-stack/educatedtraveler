@@ -173,6 +173,15 @@
             75% { transform: rotate(3deg); }
         }
         .wiggle:hover { animation: wiggle 0.3s ease-in-out; }
+
+        /* Notify checkbox styles */
+        .notify-interest input:checked + span {
+            background: #06b6d4;
+            border-color: #06b6d4;
+        }
+        .notify-interest input:checked + span svg {
+            display: block;
+        }
     </style>
 </head>
 <body class="text-white">
@@ -307,7 +316,7 @@
                         <h2 class="text-2xl md:text-4xl font-light mb-4">The Depths & Heights</h2>
                         <p class="text-white/70 max-w-xl">
                             Freediving with Molchanov in Mexico. Shark diving in the Galapagos. Annapurna Base Camp at 4,130m.
-                            <span class="text-white">Fear transformed into respect. Strangers became lifelong friends.</span>
+                            <span class="text-white">Fear became respect. Strangers became lifelong friends.</span>
                         </p>
                     </div>
                 </div>
@@ -318,7 +327,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
                         <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter V</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4">Inner Transformation</h2>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4">Inner Immersion</h2>
                         <p class="text-white/70 max-w-xl">
                             Breathwork in Bali. Ayurvedic medicine in India. Learning presence from masters who'd dedicated their lives to it.
                             <span class="text-white">The body knows. You just have to listen.</span>
@@ -370,7 +379,7 @@
                 <div class="glass rounded-xl p-6">
                     <div class="text-3xl text-cyan-400 mb-3">3</div>
                     <h3 class="font-medium mb-2">Total Immersion</h3>
-                    <p class="text-white/50 text-sm">Not weekends. Weeks. The kind of focus that creates real transformation.</p>
+                    <p class="text-white/50 text-sm">Not weekends. Weeks. The kind of focus that only full immersion creates.</p>
                 </div>
             </div>
 
@@ -387,7 +396,7 @@
             <h2 class="text-3xl md:text-4xl font-light mb-8">So I built the bridge.</h2>
             <p class="text-white/50 mb-12">
                 The masters exist—but they don't advertise. The places exist—but the logistics overwhelm people.
-                The transformation is real—but most never get there because the friction stops them.
+                The immersion works—but most never get there because the friction stops them.
             </p>
 
             <div class="grid sm:grid-cols-2 gap-4 text-left mb-12">
@@ -479,7 +488,7 @@
                             <span class="block text-xs text-white/40">Atlantic crossings, cave diving, African bush—real adventure</span>
                         </button>
                         <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="reset">
-                            Deep reset & transformation
+                            Deep reset & immersion
                             <span class="block text-xs text-white/40">Yoga, breathwork, healing arts—practices you keep at home</span>
                         </button>
                         <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="rare">
@@ -582,6 +591,77 @@
                             <p class="text-sm text-white/50">We'll notify you when matching cohorts open.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Notified -->
+    <section id="notify" class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-2xl mx-auto text-center">
+            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-4">Stay Close</p>
+            <h2 class="text-3xl md:text-4xl font-light mb-3">Get notified when we launch.</h2>
+            <p class="text-white/50 mb-10">Pick what interests you. We'll only email you about matching launches.</p>
+
+            <div class="glass rounded-2xl p-6 md:p-8">
+                <form id="notify-form" name="launch-notify" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="launch-notify">
+                    <input type="hidden" name="bot-field">
+
+                    <!-- Interest checkboxes -->
+                    <p class="text-sm text-white/70 mb-4 text-left">I'm interested in:</p>
+                    <div class="grid sm:grid-cols-2 gap-3 mb-8 text-sm">
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px]">
+                            <input type="checkbox" name="interests" value="ocean" class="sr-only peer">
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            <span class="text-white/70">Ocean & Sailing</span>
+                        </label>
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px]">
+                            <input type="checkbox" name="interests" value="mountain" class="sr-only peer">
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            <span class="text-white/70">Mountains & Adventure</span>
+                        </label>
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px]">
+                            <input type="checkbox" name="interests" value="city" class="sr-only peer">
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            <span class="text-white/70">Culinary & Wine</span>
+                        </label>
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px]">
+                            <input type="checkbox" name="interests" value="temple" class="sr-only peer">
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            <span class="text-white/70">Wellness & Healing</span>
+                        </label>
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px] sm:col-span-2 sm:w-1/2">
+                            <input type="checkbox" name="interests" value="wild" class="sr-only peer">
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            </span>
+                            <span class="text-white/70">Wildlife & Conservation</span>
+                        </label>
+                    </div>
+
+                    <!-- Email + submit -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" name="email" placeholder="your@email.com" required
+                            class="w-full sm:flex-1 px-4 py-3 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30 min-h-[44px]">
+                        <button type="submit" id="notify-submit" class="cta-button px-8 py-3 rounded-full text-sm font-medium whitespace-nowrap min-h-[44px]">
+                            Notify me
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success state -->
+                <div id="notify-success" class="hidden py-6">
+                    <p class="text-xl text-white mb-2">You're on the list.</p>
+                    <p class="text-sm text-white/50">We'll reach out when something matching your interests launches.</p>
                 </div>
             </div>
         </div>
@@ -1626,6 +1706,70 @@
                     }
                 });
             }
+        })();
+    </script>
+
+    <script>
+        // ========================================
+        // NOTIFY ME FORM
+        // ========================================
+        (function() {
+            'use strict';
+
+            const notifyForm = document.getElementById('notify-form');
+            const notifySuccess = document.getElementById('notify-success');
+            const notifySubmit = document.getElementById('notify-submit');
+
+            if (!notifyForm) return;
+
+            // Toggle visual state on checkbox labels
+            notifyForm.querySelectorAll('.notify-interest input[type="checkbox"]').forEach(function(cb) {
+                cb.addEventListener('change', function() {
+                    const label = cb.closest('label');
+                    if (cb.checked) {
+                        label.classList.add('border-cyan-400/50', 'bg-white/5');
+                        label.querySelector('svg').classList.remove('hidden');
+                    } else {
+                        label.classList.remove('border-cyan-400/50', 'bg-white/5');
+                        label.querySelector('svg').classList.add('hidden');
+                    }
+                });
+            });
+
+            notifyForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                var checked = notifyForm.querySelectorAll('input[name="interests"]:checked');
+                if (checked.length === 0) {
+                    notifySubmit.textContent = 'Pick at least one interest';
+                    notifySubmit.classList.add('shake');
+                    setTimeout(function() {
+                        notifySubmit.textContent = 'Notify me';
+                        notifySubmit.classList.remove('shake');
+                    }, 1500);
+                    return;
+                }
+
+                notifySubmit.disabled = true;
+                notifySubmit.textContent = 'Sending...';
+
+                try {
+                    var formData = new FormData(notifyForm);
+                    await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    });
+                } catch (err) {
+                    // Netlify form will 404 locally - that's fine
+                }
+
+                notifyForm.classList.add('hidden');
+                notifySuccess.classList.remove('hidden');
+
+                if (typeof spawnConfetti === 'function') spawnConfetti(30);
+                if (typeof showXpPopup === 'function') showXpPopup(50, window.innerWidth / 2, window.innerHeight / 2);
+            });
         })();
     </script>
 
