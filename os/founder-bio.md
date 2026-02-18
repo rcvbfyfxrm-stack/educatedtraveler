@@ -11,105 +11,88 @@
 
 ## Short (50 words)
 
-At 18, I traded a science degree for a one-way ticket. What followed: 50,000+ nautical miles, kitchens from Michelin to midnight markets, Himalayan summits, freedives in crystal waters. Not a gap year—a life. I built EducatedTraveler so this path doesn't take a decade to find.
+I grew up in the mountains of France—about as far from the sea as you can get. After reading navigator books, I became obsessed with sailing the world. Ten years later: Atlantic crossings, bluewater racing, yacht deliveries, and cooking in galleys from the Med to the Caribbean. I built EducatedTraveler so this path doesn't take a decade to find.
 
 ---
 
 ## Medium (100 words)
 
-I got my Bac at 18 and asked: *what if I just went?*
+I grew up in the mountains of France, the furthest place from the sea. But after reading navigator books, I became obsessed with sailing the world.
 
-What followed: 50,000+ nautical miles across every ocean. Kitchens from Michelin-starred to Bangkok street stalls. RYA in Thailand. WSET cycling through French vineyards. Freediving in Indonesian waters. Annapurna Base Camp. Shark diving in the Galapagos.
+What followed: 10 years in the yachting industry. Regattas in Sydney Harbour. Day Skipper in Thailand. My first job on a CNB 26 where the captain-owner taught me everything from engineering to navigation. Lagoon deliveries from Les Sables d'Olonne to Croatia. Atlantic crossings on a 55ft Amel. Bluewater racing from Cape Town to Antigua. Antigua Sailing Week and the Bermuda Race.
 
-Every skill I have came from a place, a person, and total immersion.
-
-I built EducatedTraveler because this path shouldn't be so hard to find. The masters exist. The places exist. The transformation is real.
-
-**Your adventure is waiting where it's always been: at the source.**
+Now I'm restoring a 1979 schooner in Barcelona and building EducatedTraveler—because we all share this in common: we wanted an adventurous life.
 
 ---
 
 ## Full Story
 
-### I. The Question
+### I. The Mountains
 
-At 18, I got my Bac in science. Everyone expected what came next: university, career, the usual path.
+I grew up in the mountains of France—about as far from the sea as you can get in this country.
 
-I had a different question: *What if I just went?*
+But I discovered navigator books. Stories of sailors crossing oceans. And I became obsessed with one idea: sailing the world.
 
-So I did. Australia first. Enough money for a few weeks and a willingness to figure it out. I found work in kitchens—not because I dreamed of being a chef, but because restaurants always need hands.
+### II. The Beginning
 
-That's how it started. Not with a master plan. With curiosity and a plane ticket.
+It started with regattas in Sydney Harbour. The heel of the boat. The crew moving as one. The wind as a language I wanted to learn.
 
-### II. The Kitchens
+Then came a Day Skipper course in Thailand—one of those zero-to-hero programs. Classroom to helm in weeks. My first real certification.
 
-Cooking became the thread that connected everything.
+### III. The First Yacht
 
-**In France**: 5 AM prep. Service that felt like battle. Standards that seemed impossible until they became natural.
+My first job was on a CNB 26. The captain was also the owner, and he did everything onboard—from engineering to navigation. I learned an enormous amount working alongside him. How to troubleshoot an engine. How to read weather. How to make decisions when things go wrong.
 
-**In Southeast Asia**: Mastery without Michelin stars. A grandmother in Bangkok making pad thai for 40 years. A pho vendor in Vietnam whose broth was three generations old.
+That's where I understood: the best learning happens beside someone who's done it for years.
 
-**On superyachts**: Cooking for guests who'd eaten everywhere. Dawn markets in Provence. Fishermen in Greek harbors. Ingredients with stories.
+### IV. The Deliveries
 
-Each kitchen was a classroom. The world's cuisines became mine—not through study, but through fire and repetition.
+From there, I started doing yacht deliveries. Lagoons from the factory in Les Sables d'Olonne to charter companies in Croatia. Week after week. Mile after mile. The rhythm of passage-making became second nature.
 
-### III. The Ocean
+### V. The Galley
 
-The dream started with books—classic navigator stories, sailors crossing oceans alone.
+Parallel to sailing, I developed my other passion: cooking.
 
-Then I stepped onto a regatta sailboat in Sydney harbor. The heel of the boat. The crew as one organism. The wind as language.
+I started focusing on yacht cooking—provisioning in foreign ports, creating menus that worked with sea state and limited galley space, feeding crews and guests who'd eaten everywhere.
 
-I earned my RYA Day Skipper in Thailand. At 22, I joined my first passage boat.
+The galley became my second classroom.
 
-What followed:
-- **50,000+ nautical miles** — Mediterranean. Atlantic. Pacific. Caribbean.
-- **Blue-water racing** — Where every second matters.
-- **Night watches** — Just you, the helm, and ancient stars.
+### VI. The Love That Never Stopped
 
-The ocean doesn't care about your resume. It cares about your judgment.
+But the love for sailing never stopped. Every time I had time off, I'd join sailing boats for new adventures.
 
-### IV. The Depths
+I helped an experienced sailor cross the Atlantic on a 55ft Amel. Then I joined a bluewater racing sailboat and raced with them for months. Antigua Sailing Week. The Antigua Bermuda Race.
 
-Freediving found me in Thailand. Not the tourist version—the real practice. Descending on a single breath. Discovering what depth reveals when everything else is stripped away.
+I sailed that boat from Cape Town to Antigua. Then from Bermuda back to France.
 
-In the Galapagos, I dove with sharks. Open water. No cage. Fear transformed into respect. Respect into connection.
+Ten years. Thousands of miles. Every ocean teaching something different.
 
-### V. The Mountains
+### VII. The Schooner
 
-The Himalayas called. Weeks of trekking. Annapurna Base Camp at 4,130 meters. Thin air, heavy pack, views that made the suffering worth it.
+Now I've bought my own sailboat—an old schooner from 1979 that I'm restoring in Barcelona.
 
-India especially changed me. The chaos of Delhi. The ghats of Varanasi at sunrise. The backwaters of Kerala. The mountains of Ladakh.
+She needs work. But she's mine. And every hour I spend fixing her, I think about the journey that led here.
 
-On those roads, I met photographers who taught light, trekkers who knew every plant, teachers who'd renounced everything except the joy of sharing what they knew.
+### VIII. Why EducatedTraveler
 
-### VI. The Pattern
+I'm building EducatedTraveler to help people like me live the life they want to live.
 
-Somewhere in all those miles, I noticed something.
+I believe we all share something in common: we wanted an adventurous life.
 
-Every skill worth having came the same way:
-
-**A place.** Where the knowledge lived.
-**A person.** Who'd mastered it and was willing to share.
-**Total immersion.** Not a weekend—weeks or months of focus.
-
-Not YouTube at 2 AM. Not online courses I'd never finish. Real learning. At the source. With people who'd dedicated their lives to it.
-
-### VII. Why EducatedTraveler
-
-I built EducatedTraveler because finding this path shouldn't be so hard.
+My hope is to connect all of us together—the dreamers, the sailors, the schools that make it possible.
 
 The masters exist—but they don't advertise. The places exist—but logistics overwhelm people. The transformation is real—but friction stops them.
 
 So I built the bridge.
 
-- **Real certifications**: PADI, RYA, Yoga Alliance, WSET—credentials that open doors worldwide
-- **The actual source**: Tokyo fish markets. Rishikesh ashrams. Atlantic passages
+- **Real certifications**: RYA, PADI, WSET, Yoga Alliance—credentials that open doors worldwide
+- **The actual source**: Gibraltar straits. Thai islands. Mediterranean passages.
 - **Masters who teach**: Decades of expertise, not social media followers
 - **Cohorts who bond**: 8-12 people who become friends through shared challenge
 
 What took me a decade, you can experience in weeks or months.
 
-### VIII. Your Turn
+### IX. Your Turn
 
 The world is full of skills waiting to be learned, places waiting to be experienced, masters waiting to teach.
 
@@ -122,13 +105,13 @@ The only thing standing between you and that version of yourself is the decision
 ## Pull Quotes
 
 ```
-"Not a gap year—a life."
+"I grew up in the mountains of France—about as far from the sea as you can get."
 
 "What took me a decade, you can experience in weeks."
 
-"The ocean doesn't care about your resume. It cares about your judgment."
+"The best learning happens beside someone who's done it for years."
 
-"Every skill worth having came the same way: a place, a person, total immersion."
+"We all share something in common: we wanted an adventurous life."
 
 "Your adventure is waiting where it's always been: at the source."
 ```
@@ -137,23 +120,26 @@ The only thing standing between you and that version of yourself is the decision
 
 ## Quick Facts
 
-| Credential | The Story |
+| Experience | The Story |
 |------------|-----------|
-| RYA | Thailand, then 50,000+ miles of real ocean |
-| WSET | Paris certification + cycling French vineyards |
-| Freediving | Thailand & Indonesia—where water teaches presence |
-| Culinary | Michelin kitchens, street vendors, superyacht galleys |
+| RYA Day Skipper | Thailand, zero-to-hero course |
+| First Yacht | CNB 26, learned everything from captain-owner |
+| Deliveries | Lagoons from Les Sables d'Olonne to Croatia |
+| Atlantic Crossings | 55ft Amel, helped experienced sailor cross |
+| Bluewater Racing | Cape Town to Antigua, Bermuda to France |
+| Racing | Antigua Sailing Week, Antigua Bermuda Race |
+| Current Boat | 1979 schooner, restoring in Barcelona |
+| Culinary | Yacht chef, galley cooking across the Med & Caribbean |
 
 ---
 
 ## Social Bio (150 chars)
 
 ```
-Left France at 18. 50,000+ miles sailed. Kitchens on three continents. Built EducatedTraveler so your path doesn't take a decade. Skills last.
+From the French mountains to 10 years at sea. Atlantic crossings. Bluewater racing. Now restoring a '79 schooner. Built EducatedTraveler for dreamers.
 ```
 
 ---
 
-**Version**: 4.0
+**Version**: 5.0
 **Last Updated**: January 2026
-**Powered By**: NEXUS (Copywriting + StoryBrand + Liking Principle)
