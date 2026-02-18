@@ -41,16 +41,18 @@ This document captures the core brand rules and ethics for EducatedTraveler. Tre
 
 ## 8. Voice & Words Discipline
 - **Use:**
-  - “**Skill adventures at the source**”
-  - “**One week to get certified. 6 months to change your life.**”
-  - “**Choose your depth**”
-  - “**Certified**”
-  - “**Cohort**”
+  - "**Immersion**" (the one word — method, feeling, and brand)
+  - "**Skill adventures at the source**"
+  - "**One week to get certified. 6 months to change your life.**"
+  - "**Choose your depth**"
+  - "**Certified**"
+  - "**Cohort**"
 - **Avoid:**
-  - Generic “life‑changing” claims without context
-  - Vague use of “journey”
-  - “Luxury” (we are **premium**, not indulgent)
-  - “Easy” or “effortless”
+  - "Transformation" (passive — immersion is what you *do*)
+  - Generic "life‑changing" claims without context
+  - Vague use of "journey"
+  - "Luxury" (we are **premium**, not indulgent)
+  - "Easy" or "effortless"
 
 ## 9. Premium, Not Indulgent
 - Aesthetic and language should feel **cinematic, minimal, precise**.

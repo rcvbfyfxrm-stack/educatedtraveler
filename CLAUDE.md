@@ -98,9 +98,9 @@ Single source of truth for all strategy, brand, and product decisions. **Start h
 
 ## Brand Voice
 
-**Say:** "Skill adventures at the source" · "Choose your depth" · "Certified" · "Cohort"
+**Say:** "Immersion" · "Skill adventures at the source" · "Choose your depth" · "Certified" · "Cohort"
 
-**Don't say:** "Life-changing" (overused) · "Journey" alone · "Luxury" · "Easy"
+**Don't say:** "Transformation" (passive) · "Life-changing" (overused) · "Journey" alone · "Luxury" · "Easy"
 
 ## Design
 
