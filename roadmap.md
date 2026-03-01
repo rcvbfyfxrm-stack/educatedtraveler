@@ -161,9 +161,9 @@ Reference: `os/founder-bio.md`
 
 **One-Liner:** *"What took me a decade, you can experience in weeks. Your adventure is waiting."*
 
-**Short (50 words):** I grew up in the mountains of France—about as far from the sea as you can get. After reading navigator books, I became obsessed with sailing the world. Ten years later: Atlantic crossings, bluewater racing, yacht deliveries, and cooking in galleys from the Med to the Caribbean.
+**Short (50 words):** I grew up in the mountains of France—about as far from the sea as you can get. After reading navigator books, I became obsessed with sailing the world. Ten years later: Atlantic crossings, bluewater racing, yacht deliveries, and learning beside masters worldwide—at sea and on land.
 
-**Social Bio (150 chars):** From the French mountains to 10 years at sea. Atlantic crossings. Bluewater racing. Now restoring a '79 schooner. Built EducatedTraveler for dreamers.
+**Social Bio (150 chars):** From the French mountains to 10 years learning beside masters worldwide. Atlantic crossings. Bluewater racing. Now restoring a '79 schooner. Built EducatedTraveler for dreamers.
 
 **Key Experiences:**
 - RYA Day Skipper — Thailand

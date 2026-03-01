@@ -11,7 +11,7 @@
 
 ## Short (50 words)
 
-I grew up in the mountains of France—about as far from the sea as you can get. After reading navigator books, I became obsessed with sailing the world. Ten years later: Atlantic crossings, bluewater racing, yacht deliveries, and cooking in galleys from the Med to the Caribbean. I built EducatedTraveler so this path doesn't take a decade to find.
+I grew up in the mountains of France—about as far from the sea as you can get. After reading navigator books, I became obsessed with sailing the world. Ten years later: Atlantic crossings, bluewater racing, yacht deliveries, and learning beside masters worldwide—at sea and on land. I built EducatedTraveler so this path doesn't take a decade to find.
 
 ---
 
@@ -19,7 +19,7 @@ I grew up in the mountains of France—about as far from the sea as you can get.
 
 I grew up in the mountains of France, the furthest place from the sea. But after reading navigator books, I became obsessed with sailing the world.
 
-What followed: 10 years in the yachting industry. Regattas in Sydney Harbour. Day Skipper in Thailand. My first job on a CNB 26 where the captain-owner taught me everything from engineering to navigation. Lagoon deliveries from Les Sables d'Olonne to Croatia. Atlantic crossings on a 55ft Amel. Bluewater racing from Cape Town to Antigua. Antigua Sailing Week and the Bermuda Race.
+What followed: 10 years learning beside masters worldwide. Regattas in Sydney Harbour. Day Skipper in Thailand. My first job on a CNB 26 where the captain-owner taught me everything from engineering to navigation. Lagoon deliveries from Les Sables d'Olonne to Croatia. Atlantic crossings on a 55ft Amel. Bluewater racing from Cape Town to Antigua. Antigua Sailing Week and the Bermuda Race. Along the way, I learned beside master chefs and craftspeople on land as well.
 
 Now I'm restoring a 1979 schooner in Barcelona and building EducatedTraveler—because we all share this in common: we wanted an adventurous life.
 
@@ -136,7 +136,7 @@ The only thing standing between you and that version of yourself is the decision
 ## Social Bio (150 chars)
 
 ```
-From the French mountains to 10 years at sea. Atlantic crossings. Bluewater racing. Now restoring a '79 schooner. Built EducatedTraveler for dreamers.
+From the French mountains to 10 years learning beside masters worldwide. Atlantic crossings. Bluewater racing. Now restoring a '79 schooner. Built EducatedTraveler for dreamers.
 ```
 
 ---
