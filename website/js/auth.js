@@ -131,7 +131,7 @@
         if (!pendingQuest) return;
 
         try {
-            const { questState, matchedAdventures } = JSON.parse(pendingQuest);
+            const { questState, matchedAdventures, phone, whatsappOptIn } = JSON.parse(pendingQuest);
 
             // Save preferences
             if (questState) {
@@ -142,6 +142,15 @@
                     time_preference: questState.time,
                     intensity: questState.intensity
                 });
+            }
+
+            // Save phone + WhatsApp opt-in if provided
+            if (phone) {
+                await supabase.from('profiles').update({
+                    phone: phone,
+                    whatsapp_opt_in: whatsappOptIn || false,
+                    updated_at: new Date().toISOString()
+                }).eq('id', userId);
             }
 
             // Save matched adventures

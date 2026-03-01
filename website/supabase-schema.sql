@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS profiles (
   name TEXT,
   xp INTEGER DEFAULT 100,
   level INTEGER DEFAULT 1,
+  phone TEXT DEFAULT NULL,
+  whatsapp_opt_in BOOLEAN DEFAULT FALSE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );

@@ -200,14 +200,16 @@
     // QUEST SAVE FUNCTION
     // ========================================
 
-    async function saveQuestResults(questState, matchedAdventures) {
+    async function saveQuestResults(questState, matchedAdventures, options) {
         const user = window.auth?.getCurrentUser();
 
         if (!user) {
             // Store pending data, trigger sign-in
             sessionStorage.setItem('pendingQuest', JSON.stringify({
                 questState,
-                matchedAdventures
+                matchedAdventures,
+                phone: options?.phone || null,
+                whatsappOptIn: options?.whatsappOptIn || false
             }));
             return { needsAuth: true };
         }
@@ -215,6 +217,14 @@
         try {
             // Save preferences
             await savePreferences(user.id, questState);
+
+            // Save phone + WhatsApp opt-in if provided
+            if (options?.phone) {
+                await updateProfile(user.id, {
+                    phone: options.phone,
+                    whatsapp_opt_in: options.whatsappOptIn || false
+                });
+            }
 
             // Save matched adventures
             for (const adventure of matchedAdventures.slice(0, 5)) {
