@@ -34,8 +34,9 @@ Muted:        rgba(255,255,255,0.20) (subtle)
 
 ### Accent Colors
 ```
-Cyan:         #06B6D4 (primary action, sailing)
-Amber:        #F59E0B (culinary, warmth)
+Emerald:      #059669 (primary action, sailing)
+Emerald-lt:   #34D399 (text on dark backgrounds)
+Gold:         #D97706 (culinary, warmth)
 Orange:       #F97316 (wellness, India)
 Purple:       #A855F7 (creative, time)
 Pink:         #EC4899 (wellness category)
@@ -45,8 +46,8 @@ Pink:         #EC4899 (wellness category)
 ```
 Text gradient:    linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%)
 Image overlay:    linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%)
-Icon bg amber:    linear-gradient(to bottom-right, rgba(245,158,11,0.2), rgba(249,115,22,0.2))
-Icon bg cyan:     linear-gradient(to bottom-right, rgba(6,182,212,0.2), rgba(59,130,246,0.2))
+Icon bg gold:     linear-gradient(to bottom-right, rgba(217,119,6,0.2), rgba(249,115,22,0.2))
+Icon bg emerald:  linear-gradient(to bottom-right, rgba(5,150,105,0.2), rgba(29,78,216,0.2))
 Icon bg purple:   linear-gradient(to bottom-right, rgba(168,85,247,0.2), rgba(236,72,153,0.2))
 ```
 
@@ -140,7 +141,7 @@ Overline:  text-xs (uppercase, tracking-widest)
 ```html
 <div class="flex gap-4">
     <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
-        <svg class="w-4 h-4 text-cyan-400"><!-- checkmark --></svg>
+        <svg class="w-4 h-4 text-emerald-400"><!-- checkmark --></svg>
     </div>
     <p class="text-white/70 font-light">Benefit statement</p>
 </div>
@@ -265,8 +266,8 @@ input, select, textarea {
 }
 
 input:focus {
-    border-color: rgba(6, 182, 212, 0.4);
-    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.1);
+    border-color: rgba(5, 150, 105, 0.4);
+    box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
 }
 
 input::placeholder {
@@ -276,7 +277,7 @@ input::placeholder {
 
 ### Form Sections
 ```html
-<h3 class="text-xs font-medium text-cyan-400/80 uppercase tracking-widest mb-5">
+<h3 class="text-xs font-medium text-emerald-400/80 uppercase tracking-widest mb-5">
     Section Title
 </h3>
 ```

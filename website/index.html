@@ -3,27 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDUCATEDTRAVELER — Skills Last, Tans Fade</title>
+    <title>EDUCATEDTRAVELER — Meaning is earned. So are the credentials.</title>
 
-    <meta name="description" content="Certified skill immersions at the source. One week to get certified. Six months to change your life.">
+    <meta name="description" content="Skill immersions at the source. Earn real meaning alongside real credentials — PADI, RYA, Yoga Alliance, WSET.">
     <meta property="og:title" content="EDUCATEDTRAVELER">
-    <meta property="og:description" content="What took me a decade, you can experience in weeks. Your adventure is waiting.">
+    <meta property="og:description" content="Skill immersions at the source. Earn real meaning alongside real credentials — PADI, RYA, Yoga Alliance, WSET.">
     <meta property="og:type" content="website">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bmw': {
+                            50: '#e6f0fa',
+                            100: '#b3d1ef',
+                            200: '#80b3e4',
+                            300: '#4d94d9',
+                            400: '#3B8DD4',
+                            500: '#0066B1',
+                            600: '#00518d',
+                            700: '#003d6a',
+                            800: '#002846',
+                            900: '#001423',
+                        },
+                        'steel': {
+                            50: '#f5f5f5',
+                            100: '#e0e0e0',
+                            200: '#c0c0c0',
+                            300: '#a0a0a0',
+                            400: '#6f6f6f',
+                            500: '#4a4a4a',
+                            600: '#333333',
+                            700: '#222222',
+                            800: '#161616',
+                            900: '#0a0a0a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
+        :root {
+            --bmw-blue: #0066B1;
+            --bmw-light: #3B8DD4;
+            --bmw-glow: rgba(0, 102, 177, 0.4);
+            --bmw-subtle: rgba(0, 102, 177, 0.15);
+            --steel-bg: #0a0a0a;
+            --steel-surface: #161616;
+        }
+
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--steel-bg);
+            overflow-x: hidden;
+        }
         html { scroll-behavior: smooth; }
 
-        /* Slideshow */
+        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+        /* ═══════════════════════════════════════ */
+        /* SLIDESHOW                               */
+        /* ═══════════════════════════════════════ */
         .slide {
             opacity: 0;
             transition: opacity 0.8s ease;
@@ -32,29 +83,50 @@
         }
         .slide.active { opacity: 1; }
 
-        /* Progress bar */
         .progress-bar {
             transition: width 5s linear;
         }
 
-        /* Glass */
+        /* ═══════════════════════════════════════ */
+        /* GLASS / HUD PANELS                      */
+        /* ═══════════════════════════════════════ */
         .glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        /* CTA */
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+        }
+
+        /* ═══════════════════════════════════════ */
+        /* CTA BUTTON                              */
+        /* ═══════════════════════════════════════ */
         .cta-button {
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 102, 177, 0.3);
         }
 
-        /* Fade in */
+        /* Section borders */
+        .section-border { border-color: rgba(255, 255, 255, 0.05); }
+
+        /* ═══════════════════════════════════════ */
+        /* FADE ANIMATIONS                         */
+        /* ═══════════════════════════════════════ */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -62,53 +134,66 @@
         .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
         .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
 
-        /* Profile styles */
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* ═══════════════════════════════════════ */
+        /* PROFILE / XP STYLES                     */
+        /* ═══════════════════════════════════════ */
         .profile-avatar {
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
         }
         .xp-bar {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             overflow: hidden;
+            border: 1px solid rgba(0, 102, 177, 0.2);
         }
         .xp-fill {
-            background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 100%);
+            background: linear-gradient(90deg, #0066B1 0%, #3B8DD4 100%);
             transition: width 1s ease-out;
+            box-shadow: 0 0 10px rgba(0, 102, 177, 0.5);
         }
         .skill-badge {
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.3);
+            background: rgba(0, 102, 177, 0.08);
+            border: 1px solid rgba(0, 102, 177, 0.25);
             transition: all 0.3s ease;
         }
         .skill-badge:hover {
-            background: rgba(6, 182, 212, 0.2);
+            background: rgba(0, 102, 177, 0.15);
             transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 102, 177, 0.2);
         }
         .skill-badge.locked {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.5;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 0.4;
         }
         .adventure-card-mini {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(0, 102, 177, 0.03);
+            border: 1px solid rgba(0, 102, 177, 0.1);
             transition: all 0.3s ease;
         }
         .adventure-card-mini:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(6, 182, 212, 0.3);
+            background: rgba(0, 102, 177, 0.08);
+            border-color: rgba(0, 102, 177, 0.3);
             transform: translateY(-2px);
         }
         .stat-ring {
-            background: conic-gradient(#06b6d4 var(--progress), rgba(255,255,255,0.1) 0);
+            background: conic-gradient(#0066B1 var(--progress), rgba(255,255,255,0.1) 0);
         }
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.5); }
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 177, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 102, 177, 0.5); }
         }
         .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 
-        /* Fun animations */
+        /* ═══════════════════════════════════════ */
+        /* CELEBRATION ANIMATIONS                  */
+        /* ═══════════════════════════════════════ */
         @keyframes confetti-fall {
             0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
             100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
@@ -176,12 +261,35 @@
 
         /* Notify checkbox styles */
         .notify-interest input:checked + span {
-            background: #06b6d4;
-            border-color: #06b6d4;
+            background: #0066B1;
+            border-color: #0066B1;
         }
         .notify-interest input:checked + span svg {
             display: block;
         }
+
+        /* ═══════════════════════════════════════ */
+        /* QUEST CHOICE SELECTED STATE             */
+        /* ═══════════════════════════════════════ */
+        .quest-choice.bg-white {
+            background: #0066B1 !important;
+            color: #fff !important;
+            border-color: #3B8DD4 !important;
+            box-shadow: 0 0 15px rgba(0, 102, 177, 0.3);
+        }
+        .quest-choice.bg-white .text-white\/40,
+        .quest-choice.bg-white span {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--steel-bg); }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 102, 177, 0.3);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0, 102, 177, 0.5); }
     </style>
 </head>
 <body class="text-white">
@@ -189,25 +297,27 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-lg font-semibold tracking-wider">
-                EDUCATED<span class="text-cyan-400">TRAVELER</span>
+            <a href="/" class="flex items-center gap-3">
+                <span class="text-lg font-semibold tracking-[0.15em]">
+                    EDUCATED<span class="text-bmw-400">TRAVELER</span>
+                </span>
             </a>
             <!-- Desktop nav -->
             <div class="hidden md:flex items-center gap-8">
                 <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Offerings</a>
                 <a href="survey.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
-                    Take Survey
+                    Survey
                 </a>
                 <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
-                    Join Community
+                    Community
                 </a>
                 <div id="auth-nav">
-                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition-colors">
+                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10 transition-colors">
                         Sign In
                     </button>
-                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-cyan-400/50 text-cyan-400 hover:bg-cyan-400/10 transition-colors">
-                        My Dashboard
+                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10 transition-colors">
+                        Dashboard
                     </a>
                 </div>
             </div>
@@ -219,35 +329,34 @@
             </button>
         </div>
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-bmw-500/10">
             <div class="px-6 py-4 space-y-3">
                 <a href="vision.html" class="block py-3 text-white/70 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Offerings</a>
                 <a href="survey.html" class="block py-3 text-white/70 hover:text-white transition-colors">Take Survey</a>
                 <a href="community.html" class="block py-3 text-white/70 hover:text-white transition-colors">Join Community</a>
-                <button id="mobile-sign-in-btn" class="block w-full text-left py-3 text-cyan-400 hover:text-cyan-300 transition-colors">Sign In</button>
-                <a href="dashboard.html" id="mobile-dashboard-link" class="hidden block py-3 text-cyan-400 hover:text-cyan-300 transition-colors">My Dashboard</a>
+                <button id="mobile-sign-in-btn" class="block w-full text-left py-3 text-bmw-400 hover:text-bmw-300 transition-colors">Sign In</button>
+                <a href="dashboard.html" id="mobile-dashboard-link" class="hidden block py-3 text-bmw-400 hover:text-bmw-300 transition-colors">My Dashboard</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20 relative">
         <div class="max-w-3xl text-center">
-            <p class="text-cyan-400 text-sm uppercase tracking-widest mb-6 fade-up">Skill Adventures at the Source</p>
-            <h1 class="text-4xl md:text-6xl font-light leading-tight mb-8 fade-up delay-1">
-                What took me a decade,<br>
-                <span class="text-white/60">you can experience in weeks.</span>
+            <p class="text-bmw-400 text-sm uppercase tracking-widest mb-6 fade-up">Skill Adventures at the Source</p>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-8 fade-up delay-1 tracking-tight">
+                Meaning is built,<br>
+                <span class="text-white/50">not found.</span>
             </h1>
-            <p class="text-lg text-white/50 mb-12 fade-up delay-2">
-                50,000+ nautical miles. Michelin kitchens to midnight markets. Himalayan summits to crystal depths.<br>
-                Real certifications. Master instructors. The source where skills were born.
+            <p class="text-lg text-steel-300 mb-12 fade-up delay-2 max-w-xl mx-auto">
+                Purpose built through immersion. Real credentials from masters at the source.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up delay-2">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up delay-3">
                 <a href="#quest" class="cta-button px-8 py-4 rounded-full text-white font-medium">
                     Find Your Adventure
                 </a>
-                <a href="#story" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-colors">
+                <a href="#story" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 hover:bg-white/5 transition-colors text-steel-300">
                     <span>Discover the Story</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -262,16 +371,16 @@
         <div class="max-w-5xl mx-auto">
 
             <!-- Slideshow Container -->
-            <div class="relative aspect-[16/9] md:aspect-[2/1] rounded-2xl overflow-hidden mb-8">
+            <div class="relative aspect-[16/9] md:aspect-[2/1] rounded-xl overflow-hidden mb-8" style="border: 1px solid rgba(255, 255, 255, 0.06);">
 
                 <!-- Slide 1: The Question -->
                 <div class="slide active" data-slide="0">
                     <img src="images/story/the-beginning.jpg" alt="The beginning of the journey" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter I</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4">The Beginning</h2>
-                        <p class="text-white/70 max-w-xl">
+                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter I</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">The Beginning</h2>
+                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
                             At 18, I finished high school. Everyone expected university, career, the usual path.
                             But I kept asking myself: <span class="text-white">Is this the life I actually want to live?</span>
                             I didn't want to watch simulations of the world—I wanted to learn by doing. <span class="text-white">So I went.</span>
@@ -282,11 +391,11 @@
                 <!-- Slide 2: Culinary Arts -->
                 <div class="slide" data-slide="1">
                     <img src="images/story/chef-plating.jpg" alt="Professional kitchen" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter II</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4">Culinary Mastery</h2>
-                        <p class="text-white/70 max-w-xl">
+                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter II</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">Culinary Mastery</h2>
+                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
                             Michelin kitchens in France. Street vendors in Bangkok. WSET certified in Paris, then cycling through French vineyards learning wine from the people who grow the grapes.
                             <span class="text-white">Each kitchen was a classroom. Each chef, a teacher.</span>
                         </p>
@@ -296,11 +405,11 @@
                 <!-- Slide 3: Sailing -->
                 <div class="slide" data-slide="2">
                     <img src="images/story/sailing-4.png" alt="Ocean sailing" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter III</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4">50,000 Nautical Miles</h2>
-                        <p class="text-white/70 max-w-xl">
+                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter III</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">50,000 Nautical Miles</h2>
+                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
                             RYA in Thailand. Regattas in Sydney. Blue-water crossings across every ocean. Private chef on some of the world's finest yachts.
                             <span class="text-white">The ocean doesn't care about your resume. It cares about your judgment.</span>
                         </p>
@@ -310,11 +419,11 @@
                 <!-- Slide 4: Adventures -->
                 <div class="slide" data-slide="3">
                     <img src="images/story/freedive-line.png" alt="Adventures" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter IV</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4">The Depths & Heights</h2>
-                        <p class="text-white/70 max-w-xl">
+                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter IV</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">The Depths & Heights</h2>
+                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
                             Freediving with Molchanov in Mexico. Shark diving in the Galapagos. Annapurna Base Camp at 4,130m.
                             <span class="text-white">Fear became respect. Strangers became lifelong friends.</span>
                         </p>
@@ -324,66 +433,66 @@
                 <!-- Slide 5: Wellness -->
                 <div class="slide" data-slide="4">
                     <img src="images/story/wellness.jpg" alt="Wellness journey" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
                     <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-                        <p class="text-cyan-400 text-xs uppercase tracking-widest mb-3">Chapter V</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4">Inner Immersion</h2>
-                        <p class="text-white/70 max-w-xl">
+                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter V</p>
+                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">Inner Immersion</h2>
+                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
                             Breathwork in Bali. Ayurvedic medicine in India. Learning presence from masters who'd dedicated their lives to it.
                             <span class="text-white">The body knows. You just have to listen.</span>
                         </p>
                     </div>
                 </div>
 
-                <!-- Navigation Arrows (44px min touch target) -->
-                <button onclick="prevSlide()" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 hover:bg-black/50 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Previous slide">
+                <!-- Navigation Arrows -->
+                <button onclick="prevSlide()" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-3 rounded bg-black/40 hover:bg-bmw-500/20 border border-white/10 hover:border-bmw-500/30 transition-all min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Previous slide">
                     <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
                 </button>
-                <button onclick="nextSlide()" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/30 hover:bg-black/50 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Next slide">
+                <button onclick="nextSlide()" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-3 rounded bg-black/40 hover:bg-bmw-500/20 border border-white/10 hover:border-bmw-500/30 transition-all min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Next slide">
                     <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                 </button>
             </div>
 
-            <!-- Progress Dots (larger touch targets with visual dots inside) -->
+            <!-- Progress Dots -->
             <div class="flex justify-center gap-1">
-                <button onclick="goToSlide(0)" class="slide-dot p-3 flex items-center justify-center" data-dot="0" aria-label="Go to slide 1"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
-                <button onclick="goToSlide(1)" class="slide-dot p-3 flex items-center justify-center" data-dot="1" aria-label="Go to slide 2"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
-                <button onclick="goToSlide(2)" class="slide-dot p-3 flex items-center justify-center" data-dot="2" aria-label="Go to slide 3"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
-                <button onclick="goToSlide(3)" class="slide-dot p-3 flex items-center justify-center" data-dot="3" aria-label="Go to slide 4"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
-                <button onclick="goToSlide(4)" class="slide-dot p-3 flex items-center justify-center" data-dot="4" aria-label="Go to slide 5"><span class="w-2 h-2 rounded-full bg-white/30 transition-all block"></span></button>
+                <button onclick="goToSlide(0)" class="slide-dot p-3 flex items-center justify-center" data-dot="0" aria-label="Go to slide 1"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
+                <button onclick="goToSlide(1)" class="slide-dot p-3 flex items-center justify-center" data-dot="1" aria-label="Go to slide 2"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
+                <button onclick="goToSlide(2)" class="slide-dot p-3 flex items-center justify-center" data-dot="2" aria-label="Go to slide 3"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
+                <button onclick="goToSlide(3)" class="slide-dot p-3 flex items-center justify-center" data-dot="3" aria-label="Go to slide 4"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
+                <button onclick="goToSlide(4)" class="slide-dot p-3 flex items-center justify-center" data-dot="4" aria-label="Go to slide 5"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
             </div>
         </div>
     </section>
 
     <!-- The Pattern -->
-    <section class="py-24 px-6">
+    <section class="py-24 px-6 section-border border-t">
         <div class="max-w-4xl mx-auto text-center">
-            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-4">The Pattern</p>
-            <p class="text-white/50 mb-8 text-lg">Every skill worth having came the same way:</p>
+            <p class="text-bmw-400 text-xs uppercase tracking-widest mb-4">The Pattern</p>
+            <p class="text-steel-300 mb-10 text-lg font-light">Every skill worth having came the same way:</p>
 
             <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <div class="glass rounded-xl p-6">
-                    <div class="text-3xl text-cyan-400 mb-3">1</div>
+                <div class="panel rounded-xl p-6">
+                    <div class="text-3xl text-bmw-400 mb-3">1</div>
                     <h3 class="font-medium mb-2">A Place</h3>
-                    <p class="text-white/50 text-sm">Where the knowledge was born.<br>Tokyo. Rishikesh. The Atlantic.</p>
+                    <p class="text-steel-400 text-sm">Where the knowledge was born.<br>Tokyo. Rishikesh. The Atlantic.</p>
                 </div>
-                <div class="glass rounded-xl p-6">
-                    <div class="text-3xl text-cyan-400 mb-3">2</div>
+                <div class="panel rounded-xl p-6">
+                    <div class="text-3xl text-bmw-400 mb-3">2</div>
                     <h3 class="font-medium mb-2">A Person</h3>
-                    <p class="text-white/50 text-sm">Who's mastered it and is willing to share. Decades of expertise, not followers.</p>
+                    <p class="text-steel-400 text-sm">Who's mastered it and is willing to share. Decades of expertise, not followers.</p>
                 </div>
-                <div class="glass rounded-xl p-6">
-                    <div class="text-3xl text-cyan-400 mb-3">3</div>
+                <div class="panel rounded-xl p-6">
+                    <div class="text-3xl text-bmw-400 mb-3">3</div>
                     <h3 class="font-medium mb-2">Total Immersion</h3>
-                    <p class="text-white/50 text-sm">Not weekends. Weeks. The kind of focus that only full immersion creates.</p>
+                    <p class="text-steel-400 text-sm">Not weekends. Weeks. The kind of focus that only full immersion creates.</p>
                 </div>
             </div>
 
-            <p class="text-xl text-white/70">
+            <p class="text-xl text-steel-200 font-light">
                 Not YouTube at 2 AM. Not courses you'll never finish.<br>
                 <span class="text-white">Real learning. At the source. With masters.</span>
             </p>
@@ -391,82 +500,82 @@
     </section>
 
     <!-- The Bridge -->
-    <section class="py-24 px-6 border-t border-white/5">
+    <section class="py-24 px-6 section-border border-t">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-light mb-8">So I built the bridge.</h2>
-            <p class="text-white/50 mb-12">
+            <h2 class="text-3xl md:text-4xl font-light mb-8 tracking-tight">So I built the bridge.</h2>
+            <p class="text-steel-400 mb-12">
                 The masters exist—but they don't advertise. The places exist—but the logistics overwhelm people.
                 The immersion works—but most never get there because the friction stops them.
             </p>
 
             <div class="grid sm:grid-cols-2 gap-4 text-left mb-12">
-                <div class="glass rounded-xl p-5">
-                    <p class="text-white font-medium mb-1">Real Certifications</p>
-                    <p class="text-white/50 text-sm">PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu—credentials that open doors worldwide.</p>
+                <div class="panel rounded-xl p-5">
+                    <p class="text-white font-medium mb-1 tracking-wide">Proof of the Work</p>
+                    <p class="text-steel-400 text-sm">PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu—credentials that open doors worldwide.</p>
                 </div>
-                <div class="glass rounded-xl p-5">
-                    <p class="text-white font-medium mb-1">The Actual Source</p>
-                    <p class="text-white/50 text-sm">Tokyo fish markets. Rishikesh ashrams. Atlantic passages. Where the knowledge was born.</p>
+                <div class="panel rounded-xl p-5">
+                    <p class="text-white font-medium mb-1 tracking-wide">The Actual Source</p>
+                    <p class="text-steel-400 text-sm">Tokyo fish markets. Rishikesh ashrams. Atlantic passages. Where the knowledge was born.</p>
                 </div>
-                <div class="glass rounded-xl p-5">
-                    <p class="text-white font-medium mb-1">Masters Who Teach</p>
-                    <p class="text-white/50 text-sm">Decades of expertise, not social media followers. People who know what they know because they've lived it.</p>
+                <div class="panel rounded-xl p-5">
+                    <p class="text-white font-medium mb-1 tracking-wide">Masters Who Teach</p>
+                    <p class="text-steel-400 text-sm">Decades of expertise, not social media followers. People who know what they know because they've lived it.</p>
                 </div>
-                <div class="glass rounded-xl p-5">
-                    <p class="text-white font-medium mb-1">Cohorts Who Bond</p>
-                    <p class="text-white/50 text-sm">8-12 people, shared struggle, lifelong friends. The way crews connect on a boat or kitchen teams in service.</p>
+                <div class="panel rounded-xl p-5">
+                    <p class="text-white font-medium mb-1 tracking-wide">Cohorts Who Bond</p>
+                    <p class="text-steel-400 text-sm">8-12 people, shared struggle, lifelong friends. The way crews connect on a boat or kitchen teams in service.</p>
                 </div>
             </div>
 
             <p class="text-2xl font-light text-white/80 mb-2">
-                One week to get certified.
+                One week to earn your first credential.
             </p>
-            <p class="text-2xl font-light text-white/50 mb-8">
-                Six months to change your life.
+            <p class="text-2xl font-light text-steel-400 mb-8">
+                Six months to know who you are.
             </p>
             <p class="text-white/30 text-sm italic">
-                "Skills last, tans fade."
+                "Meaning is earned. So are the credentials."
             </p>
         </div>
     </section>
 
     <!-- Explorer Quest / Profile -->
-    <section id="quest" class="py-24 px-6 border-t border-white/5">
+    <section id="quest" class="py-24 px-6 section-border border-t">
         <div class="max-w-4xl mx-auto">
 
             <!-- Quest Section Header -->
             <div class="text-center mb-10">
-                <p class="text-xs uppercase tracking-[0.3em] text-cyan-400/80 mb-4">Choose Your Depth</p>
-                <h2 class="text-3xl font-light mb-3">Find your next Skill Adventure.</h2>
-                <p class="text-white/50 text-sm">
+                <p class="text-xs uppercase tracking-[0.3em] text-bmw-400/80 mb-4">Choose Your Depth</p>
+                <h2 class="text-3xl font-light mb-3">Find your next chapter.</h2>
+                <p class="text-steel-400 text-sm">
                     Answer a few quick prompts. We'll match you with adventures—from flagship certifications to surprising immersions you didn't know existed.
                 </p>
             </div>
 
-            <div class="glass rounded-2xl p-6 md:p-8 space-y-8">
+            <div class="panel rounded-xl p-6 md:p-8 space-y-8">
                 <!-- Q1: Element -->
                 <div>
                     <p class="text-sm text-white/70 mb-3">1. Which world do you want to train in?</p>
                     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="ocean">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="ocean">
                             Ocean & blue water
-                            <span class="block text-xs text-white/40">PADI diving, RYA sailing, AIDA freediving</span>
+                            <span class="block text-xs text-white/40 font-mono">PADI · RYA · AIDA</span>
                         </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="mountain">
-                            Mountains & adventure sports
-                            <span class="block text-xs text-white/40">IFMGA alpinism, IKO kitesurfing, ACA kayaking</span>
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="mountain">
+                            Mountains & adventure
+                            <span class="block text-xs text-white/40 font-mono">IFMGA · IKO · ACA</span>
                         </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="city">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="city">
                             Kitchens & wine cellars
-                            <span class="block text-xs text-white/40">Le Cordon Bleu, ALMA, WSET sommelier</span>
+                            <span class="block text-xs text-white/40 font-mono">Le Cordon Bleu · ALMA · WSET</span>
                         </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="temple">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="temple">
                             Ashrams & healing arts
-                            <span class="block text-xs text-white/40">Yoga Alliance RYT, ITM massage, WHM breathwork</span>
+                            <span class="block text-xs text-white/40 font-mono">Yoga Alliance · ITM · WHM</span>
                         </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="elements" data-value="wild">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="wild">
                             Wildlife & conservation
-                            <span class="block text-xs text-white/40">FGASA safari guide, PADI marine conservation</span>
+                            <span class="block text-xs text-white/40 font-mono">FGASA · PADI Marine</span>
                         </button>
                     </div>
                 </div>
@@ -475,25 +584,25 @@
                 <div>
                     <p class="text-sm text-white/70 mb-3">2. When you land back home, what do you want to have?</p>
                     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="certification">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="certification">
                             A globally recognized certification
-                            <span class="block text-xs text-white/40">PADI, RYA, WSET, Yoga Alliance—credentials that open doors</span>
+                            <span class="block text-xs text-white/40 font-mono">PADI · RYA · WSET · Yoga Alliance</span>
                         </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="career">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="career">
                             A new career path
-                            <span class="block text-xs text-white/40">Instructor-level certification to work anywhere in the world</span>
+                            <span class="block text-xs text-white/40 font-mono">Instructor-level credentials</span>
                         </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="stories">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="stories">
                             Stories worth telling
-                            <span class="block text-xs text-white/40">Atlantic crossings, cave diving, African bush—real adventure</span>
+                            <span class="block text-xs text-white/40 font-mono">Atlantic crossings · Cave diving · Bush</span>
                         </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="reset">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="reset">
                             Deep reset & immersion
-                            <span class="block text-xs text-white/40">Yoga, breathwork, healing arts—practices you keep at home</span>
+                            <span class="block text-xs text-white/40 font-mono">Yoga · Breathwork · Healing arts</span>
                         </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded-xl border border-white/20 text-left text-white/70 hover:bg-white/5" data-group="desires" data-value="rare">
+                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="rare">
                             Something rare & challenging
-                            <span class="block text-xs text-white/40">Cave diving in cenotes, IFMGA alpinism, WHM instructor</span>
+                            <span class="block text-xs text-white/40 font-mono">Cenotes · IFMGA · WHM Instructor</span>
                         </button>
                     </div>
                 </div>
@@ -502,17 +611,17 @@
                 <div>
                     <p class="text-sm text-white/70 mb-3">3. How long can you disappear?</p>
                     <div class="flex flex-wrap gap-2 md:gap-3 text-sm">
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="time" data-value="foundation">
-                            7-10 days
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="time" data-value="foundation">
+                            7–10 days
                         </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="time" data-value="foundation">
-                            2-3 weeks
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="time" data-value="foundation">
+                            2–3 weeks
                         </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="time" data-value="mastery">
-                            1-2 months
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="time" data-value="mastery">
+                            1–2 months
                         </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="time" data-value="saga">
-                            3-6 months
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="time" data-value="saga">
+                            3–6 months
                         </button>
                     </div>
                 </div>
@@ -521,75 +630,75 @@
                 <div>
                     <p class="text-sm text-white/70 mb-3">4. Turn the intensity dial.</p>
                     <div class="flex flex-wrap gap-2 md:gap-3 text-sm">
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="intensity" data-value="1">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="intensity" data-value="1">
                             Soft landing
                         </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="intensity" data-value="2">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="intensity" data-value="2">
                             Bring it on
                         </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/5 min-h-[44px]" data-group="intensity" data-value="3">
+                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="intensity" data-value="3">
                             Full send
                         </button>
                     </div>
                 </div>
 
                 <div class="pt-2 space-y-3">
-                    <button id="quest-submit" type="button" class="cta-button w-full md:w-auto px-8 py-3 rounded-full text-sm font-medium">
-                        See your matches
+                    <button id="quest-submit" type="button" class="cta-button w-full md:w-auto px-10 py-3 rounded-full text-sm tracking-wide">
+                        See Your Matches
                     </button>
-                    <p id="quest-status" class="text-xs text-white/40">
+                    <p id="quest-status" class="text-xs text-steel-500">
                         You can change answers as much as you like.
                     </p>
                 </div>
 
-                <div id="quest-results" class="hidden border-t border-white/10 pt-6 mt-2">
+                <div id="quest-results" class="hidden border-t border-bmw-500/15 pt-6 mt-2">
                     <div class="mb-6">
-                        <p class="text-xs uppercase tracking-[0.3em] text-cyan-400/80 mb-2">Your profile</p>
-                        <h3 id="quest-persona-title" class="text-2xl font-light mb-1">Explorer</h3>
-                        <p id="quest-persona-subtitle" class="text-sm text-white/50">
+                        <p class="text-xs uppercase tracking-[0.3em] text-bmw-400/80 mb-2">Your profile</p>
+                        <h3 id="quest-persona-title" class="text-2xl font-light mb-1 tracking-tight">Explorer</h3>
+                        <p id="quest-persona-subtitle" class="text-sm text-steel-400">
                             We'll tune this once you reveal your quest.
                         </p>
                     </div>
 
                     <div class="grid md:grid-cols-3 gap-4 text-sm">
-                        <div id="quest-primary-card" class="glass rounded-xl p-4">
-                            <p class="text-[10px] uppercase tracking-[0.25em] text-cyan-400/80 mb-2">Recommended match</p>
+                        <div id="quest-primary-card" class="panel rounded-xl p-4">
+                            <p class="text-[10px] uppercase tracking-[0.25em] text-bmw-400/80 mb-2">Recommended match</p>
                             <h4 id="quest-primary-name" class="text-base font-medium mb-1">Quest Name</h4>
-                            <p id="quest-primary-summary" class="text-white/50 text-xs mb-2"></p>
-                            <p id="quest-primary-meta" class="text-white/40 text-[11px]"></p>
+                            <p id="quest-primary-summary" class="text-steel-400 text-xs mb-2"></p>
+                            <p id="quest-primary-meta" class="text-steel-500 text-[11px]"></p>
                         </div>
-                        <div id="quest-secondary-card" class="glass rounded-xl p-4">
+                        <div id="quest-secondary-card" class="panel rounded-xl p-4">
                             <p class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">Alternative option</p>
                             <h4 id="quest-secondary-name" class="text-base font-medium mb-1">Quest Name</h4>
-                            <p id="quest-secondary-summary" class="text-white/50 text-xs mb-2"></p>
-                            <p id="quest-secondary-meta" class="text-white/40 text-[11px]"></p>
+                            <p id="quest-secondary-summary" class="text-steel-400 text-xs mb-2"></p>
+                            <p id="quest-secondary-meta" class="text-steel-500 text-[11px]"></p>
                         </div>
-                        <div id="quest-saga-card" class="glass rounded-xl p-4">
+                        <div id="quest-saga-card" class="panel rounded-xl p-4">
                             <p class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">Longer path</p>
                             <h4 id="quest-saga-name" class="text-base font-medium mb-1">Quest Name</h4>
-                            <p id="quest-saga-summary" class="text-white/50 text-xs mb-2"></p>
-                            <p id="quest-saga-meta" class="text-white/40 text-[11px]"></p>
+                            <p id="quest-saga-summary" class="text-steel-400 text-xs mb-2"></p>
+                            <p id="quest-saga-meta" class="text-steel-500 text-[11px]"></p>
                         </div>
                     </div>
 
-                    <div class="mt-6 pt-6 border-t border-white/10">
+                    <div class="mt-6 pt-6 border-t border-bmw-500/10">
                         <form id="quest-email-form" name="homepage-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col gap-3">
                             <input type="hidden" name="form-name" value="homepage-interest">
                             <input type="hidden" name="bot-field">
                             <input type="hidden" name="depth" id="quest-depth-hidden">
                             <input type="hidden" name="element" id="quest-element-hidden">
                             <input type="hidden" name="saga" id="quest-saga-hidden">
-                            <p class="text-sm text-white/70">Save your matches and get notified when cohorts open:</p>
+                            <p class="text-sm text-steel-300">Save your matches and get notified when cohorts open:</p>
                             <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
                                 <input type="email" name="email" id="quest-email" placeholder="your@email.com" required
-                                    class="w-full sm:flex-1 sm:max-w-xs px-4 py-3 sm:py-2 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30 min-h-[44px]">
+                                    class="w-full sm:flex-1 sm:max-w-xs px-4 py-3 sm:py-2 rounded bg-white/5 border border-white/15 text-sm text-white placeholder:text-steel-500 min-h-[44px] focus:border-bmw-500/50 focus:outline-none transition-colors">
                                 <input type="tel" name="phone" id="quest-phone" placeholder="+1 555 123 4567 (optional)"
-                                    class="w-full sm:flex-1 sm:max-w-xs px-4 py-3 sm:py-2 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30 min-h-[44px]">
-                                <button type="submit" id="quest-save-btn" class="cta-button px-6 py-3 sm:py-2 rounded-full text-sm font-medium whitespace-nowrap min-h-[44px]">
-                                    Save my matches
+                                    class="w-full sm:flex-1 sm:max-w-xs px-4 py-3 sm:py-2 rounded bg-white/5 border border-white/15 text-sm text-white placeholder:text-steel-500 min-h-[44px] focus:border-bmw-500/50 focus:outline-none transition-colors">
+                                <button type="submit" id="quest-save-btn" class="cta-button px-6 py-3 sm:py-2 rounded-full text-sm tracking-wide whitespace-nowrap min-h-[44px]">
+                                    Save Matches
                                 </button>
                             </div>
-                            <label id="quest-whatsapp-opt-in" class="hidden items-center gap-2 text-xs text-white/50 cursor-pointer select-none">
+                            <label id="quest-whatsapp-opt-in" class="hidden items-center gap-2 text-xs text-steel-400 cursor-pointer select-none">
                                 <input type="checkbox" name="whatsapp_opt_in" id="quest-whatsapp-checkbox" checked
                                     class="w-4 h-4 rounded border-white/20 bg-white/5 accent-emerald-500">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366" class="flex-shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -597,8 +706,8 @@
                             </label>
                         </form>
                         <div id="quest-email-success" class="hidden text-center py-4">
-                            <p class="text-lg text-white mb-1">You're in!</p>
-                            <p class="text-sm text-white/50">We'll notify you when matching cohorts open.</p>
+                            <p class="text-lg text-white mb-1">You're in.</p>
+                            <p class="text-sm text-steel-400">We'll notify you when matching cohorts open.</p>
                         </div>
                     </div>
                 </div>
@@ -607,52 +716,52 @@
     </section>
 
     <!-- Get Notified -->
-    <section id="notify" class="py-24 px-6 border-t border-white/5">
+    <section id="notify" class="py-24 px-6 section-border border-t">
         <div class="max-w-2xl mx-auto text-center">
-            <p class="text-cyan-400 text-xs uppercase tracking-widest mb-4">Stay Close</p>
-            <h2 class="text-3xl md:text-4xl font-light mb-3">Get notified when we launch.</h2>
-            <p class="text-white/50 mb-10">Pick what interests you. We'll only email you about matching launches.</p>
+            <p class="text-bmw-400 text-xs uppercase tracking-widest mb-4">Stay Close</p>
+            <h2 class="text-3xl md:text-4xl font-light mb-3 tracking-tight">Get notified when we launch.</h2>
+            <p class="text-steel-400 mb-10">Pick what interests you. We'll only email you about matching launches.</p>
 
-            <div class="glass rounded-2xl p-6 md:p-8">
+            <div class="panel rounded-xl p-6 md:p-8">
                 <form id="notify-form" name="launch-notify" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="launch-notify">
                     <input type="hidden" name="bot-field">
 
                     <!-- Interest checkboxes -->
-                    <p class="text-sm text-white/70 mb-4 text-left">I'm interested in:</p>
+                    <p class="text-sm text-steel-300 mb-4 text-left">I'm interested in:</p>
                     <div class="grid sm:grid-cols-2 gap-3 mb-8 text-sm">
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px]">
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px]">
                             <input type="checkbox" name="interests" value="ocean" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                             </span>
                             <span class="text-white/70">Ocean & Sailing</span>
                         </label>
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px]">
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px]">
                             <input type="checkbox" name="interests" value="mountain" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                             </span>
                             <span class="text-white/70">Mountains & Adventure</span>
                         </label>
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px]">
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px]">
                             <input type="checkbox" name="interests" value="city" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                             </span>
                             <span class="text-white/70">Culinary & Wine</span>
                         </label>
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px]">
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px]">
                             <input type="checkbox" name="interests" value="temple" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                             </span>
                             <span class="text-white/70">Wellness & Healing</span>
                         </label>
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded-xl border border-white/20 cursor-pointer hover:bg-white/5 transition-colors min-h-[44px] sm:col-span-2 sm:w-1/2">
+                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px] sm:col-span-2 sm:w-1/2">
                             <input type="checkbox" name="interests" value="wild" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center peer-checked:bg-cyan-500 peer-checked:border-cyan-500 transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
+                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                             </span>
                             <span class="text-white/70">Wildlife & Conservation</span>
                         </label>
@@ -661,9 +770,9 @@
                     <!-- Email + submit -->
                     <div class="flex flex-col sm:flex-row gap-3">
                         <input type="email" name="email" placeholder="your@email.com" required
-                            class="w-full sm:flex-1 px-4 py-3 rounded-full bg-white/5 border border-white/20 text-sm text-white placeholder:text-white/30 min-h-[44px]">
-                        <button type="submit" id="notify-submit" class="cta-button px-8 py-3 rounded-full text-sm font-medium whitespace-nowrap min-h-[44px]">
-                            Notify me
+                            class="w-full sm:flex-1 px-4 py-3 rounded bg-white/5 border border-white/15 text-sm text-white placeholder:text-steel-500 min-h-[44px] focus:border-bmw-500/50 focus:outline-none transition-colors">
+                        <button type="submit" id="notify-submit" class="cta-button px-8 py-3 rounded-full text-sm tracking-wide whitespace-nowrap min-h-[44px]">
+                            Notify Me
                         </button>
                     </div>
                 </form>
@@ -671,25 +780,25 @@
                 <!-- Success state -->
                 <div id="notify-success" class="hidden py-6">
                     <p class="text-xl text-white mb-2">You're on the list.</p>
-                    <p class="text-sm text-white/50">We'll reach out when something matching your interests launches.</p>
+                    <p class="text-sm text-steel-400">We'll reach out when something matching your interests launches.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-white/5">
+    <footer class="py-12 section-border border-t">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-cyan-400">TRAVELER</span></p>
-                    <p class="text-white/40 text-sm">Skills last, tans fade.</p>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-bmw-400">TRAVELER</span></p>
+                    <p class="text-white/40 text-sm">Meaning is earned. So are the credentials.</p>
                 </div>
                 <div class="flex items-center gap-6">
                     <a href="vision.html" class="text-white/50 hover:text-white text-sm transition-colors">Vision</a>
                     <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Offerings</a>
                     <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
-                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="text-white/50 hover:text-white transition-colors">
+                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="text-steel-400 hover:text-bmw-400 transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                 </div>
@@ -705,15 +814,15 @@
         function showSlide(index) {
             document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.slide-dot span').forEach(d => {
-                d.classList.remove('bg-white');
-                d.classList.add('bg-white/30');
+                d.classList.remove('bg-bmw-500');
+                d.classList.add('bg-white/20');
             });
 
             document.querySelector(`[data-slide="${index}"]`).classList.add('active');
             const activeDot = document.querySelector(`[data-dot="${index}"] span`);
             if (activeDot) {
-                activeDot.classList.remove('bg-white/30');
-                activeDot.classList.add('bg-white');
+                activeDot.classList.remove('bg-white/20');
+                activeDot.classList.add('bg-bmw-500');
             }
 
             currentSlide = index;
@@ -751,7 +860,6 @@
                 const isOpen = !mobileMenu.classList.contains('hidden');
                 mobileMenu.classList.toggle('hidden');
                 mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
-                // Change icon to X when open
                 const svg = mobileMenuBtn.querySelector('svg');
                 if (!isOpen) {
                     svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
@@ -1453,7 +1561,7 @@
         // FUN STUFF - Celebrations & Animations
         // ========================================
 
-        const confettiColors = ['#06b6d4', '#3b82f6', '#f59e0b', '#10b981', '#ec4899', '#8b5cf6'];
+        const confettiColors = ['#059669', '#34d399', '#d97706', '#fbbf24', '#1d4ed8'];
 
         function spawnConfetti(count = 50) {
             for (let i = 0; i < count; i++) {
@@ -1472,7 +1580,7 @@
 
         function showXpPopup(amount, x, y) {
             const popup = document.createElement('div');
-            popup.className = 'xp-popup text-cyan-400 text-xl';
+            popup.className = 'xp-popup text-bmw-400 text-xl font-semibold';
             popup.textContent = `+${amount} XP`;
             popup.style.left = (x || window.innerWidth / 2) + 'px';
             popup.style.top = (y || window.innerHeight / 2) + 'px';
@@ -1480,14 +1588,14 @@
             setTimeout(() => popup.remove(), 1500);
         }
 
-        function showAchievement(title, description, icon = '🏆') {
+        function showAchievement(title, description, icon = '&#9670;') {
             const toast = document.createElement('div');
-            toast.className = 'achievement-toast glass rounded-xl p-4 max-w-xs';
+            toast.className = 'achievement-toast panel rounded-xl p-4 max-w-xs';
             toast.innerHTML = `
                 <div class="flex items-center gap-3">
                     <span class="text-3xl">${icon}</span>
                     <div>
-                        <p class="font-medium text-cyan-400">${title}</p>
+                        <p class="font-medium text-bmw-400 text-sm">${title}</p>
                         <p class="text-white/60 text-sm">${description}</p>
                     </div>
                 </div>
@@ -1501,16 +1609,16 @@
         }
 
         const skillBadges = {
-            ocean: { name: 'Ocean Explorer', icon: '🌊', color: 'cyan' },
-            mountain: { name: 'Summit Seeker', icon: '⛰️', color: 'emerald' },
-            city: { name: 'Culinary Master', icon: '👨‍🍳', color: 'amber' },
-            temple: { name: 'Inner Voyager', icon: '🧘', color: 'purple' },
-            wild: { name: 'Wild Guide', icon: '🦁', color: 'orange' },
-            certification: { name: 'Certified Pro', icon: '📜', color: 'blue' },
-            career: { name: 'Career Changer', icon: '🚀', color: 'indigo' },
-            stories: { name: 'Adventurer', icon: '🗺️', color: 'pink' },
-            reset: { name: 'Zen Master', icon: '☯️', color: 'teal' },
-            rare: { name: 'Edge Seeker', icon: '⚡', color: 'gold' }
+            ocean: { name: 'Ocean Explorer', icon: '&#9670;', color: 'blue' },
+            mountain: { name: 'Summit Seeker', icon: '&#9650;', color: 'emerald' },
+            city: { name: 'Culinary Master', icon: '&#9733;', color: 'amber' },
+            temple: { name: 'Inner Voyager', icon: '&#9679;', color: 'purple' },
+            wild: { name: 'Wild Guide', icon: '&#9674;', color: 'orange' },
+            certification: { name: 'Certified Pro', icon: '&#9632;', color: 'blue' },
+            career: { name: 'Career Changer', icon: '&#9654;', color: 'indigo' },
+            stories: { name: 'Adventurer', icon: '&#9734;', color: 'pink' },
+            reset: { name: 'Zen Master', icon: '&#9675;', color: 'teal' },
+            rare: { name: 'Edge Seeker', icon: '&#9889;', color: 'gold' }
         };
 
         function getProfile() {
@@ -1725,7 +1833,7 @@
                         if (questEmailSuccess) {
                             questEmailSuccess.innerHTML = `
                                 <p class="text-lg text-white mb-1">Check your email!</p>
-                                <p class="text-sm text-white/50">Click the magic link to sign in and access your matches from any device.</p>
+                                <p class="text-sm text-steel-400">Click the magic link to sign in and access your matches from any device.</p>
                             `;
                             questEmailSuccess.classList.remove('hidden');
                         }
@@ -1756,10 +1864,10 @@
                 cb.addEventListener('change', function() {
                     const label = cb.closest('label');
                     if (cb.checked) {
-                        label.classList.add('border-cyan-400/50', 'bg-white/5');
+                        label.classList.add('border-bmw-500/50', 'bg-bmw-500/5');
                         label.querySelector('svg').classList.remove('hidden');
                     } else {
-                        label.classList.remove('border-cyan-400/50', 'bg-white/5');
+                        label.classList.remove('border-bmw-500/50', 'bg-bmw-500/5');
                         label.querySelector('svg').classList.add('hidden');
                     }
                 });
