@@ -43,7 +43,7 @@ This document captures the core brand rules and ethics for EducatedTraveler. Tre
 - **Use:**
   - "**Immersion**" (the one word — method, feeling, and brand)
   - "**Skill adventures at the source**"
-  - "**Meaning is earned. So are the credentials.**"
+  - "**Earned, not bought. Certified at the source.**"
   - "**Choose your depth**"
   - "**Certified**"
   - "**Cohort**"
