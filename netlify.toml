@@ -1,22 +1,6 @@
-# Netlify configuration
-# This ensures Netlify deploys from the correct directory
-
 [build]
-  # The website folder contains all static files
   publish = "website"
 
-  # No build command needed - it's a static site
-  # Note: omitting 'command' (rather than setting it to "") ensures
-  # Netlify post-processing (form detection, snippet injection) runs
-
-# Redirect www to non-www
-[[redirects]]
-  from = "https://www.educatedtraveler.app/*"
-  to = "https://educatedtraveler.app/:splat"
-  status = 301
-  force = true
-
-# Pretty URLs - serve .html files without extension
 [[redirects]]
   from = "/about"
   to = "/about.html"
@@ -25,4 +9,24 @@
 [[redirects]]
   from = "/instructors"
   to = "/instructors.html"
+  status = 200
+
+[[redirects]]
+  from = "/offerings"
+  to = "/offerings.html"
+  status = 200
+
+[[redirects]]
+  from = "/community"
+  to = "/community.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard.html"
+  status = 200
+
+[[redirects]]
+  from = "/profile"
+  to = "/profile.html"
   status = 200

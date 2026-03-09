@@ -45,7 +45,7 @@ supabase functions deploy send-followup-emails
 
 Production static site. No build step — Tailwind loaded from CDN, Inter font via Google Fonts.
 
-**Pages**: `index.html` (homepage), `vision.html`, `offerings.html`, `about.html`, `instructors.html`, `survey.html`, `community.html`, `dashboard.html` (auth-gated), `auth-callback.html` (magic link handler).
+**Pages** (7 active): `index.html` (homepage), `offerings.html` (adventures catalog), `about.html` (founder story), `community.html` (waitlist + conversion hub), `instructors.html` (partner applications), `dashboard.html` (auth-gated), `profile.html` (profile setup for new/existing members), `auth-callback.html` (magic link handler). Deleted: `vision.html` (→ redirects to offerings#flagships), `survey.html` (→ redirects to community).
 
 **JS modules** (`website/js/`):
 - `supabase-config.js` — Initializes Supabase client on `window.supabaseClient`
@@ -96,11 +96,13 @@ Single source of truth for all strategy, brand, and product decisions. **Start h
 - No sitting blocks over 90 minutes
 - Rest days: 1/week minimum
 
-## Brand Voice
+## Brand Voice — The Three Pillars
 
-**Say:** "Immersion" · "Skill adventures at the source" · "Choose your depth" · "Certified" · "Cohort"
+Everything must evoke **Freedom** (the open sea, the life you chose) + **Adventure** (real stakes, earned exhilaration) + **Immersion** (deep in craft, culture, cohort). The rhythm: *Surf in Hawaii. Sail the open sea. Cook in Tokyo.* No YouTube video at 2 AM. Real immersion.
 
-**Don't say:** "Transformation" (passive) · "Life-changing" (overused) · "Journey" alone · "Luxury" · "Easy"
+**Say:** "Freedom" · "Adventure" · "Immersion" · "The open sea" · "Earned" · "Skill adventures at the source" · "Choose your depth" · "Certified" · "Cohort"
+
+**Don't say:** "Transformation" (passive) · "Vacation" / "holiday" · "Life-changing" (overused) · "Journey" alone · "Luxury" · "Easy"
 
 ## Design
 
@@ -119,4 +121,4 @@ Font: Inter. Mobile-first. Netflix-style cards. Custom `.glass` and `.cta-button
 
 ## Netlify Config
 
-Pretty URLs configured for `/about` → `about.html` and `/instructors` → `instructors.html` in `netlify.toml`. Add new redirects there when creating new pages.
+Pretty URLs configured in `netlify.toml` for `/about`, `/instructors`, `/offerings`, `/community`, `/dashboard`, and `/profile`. Add new redirects there when creating new pages.
