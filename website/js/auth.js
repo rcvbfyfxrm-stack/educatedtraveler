@@ -52,6 +52,39 @@
         return data;
     }
 
+    // Sign up with email + password
+    async function signUp(email, password, metadata = {}) {
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: metadata
+            }
+        });
+
+        if (error) {
+            console.error('Sign up error:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    // Sign in with email + password
+    async function signInWithPassword(email, password) {
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password
+        });
+
+        if (error) {
+            console.error('Sign in error:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
     // Sign out
     async function signOut() {
         const { error } = await supabase.auth.signOut();
@@ -367,6 +400,8 @@
 
     window.auth = {
         signInWithEmail,
+        signUp,
+        signInWithPassword,
         signOut,
         getUser,
         getSession,
