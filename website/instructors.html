@@ -152,6 +152,14 @@
             <a href="index.html" class="text-white/80 hover:text-white transition-colors text-sm">
                 ← Back to EducatedTraveler
             </a>
+            <div class="flex items-center gap-4">
+                <a id="instructor-dashboard-link" href="instructor-dashboard.html" class="hidden text-sm text-amber-400 hover:text-amber-300 transition-colors">
+                    My Dashboard
+                </a>
+                <button id="instructor-sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-white/20 text-white/70 hover:bg-white/10 transition-colors">
+                    Sign In
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -544,7 +552,38 @@
         </div>
     </footer>
 
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
+
     <script>
+        // Sign-in button + dashboard link for returning instructors
+        document.addEventListener('DOMContentLoaded', async () => {
+            const signInBtn = document.getElementById('instructor-sign-in-btn');
+            const dashboardLink = document.getElementById('instructor-dashboard-link');
+
+            // Wait for auth to load
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            const user = await window.auth?.getUser();
+            if (user) {
+                signInBtn.classList.add('hidden');
+                dashboardLink.classList.remove('hidden');
+            } else {
+                signInBtn.addEventListener('click', () => {
+                    window.auth.showSignInModal();
+                });
+                window.auth?.onAuthStateChange((user) => {
+                    if (user) {
+                        signInBtn.classList.add('hidden');
+                        dashboardLink.classList.remove('hidden');
+                    }
+                });
+            }
+        });
+
         document.getElementById('instructor-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -619,11 +658,6 @@
         });
     </script>
 
-    <!-- Supabase SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/js/supabase-config.js"></script>
-    <script src="/js/auth.js"></script>
-    <script src="/js/database.js"></script>
     <script src="/js/whatsapp-widget.js"></script>
 </body>
 </html>
