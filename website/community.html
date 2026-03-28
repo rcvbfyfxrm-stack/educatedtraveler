@@ -301,7 +301,7 @@
                 submitBtn.classList.add('opacity-60');
 
                 try {
-                    // Submit to Netlify Forms (backup)
+                    // Save to Netlify Forms
                     const formData = new FormData(form);
                     await fetch('/', {
                         method: 'POST',
@@ -309,20 +309,12 @@
                         body: new URLSearchParams(formData).toString()
                     });
 
-                    // Send magic link to create their account
-                    try {
-                        await window.auth.signInWithEmail(email);
-                    } catch (authErr) {
-                        console.warn('Auth sign-in failed (Netlify backup succeeded):', authErr);
-                    }
-
                     form.classList.add('hidden');
 
                     if (role === 'instructor') {
                         successEl.innerHTML = `
                             <p class="text-2xl text-white mb-2">Welcome, instructor!</p>
-                            <p class="text-white/70 mb-2">Check your email for a magic link to activate your account.</p>
-                            <p class="text-white/40 text-sm mb-6">Once signed in, complete your instructor profile to start creating cohorts.</p>
+                            <p class="text-white/70 mb-6">You're on the list. Complete your instructor profile to get started.</p>
                             <a href="/instructors#connect" class="inline-block px-6 py-3 rounded-full bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 text-sm transition-colors">
                                 Complete instructor profile
                             </a>
@@ -330,8 +322,7 @@
                     } else {
                         successEl.innerHTML = `
                             <p class="text-2xl text-white mb-2">You're in!</p>
-                            <p class="text-white/70 mb-2">Check your email for a magic link to activate your account.</p>
-                            <p class="text-white/40 text-sm mb-6">Click the link to sign in and discover your perfect skill adventure.</p>
+                            <p class="text-white/70 mb-6">We'll keep you close as cohorts open. You'll be among the first to go deep.</p>
                             <a href="/" class="text-blue-400 hover:text-blue-300 text-sm">Explore adventures</a>
                         `;
                     }
