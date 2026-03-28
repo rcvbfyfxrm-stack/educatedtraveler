@@ -220,6 +220,11 @@
         </div>
     </footer>
 
+    <!-- Supabase SDK must load before form handler -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+
     <script>
         const communityForm = document.getElementById('community-form');
         if (communityForm) {
@@ -233,12 +238,14 @@
 
                 if (!submitBtn || !statusEl || !successEl) return;
 
+                const email = form.querySelector('input[name="email"]').value.trim();
+
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Joining...';
                 submitBtn.classList.add('opacity-60');
 
                 try {
-                    // Submit to Netlify Forms
+                    // Submit to Netlify Forms (backup)
                     const formData = new FormData(form);
                     await fetch('/', {
                         method: 'POST',
@@ -246,7 +253,20 @@
                         body: new URLSearchParams(formData).toString()
                     });
 
+                    // Send magic link to create their account
+                    try {
+                        await window.auth.signInWithEmail(email);
+                    } catch (authErr) {
+                        console.warn('Auth sign-in failed (Netlify backup succeeded):', authErr);
+                    }
+
                     form.classList.add('hidden');
+                    successEl.innerHTML = `
+                        <p class="text-2xl text-white mb-2">You're in!</p>
+                        <p class="text-white/70 mb-2">Check your email for a magic link to activate your account.</p>
+                        <p class="text-white/40 text-sm mb-6">Click the link in your email to sign in and access your dashboard with saved adventures, badges, and more.</p>
+                        <a href="/" class="text-blue-400 hover:text-blue-300 text-sm">Back to home</a>
+                    `;
                     successEl.classList.remove('hidden');
                 } catch (err) {
                     console.error(err);
@@ -277,10 +297,6 @@
             });
         }
     </script>
-    <!-- Supabase SDK and Auth -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/js/supabase-config.js"></script>
-    <script src="/js/auth.js"></script>
     <script src="/js/whatsapp-widget.js"></script>
 </body>
 </html>
