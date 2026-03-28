@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Manage your cohorts, view enrollments, and track your teaching adventures.">
+    <meta property="og:title" content="Instructor Dashboard — EDUCATEDTRAVELER">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        html { scroll-behavior: smooth; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #059669 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(5, 150, 105, 0.3);
+        }
+
+        .profile-avatar {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .cohort-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.3s ease;
+        }
+        .cohort-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(5, 150, 105, 0.3);
+        }
+
+        .status-badge {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+        .status-draft { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+        .status-published { background: rgba(5,150,105,0.2); color: #34d399; }
+        .status-full { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .status-in_progress { background: rgba(59,130,246,0.2); color: #60a5fa; }
+        .status-completed { background: rgba(139,92,246,0.2); color: #a78bfa; }
+        .status-cancelled { background: rgba(239,68,68,0.2); color: #f87171; }
+        .status-pending { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .status-approved { background: rgba(5,150,105,0.2); color: #34d399; }
+
+        .enrollment-row {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .enrollment-row:last-child { border-bottom: none; }
+
+        .capacity-bar {
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        .capacity-fill {
+            transition: width 0.5s ease-out;
+        }
+
+        input, select, textarea {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            color: white !important;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: rgba(5, 150, 105, 0.4) !important;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
+        }
+        input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.3); }
+        select option { background: #111; color: white; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.8s ease-out forwards; }
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .spinner { animation: spin 1s linear infinite; }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-lg font-semibold tracking-wider">
+                EDUCATED<span class="text-emerald-400">TRAVELER</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Adventures</a>
+                <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
+                <a href="instructor-dashboard.html" class="text-sm px-4 py-2 rounded-full border border-amber-400/50 text-amber-400">
+                    Instructor Dashboard
+                </a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+            <div class="px-6 py-4 space-y-3">
+                <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Adventures</a>
+                <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
+                <a href="instructor-dashboard.html" class="block py-3 text-amber-400 hover:text-amber-300 transition-colors">Instructor Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading State -->
+    <div id="loading-state" class="min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-4 border-2 border-amber-400/30 border-t-amber-400 rounded-full spinner"></div>
+            <p class="text-white/50 text-sm">Loading your dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Not Signed In State -->
+    <div id="not-signed-in-state" class="hidden min-h-screen flex items-center justify-center px-6">
+        <div class="text-center max-w-md">
+            <div class="text-5xl mb-6">🎓</div>
+            <h1 class="text-2xl font-light mb-4">Instructor Dashboard</h1>
+            <p class="text-white/50 text-sm mb-8">Sign in to manage your cohorts and see who's joining your adventures.</p>
+            <button id="sign-in-cta" class="cta-button px-8 py-4 rounded-full text-white font-medium">
+                Sign In with Email
+            </button>
+            <p class="text-white/30 text-xs mt-6">
+                Not an instructor yet? <a href="instructors.html" class="text-amber-400 hover:text-amber-300">Apply here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Not an Instructor State -->
+    <div id="not-instructor-state" class="hidden min-h-screen flex items-center justify-center px-6">
+        <div class="text-center max-w-md">
+            <div class="text-5xl mb-6">🧭</div>
+            <h1 class="text-2xl font-light mb-4">No instructor profile found</h1>
+            <p class="text-white/50 text-sm mb-8">You're signed in but don't have an instructor profile yet. Apply to become a partner instructor.</p>
+            <a href="instructors.html#connect" class="cta-button px-8 py-4 rounded-full text-white font-medium inline-block">
+                Apply as Instructor
+            </a>
+            <p class="text-white/30 text-xs mt-6">
+                <button id="not-instructor-sign-out" class="text-white/40 hover:text-white transition-colors underline">Sign out</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Pending Approval State -->
+    <div id="pending-state" class="hidden min-h-screen flex items-center justify-center px-6">
+        <div class="text-center max-w-md">
+            <div class="text-5xl mb-6">⏳</div>
+            <h1 class="text-2xl font-light mb-4">Application under review</h1>
+            <p class="text-white/50 text-sm mb-4">We've received your application and are reviewing it. We'll be in touch soon.</p>
+            <p class="text-white/30 text-xs">
+                Questions? Email <a href="mailto:ceo-educatedtraveler@pm.me" class="text-amber-400">ceo-educatedtraveler@pm.me</a>
+            </p>
+            <p class="text-white/30 text-xs mt-6">
+                <button id="pending-sign-out" class="text-white/40 hover:text-white transition-colors underline">Sign out</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Dashboard Content (approved instructors only) -->
+    <main id="dashboard-content" class="hidden pt-24 pb-16 px-6">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Profile Header -->
+            <section class="mb-10 fade-up">
+                <div class="glass rounded-2xl p-8">
+                    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+                        <div class="profile-avatar w-16 h-16 rounded-full flex items-center justify-center text-xl font-semibold">
+                            <span id="profile-initials">--</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-1">
+                                <h1 id="profile-name" class="text-2xl font-light">Instructor</h1>
+                                <span id="profile-status" class="status-badge status-approved">approved</span>
+                            </div>
+                            <p id="profile-discipline" class="text-white/50 text-sm"></p>
+                            <p id="profile-location" class="text-white/30 text-xs mt-1"></p>
+                        </div>
+                        <button id="sign-out-btn" class="text-sm text-white/50 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Overview -->
+            <section class="mb-10 fade-up delay-1">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="stat-card rounded-xl p-5 text-center">
+                        <p id="stat-cohorts" class="text-2xl font-light text-amber-400">0</p>
+                        <p class="text-white/40 text-xs mt-1">Cohorts</p>
+                    </div>
+                    <div class="stat-card rounded-xl p-5 text-center">
+                        <p id="stat-published" class="text-2xl font-light text-emerald-400">0</p>
+                        <p class="text-white/40 text-xs mt-1">Published</p>
+                    </div>
+                    <div class="stat-card rounded-xl p-5 text-center">
+                        <p id="stat-students" class="text-2xl font-light text-blue-400">0</p>
+                        <p class="text-white/40 text-xs mt-1">Students</p>
+                    </div>
+                    <div class="stat-card rounded-xl p-5 text-center">
+                        <p id="stat-spots" class="text-2xl font-light text-purple-400">0</p>
+                        <p class="text-white/40 text-xs mt-1">Spots Left</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cohorts List -->
+            <section class="mb-10 fade-up delay-2">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-lg font-light">Your Cohorts</h2>
+                    <button id="create-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-colors">
+                        + New Cohort
+                    </button>
+                </div>
+
+                <div id="cohorts-container">
+                    <div id="no-cohorts" class="glass rounded-xl p-10 text-center">
+                        <p class="text-white/30 text-sm mb-4">No cohorts yet. Create your first one to start accepting students.</p>
+                        <button id="create-first-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-colors">
+                            Create Your First Cohort
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Create Cohort Modal -->
+    <div id="cohort-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="cohort-modal-backdrop"></div>
+        <div class="relative glass rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto">
+            <button id="close-cohort-modal" class="absolute top-4 right-4 text-white/50 hover:text-white p-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <h3 class="text-xl font-light mb-6">Create a Cohort</h3>
+
+            <form id="cohort-form" class="space-y-5">
+                <div>
+                    <label class="block text-sm text-white/40 mb-2">Title</label>
+                    <input type="text" name="title" required placeholder="e.g., RYA Day Skipper — Gibraltar"
+                        class="w-full rounded-xl px-4 py-3 text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-sm text-white/40 mb-2">Description</label>
+                    <textarea name="description" rows="3" placeholder="What students will learn and experience..."
+                        class="w-full rounded-xl px-4 py-3 text-sm"></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm text-white/40 mb-2">Location</label>
+                        <input type="text" name="location" placeholder="City, Country"
+                            class="w-full rounded-xl px-4 py-3 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-white/40 mb-2">Capacity</label>
+                        <input type="number" name="capacity" value="10" min="1" max="20"
+                            class="w-full rounded-xl px-4 py-3 text-sm">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm text-white/40 mb-2">Start Date</label>
+                        <input type="date" name="start_date"
+                            class="w-full rounded-xl px-4 py-3 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm text-white/40 mb-2">End Date</label>
+                        <input type="date" name="end_date"
+                            class="w-full rounded-xl px-4 py-3 text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm text-white/40 mb-2">Price (USD)</label>
+                    <input type="number" name="price" placeholder="3500" min="0"
+                        class="w-full rounded-xl px-4 py-3 text-sm">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" id="cohort-submit-btn"
+                        class="w-full py-3 bg-amber-500 text-black font-medium rounded-full hover:bg-amber-400 transition-colors">
+                        Create Cohort
+                    </button>
+                    <p class="text-white/30 text-xs text-center mt-3">Created as draft. You can publish when ready.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-emerald-400">TRAVELER</span></p>
+                    <p class="text-white/40 text-sm">Earned, not bought. Certified at the source.</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
+                    <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Adventures</a>
+                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
+
+    <script>
+        const disciplineLabels = {
+            'wingsuit': 'Wingsuit / BASE',
+            'freediving': 'Freediving',
+            'diving': 'Scuba (PADI)',
+            'kayaking': 'Whitewater Kayaking',
+            'mountaineering': 'Mountaineering',
+            'surfing': 'Surfing / Kitesurfing',
+            'martial-arts': 'Martial Arts',
+            'sailing-rya': 'RYA Sailing',
+            'sailing-racing': 'Racing',
+            'sailing-expedition': 'Expedition Sailing',
+            'sushi': 'Sushi / Japanese',
+            'pastry': 'Pastry',
+            'wine': 'Wine (WSET)',
+            'spirits': 'Spirits',
+            'yoga': 'Yoga',
+            'breathwork': 'Breathwork',
+            'meditation': 'Meditation',
+            'photography': 'Photography',
+            'pottery': 'Ceramics',
+            'traditional-arts': 'Traditional Arts',
+            'other': 'Other'
+        };
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+                const svg = mobileMenuBtn.querySelector('svg');
+                if (!isOpen) {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
+                } else {
+                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+                }
+            });
+        }
+
+        // ========================================
+        // INITIALIZATION
+        // ========================================
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const loadingState = document.getElementById('loading-state');
+            const notSignedInState = document.getElementById('not-signed-in-state');
+            const notInstructorState = document.getElementById('not-instructor-state');
+            const pendingState = document.getElementById('pending-state');
+            const dashboardContent = document.getElementById('dashboard-content');
+
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            const user = await window.auth.getUser();
+
+            if (!user) {
+                loadingState.classList.add('hidden');
+                notSignedInState.classList.remove('hidden');
+
+                document.getElementById('sign-in-cta').addEventListener('click', () => {
+                    window.auth.showSignInModal();
+                });
+
+                window.auth.onAuthStateChange((user) => {
+                    if (user) window.location.reload();
+                });
+
+                return;
+            }
+
+            // User is signed in — check if they're an instructor
+            try {
+                const data = await window.db.getInstructorDashboardData(user.id);
+
+                if (!data) {
+                    // No instructor record
+                    loadingState.classList.add('hidden');
+                    notInstructorState.classList.remove('hidden');
+
+                    document.getElementById('not-instructor-sign-out').addEventListener('click', async () => {
+                        await window.auth.signOut();
+                        window.location.href = '/';
+                    });
+
+                    return;
+                }
+
+                if (data.instructor.status === 'pending') {
+                    loadingState.classList.add('hidden');
+                    pendingState.classList.remove('hidden');
+
+                    document.getElementById('pending-sign-out').addEventListener('click', async () => {
+                        await window.auth.signOut();
+                        window.location.href = '/';
+                    });
+
+                    return;
+                }
+
+                if (data.instructor.status === 'rejected') {
+                    loadingState.classList.add('hidden');
+                    notInstructorState.classList.remove('hidden');
+                    return;
+                }
+
+                // Approved instructor — render dashboard
+                renderDashboard(data);
+                loadingState.classList.add('hidden');
+                dashboardContent.classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error loading instructor dashboard:', error);
+                loadingState.innerHTML = `
+                    <div class="text-center">
+                        <p class="text-red-400 mb-4">Error loading dashboard</p>
+                        <button onclick="window.location.reload()" class="text-amber-400 hover:text-amber-300">Try again</button>
+                    </div>
+                `;
+            }
+
+            // Sign out handler
+            document.getElementById('sign-out-btn').addEventListener('click', async () => {
+                await window.auth.signOut();
+                window.location.href = '/';
+            });
+
+            // Cohort modal handlers
+            setupCohortModal(user);
+        });
+
+        // ========================================
+        // RENDER DASHBOARD
+        // ========================================
+
+        function renderDashboard(data) {
+            const { instructor, cohorts } = data;
+
+            // Profile header
+            const initials = (instructor.name || '??').slice(0, 2).toUpperCase();
+            document.getElementById('profile-initials').textContent = initials;
+            document.getElementById('profile-name').textContent = instructor.name;
+            document.getElementById('profile-status').textContent = instructor.status;
+            document.getElementById('profile-status').className = 'status-badge status-' + instructor.status;
+            document.getElementById('profile-discipline').textContent = disciplineLabels[instructor.discipline] || instructor.discipline || '';
+            document.getElementById('profile-location').textContent = instructor.location || '';
+
+            // Stats
+            const totalCohorts = cohorts.length;
+            const publishedCohorts = cohorts.filter(c => c.status === 'published' || c.status === 'full').length;
+            const totalStudents = cohorts.reduce((sum, c) => sum + (c.enrollments?.filter(e => e.status === 'enrolled').length || 0), 0);
+            const totalSpots = cohorts
+                .filter(c => c.status === 'published')
+                .reduce((sum, c) => sum + (c.capacity - (c.enrollments?.filter(e => e.status === 'enrolled').length || 0)), 0);
+
+            document.getElementById('stat-cohorts').textContent = totalCohorts;
+            document.getElementById('stat-published').textContent = publishedCohorts;
+            document.getElementById('stat-students').textContent = totalStudents;
+            document.getElementById('stat-spots').textContent = Math.max(0, totalSpots);
+
+            // Cohorts list
+            const container = document.getElementById('cohorts-container');
+            const noCohorts = document.getElementById('no-cohorts');
+
+            if (cohorts.length === 0) {
+                return;
+            }
+
+            noCohorts.classList.add('hidden');
+            container.innerHTML = cohorts.map(cohort => renderCohortCard(cohort)).join('');
+
+            // Attach toggle listeners for student lists
+            container.querySelectorAll('[data-toggle-students]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cohortId = btn.dataset.toggleStudents;
+                    const list = document.getElementById('students-' + cohortId);
+                    const arrow = btn.querySelector('.toggle-arrow');
+                    if (list) {
+                        list.classList.toggle('hidden');
+                        if (arrow) arrow.style.transform = list.classList.contains('hidden') ? '' : 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Attach publish/unpublish listeners
+            container.querySelectorAll('[data-publish-cohort]').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const cohortId = btn.dataset.publishCohort;
+                    const currentStatus = btn.dataset.currentStatus;
+                    const newStatus = currentStatus === 'draft' ? 'published' : 'draft';
+
+                    btn.disabled = true;
+                    btn.textContent = 'Updating...';
+
+                    try {
+                        await window.db.updateCohort(cohortId, { status: newStatus });
+                        window.location.reload();
+                    } catch (err) {
+                        console.error('Error updating cohort:', err);
+                        btn.disabled = false;
+                        btn.textContent = currentStatus === 'draft' ? 'Publish' : 'Unpublish';
+                    }
+                });
+            });
+        }
+
+        function renderCohortCard(cohort) {
+            const enrolled = cohort.enrollments?.filter(e => e.status === 'enrolled') || [];
+            const enrolledCount = enrolled.length;
+            const capacityPercent = Math.min((enrolledCount / cohort.capacity) * 100, 100);
+            const isFilling = capacityPercent >= 75;
+
+            const startDate = cohort.start_date ? new Date(cohort.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'TBD';
+            const endDate = cohort.end_date ? new Date(cohort.end_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+            const dateRange = endDate ? `${startDate} — ${endDate}` : startDate;
+
+            const price = cohort.price_cents ? '$' + (cohort.price_cents / 100).toLocaleString() : '';
+
+            const canPublish = cohort.status === 'draft' || cohort.status === 'published';
+            const publishLabel = cohort.status === 'draft' ? 'Publish' : 'Unpublish';
+
+            return `
+                <div class="cohort-card rounded-xl p-6 mb-4">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <h3 class="font-medium">${escapeHtml(cohort.title)}</h3>
+                                <span class="status-badge status-${cohort.status}">${cohort.status.replace('_', ' ')}</span>
+                            </div>
+                            <p class="text-white/40 text-xs">${escapeHtml(cohort.location || '')} ${cohort.location && dateRange !== 'TBD' ? '·' : ''} ${dateRange} ${price ? '· ' + price : ''}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            ${canPublish ? `
+                                <button data-publish-cohort="${cohort.id}" data-current-status="${cohort.status}"
+                                    class="text-xs px-4 py-1.5 rounded-full border ${cohort.status === 'draft' ? 'border-emerald-400/50 text-emerald-400 hover:bg-emerald-400/10' : 'border-white/20 text-white/50 hover:bg-white/5'} transition-colors">
+                                    ${publishLabel}
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+
+                    ${cohort.description ? `<p class="text-white/50 text-sm mb-4">${escapeHtml(cohort.description)}</p>` : ''}
+
+                    <!-- Capacity bar -->
+                    <div class="mb-4">
+                        <div class="flex items-center justify-between text-xs mb-1">
+                            <span class="text-white/40">${enrolledCount} / ${cohort.capacity} students</span>
+                            <span class="${isFilling ? 'text-amber-400' : 'text-white/30'}">${Math.round(capacityPercent)}% full</span>
+                        </div>
+                        <div class="capacity-bar h-1.5 rounded-full">
+                            <div class="capacity-fill h-full rounded-full ${isFilling ? 'bg-amber-400' : 'bg-emerald-500'}" style="width: ${capacityPercent}%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Student list toggle -->
+                    ${enrolledCount > 0 ? `
+                        <button data-toggle-students="${cohort.id}" class="flex items-center gap-2 text-xs text-white/50 hover:text-white/70 transition-colors mb-2">
+                            <svg class="w-3 h-3 toggle-arrow transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                            View students (${enrolledCount})
+                        </button>
+                        <div id="students-${cohort.id}" class="hidden mt-3 rounded-lg bg-white/[0.02] p-4">
+                            ${enrolled.map((e, i) => `
+                                <div class="enrollment-row flex items-center justify-between py-2.5">
+                                    <div>
+                                        <p class="text-sm">${escapeHtml(e.profiles?.name || 'Anonymous')}</p>
+                                        <p class="text-white/30 text-xs">${escapeHtml(e.profiles?.email || '')}</p>
+                                    </div>
+                                    <p class="text-white/30 text-xs">${new Date(e.enrolled_at).toLocaleDateString()}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : `
+                        <p class="text-white/20 text-xs">No students enrolled yet</p>
+                    `}
+                </div>
+            `;
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // ========================================
+        // COHORT MODAL
+        // ========================================
+
+        function setupCohortModal(user) {
+            const modal = document.getElementById('cohort-modal');
+            const form = document.getElementById('cohort-form');
+
+            function openModal() {
+                modal.classList.remove('hidden');
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                form.reset();
+            }
+
+            document.getElementById('create-cohort-btn')?.addEventListener('click', openModal);
+            document.getElementById('create-first-cohort-btn')?.addEventListener('click', openModal);
+            document.getElementById('close-cohort-modal')?.addEventListener('click', closeModal);
+            document.getElementById('cohort-modal-backdrop')?.addEventListener('click', closeModal);
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = document.getElementById('cohort-submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Creating...';
+
+                try {
+                    const instructor = await window.db.getInstructorByUserId(user.id);
+                    const formData = new FormData(form);
+
+                    await window.db.createCohort({
+                        instructor_id: instructor.id,
+                        title: formData.get('title'),
+                        description: formData.get('description') || null,
+                        location: formData.get('location') || null,
+                        start_date: formData.get('start_date') || null,
+                        end_date: formData.get('end_date') || null,
+                        capacity: parseInt(formData.get('capacity')) || 10,
+                        price_cents: formData.get('price') ? parseInt(formData.get('price')) * 100 : null
+                    });
+
+                    window.location.reload();
+                } catch (err) {
+                    console.error('Error creating cohort:', err);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Create Cohort';
+                }
+            });
+        }
+    </script>
+    <script src="/js/whatsapp-widget.js"></script>
+</body>
+</html>

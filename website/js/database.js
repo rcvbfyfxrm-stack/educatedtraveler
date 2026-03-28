@@ -252,6 +252,234 @@
     }
 
     // ========================================
+    // INSTRUCTOR OPERATIONS
+    // ========================================
+
+    async function getInstructorByUserId(userId) {
+        const { data, error } = await supabase
+            .from('instructors')
+            .select('*')
+            .eq('user_id', userId)
+            .single();
+
+        if (error && error.code !== 'PGRST116') {
+            console.error('Error fetching instructor:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    async function createInstructorApplication(userId, application) {
+        const { data, error } = await supabase
+            .from('instructors')
+            .insert({
+                user_id: userId,
+                name: application.name,
+                email: application.email,
+                location: application.location || null,
+                website: application.website || null,
+                discipline: application.discipline || null,
+                credentials: application.credentials || null,
+                approach: application.approach || null,
+                preferred_locations: application.preferred_locations || [],
+                availability: application.availability || null,
+                status: 'pending'
+            })
+            .select()
+            .single();
+
+        if (error) {
+            console.error('Error creating instructor application:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    async function updateInstructor(instructorId, updates) {
+        const { data, error } = await supabase
+            .from('instructors')
+            .update(updates)
+            .eq('id', instructorId)
+            .select()
+            .single();
+
+        if (error) {
+            console.error('Error updating instructor:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    // ========================================
+    // COHORT OPERATIONS
+    // ========================================
+
+    async function getInstructorCohorts(instructorId) {
+        const { data, error } = await supabase
+            .from('cohorts')
+            .select('*')
+            .eq('instructor_id', instructorId)
+            .order('start_date', { ascending: true });
+
+        if (error) {
+            console.error('Error fetching cohorts:', error);
+            throw error;
+        }
+
+        return data || [];
+    }
+
+    async function createCohort(cohort) {
+        const { data, error } = await supabase
+            .from('cohorts')
+            .insert({
+                instructor_id: cohort.instructor_id,
+                adventure_id: cohort.adventure_id || null,
+                title: cohort.title,
+                description: cohort.description || null,
+                location: cohort.location || null,
+                start_date: cohort.start_date || null,
+                end_date: cohort.end_date || null,
+                capacity: cohort.capacity || 10,
+                price_cents: cohort.price_cents || null,
+                status: 'draft'
+            })
+            .select()
+            .single();
+
+        if (error) {
+            console.error('Error creating cohort:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    async function updateCohort(cohortId, updates) {
+        const { data, error } = await supabase
+            .from('cohorts')
+            .update(updates)
+            .eq('id', cohortId)
+            .select()
+            .single();
+
+        if (error) {
+            console.error('Error updating cohort:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    // ========================================
+    // ENROLLMENT OPERATIONS
+    // ========================================
+
+    async function getCohortEnrollments(cohortId) {
+        const { data, error } = await supabase
+            .from('enrollments')
+            .select('*, profiles(name, email)')
+            .eq('cohort_id', cohortId)
+            .order('enrolled_at', { ascending: true });
+
+        if (error) {
+            console.error('Error fetching enrollments:', error);
+            throw error;
+        }
+
+        return data || [];
+    }
+
+    async function getPublishedCohorts() {
+        const { data, error } = await supabase
+            .from('cohorts')
+            .select('*, instructors(name, discipline), enrollments(id)')
+            .in('status', ['published', 'full'])
+            .order('start_date', { ascending: true });
+
+        if (error) {
+            console.error('Error fetching published cohorts:', error);
+            throw error;
+        }
+
+        return data || [];
+    }
+
+    async function enrollInCohort(userId, cohortId) {
+        const { data, error } = await supabase
+            .from('enrollments')
+            .insert({
+                user_id: userId,
+                cohort_id: cohortId,
+                status: 'enrolled'
+            })
+            .select()
+            .single();
+
+        if (error) {
+            console.error('Error enrolling:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    async function getUserEnrollments(userId) {
+        const { data, error } = await supabase
+            .from('enrollments')
+            .select('*, cohorts(title, location, start_date, end_date, status, instructors(name))')
+            .eq('user_id', userId)
+            .order('enrolled_at', { ascending: false });
+
+        if (error) {
+            console.error('Error fetching user enrollments:', error);
+            throw error;
+        }
+
+        return data || [];
+    }
+
+    async function cancelEnrollment(userId, cohortId) {
+        const { error } = await supabase
+            .from('enrollments')
+            .update({ status: 'cancelled' })
+            .eq('user_id', userId)
+            .eq('cohort_id', cohortId);
+
+        if (error) {
+            console.error('Error cancelling enrollment:', error);
+            throw error;
+        }
+    }
+
+    // ========================================
+    // INSTRUCTOR DASHBOARD DATA
+    // ========================================
+
+    async function getInstructorDashboardData(userId) {
+        const instructor = await getInstructorByUserId(userId);
+        if (!instructor) return null;
+
+        const cohorts = await getInstructorCohorts(instructor.id);
+
+        // Fetch enrollments for each cohort
+        const cohortsWithEnrollments = await Promise.all(
+            cohorts.map(async (cohort) => {
+                const enrollments = await getCohortEnrollments(cohort.id);
+                return { ...cohort, enrollments };
+            })
+        );
+
+        return {
+            instructor,
+            cohorts: cohortsWithEnrollments
+        };
+    }
+
+    // ========================================
     // FULL DASHBOARD DATA
     // ========================================
 
@@ -294,9 +522,27 @@
         getBadges,
         awardBadge,
 
+        // Instructors
+        getInstructorByUserId,
+        createInstructorApplication,
+        updateInstructor,
+
+        // Cohorts
+        getInstructorCohorts,
+        createCohort,
+        updateCohort,
+        getPublishedCohorts,
+
+        // Enrollments
+        getCohortEnrollments,
+        enrollInCohort,
+        getUserEnrollments,
+        cancelEnrollment,
+
         // Combined
         saveQuestResults,
-        getDashboardData
+        getDashboardData,
+        getInstructorDashboardData
     };
 
 })();

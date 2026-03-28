@@ -205,6 +205,20 @@
                 </div>
             </section>
 
+            <!-- My Enrollments -->
+            <section id="enrollments-section" class="hidden mb-12 fade-up delay-2">
+                <h2 class="text-lg font-light mb-4">My Enrollments</h2>
+                <div id="enrollments-container" class="space-y-3"></div>
+            </section>
+
+            <!-- Available Cohorts -->
+            <section id="cohorts-section" class="hidden mb-12 fade-up delay-2">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-light">Available Adventures</h2>
+                </div>
+                <div id="available-cohorts-container" class="grid md:grid-cols-2 gap-4"></div>
+            </section>
+
             <!-- Preferences -->
             <section class="mb-12 fade-up delay-2">
                 <h2 class="text-lg font-light mb-4">Your Preferences</h2>
@@ -336,6 +350,15 @@
             // Wait for auth to initialize
             await new Promise(resolve => setTimeout(resolve, 500));
 
+            if (!window.auth) {
+                loadingState.innerHTML = `
+                    <div class="text-center">
+                        <p class="text-red-400 mb-4">Authentication service unavailable</p>
+                        <button onclick="window.location.reload()" class="text-emerald-400 hover:text-emerald-300">Try again</button>
+                    </div>`;
+                return;
+            }
+
             const user = await window.auth.getUser();
 
             if (!user) {
@@ -361,6 +384,9 @@
             try {
                 const data = await window.db.getDashboardData(user.id);
                 renderDashboard(user, data);
+
+                // Load enrollments and available cohorts
+                loadEnrollmentsAndCohorts(user.id);
 
                 loadingState.classList.add('hidden');
                 dashboardContent.classList.remove('hidden');
@@ -461,6 +487,116 @@
                     prefIntensity.textContent = intensityLabels[preferences.intensity] || 'Level ' + preferences.intensity;
                 }
             }
+        }
+        // ========================================
+        // ENROLLMENTS & AVAILABLE COHORTS
+        // ========================================
+
+        async function loadEnrollmentsAndCohorts(userId) {
+            try {
+                const enrollments = await window.db.getUserEnrollments(userId);
+                if (enrollments.length > 0) {
+                    const section = document.getElementById('enrollments-section');
+                    const container = document.getElementById('enrollments-container');
+                    section.classList.remove('hidden');
+
+                    container.innerHTML = enrollments.map(e => {
+                        const cohort = e.cohorts;
+                        const instructor = cohort?.instructors?.name || '';
+                        const startDate = cohort?.start_date
+                            ? new Date(cohort.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                            : 'TBD';
+
+                        const statusColors = {
+                            enrolled: 'text-emerald-400 bg-emerald-400/10',
+                            waitlisted: 'text-amber-400 bg-amber-400/10',
+                            cancelled: 'text-red-400 bg-red-400/10',
+                            completed: 'text-purple-400 bg-purple-400/10'
+                        };
+                        const statusClass = statusColors[e.status] || statusColors.enrolled;
+
+                        return `
+                            <div class="adventure-card rounded-xl p-5">
+                                <div class="flex items-start justify-between gap-4">
+                                    <div>
+                                        <h4 class="font-medium mb-1">${escapeHtml(cohort?.title || 'Adventure')}</h4>
+                                        <p class="text-white/40 text-xs">${escapeHtml(cohort?.location || '')} ${cohort?.location ? '·' : ''} ${startDate} ${instructor ? '· with ' + escapeHtml(instructor) : ''}</p>
+                                    </div>
+                                    <span class="text-xs px-2 py-1 rounded-full ${statusClass} whitespace-nowrap">${e.status}</span>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+                const enrolledCohortIds = new Set(enrollments.map(e => e.cohort_id));
+                const allCohorts = await window.db.getPublishedCohorts();
+                const available = allCohorts.filter(c => !enrolledCohortIds.has(c.id));
+
+                if (available.length > 0) {
+                    const section = document.getElementById('cohorts-section');
+                    const container = document.getElementById('available-cohorts-container');
+                    section.classList.remove('hidden');
+
+                    container.innerHTML = available.map(c => {
+                        const enrolled = c.enrollments?.length || 0;
+                        const spotsLeft = c.capacity - enrolled;
+                        const instructor = c.instructors?.name || '';
+                        const startDate = c.start_date
+                            ? new Date(c.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                            : 'TBD';
+
+                        return `
+                            <div class="adventure-card rounded-xl p-5">
+                                <h4 class="font-medium mb-1">${escapeHtml(c.title)}</h4>
+                                <p class="text-white/40 text-xs mb-3">${escapeHtml(c.location || '')} ${c.location ? '·' : ''} ${startDate} ${instructor ? '· with ' + escapeHtml(instructor) : ''}</p>
+                                ${c.description ? `<p class="text-white/50 text-sm mb-3">${escapeHtml(c.description)}</p>` : ''}
+                                <div class="flex items-center justify-between">
+                                    <span class="text-white/30 text-xs">${spotsLeft > 0 ? spotsLeft + ' spots left' : 'Full'}</span>
+                                    ${spotsLeft > 0 ? `
+                                        <button onclick="window.enrollInCohort('${c.id}', this)" class="text-xs px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors">
+                                            Enroll
+                                        </button>
+                                    ` : `
+                                        <span class="text-xs px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-400">Waitlist</span>
+                                    `}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+            } catch (err) {
+                console.error('Error loading cohorts:', err);
+            }
+        }
+
+        window.enrollInCohort = async function(cohortId, btn) {
+            const user = await window.auth.getUser();
+            if (!user) { window.auth.showSignInModal(); return; }
+
+            btn.disabled = true;
+            btn.textContent = 'Enrolling...';
+
+            try {
+                await window.db.enrollInCohort(user.id, cohortId);
+                btn.textContent = 'Enrolled!';
+                btn.classList.remove('bg-emerald-500/20', 'text-emerald-400');
+                btn.classList.add('bg-emerald-500/40', 'text-white');
+                setTimeout(() => window.location.reload(), 1000);
+            } catch (err) {
+                console.error('Error enrolling:', err);
+                btn.textContent = 'Error';
+                btn.disabled = false;
+                setTimeout(() => { btn.textContent = 'Enroll'; }, 2000);
+            }
+        };
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
         }
     </script>
     <script src="/js/whatsapp-widget.js"></script>

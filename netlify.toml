@@ -30,3 +30,29 @@
   from = "/profile"
   to = "/profile.html"
   status = 200
+
+[[redirects]]
+  from = "/instructor-dashboard"
+  to = "/instructor-dashboard.html"
+  status = 200
+
+# Redirects for deleted pages
+[[redirects]]
+  from = "/vision"
+  to = "/offerings.html#flagships"
+  status = 301
+
+[[redirects]]
+  from = "/vision.html"
+  to = "/offerings.html#flagships"
+  status = 301
+
+[[redirects]]
+  from = "/survey"
+  to = "/community.html"
+  status = 301
+
+[[redirects]]
+  from = "/survey.html"
+  to = "/community.html"
+  status = 301

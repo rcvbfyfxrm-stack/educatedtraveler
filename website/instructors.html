@@ -557,7 +557,7 @@
             submitBtn.classList.add('opacity-50');
 
             try {
-                // Submit to Netlify Forms
+                // Submit to Netlify Forms (backup)
                 const formData = new FormData(form);
                 await fetch('/', {
                     method: 'POST',
@@ -565,8 +565,48 @@
                     body: new URLSearchParams(formData).toString()
                 });
 
+                // Also save to Supabase if user is signed in (or prompt sign-in)
+                const user = await window.auth?.getUser();
+                if (user) {
+                    try {
+                        const locationCheckboxes = form.querySelectorAll('input[name="locations[]"]:checked');
+                        const preferredLocations = Array.from(locationCheckboxes).map(cb => cb.value);
+
+                        await window.db.createInstructorApplication(user.id, {
+                            name: formData.get('name'),
+                            email: formData.get('email'),
+                            location: formData.get('location') || null,
+                            website: formData.get('website') || null,
+                            discipline: formData.get('discipline') || null,
+                            credentials: formData.get('credentials') || null,
+                            approach: formData.get('approach') || null,
+                            preferred_locations: preferredLocations,
+                            availability: formData.get('availability') || null
+                        });
+                    } catch (dbError) {
+                        // Don't block form success if Supabase save fails
+                        console.warn('Supabase save failed (Netlify backup succeeded):', dbError);
+                    }
+                }
+
                 form.classList.add('hidden');
-                document.getElementById('success-message').classList.remove('hidden');
+                const successMessage = document.getElementById('success-message');
+                successMessage.classList.remove('hidden');
+
+                // If not signed in, prompt them to create an account for their dashboard
+                if (!user) {
+                    successMessage.innerHTML += `
+                        <div class="mt-6 pt-6 border-t border-white/10">
+                            <p class="text-white/40 text-sm mb-3">Create an account to track your application and access your instructor dashboard once approved.</p>
+                            <button id="post-apply-signin" class="px-6 py-3 rounded-full bg-white/10 text-white hover:bg-white/20 text-sm transition-colors">
+                                Sign in with Email
+                            </button>
+                        </div>
+                    `;
+                    document.getElementById('post-apply-signin')?.addEventListener('click', () => {
+                        window.auth.showSignInModal(formData.get('email'));
+                    });
+                }
 
             } catch (error) {
                 console.error('Error:', error);
@@ -579,6 +619,11 @@
         });
     </script>
 
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
     <script src="/js/whatsapp-widget.js"></script>
 </body>
 </html>
