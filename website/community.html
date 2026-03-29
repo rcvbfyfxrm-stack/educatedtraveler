@@ -248,6 +248,17 @@
     <script src="/js/database.js"></script>
 
     <script>
+        // Wait for everything to load
+        function waitForSupabase(callback) {
+            if (window.supabaseClient) {
+                callback();
+            } else {
+                setTimeout(() => waitForSupabase(callback), 100);
+            }
+        }
+
+        waitForSupabase(() => {
+        const supabase = window.supabaseClient;
         const communityForm = document.getElementById('community-form');
         const signinForm = document.getElementById('signin-form');
         const successEl = document.getElementById('community-success');
@@ -264,16 +275,15 @@
         });
 
         // Check if already signed in
-        document.addEventListener('DOMContentLoaded', async () => {
-            await new Promise(resolve => setTimeout(resolve, 500));
+        (async () => {
             try {
-                const { data: { user } } = await window.supabaseClient.auth.getUser();
+                const { data: { user } } = await supabase.auth.getUser();
                 if (user) {
                     communityForm.classList.add('hidden');
                     alreadySignedIn.classList.remove('hidden');
                 }
             } catch (e) {}
-        });
+        })();
 
         // SIGN UP
         communityForm.addEventListener('submit', async (e) => {
@@ -292,7 +302,7 @@
 
             try {
                 // Sign up directly via Supabase client
-                const { data, error } = await window.supabaseClient.auth.signUp({
+                const { data, error } = await supabase.auth.signUp({
                     email: email,
                     password: password,
                     options: { data: { name, role } }
@@ -304,7 +314,7 @@
                 if (user) {
                     // Create profile in DB
                     try {
-                        await window.supabaseClient.from('profiles').upsert({
+                        await supabase.from('profiles').upsert({
                             id: user.id,
                             email: email,
                             name: name,
@@ -370,7 +380,7 @@
             submitBtn.textContent = 'Signing in...';
 
             try {
-                const { error } = await window.supabaseClient.auth.signInWithPassword({
+                const { error } = await supabase.auth.signInWithPassword({
                     email: email,
                     password: password
                 });
@@ -394,6 +404,7 @@
                 submitBtn.textContent = 'Sign in';
             }
         });
+        }); // end waitForSupabase
     </script>
 
     <script>
