@@ -266,11 +266,13 @@
         // Check if already signed in
         document.addEventListener('DOMContentLoaded', async () => {
             await new Promise(resolve => setTimeout(resolve, 500));
-            const user = await window.auth?.getUser();
-            if (user) {
-                communityForm.classList.add('hidden');
-                alreadySignedIn.classList.remove('hidden');
-            }
+            try {
+                const { data: { user } } = await window.supabaseClient.auth.getUser();
+                if (user) {
+                    communityForm.classList.add('hidden');
+                    alreadySignedIn.classList.remove('hidden');
+                }
+            } catch (e) {}
         });
 
         // SIGN UP
@@ -289,14 +291,28 @@
             submitBtn.textContent = 'Creating account...';
 
             try {
-                const { user } = await window.auth.signUp(email, password, { name, role });
+                // Sign up directly via Supabase client
+                const { data, error } = await window.supabaseClient.auth.signUp({
+                    email: email,
+                    password: password,
+                    options: { data: { name, role } }
+                });
 
+                if (error) throw error;
+
+                const user = data?.user;
                 if (user) {
                     // Create profile in DB
                     try {
-                        await window.db.updateProfile(user.id, { name });
+                        await window.supabaseClient.from('profiles').upsert({
+                            id: user.id,
+                            email: email,
+                            name: name,
+                            xp: 100,
+                            level: 1
+                        });
                     } catch (dbErr) {
-                        console.warn('Profile update after signup:', dbErr);
+                        console.warn('Profile creation after signup:', dbErr);
                     }
                 }
 
@@ -354,7 +370,11 @@
             submitBtn.textContent = 'Signing in...';
 
             try {
-                await window.auth.signInWithPassword(email, password);
+                const { error } = await window.supabaseClient.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+                if (error) throw error;
 
                 signinForm.classList.add('hidden');
                 successEl.innerHTML = `
