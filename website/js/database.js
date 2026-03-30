@@ -4,6 +4,12 @@
 (function() {
     'use strict';
 
+    function waitForClient(cb) {
+        if (window.supabaseClient) cb();
+        else setTimeout(() => waitForClient(cb), 50);
+    }
+
+    waitForClient(function() {
     const supabase = window.supabaseClient;
 
     // ========================================
@@ -544,5 +550,7 @@
         getDashboardData,
         getInstructorDashboardData
     };
+
+    }); // end waitForClient
 
 })();

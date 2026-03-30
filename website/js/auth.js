@@ -4,6 +4,14 @@
 (function() {
     'use strict';
 
+    function waitForClient(cb) {
+        if (window.supabaseClient) cb();
+        else setTimeout(() => waitForClient(cb), 50);
+    }
+
+    waitForClient(initAuth);
+
+    function initAuth() {
     const supabase = window.supabaseClient;
 
     // ========================================
@@ -370,12 +378,11 @@
     // INITIALIZE
     // ========================================
 
-    async function initAuth() {
+    async function setupUI() {
         const session = await getSession();
         currentUser = session?.user || null;
         updateAuthUI();
 
-        // Set up sign-in button click handler
         const signInBtn = document.getElementById('sign-in-btn');
         if (signInBtn) {
             signInBtn.addEventListener('click', () => showSignInModal());
@@ -387,11 +394,11 @@
         }
     }
 
-    // Run immediately if DOM is ready, otherwise wait
+    // Run setupUI when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAuth);
+        document.addEventListener('DOMContentLoaded', setupUI);
     } else {
-        initAuth();
+        setupUI();
     }
 
     // ========================================
@@ -410,5 +417,7 @@
         showSignInModal,
         getCurrentUser: () => currentUser
     };
+
+    } // end initAuth (called by waitForClient)
 
 })();
