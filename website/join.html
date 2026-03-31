@@ -3,53 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join — EDUCATEDTRAVELER</title>
+    <title>Begin — EDUCATEDTRAVELER</title>
 
-    <meta name="description" content="Create your account or sign in to access your adventures.">
+    <meta name="description" content="Your next chapter starts here. Join EducatedTraveler and discover certified skill immersions at the source.">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        :root {
+            --blue: #0066B1;
+            --blue-light: #3B8DD4;
+            --dark: #0a0a0a;
+        }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
+        * { -webkit-font-smoothing: antialiased; margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); overflow-x: hidden; }
+        .font-serif { font-family: 'Cormorant Garamond', 'Georgia', serif; }
+
+        /* ═══════════════════════════════════════════ */
+        /* SPLIT LAYOUT                                */
+        /* ═══════════════════════════════════════════ */
+        .split-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .split-visual {
+            position: relative;
+            width: 55%;
+            overflow: hidden;
+        }
+
+        .split-form {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 2.5rem;
+            position: relative;
+            background: var(--dark);
+        }
+
+        @media (max-width: 768px) {
+            .split-container { flex-direction: column; }
+            .split-visual { width: 100%; height: 55vh; }
+            .split-form { width: 100%; padding: 2.5rem 1.5rem 3rem; }
+        }
+
+        /* ═══════════════════════════════════════════ */
+        /* CINEMATIC IMAGE CAROUSEL                    */
+        /* ═══════════════════════════════════════════ */
+        .scene {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.8s ease-in-out;
+            will-change: opacity;
+        }
+        .scene.active { opacity: 1; }
+
+        .scene img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.05);
+            animation: slowZoom 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1.0); }
+            to { transform: scale(1.12); }
+        }
+
+        .scene-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(0,0,0,0.55) 0%,
+                rgba(0,0,0,0.3) 40%,
+                rgba(0,0,0,0.5) 100%
+            );
+        }
+
+        /* Right edge fade into the form panel */
+        .scene-edge {
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 120px;
+            background: linear-gradient(to right, transparent, var(--dark));
+            z-index: 2;
+        }
+        @media (max-width: 768px) {
+            .scene-edge {
+                width: 100%;
+                height: 80px;
+                top: auto; right: auto; bottom: 0; left: 0;
+                background: linear-gradient(to bottom, transparent, var(--dark));
+            }
+        }
+
+        /* ═══════════════════════════════════════════ */
+        /* ROTATING TEXT                                */
+        /* ═══════════════════════════════════════════ */
+        .story-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            padding: 4rem 3rem;
+        }
+        @media (max-width: 768px) {
+            .story-text { padding: 2rem 1.5rem 3.5rem; }
+        }
+
+        .story-phrase {
+            position: absolute;
+            bottom: 4rem;
+            left: 3rem;
+            right: 3rem;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .story-phrase.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            .story-phrase { bottom: 3.5rem; left: 1.5rem; right: 1.5rem; }
+        }
+
+        .story-phrase h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            line-height: 1.2;
+            color: white;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+        .story-phrase p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        /* ═══════════════════════════════════════════ */
+        /* SCENE INDICATOR DOTS                        */
+        /* ═══════════════════════════════════════════ */
+        .scene-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 3rem;
+            z-index: 4;
+            display: flex;
+            gap: 8px;
+        }
+        @media (max-width: 768px) {
+            .scene-dots { bottom: 1.5rem; left: 1.5rem; }
+        }
+        .scene-dot {
+            width: 24px;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 1px;
+            transition: all 0.6s ease;
+        }
+        .scene-dot.active {
+            background: rgba(255,255,255,0.8);
+            width: 40px;
+        }
+
+        /* ═══════════════════════════════════════════ */
+        /* FORM PANEL                                  */
+        /* ═══════════════════════════════════════════ */
+        .form-card {
+            width: 100%;
+            max-width: 380px;
+        }
+
+        .glass-form {
+            background: rgba(255, 255, 255, 0.025);
             border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 1.25rem;
+            padding: 2.25rem;
         }
 
-        .cta-button {
-            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
-            transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 102, 177, 0.3);
-        }
-
-        input {
-            background: rgba(255, 255, 255, 0.04) !important;
-            border: 1px solid rgba(255, 255, 255, 0.12) !important;
-            color: white !important;
-        }
-        input:focus {
-            border-color: rgba(0, 102, 177, 0.5) !important;
+        .form-input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: border-color 0.3s, box-shadow 0.3s;
             outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 102, 177, 0.15);
+            font-family: 'Inter', sans-serif;
         }
-        input::placeholder { color: rgba(255, 255, 255, 0.3); }
+        .form-input::placeholder { color: rgba(255,255,255,0.25); }
+        .form-input:focus {
+            border-color: rgba(0, 102, 177, 0.5);
+            box-shadow: 0 0 0 3px rgba(0, 102, 177, 0.1);
+        }
 
+        .btn-primary {
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: white;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.01em;
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 32px rgba(0, 102, 177, 0.3);
+        }
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Tabs */
+        .auth-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 1.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .auth-tab {
+            flex: 1;
+            padding: 0.75rem 0;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.3);
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        .auth-tab:hover { color: rgba(255,255,255,0.6); }
+        .auth-tab.active {
+            color: white;
+            border-bottom-color: var(--blue-light);
+        }
+
+        /* ═══════════════════════════════════════════ */
+        /* STATES                                      */
+        /* ═══════════════════════════════════════════ */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(16px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .fade-up { animation: fadeUp 0.6s ease-out forwards; }
+        .fade-up { animation: fadeUp 0.7s ease-out forwards; }
 
         @keyframes spin {
             from { transform: rotate(0deg); }
@@ -57,92 +287,185 @@
         }
         .spinner { animation: spin 1s linear infinite; }
 
-        .tab-active {
+        /* Signed-in avatar */
+        .avatar-ring {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--blue-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: white;
-            border-bottom: 2px solid #3B8DD4;
         }
-        .tab-inactive {
-            color: rgba(255,255,255,0.4);
-            border-bottom: 2px solid transparent;
+
+        /* Subtle noise texture */
+        .noise::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.4;
         }
-        .tab-inactive:hover { color: rgba(255,255,255,0.7); }
+
+        /* Tagline */
+        .tagline {
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
     </style>
 </head>
-<body class="text-white min-h-screen flex flex-col">
+<body class="text-white noise">
 
-    <!-- Minimal nav -->
-    <nav class="px-6 py-5">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="/" class="text-lg font-semibold tracking-wider hover:opacity-80 transition-opacity">
-                EDUCATED<span class="text-blue-400">TRAVELER</span>
-            </a>
-            <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">
-                Back to home
+    <div class="split-container">
+
+        <!-- ═══════════════ LEFT: VISUAL ═══════════════ -->
+        <div class="split-visual">
+
+            <!-- Scenes (images + overlays) -->
+            <div class="scene active" data-scene="0">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1400&q=80" alt="Deep ocean diving">
+                <div class="scene-overlay"></div>
+            </div>
+            <div class="scene" data-scene="1">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=80" alt="Mountain summit at dawn">
+                <div class="scene-overlay"></div>
+            </div>
+            <div class="scene" data-scene="2">
+                <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=1400&q=80" alt="Sailing open water">
+                <div class="scene-overlay"></div>
+            </div>
+            <div class="scene" data-scene="3">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1400&q=80" alt="Yoga at sunrise">
+                <div class="scene-overlay"></div>
+            </div>
+            <div class="scene" data-scene="4">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80" alt="Culinary mastery">
+                <div class="scene-overlay"></div>
+            </div>
+
+            <!-- Edge fade -->
+            <div class="scene-edge"></div>
+
+            <!-- Rotating story phrases -->
+            <div class="story-text">
+                <div class="story-phrase active" data-phrase="0">
+                    <h2>What skill have you always wanted to master?</h2>
+                    <p>Freediving &middot; Bali, Indonesia</p>
+                </div>
+                <div class="story-phrase" data-phrase="1">
+                    <h2>Where will you be one year from now?</h2>
+                    <p>Alpine Mountaineering &middot; Chamonix, France</p>
+                </div>
+                <div class="story-phrase" data-phrase="2">
+                    <h2>The certification that changes everything.</h2>
+                    <p>RYA Yachtmaster &middot; Gibraltar</p>
+                </div>
+                <div class="story-phrase" data-phrase="3">
+                    <h2>What would you do if time wasn't the obstacle?</h2>
+                    <p>Yoga Alliance RYT-500 &middot; Rishikesh, India</p>
+                </div>
+                <div class="story-phrase" data-phrase="4">
+                    <h2>Your next chapter starts with one decision.</h2>
+                    <p>Culinary Arts &middot; Tokyo, Japan</p>
+                </div>
+            </div>
+
+            <!-- Scene dots -->
+            <div class="scene-dots">
+                <div class="scene-dot active" data-dot="0"></div>
+                <div class="scene-dot" data-dot="1"></div>
+                <div class="scene-dot" data-dot="2"></div>
+                <div class="scene-dot" data-dot="3"></div>
+                <div class="scene-dot" data-dot="4"></div>
+            </div>
+
+            <!-- Logo overlay (top-left on visual) -->
+            <a href="/" style="position:absolute;top:1.75rem;left:2rem;z-index:5;text-decoration:none;">
+                <span style="font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.7);">
+                    EDUCATED<span style="color:#3B8DD4;">TRAVELER</span>
+                </span>
             </a>
         </div>
-    </nav>
 
-    <!-- Main content -->
-    <main class="flex-1 flex items-center justify-center px-6 pb-16">
-        <div class="w-full max-w-sm fade-up">
+        <!-- ═══════════════ RIGHT: FORM ═══════════════ -->
+        <div class="split-form">
 
-            <!-- Loading (checking if already signed in) -->
-            <div id="state-loading" class="text-center py-20">
-                <div class="w-10 h-10 mx-auto mb-4 border-2 border-blue-400/30 border-t-blue-400 rounded-full spinner"></div>
+            <!-- Back link -->
+            <div style="position:absolute;top:1.75rem;right:2rem;">
+                <a href="/" style="color:rgba(255,255,255,0.3);font-size:0.75rem;text-decoration:none;letter-spacing:0.05em;transition:color 0.3s;" onmouseover="this.style.color='rgba(255,255,255,0.7)'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">
+                    &larr; Back
+                </a>
             </div>
 
-            <!-- Already signed in -->
-            <div id="state-signed-in" class="hidden text-center py-10">
-                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-400 flex items-center justify-center text-2xl font-semibold">
-                    <span id="signed-in-initials">--</span>
-                </div>
-                <p class="text-xl font-light mb-1" id="signed-in-name">Welcome back</p>
-                <p class="text-white/40 text-sm mb-8" id="signed-in-email"></p>
-                <div class="space-y-3">
-                    <a href="/dashboard" class="block w-full py-3 rounded-full cta-button text-center text-sm font-medium">
-                        Go to Dashboard
-                    </a>
-                    <a href="/profile" class="block w-full py-3 rounded-full border border-white/15 text-center text-sm text-white/60 hover:bg-white/5 transition-colors">
-                        Edit Profile
-                    </a>
-                    <button id="signout-btn" class="w-full py-3 text-sm text-white/30 hover:text-white/60 transition-colors">
-                        Sign out
-                    </button>
-                </div>
-            </div>
+            <div class="form-card">
 
-            <!-- Auth forms -->
-            <div id="state-auth" class="hidden">
-
-                <!-- Tabs -->
-                <div class="flex gap-6 mb-8 border-b border-white/10">
-                    <button id="tab-signup" class="tab-active pb-3 text-sm font-medium transition-colors">Create account</button>
-                    <button id="tab-signin" class="tab-inactive pb-3 text-sm font-medium transition-colors">Sign in</button>
+                <!-- Loading -->
+                <div id="state-loading" class="text-center" style="padding:5rem 0;">
+                    <div style="width:40px;height:40px;margin:0 auto 1rem;border:2px solid rgba(59,141,212,0.2);border-top-color:#3B8DD4;border-radius:50%;" class="spinner"></div>
                 </div>
 
-                <!-- SIGN UP FORM -->
-                <form id="signup-form" class="space-y-4">
-                    <div>
+                <!-- Already signed in -->
+                <div id="state-signed-in" class="hidden fade-up" style="text-align:center;padding:2rem 0;">
+                    <div class="avatar-ring" style="margin:0 auto 1.25rem;">
+                        <span id="signed-in-initials">--</span>
+                    </div>
+                    <p style="font-size:1.25rem;font-weight:300;margin-bottom:0.25rem;" id="signed-in-name">Welcome back</p>
+                    <p style="color:rgba(255,255,255,0.35);font-size:0.8rem;margin-bottom:2.5rem;" id="signed-in-email"></p>
+                    <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                        <a href="/dashboard" class="btn-primary" style="display:block;text-align:center;text-decoration:none;">
+                            Go to Dashboard
+                        </a>
+                        <a href="/profile" style="display:block;text-align:center;padding:0.75rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.04)'" onmouseout="this.style.background='transparent'">
+                            Edit Profile
+                        </a>
+                        <button id="signout-btn" style="background:none;border:none;color:rgba(255,255,255,0.2);font-size:0.75rem;cursor:pointer;padding:0.5rem;font-family:'Inter',sans-serif;transition:color 0.3s;" onmouseover="this.style.color='rgba(255,255,255,0.5)'" onmouseout="this.style.color='rgba(255,255,255,0.2)'">
+                            Sign out
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Auth forms -->
+                <div id="state-auth" class="hidden fade-up">
+
+                    <!-- Header -->
+                    <div style="text-align:center;margin-bottom:2rem;">
+                        <p class="font-serif" style="font-size:1.75rem;font-weight:300;font-style:italic;line-height:1.3;margin-bottom:0.5rem;letter-spacing:-0.01em;">
+                            Your adventure<br>begins here.
+                        </p>
+                        <p style="font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;">
+                            Create your account to get started
+                        </p>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="auth-tabs">
+                        <button id="tab-signup" class="auth-tab active">Create Account</button>
+                        <button id="tab-signin" class="auth-tab">Sign In</button>
+                    </div>
+
+                    <!-- SIGN UP FORM -->
+                    <form id="signup-form" style="display:flex;flex-direction:column;gap:0.875rem;">
                         <input
                             type="text"
                             name="name"
                             required
                             placeholder="Your name"
                             autocomplete="name"
-                            class="w-full rounded-xl px-4 py-3 text-sm"
+                            class="form-input"
                         />
-                    </div>
-                    <div>
                         <input
                             type="email"
                             name="email"
                             required
                             placeholder="Email"
                             autocomplete="email"
-                            class="w-full rounded-xl px-4 py-3 text-sm"
+                            class="form-input"
                         />
-                    </div>
-                    <div>
                         <input
                             type="password"
                             name="password"
@@ -150,63 +473,86 @@
                             minlength="6"
                             placeholder="Password (min 6 characters)"
                             autocomplete="new-password"
-                            class="w-full rounded-xl px-4 py-3 text-sm"
+                            class="form-input"
                         />
-                    </div>
 
-                    <button type="submit" id="signup-btn" class="cta-button w-full py-3 rounded-full text-sm font-medium">
-                        Join community
-                    </button>
+                        <div style="padding-top:0.25rem;">
+                            <button type="submit" id="signup-btn" class="btn-primary">
+                                Begin your adventure
+                            </button>
+                        </div>
 
-                    <p id="signup-error" class="hidden text-red-400 text-xs text-center"></p>
+                        <p id="signup-error" class="hidden" style="color:#f87171;font-size:0.7rem;text-align:center;"></p>
 
-                    <p class="text-white/20 text-xs text-center leading-relaxed">
-                        You'll be able to complete your profile, save adventures, and track enrollments from your dashboard.
-                    </p>
-                </form>
+                        <p style="color:rgba(255,255,255,0.15);font-size:0.65rem;text-align:center;line-height:1.6;margin-top:0.25rem;" class="tagline">
+                            8&ndash;12 per cohort &middot; Certified at the source &middot; Earned, not bought
+                        </p>
+                    </form>
 
-                <!-- SIGN IN FORM -->
-                <form id="signin-form" class="hidden space-y-4">
-                    <div>
+                    <!-- SIGN IN FORM -->
+                    <form id="signin-form" class="hidden" style="display:flex;flex-direction:column;gap:0.875rem;">
                         <input
                             type="email"
                             name="email"
                             required
                             placeholder="Email"
                             autocomplete="email"
-                            class="w-full rounded-xl px-4 py-3 text-sm"
+                            class="form-input"
                         />
-                    </div>
-                    <div>
                         <input
                             type="password"
                             name="password"
                             required
                             placeholder="Password"
                             autocomplete="current-password"
-                            class="w-full rounded-xl px-4 py-3 text-sm"
+                            class="form-input"
                         />
-                    </div>
 
-                    <button type="submit" id="signin-btn" class="cta-button w-full py-3 rounded-full text-sm font-medium">
-                        Sign in
-                    </button>
+                        <div style="padding-top:0.25rem;">
+                            <button type="submit" id="signin-btn" class="btn-primary">
+                                Sign in
+                            </button>
+                        </div>
 
-                    <p id="signin-error" class="hidden text-red-400 text-xs text-center"></p>
-                </form>
+                        <p id="signin-error" class="hidden" style="color:#f87171;font-size:0.7rem;text-align:center;"></p>
+
+                        <p style="color:rgba(255,255,255,0.15);font-size:0.65rem;text-align:center;line-height:1.6;margin-top:0.25rem;" class="tagline">
+                            8&ndash;12 per cohort &middot; Certified at the source &middot; Earned, not bought
+                        </p>
+                    </form>
+
+                </div>
+
             </div>
-
         </div>
-    </main>
+    </div>
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="text-white/20 text-xs">Earned, not bought. Certified at the source.</p>
-        </div>
-    </footer>
+    <!-- ═══════════════ SCENE ROTATION ═══════════════ -->
+    <script>
+        (function() {
+            const scenes = document.querySelectorAll('.scene');
+            const phrases = document.querySelectorAll('.story-phrase');
+            const dots = document.querySelectorAll('.scene-dot');
+            let current = 0;
+            const total = scenes.length;
 
-    <!-- Supabase -->
+            function next() {
+                scenes[current].classList.remove('active');
+                phrases[current].classList.remove('active');
+                dots[current].classList.remove('active');
+
+                current = (current + 1) % total;
+
+                scenes[current].classList.add('active');
+                phrases[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+
+            setInterval(next, 6000);
+        })();
+    </script>
+
+    <!-- ═══════════════ SUPABASE AUTH ═══════════════ -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
 
@@ -230,17 +576,21 @@
 
             // Tab switching
             tabSignup.addEventListener('click', () => {
-                tabSignup.className = 'tab-active pb-3 text-sm font-medium transition-colors';
-                tabSignin.className = 'tab-inactive pb-3 text-sm font-medium transition-colors';
+                tabSignup.classList.add('active');
+                tabSignin.classList.remove('active');
                 signupForm.classList.remove('hidden');
+                signupForm.style.display = 'flex';
                 signinForm.classList.add('hidden');
+                signinForm.style.display = 'none';
             });
 
             tabSignin.addEventListener('click', () => {
-                tabSignin.className = 'tab-active pb-3 text-sm font-medium transition-colors';
-                tabSignup.className = 'tab-inactive pb-3 text-sm font-medium transition-colors';
+                tabSignin.classList.add('active');
+                tabSignup.classList.remove('active');
                 signinForm.classList.remove('hidden');
+                signinForm.style.display = 'flex';
                 signupForm.classList.add('hidden');
+                signupForm.style.display = 'none';
             });
 
             // Check if already signed in
@@ -317,7 +667,7 @@
                     errorEl.textContent = err.message || 'Something went wrong.';
                     errorEl.classList.remove('hidden');
                     btn.disabled = false;
-                    btn.textContent = 'Join community';
+                    btn.textContent = 'Begin your adventure';
                 }
             });
 
