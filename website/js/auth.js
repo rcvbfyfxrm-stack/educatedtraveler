@@ -269,19 +269,23 @@
 
     function updateAuthUI() {
         const signInBtn = document.getElementById('sign-in-btn');
+        const joinLink = document.getElementById('join-link');
+        const mobileJoinLink = document.getElementById('mobile-join-link');
         const dashboardLink = document.getElementById('dashboard-link');
         const mobileSignInBtn = document.getElementById('mobile-sign-in-btn');
         const mobileDashboardLink = document.getElementById('mobile-dashboard-link');
 
         if (currentUser) {
-            // User is signed in - show dashboard link
             if (signInBtn) signInBtn.classList.add('hidden');
+            if (joinLink) joinLink.classList.add('hidden');
+            if (mobileJoinLink) mobileJoinLink.classList.add('hidden');
             if (dashboardLink) dashboardLink.classList.remove('hidden');
             if (mobileSignInBtn) mobileSignInBtn.classList.add('hidden');
             if (mobileDashboardLink) mobileDashboardLink.classList.remove('hidden');
         } else {
-            // User is signed out - show sign in button
             if (signInBtn) signInBtn.classList.remove('hidden');
+            if (joinLink) joinLink.classList.remove('hidden');
+            if (mobileJoinLink) mobileJoinLink.classList.remove('hidden');
             if (dashboardLink) dashboardLink.classList.add('hidden');
             if (mobileSignInBtn) mobileSignInBtn.classList.remove('hidden');
             if (mobileDashboardLink) mobileDashboardLink.classList.add('hidden');

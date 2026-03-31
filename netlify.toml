@@ -32,6 +32,11 @@
   status = 200
 
 [[redirects]]
+  from = "/join"
+  to = "/join.html"
+  status = 200
+
+[[redirects]]
   from = "/instructor-dashboard"
   to = "/instructor-dashboard.html"
   status = 200

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Create your account or sign in to access your adventures.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 102, 177, 0.3);
+        }
+
+        input {
+            background: rgba(255, 255, 255, 0.04) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            color: white !important;
+        }
+        input:focus {
+            border-color: rgba(0, 102, 177, 0.5) !important;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 102, 177, 0.15);
+        }
+        input::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.6s ease-out forwards; }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .spinner { animation: spin 1s linear infinite; }
+
+        .tab-active {
+            color: white;
+            border-bottom: 2px solid #3B8DD4;
+        }
+        .tab-inactive {
+            color: rgba(255,255,255,0.4);
+            border-bottom: 2px solid transparent;
+        }
+        .tab-inactive:hover { color: rgba(255,255,255,0.7); }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col">
+
+    <!-- Minimal nav -->
+    <nav class="px-6 py-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="/" class="text-lg font-semibold tracking-wider hover:opacity-80 transition-opacity">
+                EDUCATED<span class="text-blue-400">TRAVELER</span>
+            </a>
+            <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">
+                Back to home
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="flex-1 flex items-center justify-center px-6 pb-16">
+        <div class="w-full max-w-sm fade-up">
+
+            <!-- Loading (checking if already signed in) -->
+            <div id="state-loading" class="text-center py-20">
+                <div class="w-10 h-10 mx-auto mb-4 border-2 border-blue-400/30 border-t-blue-400 rounded-full spinner"></div>
+            </div>
+
+            <!-- Already signed in -->
+            <div id="state-signed-in" class="hidden text-center py-10">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-400 flex items-center justify-center text-2xl font-semibold">
+                    <span id="signed-in-initials">--</span>
+                </div>
+                <p class="text-xl font-light mb-1" id="signed-in-name">Welcome back</p>
+                <p class="text-white/40 text-sm mb-8" id="signed-in-email"></p>
+                <div class="space-y-3">
+                    <a href="/dashboard" class="block w-full py-3 rounded-full cta-button text-center text-sm font-medium">
+                        Go to Dashboard
+                    </a>
+                    <a href="/profile" class="block w-full py-3 rounded-full border border-white/15 text-center text-sm text-white/60 hover:bg-white/5 transition-colors">
+                        Edit Profile
+                    </a>
+                    <button id="signout-btn" class="w-full py-3 text-sm text-white/30 hover:text-white/60 transition-colors">
+                        Sign out
+                    </button>
+                </div>
+            </div>
+
+            <!-- Auth forms -->
+            <div id="state-auth" class="hidden">
+
+                <!-- Tabs -->
+                <div class="flex gap-6 mb-8 border-b border-white/10">
+                    <button id="tab-signup" class="tab-active pb-3 text-sm font-medium transition-colors">Create account</button>
+                    <button id="tab-signin" class="tab-inactive pb-3 text-sm font-medium transition-colors">Sign in</button>
+                </div>
+
+                <!-- SIGN UP FORM -->
+                <form id="signup-form" class="space-y-4">
+                    <div>
+                        <input
+                            type="text"
+                            name="name"
+                            required
+                            placeholder="Your name"
+                            autocomplete="name"
+                            class="w-full rounded-xl px-4 py-3 text-sm"
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            placeholder="Email"
+                            autocomplete="email"
+                            class="w-full rounded-xl px-4 py-3 text-sm"
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="password"
+                            name="password"
+                            required
+                            minlength="6"
+                            placeholder="Password (min 6 characters)"
+                            autocomplete="new-password"
+                            class="w-full rounded-xl px-4 py-3 text-sm"
+                        />
+                    </div>
+
+                    <button type="submit" id="signup-btn" class="cta-button w-full py-3 rounded-full text-sm font-medium">
+                        Join community
+                    </button>
+
+                    <p id="signup-error" class="hidden text-red-400 text-xs text-center"></p>
+
+                    <p class="text-white/20 text-xs text-center leading-relaxed">
+                        You'll be able to complete your profile, save adventures, and track enrollments from your dashboard.
+                    </p>
+                </form>
+
+                <!-- SIGN IN FORM -->
+                <form id="signin-form" class="hidden space-y-4">
+                    <div>
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                            placeholder="Email"
+                            autocomplete="email"
+                            class="w-full rounded-xl px-4 py-3 text-sm"
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="password"
+                            name="password"
+                            required
+                            placeholder="Password"
+                            autocomplete="current-password"
+                            class="w-full rounded-xl px-4 py-3 text-sm"
+                        />
+                    </div>
+
+                    <button type="submit" id="signin-btn" class="cta-button w-full py-3 rounded-full text-sm font-medium">
+                        Sign in
+                    </button>
+
+                    <p id="signin-error" class="hidden text-red-400 text-xs text-center"></p>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-white/20 text-xs">Earned, not bought. Certified at the source.</p>
+        </div>
+    </footer>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+
+    <script>
+        function waitForSupabase(cb) {
+            if (window.supabaseClient) cb();
+            else setTimeout(() => waitForSupabase(cb), 50);
+        }
+
+        waitForSupabase(() => {
+            const supabase = window.supabaseClient;
+
+            const stateLoading = document.getElementById('state-loading');
+            const stateSignedIn = document.getElementById('state-signed-in');
+            const stateAuth = document.getElementById('state-auth');
+
+            const tabSignup = document.getElementById('tab-signup');
+            const tabSignin = document.getElementById('tab-signin');
+            const signupForm = document.getElementById('signup-form');
+            const signinForm = document.getElementById('signin-form');
+
+            // Tab switching
+            tabSignup.addEventListener('click', () => {
+                tabSignup.className = 'tab-active pb-3 text-sm font-medium transition-colors';
+                tabSignin.className = 'tab-inactive pb-3 text-sm font-medium transition-colors';
+                signupForm.classList.remove('hidden');
+                signinForm.classList.add('hidden');
+            });
+
+            tabSignin.addEventListener('click', () => {
+                tabSignin.className = 'tab-active pb-3 text-sm font-medium transition-colors';
+                tabSignup.className = 'tab-inactive pb-3 text-sm font-medium transition-colors';
+                signinForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+            });
+
+            // Check if already signed in
+            (async () => {
+                try {
+                    const { data: { user } } = await supabase.auth.getUser();
+                    if (user) {
+                        showSignedIn(user);
+                    } else {
+                        stateLoading.classList.add('hidden');
+                        stateAuth.classList.remove('hidden');
+                    }
+                } catch (e) {
+                    stateLoading.classList.add('hidden');
+                    stateAuth.classList.remove('hidden');
+                }
+            })();
+
+            function showSignedIn(user) {
+                const name = user.user_metadata?.name || user.email.split('@')[0];
+                const initials = name.slice(0, 2).toUpperCase();
+
+                document.getElementById('signed-in-initials').textContent = initials;
+                document.getElementById('signed-in-name').textContent = name;
+                document.getElementById('signed-in-email').textContent = user.email;
+
+                stateLoading.classList.add('hidden');
+                stateAuth.classList.add('hidden');
+                stateSignedIn.classList.remove('hidden');
+            }
+
+            // Sign out
+            document.getElementById('signout-btn').addEventListener('click', async () => {
+                await supabase.auth.signOut();
+                window.location.reload();
+            });
+
+            // SIGN UP
+            signupForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = signupForm.querySelector('input[name="name"]').value.trim();
+                const email = signupForm.querySelector('input[name="email"]').value.trim();
+                const password = signupForm.querySelector('input[name="password"]').value;
+                const btn = document.getElementById('signup-btn');
+                const errorEl = document.getElementById('signup-error');
+
+                errorEl.classList.add('hidden');
+                btn.disabled = true;
+                btn.textContent = 'Creating account...';
+
+                try {
+                    const { data, error } = await supabase.auth.signUp({
+                        email,
+                        password,
+                        options: { data: { name } }
+                    });
+                    if (error) throw error;
+
+                    const user = data?.user;
+                    if (user) {
+                        // Create profile
+                        await supabase.from('profiles').upsert({
+                            id: user.id,
+                            email: email,
+                            name: name,
+                            xp: 100,
+                            level: 1
+                        });
+
+                        // Redirect to dashboard
+                        window.location.href = '/dashboard';
+                    }
+                } catch (err) {
+                    errorEl.textContent = err.message || 'Something went wrong.';
+                    errorEl.classList.remove('hidden');
+                    btn.disabled = false;
+                    btn.textContent = 'Join community';
+                }
+            });
+
+            // SIGN IN
+            signinForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = signinForm.querySelector('input[name="email"]').value.trim();
+                const password = signinForm.querySelector('input[name="password"]').value;
+                const btn = document.getElementById('signin-btn');
+                const errorEl = document.getElementById('signin-error');
+
+                errorEl.classList.add('hidden');
+                btn.disabled = true;
+                btn.textContent = 'Signing in...';
+
+                try {
+                    const { error } = await supabase.auth.signInWithPassword({ email, password });
+                    if (error) throw error;
+
+                    window.location.href = '/dashboard';
+                } catch (err) {
+                    errorEl.textContent = err.message || 'Invalid email or password.';
+                    errorEl.classList.remove('hidden');
+                    btn.disabled = false;
+                    btn.textContent = 'Sign in';
+                }
+            });
+
+            // Check URL params for redirect hint
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('tab') === 'signin') {
+                tabSignin.click();
+            }
+        });
+    </script>
+</body>
+</html>
