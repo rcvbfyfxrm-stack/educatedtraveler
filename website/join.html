@@ -557,6 +557,33 @@
     <script src="/js/supabase-config.js"></script>
 
     <script>
+        // Email service integration (Loops.so)
+        // Replace LOOPS_API_KEY with your actual key from https://app.loops.so/settings/api
+        const LOOPS_API_KEY = '';
+
+        async function sendToEmailService(contact) {
+            if (!LOOPS_API_KEY) return; // Skip if not configured yet
+
+            try {
+                await fetch('https://app.loops.so/api/v1/contacts/create', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + LOOPS_API_KEY
+                    },
+                    body: JSON.stringify({
+                        email: contact.email,
+                        firstName: contact.name?.split(' ')[0] || '',
+                        lastName: contact.name?.split(' ').slice(1).join(' ') || '',
+                        source: contact.source || 'website',
+                        userGroup: contact.role || 'student'
+                    })
+                });
+            } catch (e) {
+                console.warn('Email service webhook failed:', e);
+            }
+        }
+
         function waitForSupabase(cb) {
             if (window.supabaseClient) cb();
             else setTimeout(() => waitForSupabase(cb), 50);
@@ -659,6 +686,9 @@
                             xp: 100,
                             level: 1
                         });
+
+                        // Send to email service (Loops.so / webhook)
+                        sendToEmailService({ email, name, source: 'join-page' });
 
                         // Redirect to dashboard
                         window.location.href = '/dashboard';
