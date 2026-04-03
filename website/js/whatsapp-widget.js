@@ -5,7 +5,7 @@
     'use strict';
 
     // Replace with your WhatsApp Business number (no +, no spaces)
-    const WHATSAPP_NUMBER = '17862470368';
+    const WHATSAPP_NUMBER = '33695903520';
 
     function getPrefilledMessage() {
         // Check if quest results are visible (user completed the quest on index.html)

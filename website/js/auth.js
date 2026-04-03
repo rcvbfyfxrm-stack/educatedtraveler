@@ -4,9 +4,11 @@
 (function() {
     'use strict';
 
-    function waitForClient(cb) {
-        if (window.supabaseClient) cb();
-        else setTimeout(() => waitForClient(cb), 50);
+    function waitForClient(cb, attempt) {
+        attempt = attempt || 0;
+        if (window.supabaseClient) { cb(); return; }
+        if (window.supabaseError) { console.warn('Auth: Supabase unavailable, skipping init'); return; }
+        if (attempt < 120) setTimeout(function() { waitForClient(cb, attempt + 1); }, 50);
     }
 
     waitForClient(initAuth);
