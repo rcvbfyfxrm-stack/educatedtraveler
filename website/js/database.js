@@ -491,6 +491,18 @@
     // FULL DASHBOARD DATA
     // ========================================
 
+    async function getPublicProfile(userId) {
+        const { data, error } = await supabase
+            .from('profiles')
+            .select('first_name, name, age, location, about, interests, credentials, existing_certs, fitness, comfort_zone, profession, adventure_years, previous_experience, skills, what_matters, languages, avatar_url, visible')
+            .eq('id', userId)
+            .eq('visible', true)
+            .single();
+
+        if (error) return null;
+        return data;
+    }
+
     async function getDashboardData(userId) {
         const [profile, preferences, adventures, badges] = await Promise.all([
             getProfile(userId),
@@ -546,6 +558,9 @@
         enrollInCohort,
         getUserEnrollments,
         cancelEnrollment,
+
+        // Public
+        getPublicProfile,
 
         // Combined
         saveQuestResults,

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Profile — EDUCATEDTRAVELER</title>
+    <title>Crew Card — EDUCATEDTRAVELER</title>
 
-    <meta name="description" content="Build your adventure profile. Show the world who you are and what you've earned.">
-    <meta property="og:title" content="Your Profile — EDUCATEDTRAVELER">
+    <meta name="description" content="View an EDUCATEDTRAVELER member's crew card.">
+    <meta property="og:title" content="Crew Card — EDUCATEDTRAVELER">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
@@ -15,42 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'blue': {
-                            400: '#3B8DD4',
-                            500: '#0066B1',
-                            600: '#00518d',
-                        },
-                        'steel': {
-                            300: '#a0a0a0',
-                            400: '#6f6f6f',
-                            500: '#4a4a4a',
-                            600: '#333333',
-                            700: '#222222',
-                            800: '#161616',
-                            900: '#0a0a0a',
-                        },
-                        'cat-ocean': '#06B6D4',
-                        'cat-adventure': '#EF4444',
-                        'cat-culinary': '#F59E0B',
-                        'cat-wellness': '#F97316',
-                        'cat-creative': '#8B5CF6',
-                    }
-                }
-            }
-        }
-    </script>
 
     <style>
-        :root {
-            --blue-main: #0066B1;
-            --blue-light: #3B8DD4;
-        }
-
         * { -webkit-font-smoothing: antialiased; }
         body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
         html { scroll-behavior: smooth; }
@@ -61,21 +27,19 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
-
         .glass-strong {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(40px);
             border: 1px solid rgba(255, 255, 255, 0.10);
         }
 
-        .cta-button {
-            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 102, 177, 0.3);
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 8px;
+            font-family: 'IBM Plex Mono', monospace;
         }
 
         @keyframes fadeUp {
@@ -85,186 +49,36 @@
         .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
         .delay-2 { animation-delay: 0.4s; opacity: 0; }
-        .delay-3 { animation-delay: 0.6s; opacity: 0; }
 
-        /* ═══════════════════════════════════════ */
-        /* PROFILE PHOTO                           */
-        /* ═══════════════════════════════════════ */
-        .profile-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .profile-photo:hover {
-            box-shadow: 0 0 30px rgba(0, 102, 177, 0.4);
-        }
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        .profile-photo .upload-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-            border-radius: 50%;
-        }
-        .profile-photo:hover .upload-overlay {
-            opacity: 1;
-        }
-
-        /* ═══════════════════════════════════════ */
-        /* CATEGORY CHIPS                          */
-        /* ═══════════════════════════════════════ */
-        .chip {
-            padding: 8px 16px;
+        .interest-tag {
+            padding: 6px 14px;
             border-radius: 9999px;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            font-size: 0.8rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.03);
             color: rgba(255, 255, 255, 0.6);
-            user-select: none;
         }
-        .chip:hover {
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
-        }
-        .chip.selected {
-            color: white;
-            border-color: currentColor;
+        .interest-tag.ocean { background: rgba(6,182,212,0.12); border-color: rgba(6,182,212,0.3); color: #06B6D4; }
+        .interest-tag.adventure { background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.3); color: #EF4444; }
+        .interest-tag.culinary { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: #F59E0B; }
+        .interest-tag.wellness { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.3); color: #F97316; }
+        .interest-tag.creative { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.3); color: #8B5CF6; }
+
+        .creature-badge {
+            width: 64px; height: 64px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
         }
 
-        /* Category-colored selected states */
-        .chip[data-category="ocean"].selected {
-            background: rgba(6, 182, 212, 0.15);
-            border-color: #06B6D4;
-            color: #06B6D4;
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
-        .chip[data-category="adventure"].selected {
-            background: rgba(239, 68, 68, 0.15);
-            border-color: #EF4444;
-            color: #EF4444;
-        }
-        .chip[data-category="culinary"].selected {
-            background: rgba(245, 158, 11, 0.15);
-            border-color: #F59E0B;
-            color: #F59E0B;
-        }
-        .chip[data-category="wellness"].selected {
-            background: rgba(249, 115, 22, 0.15);
-            border-color: #F97316;
-            color: #F97316;
-        }
-        .chip[data-category="creative"].selected {
-            background: rgba(139, 92, 246, 0.15);
-            border-color: #8B5CF6;
-            color: #8B5CF6;
-        }
-
-        /* ═══════════════════════════════════════ */
-        /* FORM INPUTS                             */
-        /* ═══════════════════════════════════════ */
-        .profile-input {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 12px 16px;
-            color: white;
-            font-size: 0.875rem;
-            transition: border-color 0.2s;
-            outline: none;
-        }
-        .profile-input:focus {
-            border-color: rgba(0, 102, 177, 0.5);
-        }
-        .profile-input::placeholder {
-            color: rgba(255, 255, 255, 0.25);
-        }
-
-        textarea.profile-input {
-            resize: vertical;
-            min-height: 80px;
-        }
-
-        .profile-select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236f6f6f'%3e%3cpath d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3e%3c/svg%3e");
-            background-position: right 12px center;
-            background-repeat: no-repeat;
-            background-size: 16px;
-            padding-right: 40px;
-        }
-
-        /* ═══════════════════════════════════════ */
-        /* EXPERIENCE BADGES (earned)              */
-        /* ═══════════════════════════════════════ */
-        .experience-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 16px;
-            transition: all 0.3s ease;
-        }
-        .experience-badge:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-2px);
-        }
-
-        /* ═══════════════════════════════════════ */
-        /* SECTION HEADERS                         */
-        /* ═══════════════════════════════════════ */
-        .section-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.35);
-            margin-bottom: 12px;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        /* Toggle switch */
-        .toggle-track {
-            width: 44px;
-            height: 24px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background 0.2s;
-            position: relative;
-        }
-        .toggle-track.active {
-            background: rgba(0, 102, 177, 0.6);
-        }
-        .toggle-thumb {
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            transition: transform 0.2s;
-        }
-        .toggle-track.active .toggle-thumb {
-            transform: translateX(20px);
-        }
+        .spinner { animation: spin 1s linear infinite; }
     </style>
 </head>
 
@@ -273,339 +87,133 @@
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-3">
-                <span class="text-lg font-semibold tracking-[0.15em]">
-                    EDUCATED<span class="text-blue-400">TRAVELER</span>
-                </span>
+            <a href="/" class="text-lg font-semibold tracking-[0.15em]">
+                EDUCATED<span class="text-blue-400">TRAVELER</span>
             </a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Adventures</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
-                <a href="community.html" class="text-sm px-4 py-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors">
-                    Join Waitlist
-                </a>
-                <a href="profile.html" class="text-sm text-blue-400 font-medium">Profile</a>
+                <a href="community.html" class="text-sm px-4 py-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors">Join Waitlist</a>
                 <div id="auth-nav">
-                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-colors">
-                        Sign In
-                    </button>
-                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-colors">
-                        Dashboard
-                    </a>
+                    <button id="sign-in-btn" class="text-sm px-4 py-2 rounded-full border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-colors">Sign In</button>
+                    <a href="dashboard.html" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-blue-500/50 text-blue-400 hover:bg-blue-500/10 transition-colors">Dashboard</a>
                 </div>
-            </div>
-            <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-blue-500/10">
-            <div class="px-6 py-4 space-y-3">
-                <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Adventures</a>
-                <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
-                <a href="community.html" class="block py-3 text-blue-400 hover:text-blue-300 transition-colors">Join Waitlist</a>
-                <a href="profile.html" class="block py-3 text-blue-400 font-medium">Profile</a>
-                <button id="mobile-sign-in-btn" class="block w-full text-left py-3 text-blue-400 hover:text-blue-300 transition-colors">Sign In</button>
-                <a href="dashboard.html" id="mobile-dashboard-link" class="hidden block py-3 text-blue-400 hover:text-blue-300 transition-colors">My Dashboard</a>
             </div>
         </div>
     </nav>
 
-    <!-- Profile Header -->
-    <section class="pt-28 pb-8 px-6">
-        <div class="max-w-3xl mx-auto">
-            <p class="section-label fade-up">Your Profile</p>
-            <h1 class="text-3xl md:text-4xl font-light mb-2 fade-up delay-1">Who are you?</h1>
-            <p class="text-white/40 text-sm fade-up delay-2">Show your cohort and future adventure partners who you are. This is your crew card.</p>
+    <!-- Loading State -->
+    <div id="loading-state" class="min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-12 h-12 mx-auto mb-4 border-2 border-blue-400/30 border-t-blue-400 rounded-full spinner"></div>
+            <p class="text-white/50 text-sm">Loading crew card...</p>
         </div>
-    </section>
+    </div>
 
-    <!-- Profile Form -->
-    <section class="px-6 pb-20">
-        <div class="max-w-3xl mx-auto space-y-10">
+    <!-- Not Found State -->
+    <div id="not-found-state" class="hidden min-h-screen flex items-center justify-center px-6">
+        <div class="text-center max-w-md">
+            <div class="text-5xl mb-6">&#x1F30A;</div>
+            <h1 class="text-2xl font-light mb-4">Profile not found</h1>
+            <p class="text-white/50 text-sm mb-8">This crew card doesn't exist or is set to private.</p>
+            <a href="/" class="text-blue-400 hover:text-blue-300 text-sm transition-colors">Back to home</a>
+        </div>
+    </div>
 
-            <!-- ═══════════════════════════════════════ -->
-            <!-- PHOTO + BASICS                          -->
-            <!-- ═══════════════════════════════════════ -->
-            <div class="glass-strong rounded-2xl p-8 fade-up delay-2">
-                <div class="flex flex-col sm:flex-row items-start gap-8">
-                    <!-- Photo -->
+    <!-- Public Profile Card -->
+    <main id="profile-card" class="hidden pt-28 pb-20 px-6">
+        <div class="max-w-2xl mx-auto">
+
+            <!-- Header: Photo + Name + Creature -->
+            <div class="glass-strong rounded-2xl p-8 mb-6 fade-up">
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                    <!-- Avatar -->
                     <div class="flex-shrink-0">
-                        <div class="profile-photo" id="photo-upload" title="Upload photo">
-                            <svg class="w-10 h-10 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
-                            </svg>
-                            <div class="upload-overlay">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <input type="file" id="photo-input" accept="image/*" class="hidden">
-                    </div>
-
-                    <!-- Name & basics -->
-                    <div class="flex-1 w-full space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="section-label">First name</label>
-                                <input type="text" class="profile-input" placeholder="Your first name" id="first-name">
-                            </div>
-                            <div>
-                                <label class="section-label">Age</label>
-                                <input type="number" class="profile-input" placeholder="Age" id="age" min="18" max="99">
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="section-label">From</label>
-                                <input type="text" class="profile-input" placeholder="City, Country" id="location">
-                            </div>
-                            <div>
-                                <label class="section-label">Current status</label>
-                                <select class="profile-input profile-select" id="status">
-                                    <option value="" disabled selected>Select one</option>
-                                    <option value="working">Working full-time</option>
-                                    <option value="freelance">Freelance / Self-employed</option>
-                                    <option value="sabbatical">On sabbatical</option>
-                                    <option value="nomad">Digital nomad</option>
-                                    <option value="career-change">Career change</option>
-                                    <option value="gap-year">Gap year / Break</option>
-                                    <option value="retired">Retired / Semi-retired</option>
-                                    <option value="student">Student</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
+                        <div id="card-avatar" class="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-semibold" style="background: linear-gradient(135deg, #0066B1, #3B8DD4);">
+                            <span id="card-initials">--</span>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- ═══════════════════════════════════════ -->
-            <!-- ABOUT YOU (free text)                    -->
-            <!-- ═══════════════════════════════════════ -->
-            <div class="glass-strong rounded-2xl p-8 fade-up">
-                <p class="section-label">About you</p>
-                <p class="text-white/40 text-xs mb-4">A few lines about who you are. Your cohort will read this. Be real.</p>
-                <textarea class="profile-input" id="about" placeholder="I'm a software engineer from Berlin taking a sabbatical. I've been sailing dinghies since I was a kid and I want to cross an ocean before I turn 40. I cook terribly but I eat beautifully." rows="4"></textarea>
-            </div>
+                    <!-- Info -->
+                    <div class="flex-1 text-center sm:text-left">
+                        <h1 id="card-name" class="text-2xl font-light mb-1">Explorer</h1>
+                        <p id="card-meta" class="text-white/40 text-sm mb-3"></p>
+                        <p id="card-about" class="text-white/60 text-sm leading-relaxed"></p>
+                    </div>
 
-            <!-- ═══════════════════════════════════════ -->
-            <!-- WHAT DRAWS YOU (multi-choice categories) -->
-            <!-- ═══════════════════════════════════════ -->
-            <div class="glass-strong rounded-2xl p-8 fade-up">
-                <p class="section-label">What draws you</p>
-                <p class="text-white/40 text-xs mb-6">Select everything that speaks to you. This helps us match you with the right adventures and cohort.</p>
-
-                <!-- Sailing & Ocean -->
-                <div class="mb-6">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-2 h-2 rounded-full bg-cat-ocean"></div>
-                        <span class="text-xs font-medium text-cat-ocean uppercase tracking-wider">Sailing & Ocean</span>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="chip" data-category="ocean" data-value="sailing">Sailing</button>
-                        <button class="chip" data-category="ocean" data-value="surfing">Surfing</button>
-                        <button class="chip" data-category="ocean" data-value="ocean-crossing">Ocean crossings</button>
-                        <button class="chip" data-category="ocean" data-value="navigation">Navigation</button>
-                        <button class="chip" data-category="ocean" data-value="polar">Polar expeditions</button>
-                        <button class="chip" data-category="ocean" data-value="freediving">Freediving</button>
-                        <button class="chip" data-category="ocean" data-value="open-water">Open water</button>
-                    </div>
-                </div>
-
-                <!-- Adventure -->
-                <div class="mb-6">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-2 h-2 rounded-full bg-cat-adventure"></div>
-                        <span class="text-xs font-medium text-cat-adventure uppercase tracking-wider">Adventure</span>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="chip" data-category="adventure" data-value="climbing">Rock climbing</button>
-                        <button class="chip" data-category="adventure" data-value="wingsuit">Wingsuit / BASE</button>
-                        <button class="chip" data-category="adventure" data-value="kayaking">Whitewater kayaking</button>
-                        <button class="chip" data-category="adventure" data-value="martial-arts">Martial arts</button>
-                        <button class="chip" data-category="adventure" data-value="tracking">Wilderness tracking</button>
-                        <button class="chip" data-category="adventure" data-value="falconry">Falconry</button>
-                        <button class="chip" data-category="adventure" data-value="endurance">Endurance / Ultra</button>
-                        <button class="chip" data-category="adventure" data-value="altitude">Mountains / Altitude</button>
-                    </div>
-                </div>
-
-                <!-- Culinary -->
-                <div class="mb-6">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-2 h-2 rounded-full bg-cat-culinary"></div>
-                        <span class="text-xs font-medium text-cat-culinary uppercase tracking-wider">Culinary</span>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="chip" data-category="culinary" data-value="sushi">Sushi / Japanese</button>
-                        <button class="chip" data-category="culinary" data-value="wine">Wine</button>
-                        <button class="chip" data-category="culinary" data-value="pastry">Pastry</button>
-                        <button class="chip" data-category="culinary" data-value="molecular">Molecular gastronomy</button>
-                        <button class="chip" data-category="culinary" data-value="whisky">Whisky / Spirits</button>
-                        <button class="chip" data-category="culinary" data-value="fermentation">Fermentation</button>
-                        <button class="chip" data-category="culinary" data-value="fire-cooking">Fire cooking</button>
-                        <button class="chip" data-category="culinary" data-value="foraging">Foraging</button>
-                    </div>
-                </div>
-
-                <!-- Wellness -->
-                <div class="mb-6">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-2 h-2 rounded-full bg-cat-wellness"></div>
-                        <span class="text-xs font-medium text-cat-wellness uppercase tracking-wider">Wellness</span>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="chip" data-category="wellness" data-value="yoga">Yoga</button>
-                        <button class="chip" data-category="wellness" data-value="breathwork">Breathwork</button>
-                        <button class="chip" data-category="wellness" data-value="meditation">Meditation / Vipassana</button>
-                        <button class="chip" data-category="wellness" data-value="cold-exposure">Cold exposure</button>
-                        <button class="chip" data-category="wellness" data-value="movement">Movement / Mobility</button>
-                        <button class="chip" data-category="wellness" data-value="fasting">Fasting / Detox</button>
-                    </div>
-                </div>
-
-                <!-- Creative -->
-                <div class="mb-2">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-2 h-2 rounded-full bg-cat-creative"></div>
-                        <span class="text-xs font-medium text-cat-creative uppercase tracking-wider">Creative</span>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="chip" data-category="creative" data-value="photography">Photography</button>
-                        <button class="chip" data-category="creative" data-value="ceramics">Ceramics / Pottery</button>
-                        <button class="chip" data-category="creative" data-value="tilework">Zellige / Tilework</button>
-                        <button class="chip" data-category="creative" data-value="writing">Writing</button>
-                        <button class="chip" data-category="creative" data-value="music">Music / Instrument</button>
-                        <button class="chip" data-category="creative" data-value="woodwork">Woodwork / Carpentry</button>
-                        <button class="chip" data-category="creative" data-value="metalwork">Metalwork / Forging</button>
+                    <!-- Creature badge -->
+                    <div class="flex flex-col items-center gap-1">
+                        <div id="card-creature" class="creature-badge">&#x1F95A;</div>
+                        <span id="card-creature-name" class="text-[0.6rem] font-mono uppercase tracking-wider text-white/25">Egg</span>
                     </div>
                 </div>
             </div>
 
-            <!-- ═══════════════════════════════════════ -->
-            <!-- EXPERIENCE LEVEL                        -->
-            <!-- ═══════════════════════════════════════ -->
-            <div class="glass-strong rounded-2xl p-8 fade-up">
-                <p class="section-label">Your experience</p>
-                <p class="text-white/40 text-xs mb-6">Where are you starting from? No wrong answers.</p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <!-- Background -->
+            <div id="card-background-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-1">
+                <p class="section-label">Background</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div>
-                        <label class="section-label">Fitness level</label>
-                        <select class="profile-input profile-select" id="fitness">
-                            <option value="" disabled selected>Select one</option>
-                            <option value="beginner">Getting started</option>
-                            <option value="moderate">Moderately active</option>
-                            <option value="fit">Fit and regular</option>
-                            <option value="athlete">Athlete / Very fit</option>
-                        </select>
+                        <p class="text-white/30 text-xs">Professional field</p>
+                        <p id="card-profession" class="text-white/70 text-sm"></p>
                     </div>
                     <div>
-                        <label class="section-label">Comfort zone</label>
-                        <select class="profile-input profile-select" id="comfort">
-                            <option value="" disabled selected>Select one</option>
-                            <option value="gentle">Stretch me gently</option>
-                            <option value="push">Push me</option>
-                            <option value="break">Break my limits</option>
-                        </select>
+                        <p class="text-white/30 text-xs">Adventure experience</p>
+                        <p id="card-adventure-years" class="text-white/70 text-sm"></p>
                     </div>
                 </div>
-
-                <div>
-                    <label class="section-label">Certifications you already hold</label>
-                    <textarea class="profile-input" id="certs" placeholder="e.g. PADI Open Water, RYA Day Skipper, RYT-200, WSET Level 2..." rows="2"></textarea>
+                <div id="card-previous-wrap" class="hidden mb-4">
+                    <p class="text-white/30 text-xs mb-1">Previous experience</p>
+                    <p id="card-previous" class="text-white/60 text-sm"></p>
+                </div>
+                <div id="card-skills-wrap" class="hidden">
+                    <p class="text-white/30 text-xs mb-1">Skills</p>
+                    <p id="card-skills" class="text-white/60 text-sm"></p>
                 </div>
             </div>
 
-            <!-- ═══════════════════════════════════════ -->
-            <!-- WHAT MATTERS TO YOU (free text)          -->
-            <!-- ═══════════════════════════════════════ -->
-            <div class="glass-strong rounded-2xl p-8 fade-up">
-                <p class="section-label">What matters to you</p>
-                <p class="text-white/40 text-xs mb-4">In your own words. What are you looking for? What would make this the best experience of your life?</p>
-                <textarea class="profile-input" id="what-matters" placeholder="I want to disconnect from screens and learn something real with my hands. I want to meet people who are as serious about this as I am. I don't want luxury — I want truth." rows="4"></textarea>
+            <!-- Interests -->
+            <div id="card-interests-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-1">
+                <p class="section-label">Drawn to</p>
+                <div id="card-interests" class="flex flex-wrap gap-2"></div>
             </div>
 
-            <!-- ═══════════════════════════════════════ -->
-            <!-- AVAILABILITY & PREFERENCES               -->
-            <!-- ═══════════════════════════════════════ -->
-            <div class="glass-strong rounded-2xl p-8 fade-up">
-                <p class="section-label">Availability & preferences</p>
+            <!-- Credentials -->
+            <div id="card-creds-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-2">
+                <p class="section-label">Credentials</p>
+                <div id="card-creds" class="flex flex-wrap gap-2"></div>
+            </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <!-- Fitness & Comfort -->
+            <div id="card-level-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-2">
+                <p class="section-label">Starting point</p>
+                <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="section-label">When could you go?</label>
-                        <select class="profile-input profile-select" id="availability">
-                            <option value="" disabled selected>Select one</option>
-                            <option value="anytime">Anytime — I'm flexible</option>
-                            <option value="1-3months">Within 1-3 months</option>
-                            <option value="3-6months">Within 3-6 months</option>
-                            <option value="6-12months">Within 6-12 months</option>
-                            <option value="exploring">Just exploring for now</option>
-                        </select>
+                        <p class="text-white/30 text-xs">Fitness</p>
+                        <p id="card-fitness" class="text-white/70 text-sm"></p>
                     </div>
                     <div>
-                        <label class="section-label">Preferred duration</label>
-                        <select class="profile-input profile-select" id="duration">
-                            <option value="" disabled selected>Select one</option>
-                            <option value="foundation">7-21 days (Foundation)</option>
-                            <option value="mastery">30-60 days (Mastery)</option>
-                            <option value="saga">90-180 days (Saga)</option>
-                            <option value="open">Open to anything</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="mb-6">
-                    <label class="section-label">Languages you speak</label>
-                    <input type="text" class="profile-input" id="languages" placeholder="English, French, Spanish...">
-                </div>
-
-                <!-- Visibility toggle -->
-                <div class="flex items-center justify-between pt-4 border-t border-white/5">
-                    <div>
-                        <p class="text-sm text-white/80">Visible to other members</p>
-                        <p class="text-xs text-white/30">Other cohort members and potential partners can see your profile</p>
-                    </div>
-                    <div class="toggle-track active" id="visibility-toggle">
-                        <div class="toggle-thumb"></div>
+                        <p class="text-white/30 text-xs">Comfort zone</p>
+                        <p id="card-comfort" class="text-white/70 text-sm"></p>
                     </div>
                 </div>
             </div>
 
-            <!-- ═══════════════════════════════════════ -->
-            <!-- COMPLETED EXPERIENCES (read-only section) -->
-            <!-- ═══════════════════════════════════════ -->
-            <div class="glass-strong rounded-2xl p-8 fade-up" id="experiences-section">
-                <p class="section-label">Completed adventures</p>
-                <p class="text-white/40 text-xs mb-6">Your earned experiences appear here automatically after each adventure.</p>
-
-                <div id="experiences-list" class="space-y-3">
-                    <!-- Empty state -->
-                    <div id="no-experiences" class="text-center py-8">
-                        <svg class="w-12 h-12 mx-auto text-white/10 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <p class="text-white/20 text-sm">No adventures yet. Your story starts here.</p>
-                    </div>
-                </div>
+            <!-- What matters -->
+            <div id="card-matters-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-2">
+                <p class="section-label">What matters</p>
+                <p id="card-matters" class="text-white/60 text-sm leading-relaxed italic"></p>
             </div>
 
-            <!-- ═══════════════════════════════════════ -->
-            <!-- SAVE BUTTON                              -->
-            <!-- ═══════════════════════════════════════ -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
-                <p class="text-white/20 text-xs">Your profile is saved automatically when you sign in.</p>
-                <button class="cta-button px-8 py-3 rounded-full text-sm" id="save-profile-btn">
-                    Save Profile
-                </button>
+            <!-- Languages -->
+            <div id="card-languages-section" class="hidden mb-6">
+                <p class="text-center text-white/25 text-xs font-mono">
+                    Speaks <span id="card-languages" class="text-white/40"></span>
+                </p>
             </div>
 
         </div>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer class="border-t border-white/5 py-12 px-6">
@@ -624,186 +232,206 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
-    <script src="/js/database.js"></script>
 
     <script>
-        // ═══════════════════════════════════════
-        // CHIP SELECTION
-        // ═══════════════════════════════════════
-        document.querySelectorAll('.chip').forEach(chip => {
-            chip.addEventListener('click', () => {
-                chip.classList.toggle('selected');
-            });
-        });
+        // Creature mapping
+        const CREATURES = {
+            egg:        { emoji: '\u{1F95A}', name: 'Egg' },
+            ocean:      { emoji: '\u{1F42C}', name: 'Finn' },
+            adventure:  { emoji: '\u{1F985}', name: 'Talon' },
+            culinary:   { emoji: '\u{1F409}', name: 'Ember' },
+            wellness:   { emoji: '\u{1F98B}', name: 'Zen' },
+            creative:   { emoji: '\u{1F984}', name: 'Prism' },
+            ocean2:     { emoji: '\u{1F433}', name: 'Captain' },
+            adventure2: { emoji: '\u{1F3D4}', name: 'Summit' },
+            culinary2:  { emoji: '\u{1F525}', name: 'Blaze' },
+            wellness2:  { emoji: '\u{1F54A}', name: 'Sage' },
+            creative2:  { emoji: '\u{1F31F}', name: 'Aurora' },
+            multi:      { emoji: '\u{1F30D}', name: 'Atlas' },
+            multi2:     { emoji: '\u{2604}',  name: 'Odyssey' },
+        };
 
-        // ═══════════════════════════════════════
-        // PHOTO UPLOAD
-        // ═══════════════════════════════════════
-        const photoUpload = document.getElementById('photo-upload');
-        const photoInput = document.getElementById('photo-input');
+        const PROFESSION_LABELS = {
+            'tech': 'Tech / Engineering', 'finance': 'Finance / Business', 'healthcare': 'Healthcare',
+            'creative-pro': 'Creative / Design', 'hospitality': 'Hospitality / F&B', 'education': 'Education',
+            'trades': 'Trades', 'military-first-responder': 'Military / First Responder',
+            'legal': 'Legal / Government', 'sports-fitness': 'Sports / Fitness', 'other-pro': 'Other'
+        };
 
-        photoUpload.addEventListener('click', () => photoInput.click());
-        photoInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
+        const ADVENTURE_LABELS = {
+            'none': 'Brand new', 'dabbled': 'A few trips', 'regular': 'Yearly adventurer',
+            'serious': 'Serious — multiple per year', 'professional': 'Professional'
+        };
 
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                photoUpload.innerHTML = `<img src="${ev.target.result}" alt="Profile photo"><div class="upload-overlay"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg></div>`;
-            };
-            reader.readAsDataURL(file);
-        });
+        const FITNESS_LABELS = {
+            'beginner': 'Getting started', 'moderate': 'Moderately active',
+            'fit': 'Fit and regular', 'athlete': 'Athlete / Very fit'
+        };
 
-        // ═══════════════════════════════════════
-        // VISIBILITY TOGGLE
-        // ═══════════════════════════════════════
-        const toggle = document.getElementById('visibility-toggle');
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-        });
+        const COMFORT_LABELS = {
+            'gentle': 'Stretch me gently', 'push': 'Push me', 'break': 'Break my limits'
+        };
 
-        // ═══════════════════════════════════════
-        // MOBILE MENU
-        // ═══════════════════════════════════════
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (menuBtn && mobileMenu) {
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                menuBtn.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
-            });
+        function esc(str) {
+            if (!str) return '';
+            const d = document.createElement('div');
+            d.textContent = str;
+            return d.innerHTML;
         }
 
-        // ═══════════════════════════════════════
-        // SAVE PROFILE
-        // ═══════════════════════════════════════
-        document.getElementById('save-profile-btn').addEventListener('click', async () => {
-            const btn = document.getElementById('save-profile-btn');
-            btn.textContent = 'Saving...';
-            btn.disabled = true;
-
-            // Gather selected interests
-            const interests = {};
-            document.querySelectorAll('.chip.selected').forEach(chip => {
-                const cat = chip.dataset.category;
-                if (!interests[cat]) interests[cat] = [];
-                interests[cat].push(chip.dataset.value);
-            });
-
-            const profileData = {
-                first_name: document.getElementById('first-name').value.trim(),
-                age: document.getElementById('age').value ? parseInt(document.getElementById('age').value) : null,
-                location: document.getElementById('location').value.trim(),
-                status: document.getElementById('status').value,
-                about: document.getElementById('about').value.trim(),
-                interests: interests,
-                fitness: document.getElementById('fitness').value,
-                comfort_zone: document.getElementById('comfort').value,
-                existing_certs: document.getElementById('certs').value.trim(),
-                what_matters: document.getElementById('what-matters').value.trim(),
-                availability: document.getElementById('availability').value,
-                preferred_duration: document.getElementById('duration').value,
-                languages: document.getElementById('languages').value.trim(),
-                visible: document.getElementById('visibility-toggle').classList.contains('active'),
-            };
-
-            // Check if user is signed in
-            const user = window.auth?.getCurrentUser();
-            if (user) {
-                try {
-                    const { error } = await window.supabaseClient
-                        .from('profiles')
-                        .upsert({
-                            id: user.id,
-                            ...profileData,
-                            updated_at: new Date().toISOString()
-                        });
-
-                    if (error) throw error;
-
-                    btn.textContent = 'Saved';
-                    btn.style.background = 'linear-gradient(135deg, #059669 0%, #10B981 100%)';
-                    setTimeout(() => {
-                        btn.textContent = 'Save Profile';
-                        btn.style.background = '';
-                        btn.disabled = false;
-                    }, 2000);
-                } catch (err) {
-                    console.error('Save error:', err);
-                    btn.textContent = 'Error — try again';
-                    btn.style.background = 'linear-gradient(135deg, #DC2626 0%, #EF4444 100%)';
-                    setTimeout(() => {
-                        btn.textContent = 'Save Profile';
-                        btn.style.background = '';
-                        btn.disabled = false;
-                    }, 2000);
-                }
-            } else {
-                // Not signed in — prompt sign in
-                if (window.auth?.showSignInModal) {
-                    window.auth.showSignInModal();
-                }
-                btn.textContent = 'Sign in to save';
-                setTimeout(() => {
-                    btn.textContent = 'Save Profile';
-                    btn.disabled = false;
-                }, 2000);
+        function getCreatureType(interests, hasManyCreds) {
+            if (!interests || Object.keys(interests).length === 0) return 'egg';
+            const counts = {};
+            Object.entries(interests).forEach(([cat, vals]) => { counts[cat] = vals.length; });
+            const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+            if (sorted.length >= 2 && sorted[0][1] === sorted[1][1]) {
+                return hasManyCreds ? 'multi2' : 'multi';
             }
-        });
+            return hasManyCreds ? sorted[0][0] + '2' : sorted[0][0];
+        }
 
-        // ═══════════════════════════════════════
-        // LOAD EXISTING PROFILE ON AUTH
-        // ═══════════════════════════════════════
-        async function loadProfile() {
-            const user = window.auth?.getCurrentUser();
-            if (!user) return;
+        // Load profile
+        document.addEventListener('DOMContentLoaded', async () => {
+            const params = new URLSearchParams(window.location.search);
+            const userId = params.get('id');
+
+            if (!userId) {
+                // No ID — redirect to dashboard if signed in, else show not found
+                document.getElementById('loading-state').classList.add('hidden');
+                const user = window.auth?.getCurrentUser?.();
+                if (user) {
+                    window.location.href = '/dashboard';
+                } else {
+                    document.getElementById('not-found-state').classList.remove('hidden');
+                }
+                return;
+            }
+
+            // Wait for Supabase
+            let attempts = 0;
+            while (!window.supabaseClient && attempts < 60) {
+                await new Promise(r => setTimeout(r, 100));
+                attempts++;
+            }
+            if (!window.supabaseClient) {
+                document.getElementById('loading-state').innerHTML = '<p class="text-red-400">Could not connect to database.</p>';
+                return;
+            }
 
             try {
                 const { data, error } = await window.supabaseClient
                     .from('profiles')
                     .select('*')
-                    .eq('id', user.id)
+                    .eq('id', userId)
                     .single();
 
-                if (error || !data) return;
-
-                if (data.first_name) document.getElementById('first-name').value = data.first_name;
-                if (data.age) document.getElementById('age').value = data.age;
-                if (data.location) document.getElementById('location').value = data.location;
-                if (data.status) document.getElementById('status').value = data.status;
-                if (data.about) document.getElementById('about').value = data.about;
-                if (data.fitness) document.getElementById('fitness').value = data.fitness;
-                if (data.comfort_zone) document.getElementById('comfort').value = data.comfort_zone;
-                if (data.existing_certs) document.getElementById('certs').value = data.existing_certs;
-                if (data.what_matters) document.getElementById('what-matters').value = data.what_matters;
-                if (data.availability) document.getElementById('availability').value = data.availability;
-                if (data.preferred_duration) document.getElementById('duration').value = data.preferred_duration;
-                if (data.languages) document.getElementById('languages').value = data.languages;
-
-                // Restore interest chips
-                if (data.interests) {
-                    Object.entries(data.interests).forEach(([cat, values]) => {
-                        values.forEach(val => {
-                            const chip = document.querySelector(`.chip[data-category="${cat}"][data-value="${val}"]`);
-                            if (chip) chip.classList.add('selected');
-                        });
-                    });
+                if (error || !data || data.visible === false) {
+                    document.getElementById('loading-state').classList.add('hidden');
+                    document.getElementById('not-found-state').classList.remove('hidden');
+                    return;
                 }
 
-                // Visibility
-                if (data.visible === false) {
-                    document.getElementById('visibility-toggle').classList.remove('active');
-                }
+                renderCrewCard(data);
             } catch (err) {
-                console.error('Load profile error:', err);
+                console.error(err);
+                document.getElementById('loading-state').classList.add('hidden');
+                document.getElementById('not-found-state').classList.remove('hidden');
             }
-        }
+        });
 
-        // Load on page ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => setTimeout(loadProfile, 500));
-        } else {
-            setTimeout(loadProfile, 500);
+        function renderCrewCard(p) {
+            document.getElementById('loading-state').classList.add('hidden');
+            document.getElementById('profile-card').classList.remove('hidden');
+
+            const name = p.first_name || p.name || 'Explorer';
+            document.getElementById('card-name').textContent = name;
+            document.getElementById('card-initials').textContent = name.slice(0, 2).toUpperCase();
+
+            // Avatar
+            if (p.avatar_url) {
+                const avatarEl = document.getElementById('card-avatar');
+                avatarEl.innerHTML = '<img src="' + esc(p.avatar_url) + '" class="w-full h-full object-cover rounded-full" alt="' + esc(name) + '">';
+            }
+
+            // Meta line
+            const parts = [];
+            if (p.age) parts.push(p.age + ' years old');
+            if (p.location) parts.push('from ' + p.location);
+            document.getElementById('card-meta').textContent = parts.join(' · ');
+
+            // About
+            if (p.about) document.getElementById('card-about').textContent = p.about;
+
+            // Creature
+            const hasCreds = (p.credentials?.length || 0) > 3;
+            const creatureType = getCreatureType(p.interests, hasCreds);
+            const creature = CREATURES[creatureType] || CREATURES.egg;
+            document.getElementById('card-creature').textContent = creature.emoji;
+            document.getElementById('card-creature-name').textContent = creature.name;
+
+            // Background
+            if (p.profession || p.adventure_years || p.previous_experience || p.skills) {
+                const section = document.getElementById('card-background-section');
+                section.classList.remove('hidden');
+                if (p.profession) document.getElementById('card-profession').textContent = PROFESSION_LABELS[p.profession] || p.profession;
+                if (p.adventure_years) document.getElementById('card-adventure-years').textContent = ADVENTURE_LABELS[p.adventure_years] || p.adventure_years;
+                if (p.previous_experience) {
+                    document.getElementById('card-previous-wrap').classList.remove('hidden');
+                    document.getElementById('card-previous').textContent = p.previous_experience;
+                }
+                if (p.skills) {
+                    document.getElementById('card-skills-wrap').classList.remove('hidden');
+                    document.getElementById('card-skills').textContent = p.skills;
+                }
+            }
+
+            // Interests
+            if (p.interests && Object.keys(p.interests).length > 0) {
+                document.getElementById('card-interests-section').classList.remove('hidden');
+                const container = document.getElementById('card-interests');
+                Object.entries(p.interests).forEach(([cat, values]) => {
+                    values.forEach(val => {
+                        const tag = document.createElement('span');
+                        tag.className = 'interest-tag ' + cat;
+                        tag.textContent = val.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                        container.appendChild(tag);
+                    });
+                });
+            }
+
+            // Credentials
+            const allCreds = [];
+            if (p.credentials) p.credentials.forEach(c => allCreds.push(c.cert));
+            if (p.existing_certs) allCreds.push(p.existing_certs);
+            if (allCreds.length > 0) {
+                document.getElementById('card-creds-section').classList.remove('hidden');
+                const container = document.getElementById('card-creds');
+                allCreds.forEach(cert => {
+                    const tag = document.createElement('span');
+                    tag.className = 'interest-tag';
+                    tag.textContent = cert;
+                    container.appendChild(tag);
+                });
+            }
+
+            // Fitness & comfort
+            if (p.fitness || p.comfort_zone) {
+                document.getElementById('card-level-section').classList.remove('hidden');
+                if (p.fitness) document.getElementById('card-fitness').textContent = FITNESS_LABELS[p.fitness] || p.fitness;
+                if (p.comfort_zone) document.getElementById('card-comfort').textContent = COMFORT_LABELS[p.comfort_zone] || p.comfort_zone;
+            }
+
+            // What matters
+            if (p.what_matters) {
+                document.getElementById('card-matters-section').classList.remove('hidden');
+                document.getElementById('card-matters').textContent = '"' + p.what_matters + '"';
+            }
+
+            // Languages
+            if (p.languages) {
+                document.getElementById('card-languages-section').classList.remove('hidden');
+                document.getElementById('card-languages').textContent = p.languages;
+            }
         }
     </script>
 
