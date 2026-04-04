@@ -77,6 +77,118 @@
         .badge-wildlife { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
         .badge-week { background: rgba(16, 185, 129, 0.2); color: #10b981; }
 
+        /* Immersive catalog */
+        .immersive-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .immersive-card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+        .immersive-card.expanded {
+            border-color: rgba(5, 150, 105, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .card-header {
+            cursor: pointer;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .card-header:hover { background: rgba(255, 255, 255, 0.02); }
+        .expand-icon {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            opacity: 0.4;
+        }
+        .expanded .expand-icon { transform: rotate(180deg); opacity: 0.8; }
+        .card-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .card-details.open {
+            max-height: 3000px;
+        }
+        .card-details-inner {
+            padding: 0 24px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .phase-bar {
+            background: linear-gradient(90deg, rgba(5, 150, 105, 0.15) 0%, rgba(29, 78, 216, 0.15) 100%);
+            border-left: 2px solid #059669;
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+        }
+        .module-chip {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: all 0.2s ease;
+        }
+        .module-chip:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+        .addon-chip {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: all 0.2s ease;
+        }
+        .addon-chip:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+        .next-chip {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 10px;
+            padding: 12px 16px;
+            transition: all 0.2s ease;
+        }
+        .next-chip:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+        .section-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+        }
+        .tier-badge {
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tier-foundation { background: rgba(5, 150, 105, 0.2); color: #34d399; }
+        .tier-mastery { background: rgba(99, 102, 241, 0.2); color: #818cf8; }
+        .tier-saga { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -330,133 +442,28 @@
         </div>
     </section>
 
-    <!-- Full Catalog -->
-    <section class="py-16 px-6 border-t border-white/5">
+    <!-- Immersive Experience Catalog -->
+    <section class="py-16 px-6 border-t border-white/5" id="immersive-catalog">
         <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-light mb-2">Full Experience Catalog</h2>
-                <p class="text-white/40 text-sm">All experiences include globally recognized certifications</p>
+            <div class="text-center mb-6">
+                <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">More Than a Course</p>
+                <h2 class="text-2xl font-light mb-2">The Full Immersion</h2>
+                <p class="text-white/40 text-sm max-w-xl mx-auto">Every experience includes complementary modules that go far beyond the certification. Tap any card to see what your weeks really look like.</p>
             </div>
 
-            <!-- Ocean & Sailing -->
-            <div class="mb-12">
-                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
-                    <span class="badge badge-ocean">Ocean & Sailing</span>
-                </h3>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">RYA Coastal Skipper — Atlantic Passage</h4>
-                        <p class="text-white/50 text-xs mb-3">Blue water passage across the Atlantic. RYA Coastal Skipper certification.</p>
-                        <div class="text-xs text-white/40">21-28 days · RYA Coastal Skipper</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">AIDA Freediving Instructor — Dahab</h4>
-                        <p class="text-white/50 text-xs mb-3">The Blue Hole. Where world records are set. AIDA 1-4 plus Instructor.</p>
-                        <div class="text-xs text-white/40">21-28 days · AIDA Instructor</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">IKO Kitesurfing Instructor — Tarifa</h4>
-                        <p class="text-white/50 text-xs mb-3">Wind capital of Europe. IKO Level 1 through Instructor certification.</p>
-                        <div class="text-xs text-white/40">21-28 days · IKO Instructor</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">ISA Surf Instructor — Bali</h4>
-                        <p class="text-white/50 text-xs mb-3">World-class breaks in Uluwatu and Canggu. ISA Level 1-2 certification.</p>
-                        <div class="text-xs text-white/40">21-28 days · ISA Surf Instructor</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">PADI Cave Diver — Yucatan Cenotes</h4>
-                        <p class="text-white/50 text-xs mb-3">World's longest underwater cave systems. Full PADI Cave Diver certification.</p>
-                        <div class="text-xs text-white/40">14-21 days · PADI Cave Diver</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">ACA Whitewater Instructor — Costa Rica</h4>
-                        <p class="text-white/50 text-xs mb-3">Class III-V rapids in the jungle. ACA Level 4 Whitewater Kayak Instructor.</p>
-                        <div class="text-xs text-white/40">21-28 days · ACA Level 4</div>
-                    </div>
-                </div>
+            <!-- Category Filter -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10" id="category-filters">
+                <button data-filter="all" class="filter-btn active badge text-xs px-4 py-1.5 rounded-full border border-white/20 bg-white/10 text-white transition-all">All</button>
+                <button data-filter="diving" class="filter-btn badge badge-ocean text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Diving</button>
+                <button data-filter="sailing" class="filter-btn badge badge-ocean text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Sailing</button>
+                <button data-filter="culinary" class="filter-btn badge badge-culinary text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Culinary</button>
+                <button data-filter="wellness" class="filter-btn badge badge-wellness text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Wellness</button>
+                <button data-filter="adventure" class="filter-btn badge badge-adventure text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Adventure</button>
+                <button data-filter="wildlife" class="filter-btn badge badge-wildlife text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Wildlife</button>
             </div>
 
-            <!-- Culinary -->
-            <div class="mb-12">
-                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
-                    <span class="badge badge-culinary">Culinary & Wine</span>
-                </h3>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">Le Cordon Bleu Pastry — Paris</h4>
-                        <p class="text-white/50 text-xs mb-3">The gold standard. Le Cordon Bleu Diplôme de Pâtisserie in Paris.</p>
-                        <div class="text-xs text-white/40">1-2 months · Le Cordon Bleu Diplôme</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">ALMA Italian Cuisine — Parma</h4>
-                        <p class="text-white/50 text-xs mb-3">Italy's premier culinary school. ALMA professional certification.</p>
-                        <div class="text-xs text-white/40">1-2 months · ALMA Certificate</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">SSI Sake Sommelier — Niigata</h4>
-                        <p class="text-white/50 text-xs mb-3">Japan's premier sake region. SSI certification with brewery immersion.</p>
-                        <div class="text-xs text-white/40">14-21 days · SSI Sake Sommelier</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wellness -->
-            <div class="mb-12">
-                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
-                    <span class="badge badge-wellness">Wellness & Healing</span>
-                </h3>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">Yoga Alliance RYT-500 — Rishikesh</h4>
-                        <p class="text-white/50 text-xs mb-3">Advanced teacher training at the source. For serious practitioners.</p>
-                        <div class="text-xs text-white/40">60-90 days · Yoga Alliance RYT-500</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">ITM Thai Massage — Chiang Mai</h4>
-                        <p class="text-white/50 text-xs mb-3">Original Thai massage tradition. ITM Level 1-3 certification from masters.</p>
-                        <div class="text-xs text-white/40">14-21 days · ITM Certification</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">Wim Hof Method Instructor — Poland</h4>
-                        <p class="text-white/50 text-xs mb-3">Train at the source with WHM Academy. Full instructor certification.</p>
-                        <div class="text-xs text-white/40">7-14 days · WHM Instructor</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Adventure -->
-            <div class="mb-12">
-                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
-                    <span class="badge badge-adventure">Adventure & Mountains</span>
-                </h3>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">IFMGA Alpinism — Chamonix</h4>
-                        <p class="text-white/50 text-xs mb-3">Birthplace of alpinism. Train with IFMGA guides toward aspirant certification.</p>
-                        <div class="text-xs text-white/40">21-28 days · IFMGA Aspirant</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wildlife -->
-            <div class="mb-12">
-                <h3 class="text-lg font-medium mb-6 flex items-center gap-3">
-                    <span class="badge badge-wildlife">Wildlife & Conservation</span>
-                </h3>
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">FGASA Safari Guide — South Africa</h4>
-                        <p class="text-white/50 text-xs mb-3">Industry gold standard. FGASA Level 1 Field Guide in the African bush.</p>
-                        <div class="text-xs text-white/40">55 days · FGASA Level 1</div>
-                    </div>
-                    <div class="experience-card rounded-xl p-5">
-                        <h4 class="font-medium mb-2">PADI Marine Conservation — Great Barrier Reef</h4>
-                        <p class="text-white/50 text-xs mb-3">Largest coral reef on Earth. PADI Coral Reef Conservation specialty.</p>
-                        <div class="text-xs text-white/40">21-28 days · PADI Specialty</div>
-                    </div>
-                </div>
-            </div>
+            <!-- Dynamic Experience Cards -->
+            <div class="space-y-3" id="immersive-cards"></div>
         </div>
     </section>
 
@@ -634,6 +641,174 @@
                 }
             });
         }
+    </script>
+
+    <!-- Experiences Data -->
+    <script src="/js/experiences.js"></script>
+
+    <!-- Immersive Catalog Renderer -->
+    <script>
+    (function() {
+        const container = document.getElementById('immersive-cards');
+        if (!container || !window.ET_EXPERIENCES) return;
+
+        const badgeClass = {
+            diving: 'badge-ocean', sailing: 'badge-ocean',
+            culinary: 'badge-culinary', wellness: 'badge-wellness',
+            adventure: 'badge-adventure', wildlife: 'badge-wildlife'
+        };
+
+        const categoryLabel = {
+            diving: 'Diving', sailing: 'Sailing',
+            culinary: 'Culinary', wellness: 'Wellness',
+            adventure: 'Adventure', wildlife: 'Wildlife'
+        };
+
+        function renderCard(exp) {
+            const im = exp.immersive;
+            if (!im) return '';
+
+            const tierClass = 'tier-' + exp.tier;
+
+            const curriculumHTML = im.curriculum.map(c =>
+                `<div class="phase-bar mb-2">
+                    <div class="flex items-baseline gap-3 mb-1">
+                        <span class="text-xs font-medium text-emerald-400 whitespace-nowrap">${c.phase}</span>
+                        <span class="text-sm font-medium text-white">${c.title}</span>
+                    </div>
+                    <p class="text-xs text-white/40 leading-relaxed">${c.focus}</p>
+                </div>`
+            ).join('');
+
+            const modulesHTML = im.included.map(m =>
+                `<div class="module-chip">
+                    <p class="text-xs font-medium text-white/80 mb-1">${m.name}</p>
+                    <p class="text-xs text-white/40 leading-relaxed">${m.desc}</p>
+                </div>`
+            ).join('');
+
+            const addOnsHTML = im.addOns.map(a =>
+                `<div class="addon-chip">
+                    <div class="flex items-baseline justify-between mb-1">
+                        <p class="text-xs font-medium text-amber-300/80">${a.name}</p>
+                        <span class="text-xs text-amber-400/60 font-medium ml-3 whitespace-nowrap">${a.price}</span>
+                    </div>
+                    <p class="text-xs text-white/40 leading-relaxed">${a.desc}</p>
+                </div>`
+            ).join('');
+
+            const nextHTML = im.nextSteps.map(n =>
+                `<div class="next-chip">
+                    <p class="text-xs font-medium text-indigo-300/80">${n.name}</p>
+                    <p class="text-xs text-white/40 mt-1">${n.desc}</p>
+                </div>`
+            ).join('');
+
+            return `
+            <div class="immersive-card" data-category="${exp.category}" data-id="${exp.id}">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 mb-2 flex-wrap">
+                            <span class="badge ${badgeClass[exp.category]}">${categoryLabel[exp.category]}</span>
+                            <span class="tier-badge ${tierClass}">${exp.tier}</span>
+                            <span class="text-xs text-white/30">${exp.meta}</span>
+                        </div>
+                        <h4 class="font-medium text-white text-sm md:text-base">${exp.name}</h4>
+                        <p class="text-xs text-white/40 mt-1 hidden md:block">${exp.summary}</p>
+                    </div>
+                    <svg class="expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </div>
+                <div class="card-details">
+                    <div class="card-details-inner">
+                        <!-- Curriculum -->
+                        <div class="mt-5 mb-6">
+                            <p class="section-label text-emerald-400/60">Your Journey</p>
+                            ${curriculumHTML}
+                        </div>
+
+                        <!-- Included Modules -->
+                        <div class="mb-6">
+                            <p class="section-label text-blue-400/60">Included — Beyond the Certification</p>
+                            <div class="grid sm:grid-cols-2 gap-2">
+                                ${modulesHTML}
+                            </div>
+                        </div>
+
+                        <!-- Premium Add-ons -->
+                        <div class="mb-6">
+                            <p class="section-label text-amber-400/60">Go Deeper — Premium Add-ons</p>
+                            <div class="grid sm:grid-cols-2 gap-2">
+                                ${addOnsHTML}
+                            </div>
+                        </div>
+
+                        <!-- Next Steps -->
+                        <div>
+                            <p class="section-label text-indigo-400/60">What's Next — Continue Your Path</p>
+                            <div class="grid sm:grid-cols-3 gap-2">
+                                ${nextHTML}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        // Render all cards
+        const html = window.ET_EXPERIENCES.map(renderCard).join('');
+        container.innerHTML = html;
+
+        // Toggle expand/collapse
+        window.toggleCard = function(header) {
+            const card = header.closest('.immersive-card');
+            const details = card.querySelector('.card-details');
+            const isOpen = card.classList.contains('expanded');
+
+            // Close all others
+            document.querySelectorAll('.immersive-card.expanded').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('expanded');
+                    c.querySelector('.card-details').classList.remove('open');
+                }
+            });
+
+            if (isOpen) {
+                card.classList.remove('expanded');
+                details.classList.remove('open');
+            } else {
+                card.classList.add('expanded');
+                details.classList.add('open');
+                // Smooth scroll to card
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            }
+        };
+
+        // Category filtering
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter cards
+                document.querySelectorAll('.immersive-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('expanded');
+                        card.querySelector('.card-details').classList.remove('open');
+                    }
+                });
+            });
+        });
+    })();
     </script>
 
     <!-- Supabase SDK and Auth -->
