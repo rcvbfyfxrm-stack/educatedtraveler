@@ -291,24 +291,24 @@ window.ET_EXPERIENCES = [
     // ======== CULINARY (WSET, Le Cordon Bleu, ALMA) ========
     {
         id: 'pastry-le-cordon-bleu-paris',
-        name: 'Le Cordon Bleu Pastry — Paris',
+        name: 'French Pastry — Paris',
         category: 'culinary',
         tier: 'mastery',
         minDays: 30,
-        maxDays: 60,
-        minPrice: 15000,
-        maxPrice: 25000,
+        maxDays: 30,
+        minPrice: null,
+        maxPrice: null,
         envTags: ['city'],
-        desireTags: ['certification', 'career', 'creative'],
+        desireTags: ['certification', 'career', 'stories'],
         intensity: 2,
-        summary: 'The gold standard. Le Cordon Bleu Diplôme de Pâtisserie in Paris.',
-        meta: '1-2 months · ~$15k-$25k · Le Cordon Bleu Diplôme',
+        summary: 'Paris invented the croissant, the éclair, the macaron. Train under chefs who carry the lineage of Escoffier, Lenôtre, and Hermé.',
+        meta: '30 days · Mastery · Le Cordon Bleu Professional Pastry Arts',
         immersive: {
             curriculum: [
-                { phase: 'Week 1-2', title: 'Foundations', focus: 'Doughs, batters, creams — pâte brisée to crème pâtissière, precision measurements, oven mastery' },
-                { phase: 'Week 3-4', title: 'Classical Techniques', focus: 'Viennoiserie, laminated doughs, choux, sugar work, chocolate tempering' },
-                { phase: 'Week 5-6', title: 'Advanced Patisserie', focus: 'Entremets, contemporary plating, artistic sugar pieces, flavor pairing theory' },
-                { phase: 'Week 7-8', title: 'Professional Practice', focus: 'Full service production, timed execution, signature creation, final examination' }
+                { phase: 'Week 1', title: 'Foundations', focus: 'Pâte brisée, sablée, sucrée. Crème pâtissière. Choux (éclairs, profiteroles, Paris-Brest). Tempering. Professional speed.' },
+                { phase: 'Week 2', title: 'Viennoiserie & Bread', focus: 'Croissant lamination. Pain au chocolat. Brioche. Baguette. Kouign-amann. Fermentation and hydration.' },
+                { phase: 'Week 3', title: 'Entremets & Chocolate', focus: 'Multi-component entremets (mousse, insert, glaze). Chocolate tempering and moulding. Macarons. Opera cake.' },
+                { phase: 'Week 4', title: 'Mastery & Service', focus: 'Petits fours. Sugar work. Plated desserts. Final exam: produce a full pâtisserie vitrine (12+ items) judged by a MOF.' }
             ],
             included: [
                 { name: 'Parisian Pâtisserie Crawl', desc: 'Guided tastings at legendary pastry shops — study the masters by eating their work' },
@@ -331,43 +331,84 @@ window.ET_EXPERIENCES = [
         }
     },
     {
-        id: 'italian-cuisine-alma',
-        name: 'ALMA Italian Cuisine — Parma',
+        id: 'sushi-mastery-tokyo',
+        name: 'Sushi Mastery — Tokyo',
         category: 'culinary',
         tier: 'mastery',
         minDays: 30,
-        maxDays: 60,
-        minPrice: 12000,
-        maxPrice: 18000,
+        maxDays: 30,
+        minPrice: null,
+        maxPrice: null,
         envTags: ['city'],
-        desireTags: ['certification', 'career', 'stories'],
+        desireTags: ['certification', 'career', 'rare'],
         intensity: 2,
-        summary: 'Italy\'s premier culinary school. ALMA professional certification in Parma.',
-        meta: '1-2 months · ~$12k-$18k · ALMA Professional Certificate',
+        summary: 'Learn from a master itamae with 30+ years. From 5 AM Toyosu Market to omakase service. The Japanese philosophy of shokunin.',
+        meta: '30 days · Mastery · Professional Sushi Chef',
         immersive: {
             curriculum: [
-                { phase: 'Week 1-2', title: 'Foundations of Italian Cooking', focus: 'Pasta from scratch, sauces, knife skills, stock work — the grammar of Italian cuisine' },
-                { phase: 'Week 3-4', title: 'Regional Mastery', focus: 'Deep dives into regional traditions — each province has its own rules, ingredients, and logic' },
-                { phase: 'Week 5-6', title: 'Professional Kitchen', focus: 'Station management, service timing, menu development, guest interaction' },
-                { phase: 'Week 7-8', title: 'Stagione & Certification', focus: 'Restaurant internship placement, professional execution, final assessment' }
+                { phase: 'Week 1', title: 'Rice (Shari) Mastery', focus: 'Washing, soaking, cooking, seasoning — the foundation of everything in sushi' },
+                { phase: 'Week 2', title: 'Knife Work & Fish', focus: 'Hocho technique, filleting, aging (jukusei), seasonal fish selection (shun)' },
+                { phase: 'Week 3', title: 'Nigiri Technique', focus: 'Hand-forming, wasabi placement, pressure control, speed — the craft made visible' },
+                { phase: 'Week 4', title: 'Omakase Service', focus: 'Full 8-12 course omakase — menu composition, guest reading, presentation, sake pairing' }
             ],
             included: [
-                { name: 'Parmigiano Factory Visit', desc: 'Watch the 800-year-old process from milk to wheel — taste aging from 12 to 36 months' },
-                { name: 'Prosciutto Curing House', desc: 'Walk through cellars where ham ages for years in mountain air — understand time as ingredient' },
-                { name: 'Italian Wine Fundamentals', desc: 'Weekly tastings of regional wines — learn why certain wines only work with certain food' },
-                { name: 'Farmers Market Sourcing', desc: 'Early morning market runs with your instructor — learn to choose by touch, smell, and season' },
-                { name: 'Balsamic Vinegar Tradition', desc: 'Visit a family acetaia — taste vinegar aged 12, 25, and 50 years side by side' }
+                { name: 'Toyosu Market Visits', desc: '5 AM visits to the world\'s largest fish market — learn to select fish alongside your master' },
+                { name: 'Professional Knife Set', desc: 'Your own Japanese knife set — selected by your instructor, yours to keep forever' },
+                { name: 'Sake Brewery Tour', desc: 'Visit a working sake brewery — understand the pairing tradition from the source' },
+                { name: 'Kappabashi Kitchen Street', desc: 'Tour Tokyo\'s legendary kitchen supply district — knives, ceramics, tools of the trade' },
+                { name: 'Tsukiji Outer Market', desc: 'Street food and specialty ingredients — the living culture around the old market' }
             ],
             addOns: [
-                { name: 'Truffle Hunting Experience', desc: 'Full day with a truffle hunter and dogs in the hills — then cook what you find', price: '+$350' },
-                { name: 'Starred Restaurant Dinner', desc: 'Multi-course dinner at a top restaurant with your cohort — study plating and service', price: '+$400' },
-                { name: 'Pasta Masterclass with Sfoglina', desc: 'Private session with a traditional pasta grandmother — techniques machines can\'t replicate', price: '+$250' },
-                { name: 'Emilia-Romagna Road Trip', desc: 'Full day visiting small producers — olive oil, salumi, cheese — the supply chain of excellence', price: '+$300' }
+                { name: 'Kaiseki Dinner Experience', desc: 'Multi-course kaiseki meal at a Michelin restaurant — study the art that frames sushi', price: '+$400' },
+                { name: 'Ramen & Izakaya Night Tour', desc: 'Guided tour of Tokyo\'s best ramen shops and standing bars with your cohort', price: '+$150' },
+                { name: 'Japanese Ceramics Workshop', desc: 'Half-day pottery class — understand why the vessel matters as much as the fish', price: '+$250' },
+                { name: 'Fish Aging Masterclass', desc: 'Deep dive into jukusei technique — the controlled aging that transforms texture and flavor', price: '+$300' }
             ],
             nextSteps: [
-                { name: 'Le Cordon Bleu Pastry — Paris', desc: 'Add French pastry to your Italian cuisine credentials' },
+                { name: 'Indigenous Mexican Cuisine — Oaxaca', desc: 'Another ancient food culture where fermentation is sacred — fascinating parallels' },
+                { name: 'Sake Sommelier — Niigata', desc: 'Deepen your Japanese beverage knowledge at the source of premium sake' },
+                { name: 'Avant-Garde Cuisine — Barcelona', desc: 'Take Japanese precision into modernist innovation' }
+            ]
+        }
+    },
+    {
+        id: 'terroir-cooking-tuscany',
+        name: 'Terroir Cooking — Tuscany',
+        category: 'culinary',
+        tier: 'mastery',
+        minDays: 30,
+        maxDays: 30,
+        minPrice: null,
+        maxPrice: null,
+        envTags: ['wild', 'city'],
+        desireTags: ['certification', 'career', 'stories'],
+        intensity: 2,
+        summary: 'Cook by understanding soil, seasons, and producers. Ruthless simplicity — three ingredients must be perfect or the dish fails.',
+        meta: '30 days · Mastery · Italian Culinary Arts',
+        immersive: {
+            curriculum: [
+                { phase: 'Week 1', title: 'The Farmhouse Kitchen', focus: 'Fresh pasta by hand (pici, pappardelle, ravioli). Ribollita, panzanella, pappa al pomodoro. Bistecca alla fiorentina.' },
+                { phase: 'Week 2', title: 'Producers & Preserving', focus: 'Parmigiano dairy visit. Pecorino di Pienza. Chianina beef. Salumi and curing. Conserva: sun-dried tomatoes, sott\'olio, passata.' },
+                { phase: 'Week 3', title: 'Wine & Land', focus: 'Chianti Classico immersion. Brunello di Montalcino. Wild boar ragù. Herb and forage walks. Cooking over wood fire.' },
+                { phase: 'Week 4', title: 'The Table', focus: 'Whole-animal nose-to-tail. Dolci toscani. Pranzo della domenica. Final harvest dinner for 30 at an agriturismo.' }
+            ],
+            included: [
+                { name: 'Parmigiano-Reggiano Dairy', desc: 'Watch the 800-year-old process from milk to wheel — taste aging from 12 to 36 months' },
+                { name: 'Chianti Vineyard Days', desc: 'Work the vines, understand terroir, cook with wine — the land teaches the kitchen' },
+                { name: 'Truffle Hunt', desc: 'Full day with a truffle hunter and dogs in the hills — then cook what you find (seasonal)' },
+                { name: 'Olive Oil Pressing', desc: 'Harvest olives and press oil at a working frantoio — taste the difference fresh makes' },
+                { name: 'Montalcino Wine Tour', desc: 'Visit Brunello producers including historic estates — understand why this wine commands the world' }
+            ],
+            addOns: [
+                { name: 'Balsamic Vinegar Acetaia', desc: 'Visit a family acetaia in Modena — taste vinegar aged 12, 25, and 50 years side by side', price: '+$300' },
+                { name: 'Pasta with Sfoglina', desc: 'Private session with a traditional pasta grandmother — techniques machines can\'t replicate', price: '+$250' },
+                { name: 'Starred Restaurant Dinner', desc: 'Multi-course dinner at a Tuscan starred restaurant — study plating and service', price: '+$400' },
+                { name: 'San Miniato Truffle Festival', desc: 'Full day at the legendary white truffle market — seasonal, November only', price: '+$200' }
+            ],
+            nextSteps: [
+                { name: 'French Pastry — Paris', desc: 'Add the precision of French technique to your Italian foundation' },
                 { name: 'WSET Level 3 — Bordeaux', desc: 'Formalize the wine knowledge you\'ve been building alongside food' },
-                { name: 'Modernist Cuisine — Barcelona', desc: 'Push Italian foundations into avant-garde territory' }
+                { name: 'Avant-Garde Cuisine — Barcelona', desc: 'Push Italian foundations into modernist territory' }
             ]
         }
     },
@@ -873,8 +914,8 @@ window.ET_EXPERIENCES = [
         tier: 'mastery',
         minDays: 30,
         maxDays: 60,
-        minPrice: 12000,
-        maxPrice: 18000,
+        minPrice: null,
+        maxPrice: null,
         envTags: ['city'],
         desireTags: ['certification', 'career', 'creative'],
         intensity: 2,
@@ -908,43 +949,82 @@ window.ET_EXPERIENCES = [
         }
     },
     {
-        id: 'modernist-cuisine-barcelona',
-        name: 'Modernist Cuisine — Barcelona',
+        id: 'avant-garde-cuisine-barcelona',
+        name: 'Avant-Garde Cuisine — Barcelona',
         category: 'culinary',
-        tier: 'mastery',
-        minDays: 30,
-        maxDays: 60,
-        minPrice: 12000,
-        maxPrice: 18000,
-        envTags: ['city'],
+        tier: 'foundation',
+        minDays: 21,
+        maxDays: 21,
+        minPrice: null,
+        maxPrice: null,
+        envTags: ['city', 'ocean'],
         desireTags: ['certification', 'career', 'rare'],
         intensity: 2,
-        summary: 'Molecular gastronomy and avant-garde techniques. Hofmann Barcelona professional diploma.',
-        meta: '1-2 months · ~$12k-$18k · Hofmann Diploma',
+        summary: 'Ground zero for the culinary revolution. Train with chefs from the elBulli, Disfrutar, and Roca brothers lineage. Where food becomes idea.',
+        meta: '21 days · Foundation · Advanced Culinary Innovation',
         immersive: {
             curriculum: [
-                { phase: 'Week 1-2', title: 'Science Foundations', focus: 'Spherification, gelification, emulsification — the chemistry behind modern cuisine' },
-                { phase: 'Week 3-4', title: 'Texture & Temperature', focus: 'Sous vide mastery, foams, airs, liquid nitrogen, cryogenic techniques, dehydration' },
-                { phase: 'Week 5-6', title: 'Creative Composition', focus: 'Flavor pairing theory, multi-sensory plating, aroma integration, deconstructed classics' },
-                { phase: 'Week 7-8', title: 'Professional Innovation', focus: 'Menu development, R&D methodology, presentation to jury, signature dish, final diploma' }
+                { phase: 'Week 1', title: 'Foundations of Innovation', focus: 'La Boqueria immersion. Catalan bases (sofregit, picada, allioli) as launchpad. Spherification, gelification, emulsification. The Adrià method.' },
+                { phase: 'Week 2', title: 'Technique Lab', focus: 'Sous-vide precision. Fermentation (lacto, koji, garum). Smoke and encapsulation. Deconstruction of classics — tortilla, pa amb tomàquet reimagined.' },
+                { phase: 'Week 3', title: 'Creation & Service', focus: 'Develop 3 original dishes with full technical rationale. Plating as visual language. Final: 8-course avant-garde menu for 25 guests.' }
             ],
             included: [
-                { name: 'Market Sourcing & Terroir', desc: 'Early morning at the legendary food market — how the best modernist chefs start with the best raw ingredients' },
-                { name: 'Wine & Avant-Garde Pairing', desc: 'Sessions matching experimental dishes with natural wines, sherries, and unexpected beverages' },
-                { name: 'Architecture & Design Walks', desc: 'Explore the city\'s architectural heritage — understand how design thinking applies to plating and presentation' },
+                { name: 'La Boqueria Market Tours', desc: 'Guided sourcing at Barcelona\'s legendary market — how the best modernist chefs start with the best raw ingredients' },
+                { name: 'Avant-Garde Restaurant Dinners', desc: 'Three study visits to top Barcelona restaurants — analyse technique, concept, and service as a student' },
                 { name: 'Food Science Lectures', desc: 'Guest scientists explain the physics behind your techniques — why it works, not just how' },
-                { name: 'Fermentation Lab', desc: 'Hands-on fermentation projects — kombuchas, vinegars, misos — the living ingredient trend' }
+                { name: 'Fermentation Lab', desc: 'Hands-on fermentation projects — kombuchas, vinegars, garum, misos — the living ingredient trend' },
+                { name: 'Penedès Cava Tasting', desc: 'Day trip to cava country — sparkling wine tradition that pairs with avant-garde cuisine' }
             ],
             addOns: [
-                { name: 'Avant-Garde Restaurant Stage', desc: 'Two-day observation in a modernist kitchen — see how a creative team develops new dishes', price: '+$500' },
-                { name: 'Olive Oil Masterclass', desc: 'Full day in the olive groves — varieties, pressing, tasting, and cooking applications', price: '+$300' },
-                { name: 'Cocktail & Mixology Fusion', desc: 'Molecular cocktail workshop — apply your kitchen techniques to the bar', price: '+$350' },
-                { name: 'Food Tech & Innovation Seminar', desc: 'Half-day on 3D food printing, lab-grown proteins, and the future of gastronomy', price: '+$400' }
+                { name: 'Disfrutar-Style Tasting Menu Stage', desc: 'Two-day observation in a World\'s 50 Best kitchen — see how a creative team develops new dishes', price: '+$500' },
+                { name: 'Empordà Coastal Excursion', desc: 'Full day on the Costa Brava — the landscape that inspired Dalí and Adrià alike', price: '+$250' },
+                { name: 'Molecular Cocktail Workshop', desc: 'Apply your kitchen techniques to the bar — spherified cocktails, aromatic clouds, edible glasses', price: '+$350' },
+                { name: 'Fundació Alícia Lab Visit', desc: 'Visit the food science research lab near Barcelona — where science meets cooking at the frontier', price: '+$300' }
             ],
             nextSteps: [
-                { name: 'Italian Cuisine — Parma', desc: 'Ground your modernist skills in classical tradition — the best innovators know the rules first' },
+                { name: 'Terroir Cooking — Tuscany', desc: 'Ground your modernist skills in classical tradition — the best innovators know the rules first' },
                 { name: 'Indigenous Mexican Cuisine — Oaxaca', desc: 'Ancient techniques that pre-date modernism — fermentation, smoking, earth ovens' },
-                { name: 'WSET Level 3 — Bordeaux', desc: 'Add beverage expertise to your avant-garde food skills' }
+                { name: 'New Basque Cuisine — San Sebastián', desc: 'The other side of Spanish innovation — txokos, pintxos, and asador fire' }
+            ]
+        }
+    },
+    {
+        id: 'new-basque-cuisine-san-sebastian',
+        name: 'New Basque Cuisine — San Sebastián',
+        category: 'culinary',
+        tier: 'foundation',
+        minDays: 21,
+        maxDays: 21,
+        minPrice: null,
+        maxPrice: null,
+        envTags: ['ocean', 'city'],
+        desireTags: ['certification', 'career', 'rare'],
+        intensity: 2,
+        summary: 'More Michelin stars per capita than anywhere on Earth. Txokos, asadores, pintxos bars, and the creativity that defines New Basque Cuisine.',
+        meta: '21 days · Foundation · Basque Culinary Arts',
+        immersive: {
+            curriculum: [
+                { phase: 'Week 1', title: 'Pintxos & Tradition', focus: 'Old Town immersion. Pintxo architecture (base, topping, binding). Bacalao 5 ways. Txakoli wine. Marmitako. Txoko cooking club sessions.' },
+                { phase: 'Week 2', title: 'Fire & Sea', focus: 'Asador grilling — whole turbot, txuleta over charcoal. La Bretxa market. Txangurro. Idiazábal cheese. Sagardotegia cider house.' },
+                { phase: 'Week 3', title: 'Modern Basque', focus: 'Arzak/Mugaritz techniques. Fermentation, smoke, texture. Gâteau basque. Final: 10-course pintxos + plated menu for 30 guests.' }
+            ],
+            included: [
+                { name: 'Daily Pintxo Crawls', desc: 'Evening tours through the Old Town\'s best pintxo bars — study, eat, and understand the architecture of small plates' },
+                { name: 'Txoko Cooking Club Access', desc: 'Cook alongside local members in a private gastronomic society — the heart of Basque food culture' },
+                { name: 'Sagardotegia Cider House', desc: 'Traditional cider house visit — txuleta steak, cod omelette, and cider caught from the barrel' },
+                { name: 'La Bretxa Market Days', desc: 'Source fish, meat, and produce at San Sebastián\'s main market with your instructor' },
+                { name: 'Rioja Wine Excursion', desc: 'Day trip to the vineyards — taste the wines that pair with Basque cuisine at legendary estates' }
+            ],
+            addOns: [
+                { name: 'Asador Etxebarri Visit', desc: 'Lunch at the world\'s best grill restaurant — study Victor Arguinzoniz\'s fire mastery firsthand', price: '+$400' },
+                { name: 'Bilbao Market & Guggenheim', desc: 'Full day in Bilbao — morning at La Ribera market, afternoon at the Guggenheim, pintxos in the evening', price: '+$250' },
+                { name: 'Idiazábal Cheese Farm', desc: 'Visit a mountain shepherd — watch cheesemaking from Latxa sheep milk, taste aged wheels', price: '+$200' },
+                { name: 'Basque Culinary Center Lab', desc: 'Half-day access to BCC\'s innovation lab — the university where New Basque Cuisine is being invented', price: '+$350' }
+            ],
+            nextSteps: [
+                { name: 'Avant-Garde Cuisine — Barcelona', desc: 'Take Basque innovation south — the other epicenter of Spanish culinary revolution' },
+                { name: 'Terroir Cooking — Tuscany', desc: 'From Basque fire to Italian earth — another tradition where simplicity demands perfection' },
+                { name: 'WSET Level 3 — Bordeaux', desc: 'Formalize the wine knowledge from your Rioja excursions into a global qualification' }
             ]
         }
     },
@@ -955,9 +1035,9 @@ window.ET_EXPERIENCES = [
         tier: 'foundation',
         minDays: 21,
         maxDays: 28,
-        minPrice: 6500,
-        maxPrice: 8500,
-        envTags: ['city'],
+        minPrice: null,
+        maxPrice: null,
+        envTags: ['wild', 'temple'],
         desireTags: ['certification', 'stories', 'rare'],
         intensity: 2,
         summary: 'Pre-Hispanic techniques with local masters. Mezcal, mole, and ancient traditions in the culinary heart of Mexico.',

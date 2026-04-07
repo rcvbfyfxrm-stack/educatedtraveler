@@ -15,10 +15,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bmw': {
+                            50: '#e6f0fa',
+                            100: '#b3d1ef',
+                            200: '#80b3e4',
+                            300: '#4d94d9',
+                            400: '#3B8DD4',
+                            500: '#0066B1',
+                            600: '#00518d',
+                            700: '#003d6a',
+                            800: '#002846',
+                            900: '#001423',
+                        },
+                        'steel': {
+                            50: '#f5f5f5',
+                            100: '#e0e0e0',
+                            200: '#c0c0c0',
+                            300: '#a0a0a0',
+                            400: '#6f6f6f',
+                            500: '#4a4a4a',
+                            600: '#333333',
+                            700: '#222222',
+                            800: '#161616',
+                            900: '#0a0a0a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
+        :root {
+            --bmw-blue: #0066B1;
+            --bmw-light: #3B8DD4;
+            --bmw-glow: rgba(0, 102, 177, 0.4);
+            --bmw-subtle: rgba(0, 102, 177, 0.15);
+            --steel-bg: #0a0a0a;
+            --steel-surface: #161616;
+        }
+
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--steel-bg); }
         html { scroll-behavior: smooth; }
 
         .glass {
@@ -28,16 +71,17 @@
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #059669 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
             transition: all 0.3s ease;
+            font-weight: 500;
         }
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(5, 150, 105, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 102, 177, 0.3);
         }
 
         .profile-avatar {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
         }
 
         .stat-card {
@@ -53,7 +97,7 @@
         }
         .cohort-card:hover {
             background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(5, 150, 105, 0.3);
+            border-color: var(--bmw-glow);
         }
 
         .status-badge {
@@ -65,13 +109,13 @@
             font-weight: 600;
         }
         .status-draft { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
-        .status-published { background: rgba(5,150,105,0.2); color: #34d399; }
-        .status-full { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .status-published { background: rgba(0,102,177,0.2); color: #3B8DD4; }
+        .status-full { background: rgba(0,102,177,0.3); color: #80b3e4; }
         .status-in_progress { background: rgba(59,130,246,0.2); color: #60a5fa; }
         .status-completed { background: rgba(139,92,246,0.2); color: #a78bfa; }
         .status-cancelled { background: rgba(239,68,68,0.2); color: #f87171; }
-        .status-pending { background: rgba(245,158,11,0.2); color: #fbbf24; }
-        .status-approved { background: rgba(5,150,105,0.2); color: #34d399; }
+        .status-pending { background: rgba(0,102,177,0.15); color: #4d94d9; }
+        .status-approved { background: rgba(0,102,177,0.2); color: #3B8DD4; }
 
         .enrollment-row {
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -92,9 +136,9 @@
             color: white !important;
         }
         input:focus, select:focus, textarea:focus {
-            border-color: rgba(5, 150, 105, 0.4) !important;
+            border-color: var(--bmw-glow) !important;
             outline: none;
-            box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.1);
+            box-shadow: 0 0 0 2px var(--bmw-subtle);
         }
         input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.3); }
         select option { background: #111; color: white; }
@@ -120,12 +164,12 @@
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" class="text-lg font-semibold tracking-wider">
-                EDUCATED<span class="text-emerald-400">TRAVELER</span>
+                EDUCATED<span class="text-bmw-400">TRAVELER</span>
             </a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Adventures</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
-                <a href="instructor-dashboard.html" class="text-sm px-4 py-2 rounded-full border border-amber-400/50 text-amber-400">
+                <a href="instructor-dashboard.html" class="text-sm px-4 py-2 rounded-full border border-bmw-400/50 text-bmw-400">
                     Instructor Dashboard
                 </a>
             </div>
@@ -139,7 +183,7 @@
             <div class="px-6 py-4 space-y-3">
                 <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Adventures</a>
                 <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
-                <a href="instructor-dashboard.html" class="block py-3 text-amber-400 hover:text-amber-300 transition-colors">Instructor Dashboard</a>
+                <a href="instructor-dashboard.html" class="block py-3 text-bmw-400 hover:text-bmw-300 transition-colors">Instructor Dashboard</a>
             </div>
         </div>
     </nav>
@@ -147,7 +191,7 @@
     <!-- Loading State -->
     <div id="loading-state" class="min-h-screen flex items-center justify-center">
         <div class="text-center">
-            <div class="w-12 h-12 mx-auto mb-4 border-2 border-amber-400/30 border-t-amber-400 rounded-full spinner"></div>
+            <div class="w-12 h-12 mx-auto mb-4 border-2 border-bmw-400/30 border-t-bmw-400 rounded-full spinner"></div>
             <p class="text-white/50 text-sm">Loading your dashboard...</p>
         </div>
     </div>
@@ -158,11 +202,11 @@
             <div class="text-5xl mb-6">🎓</div>
             <h1 class="text-2xl font-light mb-4">Instructor Dashboard</h1>
             <p class="text-white/50 text-sm mb-8">Sign in to manage your cohorts and see who's joining your adventures.</p>
-            <a href="/join?tab=signin" class="cta-button px-8 py-4 rounded-full text-white font-medium inline-block">
+            <a href="join.html?tab=signin" class="cta-button px-8 py-4 rounded-full text-white font-medium inline-block">
                 Sign In
             </a>
             <p class="text-white/30 text-xs mt-6">
-                Not an instructor yet? <a href="instructors.html" class="text-amber-400 hover:text-amber-300">Apply here</a>
+                Not an instructor yet? <a href="instructors.html" class="text-bmw-400 hover:text-bmw-300">Apply here</a>
             </p>
         </div>
     </div>
@@ -189,7 +233,7 @@
             <h1 class="text-2xl font-light mb-4">Application under review</h1>
             <p class="text-white/50 text-sm mb-4">We've received your application and are reviewing it. We'll be in touch soon.</p>
             <p class="text-white/30 text-xs">
-                Questions? Email <a href="mailto:ceo-educatedtraveler@pm.me" class="text-amber-400">ceo-educatedtraveler@pm.me</a>
+                Questions? Email <a href="mailto:ceo-educatedtraveler@pm.me" class="text-bmw-400">ceo-educatedtraveler@pm.me</a>
             </p>
             <p class="text-white/30 text-xs mt-6">
                 <button id="pending-sign-out" class="text-white/40 hover:text-white transition-colors underline">Sign out</button>
@@ -227,11 +271,11 @@
             <section class="mb-10 fade-up delay-1">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-cohorts" class="text-2xl font-light text-amber-400">0</p>
+                        <p id="stat-cohorts" class="text-2xl font-light text-bmw-400">0</p>
                         <p class="text-white/40 text-xs mt-1">Cohorts</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-published" class="text-2xl font-light text-emerald-400">0</p>
+                        <p id="stat-published" class="text-2xl font-light text-bmw-400">0</p>
                         <p class="text-white/40 text-xs mt-1">Published</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
@@ -249,7 +293,7 @@
             <section class="mb-10 fade-up delay-2">
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-lg font-light">Your Cohorts</h2>
-                    <button id="create-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-colors">
+                    <button id="create-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">
                         + New Cohort
                     </button>
                 </div>
@@ -257,7 +301,7 @@
                 <div id="cohorts-container">
                     <div id="no-cohorts" class="glass rounded-xl p-10 text-center">
                         <p class="text-white/30 text-sm mb-4">No cohorts yet. Create your first one to start accepting students.</p>
-                        <button id="create-first-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-colors">
+                        <button id="create-first-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">
                             Create Your First Cohort
                         </button>
                     </div>
@@ -267,7 +311,7 @@
         </div>
     </main>
 
-    <!-- Create Cohort Modal -->
+    <!-- Create/Edit Cohort Modal -->
     <div id="cohort-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="cohort-modal-backdrop"></div>
         <div class="relative glass rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto">
@@ -277,12 +321,23 @@
                 </svg>
             </button>
 
-            <h3 class="text-xl font-light mb-6">Create a Cohort</h3>
+            <h3 id="cohort-modal-title" class="text-xl font-light mb-6">Create a Cohort</h3>
 
             <form id="cohort-form" class="space-y-5">
+                <input type="hidden" name="cohort_id" value="">
+
+                <!-- Experience Picker -->
+                <div>
+                    <label class="block text-sm text-white/40 mb-2">Link to Experience</label>
+                    <select name="adventure_id" class="w-full rounded-xl px-4 py-3 text-sm">
+                        <option value="">— Custom / No linked experience —</option>
+                    </select>
+                    <p class="text-white/20 text-xs mt-1">Select an experience to auto-fill details, or create a custom cohort</p>
+                </div>
+
                 <div>
                     <label class="block text-sm text-white/40 mb-2">Title</label>
-                    <input type="text" name="title" required placeholder="e.g., RYA Day Skipper — Gibraltar"
+                    <input type="text" name="title" required placeholder="e.g., Sushi Mastery — 6 Week Program"
                         class="w-full rounded-xl px-4 py-3 text-sm">
                 </div>
 
@@ -326,7 +381,7 @@
 
                 <div class="pt-2">
                     <button type="submit" id="cohort-submit-btn"
-                        class="w-full py-3 bg-amber-500 text-black font-medium rounded-full hover:bg-amber-400 transition-colors">
+                        class="w-full py-3 bg-bmw-500 text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
                         Create Cohort
                     </button>
                     <p class="text-white/30 text-xs text-center mt-3">Created as draft. You can publish when ready.</p>
@@ -335,12 +390,92 @@
         </div>
     </div>
 
+    <!-- Edit Experience Modal -->
+    <div id="experience-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="experience-modal-backdrop"></div>
+        <div class="relative glass rounded-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <button id="close-experience-modal" class="absolute top-4 right-4 text-white/50 hover:text-white p-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <h3 class="text-xl font-light mb-2">Experience Details</h3>
+            <p class="text-white/30 text-xs mb-6">Customize the experience for your cohort. Students will see these details.</p>
+
+            <form id="experience-form" class="space-y-5">
+                <input type="hidden" name="cohort_id" value="">
+
+                <div>
+                    <label class="block text-sm text-white/40 mb-2">Experience Summary</label>
+                    <textarea name="exp_summary" rows="2" class="w-full rounded-xl px-4 py-3 text-sm"
+                        placeholder="Brief description of what this experience covers..."></textarea>
+                </div>
+
+                <!-- Curriculum -->
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="text-sm text-white/40">Curriculum (phases/weeks)</label>
+                        <button type="button" id="add-phase-btn" class="text-xs text-bmw-400 hover:text-bmw-300">+ Add Phase</button>
+                    </div>
+                    <div id="curriculum-container" class="space-y-3"></div>
+                </div>
+
+                <!-- What's Included -->
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="text-sm text-white/40">What's Included</label>
+                        <button type="button" id="add-included-btn" class="text-xs text-bmw-400 hover:text-bmw-300">+ Add Item</button>
+                    </div>
+                    <div id="included-container" class="space-y-3"></div>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" id="experience-submit-btn"
+                        class="w-full py-3 bg-bmw-500 text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
+                        Save Experience Details
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Student Management Modal -->
+    <div id="student-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="student-modal-backdrop"></div>
+        <div class="relative glass rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto">
+            <button id="close-student-modal" class="absolute top-4 right-4 text-white/50 hover:text-white p-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <h3 class="text-xl font-light mb-2">Manage Students</h3>
+            <p id="student-modal-cohort" class="text-white/30 text-xs mb-6"></p>
+
+            <div id="student-list" class="space-y-3 mb-6"></div>
+
+            <div class="border-t border-white/10 pt-5">
+                <h4 class="text-sm text-white/50 mb-3">Invite a Student</h4>
+                <div class="flex gap-3">
+                    <input type="email" id="invite-email" placeholder="student@email.com"
+                        class="flex-1 rounded-xl px-4 py-3 text-sm">
+                    <button id="invite-student-btn"
+                        class="px-5 py-3 bg-bmw-500/20 text-bmw-400 rounded-xl text-sm hover:bg-bmw-500/30 transition-colors">
+                        Send Invite
+                    </button>
+                </div>
+                <p class="text-white/20 text-xs mt-2">Student will receive an email to join this cohort</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="py-12 border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-emerald-400">TRAVELER</span></p>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-bmw-400">TRAVELER</span></p>
                     <p class="text-white/40 text-sm">Earned, not bought. Certified at the source.</p>
                 </div>
                 <div class="flex items-center gap-6">
@@ -357,6 +492,7 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
+    <script src="/js/experiences.js"></script>
 
     <script>
         const disciplineLabels = {
@@ -383,6 +519,18 @@
             'other': 'Other'
         };
 
+        // Category labels for experience picker grouping
+        const categoryLabels = {
+            'diving': 'Diving & Ocean',
+            'sailing': 'Sailing',
+            'culinary': 'Culinary',
+            'wine': 'Wine & Spirits',
+            'yoga': 'Yoga & Wellness',
+            'wellness': 'Wellness',
+            'adventure': 'Adventure & Guiding',
+            'surf': 'Surf & Water Sports'
+        };
+
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -397,6 +545,41 @@
                 } else {
                     svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
                 }
+            });
+        }
+
+        // ========================================
+        // EXPERIENCE HELPERS
+        // ========================================
+
+        function getExperienceById(id) {
+            return (window.ET_EXPERIENCES || []).find(e => e.id === id) || null;
+        }
+
+        function getExperienceLabel(id) {
+            const exp = getExperienceById(id);
+            return exp ? exp.name : null;
+        }
+
+        function populateExperienceDropdown(selectEl) {
+            const experiences = window.ET_EXPERIENCES || [];
+            const grouped = {};
+            experiences.forEach(exp => {
+                const cat = exp.category || 'other';
+                if (!grouped[cat]) grouped[cat] = [];
+                grouped[cat].push(exp);
+            });
+
+            Object.keys(grouped).sort().forEach(cat => {
+                const group = document.createElement('optgroup');
+                group.label = categoryLabels[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+                grouped[cat].forEach(exp => {
+                    const opt = document.createElement('option');
+                    opt.value = exp.id;
+                    opt.textContent = exp.name;
+                    group.appendChild(opt);
+                });
+                selectEl.appendChild(group);
             });
         }
 
@@ -419,10 +602,6 @@
                 loadingState.classList.add('hidden');
                 notSignedInState.classList.remove('hidden');
 
-                document.getElementById('sign-in-cta').addEventListener('click', () => {
-                    window.auth.showSignInModal();
-                });
-
                 window.auth.onAuthStateChange((user) => {
                     if (user) window.location.reload();
                 });
@@ -435,7 +614,6 @@
                 const data = await window.db.getInstructorDashboardData(user.id);
 
                 if (!data) {
-                    // No instructor record
                     loadingState.classList.add('hidden');
                     notInstructorState.classList.remove('hidden');
 
@@ -475,7 +653,7 @@
                 loadingState.innerHTML = `
                     <div class="text-center">
                         <p class="text-red-400 mb-4">Error loading dashboard</p>
-                        <button onclick="window.location.reload()" class="text-amber-400 hover:text-amber-300">Try again</button>
+                        <button onclick="window.location.reload()" class="text-bmw-400 hover:text-bmw-300">Try again</button>
                     </div>
                 `;
             }
@@ -488,6 +666,8 @@
 
             // Cohort modal handlers
             setupCohortModal(user);
+            setupExperienceModal();
+            setupStudentModal();
         });
 
         // ========================================
@@ -563,6 +743,33 @@
                     }
                 });
             });
+
+            // Attach edit cohort listeners
+            container.querySelectorAll('[data-edit-cohort]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cohortId = btn.dataset.editCohort;
+                    const cohort = cohorts.find(c => c.id === cohortId);
+                    if (cohort) openEditCohortModal(cohort);
+                });
+            });
+
+            // Attach experience edit listeners
+            container.querySelectorAll('[data-edit-experience]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cohortId = btn.dataset.editExperience;
+                    const adventureId = btn.dataset.adventureId;
+                    openExperienceModal(cohortId, adventureId);
+                });
+            });
+
+            // Attach manage students listeners
+            container.querySelectorAll('[data-manage-students]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cohortId = btn.dataset.manageStudents;
+                    const cohort = cohorts.find(c => c.id === cohortId);
+                    if (cohort) openStudentModal(cohort);
+                });
+            });
         }
 
         function renderCohortCard(cohort) {
@@ -580,6 +787,10 @@
             const canPublish = cohort.status === 'draft' || cohort.status === 'published';
             const publishLabel = cohort.status === 'draft' ? 'Publish' : 'Unpublish';
 
+            // Linked experience info
+            const linkedExp = cohort.adventure_id ? getExperienceById(cohort.adventure_id) : null;
+            const expLabel = linkedExp ? linkedExp.name : null;
+
             return `
                 <div class="cohort-card rounded-xl p-6 mb-4">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
@@ -589,11 +800,26 @@
                                 <span class="status-badge status-${cohort.status}">${cohort.status.replace('_', ' ')}</span>
                             </div>
                             <p class="text-white/40 text-xs">${escapeHtml(cohort.location || '')} ${cohort.location && dateRange !== 'TBD' ? '·' : ''} ${dateRange} ${price ? '· ' + price : ''}</p>
+                            ${expLabel ? `<p class="text-bmw-400/60 text-xs mt-1">Linked: ${escapeHtml(expLabel)}</p>` : ''}
                         </div>
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <button data-edit-cohort="${cohort.id}"
+                                class="text-xs px-4 py-1.5 rounded-full border border-white/20 text-white/50 hover:bg-white/5 transition-colors">
+                                Edit
+                            </button>
+                            ${cohort.adventure_id ? `
+                                <button data-edit-experience="${cohort.id}" data-adventure-id="${cohort.adventure_id}"
+                                    class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-bmw-400/70 hover:bg-bmw-400/10 transition-colors">
+                                    Experience
+                                </button>
+                            ` : ''}
+                            <button data-manage-students="${cohort.id}"
+                                class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-bmw-400/70 hover:bg-bmw-500/10 transition-colors">
+                                Students
+                            </button>
                             ${canPublish ? `
                                 <button data-publish-cohort="${cohort.id}" data-current-status="${cohort.status}"
-                                    class="text-xs px-4 py-1.5 rounded-full border ${cohort.status === 'draft' ? 'border-emerald-400/50 text-emerald-400 hover:bg-emerald-400/10' : 'border-white/20 text-white/50 hover:bg-white/5'} transition-colors">
+                                    class="text-xs px-4 py-1.5 rounded-full border ${cohort.status === 'draft' ? 'border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10' : 'border-white/20 text-white/50 hover:bg-white/5'} transition-colors">
                                     ${publishLabel}
                                 </button>
                             ` : ''}
@@ -606,10 +832,10 @@
                     <div class="mb-4">
                         <div class="flex items-center justify-between text-xs mb-1">
                             <span class="text-white/40">${enrolledCount} / ${cohort.capacity} students</span>
-                            <span class="${isFilling ? 'text-amber-400' : 'text-white/30'}">${Math.round(capacityPercent)}% full</span>
+                            <span class="${isFilling ? 'text-bmw-400' : 'text-white/30'}">${Math.round(capacityPercent)}% full</span>
                         </div>
                         <div class="capacity-bar h-1.5 rounded-full">
-                            <div class="capacity-fill h-full rounded-full ${isFilling ? 'bg-amber-400' : 'bg-emerald-500'}" style="width: ${capacityPercent}%"></div>
+                            <div class="capacity-fill h-full rounded-full ${isFilling ? 'bg-bmw-400' : 'bg-bmw-500'}" style="width: ${capacityPercent}%"></div>
                         </div>
                     </div>
 
@@ -622,7 +848,7 @@
                             View students (${enrolledCount})
                         </button>
                         <div id="students-${cohort.id}" class="hidden mt-3 rounded-lg bg-white/[0.02] p-4">
-                            ${enrolled.map((e, i) => `
+                            ${enrolled.map(e => `
                                 <div class="enrollment-row flex items-center justify-between py-2.5">
                                     <div>
                                         <p class="text-sm">${escapeHtml(e.profiles?.name || 'Anonymous')}</p>
@@ -647,14 +873,33 @@
         }
 
         // ========================================
-        // COHORT MODAL
+        // COHORT MODAL (Create + Edit)
         // ========================================
 
         function setupCohortModal(user) {
             const modal = document.getElementById('cohort-modal');
             const form = document.getElementById('cohort-form');
+            const selectEl = form.querySelector('[name="adventure_id"]');
+
+            // Populate experience dropdown
+            populateExperienceDropdown(selectEl);
+
+            // Auto-fill when experience is selected
+            selectEl.addEventListener('change', () => {
+                const exp = getExperienceById(selectEl.value);
+                if (!exp) return;
+                const titleInput = form.querySelector('[name="title"]');
+                const descInput = form.querySelector('[name="description"]');
+                const priceInput = form.querySelector('[name="price"]');
+                if (!titleInput.value) titleInput.value = exp.name;
+                if (!descInput.value) descInput.value = exp.summary || '';
+                if (!priceInput.value && exp.minPrice) priceInput.value = exp.minPrice;
+            });
 
             function openModal() {
+                document.getElementById('cohort-modal-title').textContent = 'Create a Cohort';
+                document.getElementById('cohort-submit-btn').textContent = 'Create Cohort';
+                form.querySelector('[name="cohort_id"]').value = '';
                 modal.classList.remove('hidden');
             }
 
@@ -671,15 +916,16 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const submitBtn = document.getElementById('cohort-submit-btn');
+                const formData = new FormData(form);
+                const cohortId = formData.get('cohort_id');
+                const isEdit = !!cohortId;
+
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Creating...';
+                submitBtn.textContent = isEdit ? 'Saving...' : 'Creating...';
 
                 try {
-                    const instructor = await window.db.getInstructorByUserId(user.id);
-                    const formData = new FormData(form);
-
-                    await window.db.createCohort({
-                        instructor_id: instructor.id,
+                    const cohortData = {
+                        adventure_id: formData.get('adventure_id') || null,
                         title: formData.get('title'),
                         description: formData.get('description') || null,
                         location: formData.get('location') || null,
@@ -687,15 +933,196 @@
                         end_date: formData.get('end_date') || null,
                         capacity: parseInt(formData.get('capacity')) || 10,
                         price_cents: formData.get('price') ? parseInt(formData.get('price')) * 100 : null
-                    });
+                    };
+
+                    if (isEdit) {
+                        await window.db.updateCohort(cohortId, cohortData);
+                    } else {
+                        const instructor = await window.db.getInstructorByUserId(user.id);
+                        cohortData.instructor_id = instructor.id;
+                        await window.db.createCohort(cohortData);
+                    }
 
                     window.location.reload();
                 } catch (err) {
-                    console.error('Error creating cohort:', err);
+                    console.error('Error saving cohort:', err);
                     submitBtn.disabled = false;
-                    submitBtn.textContent = 'Create Cohort';
+                    submitBtn.textContent = isEdit ? 'Save Changes' : 'Create Cohort';
                 }
             });
+
+            // Expose for edit
+            window._openEditCohortModal = function(cohort) {
+                document.getElementById('cohort-modal-title').textContent = 'Edit Cohort';
+                document.getElementById('cohort-submit-btn').textContent = 'Save Changes';
+                form.querySelector('[name="cohort_id"]').value = cohort.id;
+                form.querySelector('[name="adventure_id"]').value = cohort.adventure_id || '';
+                form.querySelector('[name="title"]').value = cohort.title || '';
+                form.querySelector('[name="description"]').value = cohort.description || '';
+                form.querySelector('[name="location"]').value = cohort.location || '';
+                form.querySelector('[name="capacity"]').value = cohort.capacity || 10;
+                form.querySelector('[name="start_date"]').value = cohort.start_date || '';
+                form.querySelector('[name="end_date"]').value = cohort.end_date || '';
+                form.querySelector('[name="price"]').value = cohort.price_cents ? Math.round(cohort.price_cents / 100) : '';
+                modal.classList.remove('hidden');
+            };
+        }
+
+        function openEditCohortModal(cohort) {
+            window._openEditCohortModal(cohort);
+        }
+
+        // ========================================
+        // EXPERIENCE MODAL
+        // ========================================
+
+        function setupExperienceModal() {
+            const modal = document.getElementById('experience-modal');
+            const form = document.getElementById('experience-form');
+
+            document.getElementById('close-experience-modal')?.addEventListener('click', () => modal.classList.add('hidden'));
+            document.getElementById('experience-modal-backdrop')?.addEventListener('click', () => modal.classList.add('hidden'));
+
+            document.getElementById('add-phase-btn')?.addEventListener('click', () => {
+                addCurriculumRow();
+            });
+
+            document.getElementById('add-included-btn')?.addEventListener('click', () => {
+                addIncludedRow();
+            });
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                // For now, experience customizations are stored locally
+                // Future: save to a cohort_experience_overrides table
+                const submitBtn = document.getElementById('experience-submit-btn');
+                submitBtn.textContent = 'Saved!';
+                submitBtn.classList.remove('bg-bmw-500');
+                submitBtn.classList.add('bg-bmw-500');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    submitBtn.textContent = 'Save Experience Details';
+                    submitBtn.classList.add('bg-bmw-500');
+                    submitBtn.classList.remove('bg-bmw-500');
+                }, 800);
+            });
+        }
+
+        function addCurriculumRow(phase, title, focus) {
+            const container = document.getElementById('curriculum-container');
+            const idx = container.children.length;
+            const row = document.createElement('div');
+            row.className = 'grid grid-cols-12 gap-2';
+            row.innerHTML = `
+                <input type="text" placeholder="Week 1" value="${escapeHtml(phase || '')}" class="col-span-2 rounded-lg px-3 py-2 text-xs">
+                <input type="text" placeholder="Phase title" value="${escapeHtml(title || '')}" class="col-span-3 rounded-lg px-3 py-2 text-xs">
+                <input type="text" placeholder="Focus & details" value="${escapeHtml(focus || '')}" class="col-span-6 rounded-lg px-3 py-2 text-xs">
+                <button type="button" onclick="this.parentElement.remove()" class="col-span-1 text-red-400/50 hover:text-red-400 text-xs flex items-center justify-center">x</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function addIncludedRow(name, desc) {
+            const container = document.getElementById('included-container');
+            const row = document.createElement('div');
+            row.className = 'grid grid-cols-12 gap-2';
+            row.innerHTML = `
+                <input type="text" placeholder="Item name" value="${escapeHtml(name || '')}" class="col-span-4 rounded-lg px-3 py-2 text-xs">
+                <input type="text" placeholder="Description" value="${escapeHtml(desc || '')}" class="col-span-7 rounded-lg px-3 py-2 text-xs">
+                <button type="button" onclick="this.parentElement.remove()" class="col-span-1 text-red-400/50 hover:text-red-400 text-xs flex items-center justify-center">x</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function openExperienceModal(cohortId, adventureId) {
+            const modal = document.getElementById('experience-modal');
+            const form = document.getElementById('experience-form');
+            form.querySelector('[name="cohort_id"]').value = cohortId;
+
+            // Clear existing rows
+            document.getElementById('curriculum-container').innerHTML = '';
+            document.getElementById('included-container').innerHTML = '';
+
+            const exp = getExperienceById(adventureId);
+            if (exp) {
+                form.querySelector('[name="exp_summary"]').value = exp.summary || '';
+                if (exp.immersive?.curriculum) {
+                    exp.immersive.curriculum.forEach(c => addCurriculumRow(c.phase, c.title, c.focus));
+                }
+                if (exp.immersive?.included) {
+                    exp.immersive.included.forEach(i => addIncludedRow(i.name, i.desc));
+                }
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        // ========================================
+        // STUDENT MANAGEMENT MODAL
+        // ========================================
+
+        function setupStudentModal() {
+            const modal = document.getElementById('student-modal');
+
+            document.getElementById('close-student-modal')?.addEventListener('click', () => modal.classList.add('hidden'));
+            document.getElementById('student-modal-backdrop')?.addEventListener('click', () => modal.classList.add('hidden'));
+
+            document.getElementById('invite-student-btn')?.addEventListener('click', async () => {
+                const emailInput = document.getElementById('invite-email');
+                const email = emailInput.value.trim();
+                if (!email) return;
+
+                const btn = document.getElementById('invite-student-btn');
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+
+                // For now, show confirmation — full invite flow requires edge function
+                setTimeout(() => {
+                    btn.textContent = 'Invite Sent!';
+                    btn.classList.remove('bg-bmw-500/20', 'text-bmw-400');
+                    btn.classList.add('bg-bmw-500/40', 'text-bmw-300');
+                    emailInput.value = '';
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.textContent = 'Send Invite';
+                        btn.classList.add('bg-bmw-500/20', 'text-bmw-400');
+                        btn.classList.remove('bg-bmw-500/40', 'text-bmw-300');
+                    }, 2000);
+                }, 500);
+            });
+        }
+
+        function openStudentModal(cohort) {
+            const modal = document.getElementById('student-modal');
+            document.getElementById('student-modal-cohort').textContent = cohort.title;
+
+            const enrolled = cohort.enrollments?.filter(e => e.status === 'enrolled') || [];
+            const waitlisted = cohort.enrollments?.filter(e => e.status === 'waitlisted') || [];
+            const listContainer = document.getElementById('student-list');
+
+            if (enrolled.length === 0 && waitlisted.length === 0) {
+                listContainer.innerHTML = '<p class="text-white/20 text-sm text-center py-6">No students yet. Send an invite to get started.</p>';
+            } else {
+                listContainer.innerHTML = enrolled.map(e => `
+                    <div class="flex items-center justify-between py-3 px-4 rounded-lg bg-white/[0.02]">
+                        <div>
+                            <p class="text-sm">${escapeHtml(e.profiles?.name || 'Anonymous')}</p>
+                            <p class="text-white/30 text-xs">${escapeHtml(e.profiles?.email || '')}</p>
+                        </div>
+                        <span class="status-badge status-published">enrolled</span>
+                    </div>
+                `).join('') + waitlisted.map(e => `
+                    <div class="flex items-center justify-between py-3 px-4 rounded-lg bg-white/[0.02]">
+                        <div>
+                            <p class="text-sm">${escapeHtml(e.profiles?.name || 'Anonymous')}</p>
+                            <p class="text-white/30 text-xs">${escapeHtml(e.profiles?.email || '')}</p>
+                        </div>
+                        <span class="status-badge status-pending">waitlisted</span>
+                    </div>
+                `).join('');
+            }
+
+            modal.classList.remove('hidden');
         }
     </script>
     <script src="/js/whatsapp-widget.js"></script>

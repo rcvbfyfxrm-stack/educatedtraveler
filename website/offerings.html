@@ -346,98 +346,118 @@
         </div>
     </section>
 
-    <!-- Flagship Experiences - Launching Soon -->
+    <!-- Culinary Flagships -->
     <section class="py-16 px-6 border-t border-white/5">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
-                <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">Launching Soon</p>
-                <h2 class="text-2xl font-light mb-2">Flagship Experiences</h2>
-                <p class="text-white/40 text-sm">First cohorts forming now</p>
+                <p class="text-amber-400 text-xs uppercase tracking-widest mb-3">Culinary Immersions</p>
+                <h2 class="text-2xl font-light mb-2">Six Kitchens. Six Traditions. One Standard.</h2>
+                <p class="text-white/40 text-sm">First cohorts forming now — 8-10 per group, no exceptions</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- RYA Sailing - Greece -->
-                <div class="flagship-card rounded-xl p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">RYA Day Skipper — Greek Islands</h3>
-                    <p class="text-white/50 text-sm mb-4">Cradle of Mediterranean sailing. RYA Day Skipper certification through the Cyclades.</p>
-                    <div class="text-xs text-white/40">14-21 days · RYA Day Skipper</div>
-                </div>
-
-                <!-- PADI Diving - French Med -->
-                <div class="flagship-card rounded-xl p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">PADI Divemaster — French Mediterranean</h3>
-                    <p class="text-white/50 text-sm mb-4">Where Cousteau invented modern diving. Open Water to Divemaster on the Côte d'Azur.</p>
-                    <div class="text-xs text-white/40">21-28 days · PADI Divemaster</div>
-                </div>
-
-                <!-- WSET Wine - Bordeaux -->
-                <div class="flagship-card rounded-xl p-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Sushi Mastery - Tokyo -->
+                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('sushi-mastery-tokyo')">
                     <div class="flex items-start justify-between mb-4">
                         <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
+                        <span class="text-xs text-amber-400">Mastery</span>
                     </div>
-                    <h3 class="text-xl font-medium mb-2">WSET Level 3 — Bordeaux</h3>
-                    <p class="text-white/50 text-sm mb-4">WSET Level 3 in the world's most legendary wine region. Château visits, cellar tastings.</p>
-                    <div class="text-xs text-white/40">14-21 days · WSET Level 3</div>
+                    <h3 class="text-lg font-medium mb-2">Sushi Mastery — Tokyo</h3>
+                    <p class="text-white/50 text-sm mb-4">Learn from a master itamae. 5 AM Toyosu Market to omakase service. The philosophy of shokunin.</p>
+                    <div class="text-xs text-white/40 mb-3">30 days · Professional Sushi Chef</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Toyosu Market</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Knife set included</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Sake brewery</span>
+                    </div>
                 </div>
 
-                <!-- Yoga - Rishikesh -->
-                <div class="flagship-card rounded-xl p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-wellness">Wellness</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">Yoga Alliance RYT-200 — Rishikesh</h3>
-                    <p class="text-white/50 text-sm mb-4">Birthplace of yoga. RYT-200 certification in ashrams on the Ganges.</p>
-                    <div class="text-xs text-white/40">25-28 days · Yoga Alliance RYT-200</div>
-                </div>
-
-                <!-- Ferrandi French Pastry -->
-                <div class="flagship-card rounded-xl p-6">
+                <!-- French Pastry - Paris -->
+                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('pastry-le-cordon-bleu-paris')">
                     <div class="flex items-start justify-between mb-4">
                         <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
+                        <span class="text-xs text-amber-400">Mastery</span>
                     </div>
-                    <h3 class="text-xl font-medium mb-2">Ferrandi French Pastry — Paris</h3>
-                    <p class="text-white/50 text-sm mb-4">The school that trained Paris's finest pastry chefs. Ferrandi professional certificate.</p>
-                    <div class="text-xs text-white/40">1-2 months · Ferrandi Certificate</div>
+                    <h3 class="text-lg font-medium mb-2">French Pastry — Paris</h3>
+                    <p class="text-white/50 text-sm mb-4">Croissants, entremets, chocolate, sugar work. Final exam: a full vitrine judged by a Meilleur Ouvrier de France.</p>
+                    <div class="text-xs text-white/40 mb-3">30 days · Le Cordon Bleu Professional Pastry Arts</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Pâtisserie crawls</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Rungis Market</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Chocolate atelier</span>
+                    </div>
                 </div>
 
-                <!-- Modernist Cuisine Barcelona -->
-                <div class="flagship-card rounded-xl p-6">
+                <!-- Avant-Garde Cuisine - Barcelona -->
+                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('avant-garde-cuisine-barcelona')">
                     <div class="flex items-start justify-between mb-4">
                         <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
+                        <span class="text-xs text-amber-400">Foundation</span>
                     </div>
-                    <h3 class="text-xl font-medium mb-2">Modernist Cuisine — Barcelona</h3>
-                    <p class="text-white/50 text-sm mb-4">Molecular gastronomy and avant-garde techniques. Hofmann Barcelona professional diploma.</p>
-                    <div class="text-xs text-white/40">1-2 months · Hofmann Diploma</div>
+                    <h3 class="text-lg font-medium mb-2">Avant-Garde Cuisine — Barcelona</h3>
+                    <p class="text-white/50 text-sm mb-4">Ground zero for the culinary revolution. Train with chefs from the elBulli and Disfrutar lineage.</p>
+                    <div class="text-xs text-white/40 mb-3">21 days · Advanced Culinary Innovation</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">La Boqueria</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Fermentation lab</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">3 restaurant dinners</span>
+                    </div>
                 </div>
 
-                <!-- Indigenous Mexican Cuisine -->
-                <div class="flagship-card rounded-xl p-6">
+                <!-- New Basque Cuisine - San Sebastián -->
+                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('new-basque-cuisine-san-sebastian')">
                     <div class="flex items-start justify-between mb-4">
                         <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
+                        <span class="text-xs text-amber-400">Foundation</span>
                     </div>
-                    <h3 class="text-xl font-medium mb-2">Indigenous Mexican Cuisine — Oaxaca</h3>
-                    <p class="text-white/50 text-sm mb-4">Pre-Hispanic techniques with local masters. Mezcal, mole, and ancient traditions in the culinary heart of Mexico.</p>
-                    <div class="text-xs text-white/40">21-28 days · CESSA Certificate</div>
+                    <h3 class="text-lg font-medium mb-2">New Basque Cuisine — San Sebastián</h3>
+                    <p class="text-white/50 text-sm mb-4">More Michelin stars per capita than anywhere. Txokos, asadores, pintxos, and the Arzak/Mugaritz lineage.</p>
+                    <div class="text-xs text-white/40 mb-3">21 days · Basque Culinary Arts</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Txoko access</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Cider house</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Rioja excursion</span>
+                    </div>
+                </div>
+
+                <!-- Terroir Cooking - Tuscany -->
+                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('terroir-cooking-tuscany')">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge badge-culinary">Culinary</span>
+                        <span class="text-xs text-amber-400">Mastery</span>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">Terroir Cooking — Tuscany</h3>
+                    <p class="text-white/50 text-sm mb-4">Three ingredients must be perfect or the dish fails. Cook in farmhouse kitchens, harvest with farmers.</p>
+                    <div class="text-xs text-white/40 mb-3">30 days · Italian Culinary Arts</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Parmigiano dairy</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Truffle hunt</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Chianti vineyards</span>
+                    </div>
+                </div>
+
+                <!-- Indigenous Cuisine - Oaxaca -->
+                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('indigenous-mexican-oaxaca')">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge badge-culinary">Culinary</span>
+                        <span class="text-xs text-amber-400">Foundation</span>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">Indigenous Cuisine — Oaxaca</h3>
+                    <p class="text-white/50 text-sm mb-4">Seven moles, mezcal, ancient techniques. Learn from abuelas in village kitchens — UNESCO Intangible Heritage.</p>
+                    <div class="text-xs text-white/40 mb-3">21-28 days · CESSA Professional Certificate</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Mezcal palenque</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Milpa farm</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Village homestay</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="text-center mt-8">
+            <div class="text-center mt-10">
                 <a href="community.html" class="cta-button inline-block px-8 py-3 rounded-full text-white font-medium text-sm">
                     Join waitlist for founding cohorts
                 </a>
+                <p class="text-white/20 text-xs mt-3">Click any experience above to explore the full curriculum, add-ons, and next steps</p>
             </div>
         </div>
     </section>
@@ -785,6 +805,31 @@
                     card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }, 100);
             }
+        };
+
+        // Open immersive from flagship cards
+        window.openImmersive = function(id) {
+            const card = document.querySelector(`.immersive-card[data-id="${id}"]`);
+            if (!card) return;
+
+            // Reset category filter to 'all' or 'culinary' so card is visible
+            const culinaryBtn = document.querySelector('.filter-btn[data-filter="culinary"]');
+            if (culinaryBtn) culinaryBtn.click();
+
+            // Close any open cards first
+            document.querySelectorAll('.immersive-card.expanded').forEach(c => {
+                c.classList.remove('expanded');
+                c.querySelector('.card-details').classList.remove('open');
+            });
+
+            // Open the target card
+            card.classList.add('expanded');
+            card.querySelector('.card-details').classList.add('open');
+
+            // Scroll to it
+            setTimeout(() => {
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 150);
         };
 
         // Category filtering
