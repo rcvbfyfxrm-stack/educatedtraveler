@@ -85,12 +85,30 @@
             border-color: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
         }
-        .exp-card.coming-soon {
-            background: linear-gradient(135deg, rgba(217, 119, 6, 0.06) 0%, rgba(217, 119, 6, 0.02) 100%);
-            border-color: rgba(217, 119, 6, 0.15);
+        .exp-card.culinary-flagship {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.08) 0%, rgba(217, 119, 6, 0.02) 100%);
+            border-color: rgba(217, 119, 6, 0.18);
         }
-        .exp-card.coming-soon:hover {
-            border-color: rgba(217, 119, 6, 0.3);
+        .exp-card.culinary-flagship:hover {
+            border-color: rgba(217, 119, 6, 0.4);
+            box-shadow: 0 8px 30px rgba(217, 119, 6, 0.08);
+        }
+
+        /* Spectrum list rows */
+        .spectrum-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .spectrum-row:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.12);
         }
 
         /* Detail modal overlay */
@@ -267,23 +285,35 @@
         </div>
     </section>
 
-    <!-- Single unified catalog -->
-    <section class="py-12 px-6" id="catalog">
+    <!-- Coming Soon — Culinary Flagships -->
+    <section class="py-16 px-6 border-t border-white/5" id="coming-soon">
         <div class="max-w-5xl mx-auto">
-
-            <!-- Category tabs -->
-            <div class="flex flex-wrap justify-center gap-2 mb-10" id="category-tabs">
-                <button data-cat="all" class="cat-tab active">All Experiences</button>
-                <button data-cat="culinary" class="cat-tab">Culinary</button>
-                <button data-cat="diving" class="cat-tab">Diving</button>
-                <button data-cat="sailing" class="cat-tab">Sailing</button>
-                <button data-cat="wellness" class="cat-tab">Wellness</button>
-                <button data-cat="adventure" class="cat-tab">Adventure</button>
-                <button data-cat="wildlife" class="cat-tab">Wildlife</button>
+            <div class="text-center mb-12">
+                <p class="text-amber-400 text-xs uppercase tracking-widest mb-3">Coming Soon</p>
+                <h2 class="text-2xl md:text-3xl font-light mb-3">Six Kitchens. Six Traditions.</h2>
+                <p class="text-white/40 text-sm max-w-md mx-auto">Our first culinary immersions — 8-10 per cohort, master instructors, certifications you carry for life. Click any to explore the full journey.</p>
             </div>
 
-            <!-- Cards rendered by JS -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="catalog-grid"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" id="culinary-grid"></div>
+
+            <div class="text-center mt-10">
+                <a href="community.html" class="cta-button inline-block px-8 py-3 rounded-full text-white font-medium text-sm">
+                    Get early access to culinary cohorts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Full Spectrum -->
+    <section class="py-16 px-6 border-t border-white/5" id="spectrum">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">The Full Spectrum</p>
+                <h2 class="text-2xl font-light mb-3">More Than Cooking</h2>
+                <p class="text-white/40 text-sm max-w-md mx-auto">Diving, sailing, yoga, mountaineering, safari — every discipline follows the same standard. Click any experience to explore.</p>
+            </div>
+
+            <div class="space-y-2" id="spectrum-list"></div>
         </div>
     </section>
 
@@ -386,8 +416,7 @@
     <!-- Catalog Renderer -->
     <script>
     (function() {
-        const grid = document.getElementById('catalog-grid');
-        if (!grid || !window.ET_EXPERIENCES) return;
+        if (!window.ET_EXPERIENCES) return;
 
         const badgeMap = {
             diving: 'badge-ocean', sailing: 'badge-ocean',
@@ -400,46 +429,81 @@
             adventure: 'Adventure', wildlife: 'Wildlife'
         };
 
-        // Sort: culinary (coming soon) first, then rest
-        const sorted = [...window.ET_EXPERIENCES].sort((a, b) => {
-            const aCS = (a.minPrice === null) ? 0 : 1;
-            const bCS = (b.minPrice === null) ? 0 : 1;
-            if (aCS !== bCS) return aCS - bCS;
-            return 0;
-        });
+        // Split: culinary flagships (null price) vs everything else
+        const culinaryFlagships = window.ET_EXPERIENCES.filter(e => e.minPrice === null && e.category === 'culinary');
+        const otherExperiences = window.ET_EXPERIENCES.filter(e => !(e.minPrice === null && e.category === 'culinary'));
 
-        function renderCard(exp) {
-            const isComingSoon = exp.minPrice === null;
-            const tierClass = 'tier-' + exp.tier;
-            const hasDetail = !!exp.immersive;
+        // === CULINARY FLAGSHIP CARDS ===
+        const culinaryGrid = document.getElementById('culinary-grid');
+        if (culinaryGrid) {
+            // Location shorthand for each flagship
+            const locationMap = {
+                'sushi-mastery-tokyo': 'Tokyo',
+                'pastry-le-cordon-bleu-paris': 'Paris',
+                'avant-garde-cuisine-barcelona': 'Barcelona',
+                'new-basque-cuisine-san-sebastian': 'San Sebastián',
+                'terroir-cooking-tuscany': 'Tuscany',
+                'indigenous-mexican-oaxaca': 'Oaxaca',
+                'ferrandi-pastry-paris': 'Paris'
+            };
 
-            return `
-            <div class="exp-card ${isComingSoon ? 'coming-soon' : ''}" data-category="${exp.category}" data-id="${exp.id}" ${hasDetail ? `onclick="openDetail('${exp.id}')"` : ''}>
-                <div class="flex items-center gap-2 mb-3 flex-wrap">
-                    <span class="badge ${badgeMap[exp.category]}">${labelMap[exp.category]}</span>
-                    <span class="tier-badge ${tierClass}">${exp.tier}</span>
-                    ${isComingSoon ? '<span class="text-[10px] text-amber-400/70 uppercase tracking-wider">Coming Soon</span>' : ''}
-                </div>
-                <h3 class="font-medium text-[15px] mb-2">${exp.name}</h3>
-                <p class="text-white/40 text-xs leading-relaxed mb-3">${exp.summary}</p>
-                <div class="text-xs text-white/25">${exp.meta}</div>
-            </div>`;
+            culinaryGrid.innerHTML = culinaryFlagships.map(exp => {
+                const loc = locationMap[exp.id] || '';
+                return `
+                <div class="exp-card culinary-flagship" onclick="openDetail('${exp.id}')">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="tier-badge tier-${exp.tier}">${exp.tier}</span>
+                        <span class="text-[10px] text-amber-400/60 uppercase tracking-wider">${loc}</span>
+                    </div>
+                    <h3 class="font-medium text-[15px] mb-2">${exp.name}</h3>
+                    <p class="text-white/40 text-xs leading-relaxed mb-3">${exp.summary}</p>
+                    <div class="text-xs text-white/25">${exp.meta}</div>
+                </div>`;
+            }).join('');
         }
 
-        grid.innerHTML = sorted.map(renderCard).join('');
-
-        // Category filtering
-        document.querySelectorAll('.cat-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                const cat = this.dataset.cat;
-                document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-
-                document.querySelectorAll('.exp-card').forEach(card => {
-                    card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
-                });
+        // === SPECTRUM LIST (other experiences, grouped by category) ===
+        const spectrumList = document.getElementById('spectrum-list');
+        if (spectrumList) {
+            const groups = {};
+            otherExperiences.forEach(exp => {
+                const cat = exp.category;
+                if (!groups[cat]) groups[cat] = [];
+                groups[cat].push(exp);
             });
-        });
+
+            // Order categories
+            const catOrder = ['diving', 'sailing', 'wellness', 'adventure', 'wildlife', 'culinary'];
+            let html = '';
+
+            catOrder.forEach(cat => {
+                const exps = groups[cat];
+                if (!exps || exps.length === 0) return;
+
+                html += `<div class="mb-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="badge ${badgeMap[cat]}">${labelMap[cat]}</span>
+                        <span class="text-xs text-white/20">${exps.length} experience${exps.length > 1 ? 's' : ''}</span>
+                    </div>`;
+
+                exps.forEach(exp => {
+                    const hasDetail = !!exp.immersive;
+                    html += `
+                    <div class="spectrum-row" ${hasDetail ? `onclick="openDetail('${exp.id}')"` : ''}>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-white/80 truncate">${exp.name}</p>
+                            <p class="text-[11px] text-white/30 mt-0.5">${exp.meta}</p>
+                        </div>
+                        <span class="tier-badge tier-${exp.tier} flex-shrink-0">${exp.tier}</span>
+                        ${hasDetail ? '<svg class="w-4 h-4 text-white/20 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>' : ''}
+                    </div>`;
+                });
+
+                html += '</div>';
+            });
+
+            spectrumList.innerHTML = html;
+        }
 
         // Detail modal
         const overlay = document.getElementById('detail-overlay');
