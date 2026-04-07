@@ -44,25 +44,6 @@
             box-shadow: 0 15px 40px rgba(5, 150, 105, 0.3);
         }
 
-        .experience-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: all 0.3s ease;
-        }
-        .experience-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(5, 150, 105, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .flagship-card {
-            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(29, 78, 216, 0.1) 100%);
-            border: 1px solid rgba(5, 150, 105, 0.2);
-        }
-        .flagship-card:hover {
-            border-color: rgba(5, 150, 105, 0.4);
-        }
-
         .badge {
             font-size: 10px;
             padding: 2px 8px;
@@ -75,88 +56,111 @@
         .badge-wellness { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
         .badge-adventure { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
         .badge-wildlife { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
-        .badge-week { background: rgba(16, 185, 129, 0.2); color: #10b981; }
 
-        /* Immersive catalog */
-        .immersive-card {
+        /* Category tabs */
+        .cat-tab {
+            padding: 10px 20px;
+            border-radius: 9999px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            background: transparent;
+            color: rgba(255,255,255,0.4);
+        }
+        .cat-tab:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.1); }
+        .cat-tab.active { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: white; }
+
+        /* Experience cards in grid */
+        .exp-card {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            overflow: hidden;
+            border-radius: 14px;
+            padding: 24px;
             transition: all 0.3s ease;
-        }
-        .immersive-card:hover {
-            border-color: rgba(255, 255, 255, 0.12);
-        }
-        .immersive-card.expanded {
-            border-color: rgba(5, 150, 105, 0.3);
-            background: rgba(255, 255, 255, 0.03);
-        }
-        .card-header {
             cursor: pointer;
-            padding: 20px 24px;
+        }
+        .exp-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        .exp-card.coming-soon {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.06) 0%, rgba(217, 119, 6, 0.02) 100%);
+            border-color: rgba(217, 119, 6, 0.15);
+        }
+        .exp-card.coming-soon:hover {
+            border-color: rgba(217, 119, 6, 0.3);
+        }
+
+        /* Detail modal overlay */
+        .detail-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            display: none;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .detail-overlay.open { display: flex; justify-content: center; align-items: flex-start; padding: 40px 16px; }
+        .detail-panel {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            max-width: 720px;
+            width: 100%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .detail-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 16px;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 10;
         }
-        .card-header:hover { background: rgba(255, 255, 255, 0.02); }
-        .expand-icon {
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-            width: 20px;
-            height: 20px;
-            opacity: 0.4;
-        }
-        .expanded .expand-icon { transform: rotate(180deg); opacity: 0.8; }
-        .card-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-        }
-        .card-details.open {
-            max-height: 3000px;
-        }
-        .card-details-inner {
-            padding: 0 24px 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        .detail-close:hover { background: rgba(255,255,255,0.12); }
+
         .phase-bar {
-            background: linear-gradient(90deg, rgba(5, 150, 105, 0.15) 0%, rgba(29, 78, 216, 0.15) 100%);
+            background: linear-gradient(90deg, rgba(5, 150, 105, 0.12) 0%, transparent 100%);
             border-left: 2px solid #059669;
             padding: 10px 14px;
             border-radius: 0 8px 8px 0;
+            margin-bottom: 8px;
         }
         .module-chip {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 10px;
-            padding: 14px 16px;
-            transition: all 0.2s ease;
-        }
-        .module-chip:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.12);
+            padding: 12px 14px;
         }
         .addon-chip {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.02) 100%);
-            border: 1px solid rgba(245, 158, 11, 0.15);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.06) 0%, transparent 100%);
+            border: 1px solid rgba(245, 158, 11, 0.12);
             border-radius: 10px;
-            padding: 14px 16px;
-            transition: all 0.2s ease;
-        }
-        .addon-chip:hover {
-            border-color: rgba(245, 158, 11, 0.3);
+            padding: 12px 14px;
         }
         .next-chip {
-            background: rgba(99, 102, 241, 0.08);
-            border: 1px solid rgba(99, 102, 241, 0.15);
+            background: rgba(99, 102, 241, 0.06);
+            border: 1px solid rgba(99, 102, 241, 0.12);
             border-radius: 10px;
-            padding: 12px 16px;
-            transition: all 0.2s ease;
-        }
-        .next-chip:hover {
-            border-color: rgba(99, 102, 241, 0.3);
+            padding: 10px 14px;
         }
         .section-label {
             font-size: 10px;
@@ -172,11 +176,6 @@
             flex: 1;
             height: 1px;
             background: rgba(255, 255, 255, 0.06);
-        }
-        .filter-btn.active {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border-color: rgba(255, 255, 255, 0.2) !important;
-            color: white !important;
         }
         .tier-badge {
             font-size: 9px;
@@ -207,13 +206,12 @@
             </a>
             <div class="hidden md:flex items-center gap-8">
                 <a href="/" class="text-sm text-white/60 hover:text-white transition-colors">Story</a>
-                <a href="vision.html" class="text-sm text-white/60 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="text-sm text-white hover:text-white transition-colors">Offerings</a>
-                <a href="survey.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
-                    Take Survey
+                <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    Join Community
                 </a>
                 <a href="/join" id="join-link" class="text-sm px-4 py-2 rounded-full border border-blue-400/50 text-blue-400 hover:bg-blue-400/10 transition-colors">
-                    Join the Community
+                    Sign In
                 </a>
                 <a href="/dashboard" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-blue-400/50 text-blue-400 hover:bg-blue-400/10 transition-colors">
                     Dashboard
@@ -228,445 +226,95 @@
         <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
             <div class="px-6 py-4 space-y-3">
                 <a href="/" class="block py-3 text-white/70 hover:text-white transition-colors">Story</a>
-                <a href="vision.html" class="block py-3 text-white/70 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="block py-3 text-white hover:text-white transition-colors">Offerings</a>
-                <a href="survey.html" class="block py-3 text-white/70 hover:text-white transition-colors">Take Survey</a>
-                <a href="/join" id="mobile-join-link" class="block py-3 text-blue-400 hover:text-blue-300 transition-colors">Join the Community</a>
+                <a href="community.html" class="block py-3 text-white/70 hover:text-white transition-colors">Join Community</a>
+                <a href="/join" id="mobile-join-link" class="block py-3 text-blue-400 hover:text-blue-300 transition-colors">Sign In</a>
                 <a href="/dashboard" id="mobile-dashboard-link" class="hidden block py-3 text-blue-400 hover:text-blue-300 transition-colors">My Dashboard</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="pt-32 pb-16 px-6">
+    <section class="pt-32 pb-12 px-6">
         <div class="max-w-3xl mx-auto text-center">
             <p class="text-blue-400 text-sm uppercase tracking-widest mb-6 fade-up">Skill Adventures</p>
             <h1 class="text-4xl md:text-5xl font-light mb-6 fade-up delay-1">
                 Built at the Source. Proven by Credentials.
             </h1>
-            <p class="text-lg text-white/50">
+            <p class="text-lg text-white/50 mb-8">
                 Every experience includes a globally recognized certification, learned where the skill was born.
             </p>
+
+            <!-- Duration spectrum -->
+            <div class="grid grid-cols-4 gap-2 max-w-lg mx-auto text-center text-xs">
+                <div class="glass rounded-lg py-3 px-2">
+                    <p class="text-white/70 font-medium">1 week</p>
+                    <p class="text-white/30 mt-0.5">Get certified</p>
+                </div>
+                <div class="glass rounded-lg py-3 px-2">
+                    <p class="text-white/70 font-medium">2-3 weeks</p>
+                    <p class="text-white/30 mt-0.5">Go deeper</p>
+                </div>
+                <div class="glass rounded-lg py-3 px-2">
+                    <p class="text-white/70 font-medium">1-2 months</p>
+                    <p class="text-white/30 mt-0.5">Professional</p>
+                </div>
+                <div class="glass rounded-lg py-3 px-2">
+                    <p class="text-white/70 font-medium">3-6 months</p>
+                    <p class="text-white/30 mt-0.5">Transform</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 5 Elements -->
-    <section class="py-12 px-6">
+    <!-- Single unified catalog -->
+    <section class="py-12 px-6" id="catalog">
         <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 text-center text-xs">
-                <div class="glass rounded-lg p-3">
-                    <p class="text-white/80 mb-1">Certified</p>
-                    <p class="text-white/30">Real credentials</p>
-                </div>
-                <div class="glass rounded-lg p-3">
-                    <p class="text-white/80 mb-1">At Source</p>
-                    <p class="text-white/30">Where it was born</p>
-                </div>
-                <div class="glass rounded-lg p-3">
-                    <p class="text-white/80 mb-1">Masters</p>
-                    <p class="text-white/30">Decades of expertise</p>
-                </div>
-                <div class="glass rounded-lg p-3">
-                    <p class="text-white/80 mb-1">Cohorts</p>
-                    <p class="text-white/30">8-12 people</p>
-                </div>
-                <div class="glass rounded-lg p-3">
-                    <p class="text-white/80 mb-1">Immersive</p>
-                    <p class="text-white/30">Full-time focus</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 1-Week Experiences - Affordable Entry -->
-    <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">Start Here</p>
-                <h2 class="text-2xl font-light mb-2">One-Week Immersions</h2>
-                <p class="text-white/40 text-sm">Your first credential in 5-7 days.</p>
+            <!-- Category tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10" id="category-tabs">
+                <button data-cat="all" class="cat-tab active">All Experiences</button>
+                <button data-cat="culinary" class="cat-tab">Culinary</button>
+                <button data-cat="diving" class="cat-tab">Diving</button>
+                <button data-cat="sailing" class="cat-tab">Sailing</button>
+                <button data-cat="wellness" class="cat-tab">Wellness</button>
+                <button data-cat="adventure" class="cat-tab">Adventure</button>
+                <button data-cat="wildlife" class="cat-tab">Wildlife</button>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="experience-card rounded-xl p-5 border-blue-500/20">
-                    <div class="flex items-start justify-between mb-3">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="badge badge-week">5-7 days</span>
-                    </div>
-                    <h4 class="font-medium mb-2">PADI Open Water — French Mediterranean</h4>
-                    <p class="text-white/50 text-xs mb-3">Your first breath underwater where Cousteau invented diving. PADI Open Water certification.</p>
-                    <div class="text-xs text-white/40">PADI Open Water Diver</div>
-                </div>
-                <div class="experience-card rounded-xl p-5 border-blue-500/20">
-                    <div class="flex items-start justify-between mb-3">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="badge badge-week">5-7 days</span>
-                    </div>
-                    <h4 class="font-medium mb-2">RYA Competent Crew — Greek Islands</h4>
-                    <p class="text-white/50 text-xs mb-3">Learn to sail in the Cyclades. Your first step to becoming a skipper.</p>
-                    <div class="text-xs text-white/40">RYA Competent Crew</div>
-                </div>
-                <div class="experience-card rounded-xl p-5 border-blue-500/20">
-                    <div class="flex items-start justify-between mb-3">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="badge badge-week">5-7 days</span>
-                    </div>
-                    <h4 class="font-medium mb-2">AIDA Level 2 Freediving — Dahab</h4>
-                    <p class="text-white/50 text-xs mb-3">Hold your breath at the Blue Hole. Foundation freediving certification.</p>
-                    <div class="text-xs text-white/40">AIDA 2 Freediver</div>
-                </div>
-                <div class="experience-card rounded-xl p-5 border-blue-500/20">
-                    <div class="flex items-start justify-between mb-3">
-                        <span class="badge badge-culinary">Culinary</span>
-                        <span class="badge badge-week">5-7 days</span>
-                    </div>
-                    <h4 class="font-medium mb-2">WSET Level 2 — Bordeaux</h4>
-                    <p class="text-white/50 text-xs mb-3">Wine fundamentals in the world's most legendary region. Château visits included.</p>
-                    <div class="text-xs text-white/40">WSET Level 2</div>
-                </div>
-                <div class="experience-card rounded-xl p-5 border-blue-500/20">
-                    <div class="flex items-start justify-between mb-3">
-                        <span class="badge badge-wellness">Wellness</span>
-                        <span class="badge badge-week">7 days</span>
-                    </div>
-                    <h4 class="font-medium mb-2">ITM Thai Massage Level 1 — Chiang Mai</h4>
-                    <p class="text-white/50 text-xs mb-3">Ancient healing tradition from masters in Northern Thailand.</p>
-                    <div class="text-xs text-white/40">ITM Level 1 Certificate</div>
-                </div>
-                <div class="experience-card rounded-xl p-5 border-blue-500/20">
-                    <div class="flex items-start justify-between mb-3">
-                        <span class="badge badge-wellness">Wellness</span>
-                        <span class="badge badge-week">7 days</span>
-                    </div>
-                    <h4 class="font-medium mb-2">Wim Hof Method Fundamentals — Poland</h4>
-                    <p class="text-white/50 text-xs mb-3">Cold exposure and breathwork at the source with certified WHM instructors.</p>
-                    <div class="text-xs text-white/40">WHM Fundamentals Certificate</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Flagship Experiences - Launching Soon -->
-    <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">Launching Soon</p>
-                <h2 class="text-2xl font-light mb-2">Flagship Experiences</h2>
-                <p class="text-white/40 text-sm">First cohorts forming now</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- RYA Sailing - Greece -->
-                <div class="flagship-card rounded-xl p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">RYA Day Skipper — Greek Islands</h3>
-                    <p class="text-white/50 text-sm mb-4">Cradle of Mediterranean sailing. RYA Day Skipper certification through the Cyclades.</p>
-                    <div class="text-xs text-white/40">14-21 days · RYA Day Skipper</div>
-                </div>
-
-                <!-- PADI Diving - French Med -->
-                <div class="flagship-card rounded-xl p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">PADI Divemaster — French Mediterranean</h3>
-                    <p class="text-white/50 text-sm mb-4">Where Cousteau invented modern diving. Open Water to Divemaster on the Côte d'Azur.</p>
-                    <div class="text-xs text-white/40">21-28 days · PADI Divemaster</div>
-                </div>
-
-                <!-- WSET Wine - Bordeaux -->
-                <div class="flagship-card rounded-xl p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">WSET Level 3 — Bordeaux</h3>
-                    <p class="text-white/50 text-sm mb-4">WSET Level 3 in the world's most legendary wine region. Château visits, cellar tastings.</p>
-                    <div class="text-xs text-white/40">14-21 days · WSET Level 3</div>
-                </div>
-
-                <!-- Yoga - Rishikesh -->
-                <div class="flagship-card rounded-xl p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-wellness">Wellness</span>
-                        <span class="text-xs text-blue-400">Launching Soon</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">Yoga Alliance RYT-200 — Rishikesh</h3>
-                    <p class="text-white/50 text-sm mb-4">Birthplace of yoga. RYT-200 certification in ashrams on the Ganges.</p>
-                    <div class="text-xs text-white/40">25-28 days · Yoga Alliance RYT-200</div>
-                </div>
-            </div>
-
-            <div class="text-center mt-8">
-                <a href="community.html" class="cta-button inline-block px-8 py-3 rounded-full text-white font-medium text-sm">
-                    Join waitlist for founding cohorts
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Coming Soon — Culinary Flagships -->
-    <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <p class="text-amber-400 text-xs uppercase tracking-widest mb-3">Coming Soon</p>
-                <h2 class="text-2xl font-light mb-2">Six Kitchens. Six Traditions. One Standard.</h2>
-                <p class="text-white/40 text-sm">Culinary immersions launching 2026 — 8-10 per cohort, no exceptions</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Sushi Mastery - Tokyo -->
-                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('sushi-mastery-tokyo')">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-amber-400">Coming Soon</span>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">Sushi Mastery — Tokyo</h3>
-                    <p class="text-white/50 text-sm mb-4">Learn from a master itamae. 5 AM Toyosu Market to omakase service. The philosophy of shokunin.</p>
-                    <div class="text-xs text-white/40 mb-3">30 days · Professional Sushi Chef</div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Toyosu Market</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Knife set included</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Sake brewery</span>
-                    </div>
-                </div>
-
-                <!-- French Pastry - Paris -->
-                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('pastry-le-cordon-bleu-paris')">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-amber-400">Coming Soon</span>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">French Pastry — Paris</h3>
-                    <p class="text-white/50 text-sm mb-4">Croissants, entremets, chocolate, sugar work. Final exam: a full vitrine judged by a Meilleur Ouvrier de France.</p>
-                    <div class="text-xs text-white/40 mb-3">30 days · Le Cordon Bleu Professional Pastry Arts</div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Pâtisserie crawls</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Rungis Market</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Chocolate atelier</span>
-                    </div>
-                </div>
-
-                <!-- Avant-Garde Cuisine - Barcelona -->
-                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('avant-garde-cuisine-barcelona')">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-amber-400">Coming Soon</span>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">Avant-Garde Cuisine — Barcelona</h3>
-                    <p class="text-white/50 text-sm mb-4">Ground zero for the culinary revolution. Train with chefs from the elBulli and Disfrutar lineage.</p>
-                    <div class="text-xs text-white/40 mb-3">21 days · Advanced Culinary Innovation</div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">La Boqueria</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Fermentation lab</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">3 restaurant dinners</span>
-                    </div>
-                </div>
-
-                <!-- New Basque Cuisine - San Sebastián -->
-                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('new-basque-cuisine-san-sebastian')">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-amber-400">Coming Soon</span>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">New Basque Cuisine — San Sebastián</h3>
-                    <p class="text-white/50 text-sm mb-4">More Michelin stars per capita than anywhere. Txokos, asadores, pintxos, and the Arzak/Mugaritz lineage.</p>
-                    <div class="text-xs text-white/40 mb-3">21 days · Basque Culinary Arts</div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Txoko access</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Cider house</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Rioja excursion</span>
-                    </div>
-                </div>
-
-                <!-- Terroir Cooking - Tuscany -->
-                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('terroir-cooking-tuscany')">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-amber-400">Coming Soon</span>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">Terroir Cooking — Tuscany</h3>
-                    <p class="text-white/50 text-sm mb-4">Three ingredients must be perfect or the dish fails. Cook in farmhouse kitchens, harvest with farmers.</p>
-                    <div class="text-xs text-white/40 mb-3">30 days · Italian Culinary Arts</div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Parmigiano dairy</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Truffle hunt</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Chianti vineyards</span>
-                    </div>
-                </div>
-
-                <!-- Indigenous Cuisine - Oaxaca -->
-                <div class="flagship-card rounded-xl p-6 cursor-pointer" onclick="openImmersive && openImmersive('indigenous-mexican-oaxaca')">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-culinary">Culinary</span>
-                        <span class="text-xs text-amber-400">Coming Soon</span>
-                    </div>
-                    <h3 class="text-lg font-medium mb-2">Indigenous Cuisine — Oaxaca</h3>
-                    <p class="text-white/50 text-sm mb-4">Seven moles, mezcal, ancient techniques. Learn from abuelas in village kitchens — UNESCO Intangible Heritage.</p>
-                    <div class="text-xs text-white/40 mb-3">21-28 days · CESSA Professional Certificate</div>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Mezcal palenque</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Milpa farm</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/30">Village homestay</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-10">
-                <a href="community.html" class="cta-button inline-block px-8 py-3 rounded-full text-white font-medium text-sm">
-                    Get early access to culinary cohorts
-                </a>
-                <p class="text-white/20 text-xs mt-3">Click any experience to explore the full curriculum, add-ons, and next steps</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Immersive Experience Catalog -->
-    <section class="py-16 px-6 border-t border-white/5" id="immersive-catalog">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-6">
-                <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">More Than a Course</p>
-                <h2 class="text-2xl font-light mb-2">The Full Immersion</h2>
-                <p class="text-white/40 text-sm max-w-xl mx-auto">Every experience includes complementary modules that go far beyond the certification. Tap any card to see what your weeks really look like.</p>
-            </div>
-
-            <!-- Category Filter -->
-            <div class="flex flex-wrap justify-center gap-2 mb-10" id="category-filters">
-                <button data-filter="all" class="filter-btn active badge text-xs px-4 py-1.5 rounded-full border border-white/20 bg-white/10 text-white transition-all">All</button>
-                <button data-filter="diving" class="filter-btn badge badge-ocean text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Diving</button>
-                <button data-filter="sailing" class="filter-btn badge badge-ocean text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Sailing</button>
-                <button data-filter="culinary" class="filter-btn badge badge-culinary text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Culinary</button>
-                <button data-filter="wellness" class="filter-btn badge badge-wellness text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Wellness</button>
-                <button data-filter="adventure" class="filter-btn badge badge-adventure text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Adventure</button>
-                <button data-filter="wildlife" class="filter-btn badge badge-wildlife text-xs px-4 py-1.5 rounded-full border border-transparent hover:border-white/20 transition-all">Wildlife</button>
-            </div>
-
-            <!-- Dynamic Experience Cards -->
-            <div class="space-y-3" id="immersive-cards"></div>
-        </div>
-    </section>
-
-    <!-- Saga Experiences -->
-    <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">The Deep End</p>
-                <h2 class="text-2xl font-light mb-2">90-Day Sagas</h2>
-                <p class="text-white/40 text-sm">Multi-certification journeys for those who go all in</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="experience-card rounded-xl p-6 border-blue-500/20">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="text-xs text-white/40">90 days</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">RYA Yachtmaster — 90-Day Saga</h3>
-                    <p class="text-white/50 text-sm mb-4">Day Skipper through Yachtmaster Offshore. 90 days of ocean passages across multiple seas.</p>
-                    <div class="text-xs text-white/40">RYA Yachtmaster Offshore</div>
-                </div>
-
-                <div class="experience-card rounded-xl p-6 border-blue-500/20">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="badge badge-ocean">Ocean</span>
-                        <span class="text-xs text-white/40">90 days</span>
-                    </div>
-                    <h3 class="text-xl font-medium mb-2">PADI Instructor Development — 90-Day Saga</h3>
-                    <p class="text-white/50 text-sm mb-4">Open Water to PADI Instructor. Mediterranean training with IDC and IE.</p>
-                    <div class="text-xs text-white/40">PADI Open Water Scuba Instructor</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Duration -->
-    <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl font-light text-center mb-4">Choose your depth</h2>
-            <p class="text-white/40 text-center mb-12">Whatever time you have</p>
-
-            <div class="grid md:grid-cols-4 gap-4">
-                <div class="glass rounded-xl p-6 text-center border-blue-500/20">
-                    <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">Quick Start</p>
-                    <p class="text-2xl font-light mb-1">5-7 days</p>
-                    <p class="text-white/40 text-sm">First certification</p>
-                </div>
-                <div class="glass rounded-xl p-6 text-center">
-                    <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">Foundation</p>
-                    <p class="text-2xl font-light mb-1">2-3 weeks</p>
-                    <p class="text-white/40 text-sm">Go deeper</p>
-                </div>
-                <div class="glass rounded-xl p-6 text-center">
-                    <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">Mastery</p>
-                    <p class="text-2xl font-light mb-1">1-2 months</p>
-                    <p class="text-white/40 text-sm">Professional level</p>
-                </div>
-                <div class="glass rounded-xl p-6 text-center">
-                    <p class="text-blue-400 text-xs uppercase tracking-widest mb-3">Saga</p>
-                    <p class="text-2xl font-light mb-1">3-6 months</p>
-                    <p class="text-white/40 text-sm">Change your life</p>
-                </div>
-            </div>
+            <!-- Cards rendered by JS -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="catalog-grid"></div>
         </div>
     </section>
 
     <!-- Certifications -->
     <section class="py-16 px-6 border-t border-white/5">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-2xl font-light text-center mb-12">What You Carry Home</h2>
-
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-xl font-light text-center mb-8">What You Carry Home</h2>
             <div class="grid grid-cols-3 md:grid-cols-6 gap-3 text-center">
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">PADI</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="font-semibold text-sm mb-0.5">PADI</p>
                     <p class="text-white/40 text-xs">Diving</p>
                 </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">RYA</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="font-semibold text-sm mb-0.5">RYA</p>
                     <p class="text-white/40 text-xs">Sailing</p>
                 </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">AIDA</p>
-                    <p class="text-white/40 text-xs">Freediving</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="font-semibold text-sm mb-0.5">Le Cordon Bleu</p>
+                    <p class="text-white/40 text-xs">Pastry</p>
                 </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">WSET</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="font-semibold text-sm mb-0.5">WSET</p>
                     <p class="text-white/40 text-xs">Wine</p>
                 </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">Le Cordon Bleu</p>
-                    <p class="text-white/40 text-xs">Culinary</p>
-                </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">ALMA</p>
-                    <p class="text-white/40 text-xs">Italian Cuisine</p>
-                </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">Yoga Alliance</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="font-semibold text-sm mb-0.5">Yoga Alliance</p>
                     <p class="text-white/40 text-xs">Yoga</p>
                 </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">ITM</p>
-                    <p class="text-white/40 text-xs">Thai Massage</p>
-                </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">FGASA</p>
-                    <p class="text-white/40 text-xs">Safari Guide</p>
-                </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">IKO</p>
-                    <p class="text-white/40 text-xs">Kitesurfing</p>
-                </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">ISA</p>
-                    <p class="text-white/40 text-xs">Surfing</p>
-                </div>
-                <div class="glass rounded-lg p-4">
-                    <p class="font-semibold mb-1">IFMGA</p>
-                    <p class="text-white/40 text-xs">Mountaineering</p>
+                <div class="glass rounded-lg p-3">
+                    <p class="font-semibold text-sm mb-0.5">FGASA</p>
+                    <p class="text-white/40 text-xs">Safari</p>
                 </div>
             </div>
         </div>
@@ -676,15 +324,10 @@
     <section class="py-16 px-6 border-t border-white/5">
         <div class="max-w-2xl mx-auto text-center">
             <h2 class="text-2xl font-light mb-4">Ready to start?</h2>
-            <p class="text-white/50 mb-8">Take the survey to tell us which experiences interest you most, or join the community for early access to founding cohorts.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="survey.html" class="cta-button px-8 py-4 rounded-full text-white font-medium">
-                    Take the Survey
-                </a>
-                <a href="community.html" class="px-8 py-4 rounded-full border border-white/20 hover:bg-white/5 transition-colors">
-                    Join Community
-                </a>
-            </div>
+            <p class="text-white/50 mb-8">Join the community for early access to founding cohorts.</p>
+            <a href="community.html" class="cta-button inline-block px-8 py-4 rounded-full text-white font-medium">
+                Join Community
+            </a>
         </div>
     </section>
 
@@ -698,7 +341,7 @@
                 </div>
                 <div class="flex items-center gap-6">
                     <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Story</a>
-                    <a href="vision.html" class="text-white/50 hover:text-white text-sm transition-colors">Vision</a>
+                    <a href="about.html" class="text-white/50 hover:text-white text-sm transition-colors">About</a>
                     <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
                     <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="text-white/50 hover:text-white transition-colors">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -708,7 +351,18 @@
         </div>
     </footer>
 
+    <!-- Detail Overlay (modal for experience details) -->
+    <div class="detail-overlay" id="detail-overlay">
+        <div class="detail-panel" id="detail-panel">
+            <button class="detail-close" onclick="closeDetail()">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 1l12 12M13 1L1 13"/></svg>
+            </button>
+            <div id="detail-content"></div>
+        </div>
+    </div>
+
     <script>
+        // Mobile menu
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         if (mobileMenuBtn && mobileMenu) {
@@ -729,32 +383,75 @@
     <!-- Experiences Data -->
     <script src="/js/experiences.js"></script>
 
-    <!-- Immersive Catalog Renderer -->
+    <!-- Catalog Renderer -->
     <script>
     (function() {
-        const container = document.getElementById('immersive-cards');
-        if (!container || !window.ET_EXPERIENCES) return;
+        const grid = document.getElementById('catalog-grid');
+        if (!grid || !window.ET_EXPERIENCES) return;
 
-        const badgeClass = {
+        const badgeMap = {
             diving: 'badge-ocean', sailing: 'badge-ocean',
             culinary: 'badge-culinary', wellness: 'badge-wellness',
             adventure: 'badge-adventure', wildlife: 'badge-wildlife'
         };
-
-        const categoryLabel = {
+        const labelMap = {
             diving: 'Diving', sailing: 'Sailing',
             culinary: 'Culinary', wellness: 'Wellness',
             adventure: 'Adventure', wildlife: 'Wildlife'
         };
 
+        // Sort: culinary (coming soon) first, then rest
+        const sorted = [...window.ET_EXPERIENCES].sort((a, b) => {
+            const aCS = (a.minPrice === null) ? 0 : 1;
+            const bCS = (b.minPrice === null) ? 0 : 1;
+            if (aCS !== bCS) return aCS - bCS;
+            return 0;
+        });
+
         function renderCard(exp) {
-            const im = exp.immersive;
-            if (!im) return '';
-
+            const isComingSoon = exp.minPrice === null;
             const tierClass = 'tier-' + exp.tier;
+            const hasDetail = !!exp.immersive;
 
-            const curriculumHTML = im.curriculum.map(c =>
-                `<div class="phase-bar mb-2">
+            return `
+            <div class="exp-card ${isComingSoon ? 'coming-soon' : ''}" data-category="${exp.category}" data-id="${exp.id}" ${hasDetail ? `onclick="openDetail('${exp.id}')"` : ''}>
+                <div class="flex items-center gap-2 mb-3 flex-wrap">
+                    <span class="badge ${badgeMap[exp.category]}">${labelMap[exp.category]}</span>
+                    <span class="tier-badge ${tierClass}">${exp.tier}</span>
+                    ${isComingSoon ? '<span class="text-[10px] text-amber-400/70 uppercase tracking-wider">Coming Soon</span>' : ''}
+                </div>
+                <h3 class="font-medium text-[15px] mb-2">${exp.name}</h3>
+                <p class="text-white/40 text-xs leading-relaxed mb-3">${exp.summary}</p>
+                <div class="text-xs text-white/25">${exp.meta}</div>
+            </div>`;
+        }
+
+        grid.innerHTML = sorted.map(renderCard).join('');
+
+        // Category filtering
+        document.querySelectorAll('.cat-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const cat = this.dataset.cat;
+                document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                document.querySelectorAll('.exp-card').forEach(card => {
+                    card.style.display = (cat === 'all' || card.dataset.category === cat) ? '' : 'none';
+                });
+            });
+        });
+
+        // Detail modal
+        const overlay = document.getElementById('detail-overlay');
+        const content = document.getElementById('detail-content');
+
+        window.openDetail = function(id) {
+            const exp = window.ET_EXPERIENCES.find(e => e.id === id);
+            if (!exp || !exp.immersive) return;
+            const im = exp.immersive;
+
+            const currHTML = im.curriculum.map(c =>
+                `<div class="phase-bar">
                     <div class="flex items-baseline gap-3 mb-1">
                         <span class="text-xs font-medium text-emerald-400 whitespace-nowrap">${c.phase}</span>
                         <span class="text-sm font-medium text-white">${c.title}</span>
@@ -763,158 +460,91 @@
                 </div>`
             ).join('');
 
-            const modulesHTML = im.included.map(m =>
+            const inclHTML = im.included.map(m =>
                 `<div class="module-chip">
                     <p class="text-xs font-medium text-white/80 mb-1">${m.name}</p>
-                    <p class="text-xs text-white/40 leading-relaxed">${m.desc}</p>
+                    <p class="text-[11px] text-white/40 leading-relaxed">${m.desc}</p>
                 </div>`
             ).join('');
 
-            const addOnsHTML = im.addOns.map(a =>
+            const addHTML = im.addOns.map(a =>
                 `<div class="addon-chip">
                     <div class="flex items-baseline justify-between mb-1">
                         <p class="text-xs font-medium text-amber-300/80">${a.name}</p>
-                        <span class="text-xs text-amber-400/60 font-medium ml-3 whitespace-nowrap">${a.price}</span>
+                        <span class="text-[11px] text-amber-400/50 ml-2 whitespace-nowrap">${a.price}</span>
                     </div>
-                    <p class="text-xs text-white/40 leading-relaxed">${a.desc}</p>
+                    <p class="text-[11px] text-white/40 leading-relaxed">${a.desc}</p>
                 </div>`
             ).join('');
 
             const nextHTML = im.nextSteps.map(n =>
                 `<div class="next-chip">
                     <p class="text-xs font-medium text-indigo-300/80">${n.name}</p>
-                    <p class="text-xs text-white/40 mt-1">${n.desc}</p>
+                    <p class="text-[11px] text-white/40 mt-1">${n.desc}</p>
                 </div>`
             ).join('');
 
-            return `
-            <div class="immersive-card" data-category="${exp.category}" data-id="${exp.id}">
-                <div class="card-header" onclick="toggleCard(this)">
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-2 mb-2 flex-wrap">
-                            <span class="badge ${badgeClass[exp.category]}">${categoryLabel[exp.category]}</span>
-                            <span class="tier-badge ${tierClass}">${exp.tier}</span>
-                            <span class="text-xs text-white/30">${exp.meta}</span>
-                        </div>
-                        <h4 class="font-medium text-white text-sm md:text-base">${exp.name}</h4>
-                        <p class="text-xs text-white/40 mt-1 hidden md:block">${exp.summary}</p>
+            content.innerHTML = `
+                <div class="p-6 pb-2">
+                    <div class="flex items-center gap-2 mb-3 flex-wrap">
+                        <span class="badge ${badgeMap[exp.category]}">${labelMap[exp.category]}</span>
+                        <span class="tier-badge tier-${exp.tier}">${exp.tier}</span>
+                        <span class="text-xs text-white/30">${exp.meta}</span>
                     </div>
-                    <svg class="expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
+                    <h2 class="text-xl font-medium mb-2">${exp.name}</h2>
+                    <p class="text-sm text-white/50 leading-relaxed">${exp.summary}</p>
                 </div>
-                <div class="card-details">
-                    <div class="card-details-inner">
-                        <!-- Curriculum -->
-                        <div class="mt-5 mb-6">
-                            <p class="section-label text-emerald-400/60">Your Journey</p>
-                            ${curriculumHTML}
-                        </div>
 
-                        <!-- Included Modules -->
-                        <div class="mb-6">
-                            <p class="section-label text-blue-400/60">Included — Beyond the Certification</p>
-                            <div class="grid sm:grid-cols-2 gap-2">
-                                ${modulesHTML}
-                            </div>
-                        </div>
+                <div class="px-6 pb-6">
+                    <!-- Curriculum -->
+                    <div class="mt-5 mb-6">
+                        <p class="section-label text-emerald-400/60">Your Journey</p>
+                        ${currHTML}
+                    </div>
 
-                        <!-- Premium Add-ons -->
-                        <div class="mb-6">
-                            <p class="section-label text-amber-400/60">Go Deeper — Premium Add-ons</p>
-                            <div class="grid sm:grid-cols-2 gap-2">
-                                ${addOnsHTML}
-                            </div>
-                        </div>
+                    <!-- Included -->
+                    <div class="mb-6">
+                        <p class="section-label text-blue-400/60">Included — Beyond the Certification</p>
+                        <div class="grid sm:grid-cols-2 gap-2">${inclHTML}</div>
+                    </div>
 
-                        <!-- Next Steps -->
-                        <div>
-                            <p class="section-label text-indigo-400/60">What's Next — Continue Your Path</p>
-                            <div class="grid sm:grid-cols-3 gap-2">
-                                ${nextHTML}
-                            </div>
-                        </div>
+                    <!-- Add-ons -->
+                    <div class="mb-6">
+                        <p class="section-label text-amber-400/60">Go Deeper — Premium Add-ons</p>
+                        <div class="grid sm:grid-cols-2 gap-2">${addHTML}</div>
+                    </div>
+
+                    <!-- Next Steps -->
+                    <div class="mb-4">
+                        <p class="section-label text-indigo-400/60">What's Next — Continue Your Path</p>
+                        <div class="grid sm:grid-cols-3 gap-2">${nextHTML}</div>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/5 text-center">
+                        <a href="community.html" class="cta-button inline-block px-6 py-2.5 rounded-full text-white text-sm font-medium">
+                            Join waitlist for this experience
+                        </a>
                     </div>
                 </div>
-            </div>`;
-        }
+            `;
 
-        // Render all cards
-        const html = window.ET_EXPERIENCES.map(renderCard).join('');
-        container.innerHTML = html;
-
-        // Toggle expand/collapse
-        window.toggleCard = function(header) {
-            const card = header.closest('.immersive-card');
-            const details = card.querySelector('.card-details');
-            const isOpen = card.classList.contains('expanded');
-
-            // Close all others
-            document.querySelectorAll('.immersive-card.expanded').forEach(c => {
-                if (c !== card) {
-                    c.classList.remove('expanded');
-                    c.querySelector('.card-details').classList.remove('open');
-                }
-            });
-
-            if (isOpen) {
-                card.classList.remove('expanded');
-                details.classList.remove('open');
-            } else {
-                card.classList.add('expanded');
-                details.classList.add('open');
-                // Smooth scroll to card
-                setTimeout(() => {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                }, 100);
-            }
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
         };
 
-        // Open immersive from flagship cards
-        window.openImmersive = function(id) {
-            const card = document.querySelector(`.immersive-card[data-id="${id}"]`);
-            if (!card) return;
-
-            // Reset category filter to 'all' or 'culinary' so card is visible
-            const culinaryBtn = document.querySelector('.filter-btn[data-filter="culinary"]');
-            if (culinaryBtn) culinaryBtn.click();
-
-            // Close any open cards first
-            document.querySelectorAll('.immersive-card.expanded').forEach(c => {
-                c.classList.remove('expanded');
-                c.querySelector('.card-details').classList.remove('open');
-            });
-
-            // Open the target card
-            card.classList.add('expanded');
-            card.querySelector('.card-details').classList.add('open');
-
-            // Scroll to it
-            setTimeout(() => {
-                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 150);
+        window.closeDetail = function() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
         };
 
-        // Category filtering
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const filter = this.dataset.filter;
+        // Close on overlay click (not panel)
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeDetail();
+        });
 
-                // Update active state
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-
-                // Filter cards
-                document.querySelectorAll('.immersive-card').forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                        card.classList.remove('expanded');
-                        card.querySelector('.card-details').classList.remove('open');
-                    }
-                });
-            });
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeDetail();
         });
     })();
     </script>
