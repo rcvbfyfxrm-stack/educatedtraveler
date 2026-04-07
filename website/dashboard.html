@@ -83,9 +83,515 @@
             to { transform: rotate(360deg); }
         }
         .spinner { animation: spin 1s linear infinite; }
+
+        /* ═══════════════════════════════════════ */
+        /* PROFILE SETUP OVERLAY                   */
+        /* ═══════════════════════════════════════ */
+        #profile-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            background: #0a0a0a;
+            overflow-y: auto;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        #profile-overlay.entering {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: rgba(255, 255, 255, 0.35);
+            margin-bottom: 12px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+        }
+        .profile-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: white;
+            font-size: 0.875rem;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+        .profile-input:focus { border-color: rgba(0, 102, 177, 0.5); }
+        .profile-input::placeholder { color: rgba(255, 255, 255, 0.25); }
+        textarea.profile-input { resize: vertical; min-height: 80px; }
+        .profile-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236f6f6f'%3e%3cpath d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+        .chip {
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: rgba(255, 255, 255, 0.6);
+            user-select: none;
+        }
+        .chip:hover { background: rgba(255, 255, 255, 0.08); color: white; }
+        .chip.selected { color: white; border-color: currentColor; }
+        .chip[data-category="ocean"].selected { background: rgba(6, 182, 212, 0.15); border-color: #06B6D4; color: #06B6D4; }
+        .chip[data-category="adventure"].selected { background: rgba(239, 68, 68, 0.15); border-color: #EF4444; color: #EF4444; }
+        .chip[data-category="culinary"].selected { background: rgba(245, 158, 11, 0.15); border-color: #F59E0B; color: #F59E0B; }
+        .chip[data-category="wellness"].selected { background: rgba(249, 115, 22, 0.15); border-color: #F97316; color: #F97316; }
+        .chip[data-category="creative"].selected { background: rgba(139, 92, 246, 0.15); border-color: #8B5CF6; color: #8B5CF6; }
+
+        .profile-photo-upload {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0066B1, #3B8DD4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .profile-photo-upload:hover { box-shadow: 0 0 30px rgba(0, 102, 177, 0.4); }
+        .profile-photo-upload img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+        .profile-photo-upload .upload-hint {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 50%;
+        }
+        .profile-photo-upload:hover .upload-hint { opacity: 1; }
+
+        /* Tamagotchi */
+        #tama-container {
+            position: fixed; bottom: 24px; right: 24px; z-index: 70;
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            pointer-events: none;
+        }
+        #tama-bubble {
+            background: rgba(255,255,255,0.08); backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.12); border-radius: 16px 16px 16px 4px;
+            padding: 8px 14px; font-size: 0.75rem; color: rgba(255,255,255,0.7);
+            max-width: 180px; text-align: center;
+            opacity: 0; transform: translateY(6px); transition: all 0.4s ease;
+        }
+        #tama-bubble.show { opacity: 1; transform: translateY(0); }
+        #tama-shell {
+            width: 80px; height: 80px; border-radius: 20px;
+            background: rgba(255,255,255,0.04); backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex; align-items: center; justify-content: center;
+            pointer-events: auto; cursor: pointer; transition: all 0.3s ease;
+        }
+        #tama-shell:hover { background: rgba(255,255,255,0.08); transform: scale(1.05); }
+        #tama-creature { font-size: 40px; line-height: 1; transition: all 0.5s cubic-bezier(0.34,1.56,0.64,1); }
+        #tama-creature.idle { animation: tamaIdle 3s ease-in-out infinite; }
+        #tama-creature.bounce { animation: tamaBounce 0.6s ease; }
+        #tama-creature.wiggle { animation: tamaWiggle 0.4s ease 3; }
+        @keyframes tamaIdle { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+        @keyframes tamaBounce { 0%,100%{transform:translateY(0) scale(1)} 30%{transform:translateY(-12px) scale(1.15)} 50%{transform:translateY(-6px) scale(0.95)} }
+        @keyframes tamaWiggle { 0%,100%{transform:rotate(0)} 25%{transform:rotate(-8deg)} 75%{transform:rotate(8deg)} }
+        #tama-name { font-size:0.6rem; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.15em; color:rgba(255,255,255,0.25); }
+        #tama-xp-bar { width:60px; height:3px; background:rgba(255,255,255,0.06); border-radius:2px; overflow:hidden; }
+        #tama-xp-fill { height:100%; width:0%; border-radius:2px; transition:width 0.8s cubic-bezier(0.34,1.56,0.64,1); }
+        #tama-shell.ocean { box-shadow: 0 0 20px rgba(6,182,212,0.2); }
+        #tama-shell.adventure { box-shadow: 0 0 20px rgba(239,68,68,0.2); }
+        #tama-shell.culinary { box-shadow: 0 0 20px rgba(245,158,11,0.2); }
+        #tama-shell.wellness { box-shadow: 0 0 20px rgba(249,115,22,0.2); }
+        #tama-shell.creative { box-shadow: 0 0 20px rgba(139,92,246,0.2); }
+
+        /* Progress bar */
+        #profile-progress-bar { position:sticky; top:0; z-index:5; height:3px; background:rgba(255,255,255,0.04); }
+        #profile-progress-fill { height:100%; width:0%; background:linear-gradient(90deg,#0066B1,#3B8DD4); transition:width 0.6s ease; }
+        #profile-progress-label { position:absolute; top:8px; right:24px; font-size:0.65rem; font-family:'IBM Plex Mono',monospace; color:rgba(255,255,255,0.3); }
+
+        .toggle-track { width:44px; height:24px; background:rgba(255,255,255,0.1); border-radius:12px; cursor:pointer; transition:background 0.2s; position:relative; }
+        .toggle-track.active { background:rgba(0,102,177,0.6); }
+        .toggle-thumb { width:20px; height:20px; background:white; border-radius:50%; position:absolute; top:2px; left:2px; transition:transform 0.2s; }
+        .toggle-track.active .toggle-thumb { transform:translateX(20px); }
+
+        @media (max-width:640px) {
+            #tama-container { bottom:12px; right:12px; }
+            #tama-shell { width:64px; height:64px; }
+            #tama-creature { font-size:32px; }
+        }
     </style>
 </head>
 <body class="text-white">
+
+    <!-- Tamagotchi Companion (visible during profile setup) -->
+    <div id="tama-container" style="display:none;">
+        <div id="tama-bubble"></div>
+        <div id="tama-shell">
+            <span id="tama-creature" class="idle">&#x1F95A;</span>
+        </div>
+        <div id="tama-xp-bar"><div id="tama-xp-fill" style="background:#3B8DD4;"></div></div>
+        <span id="tama-name">egg</span>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- PROFILE SETUP OVERLAY (shown on first sign-in)     -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div id="profile-overlay" class="hidden entering">
+        <div id="profile-progress-bar">
+            <div id="profile-progress-fill"></div>
+            <span id="profile-progress-label">0%</span>
+        </div>
+
+        <div class="max-w-3xl mx-auto px-6 pt-8 pb-24">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <p class="section-label">Profile Setup</p>
+                    <h1 class="text-3xl font-light">Who are you?</h1>
+                    <p class="text-white/40 text-sm mt-1">Your cohort and future adventure partners will see this. Be real.</p>
+                </div>
+                <button id="close-profile-overlay" class="text-white/30 hover:text-white p-2 transition-colors" title="Close">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="space-y-10">
+                <!-- PHOTO + BASICS -->
+                <div class="glass-strong rounded-2xl p-8">
+                    <div class="flex flex-col sm:flex-row items-start gap-8">
+                        <div class="flex-shrink-0">
+                            <div class="profile-photo-upload" id="photo-upload" title="Upload your photo">
+                                <svg class="w-10 h-10 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                                </svg>
+                                <div class="upload-hint">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <input type="file" id="photo-input" accept="image/*" class="hidden">
+                            <p class="text-white/20 text-[0.6rem] text-center mt-2">Click to upload</p>
+                        </div>
+                        <div class="flex-1 w-full space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="section-label">First name</label>
+                                    <input type="text" class="profile-input" placeholder="Your first name" id="p-first-name">
+                                </div>
+                                <div>
+                                    <label class="section-label">Age</label>
+                                    <input type="number" class="profile-input" placeholder="Age" id="p-age" min="18" max="99">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="section-label">From</label>
+                                    <input type="text" class="profile-input" placeholder="City, Country" id="p-location">
+                                </div>
+                                <div>
+                                    <label class="section-label">Current status</label>
+                                    <select class="profile-input profile-select" id="p-status">
+                                        <option value="" disabled selected>Select one</option>
+                                        <option value="working">Working full-time</option>
+                                        <option value="freelance">Freelance / Self-employed</option>
+                                        <option value="sabbatical">On sabbatical</option>
+                                        <option value="nomad">Digital nomad</option>
+                                        <option value="career-change">Career change</option>
+                                        <option value="gap-year">Gap year / Break</option>
+                                        <option value="retired">Retired / Semi-retired</option>
+                                        <option value="student">Student</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABOUT YOU -->
+                <div class="glass-strong rounded-2xl p-8">
+                    <p class="section-label">About you</p>
+                    <p class="text-white/40 text-xs mb-4">A few lines about who you are. Your cohort will read this. Be real.</p>
+                    <textarea class="profile-input" id="p-about" placeholder="I'm a software engineer from Berlin taking a sabbatical. I've been sailing dinghies since I was a kid and I want to cross an ocean before I turn 40." rows="4"></textarea>
+                </div>
+
+                <!-- YOUR BACKGROUND -->
+                <div class="glass-strong rounded-2xl p-8">
+                    <p class="section-label">Your background</p>
+                    <p class="text-white/40 text-xs mb-6">Help us understand where you're coming from. This shapes the experience we recommend.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="section-label">Professional field</label>
+                            <select class="profile-input profile-select" id="p-profession">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="tech">Tech / Engineering</option>
+                                <option value="finance">Finance / Business</option>
+                                <option value="healthcare">Healthcare / Medical</option>
+                                <option value="creative-pro">Creative / Design / Media</option>
+                                <option value="hospitality">Hospitality / F&B</option>
+                                <option value="education">Education / Research</option>
+                                <option value="trades">Trades / Manual skills</option>
+                                <option value="military-first-responder">Military / First responder</option>
+                                <option value="legal">Legal / Government</option>
+                                <option value="sports-fitness">Sports / Fitness</option>
+                                <option value="other-pro">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="section-label">Adventure experience</label>
+                            <select class="profile-input profile-select" id="p-adventure-years">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="none">None — brand new</option>
+                                <option value="dabbled">Dabbled — a few trips</option>
+                                <option value="regular">Regular — yearly</option>
+                                <option value="serious">Serious — multiple per year</option>
+                                <option value="professional">Professional — it's my life</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="section-label">Previous experience</label>
+                        <p class="text-white/30 text-xs mb-2">Trips, courses, training, sports — anything relevant.</p>
+                        <textarea class="profile-input" id="p-previous-experience" placeholder="e.g. Hiked the Camino de Santiago. Did a 3-day sailing intro in Croatia. Trained Muay Thai for 2 years." rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label class="section-label">Relevant skills</label>
+                        <textarea class="profile-input" id="p-skills" placeholder="e.g. Good with knots. Comfortable in water. First aid trained." rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- WHAT DRAWS YOU -->
+                <div class="glass-strong rounded-2xl p-8">
+                    <p class="section-label">What draws you</p>
+                    <p class="text-white/40 text-xs mb-6">Select everything that speaks to you. This shapes your creature and your match.</p>
+
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full" style="background:#06B6D4"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#06B6D4">Sailing & Ocean</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="chip" data-category="ocean" data-value="sailing">Sailing</button>
+                            <button class="chip" data-category="ocean" data-value="surfing">Surfing</button>
+                            <button class="chip" data-category="ocean" data-value="ocean-crossing">Ocean crossings</button>
+                            <button class="chip" data-category="ocean" data-value="navigation">Navigation</button>
+                            <button class="chip" data-category="ocean" data-value="freediving">Freediving</button>
+                            <button class="chip" data-category="ocean" data-value="open-water">Open water</button>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full" style="background:#EF4444"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#EF4444">Adventure</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="chip" data-category="adventure" data-value="climbing">Rock climbing</button>
+                            <button class="chip" data-category="adventure" data-value="wingsuit">Wingsuit / BASE</button>
+                            <button class="chip" data-category="adventure" data-value="kayaking">Whitewater kayaking</button>
+                            <button class="chip" data-category="adventure" data-value="martial-arts">Martial arts</button>
+                            <button class="chip" data-category="adventure" data-value="tracking">Wilderness tracking</button>
+                            <button class="chip" data-category="adventure" data-value="endurance">Endurance / Ultra</button>
+                            <button class="chip" data-category="adventure" data-value="altitude">Mountains / Altitude</button>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full" style="background:#F59E0B"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#F59E0B">Culinary</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="chip" data-category="culinary" data-value="sushi">Sushi / Japanese</button>
+                            <button class="chip" data-category="culinary" data-value="wine">Wine</button>
+                            <button class="chip" data-category="culinary" data-value="pastry">Pastry</button>
+                            <button class="chip" data-category="culinary" data-value="molecular">Molecular gastronomy</button>
+                            <button class="chip" data-category="culinary" data-value="whisky">Whisky / Spirits</button>
+                            <button class="chip" data-category="culinary" data-value="fermentation">Fermentation</button>
+                            <button class="chip" data-category="culinary" data-value="fire-cooking">Fire cooking</button>
+                            <button class="chip" data-category="culinary" data-value="foraging">Foraging</button>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full" style="background:#F97316"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#F97316">Wellness</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="chip" data-category="wellness" data-value="yoga">Yoga</button>
+                            <button class="chip" data-category="wellness" data-value="breathwork">Breathwork</button>
+                            <button class="chip" data-category="wellness" data-value="meditation">Meditation / Vipassana</button>
+                            <button class="chip" data-category="wellness" data-value="cold-exposure">Cold exposure</button>
+                            <button class="chip" data-category="wellness" data-value="movement">Movement / Mobility</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full" style="background:#8B5CF6"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#8B5CF6">Creative</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="chip" data-category="creative" data-value="photography">Photography</button>
+                            <button class="chip" data-category="creative" data-value="ceramics">Ceramics / Pottery</button>
+                            <button class="chip" data-category="creative" data-value="writing">Writing</button>
+                            <button class="chip" data-category="creative" data-value="music">Music / Instrument</button>
+                            <button class="chip" data-category="creative" data-value="woodwork">Woodwork / Carpentry</button>
+                            <button class="chip" data-category="creative" data-value="metalwork">Metalwork / Forging</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YOUR STARTING POINT -->
+                <div class="glass-strong rounded-2xl p-8">
+                    <p class="section-label">Your starting point</p>
+                    <p class="text-white/40 text-xs mb-6">This helps us place you at the right level.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="section-label">Fitness level</label>
+                            <select class="profile-input profile-select" id="p-fitness">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="beginner">Getting started</option>
+                                <option value="moderate">Moderately active</option>
+                                <option value="fit">Fit and regular</option>
+                                <option value="athlete">Athlete / Very fit</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="section-label">Comfort zone</label>
+                            <select class="profile-input profile-select" id="p-comfort">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="gentle">Stretch me gently</option>
+                                <option value="push">Push me</option>
+                                <option value="break">Break my limits</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Credentials -->
+                    <div class="mb-6">
+                        <label class="section-label">Credentials you hold</label>
+                        <p class="text-white/30 text-xs mb-4">Check any that apply.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-xs text-white/40 uppercase tracking-wider">Diving</span>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="PADI Open Water" data-family="diving"> PADI Open Water</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="PADI Advanced" data-family="diving"> PADI Advanced</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="PADI Rescue" data-family="diving"> PADI Rescue</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="Divemaster" data-family="diving"> Divemaster</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="AIDA Freediving" data-family="diving"> AIDA Freediving</label>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs text-white/40 uppercase tracking-wider">Sailing</span>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="RYA Competent Crew" data-family="sailing"> RYA Competent Crew</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="RYA Day Skipper" data-family="sailing"> RYA Day Skipper</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="RYA Yachtmaster" data-family="sailing"> RYA Yachtmaster</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="ASA" data-family="sailing"> ASA</label>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs text-white/40 uppercase tracking-wider">Culinary & Wine</span>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="WSET L1" data-family="culinary"> WSET L1</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="WSET L2" data-family="culinary"> WSET L2</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="WSET L3+" data-family="culinary"> WSET L3+</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="Culinary diploma" data-family="culinary"> Culinary diploma</label>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs text-white/40 uppercase tracking-wider">Wellness & Outdoor</span>
+                                <div class="flex flex-wrap gap-2 mt-2">
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="RYT-200" data-family="wellness"> RYT-200</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="RYT-500" data-family="wellness"> RYT-500</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="Martial arts belt" data-family="wellness"> Martial arts belt</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="First aid / WFR" data-family="outdoor"> First aid / WFR</label>
+                                    <label class="chip cursor-pointer"><input type="checkbox" class="hidden cert-check" data-cert="Mountain leader" data-family="outdoor"> Mountain leader</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="section-label">Other certifications</label>
+                        <textarea class="profile-input" id="p-certs" placeholder="Anything not listed above..." rows="2"></textarea>
+                    </div>
+                </div>
+
+                <!-- WHAT MATTERS -->
+                <div class="glass-strong rounded-2xl p-8">
+                    <p class="section-label">What matters to you</p>
+                    <p class="text-white/40 text-xs mb-4">What would make this the best experience of your life?</p>
+                    <textarea class="profile-input" id="p-what-matters" placeholder="I want to disconnect from screens and learn something real with my hands. I want to meet people who are as serious about this as I am." rows="4"></textarea>
+                </div>
+
+                <!-- AVAILABILITY -->
+                <div class="glass-strong rounded-2xl p-8">
+                    <p class="section-label">Availability</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="section-label">When could you go?</label>
+                            <select class="profile-input profile-select" id="p-availability">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="anytime">Anytime — flexible</option>
+                                <option value="1-3months">Within 1-3 months</option>
+                                <option value="3-6months">Within 3-6 months</option>
+                                <option value="6-12months">Within 6-12 months</option>
+                                <option value="exploring">Just exploring</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="section-label">Preferred duration</label>
+                            <select class="profile-input profile-select" id="p-duration">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="foundation">7-21 days (Foundation)</option>
+                                <option value="mastery">30-60 days (Mastery)</option>
+                                <option value="saga">90-180 days (Saga)</option>
+                                <option value="open">Open to anything</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="section-label">Languages you speak</label>
+                        <input type="text" class="profile-input" id="p-languages" placeholder="English, French, Spanish...">
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
+                        <div>
+                            <p class="text-sm text-white/80">Visible to other members</p>
+                            <p class="text-xs text-white/30">Others can see your crew card</p>
+                        </div>
+                        <div class="toggle-track active" id="p-visibility-toggle">
+                            <div class="toggle-thumb"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAVE -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-between items-center pb-8">
+                    <p class="text-white/20 text-xs">Your crew card will be visible to cohort members.</p>
+                    <button class="cta-button px-8 py-3 rounded-full text-sm font-medium" id="save-profile-btn">
+                        Save & Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
@@ -99,7 +605,6 @@
                 <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     Join Waitlist
                 </a>
-                <a href="profile.html" class="text-sm text-white/60 hover:text-white transition-colors">Profile</a>
                 <a href="dashboard.html" class="text-sm px-4 py-2 rounded-full border border-blue-400/50 text-blue-400">
                     My Dashboard
                 </a>
@@ -115,7 +620,6 @@
                 <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Adventures</a>
                 <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
                 <a href="community.html" class="block py-3 text-white/70 hover:text-white transition-colors">Join Waitlist</a>
-                <a href="profile.html" class="block py-3 text-white/70 hover:text-white transition-colors">Profile</a>
                 <a href="dashboard.html" class="block py-3 text-blue-400 hover:text-blue-300 transition-colors">My Dashboard</a>
             </div>
         </div>
@@ -178,8 +682,11 @@
 
                         <!-- Profile + Sign Out -->
                         <div class="flex items-center gap-3">
-                            <a href="profile.html" class="text-sm text-blue-400 hover:text-blue-300 transition-colors px-4 py-2 rounded-full border border-blue-400/30 hover:border-blue-400/50">
+                            <button id="edit-profile-btn" class="text-sm text-blue-400 hover:text-blue-300 transition-colors px-4 py-2 rounded-full border border-blue-400/30 hover:border-blue-400/50">
                                 Edit Profile
+                            </button>
+                            <a id="view-public-profile" href="#" class="text-sm text-white/40 hover:text-white/60 transition-colors px-3 py-2" title="View public profile">
+                                <svg class="w-4 h-4 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             </a>
                             <button id="sign-out-btn" class="text-sm text-white/50 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
                                 Sign Out
@@ -600,6 +1107,427 @@
             const div = document.createElement('div');
             div.textContent = str;
             return div.innerHTML;
+        }
+
+        // ═══════════════════════════════════════
+        // PROFILE OVERLAY SYSTEM
+        // ═══════════════════════════════════════
+
+        function showProfileOverlay() {
+            const overlay = document.getElementById('profile-overlay');
+            const tama = document.getElementById('tama-container');
+            overlay.classList.remove('hidden');
+            tama.style.display = 'flex';
+            requestAnimationFrame(() => {
+                overlay.classList.remove('entering');
+            });
+            document.body.style.overflow = 'hidden';
+            initProfileForm();
+        }
+
+        function hideProfileOverlay() {
+            const overlay = document.getElementById('profile-overlay');
+            const tama = document.getElementById('tama-container');
+            overlay.classList.add('entering');
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                tama.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Close button
+        document.getElementById('close-profile-overlay').addEventListener('click', hideProfileOverlay);
+
+        // Edit Profile button
+        document.getElementById('edit-profile-btn').addEventListener('click', showProfileOverlay);
+
+        // ═══════════════════════════════════════
+        // PROFILE FORM INITIALIZATION
+        // ═══════════════════════════════════════
+        let profileFormInitialized = false;
+
+        function initProfileForm() {
+            if (profileFormInitialized) return;
+            profileFormInitialized = true;
+
+            // Chip selection
+            document.querySelectorAll('#profile-overlay .chip:not(:has(.cert-check))').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    chip.classList.toggle('selected');
+                    updateProfileProgress();
+                });
+            });
+
+            // Cert chip selection
+            document.querySelectorAll('#profile-overlay .cert-check').forEach(cb => {
+                const label = cb.closest('.chip');
+                cb.addEventListener('change', () => {
+                    label.classList.toggle('selected', cb.checked);
+                    updateProfileProgress();
+                });
+                label.addEventListener('click', (e) => {
+                    if (e.target !== cb) {
+                        e.preventDefault();
+                        cb.checked = !cb.checked;
+                        cb.dispatchEvent(new Event('change'));
+                    }
+                });
+            });
+
+            // Photo upload
+            const photoEl = document.getElementById('photo-upload');
+            const photoInput = document.getElementById('photo-input');
+            photoEl.addEventListener('click', () => photoInput.click());
+            photoInput.addEventListener('change', async (e) => {
+                const file = e.target.files[0];
+                if (!file) return;
+
+                // Preview immediately
+                const reader = new FileReader();
+                reader.onload = (ev) => {
+                    photoEl.innerHTML = '<img src="' + ev.target.result + '" alt="Photo"><div class="upload-hint"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg></div>';
+                };
+                reader.readAsDataURL(file);
+
+                // Upload to Supabase Storage if available
+                const user = await window.auth?.getUser();
+                if (user && window.supabaseClient) {
+                    try {
+                        const ext = file.name.split('.').pop();
+                        const path = user.id + '/avatar.' + ext;
+                        await window.supabaseClient.storage.from('avatars').upload(path, file, { upsert: true });
+                        const { data } = window.supabaseClient.storage.from('avatars').getPublicUrl(path);
+                        if (data?.publicUrl) {
+                            await window.supabaseClient.from('profiles').update({ avatar_url: data.publicUrl }).eq('id', user.id);
+                        }
+                    } catch (err) {
+                        console.log('Photo upload to storage skipped:', err.message);
+                    }
+                }
+            });
+
+            // Visibility toggle
+            document.getElementById('p-visibility-toggle').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+
+            // Track progress on all inputs
+            document.querySelectorAll('#profile-overlay .profile-input, #profile-overlay .profile-select').forEach(el => {
+                el.addEventListener('change', updateProfileProgress);
+                el.addEventListener('input', updateProfileProgress);
+            });
+
+            // Initial progress
+            setTimeout(updateProfileProgress, 100);
+            setTimeout(() => tamaSay('egg', 'Hey! Tell me about yourself.'), 1000);
+        }
+
+        // ═══════════════════════════════════════
+        // SAVE PROFILE
+        // ═══════════════════════════════════════
+        document.getElementById('save-profile-btn').addEventListener('click', async () => {
+            const btn = document.getElementById('save-profile-btn');
+            btn.textContent = 'Saving...';
+            btn.disabled = true;
+
+            const interests = {};
+            document.querySelectorAll('#profile-overlay .chip.selected:not(:has(.cert-check))').forEach(chip => {
+                const cat = chip.dataset.category;
+                if (!interests[cat]) interests[cat] = [];
+                interests[cat].push(chip.dataset.value);
+            });
+
+            const credentials = [];
+            document.querySelectorAll('#profile-overlay .cert-check:checked').forEach(cb => {
+                credentials.push({ cert: cb.dataset.cert, family: cb.dataset.family });
+            });
+
+            const profileData = {
+                first_name: document.getElementById('p-first-name').value.trim(),
+                age: document.getElementById('p-age').value ? parseInt(document.getElementById('p-age').value) : null,
+                location: document.getElementById('p-location').value.trim(),
+                status: document.getElementById('p-status').value,
+                about: document.getElementById('p-about').value.trim(),
+                interests: interests,
+                profession: document.getElementById('p-profession').value,
+                adventure_years: document.getElementById('p-adventure-years').value,
+                previous_experience: document.getElementById('p-previous-experience').value.trim(),
+                skills: document.getElementById('p-skills').value.trim(),
+                fitness: document.getElementById('p-fitness').value,
+                comfort_zone: document.getElementById('p-comfort').value,
+                credentials: credentials,
+                existing_certs: document.getElementById('p-certs').value.trim(),
+                what_matters: document.getElementById('p-what-matters').value.trim(),
+                availability: document.getElementById('p-availability').value,
+                preferred_duration: document.getElementById('p-duration').value,
+                languages: document.getElementById('p-languages').value.trim(),
+                visible: document.getElementById('p-visibility-toggle').classList.contains('active'),
+                profile_complete: true,
+                name: document.getElementById('p-first-name').value.trim() || undefined,
+            };
+
+            const user = await window.auth?.getUser();
+            if (user) {
+                try {
+                    await window.supabaseClient.from('profiles').upsert({
+                        id: user.id,
+                        ...profileData,
+                        updated_at: new Date().toISOString()
+                    });
+
+                    btn.textContent = 'Saved!';
+                    btn.style.background = 'linear-gradient(135deg, #059669, #10B981)';
+
+                    // Update dashboard header
+                    if (profileData.first_name) {
+                        document.getElementById('profile-name').textContent = profileData.first_name;
+                        document.getElementById('profile-initials').textContent = profileData.first_name.slice(0, 2).toUpperCase();
+                    }
+
+                    // Set public profile link
+                    const pubLink = document.getElementById('view-public-profile');
+                    if (pubLink) pubLink.href = '/profile?id=' + user.id;
+
+                    setTimeout(() => {
+                        hideProfileOverlay();
+                        btn.textContent = 'Save & Continue';
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 1200);
+                } catch (err) {
+                    console.error('Save error:', err);
+                    btn.textContent = 'Error — try again';
+                    btn.style.background = 'linear-gradient(135deg, #DC2626, #EF4444)';
+                    setTimeout(() => { btn.textContent = 'Save & Continue'; btn.style.background = ''; btn.disabled = false; }, 2000);
+                }
+            }
+        });
+
+        // ═══════════════════════════════════════
+        // LOAD PROFILE INTO OVERLAY
+        // ═══════════════════════════════════════
+        async function loadProfileIntoOverlay(userId) {
+            try {
+                const { data } = await window.supabaseClient.from('profiles').select('*').eq('id', userId).single();
+                if (!data) return false;
+
+                if (data.first_name) document.getElementById('p-first-name').value = data.first_name;
+                if (data.age) document.getElementById('p-age').value = data.age;
+                if (data.location) document.getElementById('p-location').value = data.location;
+                if (data.status) document.getElementById('p-status').value = data.status;
+                if (data.about) document.getElementById('p-about').value = data.about;
+                if (data.profession) document.getElementById('p-profession').value = data.profession;
+                if (data.adventure_years) document.getElementById('p-adventure-years').value = data.adventure_years;
+                if (data.previous_experience) document.getElementById('p-previous-experience').value = data.previous_experience;
+                if (data.skills) document.getElementById('p-skills').value = data.skills;
+                if (data.fitness) document.getElementById('p-fitness').value = data.fitness;
+                if (data.comfort_zone) document.getElementById('p-comfort').value = data.comfort_zone;
+                if (data.existing_certs) document.getElementById('p-certs').value = data.existing_certs;
+                if (data.what_matters) document.getElementById('p-what-matters').value = data.what_matters;
+                if (data.availability) document.getElementById('p-availability').value = data.availability;
+                if (data.preferred_duration) document.getElementById('p-duration').value = data.preferred_duration;
+                if (data.languages) document.getElementById('p-languages').value = data.languages;
+
+                if (data.interests) {
+                    Object.entries(data.interests).forEach(([cat, values]) => {
+                        values.forEach(val => {
+                            const chip = document.querySelector('#profile-overlay .chip[data-category="' + cat + '"][data-value="' + val + '"]');
+                            if (chip) chip.classList.add('selected');
+                        });
+                    });
+                }
+
+                if (data.credentials) {
+                    data.credentials.forEach(({ cert }) => {
+                        const cb = document.querySelector('#profile-overlay .cert-check[data-cert="' + cert + '"]');
+                        if (cb) { cb.checked = true; cb.closest('.chip').classList.add('selected'); }
+                    });
+                }
+
+                if (data.avatar_url) {
+                    const photoEl = document.getElementById('photo-upload');
+                    photoEl.innerHTML = '<img src="' + escapeHtml(data.avatar_url) + '" alt="Photo"><div class="upload-hint"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg></div>';
+                }
+
+                if (data.visible === false) {
+                    document.getElementById('p-visibility-toggle').classList.remove('active');
+                }
+
+                // Set public profile link
+                const pubLink = document.getElementById('view-public-profile');
+                if (pubLink) pubLink.href = '/profile?id=' + userId;
+
+                return data.profile_complete === true;
+            } catch (err) {
+                console.error('Load profile error:', err);
+                return false;
+            }
+        }
+
+        // ═══════════════════════════════════════
+        // ONBOARDING: show overlay if profile incomplete
+        // ═══════════════════════════════════════
+        async function checkOnboarding(userId) {
+            const isComplete = await loadProfileIntoOverlay(userId);
+            if (!isComplete) {
+                showProfileOverlay();
+            }
+        }
+
+        // Hook into existing dashboard init — after dashboard renders
+        const origRenderDashboard = renderDashboard;
+        renderDashboard = function(user, data) {
+            origRenderDashboard(user, data);
+
+            // Update avatar in header if available
+            if (data.profile?.avatar_url) {
+                const avatarEl = document.querySelector('.profile-avatar');
+                if (avatarEl) {
+                    avatarEl.innerHTML = '<img src="' + escapeHtml(data.profile.avatar_url) + '" class="w-full h-full object-cover rounded-full" alt="Avatar">';
+                }
+            }
+
+            // Check onboarding after a beat
+            setTimeout(() => checkOnboarding(user.id), 600);
+        };
+
+        // ═══════════════════════════════════════
+        // TAMAGOTCHI
+        // ═══════════════════════════════════════
+        const TAMA_CREATURES = {
+            egg:        { emoji: '\u{1F95A}', name: 'Egg',     color: '#3B8DD4' },
+            ocean:      { emoji: '\u{1F42C}', name: 'Finn',    color: '#06B6D4' },
+            adventure:  { emoji: '\u{1F985}', name: 'Talon',   color: '#EF4444' },
+            culinary:   { emoji: '\u{1F409}', name: 'Ember',   color: '#F59E0B' },
+            wellness:   { emoji: '\u{1F98B}', name: 'Zen',     color: '#F97316' },
+            creative:   { emoji: '\u{1F984}', name: 'Prism',   color: '#8B5CF6' },
+            ocean2:     { emoji: '\u{1F433}', name: 'Captain', color: '#06B6D4' },
+            adventure2: { emoji: '\u{1F3D4}', name: 'Summit',  color: '#EF4444' },
+            culinary2:  { emoji: '\u{1F525}', name: 'Blaze',   color: '#F59E0B' },
+            wellness2:  { emoji: '\u{1F54A}', name: 'Sage',    color: '#F97316' },
+            creative2:  { emoji: '\u{1F31F}', name: 'Aurora',  color: '#8B5CF6' },
+            multi:      { emoji: '\u{1F30D}', name: 'Atlas',   color: '#3B8DD4' },
+            multi2:     { emoji: '\u{2604}',  name: 'Odyssey', color: '#3B8DD4' },
+        };
+        const TAMA_LINES = {
+            egg:       ['Still in the shell...', 'Fill in your profile!', 'Who are you?'],
+            ocean:     ['I can smell the salt!', 'Fins up!', 'Tide is calling...'],
+            adventure: ['Higher! Further!', 'No summit too far.', 'Gear up.'],
+            culinary:  ['Something\'s cooking...', 'Taste everything.', 'Fire it up!'],
+            wellness:  ['Breathe in...', 'Find your center.', 'Be still.'],
+            creative:  ['Make something.', 'Shape it.', 'Create.'],
+            multi:     ['So many paths!', 'A true explorer.', 'Renaissance soul.'],
+            evolve:    ['I evolved!', 'New form!', 'Level up!'],
+            complete:  ['Profile complete!', 'Ready for anything.', 'Adventure awaits.'],
+        };
+        let currentTamaType = 'egg';
+        let tamaTimeout = null;
+
+        function tamaSay(type, forceText) {
+            const bubble = document.getElementById('tama-bubble');
+            if (!bubble) return;
+            const lines = TAMA_LINES[type] || TAMA_LINES.egg;
+            bubble.textContent = forceText || lines[Math.floor(Math.random() * lines.length)];
+            bubble.classList.add('show');
+            clearTimeout(tamaTimeout);
+            tamaTimeout = setTimeout(() => bubble.classList.remove('show'), 3000);
+        }
+
+        function tamaAnimate(type) {
+            const el = document.getElementById('tama-creature');
+            if (!el) return;
+            el.classList.remove('idle', 'bounce', 'wiggle');
+            void el.offsetWidth;
+            el.classList.add(type);
+            setTimeout(() => { el.classList.remove(type); el.classList.add('idle'); }, type === 'wiggle' ? 1200 : 600);
+        }
+
+        function updateTamagotchi() {
+            const catCounts = {};
+            document.querySelectorAll('#profile-overlay .chip.selected:not(:has(.cert-check))').forEach(c => {
+                const cat = c.dataset.category;
+                catCounts[cat] = (catCounts[cat] || 0) + 1;
+            });
+            const sortedCats = Object.entries(catCounts).sort((a, b) => b[1] - a[1]);
+            const progress = getProfileProgress();
+
+            let newType = 'egg';
+            if (sortedCats.length >= 2 && sortedCats[0][1] === sortedCats[1][1]) {
+                newType = progress > 50 ? 'multi2' : 'multi';
+            } else if (sortedCats.length > 0) {
+                const dominant = sortedCats[0][0];
+                newType = progress > 50 ? dominant + '2' : dominant;
+            }
+
+            const creature = TAMA_CREATURES[newType] || TAMA_CREATURES.egg;
+            const el = document.getElementById('tama-creature');
+            const shell = document.getElementById('tama-shell');
+            const nameEl = document.getElementById('tama-name');
+            const xpFill = document.getElementById('tama-xp-fill');
+
+            if (xpFill) { xpFill.style.width = progress + '%'; xpFill.style.background = creature.color; }
+
+            if (newType !== currentTamaType) {
+                const wasEgg = currentTamaType === 'egg';
+                currentTamaType = newType;
+                if (el) el.textContent = creature.emoji;
+                if (nameEl) nameEl.textContent = creature.name;
+
+                if (shell) {
+                    shell.className = '';
+                    shell.id = 'tama-shell';
+                    const baseCat = newType.replace('2', '');
+                    if (baseCat !== 'egg') shell.classList.add(baseCat);
+                }
+
+                if (wasEgg && newType !== 'egg') {
+                    tamaAnimate('wiggle');
+                    tamaSay('evolve', 'I hatched! I\'m ' + creature.name + '!');
+                } else if (newType.endsWith('2')) {
+                    tamaAnimate('wiggle');
+                    tamaSay('evolve');
+                } else {
+                    tamaAnimate('bounce');
+                    tamaSay(newType.replace('2', ''));
+                }
+            }
+            if (progress >= 100) tamaSay('complete');
+        }
+
+        // Click tama to speak
+        document.getElementById('tama-shell')?.addEventListener('click', () => {
+            const baseCat = currentTamaType.replace('2', '');
+            tamaAnimate('bounce');
+            tamaSay(baseCat === 'egg' ? 'egg' : baseCat);
+        });
+
+        // ═══════════════════════════════════════
+        // PROFILE PROGRESS
+        // ═══════════════════════════════════════
+        function getProfileProgress() {
+            let filled = 0;
+            const total = 10;
+            if (document.getElementById('p-first-name')?.value.trim()) filled++;
+            if (document.getElementById('p-location')?.value.trim()) filled++;
+            if (document.getElementById('p-status')?.value) filled++;
+            if (document.getElementById('p-about')?.value.trim()) filled++;
+            if (document.querySelectorAll('#profile-overlay .chip.selected:not(:has(.cert-check))').length > 0) filled++;
+            if (document.getElementById('p-profession')?.value) filled++;
+            if (document.getElementById('p-adventure-years')?.value) filled++;
+            if (document.getElementById('p-fitness')?.value) filled++;
+            if (document.getElementById('p-what-matters')?.value.trim()) filled++;
+            if (document.getElementById('p-availability')?.value) filled++;
+            return Math.round((filled / total) * 100);
+        }
+
+        function updateProfileProgress() {
+            const pct = getProfileProgress();
+            const fill = document.getElementById('profile-progress-fill');
+            const label = document.getElementById('profile-progress-label');
+            if (fill) fill.style.width = pct + '%';
+            if (label) label.textContent = pct + '%';
+            updateTamagotchi();
         }
     </script>
     <script src="/js/whatsapp-widget.js"></script>

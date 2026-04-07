@@ -130,6 +130,9 @@ ALTER TABLE user_badges ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Users can view own profile" ON profiles
   FOR SELECT USING (auth.uid() = id);
 
+CREATE POLICY "Anyone can view visible profiles" ON profiles
+  FOR SELECT USING (visible = true);
+
 CREATE POLICY "Users can update own profile" ON profiles
   FOR UPDATE USING (auth.uid() = id);
 
