@@ -908,47 +908,6 @@ window.ET_EXPERIENCES = [
     },
     // ======== NEW CULINARY EXPERIENCES ========
     {
-        id: 'ferrandi-pastry-paris',
-        name: 'Ferrandi French Pastry — Paris',
-        category: 'culinary',
-        tier: 'mastery',
-        minDays: 30,
-        maxDays: 60,
-        minPrice: null,
-        maxPrice: null,
-        envTags: ['city'],
-        desireTags: ['certification', 'career', 'creative'],
-        intensity: 2,
-        summary: 'The school that trained Paris\'s finest pastry chefs. Ferrandi professional certificate.',
-        meta: '1-2 months · ~$12k-$18k · Ferrandi Certificate',
-        immersive: {
-            curriculum: [
-                { phase: 'Week 1-2', title: 'Classical Foundations', focus: 'Tarts, pâte à choux, puff pastry, meringues — the building blocks of French patisserie' },
-                { phase: 'Week 3-4', title: 'Chocolate & Confections', focus: 'Tempering, bonbon making, chocolate sculpture, caramel work, confiserie techniques' },
-                { phase: 'Week 5-6', title: 'Contemporary Creations', focus: 'Modern entremets, mirror glazes, flavor architecture, individual pastries, plated desserts' },
-                { phase: 'Week 7-8', title: 'Professional Execution', focus: 'Production planning, window display, timed service, signature creation, final certification' }
-            ],
-            included: [
-                { name: 'Parisian Pastry Architecture Tour', desc: 'Study the geometry of great pastry shops — how space, light, and display elevate the product' },
-                { name: 'Butter & Dairy Farm Visit', desc: 'Meet the producers behind the best butter in the world — taste the difference terroir makes in pastry' },
-                { name: 'French Bread Fundamentals', desc: 'Baguette and viennoiserie mornings — the other side of the French baking tradition' },
-                { name: 'Tea & Pastry Pairing', desc: 'Sessions with a tea sommelier — how different teas complement different textures and flavors' },
-                { name: 'Parisian Café Culture', desc: 'Evening explorations of legendary cafés — where pastry meets literature, art, and conversation' }
-            ],
-            addOns: [
-                { name: 'Ice Cream & Sorbet Intensive', desc: 'Two-day frozen dessert workshop — churning, stabilization, modern techniques, seasonal flavors', price: '+$350' },
-                { name: 'Pastry Shop Business Plan', desc: 'Full-day session with a pastry entrepreneur — costing, location, branding, operations', price: '+$400' },
-                { name: 'Food Styling & Photography', desc: 'Professional shoot of your best creations — portfolio-ready images for your career', price: '+$300' },
-                { name: 'Versailles & Royal Pastry History', desc: 'Full-day tour connecting French pastry history to royal courts and national identity', price: '+$250' }
-            ],
-            nextSteps: [
-                { name: 'Le Cordon Bleu Pastry — Paris', desc: 'Add the other Parisian diploma to your credentials — dual-school trained' },
-                { name: 'WSET Level 3 — Bordeaux', desc: 'Pair your pastry skills with wine knowledge — dessert pairing is an art' },
-                { name: 'Italian Cuisine — Parma', desc: 'Cross the Alps from sweet to savory — expand your range completely' }
-            ]
-        }
-    },
-    {
         id: 'avant-garde-cuisine-barcelona',
         name: 'Avant-Garde Cuisine — Barcelona',
         category: 'culinary',
