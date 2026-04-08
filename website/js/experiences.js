@@ -906,6 +906,48 @@ window.ET_EXPERIENCES = [
             ]
         }
     },
+    // ======== YACHT CHEF ========
+    {
+        id: 'yacht-chef-antibes',
+        name: 'Become a Yacht Chef — Antibes',
+        category: 'culinary',
+        tier: 'mastery',
+        minDays: 21,
+        maxDays: 28,
+        minPrice: null,
+        maxPrice: null,
+        envTags: ['ocean', 'city'],
+        desireTags: ['certification', 'career'],
+        intensity: 2,
+        summary: 'You can cook. Now learn to cook at sea. STCW, ENG1, Ship\'s Cook Certificate, and real galley training — all in Antibes, where the boats are.',
+        meta: '21-28 days · Mastery · STCW + Ship\'s Cook + ENG1',
+        immersive: {
+            curriculum: [
+                { phase: 'Week 1', title: 'STCW Basic Safety', focus: 'Sea survival, firefighting, first aid, personal safety. MCA-approved certification. Your ticket to work at sea.' },
+                { phase: 'Week 2', title: 'Yacht Galley Immersion', focus: 'Galley setup, provisioning runs (Antibes, Nice markets), preference sheets, crew meals for 12, cold storage, 7-day charter menu planning.' },
+                { phase: 'Week 3', title: 'Charter Prep & Fine Dining', focus: 'Multi-course guest menus. Real dietary restrictions. Wine service. Plating. Working with the chief stew. Timing service solo from the galley.' },
+                { phase: 'Week 4', title: 'Ship\'s Cook + Launch', focus: 'ENG1 medical. Ship\'s Cook Certificate assessment (2 days). Portfolio and CV. Crew agency introductions. Final: 8-course menu cooked solo in a yacht galley.' }
+            ],
+            included: [
+                { name: 'All Certification Fees', desc: 'STCW Basic Safety, ENG1 medical, Ship\'s Cook Certificate, and Food Safety Level 3 — every cert you need, included.' },
+                { name: 'Real Yacht Galley Access', desc: 'Train in an actual galley on a real yacht in port — not a classroom pretending to be a boat.' },
+                { name: 'Provisioning Masterclass', desc: 'Market runs with a veteran yacht chef. Every supplier, every shortcut, every port trick — intel that takes years to learn.' },
+                { name: 'Crew Agency Introductions', desc: 'Direct introductions to yacht crew agencies in Antibes — you leave with your CV in the right hands.' },
+                { name: 'Portfolio Photo Session', desc: 'Professional photos of your best dishes, plated on board — the portfolio that gets you the interview.' }
+            ],
+            addOns: [
+                { name: 'WSET Level 2 Wine', desc: 'Add wine service confidence — know what to pour and why. Two-day intensive.', price: '+$350' },
+                { name: 'Advanced Pastry Day', desc: 'Croissants, entremets, and plated desserts — the weak spot for most yacht chefs.', price: '+$250' },
+                { name: 'Mock Charter Service', desc: 'Full 3-day simulated charter with real guests. Breakfast, lunch, dinner, snacks — non-stop, like the real thing.', price: '+$400' },
+                { name: 'Barista & Cocktail Module', desc: 'Half-day crash course — espresso, latte art, classic cocktails. Guests expect it.', price: '+$150' }
+            ],
+            nextSteps: [
+                { name: 'Sushi Mastery — Tokyo', desc: 'Add a specialty that makes you unforgettable on charter. Sushi chefs get hired faster.' },
+                { name: 'French Pastry — Paris', desc: 'Level up the one area every captain asks about — the dessert course.' },
+                { name: 'WSET Level 3 — Bordeaux', desc: 'Become the chef who also runs the wine list. Rare and valuable.' }
+            ]
+        }
+    },
     // ======== NEW CULINARY EXPERIENCES ========
     {
         id: 'avant-garde-cuisine-barcelona',

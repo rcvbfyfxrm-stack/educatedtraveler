@@ -142,6 +142,47 @@ Oaxaca is the culinary soul of Mexico — seven moles, mezcal, chapulines, tlayu
 
 ---
 
+### 7. Become a Yacht Chef — Antibes
+**Duration**: 21-28 days | **Tier**: Foundation-Mastery | **XP**: 400
+
+You can cook. Now learn to cook at sea. This is the only programme that takes you from qualified chef to hire-ready yacht chef in one cohort — STCW, ENG1, Ship's Cook Certificate, and real galley training, all in Antibes, the yachting capital of Europe. You leave with every cert you need, a portfolio captains actually read, and introductions to crew agencies.
+
+**Curriculum**:
+- Week 1: STCW Basic Safety Training (MCA-approved, 5 days) — sea survival, firefighting, first aid, personal safety. This is your ticket to work at sea. Delivered by Seascope France.
+- Week 2: Yacht Galley Immersion — Galley setup and workflow. Provisioning runs in Antibes, Golfe-Juan, Nice markets. Preference sheet analysis. Crew meals (feeding 12 on a budget, twice a day, every day). Cold storage management. Menu planning for a 7-day charter rotation.
+- Week 3: Charter Prep & Fine Dining — Multi-course guest menus. Dietary restrictions (coeliac, keto, halal, allergies — real ones from real preference sheets). Wine service basics. Plating for small plates and formal. Working with the chief stew. Timing service from the galley with no line cook.
+- Week 4: Ship's Cook Certificate + Launch — ENG1 medical (30 min, MCA-approved doctor in Antibes). Ship's Cook Certificate assessment (2 days, Ocean Wave). Portfolio review and CV prep. Crew agency introductions. Final dinner: 8-course menu cooked solo in a yacht galley for real guests.
+
+**Certifications**:
+- STCW Basic Safety (MCA, valid worldwide)
+- ENG1 Seafarer Medical Certificate (2-year validity)
+- Ship's Cook Certificate (CISR, required for 10+ crew yachts)
+- Food Safety Level 3 (included with Ship's Cook)
+
+**Cohort Size**: 8
+**Elements**: ocean, city
+**Desires**: certification, career
+**Included**: All training fees (STCW + Ship's Cook + ENG1), ingredients for all practical sessions, accommodation (crew house in Antibes), daily lunch, market visits, yacht galley access for training, portfolio photo session, crew agency introduction package
+
+**What makes this different from existing courses**:
+- WhitePepper (UK) teaches cooking skills but no certs — you still need STCW and Ship's Cook separately
+- Seascope does STCW but no cooking — you're cert-ready but not galley-ready
+- Ocean Wave does Ship's Cook assessment but assumes you're already working — no training included
+- Get Onboard (Cape Town) is the closest full package but wrong hemisphere for Med season
+- **Nobody combines all certs + real galley training + provisioning + crew agency access in one cohort, in the town where the boats actually are**
+
+**Partner targets**:
+- STCW: Seascope France, Antibes (MCA-approved, €1,150, multiple dates/month) or Bluewater Antibes
+- Ship's Cook Certificate: Ocean Wave Monaco (runs assessments in Antibes, €1,350-1,650)
+- ENG1: Dr Bruno Lavagne (Antibes) or Dr Gordon (Cabinet Medical Gordon, Antibes)
+- Food Safety Level 3: Ocean Wave Monaco (bundled with Ship's Cook)
+- Galley access: Partner with a yacht in Antibes port for real training environment
+- Crew agencies: Yachting Partners International (YPI), Bluewater, Dockwalk, The Crew Network
+
+**Your edge**: You've done 40+ charters. You know what captains actually want, what preference sheets really mean, and which ports have the best suppliers. Your Littoralicious provisioning index IS the curriculum for the provisioning module. Your WhatsApp groups (24k messages) are the real intel. No school administrator can teach this.
+
+---
+
 ## Flagship Adventures — Other Disciplines
 
 ### 7. Sacred Yoga Pilgrimage — Delhi → Rishikesh → Dharamsala
