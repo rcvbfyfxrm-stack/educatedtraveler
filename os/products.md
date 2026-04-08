@@ -169,17 +169,18 @@ You can cook. Now learn to cook at sea. This is the only programme that takes yo
 - Seascope does STCW but no cooking — you're cert-ready but not galley-ready
 - Ocean Wave does Ship's Cook assessment but assumes you're already working — no training included
 - Get Onboard (Cape Town) is the closest full package but wrong hemisphere for Med season
-- **Nobody combines all certs + real galley training + provisioning + crew agency access in one cohort, in the town where the boats actually are**
+- **Nobody combines all certs + galley training + provisioning + crew agency access in one cohort, in the town where the boats actually are**
+
+**ET's role**: Curator and packager. We coordinate the schools, build the cohort, manage the schedule, and ensure students go from zero to hire-ready in one seamless experience. Every module is delivered by specialist approved providers — we don't teach, we orchestrate.
 
 **Partner targets**:
 - STCW: Seascope France, Antibes (MCA-approved, €1,150, multiple dates/month) or Bluewater Antibes
 - Ship's Cook Certificate: Ocean Wave Monaco (runs assessments in Antibes, €1,350-1,650)
 - ENG1: Dr Bruno Lavagne (Antibes) or Dr Gordon (Cabinet Medical Gordon, Antibes)
 - Food Safety Level 3: Ocean Wave Monaco (bundled with Ship's Cook)
-- Galley access: Partner with a yacht in Antibes port for real training environment
+- Galley training: Partner with a yacht chef school or working yacht chef in Antibes for practical modules
+- Provisioning & charter prep: Partner with experienced yacht chef instructor (WhitePepper's Dean Harrison, or local Antibes-based yacht chefs)
 - Crew agencies: Yachting Partners International (YPI), Bluewater, Dockwalk, The Crew Network
-
-**Your edge**: You've done 40+ charters. You know what captains actually want, what preference sheets really mean, and which ports have the best suppliers. Your Littoralicious provisioning index IS the curriculum for the provisioning module. Your WhatsApp groups (24k messages) are the real intel. No school administrator can teach this.
 
 ---
 
