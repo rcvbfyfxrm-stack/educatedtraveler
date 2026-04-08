@@ -736,6 +736,7 @@
 
             overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
+            history.replaceState(null, '', '#' + id);
 
             // Check if user already expressed interest
             const user = window.auth?.getCurrentUser();
@@ -756,7 +757,16 @@
         window.closeDetail = function() {
             overlay.classList.remove('open');
             document.body.style.overflow = '';
+            history.replaceState(null, '', window.location.pathname);
         };
+
+        // Open experience from URL hash (e.g. /offerings#avant-garde-cuisine-barcelona)
+        if (window.location.hash) {
+            const id = window.location.hash.slice(1);
+            if (window.ET_EXPERIENCES.find(e => e.id === id)) {
+                setTimeout(function() { openDetail(id); }, 300);
+            }
+        }
 
         // Close on overlay click (not panel)
         overlay.addEventListener('click', function(e) {
