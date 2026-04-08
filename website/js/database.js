@@ -260,6 +260,74 @@
     }
 
     // ========================================
+    // EXPERIENCE INTEREST OPERATIONS
+    // ========================================
+
+    async function expressInterest(userId, adventureId, adventureName) {
+        const { data, error } = await supabase
+            .from('experience_interests')
+            .upsert({
+                user_id: userId,
+                adventure_id: adventureId,
+                adventure_name: adventureName,
+                status: 'interested'
+            }, { onConflict: 'user_id,adventure_id' })
+            .select()
+            .single();
+
+        if (error) {
+            console.error('Error expressing interest:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    async function getUserInterests(userId) {
+        const { data, error } = await supabase
+            .from('experience_interests')
+            .select('*')
+            .eq('user_id', userId)
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error('Error fetching interests:', error);
+            throw error;
+        }
+
+        return data || [];
+    }
+
+    async function getInterestForAdventure(userId, adventureId) {
+        const { data, error } = await supabase
+            .from('experience_interests')
+            .select('*')
+            .eq('user_id', userId)
+            .eq('adventure_id', adventureId)
+            .single();
+
+        if (error && error.code !== 'PGRST116') {
+            console.error('Error checking interest:', error);
+            throw error;
+        }
+
+        return data;
+    }
+
+    async function cancelInterestByAdventure(userId, adventureId) {
+        const { error } = await supabase
+            .from('experience_interests')
+            .update({ status: 'cancelled' })
+            .eq('user_id', userId)
+            .eq('adventure_id', adventureId);
+
+        if (error) {
+            console.error('Error cancelling interest:', error);
+            throw error;
+        }
+    }
+
+    // ========================================
     // INSTRUCTOR OPERATIONS
     // ========================================
 
@@ -541,6 +609,12 @@
         // Badges
         getBadges,
         awardBadge,
+
+        // Interests
+        expressInterest,
+        getUserInterests,
+        getInterestForAdventure,
+        cancelInterestByAdventure,
 
         // Instructors
         getInstructorByUserId,

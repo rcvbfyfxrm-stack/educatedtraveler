@@ -116,6 +116,22 @@ CREATE TABLE IF NOT EXISTS enrollments (
 );
 
 -- =====================================================
+-- TABLE: experience_interests
+-- Student interest in an experience (before cohort exists)
+-- =====================================================
+CREATE TABLE IF NOT EXISTS experience_interests (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  user_id UUID REFERENCES profiles(id) ON DELETE CASCADE,
+  adventure_id TEXT NOT NULL,
+  adventure_name TEXT,
+  status TEXT DEFAULT 'interested' CHECK (status IN ('interested', 'confirmed', 'declined', 'cancelled')),
+  token UUID DEFAULT gen_random_uuid(),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW(),
+  UNIQUE(user_id, adventure_id)
+);
+
+-- =====================================================
 -- ROW LEVEL SECURITY (RLS)
 -- Users can only access their own data
 -- =====================================================
@@ -237,6 +253,18 @@ CREATE POLICY "Instructors can view cohort enrollments" ON enrollments
     )
   );
 
+-- Experience interests policies
+ALTER TABLE experience_interests ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users can view own interests" ON experience_interests
+  FOR SELECT USING (auth.uid() = user_id);
+
+CREATE POLICY "Users can insert own interests" ON experience_interests
+  FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can update own interests" ON experience_interests
+  FOR UPDATE USING (auth.uid() = user_id);
+
 -- =====================================================
 -- INDEXES for better query performance
 -- =====================================================
@@ -249,6 +277,8 @@ CREATE INDEX IF NOT EXISTS idx_cohorts_instructor_id ON cohorts(instructor_id);
 CREATE INDEX IF NOT EXISTS idx_cohorts_status ON cohorts(status);
 CREATE INDEX IF NOT EXISTS idx_enrollments_cohort_id ON enrollments(cohort_id);
 CREATE INDEX IF NOT EXISTS idx_enrollments_user_id ON enrollments(user_id);
+CREATE INDEX IF NOT EXISTS idx_experience_interests_user_id ON experience_interests(user_id);
+CREATE INDEX IF NOT EXISTS idx_experience_interests_adventure_id ON experience_interests(adventure_id);
 
 -- =====================================================
 -- TRIGGERS for updated_at timestamps
