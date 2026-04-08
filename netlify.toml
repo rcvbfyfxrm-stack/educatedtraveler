@@ -46,6 +46,11 @@
   to = "/admin.html"
   status = 200
 
+[[redirects]]
+  from = "/survey"
+  to = "/survey.html"
+  status = 200
+
 # Redirects for deleted pages
 [[redirects]]
   from = "/vision"
@@ -55,14 +60,4 @@
 [[redirects]]
   from = "/vision.html"
   to = "/offerings.html#flagships"
-  status = 301
-
-[[redirects]]
-  from = "/survey"
-  to = "/community.html"
-  status = 301
-
-[[redirects]]
-  from = "/survey.html"
-  to = "/community.html"
   status = 301

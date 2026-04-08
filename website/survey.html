@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape What We Build — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Help us build the skill immersions you actually want. 3 minutes, 15 questions.">
+    <link rel="canonical" href="https://educatedtraveler.app/survey">
+    <meta property="og:title" content="Shape What We Build — EDUCATEDTRAVELER">
+    <meta property="og:description" content="Help us build the skill immersions you actually want. 3 minutes, 15 questions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.app/survey">
+    <meta property="og:image" content="https://educatedtraveler.app/images/story/sailing-freedom.jpg">
+    <meta property="og:site_name" content="EducatedTraveler">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'steel': {
+                            50: '#f5f5f5',
+                            100: '#e0e0e0',
+                            200: '#c0c0c0',
+                            300: '#a0a0a0',
+                            400: '#6f6f6f',
+                            500: '#4a4a4a',
+                            600: '#333333',
+                            700: '#222222',
+                            800: '#161616',
+                            900: '#0a0a0a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #000; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #059669 0%, #1d4ed8 100%);
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(5, 150, 105, 0.3);
+        }
+
+        /* Hero parallax image */
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 60%, #000 100%),
+                        url('/images/story/sailing-freedom.jpg') center/cover no-repeat;
+            min-height: 70vh;
+        }
+
+        /* Section divider images */
+        .section-image {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .section-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, #000 0%, transparent 30%, transparent 70%, #000 100%);
+        }
+
+        /* Custom radio/checkbox styling */
+        .option-card {
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .option-card:has(input:checked) {
+            background: rgba(5, 150, 105, 0.15);
+            border-color: rgba(5, 150, 105, 0.5);
+        }
+        .option-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .option-card input[type="radio"],
+        .option-card input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        .option-card input[type="checkbox"] {
+            border-radius: 4px;
+        }
+        .option-card input:checked {
+            border-color: #059669;
+            background: #059669;
+        }
+        .option-card input:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+        .option-card input[type="checkbox"]:checked::after {
+            border-radius: 1px;
+            width: 10px;
+            height: 6px;
+            background: transparent;
+            border-left: 2px solid white;
+            border-bottom: 2px solid white;
+            transform: translate(-50%, -60%) rotate(-45deg);
+        }
+
+        /* Progress bar */
+        .progress-fill {
+            background: linear-gradient(90deg, #059669, #06b6d4);
+            transition: width 0.5s ease;
+        }
+
+        /* Question number */
+        .q-number {
+            font-variant-numeric: tabular-nums;
+            color: #06b6d4;
+            font-weight: 600;
+        }
+
+        /* Slide transitions */
+        .survey-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .survey-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Textarea */
+        textarea, input[type="text"], input[type="email"] {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: border-color 0.2s ease;
+        }
+        textarea:focus, input[type="text"]:focus, input[type="email"]:focus {
+            outline: none;
+            border-color: rgba(5, 150, 105, 0.5);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.8s ease-out forwards; }
+        .fade-up-d1 { animation-delay: 0.1s; opacity: 0; }
+        .fade-up-d2 { animation-delay: 0.2s; opacity: 0; }
+        .fade-up-d3 { animation-delay: 0.3s; opacity: 0; }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-sm font-semibold tracking-[0.2em] text-white/90 hover:text-white transition-colors">
+                EDUCATEDTRAVELER
+            </a>
+            <span class="text-xs text-white/40 tracking-wider hidden sm:block">3 MIN SURVEY</span>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="fixed top-[57px] left-0 w-full h-[3px] bg-white/5 z-50">
+        <div id="progress" class="progress-fill h-full" style="width: 0%"></div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-bg flex items-end pb-16 px-6">
+        <div class="max-w-3xl mx-auto w-full">
+            <p class="text-xs tracking-[0.3em] text-white/40 uppercase mb-4 fade-up">Community survey v2</p>
+            <h1 class="text-4xl sm:text-5xl font-bold leading-tight mb-6 fade-up fade-up-d1">
+                Help us build what<br>you actually want.
+            </h1>
+            <p class="text-lg text-white/60 leading-relaxed max-w-xl mb-8 fade-up fade-up-d2">
+                We're designing certified skill immersions — diving, sailing, culinary, yoga — at the source.
+                Before we build, we want to hear from you.
+            </p>
+            <div class="flex items-center gap-4 fade-up fade-up-d3">
+                <button onclick="scrollToForm()" class="cta-button px-8 py-3 rounded-lg text-sm font-semibold text-white">
+                    Start Survey
+                </button>
+                <span class="text-xs text-white/30">15 questions &middot; 3 minutes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Survey Form -->
+    <form id="surveyForm" name="et-survey-v2" method="POST" data-netlify="true" class="max-w-3xl mx-auto px-6 pb-32">
+
+        <!-- SECTION 1: WHO ARE YOU -->
+        <div class="survey-section pt-24" data-section="1">
+            <p class="text-xs tracking-[0.3em] text-cyan-400/60 uppercase mb-2">Part 1 of 5</p>
+            <h2 class="text-2xl font-bold mb-2">Who are you?</h2>
+            <p class="text-white/40 text-sm mb-12">So we can build the right thing for the right people.</p>
+
+            <!-- Q1 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">01</span>
+                    <span class="text-white/90 font-medium">What best describes where you are in life right now?</span>
+                </p>
+                <div class="space-y-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q1_lifestage" value="burnout" required>
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Employed and successful, but craving something real</p>
+                            <p class="text-white/40 text-xs mt-1">You're good at what you do — but your hands haven't made anything in years</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q1_lifestage" value="leveling_up">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Already in a craft — ready to level up</p>
+                            <p class="text-white/40 text-xs mt-1">Chef, instructor, guide, diver — you want the next credential</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q1_lifestage" value="career_switch">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Switching careers or between jobs</p>
+                            <p class="text-white/40 text-xs mt-1">Exploring what's next — open to something completely different</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q1_lifestage" value="deep_enthusiast">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Deeply into a hobby — ready to get serious</p>
+                            <p class="text-white/40 text-xs mt-1">Self-taught or weekend warrior — time to train with masters</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q1_lifestage" value="sabbatical">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">On sabbatical or taking extended time off</p>
+                            <p class="text-white/40 text-xs mt-1">Post-exit, gap year, or planned break — you have time for depth</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q1_lifestage" value="curious">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">None of these — just curious</p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">02</span>
+                    <span class="text-white/90 font-medium">Is there a skill you've been wanting to learn seriously — not from YouTube, but hands-on with a real expert?</span>
+                </p>
+                <div class="space-y-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q2_skill_desire" value="yes_specific" required>
+                        <span class="text-white/90 text-sm">Yes, I know exactly what</span>
+                    </label>
+                    <div id="q2_specify" class="ml-10 mt-2 hidden">
+                        <input type="text" name="q2_skill_specify" placeholder="What skill?" class="w-full rounded-lg px-4 py-3 text-sm">
+                    </div>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q2_skill_desire" value="yes_unsure">
+                        <span class="text-white/90 text-sm">Yes, but I'm not sure what yet</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q2_skill_desire" value="no">
+                        <span class="text-white/90 text-sm">Not really</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">03</span>
+                    <span class="text-white/90 font-medium">Age range</span>
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center justify-center gap-3 block text-center">
+                        <input type="radio" name="q3_age" value="18-24" required>
+                        <span class="text-white/90 text-sm">18-24</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center justify-center gap-3 block text-center">
+                        <input type="radio" name="q3_age" value="25-29">
+                        <span class="text-white/90 text-sm">25-29</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center justify-center gap-3 block text-center">
+                        <input type="radio" name="q3_age" value="30-34">
+                        <span class="text-white/90 text-sm">30-34</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center justify-center gap-3 block text-center">
+                        <input type="radio" name="q3_age" value="35-39">
+                        <span class="text-white/90 text-sm">35-39</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center justify-center gap-3 block text-center">
+                        <input type="radio" name="q3_age" value="40-49">
+                        <span class="text-white/90 text-sm">40-49</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center justify-center gap-3 block text-center">
+                        <input type="radio" name="q3_age" value="50+">
+                        <span class="text-white/90 text-sm">50+</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">04</span>
+                    <span class="text-white/90 font-medium">Where are you based?</span>
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q4_location" value="europe" required>
+                        <span class="text-white/90 text-sm">Europe</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q4_location" value="uk">
+                        <span class="text-white/90 text-sm">United Kingdom</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q4_location" value="north_america">
+                        <span class="text-white/90 text-sm">North America</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q4_location" value="africa">
+                        <span class="text-white/90 text-sm">Africa</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q4_location" value="asia_pacific">
+                        <span class="text-white/90 text-sm">Asia-Pacific</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q4_location" value="other_nomad">
+                        <span class="text-white/90 text-sm">Nomadic / Other</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo break 1 -->
+        <div class="section-image rounded-2xl overflow-hidden my-8" style="background-image: url('/images/story/freedive-cenote.png')"></div>
+
+        <!-- SECTION 2: WHAT DO YOU WANT -->
+        <div class="survey-section pt-16" data-section="2">
+            <p class="text-xs tracking-[0.3em] text-cyan-400/60 uppercase mb-2">Part 2 of 5</p>
+            <h2 class="text-2xl font-bold mb-2">What do you actually want?</h2>
+            <p class="text-white/40 text-sm mb-12">No marketing fluff — just tell us what pulls you.</p>
+
+            <!-- Q5 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">05</span>
+                    <span class="text-white/90 font-medium">If you could spend 1-3 weeks somewhere learning a skill from a master — and leave with a real certification — which would you pick?</span>
+                    <span class="text-white/30 text-xs block mt-1">Select up to 2</span>
+                </p>
+                <div class="space-y-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="diving_padi" data-max="2">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Diving — PADI certification</p>
+                            <p class="text-white/40 text-xs mt-1">Thailand or Indonesia</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="sailing_rya" data-max="2">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Sailing — RYA certification</p>
+                            <p class="text-white/40 text-xs mt-1">Greece or Gibraltar</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="yoga_ryt200" data-max="2">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Yoga teacher training — RYT-200</p>
+                            <p class="text-white/40 text-xs mt-1">Rishikesh, India</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="wine_wset" data-max="2">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Wine — WSET certification</p>
+                            <p class="text-white/40 text-xs mt-1">Burgundy, France</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="sushi_culinary" data-max="2">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Culinary / Sushi mastery</p>
+                            <p class="text-white/40 text-xs mt-1">Tokyo, Japan</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="surf" data-max="2">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Surf coaching</p>
+                            <p class="text-white/40 text-xs mt-1">Bali or Costa Rica</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="spanish" data-max="2">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Spanish immersion</p>
+                            <p class="text-white/40 text-xs mt-1">Costa Rica</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="photography" data-max="2">
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">Photography</p>
+                            <p class="text-white/40 text-xs mt-1">Iceland</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q5_programs" value="other" data-max="2">
+                        <span class="text-white/90 text-sm">Something else</span>
+                    </label>
+                    <div id="q5_other" class="ml-10 mt-2 hidden">
+                        <input type="text" name="q5_other_specify" placeholder="What would you want?" class="w-full rounded-lg px-4 py-3 text-sm">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">06</span>
+                    <span class="text-white/90 font-medium">How long could you realistically take off?</span>
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q6_duration" value="1_week" required>
+                        <span class="text-white/90 text-sm">1 week</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q6_duration" value="2_weeks">
+                        <span class="text-white/90 text-sm">2 weeks</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q6_duration" value="3_weeks">
+                        <span class="text-white/90 text-sm">3 weeks</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q6_duration" value="1_month">
+                        <span class="text-white/90 text-sm">1 month</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q6_duration" value="2-3_months">
+                        <span class="text-white/90 text-sm">2-3 months</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q6_duration" value="whatever_it_takes">
+                        <span class="text-white/90 text-sm">Whatever it takes</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">07</span>
+                    <span class="text-white/90 font-medium">Would you go alone?</span>
+                </p>
+                <div class="space-y-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q7_solo" value="solo" required>
+                        <span class="text-white/90 text-sm">I'd go solo — that's part of the adventure</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q7_solo" value="bring_someone">
+                        <span class="text-white/90 text-sm">I'd want to bring a friend or partner</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q7_solo" value="depends_group">
+                        <span class="text-white/90 text-sm">Depends on the group / community aspect</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo break 2 -->
+        <div class="section-image rounded-2xl overflow-hidden my-8" style="background-image: url('/images/story/kitchen-flames.png')"></div>
+
+        <!-- SECTION 3: MONEY & COMMITMENT -->
+        <div class="survey-section pt-16" data-section="3">
+            <p class="text-xs tracking-[0.3em] text-cyan-400/60 uppercase mb-2">Part 3 of 5</p>
+            <h2 class="text-2xl font-bold mb-2">Money and commitment</h2>
+            <p class="text-white/40 text-sm mb-12">Honest answers help us price this right.</p>
+
+            <!-- Q8 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">08</span>
+                    <span class="text-white/90 font-medium">For a 2-week certified experience (instruction, accommodation, certification fees — meals not included), what would feel fair?</span>
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q8_price" value="under_2000" required>
+                        <span class="text-white/90 text-sm">Under $2,000</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q8_price" value="2000-3500">
+                        <span class="text-white/90 text-sm">$2,000 – $3,500</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q8_price" value="3500-5000">
+                        <span class="text-white/90 text-sm">$3,500 – $5,000</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q8_price" value="5000-7000">
+                        <span class="text-white/90 text-sm">$5,000 – $7,000</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block sm:col-span-2">
+                        <input type="radio" name="q8_price" value="quality_over_price">
+                        <span class="text-white/90 text-sm">Price matters less than quality</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">09</span>
+                    <span class="text-white/90 font-medium">If we launched a program you loved in the next 6 months — how likely are you to actually book?</span>
+                </p>
+                <div class="space-y-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q9_intent" value="deposit_now" required>
+                        <div>
+                            <p class="text-white/90 text-sm font-medium">I'd put down a deposit now</p>
+                            <p class="text-white/40 text-xs mt-1">Fully refundable, of course</p>
+                        </div>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q9_intent" value="very_likely">
+                        <span class="text-white/90 text-sm">Very likely, if the dates work</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q9_intent" value="possible">
+                        <span class="text-white/90 text-sm">Possible, but not sure yet</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q9_intent" value="unlikely">
+                        <span class="text-white/90 text-sm">Unlikely — just exploring for now</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">10</span>
+                    <span class="text-white/90 font-medium">What's the #1 thing that would stop you from booking?</span>
+                    <span class="text-white/30 text-xs block mt-1">Pick only one — your biggest blocker</span>
+                </p>
+                <div class="space-y-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q10_barrier" value="price" required>
+                        <span class="text-white/90 text-sm">Price</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q10_barrier" value="time_off">
+                        <span class="text-white/90 text-sm">Can't get enough time off work</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q10_barrier" value="strangers">
+                        <span class="text-white/90 text-sm">Don't know anyone going</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q10_barrier" value="diy_cheaper">
+                        <span class="text-white/90 text-sm">Not sure it's worth it vs. doing it myself</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q10_barrier" value="trust">
+                        <span class="text-white/90 text-sm">Safety / trust — it's a new company</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q10_barrier" value="other">
+                        <span class="text-white/90 text-sm">Something else</span>
+                    </label>
+                    <div id="q10_other" class="ml-10 mt-2 hidden">
+                        <input type="text" name="q10_other_specify" placeholder="What's holding you back?" class="w-full rounded-lg px-4 py-3 text-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo break 3 -->
+        <div class="section-image rounded-2xl overflow-hidden my-8" style="background-image: url('/images/story/yoga-sunrise.jpg')"></div>
+
+        <!-- SECTION 4: HOW WE REACH YOU -->
+        <div class="survey-section pt-16" data-section="4">
+            <p class="text-xs tracking-[0.3em] text-cyan-400/60 uppercase mb-2">Part 4 of 5</p>
+            <h2 class="text-2xl font-bold mb-2">How we reach you</h2>
+            <p class="text-white/40 text-sm mb-12">So we know where to show up.</p>
+
+            <!-- Q11 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">11</span>
+                    <span class="text-white/90 font-medium">How did you hear about EducatedTraveler?</span>
+                </p>
+                <div class="grid grid-cols-2 gap-3">
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q11_source" value="friend" required>
+                        <span class="text-white/90 text-sm">Friend / word of mouth</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q11_source" value="instagram">
+                        <span class="text-white/90 text-sm">Instagram</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q11_source" value="google">
+                        <span class="text-white/90 text-sm">Google search</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-3 flex items-center gap-3 block">
+                        <input type="radio" name="q11_source" value="other">
+                        <span class="text-white/90 text-sm">Other</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">12</span>
+                    <span class="text-white/90 font-medium">How important is it that the group is small (8-12 people max)?</span>
+                </p>
+                <div class="grid grid-cols-3 gap-3">
+                    <label class="option-card glass-card rounded-xl px-4 py-4 flex flex-col items-center gap-2 block text-center">
+                        <input type="radio" name="q12_group_size" value="essential" required>
+                        <span class="text-white/90 text-sm font-medium">Essential</span>
+                        <span class="text-white/30 text-xs">Dealbreaker</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-4 flex flex-col items-center gap-2 block text-center">
+                        <input type="radio" name="q12_group_size" value="nice_to_have">
+                        <span class="text-white/90 text-sm font-medium">Nice to have</span>
+                        <span class="text-white/30 text-xs">Preferred</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-4 py-4 flex flex-col items-center gap-2 block text-center">
+                        <input type="radio" name="q12_group_size" value="dont_care">
+                        <span class="text-white/90 text-sm font-medium">Don't care</span>
+                        <span class="text-white/30 text-xs">Flexible</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">13</span>
+                    <span class="text-white/90 font-medium">What would make you trust us enough to book?</span>
+                    <span class="text-white/30 text-xs block mt-1">Select up to 2</span>
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q13_trust" value="video_testimonials" data-max="2">
+                        <span class="text-white/90 text-sm">Video testimonials from past participants</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q13_trust" value="money_back" data-max="2">
+                        <span class="text-white/90 text-sm">Money-back guarantee</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q13_trust" value="talk_alumni" data-max="2">
+                        <span class="text-white/90 text-sm">Talking to someone who's done it</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q13_trust" value="instructor_profiles" data-max="2">
+                        <span class="text-white/90 text-sm">Strong instructor profiles</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q13_trust" value="recognized_certs" data-max="2">
+                        <span class="text-white/90 text-sm">Recognized certification body (PADI, RYA...)</span>
+                    </label>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="checkbox" name="q13_trust" value="payment_plan" data-max="2">
+                        <span class="text-white/90 text-sm">Payment plan option</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo break 4 -->
+        <div class="section-image rounded-2xl overflow-hidden my-8" style="background-image: url('/images/story/mountains-snow.png')"></div>
+
+        <!-- SECTION 5: STAY IN TOUCH -->
+        <div class="survey-section pt-16" data-section="5">
+            <p class="text-xs tracking-[0.3em] text-cyan-400/60 uppercase mb-2">Part 5 of 5</p>
+            <h2 class="text-2xl font-bold mb-2">Stay in touch</h2>
+            <p class="text-white/40 text-sm mb-12">Almost done. Last two.</p>
+
+            <!-- Q14 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">14</span>
+                    <span class="text-white/90 font-medium">Want early access when we launch?</span>
+                </p>
+                <div class="space-y-3">
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q14_contact" value="yes" required>
+                        <span class="text-white/90 text-sm">Yes — I want first dibs</span>
+                    </label>
+                    <div id="q14_email" class="ml-10 mt-2 hidden">
+                        <input type="email" name="q14_email_address" placeholder="your@email.com" class="w-full rounded-lg px-4 py-3 text-sm">
+                    </div>
+                    <label class="option-card glass-card rounded-xl px-5 py-4 flex items-center gap-4 block">
+                        <input type="radio" name="q14_contact" value="no">
+                        <span class="text-white/90 text-sm">No thanks, just sharing my thoughts</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="mb-16">
+                <p class="mb-6">
+                    <span class="q-number text-sm mr-2">15</span>
+                    <span class="text-white/90 font-medium">Anything else you want to tell us?</span>
+                    <span class="text-white/30 text-xs block mt-1">Programs we're missing, concerns, ideas — all welcome</span>
+                </p>
+                <textarea name="q15_open" rows="4" class="w-full rounded-xl px-5 py-4 text-sm resize-none" placeholder="Speak freely..."></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="text-center pt-8 pb-16">
+                <button type="submit" class="cta-button px-12 py-4 rounded-xl text-base font-semibold text-white">
+                    Submit Survey
+                </button>
+                <p class="text-white/20 text-xs mt-4">Your answers shape what we build. Thank you.</p>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- Thank You (hidden until submit) -->
+    <div id="thankYou" class="hidden min-h-screen flex items-center justify-center px-6">
+        <div class="text-center max-w-md">
+            <div class="w-16 h-16 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h2 class="text-3xl font-bold mb-4">You're in.</h2>
+            <p class="text-white/60 leading-relaxed mb-8">
+                Your answers go straight into shaping what we build.
+                If you left your email, you'll hear from us before anyone else.
+            </p>
+            <a href="/" class="text-cyan-400 text-sm hover:text-cyan-300 transition-colors">
+                Back to EducatedTraveler &rarr;
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 px-6">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <span class="text-xs text-white/20">EDUCATEDTRAVELER</span>
+            <span class="text-xs text-white/20">Earned, not bought.</span>
+        </div>
+    </footer>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+
+    <script>
+        // Progress tracking
+        const sections = document.querySelectorAll('.survey-section');
+        const progressBar = document.getElementById('progress');
+        const totalSections = sections.length;
+
+        // Intersection observer for fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const idx = Array.from(sections).indexOf(entry.target) + 1;
+                    const pct = Math.round((idx / totalSections) * 100);
+                    progressBar.style.width = pct + '%';
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(s => observer.observe(s));
+        setTimeout(() => sections[0]?.classList.add('visible'), 300);
+
+        // Checkbox max selection (2)
+        document.querySelectorAll('input[type="checkbox"][data-max]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                const max = parseInt(this.dataset.max);
+                const group = document.querySelectorAll(`input[name="${this.name}"]`);
+                const checked = Array.from(group).filter(c => c.checked).length;
+                if (checked > max) this.checked = false;
+            });
+        });
+
+        // Conditional field visibility
+        document.querySelectorAll('input[name="q2_skill_desire"]').forEach(r => {
+            r.addEventListener('change', () => {
+                document.getElementById('q2_specify').classList.toggle('hidden',
+                    document.querySelector('input[name="q2_skill_desire"]:checked')?.value !== 'yes_specific');
+            });
+        });
+
+        document.querySelector('input[name="q5_programs"][value="other"]')?.addEventListener('change', function() {
+            document.getElementById('q5_other').classList.toggle('hidden', !this.checked);
+        });
+
+        document.querySelectorAll('input[name="q10_barrier"]').forEach(r => {
+            r.addEventListener('change', () => {
+                document.getElementById('q10_other').classList.toggle('hidden',
+                    document.querySelector('input[name="q10_barrier"]:checked')?.value !== 'other');
+            });
+        });
+
+        document.querySelectorAll('input[name="q14_contact"]').forEach(r => {
+            r.addEventListener('change', () => {
+                document.getElementById('q14_email').classList.toggle('hidden',
+                    document.querySelector('input[name="q14_contact"]:checked')?.value !== 'yes');
+            });
+        });
+
+        function scrollToForm() {
+            document.querySelector('.survey-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Helper: get radio value
+        function radio(name) {
+            const el = document.querySelector(`input[name="${name}"]:checked`);
+            return el ? el.value : null;
+        }
+
+        // Helper: get checked checkbox values as array
+        function checks(name) {
+            return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(c => c.value);
+        }
+
+        // Helper: get text input value
+        function text(name) {
+            const el = document.querySelector(`input[name="${name}"], textarea[name="${name}"]`);
+            return el ? el.value.trim() || null : null;
+        }
+
+        function showThankYou() {
+            document.getElementById('surveyForm').style.display = 'none';
+            document.getElementById('thankYou').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            progressBar.style.width = '100%';
+        }
+
+        // Form submission — Supabase primary, Netlify fallback
+        document.getElementById('surveyForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            const payload = {
+                lifestage: radio('q1_lifestage'),
+                skill_desire: radio('q2_skill_desire'),
+                skill_specify: text('q2_skill_specify'),
+                age_range: radio('q3_age'),
+                location: radio('q4_location'),
+                programs: checks('q5_programs'),
+                programs_other: text('q5_other_specify'),
+                duration: radio('q6_duration'),
+                solo: radio('q7_solo'),
+                price_range: radio('q8_price'),
+                booking_intent: radio('q9_intent'),
+                top_barrier: radio('q10_barrier'),
+                barrier_other: text('q10_other_specify'),
+                source: radio('q11_source'),
+                group_size_importance: radio('q12_group_size'),
+                trust_factors: checks('q13_trust'),
+                wants_contact: radio('q14_contact') === 'yes',
+                email: text('q14_email_address'),
+                open_feedback: text('q15_open'),
+                user_agent: navigator.userAgent,
+                referrer: document.referrer || null
+            };
+
+            let saved = false;
+
+            // Try Supabase first
+            if (window.supabaseClient) {
+                try {
+                    const { error } = await window.supabaseClient
+                        .from('survey_responses')
+                        .insert([payload]);
+                    if (!error) saved = true;
+                    else console.warn('Supabase insert error:', error);
+                } catch (err) {
+                    console.warn('Supabase unavailable:', err);
+                }
+            }
+
+            // Netlify Forms fallback
+            if (!saved) {
+                try {
+                    const formData = new FormData(this);
+                    await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString()
+                    });
+                    saved = true;
+                } catch (err) {
+                    console.error('Netlify submit failed:', err);
+                }
+            }
+
+            if (saved) {
+                showThankYou();
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Survey';
+                alert('Something went wrong. Please try again.');
+            }
+        });
+    </script>
+
+</body>
+</html>
