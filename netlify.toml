@@ -41,6 +41,11 @@
   to = "/instructor-dashboard.html"
   status = 200
 
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
 # Redirects for deleted pages
 [[redirects]]
   from = "/vision"

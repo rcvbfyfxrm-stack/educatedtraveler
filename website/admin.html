@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — EDUCATEDTRAVELER</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bmw': {
+                            50: '#e6f0fa', 100: '#b3d1ef', 200: '#80b3e4', 300: '#4d94d9',
+                            400: '#3B8DD4', 500: '#0066B1', 600: '#00518d', 700: '#003d6a',
+                            800: '#002846', 900: '#001423',
+                        },
+                        'steel': {
+                            50: '#f5f5f5', 100: '#e0e0e0', 200: '#c0c0c0', 300: '#a0a0a0',
+                            400: '#6f6f6f', 500: '#4a4a4a', 600: '#333333', 700: '#222222',
+                            800: '#161616', 900: '#0a0a0a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bmw-blue: #0066B1;
+            --bmw-light: #3B8DD4;
+            --bmw-glow: rgba(0, 102, 177, 0.4);
+            --bmw-subtle: rgba(0, 102, 177, 0.15);
+        }
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-strong { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+        .tab-active { color: #3B8DD4; border-bottom: 2px solid #3B8DD4; }
+        .tab-inactive { color: rgba(255,255,255,0.4); border-bottom: 2px solid transparent; }
+        .tab-inactive:hover { color: rgba(255,255,255,0.7); }
+        .status-badge { font-size: 0.6rem; padding: 2px 8px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+        .status-enrolled { background: rgba(0,102,177,0.2); color: #3B8DD4; }
+        .status-waitlisted { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .status-cancelled { background: rgba(239,68,68,0.2); color: #f87171; }
+        .status-completed { background: rgba(139,92,246,0.2); color: #a78bfa; }
+        .status-pending { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .status-approved { background: rgba(0,102,177,0.2); color: #3B8DD4; }
+        .status-rejected { background: rgba(239,68,68,0.2); color: #f87171; }
+        .status-draft { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+        .status-published { background: rgba(0,102,177,0.2); color: #3B8DD4; }
+        .status-full { background: rgba(0,102,177,0.3); color: #80b3e4; }
+        .status-in_progress { background: rgba(59,130,246,0.2); color: #60a5fa; }
+        .row-hover:hover { background: rgba(255,255,255,0.03); }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .spinner { animation: spin 1s linear infinite; }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .pulse { animation: pulse 2s ease-in-out infinite; }
+    </style>
+</head>
+<body class="text-white min-h-screen">
+
+    <!-- Top Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="/" class="text-lg font-semibold tracking-wider">
+                    EDUCATED<span class="text-bmw-400">TRAVELER</span>
+                </a>
+                <span class="mono text-xs text-white/30 bg-white/5 px-3 py-1 rounded-full">ADMIN</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="admin-email" class="mono text-xs text-white/30"></span>
+                <button id="refresh-btn" class="text-xs text-white/40 hover:text-white px-3 py-1.5 rounded-full border border-white/10 hover:border-white/20 transition-colors">
+                    Refresh
+                </button>
+                <button id="sign-out-btn" class="text-xs text-white/40 hover:text-white transition-colors">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading -->
+    <div id="loading" class="min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-10 h-10 mx-auto mb-4 border-2 border-bmw-400/30 border-t-bmw-400 rounded-full spinner"></div>
+            <p class="text-white/40 text-xs mono">AUTHENTICATING...</p>
+        </div>
+    </div>
+
+    <!-- Access Denied -->
+    <div id="denied" class="hidden min-h-screen flex items-center justify-center">
+        <div class="text-center max-w-sm">
+            <p class="text-red-400 text-xl mb-4">Access Denied</p>
+            <p class="text-white/40 text-sm mb-6">Admin privileges required.</p>
+            <a href="join.html?tab=signin" class="text-bmw-400 text-sm hover:text-bmw-300">Sign in with admin account</a>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <main id="admin-main" class="hidden pt-20 pb-16 px-6">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- KPI Cards -->
+            <section class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
+                <div class="glass rounded-xl p-4 text-center">
+                    <p id="kpi-users" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p class="text-white/30 text-xs mt-1">Users</p>
+                </div>
+                <div class="glass rounded-xl p-4 text-center">
+                    <p id="kpi-quests" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p class="text-white/30 text-xs mt-1">Quests Done</p>
+                </div>
+                <div class="glass rounded-xl p-4 text-center">
+                    <p id="kpi-instructors" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p class="text-white/30 text-xs mt-1">Instructors</p>
+                </div>
+                <div class="glass rounded-xl p-4 text-center">
+                    <p id="kpi-cohorts" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p class="text-white/30 text-xs mt-1">Cohorts</p>
+                </div>
+                <div class="glass rounded-xl p-4 text-center">
+                    <p id="kpi-enrollments" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p class="text-white/30 text-xs mt-1">Enrollments</p>
+                </div>
+            </section>
+
+            <!-- Tabs -->
+            <div class="flex gap-6 mb-6 border-b border-white/5 overflow-x-auto">
+                <button class="tab tab-active pb-3 text-sm whitespace-nowrap" data-tab="users">Users</button>
+                <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="quests">Quest Data</button>
+                <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="adventures">Saved Adventures</button>
+                <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="instructors">Instructors</button>
+                <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="cohorts">Cohorts</button>
+                <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="enrollments">Enrollments</button>
+                <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="activity">Activity Log</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="tab-content">
+                <div id="panel-users" class="tab-panel"></div>
+                <div id="panel-quests" class="tab-panel hidden"></div>
+                <div id="panel-adventures" class="tab-panel hidden"></div>
+                <div id="panel-instructors" class="tab-panel hidden"></div>
+                <div id="panel-cohorts" class="tab-panel hidden"></div>
+                <div id="panel-enrollments" class="tab-panel hidden"></div>
+                <div id="panel-activity" class="tab-panel hidden"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+
+    <script>
+        let adminData = {};
+
+        // ========================================
+        // INIT
+        // ========================================
+        document.addEventListener('DOMContentLoaded', async () => {
+            await new Promise(r => setTimeout(r, 600));
+            const user = await window.auth.getUser();
+
+            if (!user) {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('denied').classList.remove('hidden');
+                return;
+            }
+
+            // Check admin
+            const { data: profile } = await window.supabaseClient
+                .from('profiles')
+                .select('is_admin, email')
+                .eq('id', user.id)
+                .single();
+
+            if (!profile?.is_admin) {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('denied').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('admin-email').textContent = profile.email;
+            await loadAllData();
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('admin-main').classList.remove('hidden');
+
+            // Tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => { t.className = 'tab tab-inactive pb-3 text-sm whitespace-nowrap'; });
+                    tab.className = 'tab tab-active pb-3 text-sm whitespace-nowrap';
+                    document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+                    document.getElementById('panel-' + tab.dataset.tab).classList.remove('hidden');
+                });
+            });
+
+            document.getElementById('refresh-btn').addEventListener('click', async () => {
+                const btn = document.getElementById('refresh-btn');
+                btn.textContent = 'Loading...';
+                await loadAllData();
+                btn.textContent = 'Refresh';
+            });
+
+            document.getElementById('sign-out-btn').addEventListener('click', async () => {
+                await window.auth.signOut();
+                window.location.href = '/';
+            });
+        });
+
+        // ========================================
+        // DATA LOADING
+        // ========================================
+        async function loadAllData() {
+            const sb = window.supabaseClient;
+
+            const [profiles, prefs, adventures, badges, instructors, cohorts, enrollments] = await Promise.all([
+                sb.from('profiles').select('*').order('created_at', { ascending: false }),
+                sb.from('user_preferences').select('*').order('updated_at', { ascending: false }),
+                sb.from('saved_adventures').select('*').order('saved_at', { ascending: false }),
+                sb.from('user_badges').select('*').order('earned_at', { ascending: false }),
+                sb.from('instructors').select('*').order('created_at', { ascending: false }),
+                sb.from('cohorts').select('*, instructors(name)').order('created_at', { ascending: false }),
+                sb.from('enrollments').select('*, profiles(name, email), cohorts(title)').order('enrolled_at', { ascending: false }),
+            ]);
+
+            adminData = {
+                profiles: profiles.data || [],
+                prefs: prefs.data || [],
+                adventures: adventures.data || [],
+                badges: badges.data || [],
+                instructors: instructors.data || [],
+                cohorts: cohorts.data || [],
+                enrollments: enrollments.data || [],
+            };
+
+            renderKPIs();
+            renderUsers();
+            renderQuests();
+            renderAdventures();
+            renderInstructors();
+            renderCohorts();
+            renderEnrollments();
+            renderActivity();
+        }
+
+        // ========================================
+        // KPIs
+        // ========================================
+        function renderKPIs() {
+            document.getElementById('kpi-users').textContent = adminData.profiles.length;
+            document.getElementById('kpi-quests').textContent = adminData.prefs.length;
+            document.getElementById('kpi-instructors').textContent = adminData.instructors.length;
+            document.getElementById('kpi-cohorts').textContent = adminData.cohorts.length;
+            document.getElementById('kpi-enrollments').textContent = adminData.enrollments.filter(e => e.status === 'enrolled').length;
+        }
+
+        // ========================================
+        // USERS TABLE
+        // ========================================
+        function renderUsers() {
+            const el = document.getElementById('panel-users');
+            if (adminData.profiles.length === 0) {
+                el.innerHTML = '<p class="text-white/20 text-sm text-center py-12">No users yet</p>';
+                return;
+            }
+            el.innerHTML = `
+                <div class="glass rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10 text-left">
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Email</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Name</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Location</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">XP</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Level</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Phone</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">WhatsApp</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Signed Up</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Emails</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${adminData.profiles.map(p => `
+                                    <tr class="border-b border-white/5 row-hover">
+                                        <td class="px-4 py-3 mono text-xs">${esc(p.email)}</td>
+                                        <td class="px-4 py-3">${esc(p.name || p.first_name || '—')}</td>
+                                        <td class="px-4 py-3 text-white/50">${esc(p.location || '—')}</td>
+                                        <td class="px-4 py-3 mono text-bmw-400">${p.xp || 0}</td>
+                                        <td class="px-4 py-3 mono">${p.level || 1}</td>
+                                        <td class="px-4 py-3 mono text-xs text-white/50">${esc(p.phone || '—')}</td>
+                                        <td class="px-4 py-3">${p.whatsapp_opt_in ? '<span class="text-green-400">Yes</span>' : '<span class="text-white/20">No</span>'}</td>
+                                        <td class="px-4 py-3 text-white/40 text-xs">${fmtDate(p.created_at)}</td>
+                                        <td class="px-4 py-3 text-xs">
+                                            ${p.day3_email_sent ? '<span class="text-bmw-400">D3</span>' : '<span class="text-white/15">D3</span>'}
+                                            ${p.day7_email_sent ? '<span class="text-bmw-400 ml-1">D7</span>' : '<span class="text-white/15 ml-1">D7</span>'}
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ========================================
+        // QUEST DATA
+        // ========================================
+        function renderQuests() {
+            const el = document.getElementById('panel-quests');
+            if (adminData.prefs.length === 0) {
+                el.innerHTML = '<p class="text-white/20 text-sm text-center py-12">No quest completions yet</p>';
+                return;
+            }
+            // Join with profiles
+            const profileMap = Object.fromEntries(adminData.profiles.map(p => [p.id, p]));
+            el.innerHTML = `
+                <div class="glass rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10 text-left">
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">User</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Elements</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Desires</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Time</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Intensity</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Completed</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${adminData.prefs.map(pref => {
+                                    const user = profileMap[pref.user_id];
+                                    return `
+                                    <tr class="border-b border-white/5 row-hover">
+                                        <td class="px-4 py-3 mono text-xs">${esc(user?.email || pref.user_id.slice(0,8))}</td>
+                                        <td class="px-4 py-3">${(pref.elements || []).map(t => `<span class="inline-block bg-bmw-500/15 text-bmw-400 text-xs px-2 py-0.5 rounded-full mr-1">${t}</span>`).join('')}</td>
+                                        <td class="px-4 py-3">${(pref.desires || []).map(t => `<span class="inline-block bg-white/5 text-white/60 text-xs px-2 py-0.5 rounded-full mr-1">${t}</span>`).join('')}</td>
+                                        <td class="px-4 py-3 text-white/60">${esc(pref.time_preference || '—')}</td>
+                                        <td class="px-4 py-3 mono">${pref.intensity || '—'}</td>
+                                        <td class="px-4 py-3 text-white/40 text-xs">${fmtDate(pref.updated_at)}</td>
+                                    </tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ========================================
+        // SAVED ADVENTURES
+        // ========================================
+        function renderAdventures() {
+            const el = document.getElementById('panel-adventures');
+            if (adminData.adventures.length === 0) {
+                el.innerHTML = '<p class="text-white/20 text-sm text-center py-12">No saved adventures yet</p>';
+                return;
+            }
+            const profileMap = Object.fromEntries(adminData.profiles.map(p => [p.id, p]));
+
+            // Count popularity
+            const counts = {};
+            adminData.adventures.forEach(a => {
+                counts[a.adventure_name] = (counts[a.adventure_name] || 0) + 1;
+            });
+            const popular = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+
+            el.innerHTML = `
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    ${popular.slice(0, 6).map(([name, count]) => `
+                        <div class="glass rounded-xl p-4">
+                            <p class="text-sm font-medium mb-1">${esc(name)}</p>
+                            <p class="mono text-bmw-400 text-lg">${count} <span class="text-white/30 text-xs">saves</span></p>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="glass rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10 text-left">
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">User</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Adventure</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Saved</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${adminData.adventures.map(a => {
+                                    const user = profileMap[a.user_id];
+                                    return `
+                                    <tr class="border-b border-white/5 row-hover">
+                                        <td class="px-4 py-3 mono text-xs">${esc(user?.email || a.user_id.slice(0,8))}</td>
+                                        <td class="px-4 py-3">${esc(a.adventure_name || a.adventure_id)}</td>
+                                        <td class="px-4 py-3 text-white/40 text-xs">${fmtDate(a.saved_at)}</td>
+                                    </tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ========================================
+        // INSTRUCTORS
+        // ========================================
+        function renderInstructors() {
+            const el = document.getElementById('panel-instructors');
+            if (adminData.instructors.length === 0) {
+                el.innerHTML = '<p class="text-white/20 text-sm text-center py-12">No instructor applications yet</p>';
+                return;
+            }
+            el.innerHTML = `
+                <div class="glass rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10 text-left">
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Name</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Email</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Discipline</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Location</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Status</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Applied</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${adminData.instructors.map(i => `
+                                    <tr class="border-b border-white/5 row-hover">
+                                        <td class="px-4 py-3 font-medium">${esc(i.name)}</td>
+                                        <td class="px-4 py-3 mono text-xs">${esc(i.email)}</td>
+                                        <td class="px-4 py-3 text-white/60">${esc(i.discipline || '—')}</td>
+                                        <td class="px-4 py-3 text-white/50">${esc(i.location || '—')}</td>
+                                        <td class="px-4 py-3"><span class="status-badge status-${i.status}">${i.status}</span></td>
+                                        <td class="px-4 py-3 text-white/40 text-xs">${fmtDate(i.created_at)}</td>
+                                        <td class="px-4 py-3">
+                                            ${i.status === 'pending' ? `
+                                                <button onclick="updateInstructorStatus('${i.id}', 'approved')" class="text-xs text-bmw-400 hover:text-bmw-300 mr-3">Approve</button>
+                                                <button onclick="updateInstructorStatus('${i.id}', 'rejected')" class="text-xs text-red-400/60 hover:text-red-400">Reject</button>
+                                            ` : i.status === 'approved' ? `
+                                                <span class="text-white/20 text-xs">Active</span>
+                                            ` : `
+                                                <button onclick="updateInstructorStatus('${i.id}', 'approved')" class="text-xs text-bmw-400 hover:text-bmw-300">Re-approve</button>
+                                            `}
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ========================================
+        // COHORTS
+        // ========================================
+        function renderCohorts() {
+            const el = document.getElementById('panel-cohorts');
+            if (adminData.cohorts.length === 0) {
+                el.innerHTML = '<p class="text-white/20 text-sm text-center py-12">No cohorts yet</p>';
+                return;
+            }
+
+            // Count enrollments per cohort
+            const enrollCounts = {};
+            adminData.enrollments.forEach(e => {
+                if (e.status === 'enrolled') {
+                    enrollCounts[e.cohort_id] = (enrollCounts[e.cohort_id] || 0) + 1;
+                }
+            });
+
+            el.innerHTML = `
+                <div class="glass rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10 text-left">
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Title</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Instructor</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Location</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Dates</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Students</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Price</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${adminData.cohorts.map(c => {
+                                    const enrolled = enrollCounts[c.id] || 0;
+                                    const dateStr = c.start_date ? fmtDateShort(c.start_date) + (c.end_date ? ' — ' + fmtDateShort(c.end_date) : '') : 'TBD';
+                                    const price = c.price_cents ? '$' + (c.price_cents / 100).toLocaleString() : '—';
+                                    return `
+                                    <tr class="border-b border-white/5 row-hover">
+                                        <td class="px-4 py-3 font-medium">${esc(c.title)}</td>
+                                        <td class="px-4 py-3 text-white/60">${esc(c.instructors?.name || '—')}</td>
+                                        <td class="px-4 py-3 text-white/50">${esc(c.location || '—')}</td>
+                                        <td class="px-4 py-3 mono text-xs text-white/50">${dateStr}</td>
+                                        <td class="px-4 py-3 mono">${enrolled} / ${c.capacity}</td>
+                                        <td class="px-4 py-3 mono text-white/60">${price}</td>
+                                        <td class="px-4 py-3"><span class="status-badge status-${c.status}">${c.status}</span></td>
+                                    </tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ========================================
+        // ENROLLMENTS
+        // ========================================
+        function renderEnrollments() {
+            const el = document.getElementById('panel-enrollments');
+            if (adminData.enrollments.length === 0) {
+                el.innerHTML = '<p class="text-white/20 text-sm text-center py-12">No enrollments yet</p>';
+                return;
+            }
+            el.innerHTML = `
+                <div class="glass rounded-xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10 text-left">
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Student</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Email</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Cohort</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Status</th>
+                                    <th class="px-4 py-3 text-white/40 text-xs font-medium">Enrolled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${adminData.enrollments.map(e => `
+                                    <tr class="border-b border-white/5 row-hover">
+                                        <td class="px-4 py-3">${esc(e.profiles?.name || 'Anonymous')}</td>
+                                        <td class="px-4 py-3 mono text-xs">${esc(e.profiles?.email || '—')}</td>
+                                        <td class="px-4 py-3 text-white/60">${esc(e.cohorts?.title || e.cohort_id?.slice(0,8))}</td>
+                                        <td class="px-4 py-3"><span class="status-badge status-${e.status}">${e.status}</span></td>
+                                        <td class="px-4 py-3 text-white/40 text-xs">${fmtDate(e.enrolled_at)}</td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ========================================
+        // ACTIVITY LOG
+        // ========================================
+        function renderActivity() {
+            const el = document.getElementById('panel-activity');
+            // Merge all events into a timeline
+            const events = [];
+
+            adminData.profiles.forEach(p => {
+                events.push({ time: p.created_at, type: 'signup', label: `${p.email} signed up`, icon: '&#x2192;' });
+            });
+            adminData.prefs.forEach(p => {
+                const user = adminData.profiles.find(u => u.id === p.user_id);
+                events.push({ time: p.updated_at, type: 'quest', label: `${user?.email || '?'} completed quest — ${(p.elements||[]).join(', ')}`, icon: '&#x25C6;' });
+            });
+            adminData.adventures.forEach(a => {
+                const user = adminData.profiles.find(u => u.id === a.user_id);
+                events.push({ time: a.saved_at, type: 'save', label: `${user?.email || '?'} saved "${a.adventure_name}"`, icon: '&#x2605;' });
+            });
+            adminData.instructors.forEach(i => {
+                events.push({ time: i.created_at, type: 'instructor', label: `${i.name} applied as instructor (${i.discipline || 'general'})`, icon: '&#x2691;' });
+            });
+            adminData.enrollments.forEach(e => {
+                events.push({ time: e.enrolled_at, type: 'enrollment', label: `${e.profiles?.name || '?'} enrolled in "${e.cohorts?.title || '?'}"`, icon: '&#x2713;' });
+            });
+
+            events.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+            if (events.length === 0) {
+                el.innerHTML = '<p class="text-white/20 text-sm text-center py-12">No activity yet</p>';
+                return;
+            }
+
+            const typeColors = {
+                signup: 'text-bmw-400',
+                quest: 'text-purple-400',
+                save: 'text-cyan-400',
+                instructor: 'text-orange-400',
+                enrollment: 'text-green-400'
+            };
+
+            el.innerHTML = `
+                <div class="glass rounded-xl p-6 max-h-[600px] overflow-y-auto">
+                    <div class="space-y-3">
+                        ${events.slice(0, 100).map(e => `
+                            <div class="flex items-start gap-3 py-2">
+                                <span class="${typeColors[e.type] || 'text-white/40'} text-sm mt-0.5">${e.icon}</span>
+                                <div class="flex-1 min-w-0">
+                                    <p class="text-sm text-white/70 truncate">${esc(e.label)}</p>
+                                </div>
+                                <span class="mono text-xs text-white/25 whitespace-nowrap">${fmtDateTime(e.time)}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ========================================
+        // ADMIN ACTIONS
+        // ========================================
+        async function updateInstructorStatus(instructorId, newStatus) {
+            const { error } = await window.supabaseClient
+                .from('instructors')
+                .update({ status: newStatus })
+                .eq('id', instructorId);
+
+            if (error) {
+                alert('Error: ' + error.message);
+                return;
+            }
+            await loadAllData();
+        }
+
+        // ========================================
+        // HELPERS
+        // ========================================
+        function esc(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function fmtDate(iso) {
+            if (!iso) return '—';
+            return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function fmtDateShort(iso) {
+            if (!iso) return '—';
+            return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function fmtDateTime(iso) {
+            if (!iso) return '—';
+            const d = new Date(iso);
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
+                   d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        }
+    </script>
+</body>
+</html>
