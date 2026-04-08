@@ -212,6 +212,117 @@
         }
         .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
+
+        /* AI Finder */
+        .finder-wrap {
+            position: relative;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .finder-input {
+            width: 100%;
+            padding: 12px 44px 12px 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .finder-input::placeholder { color: rgba(255,255,255,0.20); }
+        .finder-input:focus {
+            border-color: rgba(99,102,241,0.4);
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 0 0 2px rgba(99,102,241,0.06);
+        }
+        .finder-btn {
+            position: absolute;
+            right: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(99,102,241,0.3);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .finder-btn:hover { background: rgba(99,102,241,0.5); }
+        .finder-btn svg { width: 15px; height: 15px; }
+        .finder-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .finder-tag {
+            font-size: 10px;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.30);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .finder-tag:hover { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.12); }
+
+        /* Results */
+        .finder-results {
+            max-width: 640px;
+            margin: 14px auto 0;
+            display: none;
+        }
+        .finder-results.has-results { display: block; }
+        .finder-result-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .finder-result-card:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.12);
+        }
+        .finder-match {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .match-high { background: rgba(5,150,105,0.12); color: #34d399; }
+        .match-med { background: rgba(99,102,241,0.10); color: #818cf8; }
+        .match-low { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.3); }
+        .finder-thinking {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255,255,255,0.3);
+            font-size: 13px;
+            display: none;
+        }
+        .finder-thinking.active { display: block; }
+        @keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+        .finder-dots span { animation: pulse 1.2s infinite; }
+        .finder-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .finder-dots span:nth-child(3) { animation-delay: 0.4s; }
     </style>
 </head>
 <body class="text-white">
@@ -264,7 +375,7 @@
             </p>
 
             <!-- Duration spectrum -->
-            <div class="grid grid-cols-4 gap-2 max-w-lg mx-auto text-center text-xs">
+            <div class="grid grid-cols-4 gap-2 max-w-lg mx-auto text-center text-xs mb-10">
                 <div class="glass rounded-lg py-3 px-2">
                     <p class="text-white/70 font-medium">1 week</p>
                     <p class="text-white/30 mt-0.5">Get certified</p>
@@ -281,6 +392,33 @@
                     <p class="text-white/70 font-medium">3-6 months</p>
                     <p class="text-white/30 mt-0.5">Transform</p>
                 </div>
+            </div>
+
+            <!-- AI Experience Finder -->
+            <div style="margin-top:8px">
+                <p class="text-white/30 text-xs mb-4">Tell us when you're free, where you'd like to go, or what draws you — the sea, the mountains, a kitchen — and we'll find your next immersion.</p>
+                <div class="finder-wrap">
+                    <input type="text" class="finder-input" id="finder-input"
+                        placeholder="e.g. 3 weeks in Japan, the sea, cooking...">
+                    <button class="finder-btn" id="finder-btn" aria-label="Find my experience">
+                        <svg fill="none" stroke="white" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="finder-tags" id="finder-tags">
+                    <span class="finder-tag" data-q="the sea">the sea</span>
+                    <span class="finder-tag" data-q="2 weeks in Japan">Japan</span>
+                    <span class="finder-tag" data-q="cooking">cooking</span>
+                    <span class="finder-tag" data-q="yoga in Asia">yoga</span>
+                    <span class="finder-tag" data-q="wine in France">wine</span>
+                    <span class="finder-tag" data-q="a month, something extreme">adventure</span>
+                    <span class="finder-tag" data-q="sailing career">sailing</span>
+                </div>
+                <div class="finder-thinking" id="finder-thinking">
+                    <span class="finder-dots"><span>.</span><span>.</span><span>.</span></span> Finding your next immersion
+                </div>
+                <div class="finder-results" id="finder-results"></div>
             </div>
         </div>
     </section>
@@ -585,15 +723,34 @@
                     </div>
 
                     <div class="pt-4 border-t border-white/5 text-center">
-                        <a href="community.html" class="cta-button inline-block px-6 py-2.5 rounded-full text-white text-sm font-medium">
-                            Join waitlist for this experience
-                        </a>
+                        <button id="interest-btn"
+                            data-adventure-id="${exp.id}"
+                            data-adventure-name="${exp.name.replace(/"/g, '&quot;')}"
+                            onclick="handleInterestClick(this)"
+                            class="cta-button inline-block px-6 py-2.5 rounded-full text-white text-sm font-medium cursor-pointer border-0">
+                            I'm interested
+                        </button>
                     </div>
                 </div>
             `;
 
             overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
+
+            // Check if user already expressed interest
+            const user = window.auth?.getCurrentUser();
+            if (user && window.db?.getInterestForAdventure) {
+                window.db.getInterestForAdventure(user.id, id).then(function(interest) {
+                    if (interest && interest.status !== 'cancelled') {
+                        const btn = document.getElementById('interest-btn');
+                        if (btn) {
+                            btn.textContent = "You're on the list";
+                            btn.style.opacity = '0.6';
+                            btn.disabled = true;
+                        }
+                    }
+                }).catch(function() {});
+            }
         };
 
         window.closeDetail = function() {
@@ -617,6 +774,377 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
     <script src="/js/whatsapp-widget.js"></script>
+
+    <!-- Interest subscription handler -->
+    <script>
+    window.handleInterestClick = async function(btn) {
+        const adventureId = btn.dataset.adventureId;
+        const adventureName = btn.dataset.adventureName;
+
+        // Check if signed in
+        const user = window.auth?.getCurrentUser();
+        if (!user) {
+            // Save pending interest, trigger sign-in
+            sessionStorage.setItem('pendingInterest', JSON.stringify({ adventureId, adventureName }));
+            if (window.auth?.showSignInModal) {
+                window.auth.showSignInModal();
+            } else {
+                window.location.href = '/join';
+            }
+            return;
+        }
+
+        // Already signed in — submit interest
+        btn.disabled = true;
+        btn.textContent = 'Saving...';
+
+        try {
+            // Save to database
+            await window.db.expressInterest(user.id, adventureId, adventureName);
+
+            // Trigger Edge Function for emails
+            const supabaseUrl = window.supabaseClient?.supabaseUrl || 'https://exaehwaqwcledemwpluw.supabase.co';
+            const session = await window.supabaseClient?.auth.getSession();
+            const token = session?.data?.session?.access_token;
+
+            if (token) {
+                fetch(supabaseUrl + '/functions/v1/handle-interest', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token,
+                    },
+                    body: JSON.stringify({ adventure_id: adventureId, adventure_name: adventureName }),
+                }).catch(err => console.warn('Email notification error:', err));
+            }
+
+            btn.textContent = "You're on the list";
+            btn.style.opacity = '0.6';
+            btn.style.cursor = 'default';
+        } catch (err) {
+            console.error('Interest error:', err);
+            // Probably already interested (unique constraint)
+            btn.textContent = "You're on the list";
+            btn.style.opacity = '0.6';
+        }
+    };
+
+    // Handle pending interest after auth callback
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check for pending interest after sign-in
+        const pending = sessionStorage.getItem('pendingInterest');
+        if (pending) {
+            const check = setInterval(function() {
+                const user = window.auth?.getCurrentUser();
+                if (user) {
+                    clearInterval(check);
+                    sessionStorage.removeItem('pendingInterest');
+                    const { adventureId, adventureName } = JSON.parse(pending);
+
+                    // Auto-submit the interest
+                    window.db?.expressInterest(user.id, adventureId, adventureName).then(function() {
+                        const supabaseUrl = window.supabaseClient?.supabaseUrl || 'https://exaehwaqwcledemwpluw.supabase.co';
+                        window.supabaseClient?.auth.getSession().then(function(s) {
+                            const token = s?.data?.session?.access_token;
+                            if (token) {
+                                fetch(supabaseUrl + '/functions/v1/handle-interest', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                                    body: JSON.stringify({ adventure_id: adventureId, adventure_name: adventureName }),
+                                }).catch(function() {});
+                            }
+                        });
+
+                        // Open the detail modal and show confirmation
+                        if (window.openDetail) {
+                            window.openDetail(adventureId);
+                            setTimeout(function() {
+                                const btn = document.getElementById('interest-btn');
+                                if (btn) {
+                                    btn.textContent = "You're on the list";
+                                    btn.style.opacity = '0.6';
+                                    btn.disabled = true;
+                                }
+                            }, 300);
+                        }
+                    }).catch(function(e) { console.warn('Pending interest error:', e); });
+                }
+            }, 200);
+            // Stop checking after 10s
+            setTimeout(function() { clearInterval(check); }, 10000);
+        }
+    });
+    </script>
+
+    <!-- AI Experience Finder -->
+    <script>
+    (function() {
+        if (!window.ET_EXPERIENCES) return;
+
+        var input = document.getElementById('finder-input');
+        var btn = document.getElementById('finder-btn');
+        var results = document.getElementById('finder-results');
+        var thinking = document.getElementById('finder-thinking');
+        var tags = document.querySelectorAll('.finder-tag');
+
+        // Keywords mapped to experience attributes
+        var LOCATION_MAP = {
+            'japan': ['sushi-mastery-tokyo', 'sake-sommelier-niigata'],
+            'tokyo': ['sushi-mastery-tokyo'],
+            'france': ['scuba-mediterranean-cousteau', 'pastry-le-cordon-bleu-paris', 'wine-sommelier-bordeaux', 'mountaineering-chamonix'],
+            'paris': ['pastry-le-cordon-bleu-paris'],
+            'mediterranean': ['scuba-mediterranean-cousteau', 'ocean-sailing-rya-greece'],
+            'greece': ['ocean-sailing-rya-greece'],
+            'italy': ['terroir-cooking-tuscany'],
+            'tuscany': ['terroir-cooking-tuscany'],
+            'egypt': ['freedive-dahab'],
+            'dahab': ['freedive-dahab'],
+            'mexico': ['cave-diving-yucatan', 'indigenous-mexican-oaxaca'],
+            'oaxaca': ['indigenous-mexican-oaxaca'],
+            'spain': ['kitesurfing-tarifa', 'avant-garde-cuisine-barcelona'],
+            'barcelona': ['avant-garde-cuisine-barcelona'],
+            'basque': ['new-basque-cuisine-san-sebastian'],
+            'san sebastian': ['new-basque-cuisine-san-sebastian'],
+            'bali': ['surf-instructor-bali'],
+            'indonesia': ['surf-instructor-bali'],
+            'india': ['yoga-ryt200-rishikesh', 'yoga-ryt500-rishikesh'],
+            'rishikesh': ['yoga-ryt200-rishikesh', 'yoga-ryt500-rishikesh'],
+            'thailand': ['thai-massage-itm'],
+            'asia': ['sushi-mastery-tokyo', 'sake-sommelier-niigata', 'yoga-ryt200-rishikesh', 'yoga-ryt500-rishikesh', 'thai-massage-itm', 'surf-instructor-bali'],
+            'africa': ['safari-guide-fgasa'],
+            'south africa': ['safari-guide-fgasa'],
+            'costa rica': ['kayak-instructor-costa-rica'],
+            'bordeaux': ['wine-sommelier-bordeaux'],
+            'atlantic': ['ocean-sailing-atlantic', 'ocean-sailing-odyssey-saga'],
+            'europe': ['scuba-mediterranean-cousteau', 'ocean-sailing-rya-greece', 'pastry-le-cordon-bleu-paris', 'wine-sommelier-bordeaux', 'kitesurfing-tarifa', 'terroir-cooking-tuscany', 'mountaineering-chamonix', 'avant-garde-cuisine-barcelona', 'new-basque-cuisine-san-sebastian'],
+            'alps': ['mountaineering-chamonix', 'breathwork-wim-hof'],
+            'chamonix': ['mountaineering-chamonix'],
+            'caribbean': ['ocean-sailing-atlantic'],
+            'yucatan': ['cave-diving-yucatan'],
+            'cenote': ['cave-diving-yucatan'],
+            'niigata': ['sake-sommelier-niigata']
+        };
+
+        var INTEREST_MAP = {
+            'dive': 'diving', 'diving': 'diving', 'scuba': 'diving', 'underwater': 'diving', 'freedive': 'diving', 'freediving': 'diving', 'cave dive': 'diving', 'padi': 'diving',
+            'sail': 'sailing', 'sailing': 'sailing', 'boat': 'sailing', 'yacht': 'sailing', 'ocean': 'sailing', 'rya': 'sailing', 'skipper': 'sailing',
+            'sea': 'diving', 'the sea': 'diving',
+            'cook': 'culinary', 'cooking': 'culinary', 'culinary': 'culinary', 'chef': 'culinary', 'food': 'culinary', 'kitchen': 'culinary', 'pastry': 'culinary', 'sushi': 'culinary', 'wine': 'culinary', 'sake': 'culinary', 'sommelier': 'culinary', 'gastronomy': 'culinary', 'molecular': 'culinary', 'bake': 'culinary', 'baking': 'culinary',
+            'yoga': 'wellness', 'wellness': 'wellness', 'meditation': 'wellness', 'breathwork': 'wellness', 'massage': 'wellness', 'health': 'wellness', 'mindful': 'wellness', 'wim hof': 'wellness',
+            'climb': 'adventure', 'climbing': 'adventure', 'mountain': 'adventure', 'surf': 'adventure', 'surfing': 'adventure', 'kite': 'adventure', 'kitesurf': 'adventure', 'kayak': 'adventure', 'extreme': 'adventure', 'adrenaline': 'adventure',
+            'safari': 'wildlife', 'wildlife': 'wildlife', 'animal': 'wildlife', 'nature': 'wildlife', 'marine biology': 'wildlife'
+        };
+
+        var SPECIFIC_MAP = {
+            'sushi': ['sushi-mastery-tokyo'],
+            'pastry': ['pastry-le-cordon-bleu-paris'],
+            'wine': ['wine-sommelier-bordeaux'],
+            'sake': ['sake-sommelier-niigata'],
+            'freedive': ['freedive-dahab'],
+            'freediving': ['freedive-dahab'],
+            'cave': ['cave-diving-yucatan'],
+            'kite': ['kitesurfing-tarifa'],
+            'kitesurf': ['kitesurfing-tarifa'],
+            'surf': ['surf-instructor-bali', 'kitesurfing-tarifa'],
+            'wim hof': ['breathwork-wim-hof'],
+            'breathwork': ['breathwork-wim-hof'],
+            'massage': ['thai-massage-itm'],
+            'safari': ['safari-guide-fgasa'],
+            'mountain': ['mountaineering-chamonix'],
+            'climb': ['mountaineering-chamonix'],
+            'kayak': ['kayak-instructor-costa-rica'],
+            'molecular': ['avant-garde-cuisine-barcelona'],
+            'basque': ['new-basque-cuisine-san-sebastian'],
+            'mexican': ['indigenous-mexican-oaxaca'],
+            'tuscan': ['terroir-cooking-tuscany'],
+            'italian': ['terroir-cooking-tuscany']
+        };
+
+        function parseDays(text) {
+            var t = text.toLowerCase();
+            // "X days/weeks/months"
+            var m;
+            m = t.match(/(\d+)\s*day/);
+            if (m) return parseInt(m[1]);
+            m = t.match(/(\d+)\s*week/);
+            if (m) return parseInt(m[1]) * 7;
+            m = t.match(/(\d+)\s*month/);
+            if (m) return parseInt(m[1]) * 30;
+            m = t.match(/a\s+week/);
+            if (m) return 7;
+            m = t.match(/a\s+month/);
+            if (m) return 30;
+            // "a few weeks"
+            if (/few\s+week/.test(t)) return 21;
+            if (/couple.*week/.test(t)) return 14;
+            // Short/long
+            if (/\bshort\b/.test(t)) return 10;
+            if (/\blong\b|\bextended\b|\bsabbatical\b/.test(t)) return 90;
+            return null;
+        }
+
+        function parseTier(text) {
+            var t = text.toLowerCase();
+            if (/beginner|start|first time|intro|foundation|new to|never/.test(t)) return 'foundation';
+            if (/advanced|professional|pro level|master|deep|career/.test(t)) return 'mastery';
+            if (/transform|life.?chang|6 month|sabbatical|complete/.test(t)) return 'saga';
+            return null;
+        }
+
+        function scoreExperience(exp, query) {
+            var t = query.toLowerCase();
+            var score = 0;
+            var reasons = [];
+
+            // Location match (strong signal)
+            Object.keys(LOCATION_MAP).forEach(function(loc) {
+                if (t.indexOf(loc) !== -1 && LOCATION_MAP[loc].indexOf(exp.id) !== -1) {
+                    score += 30;
+                    reasons.push('Location match');
+                }
+            });
+
+            // Specific experience match (strongest)
+            Object.keys(SPECIFIC_MAP).forEach(function(kw) {
+                if (t.indexOf(kw) !== -1 && SPECIFIC_MAP[kw].indexOf(exp.id) !== -1) {
+                    score += 40;
+                    reasons.push('Direct match');
+                }
+            });
+
+            // "the sea" / "ocean" matches both diving and sailing
+            if (/\bsea\b|\bocean\b/.test(t) && (exp.category === 'diving' || exp.category === 'sailing')) {
+                score += 20;
+                reasons.push('The sea');
+            }
+
+            // Category match
+            var matchedCat = null;
+            Object.keys(INTEREST_MAP).forEach(function(kw) {
+                if (t.indexOf(kw) !== -1 && INTEREST_MAP[kw] === exp.category) {
+                    if (!matchedCat) { score += 20; matchedCat = true; reasons.push(exp.category); }
+                }
+            });
+
+            // Duration match
+            var days = parseDays(t);
+            if (days !== null && exp.minDays && exp.maxDays) {
+                if (days >= exp.minDays && days <= exp.maxDays) {
+                    score += 15;
+                    reasons.push('Duration fits');
+                } else if (days >= exp.minDays - 7 && days <= exp.maxDays + 7) {
+                    score += 8;
+                    reasons.push('Close duration');
+                }
+            }
+
+            // Tier match
+            var tier = parseTier(t);
+            if (tier && exp.tier === tier) {
+                score += 10;
+                reasons.push(tier + ' tier');
+            }
+
+            // Desire tags (career, certification, reset, stories)
+            if (exp.desireTags) {
+                if (/career|job|profession|work/.test(t) && exp.desireTags.indexOf('career') !== -1) {
+                    score += 10; reasons.push('Career path');
+                }
+                if (/certif|credential|qualify|license/.test(t) && exp.desireTags.indexOf('certification') !== -1) {
+                    score += 8; reasons.push('Certification');
+                }
+                if (/relax|reset|peace|calm|escape|stress/.test(t) && exp.desireTags.indexOf('reset') !== -1) {
+                    score += 8; reasons.push('Reset & recharge');
+                }
+            }
+
+            // Vibe keywords from name/summary
+            var searchText = (exp.name + ' ' + exp.summary).toLowerCase();
+            var words = t.split(/\s+/);
+            words.forEach(function(w) {
+                if (w.length > 3 && searchText.indexOf(w) !== -1) {
+                    score += 5;
+                }
+            });
+
+            return { score: score, reasons: reasons };
+        }
+
+        function search(query) {
+            if (!query.trim()) { results.classList.remove('has-results'); return; }
+
+            thinking.classList.add('active');
+            results.classList.remove('has-results');
+
+            // Small delay for the "thinking" feel
+            setTimeout(function() {
+                var scored = window.ET_EXPERIENCES.map(function(exp) {
+                    var r = scoreExperience(exp, query);
+                    return { exp: exp, score: r.score, reasons: r.reasons };
+                });
+
+                scored.sort(function(a, b) { return b.score - a.score; });
+
+                // Take top results with score > 0, max 5
+                var top = scored.filter(function(s) { return s.score > 0; }).slice(0, 5);
+
+                thinking.classList.remove('active');
+
+                if (top.length === 0) {
+                    results.innerHTML = '<div style="text-align:center;padding:20px;color:rgba(255,255,255,0.3);font-size:13px;">No matches found. Try describing what excites you — a place, a skill, or how long you have.</div>';
+                    results.classList.add('has-results');
+                    return;
+                }
+
+                var maxScore = top[0].score;
+                var badgeMap = {
+                    diving: 'badge-ocean', sailing: 'badge-ocean',
+                    culinary: 'badge-culinary', wellness: 'badge-wellness',
+                    adventure: 'badge-adventure', wildlife: 'badge-wildlife'
+                };
+
+                var html = top.map(function(item) {
+                    var pct = Math.min(99, Math.round((item.score / maxScore) * 100));
+                    var matchClass = pct >= 80 ? 'match-high' : pct >= 50 ? 'match-med' : 'match-low';
+                    var badge = badgeMap[item.exp.category] || '';
+                    var reason = item.reasons.slice(0, 2).join(' + ');
+
+                    return '<div class="finder-result-card" onclick="openDetail(\'' + item.exp.id + '\')">' +
+                        '<div class="finder-match ' + matchClass + '">' + pct + '%</div>' +
+                        '<div style="flex:1;min-width:0">' +
+                            '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">' +
+                                '<span class="badge ' + badge + '">' + item.exp.category + '</span>' +
+                                '<span class="tier-badge tier-' + item.exp.tier + '">' + item.exp.tier + '</span>' +
+                            '</div>' +
+                            '<p style="font-size:14px;font-weight:500;color:rgba(255,255,255,0.9);margin-bottom:2px">' + item.exp.name + '</p>' +
+                            '<p style="font-size:11px;color:rgba(255,255,255,0.35)">' + item.exp.meta + '</p>' +
+                            (reason ? '<p style="font-size:10px;color:rgba(99,102,241,0.6);margin-top:4px">' + reason + '</p>' : '') +
+                        '</div>' +
+                        '<svg style="width:16px;height:16px;color:rgba(255,255,255,0.15);flex-shrink:0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>' +
+                    '</div>';
+                }).join('');
+
+                results.innerHTML = html;
+                results.classList.add('has-results');
+            }, 600);
+        }
+
+        // Events
+        btn.addEventListener('click', function() { search(input.value); });
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') search(input.value);
+        });
+
+        tags.forEach(function(tag) {
+            tag.addEventListener('click', function() {
+                input.value = tag.getAttribute('data-q');
+                input.focus();
+                search(input.value);
+            });
+        });
+    })();
+    </script>
 </body>
 </html>
