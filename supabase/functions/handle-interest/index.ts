@@ -100,7 +100,7 @@ async function handleSubscribe(req: Request) {
 
   // Email 2: notify Arnaud (acts as instructor relay for now)
   await sendEmail(
-    "ceo-educatedtraveler@pm.me",
+    "founder@educatedtraveler.app",
     `New interest: ${studentName} \u2192 ${adventure_name}`,
     emailTemplate(`
       <p><strong>${studentName}</strong> (${studentEmail}) just expressed interest in:</p>
