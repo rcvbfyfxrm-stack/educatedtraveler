@@ -328,6 +328,22 @@
     }
 
     // ========================================
+    // COMMUNITY WALL
+    // ========================================
+
+    async function getCommunityForAdventure(adventureId) {
+        const { data, error } = await supabase
+            .rpc('get_community_for_adventure', { p_adventure_id: adventureId });
+
+        if (error) {
+            console.error('Error fetching community:', error);
+            return [];
+        }
+
+        return data || [];
+    }
+
+    // ========================================
     // INSTRUCTOR OPERATIONS
     // ========================================
 
@@ -615,6 +631,9 @@
         getUserInterests,
         getInterestForAdventure,
         cancelInterestByAdventure,
+
+        // Community
+        getCommunityForAdventure,
 
         // Instructors
         getInstructorByUserId,
