@@ -294,39 +294,41 @@ window.ET_EXPERIENCES = [
         name: 'French Pastry — Paris',
         category: 'culinary',
         tier: 'mastery',
-        minDays: 30,
-        maxDays: 30,
+        minDays: 56,
+        maxDays: 56,
         minPrice: null,
         maxPrice: null,
         envTags: ['city'],
         desireTags: ['certification', 'career', 'stories'],
-        intensity: 2,
-        summary: 'Paris invented the croissant, the éclair, the macaron. Train under chefs who carry the lineage of Escoffier, Lenôtre, and Hermé.',
-        meta: '30 days · Mastery · Le Cordon Bleu Professional Pastry Arts',
+        intensity: 3,
+        summary: 'Eight weeks, 280 hours. Contemporary tartes, entremets, chocolate sculptures, artistic sugar, viennoiseries, plated desserts — culminating in your own Creativity Pop-Up. Taught in English at one of the world\'s most respected pastry schools.',
+        meta: '8 weeks · Mastery · Advanced Professional Pastry Certificate',
         immersive: {
             curriculum: [
-                { phase: 'Week 1', title: 'Foundations', focus: 'Pâte brisée, sablée, sucrée. Crème pâtissière. Choux (éclairs, profiteroles, Paris-Brest). Tempering. Professional speed.' },
-                { phase: 'Week 2', title: 'Viennoiserie & Bread', focus: 'Croissant lamination. Pain au chocolat. Brioche. Baguette. Kouign-amann. Fermentation and hydration.' },
-                { phase: 'Week 3', title: 'Entremets & Chocolate', focus: 'Multi-component entremets (mousse, insert, glaze). Chocolate tempering and moulding. Macarons. Opera cake.' },
-                { phase: 'Week 4', title: 'Mastery & Service', focus: 'Petits fours. Sugar work. Plated desserts. Final exam: produce a full pâtisserie vitrine (12+ items) judged by a MOF.' }
+                { phase: 'Weeks 1–2', title: 'Foundations & Tartes', focus: 'Contemporary tartes (sucrée, sablée, brisée with modern fillings). Petits-fours (financiers, madeleines, macarons, tuiles). Professional speed and mise en place discipline.' },
+                { phase: 'Weeks 3–4', title: 'Viennoiserie & Entremets', focus: 'Croissant lamination (détrempe, tourage). Brioche, pain au chocolat, kouign-amann. Multi-component entremets — mousse, insert, glaze, décor. Individual cakes.' },
+                { phase: 'Weeks 5–6', title: 'Chocolate & Sugar', focus: 'Chocolate sculptures and bonbons — tempering, moulding, showpiece work. Artistic sugar — pulled, blown, and cast techniques. Wedding cake structure and decoration.' },
+                { phase: 'Weeks 7–8', title: 'Frozen Desserts & Pop-Up', focus: 'Ice creams, sorbets, frozen entremets. Plated desserts at restaurant level. Final project: create and present your own boutique pastry collection in a Creativity Pop-Up — judged by faculty and guest MOF pâtissiers.' }
             ],
             included: [
-                { name: 'Parisian Pâtisserie Crawl', desc: 'Guided tastings at legendary pastry shops — study the masters by eating their work' },
-                { name: 'Chocolate Atelier Visit', desc: 'Behind-the-scenes at a bean-to-bar workshop — understand cacao from origin to ganache' },
-                { name: 'French Wine & Pastry Pairing', desc: 'Evening sessions matching desserts with sweet wines, champagne, and digestifs' },
-                { name: 'Food Photography Basics', desc: 'Style and shoot your own creations — build a portfolio as you learn' },
-                { name: 'Ingredient Sourcing Tour', desc: 'Visit the wholesale markets and specialty suppliers where Paris\'s best chefs shop' }
+                { name: 'Rungis Dawn Expedition', desc: '3 AM arrival at the world\'s largest wholesale market — guided by a professional chef. See where every Paris restaurant sources everything.' },
+                { name: 'Private Pâtisserie Crawl', desc: 'Behind-the-scenes visits to legendary Parisian pastry houses — study the masters by seeing their kitchens, not just their vitrines' },
+                { name: 'Uniforms & Materials', desc: 'Full professional kit — chef whites, tools, course materials, and all ingredients for 280 hours of training' },
+                { name: 'Cultural Excursions', desc: 'Curated visits to Paris institutions that shaped pastry history — from the oldest boulangerie to the newest concept shop' },
+                { name: 'Optional Internship Placement', desc: '2-4 month stage at a prestigious French restaurant, hotel, or pâtisserie — for those who want to go further' }
             ],
             addOns: [
-                { name: 'Michelin Pastry Kitchen Stage', desc: 'One-day observation in a starred restaurant pastry section — see professional pace', price: '+$500' },
-                { name: 'Artisan Bread Intensive', desc: 'Weekend deep-dive into sourdough, levain, and traditional French bread techniques', price: '+$400' },
-                { name: 'Private Chocolate Masterclass', desc: 'One-on-one with a Meilleur Ouvrier de France — the highest craft distinction', price: '+$600' },
-                { name: 'Paris Food History Walking Tour', desc: 'Full day exploring the culinary history of Paris — markets, bistros, and hidden gems', price: '+$200' }
+                { name: 'Chocolate Bean-to-Bar Atelier', desc: 'Roasting, conching, tempering, moulding at a craft chocolaterie — understand cacao from origin to bonbon', price: '+$400' },
+                { name: 'Champagne Day Trip', desc: 'Reims cellars tour (historic maison), vineyard lunch, dessert-and-Champagne pairing masterclass', price: '+$350' },
+                { name: 'Rue Montorgueil Market Brunch', desc: 'Source ingredients at the morning market, then cook a cohort brunch in a rented Marais kitchen', price: '+$200' },
+                { name: 'French Bistro Cooking Evening', desc: 'Duck confit, soupe à l\'oignon, tarte tatin — understanding the savoury tradition that frames pastry', price: '+$250' },
+                { name: 'Versailles & Heritage Afternoon Tea', desc: 'Palace gardens followed by afternoon tea at the original Ladurée on Rue Royale (1862)', price: '+$300' },
+                { name: 'Natural Wine & Cheese Soirée', desc: 'Cave à vin evening — raw-milk cheeses paired with natural wines from the Loire and Jura', price: '+$200' }
             ],
             nextSteps: [
-                { name: 'Italian Cuisine — Parma', desc: 'Expand from pastry into savory mastery at one of the world\'s great culinary schools' },
+                { name: 'Terroir Cooking — Tuscany', desc: 'Expand from pastry into the ruthless simplicity of Italian cuisine — where three ingredients must be perfect' },
                 { name: 'WSET Level 3 — Bordeaux', desc: 'Add wine expertise to your pastry credentials — the perfect pairing' },
-                { name: 'Modernist Cuisine — Barcelona', desc: 'Take your technique into the avant-garde with molecular gastronomy' }
+                { name: 'Avant-Garde Cuisine — Barcelona', desc: 'Take your classical foundation into molecular innovation — tradition meeting the future' }
             ]
         }
     },
@@ -335,34 +337,35 @@ window.ET_EXPERIENCES = [
         name: 'Sushi Mastery — Tokyo',
         category: 'culinary',
         tier: 'mastery',
-        minDays: 30,
-        maxDays: 30,
+        minDays: 42,
+        maxDays: 42,
         minPrice: null,
         maxPrice: null,
-        envTags: ['city'],
+        envTags: ['city', 'temple'],
         desireTags: ['certification', 'career', 'rare'],
-        intensity: 2,
-        summary: 'Learn from a master itamae with 30+ years. From 5 AM Toyosu Market to omakase service. The Japanese philosophy of shokunin.',
-        meta: '30 days · Mastery · Professional Sushi Chef',
+        intensity: 3,
+        summary: 'Six weeks. Three levels. Nine students max. From your first cut of shari to presenting a full omakase at the counter — in central Tokyo, where sushi was born.',
+        meta: '6 weeks · Mastery · Diploma in Professional Sushi Arts',
         immersive: {
             curriculum: [
-                { phase: 'Week 1', title: 'Rice (Shari) Mastery', focus: 'Washing, soaking, cooking, seasoning — the foundation of everything in sushi' },
-                { phase: 'Week 2', title: 'Knife Work & Fish', focus: 'Hocho technique, filleting, aging (jukusei), seasonal fish selection (shun)' },
-                { phase: 'Week 3', title: 'Nigiri Technique', focus: 'Hand-forming, wasabi placement, pressure control, speed — the craft made visible' },
-                { phase: 'Week 4', title: 'Omakase Service', focus: 'Full 8-12 course omakase — menu composition, guest reading, presentation, sake pairing' }
+                { phase: 'Weeks 1–2', title: 'Level 1 — Basic', focus: 'Knife handling and cutting techniques. Shari (sushi rice) preparation. Working with fish fillets (saku). Basic seafood prep (shrimp, squid). Nigiri fundamentals. Hosomaki. Sushi culture, history, knife maintenance. Exam: complete sushi plate.' },
+                { phase: 'Weeks 3–4', title: 'Level 2 — Intermediate', focus: 'Whole fish butchery and filleting. Advanced rolls (futomaki, uramaki). Sashimi cutting, plating, presentation. Sushi counter etiquette and service movement. Fish identification, seasonality, quality selection. Exam: serve custom orders at the counter.' },
+                { phase: 'Weeks 5–6', title: 'Level 3 — Superior', focus: 'Delicate fish (anago, hirame). Traditional appetizers (otsumami). Creative nigiri development. Structuring a complete omakase course. Menu balance, flow, guest experience. Fish market visit. Final exam: present and serve a full omakase at the counter.' }
             ],
             included: [
-                { name: 'Toyosu Market Visits', desc: '5 AM visits to the world\'s largest fish market — learn to select fish alongside your master' },
-                { name: 'Professional Knife Set', desc: 'Your own Japanese knife set — selected by your instructor, yours to keep forever' },
-                { name: 'Sake Brewery Tour', desc: 'Visit a working sake brewery — understand the pairing tradition from the source' },
-                { name: 'Kappabashi Kitchen Street', desc: 'Tour Tokyo\'s legendary kitchen supply district — knives, ceramics, tools of the trade' },
-                { name: 'Tsukiji Outer Market', desc: 'Street food and specialty ingredients — the living culture around the old market' }
+                { name: 'Toyosu Fish Market Dawn Tour', desc: '4:30 AM tuna auction viewing followed by breakfast at the market\'s sushi stalls — see where Tokyo\'s chefs source the best fish' },
+                { name: 'Knife Purchase Guidance', desc: 'Expert guidance selecting your personal Yanagiba and Deba — the blades you\'ll use for life' },
+                { name: 'Visa Support', desc: 'Full visa documentation preparation for students who require it' },
+                { name: 'Accommodation Assistance', desc: 'Help finding suitable housing in Bunkyo-ku, central Tokyo — close to the academy' },
+                { name: 'Tsukiji Outer Market Food Tour', desc: 'Tamagoyaki, dried bonito, wasabi root, pickled ginger — the ingredients behind every piece of sushi' }
             ],
             addOns: [
-                { name: 'Kaiseki Dinner Experience', desc: 'Multi-course kaiseki meal at a Michelin restaurant — study the art that frames sushi', price: '+$400' },
-                { name: 'Ramen & Izakaya Night Tour', desc: 'Guided tour of Tokyo\'s best ramen shops and standing bars with your cohort', price: '+$150' },
-                { name: 'Japanese Ceramics Workshop', desc: 'Half-day pottery class — understand why the vessel matters as much as the fish', price: '+$250' },
-                { name: 'Fish Aging Masterclass', desc: 'Deep dive into jukusei technique — the controlled aging that transforms texture and flavor', price: '+$300' }
+                { name: 'Kaiseki Dinner', desc: 'Multi-course seasonal meal at a Michelin-starred restaurant — the philosophy of balance that underpins all Japanese cuisine', price: '+$400' },
+                { name: 'Sake Brewery Immersion', desc: 'Day trip to a Niigata or Fushimi brewery — tasting flights, food pairing, understanding fermentation from rice to glass', price: '+$350' },
+                { name: 'Kappabashi Knife District', desc: 'Guided shopping with a bladesmith in Tokyo\'s legendary kitchen street — select your personal Yanagiba', price: '+$200' },
+                { name: 'Ramen Workshop', desc: 'Handmade noodles, tare, and broth with a ramen master in a backstreet shop — the other side of Japanese soul food', price: '+$250' },
+                { name: 'Izakaya Crawl', desc: 'Guided evening through Yurakucho and Omoide Yokocho — yakitori, oden, shochu, and the standing bars that define Tokyo nights', price: '+$150' },
+                { name: 'Tea Ceremony', desc: 'Traditional matcha experience at a Bunkyo-ku tea house — slowness, precision, presence', price: '+$150' }
             ],
             nextSteps: [
                 { name: 'Indigenous Mexican Cuisine — Oaxaca', desc: 'Another ancient food culture where fermentation is sacred — fascinating parallels' },
@@ -912,34 +915,36 @@ window.ET_EXPERIENCES = [
         name: 'Become a Yacht Chef — Antibes',
         category: 'culinary',
         tier: 'mastery',
-        minDays: 21,
+        minDays: 28,
         maxDays: 28,
         minPrice: null,
         maxPrice: null,
         envTags: ['ocean', 'city'],
         desireTags: ['certification', 'career'],
-        intensity: 2,
-        summary: 'You can cook. Now learn to cook at sea. STCW, ENG1, Ship\'s Cook Certificate, and real galley training — all in Antibes, where the boats are.',
-        meta: '21-28 days · Mastery · STCW + Ship\'s Cook + ENG1',
+        intensity: 3,
+        summary: 'You can cook. Now learn to cook at sea. Four weeks in the yachting capital of Europe — MCA-approved safety training, a 2-day Ship\'s Cook assessment in a real galley, and every cert you need to get hired. Nobody else combines it all in one cohort, in the town where the boats are.',
+        meta: '4 weeks · Mastery · STCW + Ship\'s Cook (CISR) + ENG1 + Food Safety L3',
         immersive: {
             curriculum: [
-                { phase: 'Week 1', title: 'STCW Basic Safety', focus: 'Sea survival, firefighting, first aid, personal safety. MCA-approved certification. Your ticket to work at sea.' },
-                { phase: 'Week 2', title: 'Yacht Galley Immersion', focus: 'Galley setup, provisioning runs (Antibes, Nice markets), preference sheets, crew meals for 12, cold storage, 7-day charter menu planning.' },
-                { phase: 'Week 3', title: 'Charter Prep & Fine Dining', focus: 'Multi-course guest menus. Real dietary restrictions. Wine service. Plating. Working with the chief stew. Timing service solo from the galley.' },
-                { phase: 'Week 4', title: 'Ship\'s Cook + Launch', focus: 'ENG1 medical. Ship\'s Cook Certificate assessment (2 days). Portfolio and CV. Crew agency introductions. Final: 8-course menu cooked solo in a yacht galley.' }
+                { phase: 'Week 1', title: 'STCW Basic Safety', focus: 'MCA-approved, 5 days. Sea survival, fire prevention and firefighting, elementary first aid, personal safety and social responsibilities. Multiple dates per month. Your legal ticket to work at sea.' },
+                { phase: 'Week 2', title: 'Yacht Galley Immersion', focus: 'Galley setup and workflow. Provisioning runs through Antibes, Golfe-Juan, and Nice markets — what to buy, where, how to store it. Preference sheet analysis from real charter guests. Crew meals for 12 on a budget. Cold storage. 7-day charter menu planning.' },
+                { phase: 'Week 3', title: 'Charter Prep & Fine Dining', focus: 'Multi-course guest menus under galley conditions. Real dietary restrictions (coeliac, keto, halal, allergies from actual preference sheets). Wine service basics. Plating for formal service. Working with the chief stew. Timing service solo.' },
+                { phase: 'Week 4', title: 'Ship\'s Cook Certificate + Launch', focus: '2-day CISR assessment in a dedicated galley. Day 1: Food Safety Level 3 exam + savoury practical (soups, sauces, meat, fish, poultry, rice, pasta). Day 2: 40-question written exam + bakery and pastry practical. ENG1 medical. Portfolio, CV prep, crew agency introductions. Final: 8-course menu cooked solo in a yacht galley for real guests.' }
             ],
             included: [
-                { name: 'All Certification Fees', desc: 'STCW Basic Safety, ENG1 medical, Ship\'s Cook Certificate, and Food Safety Level 3 — every cert you need, included.' },
-                { name: 'Real Yacht Galley Access', desc: 'Train in an actual galley on a real yacht in port — not a classroom pretending to be a boat.' },
-                { name: 'Provisioning Masterclass', desc: 'Market runs with a veteran yacht chef. Every supplier, every shortcut, every port trick — intel that takes years to learn.' },
-                { name: 'Crew Agency Introductions', desc: 'Direct introductions to yacht crew agencies in Antibes — you leave with your CV in the right hands.' },
-                { name: 'Portfolio Photo Session', desc: 'Professional photos of your best dishes, plated on board — the portfolio that gets you the interview.' }
+                { name: 'All Certification Fees', desc: 'STCW Basic Safety (MCA-approved), ENG1 Seafarer Medical (2-year validity), Ship\'s Cook Certificate (CISR), and Food Safety Level 3 (HABC Highfield, MCA-listed) — every cert, included.' },
+                { name: 'Real Yacht Galley Access', desc: 'Train in an actual galley on a 50m+ superyacht in port — not a classroom pretending to be a boat.' },
+                { name: 'Provisioning Masterclass', desc: 'Market runs with a veteran yacht chef through the best suppliers on the Côte d\'Azur — intel that takes years to learn on your own.' },
+                { name: 'Crew Agency Introductions', desc: 'Structured introductions to YPI, Bluewater, Dockwalk, and The Crew Network — your CV in the right hands before you finish.' },
+                { name: 'Portfolio Photo Session', desc: 'Professional photos of your best dishes plated on board — the portfolio that gets you the interview.' }
             ],
             addOns: [
-                { name: 'WSET Level 2 Wine', desc: 'Add wine service confidence — know what to pour and why. Two-day intensive.', price: '+$350' },
-                { name: 'Advanced Pastry Day', desc: 'Croissants, entremets, and plated desserts — the weak spot for most yacht chefs.', price: '+$250' },
-                { name: 'Mock Charter Service', desc: 'Full 3-day simulated charter with real guests. Breakfast, lunch, dinner, snacks — non-stop, like the real thing.', price: '+$400' },
-                { name: 'Barista & Cocktail Module', desc: 'Half-day crash course — espresso, latte art, classic cocktails. Guests expect it.', price: '+$150' }
+                { name: 'Monaco Superyacht Day', desc: 'Port Hercules tour, Monte-Carlo market, lunch watching the fleet — see where the industry peaks', price: '+$300' },
+                { name: 'Cours Saleya Market Run (Nice)', desc: 'Dawn provisioning with a working yacht chef — learn what captains and guests actually want', price: '+$200' },
+                { name: 'Onboard Galley Day', desc: 'Full-day training in a real superyacht galley (50m+) — cook lunch and dinner service for actual crew', price: '+$400' },
+                { name: 'Provence Wine Masterclass', desc: 'Provence rosé, Bandol, Bellet — the wines guests expect on a Med charter. Know what to pour and why.', price: '+$250' },
+                { name: 'Provençal Cooking Class', desc: 'Bouillabaisse, ratatouille, socca, pissaladière — the regional cuisine you\'ll cook most on charter', price: '+$250' },
+                { name: 'Captain Walkabout', desc: 'Dock tour with an active superyacht captain — how to approach boats, what they look for, how hiring really works', price: '+$150' }
             ],
             nextSteps: [
                 { name: 'Sushi Mastery — Tokyo', desc: 'Add a specialty that makes you unforgettable on charter. Sushi chefs get hired faster.' },
@@ -954,31 +959,37 @@ window.ET_EXPERIENCES = [
         name: 'Avant-Garde Cuisine — Barcelona',
         category: 'culinary',
         tier: 'mastery',
-        minDays: 7,
-        maxDays: 14,
+        minDays: 21,
+        maxDays: 21,
         minPrice: null,
         maxPrice: null,
         envTags: ['city', 'ocean'],
         desireTags: ['certification', 'career', 'rare'],
-        intensity: 2,
-        summary: 'Train at Vakuum with Martin Lippo — molecular pioneer, liquid nitrogen master, and the chef who turned Barcelona into a culinary lab. Sous-vide, spherification, foams, textures.',
-        meta: '1-2 weeks · Mastery · Vakuum by Martin Lippo',
+        intensity: 3,
+        summary: 'Five intensive masterclass modules over three weeks — textures, liquid nitrogen, foams, spherification, sous-vide — in the city where molecular gastronomy was born. Courses run once per year. Limited spots.',
+        meta: '3 weeks · Mastery · Advanced Culinary Innovation',
         immersive: {
             curriculum: [
-                { phase: 'Week 1', title: 'Molecular Foundations', focus: 'Sous-vide precision. Spherification (basic, reverse, frozen). Foams, siphon work, carbonation. Gelification and hydrocolloids. Liquid nitrogen techniques.' },
-                { phase: 'Week 2', title: 'Creation & Mastery', focus: 'Texture manipulation. Deconstructing classics. Flavour pairing and aroma integration. Develop original dishes. Final presentation of personal creations.' }
+                { phase: 'Module 1', title: 'Textures & Texturizing (3 days)', focus: 'Hydrocolloids, gels, and texture manipulation. Agar, gellan, xanthan, methylcellulose. Creating textures that surprise — crispy, elastic, fluid, brittle — and understanding when each serves the dish.' },
+                { phase: 'Module 2', title: 'Liquid Nitrogen (1 day)', focus: 'Instant freezing, tableside service, nitrogen-based ice creams and sorbets, cryo-shattered preparations. The most theatrical technique in modern cuisine. Safety protocols.' },
+                { phase: 'Module 3', title: 'Foams, Carbonation & Siphon (2 days)', focus: 'ISI siphon mastery — hot foams, cold foams, espumas. CO2 carbonation of fruits, liquids, and gels. Lecithin-based airs. Understanding when foam adds versus distracts.' },
+                { phase: 'Module 4', title: 'Spherification (1 day)', focus: 'Basic and reverse spherification. Sodium alginate, calcium chloride, calcium lactate. Caviar pearls, large spheres, encapsulated sauces. The technique that defined a revolution.' },
+                { phase: 'Module 5', title: 'Vacuum & Low Temperature (2 days)', focus: 'Sous-vide precision at every temperature. Proteins, vegetables, fruits, infusions. Compression techniques, marinades under vacuum, texture transformation through controlled heat.' }
             ],
             included: [
-                { name: 'Vakuum Lab Access', desc: 'Train in Martin Lippo\'s Barcelona workshop — a culinary laboratory built for experimentation, not a classroom' },
-                { name: 'La Boqueria Market Tours', desc: 'Guided sourcing at Barcelona\'s legendary market — the best modernist chefs start with the best raw ingredients' },
-                { name: 'Avant-Garde Restaurant Dinners', desc: 'Study visits to top Barcelona restaurants — analyse technique, concept, and service as a student' },
-                { name: 'Recipe & Technique Portfolio', desc: 'Leave with a complete portfolio of techniques, formulas, and your own creations — documented and repeatable' }
+                { name: 'Molecular Lab Access', desc: 'Train in a professional culinary laboratory built for experimentation — centrifuges, rotary evaporators, precision equipment' },
+                { name: 'La Boqueria Market Immersion', desc: 'Guided sourcing at Barcelona\'s legendary market — understanding Catalan produce as the raw material for innovation' },
+                { name: 'Avant-Garde Restaurant Study Dinners', desc: 'Three evenings at top Barcelona restaurants — analyse technique, concept, and service as a student of the craft' },
+                { name: 'Catalan Base Techniques', desc: 'Sofregit, picada, allioli, romesco — the traditional foundations before the innovation. You need roots to fly.' },
+                { name: 'Creation & Final Dinner', desc: 'Develop 3 original dishes with full technical rationale. Culminates in an 8-course avant-garde tasting menu for 25 guests at a Barcelona venue.' }
             ],
             addOns: [
-                { name: 'Disfrutar-Style Tasting Menu Stage', desc: 'Observation in a World\'s 50 Best kitchen — see how a creative team develops new dishes', price: '+$500' },
-                { name: 'Molecular Cocktail Workshop', desc: 'Apply your kitchen techniques to the bar — spherified cocktails, aromatic clouds, edible glasses', price: '+$350' },
-                { name: 'Fundació Alícia Lab Visit', desc: 'Visit the food science research lab near Barcelona — where science meets cooking at the frontier', price: '+$300' },
-                { name: 'Penedès Cava Tasting', desc: 'Day trip to cava country — sparkling wine tradition that pairs with avant-garde cuisine', price: '+$250' }
+                { name: 'Disfrutar Tasting Menu', desc: '30-course dinner at the restaurant ranked #1 in the world — founded by three alumni of the kitchen that started it all', price: '+$500' },
+                { name: 'Penedès Cava Immersion', desc: 'Vineyard tour, disgorgement demo, cava-and-tapa pairing lunch among the vines', price: '+$250' },
+                { name: 'Empordà Coastal Foraging', desc: 'Wild herbs, sea vegetables, and shellfish along the Costa Brava with a local forager', price: '+$300' },
+                { name: 'Fundació Alícia Lab Visit', desc: 'Food science research lab near Barcelona — where cuisine meets nutrition and technology at the frontier', price: '+$300' },
+                { name: 'Vermouth Ritual', desc: 'Sunday vermut in Barceloneta with conservas, olives, and anchovies — the aperitivo that defines the city', price: '+$100' },
+                { name: 'Chocolate Workshop', desc: 'Handmade bonbons and showpiece work at one of Barcelona\'s legendary pastry houses', price: '+$250' }
             ],
             nextSteps: [
                 { name: 'Sushi Mastery — Tokyo', desc: 'Japanese precision meets molecular thinking — two philosophies of perfection' },
