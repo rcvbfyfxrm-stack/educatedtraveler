@@ -914,29 +914,28 @@ window.ET_EXPERIENCES = [
         id: 'yacht-chef-antibes',
         name: 'Become a Yacht Chef — Antibes',
         category: 'culinary',
-        tier: 'mastery',
-        minDays: 28,
-        maxDays: 28,
+        tier: 'foundation',
+        minDays: 10,
+        maxDays: 12,
         minPrice: null,
         maxPrice: null,
         envTags: ['ocean', 'city'],
         desireTags: ['certification', 'career'],
-        intensity: 3,
-        summary: 'You can cook. Now learn to cook at sea. Four weeks in the yachting capital of Europe — MCA-approved safety training, a 2-day Ship\'s Cook assessment in a real galley, and every cert you need to get hired. Nobody else combines it all in one cohort, in the town where the boats are.',
-        meta: '4 weeks · Mastery · STCW + Ship\'s Cook (CISR) + ENG1 + Food Safety L3',
+        intensity: 2,
+        summary: 'Every certification you need to work as a yacht chef — STCW, Ship\'s Cook Certificate, ENG1 medical — in 12 days, in Antibes, where the boats are. You arrive as a chef. You leave hire-ready.',
+        meta: '10-12 days · Foundation · STCW + Ship\'s Cook (CISR) + ENG1',
         immersive: {
             curriculum: [
-                { phase: 'Week 1', title: 'STCW Basic Safety', focus: 'MCA-approved, 5 days. Sea survival, fire prevention and firefighting, elementary first aid, personal safety and social responsibilities. Multiple dates per month. Your legal ticket to work at sea.' },
-                { phase: 'Week 2', title: 'Yacht Galley Immersion', focus: 'Galley setup and workflow. Provisioning runs through Antibes, Golfe-Juan, and Nice markets — what to buy, where, how to store it. Preference sheet analysis from real charter guests. Crew meals for 12 on a budget. Cold storage. 7-day charter menu planning.' },
-                { phase: 'Week 3', title: 'Charter Prep & Fine Dining', focus: 'Multi-course guest menus under galley conditions. Real dietary restrictions (coeliac, keto, halal, allergies from actual preference sheets). Wine service basics. Plating for formal service. Working with the chief stew. Timing service solo.' },
-                { phase: 'Week 4', title: 'Ship\'s Cook Certificate + Launch', focus: '2-day CISR assessment in a dedicated galley. Day 1: Food Safety Level 3 exam + savoury practical (soups, sauces, meat, fish, poultry, rice, pasta). Day 2: 40-question written exam + bakery and pastry practical. ENG1 medical. Portfolio, CV prep, crew agency introductions. Final: 8-course menu cooked solo in a yacht galley for real guests.' }
+                { phase: 'Days 1–5', title: 'STCW Basic Safety Training', focus: 'MCA-approved, 5 full days. Sea survival, fire prevention and firefighting, elementary first aid, personal safety and social responsibilities. This is your legal ticket to work at sea.' },
+                { phase: 'Day 6', title: 'ENG1 Seafarer Medical', focus: 'Medical examination with an MCA-approved doctor in Antibes. Required for all seafarers. Valid for 2 years. Usually completed in under an hour.' },
+                { phase: 'Days 7–8', title: 'Food Safety Level 3 + Ship\'s Cook Day 1', focus: 'Food Safety Level 3 exam (HABC Highfield, MCA-listed). Then straight into the savoury practical assessment — soups, sauces, vegetables, meat, fish, poultry, rice, pasta, egg dishes. Continuous assessment in a dedicated galley.' },
+                { phase: 'Days 9–10', title: 'Ship\'s Cook Day 2 + Certification', focus: '40 multiple-choice theory exam (70% pass mark). Bakery and pastry practical assessment. On completion: CISR Ship\'s Cook Certificate, required for yachts with 10+ crew. Certificate of Completion issued same day, official CISR document within 10 days.' }
             ],
             included: [
-                { name: 'All Certification Fees', desc: 'STCW Basic Safety (MCA-approved), ENG1 Seafarer Medical (2-year validity), Ship\'s Cook Certificate (CISR), and Food Safety Level 3 (HABC Highfield, MCA-listed) — every cert, included.' },
-                { name: 'Real Yacht Galley Access', desc: 'Train in an actual galley on a 50m+ superyacht in port — not a classroom pretending to be a boat.' },
-                { name: 'Provisioning Masterclass', desc: 'Market runs with a veteran yacht chef through the best suppliers on the Côte d\'Azur — intel that takes years to learn on your own.' },
-                { name: 'Crew Agency Introductions', desc: 'Structured introductions to YPI, Bluewater, Dockwalk, and The Crew Network — your CV in the right hands before you finish.' },
-                { name: 'Portfolio Photo Session', desc: 'Professional photos of your best dishes plated on board — the portfolio that gets you the interview.' }
+                { name: 'All Certification Fees', desc: 'STCW Basic Safety, ENG1 medical, Ship\'s Cook Certificate assessment, and Food Safety Level 3 — every cert you need to get hired, included in one package.' },
+                { name: 'Dedicated Assessment Galley', desc: 'Ship\'s Cook assessment takes place in a professional galley built for the purpose — all recipes, ingredients, knives, and whites provided.' },
+                { name: 'Accommodation', desc: 'Crew house in Antibes for the duration — walking distance to training, the port, and the town.' },
+                { name: 'Crew Agency Introductions', desc: 'Direct introductions to yacht crew agencies in Antibes — you leave with your CV in the right hands.' }
             ],
             addOns: [
                 { name: 'Monaco Superyacht Day', desc: 'Port Hercules tour, Monte-Carlo market, lunch watching the fleet — see where the industry peaks', price: '+$300' },
