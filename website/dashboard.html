@@ -330,12 +330,14 @@
                 <!-- ABOUT YOU -->
                 <div class="glass-strong rounded-2xl p-8">
                     <p class="section-label">About you</p>
-                    <p class="text-white/40 text-xs mb-4">A few lines about who you are. Your cohort will read this. Be real.</p>
-                    <textarea class="profile-input" id="p-about" placeholder="I'm a software engineer from Berlin taking a sabbatical. I've been sailing dinghies since I was a kid and I want to cross an ocean before I turn 40." rows="4"></textarea>
+                    <p class="text-white/40 text-xs mb-4 student-only">A few lines about who you are. Your cohort will read this. Be real.</p>
+                    <p class="text-white/40 text-xs mb-4 instructor-only hidden">Your students will read this. What should they know about you?</p>
+                    <textarea class="profile-input student-only" id="p-about" placeholder="I'm a software engineer from Berlin taking a sabbatical. I've been sailing dinghies since I was a kid and I want to cross an ocean before I turn 40." rows="4"></textarea>
+                    <textarea class="profile-input instructor-only hidden" id="p-about-instructor" placeholder="I've been teaching sushi for 15 years. I trained under master chefs at Tsukiji Market and believe every cut tells a story. I'm patient but I expect dedication." rows="4"></textarea>
                 </div>
 
-                <!-- YOUR BACKGROUND -->
-                <div class="glass-strong rounded-2xl p-8">
+                <!-- STUDENT: YOUR BACKGROUND -->
+                <div class="glass-strong rounded-2xl p-8 student-only">
                     <p class="section-label">Your background</p>
                     <p class="text-white/40 text-xs mb-6">Help us understand where you're coming from. This shapes the experience we recommend.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -380,10 +382,57 @@
                     </div>
                 </div>
 
-                <!-- WHAT DRAWS YOU -->
+                <!-- INSTRUCTOR: YOUR EXPERTISE -->
+                <div class="glass-strong rounded-2xl p-8 instructor-only hidden">
+                    <p class="section-label">Your expertise</p>
+                    <p class="text-white/40 text-xs mb-6">Help students understand your credentials and teaching style.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="section-label">Years teaching</label>
+                            <select class="profile-input profile-select" id="p-teaching-years">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="5-10">5-10 years</option>
+                                <option value="10-15">10-15 years</option>
+                                <option value="15-20">15-20 years</option>
+                                <option value="20+">20+ years</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="section-label">Max cohort size you prefer</label>
+                            <select class="profile-input profile-select" id="p-preferred-cohort-size">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="1-4">1-4 (intimate)</option>
+                                <option value="5-8">5-8 (small group)</option>
+                                <option value="8-12">8-12 (standard)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label class="section-label">Certifications & credentials</label>
+                        <p class="text-white/30 text-xs mb-2">Your professional qualifications — students want to know they're learning from the best.</p>
+                        <textarea class="profile-input" id="p-instructor-creds" placeholder="e.g. Master Sushi Chef — Japan Sushi Academy. 2 Michelin star restaurant experience. WSET Level 3." rows="3"></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label class="section-label">Teaching philosophy</label>
+                        <p class="text-white/30 text-xs mb-2">How do you approach teaching? What makes your method different?</p>
+                        <textarea class="profile-input" id="p-teaching-philosophy" placeholder="e.g. I believe in learning by doing. No lectures — we start cutting fish on day one. Mistakes are part of the process." rows="3"></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <label class="section-label">What students should expect</label>
+                        <textarea class="profile-input" id="p-student-expectations" placeholder="e.g. Early mornings at the fish market. Long hours of practice. By the end, you'll be able to prepare a full omakase." rows="3"></textarea>
+                    </div>
+                    <div>
+                        <label class="section-label">Locations you teach at</label>
+                        <input type="text" class="profile-input" id="p-teaching-locations" placeholder="Tokyo, Kyoto, Osaka...">
+                    </div>
+                </div>
+
+                <!-- WHAT DRAWS YOU / WHAT YOU TEACH -->
                 <div class="glass-strong rounded-2xl p-8">
-                    <p class="section-label">What draws you</p>
-                    <p class="text-white/40 text-xs mb-6">Select everything that speaks to you. This shapes your creature and your match.</p>
+                    <p class="section-label student-only">What draws you</p>
+                    <p class="section-label instructor-only hidden">What you teach</p>
+                    <p class="text-white/40 text-xs mb-6 student-only">Select everything that speaks to you. This shapes your creature and your match.</p>
+                    <p class="text-white/40 text-xs mb-6 instructor-only hidden">Select your disciplines. Students will find you through these.</p>
 
                     <div class="mb-6">
                         <div class="flex items-center gap-2 mb-3">
@@ -459,11 +508,60 @@
                     </div>
                 </div>
 
-                <!-- YOUR STARTING POINT -->
+                <!-- QUEST PREFERENCES -->
+                <div id="pref-section" class="glass-strong rounded-2xl p-8 student-only">
+                    <p class="section-label">Your adventure DNA</p>
+                    <p class="text-white/40 text-xs mb-6">These preferences shape which experiences we recommend for you.</p>
+
+                    <div class="mb-6">
+                        <p class="text-xs text-white/50 uppercase tracking-wider mb-3">Elements that call you</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="chip pref-chip" data-pref-group="elements" data-pref-value="ocean">Ocean</button>
+                            <button class="chip pref-chip" data-pref-group="elements" data-pref-value="mountain">Mountain</button>
+                            <button class="chip pref-chip" data-pref-group="elements" data-pref-value="city">City</button>
+                            <button class="chip pref-chip" data-pref-group="elements" data-pref-value="temple">Temple</button>
+                            <button class="chip pref-chip" data-pref-group="elements" data-pref-value="wild">Wild</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <p class="text-xs text-white/50 uppercase tracking-wider mb-3">What you're looking for</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="certification">Get certified</button>
+                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="career">Career change</button>
+                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="stories">Unforgettable stories</button>
+                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="reset">Total reset</button>
+                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="rare">Rare access</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-xs text-white/50 uppercase tracking-wider mb-3">Time commitment</p>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="chip pref-radio" data-pref-group="time_preference" data-pref-value="foundation">7 days – 3 weeks</button>
+                                <button class="chip pref-radio" data-pref-group="time_preference" data-pref-value="mastery">1-2 months</button>
+                                <button class="chip pref-radio" data-pref-group="time_preference" data-pref-value="saga">3-6 months</button>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-xs text-white/50 uppercase tracking-wider mb-3">Intensity</p>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="chip pref-radio" data-pref-group="intensity" data-pref-value="1">Gentle</button>
+                                <button class="chip pref-radio" data-pref-group="intensity" data-pref-value="2">Moderate</button>
+                                <button class="chip pref-radio" data-pref-group="intensity" data-pref-value="3">All in</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YOUR STARTING POINT (students) / CREDENTIALS (shared) -->
                 <div class="glass-strong rounded-2xl p-8">
-                    <p class="section-label">Your starting point</p>
-                    <p class="text-white/40 text-xs mb-6">This helps us place you at the right level.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <p class="section-label student-only">Your starting point</p>
+                    <p class="section-label instructor-only hidden">Your certifications</p>
+                    <p class="text-white/40 text-xs mb-6 student-only">This helps us place you at the right level.</p>
+                    <p class="text-white/40 text-xs mb-6 instructor-only hidden">Certifications you hold or can teach towards.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 student-only">
                         <div>
                             <label class="section-label">Fitness level</label>
                             <select class="profile-input profile-select" id="p-fitness">
@@ -536,17 +634,20 @@
                     </div>
                 </div>
 
-                <!-- WHAT MATTERS -->
+                <!-- WHAT MATTERS (student) / WHAT DRIVES YOU (instructor) -->
                 <div class="glass-strong rounded-2xl p-8">
-                    <p class="section-label">What matters to you</p>
-                    <p class="text-white/40 text-xs mb-4">What would make this the best experience of your life?</p>
-                    <textarea class="profile-input" id="p-what-matters" placeholder="I want to disconnect from screens and learn something real with my hands. I want to meet people who are as serious about this as I am." rows="4"></textarea>
+                    <p class="section-label student-only">What matters to you</p>
+                    <p class="section-label instructor-only hidden">What drives your teaching</p>
+                    <p class="text-white/40 text-xs mb-4 student-only">What would make this the best experience of your life?</p>
+                    <p class="text-white/40 text-xs mb-4 instructor-only hidden">Why do you teach? What do you want students to take away?</p>
+                    <textarea class="profile-input student-only" id="p-what-matters" placeholder="I want to disconnect from screens and learn something real with my hands. I want to meet people who are as serious about this as I am." rows="4"></textarea>
+                    <textarea class="profile-input instructor-only hidden" id="p-what-drives" placeholder="I teach because I believe skills should be passed directly, hand to hand. I want every student to leave knowing they earned something real." rows="4"></textarea>
                 </div>
 
                 <!-- AVAILABILITY -->
                 <div class="glass-strong rounded-2xl p-8">
                     <p class="section-label">Availability</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 student-only">
                         <div>
                             <label class="section-label">When could you go?</label>
                             <select class="profile-input profile-select" id="p-availability">
@@ -569,17 +670,47 @@
                             </select>
                         </div>
                     </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 instructor-only hidden">
+                        <div>
+                            <label class="section-label">When can you teach?</label>
+                            <select class="profile-input profile-select" id="p-teach-availability">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="year-round">Year-round</option>
+                                <option value="seasonal">Seasonal (specific months)</option>
+                                <option value="on-request">On request</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="section-label">Preferred cohort length</label>
+                            <select class="profile-input profile-select" id="p-cohort-length">
+                                <option value="" disabled selected>Select one</option>
+                                <option value="1-2weeks">1-2 weeks</option>
+                                <option value="3-4weeks">3-4 weeks</option>
+                                <option value="1-3months">1-3 months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="mb-6">
                         <label class="section-label">Languages you speak</label>
                         <input type="text" class="profile-input" id="p-languages" placeholder="English, French, Spanish...">
                     </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-white/5">
-                        <div>
-                            <p class="text-sm text-white/80">Visible to other members</p>
-                            <p class="text-xs text-white/30">Others can see your crew card</p>
-                        </div>
-                        <div class="toggle-track active" id="p-visibility-toggle">
-                            <div class="toggle-thumb"></div>
+                    <div class="pt-4 border-t border-white/5">
+                        <p class="text-sm text-white/80 mb-1">Profile Visibility</p>
+                        <p class="text-xs text-white/30 mb-3">Choose who can see your adventurer profile</p>
+                        <div class="flex gap-2" id="p-visibility-selector">
+                            <button type="button" data-vis="private" class="vis-btn flex-1 py-2.5 px-3 rounded-xl text-xs text-center border transition-all">
+                                <span style="display:block;font-weight:500;margin-bottom:2px;">Private</span>
+                                <span style="display:block;color:rgba(255,255,255,0.3);font-size:10px;">Only you</span>
+                            </button>
+                            <button type="button" data-vis="cohort" class="vis-btn flex-1 py-2.5 px-3 rounded-xl text-xs text-center border transition-all">
+                                <span style="display:block;font-weight:500;margin-bottom:2px;">Cohort</span>
+                                <span style="display:block;color:rgba(255,255,255,0.3);font-size:10px;">Classmates only</span>
+                            </button>
+                            <button type="button" data-vis="public" class="vis-btn flex-1 py-2.5 px-3 rounded-xl text-xs text-center border transition-all">
+                                <span style="display:block;font-weight:500;margin-bottom:2px;">Public</span>
+                                <span style="display:block;color:rgba(255,255,255,0.3);font-size:10px;">Everyone</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -785,9 +916,9 @@
                         </div>
                     </div>
                     <div class="mt-6 pt-6 border-t border-white/10">
-                        <a href="/#quest" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
-                            Update preferences via the quest →
-                        </a>
+                        <button id="edit-prefs-btn" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                            Edit preferences →
+                        </button>
                     </div>
                 </div>
             </section>
@@ -1142,6 +1273,24 @@
         // PROFILE OVERLAY SYSTEM
         // ═══════════════════════════════════════
 
+        let isInstructor = false;
+
+        async function detectInstructorMode() {
+            const user = window.auth?.getCurrentUser?.();
+            if (!user) return;
+            try {
+                const instructor = await window.db.getInstructorByUserId(user.id);
+                if (instructor && instructor.status === 'approved') {
+                    isInstructor = true;
+                    // Show instructor sections, hide student sections
+                    document.querySelectorAll('.instructor-only').forEach(el => el.classList.remove('hidden'));
+                    document.querySelectorAll('.student-only').forEach(el => el.classList.add('hidden'));
+                }
+            } catch (e) {
+                // Not an instructor — default student mode
+            }
+        }
+
         function showProfileOverlay() {
             const overlay = document.getElementById('profile-overlay');
             const tama = document.getElementById('tama-container');
@@ -1152,6 +1301,7 @@
             });
             document.body.style.overflow = 'hidden';
             initProfileForm();
+            detectInstructorMode();
         }
 
         function hideProfileOverlay() {
@@ -1246,9 +1396,48 @@
                 if (this.value === 'other-pro') document.getElementById('p-profession-other').focus();
             });
 
-            // Visibility toggle
-            document.getElementById('p-visibility-toggle').addEventListener('click', function() {
-                this.classList.toggle('active');
+            // Visibility selector
+            let selectedVisibility = 'private';
+            document.querySelectorAll('#p-visibility-selector .vis-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    selectedVisibility = this.dataset.vis;
+                    document.querySelectorAll('#p-visibility-selector .vis-btn').forEach(b => {
+                        b.style.borderColor = 'rgba(255,255,255,0.08)';
+                        b.style.background = 'rgba(255,255,255,0.02)';
+                        b.style.color = 'rgba(255,255,255,0.5)';
+                    });
+                    this.style.borderColor = 'rgba(59,141,212,0.5)';
+                    this.style.background = 'rgba(0,102,177,0.1)';
+                    this.style.color = '#3B8DD4';
+                });
+            });
+            // Set initial state
+            document.querySelectorAll('#p-visibility-selector .vis-btn').forEach(b => {
+                b.style.borderColor = 'rgba(255,255,255,0.08)';
+                b.style.background = 'rgba(255,255,255,0.02)';
+                b.style.color = 'rgba(255,255,255,0.5)';
+            });
+
+            // Quest preference chips (multi-select)
+            document.querySelectorAll('.pref-chip').forEach(chip => {
+                chip.addEventListener('click', () => chip.classList.toggle('selected'));
+            });
+
+            // Quest preference radios (single-select per group)
+            document.querySelectorAll('.pref-radio').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const group = btn.dataset.prefGroup;
+                    document.querySelectorAll(`.pref-radio[data-pref-group="${group}"]`).forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                });
+            });
+
+            // Edit preferences button on dashboard
+            document.getElementById('edit-prefs-btn')?.addEventListener('click', () => {
+                showProfileOverlay();
+                setTimeout(() => {
+                    document.getElementById('pref-section')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 400);
             });
 
             // Track progress on all inputs
@@ -1323,7 +1512,7 @@
             btn.disabled = true;
 
             const interests = {};
-            document.querySelectorAll('#profile-overlay .chip.selected:not(:has(.cert-check))').forEach(chip => {
+            document.querySelectorAll('#profile-overlay .chip.selected[data-category]:not(:has(.cert-check))').forEach(chip => {
                 const cat = chip.dataset.category;
                 if (!interests[cat]) interests[cat] = [];
                 interests[cat].push(chip.dataset.value);
@@ -1357,7 +1546,8 @@
                 availability: document.getElementById('p-availability').value,
                 preferred_duration: document.getElementById('p-duration').value,
                 languages: document.getElementById('p-languages').value.trim(),
-                visible: document.getElementById('p-visibility-toggle').classList.contains('active'),
+                visible: selectedVisibility !== 'private',
+                visibility: selectedVisibility,
                 profile_complete: true,
                 name: document.getElementById('p-first-name').value.trim() || undefined,
             };
@@ -1370,6 +1560,36 @@
                         ...profileData,
                         updated_at: new Date().toISOString()
                     });
+
+                    // Save quest preferences
+                    const prefElements = [];
+                    document.querySelectorAll('.pref-chip.selected[data-pref-group="elements"]').forEach(c => prefElements.push(c.dataset.prefValue));
+                    const prefDesires = [];
+                    document.querySelectorAll('.pref-chip.selected[data-pref-group="desires"]').forEach(c => prefDesires.push(c.dataset.prefValue));
+                    const prefTime = document.querySelector('.pref-radio.selected[data-pref-group="time_preference"]')?.dataset.prefValue || null;
+                    const prefIntensity = document.querySelector('.pref-radio.selected[data-pref-group="intensity"]')?.dataset.prefValue || null;
+
+                    if (prefElements.length || prefDesires.length || prefTime || prefIntensity) {
+                        await window.supabaseClient.from('user_preferences').upsert({
+                            user_id: user.id,
+                            elements: prefElements,
+                            desires: prefDesires,
+                            time_preference: prefTime,
+                            intensity: prefIntensity ? parseInt(prefIntensity) : null,
+                            updated_at: new Date().toISOString()
+                        });
+
+                        // Update dashboard display
+                        const elLabels = { ocean: 'Ocean', mountain: 'Mountain', city: 'City', temple: 'Temple', wild: 'Wild' };
+                        const dLabels = { certification: 'Get Certified', career: 'Career Change', stories: 'Stories', reset: 'Total Reset', rare: 'Rare Access' };
+                        const tLabels = { foundation: '7-10 days to 2-3 weeks', mastery: '1-2 months', saga: '3-6 months' };
+                        const iLabels = { 1: 'Gentle', 2: 'Moderate', 3: 'All in' };
+
+                        if (prefElements.length) document.getElementById('pref-elements').innerHTML = prefElements.map(e => `<span class="px-3 py-1 rounded-full bg-white/5 text-white/70 text-xs">${elLabels[e] || e}</span>`).join('');
+                        if (prefDesires.length) document.getElementById('pref-desires').innerHTML = prefDesires.map(d => `<span class="px-3 py-1 rounded-full bg-white/5 text-white/70 text-xs">${dLabels[d] || d}</span>`).join('');
+                        if (prefTime) document.getElementById('pref-time').textContent = tLabels[prefTime] || prefTime;
+                        if (prefIntensity) document.getElementById('pref-intensity').textContent = iLabels[prefIntensity] || 'Level ' + prefIntensity;
+                    }
 
                     btn.textContent = 'Saved!';
                     btn.style.background = 'linear-gradient(135deg, #059669, #10B981)';
@@ -1461,13 +1681,46 @@
                     photoEl.innerHTML = '<img src="' + escapeHtml(data.avatar_url) + '" alt="Photo"><div class="upload-hint"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg></div>';
                 }
 
-                if (data.visible === false) {
-                    document.getElementById('p-visibility-toggle').classList.remove('active');
+                // Set visibility selector
+                const vis = data.visibility || (data.visible ? 'public' : 'private');
+                selectedVisibility = vis;
+                const visBtn = document.querySelector('#p-visibility-selector .vis-btn[data-vis="' + vis + '"]');
+                if (visBtn) {
+                    visBtn.style.borderColor = 'rgba(59,141,212,0.5)';
+                    visBtn.style.background = 'rgba(0,102,177,0.1)';
+                    visBtn.style.color = '#3B8DD4';
                 }
 
                 // Set public profile link
                 const pubLink = document.getElementById('view-public-profile');
                 if (pubLink) pubLink.href = '/profile?id=' + userId;
+
+                // Load quest preferences into overlay chips
+                try {
+                    const { data: prefs } = await window.supabaseClient.from('user_preferences').select('*').eq('user_id', userId).single();
+                    if (prefs) {
+                        // Elements (multi-select)
+                        (prefs.elements || []).forEach(val => {
+                            const chip = document.querySelector(`.pref-chip[data-pref-group="elements"][data-pref-value="${val}"]`);
+                            if (chip) chip.classList.add('selected');
+                        });
+                        // Desires (multi-select)
+                        (prefs.desires || []).forEach(val => {
+                            const chip = document.querySelector(`.pref-chip[data-pref-group="desires"][data-pref-value="${val}"]`);
+                            if (chip) chip.classList.add('selected');
+                        });
+                        // Time (single-select)
+                        if (prefs.time_preference) {
+                            const btn = document.querySelector(`.pref-radio[data-pref-group="time_preference"][data-pref-value="${prefs.time_preference}"]`);
+                            if (btn) btn.classList.add('selected');
+                        }
+                        // Intensity (single-select)
+                        if (prefs.intensity) {
+                            const btn = document.querySelector(`.pref-radio[data-pref-group="intensity"][data-pref-value="${prefs.intensity}"]`);
+                            if (btn) btn.classList.add('selected');
+                        }
+                    }
+                } catch (e) { /* no preferences yet — that's fine */ }
 
                 return data.profile_complete === true;
             } catch (err) {
