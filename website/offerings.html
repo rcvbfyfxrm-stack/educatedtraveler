@@ -428,11 +428,11 @@
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
                 <p class="text-amber-400 text-xs uppercase tracking-widest mb-3">Coming Soon</p>
-                <h2 class="text-2xl md:text-3xl font-light mb-3">Six Kitchens. Six Traditions.</h2>
-                <p class="text-white/40 text-sm max-w-md mx-auto">Our first culinary immersions — 8-10 per cohort, master instructors, certifications you carry for life. Click any to explore the full journey.</p>
+                <h2 class="text-2xl md:text-3xl font-light mb-3">Four Immersions. Four Certifications.</h2>
+                <p class="text-white/40 text-sm max-w-md mx-auto">Our first experiences — 8-10 per cohort, master instructors, credentials you carry for life. Click any to explore the full journey.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" id="culinary-grid"></div>
+            <div class="grid md:grid-cols-2 gap-5" id="culinary-grid"></div>
 
             <div class="text-center mt-10">
                 <a href="community.html" class="cta-button inline-block px-8 py-3 rounded-full text-white font-medium text-sm">
@@ -567,9 +567,10 @@
             adventure: 'Adventure', wildlife: 'Wildlife'
         };
 
-        // Split: culinary flagships (null price) vs everything else
-        const culinaryFlagships = window.ET_EXPERIENCES.filter(e => e.minPrice === null && e.category === 'culinary');
-        const otherExperiences = window.ET_EXPERIENCES.filter(e => !(e.minPrice === null && e.category === 'culinary'));
+        // Featured 4 flagships vs everything else
+        const featuredIds = ['pastry-le-cordon-bleu-paris', 'avant-garde-cuisine-barcelona', 'sushi-mastery-tokyo', 'yacht-chef-antibes'];
+        const culinaryFlagships = featuredIds.map(id => window.ET_EXPERIENCES.find(e => e.id === id)).filter(Boolean);
+        const otherExperiences = window.ET_EXPERIENCES.filter(e => !featuredIds.includes(e.id));
 
         // === CULINARY FLAGSHIP CARDS ===
         const culinaryGrid = document.getElementById('culinary-grid');
@@ -821,6 +822,7 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
+    <script src="/js/community-sidebar.js"></script>
     <script src="/js/whatsapp-widget.js"></script>
 
     <!-- Interest subscription handler -->

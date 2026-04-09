@@ -953,39 +953,37 @@ window.ET_EXPERIENCES = [
         id: 'avant-garde-cuisine-barcelona',
         name: 'Avant-Garde Cuisine — Barcelona',
         category: 'culinary',
-        tier: 'foundation',
-        minDays: 21,
-        maxDays: 21,
+        tier: 'mastery',
+        minDays: 7,
+        maxDays: 14,
         minPrice: null,
         maxPrice: null,
         envTags: ['city', 'ocean'],
         desireTags: ['certification', 'career', 'rare'],
         intensity: 2,
-        summary: 'Ground zero for the culinary revolution. Train with chefs from the elBulli, Disfrutar, and Roca brothers lineage. Where food becomes idea.',
-        meta: '21 days · Foundation · Advanced Culinary Innovation',
+        summary: 'Train at Vakuum with Martin Lippo — molecular pioneer, liquid nitrogen master, and the chef who turned Barcelona into a culinary lab. Sous-vide, spherification, foams, textures.',
+        meta: '1-2 weeks · Mastery · Vakuum by Martin Lippo',
         immersive: {
             curriculum: [
-                { phase: 'Week 1', title: 'Foundations of Innovation', focus: 'La Boqueria immersion. Catalan bases (sofregit, picada, allioli) as launchpad. Spherification, gelification, emulsification. The Adrià method.' },
-                { phase: 'Week 2', title: 'Technique Lab', focus: 'Sous-vide precision. Fermentation (lacto, koji, garum). Smoke and encapsulation. Deconstruction of classics — tortilla, pa amb tomàquet reimagined.' },
-                { phase: 'Week 3', title: 'Creation & Service', focus: 'Develop 3 original dishes with full technical rationale. Plating as visual language. Final: 8-course avant-garde menu for 25 guests.' }
+                { phase: 'Week 1', title: 'Molecular Foundations', focus: 'Sous-vide precision. Spherification (basic, reverse, frozen). Foams, siphon work, carbonation. Gelification and hydrocolloids. Liquid nitrogen techniques.' },
+                { phase: 'Week 2', title: 'Creation & Mastery', focus: 'Texture manipulation. Deconstructing classics. Flavour pairing and aroma integration. Develop original dishes. Final presentation of personal creations.' }
             ],
             included: [
-                { name: 'La Boqueria Market Tours', desc: 'Guided sourcing at Barcelona\'s legendary market — how the best modernist chefs start with the best raw ingredients' },
-                { name: 'Avant-Garde Restaurant Dinners', desc: 'Three study visits to top Barcelona restaurants — analyse technique, concept, and service as a student' },
-                { name: 'Food Science Lectures', desc: 'Guest scientists explain the physics behind your techniques — why it works, not just how' },
-                { name: 'Fermentation Lab', desc: 'Hands-on fermentation projects — kombuchas, vinegars, garum, misos — the living ingredient trend' },
-                { name: 'Penedès Cava Tasting', desc: 'Day trip to cava country — sparkling wine tradition that pairs with avant-garde cuisine' }
+                { name: 'Vakuum Lab Access', desc: 'Train in Martin Lippo\'s Barcelona workshop — a culinary laboratory built for experimentation, not a classroom' },
+                { name: 'La Boqueria Market Tours', desc: 'Guided sourcing at Barcelona\'s legendary market — the best modernist chefs start with the best raw ingredients' },
+                { name: 'Avant-Garde Restaurant Dinners', desc: 'Study visits to top Barcelona restaurants — analyse technique, concept, and service as a student' },
+                { name: 'Recipe & Technique Portfolio', desc: 'Leave with a complete portfolio of techniques, formulas, and your own creations — documented and repeatable' }
             ],
             addOns: [
-                { name: 'Disfrutar-Style Tasting Menu Stage', desc: 'Two-day observation in a World\'s 50 Best kitchen — see how a creative team develops new dishes', price: '+$500' },
-                { name: 'Empordà Coastal Excursion', desc: 'Full day on the Costa Brava — the landscape that inspired Dalí and Adrià alike', price: '+$250' },
+                { name: 'Disfrutar-Style Tasting Menu Stage', desc: 'Observation in a World\'s 50 Best kitchen — see how a creative team develops new dishes', price: '+$500' },
                 { name: 'Molecular Cocktail Workshop', desc: 'Apply your kitchen techniques to the bar — spherified cocktails, aromatic clouds, edible glasses', price: '+$350' },
-                { name: 'Fundació Alícia Lab Visit', desc: 'Visit the food science research lab near Barcelona — where science meets cooking at the frontier', price: '+$300' }
+                { name: 'Fundació Alícia Lab Visit', desc: 'Visit the food science research lab near Barcelona — where science meets cooking at the frontier', price: '+$300' },
+                { name: 'Penedès Cava Tasting', desc: 'Day trip to cava country — sparkling wine tradition that pairs with avant-garde cuisine', price: '+$250' }
             ],
             nextSteps: [
-                { name: 'Terroir Cooking — Tuscany', desc: 'Ground your modernist skills in classical tradition — the best innovators know the rules first' },
-                { name: 'Indigenous Mexican Cuisine — Oaxaca', desc: 'Ancient techniques that pre-date modernism — fermentation, smoking, earth ovens' },
-                { name: 'New Basque Cuisine — San Sebastián', desc: 'The other side of Spanish innovation — txokos, pintxos, and asador fire' }
+                { name: 'Sushi Mastery — Tokyo', desc: 'Japanese precision meets molecular thinking — two philosophies of perfection' },
+                { name: 'French Pastry — Paris', desc: 'Add the classical foundation that makes avant-garde work meaningful' },
+                { name: 'Become a Yacht Chef — Antibes', desc: 'Take your molecular skills to sea — superyacht guests love this stuff' }
             ]
         }
     },
