@@ -1728,7 +1728,8 @@
                     }
                 } catch (e) { /* no preferences yet — that's fine */ }
 
-                return data.profile_complete === true;
+                // Consider profile complete if flag is set OR if user has filled basic info
+                return data.profile_complete === true || !!(data.first_name || data.about || data.interests);
             } catch (err) {
                 console.error('Load profile error:', err);
                 return false;
