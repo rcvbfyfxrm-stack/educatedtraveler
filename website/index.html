@@ -318,7 +318,7 @@
                     Survey
                 </a>
                 <a href="/join" id="join-link" class="text-sm px-4 py-2 rounded-full border border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10 transition-colors">
-                    Join
+                    Join the Community
                 </a>
                 <a href="/dashboard" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10 transition-colors">
                     Dashboard
@@ -337,7 +337,7 @@
                 <a href="vision.html" class="block py-3 text-white/70 hover:text-white transition-colors">Vision</a>
                 <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Offerings</a>
                 <a href="survey.html" class="block py-3 text-white/70 hover:text-white transition-colors">Take Survey</a>
-                <a href="/join" id="mobile-join-link" class="block py-3 text-bmw-400 hover:text-bmw-300 transition-colors">Join</a>
+                <a href="/join" id="mobile-join-link" class="block py-3 text-bmw-400 hover:text-bmw-300 transition-colors">Join the Community</a>
                 <a href="/dashboard" id="mobile-dashboard-link" class="hidden block py-3 text-bmw-400 hover:text-bmw-300 transition-colors">My Dashboard</a>
             </div>
         </div>
@@ -1094,11 +1094,48 @@
                     questStatus.classList.add('text-white/40');
                 }
 
-                // Save to profile if signed in
+                // Save to profile (localStorage)
                 if (typeof isSignedIn === 'function' && isSignedIn()) {
                     if (typeof saveQuestToProfile === 'function') {
                         saveQuestToProfile(answers, scored);
                     }
+                }
+
+                // Auto-save to Supabase if authenticated
+                const authUser = window.auth?.getCurrentUser?.();
+                if (authUser && window.supabaseClient) {
+                    try {
+                        await window.supabaseClient.from('user_preferences').upsert({
+                            user_id: authUser.id,
+                            elements: answers.elements || [],
+                            desires: answers.desires || [],
+                            time_preference: answers.time || null,
+                            intensity: answers.intensity || null,
+                            updated_at: new Date().toISOString()
+                        });
+                        // Save top matched adventures
+                        for (const s of scored.slice(0, 3)) {
+                            const advId = s.exp.id || s.exp.name.toLowerCase().replace(/\s+/g, '-');
+                            await window.supabaseClient.from('saved_adventures').upsert({
+                                user_id: authUser.id,
+                                adventure_id: advId,
+                                adventure_name: s.exp.name
+                            });
+                        }
+                        // Hide email form — already saved
+                        const ef = document.getElementById('quest-email-form');
+                        const es = document.getElementById('quest-email-success');
+                        if (ef) ef.classList.add('hidden');
+                        if (es) { es.classList.remove('hidden'); es.innerHTML = '<p class="text-lg text-white mb-1">Preferences saved!</p><p class="text-sm text-steel-400">Your adventure DNA is updated. <a href="/dashboard" class="text-blue-400 hover:text-blue-300">View dashboard →</a></p>'; }
+                    } catch (err) {
+                        console.warn('Auto-save to Supabase failed:', err);
+                    }
+                } else {
+                    // Not signed in — update CTA messaging
+                    const formLabel = document.querySelector('#quest-email-form .text-sm.text-steel-300');
+                    if (formLabel) formLabel.textContent = 'Join the community to save your results and get matched with cohorts:';
+                    const saveBtn = document.getElementById('quest-save-btn');
+                    if (saveBtn) saveBtn.textContent = 'Join & Save';
                 }
             });
             }
@@ -1520,6 +1557,7 @@
         })();
     </script>
 
+    <script src="/js/community-sidebar.js"></script>
     <script src="/js/whatsapp-widget.js"></script>
 </body>
 </html>
