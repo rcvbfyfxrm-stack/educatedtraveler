@@ -260,9 +260,40 @@
                             <p id="profile-discipline" class="text-white/50 text-sm"></p>
                             <p id="profile-location" class="text-white/30 text-xs mt-1"></p>
                         </div>
-                        <button id="sign-out-btn" class="text-sm text-white/50 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
-                            Sign Out
-                        </button>
+                        <div class="flex items-center gap-2">
+                            <button id="edit-profile-btn" class="text-sm text-bmw-400/70 hover:text-bmw-400 transition-colors px-4 py-2 rounded-full border border-bmw-400/30 hover:border-bmw-400/50">
+                                Edit Profile
+                            </button>
+                            <button id="sign-out-btn" class="text-sm text-white/50 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
+                                Sign Out
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Editable profile fields (hidden by default) -->
+                    <div id="profile-edit-section" class="hidden mt-6 pt-6 border-t border-white/5">
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-xs text-white/40 mb-1">Your Name</label>
+                                <input type="text" id="edit-name" class="w-full rounded-xl px-4 py-3 text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-white/40 mb-1">Location</label>
+                                <input type="text" id="edit-location" class="w-full rounded-xl px-4 py-3 text-sm">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-xs text-white/40 mb-1">Credentials</label>
+                            <textarea id="edit-credentials" rows="2" class="w-full rounded-xl px-4 py-3 text-sm" placeholder="Your qualifications, certifications, experience..."></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-xs text-white/40 mb-1">Teaching Approach</label>
+                            <textarea id="edit-approach" rows="2" class="w-full rounded-xl px-4 py-3 text-sm" placeholder="How do you teach? What makes your method different?"></textarea>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button id="save-profile-btn" class="text-sm px-6 py-2 rounded-full bg-bmw-500 text-white hover:bg-bmw-400 transition-colors">Save</button>
+                            <button id="cancel-profile-btn" class="text-sm text-white/40 hover:text-white transition-colors">Cancel</button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -668,6 +699,7 @@
             setupCohortModal(user);
             setupExperienceModal();
             setupStudentModal();
+            setupProfileEdit(data.instructor);
         });
 
         // ========================================
@@ -1123,6 +1155,52 @@
             }
 
             modal.classList.remove('hidden');
+        }
+
+        // ========================================
+        // PROFILE EDIT
+        // ========================================
+
+        function setupProfileEdit(instructor) {
+            const editSection = document.getElementById('profile-edit-section');
+            const editBtn = document.getElementById('edit-profile-btn');
+            const cancelBtn = document.getElementById('cancel-profile-btn');
+            const saveBtn = document.getElementById('save-profile-btn');
+
+            // Pre-fill fields
+            document.getElementById('edit-name').value = instructor.name || '';
+            document.getElementById('edit-location').value = instructor.location || '';
+            document.getElementById('edit-credentials').value = instructor.credentials || '';
+            document.getElementById('edit-approach').value = instructor.approach || '';
+
+            editBtn.addEventListener('click', () => {
+                editSection.classList.toggle('hidden');
+                editBtn.textContent = editSection.classList.contains('hidden') ? 'Edit Profile' : 'Close';
+            });
+
+            cancelBtn.addEventListener('click', () => {
+                editSection.classList.add('hidden');
+                editBtn.textContent = 'Edit Profile';
+            });
+
+            saveBtn.addEventListener('click', async () => {
+                saveBtn.disabled = true;
+                saveBtn.textContent = 'Saving...';
+
+                try {
+                    await window.db.updateInstructor(instructor.id, {
+                        name: document.getElementById('edit-name').value.trim(),
+                        location: document.getElementById('edit-location').value.trim(),
+                        credentials: document.getElementById('edit-credentials').value.trim(),
+                        approach: document.getElementById('edit-approach').value.trim(),
+                    });
+                    window.location.reload();
+                } catch (err) {
+                    console.error('Error saving profile:', err);
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save';
+                }
+            });
         }
     </script>
     <script src="/js/whatsapp-widget.js"></script>

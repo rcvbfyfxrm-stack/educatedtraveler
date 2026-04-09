@@ -10,62 +10,102 @@ const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
 const supabase = createClient(SUPABASE_URL!, SUPABASE_SERVICE_ROLE_KEY!);
 
+function emailShell(title: string, body: string): string {
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+
+    <div style="text-align:center;margin-bottom:40px;">
+      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#ffffff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;">
+      <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">${title}</p>
+      ${body}
+    </div>
+
+    <div style="margin-top:32px;padding:0 4px;">
+      <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
+      <p style="color:rgba(255,255,255,0.25);font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
+    </div>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;">
+      <p style="color:rgba(255,255,255,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="margin:12px 0 0 0;">
+        <a href="https://educatedtraveler.app" style="color:rgba(59,141,212,0.5);font-size:11px;text-decoration:none;">educatedtraveler.app</a>
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>`;
+}
+
 const EMAIL_TEMPLATES = {
   day3: {
     subject: "Why we don't do \"resorts\"",
-    html: (name: string) => `
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-        <p>Hey ${name},</p>
+    html: (name: string) => emailShell("Day 3 — The Difference", `
+      <p style="color:#ffffff;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hey ${name},</p>
 
-        <p>Most travel companies optimize for comfort. We optimize for transformation.</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 20px 0;">Most travel companies optimize for comfort. We optimize for what stays with you.</p>
 
-        <p>That means:</p>
-        <ul style="color: #555;">
-          <li><strong>Real certifications</strong> — PADI, RYA, Yoga Alliance, WSET</li>
-          <li><strong>Real instructors</strong> — 5+ years, world-class credentials</li>
-          <li><strong>Real immersion</strong> — No sitting blocks over 90 minutes</li>
-        </ul>
-
-        <p>When you leave, you take something home. Not a tan—a skill.</p>
-
-        <p><a href="https://educatedtraveler.app/offerings.html" style="color: #06b6d4;">See all offerings →</a></p>
-
-        <p style="margin-top: 30px;">— Arnaud<br>
-        <span style="color: #666;">EducatedTraveler</span></p>
-
-        <p style="font-size: 12px; color: #999; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
-          Skills last, tans fade.
+      <div style="margin:24px 0;padding:20px 24px;background:rgba(0,102,177,0.08);border-left:3px solid #3B8DD4;border-radius:0 12px 12px 0;">
+        <p style="color:#3B8DD4;font-size:14px;line-height:1.8;margin:0;">
+          <strong style="color:#ffffff;">Real certifications</strong> — PADI, RYA, Yoga Alliance, WSET<br>
+          <strong style="color:#ffffff;">Real instructors</strong> — 5+ years, world-class credentials<br>
+          <strong style="color:#ffffff;">Real immersion</strong> — No sitting blocks over 90 minutes
         </p>
       </div>
-    `,
+
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 28px 0;">When you leave, you take something home. Not a tan — a skill.</p>
+
+      <div style="text-align:center;margin:28px 0;">
+        <a href="https://educatedtraveler.app/offerings" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">Explore Offerings</a>
+      </div>
+    `),
   },
   day7: {
     subject: "The pattern I noticed",
-    html: (name: string) => `
-      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-        <p>Hey ${name},</p>
+    html: (name: string) => emailShell("Day 7 — The Pattern", `
+      <p style="color:#ffffff;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hey ${name},</p>
 
-        <p>After 50,000 nautical miles and Michelin kitchens to midnight markets, I noticed a pattern.</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 20px 0;">After 50,000 nautical miles and Michelin kitchens to midnight markets, I noticed a pattern.</p>
 
-        <p>Every skill worth having came from:</p>
-        <ol style="color: #555;">
-          <li><strong>A place</strong> — where the knowledge was born</li>
-          <li><strong>A person</strong> — who mastered it and is willing to share</li>
-          <li><strong>Total immersion</strong> — not weekends, weeks</li>
-        </ol>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 8px 0;">Every skill worth having came from:</p>
 
-        <p>That's what we're building.</p>
-
-        <p>Reply to this email if you have questions. I read everything.</p>
-
-        <p style="margin-top: 30px;">— Arnaud<br>
-        <span style="color: #666;">EducatedTraveler</span></p>
-
-        <p style="font-size: 12px; color: #999; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
-          <a href="https://educatedtraveler.app" style="color: #06b6d4;">educatedtraveler.app</a>
-        </p>
+      <div style="margin:16px 0 24px 0;">
+        <div style="display:flex;margin-bottom:12px;">
+          <span style="color:#3B8DD4;font-size:22px;font-weight:300;font-family:'Courier New',monospace;margin-right:16px;line-height:1;">1</span>
+          <div>
+            <p style="color:#ffffff;font-size:14px;font-weight:500;margin:0;">A place</p>
+            <p style="color:rgba(255,255,255,0.4);font-size:13px;margin:2px 0 0 0;">Where the knowledge was born</p>
+          </div>
+        </div>
+        <div style="display:flex;margin-bottom:12px;">
+          <span style="color:#3B8DD4;font-size:22px;font-weight:300;font-family:'Courier New',monospace;margin-right:16px;line-height:1;">2</span>
+          <div>
+            <p style="color:#ffffff;font-size:14px;font-weight:500;margin:0;">A person</p>
+            <p style="color:rgba(255,255,255,0.4);font-size:13px;margin:2px 0 0 0;">Who mastered it and is willing to share</p>
+          </div>
+        </div>
+        <div style="display:flex;">
+          <span style="color:#3B8DD4;font-size:22px;font-weight:300;font-family:'Courier New',monospace;margin-right:16px;line-height:1;">3</span>
+          <div>
+            <p style="color:#ffffff;font-size:14px;font-weight:500;margin:0;">Total immersion</p>
+            <p style="color:rgba(255,255,255,0.4);font-size:13px;margin:2px 0 0 0;">Not weekends — weeks</p>
+          </div>
+        </div>
       </div>
-    `,
+
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 20px 0;">That's what we're building.</p>
+
+      <div style="margin:24px 0;padding:16px 24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+        <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;margin:0;">Reply to this email if you have questions. I read everything.</p>
+      </div>
+    `),
   },
 };
 
@@ -77,11 +117,11 @@ async function sendEmail(to: string, subject: string, html: string) {
       Authorization: `Bearer ${RESEND_API_KEY}`,
     },
     body: JSON.stringify({
-      from: "Arnaud <arnaud@educatedtraveler.app>",
+      from: "Arnaud <founder@educatedtraveler.app>",
       to: [to],
       subject,
       html,
-      reply_to: "ceo-educatedtraveler@pm.me",
+      reply_to: "founder@educatedtraveler.app",
     }),
   });
 
@@ -91,7 +131,7 @@ async function sendEmail(to: string, subject: string, html: string) {
 serve(async (req) => {
   try {
     const now = new Date();
-    const results = { day3: [], day7: [], errors: [] };
+    const results = { day3: [] as string[], day7: [] as string[], errors: [] as any[] };
 
     // Find users who signed up exactly 3 days ago (haven't received day3 email)
     const threeDaysAgo = new Date(now);
@@ -110,7 +150,6 @@ serve(async (req) => {
       results.errors.push({ type: "day3_query", error: day3Error });
     }
 
-    // Send Day 3 emails
     for (const user of day3Users || []) {
       const firstName = user.name || user.email.split("@")[0];
       const template = EMAIL_TEMPLATES.day3;
@@ -144,7 +183,6 @@ serve(async (req) => {
       results.errors.push({ type: "day7_query", error: day7Error });
     }
 
-    // Send Day 7 emails
     for (const user of day7Users || []) {
       const firstName = user.name || user.email.split("@")[0];
       const template = EMAIL_TEMPLATES.day7;

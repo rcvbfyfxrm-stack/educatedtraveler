@@ -47,6 +47,11 @@
   status = 200
 
 [[redirects]]
+  from = "/sushi-mastery"
+  to = "/sushi-mastery.html"
+  status = 200
+
+[[redirects]]
   from = "/survey"
   to = "/survey.html"
   status = 200

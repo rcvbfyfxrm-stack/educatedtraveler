@@ -195,6 +195,35 @@
                 level: 1
             });
         }
+
+        // Auto-claim: if an instructor was pre-created with this email but no user_id, link it
+        try {
+            const { data: unclaimed } = await supabase
+                .from('instructors')
+                .select('id, name')
+                .eq('email', user.email)
+                .is('user_id', null)
+                .single();
+
+            if (unclaimed) {
+                await supabase
+                    .from('instructors')
+                    .update({ user_id: user.id })
+                    .eq('id', unclaimed.id);
+
+                // Update profile name to match instructor name if profile name is just email prefix
+                if (unclaimed.name) {
+                    await supabase
+                        .from('profiles')
+                        .update({ name: unclaimed.name })
+                        .eq('id', user.id);
+                }
+
+                console.log('Auto-claimed instructor profile:', unclaimed.name);
+            }
+        } catch (e) {
+            // No unclaimed instructor — normal user flow
+        }
     }
 
     async function migratePendingData(userId) {

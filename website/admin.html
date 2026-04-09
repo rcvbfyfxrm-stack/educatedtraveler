@@ -164,6 +164,91 @@
         </div>
     </main>
 
+    <!-- Prepare Instructor + Program Modal -->
+    <div id="prep-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-filter blur-sm" onclick="document.getElementById('prep-modal').classList.add('hidden')"></div>
+        <div class="relative glass rounded-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto" style="background:rgba(10,10,10,0.97);border:1px solid rgba(255,255,255,0.08);">
+            <button onclick="document.getElementById('prep-modal').classList.add('hidden')" class="absolute top-4 right-4 text-white/50 hover:text-white p-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <h3 class="text-xl font-light mb-1">Prepare an Instructor</h3>
+            <p class="text-white/30 text-xs mb-6">Set up their profile and program. When they sign up with this email, everything connects automatically.</p>
+
+            <form id="prep-form" class="space-y-5">
+                <!-- Instructor Info -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-white/40 mb-1">Name</label>
+                        <input type="text" name="name" required placeholder="Hiroko Ishi" class="w-full rounded-xl px-4 py-3 text-sm bg-white/[0.03] border border-white/[0.08] text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/40 mb-1">Email</label>
+                        <input type="email" name="email" required placeholder="hiroko@example.com" class="w-full rounded-xl px-4 py-3 text-sm bg-white/[0.03] border border-white/[0.08] text-white">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-white/40 mb-1">Discipline</label>
+                        <select name="discipline" class="w-full rounded-xl px-4 py-3 text-sm bg-white/[0.03] border border-white/[0.08] text-white">
+                            <option value="sushi">Sushi / Japanese</option>
+                            <option value="pastry">Pastry</option>
+                            <option value="wine">Wine (WSET)</option>
+                            <option value="diving">Scuba (PADI)</option>
+                            <option value="freediving">Freediving</option>
+                            <option value="sailing-rya">RYA Sailing</option>
+                            <option value="yoga">Yoga</option>
+                            <option value="breathwork">Breathwork</option>
+                            <option value="surfing">Surfing</option>
+                            <option value="mountaineering">Mountaineering</option>
+                            <option value="photography">Photography</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/40 mb-1">Location</label>
+                        <input type="text" name="location" placeholder="Tokyo, Japan" class="w-full rounded-xl px-4 py-3 text-sm bg-white/[0.03] border border-white/[0.08] text-white">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs text-white/40 mb-1">Credentials</label>
+                    <textarea name="credentials" rows="2" placeholder="Master Sushi Chef — 15 years experience..." class="w-full rounded-xl px-4 py-3 text-sm bg-white/[0.03] border border-white/[0.08] text-white"></textarea>
+                </div>
+
+                <!-- Program Section -->
+                <div class="pt-4 border-t border-white/10">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h4 class="text-sm font-medium">Program Levels</h4>
+                            <p class="text-white/30 text-xs">Add levels with dates. Students enroll per level.</p>
+                        </div>
+                        <button type="button" id="add-level-btn" class="text-xs px-4 py-1.5 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">+ Add Level</button>
+                    </div>
+
+                    <div id="levels-container" class="space-y-3">
+                        <!-- Levels inserted here -->
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs text-white/40 mb-1">Capacity per level</label>
+                        <input type="number" name="capacity" value="8" min="1" max="20" class="w-full rounded-xl px-4 py-3 text-sm bg-white/[0.03] border border-white/[0.08] text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-white/40 mb-1">Price per level (USD)</label>
+                        <input type="number" name="price" placeholder="3500" class="w-full rounded-xl px-4 py-3 text-sm bg-white/[0.03] border border-white/[0.08] text-white">
+                    </div>
+                </div>
+
+                <button type="submit" id="prep-submit" class="w-full py-3 bg-bmw-500 text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
+                    Create Instructor + Program
+                </button>
+                <p class="text-white/20 text-xs text-center">Instructor will be pre-approved. Cohorts created as drafts.</p>
+            </form>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
@@ -431,10 +516,16 @@
         function renderInstructors() {
             const el = document.getElementById('panel-instructors');
             if (adminData.instructors.length === 0) {
-                el.innerHTML = '<p class="text-white/20 text-sm text-center py-12">No instructor applications yet</p>';
+                el.innerHTML = `<div class="text-center py-12">
+                    <p class="text-white/20 text-sm mb-4">No instructors yet</p>
+                    <button onclick="openPrepModal()" class="text-sm px-6 py-2 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">+ Prepare an Instructor</button>
+                </div>`;
                 return;
             }
             el.innerHTML = `
+                <div class="flex justify-end mb-4">
+                    <button onclick="openPrepModal()" class="text-sm px-5 py-2 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">+ Prepare an Instructor</button>
+                </div>
                 <div class="glass rounded-xl overflow-hidden">
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm">
@@ -899,6 +990,104 @@
             return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
                    d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
         }
+
+        // ========================================
+        // PREPARE INSTRUCTOR MODAL
+        // ========================================
+
+        let levelCount = 0;
+
+        function openPrepModal() {
+            document.getElementById('prep-modal').classList.remove('hidden');
+            const container = document.getElementById('levels-container');
+            container.innerHTML = '';
+            levelCount = 0;
+            addLevel('Basic');
+            addLevel('Intermediate');
+            addLevel('Advanced');
+        }
+
+        function addLevel(defaultName) {
+            levelCount++;
+            const container = document.getElementById('levels-container');
+            const div = document.createElement('div');
+            div.className = 'grid grid-cols-12 gap-2 items-center';
+            div.dataset.level = levelCount;
+            div.innerHTML = `
+                <input type="text" placeholder="Level name" value="${esc(defaultName || 'Level ' + levelCount)}"
+                    class="col-span-3 rounded-lg px-3 py-2.5 text-xs bg-white/[0.03] border border-white/[0.08] text-white" data-field="name">
+                <input type="date" class="col-span-4 rounded-lg px-3 py-2.5 text-xs bg-white/[0.03] border border-white/[0.08] text-white" data-field="start" title="Start date">
+                <input type="date" class="col-span-4 rounded-lg px-3 py-2.5 text-xs bg-white/[0.03] border border-white/[0.08] text-white" data-field="end" title="End date">
+                <button type="button" onclick="this.parentElement.remove()" class="col-span-1 text-red-400/40 hover:text-red-400 text-sm flex items-center justify-center">x</button>
+            `;
+            container.appendChild(div);
+        }
+
+        document.getElementById('add-level-btn')?.addEventListener('click', () => addLevel(''));
+
+        document.getElementById('prep-form')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('prep-submit');
+            btn.disabled = true;
+            btn.textContent = 'Creating...';
+
+            const form = new FormData(e.target);
+            const sb = window.supabaseClient;
+
+            try {
+                // 1. Create instructor (no user_id — they'll claim it when they sign up)
+                const { data: instructor, error: iErr } = await sb
+                    .from('instructors')
+                    .insert({
+                        name: form.get('name'),
+                        email: form.get('email'),
+                        discipline: form.get('discipline'),
+                        location: form.get('location') || null,
+                        credentials: form.get('credentials') || null,
+                        status: 'approved'
+                    })
+                    .select()
+                    .single();
+
+                if (iErr) throw iErr;
+
+                // 2. Create cohorts for each level
+                const levels = document.querySelectorAll('#levels-container > div');
+                const capacity = parseInt(form.get('capacity')) || 8;
+                const priceCents = form.get('price') ? parseInt(form.get('price')) * 100 : null;
+
+                for (const level of levels) {
+                    const name = level.querySelector('[data-field="name"]').value || 'Untitled Level';
+                    const start = level.querySelector('[data-field="start"]').value || null;
+                    const end = level.querySelector('[data-field="end"]').value || null;
+
+                    const programName = form.get('name') + ' — ' + form.get('discipline');
+
+                    await sb.from('cohorts').insert({
+                        instructor_id: instructor.id,
+                        title: name,
+                        description: programName + ' | ' + name,
+                        location: form.get('location') || null,
+                        start_date: start,
+                        end_date: end,
+                        capacity: capacity,
+                        price_cents: priceCents,
+                        status: 'draft'
+                    });
+                }
+
+                document.getElementById('prep-modal').classList.add('hidden');
+                e.target.reset();
+                await loadAllData();
+
+            } catch (err) {
+                console.error('Error creating instructor:', err);
+                alert('Error: ' + (err.message || err));
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Create Instructor + Program';
+        });
     </script>
 </body>
 </html>

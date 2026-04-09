@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Sushi Program — Tokyo | EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="6-week intensive sushi training in Tokyo with Hiroko Ishii, Principal of Japan Culinary Masters Academy. From knife work to omakase. Maximum 9 students.">
+    <meta property="og:title" content="Professional Sushi Program — Tokyo | EDUCATEDTRAVELER">
+    <meta property="og:description" content="Learn authentic sushi in Tokyo. 6 weeks. 3 levels. 9 students. Diploma in Professional Sushi Arts.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bmw': { 400: '#3B8DD4', 500: '#0066B1', 600: '#00518d' },
+                        'sumi': { 50: '#f7f5f3', 100: '#ebe7e1', 200: '#d4cdc4', 300: '#b8ada0', 400: '#9a8c7c', 500: '#7a6b5a', 600: '#5c5045', 700: '#3d3530', 800: '#1e1a17', 900: '#0a0a0a' },
+                        'noren': { 400: '#9E4A5A', 500: '#7A2E3F', 600: '#5C1A2B', 700: '#3E0E1B' },
+                        'hinoki': { 300: '#D4B896', 400: '#C4A67A', 500: '#A88B5E' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --noren: #7A2E3F;
+            --noren-glow: rgba(122, 46, 63, 0.3);
+            --hinoki: #C4A67A;
+            --sumi-ink: #1e1a17;
+        }
+
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+
+        .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+
+        /* Grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+
+        /* Photo placeholders */
+        .photo-placeholder {
+            background: linear-gradient(135deg, rgba(196,166,122,0.06) 0%, rgba(122,46,63,0.06) 100%);
+            border: 1px dashed rgba(196,166,122,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            color: rgba(196,166,122,0.3);
+            transition: all 0.3s;
+        }
+        .photo-placeholder:hover {
+            border-color: rgba(196,166,122,0.4);
+            background: linear-gradient(135deg, rgba(196,166,122,0.1) 0%, rgba(122,46,63,0.1) 100%);
+        }
+
+        /* Decorative line */
+        .ink-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(196,166,122,0.3) 30%, rgba(196,166,122,0.3) 70%, transparent 100%);
+        }
+
+        /* Level cards */
+        .level-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s ease;
+        }
+        .level-card:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(196,166,122,0.2);
+            transform: translateY(-4px);
+        }
+
+        /* Timeline */
+        .timeline-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            background: var(--noren);
+            box-shadow: 0 0 20px var(--noren-glow);
+            position: relative;
+            z-index: 2;
+        }
+        .timeline-line {
+            width: 2px;
+            background: linear-gradient(180deg, var(--noren) 0%, rgba(122,46,63,0.1) 100%);
+        }
+
+        /* Pricing card glow */
+        .pricing-full {
+            background: linear-gradient(135deg, rgba(122,46,63,0.08) 0%, rgba(196,166,122,0.05) 100%);
+            border: 1px solid rgba(122,46,63,0.25);
+        }
+        .pricing-full:hover {
+            border-color: rgba(122,46,63,0.5);
+            box-shadow: 0 20px 60px rgba(122,46,63,0.15);
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Kanji watermark */
+        .kanji-watermark {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(120px, 20vw, 300px);
+            font-weight: 300;
+            color: rgba(122,46,63,0.04);
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* CTA */
+        .cta-sushi {
+            background: linear-gradient(135deg, var(--noren) 0%, #9E4A5A 100%);
+            transition: all 0.3s;
+        }
+        .cta-sushi:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px var(--noren-glow);
+        }
+
+        .cta-outline {
+            border: 1px solid rgba(122,46,63,0.5);
+            color: #9E4A5A;
+            transition: all 0.3s;
+        }
+        .cta-outline:hover {
+            background: rgba(122,46,63,0.1);
+            border-color: rgba(122,46,63,0.8);
+        }
+
+        /* Skill chip */
+        .skill-chip {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            background: rgba(196,166,122,0.06);
+            border: 1px solid rgba(196,166,122,0.12);
+            color: rgba(255,255,255,0.6);
+            margin: 3px;
+        }
+
+        /* FAQ */
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+        .faq-item.open .faq-answer { max-height: 300px; padding-top: 12px; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-arrow { transition: transform 0.3s; }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-lg font-semibold tracking-wider">
+                EDUCATED<span class="text-bmw-400">TRAVELER</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Adventures</a>
+                <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
+                <a href="#enroll" class="text-sm px-5 py-2 rounded-full cta-sushi text-white">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- HERO                                    -->
+    <!-- ═══════════════════════════════════════ -->
+    <header class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <!-- Background texture -->
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse at 30% 50%, rgba(122,46,63,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(196,166,122,0.05) 0%, transparent 50%);"></div>
+
+        <!-- Watermark -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 kanji-watermark">
+            鮨
+        </div>
+
+        <div class="relative text-center max-w-3xl mx-auto">
+            <p class="font-mono text-xs tracking-[0.4em] text-hinoki-400/60 uppercase mb-8 reveal">Japan Culinary Masters Academy</p>
+
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-300 leading-[0.95] mb-6 reveal" style="animation-delay:0.1s">
+                <span class="text-white/90">Professional</span><br>
+                <span style="color: var(--hinoki);">Sushi</span>
+                <span class="text-white/90"> Program</span>
+            </h1>
+
+            <div class="ink-line w-32 mx-auto my-8 reveal" style="animation-delay:0.2s"></div>
+
+            <p class="text-white/50 text-lg md:text-xl font-light leading-relaxed mb-4 reveal" style="animation-delay:0.3s">
+                Six weeks in Tokyo. Three levels of mastery.<br class="hidden md:block">
+                From your first cut to a full omakase.
+            </p>
+
+            <div class="flex items-center justify-center gap-6 mt-10 reveal" style="animation-delay:0.4s">
+                <div class="text-center">
+                    <p class="font-mono text-2xl text-hinoki-400">6</p>
+                    <p class="text-white/30 text-xs uppercase tracking-wider">Weeks</p>
+                </div>
+                <div class="w-px h-8 bg-white/10"></div>
+                <div class="text-center">
+                    <p class="font-mono text-2xl text-hinoki-400">3</p>
+                    <p class="text-white/30 text-xs uppercase tracking-wider">Levels</p>
+                </div>
+                <div class="w-px h-8 bg-white/10"></div>
+                <div class="text-center">
+                    <p class="font-mono text-2xl text-hinoki-400">9</p>
+                    <p class="text-white/30 text-xs uppercase tracking-wider">Max Students</p>
+                </div>
+                <div class="w-px h-8 bg-white/10"></div>
+                <div class="text-center">
+                    <p class="font-mono text-2xl text-hinoki-400">1</p>
+                    <p class="text-white/30 text-xs uppercase tracking-wider">Diploma</p>
+                </div>
+            </div>
+
+            <div class="mt-12 reveal" style="animation-delay:0.5s">
+                <a href="#program" class="text-white/30 text-sm hover:text-white/60 transition-colors">
+                    <svg class="w-5 h-5 mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- THE INSTRUCTOR                          -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Photo placeholder -->
+                <div class="reveal">
+                    <div class="photo-placeholder rounded-2xl aspect-[3/4] max-w-sm mx-auto">
+                        <svg class="w-10 h-10 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0"/></svg>
+                        <span class="text-xs font-mono tracking-wider">Hiroko Ishii</span>
+                        <span class="text-[10px] opacity-50">Photo coming soon</span>
+                    </div>
+                </div>
+
+                <!-- Bio -->
+                <div class="reveal">
+                    <p class="font-mono text-xs tracking-[0.3em] text-noren-400/80 uppercase mb-4">Your Instructor</p>
+                    <h2 class="font-display text-4xl md:text-5xl font-300 mb-2 text-white/90">Hiroko Ishii</h2>
+                    <p class="font-display text-lg text-hinoki-400/80 italic mb-8">Principal, Japan Culinary Masters Academy</p>
+
+                    <div class="space-y-4 text-white/60 text-[15px] leading-relaxed">
+                        <p>Hiroko studied food science at university in Japan before training in French cuisine at <span class="text-white/80">Le Cordon Bleu Paris</span>. She then returned to Tokyo to learn authentic sushi preparation at <span class="text-white/80">Tokyo Sushi Academy</span>.</p>
+                        <p>From 2009 to 2018, she worked in Switzerland as a sushi chef for a gastronomic catering company and taught sushi at a local cooking school — nine years of bridging Japanese craft with international students.</p>
+                        <p>Now back in Tokyo, she founded the <span class="text-white/80">Japan Culinary Masters Academy</span> to do what she does best: teach the discipline, philosophy, and precision of sushi to chefs from around the world. Every cut has a reason. Every gesture at the counter tells a story.</p>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="font-mono text-xs px-4 py-2 rounded-full bg-noren-500/10 text-noren-400 border border-noren-500/20">Food Science</span>
+                        <span class="font-mono text-xs px-4 py-2 rounded-full bg-noren-500/10 text-noren-400 border border-noren-500/20">Le Cordon Bleu Paris</span>
+                        <span class="font-mono text-xs px-4 py-2 rounded-full bg-noren-500/10 text-noren-400 border border-noren-500/20">Tokyo Sushi Academy</span>
+                        <span class="font-mono text-xs px-4 py-2 rounded-full bg-hinoki-400/10 text-hinoki-400 border border-hinoki-400/20">9 Years in Switzerland</span>
+                        <span class="font-mono text-xs px-4 py-2 rounded-full bg-white/5 text-white/40 border border-white/10">English Instruction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- THE PROGRAM                             -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="program" class="py-24 px-6 relative">
+        <div class="absolute right-0 top-0 kanji-watermark opacity-[0.02]" style="font-size:200px;">道</div>
+
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <p class="font-mono text-xs tracking-[0.3em] text-hinoki-400/60 uppercase mb-4">The Path</p>
+                <h2 class="font-display text-4xl md:text-5xl font-300 text-white/90 mb-4">Three Levels of Mastery</h2>
+                <p class="text-white/40 max-w-xl mx-auto">Each level builds on the last. Hands-on training, theory, and a practical examination. Take the full program or individual levels — always starting from Basic.</p>
+            </div>
+
+            <!-- Level 1 — Basic -->
+            <div class="mb-16 reveal">
+                <div class="level-card rounded-2xl p-8 md:p-10">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="timeline-dot"></div>
+                                <div>
+                                    <p class="font-mono text-xs text-noren-400 tracking-wider">LEVEL 1</p>
+                                    <h3 class="font-display text-3xl font-400 text-white/90">Basic</h3>
+                                </div>
+                            </div>
+                            <p class="font-mono text-xs text-white/30 mb-3">Weeks 1–2</p>
+                            <p class="font-mono text-xs text-hinoki-400/70">Sep 21 — Oct 2, 2026</p>
+
+                            <div class="mt-6 photo-placeholder rounded-xl aspect-video">
+                                <span class="text-xs font-mono tracking-wider">Kitchen / Training photo</span>
+                            </div>
+                        </div>
+
+                        <div class="md:w-2/3">
+                            <p class="text-white/60 text-[15px] leading-relaxed mb-6">The essential foundations of sushi preparation. Students develop fundamental skills including knife techniques, sushi rice preparation, and classic sushi construction.</p>
+
+                            <div class="mb-6">
+                                <p class="font-mono text-xs text-white/40 uppercase tracking-wider mb-3">Skills</p>
+                                <div class="flex flex-wrap">
+                                    <span class="skill-chip">Knife handling & cutting</span>
+                                    <span class="skill-chip">Sushi rice (shari)</span>
+                                    <span class="skill-chip">Fish fillets (saku)</span>
+                                    <span class="skill-chip">Seafood preparation</span>
+                                    <span class="skill-chip">Nigiri fundamentals</span>
+                                    <span class="skill-chip">Hosomaki rolls</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <p class="font-mono text-xs text-white/40 uppercase tracking-wider mb-3">Theory</p>
+                                <div class="flex flex-wrap">
+                                    <span class="skill-chip">Sushi culture & history</span>
+                                    <span class="skill-chip">Key ingredients</span>
+                                    <span class="skill-chip">Knife maintenance & sharpening</span>
+                                </div>
+                            </div>
+
+                            <div class="glass rounded-xl p-4">
+                                <p class="font-mono text-xs text-noren-400 mb-1">Practical Examination</p>
+                                <p class="text-white/50 text-sm">Prepare a complete sushi plate, demonstrating correct technique, balance, and presentation.</p>
+                            </div>
+
+                            <div class="mt-4 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-hinoki-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <p class="text-hinoki-400/80 text-sm font-mono">Certificate — Basic Sushi Techniques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="flex justify-start ml-[22px] md:ml-[22px] mb-16">
+                <div class="timeline-line h-12"></div>
+            </div>
+
+            <!-- Level 2 — Intermediate -->
+            <div class="mb-16 reveal">
+                <div class="level-card rounded-2xl p-8 md:p-10">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="timeline-dot"></div>
+                                <div>
+                                    <p class="font-mono text-xs text-noren-400 tracking-wider">LEVEL 2</p>
+                                    <h3 class="font-display text-3xl font-400 text-white/90">Intermediate</h3>
+                                </div>
+                            </div>
+                            <p class="font-mono text-xs text-white/30 mb-3">Weeks 3–4</p>
+                            <p class="font-mono text-xs text-hinoki-400/70">Oct 5 — Oct 16, 2026</p>
+
+                            <div class="mt-6 photo-placeholder rounded-xl aspect-video">
+                                <span class="text-xs font-mono tracking-wider">Fish preparation photo</span>
+                            </div>
+                        </div>
+
+                        <div class="md:w-2/3">
+                            <p class="text-white/60 text-[15px] leading-relaxed mb-6">Students expand their technical knowledge and begin working with whole fish while developing skills used in professional sushi restaurants.</p>
+
+                            <div class="mb-6">
+                                <p class="font-mono text-xs text-white/40 uppercase tracking-wider mb-3">Skills</p>
+                                <div class="flex flex-wrap">
+                                    <span class="skill-chip">Fish butchery & filleting</span>
+                                    <span class="skill-chip">Futomaki & uramaki</span>
+                                    <span class="skill-chip">Sashimi cutting</span>
+                                    <span class="skill-chip">Sashimi plating</span>
+                                    <span class="skill-chip">Counter etiquette & service</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <p class="font-mono text-xs text-white/40 uppercase tracking-wider mb-3">Theory</p>
+                                <div class="flex flex-wrap">
+                                    <span class="skill-chip">Fish identification</span>
+                                    <span class="skill-chip">Seasonality</span>
+                                    <span class="skill-chip">Ingredient quality & selection</span>
+                                </div>
+                            </div>
+
+                            <div class="glass rounded-xl p-4">
+                                <p class="font-mono text-xs text-noren-400 mb-1">Practical Examination</p>
+                                <p class="text-white/50 text-sm">Serve custom sushi orders at the counter, simulating a real sushi bar experience.</p>
+                            </div>
+
+                            <div class="mt-4 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-hinoki-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <p class="text-hinoki-400/80 text-sm font-mono">Certificate — Intermediate Sushi Techniques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connector -->
+            <div class="flex justify-start ml-[22px] mb-16">
+                <div class="timeline-line h-12"></div>
+            </div>
+
+            <!-- Level 3 — Superior -->
+            <div class="reveal">
+                <div class="level-card rounded-2xl p-8 md:p-10" style="border-color: rgba(122,46,63,0.15);">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/3">
+                            <div class="flex items-center gap-4 mb-4">
+                                <div class="timeline-dot" style="width:16px;height:16px;box-shadow: 0 0 30px var(--noren-glow);"></div>
+                                <div>
+                                    <p class="font-mono text-xs text-noren-400 tracking-wider">LEVEL 3</p>
+                                    <h3 class="font-display text-3xl font-400 text-white/90">Superior</h3>
+                                </div>
+                            </div>
+                            <p class="font-mono text-xs text-white/30 mb-3">Weeks 5–6</p>
+                            <p class="font-mono text-xs text-hinoki-400/70">Oct 19 — Oct 30, 2026</p>
+
+                            <div class="mt-6 photo-placeholder rounded-xl aspect-video">
+                                <span class="text-xs font-mono tracking-wider">Omakase service photo</span>
+                            </div>
+                        </div>
+
+                        <div class="md:w-2/3">
+                            <p class="text-white/60 text-[15px] leading-relaxed mb-6">Advanced sushi preparation and the structure of a professional omakase experience. Students develop the skills required to design and present a refined sushi course. Includes fish market visit.</p>
+
+                            <div class="mb-6">
+                                <p class="font-mono text-xs text-white/40 uppercase tracking-wider mb-3">Skills</p>
+                                <div class="flex flex-wrap">
+                                    <span class="skill-chip">Delicate fish (anago, hirame)</span>
+                                    <span class="skill-chip">Otsumami (bar appetizers)</span>
+                                    <span class="skill-chip">Creative nigiri</span>
+                                    <span class="skill-chip">Complete omakase course</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-6">
+                                <p class="font-mono text-xs text-white/40 uppercase tracking-wider mb-3">Theory & Experience</p>
+                                <div class="flex flex-wrap">
+                                    <span class="skill-chip">Omakase menu structure</span>
+                                    <span class="skill-chip">Course balance & flow</span>
+                                    <span class="skill-chip">Guest experience</span>
+                                    <span class="skill-chip">Fish market visit</span>
+                                </div>
+                            </div>
+
+                            <div class="glass rounded-xl p-4" style="border-color: rgba(122,46,63,0.15);">
+                                <p class="font-mono text-xs text-noren-400 mb-1">Final Examination</p>
+                                <p class="text-white/50 text-sm">Present and serve a complete omakase course at the sushi counter, demonstrating all techniques and knowledge developed throughout the program.</p>
+                            </div>
+
+                            <div class="mt-4 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-noren-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+                                <p class="text-noren-400 text-sm font-mono font-medium">Diploma in Professional Sushi Arts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PRICING                                 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="enroll" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-mono text-xs tracking-[0.3em] text-hinoki-400/60 uppercase mb-4">Investment</p>
+                <h2 class="font-display text-4xl md:text-5xl font-300 text-white/90">Choose Your Depth</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Full Program -->
+                <div class="pricing-full rounded-2xl p-8 transition-all reveal">
+                    <div class="flex items-center gap-2 mb-6">
+                        <svg class="w-5 h-5 text-noren-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
+                        <span class="font-mono text-xs text-noren-400 uppercase tracking-wider">Recommended</span>
+                    </div>
+
+                    <h3 class="font-display text-2xl text-white/90 mb-2">Full Program</h3>
+                    <p class="text-white/40 text-sm mb-6">6 weeks — Basic + Intermediate + Superior</p>
+
+                    <div class="mb-6">
+                        <p class="font-display text-4xl text-white/90">¥1,200,000</p>
+                        <p class="text-white/30 text-xs font-mono mt-1">Tax included · ~$7,800 USD</p>
+                    </div>
+
+                    <div class="glass rounded-xl p-3 mb-6">
+                        <p class="text-hinoki-400 text-xs font-mono text-center">Save ¥60,000 vs. individual levels</p>
+                    </div>
+
+                    <ul class="space-y-2 text-white/50 text-sm mb-8">
+                        <li class="flex items-start gap-2"><span class="text-noren-400 mt-0.5">&#x2713;</span> All 3 levels consecutive</li>
+                        <li class="flex items-start gap-2"><span class="text-noren-400 mt-0.5">&#x2713;</span> Diploma in Professional Sushi Arts</li>
+                        <li class="flex items-start gap-2"><span class="text-noren-400 mt-0.5">&#x2713;</span> Fish market visit included</li>
+                        <li class="flex items-start gap-2"><span class="text-noren-400 mt-0.5">&#x2713;</span> Sep 21 — Oct 30, 2026</li>
+                    </ul>
+
+                    <a href="#contact" class="block text-center cta-sushi px-8 py-3.5 rounded-full text-white text-sm font-medium">Apply for Full Program</a>
+                </div>
+
+                <!-- Individual Level -->
+                <div class="level-card rounded-2xl p-8 reveal">
+                    <h3 class="font-display text-2xl text-white/90 mb-2 mt-8">Individual Level</h3>
+                    <p class="text-white/40 text-sm mb-6">2 weeks — take levels sequentially</p>
+
+                    <div class="mb-6">
+                        <p class="font-display text-4xl text-white/90">¥420,000</p>
+                        <p class="text-white/30 text-xs font-mono mt-1">Per level · Tax included · ~$2,745 USD</p>
+                    </div>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center justify-between py-2 border-b border-white/5">
+                            <span class="text-white/60 text-sm">Level 1 — Basic</span>
+                            <span class="font-mono text-xs text-white/30">Sep 21 – Oct 2</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2 border-b border-white/5">
+                            <span class="text-white/60 text-sm">Level 2 — Intermediate</span>
+                            <span class="font-mono text-xs text-white/30">Oct 5 – Oct 16</span>
+                        </div>
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-white/60 text-sm">Level 3 — Superior</span>
+                            <span class="font-mono text-xs text-white/30">Oct 19 – Oct 30</span>
+                        </div>
+                    </div>
+
+                    <p class="text-white/30 text-xs mb-6">Levels must be taken in order, starting from Basic.</p>
+
+                    <a href="#contact" class="block text-center cta-outline px-8 py-3.5 rounded-full text-sm font-medium">Apply for Individual Level</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- COHORT LIVING                           -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-mono text-xs tracking-[0.3em] text-hinoki-400/60 uppercase mb-4">The Full Immersion</p>
+                <h2 class="font-display text-4xl md:text-5xl font-300 text-white/90 mb-4">Live Together. Learn Together.</h2>
+                <p class="text-white/40 max-w-xl mx-auto">EducatedTraveler arranges shared accommodation so your cohort lives as a group. The best conversations about the day's cuts happen over cold beers at midnight.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <!-- Shared Room -->
+                <div class="level-card rounded-2xl p-8 reveal" style="border-color: rgba(122,46,63,0.15);">
+                    <div class="flex items-center gap-2 mb-4">
+                        <svg class="w-5 h-5 text-noren-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                        <span class="font-mono text-xs text-noren-400 uppercase tracking-wider">Recommended</span>
+                    </div>
+                    <h3 class="font-display text-2xl text-white/90 mb-2">Shared Cohort House</h3>
+                    <p class="text-white/40 text-sm mb-4">Your own private room in a shared apartment or guesthouse with your cohort. Common kitchen, living area. Walking distance or short train to the academy.</p>
+                    <ul class="space-y-2 text-white/50 text-sm mb-4">
+                        <li class="flex items-start gap-2"><span class="text-noren-400">&#x2713;</span> Private room, shared space</li>
+                        <li class="flex items-start gap-2"><span class="text-noren-400">&#x2713;</span> 3-4 star quality, curated by ET</li>
+                        <li class="flex items-start gap-2"><span class="text-noren-400">&#x2713;</span> Cohort bonding — cook together after class</li>
+                        <li class="flex items-start gap-2"><span class="text-noren-400">&#x2713;</span> Near Bunkyo-ku / central Tokyo</li>
+                    </ul>
+                    <p class="font-mono text-xs text-hinoki-400/60">Pricing shared upon enrollment</p>
+                </div>
+
+                <!-- Shared Room (budget) -->
+                <div class="level-card rounded-2xl p-8 reveal">
+                    <h3 class="font-display text-2xl text-white/90 mb-2 mt-8">Shared Room</h3>
+                    <p class="text-white/40 text-sm mb-4">Share a room with a fellow student for the full cohort experience at a lower cost. Same quality accommodation, tighter bonds.</p>
+                    <ul class="space-y-2 text-white/50 text-sm mb-4">
+                        <li class="flex items-start gap-2"><span class="text-hinoki-400">&#x2713;</span> Shared room, shared space</li>
+                        <li class="flex items-start gap-2"><span class="text-hinoki-400">&#x2713;</span> Most affordable option</li>
+                        <li class="flex items-start gap-2"><span class="text-hinoki-400">&#x2713;</span> Same location as private room</li>
+                    </ul>
+                    <p class="font-mono text-xs text-hinoki-400/60">Pricing shared upon enrollment</p>
+
+                    <div class="mt-8 pt-6 border-t border-white/5">
+                        <p class="text-white/30 text-xs mb-1">Prefer your own place?</p>
+                        <p class="text-white/20 text-xs">You're welcome to arrange independent accommodation. We'll share location recommendations so you're close to the academy and your cohort.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- IMMERSIVE ADD-ONS                       -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6 relative">
+        <div class="absolute left-0 top-0 kanji-watermark opacity-[0.015]" style="font-size:180px;">味</div>
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-mono text-xs tracking-[0.3em] text-hinoki-400/60 uppercase mb-4">After Hours</p>
+                <h2 class="font-display text-4xl font-300 text-white/90 mb-4">Beyond the Classroom</h2>
+                <p class="text-white/40 max-w-lg mx-auto">You're in Tokyo for six weeks. The learning doesn't stop at the academy door. These curated experiences deepen your understanding of Japanese food culture.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3">🍶</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Sake Tasting Evening</h3>
+                    <p class="text-white/40 text-xs leading-relaxed mb-3">Guided tasting of premium sake and shochu with a certified sommelier. Learn pairing principles for sushi — which sake lifts which fish.</p>
+                    <p class="font-mono text-xs text-noren-400/60">Curated by ET</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3">🍣</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Omakase Dining Experience</h3>
+                    <p class="text-white/40 text-xs leading-relaxed mb-3">Sit at the counter of a respected Tokyo sushi restaurant as a group. Watch a master work. Taste what you're training toward. Debrief with your cohort after.</p>
+                    <p class="font-mono text-xs text-noren-400/60">Curated by ET</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3">🐟</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Toyosu Fish Market — Early Morning</h3>
+                    <p class="text-white/40 text-xs leading-relaxed mb-3">5 AM start. Walk the world's largest fish market with Hiroko. Understand sourcing, seasonality, and the tuna auction from the inside.</p>
+                    <p class="font-mono text-xs text-hinoki-400/60">Included in Level 3</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3">🔪</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Kappabashi Knife District</h3>
+                    <p class="text-white/40 text-xs leading-relaxed mb-3">Visit Tokyo's legendary kitchen street. Guided by someone who knows every shop. Select your Yanagiba and Deba with expert advice. These are tools for life.</p>
+                    <p class="font-mono text-xs text-noren-400/60">Curated by ET</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3">🏯</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Japanese Ceramics Workshop</h3>
+                    <p class="text-white/40 text-xs leading-relaxed mb-3">The vessel matters as much as what's on it. A half-day pottery session making plates you'll use for your final omakase presentation.</p>
+                    <p class="font-mono text-xs text-noren-400/60">To be confirmed with Hiroko</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3">♨️</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Onsen & Recovery</h3>
+                    <p class="text-white/40 text-xs leading-relaxed mb-3">Traditional Japanese hot spring experience. After six hours of standing and cutting, your body needs this. Group session at a local onsen or sento.</p>
+                    <p class="font-mono text-xs text-noren-400/60">Curated by ET</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-10 reveal">
+                <p class="text-white/25 text-xs font-mono">Add-on pricing and availability confirmed upon enrollment. Some experiences subject to group size and Hiroko's schedule.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- WE HANDLE EVERYTHING                    -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-mono text-xs tracking-[0.3em] text-hinoki-400/60 uppercase mb-4">We Handle It</p>
+                <h2 class="font-display text-4xl font-300 text-white/90">You Focus on the Craft</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-4 opacity-70">🛂</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Visa Support</h3>
+                    <p class="text-white/40 text-xs leading-relaxed">EducatedTraveler coordinates your visa documents with JCMA. We handle the paperwork so you don't have to navigate it alone. Fee: ¥10,000.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-4 opacity-70">🔪</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Knives — Ready on Day One</h3>
+                    <p class="text-white/40 text-xs leading-relaxed">Pre-order your Yanagiba and Deba through JCMA. Professional-grade, selected by Hiroko, waiting for you when you arrive. Or bring your own.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-4 opacity-70">✈️</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Arrival & Orientation</h3>
+                    <p class="text-white/40 text-xs leading-relaxed">Pre-arrival guide with neighborhood tips, transport, phone/SIM advice. Meet your cohort the evening before classes start. We make sure you're settled.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- LOCATION                                -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <div class="photo-placeholder rounded-2xl aspect-video">
+                        <span class="text-xs font-mono tracking-wider">Academy / Tokyo photo</span>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <p class="font-mono text-xs tracking-[0.3em] text-hinoki-400/60 uppercase mb-4">Location</p>
+                    <h2 class="font-display text-3xl font-300 text-white/90 mb-4">Tokyo — the heart of sushi culture</h2>
+                    <p class="text-white/50 text-[15px] leading-relaxed mb-6">Students train in an environment where sushi traditions continue to evolve, providing a unique opportunity to learn authentic techniques at the source.</p>
+
+                    <div class="glass rounded-xl p-5 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-4 h-4 text-hinoki-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                            <div>
+                                <p class="text-white/70 text-sm">3F Nice Bld, 2-9-9 Otsuka</p>
+                                <p class="text-white/40 text-sm">Bunkyo-Ku, Tokyo, 112-0012</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-4 h-4 text-hinoki-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
+                            <div>
+                                <p class="text-white/50 text-xs">Yurakucho Line — Gokokuji station (5 min walk)</p>
+                                <p class="text-white/50 text-xs">Marunouchi Line — Shin-Otsuka (10 min walk)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- WHO THIS IS FOR                         -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <p class="font-mono text-xs tracking-[0.3em] text-hinoki-400/60 uppercase mb-4">For</p>
+            <h2 class="font-display text-4xl font-300 text-white/90 mb-12">Who This Program Is For</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white/70 text-sm">Aspiring sushi chefs</p>
+                </div>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white/70 text-sm">Professional chefs expanding skills</p>
+                </div>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white/70 text-sm">Culinary students seeking specialization</p>
+                </div>
+                <div class="glass rounded-xl p-5">
+                    <p class="text-white/70 text-sm">International chefs drawn to sushi</p>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6 inline-block">
+                <p class="text-white/50 text-sm italic">No previous sushi experience required. Passion and dedication to learning are essential.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- FAQ                                     -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl font-300 text-white/90">Questions</h2>
+            </div>
+
+            <div class="glass rounded-2xl p-2 reveal">
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between">
+                        <p class="text-white/80 text-sm font-medium">Is the course held in English?</p>
+                        <svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">Yes. The course is conducted in English, and Hiroko communicates fluently in English.</p></div>
+                </div>
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between">
+                        <p class="text-white/80 text-sm font-medium">Do I need previous sushi experience?</p>
+                        <svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">No. This program is for anyone who wants to learn — from beginners to professional chefs. Passion and willingness to learn are what matter.</p></div>
+                </div>
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between">
+                        <p class="text-white/80 text-sm font-medium">Can I take just one level?</p>
+                        <svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">Yes. You can enroll in individual levels. They must be taken sequentially, starting from Basic. The full program offers a ¥60,000 discount.</p></div>
+                </div>
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between">
+                        <p class="text-white/80 text-sm font-medium">Do you help with accommodation?</p>
+                        <svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">Yes. JCMA can provide information and assist in finding suitable accommodation in Tokyo based on your needs and budget.</p></div>
+                </div>
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between">
+                        <p class="text-white/80 text-sm font-medium">What about visa support?</p>
+                        <svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">Yes. JCMA prepares the necessary documents for your visa application. A visa support fee of ¥10,000 (tax included) applies.</p></div>
+                </div>
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between">
+                        <p class="text-white/80 text-sm font-medium">What is the payment process?</p>
+                        <svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">Full payment is required before the course begins. Contact us for available payment methods and installment options.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CONTACT / CTA                           -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <div class="kanji-watermark absolute left-1/2 -translate-x-1/2 opacity-[0.015]" style="font-size:160px;">職人</div>
+
+            <p class="font-mono text-xs tracking-[0.3em] text-noren-400/60 uppercase mb-4">The Inaugural Class</p>
+            <h2 class="font-display text-4xl md:text-5xl font-300 text-white/90 mb-4">September 21, 2026</h2>
+            <p class="text-white/40 mb-10">9 spots. Once they're filled, the next class opens in 2027.</p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="mailto:founder@educatedtraveler.app?subject=Sushi%20Program%20—%20Application" class="cta-sushi px-10 py-4 rounded-full text-white font-medium text-sm">Apply Now</a>
+                <a href="mailto:founder@educatedtraveler.app?subject=Sushi%20Program%20—%20Question" class="cta-outline px-10 py-4 rounded-full text-sm font-medium">Ask a Question</a>
+            </div>
+
+            <div class="ink-line w-24 mx-auto mb-8"></div>
+
+            <p class="text-white/20 text-xs font-mono">founder@educatedtraveler.app</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- FOOTER                                  -->
+    <!-- ═══════════════════════════════════════ -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-bmw-400">TRAVELER</span></p>
+                    <p class="text-white/40 text-sm">Earned, not bought. Certified at the source.</p>
+                    <p class="text-white/15 text-xs font-mono tracking-widest mt-2">SKILLS LAST, TANS FADE</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
+                    <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Adventures</a>
+                    <a href="mailto:founder@educatedtraveler.app" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-white/15 text-xs">In partnership with Japan Culinary Masters Academy (JCMA)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase + Auth for instructor access -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
+
+    <!-- Instructor bar (hidden by default) -->
+    <div id="instructor-bar" class="hidden fixed bottom-0 left-0 right-0 z-50 glass" style="background:rgba(122,46,63,0.95);border-top:1px solid rgba(255,255,255,0.1);">
+        <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-white/60">Signed in as instructor</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="instructor-dashboard.html" class="text-xs px-4 py-1.5 rounded-full bg-white/10 text-white/80 hover:bg-white/20 transition-colors">My Dashboard</a>
+                <button id="suggest-edit-btn" class="text-xs px-4 py-1.5 rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/40 transition-colors">Suggest an Edit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign-up prompt for Hiroko (if not logged in, shows at bottom of page) -->
+    <div id="instructor-signup-prompt" class="hidden fixed bottom-6 right-6 z-40">
+        <div class="glass rounded-2xl p-5 max-w-xs" style="background:rgba(10,10,10,0.97);border:1px solid rgba(122,46,63,0.3);">
+            <p class="text-sm text-white/80 mb-2">Are you the instructor for this program?</p>
+            <p class="text-white/40 text-xs mb-4">Sign in to manage your cohorts, edit details, and connect with students.</p>
+            <a href="join.html?tab=signin&amp;redirect=instructor-dashboard.html" class="block text-center text-xs px-5 py-2 rounded-full cta-sushi text-white">Sign In as Instructor</a>
+            <button onclick="this.parentElement.parentElement.classList.add('hidden')" class="block w-full text-center text-white/30 text-xs mt-2 hover:text-white/50">Dismiss</button>
+        </div>
+    </div>
+
+    <!-- Suggest edit modal -->
+    <div id="edit-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80" onclick="document.getElementById('edit-modal').classList.add('hidden')"></div>
+        <div class="relative glass rounded-2xl p-8 max-w-lg w-full" style="background:rgba(10,10,10,0.97);border:1px solid rgba(255,255,255,0.08);">
+            <button onclick="document.getElementById('edit-modal').classList.add('hidden')" class="absolute top-4 right-4 text-white/50 hover:text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <h3 class="font-display text-xl mb-2">Suggest an Edit</h3>
+            <p class="text-white/40 text-xs mb-5">Describe what you'd like to change. We'll update it for you.</p>
+            <textarea id="edit-suggestion" rows="5" placeholder="e.g., Update the Level 2 description to mention our new filleting technique. Change the pricing to..." class="w-full rounded-xl px-4 py-3 text-sm bg-white/[0.03] border border-white/[0.08] text-white placeholder:text-white/25 focus:border-noren-400/40 focus:outline-none"></textarea>
+            <button id="send-suggestion-btn" onclick="sendSuggestion()" class="mt-4 w-full py-3 cta-sushi rounded-full text-white text-sm font-medium">Send to EducatedTraveler</button>
+        </div>
+    </div>
+
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Instructor detection
+        document.addEventListener('DOMContentLoaded', async () => {
+            await new Promise(r => setTimeout(r, 800));
+            const user = window.auth?.getCurrentUser?.();
+
+            if (user) {
+                try {
+                    const instructor = await window.db.getInstructorByUserId(user.id);
+                    if (instructor) {
+                        document.getElementById('instructor-bar').classList.remove('hidden');
+                        document.getElementById('suggest-edit-btn').addEventListener('click', () => {
+                            document.getElementById('edit-modal').classList.remove('hidden');
+                        });
+                    }
+                } catch (e) {}
+            }
+
+            // Show signup prompt after 10s if not logged in and URL has ?instructor param
+            if (!user && (window.location.search.includes('instructor') || window.location.search.includes('hiroko'))) {
+                setTimeout(() => {
+                    document.getElementById('instructor-signup-prompt').classList.remove('hidden');
+                }, 3000);
+            }
+        });
+
+        async function sendSuggestion() {
+            const text = document.getElementById('edit-suggestion').value.trim();
+            if (!text) return;
+            const btn = document.getElementById('send-suggestion-btn');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            // Send as email to founder
+            try {
+                // For now, mailto fallback
+                window.location.href = 'mailto:founder@educatedtraveler.app?subject=Page%20Edit%20Suggestion%20—%20Sushi%20Mastery&body=' + encodeURIComponent(text);
+            } catch(e) {}
+
+            setTimeout(() => {
+                btn.textContent = 'Sent!';
+                setTimeout(() => document.getElementById('edit-modal').classList.add('hidden'), 1000);
+            }, 500);
+        }
+    </script>
+</body>
+</html>
