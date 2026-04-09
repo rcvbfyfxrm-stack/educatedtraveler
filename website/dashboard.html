@@ -1291,7 +1291,7 @@
             }
         }
 
-        function showProfileOverlay() {
+        async function showProfileOverlay() {
             const overlay = document.getElementById('profile-overlay');
             const tama = document.getElementById('tama-container');
             overlay.classList.remove('hidden');
@@ -1302,6 +1302,12 @@
             document.body.style.overflow = 'hidden';
             initProfileForm();
             detectInstructorMode();
+
+            // Load existing profile data into the form
+            const user = await window.auth?.getUser();
+            if (user) {
+                await loadProfileIntoOverlay(user.id);
+            }
         }
 
         function hideProfileOverlay() {
