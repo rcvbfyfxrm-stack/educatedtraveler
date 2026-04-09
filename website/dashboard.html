@@ -320,6 +320,7 @@
                                         <option value="student">Student</option>
                                         <option value="other">Other</option>
                                     </select>
+                                    <input type="text" class="profile-input mt-2 hidden" id="p-status-other" placeholder="Tell us more...">
                                 </div>
                             </div>
                         </div>
@@ -354,6 +355,7 @@
                                 <option value="sports-fitness">Sports / Fitness</option>
                                 <option value="other-pro">Other</option>
                             </select>
+                            <input type="text" class="profile-input mt-2 hidden" id="p-profession-other" placeholder="What do you do?">
                         </div>
                         <div>
                             <label class="section-label">Adventure experience</label>
@@ -1234,6 +1236,16 @@
                 }
             });
 
+            // "Other" text fields — show when "other" is selected
+            document.getElementById('p-status').addEventListener('change', function() {
+                document.getElementById('p-status-other').classList.toggle('hidden', this.value !== 'other');
+                if (this.value === 'other') document.getElementById('p-status-other').focus();
+            });
+            document.getElementById('p-profession').addEventListener('change', function() {
+                document.getElementById('p-profession-other').classList.toggle('hidden', this.value !== 'other-pro');
+                if (this.value === 'other-pro') document.getElementById('p-profession-other').focus();
+            });
+
             // Visibility toggle
             document.getElementById('p-visibility-toggle').addEventListener('click', function() {
                 this.classList.toggle('active');
@@ -1326,10 +1338,14 @@
                 first_name: document.getElementById('p-first-name').value.trim(),
                 age: document.getElementById('p-age').value ? parseInt(document.getElementById('p-age').value) : null,
                 location: document.getElementById('p-location').value.trim(),
-                status: document.getElementById('p-status').value,
+                status: document.getElementById('p-status').value === 'other'
+                    ? 'other:' + (document.getElementById('p-status-other').value.trim() || 'Other')
+                    : document.getElementById('p-status').value,
                 about: document.getElementById('p-about').value.trim(),
                 interests: interests,
-                profession: document.getElementById('p-profession').value,
+                profession: document.getElementById('p-profession').value === 'other-pro'
+                    ? 'other-pro:' + (document.getElementById('p-profession-other').value.trim() || 'Other')
+                    : document.getElementById('p-profession').value,
                 adventure_years: document.getElementById('p-adventure-years').value,
                 previous_experience: document.getElementById('p-previous-experience').value.trim(),
                 skills: document.getElementById('p-skills').value.trim(),
@@ -1394,9 +1410,25 @@
                 if (data.first_name) document.getElementById('p-first-name').value = data.first_name;
                 if (data.age) document.getElementById('p-age').value = data.age;
                 if (data.location) document.getElementById('p-location').value = data.location;
-                if (data.status) document.getElementById('p-status').value = data.status;
+                if (data.status) {
+                    if (data.status.startsWith('other:')) {
+                        document.getElementById('p-status').value = 'other';
+                        document.getElementById('p-status-other').value = data.status.slice(6);
+                        document.getElementById('p-status-other').classList.remove('hidden');
+                    } else {
+                        document.getElementById('p-status').value = data.status;
+                    }
+                }
                 if (data.about) document.getElementById('p-about').value = data.about;
-                if (data.profession) document.getElementById('p-profession').value = data.profession;
+                if (data.profession) {
+                    if (data.profession.startsWith('other-pro:')) {
+                        document.getElementById('p-profession').value = 'other-pro';
+                        document.getElementById('p-profession-other').value = data.profession.slice(10);
+                        document.getElementById('p-profession-other').classList.remove('hidden');
+                    } else {
+                        document.getElementById('p-profession').value = data.profession;
+                    }
+                }
                 if (data.adventure_years) document.getElementById('p-adventure-years').value = data.adventure_years;
                 if (data.previous_experience) document.getElementById('p-previous-experience').value = data.previous_experience;
                 if (data.skills) document.getElementById('p-skills').value = data.skills;
