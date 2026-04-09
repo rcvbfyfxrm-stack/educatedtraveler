@@ -1026,7 +1026,7 @@
 
             if (questSubmit) {
 
-            questSubmit.addEventListener('click', () => {
+            questSubmit.addEventListener('click', async () => {
                 const answers = collectAnswers();
 
                 if (!answers.elements.length || !answers.desires.length || !answers.time || !answers.intensity) {
