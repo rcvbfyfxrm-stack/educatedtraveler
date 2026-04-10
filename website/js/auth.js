@@ -373,10 +373,14 @@
                     <h3 class="text-2xl font-light mb-2">Sign in</h3>
                     <p class="text-white/50 text-sm mb-6">Enter your email and password.</p>
 
-                    <form id="auth-password-form" class="space-y-4">
+                    <form id="auth-password-form" class="space-y-4" autocomplete="on">
                         <input
                             type="email"
                             id="auth-email-input"
+                            name="email"
+                            autocomplete="username email"
+                            autocapitalize="none"
+                            spellcheck="false"
                             placeholder="you@email.com"
                             value="${prefillEmail}"
                             required
@@ -385,6 +389,8 @@
                         <input
                             type="password"
                             id="auth-password-input"
+                            name="password"
+                            autocomplete="current-password"
                             placeholder="Password"
                             required
                             class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
@@ -410,6 +416,10 @@
                         <input
                             type="email"
                             id="auth-magic-email-input"
+                            name="email"
+                            autocomplete="email"
+                            autocapitalize="none"
+                            spellcheck="false"
                             placeholder="you@email.com"
                             value="${prefillEmail}"
                             required
@@ -435,6 +445,10 @@
                         <input
                             type="email"
                             id="auth-forgot-email-input"
+                            name="email"
+                            autocomplete="email"
+                            autocapitalize="none"
+                            spellcheck="false"
                             placeholder="you@email.com"
                             value="${prefillEmail}"
                             required
