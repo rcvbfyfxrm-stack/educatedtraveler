@@ -9,7 +9,9 @@
 - **Supabase instructor_id:** TBD (not yet created in DB)
 
 ## Background
-Martin Lippo trained under Ferran Adrià — the man who invented modern molecular gastronomy at elBulli. He runs yearly masterclass series in Barcelona covering the full spectrum of modernist technique: textures, liquid nitrogen, foams, spherification, and sous-vide. His courses run once per year only — limited spots. His laboratory (Vakuum) is in the heart of Barcelona.
+Martin Lippo is a Barcelona-based modernist cuisine specialist. He runs yearly masterclass series covering the full spectrum of avant-garde technique: textures, liquid nitrogen, foams, spherification, and sous-vide. His courses run once per year only — limited spots. His laboratory (Vakuum) is in Barcelona.
+
+**NOTE:** Original notes say "trained under Ferran Adrià" — this needs verification directly with Martin. His website (martinlippo.com) does not explicitly confirm this claim. Do not publish this unless confirmed.
 
 ## Credentials
 - Trained under Ferran Adrià (elBulli)
