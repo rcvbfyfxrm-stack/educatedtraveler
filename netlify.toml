@@ -52,6 +52,11 @@
   status = 200
 
 [[redirects]]
+  from = "/modernist-barcelona"
+  to = "/modernist-barcelona.html"
+  status = 200
+
+[[redirects]]
   from = "/survey"
   to = "/survey.html"
   status = 200
