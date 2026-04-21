@@ -328,7 +328,7 @@ window.ET_EXPERIENCES = [
             nextSteps: [
                 { name: 'Terroir Cooking — Tuscany', desc: 'Expand from pastry into the ruthless simplicity of Italian cuisine — where three ingredients must be perfect' },
                 { name: 'WSET Level 3 — Bordeaux', desc: 'Add wine expertise to your pastry credentials — the perfect pairing' },
-                { name: 'Avant-Garde Cuisine — Barcelona', desc: 'Take your classical foundation into molecular innovation — tradition meeting the future' }
+                { name: 'Modernist Cuisine — Barcelona', desc: 'Take your classical foundation into molecular innovation — tradition meeting the future' }
             ]
         }
     },
@@ -370,7 +370,7 @@ window.ET_EXPERIENCES = [
             nextSteps: [
                 { name: 'Indigenous Mexican Cuisine — Oaxaca', desc: 'Another ancient food culture where fermentation is sacred — fascinating parallels' },
                 { name: 'Sake Sommelier — Niigata', desc: 'Deepen your Japanese beverage knowledge at the source of premium sake' },
-                { name: 'Avant-Garde Cuisine — Barcelona', desc: 'Take Japanese precision into modernist innovation' }
+                { name: 'Modernist Cuisine — Barcelona', desc: 'Take Japanese precision into modernist innovation' }
             ]
         }
     },
@@ -411,7 +411,7 @@ window.ET_EXPERIENCES = [
             nextSteps: [
                 { name: 'French Pastry — Paris', desc: 'Add the precision of French technique to your Italian foundation' },
                 { name: 'WSET Level 3 — Bordeaux', desc: 'Formalize the wine knowledge you\'ve been building alongside food' },
-                { name: 'Avant-Garde Cuisine — Barcelona', desc: 'Push Italian foundations into modernist territory' }
+                { name: 'Modernist Cuisine — Barcelona', desc: 'Push Italian foundations into modernist territory' }
             ]
         }
     },
@@ -955,45 +955,46 @@ window.ET_EXPERIENCES = [
     // ======== NEW CULINARY EXPERIENCES ========
     {
         id: 'avant-garde-cuisine-barcelona',
-        name: 'Avant-Garde Cuisine — Barcelona',
+        name: 'Modernist Cuisine — Barcelona',
         category: 'culinary',
-        tier: 'mastery',
-        minDays: 21,
-        maxDays: 21,
+        tier: 'foundation',
+        minDays: 5,
+        maxDays: 7,
         minPrice: null,
         maxPrice: null,
         envTags: ['city', 'ocean'],
         desireTags: ['certification', 'career', 'rare'],
         intensity: 3,
-        summary: 'Five intensive masterclass modules over three weeks — textures, liquid nitrogen, foams, spherification, sous-vide — in the city where molecular gastronomy was born. Courses run once per year. Limited spots.',
-        meta: '3 weeks · Mastery · Advanced Culinary Innovation',
+        summary: 'Five days in the laboratory where modernist cuisine was born. Sous-vide, hydrocolloids, spherification, foams — then design your own tasting menu. Extendable to seven days with Catalan fire cooking and a curated Barcelona immersion. Cohort of 10, dates confirmed once a year.',
+        meta: '5 days core · up to 7 days · Foundation',
         immersive: {
             curriculum: [
-                { phase: 'Module 1', title: 'Textures & Texturizing (3 days)', focus: 'Hydrocolloids, gels, and texture manipulation. Agar, gellan, xanthan, methylcellulose. Creating textures that surprise — crispy, elastic, fluid, brittle — and understanding when each serves the dish.' },
-                { phase: 'Module 2', title: 'Liquid Nitrogen (1 day)', focus: 'Instant freezing, tableside service, nitrogen-based ice creams and sorbets, cryo-shattered preparations. The most theatrical technique in modern cuisine. Safety protocols.' },
-                { phase: 'Module 3', title: 'Foams, Carbonation & Siphon (2 days)', focus: 'ISI siphon mastery — hot foams, cold foams, espumas. CO2 carbonation of fruits, liquids, and gels. Lecithin-based airs. Understanding when foam adds versus distracts.' },
-                { phase: 'Module 4', title: 'Spherification (1 day)', focus: 'Basic and reverse spherification. Sodium alginate, calcium chloride, calcium lactate. Caviar pearls, large spheres, encapsulated sauces. The technique that defined a revolution.' },
-                { phase: 'Module 5', title: 'Vacuum & Low Temperature (2 days)', focus: 'Sous-vide precision at every temperature. Proteins, vegetables, fruits, infusions. Compression techniques, marinades under vacuum, texture transformation through controlled heat.' }
+                { phase: 'Day 1', title: 'Sous-Vide & Low Temperature', focus: 'Vacuum sealing, precision temperatures, compression marinades, texture transformation through controlled heat. The foundation every modernist technique builds on.' },
+                { phase: 'Day 2', title: 'Textures & Hydrocolloids', focus: 'Agar, gellan, xanthan, methylcellulose. Firm, fluid, elastic, crispy — learning when each texture serves the dish and when it distracts.' },
+                { phase: 'Day 3', title: 'Spherification & Encapsulation', focus: 'Basic, reverse, and frozen spherification. Caviar pearls, large spheres, encapsulated sauces. The technique that defined a revolution.' },
+                { phase: 'Day 4', title: 'Foams, Espumas & Siphon', focus: 'ISI siphon mastery — hot and cold foams, espumas. CO₂ carbonation of fruits and liquids. Lecithin-based airs. When foam adds, when it doesn\'t.' },
+                { phase: 'Day 5', title: 'Integration & Menu Development', focus: 'Design your own 5-course modernist tasting menu. Peer critique, final presentation. Leave with a technique portfolio — formulas, ratios, troubleshooting, tested recipes.' }
             ],
             included: [
-                { name: 'Molecular Lab Access', desc: 'Train in a professional culinary laboratory built for experimentation — centrifuges, rotary evaporators, precision equipment' },
-                { name: 'La Boqueria Market Immersion', desc: 'Guided sourcing at Barcelona\'s legendary market — understanding Catalan produce as the raw material for innovation' },
-                { name: 'Avant-Garde Restaurant Study Dinners', desc: 'Three evenings at top Barcelona restaurants — analyse technique, concept, and service as a student of the craft' },
+                { name: 'Professional Lab Access', desc: 'Train in a modernist culinary laboratory built for experimentation — precision equipment, hydrocolloid library, every material provided' },
+                { name: 'Technique Portfolio', desc: 'Leave with documented formulas, ratios, troubleshooting notes, and tested recipes for every technique covered' },
                 { name: 'Catalan Base Techniques', desc: 'Sofregit, picada, allioli, romesco — the traditional foundations before the innovation. You need roots to fly.' },
-                { name: 'Creation & Final Dinner', desc: 'Develop 3 original dishes with full technical rationale. Culminates in an 8-course avant-garde tasting menu for 25 guests at a Barcelona venue.' }
+                { name: 'Certificate of Completion', desc: 'Signed certificate recognising your training across the five core modernist disciplines' },
+                { name: 'Eixample Accommodation', desc: 'Shared cohort apartment in Barcelona\'s Eixample — walk to the lab, with arrival orientation and a neighbourhood guide' }
             ],
             addOns: [
-                { name: 'Disfrutar Tasting Menu', desc: '30-course dinner at the restaurant ranked #1 in the world — founded by three alumni of the kitchen that started it all', price: '+$500' },
-                { name: 'Penedès Cava Immersion', desc: 'Vineyard tour, disgorgement demo, cava-and-tapa pairing lunch among the vines', price: '+$250' },
-                { name: 'Empordà Coastal Foraging', desc: 'Wild herbs, sea vegetables, and shellfish along the Costa Brava with a local forager', price: '+$300' },
-                { name: 'Fundació Alícia Lab Visit', desc: 'Food science research lab near Barcelona — where cuisine meets nutrition and technology at the frontier', price: '+$300' },
-                { name: 'Vermouth Ritual', desc: 'Sunday vermut in Barceloneta with conservas, olives, and anchovies — the aperitivo that defines the city', price: '+$100' },
-                { name: 'Chocolate Workshop', desc: 'Handmade bonbons and showpiece work at one of Barcelona\'s legendary pastry houses', price: '+$250' }
+                { name: 'Days 6–7 — Full Immersion Extension', desc: 'Day 6: Paella & Catalan fire cooking — open flame, socarrat, bomba rice, arròs negre, fideuà, escalivada. Day 7: Barcelona culinary immersion of your choice.', price: 'Upgrade to 7-Day' },
+                { name: 'Enigma Dinner (Albert Adrià)', desc: 'An evening at the 2-Michelin-star brother-project of elBulli — 25 courses from a direct lineage of modernist cuisine', price: '+~€300' },
+                { name: 'elBulli1846 Foundation Visit', desc: 'Day trip to Cala Montjoi, the original temple of modernist cuisine. Closes 12 October — book early', price: '+~€200' },
+                { name: 'La Boqueria Market Immersion', desc: 'Guided sourcing at Barcelona\'s legendary market — Catalan produce as the raw material for innovation', price: '+~€100' },
+                { name: 'Penedès Cava Immersion', desc: 'Vineyard tour, disgorgement demo, cava-and-tapa pairing lunch among the vines', price: '+~€250' },
+                { name: 'Empordà Coastal Foraging', desc: 'Wild herbs, sea vegetables, and shellfish along the Costa Brava with a local forager', price: '+~€300' },
+                { name: 'Vermouth Ritual — Barceloneta', desc: 'Sunday vermut with conservas, olives, and anchovies — the aperitivo that defines the city', price: '+~€80' }
             ],
             nextSteps: [
-                { name: 'Sushi Mastery — Tokyo', desc: 'Japanese precision meets molecular thinking — two philosophies of perfection' },
-                { name: 'French Pastry — Paris', desc: 'Add the classical foundation that makes avant-garde work meaningful' },
-                { name: 'Become a Yacht Chef — Antibes', desc: 'Take your molecular skills to sea — superyacht guests love this stuff' }
+                { name: 'Sushi Mastery — Tokyo', desc: 'Japanese precision meets modernist thinking — two philosophies of perfection' },
+                { name: 'French Pastry — Paris', desc: 'Add the classical foundation that makes modernist work meaningful' },
+                { name: 'Become a Yacht Chef — Antibes', desc: 'Take your modernist skills to sea — superyacht guests love this stuff' }
             ]
         }
     },
@@ -1031,7 +1032,7 @@ window.ET_EXPERIENCES = [
                 { name: 'Basque Culinary Center Lab', desc: 'Half-day access to BCC\'s innovation lab — the university where New Basque Cuisine is being invented', price: '+$350' }
             ],
             nextSteps: [
-                { name: 'Avant-Garde Cuisine — Barcelona', desc: 'Take Basque innovation south — the other epicenter of Spanish culinary revolution' },
+                { name: 'Modernist Cuisine — Barcelona', desc: 'Take Basque innovation south — the other epicenter of Spanish culinary revolution' },
                 { name: 'Terroir Cooking — Tuscany', desc: 'From Basque fire to Italian earth — another tradition where simplicity demands perfection' },
                 { name: 'WSET Level 3 — Bordeaux', desc: 'Formalize the wine knowledge from your Rioja excursions into a global qualification' }
             ]
