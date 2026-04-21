@@ -61,6 +61,16 @@
   to = "/survey.html"
   status = 200
 
+[[redirects]]
+  from = "/crew"
+  to = "/crew.html"
+  status = 200
+
+[[redirects]]
+  from = "/yacht"
+  to = "/crew.html"
+  status = 200
+
 # Redirects for deleted pages
 [[redirects]]
   from = "/vision"
