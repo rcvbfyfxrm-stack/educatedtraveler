@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernist Cuisine — Barcelona | EDUCATEDTRAVELER</title>
+    <meta name="description" content="5-day modernist cuisine intensive in Barcelona with Martin Lippo. Sous-vide, spherification, foams, hydrocolloids. Max 10 students. October 2026.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: {
+                'bmw': { 400: '#3B8DD4', 500: '#0066B1' },
+                'acid': { 300: '#E2FF3A', 400: '#C8E619', 500: '#A3C200' },
+                'lab': { 400: '#FF6B35', 500: '#E05520', 600: '#B8441A' },
+            }}}
+        }
+    </script>
+
+    <style>
+        :root { --acid: #C8E619; --lab-orange: #FF6B35; --carbon: #111111; }
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #080808; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        .font-display { font-family: 'DM Serif Display', Georgia, serif; }
+        .font-lab { font-family: 'Space Mono', monospace; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+
+        /* Grid pattern background */
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(200,230,25,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200,230,25,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Grain */
+        body::after {
+            content: ''; position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        }
+
+        .day-card {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s;
+        }
+        .day-card:hover { background: rgba(200,230,25,0.03); border-color: rgba(200,230,25,0.15); transform: translateY(-3px); }
+
+        .technique-tag {
+            display: inline-block; padding: 5px 12px; border-radius: 6px; font-size: 12px;
+            background: rgba(200,230,25,0.06); border: 1px solid rgba(200,230,25,0.12); color: rgba(200,230,25,0.7);
+            font-family: 'Space Mono', monospace; margin: 3px;
+        }
+
+        .addon-card { background: rgba(255,107,53,0.04); border: 1px solid rgba(255,107,53,0.12); transition: all 0.3s; }
+        .addon-card:hover { background: rgba(255,107,53,0.08); border-color: rgba(255,107,53,0.25); }
+
+        .cta-mod { background: linear-gradient(135deg, #C8E619 0%, #A3C200 100%); color: #080808; transition: all 0.3s; }
+        .cta-mod:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(200,230,25,0.2); }
+
+        .cta-outline-mod { border: 1px solid rgba(200,230,25,0.4); color: #C8E619; transition: all 0.3s; }
+        .cta-outline-mod:hover { background: rgba(200,230,25,0.08); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-item.open .faq-answer { max-height: 300px; padding-top: 12px; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-arrow { transition: transform 0.3s; }
+    </style>
+</head>
+<body class="text-white grid-bg">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-lg font-semibold tracking-wider">EDUCATED<span class="text-bmw-400">TRAVELER</span></a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Adventures</a>
+                <a href="#enroll" class="text-sm px-5 py-2 rounded-full cta-mod font-medium">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════ HERO ══════════════════════ -->
+    <header class="relative min-h-screen flex items-center justify-center px-6">
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse at 20% 40%, rgba(200,230,25,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(255,107,53,0.04) 0%, transparent 50%);"></div>
+
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-lab text-[200px] md:text-[300px] font-bold text-white/[0.015] select-none pointer-events-none leading-none">H₂O</div>
+
+        <div class="relative text-center max-w-3xl mx-auto">
+            <p class="font-lab text-xs tracking-[0.4em] text-acid-400/50 uppercase mb-8 reveal">Barcelona · Martin Lippo · Modernist Cuisine Specialist</p>
+
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-6 reveal">
+                <span class="text-white/90">Modernist</span><br>
+                <span class="text-acid-400">Cuisine</span>
+            </h1>
+
+            <div class="w-24 h-px bg-gradient-to-r from-transparent via-acid-400/30 to-transparent mx-auto my-8 reveal"></div>
+
+            <p class="text-white/50 text-lg md:text-xl font-light leading-relaxed mb-4 reveal">
+                Five days in the capital of Spain's avant-garde cuisine scene.<br class="hidden md:block">
+                Sous-vide. Spherification. Foams. Your own tasting menu.
+            </p>
+
+            <div class="flex items-center justify-center gap-6 mt-10 reveal">
+                <div class="text-center"><p class="font-lab text-2xl text-acid-400">5</p><p class="text-white/30 text-xs uppercase tracking-wider">Days</p></div>
+                <div class="w-px h-8 bg-white/10"></div>
+                <div class="text-center"><p class="font-lab text-2xl text-acid-400">10</p><p class="text-white/30 text-xs uppercase tracking-wider">Max Students</p></div>
+                <div class="w-px h-8 bg-white/10"></div>
+                <div class="text-center"><p class="font-lab text-2xl text-acid-400">+7</p><p class="text-white/30 text-xs uppercase tracking-wider">Optional Days</p></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ══════════════════════ INSTRUCTOR ══════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <div class="rounded-2xl overflow-hidden max-w-md mx-auto flex items-center justify-center" style="aspect-ratio:3/4; background:rgba(255,255,255,0.02);">
+                        <img src="/images/lippo/martin-portrait.png" alt="Martin Lippo" class="w-full h-auto rounded-2xl">
+                    </div>
+                </div>
+                <div class="reveal">
+                    <p class="font-lab text-xs tracking-[0.3em] text-acid-400/50 uppercase mb-4">Your Instructor</p>
+                    <h2 class="font-display text-4xl md:text-5xl text-white/90 mb-2">Martin Lippo</h2>
+                    <p class="font-display text-lg text-lab-400/80 italic mb-8">Modernist Cuisine Specialist · Barcelona</p>
+
+                    <div class="space-y-4 text-white/60 text-[15px] leading-relaxed">
+                        <p>Martin is a Barcelona-based modernist cuisine specialist who runs yearly masterclass series covering the full spectrum of avant-garde technique — sous-vide, spherification, hydrocolloids, foams, and carbonation.</p>
+                        <p>Barcelona is the beating heart of Spain's culinary revolution — home to <span class="text-white/80">Disfrutar (#1 in the world, 2024)</span>, <span class="text-white/80">Enigma (Albert Adrià, 2 Michelin stars)</span>, and Tickets. The tradition that started at elBulli on the Costa Brava now lives in this city. Martin teaches you the science behind it from his laboratory here.</p>
+                        <p>For EducatedTraveler, he's designed a <span class="text-white/80">condensed 5-day intensive</span> covering his most important modules — all the essentials of modernist cuisine in one week.</p>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="font-lab text-xs px-4 py-2 rounded-full bg-acid-400/10 text-acid-400 border border-acid-400/20">Modernist Technique</span>
+                        <span class="font-lab text-xs px-4 py-2 rounded-full bg-lab-400/10 text-lab-400 border border-lab-400/20">Barcelona</span>
+                        <span class="font-lab text-xs px-4 py-2 rounded-full bg-white/5 text-white/40 border border-white/10">martinlippo.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ THE LAB ══════════════════════ -->
+    <section class="py-12 px-6">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="rounded-2xl overflow-hidden">
+                <img src="/images/lippo/vakuum-lab.png" alt="Vakuum laboratory — Barcelona" class="w-full h-auto">
+            </div>
+            <p class="text-white/20 text-xs font-lab text-center mt-3">The Vakuum laboratory — Barcelona</p>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ 5-DAY PROGRAMME ══════════════════════ -->
+    <section id="program" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <p class="font-lab text-xs tracking-[0.3em] text-acid-400/50 uppercase mb-4">The Programme</p>
+                <h2 class="font-display text-4xl md:text-5xl text-white/90 mb-4">Five Days. Five Disciplines.</h2>
+                <p class="text-white/40 max-w-xl mx-auto">One technique per day. Theory in the morning, lab work all afternoon. By Day 5, you design and cook your own modernist tasting menu.</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Day 1 -->
+                <div class="day-card rounded-2xl p-8 reveal">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-48 flex-shrink-0">
+                            <p class="font-lab text-4xl text-acid-400/30">01</p>
+                            <h3 class="font-display text-xl text-white/90">Sous-Vide</h3>
+                            <p class="text-white/30 text-xs font-lab mt-1">Low Temperature Precision</p>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-white/60 text-sm leading-relaxed mb-4">Proteins at exact temperatures. Compression marinades under vacuum. Vegetables, fruits, infusions. Texture transformation through controlled heat. Batch cooking strategies and reheating protocols that maintain quality.</p>
+                            <div class="flex flex-wrap">
+                                <span class="technique-tag">Vacuum sealing</span>
+                                <span class="technique-tag">Precision temperature</span>
+                                <span class="technique-tag">Compression marinades</span>
+                                <span class="technique-tag">Texture control</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="day-card rounded-2xl p-8 reveal">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-48 flex-shrink-0">
+                            <p class="font-lab text-4xl text-acid-400/30">02</p>
+                            <h3 class="font-display text-xl text-white/90">Textures</h3>
+                            <p class="text-white/30 text-xs font-lab mt-1">Hydrocolloids & Gelling</p>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-white/60 text-sm leading-relaxed mb-4">Agar, gellan, xanthan, methylcellulose — what each does, when to use it, how to troubleshoot. Creating gels (firm, fluid, elastic), crispy textures from liquids, warm gels that hold shape. Stable sauces that survive service.</p>
+                            <div class="flex flex-wrap">
+                                <span class="technique-tag">Agar</span>
+                                <span class="technique-tag">Gellan</span>
+                                <span class="technique-tag">Xanthan</span>
+                                <span class="technique-tag">Methylcellulose</span>
+                                <span class="technique-tag">Fluid gels</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="day-card rounded-2xl p-8 reveal">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-48 flex-shrink-0">
+                            <p class="font-lab text-4xl text-acid-400/30">03</p>
+                            <h3 class="font-display text-xl text-white/90">Spherification</h3>
+                            <p class="text-white/30 text-xs font-lab mt-1">The Technique That Defined a Revolution</p>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-white/60 text-sm leading-relaxed mb-4">Basic, reverse, and frozen spherification. Sodium alginate, calcium chloride, calcium lactate. Caviar pearls, large spheres, encapsulated sauces and cocktails. Tableside theatre: burst spheres, edible cocktail pearls.</p>
+                            <div class="flex flex-wrap">
+                                <span class="technique-tag">Basic spherification</span>
+                                <span class="technique-tag">Reverse spherification</span>
+                                <span class="technique-tag">Frozen spherification</span>
+                                <span class="technique-tag">Caviar pearls</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="day-card rounded-2xl p-8 reveal">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-48 flex-shrink-0">
+                            <p class="font-lab text-4xl text-acid-400/30">04</p>
+                            <h3 class="font-display text-xl text-white/90">Foams & Siphon</h3>
+                            <p class="text-white/30 text-xs font-lab mt-1">Espumas, Airs & Carbonation</p>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-white/60 text-sm leading-relaxed mb-4">ISI siphon — hot foams, cold foams, espumas. Lecithin-based airs. CO₂ carbonation of fruits, liquids, cocktails. Understanding gas solubility: which foams hold and which collapse. Siphon-infused sauces ready in seconds.</p>
+                            <div class="flex flex-wrap">
+                                <span class="technique-tag">ISI siphon</span>
+                                <span class="technique-tag">Hot foams</span>
+                                <span class="technique-tag">Lecithin airs</span>
+                                <span class="technique-tag">CO₂ carbonation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="day-card rounded-2xl p-8 reveal" style="border-color: rgba(200,230,25,0.15);">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-48 flex-shrink-0">
+                            <p class="font-lab text-4xl text-acid-400/60">05</p>
+                            <h3 class="font-display text-xl text-white/90">Your Menu</h3>
+                            <p class="text-white/30 text-xs font-lab mt-1">Integration & Final Presentation</p>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-white/60 text-sm leading-relaxed mb-4">Design a 5-course modernist tasting menu using techniques from Days 1-4. Peer critique and instructor feedback. Cook and plate your menu for the cohort. Leave with a complete portfolio of techniques, formulas, and your own tested recipes.</p>
+                            <div class="flex flex-wrap">
+                                <span class="technique-tag">Menu design</span>
+                                <span class="technique-tag">5-course tasting</span>
+                                <span class="technique-tag">Peer review</span>
+                                <span class="technique-tag">Technique portfolio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo grids -->
+            <div class="grid md:grid-cols-2 gap-4 mt-12 reveal">
+                <div class="rounded-xl overflow-hidden"><img src="/images/lippo/textures-grid.png" alt="Modernist textures" class="w-full h-auto"></div>
+                <div class="rounded-xl overflow-hidden"><img src="/images/lippo/techniques-grid.png" alt="Modernist techniques" class="w-full h-auto"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ HANDS-ON ══════════════════════ -->
+    <section class="py-12 px-6">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 reveal">
+            <div class="rounded-2xl overflow-hidden"><img src="/images/lippo/martin-teaching.png" alt="Martin Lippo teaching" class="w-full h-auto"></div>
+            <div class="rounded-2xl overflow-hidden"><img src="/images/lippo/martin-class.png" alt="Martin Lippo masterclass" class="w-full h-auto"></div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ EXTEND TO 7 DAYS ══════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-lab text-xs tracking-[0.3em] text-lab-400/50 uppercase mb-4">Extend to 7 Days</p>
+                <h2 class="font-display text-4xl text-white/90 mb-4">Beyond the Lab</h2>
+                <p class="text-white/40 max-w-lg mx-auto">You're in Barcelona. The city that invented avant-garde cuisine. Two optional days to go deeper.</p>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="addon-card rounded-2xl p-8 mb-6 reveal">
+                <div class="flex items-center gap-3 mb-4">
+                    <p class="font-lab text-2xl text-lab-400/50">06</p>
+                    <div>
+                        <h3 class="font-display text-xl text-white/90">Paella & Catalan Fire Cooking</h3>
+                        <p class="text-white/30 text-xs font-lab">Full day — open flame</p>
+                    </div>
+                </div>
+                <p class="text-white/60 text-sm leading-relaxed">Socarrat technique over open flame, bomba rice, proper sofregit and fumet. Valencian paella, seafood arròs negre, fideuà. Cooked outdoors. Plus Catalan essentials: pa amb tomàquet, escalivada, crema catalana.</p>
+            </div>
+
+            <!-- Day 7 — Pick & Mix -->
+            <div class="addon-card rounded-2xl p-8 reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <p class="font-lab text-2xl text-lab-400/50">07</p>
+                    <div>
+                        <h3 class="font-display text-xl text-white/90">Barcelona Culinary Immersion</h3>
+                        <p class="text-white/30 text-xs font-lab">Pick & mix — choose your experience</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="glass rounded-xl p-5">
+                        <p class="text-sm text-white/80 font-medium mb-1">Enigma Dinner</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Albert Adrià's 2 Michelin star, 25-course tasting menu. The heir to elBulli. Observe how avant-garde meets service at the highest level.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5">
+                        <p class="text-sm text-white/80 font-medium mb-1">elBulli1846 Foundation</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Day trip to Cala Montjoi on the Costa Brava (~2.5h from Barcelona). 4,000m² museum at the birthplace of molecular gastronomy where Ferran Adrià changed the world.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5">
+                        <p class="text-sm text-white/80 font-medium mb-1">La Boqueria Market Tour</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Guided sourcing at Barcelona's legendary market with a local chef. Taste, select, understand.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5">
+                        <p class="text-sm text-white/80 font-medium mb-1">Penedès Cava Immersion</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Vineyard tour, disgorgement demo, cava-and-tapa pairing lunch among the vines.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5">
+                        <p class="text-sm text-white/80 font-medium mb-1">Empordà Coastal Foraging</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Wild herbs, sea vegetables, shellfish along the Costa Brava with a local forager.</p>
+                    </div>
+                    <div class="glass rounded-xl p-5">
+                        <p class="text-sm text-white/80 font-medium mb-1">Vermouth Ritual</p>
+                        <p class="text-white/40 text-xs leading-relaxed">Sunday vermut in Barceloneta with conservas, olives, anchovies. The real Barcelona.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ PRICING ══════════════════════ -->
+    <section id="enroll" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <p class="font-lab text-xs tracking-[0.3em] text-acid-400/50 uppercase mb-4">Investment</p>
+                <h2 class="font-display text-4xl text-white/90">Choose Your Depth</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- 5 Days -->
+                <div class="day-card rounded-2xl p-8 reveal" style="border-color: rgba(200,230,25,0.15);">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="font-lab text-xs text-acid-400 uppercase tracking-wider">Core Programme</span>
+                    </div>
+                    <h3 class="font-display text-2xl text-white/90 mb-2">5-Day Intensive</h3>
+                    <p class="text-white/40 text-sm mb-6">Sous-vide + Textures + Spherification + Foams + Your Menu</p>
+                    <div class="mb-6">
+                        <p class="font-display text-4xl text-white/90">TBC</p>
+                        <p class="text-white/30 text-xs font-lab mt-1">Pricing confirmed upon enrollment</p>
+                    </div>
+                    <ul class="space-y-2 text-white/50 text-sm mb-8">
+                        <li class="flex items-start gap-2"><span class="text-acid-400">&#x2713;</span> Full instruction with Martin Lippo</li>
+                        <li class="flex items-start gap-2"><span class="text-acid-400">&#x2713;</span> All ingredients, equipment, lab materials</li>
+                        <li class="flex items-start gap-2"><span class="text-acid-400">&#x2713;</span> Technique portfolio — formulas, ratios, recipes</li>
+                        <li class="flex items-start gap-2"><span class="text-acid-400">&#x2713;</span> Certificate of completion</li>
+                        <li class="flex items-start gap-2"><span class="text-acid-400">&#x2713;</span> October 2026</li>
+                    </ul>
+                    <a href="mailto:founder@educatedtraveler.app?subject=Modernist%20Barcelona%20—%20Application" class="block text-center cta-mod px-8 py-3.5 rounded-full text-sm font-semibold">Apply Now</a>
+                </div>
+
+                <!-- 7 Days -->
+                <div class="day-card rounded-2xl p-8 reveal">
+                    <h3 class="font-display text-2xl text-white/90 mb-2 mt-8">7-Day Full Immersion</h3>
+                    <p class="text-white/40 text-sm mb-6">5-day core + Paella day + Barcelona culinary experience</p>
+                    <div class="mb-6">
+                        <p class="font-display text-4xl text-white/90">TBC</p>
+                        <p class="text-white/30 text-xs font-lab mt-1">Pricing confirmed upon enrollment</p>
+                    </div>
+                    <ul class="space-y-2 text-white/50 text-sm mb-8">
+                        <li class="flex items-start gap-2"><span class="text-lab-400">&#x2713;</span> Everything in 5-day core</li>
+                        <li class="flex items-start gap-2"><span class="text-lab-400">&#x2713;</span> Paella & Catalan fire cooking day</li>
+                        <li class="flex items-start gap-2"><span class="text-lab-400">&#x2713;</span> Barcelona experience (Enigma, elBulli, Boqueria...)</li>
+                        <li class="flex items-start gap-2"><span class="text-lab-400">&#x2713;</span> Accommodation in Eixample</li>
+                    </ul>
+                    <a href="mailto:founder@educatedtraveler.app?subject=Modernist%20Barcelona%207-Day%20—%20Application" class="block text-center cta-outline-mod px-8 py-3.5 rounded-full text-sm font-medium">Apply for 7 Days</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ WE HANDLE IT ══════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl text-white/90">We Handle the Rest</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3 opacity-70">🏠</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Accommodation</h3>
+                    <p class="text-white/40 text-xs leading-relaxed">Shared apartment in Eixample — Barcelona's most beautiful neighborhood. Walk to the lab, walk to dinner. Cohort living.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3 opacity-70">✈️</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Arrival & Orientation</h3>
+                    <p class="text-white/40 text-xs leading-relaxed">Pre-arrival guide, neighborhood tips, meetup the evening before Day 1. You arrive, we handle the rest.</p>
+                </div>
+                <div class="glass rounded-2xl p-6 reveal">
+                    <p class="text-lg mb-3 opacity-70">📋</p>
+                    <h3 class="text-sm font-medium text-white/80 mb-2">Technique Portfolio</h3>
+                    <p class="text-white/40 text-xs leading-relaxed">Leave with complete formulas, ratios, troubleshooting guides, and your own tested recipes. Everything you need to reproduce it at home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ WHO IT'S FOR ══════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <h2 class="font-display text-4xl text-white/90 mb-12">Who This Is For</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="glass rounded-xl p-5"><p class="text-white/70 text-sm">Professional chefs adding modernist techniques</p></div>
+                <div class="glass rounded-xl p-5"><p class="text-white/70 text-sm">Culinary students wanting avant-garde skills</p></div>
+                <div class="glass rounded-xl p-5"><p class="text-white/70 text-sm">Restaurant owners upgrading their kitchen</p></div>
+                <div class="glass rounded-xl p-5"><p class="text-white/70 text-sm">Passionate home cooks ready for the lab</p></div>
+            </div>
+            <div class="glass rounded-xl p-6 inline-block">
+                <p class="text-white/50 text-sm italic">Basic cooking knowledge recommended. No molecular gastronomy experience required — Martin starts from the fundamentals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ FAQ ══════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16 reveal"><h2 class="font-display text-4xl text-white/90">Questions</h2></div>
+            <div class="glass rounded-2xl p-2 reveal">
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between"><p class="text-white/80 text-sm font-medium">What language is the course in?</p><svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">English and Spanish. Martin is fluent in both.</p></div>
+                </div>
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between"><p class="text-white/80 text-sm font-medium">Do I need molecular gastronomy experience?</p><svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">No. Martin starts from the fundamentals. Basic cooking knowledge is helpful, but the techniques are taught from scratch.</p></div>
+                </div>
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between"><p class="text-white/80 text-sm font-medium">When exactly in October?</p><svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">Exact dates being confirmed with Martin. Apply now to be notified as soon as dates are locked.</p></div>
+                </div>
+                <div class="faq-item p-5 cursor-pointer" onclick="this.classList.toggle('open')">
+                    <div class="flex items-center justify-between"><p class="text-white/80 text-sm font-medium">Can I do just 5 days or must I do 7?</p><svg class="w-4 h-4 text-white/30 faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg></div>
+                    <div class="faq-answer"><p class="text-white/50 text-sm">The 5-day core is the main programme. Days 6-7 are optional add-ons. Pick what fits.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ CTA ══════════════════════ -->
+    <section class="py-24 px-6">
+        <div class="max-w-2xl mx-auto text-center reveal">
+            <p class="font-lab text-xs tracking-[0.3em] text-acid-400/50 uppercase mb-4">October 2026</p>
+            <h2 class="font-display text-4xl md:text-5xl text-white/90 mb-4">10 Spots. One Week.</h2>
+            <p class="text-white/40 mb-10">Where molecular gastronomy was born. With someone who was there.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="mailto:founder@educatedtraveler.app?subject=Modernist%20Barcelona%20—%20Application" class="cta-mod px-10 py-4 rounded-full font-semibold text-sm">Apply Now</a>
+                <a href="mailto:founder@educatedtraveler.app?subject=Modernist%20Barcelona%20—%20Question" class="cta-outline-mod px-10 py-4 rounded-full text-sm font-medium">Ask a Question</a>
+            </div>
+            <div class="w-24 h-px bg-gradient-to-r from-transparent via-acid-400/20 to-transparent mx-auto mb-8"></div>
+            <p class="text-white/20 text-xs font-lab">founder@educatedtraveler.app</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-bmw-400">TRAVELER</span></p>
+                    <p class="text-white/40 text-sm">Earned, not bought. Certified at the source.</p>
+                    <p class="text-white/15 text-xs font-lab tracking-widest mt-2">SKILLS LAST, TANS FADE</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
+                    <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Adventures</a>
+                    <a href="mailto:founder@educatedtraveler.app" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
