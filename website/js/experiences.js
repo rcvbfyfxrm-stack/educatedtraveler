@@ -965,7 +965,7 @@ window.ET_EXPERIENCES = [
         envTags: ['city', 'ocean'],
         desireTags: ['certification', 'career', 'rare'],
         intensity: 3,
-        summary: 'Five days in the laboratory where modernist cuisine was born. Sous-vide, hydrocolloids, spherification, foams — then design your own tasting menu. Extendable to seven days with Catalan fire cooking and a curated Barcelona immersion. Cohort of 10, dates confirmed once a year.',
+        summary: 'Five days in the laboratory where modernist cuisine was born. Sous-vide, hydrocolloids, spherification, foams — then design your own tasting menu. Extendable to seven days with Catalan fire cooking and a curated Barcelona immersion. Cohort of 12, dates confirmed once a year.',
         meta: '5 days core · up to 7 days · Foundation',
         immersive: {
             curriculum: [
