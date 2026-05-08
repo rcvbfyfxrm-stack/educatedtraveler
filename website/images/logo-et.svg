@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <rect width="1080" height="1080" fill="#000000"/>
+
+  <!-- EDUCATED — white, larger, readable -->
+  <text x="540" y="340" text-anchor="middle" font-family="'Courier New', 'SF Mono', monospace" font-size="32" fill="rgba(255,255,255,0.85)" letter-spacing="3">
+    <tspan x="540" dy="0">███████╗██████╗ ██╗   ██╗ ██████╗</tspan>
+    <tspan x="540" dy="32">██╔════╝██╔══██╗██║   ██║██╔════╝</tspan>
+    <tspan x="540" dy="32">█████╗  ██║  ██║██║   ██║██║     </tspan>
+    <tspan x="540" dy="32">██╔══╝  ██║  ██║██║   ██║██║     </tspan>
+    <tspan x="540" dy="32">███████╗██████╔╝╚██████╔╝╚██████╗</tspan>
+    <tspan x="540" dy="32">╚══════╝╚═════╝  ╚═════╝  ╚═════╝</tspan>
+  </text>
+
+  <!-- ATED — second half, blue -->
+  <text x="540" y="555" text-anchor="middle" font-family="'Courier New', 'SF Mono', monospace" font-size="32" fill="rgba(59,130,246,0.85)" letter-spacing="3">
+    <tspan x="540" dy="0"> █████╗ ████████╗███████╗██████╗ </tspan>
+    <tspan x="540" dy="32">██╔══██╗╚══██╔══╝██╔════╝██╔══██╗</tspan>
+    <tspan x="540" dy="32">███████║   ██║   █████╗  ██║  ██║</tspan>
+    <tspan x="540" dy="32">██╔══██║   ██║   ██╔══╝  ██║  ██║</tspan>
+    <tspan x="540" dy="32">██║  ██║   ██║   ███████╗██████╔╝</tspan>
+    <tspan x="540" dy="32">╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═════╝ </tspan>
+  </text>
+
+  <!-- Clean line -->
+  <line x1="280" y1="770" x2="800" y2="770" stroke="rgba(59,130,246,0.2)" stroke-width="0.5"/>
+
+  <!-- TRAVELER in clean Inter -->
+  <text x="540" y="820" text-anchor="middle"
+    font-family="Inter, system-ui, sans-serif" font-weight="300" font-size="38" fill="rgba(59,130,246,0.6)" letter-spacing="16">
+    TRAVELER
+  </text>
+
+  <!-- Tagline -->
+  <text x="540" y="890" text-anchor="middle"
+    font-family="Inter, system-ui, sans-serif" font-weight="300" font-size="18" fill="rgba(255,255,255,0.2)" letter-spacing="8">
+    TANS FADE. SKILLS LAST.
+  </text>
+</svg>
