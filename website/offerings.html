@@ -96,6 +96,40 @@
             border-color: rgba(217, 119, 6, 0.4);
             box-shadow: 0 8px 30px rgba(217, 119, 6, 0.08);
         }
+        .exp-card.launching-soon {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.10) 0%, rgba(245, 158, 11, 0.02) 100%);
+            border-color: rgba(245, 158, 11, 0.35);
+        }
+        .exp-card.launching-soon:hover {
+            border-color: rgba(245, 158, 11, 0.55);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.12);
+        }
+        .launching-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            background: rgba(245,158,11,0.12);
+            border: 1px solid rgba(245,158,11,0.4);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #fbbf24;
+        }
+        .launching-pill::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 9999px;
+            background: #fbbf24;
+            animation: launch-pulse 2s ease-in-out infinite;
+        }
+        @keyframes launch-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
 
         /* Spectrum list rows */
         .spectrum-row {
@@ -430,9 +464,9 @@
     <section class="py-16 px-6 border-t border-white/5" id="coming-soon">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-12">
-                <p class="text-amber-400 text-xs uppercase tracking-widest mb-3">Coming Soon</p>
-                <h2 class="text-2xl md:text-3xl font-light mb-3">Four Culinary Immersions. Four Cities. Real Credentials.</h2>
-                <p class="text-white/40 text-sm max-w-md mx-auto">Sushi in Tokyo. Pastry in Paris. Molecular gastronomy in Barcelona. Yacht chef certification on the Riviera. 8-10 per cohort, master instructors, credentials you carry for life. Click any to explore.</p>
+                <p class="text-amber-400 text-xs uppercase tracking-widest mb-3">Culinary Flagships</p>
+                <h2 class="text-2xl md:text-3xl font-light mb-3">Sushi in Tokyo &amp; Modernist in Barcelona <span class="text-amber-400">— launching soon.</span></h2>
+                <p class="text-white/40 text-sm max-w-md mx-auto">Two founding cohorts opening first. Pastry in Paris and Yacht Chef on the Riviera follow. Master instructors, credentials you carry for life. Click any to explore.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-5" id="culinary-grid"></div>
@@ -589,14 +623,26 @@
                 'ferrandi-pastry-paris': 'Paris'
             };
 
+            const launchingSoonIds = new Set(['sushi-mastery-tokyo', 'avant-garde-cuisine-barcelona']);
+
             culinaryGrid.innerHTML = culinaryFlagships.map(exp => {
                 const loc = locationMap[exp.id] || '';
+                const isLaunching = launchingSoonIds.has(exp.id);
+                const cardClass = isLaunching ? 'exp-card culinary-flagship launching-soon' : 'exp-card culinary-flagship';
+                const launchPill = isLaunching ? '<span class="launching-pill">Launching Soon</span>' : '';
+                const topRight = isLaunching
+                    ? launchPill
+                    : `<span class="text-[10px] text-amber-400/60 uppercase tracking-wider">${loc}</span>`;
+                const locLine = isLaunching
+                    ? `<p class="text-[10px] text-amber-400/60 uppercase tracking-wider mb-2">${loc}</p>`
+                    : '';
                 return `
-                <div class="exp-card culinary-flagship" onclick="openDetail('${exp.id}')">
+                <div class="${cardClass}" onclick="openDetail('${exp.id}')">
                     <div class="flex items-center justify-between mb-3">
                         <span class="tier-badge tier-${exp.tier}">${exp.tier}</span>
-                        <span class="text-[10px] text-amber-400/60 uppercase tracking-wider">${loc}</span>
+                        ${topRight}
                     </div>
+                    ${locLine}
                     <h3 class="font-medium text-[15px] mb-2">${exp.name}</h3>
                     <p class="text-white/40 text-xs leading-relaxed mb-3">${exp.summary}</p>
                     <div class="text-xs text-white/25">${exp.meta}</div>
