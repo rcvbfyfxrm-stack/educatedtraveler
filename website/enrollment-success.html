@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're In — EDUCATEDTRAVELER</title>
+    <meta name="description" content="Your enrollment is confirmed.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
+    <link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+    <link rel="shortcut icon" href="/images/logo-et-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #fff; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+        .cta-button { background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%); transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,102,177,0.3); }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.4); } 50% { box-shadow: 0 0 0 24px rgba(16,185,129,0); } }
+        .check-circle { animation: pulse-glow 2s ease-out 2; }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-6 py-16">
+    <div class="max-w-md w-full text-center">
+
+        <div class="w-16 h-16 mx-auto mb-8 rounded-full check-circle flex items-center justify-center" style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);">
+            <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+
+        <p class="text-xs uppercase tracking-[0.3em] text-emerald-400/70 mb-3 font-mono">Payment confirmed</p>
+        <h1 class="text-3xl md:text-4xl font-light mb-4">You're in.</h1>
+
+        <p class="text-white/60 text-sm leading-relaxed mb-8">
+            Your spot is locked. We've sent a receipt and welcome details to your email — keep an eye on your inbox over the next few days for cohort prep info from your instructor.
+        </p>
+
+        <div class="glass rounded-xl p-6 mb-8 text-left">
+            <p class="text-xs uppercase tracking-wider text-white/40 mb-3 font-mono">Next steps</p>
+            <ol class="space-y-3 text-sm text-white/70">
+                <li class="flex gap-3"><span class="text-bmw-400 font-mono">01</span><span>Watch your inbox — welcome packet within 5 days.</span></li>
+                <li class="flex gap-3"><span class="text-bmw-400 font-mono">02</span><span>Hold off on travel bookings until the packet confirms exact start time and meeting point.</span></li>
+                <li class="flex gap-3"><span class="text-bmw-400 font-mono">03</span><span>Reply to the welcome email with any dietary, mobility, or visa questions.</span></li>
+            </ol>
+        </div>
+
+        <a href="/dashboard" class="cta-button inline-block px-8 py-3.5 rounded-full text-white text-sm font-medium">View Your Dashboard</a>
+
+        <p class="text-white/30 text-xs mt-8">
+            Receipt reference: <span id="ref" class="font-mono">—</span>
+        </p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const sid = params.get('session_id');
+        if (sid) document.getElementById('ref').textContent = sid.slice(-12);
+    </script>
+</body>
+</html>
