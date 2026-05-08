@@ -9,6 +9,9 @@
     <meta property="og:title" content="My Dashboard — EDUCATEDTRAVELER">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
+    <link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+    <link rel="shortcut icon" href="/images/logo-et-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,6 +155,12 @@
         .chip[data-category="culinary"].selected { background: rgba(245, 158, 11, 0.15); border-color: #F59E0B; color: #F59E0B; }
         .chip[data-category="wellness"].selected { background: rgba(249, 115, 22, 0.15); border-color: #F97316; color: #F97316; }
         .chip[data-category="creative"].selected { background: rgba(139, 92, 246, 0.15); border-color: #8B5CF6; color: #8B5CF6; }
+        .chip.pref-chip.selected,
+        .chip.pref-radio.selected {
+            background: rgba(59, 141, 212, 0.18);
+            border-color: #3B8DD4;
+            color: #60A5FA;
+        }
 
         .profile-photo-upload {
             width: 120px;
@@ -289,6 +298,7 @@
                             </div>
                             <input type="file" id="photo-input" accept="image/*" class="hidden">
                             <p class="text-white/20 text-[0.6rem] text-center mt-2">Click to upload</p>
+                            <p id="photo-status" class="hidden text-[0.6rem] text-center mt-2"></p>
                         </div>
                         <div class="flex-1 w-full space-y-4">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -511,10 +521,13 @@
                 <!-- QUEST PREFERENCES -->
                 <div id="pref-section" class="glass-strong rounded-2xl p-8 student-only">
                     <p class="section-label">Your adventure DNA</p>
-                    <p class="text-white/40 text-xs mb-6">These preferences shape which experiences we recommend for you.</p>
+                    <p class="text-white/40 text-xs mb-6">Optional. Shapes what the cohort sees first.</p>
 
                     <div class="mb-6">
-                        <p class="text-xs text-white/50 uppercase tracking-wider mb-3">Elements that call you</p>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full" style="background:#3B8DD4"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#3B8DD4">Where</span>
+                        </div>
                         <div class="flex flex-wrap gap-2">
                             <button class="chip pref-chip" data-pref-group="elements" data-pref-value="ocean">Ocean</button>
                             <button class="chip pref-chip" data-pref-group="elements" data-pref-value="mountain">Mountain</button>
@@ -524,33 +537,17 @@
                         </div>
                     </div>
 
-                    <div class="mb-6">
-                        <p class="text-xs text-white/50 uppercase tracking-wider mb-3">What you're looking for</p>
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full" style="background:#3B8DD4"></div>
+                            <span class="text-xs font-medium uppercase tracking-wider" style="color:#3B8DD4">Why</span>
+                        </div>
                         <div class="flex flex-wrap gap-2">
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="certification">Get certified</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="career">Career change</button>
-                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="stories">Unforgettable stories</button>
+                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="stories">Earned stories</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="reset">Total reset</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="rare">Rare access</button>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <p class="text-xs text-white/50 uppercase tracking-wider mb-3">Time commitment</p>
-                            <div class="flex flex-wrap gap-2">
-                                <button class="chip pref-radio" data-pref-group="time_preference" data-pref-value="foundation">7 days – 3 weeks</button>
-                                <button class="chip pref-radio" data-pref-group="time_preference" data-pref-value="mastery">1-2 months</button>
-                                <button class="chip pref-radio" data-pref-group="time_preference" data-pref-value="saga">3-6 months</button>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="text-xs text-white/50 uppercase tracking-wider mb-3">Intensity</p>
-                            <div class="flex flex-wrap gap-2">
-                                <button class="chip pref-radio" data-pref-group="intensity" data-pref-value="1">Gentle</button>
-                                <button class="chip pref-radio" data-pref-group="intensity" data-pref-value="2">Moderate</button>
-                                <button class="chip pref-radio" data-pref-group="intensity" data-pref-value="3">All in</button>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -743,11 +740,14 @@
                 </div>
 
                 <!-- SAVE -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-between items-center pb-8">
-                    <p class="text-white/20 text-xs">Your crew card will be visible to cohort members.</p>
-                    <button class="cta-button px-8 py-3 rounded-full text-sm font-medium" id="save-profile-btn">
-                        Save & Continue
-                    </button>
+                <div class="pb-8">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
+                        <p class="text-white/20 text-xs">Your crew card will be visible to cohort members.</p>
+                        <button class="cta-button px-8 py-3 rounded-full text-sm font-medium" id="save-profile-btn">
+                            Save & Continue
+                        </button>
+                    </div>
+                    <p id="save-feedback" class="hidden mt-3 text-xs text-red-400 text-right"></p>
                 </div>
             </div>
         </div>
@@ -937,7 +937,7 @@
                 <div class="flex items-center gap-6">
                     <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
                     <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Adventures</a>
-                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
+                    <a href="mailto:arnaudcallier@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
                 </div>
             </div>
         </div>
@@ -1336,8 +1336,8 @@
             if (profileFormInitialized) return;
             profileFormInitialized = true;
 
-            // Chip selection
-            document.querySelectorAll('#profile-overlay .chip:not(:has(.cert-check))').forEach(chip => {
+            // Chip selection (interests only — pref chips and cert chips handled separately)
+            document.querySelectorAll('#profile-overlay .chip[data-category]:not(:has(.cert-check))').forEach(chip => {
                 chip.addEventListener('click', () => {
                     chip.classList.toggle('selected');
                     updateProfileProgress();
@@ -1363,6 +1363,7 @@
             // Photo upload
             const photoEl = document.getElementById('photo-upload');
             const photoInput = document.getElementById('photo-input');
+            const photoStatus = document.getElementById('photo-status');
             photoEl.addEventListener('click', () => photoInput.click());
             photoInput.addEventListener('change', async (e) => {
                 const file = e.target.files[0];
@@ -1375,19 +1376,48 @@
                 };
                 reader.readAsDataURL(file);
 
-                // Upload to Supabase Storage if available
+                // Upload to Supabase Storage
+                if (photoStatus) {
+                    photoStatus.textContent = 'Uploading…';
+                    photoStatus.className = 'text-[0.6rem] text-center mt-2 text-white/50';
+                }
+
                 const user = await window.auth?.getUser();
-                if (user && window.supabaseClient) {
-                    try {
-                        const ext = file.name.split('.').pop();
-                        const path = user.id + '/avatar.' + ext;
-                        await window.supabaseClient.storage.from('avatars').upload(path, file, { upsert: true });
-                        const { data } = window.supabaseClient.storage.from('avatars').getPublicUrl(path);
-                        if (data?.publicUrl) {
-                            await window.supabaseClient.from('profiles').update({ avatar_url: data.publicUrl }).eq('id', user.id);
-                        }
-                    } catch (err) {
-                        console.log('Photo upload to storage skipped:', err.message);
+                if (!user || !window.supabaseClient) {
+                    if (photoStatus) {
+                        photoStatus.textContent = 'Sign in to save photo';
+                        photoStatus.className = 'text-[0.6rem] text-center mt-2 text-amber-400';
+                    }
+                    return;
+                }
+
+                try {
+                    const ext = (file.name.split('.').pop() || 'jpg').toLowerCase();
+                    const path = user.id + '/avatar.' + ext;
+                    const { error: upErr } = await window.supabaseClient.storage
+                        .from('avatars')
+                        .upload(path, file, { upsert: true, contentType: file.type });
+                    if (upErr) throw upErr;
+
+                    const { data: urlData } = window.supabaseClient.storage.from('avatars').getPublicUrl(path);
+                    const publicUrl = urlData?.publicUrl ? urlData.publicUrl + '?t=' + Date.now() : null;
+                    if (!publicUrl) throw new Error('Could not build public URL');
+
+                    const { error: updErr } = await window.supabaseClient
+                        .from('profiles')
+                        .update({ avatar_url: publicUrl })
+                        .eq('id', user.id);
+                    if (updErr) throw updErr;
+
+                    if (photoStatus) {
+                        photoStatus.textContent = 'Saved';
+                        photoStatus.className = 'text-[0.6rem] text-center mt-2 text-emerald-400';
+                    }
+                } catch (err) {
+                    console.error('Photo upload error:', err);
+                    if (photoStatus) {
+                        photoStatus.textContent = (err?.message || 'Upload failed') + ' — check avatars bucket';
+                        photoStatus.className = 'text-[0.6rem] text-center mt-2 text-red-400';
                     }
                 }
             });
@@ -1516,6 +1546,7 @@
             const btn = document.getElementById('save-profile-btn');
             btn.textContent = 'Saving...';
             btn.disabled = true;
+            document.getElementById('save-feedback')?.classList.add('hidden');
 
             const interests = {};
             document.querySelectorAll('#profile-overlay .chip.selected[data-category]:not(:has(.cert-check))').forEach(chip => {
@@ -1531,7 +1562,7 @@
 
             const profileData = {
                 first_name: document.getElementById('p-first-name').value.trim(),
-                age: document.getElementById('p-age').value ? parseInt(document.getElementById('p-age').value) : null,
+                age: document.getElementById('p-age').value.trim() || null,
                 location: document.getElementById('p-location').value.trim(),
                 status: document.getElementById('p-status').value === 'other'
                     ? 'other:' + (document.getElementById('p-status-other').value.trim() || 'Other')
@@ -1543,7 +1574,8 @@
                     : document.getElementById('p-profession').value,
                 adventure_years: document.getElementById('p-adventure-years').value,
                 previous_experience: document.getElementById('p-previous-experience').value.trim(),
-                skills: document.getElementById('p-skills').value.trim(),
+                skills: document.getElementById('p-skills').value
+                    .split(/[,\n]/).map(s => s.trim()).filter(Boolean),
                 fitness: document.getElementById('p-fitness').value,
                 comfort_zone: document.getElementById('p-comfort').value,
                 credentials: credentials,
@@ -1561,11 +1593,12 @@
             const user = await window.auth?.getUser();
             if (user) {
                 try {
-                    await window.supabaseClient.from('profiles').upsert({
+                    const { error: profileError } = await window.supabaseClient.from('profiles').upsert({
                         id: user.id,
                         ...profileData,
                         updated_at: new Date().toISOString()
                     });
+                    if (profileError) throw profileError;
 
                     // Save quest preferences
                     const prefElements = [];
@@ -1576,7 +1609,7 @@
                     const prefIntensity = document.querySelector('.pref-radio.selected[data-pref-group="intensity"]')?.dataset.prefValue || null;
 
                     if (prefElements.length || prefDesires.length || prefTime || prefIntensity) {
-                        await window.supabaseClient.from('user_preferences').upsert({
+                        const { error: prefsError } = await window.supabaseClient.from('user_preferences').upsert({
                             user_id: user.id,
                             elements: prefElements,
                             desires: prefDesires,
@@ -1584,6 +1617,7 @@
                             intensity: prefIntensity ? parseInt(prefIntensity) : null,
                             updated_at: new Date().toISOString()
                         });
+                        if (prefsError) throw prefsError;
 
                         // Update dashboard display
                         const elLabels = { ocean: 'Ocean', mountain: 'Mountain', city: 'City', temple: 'Temple', wild: 'Wild' };
@@ -1618,9 +1652,19 @@
                     }, 1200);
                 } catch (err) {
                     console.error('Save error:', err);
-                    btn.textContent = 'Error — try again';
+                    const msg = err?.message || err?.details || err?.hint || 'Unknown error';
+                    btn.textContent = 'Save failed';
                     btn.style.background = 'linear-gradient(135deg, #DC2626, #EF4444)';
-                    setTimeout(() => { btn.textContent = 'Save & Continue'; btn.style.background = ''; btn.disabled = false; }, 2000);
+                    const feedback = document.getElementById('save-feedback');
+                    if (feedback) {
+                        feedback.textContent = msg;
+                        feedback.classList.remove('hidden');
+                    }
+                    setTimeout(() => {
+                        btn.textContent = 'Save & Continue';
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 4000);
                 }
             }
         });
@@ -1684,7 +1728,23 @@
 
                 if (data.avatar_url) {
                     const photoEl = document.getElementById('photo-upload');
-                    photoEl.innerHTML = '<img src="' + escapeHtml(data.avatar_url) + '" alt="Photo"><div class="upload-hint"><svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg></div>';
+                    const img = document.createElement('img');
+                    img.src = data.avatar_url;
+                    img.alt = 'Photo';
+                    img.onerror = () => {
+                        photoEl.innerHTML = '<svg class="w-10 h-10 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>';
+                        const ps = document.getElementById('photo-status');
+                        if (ps) {
+                            ps.textContent = 'Photo URL broken — re-upload';
+                            ps.className = 'text-[0.6rem] text-center mt-2 text-amber-400';
+                        }
+                    };
+                    photoEl.innerHTML = '';
+                    photoEl.appendChild(img);
+                    const hint = document.createElement('div');
+                    hint.className = 'upload-hint';
+                    hint.innerHTML = '<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>';
+                    photoEl.appendChild(hint);
                 }
 
                 // Set visibility selector

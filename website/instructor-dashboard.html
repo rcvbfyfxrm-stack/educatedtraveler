@@ -9,6 +9,9 @@
     <meta property="og:title" content="Instructor Dashboard — EDUCATEDTRAVELER">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
+    <link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+    <link rel="shortcut icon" href="/images/logo-et-icon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -233,7 +236,7 @@
             <h1 class="text-2xl font-light mb-4">Application under review</h1>
             <p class="text-white/50 text-sm mb-4">We've received your application and are reviewing it. We'll be in touch soon.</p>
             <p class="text-white/30 text-xs">
-                Questions? Email <a href="mailto:ceo-educatedtraveler@pm.me" class="text-bmw-400">ceo-educatedtraveler@pm.me</a>
+                Questions? Email <a href="mailto:arnaudcallier@pm.me" class="text-bmw-400">arnaudcallier@pm.me</a>
             </p>
             <p class="text-white/30 text-xs mt-6">
                 <button id="pending-sign-out" class="text-white/40 hover:text-white transition-colors underline">Sign out</button>
@@ -318,6 +321,48 @@
                         <p class="text-white/40 text-xs mt-1">Spots Left</p>
                     </div>
                 </div>
+            </section>
+
+            <!-- Payouts & Revenue -->
+            <section id="payouts-section" class="mb-10 fade-up delay-2">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-light">Payouts & Revenue</h2>
+                    <span id="stripe-status-badge" class="status-badge status-pending">checking…</span>
+                </div>
+
+                <!-- Connect Stripe banner (shown when not connected or not ready) -->
+                <div id="stripe-connect-banner" class="hidden glass rounded-xl p-6 mb-4">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <p id="stripe-banner-title" class="text-sm font-medium mb-1">Connect Stripe to accept payments</p>
+                            <p id="stripe-banner-desc" class="text-white/50 text-xs">We use Stripe Connect — your payouts go directly to your own Stripe account. EducatedTraveler keeps a 10% platform fee on each enrollment.</p>
+                        </div>
+                        <button id="connect-stripe-btn" class="cta-button px-6 py-3 rounded-full text-white text-sm font-medium whitespace-nowrap">
+                            Connect Stripe
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Revenue summary (shown when Stripe connected) -->
+                <div id="stripe-revenue-summary" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="stat-card rounded-xl p-5 text-center">
+                        <p id="rev-paid-students" class="text-2xl font-light text-bmw-400">0</p>
+                        <p class="text-white/40 text-xs mt-1">Paid Students</p>
+                    </div>
+                    <div class="stat-card rounded-xl p-5 text-center">
+                        <p id="rev-gross" class="text-2xl font-light text-bmw-400">$0</p>
+                        <p class="text-white/40 text-xs mt-1">Gross Revenue</p>
+                    </div>
+                    <div class="stat-card rounded-xl p-5 text-center">
+                        <p id="rev-payout" class="text-2xl font-light text-emerald-400">$0</p>
+                        <p class="text-white/40 text-xs mt-1">Your Payout (90%)</p>
+                    </div>
+                    <div class="stat-card rounded-xl p-5 text-center">
+                        <p id="rev-pending" class="text-2xl font-light text-amber-400">0</p>
+                        <p class="text-white/40 text-xs mt-1">Pending</p>
+                    </div>
+                </div>
+                <p id="stripe-payout-note" class="hidden text-white/30 text-xs mt-3">Stripe pays out to your bank on a rolling 2-day schedule by default. Manage payout cadence in your Stripe dashboard.</p>
             </section>
 
             <!-- Cohorts List -->
@@ -512,7 +557,7 @@
                 <div class="flex items-center gap-6">
                     <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
                     <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Adventures</a>
-                    <a href="mailto:ceo-educatedtraveler@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
+                    <a href="mailto:arnaudcallier@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
                 </div>
             </div>
         </div>
@@ -707,7 +752,8 @@
         // ========================================
 
         function renderDashboard(data) {
-            const { instructor, cohorts } = data;
+            const { instructor, cohorts, revenue } = data;
+            renderStripePayouts(instructor, revenue || []);
 
             // Profile header
             const initials = (instructor.name || '??').slice(0, 2).toUpperCase();
@@ -740,7 +786,9 @@
             }
 
             noCohorts.classList.add('hidden');
-            container.innerHTML = cohorts.map(cohort => renderCohortCard(cohort)).join('');
+            const revMap = {};
+            (revenue || []).forEach(r => { revMap[r.cohort_id] = r; });
+            container.innerHTML = cohorts.map(cohort => renderCohortCard(cohort, revMap[cohort.id])).join('');
 
             // Attach toggle listeners for student lists
             container.querySelectorAll('[data-toggle-students]').forEach(btn => {
@@ -804,7 +852,98 @@
             });
         }
 
-        function renderCohortCard(cohort) {
+        // ========================================
+        // STRIPE PAYOUTS RENDERING
+        // ========================================
+
+        function fmtUSD(cents) {
+            const v = (cents || 0) / 100;
+            return '$' + v.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        }
+
+        function renderStripePayouts(instructor, revenue) {
+            const badge = document.getElementById('stripe-status-badge');
+            const banner = document.getElementById('stripe-connect-banner');
+            const summary = document.getElementById('stripe-revenue-summary');
+            const note = document.getElementById('stripe-payout-note');
+            const bannerTitle = document.getElementById('stripe-banner-title');
+            const bannerDesc = document.getElementById('stripe-banner-desc');
+            const btn = document.getElementById('connect-stripe-btn');
+
+            const hasAccount = !!instructor.stripe_account_id;
+            const ready = hasAccount && instructor.stripe_charges_enabled;
+            const onboardingStarted = hasAccount && !ready;
+
+            if (!hasAccount) {
+                badge.textContent = 'not connected';
+                badge.className = 'status-badge status-draft';
+                bannerTitle.textContent = 'Connect Stripe to accept payments';
+                bannerDesc.textContent = 'Stripe Connect: payouts go directly to your bank. EducatedTraveler retains a 10% platform fee.';
+                btn.textContent = 'Connect Stripe';
+                banner.classList.remove('hidden');
+            } else if (onboardingStarted) {
+                badge.textContent = 'onboarding';
+                badge.className = 'status-badge status-pending';
+                bannerTitle.textContent = 'Finish your Stripe onboarding';
+                bannerDesc.textContent = 'You started but haven\'t completed Stripe verification. Resume to start accepting payments.';
+                btn.textContent = 'Resume Onboarding';
+                banner.classList.remove('hidden');
+            } else {
+                badge.textContent = 'connected';
+                badge.className = 'status-badge status-published';
+                banner.classList.add('hidden');
+            }
+
+            // Revenue summary
+            if (ready) {
+                let gross = 0, paid = 0, pending = 0;
+                revenue.forEach(r => {
+                    gross += Number(r.gross_cents || 0);
+                    paid += Number(r.paid_count || 0);
+                    pending += Number(r.pending_count || 0);
+                });
+                const payout = Math.round(gross * 0.9);
+
+                document.getElementById('rev-paid-students').textContent = paid;
+                document.getElementById('rev-gross').textContent = fmtUSD(gross);
+                document.getElementById('rev-payout').textContent = fmtUSD(payout);
+                document.getElementById('rev-pending').textContent = pending;
+                summary.classList.remove('hidden');
+                note.classList.remove('hidden');
+            } else {
+                summary.classList.add('hidden');
+                note.classList.add('hidden');
+            }
+
+            // Connect button handler
+            btn.onclick = async () => {
+                btn.disabled = true;
+                const original = btn.textContent;
+                btn.textContent = 'Opening Stripe…';
+                try {
+                    const { url } = await window.db.startStripeOnboarding();
+                    window.location.href = url;
+                } catch (err) {
+                    console.error(err);
+                    alert('Could not open Stripe onboarding: ' + err.message);
+                    btn.disabled = false;
+                    btn.textContent = original;
+                }
+            };
+
+            // If returning from Stripe, refresh once.
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('stripe') === 'return') {
+                params.delete('stripe');
+                const cleanUrl = window.location.pathname + (params.toString() ? '?' + params : '');
+                window.history.replaceState({}, '', cleanUrl);
+                if (hasAccount && !ready) {
+                    setTimeout(() => window.location.reload(), 1500);
+                }
+            }
+        }
+
+        function renderCohortCard(cohort, rev) {
             const enrolled = cohort.enrollments?.filter(e => e.status === 'enrolled') || [];
             const enrolledCount = enrolled.length;
             const capacityPercent = Math.min((enrolledCount / cohort.capacity) * 100, 100);
@@ -870,6 +1009,23 @@
                             <div class="capacity-fill h-full rounded-full ${isFilling ? 'bg-bmw-400' : 'bg-bmw-500'}" style="width: ${capacityPercent}%"></div>
                         </div>
                     </div>
+
+                    ${rev && (rev.paid_count > 0 || rev.pending_count > 0) ? `
+                        <div class="grid grid-cols-3 gap-3 mb-4 p-3 rounded-lg bg-white/[0.02] border border-white/5">
+                            <div>
+                                <p class="text-[10px] uppercase tracking-wider text-white/30">Paid</p>
+                                <p class="text-sm text-white/80">${rev.paid_count} ${rev.pending_count > 0 ? `<span class="text-amber-400/70">+ ${rev.pending_count} pending</span>` : ''}</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-wider text-white/30">Gross</p>
+                                <p class="text-sm text-white/80">${fmtUSD(rev.gross_cents || 0)}</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-wider text-white/30">Your Payout</p>
+                                <p class="text-sm text-emerald-400">${fmtUSD(Math.round((rev.gross_cents || 0) * 0.9))}</p>
+                            </div>
+                        </div>
+                    ` : ''}
 
                     <!-- Student list toggle -->
                     ${enrolledCount > 0 ? `

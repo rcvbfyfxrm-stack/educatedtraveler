@@ -464,45 +464,21 @@
                                 class="w-full rounded-xl px-4 py-3 text-sm"></textarea>
                         </div>
 
-                        <div>
-                            <label class="block text-sm text-white/40 mb-3">Where would you love to teach?</label>
-                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="japan" class="rounded">
-                                    <span>Japan</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="india" class="rounded">
-                                    <span>India</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="gibraltar" class="rounded">
-                                    <span>Gibraltar</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="france" class="rounded">
-                                    <span>France</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="thailand" class="rounded">
-                                    <span>Thailand</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="morocco" class="rounded">
-                                    <span>Morocco</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="switzerland" class="rounded">
-                                    <span>Switzerland</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="bali" class="rounded">
-                                    <span>Bali</span>
-                                </label>
-                                <label class="flex items-center gap-2 cursor-pointer text-sm text-white/60 hover:text-white/80 transition-colors">
-                                    <input type="checkbox" name="locations[]" value="other" class="rounded">
-                                    <span>Other</span>
-                                </label>
+                        <div class="space-y-4">
+                            <label class="block text-sm text-white/40 mb-2">Where do you teach? <span class="text-white/30">— your studio, school, kitchen, dojo, farm, dive shop…</span></label>
+                            <input type="text" name="home_base" placeholder="e.g. my sushi school in Tokyo, my dive shop in Koh Tao"
+                                class="w-full rounded-xl px-4 py-3 text-sm">
+                            <p class="text-white/30 text-xs">Most of our cohorts happen at the source — at your place. That's the whole point.</p>
+
+                            <label class="flex items-start gap-3 cursor-pointer pt-2">
+                                <input type="checkbox" id="willing-to-travel" name="willing_to_travel" value="yes" class="mt-1 rounded">
+                                <span class="text-sm text-white/70">I'd also be open to traveling to teach elsewhere</span>
+                            </label>
+
+                            <div id="travel-locations" class="hidden">
+                                <label class="block text-sm text-white/40 mb-2">Where would you travel to? <span class="text-white/30">— any number, any place</span></label>
+                                <textarea name="travel_locations" rows="2" placeholder="e.g. Bali, southern France, anywhere on the Mediterranean coast, Japan in spring…"
+                                    class="w-full rounded-xl px-4 py-3 text-sm"></textarea>
                             </div>
                         </div>
 
@@ -559,8 +535,8 @@
             <div class="text-center md:text-left">
                 <p class="text-lg font-medium mb-1">EducatedTraveler</p>
                 <p class="text-white/30 text-sm">Earned, not bought. Certified at the source.</p>
-                <a href="mailto:ceo-educatedtraveler@pm.me" class="text-blue-400/60 hover:text-blue-400 text-sm transition-colors">
-                    ceo-educatedtraveler@pm.me
+                <a href="mailto:arnaudcallier@pm.me" class="text-blue-400/60 hover:text-blue-400 text-sm transition-colors">
+                    arnaudcallier@pm.me
                 </a>
             </div>
             <a href="index.html" class="text-white/40 hover:text-white text-sm transition-colors">
@@ -601,6 +577,10 @@
             }
         });
 
+        document.getElementById('willing-to-travel')?.addEventListener('change', function(e) {
+            document.getElementById('travel-locations').classList.toggle('hidden', !e.target.checked);
+        });
+
         document.getElementById('instructor-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
@@ -613,35 +593,68 @@
             submitBtn.classList.add('opacity-50');
 
             try {
-                // Submit to Netlify Forms (backup)
                 const formData = new FormData(form);
+                const homeBase = (formData.get('home_base') || '').trim();
+                const travelRaw = (formData.get('travel_locations') || '').trim();
+                const willingToTravel = formData.get('willing_to_travel') === 'yes';
+                const travelList = willingToTravel && travelRaw
+                    ? travelRaw.split(/[,\n;]+/).map(s => s.trim()).filter(Boolean)
+                    : [];
+
+                const applicationPayload = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    location: formData.get('location') || null,
+                    website: formData.get('website') || null,
+                    discipline: formData.get('discipline') || null,
+                    credentials: formData.get('credentials') || null,
+                    approach: formData.get('approach') || null,
+                    excitement: formData.get('excitement') || null,
+                    ideal_students: formData.get('ideal_students') || null,
+                    home_base: homeBase || null,
+                    willing_to_travel: willingToTravel,
+                    travel_locations: willingToTravel ? travelRaw : null,
+                    availability: formData.get('availability') || null,
+                    additional: formData.get('additional') || null
+                };
+
+                // Submit to Netlify Forms (backup capture in Netlify dashboard)
                 await fetch('/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: new URLSearchParams(formData).toString()
-                });
+                }).catch(err => console.warn('Netlify backup failed:', err));
 
-                // Also save to Supabase if user is signed in (or prompt sign-in)
+                // Email the founder via Supabase Edge Function (primary notification path)
+                try {
+                    if (window.supabaseClient) {
+                        const { error: fnError } = await window.supabaseClient.functions.invoke(
+                            'notify-instructor-application',
+                            { body: applicationPayload }
+                        );
+                        if (fnError) console.warn('Notify function error:', fnError);
+                    }
+                } catch (notifyErr) {
+                    console.warn('Notification email failed (form still saved):', notifyErr);
+                }
+
+                // Also save to Supabase if user is signed in
                 const user = await window.auth?.getUser();
                 if (user) {
                     try {
-                        const locationCheckboxes = form.querySelectorAll('input[name="locations[]"]:checked');
-                        const preferredLocations = Array.from(locationCheckboxes).map(cb => cb.value);
-
                         await window.db.createInstructorApplication(user.id, {
-                            name: formData.get('name'),
-                            email: formData.get('email'),
-                            location: formData.get('location') || null,
-                            website: formData.get('website') || null,
-                            discipline: formData.get('discipline') || null,
-                            credentials: formData.get('credentials') || null,
-                            approach: formData.get('approach') || null,
-                            preferred_locations: preferredLocations,
-                            availability: formData.get('availability') || null
+                            name: applicationPayload.name,
+                            email: applicationPayload.email,
+                            location: applicationPayload.location || homeBase || null,
+                            website: applicationPayload.website,
+                            discipline: applicationPayload.discipline,
+                            credentials: applicationPayload.credentials,
+                            approach: applicationPayload.approach,
+                            preferred_locations: homeBase ? [homeBase, ...travelList] : travelList,
+                            availability: applicationPayload.availability
                         });
                     } catch (dbError) {
-                        // Don't block form success if Supabase save fails
-                        console.warn('Supabase save failed (Netlify backup succeeded):', dbError);
+                        console.warn('Supabase save failed:', dbError);
                     }
                 }
 
