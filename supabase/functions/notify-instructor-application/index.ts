@@ -114,32 +114,86 @@ serve(async (req) => {
   </div>
 </body></html>`;
 
-  try {
+  const firstName = (app.name || "").split(/\s+/)[0] || "there";
+  const applicantHtml = `<!DOCTYPE html>
+<html><body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#ffffff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span>
+    </div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;">
+      <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">Application Received</p>
+      <p style="color:#ffffff;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hi ${escape(firstName)},</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">Thank you for reaching out about teaching with EducatedTraveler. Your application is in front of me and I read every one personally.</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">If your craft and approach feel like a fit, I'll come back to you within a week to schedule a 15-minute call.</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 28px 0;">Want to skip the wait? Book a slot directly:</p>
+      <div style="text-align:center;margin:28px 0;">
+        <a href="https://cal.com/educatedtraveler/instructor-intro" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">Book a 15-min call</a>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:0 4px;">
+      <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
+      <p style="color:rgba(255,255,255,0.25);font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
+    </div>
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;">
+      <p style="color:rgba(255,255,255,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="margin:12px 0 0 0;"><a href="https://educatedtraveler.app" style="color:rgba(59,141,212,0.5);font-size:11px;text-decoration:none;">educatedtraveler.app</a></p>
+    </div>
+  </div>
+</body></html>`;
+
+  async function send(payload: Record<string, unknown>) {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
-      body: JSON.stringify({
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    return { ok: res.ok, data };
+  }
+
+  try {
+    const [founderResult, applicantResult] = await Promise.all([
+      send({
         from: "EducatedTraveler <founder@educatedtraveler.app>",
         to: [NOTIFY_TO],
         reply_to: app.email,
         subject,
         html,
       }),
-    });
+      send({
+        from: "Arnaud <founder@educatedtraveler.app>",
+        to: [app.email],
+        reply_to: NOTIFY_TO,
+        subject: "We received your EducatedTraveler application",
+        html: applicantHtml,
+      }),
+    ]);
 
-    const data = await res.json();
-    if (!res.ok) {
-      console.error("Resend error:", data);
-      return new Response(JSON.stringify({ error: "Email send failed", detail: data }), {
+    if (!founderResult.ok) {
+      console.error("Founder email failed:", founderResult.data);
+    }
+    if (!applicantResult.ok) {
+      console.error("Applicant confirmation failed:", applicantResult.data);
+    }
+
+    // Founder email is the critical path — only fail the request if that one breaks.
+    if (!founderResult.ok) {
+      return new Response(JSON.stringify({ error: "Founder email failed", detail: founderResult.data }), {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    return new Response(JSON.stringify({ success: true, id: data.id }), {
+    return new Response(JSON.stringify({
+      success: true,
+      founder_id: founderResult.data.id,
+      applicant_id: applicantResult.ok ? applicantResult.data.id : null,
+      applicant_email_sent: applicantResult.ok,
+    }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
