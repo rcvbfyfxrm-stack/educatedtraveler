@@ -565,10 +565,134 @@
             })
         );
 
+        const revenue = await getInstructorRevenue(instructor.id);
+
         return {
             instructor,
-            cohorts: cohortsWithEnrollments
+            cohorts: cohortsWithEnrollments,
+            revenue
         };
+    }
+
+    // ========================================
+    // STRIPE PAYMENTS
+    // ========================================
+
+    async function getInstructorRevenue(instructorId) {
+        const { data, error } = await supabase
+            .from('instructor_cohort_revenue')
+            .select('*')
+            .eq('instructor_id', instructorId);
+
+        if (error) {
+            console.error('Error fetching revenue:', error);
+            return [];
+        }
+        return data || [];
+    }
+
+    async function getCohortPayments(cohortId) {
+        const { data, error } = await supabase
+            .from('payments')
+            .select('id, amount_cents, application_fee_cents, currency, status, customer_email, created_at, event_type')
+            .eq('cohort_id', cohortId)
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error('Error fetching payments:', error);
+            return [];
+        }
+        return data || [];
+    }
+
+    async function startStripeOnboarding() {
+        const session = await supabase.auth.getSession();
+        const token = session.data.session?.access_token;
+        if (!token) throw new Error('Not signed in');
+
+        const res = await fetch(window.SUPABASE_URL + '/functions/v1/stripe-connect-onboard', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        });
+        const body = await res.json();
+        if (!res.ok) throw new Error(body.error || 'Onboarding failed');
+        return body; // { url, account_id }
+    }
+
+    async function _callFn(name, body) {
+        const session = await supabase.auth.getSession();
+        const token = session.data.session?.access_token;
+        if (!token) throw new Error('Not signed in');
+        const res = await fetch(window.SUPABASE_URL + '/functions/v1/' + name, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+            body: body ? JSON.stringify(body) : undefined
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || (name + ' failed'));
+        return data;
+    }
+
+    async function inviteInstructor(payload) {
+        return _callFn('invite-instructor', payload);
+    }
+
+    async function sendChangeRequest({ topic, subject, body, cohort_id }) {
+        return _callFn('notify', { kind: 'change_request', topic, subject, body, cohort_id });
+    }
+
+    async function submitCohortForReview(cohortId, note) {
+        return _callFn('notify', { kind: 'cohort_submitted', cohort_id: cohortId, note });
+    }
+
+    async function approveCohort(cohortId, note) {
+        return _callFn('notify', { kind: 'cohort_approved', cohort_id: cohortId, note });
+    }
+
+    async function requestCohortChanges(cohortId, note) {
+        return _callFn('notify', { kind: 'cohort_changes_requested', cohort_id: cohortId, note });
+    }
+
+    async function getInstructorMessages(instructorId, limit) {
+        const { data, error } = await supabase
+            .from('instructor_messages')
+            .select('*')
+            .eq('instructor_id', instructorId)
+            .order('created_at', { ascending: false })
+            .limit(limit || 50);
+        if (error) { console.error(error); return []; }
+        return data || [];
+    }
+
+    async function getPendingReviewCohorts() {
+        const { data, error } = await supabase
+            .from('cohorts')
+            .select('*, instructors(name, email)')
+            .eq('status', 'pending_review')
+            .order('submitted_for_review_at', { ascending: true });
+        if (error) { console.error(error); return []; }
+        return data || [];
+    }
+
+    async function startCohortCheckout(cohortId) {
+        const session = await supabase.auth.getSession();
+        const token = session.data.session?.access_token;
+        if (!token) throw new Error('Not signed in');
+
+        const res = await fetch(window.SUPABASE_URL + '/functions/v1/stripe-checkout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ cohort_id: cohortId })
+        });
+        const body = await res.json();
+        if (!res.ok) throw new Error(body.error || 'Checkout failed');
+        return body; // { url, session_id }
     }
 
     // ========================================
@@ -654,6 +778,21 @@
 
         // Public
         getPublicProfile,
+
+        // Stripe payments
+        getInstructorRevenue,
+        getCohortPayments,
+        startStripeOnboarding,
+        startCohortCheckout,
+
+        // Instructor workflow
+        inviteInstructor,
+        sendChangeRequest,
+        submitCohortForReview,
+        approveCohort,
+        requestCohortChanges,
+        getInstructorMessages,
+        getPendingReviewCohorts,
 
         // Combined
         saveQuestResults,

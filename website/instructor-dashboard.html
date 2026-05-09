@@ -119,6 +119,7 @@
         .status-cancelled { background: rgba(239,68,68,0.2); color: #f87171; }
         .status-pending { background: rgba(0,102,177,0.15); color: #4d94d9; }
         .status-approved { background: rgba(0,102,177,0.2); color: #3B8DD4; }
+        .status-pending_review { background: rgba(245,158,11,0.18); color: #fbbf24; }
 
         .enrollment-row {
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -546,6 +547,96 @@
         </div>
     </div>
 
+    <!-- Floating Request-a-Change FAB -->
+    <button id="contact-fab" class="hidden fixed bottom-6 right-6 z-40 cta-button px-5 py-3 rounded-full text-white text-sm font-medium flex items-center gap-2" style="box-shadow:0 12px 40px rgba(0,102,177,0.35);">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        Request a change
+    </button>
+
+    <!-- Request-a-Change Modal -->
+    <div id="contact-modal" class="hidden fixed inset-0 z-[110] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="contact-modal-backdrop"></div>
+        <div class="relative glass rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto" style="background:rgba(10,10,10,0.97);">
+            <button id="close-contact-modal" class="absolute top-4 right-4 text-white/50 hover:text-white p-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+
+            <h3 class="text-xl font-light mb-1">Request a change</h3>
+            <p class="text-white/40 text-xs mb-6">Anything you need updated. Goes directly to Arnaud — both of you get a copy in your inbox.</p>
+
+            <form id="contact-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs text-white/40 mb-1">What's this about?</label>
+                    <select name="topic" id="contact-topic" required class="w-full rounded-xl px-4 py-3 text-sm">
+                        <option value="cohort_dates">Cohort dates</option>
+                        <option value="cohort_price">Cohort price</option>
+                        <option value="cohort_capacity">Cohort capacity</option>
+                        <option value="cohort_description">Cohort description / curriculum</option>
+                        <option value="profile_bio">My bio / profile</option>
+                        <option value="page_content">Public page content</option>
+                        <option value="payments_payouts">Payments & payouts</option>
+                        <option value="student_question">A student wrote me</option>
+                        <option value="other">Something else</option>
+                    </select>
+                </div>
+                <div id="contact-cohort-wrap">
+                    <label class="block text-xs text-white/40 mb-1">Which cohort? (optional)</label>
+                    <select name="cohort_id" id="contact-cohort" class="w-full rounded-xl px-4 py-3 text-sm">
+                        <option value="">— None / not specific —</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs text-white/40 mb-1">Subject (optional)</label>
+                    <input type="text" name="subject" id="contact-subject" placeholder="Short summary" class="w-full rounded-xl px-4 py-3 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs text-white/40 mb-1">What needs to happen?</label>
+                    <textarea name="body" id="contact-body" rows="5" required placeholder="Be specific — exact dates, prices, copy changes…" class="w-full rounded-xl px-4 py-3 text-sm"></textarea>
+                </div>
+                <button type="submit" id="contact-submit" class="w-full py-3 cta-button rounded-full text-white font-medium text-sm">
+                    Send to Arnaud
+                </button>
+                <p class="text-white/25 text-xs text-center">You'll get an email confirmation. Average response time: 24h.</p>
+            </form>
+
+            <div id="contact-success" class="hidden text-center py-6">
+                <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center" style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);">
+                    <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p class="text-white text-sm mb-1">Sent.</p>
+                <p class="text-white/40 text-xs">Arnaud's been notified. Check your inbox for a copy.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit-for-Review Modal -->
+    <div id="submit-review-modal" class="hidden fixed inset-0 z-[110] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="submit-review-backdrop"></div>
+        <div class="relative glass rounded-2xl p-8 max-w-lg w-full" style="background:rgba(10,10,10,0.97);">
+            <button id="close-submit-review" class="absolute top-4 right-4 text-white/50 hover:text-white p-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <h3 class="text-xl font-light mb-1">Submit for review</h3>
+            <p id="submit-review-cohort-title" class="text-white/40 text-xs mb-6"></p>
+
+            <p class="text-white/60 text-sm leading-relaxed mb-4">
+                Once submitted, Arnaud will review the cohort details (dates, price, copy) and publish it — usually within 24 hours. You'll get an email confirmation. While in review, the cohort is read-only.
+            </p>
+
+            <div class="mb-4">
+                <label class="block text-xs text-white/40 mb-1">Anything Arnaud should know? (optional)</label>
+                <textarea id="submit-review-note" rows="3" placeholder="e.g. dates locked with venue, price reflects inclusion of accommodation…" class="w-full rounded-xl px-4 py-3 text-sm"></textarea>
+            </div>
+
+            <input type="hidden" id="submit-review-cohort-id">
+
+            <div class="flex items-center gap-3">
+                <button id="submit-review-confirm" class="flex-1 py-3 cta-button rounded-full text-white font-medium text-sm">Submit for review</button>
+                <button id="submit-review-cancel" class="px-6 py-3 text-white/50 hover:text-white text-sm">Not yet</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="py-12 border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6">
@@ -745,7 +836,121 @@
             setupExperienceModal();
             setupStudentModal();
             setupProfileEdit(data.instructor);
+            setupContactModal(data.instructor, data.cohorts || []);
+            setupSubmitReviewModal();
+
+            // Show "Welcome to your dashboard" toast on first invite-link landing
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('welcome') === '1') {
+                showWelcomeToast(data.instructor);
+                params.delete('welcome');
+                const cleanUrl = window.location.pathname + (params.toString() ? '?' + params : '');
+                window.history.replaceState({}, '', cleanUrl);
+            }
         });
+
+        // ========================================
+        // CONTACT / REQUEST-A-CHANGE MODAL
+        // ========================================
+
+        function setupContactModal(instructor, cohorts) {
+            const fab = document.getElementById('contact-fab');
+            const modal = document.getElementById('contact-modal');
+            const backdrop = document.getElementById('contact-modal-backdrop');
+            const closeBtn = document.getElementById('close-contact-modal');
+            const form = document.getElementById('contact-form');
+            const success = document.getElementById('contact-success');
+            const cohortSelect = document.getElementById('contact-cohort');
+            const submitBtn = document.getElementById('contact-submit');
+
+            // Populate cohort dropdown
+            cohortSelect.innerHTML = '<option value="">— None / not specific —</option>' +
+                cohorts.map(c => `<option value="${c.id}">${escapeHtml(c.title)}</option>`).join('');
+
+            const open = () => {
+                form.classList.remove('hidden');
+                success.classList.add('hidden');
+                modal.classList.remove('hidden');
+            };
+            const close = () => modal.classList.add('hidden');
+
+            fab.classList.remove('hidden');
+            fab.addEventListener('click', open);
+            closeBtn.addEventListener('click', close);
+            backdrop.addEventListener('click', close);
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending…';
+                try {
+                    await window.db.sendChangeRequest({
+                        topic: document.getElementById('contact-topic').value,
+                        subject: document.getElementById('contact-subject').value || null,
+                        body: document.getElementById('contact-body').value,
+                        cohort_id: document.getElementById('contact-cohort').value || null
+                    });
+                    form.reset();
+                    form.classList.add('hidden');
+                    success.classList.remove('hidden');
+                    setTimeout(close, 2200);
+                } catch (err) {
+                    console.error(err);
+                    alert('Could not send: ' + err.message);
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send to Arnaud';
+                }
+            });
+        }
+
+        function setupSubmitReviewModal() {
+            const modal = document.getElementById('submit-review-modal');
+            const backdrop = document.getElementById('submit-review-backdrop');
+            const closeBtn = document.getElementById('close-submit-review');
+            const cancel = document.getElementById('submit-review-cancel');
+            const confirm = document.getElementById('submit-review-confirm');
+
+            const close = () => modal.classList.add('hidden');
+            closeBtn.addEventListener('click', close);
+            backdrop.addEventListener('click', close);
+            cancel.addEventListener('click', close);
+
+            confirm.addEventListener('click', async () => {
+                const cohortId = document.getElementById('submit-review-cohort-id').value;
+                const note = document.getElementById('submit-review-note').value;
+                confirm.disabled = true;
+                confirm.textContent = 'Submitting…';
+                try {
+                    await window.db.submitCohortForReview(cohortId, note);
+                    window.location.reload();
+                } catch (err) {
+                    console.error(err);
+                    alert('Could not submit: ' + err.message);
+                    confirm.disabled = false;
+                    confirm.textContent = 'Submit for review';
+                }
+            });
+        }
+
+        function openSubmitReviewModal(cohort) {
+            document.getElementById('submit-review-cohort-id').value = cohort.id;
+            document.getElementById('submit-review-cohort-title').textContent = cohort.title;
+            document.getElementById('submit-review-note').value = '';
+            const c = document.getElementById('submit-review-confirm');
+            c.disabled = false;
+            c.textContent = 'Submit for review';
+            document.getElementById('submit-review-modal').classList.remove('hidden');
+        }
+
+        function showWelcomeToast(instructor) {
+            const toast = document.createElement('div');
+            toast.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:200;background:rgba(10,10,10,0.97);border:1px solid rgba(0,102,177,0.4);border-radius:14px;padding:18px 24px;color:#fff;font-size:14px;box-shadow:0 20px 60px rgba(0,0,0,0.5);max-width:420px;';
+            toast.innerHTML = `<div style="display:flex;gap:12px;align-items:flex-start;"><span style="font-size:20px;">👋</span><div><strong>Welcome, ${escapeHtml((instructor.name||'').split(' ')[0])}.</strong> Your dashboard is set up. Hit <em>Connect Stripe</em> to start receiving payouts, or <em>Request a change</em> (bottom-right) any time you need something tweaked.</div></div>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.style.opacity = '0', 8000);
+            setTimeout(() => toast.remove(), 9000);
+        }
 
         // ========================================
         // RENDER DASHBOARD
@@ -803,23 +1008,29 @@
                 });
             });
 
-            // Attach publish/unpublish listeners
-            container.querySelectorAll('[data-publish-cohort]').forEach(btn => {
+            // Attach Submit-for-Review listeners (replaces direct publish)
+            container.querySelectorAll('[data-submit-review]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cohortId = btn.dataset.submitReview;
+                    const cohort = cohorts.find(c => c.id === cohortId);
+                    openSubmitReviewModal(cohort);
+                });
+            });
+
+            // Unpublish (instructor can pull a published cohort back to draft)
+            container.querySelectorAll('[data-unpublish-cohort]').forEach(btn => {
                 btn.addEventListener('click', async () => {
-                    const cohortId = btn.dataset.publishCohort;
-                    const currentStatus = btn.dataset.currentStatus;
-                    const newStatus = currentStatus === 'draft' ? 'published' : 'draft';
-
+                    if (!confirm('Pull this cohort back to draft? Students won\'t be able to enroll until you submit it again.')) return;
+                    const cohortId = btn.dataset.unpublishCohort;
                     btn.disabled = true;
-                    btn.textContent = 'Updating...';
-
+                    btn.textContent = 'Updating…';
                     try {
-                        await window.db.updateCohort(cohortId, { status: newStatus });
+                        await window.db.updateCohort(cohortId, { status: 'draft' });
                         window.location.reload();
                     } catch (err) {
-                        console.error('Error updating cohort:', err);
+                        console.error(err);
                         btn.disabled = false;
-                        btn.textContent = currentStatus === 'draft' ? 'Publish' : 'Unpublish';
+                        btn.textContent = 'Unpublish';
                     }
                 });
             });
@@ -955,8 +1166,11 @@
 
             const price = cohort.price_cents ? '$' + (cohort.price_cents / 100).toLocaleString() : '';
 
-            const canPublish = cohort.status === 'draft' || cohort.status === 'published';
-            const publishLabel = cohort.status === 'draft' ? 'Publish' : 'Unpublish';
+            // Status-driven action buttons
+            const isDraft = cohort.status === 'draft';
+            const isPendingReview = cohort.status === 'pending_review';
+            const isPublished = cohort.status === 'published' || cohort.status === 'full';
+            const isLocked = isPendingReview; // edit disabled while in review
 
             // Linked experience info
             const linkedExp = cohort.adventure_id ? getExperienceById(cohort.adventure_id) : null;
@@ -974,11 +1188,12 @@
                             ${expLabel ? `<p class="text-bmw-400/60 text-xs mt-1">Linked: ${escapeHtml(expLabel)}</p>` : ''}
                         </div>
                         <div class="flex items-center gap-2 flex-wrap">
-                            <button data-edit-cohort="${cohort.id}"
-                                class="text-xs px-4 py-1.5 rounded-full border border-white/20 text-white/50 hover:bg-white/5 transition-colors">
-                                Edit
-                            </button>
-                            ${cohort.adventure_id ? `
+                            ${isLocked ? '' : `
+                                <button data-edit-cohort="${cohort.id}"
+                                    class="text-xs px-4 py-1.5 rounded-full border border-white/20 text-white/50 hover:bg-white/5 transition-colors">
+                                    Edit
+                                </button>`}
+                            ${cohort.adventure_id && !isLocked ? `
                                 <button data-edit-experience="${cohort.id}" data-adventure-id="${cohort.adventure_id}"
                                     class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-bmw-400/70 hover:bg-bmw-400/10 transition-colors">
                                     Experience
@@ -988,14 +1203,40 @@
                                 class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-bmw-400/70 hover:bg-bmw-500/10 transition-colors">
                                 Students
                             </button>
-                            ${canPublish ? `
-                                <button data-publish-cohort="${cohort.id}" data-current-status="${cohort.status}"
-                                    class="text-xs px-4 py-1.5 rounded-full border ${cohort.status === 'draft' ? 'border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10' : 'border-white/20 text-white/50 hover:bg-white/5'} transition-colors">
-                                    ${publishLabel}
+                            ${isDraft ? `
+                                <button data-submit-review="${cohort.id}"
+                                    class="text-xs px-4 py-1.5 rounded-full border border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10 transition-colors">
+                                    Submit for review
+                                </button>
+                            ` : ''}
+                            ${isPublished ? `
+                                <button data-unpublish-cohort="${cohort.id}"
+                                    class="text-xs px-4 py-1.5 rounded-full border border-white/20 text-white/50 hover:bg-white/5 transition-colors">
+                                    Unpublish
                                 </button>
                             ` : ''}
                         </div>
                     </div>
+
+                    ${isPendingReview ? `
+                        <div class="rounded-lg p-3 mb-4 flex items-start gap-3" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);">
+                            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <div class="text-xs text-amber-400/90">
+                                <span class="font-medium">In review with Arnaud.</span>
+                                <span class="text-amber-400/60">Editing is paused until it's approved or sent back. Average turnaround: 24h.</span>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${cohort.review_notes && isDraft ? `
+                        <div class="rounded-lg p-3 mb-4 flex items-start gap-3" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.25);">
+                            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                            <div class="text-xs">
+                                <p class="font-medium text-amber-400 mb-1">Arnaud requested changes:</p>
+                                <p class="text-amber-400/80">${escapeHtml(cohort.review_notes)}</p>
+                            </div>
+                        </div>
+                    ` : ''}
 
                     ${cohort.description ? `<p class="text-white/50 text-sm mb-4">${escapeHtml(cohort.description)}</p>` : ''}
 

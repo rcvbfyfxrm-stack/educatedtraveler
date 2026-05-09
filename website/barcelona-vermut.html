@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcelona, the Long Way Round — with Christine — EDUCATEDTRAVELER</title>
+    <meta name="description" content="Five days in Barcelona with Christine. Late vermuts, dive-bar nights, beach beers, a gallery opening, ice cream, the bench. Not a tour.">
+    <meta property="og:title" content="Barcelona, the Long Way Round">
+    <meta property="og:description" content="Late vermuts. Penny Banger. Beach beers. An art opening that turns into something else. Ice cream after. With Christine.">
+    <meta property="og:image" content="/images/instructors/christine-2.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
+    <link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              vermut: { 100: '#f4e0cd', 300: '#d99e6a', 400: '#c47a44', 500: '#a8582b', 600: '#883f1f', 700: '#5e2a16' },
+              olive: { 400: '#9aa472', 500: '#6f7a4b' },
+              cream: '#f7efe2',
+              ink: '#221912'
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      :root { --paper: #f7efe2; --ink: #221912; --vermut: #a8582b; --vermut-deep: #5e2a16; --rust: #c47a44; }
+
+      * { -webkit-font-smoothing: antialiased; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: var(--paper);
+        color: var(--ink);
+        background-image:
+          radial-gradient(circle at 12% 18%, rgba(168, 88, 43, 0.07) 0, transparent 38%),
+          radial-gradient(circle at 88% 82%, rgba(111, 122, 75, 0.05) 0, transparent 42%);
+      }
+
+      .display { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: -0.01em; }
+      .hand { font-family: 'Caveat', cursive; }
+      .mono-cap { font-family: 'Inter', sans-serif; letter-spacing: 0.32em; text-transform: uppercase; font-size: 11px; font-weight: 500; }
+
+      .hairline { background: rgba(34,25,18,0.18); height: 1px; }
+      .ink-rule { border-top: 1px solid rgba(34,25,18,0.2); }
+
+      .tile-band { background: repeating-linear-gradient(45deg, rgba(168,88,43,0.08) 0 6px, transparent 6px 14px); }
+
+      .ticket {
+        background: #fffaf1;
+        border: 1px solid rgba(34,25,18,0.12);
+        box-shadow: 0 1px 0 rgba(34,25,18,0.04), 0 28px 60px -30px rgba(94,42,22,0.18);
+        position: relative;
+      }
+      .ticket::before, .ticket::after {
+        content: ''; position: absolute; width: 18px; height: 18px;
+        background: var(--paper); border-radius: 50%; top: 50%; transform: translateY(-50%);
+        border: 1px solid rgba(34,25,18,0.12);
+      }
+      .ticket::before { left: -10px; }
+      .ticket::after { right: -10px; }
+
+      .day-card {
+        background: #fffaf1;
+        border: 1px solid rgba(34,25,18,0.10);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .day-card:hover { transform: translateY(-3px); box-shadow: 0 24px 50px -28px rgba(94,42,22,0.32); }
+
+      .cta-vermut {
+        background: linear-gradient(180deg, #a8582b 0%, #883f1f 100%);
+        color: #fffaf1;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+      }
+      .cta-vermut:hover { background: linear-gradient(180deg, #c47a44 0%, #a8582b 100%); transform: translateY(-1px); box-shadow: 0 14px 30px -14px rgba(94,42,22,0.6); }
+
+      .cta-outline-warm {
+        background: transparent; border: 1px solid rgba(34,25,18,0.3); color: var(--ink);
+        transition: all 0.3s ease;
+      }
+      .cta-outline-warm:hover { border-color: var(--ink); background: rgba(34,25,18,0.04); }
+
+      .glow-stamp {
+        display: inline-block; padding: 2px 10px;
+        border: 1px solid rgba(94,42,22,0.45);
+        color: #5e2a16; letter-spacing: 0.32em; text-transform: uppercase;
+        font-size: 10px; font-weight: 500;
+        transform: rotate(-1.5deg); background: rgba(255,250,241,0.6);
+      }
+
+      .quote-mark { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 96px; line-height: 0.6; color: rgba(94,42,22,0.18); }
+
+      .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
+      .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+      nav.warm { background: rgba(247,239,226,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(34,25,18,0.08); }
+
+      .footnote { font-size: 11px; color: rgba(34,25,18,0.55); letter-spacing: 0.01em; }
+
+      .map-bullet { width: 6px; height: 6px; border-radius: 50%; background: var(--vermut); box-shadow: 0 0 0 4px rgba(168,88,43,0.18); }
+
+      .pull-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.4; }
+
+      .marquee-divider { display: flex; align-items: center; gap: 16px; color: rgba(94,42,22,0.6); }
+      .marquee-divider::before, .marquee-divider::after { content: ''; flex: 1; height: 1px; background: rgba(94,42,22,0.25); }
+
+      /* Polaroid frame for photos */
+      .polaroid {
+        background: #fffaf1;
+        padding: 14px 14px 56px 14px;
+        box-shadow: 0 18px 40px -20px rgba(34,25,18,0.35), 0 1px 0 rgba(34,25,18,0.08);
+        border: 1px solid rgba(34,25,18,0.06);
+        position: relative;
+      }
+      .polaroid img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .polaroid .caption {
+        position: absolute; left: 0; right: 0; bottom: 14px;
+        text-align: center; font-family: 'Caveat', cursive; color: rgba(94,42,22,0.85); font-size: 18px;
+      }
+      .polaroid.tilt-l { transform: rotate(-2.4deg); }
+      .polaroid.tilt-r { transform: rotate(2deg); }
+
+      .photo-stack {
+        position: relative;
+        aspect-ratio: 1 / 1.08;
+      }
+      .photo-stack > .polaroid {
+        position: absolute;
+        width: 70%;
+      }
+      .photo-stack > .polaroid:nth-child(1) { top: 0; left: 0; aspect-ratio: 3/4; }
+      .photo-stack > .polaroid:nth-child(2) { bottom: 0; right: 0; aspect-ratio: 3/4; z-index: 2; }
+
+      .scribble-underline {
+        background-image: linear-gradient(to right, rgba(168,88,43,0.5) 0, rgba(168,88,43,0.5) 100%);
+        background-size: 100% 6px; background-repeat: no-repeat; background-position: 0 88%;
+        padding-bottom: 2px;
+      }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="warm fixed top-0 left-0 right-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/" class="text-sm tracking-[0.2em] font-medium uppercase">Educated<span class="text-vermut-500">Traveler</span></a>
+        <div class="hidden md:flex items-center gap-8 text-sm">
+          <a href="offerings.html" class="text-ink/60 hover:text-ink transition-colors">All Adventures</a>
+          <a href="about.html" class="text-ink/60 hover:text-ink transition-colors">About</a>
+          <button type="button" data-apply-experience="barcelona-vermut" class="cta-vermut px-5 py-2 rounded-full text-xs">Reserve</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="pt-36 pb-16 px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-[1.3fr,1fr] gap-12 items-center reveal">
+        <div>
+          <div class="flex items-center gap-3 mb-6 flex-wrap">
+            <span class="mono-cap text-vermut-600">Barcelona &middot; 5 days</span>
+            <span class="hairline w-12"></span>
+            <span class="mono-cap text-ink/50">Sept 14 — 18, 2026</span>
+          </div>
+          <h1 class="display text-5xl md:text-7xl text-ink leading-[1.02] mb-6">
+            Barcelona,<br>
+            the long way <em class="hand text-vermut-500 italic" style="font-size:0.95em;font-weight:500;">round</em>.
+          </h1>
+          <p class="text-ink/70 text-lg leading-relaxed mb-3">
+            With <span class="scribble-underline">Christine</span>, who knows the door at every weird gallery, the bartender at every dive bar, and the bench in Ciutadella where the light hits at 6.
+          </p>
+          <p class="text-ink/55 text-base leading-relaxed mb-10 max-w-xl">
+            Late vermuts. <strong>Penny Banger</strong>. Beach beers. An opening that turns into something else. Ice cream after. Not a tour — a long weekend with someone who knows everyone.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <button type="button" data-apply-experience="barcelona-vermut" class="cta-vermut px-8 py-3.5 rounded-full text-sm">
+              Reserve a seat &middot; $1,850
+            </button>
+            <a href="#days" class="cta-outline-warm px-8 py-3.5 rounded-full text-sm">See the days</a>
+          </div>
+          <p class="hand text-vermut-600 mt-5 text-lg">8 seats. 2 already taken.</p>
+        </div>
+
+        <!-- Photo stack -->
+        <div class="photo-stack">
+          <div class="polaroid tilt-l">
+            <div style="aspect-ratio:3/4; overflow:hidden;">
+              <img src="/images/instructors/christine-1.jpg" alt="Christine at a Barcelona gallery opening" loading="eager">
+            </div>
+            <span class="caption">opening night, Raval</span>
+          </div>
+          <div class="polaroid tilt-r">
+            <div style="aspect-ratio:3/4; overflow:hidden;">
+              <img src="/images/instructors/christine-2.jpg" alt="Christine in a park with beer and ice cream" loading="eager">
+            </div>
+            <span class="caption">tuesday, technically</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tile-band h-3 my-2"></div>
+
+    <!-- INSTRUCTOR -->
+    <section class="py-20 px-6">
+      <div class="max-w-4xl mx-auto reveal">
+        <p class="mono-cap text-vermut-600 mb-4">Your host</p>
+        <h2 class="display text-4xl md:text-5xl mb-6">Christine.</h2>
+
+        <p class="text-ink/80 text-lg leading-relaxed mb-4 max-w-3xl">
+          Twenty-eight. Lives between London and Barcelona — has a key to a flat in Gràcia and one in Hackney. Started showing friends around when she was nineteen and never stopped.
+        </p>
+        <p class="text-ink/75 text-base leading-relaxed mb-4 max-w-3xl">
+          She's the one you text when you land. The one who knows which gallery has an opening on Wednesday, which bar will let you bring your beer to the next bar, which beach has €1 cans and which one has the sea-urchins. She doesn't tour. She brings you in.
+        </p>
+        <p class="text-ink/65 text-base leading-relaxed mb-8 max-w-3xl italic">
+          Will not take you to Sagrada Família. Will take you to the rooftop you can't find on Google Maps.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="glow-stamp">Gràcia + Hackney</span>
+          <span class="glow-stamp">8 years of weird parties</span>
+          <span class="glow-stamp">Speaks 4 languages</span>
+          <span class="glow-stamp">No tour bus</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PULL QUOTE -->
+    <section class="py-12 px-6">
+      <div class="max-w-3xl mx-auto text-center reveal">
+        <span class="quote-mark block mb-2">&ldquo;</span>
+        <p class="pull-quote text-ink/80">
+          The plan is loose on purpose. The good stuff happens in the gap between two plans — that's where I'm taking you.
+        </p>
+        <p class="hand text-vermut-600 text-xl mt-4">— Christine</p>
+      </div>
+    </section>
+
+    <!-- THE DAYS -->
+    <section id="days" class="py-20 px-6 reveal">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <p class="mono-cap text-vermut-600 mb-3">The five days</p>
+          <h2 class="display text-4xl md:text-5xl">Loose on purpose.</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <article class="day-card rounded-2xl p-7">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="mono-cap text-vermut-600">Day 1 &middot; Sun</span>
+              <span class="hand text-ink/50 text-lg">arrival vermut</span>
+            </div>
+            <h3 class="display text-2xl mb-3">First vermut, then a long lunch</h3>
+            <p class="text-ink/70 text-sm leading-relaxed mb-4">
+              We meet at a bodega in Gràcia at 1pm — vermut on tap, olives, the regulars don't look up. Walk to Christine's friend's flat for a long lunch on the terrace. You'll meet two of her people. They'll remember your name by Thursday.
+            </p>
+            <div class="ink-rule pt-3"><p class="footnote">Ends loosely. Free evening. Pace yourself.</p></div>
+          </article>
+
+          <article class="day-card rounded-2xl p-7">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="mono-cap text-vermut-600">Day 2 &middot; Mon</span>
+              <span class="hand text-ink/50 text-lg">beach beers</span>
+            </div>
+            <h3 class="display text-2xl mb-3">Train out, swim in, beers between</h3>
+            <p class="text-ink/70 text-sm leading-relaxed mb-4">
+              30-minute train to a cove most tourists don't reach. Swim. Lunch with our feet in the sand. Plastic-cup beers from a kiosk. An ice cream on the walk back. If the wind's right, we go to the second cove.
+            </p>
+            <div class="ink-rule pt-3"><p class="footnote">Bring a swimsuit + sunscreen. Towel provided.</p></div>
+          </article>
+
+          <article class="day-card rounded-2xl p-7">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="mono-cap text-vermut-600">Day 3 &middot; Tue</span>
+              <span class="hand text-ink/50 text-lg">Penny Banger</span>
+            </div>
+            <h3 class="display text-2xl mb-3">The Penny Banger night</h3>
+            <p class="text-ink/70 text-sm leading-relaxed mb-4">
+              A dive bar in Poble-sec — €2 vermuts, a piano nobody plays well, and the best bombas in the city. We get there at 7. We leave when we leave. The owner is named Manolo. He will, with very little encouragement, sing.
+            </p>
+            <div class="ink-rule pt-3"><p class="footnote">Optional. Skip with zero judgment if Tuesday calls for an early one.</p></div>
+          </article>
+
+          <article class="day-card rounded-2xl p-7">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="mono-cap text-vermut-600">Day 4 &middot; Wed</span>
+              <span class="hand text-ink/50 text-lg">opening night</span>
+            </div>
+            <h3 class="display text-2xl mb-3">Gallery, then somewhere weirder</h3>
+            <p class="text-ink/70 text-sm leading-relaxed mb-4">
+              An opening at a small gallery in Raval — the kind with cheap cava, free zines, and someone you'll want to keep talking to. Christine knows the door. After, we follow the night where it goes — usually a flat with a roof, sometimes an after-hours bar, occasionally a karaoke room.
+            </p>
+            <div class="ink-rule pt-3"><p class="footnote">Free to bail at any point. The map will get you home.</p></div>
+          </article>
+
+          <article class="day-card rounded-2xl p-7 md:col-span-2">
+            <div class="flex items-baseline justify-between mb-3">
+              <span class="mono-cap text-vermut-600">Day 5 &middot; Thu</span>
+              <span class="hand text-vermut-500 text-lg">sweet ending</span>
+            </div>
+            <h3 class="display text-3xl mb-3">Slow morning, ice cream, the bench</h3>
+            <p class="text-ink/70 text-base leading-relaxed mb-4 max-w-3xl">
+              A long café morning. Three pastry stops Christine actually eats at — a turrón counter from 1908, a corner pâtisserie, and a tiny xocolateria. Ice cream optional but encouraged. We end at the bench in Parc de la Ciutadella where the 4pm light is the reason. You leave with a hand-drawn map of the city you didn't see this trip — for next time.
+            </p>
+            <div class="ink-rule pt-3"><p class="footnote">Wraps by 1pm. Plenty of time for evening flights.</p></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="py-20 px-6 reveal" style="background:linear-gradient(180deg, transparent 0%, rgba(168,88,43,0.04) 100%);">
+      <div class="max-w-4xl mx-auto">
+        <p class="mono-cap text-vermut-600 mb-3 text-center">Included</p>
+        <h2 class="display text-4xl text-center mb-12">Everything that matters, nothing that doesn't.</h2>
+
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+          <div class="flex gap-4">
+            <span class="map-bullet mt-2.5"></span>
+            <div>
+              <p class="font-medium mb-1">5 nights, walkable Eixample apartment</p>
+              <p class="text-ink/55 text-sm">Private room. Shared kitchen. Christine lives 7 minutes away.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="map-bullet mt-2.5"></span>
+            <div>
+              <p class="font-medium mb-1">Every food &amp; drink stop, named in the itinerary</p>
+              <p class="text-ink/55 text-sm">Vermut hours, dinners, beach kiosk, gallery night. Tip-included.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="map-bullet mt-2.5"></span>
+            <div>
+              <p class="font-medium mb-1">Train day-trip to the cove</p>
+              <p class="text-ink/55 text-sm">Tickets, lunch, kiosk beers. Towel provided.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="map-bullet mt-2.5"></span>
+            <div>
+              <p class="font-medium mb-1">Hand-drawn map of Christine's Barcelona</p>
+              <p class="text-ink/55 text-sm">15 spots. Yours to keep. The kind of thing you frame later.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="map-bullet mt-2.5"></span>
+            <div>
+              <p class="font-medium mb-1">A small cohort — 8 people, no more</p>
+              <p class="text-ink/55 text-sm">Eight is the right number for one long table.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="map-bullet mt-2.5"></span>
+            <div>
+              <p class="font-medium mb-1">Christine on text the whole trip</p>
+              <p class="text-ink/55 text-sm">Need a recommendation, a reservation, a friend at 1am? She picks up.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="marquee-divider mt-14 text-xs uppercase tracking-[0.3em]"><span>Not included</span></div>
+        <p class="footnote text-center mt-3">Flights, travel insurance, and breakfast on day 4 (we want you to find your own).</p>
+      </div>
+    </section>
+
+    <!-- PRICING / TICKET -->
+    <section class="py-20 px-6 reveal">
+      <div class="max-w-3xl mx-auto">
+        <p class="mono-cap text-vermut-600 mb-3 text-center">Reserve</p>
+        <h2 class="display text-4xl text-center mb-10">One price. Eight chairs.</h2>
+
+        <div class="ticket rounded-2xl p-8 md:p-10">
+          <div class="flex flex-col md:flex-row items-baseline justify-between gap-4 mb-6">
+            <div>
+              <p class="display text-3xl text-ink mb-1">$1,850 <span class="text-ink/40 text-base font-normal">USD</span></p>
+              <p class="footnote">Per person, all-in. Single occupancy.</p>
+            </div>
+            <div class="text-right">
+              <p class="mono-cap text-vermut-600">Sept 14 — 18, 2026</p>
+              <p class="footnote mt-1">8 seats &middot; 2 already taken</p>
+            </div>
+          </div>
+
+          <div class="ink-rule mb-6"></div>
+
+          <button type="button" data-apply-experience="barcelona-vermut" class="cta-vermut w-full py-4 rounded-full text-sm tracking-wide">
+            Reserve my seat
+          </button>
+          <p class="footnote text-center mt-4">Secure checkout via Stripe. Full refund through July 14, 2026. Half refund through August 14.</p>
+        </div>
+
+        <p class="text-center mt-8 hand text-vermut-600 text-xl">
+          Got a question first? <a href="mailto:founder@educatedtraveler.app?subject=Barcelona%20question" class="underline decoration-vermut-400/40 underline-offset-4 hover:decoration-vermut-500">Write Arnaud</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 px-6 reveal">
+      <div class="max-w-3xl mx-auto">
+        <p class="mono-cap text-vermut-600 mb-3 text-center">Things people ask</p>
+        <h2 class="display text-3xl text-center mb-10">Honest answers.</h2>
+
+        <div class="space-y-6">
+          <div class="ink-rule pt-5">
+            <p class="font-medium mb-2">Do I need Spanish or Catalan?</p>
+            <p class="text-ink/65 text-sm leading-relaxed">No. Christine handles every conversation. You'll pick up enough by Wednesday to order your own vermut, which is the only Spanish that matters.</p>
+          </div>
+          <div class="ink-rule pt-5">
+            <p class="font-medium mb-2">What if I don't drink?</p>
+            <p class="text-ink/65 text-sm leading-relaxed">Half the trip is walks, swims, pastry, conversation — vermut is the rhythm, not the requirement. Tell Christine when you book; she'll line up alternatives at every stop.</p>
+          </div>
+          <div class="ink-rule pt-5">
+            <p class="font-medium mb-2">Is this a tour?</p>
+            <p class="text-ink/65 text-sm leading-relaxed">No. It's eight people moving with one local who knows everyone. The itinerary is loose. The point is the rhythm, not the schedule.</p>
+          </div>
+          <div class="ink-rule pt-5">
+            <p class="font-medium mb-2">What's Christine actually like?</p>
+            <p class="text-ink/65 text-sm leading-relaxed">Funny, curious, kind, will keep you out one drink longer than you planned. The friend you'd want when something goes wrong, and especially when it doesn't.</p>
+          </div>
+          <div class="ink-rule pt-5">
+            <p class="font-medium mb-2">Can I bring a partner?</p>
+            <p class="text-ink/65 text-sm leading-relaxed">Yes. Each books their own seat. Apartments have configurations for couples; just write us before checkout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-24 px-6 reveal" style="background:linear-gradient(180deg, transparent 0%, rgba(94,42,22,0.06) 100%);">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="mono-cap text-vermut-600 mb-4">Six seats remaining</p>
+        <h2 class="display text-4xl md:text-5xl mb-6">A city that opens up<br>when you know the door.</h2>
+        <p class="text-ink/70 mb-10 max-w-lg mx-auto leading-relaxed">
+          Five days, eight people, one Christine, and a Barcelona that does not appear in any guidebook.
+        </p>
+        <button type="button" data-apply-experience="barcelona-vermut" class="cta-vermut px-12 py-4 rounded-full text-sm tracking-wide">
+          Reserve my seat &middot; $1,850
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 ink-rule">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div>
+          <p class="text-sm tracking-[0.2em] uppercase font-medium">Educated<span class="text-vermut-500">Traveler</span></p>
+          <p class="footnote mt-1">Earned, not bought. Slowly, on purpose.</p>
+        </div>
+        <div class="flex gap-6 text-sm">
+          <a href="/" class="text-ink/60 hover:text-ink">Home</a>
+          <a href="offerings.html" class="text-ink/60 hover:text-ink">All Adventures</a>
+          <a href="mailto:founder@educatedtraveler.app" class="text-ink/60 hover:text-ink">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
+    <script src="/js/experiences.js"></script>
+    <script src="/js/checkout.js"></script>
+
+    <script>
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+</body>
+</html>

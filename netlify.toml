@@ -57,6 +57,16 @@
   status = 200
 
 [[redirects]]
+  from = "/barcelona-vermut"
+  to = "/barcelona-vermut.html"
+  status = 200
+
+[[redirects]]
+  from = "/christine"
+  to = "/barcelona-vermut.html"
+  status = 200
+
+[[redirects]]
   from = "/survey"
   to = "/survey.html"
   status = 200
@@ -69,6 +79,16 @@
 [[redirects]]
   from = "/yacht"
   to = "/crew.html"
+  status = 200
+
+[[redirects]]
+  from = "/enrollment-success"
+  to = "/enrollment-success.html"
+  status = 200
+
+[[redirects]]
+  from = "/enrollment-cancelled"
+  to = "/enrollment-cancelled.html"
   status = 200
 
 # Redirects for deleted pages
