@@ -126,10 +126,11 @@ serve(async (req) => {
       <p style="color:#ffffff;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hi ${escape(firstName)},</p>
       <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">Thank you for reaching out about teaching with EducatedTraveler. Your application is in front of me and I read every one personally.</p>
       <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">If your craft and approach feel like a fit, I'll come back to you within a week to schedule a 15-minute call.</p>
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 28px 0;">Want to skip the wait? Book a slot directly:</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 28px 0;">Want to skip the wait? Reach me directly:</p>
       <div style="text-align:center;margin:28px 0;">
-        <a href="https://cal.com/educatedtraveler/instructor-intro" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">Book a 15-min call</a>
+        <a href="https://wa.me/33695903520?text=Hi%20Arnaud%2C%20I%20just%20applied%20to%20teach%20with%20EducatedTraveler" style="display:inline-block;background:#25D366;color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">WhatsApp +33 6 95 90 35 20</a>
       </div>
+      <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;margin:16px 0 0 0;text-align:center;">Or reply to this email — it goes straight to my inbox.</p>
     </div>
     <div style="margin-top:32px;padding:0 4px;">
       <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
