@@ -525,6 +525,154 @@
             background: var(--line);
         }
 
+        /* ── DOWNLOADS PANEL ──────────────────────── */
+        .downloads-panel {
+            border-top: 1px solid var(--line);
+            padding: 18px 22px 4px;
+            background: linear-gradient(180deg, rgba(59,141,212,0.05) 0%, transparent 100%);
+        }
+        .downloads-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.20em;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+        .downloads-header strong { color: var(--brand-light); font-weight: 500; }
+        .downloads-strip {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory;
+            padding: 4px 4px 14px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.18) transparent;
+        }
+        .downloads-strip::-webkit-scrollbar { height: 5px; }
+        .downloads-strip::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); border-radius: 3px; }
+        .downloads-strip::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 3px; }
+
+        .dl-tile {
+            position: relative;
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .dl-tile .ig-frame {
+            width: 130px;
+            max-width: none;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        .dl-tile.has-reel .ig-frame { width: 105px; }
+        .dl-tile:hover .ig-frame {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.65), 0 0 0 1px rgba(59,141,212,0.4);
+        }
+        .dl-tile.downloading { opacity: 0.45; pointer-events: none; }
+        .dl-tile-num {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: rgba(0,0,0,0.78);
+            color: rgba(255,255,255,0.92);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 8.5px;
+            letter-spacing: 0.10em;
+            padding: 3px 7px;
+            border-radius: 99px;
+            z-index: 10;
+            font-weight: 500;
+        }
+        .dl-tile-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.55);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            border-radius: 14px;
+            pointer-events: none;
+        }
+        .dl-tile:hover .dl-tile-overlay { opacity: 1; }
+        .dl-tile-overlay span {
+            background: #fff;
+            color: #000;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 6px 11px;
+            border-radius: 99px;
+            font-weight: 500;
+        }
+
+        /* Sub-text under the hook (for category labels, attributions) */
+        .ig-frame .slide-sub {
+            font-family: 'Inter', system-ui;
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 1.4;
+            color: rgba(255,255,255,0.62);
+            margin-top: 8px;
+            max-width: 95%;
+        }
+
+        /* Tile-scaled typography (small previews) */
+        .dl-tile .ig-content { padding: 11px !important; }
+        .dl-tile .ig-hook { font-size: 12px !important; line-height: 1.15 !important; max-width: 100% !important; }
+        .dl-tile .ig-frame.post .ig-hook,
+        .dl-tile .ig-frame.carousel .ig-hook { font-size: 13px !important; }
+        .dl-tile .ig-frame.reel .ig-hook { font-size: 11px !important; }
+        .dl-tile .slide-sub { font-size: 7.5px !important; margin-top: 3px !important; line-height: 1.25 !important; }
+        .dl-tile .ig-meta { font-size: 6px !important; }
+        .dl-tile .ig-corner { font-size: 6.5px !important; padding: 1px 5px !important; top: 4px !important; right: 4px !important; }
+        .dl-tile .ig-play { width: 16px !important; height: 16px !important; bottom: 5px !important; right: 5px !important; }
+        .dl-tile .ig-play::before { border-width: 3px 0 3px 5px !important; margin-left: 1px !important; }
+        .dl-tile .ig-dots { bottom: 5px !important; }
+        .dl-tile .ig-dots span { width: 2.5px !important; height: 2.5px !important; }
+
+        .dl-actions {
+            display: flex;
+            gap: 8px;
+            padding: 0 0 16px;
+        }
+        .dl-actions button {
+            flex: 1;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding: 11px 14px;
+            border-radius: 99px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-weight: 500;
+        }
+        .dl-actions button.primary {
+            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
+            color: #fff;
+        }
+        .dl-actions button.primary:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 28px rgba(0,102,177,0.45);
+        }
+        .dl-actions button:disabled {
+            opacity: 0.6;
+            cursor: wait;
+            transform: none !important;
+        }
+
         @media (max-width: 640px) {
             .hero-title { font-size: 48px !important; }
             .grid-cards { grid-template-columns: 1fr; }
@@ -670,7 +818,7 @@
         <div class="max-w-6xl mx-auto">
 
             <div class="ticker-divider mb-10">
-                <span>The Drops · 20 Pieces · Each with optimal drop window + marketing intel + fun fact</span>
+                <span>The Drops · 20 Pieces · 53 downloadable images · 1080×1080 PNG · 1080×1920 for reels</span>
             </div>
 
             <div class="grid-cards" id="cards-grid">
@@ -2040,6 +2188,7 @@ You should know what we promise each other — before you trust us with two week
     <div class="toast" id="toast">Copied to clipboard</div>
 
     <!-- ════════ SCRIPTS ════════ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
     <script>
         // ── FILTER ────────────────────────────────
         const cards = document.querySelectorAll('.card');
@@ -2113,6 +2262,278 @@ You should know what we promise each other — before you trust us with two week
             });
         }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
         cards.forEach(card => observer.observe(card));
+
+        // ════════════════════════════════════════════
+        // ── DOWNLOADABLE SLIDES (all 53 images) ────
+        // ════════════════════════════════════════════
+        const SLIDES = {
+            '01': { base: 'et-01-manifesto', kind: 'post', slides: [
+                { cat: 'brand', hook: 'Skills last.<br><em>Tans fade.</em>', meta: 'educatedtraveler.app · post' }
+            ]},
+            '02': { base: 'et-02-five-worlds', kind: 'carousel', slides: [
+                { cat: 'brand',     hook: 'FIVE WORLDS.<br><em>ONE PROMISE.</em>',   meta: 'educatedtraveler.app · swipe →', num: '1 / 10' },
+                { cat: 'sailing',   hook: 'SAILING<br>&amp; OCEAN',                  sub: 'The open sea. No script. No safety net.',                  meta: 'sailing · 1 of 5',  num: '2 / 10' },
+                { cat: 'adventure', hook: 'ADVENTURE',                               sub: 'Real stakes. Your body learns what your mind can\'t.',     meta: 'adventure · 2 of 5', num: '3 / 10' },
+                { cat: 'culinary',  hook: 'CULINARY',                                sub: 'Cook where the recipe was born.',                          meta: 'culinary · 3 of 5',  num: '4 / 10' },
+                { cat: 'wellness',  hook: 'WELLNESS',                                sub: 'Stillness is a skill. Silence is a teacher.',              meta: 'wellness · 4 of 5',  num: '5 / 10' },
+                { cat: 'creative',  hook: 'CREATIVE',                                sub: 'Make something with your hands that outlasts you.',        meta: 'creative · 5 of 5',  num: '6 / 10' },
+                { cat: 'brand',     hook: 'Every world<br>has masters with<br><em>decades</em> behind the work.',                                     meta: 'principle 1', num: '7 / 10' },
+                { cat: 'brand',     hook: 'Every world<br>has cohorts of<br><em>8 — 12.</em><br>No bigger.',                                          meta: 'principle 2', num: '8 / 10' },
+                { cat: 'brand',     hook: 'Every world ends<br>with a <em>real</em><br>credential.', sub: 'PADI · RYA · RYT · WSET',                  meta: 'principle 3', num: '9 / 10' },
+                { cat: 'brand',     hook: 'Choose your<br><em>depth.</em>',          meta: 'educatedtraveler.app · final', num: '10 / 10' }
+            ]},
+            '03': { base: 'et-03-tokyo-reel', kind: 'reel', slides: [
+                { cat: 'culinary', hook: '5 AM in Tokyo.<br>Your hands<br>aren\'t ready.', meta: 'educatedtraveler.app · reel cover' }
+            ]},
+            '04': { base: 'et-04-open-sea-reel', kind: 'reel', slides: [
+                { cat: 'sailing', hook: 'No walls.<br>No ceiling.<br><em>No script.</em>', meta: 'educatedtraveler.app · reel cover' }
+            ]},
+            '05': { base: 'et-05-non-negotiables', kind: 'carousel', slides: [
+                { cat: 'brand', hook: 'Seven things<br>we won\'t<br><em>negotiate.</em>',                                                         meta: 'educatedtraveler.app · swipe →', num: '1 / 8' },
+                { cat: 'brand', hook: '<em>1</em><br>Cohorts of 8 — 12.<br>Never bigger.',         sub: 'Why: transformation requires intimacy.', meta: 'rule 1', num: '2 / 8' },
+                { cat: 'brand', hook: '<em>2</em><br>Instructors<br>5+ years.<br>No exceptions.',  sub: 'Mastery cannot be faked.',               meta: 'rule 2', num: '3 / 8' },
+                { cat: 'brand', hook: '<em>3</em><br>Learn at<br>the source.<br>Or don\'t.',       sub: 'Tokyo for sushi. Rishikesh for yoga. Gibraltar for the open sea.', meta: 'rule 3', num: '4 / 8' },
+                { cat: 'brand', hook: '<em>4</em><br>Real<br>credentials.',                        sub: 'PADI · RYA · RYT · WSET',                meta: 'rule 4', num: '5 / 8' },
+                { cat: 'brand', hook: '<em>5</em><br>No sitting<br>over <em>90 min.</em>',         sub: 'Bodies learn. Not just minds.',          meta: 'rule 5', num: '6 / 8' },
+                { cat: 'brand', hook: '<em>6</em><br>One rest day<br>per week.<br>Always.',        sub: 'Integration requires recovery.',         meta: 'rule 6', num: '7 / 8' },
+                { cat: 'brand', hook: 'These rules<br>are why our<br>cohorts <em>finish.</em>',    meta: 'educatedtraveler.app · final', num: '8 / 8' }
+            ]},
+            '06': { base: 'et-06-itamae-quote', kind: 'post', slides: [
+                { cat: 'culinary', hook: '<em>"Rice first.<br>Always rice."</em>', sub: '— Itamae partner, Tokyo Sushi cohort', meta: 'educatedtraveler.app ⟲ repost' }
+            ]},
+            '07': { base: 'et-07-rishikesh-reel', kind: 'reel', slides: [
+                { cat: 'wellness', hook: 'Rishikesh,<br>5:40 AM.<br><em>The river<br>doesn\'t care<br>if you\'re tired.</em>', meta: 'educatedtraveler.app · reel cover' }
+            ]},
+            '08': { base: 'et-08-choose-depth', kind: 'post', slides: [
+                { cat: 'brand', hook: 'Choose<br>your <em>depth.</em>', sub: '7—21 d · Foundation\n30—60 d · Mastery\n90—180 d · Saga', meta: 'educatedtraveler.app · spectrum' }
+            ]},
+            '09': { base: 'et-09-why-8-12', kind: 'carousel', slides: [
+                { cat: 'brand', hook: '<em>8 to 12.</em><br>Never more.<br>Here\'s why.',                                                                                meta: 'educatedtraveler.app · swipe →', num: '1 / 6' },
+                { cat: 'brand', hook: '<em>1</em><br>Your master sees<br><em>every mistake.</em>',  sub: 'And corrects it before it becomes a habit.',                  meta: 'reason 1', num: '2 / 6' },
+                { cat: 'brand', hook: '<em>2</em><br>Same eleven<br>people. Three weeks.',          sub: 'That\'s not a class. That\'s a family.',                       meta: 'reason 2', num: '3 / 6' },
+                { cat: 'brand', hook: '<em>3</em><br>Group dynamics<br>break down<br>past 12.',     sub: 'Trust doesn\'t form. The cohort becomes an audience.',         meta: 'reason 3', num: '4 / 6' },
+                { cat: 'brand', hook: '<em>4</em><br>Source venues<br>don\'t fit<br>30 people.',    sub: 'We don\'t compromise the source to scale.',                    meta: 'reason 4', num: '5 / 6' },
+                { cat: 'brand', hook: '<em>8 — 12.</em><br>Always.',                                meta: 'educatedtraveler.app · final', num: '6 / 6' }
+            ]},
+            '10': { base: 'et-10-hawaii-surf-reel', kind: 'reel', slides: [
+                { cat: 'adventure', hook: 'The wave<br>doesn\'t know<br>you watched<br><em>a tutorial.</em>', meta: 'educatedtraveler.app · reel cover' }
+            ]},
+            '11': { base: 'et-11-yachtmaster-quote', kind: 'post', slides: [
+                { cat: 'sailing', hook: '<em>"The ocean<br>is the only<br>honest classroom<br>I\'ve ever<br>taught in."</em>', sub: '— RYA Yachtmaster, Gibraltar', meta: 'educatedtraveler.app ⟲ repost' }
+            ]},
+            '12': { base: 'et-12-language', kind: 'carousel', slides: [
+                { cat: 'brand', hook: 'We don\'t<br>say <em>"vacation."</em>',                            meta: 'educatedtraveler.app · swipe →', num: '1 / 8' },
+                { cat: 'brand', hook: 'We don\'t say<br><em>VACATION.</em>',         sub: 'We say IMMERSION.',     meta: 'word 1', num: '2 / 8' },
+                { cat: 'brand', hook: 'We don\'t say<br><em>GROUP.</em>',            sub: 'We say COHORT.',        meta: 'word 2', num: '3 / 8' },
+                { cat: 'brand', hook: 'We don\'t say<br><em>LIFE-CHANGING.</em>',    sub: 'We say EARNED.',        meta: 'word 3', num: '4 / 8' },
+                { cat: 'brand', hook: 'We don\'t say<br><em>LUXURY.</em>',           sub: 'We say SOURCE.',        meta: 'word 4', num: '5 / 8' },
+                { cat: 'brand', hook: 'We don\'t say<br><em>JOURNEY.</em>',          sub: 'We say CERTIFIED.',     meta: 'word 5', num: '6 / 8' },
+                { cat: 'brand', hook: 'The words you use<br>shape what you<br><em>build.</em>',           meta: 'principle', num: '7 / 8' },
+                { cat: 'brand', hook: 'Words matter.<br>So does your<br><em>time.</em>',                  meta: 'educatedtraveler.app · final', num: '8 / 8' }
+            ]},
+            '13': { base: 'et-13-kalymnos-reel', kind: 'reel', slides: [
+                { cat: 'adventure', hook: 'Kalymnos has<br>two thousand routes.<br><em>Your hands<br>will only<br>remember three.</em>', meta: 'educatedtraveler.app · reel cover' }
+            ]},
+            '14': { base: 'et-14-credentials', kind: 'post', slides: [
+                { cat: 'brand', hook: 'PADI · RYA<br>YOGA ALLIANCE<br>WSET<br>LE CORDON BLEU<br>WORLDCHEFS · ISA<br>AIDA · AMGA · IAF', sub: 'This is what you bring home.', meta: 'educatedtraveler.app · certs' }
+            ]},
+            '15': { base: 'et-15-paris-pastry-quote', kind: 'post', slides: [
+                { cat: 'culinary', hook: '<em>"Le beurre<br>ne ment pas."</em>', sub: 'Butter doesn\'t lie.<br>— Paris pastry chef', meta: 'educatedtraveler.app ⟲ repost' }
+            ]},
+            '16': { base: 'et-16-vipassana-reel', kind: 'reel', slides: [
+                { cat: 'wellness', hook: 'Ten days<br>of silence.<br><em>The room<br>you walk out of<br>is not the one<br>you walked into.</em>', meta: 'educatedtraveler.app · reel cover' }
+            ]},
+            '17': { base: 'et-17-one-week-six-months', kind: 'carousel', slides: [
+                { cat: 'brand', hook: '<em>One week</em><br>to get certified.<br><em>Six months</em><br>to change your life.',                meta: 'educatedtraveler.app · swipe →', num: '1 / 5' },
+                { cat: 'brand', hook: 'ONE WEEK<br>TO GET<br><em>CERTIFIED.</em>',                    meta: 'foundation tier', num: '2 / 5' },
+                { cat: 'brand', hook: 'Seven days<br>= a real<br>credential.',  sub: 'RYA Day Skipper · PADI Open Water · RYT-200',           meta: 'foundation', num: '3 / 5' },
+                { cat: 'brand', hook: 'SIX MONTHS<br>TO BECOME<br><em>SOMEONE ELSE.</em>',            meta: 'saga tier', num: '4 / 5' },
+                { cat: 'brand', hook: 'RYA<br>Yachtmaster.<br>500-hour<br>yoga.<br>Pro<br>sushi chef.',    meta: 'educatedtraveler.app · final', num: '5 / 5' }
+            ]},
+            '18': { base: 'et-18-no-youtube', kind: 'post', slides: [
+                { cat: 'brand', hook: 'No YouTube<br>at <em>2 AM.</em>', meta: 'educatedtraveler.app · post' }
+            ]},
+            '19': { base: 'et-19-burgundy-reel', kind: 'reel', slides: [
+                { cat: 'culinary', hook: 'A bottle<br>in Burgundy<br>tells you<br><em>where it<br>grew up.</em>', meta: 'educatedtraveler.app · reel cover' }
+            ]},
+            '20': { base: 'et-20-the-oath', kind: 'carousel', slides: [
+                { cat: 'brand', hook: 'An oath<br>we wrote<br>to <em>ourselves.</em>',                                                                                                                                                                                                                                                                                                                                                                                                                                                                  meta: 'educatedtraveler.app · swipe →', num: '1 / 3' },
+                { cat: 'brand', hook: '<em style="font-style:italic">"Choose transformation over transaction. Say no to almost everything. Measure what matters, not what\'s easy. Build a company my first cohort would be proud to recommend."</em>',                                                                                                                                                                                                                                                                                              sub: '"Skills last, tans fade."',   meta: 'the oath', num: '2 / 3' },
+                { cat: 'brand', hook: 'If this is the<br>kind of company<br>you want to<br>learn from —<br><em>meet us.</em>',                                                                                                                                                                                                                                                                                                                                                                                                                            meta: 'educatedtraveler.app · final', num: '3 / 3' }
+            ]}
+        };
+
+        function makeSlideHTML(slide, kind) {
+            const sub = slide.sub ? `<p class="slide-sub">${slide.sub.replace(/\n/g, '<br>')}</p>` : '';
+            const cornerNum = slide.num ? `<span class="ig-corner">${slide.num}</span>` : '';
+            const playBtn = kind === 'reel' ? '<div class="ig-play"></div>' : '';
+            return `
+                <div class="ig-frame ${kind}">
+                    <div class="ig-bg ${slide.cat}"></div>
+                    ${cornerNum}
+                    ${playBtn}
+                    <div class="ig-content">
+                        <div></div>
+                        <div>
+                            <p class="ig-hook">${slide.hook}</p>
+                            ${sub}
+                            <div class="ig-meta mt-3"><span style="opacity:0.65">${slide.meta}</span></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function buildDownloadsPanel(cardId) {
+            const data = SLIDES[cardId];
+            if (!data) return null;
+            const isMulti = data.slides.length > 1;
+            const tilesHTML = data.slides.map((slide, idx) => `
+                <div class="dl-tile ${data.kind === 'reel' ? 'has-reel' : ''}" data-slide-idx="${idx}">
+                    <span class="dl-tile-num">${String(idx + 1).padStart(2, '0')}</span>
+                    ${makeSlideHTML(slide, data.kind)}
+                    <div class="dl-tile-overlay"><span>⬇ Download</span></div>
+                </div>
+            `).join('');
+
+            const dimNote = data.kind === 'reel' ? '1080×1920 PNG' : '1080×1080 PNG';
+            return `
+                <div class="downloads-panel">
+                    <div class="downloads-header">
+                        <span><strong>Slides &amp; downloads</strong> · ${data.slides.length} ${isMulti ? 'images' : 'image'} · click any tile</span>
+                        <span style="opacity:0.5">${dimNote}</span>
+                    </div>
+                    <div class="downloads-strip">${tilesHTML}</div>
+                    ${isMulti ? `
+                    <div class="dl-actions">
+                        <button class="primary" data-dl-all="${cardId}">⬇ Download all ${data.slides.length} slides</button>
+                    </div>` : `
+                    <div class="dl-actions">
+                        <button class="primary" data-dl-all="${cardId}">⬇ Download PNG</button>
+                    </div>`}
+                </div>
+            `;
+        }
+
+        async function downloadIgFrame(igFrame, filename) {
+            const isReel = igFrame.classList.contains('reel');
+            const canvas = await html2canvas(igFrame, {
+                scale: 8,
+                backgroundColor: '#000',
+                useCORS: true,
+                logging: false,
+                allowTaint: false,
+            });
+            const link = document.createElement('a');
+            link.download = filename + '.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function showToastMsg(msg) {
+            const t = document.getElementById('toast');
+            if (!t) return;
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(t._timeout);
+            t._timeout = setTimeout(() => t.classList.remove('show'), 2200);
+        }
+
+        function attachDownloadHandlers() {
+            // Click a tile to download a single slide
+            document.querySelectorAll('.dl-tile').forEach(tile => {
+                tile.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    const card = tile.closest('.card');
+                    const cardId = card.querySelector('.card-number').textContent.replace('/', '').trim();
+                    const data = SLIDES[cardId];
+                    const idx = parseInt(tile.dataset.slideIdx);
+                    const igFrame = tile.querySelector('.ig-frame');
+                    const num = String(idx + 1).padStart(2, '0');
+                    const filename = data.slides.length > 1 ? `${data.base}-slide-${num}` : data.base;
+                    tile.classList.add('downloading');
+                    try {
+                        await downloadIgFrame(igFrame, filename);
+                        showToastMsg(`⬇ ${filename}.png`);
+                    } catch (err) {
+                        console.error('Download failed:', err);
+                        showToastMsg('Download failed — see console');
+                    } finally {
+                        tile.classList.remove('downloading');
+                    }
+                });
+            });
+
+            // Click "Download all" to batch download
+            document.querySelectorAll('[data-dl-all]').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    const cardId = btn.dataset.dlAll;
+                    const data = SLIDES[cardId];
+                    const tiles = btn.closest('.downloads-panel').querySelectorAll('.dl-tile');
+                    const orig = btn.textContent;
+                    btn.disabled = true;
+                    for (let i = 0; i < tiles.length; i++) {
+                        btn.textContent = `⏳ Rendering ${i + 1} / ${tiles.length}…`;
+                        const igFrame = tiles[i].querySelector('.ig-frame');
+                        const num = String(i + 1).padStart(2, '0');
+                        const filename = data.slides.length > 1 ? `${data.base}-slide-${num}` : data.base;
+                        try {
+                            await downloadIgFrame(igFrame, filename);
+                        } catch (err) {
+                            console.error(`Slide ${num} failed:`, err);
+                        }
+                        await new Promise(r => setTimeout(r, 350));
+                    }
+                    btn.textContent = '✓ All downloaded';
+                    showToastMsg(`⬇ ${tiles.length} files saved`);
+                    setTimeout(() => {
+                        btn.textContent = orig;
+                        btn.disabled = false;
+                    }, 2400);
+                });
+            });
+        }
+
+        function injectDownloadsPanels() {
+            document.querySelectorAll('.card').forEach(card => {
+                const numEl = card.querySelector('.card-number');
+                if (!numEl) return;
+                const num = numEl.textContent.replace('/', '').trim();
+                if (!SLIDES[num]) return;
+                const mockup = card.querySelector('.mockup-wrap');
+                if (!mockup) return;
+                const html = buildDownloadsPanel(num);
+                if (!html) return;
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = html.trim();
+                mockup.parentNode.insertBefore(wrapper.firstChild, mockup.nextSibling);
+            });
+            attachDownloadHandlers();
+        }
+
+        function initDownloads() {
+            if (typeof html2canvas === 'undefined') {
+                let attempts = 0;
+                const wait = setInterval(() => {
+                    if (typeof html2canvas !== 'undefined') {
+                        clearInterval(wait);
+                        injectDownloadsPanels();
+                    } else if (++attempts > 50) {
+                        clearInterval(wait);
+                        console.warn('html2canvas failed to load; downloads disabled.');
+                    }
+                }, 100);
+            } else {
+                injectDownloadsPanels();
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initDownloads);
+        } else {
+            initDownloads();
+        }
     </script>
 
 </body>
