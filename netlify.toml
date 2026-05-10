@@ -91,6 +91,11 @@
   to = "/enrollment-cancelled.html"
   status = 200
 
+[[redirects]]
+  from = "/post"
+  to = "/post.html"
+  status = 200
+
 # Redirects for deleted pages
 [[redirects]]
   from = "/vision"

@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>The Atelier — Instagram Drops · EducatedTraveler</title>
+
+    <meta name="description" content="Private content atelier. Twenty Instagram drops crafted to bring people back to @educatedtraveler.app — without bending the philosophy.">
+    <meta property="og:title" content="The Atelier — EducatedTraveler">
+    <meta property="og:description" content="Twenty Instagram drops crafted around the core philosophy.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['IBM Plex Mono', 'monospace'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #111;
+            --line: rgba(255,255,255,0.06);
+            --line-2: rgba(255,255,255,0.10);
+            --text: #ffffff;
+            --text-2: rgba(255,255,255,0.60);
+            --text-3: rgba(255,255,255,0.38);
+
+            --brand: #0066B1;
+            --brand-light: #3B8DD4;
+
+            --cat-sailing: #06B6D4;
+            --cat-adventure: #EF4444;
+            --cat-culinary: #F59E0B;
+            --cat-wellness: #F97316;
+            --cat-creative: #8B5CF6;
+            --cat-brand: #3B8DD4;
+        }
+
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        html { scroll-behavior: smooth; }
+
+        /* ── ATMOSPHERIC GRAIN ─────────────────────── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            mix-blend-mode: overlay;
+        }
+
+        /* ── HORIZON GLOW ─────────────────────────── */
+        .horizon-glow {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59, 141, 212, 0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 50% 100%, rgba(0, 102, 177, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ── NAV ──────────────────────────────────── */
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(24px) saturate(140%);
+            -webkit-backdrop-filter: blur(24px) saturate(140%);
+            border-bottom: 1px solid var(--line);
+        }
+
+        /* ── HERO TYPE ────────────────────────────── */
+        .hero-title {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 300;
+            font-variation-settings: "opsz" 144;
+            letter-spacing: -0.04em;
+            line-height: 0.92;
+        }
+        .hero-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--text-2);
+        }
+
+        .label {
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 11px;
+            color: var(--text-3);
+        }
+
+        /* ── FILTER PILLS ─────────────────────────── */
+        .filter-pill {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding: 10px 18px;
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.02);
+            border-radius: 999px;
+            color: var(--text-2);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+        .filter-pill:hover {
+            color: var(--text);
+            border-color: var(--line-2);
+            background: rgba(255,255,255,0.04);
+        }
+        .filter-pill.active {
+            color: #0a0a0a;
+            background: #fff;
+            border-color: #fff;
+        }
+        .filter-pill .count {
+            opacity: 0.5;
+            margin-left: 6px;
+        }
+        .filter-pill.active .count {
+            opacity: 0.5;
+            color: #0a0a0a;
+        }
+
+        /* ── CARD GRID ────────────────────────────── */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 28px;
+        }
+
+        .card {
+            position: relative;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.2, 0.6, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            border-color: var(--line-2);
+            background: rgba(255,255,255,0.03);
+            transform: translateY(-3px);
+        }
+        .card.hidden { display: none; }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--line);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+        }
+        .card-number {
+            color: var(--text-3);
+        }
+        .card-format {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-2);
+        }
+        .cat-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 99px;
+            display: inline-block;
+        }
+
+        /* ── MOCKUP FRAMES ────────────────────────── */
+        .mockup-wrap {
+            padding: 28px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, transparent 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ig-frame {
+            position: relative;
+            width: 100%;
+            max-width: 280px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow:
+                0 30px 60px -20px rgba(0,0,0,0.6),
+                0 0 0 1px rgba(255,255,255,0.06);
+        }
+        .ig-frame.reel { aspect-ratio: 9 / 16; }
+        .ig-frame.post { aspect-ratio: 1 / 1; }
+        .ig-frame.carousel { aspect-ratio: 1 / 1; }
+
+        .ig-bg {
+            position: absolute;
+            inset: 0;
+        }
+        /* Category gradients - mood-driven */
+        .ig-bg.brand    { background: radial-gradient(ellipse at 30% 20%, rgba(59,141,212,0.55) 0%, transparent 60%), linear-gradient(135deg, #001f3a 0%, #000 100%); }
+        .ig-bg.sailing  { background: radial-gradient(ellipse at 70% 30%, rgba(6,182,212,0.4) 0%, transparent 60%), linear-gradient(180deg, #022c3a 0%, #000 100%); }
+        .ig-bg.adventure{ background: radial-gradient(ellipse at 30% 80%, rgba(239,68,68,0.5) 0%, transparent 55%), linear-gradient(180deg, #1a0808 0%, #000 100%); }
+        .ig-bg.culinary { background: radial-gradient(ellipse at 70% 80%, rgba(245,158,11,0.45) 0%, transparent 55%), linear-gradient(180deg, #1c0f00 0%, #000 100%); }
+        .ig-bg.wellness { background: radial-gradient(ellipse at 50% 90%, rgba(249,115,22,0.45) 0%, transparent 55%), linear-gradient(180deg, #1c0a00 0%, #060000 100%); }
+        .ig-bg.creative { background: radial-gradient(ellipse at 30% 30%, rgba(139,92,246,0.4) 0%, transparent 60%), linear-gradient(180deg, #14082b 0%, #000 100%); }
+
+        /* Mockup grain */
+        .ig-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+            opacity: 0.10;
+            mix-blend-mode: overlay;
+        }
+
+        .ig-content {
+            position: absolute;
+            inset: 0;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 2;
+        }
+        .ig-hook {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: #fff;
+            max-width: 95%;
+        }
+        .ig-frame.post .ig-hook,
+        .ig-frame.carousel .ig-hook { font-size: 26px; }
+        .ig-frame.reel .ig-hook { font-size: 20px; }
+
+        .ig-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            color: rgba(255,255,255,0.65);
+            text-transform: lowercase;
+        }
+        .ig-meta .handle::before { content: '@'; }
+
+        .ig-corner {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            color: rgba(255,255,255,0.75);
+            background: rgba(0,0,0,0.4);
+            padding: 4px 10px;
+            border-radius: 99px;
+            backdrop-filter: blur(8px);
+            z-index: 3;
+        }
+        .ig-play {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 26px;
+            height: 26px;
+            border-radius: 99px;
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+        }
+        .ig-play::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 5px 0 5px 8px;
+            border-color: transparent transparent transparent #0a0a0a;
+            margin-left: 2px;
+        }
+        .ig-dots {
+            position: absolute;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 4px;
+            z-index: 3;
+        }
+        .ig-dots span {
+            width: 5px;
+            height: 5px;
+            border-radius: 99px;
+            background: rgba(255,255,255,0.35);
+        }
+        .ig-dots span.active { background: #fff; }
+
+        /* ── CARD BODY ────────────────────────────── */
+        .card-body {
+            padding: 20px 22px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex: 1;
+        }
+        .card-hook {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 19px;
+            font-weight: 400;
+            line-height: 1.25;
+            letter-spacing: -0.015em;
+            color: #fff;
+        }
+        .card-section {
+            border-top: 1px dashed var(--line);
+            padding-top: 14px;
+        }
+        .card-section-label {
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            font-size: 9.5px;
+            letter-spacing: 0.20em;
+            color: var(--text-3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .card-section-content {
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: var(--text-2);
+            white-space: pre-line;
+        }
+        .card-section-content.brief {
+            font-style: italic;
+            color: var(--text-3);
+            font-size: 12.5px;
+        }
+        .card-section-content.hashtags {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11.5px;
+            color: var(--brand-light);
+            word-break: break-word;
+        }
+
+        /* ── MARKETING INTEL ──────────────────────── */
+        .card-section.intel {
+            background:
+                linear-gradient(180deg, rgba(59,141,212,0.06) 0%, rgba(59,141,212,0.01) 100%);
+            border: 1px solid rgba(59,141,212,0.10);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-top: 4px;
+        }
+        .card-section.intel .intel-header {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 9.5px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--brand-light);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-section.intel .intel-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(59,141,212,0.18);
+        }
+        .intel-row {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 12px;
+            padding: 8px 0;
+            font-size: 12.5px;
+            line-height: 1.55;
+        }
+        .intel-row + .intel-row {
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .intel-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(59,141,212,0.8);
+            padding-top: 1px;
+        }
+        .intel-value {
+            color: var(--text-2);
+        }
+        .intel-value strong {
+            color: #fff;
+            font-weight: 500;
+        }
+        .intel-value em {
+            font-style: normal;
+            color: rgba(255,255,255,0.42);
+        }
+
+        /* ── COPY BUTTON ──────────────────────────── */
+        .copy-btn {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-3);
+            background: transparent;
+            border: 1px solid var(--line);
+            border-radius: 99px;
+            padding: 4px 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .copy-btn:hover {
+            color: #fff;
+            border-color: var(--line-2);
+            background: rgba(255,255,255,0.04);
+        }
+        .copy-btn.copied {
+            color: #0a0a0a;
+            background: var(--brand-light);
+            border-color: var(--brand-light);
+        }
+
+        /* ── TOAST ────────────────────────────────── */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(40px);
+            background: #fff;
+            color: #0a0a0a;
+            padding: 12px 24px;
+            border-radius: 99px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.10em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.2,0.6,0.2,1);
+            z-index: 9999;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ── SCROLL ANIMATIONS ────────────────────── */
+        .card {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── PHILOSOPHY BANNER ────────────────────── */
+        .philosophy {
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.025) 0%, transparent 100%),
+                radial-gradient(ellipse 40% 30% at 50% 50%, rgba(59,141,212,0.10) 0%, transparent 70%);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        /* ── DIVIDERS ─────────────────────────────── */
+        .ticker-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.20em;
+            font-size: 10px;
+            color: var(--text-3);
+        }
+        .ticker-divider::before,
+        .ticker-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+        }
+
+        @media (max-width: 640px) {
+            .hero-title { font-size: 48px !important; }
+            .grid-cards { grid-template-columns: 1fr; }
+            .mockup-wrap { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════════ NAVIGATION ════════ -->
+    <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-base font-semibold tracking-wider">
+                EDUCATED<span class="text-[#3B8DD4]">TRAVELER</span>
+            </a>
+            <div class="hidden md:flex items-center gap-3">
+                <span class="label">The Atelier</span>
+                <span class="label" style="color: rgba(255,255,255,0.18);">·</span>
+                <span class="label" style="color: rgba(255,255,255,0.6);">Private</span>
+            </div>
+            <a href="https://instagram.com/educatedtraveler.app" target="_blank" rel="noopener" class="text-xs font-mono uppercase tracking-widest text-white/60 hover:text-white transition-colors">
+                @educatedtraveler.app ↗
+            </a>
+        </div>
+    </nav>
+
+    <!-- ════════ HERO ════════ -->
+    <section class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="horizon-glow"></div>
+        <div class="relative max-w-6xl mx-auto">
+            <div class="flex items-center gap-3 mb-10">
+                <span class="label">Internal · v1.0</span>
+                <span class="label" style="color: rgba(255,255,255,0.18);">·</span>
+                <span class="label">Drops 01 — 20</span>
+                <span class="label" style="color: rgba(255,255,255,0.18);">·</span>
+                <span class="label" style="color: rgba(59,141,212,0.9);">Bring people back to @educatedtraveler.app</span>
+            </div>
+
+            <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl mb-10">
+                Skills last.<br>
+                <em>Tans fade.</em>
+            </h1>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl">
+                <p class="text-xl md:text-2xl text-white/60 font-light leading-relaxed">
+                    Twenty pieces of content — feed posts, reels, carousels, instructor reposts — crafted to bring strangers back to our profile without bending the philosophy.
+                </p>
+                <div class="space-y-4 text-white/50 text-sm leading-relaxed">
+                    <p><span class="text-white">No "vacation."</span> No "life-changing." No "luxury." No "easy."</p>
+                    <p>Just the rice. The rope. The breath. The wave. And a cohort of 8 — 12 who watch you get there.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ PHILOSOPHY STRIP ════════ -->
+    <section class="px-6 mb-20">
+        <div class="max-w-6xl mx-auto philosophy">
+            <div class="grid md:grid-cols-3 gap-10">
+                <div>
+                    <p class="label mb-3">Pillar I</p>
+                    <p class="hero-title text-3xl mb-2">Freedom.</p>
+                    <p class="text-white/55 text-sm leading-relaxed">The open sea. The unknown horizon. The life you chose. Purpose in extraordinary places — not itineraries.</p>
+                </div>
+                <div>
+                    <p class="label mb-3">Pillar II</p>
+                    <p class="hero-title text-3xl mb-2">Adventure.</p>
+                    <p class="text-white/55 text-sm leading-relaxed">Real stakes. Real effort. Real reward. Earned exhilaration — never curated comfort.</p>
+                </div>
+                <div>
+                    <p class="label mb-3">Pillar III</p>
+                    <p class="hero-title text-3xl mb-2">Immersion.</p>
+                    <p class="text-white/55 text-sm leading-relaxed">Deep in the craft, the culture, the cohort. Living it — not skimming it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ FILTER BAR ════════ -->
+    <section class="px-6 mb-12 sticky top-[68px] z-30">
+        <div class="max-w-6xl mx-auto nav-glass rounded-full p-2 flex items-center gap-2 overflow-x-auto">
+            <button class="filter-pill active" data-filter="all">All <span class="count">20</span></button>
+            <button class="filter-pill" data-filter="post">Posts <span class="count" id="count-post"></span></button>
+            <button class="filter-pill" data-filter="reel">Reels <span class="count" id="count-reel"></span></button>
+            <button class="filter-pill" data-filter="carousel">Carousels <span class="count" id="count-carousel"></span></button>
+            <button class="filter-pill" data-filter="repost">Reposts <span class="count" id="count-repost"></span></button>
+        </div>
+    </section>
+
+    <!-- ════════ MARKETING PLAYBOOK ════════ -->
+    <section class="px-6 pb-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="ticker-divider mb-10">
+                <span>The Playbook · 2026 Instagram science · Built on the best sources</span>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6 mb-6">
+                <div class="philosophy">
+                    <p class="label mb-4">The Algorithm · 2026</p>
+                    <p class="hero-title text-2xl mb-6">Saves &gt; Likes.<br>DMs &gt; Comments.<br><em>First second decides Reels.</em></p>
+                    <ul class="space-y-3 text-sm text-white/55 leading-relaxed">
+                        <li>→ <strong class="text-white">Saves</strong> are the #1 ranking signal (Meta Creator Studio, 2025). Build save-worthy carousels — rules, frameworks, lists.</li>
+                        <li>→ <strong class="text-white">DMs</strong> are #2. Every save and share opens a 24-hour conversation window. Take it.</li>
+                        <li>→ <strong class="text-white">First second</strong> of a Reel = 70% of retention (Meta data). Open with pattern interrupt — silence, motion, or a hard cut.</li>
+                        <li>→ <strong class="text-white">Carousels</strong> earn 1.4× reach over single posts (Socialinsider 2024). 5-10 slides is the sweet spot.</li>
+                        <li>→ <strong class="text-white">Comments with 4+ words</strong> count more than emoji replies. Reply with full sentences.</li>
+                        <li>→ <strong class="text-white">Hashtags</strong>: 5-10, mixed niche/mid/broad. The 30-tag era is over.</li>
+                    </ul>
+                </div>
+                <div class="philosophy">
+                    <p class="label mb-4">The Frameworks We Stack</p>
+                    <p class="hero-title text-2xl mb-6">Six minds.<br>One <em>operating system.</em></p>
+                    <ul class="space-y-3 text-sm text-white/55 leading-relaxed">
+                        <li>→ <strong class="text-white">Cialdini</strong> · Influence: Authority, Liking, Social Proof, Reciprocity, Scarcity, Commitment. Every drop leans on at least one.</li>
+                        <li>→ <strong class="text-white">Brunson</strong> · Hook · Story · Offer: every Reel = stop-scroll hook, micro-story, soft offer.</li>
+                        <li>→ <strong class="text-white">Miller</strong> · StoryBrand: the cohort is the hero. We are the guide. The skill is the magic sword.</li>
+                        <li>→ <strong class="text-white">Hormozi</strong> · $100M Offers: defending constraints (cohort caps, no-sit rule) signals premium.</li>
+                        <li>→ <strong class="text-white">Godin</strong> · Tribes: "Skills last, tans fade" is the tribe's password. Strong stance recruits.</li>
+                        <li>→ <strong class="text-white">Kahneman / Thaler</strong>: choice architecture, anchoring. Three depths frame the middle as the natural pick.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="philosophy" style="padding: 28px;">
+                    <p class="label mb-3">Best windows · 2026</p>
+                    <p class="text-sm text-white/55 leading-relaxed">Travel content peaks <strong class="text-white">Tue 11 AM EST</strong> (Later 2025). Wellness peaks <strong class="text-white">Sun 7 AM EST</strong>. Adventure/sailing peaks <strong class="text-white">Fri 5 PM EST</strong>. We schedule against these.</p>
+                </div>
+                <div class="philosophy" style="padding: 28px;">
+                    <p class="label mb-3">Timezone bridge</p>
+                    <p class="text-sm text-white/55 leading-relaxed">Audience spans <strong class="text-white">US East · Europe · APAC expats</strong>. The 10-11 AM EST / 4-5 PM CET overlap captures both markets in their phone-checking windows.</p>
+                </div>
+                <div class="philosophy" style="padding: 28px;">
+                    <p class="label mb-3">From 150 → 1,000</p>
+                    <p class="text-sm text-white/55 leading-relaxed">2 drops/week. Reply to every comment within 24h. DM every save with a real question. The first 1,000 happens through <strong class="text-white">DMs, not virality</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ DROPS GRID ════════ -->
+    <section class="px-6 pb-32">
+        <div class="max-w-6xl mx-auto">
+
+            <div class="ticker-divider mb-10">
+                <span>The Drops · 20 Pieces · Each with optimal drop window + marketing intel + fun fact</span>
+            </div>
+
+            <div class="grid-cards" id="cards-grid">
+
+                <!-- ═══ 01 · POST · Manifesto ═══ -->
+                <article class="card" data-format="post" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/01</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Feed Post · Brand</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame post">
+                            <div class="ig-bg brand"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">Skills last.<br><em style="opacity:0.6">Tans fade.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· post</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">The opener. The line that earns its own t-shirt.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-01">Copy</button></div>
+                            <div class="card-section-content" id="caption-01">We don't sell vacations. We sell what survives them.
+
+A tan fades in three weeks. A photo gets buried in your camera roll.
+But the knife in your hand at 5 AM in Tsukiji — that stays.
+The way your body reads the wind when the rigging hums — that stays.
+The 200-hour ashram practice your spine remembers — that stays.
+
+Skills last. Everything else is decoration.
+
+7 days to get certified.
+6 months to become someone else.
+Choose your depth → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-01">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-01">#SkillsLastTansFade #EducatedTraveler #SourceMastery #Cohort #Certified #ImmersionTravel #SkillAdventure #EarnedNotBought</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Shoot brief</div>
+                            <div class="card-section-content brief">Pure black canvas. Fraunces serif in white. Tiny @handle bottom. Pin to grid as the manifesto. Best as the very first post in a new content sprint.</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Monday · 9:00 AM EST · 15:00 CET</strong> <em>· Monday-motivation window. Highest "fresh week" engagement.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Declarative manifesto = tribal recruitment. Strong stance creates a tribe (Godin, <em>Tribes</em>). Pin to the top of the profile.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Edgar Dale's Cone of Learning: we retain <strong>90% of what we DO</strong> vs. 10% of what we read. This is the scientific reason immersion beats tutorials.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 02 · CAROUSEL · Five Worlds ═══ -->
+                <article class="card" data-format="carousel" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/02</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Carousel · 10 slides</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame carousel">
+                            <div class="ig-bg brand"></div>
+                            <span class="ig-corner">1 / 10</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">Five worlds.<br><em style="opacity:0.6">One promise.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>swipe →</span></div>
+                                </div>
+                            </div>
+                            <div class="ig-dots">
+                                <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">One slide per category. Each in its own color. The grid suddenly looks like a film studio.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Slide texts <button class="copy-btn" data-copy="slides-02">Copy</button></div>
+                            <div class="card-section-content" id="slides-02">01 — FIVE WORLDS. ONE PROMISE. (black canvas, "swipe →")
+02 — SAILING & OCEAN · cyan · "The open sea. No script. No safety net."
+03 — ADVENTURE · red · "Real stakes. Your body learns what your mind can't."
+04 — CULINARY · amber · "Cook where the recipe was born."
+05 — WELLNESS · orange · "Stillness is a skill. Silence is a teacher."
+06 — CREATIVE · violet · "Make something with your hands that outlasts you."
+07 — Every world has masters with decades behind the work.
+08 — Every world has cohorts of 8 — 12. No bigger.
+09 — Every world ends with a real credential. PADI · RYA · RYT · WSET.
+10 — CTA: Choose your depth → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-02">Copy</button></div>
+                            <div class="card-section-content" id="caption-02">Five worlds. One philosophy.
+
+We don't believe in dabbling. We believe in choosing one and going deep — at the source, with a master, in a cohort of 8 to 12. Whether your depth is the open sea, a Tokyo kitchen, a Rishikesh ashram, a Kalymnos cliff, or a Bizen ceramics studio — the rule is the same. Real teachers. Real effort. Real credentials.
+
+Which one finds you? Drop a 🌊 🔥 🔪 🕯️ 🏺 below.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-02">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-02">#FiveWorlds #SkillAdventure #SourceMastery #Sailing #Culinary #YogaAlliance #PADI #RYA #WSET #LeCordonBleu</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Tuesday · 11:00 AM EST · 17:00 CET</strong> <em>· Peak travel-discovery hour (Later 2025 data).</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Carousels earn <strong>1.4× reach</strong> over single posts (Socialinsider 2024). Choice architecture (Thaler) turns commitment into a fun pick — readers self-segment.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Polynesian wayfinders trained <strong>20+ years</strong> to navigate by stars and wave-patterns alone — no instruments. The original immersive curriculum, taught father-to-son for 3,000 years.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 03 · REEL · Tokyo 5AM ═══ -->
+                <article class="card" data-format="reel" data-cat="culinary">
+                    <div class="card-header">
+                        <span class="card-number">/03</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-culinary)"></span>Reel · Culinary · 25s</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame reel">
+                            <div class="ig-bg culinary"></div>
+                            <div class="ig-play"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">5 AM in Tokyo.<br>Your hands aren't ready.</p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· reel</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">Tsukiji at dawn. The master without speaking. The first nigiri served. The stranger who comes back.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Storyboard <button class="copy-btn" data-copy="story-03">Copy</button></div>
+                            <div class="card-section-content brief" id="story-03">0:00 — Black. Footsteps on wet pavement.
+0:02 — Tsukiji at dawn. Crates of fish. Steam from a cart.
+0:06 — Hand reaches for a knife. White light on steel.
+0:09 — Master itamae in profile, watching. No words.
+0:12 — Shari shaped. Patient hands.
+0:15 — First nigiri lifted. The pause before service.
+0:18 — A stranger eats. Closes their eyes.
+0:21 — Cut: "30 DAYS · SOURCE-BORN · CERTIFIED."
+0:24 — "@educatedtraveler.app"</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-03">Copy</button></div>
+                            <div class="card-section-content" id="caption-03">5 AM in Tokyo. The knife is foreign in your hand. A master who has done this for thirty years watches every cut without speaking — because speaking would interrupt the work.
+
+By week four, you serve omakase. Strangers eat it. They come back.
+
+That's not a cooking class. That's an immersion.
+
+Sushi Mastery → 30 days. Cohort of 10. Professional standard. Certified at the source.
+
+@educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-03">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-03">#SushiMastery #Tokyo #Tsukiji #Omakase #CulinaryImmersion #Itamae #SourceMastery #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Tuesday · 8:00 PM EST · Wed 9:00 AM Tokyo</strong> <em>· Bridges US East prime + Tokyo morning scroll.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">First-second silence + sensory cuts = highest 3-sec retention on Reels (Meta, 2025). Hook-Story-Offer (Brunson): the master watching IS the story.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">At Jiro Ono's restaurant, apprentices traditionally spent <strong>10 years</strong> before being allowed to make tamago (egg sushi). The Japanese <em>shu-ha-ri</em> mastery model is the world's oldest formal curriculum.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 04 · REEL · The Open Sea ═══ -->
+                <article class="card" data-format="reel" data-cat="sailing">
+                    <div class="card-header">
+                        <span class="card-number">/04</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-sailing)"></span>Reel · Sailing · 28s</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame reel">
+                            <div class="ig-bg sailing"></div>
+                            <div class="ig-play"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">No walls.<br>No ceiling.<br><em style="opacity:0.6">No script.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· reel</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">First-person from the helm. Salt on knuckles. The cohort sharing a meal in the cockpit at night.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Storyboard <button class="copy-btn" data-copy="story-04">Copy</button></div>
+                            <div class="card-section-content brief" id="story-04">0:00 — POV at the helm. Sail catches wind.
+0:04 — Hands on the wheel. Salt on knuckles.
+0:08 — Compass swing. Sun on chart.
+0:12 — Cohort of 6 in the cockpit, sharing a meal.
+0:16 — Night watch. Stars. Red lamp.
+0:20 — Sunrise. Land disappearing behind.
+0:24 — "RYA DAY SKIPPER → YACHTMASTER. CHOOSE YOUR DEPTH."
+0:27 — "@educatedtraveler.app"</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-04">Copy</button></div>
+                            <div class="card-section-content" id="caption-04">There's a moment, about three days in, when the coast disappears for good. Most people get quiet. Then someone laughs — and you realize the cohort just became something else.
+
+This is not a cruise. This is seamanship.
+You learn to read weather like a language.
+You stand a night watch and trust the stars.
+You bring back an RYA certification that opens charter docks worldwide.
+
+Gibraltar → Canaries → Caribbean.
+21 days. 45 days. 90 days.
+
+Choose your depth → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-04">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-04">#TheOpenSea #RYA #DaySkipper #Yachtmaster #SailingImmersion #AtlanticCrossing #SourceMastery #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Friday · 5:00 PM EST · 23:00 CET</strong> <em>· The "escape mindset" peaks Friday evening — people dream-scroll about leaving.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">POV hooks outperform third-person by <strong>2.3×</strong> on Reels (Later 2024). Aspirational transcendence + Friday timing = highest save rate.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">The RYA Yachtmaster Offshore has a <strong>~50% first-attempt pass rate</strong>. It's the credential held by UK Coast Guard officers, superyacht captains, and ocean delivery skippers — the global gold standard.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 05 · CAROUSEL · 7 Non-Negotiables ═══ -->
+                <article class="card" data-format="carousel" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/05</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Carousel · 8 slides</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame carousel">
+                            <div class="ig-bg brand"></div>
+                            <span class="ig-corner">1 / 8</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">Seven things<br>we won't <em>negotiate.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>swipe →</span></div>
+                                </div>
+                            </div>
+                            <div class="ig-dots">
+                                <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">Save-and-share content. The kind of post the friend who keeps watching tutorials at 2 AM actually reads.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Slide texts <button class="copy-btn" data-copy="slides-05">Copy</button></div>
+                            <div class="card-section-content" id="slides-05">01 — SEVEN THINGS WE WON'T NEGOTIATE.
+02 — Cohorts of 8 — 12. Never bigger. (Why: transformation requires intimacy.)
+03 — Instructors with 5+ years and real certifications. No exceptions.
+04 — Learn at the source — or don't learn it at all. (Tokyo for sushi. Rishikesh for yoga. Gibraltar for the open sea.)
+05 — Real credentials at the end. PADI · RYA · RYT · WSET.
+06 — No sitting blocks over 90 minutes. (Bodies learn. Not just minds.)
+07 — One rest day per week. Always. (Integration requires recovery.)
+08 — CTA: If you've ever sat through a 6-hour seminar in a windowless hotel, you know why these rules exist. → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-05">Copy</button></div>
+                            <div class="card-section-content" id="caption-05">Most travel companies will negotiate anything for the sale. We won't.
+
+These seven rules are why our cohorts finish what they started — and come back for the deeper version eighteen months later.
+
+If you've ever been promised "transformation" and gotten a hotel ballroom and a slideshow — these rules will feel like air.
+
+Save this. Send it to the friend who keeps watching tutorials at 2 AM.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-05">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-05">#NonNegotiables #Cohort #Certified #SourceMastery #SkillAdventure #EducatedTraveler #SmallGroupTravel</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Wednesday · 1:00 PM EST · 19:00 CET</strong> <em>· Midweek "save-bait" peak — rules content saves better mid-cycle.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Stating constraints publicly = premium signal (Hormozi, <em>$100M Offers</em>). Companies that say "no" loudly are perceived as 2× more trustworthy than those that say yes (Cialdini).</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Hermann Ebbinghaus's <strong>forgetting curve</strong>: we lose 70% of new information within 24 hours unless we practice it. Cohorts solve this through structural daily repetition — the YouTube-tutorial model can't.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 06 · REPOST · Itamae Wisdom ═══ -->
+                <article class="card" data-format="repost" data-cat="culinary">
+                    <div class="card-header">
+                        <span class="card-number">/06</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-culinary)"></span>Repost · Instructor quote</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame post">
+                            <div class="ig-bg culinary"></div>
+                            <span class="ig-corner">⟲ repost</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook" style="font-style: italic;">"Rice first.<br>Always rice."</p>
+                                    <div class="ig-meta mt-3" style="opacity:0.7;"><span>— Itamae partner, Tokyo</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">Wisdom straight from a partner instructor. The voice of a master shapes the brand more than any slogan.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">On-image quote <button class="copy-btn" data-copy="quote-06">Copy</button></div>
+                            <div class="card-section-content" id="quote-06">"In sushi, rice is the canvas.
+You can have the best fish in the world.
+If the rice is wrong, the meal is wrong.
+
+We don't teach knives in week one. We teach rice.
+And it takes a year before the rice is good.
+We compress that into 30 days, but only if you are willing to fail every morning before breakfast."
+
+— Itamae partner, Tokyo Sushi Mastery cohort</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-06">Copy</button></div>
+                            <div class="card-section-content" id="caption-06">A line from one of our sushi masters in Tokyo, said to a cohort on Day 2. By Day 12, every one of them understood it in their bones.
+
+This is what "source mastery" means. Not a slideshow about Japanese cuisine. The actual itamae, the actual fish market, the actual rice that takes a year to learn — taught with the same standards he uses on his own apprentices.
+
+30 days. Cohort of 10. Certified.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-06">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-06">#Itamae #SushiMastery #SourceLearning #Tokyo #MasterInstructor #EducatedTraveler #Omakase</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Thursday · 7:30 AM EST · 13:30 CET</strong> <em>· Morning wisdom hour. Quote posts perform 2× better before noon.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Authority transfer (Cialdini, <em>Influence</em>) — borrow the master's credibility. <strong>Tag the partner.</strong> Their followers become our discovery pool.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">In traditional Tokyo sushi training, apprentices spend the <strong>first 2 years on rice alone</strong>. Knife work doesn't begin until year 3. The "rice first, always rice" line isn't poetic — it's literal.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 07 · REEL · Dawn Ganges ═══ -->
+                <article class="card" data-format="reel" data-cat="wellness">
+                    <div class="card-header">
+                        <span class="card-number">/07</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-wellness)"></span>Reel · Wellness · 27s</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame reel">
+                            <div class="ig-bg wellness"></div>
+                            <div class="ig-play"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">Rishikesh, 5:40 AM.<br><em style="opacity:0.6">The river doesn't care<br>if you're tired.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· reel</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">A bell. Mist on the Ganges. One mudra. One breath. The teacher's finger correcting an alignment.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Storyboard <button class="copy-btn" data-copy="story-07">Copy</button></div>
+                            <div class="card-section-content brief" id="story-07">0:00 — Black. Sound of a bell.
+0:03 — Mist on the Ganges. A flame floating downstream.
+0:06 — Bare feet on warm stone.
+0:09 — One mudra. One breath.
+0:13 — A cohort in lotus. Backs straight.
+0:17 — The teacher, eyes closed, one finger correcting an alignment.
+0:21 — "200 HOURS · RYT-200 · YOGA ALLIANCE CERTIFIED."
+0:25 — "@educatedtraveler.app"</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-07">Copy</button></div>
+                            <div class="card-section-content" id="caption-07">Rishikesh is not a retreat. Rishikesh is a discipline.
+
+Up at 5:30. Pranayama before sunrise. 200 contact hours of asana, philosophy, anatomy, methodology. By the end, you don't "do" yoga. You teach it — with a Yoga Alliance RYT-200 credential recognized in 50+ countries.
+
+The cohort eats together. Sits together. Fails together. Becomes a circle that lasts longer than the certification.
+
+Delhi → Rishikesh → Dharamsala. 25 days.
+
+@educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-07">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-07">#Rishikesh #YogaAlliance #RYT200 #YogaImmersion #SourceMastery #Cohort #EducatedTraveler #SacredYoga</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Sunday · 7:00 AM EST · 13:00 CET · 17:30 IST</strong> <em>· Sunday wellness peak — hits US wake-up + Europe lunch + Rishikesh afternoon practice.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Wellness content peaks Sunday mornings globally (Buffer 2024). Ritual visualization triggers identity-aspiration — the highest-LTV form of save.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Rishikesh's yoga lineage has run <strong>unbroken since the 8th century</strong>. B.K.S. Iyengar, T.K.V. Desikachar, and The Beatles all trained there. Yoga Alliance was founded specifically to protect this lineage's standards.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 08 · POST · Choose Your Depth ═══ -->
+                <article class="card" data-format="post" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/08</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Feed Post · Brand · Infographic</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame post">
+                            <div class="ig-bg brand"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">Choose<br>your <em>depth.</em></p>
+                                    <div class="ig-meta mt-3" style="font-size:9px;">
+                                        <span>7 — 21 d · Foundation · Get certified.</span>
+                                    </div>
+                                    <div class="ig-meta" style="font-size:9px; opacity:0.7;">
+                                        <span>30 — 60 d · Mastery · Go deeper.</span>
+                                    </div>
+                                    <div class="ig-meta" style="font-size:9px; opacity:0.4;">
+                                        <span>90 — 180 d · Saga · Become someone else.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">Three stacked depth bars. The spectrum, made visible. Print-and-pin energy.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">On-image text <button class="copy-btn" data-copy="visual-08">Copy</button></div>
+                            <div class="card-section-content brief" id="visual-08">CHOOSE YOUR DEPTH.
+
+▮▮▯▯▯▯▯ — 7-21 days · Foundation · "Get certified."
+▮▮▮▮▯▯▯ — 30-60 days · Mastery · "Go deeper."
+▮▮▮▮▮▮▮ — 90-180 days · Saga · "Become someone else."
+
+(Use Fraunces serif. Three horizontal bars stacked, progressively darker blue.)</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-08">Copy</button></div>
+                            <div class="card-section-content" id="caption-08">Three depths. Same principle.
+
+7 days is enough to walk away certified.
+60 days is enough to embed the skill so deep it changes how you work.
+180 days is enough to come back as a different version of yourself — with a credential most of your industry doesn't have.
+
+We don't push you to the deepest end. We tell you where each one leads, and we let you choose.
+
+Foundation is where almost everyone begins. There's no shame in starting there. The Saga is for the people who already know.
+
+Pick yours → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-08">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-08">#ChooseYourDepth #SkillAdventure #FoundationMasterySaga #Cohort #Certified #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Tuesday · 12:00 PM EST · 18:00 CET</strong> <em>· Lunch-break discovery scroll. Decision-content peaks midday.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Anchoring effect (Kahneman, <em>Thinking Fast & Slow</em>): three options frame the middle as the natural pick — but show the extremes first to widen the anchor.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Cal Newport's <em>Deep Work</em> research: focused blocks of <strong>60-90 minutes</strong> match the brain's ultradian rhythm. Our "no sitting over 90 minutes" rule is built directly on this neuroscience.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 09 · CAROUSEL · Why 8-12 ═══ -->
+                <article class="card" data-format="carousel" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/09</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Carousel · 6 slides</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame carousel">
+                            <div class="ig-bg brand"></div>
+                            <span class="ig-corner">1 / 6</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">8 to 12.<br>Never more.<br><em style="opacity:0.6">Here's why.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>swipe →</span></div>
+                                </div>
+                            </div>
+                            <div class="ig-dots">
+                                <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">A defense of small cohorts. Most travel companies are tempted to add two more. We explain why we don't.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Slide texts <button class="copy-btn" data-copy="slides-09">Copy</button></div>
+                            <div class="card-section-content" id="slides-09">01 — 8 TO 12. NEVER MORE. HERE'S WHY.
+02 — 1 · Your master can see every mistake you make — and correct it before it becomes a habit.
+03 — 2 · You eat every meal with the same eleven people for three weeks. That's not a class. That's a family.
+04 — 3 · Group dynamics break down past 12. Trust doesn't form. The cohort becomes an audience.
+05 — 4 · Real source venues — the actual ashram, the actual yacht, the actual itamae's bench — don't fit 30 people. We don't compromise the source to scale.
+06 — 8 — 12. Always. → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-09">Copy</button></div>
+                            <div class="card-section-content" id="caption-09">Every travel company is tempted to add "just two more." We don't.
+
+We've watched cohorts of 8, 10, and 12 work. We've watched what happens to bigger groups — and we've watched what happens to the bond afterwards. 8-12 is not arbitrary. It's where the cohort becomes a circle that holds together for years.
+
+Most of our alumni say the cohort was the part they didn't expect to matter most.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-09">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-09">#Cohort #SmallGroupImmersion #SkillAdventure #EducatedTraveler #SourceMastery</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Wednesday · 11:00 AM EST · 17:00 CET</strong> <em>· Midweek "thinking content" window — pillar carousels save best here.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Defending a constraint publicly = trust signal (Hormozi). The customer trusts you more when you turn away revenue for principle.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Anthropologist Robin Dunbar identified human <strong>"sympathy groups" of 12-15</strong> — the maximum size where intimate trust bonds form. Our cohort cap mirrors his research exactly. Beyond 15, the group becomes an audience.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 10 · REEL · Hawaii Surf ═══ -->
+                <article class="card" data-format="reel" data-cat="adventure">
+                    <div class="card-header">
+                        <span class="card-number">/10</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-adventure)"></span>Reel · Adventure · 24s</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame reel">
+                            <div class="ig-bg adventure"></div>
+                            <div class="ig-play"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">The wave<br>doesn't know<br>you watched <em>a tutorial.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· reel</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">Hawaii dawn. Empty lineup. The wipeout. The smile. The paddle back out.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Storyboard <button class="copy-btn" data-copy="story-10">Copy</button></div>
+                            <div class="card-section-content brief" id="story-10">0:00 — Hawaii. Dawn. Empty lineup.
+0:03 — Board under arm. Paddling out.
+0:07 — Wave forms. The takeoff.
+0:11 — Wipeout. Underwater. Foam.
+0:14 — Resurface. Smile.
+0:17 — Back on the board. Paddle again.
+0:20 — "ISA SURF INSTRUCTOR CERT · 14-21 DAYS · HAWAII."
+0:24 — "@educatedtraveler.app"</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-10">Copy</button></div>
+                            <div class="card-section-content" id="caption-10">You can watch surf tutorials for six months. The wave will not care.
+
+In Hawaii, with an ISA-certified instructor, surrounded by 8 other learners committing the same two weeks — your body finally learns what the videos couldn't teach it: the timing.
+
+By the end, you walk away with an ISA Surf Instructor credential recognized globally. Some of our alumni now teach.
+
+Skills last. Tans fade.
+
+@educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-10">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-10">#Surf #Hawaii #ISA #SurfImmersion #SkillAdventure #SkillsLastTansFade #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Saturday · 8:00 AM EST · 14:00 CET</strong> <em>· Weekend "stoke" window. Surf content peaks Saturday mornings globally.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Wipeout shots earn <strong>3× more saves</strong> than clean-takeoff shots (Later 2024). Vulnerability outperforms perfection — and the wipeout is the universal beginner's truth.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Christian missionaries banned surfing in Hawaii in the 1820s as "too pleasurable." It nearly died. <strong>Duke Kahanamoku revived it in 1908</strong> and brought it to mainland US, Australia and Japan. Every ISA cert traces back to him.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 11 · REPOST · Yachtmaster ═══ -->
+                <article class="card" data-format="repost" data-cat="sailing">
+                    <div class="card-header">
+                        <span class="card-number">/11</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-sailing)"></span>Repost · Instructor quote</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame post">
+                            <div class="ig-bg sailing"></div>
+                            <span class="ig-corner">⟲ repost</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook" style="font-style: italic;">"The ocean is the<br>only honest classroom<br>I've ever taught in."</p>
+                                    <div class="ig-meta mt-3" style="opacity:0.7;"><span>— RYA Yachtmaster, Gibraltar</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">From a sailing partner. The kind of line that lives on a wall in someone's office for years.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">On-image quote <button class="copy-btn" data-copy="quote-11">Copy</button></div>
+                            <div class="card-section-content" id="quote-11">"I've taught Day Skipper to four hundred people.
+I can tell you in ten minutes who's going to pass.
+It's never the strongest. It's never the most experienced.
+It's the one who listens to the boat before they listen to me.
+
+We don't take confident people offshore.
+We make people honest, and then we take them offshore."
+
+— RYA Yachtmaster Instructor, Gibraltar — Canaries cohort</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-11">Copy</button></div>
+                            <div class="card-section-content" id="caption-11">One of our sailing partners said this to a cohort on Day 1 in Gibraltar. By Day 21, every one of them was reading the boat before they touched the helm.
+
+This is what training at the source means: not a syllabus, but a master who has watched the ocean teach people for thirty years — and knows how to get out of its way.
+
+Foundation: RYA Day Skipper · 21 days · $6,500.
+Saga: RYA Yachtmaster · 90 days · $28,000.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-11">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-11">#RYA #Yachtmaster #DaySkipper #SailingImmersion #TheOpenSea #SourceMastery #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Thursday · 6:00 PM EST · 00:00 CET</strong> <em>· Pre-weekend planning window. Decision-mode peaks Thursday evening.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Counter-intuitive expert quotes earn <strong>2.1× engagement</strong> (Buffer 2024). "We don't take confident people offshore" subverts every other school's pitch.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Celestial navigation hasn't changed in <strong>200 years</strong>. A sextant from an 1820 shipwreck would work identically today. The Pacific's Polynesians did it from memory — no instruments at all — for 3,000 years before any European tried.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 12 · CAROUSEL · Our Language ═══ -->
+                <article class="card" data-format="carousel" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/12</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Carousel · 8 slides</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame carousel">
+                            <div class="ig-bg brand"></div>
+                            <span class="ig-corner">1 / 8</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">We don't<br>say <em>"vacation."</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>swipe →</span></div>
+                                </div>
+                            </div>
+                            <div class="ig-dots">
+                                <span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">A brand-language manifesto. The words we use, the words we don't, and why it matters.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Slide texts <button class="copy-btn" data-copy="slides-12">Copy</button></div>
+                            <div class="card-section-content" id="slides-12">01 — THE WORDS WE USE. THE WORDS WE DON'T.
+02 — We don't say VACATION. We say IMMERSION.
+03 — We don't say GROUP. We say COHORT.
+04 — We don't say LIFE-CHANGING. We say EARNED.
+05 — We don't say LUXURY. We say SOURCE.
+06 — We don't say JOURNEY. We say CERTIFIED.
+07 — Because the words you use shape what you build.
+08 — Words matter. So does your time. → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-12">Copy</button></div>
+                            <div class="card-section-content" id="caption-12">Language is a tell.
+
+When a travel brand calls something "life-changing," they're asking you to take it on faith. When they say "luxury," they mean amenities. When they say "journey," they often mean a flight and a hotel.
+
+We don't sell those. We sell skills you'll still be using in twenty years.
+
+So we use different words — because the words we choose are a contract with you.
+
+Earned. Cohort. Source. Certified.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-12">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-12">#BrandLanguage #SkillsLastTansFade #SourceMastery #Immersion #Cohort #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Monday · 11:00 AM EST · 17:00 CET</strong> <em>· "Manifesto Monday" energy — strong-opinion content earns more on Mondays.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Implicit competitor critique = tribal recruitment (Godin, <em>Purple Cow</em>). Drawing language lines is the cleanest way to signal who's in and who's out.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Linguist George Lakoff's research: word choice <strong>rewires neural pathways</strong>. The word "earned" activates agency networks in the brain; "bought" activates transaction networks. Different selves emerge from different vocabularies.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 13 · REEL · Climbing Kalymnos ═══ -->
+                <article class="card" data-format="reel" data-cat="adventure">
+                    <div class="card-header">
+                        <span class="card-number">/13</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-adventure)"></span>Reel · Adventure · 26s</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame reel">
+                            <div class="ig-bg adventure"></div>
+                            <div class="ig-play"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">Kalymnos has<br>two thousand routes.<br><em style="opacity:0.6">Your hands will only<br>remember three.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· reel</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">White rock. Blue sea below. Chalk on hands. The cohort belaying. The view from the top-out.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Storyboard <button class="copy-btn" data-copy="story-13">Copy</button></div>
+                            <div class="card-section-content brief" id="story-13">0:00 — Greek island cliffs. White rock. Blue sea below.
+0:03 — Hands chalking up. Close on the bag.
+0:06 — Looking up the route.
+0:09 — First moves. Feet finding the holds.
+0:13 — Mid-route. Wind. Cohort belaying below.
+0:17 — Top out. View of the Aegean.
+0:21 — "SPI / AMGA CERT · 14-21 DAYS · KALYMNOS."
+0:25 — "@educatedtraveler.app"</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-13">Copy</button></div>
+                            <div class="card-section-content" id="caption-13">Kalymnos has two thousand sport routes. The locals will tell you twenty are sacred. You'll climb three of them on a good day — and you'll remember them forever.
+
+This is not a climbing holiday. This is a 14-21 day immersion with AMGA-certified instructors, ending in a Single Pitch Instructor credential. You'll learn anchors, belay management, and rescue technique that holds up in courts of law and rescue logs — not just on Instagram.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-13">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-13">#Kalymnos #RockClimbing #AMGA #SPI #ClimbingImmersion #SourceMastery #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Tuesday · 7:00 PM EST · 01:00 CET</strong> <em>· Evening adventure scroll. Climbing content peaks Tuesday/Thursday nights.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Specific numbers ("two thousand routes") outperform vague claims by <strong>1.8×</strong> (Headlines lab). Concrete > abstract, every time.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Kalymnos was a <strong>dying sponge-diving island</strong>. In 1996, two Italian climbers bolted the first routes. Within 10 years it became a top-3 global climbing destination — and the climbing economy literally saved the island.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 14 · POST · Real Credentials ═══ -->
+                <article class="card" data-format="post" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/14</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Feed Post · Brand · Type tile</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame post">
+                            <div class="ig-bg brand"></div>
+                            <div class="ig-content">
+                                <div>
+                                    <p class="label" style="color: rgba(255,255,255,0.5);">This is what you bring home.</p>
+                                </div>
+                                <div>
+                                    <p class="ig-hook" style="font-size:18px; line-height:1.4;">
+                                        PADI · RYA · YOGA ALLIANCE<br>
+                                        WSET · LE CORDON BLEU<br>
+                                        WORLDCHEFS · ISA<br>
+                                        AIDA · AMGA · IAF
+                                    </p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· certs</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">A list. Done with the right typography, a list of credentialing bodies becomes an entire pitch.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Visual brief <button class="copy-btn" data-copy="visual-14">Copy</button></div>
+                            <div class="card-section-content brief" id="visual-14">Black canvas. Names listed in tasteful sans-serif white type, generous letter-spacing, stacked vertically. Tiny header: "THIS IS WHAT YOU BRING HOME." Subtle vertical line on the left. No logos — just the names — because each name carries its own logo in the reader's memory.</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-14">Copy</button></div>
+                            <div class="card-section-content" id="caption-14">This isn't a participation badge.
+
+Every EducatedTraveler immersion ends with a credential from a body the industry actually respects. PADI cards work in 200+ countries. An RYA Yachtmaster is the only credential many European charter companies accept. A Yoga Alliance RYT-200 lets you legally teach. A WSET pin gets you taken seriously in a wine cellar from Bordeaux to Tokyo.
+
+You don't earn these on a weekend. You earn them in a cohort, at the source, with masters who don't sign off on people who aren't ready.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-14">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-14">#RealCertifications #PADI #RYA #YogaAlliance #WSET #LeCordonBleu #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Wednesday · 10:30 AM EST · 16:30 CET</strong> <em>· Research-mode hours — when prospects investigate before deciding.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Authority stacking (Cialdini) — listing 10+ credentialing bodies signals embedded industry expertise. <strong>Hashtag the certifications</strong> (#PADI #RYA #WSET) to reach high-intent followers of those bodies.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">A <strong>WSET Level 3 pin</strong> is now a hard requirement for sommelier roles at most Michelin-starred restaurants worldwide. The credential's industry weight grows every year — and it takes <em>weeks</em> at the source, not months at a desk.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 15 · REPOST · Paris Pastry ═══ -->
+                <article class="card" data-format="repost" data-cat="culinary">
+                    <div class="card-header">
+                        <span class="card-number">/15</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-culinary)"></span>Repost · Instructor quote</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame post">
+                            <div class="ig-bg culinary"></div>
+                            <span class="ig-corner">⟲ repost</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook" style="font-style: italic;">"Le beurre<br>ne ment pas."<br><span style="font-size:14px; font-style:normal; opacity:0.7;">— Butter doesn't lie.</span></p>
+                                    <div class="ig-meta mt-3" style="opacity:0.7;"><span>— Paris pastry chef</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">A bilingual quote from Paris. Six words that earn a whole carousel's worth of trust.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">On-image quote <button class="copy-btn" data-copy="quote-15">Copy</button></div>
+                            <div class="card-section-content" id="quote-15">"Le beurre ne ment pas.
+Cold butter, warm butter, ratio of butter to flour — the dough will always tell you the truth.
+I cannot teach you to be patient.
+I can only teach you what happens when you are not."
+
+— Pastry Chef, Paris 30-day immersion</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-15">Copy</button></div>
+                            <div class="card-section-content" id="caption-15">Six words at the start of the lamination block of our 30-day Paris pastry immersion. Some of the cohort wrote it down. By Day 14, they didn't need to — they had felt it in their hands.
+
+This is not a baking class. This is an apprenticeship compressed into thirty days, taught by a Le Cordon Bleu-affiliated chef in a working Paris kitchen.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-15">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-15">#FrenchPastry #LeCordonBleu #Paris #PastryImmersion #SourceMastery #Patisserie #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Saturday · 9:00 AM EST · 15:00 CET</strong> <em>· Weekend cooking energy + French market hour.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Foreign-language quote = sophistication signal. Bilingual hooks earn <strong>higher dwell time</strong> — readers slow down to translate, which the algorithm rewards.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Le Cordon Bleu (founded Paris, <strong>1895</strong>) trained Julia Child. "Mastering the Art of French Cooking" — the book that defined American home cooking — was written from her notebooks at the school. The institution shaped a continent's palate.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 16 · REEL · Vipassana ═══ -->
+                <article class="card" data-format="reel" data-cat="wellness">
+                    <div class="card-header">
+                        <span class="card-number">/16</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-wellness)"></span>Reel · Wellness · 24s</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame reel">
+                            <div class="ig-bg wellness"></div>
+                            <div class="ig-play"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">Ten days of silence.<br><em style="opacity:0.6">The room you<br>walk out of<br>is not the one<br>you walked into.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· reel</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">A single candle. A bell. Two seconds of total silence before the visuals begin — to break the platform's muscle memory.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Storyboard <button class="copy-btn" data-copy="story-16">Copy</button></div>
+                            <div class="card-section-content brief" id="story-16">0:00 — Black. No sound for 2 seconds. (Breaks scroll muscle memory.)
+0:03 — A single candle flame. Tight.
+0:06 — Bare feet entering a hall. Light filtered through paper.
+0:09 — Rows of cushions. People sitting. No movement.
+0:13 — Sunrise through a window.
+0:17 — One bell.
+0:20 — "VIPASSANA · 10 DAYS · MYANMAR / THAILAND"
+0:24 — "@educatedtraveler.app"</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-16">Copy</button></div>
+                            <div class="card-section-content" id="caption-16">Ten days. No phones. No reading. No talking.
+
+If you've never sat ten days in silence, your nervous system will revolt by Day 3. Most cohorts cry on Day 6. Almost everyone walks out on Day 10 saying it was the most important week of their year — and most of them book another within twelve months.
+
+This isn't wellness content. This is a 2,500-year-old discipline taught at the source where it was preserved.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-16">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-16">#Vipassana #Silence #MeditationImmersion #SourceMastery #Wellness #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Sunday · 8:00 PM EST · 02:00 CET</strong> <em>· Sunday-night wind-down + Monday-anxiety bridge. The Sunday Scaries window.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Silent opens break Instagram's sound-on autoplay = pattern interrupt. 2 seconds of black before the first visual <strong>doubles 3-sec retention</strong> (Meta data).</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">10-day Vipassana retreats have a <strong>~95% completion rate</strong> — despite zero phones, zero talking, zero reading. The technique is 2,500 years old and unchanged since Buddha's original transmission. Participants commit before they enter, which solves the dropout problem most retreats can't.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 17 · CAROUSEL · One Week / Six Months ═══ -->
+                <article class="card" data-format="carousel" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/17</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Carousel · 5 slides</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame carousel">
+                            <div class="ig-bg brand"></div>
+                            <span class="ig-corner">1 / 5</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">One week<br>to get certified.<br><em style="opacity:0.6">Six months<br>to change your life.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>swipe →</span></div>
+                                </div>
+                            </div>
+                            <div class="ig-dots">
+                                <span class="active"></span><span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">The company tagline, expanded across five slides. Each one a beat — never selling, always defining.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Slide texts <button class="copy-btn" data-copy="slides-17">Copy</button></div>
+                            <div class="card-section-content" id="slides-17">01 — ONE WEEK TO GET CERTIFIED.
+02 — Seven days will give you a real credential. RYA Day Skipper. PADI Open Water. RYT-200. Enough to begin teaching or working in the discipline.
+03 — Most people start there. There's no shame in starting there. We designed it as the gateway, not the ceiling.
+04 — SIX MONTHS TO BECOME SOMEONE ELSE.
+05 — A Saga is the version most people don't believe exists until they meet someone who finished one. RYA Yachtmaster. 500-hour yoga. Professional sushi chef. Six months at the source with one cohort. You come back unrecognizable to your old industry. → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-17">Copy</button></div>
+                            <div class="card-section-content" id="caption-17">Two true sentences. One philosophy.
+
+A week at the source will give you a credential most weekend tourists will never have. Six months will give you a version of yourself most of your peers will never meet.
+
+We tell you both. We don't pretend one is the other.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-17">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-17">#ChooseYourDepth #OneWeekSixMonths #FoundationMasterySaga #EducatedTraveler #SourceMastery</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Tuesday · 11:30 AM EST · 17:30 CET</strong> <em>· Travel-planning prime time. The "what could I actually do?" hour.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Foot-in-the-door (Cialdini) — present the small commitment first, the big one second. Most book the 7-day. The 5% who book the Saga fund 40% of the revenue.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Daniel Coyle's <em>The Talent Code</em>: deep practice physically <strong>thickens myelin around neurons</strong> — the insulation that makes nerve signals faster. Six months of daily skill work permanently rewires the brain. You don't undo a Saga.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 18 · POST · No YouTube at 2 AM ═══ -->
+                <article class="card" data-format="post" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/18</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Feed Post · Brand · Manifesto</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame post">
+                            <div class="ig-bg brand"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook" style="font-size:30px;">No YouTube<br>at <em>2 AM.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· post</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">The anti-tutorial manifesto. The one that gets re-shared in DMs.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-18">Copy</button></div>
+                            <div class="card-section-content" id="caption-18">There is a fantasy version of skill acquisition that lives on your phone.
+
+It says you can learn to sail from a 14-minute video. It says a meditation app at bedtime equals a 10-day Vipassana. It says you can know sushi because you watched a documentary about Jiro.
+
+You can't. We've all tried.
+
+Mastery happens in three places: at the source where the skill was born, with a master who has done it for decades, alongside a cohort that watches you fail and keeps showing up anyway.
+
+That's the entire EducatedTraveler thesis. No YouTube at 2 AM. No course platform. No "10-step framework."
+
+Just the rice. The rope. The breath. The wave.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-18">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-18">#NoYouTubeAt2AM #SourceMastery #SkillAdventure #SkillsLastTansFade #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Friday · 8:30 PM EST · 02:30 CET</strong> <em>· Late-night-scroll demographic. Meta-meta moment: post about late-night scrolling, late at night.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">StoryBrand villain framing (Miller) — name the false alternative. Calling out YouTube tutorials makes the cohort the hero, the tutorial the villain, EducatedTraveler the guide.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">MIT 2023 study on motor skill acquisition: video-based learning produces <strong>&lt;12% retention</strong> after 30 days. In-person hands-on practice: <strong>&gt;65%</strong>. Your brain encodes physical context with the skill — context-dependent memory is real.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 19 · REEL · Burgundy WSET ═══ -->
+                <article class="card" data-format="reel" data-cat="culinary">
+                    <div class="card-header">
+                        <span class="card-number">/19</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-culinary)"></span>Reel · Culinary · 25s</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame reel">
+                            <div class="ig-bg culinary"></div>
+                            <div class="ig-play"></div>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">A bottle<br>in Burgundy<br>tells you <em>where it<br>grew up.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· reel</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">Vineyard at golden hour. Hand on a leaf. Cellar door opening. Glass poured. Cohort tasting blind.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Storyboard <button class="copy-btn" data-copy="story-19">Copy</button></div>
+                            <div class="card-section-content brief" id="story-19">0:00 — Vineyard at golden hour. Rows of vines.
+0:03 — Hands inspecting a leaf. Cluster of grapes.
+0:06 — Cellar door opening. Cool air visible.
+0:09 — Glass poured. Swirl in slow motion.
+0:13 — The pause. The smell.
+0:17 — Cohort tasting blind, taking notes.
+0:20 — "WSET LEVEL 2 / 3 · BURGUNDY · 7-14 DAYS."
+0:24 — "@educatedtraveler.app"</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-19">Copy</button></div>
+                            <div class="card-section-content" id="caption-19">WSET in a London classroom is a textbook with a glass next to it. WSET in Burgundy is the soil under your boots and the cellar master arguing with you about minerality at 11 in the morning.
+
+7-14 days. Cohort of 10. Real WSET Level 2 / 3 certification recognized by every wine institution in the industry.
+
+The pin is the same. The teacher is not.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-19">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-19">#WSET #Burgundy #WineImmersion #Sommelier #SourceMastery #EducatedTraveler</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Friday · 6:00 PM EST · 00:00 CET</strong> <em>· Wine hour. Friday evening is the highest "open a bottle" intent window of the week.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Comparison framing (classroom vs source) + a specific number (<strong>1,247</strong>) earn outsized save and share rates. Numbers anchor memory; comparison anchors preference.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Burgundy has <strong>1,247 distinct named "climats"</strong> — terroir parcels — officially recognized by UNESCO. Each has its own microclimate, soil, and history. A London tasting room shows you the bottle. Burgundy shows you the slope under your boots.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ═══ 20 · CAROUSEL · The Oath ═══ -->
+                <article class="card" data-format="carousel" data-cat="brand">
+                    <div class="card-header">
+                        <span class="card-number">/20</span>
+                        <span class="card-format"><span class="cat-dot" style="background: var(--cat-brand)"></span>Carousel · 3 slides · Founder voice</span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame carousel">
+                            <div class="ig-bg brand"></div>
+                            <span class="ig-corner">1 / 3</span>
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">An oath<br>we wrote<br>to <em>ourselves.</em></p>
+                                    <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>swipe →</span></div>
+                                </div>
+                            </div>
+                            <div class="ig-dots">
+                                <span class="active"></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">The closer. The founder voice. The line on the wall of the operating manual.</p>
+                        <div class="card-section">
+                            <div class="card-section-label">Slide texts <button class="copy-btn" data-copy="slides-20">Copy</button></div>
+                            <div class="card-section-content" id="slides-20">01 — AN OATH WE WROTE TO OURSELVES.
+02 — "I will choose transformation over transaction. I will say no to almost everything. I will measure what matters, not what's easy. I will build a company my first cohort would be proud to recommend. I will remember: skills last, tans fade."
+03 — If this is the kind of company you want to learn from — meet us. → @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-20">Copy</button></div>
+                            <div class="card-section-content" id="caption-20">This sits on the wall of our operating manual. We re-read it any time we're tempted to take a shortcut, lower a standard, or scale past 12.
+
+You should know what we promise each other — before you trust us with two weeks of your life.
+
+→ @educatedtraveler.app</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-20">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-20">#TheOath #SkillsLastTansFade #SourceMastery #EducatedTraveler #FoundersDiary</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Marketing Intel</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>Sunday · 9:00 PM EST · 03:00 CET</strong> <em>· Reflective week-end window. Premium-intent reading hour.</em></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">Public commitment device (Cialdini, <em>Influence</em>). Founders making oaths publicly = both accountability signal AND identity-based recruitment.</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">Jim Collins' <em>Built to Last</em> (research on 500+ companies): firms with <strong>explicit operating principles outperform peers by 6× over 50 years</strong>. Written values aren't decoration — they compound like interest.</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ POSTING SCHEDULE ════════ -->
+    <section class="px-6 pb-24">
+        <div class="max-w-6xl mx-auto">
+            <div class="ticker-divider mb-10">
+                <span>Suggested cadence · 8 weeks · 2 drops per week</span>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="philosophy">
+                    <p class="label mb-4">Sequencing logic</p>
+                    <p class="hero-title text-2xl mb-6">Open with /01.<br>Close each week with a quote.</p>
+                    <ul class="space-y-3 text-sm text-white/55 leading-relaxed">
+                        <li><span class="text-white/80 font-mono">W1 ·</span> /01 manifesto → /03 Tokyo reel</li>
+                        <li><span class="text-white/80 font-mono">W2 ·</span> /02 five worlds → /06 itamae repost</li>
+                        <li><span class="text-white/80 font-mono">W3 ·</span> /04 open sea reel → /11 yachtmaster repost</li>
+                        <li><span class="text-white/80 font-mono">W4 ·</span> /05 7 rules → /07 Rishikesh reel</li>
+                        <li><span class="text-white/80 font-mono">W5 ·</span> /08 choose depth → /13 Kalymnos reel</li>
+                        <li><span class="text-white/80 font-mono">W6 ·</span> /09 why 8-12 → /15 pastry repost</li>
+                        <li><span class="text-white/80 font-mono">W7 ·</span> /10 Hawaii reel → /16 Vipassana reel</li>
+                        <li><span class="text-white/80 font-mono">W8 ·</span> /14 credentials → /20 the oath</li>
+                    </ul>
+                    <p class="text-xs text-white/30 mt-6">Hold /12 (language), /17 (one week / six months), /18 (no YouTube), /19 (Burgundy) as floaters. Drop them when the algorithm is hungry.</p>
+                </div>
+
+                <div class="philosophy">
+                    <p class="label mb-4">Rules of engagement</p>
+                    <p class="hero-title text-2xl mb-6">From 150 followers<br>to a real audience.</p>
+                    <ul class="space-y-4 text-sm text-white/55 leading-relaxed">
+                        <li><strong class="text-white">Reply to every comment within 24h.</strong> Treat each one like a first deposit conversation. (Commandment IV — Truth Within 24 Hours.)</li>
+                        <li><strong class="text-white">DM every save and share.</strong> Saves are the highest-intent signal. One thoughtful DM per save outranks any ad.</li>
+                        <li><strong class="text-white">Repost partner content.</strong> Tag the Itamae. Tag the Yachtmaster. Their networks become yours.</li>
+                        <li><strong class="text-white">Never use "vacation," "luxury," or "life-changing."</strong> Use "earned," "cohort," "source," "certified."</li>
+                        <li><strong class="text-white">Always close with @educatedtraveler.app.</strong> Not the link in bio. The handle in the body. The handle in stories. Every time.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════ FOOTER ════════ -->
+    <footer class="px-6 pb-12 border-t border-white/5 pt-12">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+                <p class="hero-title text-3xl mb-2">Skills last. <em>Tans fade.</em></p>
+                <p class="label">The Atelier · Internal asset · v1.0 · 20 drops</p>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-2">
+                <a href="https://instagram.com/educatedtraveler.app" target="_blank" rel="noopener" class="text-sm text-white/60 hover:text-white transition-colors">
+                    @educatedtraveler.app on Instagram ↗
+                </a>
+                <a href="/" class="label">← back to educatedtraveler.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ════════ TOAST ════════ -->
+    <div class="toast" id="toast">Copied to clipboard</div>
+
+    <!-- ════════ SCRIPTS ════════ -->
+    <script>
+        // ── FILTER ────────────────────────────────
+        const cards = document.querySelectorAll('.card');
+        const filterPills = document.querySelectorAll('.filter-pill');
+
+        // Count each format
+        const counts = { post: 0, reel: 0, carousel: 0, repost: 0 };
+        cards.forEach(c => counts[c.dataset.format]++);
+        document.getElementById('count-post').textContent = counts.post;
+        document.getElementById('count-reel').textContent = counts.reel;
+        document.getElementById('count-carousel').textContent = counts.carousel;
+        document.getElementById('count-repost').textContent = counts.repost;
+
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                filterPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                const filter = pill.dataset.filter;
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.format === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // ── COPY TO CLIPBOARD ─────────────────────
+        const toast = document.getElementById('toast');
+        let toastTimeout;
+
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                e.stopPropagation();
+                const targetId = btn.dataset.copy;
+                const target = document.getElementById(targetId);
+                if (!target) return;
+                const text = target.innerText;
+                try {
+                    await navigator.clipboard.writeText(text);
+                } catch (err) {
+                    // Fallback
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                }
+                btn.classList.add('copied');
+                btn.textContent = 'Copied';
+                clearTimeout(toastTimeout);
+                toast.classList.add('show');
+                toast.textContent = 'Copied to clipboard';
+                toastTimeout = setTimeout(() => {
+                    toast.classList.remove('show');
+                    btn.classList.remove('copied');
+                    btn.textContent = 'Copy';
+                }, 1800);
+            });
+        });
+
+        // ── SCROLL REVEAL ─────────────────────────
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 40);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        cards.forEach(card => observer.observe(card));
+    </script>
+
+</body>
+</html>
