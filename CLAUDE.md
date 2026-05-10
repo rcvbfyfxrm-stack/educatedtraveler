@@ -22,14 +22,6 @@ Always lead with shorter options. The 7-day certification is the gateway, not th
 python3 -m http.server 8000 --directory website
 ```
 
-**Prototype** (React scaffold in `prototype/` — not yet built out):
-```bash
-cd prototype && npm install
-npm run dev      # Dev server on localhost:5173
-npm run build    # Production build
-npm run lint     # ESLint
-```
-
 **Supabase Edge Functions** (in `supabase/functions/`):
 ```bash
 supabase functions serve    # Local dev
@@ -45,12 +37,14 @@ supabase functions deploy send-followup-emails
 
 Production static site. No build step — Tailwind loaded from CDN, Inter font via Google Fonts.
 
-**Pages** (7 active): `index.html` (homepage), `offerings.html` (adventures catalog), `about.html` (founder story), `community.html` (waitlist + conversion hub), `instructors.html` (partner applications), `dashboard.html` (auth-gated), `profile.html` (profile setup for new/existing members), `auth-callback.html` (magic link handler). Deleted: `vision.html` (→ redirects to offerings#flagships), `survey.html` (→ redirects to community).
+**Pages** (active): `index.html` (homepage + Quest selector), `offerings.html` (adventures catalog), `about.html` (founder story), `community.html` (waitlist + conversion hub), `instructors.html` (partner applications), `dashboard.html` (auth-gated, profile setup lives here), `instructor-dashboard.html` (cohort management), `profile.html` (public profile view), `join.html` (auth entry), `admin.html` (admin console), `survey.html` (research survey), `auth-callback.html` (magic link handler), `sushi-mastery.html` + `modernist-barcelona.html` (flagship experience landing pages). Removed: `vision.html` (→ redirects to offerings#flagships).
 
 **JS modules** (`website/js/`):
-- `supabase-config.js` — Initializes Supabase client on `window.supabaseClient`
-- `auth.js` — Magic link auth (`signInWithOtp`), session management, modal UI. Exposed as `window.auth`
-- `database.js` — All DB operations (profiles, preferences, saved adventures, badges, XP). Exposed as `window.db`
+- `supabase-config.js` — Loads the Supabase JS v2 CDN, initializes `window.supabaseClient`, shows a non-intrusive banner on auth pages if the SDK fails to load
+- `auth.js` — Email+password, magic link (`signInWithOtp`), password reset. Auto-claims pre-seeded instructor rows by email. Migrates `pendingQuest` sessionStorage and legacy localStorage profiles into Supabase on sign-in. Exposed as `window.auth`
+- `database.js` — All DB operations: profiles, preferences, saved adventures, badges, interests, cohorts, enrollments, instructor admin. Exposed as `window.db`
+- `community-sidebar.js` — Renders the community wall via the `get_community_for_adventure` RPC (migration 004)
+- `whatsapp-widget.js` — WhatsApp opt-in UX
 
 **Homepage (`index.html`)** is ~1,600 lines and contains the core product logic:
 - **Quest selector** — 4-question interactive tool scoring against 22 hardcoded experience objects
@@ -60,21 +54,26 @@ Production static site. No build step — Tailwind loaded from CDN, Inter font v
 
 ### Supabase Backend
 
-Auth via passwordless magic links. Four tables (all with RLS):
-- `profiles` — user data, XP, level
-- `user_preferences` — quest selections (elements, desires, time, intensity)
+Auth via email+password with passwordless magic links as fallback (and password-reset flow). RLS everywhere.
+
+Tables:
+- `profiles` — user data, XP, level, plus the full profile form (first_name, age, location, about, interests JSONB, profession, skills, credentials JSONB, fitness, comfort_zone, languages, visibility, etc.)
+- `user_preferences` — quest selections (elements, desires, time_preference, intensity)
 - `saved_adventures` — bookmarked experiences
 - `user_badges` — earned achievements
+- `instructors` — instructor profiles (status: pending/approved/rejected)
+- `cohorts` — class instances linked to an instructor and an `adventure_id` from `experiences.js`
+- `enrollments` — student-to-cohort links (enrolled/waitlisted/cancelled/completed)
+- `experience_interests` — pre-cohort interest signal with `token` for auth-less cancel links
+- `survey_responses` — anonymous survey (no auth, insert-only RLS)
 
-Edge Functions (Deno, using Resend for email):
-- `send-welcome-email` — triggered by webhook on profile creation
-- `send-followup-emails` — daily cron: Day 3 and Day 7 nurture emails
+Edge Functions (Deno + Resend):
+- `send-welcome-email` — database-webhook on `profiles` INSERT
+- `send-followup-emails` — daily cron, Day 3 + Day 7 nurture
+- `send-whatsapp`, `send-followup-whatsapp` — WhatsApp equivalents
+- `handle-interest` — token-authenticated interest confirm/cancel
 
-Schema defined in `website/supabase-schema.sql`. Migration in `supabase/migrations/`.
-
-### Prototype (`prototype/`)
-
-React 19 + Vite + TypeScript scaffold. Currently still the default Vite starter — `src/App.tsx` is the counter demo. `educated-traveler-quest.tsx` sits loose in the prototype root as a design exploration, not wired into the app.
+Schema: authoritative snapshot in `website/supabase-schema.sql`. Incremental migrations in `supabase/migrations/` (001 → 005). Run migrations in order; `005_profile_extended_columns.sql` is the one that adds the extended profile columns that were previously ad-hoc in the dashboard.
 
 ### Operating System (`os/`)
 

@@ -1,71 +1,77 @@
 # EducatedTraveler
 
-**6-month source mastery with unbreakable bonds — only us scales immersion to transformation.**
+**Certified skill immersions at the source.**
+Learn diving in Thailand, sailing in Greece, sushi in Tokyo — and leave with real credentials (PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu).
 
-EducatedTraveler is building the world's first gamified quest system for extended immersion education (3-6 months), combining real-world certifications with blockchain-verified credentials and lifelong community bonds.
+> *"One week to get certified. Six months to change your life."*
 
-## The Concept
+## The Tiers
 
-Traditional education offers expensive degrees with limited practical skills. Short retreats provide temporary inspiration without lasting change. Online courses lack community and accountability.
+| Tier | Duration | Price | Cohort |
+|------|----------|-------|--------|
+| **Foundation** | 7–21 days | $3,500–$6,500 | 8–12 |
+| **Mastery** | 30–60 days | $9,500–$12,000 | 8–12 |
+| **Saga** | 90–180 days | $25,000–$40,000 | 8–12 |
 
-EducatedTraveler solves this through extended immersion at the source of skills:
-- Learn yoga in Bali, diving in Thailand, sailing in Greece
-- Earn internationally recognized certifications (PADI, RYA, Yoga Alliance, WSET)
-- Build unbreakable bonds with small cohorts of 8-12 people
-- Create a blockchain-verified identity that travels with you forever
+Always lead with shorter options. The 7-day certification is the gateway.
 
-## Quest Tiers
+## Repo Layout
 
-| Tier | Duration | Price Range | XP | Examples |
-|------|----------|-------------|-----|----------|
-| **Foundation** | 7-21 days | $3,500-$6,500 | 100-200 | Yoga 200hr, PADI Open Water, WSET Level 2 |
-| **Mastery** | 30-60 days | $9,500-$12,000 | 400-500 | Yoga 500hr, PADI Divemaster, RYA Yachtmaster |
-| **Saga** | 90-180 days | $25,000-$40,000 | 1,200-2,000 | Complete Wellness Transformation, Ocean Explorer |
+```
+website/              Production static site (Netlify → educatedtraveler.app)
+  ├─ *.html           Pages (see CLAUDE.md for full list)
+  ├─ js/              supabase-config, auth, database, whatsapp-widget
+  ├─ images/          Logo + page imagery
+  └─ supabase-schema.sql   Authoritative schema snapshot
 
-## Repository Contents
+supabase/
+  ├─ functions/       Edge functions (Deno + Resend): welcome, follow-up, WhatsApp, interest, Stripe
+  └─ migrations/      Incremental SQL (run in order)
 
-### Documentation
-- `educated-traveler-whitepaper.md` — Full quest system architecture and vision
-- `educated-traveler-partner-brief.md` — Partnership opportunities and business model
-- `educated-traveler-survey.md` — Community interest survey template
+src/trigger/          Trigger.dev jobs (granola-meeting, new-signup)
+live-experiences/     Real instructor cohort notes (hiroko-ishii, martin-lippo)
+os/                   Strategy, brand, product, playbooks — single source of truth
+docs/                 Ops docs: outreach, partner & influencer templates, roadmap
+setup/                CRM / Notion imports (HubSpot, Notion CSVs, workflows)
+marketing/            QR codes + IG asset HTML
+scripts/              Outreach + audit + lint automation (Python + mjs)
+photo/                Raw source photos (instructor / cohort) — staging, not site assets
+logs/                 Decision log, ideas, outreach drafts
+tests/                Playwright smoke tests
+_archive/             Legacy strategy/business docs (frozen 2026-02)
+```
 
-### Prototype
-- `educated-traveler-quest.tsx` — React component demonstrating the quest map and persona system
+**Key plans:**
+- `BUSINESS-STRATEGY.md` — 3-lever growth playbook (Pipeline · Cohort · Demand)
+- `IMPLEMENTATION-PLAN.md` — engineering priorities
 
-### Business Documents (PDF)
-- Executive Summary
-- Market Analysis
-- Financial Projections
-- Company OS & Standards
-- Partner Guides
+## Quick Start
 
-## Technology Stack (Planned)
+**Run the site locally:**
+```bash
+python3 -m http.server 8000 --directory website
+```
 
-**Web/Mobile Platform**
-- React with TypeScript
-- Tailwind CSS
-- Mobile apps for in-journey tracking
+**Deploy:** Push to `main` — Netlify auto-deploys from `website/`.
 
-**Blockchain Infrastructure**
-- Polygon network (low gas, high throughput)
-- ERC-721 Soul-Bound Tokens for certifications
-- ERC-1155 for transferable achievement NFTs
-- $EDUTRAV governance token
-- IPFS for metadata storage
+**Edge functions:**
+```bash
+supabase functions deploy send-welcome-email
+supabase functions deploy send-followup-emails
+```
 
-## Target Audience
+**Database:** Apply `supabase/migrations/*.sql` in order, then the base `website/supabase-schema.sql` for reference.
 
-- Digital nomads (25-40) seeking career pivots
-- Mid-career professionals (35-50) on sabbatical
-- Lifelong learners prioritizing depth over breadth
-- Community-oriented individuals valuing genuine connection
+## Brand
+
+Apple glass meets Netflix minimal. Darkness as canvas, content glows.
+
+- **Sacred words:** Immersion · At the source · Cohort · Choose your depth · Earned, not bought · Certified
+- **Banned:** Transformation · Life-changing · Journey · Luxury · Easy
+
+See `os/` for the full product and brand system. See `CLAUDE.md` for AI-agent guidance.
 
 ## Contact
 
-- **Website:** www.educatedtraveler.com
-- **Email:** hello@educatedtraveler.com
-- **Discord:** discord.gg/educatedtraveler
-
----
-
-*"Live the source for months — emerge certified, connected, unstoppable."*
+- **Web:** [educatedtraveler.app](https://educatedtraveler.app)
+- **Email:** hello@educatedtraveler.app
