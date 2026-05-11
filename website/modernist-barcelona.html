@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modernist Cuisine — Barcelona | EDUCATEDTRAVELER</title>
     <meta name="description" content="5-day modernist cuisine intensive in Barcelona with Martin Lippo. Sous-vide, spherification, foams, hydrocolloids. Max 12 students. October 2026.">
+    <meta name="course-instructor-name" content="Martin Lippo">
+    <meta name="course-instructor-email" content="vakuumlippo@gmail.com">
+    <meta name="course-short-name" content="Modernist Barcelona">
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
@@ -78,6 +81,8 @@
         .faq-item.open .faq-answer { max-height: 300px; padding-top: 12px; }
         .faq-item.open .faq-arrow { transform: rotate(180deg); }
         .faq-arrow { transition: transform 0.3s; }
+
+        @keyframes lab-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     </style>
 </head>
 <body class="text-white grid-bg">
@@ -153,6 +158,8 @@
                         <span class="font-lab text-xs px-4 py-2 rounded-full bg-lab-400/10 text-lab-400 border border-lab-400/20">Barcelona</span>
                         <span class="font-lab text-xs px-4 py-2 rounded-full bg-white/5 text-white/40 border border-white/10">martinlippo.com</span>
                     </div>
+
+                    <p class="mt-6 text-xs text-white/30">Are you Martin? <button type="button" data-instructor-signin class="text-acid-400/80 hover:text-acid-400 underline underline-offset-2">Sign in to manage this page</button>.</p>
                 </div>
             </div>
         </div>
@@ -384,7 +391,19 @@
                         <li class="flex items-start gap-2"><span class="text-acid-400">&#x2713;</span> Certificate of completion</li>
                         <li class="flex items-start gap-2"><span class="text-acid-400">&#x2713;</span> October 2026</li>
                     </ul>
-                    <a href="mailto:founder@educatedtraveler.app?subject=Modernist%20Barcelona%20—%20Application" class="block text-center cta-mod px-8 py-3.5 rounded-full text-sm font-semibold">Apply Now</a>
+                    <div class="space-y-2">
+                        <button type="button" data-et-join
+                                data-experience="Modernist Cuisine — Barcelona · 5-Day Intensive"
+                                data-cohort="October 2026 — dates TBC"
+                                data-price-usd="3500"
+                                data-instructor-name="Martin Lippo"
+                                data-instructor-email="vakuumlippo@gmail.com"
+                                class="block w-full text-center cta-mod px-8 py-3.5 rounded-full text-sm font-semibold">Join the course — pay with PayPal</button>
+                        <button type="button" data-et-interested
+                                data-experience="Modernist Cuisine — Barcelona · 5-Day Intensive"
+                                data-adventure-id="avant-garde-cuisine-barcelona"
+                                class="block w-full text-center cta-outline-mod px-8 py-3 rounded-full text-sm font-medium">I'm interested</button>
+                    </div>
                 </div>
 
                 <!-- 7 Days -->
@@ -401,7 +420,19 @@
                         <li class="flex items-start gap-2"><span class="text-lab-400">&#x2713;</span> Barcelona experience (Enigma, elBulli, Boqueria...)</li>
                         <li class="flex items-start gap-2"><span class="text-lab-400">&#x2713;</span> Accommodation in Eixample</li>
                     </ul>
-                    <a href="mailto:founder@educatedtraveler.app?subject=Modernist%20Barcelona%207-Day%20—%20Application" class="block text-center cta-outline-mod px-8 py-3.5 rounded-full text-sm font-medium">Apply for 7 Days</a>
+                    <div class="space-y-2">
+                        <button type="button" data-et-join
+                                data-experience="Modernist Cuisine — Barcelona · 7-Day Full Immersion"
+                                data-cohort="October 2026 — dates TBC"
+                                data-price-usd="4900"
+                                data-instructor-name="Martin Lippo"
+                                data-instructor-email="vakuumlippo@gmail.com"
+                                class="block w-full text-center cta-mod px-8 py-3.5 rounded-full text-sm font-semibold">Join 7 days — pay with PayPal</button>
+                        <button type="button" data-et-interested
+                                data-experience="Modernist Cuisine — Barcelona · 7-Day Full Immersion"
+                                data-adventure-id="avant-garde-cuisine-barcelona"
+                                class="block w-full text-center cta-outline-mod px-8 py-3 rounded-full text-sm font-medium">I'm interested</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -449,6 +480,33 @@
         </div>
     </section>
 
+    <!-- ══════════════════════ WHY TRAVELERS LOVE THIS ══════════════════════ -->
+    <section class="py-24 px-6 relative">
+        <div class="max-w-4xl mx-auto relative">
+            <div class="text-center mb-16 reveal">
+                <p class="font-lab text-xs tracking-[0.3em] text-acid-400/50 uppercase mb-4">// field_reports</p>
+                <h2 class="font-display text-4xl md:text-5xl text-white/90 mb-3">Why Travelers Love This</h2>
+                <p class="text-white/40 text-sm italic max-w-md mx-auto">From chefs who've stood at Martin's bench — direct from the lab.</p>
+            </div>
+
+            <!-- Testimonial cards (populated as cohorts complete) -->
+            <div id="mod-testimonials" class="grid md:grid-cols-2 gap-5 reveal" style="display:none;"></div>
+
+            <!-- Empty state — founding cohort -->
+            <div id="mod-testimonials-empty" class="reveal">
+                <div class="glass rounded-2xl p-10 text-center max-w-xl mx-auto relative overflow-hidden" style="border-color: rgba(200,230,25,0.18); background: linear-gradient(135deg, rgba(200,230,25,0.03) 0%, rgba(255,107,53,0.02) 100%);">
+                    <p class="font-lab text-[10px] tracking-[0.3em] text-acid-400/60 uppercase mb-4">status: pre-launch</p>
+                    <p class="font-display text-2xl text-white/85 italic mb-4">No data yet — by design.</p>
+                    <p class="text-white/45 text-sm leading-relaxed">The October 2026 cohort runs the first experiment. Their field reports populate this section after the program. We don't synthesize what hasn't been earned.</p>
+                    <div class="flex items-center justify-center gap-2 mt-6 font-lab text-[10px] tracking-[0.2em] text-acid-400/40 uppercase">
+                        <span style="width:6px;height:6px;border-radius:50%;background:#C8E619;display:inline-block;animation:lab-pulse 2s ease-in-out infinite;"></span>
+                        Awaiting Cohort 001
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ══════════════════════ FAQ ══════════════════════ -->
     <section class="py-24 px-6">
         <div class="max-w-3xl mx-auto">
@@ -481,8 +539,17 @@
             <h2 class="font-display text-4xl md:text-5xl text-white/90 mb-4">12 Spots. One Week.</h2>
             <p class="text-white/40 mb-10">Where molecular gastronomy was born. With someone who was there.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="mailto:founder@educatedtraveler.app?subject=Modernist%20Barcelona%20—%20Application" class="cta-mod px-10 py-4 rounded-full font-semibold text-sm">Apply Now</a>
-                <a href="mailto:founder@educatedtraveler.app?subject=Modernist%20Barcelona%20—%20Question" class="cta-outline-mod px-10 py-4 rounded-full text-sm font-medium">Ask a Question</a>
+                <button type="button" data-et-join
+                        data-experience="Modernist Cuisine — Barcelona"
+                        data-cohort="October 2026"
+                        data-price-usd="3500"
+                        data-instructor-name="Martin Lippo"
+                        data-instructor-email="vakuumlippo@gmail.com"
+                        class="cta-mod px-10 py-4 rounded-full font-semibold text-sm">Join the course — pay with PayPal</button>
+                <button type="button" data-et-interested
+                        data-experience="Modernist Cuisine — Barcelona"
+                        data-adventure-id="avant-garde-cuisine-barcelona"
+                        class="cta-outline-mod px-10 py-4 rounded-full text-sm font-medium">I'm interested</button>
             </div>
             <div class="w-24 h-px bg-gradient-to-r from-transparent via-acid-400/20 to-transparent mx-auto mb-8"></div>
             <p class="text-white/20 text-xs font-lab">founder@educatedtraveler.app</p>
@@ -513,5 +580,63 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
+
+    <script src="/js/experiences.js"></script>
+    <script>
+    // Render "Why Travelers Love This" from the shared experiences source of truth.
+    (function() {
+        const exp = (window.ET_EXPERIENCES || []).find(e => e.id === 'avant-garde-cuisine-barcelona');
+        const list = exp?.immersive?.testimonials;
+        if (!Array.isArray(list) || list.length === 0) return; // keep empty state visible
+
+        const grid = document.getElementById('mod-testimonials');
+        const empty = document.getElementById('mod-testimonials-empty');
+        if (!grid || !empty) return;
+
+        const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+        grid.innerHTML = list.map((t, i) => {
+            const name = esc(t.name || 'Subject');
+            const initials = (t.name || 'S').split(/\s+/).map(w => w[0] || '').join('').slice(0, 2).toUpperCase();
+            const avatarInner = t.avatar
+                ? `<img src="${esc(t.avatar)}" alt="${name}" style="width:100%;height:100%;border-radius:6px;object-fit:cover;">`
+                : initials;
+            const metaBits = [];
+            if (t.role) metaBits.push(esc(t.role));
+            if (t.location) metaBits.push(esc(t.location));
+            if (t.cohort) metaBits.push('cohort_' + esc(t.cohort));
+            const meta = metaBits.join(' · ');
+            const verified = t.instructor
+                ? `<p class="font-lab text-[10px] tracking-[0.2em] uppercase mt-3" style="color:rgba(200,230,25,0.55);">// trained_with: ${esc(t.instructor)}</p>`
+                : '';
+            const idLabel = String(i + 1).padStart(3, '0');
+            return `
+                <div class="glass rounded-xl p-6 relative" style="border-color: rgba(200,230,25,0.15); background: linear-gradient(135deg, rgba(200,230,25,0.03) 0%, rgba(255,255,255,0.02) 100%);">
+                    <p class="font-lab text-[10px] tracking-[0.25em] uppercase mb-3" style="color:rgba(200,230,25,0.4);">report_${idLabel}</p>
+                    <p class="font-display text-lg leading-relaxed text-white/85 italic mb-6">"${esc(t.quote)}"</p>
+                    <div class="flex items-center gap-3 pt-4" style="border-top:1px solid rgba(255,255,255,0.05);">
+                        <div style="width:38px;height:38px;border-radius:6px;background:linear-gradient(135deg,#C8E619,#A3C200);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;color:#080808;">${avatarInner}</div>
+                        <div style="min-width:0;flex:1;">
+                            <p class="text-sm font-medium text-white/85">${name}</p>
+                            ${meta ? `<p class="font-lab text-[10px] text-white/35 mt-0.5">${meta}</p>` : ''}
+                        </div>
+                    </div>
+                    ${verified}
+                </div>`;
+        }).join('');
+
+        grid.style.display = '';
+        empty.style.display = 'none';
+    })();
+    </script>
+
+    <!-- Supabase + actions + community sidebar -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
+    <script src="/js/experience-actions.js"></script>
+    <script src="/js/instructor-claim.js"></script>
+    <script src="/js/community-sidebar.js"></script>
 </body>
 </html>

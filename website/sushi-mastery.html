@@ -6,6 +6,8 @@
     <title>Professional Sushi Program — Tokyo | EDUCATEDTRAVELER</title>
 
     <meta name="description" content="6-week intensive sushi training in Tokyo with Hiroko Ishii, Principal of Japan Culinary Masters Academy. From knife work to omakase. Maximum 12 students.">
+    <meta name="course-instructor-name" content="Hiroko Ishii">
+    <meta name="course-instructor-email" content="info@japanculinarymasters.com">
     <meta property="og:title" content="Professional Sushi Program — Tokyo | EDUCATEDTRAVELER">
     <meta property="og:description" content="Learn authentic sushi in Tokyo. 6 weeks. 3 levels. 9 students. Diploma in Professional Sushi Arts.">
     <meta property="og:type" content="website">
@@ -294,6 +296,8 @@
                         <span class="font-mono text-xs px-4 py-2 rounded-full bg-hinoki-400/10 text-hinoki-400 border border-hinoki-400/20">9 Years in Switzerland</span>
                         <span class="font-mono text-xs px-4 py-2 rounded-full bg-white/5 text-white/40 border border-white/10">English Instruction</span>
                     </div>
+
+                    <p class="mt-6 text-xs text-white/30">Are you Hiroko? <button type="button" onclick="document.getElementById('instructor-signup-prompt').classList.remove('hidden'); document.getElementById('instructor-signup-prompt').scrollIntoView({behavior:'smooth',block:'center'});" class="text-hinoki-400/80 hover:text-hinoki-400 underline underline-offset-2">Sign in to manage this page</button>.</p>
                 </div>
             </div>
         </div>
@@ -533,7 +537,19 @@
                         <li class="flex items-start gap-2"><span class="text-noren-400 mt-0.5">&#x2713;</span> Sep 21 — Oct 30, 2026</li>
                     </ul>
 
-                    <a href="#contact" class="block text-center cta-sushi px-8 py-3.5 rounded-full text-white text-sm font-medium">Apply for Full Program</a>
+                    <div class="space-y-2">
+                        <button type="button" data-et-join
+                                data-experience="Sushi Mastery — Tokyo · Full Program"
+                                data-cohort="Sep 21 – Oct 30, 2026 (6 weeks)"
+                                data-price-usd="7800"
+                                data-instructor-name="Hiroko Ishii"
+                                data-instructor-email="info@japanculinarymasters.com"
+                                class="block w-full text-center cta-sushi px-8 py-3.5 rounded-full text-white text-sm font-medium">Join the course — pay with PayPal</button>
+                        <button type="button" data-et-interested
+                                data-experience="Sushi Mastery — Tokyo · Full Program"
+                                data-adventure-id="sushi-mastery-tokyo"
+                                class="block w-full text-center cta-outline px-8 py-3 rounded-full text-sm font-medium">I'm interested</button>
+                    </div>
                 </div>
 
                 <!-- Individual Level -->
@@ -563,7 +579,19 @@
 
                     <p class="text-white/30 text-xs mb-6">Levels must be taken in order, starting from Basic.</p>
 
-                    <a href="#contact" class="block text-center cta-outline px-8 py-3.5 rounded-full text-sm font-medium">Apply for Individual Level</a>
+                    <div class="space-y-2">
+                        <button type="button" data-et-join
+                                data-experience="Sushi Mastery — Tokyo · Single Level"
+                                data-cohort="Two weeks · Basic / Intermediate / Superior"
+                                data-price-usd="2745"
+                                data-instructor-name="Hiroko Ishii"
+                                data-instructor-email="info@japanculinarymasters.com"
+                                class="block w-full text-center cta-sushi px-8 py-3.5 rounded-full text-white text-sm font-medium">Join one level — pay with PayPal</button>
+                        <button type="button" data-et-interested
+                                data-experience="Sushi Mastery — Tokyo · Single Level"
+                                data-adventure-id="sushi-mastery-tokyo"
+                                class="block w-full text-center cta-outline px-8 py-3 rounded-full text-sm font-medium">I'm interested</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -772,6 +800,34 @@
     </section>
 
     <!-- ═══════════════════════════════════════ -->
+    <!-- WHY TRAVELERS LOVE THIS                 -->
+    <!-- ═══════════════════════════════════════ -->
+    <section class="py-24 px-6 relative">
+        <div class="kanji-watermark absolute right-8 top-12 opacity-[0.025]" style="font-size:200px;">声</div>
+        <div class="max-w-4xl mx-auto relative">
+            <div class="text-center mb-16 reveal">
+                <p class="font-mono text-xs tracking-[0.3em] text-hinoki-400/60 uppercase mb-4">Voices</p>
+                <h2 class="font-display text-4xl md:text-5xl font-300 text-white/90 mb-3">Why Travelers Love This</h2>
+                <p class="text-white/40 text-sm italic max-w-md mx-auto">From those who've trained with Hiroko — in their own words.</p>
+                <div class="ink-line w-32 mx-auto mt-8"></div>
+            </div>
+
+            <!-- Testimonial cards (populated as cohorts complete) -->
+            <div id="sushi-testimonials" class="grid md:grid-cols-2 gap-5 reveal" style="display:none;"></div>
+
+            <!-- Empty state — founding cohort -->
+            <div id="sushi-testimonials-empty" class="reveal">
+                <div class="glass rounded-2xl p-10 text-center max-w-xl mx-auto" style="border-color: rgba(122,46,63,0.2); background: linear-gradient(135deg, rgba(122,46,63,0.05) 0%, rgba(196,166,122,0.03) 100%);">
+                    <p class="font-display text-2xl text-white/80 italic mb-3">The first stories belong to the founding cohort.</p>
+                    <p class="text-white/40 text-sm leading-relaxed">No reviews yet — by design. The September 2026 cohort will write the first chapter of voices that live here. Earned at the bench, not bought.</p>
+                    <div class="ink-line w-24 mx-auto mt-6"></div>
+                    <p class="font-mono text-[10px] tracking-[0.25em] text-hinoki-400/50 uppercase mt-4">職人 · Shokunin Tradition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
     <!-- FAQ                                     -->
     <!-- ═══════════════════════════════════════ -->
     <section class="py-24 px-6">
@@ -839,7 +895,17 @@
             <p class="text-white/40 mb-10">10 spots remaining. 2 already signed up. Once they're filled, the next class opens in 2027.</p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="mailto:founder@educatedtraveler.app?subject=Sushi%20Program%20—%20Application" class="cta-sushi px-10 py-4 rounded-full text-white font-medium text-sm">Apply Now</a>
+                <button type="button" data-et-join
+                        data-experience="Sushi Mastery — Tokyo · Full Program"
+                        data-cohort="Sep 21 – Oct 30, 2026"
+                        data-price-usd="7800"
+                        data-instructor-name="Hiroko Ishii"
+                        data-instructor-email="info@japanculinarymasters.com"
+                        class="cta-sushi px-10 py-4 rounded-full text-white font-medium text-sm">Join the course — pay with PayPal</button>
+                <button type="button" data-et-interested
+                        data-experience="Sushi Mastery — Tokyo"
+                        data-adventure-id="sushi-mastery-tokyo"
+                        class="cta-outline px-10 py-4 rounded-full text-sm font-medium">I'm interested</button>
                 <a href="mailto:founder@educatedtraveler.app?subject=Sushi%20Program%20—%20Question" class="cta-outline px-10 py-4 rounded-full text-sm font-medium">Ask a Question</a>
             </div>
 
@@ -877,6 +943,55 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
+    <script src="/js/experiences.js"></script>
+    <script src="/js/experience-actions.js"></script>
+    <script src="/js/community-sidebar.js"></script>
+    <script>
+    // Render "Why Travelers Love This" testimonials from the shared experiences source of truth.
+    (function() {
+        const exp = (window.ET_EXPERIENCES || []).find(e => e.id === 'sushi-mastery-tokyo');
+        const list = exp?.immersive?.testimonials;
+        if (!Array.isArray(list) || list.length === 0) return; // keep empty state visible
+
+        const grid = document.getElementById('sushi-testimonials');
+        const empty = document.getElementById('sushi-testimonials-empty');
+        if (!grid || !empty) return;
+
+        const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+        grid.innerHTML = list.map(t => {
+            const name = esc(t.name || 'Traveler');
+            const initials = (t.name || 'T').split(/\s+/).map(w => w[0] || '').join('').slice(0, 2).toUpperCase();
+            const avatarInner = t.avatar
+                ? `<img src="${esc(t.avatar)}" alt="${name}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`
+                : initials;
+            const metaBits = [];
+            if (t.role) metaBits.push(esc(t.role));
+            if (t.location) metaBits.push(esc(t.location));
+            if (t.cohort) metaBits.push('Cohort ' + esc(t.cohort));
+            const meta = metaBits.join(' · ');
+            const verified = t.instructor
+                ? `<p class="font-mono text-[10px] tracking-[0.2em] uppercase mt-3" style="color:rgba(196,166,122,0.55);">Trained with ${esc(t.instructor)}</p>`
+                : '';
+            return `
+                <div class="glass rounded-2xl p-7 relative" style="border-color: rgba(122,46,63,0.18); background: linear-gradient(135deg, rgba(122,46,63,0.04) 0%, rgba(255,255,255,0.02) 100%);">
+                    <div class="font-display absolute" style="font-size:60px;line-height:1;top:8px;left:18px;color:rgba(196,166,122,0.18);">"</div>
+                    <p class="font-display text-lg leading-relaxed text-white/85 italic mb-6" style="padding-left:18px;">${esc(t.quote)}</p>
+                    <div class="flex items-center gap-3 pt-4" style="border-top:1px solid rgba(255,255,255,0.05);">
+                        <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#7A2E3F,#9E4A5A);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;color:white;">${avatarInner}</div>
+                        <div style="min-width:0;flex:1;">
+                            <p class="text-sm font-medium text-white/85">${name}</p>
+                            ${meta ? `<p class="text-[11px] text-white/35 mt-0.5">${meta}</p>` : ''}
+                        </div>
+                    </div>
+                    ${verified}
+                </div>`;
+        }).join('');
+
+        grid.style.display = '';
+        empty.style.display = 'none';
+    })();
+    </script>
 
     <!-- Instructor bar (hidden by default) -->
     <div id="instructor-bar" class="hidden fixed bottom-0 left-0 right-0 z-50 glass" style="background:rgba(122,46,63,0.95);border-top:1px solid rgba(255,255,255,0.1);">

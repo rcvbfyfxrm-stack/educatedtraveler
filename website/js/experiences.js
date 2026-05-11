@@ -1,5 +1,20 @@
 // Shared experiences data for EducatedTraveler
 // Single source of truth — used by index.html quest selector and any future pages
+//
+// Per-experience optional field (rendered in offerings.html modal under "Why Travelers Love This",
+// and on the flagship landing pages sushi-mastery.html / modernist-barcelona.html):
+//   immersive.testimonials: [
+//     {
+//       quote:      "What they got out of it — in their own words.",
+//       name:       "First L.",            // first name + last initial (privacy)
+//       role:       "Yacht chef",          // optional — their profession
+//       location:   "Antibes, FR",         // optional
+//       cohort:     "2026 Spring",         // optional — which run
+//       instructor: "Hiroko Ishii",        // optional — surfaces a "Trained with" badge
+//       avatar:     "/images/people/x.jpg" // optional — falls back to initials
+//     }
+//   ]
+// Add testimonials only AFTER a real cohort has completed. Brand voice: Earned, not bought.
 
 window.ET_EXPERIENCES = [
     // ======== DIVING & OCEAN (PADI, AIDA, SSI, RYA) ========

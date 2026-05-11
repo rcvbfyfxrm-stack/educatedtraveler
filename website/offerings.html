@@ -217,6 +217,76 @@
             border-radius: 10px;
             padding: 10px 14px;
         }
+        /* Testimonials — "Why travelers love this" */
+        .love-card {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(244, 63, 94, 0.12);
+            border-radius: 12px;
+            padding: 16px 18px;
+            position: relative;
+        }
+        .love-card::before {
+            content: '"';
+            position: absolute;
+            top: 2px;
+            left: 12px;
+            font-family: Georgia, serif;
+            font-size: 42px;
+            line-height: 1;
+            color: rgba(244, 63, 94, 0.25);
+            pointer-events: none;
+        }
+        .love-quote {
+            font-size: 13px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.78);
+            font-style: italic;
+            padding-left: 14px;
+            margin-bottom: 12px;
+        }
+        .love-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .love-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f43f5e, #be123c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
+            color: white;
+        }
+        .love-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .love-name { font-size: 12px; font-weight: 500; color: rgba(255, 255, 255, 0.85); }
+        .love-meta { font-size: 10px; color: rgba(255, 255, 255, 0.35); margin-top: 1px; }
+        .love-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 9px;
+            color: rgba(244, 63, 94, 0.7);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        .love-empty {
+            text-align: center;
+            padding: 24px 20px;
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px dashed rgba(244, 63, 94, 0.18);
+            border-radius: 12px;
+        }
+        .love-empty-title { font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px; }
+        .love-empty-sub { font-size: 11px; color: rgba(255, 255, 255, 0.35); max-width: 320px; margin: 0 auto; line-height: 1.5; }
         .section-label {
             font-size: 10px;
             text-transform: uppercase;
@@ -736,6 +806,51 @@
                 </div>`
             ).join('');
 
+            // === Why travelers love this — testimonials from past cohort members ===
+            // Shape (in exp.immersive.testimonials):
+            //   { quote, name, role?, location?, cohort?, avatar?, instructor? }
+            const testimonials = Array.isArray(im.testimonials) ? im.testimonials : [];
+            const escHtml = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+            const loveCardsHTML = testimonials.map(t => {
+                const name = escHtml(t.name || 'Traveler');
+                const initials = (t.name || 'T').split(/\s+/).map(w => w[0] || '').join('').slice(0, 2).toUpperCase();
+                const avatarInner = t.avatar
+                    ? `<img src="${escHtml(t.avatar)}" alt="${name}">`
+                    : initials;
+                const metaBits = [];
+                if (t.role) metaBits.push(escHtml(t.role));
+                if (t.location) metaBits.push(escHtml(t.location));
+                if (t.cohort) metaBits.push('Cohort ' + escHtml(t.cohort));
+                const meta = metaBits.join(' · ');
+                const verified = t.instructor
+                    ? `<span class="love-verified">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Trained with ${escHtml(t.instructor)}
+                       </span>`
+                    : '';
+                return `
+                    <div class="love-card">
+                        <p class="love-quote">${escHtml(t.quote)}</p>
+                        <div class="love-author">
+                            <div class="love-avatar">${avatarInner}</div>
+                            <div style="min-width:0;flex:1;">
+                                <p class="love-name">${name}</p>
+                                ${meta ? `<p class="love-meta">${meta}</p>` : ''}
+                            </div>
+                            ${verified}
+                        </div>
+                    </div>`;
+            }).join('');
+            const loveEmptyHTML = `<div class="love-empty">
+                    <p class="love-empty-title">Founding cohort opens soon.</p>
+                    <p class="love-empty-sub">No reviews yet — by design. The first travelers through this immersion will write the stories that live here. Earned, not bought.</p>
+               </div>`;
+            const loveSectionHTML = testimonials.length > 0
+                ? `<div class="grid sm:grid-cols-2 gap-3">${loveCardsHTML}</div>`
+                : loveEmptyHTML;
+
             content.innerHTML = `
                 <div class="p-6 pb-2">
                     <div class="flex items-center gap-2 mb-3 flex-wrap">
@@ -767,9 +882,15 @@
                     </div>
 
                     <!-- Next Steps -->
-                    <div class="mb-4">
+                    <div class="mb-6">
                         <p class="section-label text-indigo-400/60">What's Next — Continue Your Path</p>
                         <div class="grid sm:grid-cols-3 gap-2">${nextHTML}</div>
+                    </div>
+
+                    <!-- Why Travelers Love This — testimonials from past cohort -->
+                    <div class="mb-6">
+                        <p class="section-label" style="color: rgba(244, 63, 94, 0.7);">Why Travelers Love This — From Those Who've Walked It</p>
+                        ${loveSectionHTML}
                     </div>
 
                     <!-- Community Wall -->
@@ -778,14 +899,26 @@
                         <div id="community-people" class="flex flex-wrap gap-3"></div>
                     </div>
 
-                    <div class="pt-4 border-t border-white/5 text-center">
-                        <button id="interest-btn"
-                            data-adventure-id="${exp.id}"
-                            data-adventure-name="${exp.name.replace(/"/g, '&quot;')}"
-                            onclick="handleInterestClick(this)"
-                            class="cta-button inline-block px-6 py-2.5 rounded-full text-white text-sm font-medium cursor-pointer border-0">
-                            I'm interested
-                        </button>
+                    <div class="pt-4 border-t border-white/5 text-center space-y-3">
+                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                            <button type="button" data-et-join
+                                data-experience="${exp.name.replace(/"/g, '&quot;')}"
+                                data-cohort="${(exp.meta || '').replace(/"/g, '&quot;')}"
+                                data-price-usd="${exp.minPrice || ''}"
+                                data-instructor-name=""
+                                data-instructor-email=""
+                                class="cta-button inline-block px-6 py-2.5 rounded-full text-white text-sm font-medium cursor-pointer border-0">
+                                Join the course — pay with PayPal
+                            </button>
+                            <button id="interest-btn"
+                                data-adventure-id="${exp.id}"
+                                data-adventure-name="${exp.name.replace(/"/g, '&quot;')}"
+                                onclick="handleInterestClick(this)"
+                                class="inline-block px-6 py-2.5 rounded-full text-white/80 text-sm font-medium cursor-pointer border border-white/15 hover:border-white/30 bg-transparent">
+                                I'm interested
+                            </button>
+                        </div>
+                        <p class="text-[10px] text-white/30">"Interested" adds you to the priority list · "Join" pays via PayPal and contacts the instructor to reserve your spot.</p>
                     </div>
                 </div>
             `;
@@ -871,6 +1004,7 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
+    <script src="/js/experience-actions.js"></script>
     <script src="/js/community-sidebar.js"></script>
     <script src="/js/whatsapp-widget.js"></script>
 
