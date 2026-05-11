@@ -208,6 +208,12 @@
                 <p id="card-matters" class="text-white/60 text-sm leading-relaxed italic"></p>
             </div>
 
+            <!-- Past Classes — prior experiences -->
+            <div id="card-prior-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-2">
+                <p class="section-label">Past Classes</p>
+                <div id="card-prior" class="space-y-3"></div>
+            </div>
+
             <!-- Languages -->
             <div id="card-languages-section" class="hidden mb-6">
                 <p class="text-center text-white/25 text-xs font-mono">
@@ -335,12 +341,52 @@
                 }
 
                 renderCrewCard(data);
+
+                // Past Classes (prior experiences) — public read
+                try {
+                    const { data: prior } = await window.supabaseClient
+                        .from('prior_experiences')
+                        .select('*')
+                        .eq('user_id', userId)
+                        .order('year_completed', { ascending: false, nullsFirst: false })
+                        .order('created_at', { ascending: false });
+                    renderPriorOnProfile(prior || []);
+                } catch (e) { /* non-fatal */ }
             } catch (err) {
                 console.error(err);
                 document.getElementById('loading-state').classList.add('hidden');
                 document.getElementById('not-found-state').classList.remove('hidden');
             }
         });
+
+        function renderPriorOnProfile(list) {
+            const section = document.getElementById('card-prior-section');
+            const container = document.getElementById('card-prior');
+            if (!section || !container) return;
+            if (!list || list.length === 0) return;
+
+            const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+            container.innerHTML = list.map(p => {
+                const bits = [
+                    p.instructor_name ? 'with ' + p.instructor_name : null,
+                    p.year_completed || null,
+                    p.location || null
+                ].filter(Boolean).map(esc).join(' · ');
+                const notes = p.notes
+                    ? '<p class="text-white/55 text-xs mt-2 leading-relaxed italic">' + esc(p.notes) + '</p>'
+                    : '';
+                const verified = p.verified
+                    ? ' <span class="text-[9px] uppercase tracking-wider text-emerald-300/80 ml-1">✓ Verified</span>'
+                    : '';
+                return `
+                    <div class="rounded-lg p-3 border border-white/[0.04] bg-white/[0.015]">
+                        <p class="text-sm text-white/85 font-medium">${esc(p.experience_name)}${verified}</p>
+                        ${bits ? '<p class="text-[11px] text-white/40 mt-0.5">' + bits + '</p>' : ''}
+                        ${notes}
+                    </div>`;
+            }).join('');
+            section.classList.remove('hidden');
+        }
 
         function renderCrewCard(p) {
             document.getElementById('loading-state').classList.add('hidden');

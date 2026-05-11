@@ -893,10 +893,69 @@
                 </div>
             </section>
 
-            <!-- My Enrollments -->
+            <!-- My Adventures — Planning / Doing / Completed -->
             <section id="enrollments-section" class="hidden mb-12 fade-up delay-2">
-                <h2 class="text-lg font-light mb-4">My Enrollments</h2>
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-light">My Adventures</h2>
+                    <span class="text-xs text-white/30" id="adventures-summary"></span>
+                </div>
                 <div id="enrollments-container" class="space-y-3"></div>
+            </section>
+
+            <!-- Past Classes — taken before EducatedTraveler -->
+            <section id="prior-section" class="mb-12 fade-up delay-2">
+                <div class="flex items-center justify-between mb-2">
+                    <h2 class="text-lg font-light">Past Classes</h2>
+                    <button id="prior-add-btn"
+                            class="text-xs px-3 py-1.5 rounded-full border border-white/15 text-white/60 hover:bg-white/5 hover:text-white transition-colors">
+                        + Add a class
+                    </button>
+                </div>
+                <p class="text-white/35 text-xs mb-4">Have you already trained with one of our instructors — before joining EducatedTraveler? Add it here so it shows on your profile.</p>
+
+                <!-- Add form (hidden by default) -->
+                <div id="prior-form" class="hidden glass rounded-xl p-5 mb-4">
+                    <div class="grid sm:grid-cols-2 gap-3 mb-3">
+                        <div class="sm:col-span-2">
+                            <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">Class / Experience *</label>
+                            <input type="text" id="pe-name" maxlength="200"
+                                   placeholder="e.g. Modernist Cuisine — Barcelona"
+                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-emerald-400/40 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">Instructor</label>
+                            <input type="text" id="pe-instructor" maxlength="120"
+                                   placeholder="e.g. Martin Lippo"
+                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-emerald-400/40 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">Year</label>
+                            <input type="number" id="pe-year" min="1950" max="2099"
+                                   placeholder="e.g. 2024"
+                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-emerald-400/40 focus:outline-none">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">Location</label>
+                            <input type="text" id="pe-location" maxlength="120"
+                                   placeholder="e.g. Barcelona, Spain"
+                                   class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-emerald-400/40 focus:outline-none">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="text-[10px] uppercase tracking-wider text-white/40 mb-1 block">What you remember</label>
+                            <textarea id="pe-notes" rows="2" maxlength="1000"
+                                      placeholder="A line or two — what stuck with you."
+                                      class="w-full px-3 py-2 rounded-lg bg-white/[0.03] border border-white/[0.08] text-sm focus:border-emerald-400/40 focus:outline-none resize-none"></textarea>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-2">
+                        <button id="prior-cancel-btn" class="text-xs px-4 py-2 rounded-full text-white/50 hover:text-white transition-colors">Cancel</button>
+                        <button id="prior-save-btn" class="text-xs px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors">Save</button>
+                    </div>
+                </div>
+
+                <div id="prior-container" class="space-y-2">
+                    <p class="text-white/25 text-xs italic" id="prior-empty">No past classes added yet.</p>
+                </div>
             </section>
 
             <!-- Available Cohorts -->
@@ -1077,6 +1136,9 @@
                 // Load enrollments and available cohorts
                 loadEnrollmentsAndCohorts(user.id);
 
+                // Load prior experiences (past classes)
+                loadPriorExperiences(user.id);
+
                 loadingState.classList.add('hidden');
                 dashboardContent.classList.remove('hidden');
             } catch (error) {
@@ -1178,41 +1240,166 @@
             }
         }
         // ========================================
+        // PRIOR EXPERIENCES — past classes
+        // ========================================
+
+        async function loadPriorExperiences(userId) {
+            const list = await window.db.getPriorExperiences(userId);
+            renderPriorExperiences(list);
+        }
+
+        function renderPriorExperiences(list) {
+            const container = document.getElementById('prior-container');
+            const empty = document.getElementById('prior-empty');
+            if (!container) return;
+            if (!list || list.length === 0) {
+                container.innerHTML = '<p class="text-white/25 text-xs italic" id="prior-empty">No past classes added yet.</p>';
+                return;
+            }
+            container.innerHTML = list.map(p => {
+                const bits = [p.instructor_name ? 'with ' + p.instructor_name : null,
+                              p.year_completed || null,
+                              p.location || null].filter(Boolean).map(escapeHtml).join(' · ');
+                const notes = p.notes ? '<p class="text-white/50 text-xs mt-2 leading-relaxed">' + escapeHtml(p.notes) + '</p>' : '';
+                const verified = p.verified
+                    ? '<span class="text-[9px] uppercase tracking-wider text-emerald-300/80 ml-2">✓ Verified</span>'
+                    : '';
+                return `
+                    <div class="glass rounded-xl p-4 group">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                                <p class="text-sm font-medium text-white/85">
+                                    ${escapeHtml(p.experience_name)}${verified}
+                                </p>
+                                ${bits ? '<p class="text-[11px] text-white/40 mt-0.5">' + bits + '</p>' : ''}
+                                ${notes}
+                            </div>
+                            <button onclick="window._removePrior('${p.id}', this)"
+                                    class="text-white/20 hover:text-red-400 text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                                    title="Remove">
+                                Remove
+                            </button>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+
+        window._removePrior = async function(id, btn) {
+            if (!confirm('Remove this past class?')) return;
+            btn.disabled = true;
+            try {
+                await window.db.removePriorExperience(id);
+                const user = window.auth?.getCurrentUser();
+                if (user) loadPriorExperiences(user.id);
+            } catch (e) {
+                alert('Could not remove. Try again.');
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const addBtn = document.getElementById('prior-add-btn');
+            const cancelBtn = document.getElementById('prior-cancel-btn');
+            const saveBtn = document.getElementById('prior-save-btn');
+            const form = document.getElementById('prior-form');
+            if (!addBtn || !form || !cancelBtn || !saveBtn) return;
+
+            function resetForm() {
+                ['pe-name','pe-instructor','pe-year','pe-location','pe-notes'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.value = '';
+                });
+            }
+            addBtn.addEventListener('click', () => { form.classList.remove('hidden'); document.getElementById('pe-name')?.focus(); });
+            cancelBtn.addEventListener('click', () => { form.classList.add('hidden'); resetForm(); });
+            saveBtn.addEventListener('click', async () => {
+                const user = window.auth?.getCurrentUser();
+                if (!user) return;
+                const name = (document.getElementById('pe-name')?.value || '').trim();
+                if (!name) { alert('Please enter the class name.'); return; }
+                saveBtn.disabled = true;
+                saveBtn.textContent = 'Saving…';
+                try {
+                    await window.db.addPriorExperience(user.id, {
+                        experience_name: name,
+                        instructor_name: (document.getElementById('pe-instructor')?.value || '').trim() || null,
+                        year_completed: parseInt(document.getElementById('pe-year')?.value, 10) || null,
+                        location: (document.getElementById('pe-location')?.value || '').trim() || null,
+                        notes: (document.getElementById('pe-notes')?.value || '').trim() || null
+                    });
+                    form.classList.add('hidden');
+                    resetForm();
+                    loadPriorExperiences(user.id);
+                } catch (e) {
+                    alert('Could not save. Try again.');
+                } finally {
+                    saveBtn.disabled = false;
+                    saveBtn.textContent = 'Save';
+                }
+            });
+        });
+
+        // ========================================
         // ENROLLMENTS & AVAILABLE COHORTS
         // ========================================
 
         async function loadEnrollmentsAndCohorts(userId) {
             try {
-                const enrollments = await window.db.getUserEnrollments(userId);
-                if (enrollments.length > 0) {
+                const timeline = await window.db.getMyTimeline(userId);
+                const enrollments = timeline; // back-compat for the available-cohorts diff below
+                if (timeline.length > 0) {
                     const section = document.getElementById('enrollments-section');
                     const container = document.getElementById('enrollments-container');
                     section.classList.remove('hidden');
 
-                    container.innerHTML = enrollments.map(e => {
-                        const cohort = e.cohorts;
-                        const instructor = cohort?.instructors?.name || '';
-                        const startDate = cohort?.start_date
-                            ? new Date(cohort.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-                            : 'TBD';
+                    // Summary count (Planning · Doing · Completed)
+                    const counts = timeline.reduce((acc, t) => {
+                        acc[t.timeline_status] = (acc[t.timeline_status] || 0) + 1;
+                        return acc;
+                    }, {});
+                    const summaryBits = [];
+                    if (counts.planning)  summaryBits.push(counts.planning  + ' planning');
+                    if (counts.doing)     summaryBits.push(counts.doing     + ' in progress');
+                    if (counts.completed) summaryBits.push(counts.completed + ' completed');
+                    const summaryEl = document.getElementById('adventures-summary');
+                    if (summaryEl) summaryEl.textContent = summaryBits.join(' · ');
 
-                        const statusColors = {
-                            enrolled: 'text-emerald-400 bg-emerald-400/10',
-                            waitlisted: 'text-amber-400 bg-amber-400/10',
-                            cancelled: 'text-red-400 bg-red-400/10',
-                            completed: 'text-purple-400 bg-purple-400/10'
-                        };
-                        const statusClass = statusColors[e.status] || statusColors.enrolled;
+                    const STATUS_LABELS = {
+                        planning:  { label: 'Planning to do',  css: 'text-amber-300 bg-amber-400/10 border border-amber-400/20' },
+                        doing:     { label: 'In progress',     css: 'text-emerald-300 bg-emerald-400/10 border border-emerald-400/25' },
+                        completed: { label: 'Completed',       css: 'text-purple-300 bg-purple-400/10 border border-purple-400/20' },
+                        cancelled: { label: 'Cancelled',       css: 'text-red-300 bg-red-400/10 border border-red-400/20' },
+                        pending:   { label: 'Pending payment', css: 'text-white/50 bg-white/[0.04] border border-white/10' }
+                    };
+
+                    container.innerHTML = timeline.map(t => {
+                        const startDate = t.start_date
+                            ? new Date(t.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                            : 'Dates TBD';
+                        const endDate = t.end_date
+                            ? ' → ' + new Date(t.end_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+                            : '';
+                        const meta = [t.location, startDate + endDate, t.instructor_name ? 'with ' + t.instructor_name : null]
+                            .filter(Boolean).map(escapeHtml).join(' · ');
+
+                        const s = STATUS_LABELS[t.timeline_status] || STATUS_LABELS.pending;
+
+                        // Cohort chat is available to paid members in any active state
+                        const chatAvailable = t.payment_status === 'paid'
+                                              && t.timeline_status !== 'cancelled';
+                        const chatLink = chatAvailable
+                            ? `<a href="cohort-chat.html?cohort=${t.cohort_id}" class="text-[11px] px-3 py-1.5 rounded-full bg-blue-500/15 text-blue-300 hover:bg-blue-500/25 transition-colors whitespace-nowrap">Open cohort chat →</a>`
+                            : '';
 
                         return `
                             <div class="adventure-card rounded-xl p-5">
-                                <div class="flex items-start justify-between gap-4">
-                                    <div>
-                                        <h4 class="font-medium mb-1">${escapeHtml(cohort?.title || 'Adventure')}</h4>
-                                        <p class="text-white/40 text-xs">${escapeHtml(cohort?.location || '')} ${cohort?.location ? '·' : ''} ${startDate} ${instructor ? '· with ' + escapeHtml(instructor) : ''}</p>
+                                <div class="flex items-start justify-between gap-4 mb-2">
+                                    <div class="min-w-0">
+                                        <h4 class="font-medium mb-1 truncate">${escapeHtml(t.cohort_title || 'Adventure')}</h4>
+                                        <p class="text-white/40 text-xs">${meta}</p>
                                     </div>
-                                    <span class="text-xs px-2 py-1 rounded-full ${statusClass} whitespace-nowrap">${e.status}</span>
+                                    <span class="text-[10px] px-2.5 py-1 rounded-full whitespace-nowrap uppercase tracking-wider ${s.css}">${s.label}</span>
                                 </div>
+                                ${chatLink ? `<div class="mt-3 flex justify-end">${chatLink}</div>` : ''}
                             </div>
                         `;
                     }).join('');

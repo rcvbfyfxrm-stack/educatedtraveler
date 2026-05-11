@@ -728,6 +728,140 @@
     }
 
     // ========================================
+    // PRIOR EXPERIENCES — past classes (before EducatedTraveler)
+    // ========================================
+
+    async function getPriorExperiences(userId) {
+        const { data, error } = await supabase
+            .from('prior_experiences')
+            .select('*')
+            .eq('user_id', userId)
+            .order('year_completed', { ascending: false, nullsFirst: false })
+            .order('created_at', { ascending: false });
+        if (error) { console.error('getPriorExperiences:', error); return []; }
+        return data || [];
+    }
+
+    async function addPriorExperience(userId, payload) {
+        const row = {
+            user_id: userId,
+            experience_id: payload.experience_id || null,
+            experience_name: payload.experience_name,
+            instructor_id: payload.instructor_id || null,
+            instructor_name: payload.instructor_name || null,
+            year_completed: payload.year_completed || null,
+            location: payload.location || null,
+            notes: payload.notes || null
+        };
+        const { data, error } = await supabase
+            .from('prior_experiences')
+            .insert(row)
+            .select()
+            .single();
+        if (error) { console.error('addPriorExperience:', error); throw error; }
+        return data;
+    }
+
+    async function updatePriorExperience(id, updates) {
+        const { data, error } = await supabase
+            .from('prior_experiences')
+            .update(updates)
+            .eq('id', id)
+            .select()
+            .single();
+        if (error) { console.error('updatePriorExperience:', error); throw error; }
+        return data;
+    }
+
+    async function removePriorExperience(id) {
+        const { error } = await supabase
+            .from('prior_experiences')
+            .delete()
+            .eq('id', id);
+        if (error) { console.error('removePriorExperience:', error); throw error; }
+    }
+
+    // ========================================
+    // ENROLLMENT TIMELINE — Planning / Doing / Completed
+    // ========================================
+
+    async function getMyTimeline(userId) {
+        const { data, error } = await supabase
+            .from('user_enrollment_timeline')
+            .select('*')
+            .eq('user_id', userId)
+            .order('start_date', { ascending: false, nullsFirst: false });
+        if (error) { console.error('getMyTimeline:', error); return []; }
+        return data || [];
+    }
+
+    // ========================================
+    // COHORT GROUP — members + messages + realtime
+    // ========================================
+
+    async function getCohortMembers(cohortId) {
+        const { data, error } = await supabase
+            .rpc('get_cohort_members', { p_cohort_id: cohortId });
+        if (error) { console.error('getCohortMembers:', error); return []; }
+        return data || [];
+    }
+
+    async function getCohortMessages(cohortId, { limit = 100, before = null } = {}) {
+        let q = supabase
+            .from('cohort_messages')
+            .select('*, profiles!cohort_messages_user_id_fkey(id, first_name, name, avatar_url)')
+            .eq('cohort_id', cohortId)
+            .order('created_at', { ascending: false })
+            .limit(limit);
+        if (before) q = q.lt('created_at', before);
+        const { data, error } = await q;
+        if (error) { console.error('getCohortMessages:', error); return []; }
+        // Reverse to chronological order for chat display
+        return (data || []).reverse();
+    }
+
+    async function sendCohortMessage(cohortId, userId, body, { replyToId = null, messageType = 'text' } = {}) {
+        const trimmed = (body || '').trim();
+        if (!trimmed) throw new Error('Empty message');
+        const { data, error } = await supabase
+            .from('cohort_messages')
+            .insert({
+                cohort_id: cohortId,
+                user_id: userId,
+                body: trimmed,
+                message_type: messageType,
+                reply_to_id: replyToId
+            })
+            .select()
+            .single();
+        if (error) { console.error('sendCohortMessage:', error); throw error; }
+        return data;
+    }
+
+    async function deleteCohortMessage(messageId) {
+        const { error } = await supabase
+            .from('cohort_messages')
+            .delete()
+            .eq('id', messageId);
+        if (error) { console.error('deleteCohortMessage:', error); throw error; }
+    }
+
+    function subscribeToCohortMessages(cohortId, onMessage) {
+        const channel = supabase
+            .channel('cohort-msgs-' + cohortId)
+            .on('postgres_changes', {
+                event: 'INSERT',
+                schema: 'public',
+                table: 'cohort_messages',
+                filter: 'cohort_id=eq.' + cohortId
+            }, (payload) => {
+                try { onMessage(payload.new); } catch (e) { console.warn(e); }
+            })
+            .subscribe();
+        return () => supabase.removeChannel(channel);
+    }
+
+    // ========================================
     // EXPORTS
     // ========================================
 
@@ -797,7 +931,23 @@
         // Combined
         saveQuestResults,
         getDashboardData,
-        getInstructorDashboardData
+        getInstructorDashboardData,
+
+        // Prior experiences (past classes)
+        getPriorExperiences,
+        addPriorExperience,
+        updatePriorExperience,
+        removePriorExperience,
+
+        // Enrollment timeline (Planning / Doing / Completed)
+        getMyTimeline,
+
+        // Cohort group chat + members
+        getCohortMembers,
+        getCohortMessages,
+        sendCohortMessage,
+        deleteCohortMessage,
+        subscribeToCohortMessages
     };
 
     }); // end waitForClient

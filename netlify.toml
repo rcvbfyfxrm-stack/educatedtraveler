@@ -92,6 +92,11 @@
   status = 200
 
 [[redirects]]
+  from = "/cohort-chat"
+  to = "/cohort-chat.html"
+  status = 200
+
+[[redirects]]
   from = "/post"
   to = "/post.html"
   status = 200

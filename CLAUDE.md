@@ -37,7 +37,7 @@ supabase functions deploy send-followup-emails
 
 Production static site. No build step — Tailwind loaded from CDN, Inter font via Google Fonts.
 
-**Pages** (active): `index.html` (homepage + Quest selector), `offerings.html` (adventures catalog), `about.html` (founder story), `community.html` (waitlist + conversion hub), `instructors.html` (partner applications), `dashboard.html` (auth-gated, profile setup lives here), `instructor-dashboard.html` (cohort management), `profile.html` (public profile view), `join.html` (auth entry), `admin.html` (admin console), `survey.html` (research survey), `auth-callback.html` (magic link handler), `sushi-mastery.html` + `modernist-barcelona.html` (flagship experience landing pages). Removed: `vision.html` (→ redirects to offerings#flagships).
+**Pages** (active): `index.html` (homepage + Quest selector), `offerings.html` (adventures catalog), `about.html` (founder story), `community.html` (waitlist + conversion hub), `instructors.html` (partner applications), `dashboard.html` (auth-gated, profile setup lives here), `instructor-dashboard.html` (cohort management), `profile.html` (public profile view), `join.html` (auth entry), `admin.html` (admin console), `survey.html` (research survey), `auth-callback.html` (magic link handler), `sushi-mastery.html` + `modernist-barcelona.html` (flagship experience landing pages), `cohort-chat.html` (auth-gated, paid-member-only cohort group chat — opens via `?cohort=<id>` from the dashboard). Removed: `vision.html` (→ redirects to offerings#flagships).
 
 **JS modules** (`website/js/`):
 - `supabase-config.js` — Loads the Supabase JS v2 CDN, initializes `window.supabaseClient`, shows a non-intrusive banner on auth pages if the SDK fails to load
@@ -63,9 +63,16 @@ Tables:
 - `user_badges` — earned achievements
 - `instructors` — instructor profiles (status: pending/approved/rejected)
 - `cohorts` — class instances linked to an instructor and an `adventure_id` from `experiences.js`
-- `enrollments` — student-to-cohort links (enrolled/waitlisted/cancelled/completed)
+- `enrollments` — student-to-cohort links (enrolled/waitlisted/cancelled/completed); plus payment_status (unpaid/pending/paid/refunded/failed) from `006_stripe.sql`
 - `experience_interests` — pre-cohort interest signal with `token` for auth-less cancel links
 - `survey_responses` — anonymous survey (no auth, insert-only RLS)
+- `prior_experiences` — self-declared past classes with our instructors (from `013_cohort_community.sql`). Public read, owner write.
+- `cohort_messages` — group chat for paid cohort members (from `013_cohort_community.sql`). RLS gated by `is_cohort_member()` helper; realtime-enabled.
+
+Views & RPCs:
+- `user_enrollment_timeline` (view) — derived Planning / Doing / Completed status from enrollment + cohort dates. Used by `dashboard.html` and `db.getMyTimeline()`.
+- `get_cohort_members(cohort_id)` — roster for the cohort-chat sidebar; refuses to return rows unless the caller is a member.
+- `get_community_for_adventure(adventure_id)` — pre-cohort community wall.
 
 Edge Functions (Deno + Resend):
 - `send-welcome-email` — database-webhook on `profiles` INSERT

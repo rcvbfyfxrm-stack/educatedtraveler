@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohort — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Private cohort space for EducatedTraveler students and their instructor.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
+    <link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+    <link rel="shortcut icon" href="/images/logo-et-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        html { scroll-behavior: smooth; }
+
+        .glass {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .glass-strong {
+            background: rgba(255,255,255,0.045);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Chat layout */
+        .chat-shell { height: calc(100vh - 96px); min-height: 480px; }
+
+        /* Message bubbles */
+        .msg-row { display: flex; gap: 10px; align-items: flex-start; }
+        .msg-row.mine { flex-direction: row-reverse; }
+        .msg-bubble {
+            max-width: 78%;
+            padding: 9px 13px;
+            border-radius: 14px;
+            font-size: 13.5px;
+            line-height: 1.5;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            color: rgba(255,255,255,0.92);
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+        .msg-row.mine .msg-bubble {
+            background: linear-gradient(135deg, rgba(5,150,105,0.18), rgba(29,78,216,0.14));
+            border-color: rgba(5,150,105,0.25);
+        }
+        .msg-row.instructor .msg-bubble {
+            background: linear-gradient(135deg, rgba(245,158,11,0.10), rgba(217,119,6,0.05));
+            border-color: rgba(245,158,11,0.25);
+        }
+        .msg-row.system { justify-content: center; }
+        .msg-row.system .msg-bubble {
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.30);
+            font-size: 11px;
+            text-align: center;
+            font-style: italic;
+            max-width: 100%;
+        }
+        .msg-row.announcement .msg-bubble {
+            background: linear-gradient(135deg, rgba(244,63,94,0.10), rgba(255,255,255,0.02));
+            border-color: rgba(244,63,94,0.30);
+        }
+        .msg-meta {
+            font-size: 10px;
+            color: rgba(255,255,255,0.30);
+            margin-bottom: 3px;
+            padding: 0 6px;
+        }
+        .msg-row.mine .msg-meta { text-align: right; }
+
+        .msg-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0066B1, #3B8DD4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
+            color: white;
+        }
+        .msg-avatar.instructor {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+        }
+        .msg-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+        /* Scrollbar polish */
+        .scroll-area::-webkit-scrollbar { width: 8px; }
+        .scroll-area::-webkit-scrollbar-track { background: transparent; }
+        .scroll-area::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.06);
+            border-radius: 4px;
+        }
+        .scroll-area::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.12); }
+
+        /* Input */
+        .chat-input {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 11px 14px;
+            font-size: 14px;
+            color: white;
+            resize: none;
+            outline: none;
+            transition: border-color 0.2s;
+            max-height: 140px;
+            line-height: 1.4;
+        }
+        .chat-input:focus { border-color: rgba(5,150,105,0.4); background: rgba(255,255,255,0.05); }
+        .chat-input::placeholder { color: rgba(255,255,255,0.30); }
+
+        .send-btn {
+            background: linear-gradient(135deg, #059669, #1d4ed8);
+            transition: all 0.2s;
+        }
+        .send-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(5,150,105,0.25); }
+        .send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        /* Member card */
+        .member-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 10px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+        }
+        .member-card:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.12);
+        }
+        .member-card.instructor {
+            background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(255,255,255,0.02));
+            border-color: rgba(245,158,11,0.15);
+        }
+        .role-pill {
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .role-instructor { background: rgba(245,158,11,0.15); color: #fbbf24; }
+        .role-student { background: rgba(99,102,241,0.12); color: #a5b4fc; }
+
+        /* Status banner */
+        .access-deny {
+            background: linear-gradient(135deg, rgba(244,63,94,0.06), rgba(0,0,0,0));
+            border: 1px solid rgba(244,63,94,0.18);
+        }
+
+        @media (max-width: 1023px) {
+            #members-panel { display: none; }
+            #members-panel.open { display: block; position: fixed; inset: 0; z-index: 60; background: rgba(0,0,0,0.92); padding: 64px 16px 16px; overflow-y: auto; }
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Top bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-4 min-w-0">
+                <a href="/dashboard" class="text-white/40 hover:text-white text-sm transition-colors flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    <span class="hidden sm:inline">Dashboard</span>
+                </a>
+                <div class="min-w-0">
+                    <p class="text-xs text-white/30 uppercase tracking-wider" id="cohort-eyebrow">Cohort</p>
+                    <p class="text-sm font-medium truncate" id="cohort-title">Loading…</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="toggle-members" class="lg:hidden text-xs px-3 py-1.5 rounded-full border border-white/15 text-white/70 hover:bg-white/5">
+                    Members
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading -->
+    <div id="loading-state" class="min-h-screen flex items-center justify-center">
+        <div class="text-center text-white/40">
+            <p class="text-sm">Opening cohort…</p>
+        </div>
+    </div>
+
+    <!-- Access denied -->
+    <div id="deny-state" class="hidden min-h-screen flex items-center justify-center px-6">
+        <div class="access-deny rounded-2xl p-8 max-w-md text-center">
+            <h1 class="text-xl font-light mb-3">Cohort access</h1>
+            <p class="text-white/55 text-sm mb-4" id="deny-reason">This cohort space is only available to its instructor and paid members.</p>
+            <a href="/dashboard" class="text-xs px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/15 inline-block transition-colors">Back to dashboard</a>
+        </div>
+    </div>
+
+    <!-- Main app -->
+    <main id="chat-app" class="hidden pt-20 px-4 md:px-6 pb-4">
+        <div class="max-w-6xl mx-auto chat-shell grid lg:grid-cols-[1fr_280px] gap-4">
+
+            <!-- Chat column -->
+            <div class="glass rounded-2xl flex flex-col min-h-0">
+                <!-- Channel header -->
+                <div class="px-5 py-4 border-b border-white/[0.06] flex items-center justify-between flex-shrink-0">
+                    <div>
+                        <p class="text-sm font-medium">Cohort Chat</p>
+                        <p class="text-[11px] text-white/35" id="cohort-meta"></p>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-white/35">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400" id="realtime-dot"></span>
+                        <span id="realtime-label">Live</span>
+                    </div>
+                </div>
+
+                <!-- Messages -->
+                <div id="messages" class="scroll-area flex-1 overflow-y-auto px-5 py-4 space-y-4 min-h-0">
+                    <p class="text-center text-white/30 text-xs italic">Loading messages…</p>
+                </div>
+
+                <!-- Composer -->
+                <div class="px-4 pb-4 pt-3 border-t border-white/[0.06] flex-shrink-0">
+                    <div class="flex items-end gap-2">
+                        <textarea id="composer" rows="1" maxlength="4000"
+                                  placeholder="Write to the cohort…"
+                                  class="chat-input flex-1"></textarea>
+                        <button id="send-btn" class="send-btn rounded-full px-5 py-2.5 text-sm font-medium text-white">
+                            Send
+                        </button>
+                    </div>
+                    <p class="text-[10px] text-white/25 mt-2 px-2">Visible to the instructor and the other paid members of this cohort.</p>
+                </div>
+            </div>
+
+            <!-- Members sidebar -->
+            <aside id="members-panel" class="glass-strong rounded-2xl p-4 hidden lg:block overflow-y-auto scroll-area">
+                <div class="flex items-center justify-between mb-3">
+                    <p class="text-xs uppercase tracking-wider text-white/40">Members</p>
+                    <button id="close-members" class="lg:hidden text-white/40 hover:text-white text-sm">✕</button>
+                </div>
+                <p class="text-[10px] text-white/30 mb-3" id="members-count"></p>
+                <div id="members-list" class="space-y-2"></div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/database.js"></script>
+
+    <script>
+    (function() {
+        const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+        const params = new URLSearchParams(window.location.search);
+        const cohortId = params.get('cohort');
+
+        const loadingState = document.getElementById('loading-state');
+        const denyState   = document.getElementById('deny-state');
+        const denyReason  = document.getElementById('deny-reason');
+        const app         = document.getElementById('chat-app');
+        const messagesEl  = document.getElementById('messages');
+        const composer    = document.getElementById('composer');
+        const sendBtn     = document.getElementById('send-btn');
+        const membersList = document.getElementById('members-list');
+        const membersCount= document.getElementById('members-count');
+        const membersPanel= document.getElementById('members-panel');
+
+        // State
+        let currentUser = null;
+        let memberMap   = new Map(); // user_id -> member row (with role/profile data)
+        let unsubscribe = null;
+
+        if (!cohortId) {
+            showDeny('No cohort specified.');
+            return;
+        }
+
+        function showDeny(reason) {
+            loadingState.classList.add('hidden');
+            app.classList.add('hidden');
+            denyState.classList.remove('hidden');
+            if (reason) denyReason.textContent = reason;
+        }
+
+        function showApp() {
+            loadingState.classList.add('hidden');
+            denyState.classList.add('hidden');
+            app.classList.remove('hidden');
+        }
+
+        function initialsOf(name) {
+            return (name || 'U').split(/\s+/).filter(Boolean).slice(0,2).map(w => w[0]).join('').toUpperCase();
+        }
+        function timeStr(iso) {
+            try {
+                const d = new Date(iso);
+                const today = new Date();
+                const sameDay = d.toDateString() === today.toDateString();
+                return sameDay
+                    ? d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+                    : d.toLocaleDateString([], { month: 'short', day: 'numeric' }) + ' ' +
+                      d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+            } catch { return ''; }
+        }
+        function scrollToBottom(smooth) {
+            messagesEl.scrollTo({ top: messagesEl.scrollHeight, behavior: smooth ? 'smooth' : 'auto' });
+        }
+
+        function renderMembers(rows) {
+            memberMap = new Map(rows.map(r => [r.user_id, r]));
+            const instructor = rows.find(r => r.role === 'instructor');
+            const students   = rows.filter(r => r.role === 'student');
+            membersCount.textContent =
+                (instructor ? '1 instructor · ' : '') + students.length + ' student' + (students.length === 1 ? '' : 's');
+
+            const renderOne = (m) => {
+                const name = m.first_name || m.name || 'Member';
+                const avatar = m.avatar_url
+                    ? `<img src="${esc(m.avatar_url)}" alt="${esc(name)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`
+                    : initialsOf(name);
+                const cls = m.role === 'instructor' ? 'instructor' : '';
+                const profession = m.profession ? esc(m.profession) : '';
+                const meta = [profession, m.location ? esc(m.location) : ''].filter(Boolean).join(' · ');
+                return `
+                    <a href="/profile?id=${m.user_id}" class="member-card ${cls}" target="_blank" rel="noopener">
+                        <div class="msg-avatar ${m.role}">${avatar}</div>
+                        <div style="min-width:0;flex:1;">
+                            <p class="text-xs font-medium text-white/85 truncate">${esc(name)}</p>
+                            ${meta ? `<p class="text-[10px] text-white/35 truncate">${meta}</p>` : ''}
+                        </div>
+                        <span class="role-pill role-${m.role}">${m.role === 'instructor' ? 'Host' : 'Crew'}</span>
+                    </a>`;
+            };
+
+            const html = [
+                instructor ? renderOne(instructor) : '',
+                students.map(renderOne).join('')
+            ].join('');
+            membersList.innerHTML = html || '<p class="text-white/30 text-xs italic">No members yet.</p>';
+        }
+
+        function renderMessage(m, { animateScroll = false } = {}) {
+            // System message
+            if (m.message_type === 'system') {
+                const node = document.createElement('div');
+                node.className = 'msg-row system';
+                node.dataset.id = m.id;
+                node.innerHTML = `<div class="msg-bubble">${esc(m.body)}</div>`;
+                messagesEl.appendChild(node);
+                return;
+            }
+
+            const author = memberMap.get(m.user_id) || {};
+            const isMine = currentUser && m.user_id === currentUser.id;
+            const isInstructor = author.role === 'instructor';
+            const isAnnouncement = m.message_type === 'announcement';
+            const name = author.first_name || author.name || 'Member';
+            const avatar = author.avatar_url
+                ? `<img src="${esc(author.avatar_url)}" alt="${esc(name)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`
+                : initialsOf(name);
+
+            const node = document.createElement('div');
+            const classes = ['msg-row'];
+            if (isMine) classes.push('mine');
+            if (isInstructor) classes.push('instructor');
+            if (isAnnouncement) classes.push('announcement');
+            node.className = classes.join(' ');
+            node.dataset.id = m.id;
+
+            const meta = `${esc(name)}${isInstructor ? ' · Instructor' : ''} · ${timeStr(m.created_at)}`;
+            node.innerHTML = `
+                <div class="msg-avatar ${isInstructor ? 'instructor' : ''}">${avatar}</div>
+                <div style="min-width:0;max-width:100%;">
+                    <p class="msg-meta">${meta}</p>
+                    <div class="msg-bubble">${esc(m.body)}</div>
+                </div>
+            `;
+            messagesEl.appendChild(node);
+        }
+
+        function renderMessages(list) {
+            messagesEl.innerHTML = '';
+            if (!list || list.length === 0) {
+                messagesEl.innerHTML = '<p class="text-center text-white/30 text-xs italic py-8">No messages yet. Be the first to break the ice.</p>';
+                return;
+            }
+            list.forEach(m => renderMessage(m));
+            scrollToBottom(false);
+        }
+
+        async function loadCohortInfo() {
+            const { data, error } = await window.supabaseClient
+                .from('cohorts')
+                .select('id, title, location, start_date, end_date, status, instructor_id, instructors(name)')
+                .eq('id', cohortId)
+                .single();
+            if (error || !data) return null;
+            document.getElementById('cohort-title').textContent = data.title || 'Cohort';
+            const dateStr = data.start_date
+                ? new Date(data.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                : 'Dates TBD';
+            const bits = [data.location, dateStr, data.instructors?.name ? 'with ' + data.instructors.name : null]
+                .filter(Boolean).map(esc).join(' · ');
+            document.getElementById('cohort-meta').innerHTML = bits;
+            return data;
+        }
+
+        async function boot() {
+            // Wait for supabase + auth
+            let attempts = 0;
+            while ((!window.supabaseClient || !window.auth) && attempts < 60) {
+                await new Promise(r => setTimeout(r, 100));
+                attempts++;
+            }
+            if (!window.supabaseClient || !window.auth) {
+                showDeny('Could not connect.');
+                return;
+            }
+
+            currentUser = window.auth.getCurrentUser?.();
+            if (!currentUser) {
+                // Stash redirect target so user comes back here after sign-in
+                sessionStorage.setItem('postSignInRedirect', '/cohort-chat?cohort=' + cohortId);
+                window.location.href = '/join';
+                return;
+            }
+
+            const cohort = await loadCohortInfo();
+            if (!cohort) {
+                showDeny('Cohort not found.');
+                return;
+            }
+
+            // Members (RPC; returns nothing if not a member)
+            let members = [];
+            try { members = await window.db.getCohortMembers(cohortId); } catch (e) {}
+            if (!members || members.length === 0) {
+                showDeny("You're not a member of this cohort yet. Once your enrollment is paid, the space opens up.");
+                return;
+            }
+            renderMembers(members);
+
+            // Messages
+            let messages = [];
+            try { messages = await window.db.getCohortMessages(cohortId, { limit: 200 }); } catch (e) {}
+            renderMessages(messages);
+
+            showApp();
+
+            // Realtime subscription
+            try {
+                unsubscribe = window.db.subscribeToCohortMessages(cohortId, (msg) => {
+                    // Skip if already in DOM (avoids dup on optimistic insert)
+                    if (messagesEl.querySelector('[data-id="' + msg.id + '"]')) return;
+                    const wasAtBottom = messagesEl.scrollTop + messagesEl.clientHeight >= messagesEl.scrollHeight - 80;
+                    renderMessage(msg);
+                    if (wasAtBottom) scrollToBottom(true);
+                });
+            } catch (e) { console.warn('Realtime failed:', e); }
+
+            // Composer
+            composer.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendBtn.click();
+                }
+            });
+            composer.addEventListener('input', () => {
+                composer.style.height = 'auto';
+                composer.style.height = Math.min(composer.scrollHeight, 140) + 'px';
+            });
+            sendBtn.addEventListener('click', sendMessage);
+        }
+
+        async function sendMessage() {
+            const body = (composer.value || '').trim();
+            if (!body) return;
+            sendBtn.disabled = true;
+            const original = sendBtn.textContent;
+            sendBtn.textContent = '…';
+            try {
+                const inserted = await window.db.sendCohortMessage(cohortId, currentUser.id, body);
+                composer.value = '';
+                composer.style.height = 'auto';
+
+                // Optimistic render (will be deduped against realtime echo by data-id)
+                if (inserted && !messagesEl.querySelector('[data-id="' + inserted.id + '"]')) {
+                    renderMessage(inserted);
+                    scrollToBottom(true);
+                }
+            } catch (e) {
+                console.error('Send failed:', e);
+                alert('Could not send. ' + (e?.message || 'Try again.'));
+            } finally {
+                sendBtn.disabled = false;
+                sendBtn.textContent = original;
+                composer.focus();
+            }
+        }
+
+        // Mobile members toggle
+        document.getElementById('toggle-members')?.addEventListener('click', () => membersPanel.classList.add('open'));
+        document.getElementById('close-members')?.addEventListener('click', () => membersPanel.classList.remove('open'));
+
+        // Tear down realtime on unload
+        window.addEventListener('beforeunload', () => { try { unsubscribe?.(); } catch (e) {} });
+
+        boot();
+    })();
+    </script>
+</body>
+</html>
