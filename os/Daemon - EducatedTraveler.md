@@ -11,7 +11,7 @@ The core operating system. The unshakeable DNA. Everything flows from here.
 SKILLS LAST, TANS FADE.
 ```
 
-We exist to transform lives through certified mastery at the source. Not tourism dressed as education. Not courses pretending to be transformation. Real skills. Real credentials. Real change.
+We exist to deliver certified mastery at the source. Not tourism dressed as education. Not a YouTube video at 2 AM pretending to be learning. Not courses pretending to be immersion. Real skills. Real credentials. Real freedom. Real adventure.
 
 **One week to get certified. 6 months to change your life.**
 
@@ -313,21 +313,35 @@ NEXUS: [Domain] + [Your Challenge]
 
 ## Brand Voice
 
+### The Three Pillars
+Every piece of copy, every experience description, every page must evoke all three:
+
+1. **Freedom** — The open sea, the unknown horizon, the life you chose. We don't sell schedules. We sell the feeling of waking up somewhere extraordinary with purpose.
+2. **Adventure** — Real stakes, real effort, real reward. Not curated comfort — earned exhilaration. Surf the wave, sail the open sea, summit the ridge.
+3. **Immersion** — Deep in the craft, deep in the culture, deep in the cohort. Not skimming the surface. Living it.
+
+> *"Surf in Hawaii. Sail the open sea. Cook in Tokyo."* — This is the rhythm. Specific skill + evocative place or feeling. Never generic.
+
 ### Use
 - "Skills last, tans fade"
 - "Skill adventures at the source"
 - "One week to get certified. 6 months to change your life."
 - "Choose your depth"
-- "Immersion" (the one word — it's the method, the feeling, and the brand)
+- "Immersion" (the method, the feeling, and the brand)
+- "Freedom" (the promise — choose your life, earn your path)
+- "Adventure" (the experience — real effort, real stakes, real reward)
+- "The open sea" / "open water" (for sailing — never pin it to one port)
 - "Certified" (not just "learning")
 - "Cohort" (not "group" or "class")
 - "Master" (for instructors)
+- "Earned" (not bought, not given)
 
 ### Avoid
 - "Transformation" (passive — something happens to you. Immersion is what you do.)
 - "Life-changing" (overused, prove it instead)
 - "Journey" alone (too generic)
 - "Escape" (implies running from, not toward)
+- "Vacation" or "holiday" (we sell earned adventures, not leisure)
 - "Easy" or "effortless" (dishonest)
 - "Luxury" (we're premium, not indulgent)
 - "Tour" or "tourist" (never)
