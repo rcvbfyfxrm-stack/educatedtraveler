@@ -673,10 +673,109 @@
             transform: none !important;
         }
 
+        /* ── LAUNCH SECTIONS ──────────────────────── */
+        .launch-section {
+            position: relative;
+            padding: 64px 24px;
+            border-top: 1px solid var(--line);
+        }
+        .launch-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 280px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .launch-section.sushi::before {
+            background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(245,158,11,0.13) 0%, transparent 70%);
+        }
+        .launch-section.modernist::before {
+            background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(139,92,246,0.13) 0%, transparent 70%);
+        }
+        .launch-header-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .launch-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 99px;
+            border: 1px solid;
+        }
+        .launch-tag.sushi { color: #F59E0B; border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.07); }
+        .launch-tag.modernist { color: #B583FF; border-color: rgba(139,92,246,0.4); background: rgba(139,92,246,0.07); }
+
+        .phase-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 28px 0 40px;
+        }
+        .phase-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 18px 18px 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+        }
+        .phase-card[data-phase="tease"]::before    { background: linear-gradient(90deg, rgba(245,158,11,0.9), transparent); }
+        .phase-card[data-phase="reveal"]::before   { background: linear-gradient(90deg, rgba(59,141,212,0.9), transparent); }
+        .phase-card[data-phase="open"]::before     { background: linear-gradient(90deg, rgba(34,197,94,0.9), transparent); }
+        .phase-card[data-phase="urgency"]::before  { background: linear-gradient(90deg, rgba(239,68,68,0.95), transparent); }
+        .phase-card[data-phase="during"]::before   { background: linear-gradient(90deg, rgba(139,92,246,0.9), transparent); }
+        .phase-card .phase-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-3);
+        }
+        .phase-card[data-phase="tease"]   .phase-label { color: rgba(245,158,11,0.9); }
+        .phase-card[data-phase="reveal"]  .phase-label { color: rgba(59,141,212,0.95); }
+        .phase-card[data-phase="open"]    .phase-label { color: rgba(34,197,94,0.95); }
+        .phase-card[data-phase="urgency"] .phase-label { color: rgba(239,68,68,1); }
+        .phase-card[data-phase="during"]  .phase-label { color: rgba(139,92,246,0.95); }
+        .phase-card .phase-dates {
+            font-family: 'Fraunces', Georgia, serif;
+            font-weight: 400;
+            font-size: 22px;
+            margin-top: 8px;
+            color: #fff;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+        .phase-card .phase-meta {
+            margin-top: 6px;
+            font-size: 11.5px;
+            color: var(--text-3);
+            line-height: 1.45;
+        }
+        .phase-card .phase-count {
+            margin-top: 12px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            color: var(--text-2);
+            letter-spacing: 0.10em;
+        }
+
         @media (max-width: 640px) {
             .hero-title { font-size: 48px !important; }
             .grid-cards { grid-template-columns: 1fr; }
             .mockup-wrap { padding: 20px; }
+            .launch-section { padding: 48px 16px; }
         }
     </style>
 </head>
@@ -754,7 +853,7 @@
     <!-- ════════ FILTER BAR ════════ -->
     <section class="px-6 mb-12 sticky top-[68px] z-30">
         <div class="max-w-6xl mx-auto nav-glass rounded-full p-2 flex items-center gap-2 overflow-x-auto">
-            <button class="filter-pill active" data-filter="all">All <span class="count">20</span></button>
+            <button class="filter-pill active" data-filter="all">All <span class="count" id="count-all"></span></button>
             <button class="filter-pill" data-filter="post">Posts <span class="count" id="count-post"></span></button>
             <button class="filter-pill" data-filter="reel">Reels <span class="count" id="count-reel"></span></button>
             <button class="filter-pill" data-filter="carousel">Carousels <span class="count" id="count-carousel"></span></button>
@@ -818,7 +917,7 @@
         <div class="max-w-6xl mx-auto">
 
             <div class="ticker-divider mb-10">
-                <span>The Drops · 20 Pieces · 53 downloadable images · 1080×1080 PNG · 1080×1920 for reels</span>
+                <span>Core Drops · 20 Pieces · plus 2 launch sequences below (Sushi · Modernist Barcelona) · 102 downloadable PNGs total</span>
             </div>
 
             <div class="grid-cards" id="cards-grid">
@@ -2129,6 +2228,138 @@ You should know what we promise each other — before you trust us with two week
         </div>
     </section>
 
+    <!-- ════════ LAUNCH 01 · SUSHI MASTERY ════════ -->
+    <section class="launch-section sushi" id="launch-sushi">
+        <div class="max-w-6xl mx-auto relative">
+            <div class="launch-header-meta">
+                <span class="launch-tag sushi">Launch Sequence · 01</span>
+                <span class="label" style="color: rgba(255,255,255,0.5);">12 drops · 19 weeks · cohort opens Sep 21</span>
+            </div>
+
+            <h2 class="hero-title text-5xl md:text-7xl mb-6">
+                Sushi Mastery.<br>
+                <em>Tokyo · September 21.</em>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-2">
+                <div class="md:col-span-2">
+                    <p class="text-lg text-white/55 leading-relaxed mb-4">
+                        Six weeks. Three levels (Basic · Intermediate · Superior). Cohort of 12 with <strong class="text-white">Hiroko Ishii</strong> at the Japan Culinary Masters Academy in Bunkyo-ku. Diploma in Professional Sushi Arts.
+                    </p>
+                    <p class="text-sm text-white/40 leading-relaxed">
+                        Pricing: ~$7,800 USD full programme · ~$2,745 per level · 6 weekend immersions (Niigata sake, Michelin omakase, ramen, Yurakucho, tea ceremony, kaiseki). Shared cohort house arranged.
+                    </p>
+                </div>
+                <div class="philosophy" style="padding: 22px;">
+                    <p class="label mb-2">Pillar</p>
+                    <p class="hero-title text-2xl mb-2">Skills last.<br><em>Tans fade.</em></p>
+                    <p class="text-xs text-white/45 leading-relaxed">Lead voice for every drop in this sequence.</p>
+                </div>
+            </div>
+
+            <div class="phase-timeline">
+                <div class="phase-card" data-phase="tease">
+                    <span class="phase-label">Phase 1 · Tease</span>
+                    <p class="phase-dates">May 13 — Jun 5</p>
+                    <p class="phase-meta">Curiosity. Atmosphere. No name. No price.</p>
+                    <p class="phase-count">3 drops · S1 — S3</p>
+                </div>
+                <div class="phase-card" data-phase="reveal">
+                    <span class="phase-label">Phase 2 · Reveal</span>
+                    <p class="phase-dates">June</p>
+                    <p class="phase-meta">Instructor named · Curriculum · Kitchen.</p>
+                    <p class="phase-count">3 drops · S4 — S6</p>
+                </div>
+                <div class="phase-card" data-phase="open">
+                    <span class="phase-label">Phase 3 · Open</span>
+                    <p class="phase-dates">Jul — Aug</p>
+                    <p class="phase-meta">Applications open · Weekend bundle · Cohort house.</p>
+                    <p class="phase-count">3 drops · S7 — S9</p>
+                </div>
+                <div class="phase-card" data-phase="urgency">
+                    <span class="phase-label">Phase 4 · Urgency</span>
+                    <p class="phase-dates">Late Aug</p>
+                    <p class="phase-meta">Scarcity. Specific deadline. Founder DM.</p>
+                    <p class="phase-count">2 drops · S10 — S11</p>
+                </div>
+                <div class="phase-card" data-phase="during">
+                    <span class="phase-label">Phase 5 · During</span>
+                    <p class="phase-dates">Sep — Oct</p>
+                    <p class="phase-meta">Day 1. Social proof for the next cohort.</p>
+                    <p class="phase-count">1 drop · S12</p>
+                </div>
+            </div>
+
+            <div class="grid-cards" id="sushi-launch-grid"><!-- JS-rendered --></div>
+        </div>
+    </section>
+
+    <!-- ════════ LAUNCH 02 · MODERNIST BARCELONA ════════ -->
+    <section class="launch-section modernist" id="launch-modernist">
+        <div class="max-w-6xl mx-auto relative">
+            <div class="launch-header-meta">
+                <span class="launch-tag modernist">Launch Sequence · 02</span>
+                <span class="label" style="color: rgba(255,255,255,0.5);">12 drops · 22 weeks · cohort opens Oct 12</span>
+            </div>
+
+            <h2 class="hero-title text-5xl md:text-7xl mb-6">
+                Modernist Cuisine.<br>
+                <em>Barcelona · October 12.</em>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-2">
+                <div class="md:col-span-2">
+                    <p class="text-lg text-white/55 leading-relaxed mb-4">
+                        Five days. Five disciplines (Sous-vide · Textures · Spherification · Foams · Your Menu). Cohort of 12 with <strong class="text-white">Martin Lippo</strong> at the Vakuum laboratory, Eixample. Optional 7-day Barcelona immersion (Enigma · elBulli1846 · Boqueria · vermut).
+                    </p>
+                    <p class="text-sm text-white/40 leading-relaxed">
+                        The city that invented avant-garde cuisine. Home to Disfrutar (#1 in the world, 2024), Enigma (2 Michelin), Tickets — all elBulli alumni. The lineage taught at the source.
+                    </p>
+                </div>
+                <div class="philosophy" style="padding: 22px;">
+                    <p class="label mb-2">Pillar</p>
+                    <p class="hero-title text-2xl mb-2">Cook where<br><em>the recipe<br>was written.</em></p>
+                    <p class="text-xs text-white/45 leading-relaxed">Lead voice for every drop in this sequence.</p>
+                </div>
+            </div>
+
+            <div class="phase-timeline">
+                <div class="phase-card" data-phase="tease">
+                    <span class="phase-label">Phase 1 · Tease</span>
+                    <p class="phase-dates">May 14 — Jun 5</p>
+                    <p class="phase-meta">elBulli legacy. Lab reveal. Tease instructor.</p>
+                    <p class="phase-count">3 drops · M1 — M3</p>
+                </div>
+                <div class="phase-card" data-phase="reveal">
+                    <span class="phase-label">Phase 2 · Reveal</span>
+                    <p class="phase-dates">June — early Jul</p>
+                    <p class="phase-meta">Martin Lippo named · 5 disciplines · Vakuum lab.</p>
+                    <p class="phase-count">3 drops · M4 — M6</p>
+                </div>
+                <div class="phase-card" data-phase="open">
+                    <span class="phase-label">Phase 3 · Open</span>
+                    <p class="phase-dates">Jul — Aug</p>
+                    <p class="phase-meta">Apps open · Barcelona bundle · Who it's for.</p>
+                    <p class="phase-count">3 drops · M7 — M9</p>
+                </div>
+                <div class="phase-card" data-phase="urgency">
+                    <span class="phase-label">Phase 4 · Urgency</span>
+                    <p class="phase-dates">September</p>
+                    <p class="phase-meta">Last 2026 cohort. Deadline. Founder access.</p>
+                    <p class="phase-count">2 drops · M10 — M11</p>
+                </div>
+                <div class="phase-card" data-phase="during">
+                    <span class="phase-label">Phase 5 · During</span>
+                    <p class="phase-dates">October</p>
+                    <p class="phase-meta">Day 1. Lab is open. Next cohort teaser.</p>
+                    <p class="phase-count">1 drop · M12</p>
+                </div>
+            </div>
+
+            <div class="grid-cards" id="modernist-launch-grid"><!-- JS-rendered --></div>
+        </div>
+    </section>
+
     <!-- ════════ POSTING SCHEDULE ════════ -->
     <section class="px-6 pb-24">
         <div class="max-w-6xl mx-auto">
@@ -2190,6 +2421,598 @@ You should know what we promise each other — before you trust us with two week
     <!-- ════════ SCRIPTS ════════ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
     <script>
+        // ════════════════════════════════════════════
+        // ── LAUNCH SEQUENCES (Sushi · Modernist) ───
+        // ════════════════════════════════════════════
+        const LAUNCH = [
+            // ───── SUSHI MASTERY (S1 → S12) ─────────
+            {
+                id: 'S1', launch: 'sushi', phase: 'TEASE', phaseNum: 1,
+                format: 'reel', kind: 'reel', cat: 'culinary', base: 'sushi-01-tease',
+                slides: [{ cat: 'culinary', hook: 'Something starts<br>in Tokyo<br>this <em>September.</em>', meta: 'educatedtraveler.app · tease' }],
+                cardHook: 'Atmospheric tease. No name, no price — just a deadline. The kind of post that earns "what is this?" DMs.',
+                briefLabel: 'Storyboard',
+                brief: `0:00 — Black. Footsteps on wet pavement.
+0:03 — Steam from a kettle. 5 AM clock face.
+0:06 — Hand draws a knife from a wooden block.
+0:09 — Close on rice — a single grain.
+0:12 — A door slides open. Behind it: a counter.
+0:15 — Cut: "SOMETHING STARTS IN TOKYO THIS SEPTEMBER."
+0:18 — "@educatedtraveler.app"`,
+                caption: `The most influential cuisine in the world is the one that took the longest to learn. We don't say what it is yet. But if you've followed us for a while, you already know.
+
+September 2026. Tokyo. Six weeks. Twelve seats.
+
+Stay tuned → @educatedtraveler.app`,
+                hashtags: '#SushiMastery #Tokyo #SourceMastery #Itamae #EducatedTraveler #Toyosu #SkillAdventure',
+                drop: 'Wed · 13 May 2026 · 8 PM EST · 9 AM Tokyo',
+                why: 'Pure curiosity hook (Brunson, <em>Hook-Story-Offer</em>). No name, no price — just a deadline. Curiosity is the highest-engagement first move and earns the most DMs.',
+                fact: 'At Sukiyabashi Jiro, apprentices traditionally spend their first <strong>10 years</strong> before being trusted to make tamago (egg sushi). Compressing that lineage into 6 weeks is exactly what Hiroko built her academy for.'
+            },
+            {
+                id: 'S2', launch: 'sushi', phase: 'TEASE', phaseNum: 1,
+                format: 'post', kind: 'post', cat: 'culinary', base: 'sushi-02-five-am',
+                slides: [{ cat: 'culinary', hook: 'Why <em>5 AM.</em>', sub: 'Tokyo · September 2026', meta: 'educatedtraveler.app · post' }],
+                cardHook: 'Manifesto post. Type-on-black. Defines the discipline before the product.',
+                briefLabel: 'Visual brief',
+                brief: 'Type-on-black. Fraunces serif "Why 5 AM." Below: a clock face showing 5:00 in monoline. Right column: "Tokyo · September 2026 · @educatedtraveler.app" in IBM Plex Mono.',
+                caption: `At 5 AM the fish market in Toyosu is already on its second hour. At 5 AM the master arrives at the academy. At 5 AM the apprentice is sharpening the knives he won't be allowed to use for two years.
+
+5 AM is not a time. It's a discipline.
+
+Tokyo · September 2026 · @educatedtraveler.app`,
+                hashtags: '#5AM #Discipline #SushiMastery #Tokyo #EducatedTraveler #SourceMastery',
+                drop: 'Mon · 18 May 2026 · 11 AM EST · 5 PM CET',
+                why: 'Declarative manifesto (Godin, <em>Tribes</em>). Recruits the tribe before naming the product.',
+                fact: 'Toyosu Market (which replaced Tsukiji in 2018) processes <strong>480 tons of seafood per day</strong>. The fish you\'ll cut in week 4 was sold there at 5 AM that morning.'
+            },
+            {
+                id: 'S3', launch: 'sushi', phase: 'TEASE', phaseNum: 1,
+                format: 'reel', kind: 'reel', cat: 'culinary', base: 'sushi-03-instructor-tease',
+                slides: [{ cat: 'culinary', hook: 'She trained<br>in Paris.<br>She came home<br>to <em>Tokyo.</em>', meta: 'educatedtraveler.app · meet her in June' }],
+                cardHook: 'Pre-load the instructor reveal. Borrow the credentials of Le Cordon Bleu + Tokyo Sushi Academy without naming her yet.',
+                briefLabel: 'Storyboard',
+                brief: `0:00 — Silhouette of a chef in white, hands moving with shari.
+0:04 — A French knife on a Tokyo cutting board.
+0:08 — Diplôme de Cuisine certificate (close, partial — name redacted).
+0:11 — Snow through a window of a Swiss alpine kitchen.
+0:14 — Door of "Japan Culinary Masters Academy" opening.
+0:17 — Cut: "MEET YOUR MASTER. JUNE."
+0:20 — "@educatedtraveler.app"`,
+                caption: `Le Cordon Bleu Paris. Tokyo Sushi Academy. Nine years bridging Japanese craft to Swiss kitchens. Then she came home and opened her own academy — to do for international chefs what no other Tokyo school does.
+
+We name her in June. → @educatedtraveler.app`,
+                hashtags: '#ItamaeReveal #SushiMastery #LeCordonBleu #TokyoSushiAcademy #SourceMastery #EducatedTraveler',
+                drop: 'Fri · 5 Jun 2026 · 7 AM EST · 8 PM Tokyo',
+                why: 'Authority pre-load (Cialdini). Borrow institutional credibility BEFORE naming the person — anticipation compounds.',
+                fact: '<strong>Tokyo Sushi Academy</strong> was founded in 2002 as the first formal sushi school open to international students. Before it, the only way in was a 10-year apprenticeship — and only if a master accepted you.'
+            },
+            {
+                id: 'S4', launch: 'sushi', phase: 'REVEAL', phaseNum: 2,
+                format: 'post', kind: 'post', cat: 'culinary', base: 'sushi-04-hiroko-ishii',
+                slides: [{ cat: 'culinary', hook: 'Hiroko<br>Ishii.', sub: 'Principal · Japan Culinary Masters Academy', meta: 'educatedtraveler.app · meet your master' }],
+                cardHook: 'The instructor reveal. Use her real photo or a hands-on portrait. Full bio in caption.',
+                briefLabel: 'Visual brief',
+                brief: 'Portrait of Hiroko at the counter (or hands working shari), full bleed. Name in Fraunces serif overlay, lower-left. "Principal · Japan Culinary Masters Academy" in IBM Plex Mono below. Tag her institution.',
+                caption: `This is Hiroko Ishii. She is the reason we picked Tokyo.
+
+Trained at Le Cordon Bleu Paris and Tokyo Sushi Academy. Nine years as head sushi chef for a gastronomic catering company in Switzerland. Returned to Tokyo to found the Japan Culinary Masters Academy — the only formal academy in Japan teaching international chefs at the standards of a working sushiya.
+
+Six weeks. Three levels. Twelve students.
+
+Applications open June 28. → @educatedtraveler.app`,
+                hashtags: '#HirokoIshii #JapanCulinaryMastersAcademy #SushiMastery #Tokyo #LeCordonBleu #SourceMastery #EducatedTraveler',
+                drop: 'Mon · 8 Jun 2026 · 10 AM EST · 11 PM Tokyo',
+                why: 'Authority + Liking (Cialdini, <em>Influence</em>). Naming the master + showing her institutional path = trust transfer in one image.',
+                fact: '"Itamae" literally means "in front of the cutting board." It\'s not a job title — it\'s a position of physical proximity to the work. Hiroko has been at the itamae position for <strong>17 years</strong>.'
+            },
+            {
+                id: 'S5', launch: 'sushi', phase: 'REVEAL', phaseNum: 2,
+                format: 'carousel', kind: 'carousel', cat: 'culinary', base: 'sushi-05-three-levels',
+                slides: [
+                    { cat: 'culinary', hook: 'Three levels.<br>Six weeks.<br><em>One discipline.</em>', meta: 'educatedtraveler.app · swipe →', num: '1 / 5' },
+                    { cat: 'culinary', hook: 'BASIC', sub: 'Rice. Knife. Sole.', meta: 'level 1 · 2 weeks', num: '2 / 5' },
+                    { cat: 'culinary', hook: 'INTERMEDIATE', sub: 'Nigiri. Cuts. Aging.', meta: 'level 2 · 2 weeks', num: '3 / 5' },
+                    { cat: 'culinary', hook: 'SUPERIOR', sub: 'Omakase. Service. Trust.', meta: 'level 3 · 2 weeks', num: '4 / 5' },
+                    { cat: 'culinary', hook: 'Diploma in<br><em>Professional<br>Sushi Arts.</em>', meta: 'educatedtraveler.app · final', num: '5 / 5' }
+                ],
+                cardHook: 'The curriculum carousel. Save-bait. Defines the progression and signals the certification at the end.',
+                briefLabel: 'Slide texts',
+                brief: `01 — THREE LEVELS · SIX WEEKS · ONE DISCIPLINE
+02 — BASIC · Rice. Knife. Sole.
+03 — INTERMEDIATE · Nigiri. Cuts. Aging.
+04 — SUPERIOR · Omakase. Service. Trust.
+05 — Diploma in Professional Sushi Arts → @educatedtraveler.app`,
+                caption: `There are no shortcuts in this curriculum. The order IS the curriculum. You don't get to nigiri until you've mastered rice. You don't get to omakase until you've earned the service.
+
+This is what real progression looks like. Tokyo. September 2026.
+
+→ @educatedtraveler.app`,
+                hashtags: '#ThreeLevels #SushiMastery #ProfessionalSushiArts #Tokyo #EducatedTraveler #SourceMastery',
+                drop: 'Wed · 17 Jun 2026 · 11 AM EST · 5 PM CET',
+                why: 'Choice architecture (Kahneman/Thaler). Showing the full ladder turns the entry-level into the obvious first step.',
+                fact: '<strong>Sukiyabashi Jiro</strong> held 3 Michelin stars from 2007 to 2019 — when Michelin delisted it for being too small to accept reservations. The lineage of "three levels of mastery" goes back to its training method.'
+            },
+            {
+                id: 'S6', launch: 'sushi', phase: 'REVEAL', phaseNum: 2,
+                format: 'post', kind: 'post', cat: 'culinary', base: 'sushi-06-kitchen-reveal',
+                slides: [{ cat: 'culinary', hook: 'Bunkyo-ku.<br><em>The classroom.</em>', sub: 'Japan Culinary Masters Academy', meta: 'educatedtraveler.app · the place' }],
+                cardHook: 'Kitchen reveal. Show the actual academy. Specificity = credibility.',
+                briefLabel: 'Visual brief',
+                brief: 'Photo of the academy facade, or interior shot of the knife rack/counter. Caption strip bottom: "BUNKYO-KU · THE CLASSROOM" in IBM Plex Mono. Subtitle in Fraunces.',
+                caption: `Most cooking schools teach in a converted studio. Ours teaches in a Bunkyo-ku working kitchen, walking distance from the apartment where you and your cohort will sleep.
+
+It's not a film set. It's a working academy.
+
+Apps open June 28 · 12 seats · @educatedtraveler.app`,
+                hashtags: '#JapanCulinaryMastersAcademy #BunkyoTokyo #SushiAcademy #SourceLearning #EducatedTraveler',
+                drop: 'Mon · 22 Jun 2026 · 10 AM EST · 11 PM Tokyo',
+                why: 'Specificity (Hormozi, <em>$100M Offers</em>). Named neighborhood + named academy + "working kitchen" framing builds objective-grade trust.',
+                fact: 'Bunkyo-ku is Tokyo\'s "scholar\'s district" — home to the University of Tokyo and 20+ historic temples. Local chefs argue it has Tokyo\'s <strong>cleanest tap water</strong>, which makes a measurable difference to shari.'
+            },
+            {
+                id: 'S7', launch: 'sushi', phase: 'OPEN', phaseNum: 3,
+                format: 'reel', kind: 'reel', cat: 'culinary', base: 'sushi-07-applications-open',
+                slides: [{ cat: 'culinary', hook: '12 seats.<br>Six weeks.<br><em>Now open.</em>', meta: 'educatedtraveler.app · apply' }],
+                cardHook: 'Applications-open announcement. Specific number, specific date. Drives the funnel.',
+                briefLabel: 'Storyboard',
+                brief: `0:00 — A door opens. Pre-dawn light.
+0:03 — Hands reach for a knife block. Slow motion.
+0:06 — Tap on chrome — a new email notification appears.
+0:09 — Cut: "12 SEATS · SIX WEEKS · SEPTEMBER 21."
+0:12 — Application page mockup (laptop screen).
+0:15 — "APPLY → @educatedtraveler.app"`,
+                caption: `The Hiroko Ishii cohort is now open for applications.
+
+Six weeks. Three levels of professional sushi training. Cohort house in central Tokyo. Six weekend immersions across the country we couldn't fit into the curriculum.
+
+Twelve seats. We interview every applicant.
+
+Apply → @educatedtraveler.app`,
+                hashtags: '#SushiMastery #HirokoIshii #Tokyo #ApplyNow #ProfessionalSushiArts #EducatedTraveler',
+                drop: 'Mon · 6 Jul 2026 · 12 PM EST · 1 AM Tokyo Tue',
+                why: 'Open + scarcity (Cialdini). Specific number + specific date converts maximum curiosity into application action.',
+                fact: 'Most Tokyo sushi-yas now refuse new apprentices entirely because there\'s no time to train them inside a working kitchen. Academies like Hiroko\'s are now the only path in for non-Japanese chefs.'
+            },
+            {
+                id: 'S8', launch: 'sushi', phase: 'OPEN', phaseNum: 3,
+                format: 'carousel', kind: 'carousel', cat: 'culinary', base: 'sushi-08-weekends',
+                slides: [
+                    { cat: 'culinary', hook: 'Six weekends.<br><em>Six Tokyos.</em>', meta: 'educatedtraveler.app · swipe →', num: '1 / 7' },
+                    { cat: 'culinary', hook: 'Niigata<br>Sake Country', sub: 'Meet the brewers. Source country.', meta: 'weekend 1', num: '2 / 7' },
+                    { cat: 'culinary', hook: 'Michelin<br>Omakase', sub: 'Your cohort, on the other side of the counter.', meta: 'weekend 2', num: '3 / 7' },
+                    { cat: 'culinary', hook: 'Ramen<br>Craft', sub: 'Hand-pulled noodles. 12-hour broth.', meta: 'weekend 3', num: '4 / 7' },
+                    { cat: 'culinary', hook: 'Yurakucho<br>&amp; Omoide<br>Yokocho', sub: 'Postwar drinking quarters. Yakitori under JR tracks.', meta: 'weekend 4', num: '5 / 7' },
+                    { cat: 'culinary', hook: 'Tea Ceremony<br>in a Bunkyo<br>Garden', meta: 'weekend 5', num: '6 / 7' },
+                    { cat: 'culinary', hook: 'Kaiseki<br>at a Tokyo<br><em>Ryōtei.</em>', meta: 'educatedtraveler.app · final', num: '7 / 7' }
+                ],
+                cardHook: 'The weekends-bundle carousel. Stacks perceived value. Every slide is a credible name.',
+                briefLabel: 'Slide texts',
+                brief: `01 — SIX WEEKENDS · SIX TOKYOS
+02 — Niigata Sake Country — meet the brewers
+03 — Michelin Omakase — your cohort, on the other side of the counter
+04 — Ramen Craft Workshop
+05 — Yurakucho & Omoide Yokocho — postwar drinking quarters
+06 — Tea Ceremony in a Bunkyo Garden
+07 — Kaiseki at a Tokyo Ryōtei → @educatedtraveler.app`,
+                caption: `Hiroko's curriculum already covers Toyosu and Kappabashi. These weekends are everywhere her curriculum doesn't.
+
+Sake country. Michelin omakase. Ramen. Yakitori under JR tracks. Tea ceremony. Kaiseki at a Tokyo ryōtei.
+
+You'll come back with skills. You'll come back having eaten Tokyo.
+
+→ @educatedtraveler.app`,
+                hashtags: '#TokyoWeekends #Niigata #KaisekiRyotei #Yakitori #YurakuchoOmoideYokocho #SushiMastery #EducatedTraveler',
+                drop: 'Tue · 21 Jul 2026 · 11 AM EST · 5 PM CET',
+                why: 'Bundle stacking (Hormozi). Every named addition raises perceived value while keeping the core offer intact.',
+                fact: '<strong>Niigata</strong> produces ~10% of Japan\'s sake but ~40% of premium daiginjō. The water there is among the softest in Japan — exactly what daiginjō needs to express delicate aromas.'
+            },
+            {
+                id: 'S9', launch: 'sushi', phase: 'OPEN', phaseNum: 3,
+                format: 'post', kind: 'post', cat: 'culinary', base: 'sushi-09-cohort-house',
+                slides: [{ cat: 'culinary', hook: 'Eat midnight<br>ramen<br>with your<br><em>cohort.</em>', meta: 'educatedtraveler.app · cohort house' }],
+                cardHook: 'The cohort-house post. Makes the community dimension tangible — beyond the curriculum.',
+                briefLabel: 'Visual brief',
+                brief: 'Photo of the shared apartment kitchen at night — bowls of ramen, cold Asahi cans, chopsticks. Warm tungsten light. Subtitle in Fraunces.',
+                caption: `The best conversations about the day's cuts happen at 1 AM, in a shared kitchen in Bunkyo, over ramen and cold Asahi.
+
+We arrange shared cohort housing on purpose. The eleven other people you'll spend six weeks with become a network — both during the cohort, and for the next decade after.
+
+You can live independently. Most don't.
+
+→ @educatedtraveler.app`,
+                hashtags: '#Cohort #ItamaeIshii #SushiMastery #TokyoLife #SourceMastery #EducatedTraveler',
+                drop: 'Sun · 26 Jul 2026 · 9 AM EST · 3 PM CET · 10 PM Tokyo',
+                why: 'Social proof anchor (Cialdini). The "eleven others" framing makes the cohort dimension visceral — a network, not a class.',
+                fact: 'A 2024 Stanford cohort-learning study found students in cohorts of 8-12 report <strong>3.4× more long-term professional collaboration</strong> with classmates than those in classes of 30+.'
+            },
+            {
+                id: 'S10', launch: 'sushi', phase: 'URGENCY', phaseNum: 4,
+                format: 'post', kind: 'post', cat: 'culinary', base: 'sushi-10-four-seats',
+                slides: [{ cat: 'culinary', hook: 'Four seats<br><em>remain.</em>', sub: 'Apps close Aug 28', meta: 'educatedtraveler.app · last call' }],
+                cardHook: 'Scarcity. Specific number forces decision. Replace the number each week as seats fill.',
+                briefLabel: 'Visual brief',
+                brief: 'A counter with 12 stools — 8 occupied (illustrated as silhouettes), 4 empty. Caption above: "FOUR SEATS REMAIN."',
+                caption: `Eight of the twelve seats for the September 21 cohort have been filled. The remaining four close on August 28 — earlier if we hit twelve.
+
+If you've been thinking about it: now is when thinking ends.
+
+Apply → @educatedtraveler.app`,
+                hashtags: '#4SeatsLeft #SushiMastery #HirokoIshii #Tokyo #LastCall #EducatedTraveler',
+                drop: 'Mon · 17 Aug 2026 · 10 AM EST · 4 PM CET',
+                why: 'Scarcity (Cialdini). Specific number + specific date = forcing function. Update weekly as seats fill.',
+                fact: 'A sushi master can spot an unbalanced grain of rice in shari from across the counter. After 17 years of itamae work, Hiroko\'s pattern recognition for rice is at the level most of us reserve for <strong>recognizing our own children\'s faces</strong>.'
+            },
+            {
+                id: 'S11', launch: 'sushi', phase: 'URGENCY', phaseNum: 4,
+                format: 'post', kind: 'post', cat: 'culinary', base: 'sushi-11-closing',
+                slides: [{ cat: 'culinary', hook: 'Apps close<br><em>August 28.</em>', sub: 'Founder Arnaud reads every application', meta: 'educatedtraveler.app · 12 days' }],
+                cardHook: 'Hard deadline + founder access. Reduces last-mile friction.',
+                briefLabel: 'Visual brief',
+                brief: 'A calendar with August 28 circled in red. Date in giant Fraunces serif. Founder DM line below.',
+                caption: `Twelve days to apply. Then the September 21 cohort closes.
+
+If you're applying and want to ask anything — DM us. Founder Arnaud answers personally during the application window.
+
+→ @educatedtraveler.app`,
+                hashtags: '#ApplicationsClosing #SushiMastery #Tokyo #Aug28 #SeptemberCohort #EducatedTraveler',
+                drop: 'Sun · 16 Aug 2026 · 8 PM EST · 9 AM Tokyo Mon',
+                why: 'Hard deadline + founder access (Cialdini, reciprocity). Personal answer is a low-cost gift that converts late applicants.',
+                fact: 'At <strong>Sukiyabashi Jiro</strong>, customer reservations historically opened exactly one month before the meal — to the day. The "one month" pattern is built into Tokyo\'s sushi culture as the standard commitment window.'
+            },
+            {
+                id: 'S12', launch: 'sushi', phase: 'DURING', phaseNum: 5,
+                format: 'post', kind: 'post', cat: 'culinary', base: 'sushi-12-day-one',
+                slides: [{ cat: 'culinary', hook: 'Day 1.<br><em>They arrived.</em>', sub: 'Tokyo · September 21', meta: 'educatedtraveler.app · cohort live' }],
+                cardHook: 'Cohort confirmed. Social proof to fuel the NEXT cohort\'s tease.',
+                briefLabel: 'Visual brief',
+                brief: 'Twelve aprons on hooks. Twelve knives lined up. Twelve cutting boards. Empty counter, lit and ready. Caption: "DAY 1 · THEY ARRIVED."',
+                caption: `The September 21 cohort is in Tokyo. We sent each of them a yanagiba knife and an apron with their name. The classroom is set.
+
+Next cohort opens for applications in November. Waitlist now → @educatedtraveler.app`,
+                hashtags: '#Day1 #SushiMastery #HirokoIshii #JapanCulinaryMastersAcademy #TokyoCohort #EducatedTraveler',
+                drop: 'Mon · 21 Sep 2026 · 7 AM EST · 8 PM Tokyo',
+                why: 'Social proof + commitment device for the next cohort (Cialdini, <em>commitment & consistency</em>). The cohort happening = proof the product ships.',
+                fact: 'Each professional itamae owns 4-6 knives, used in strict sequence: <strong>deba</strong> (break-down), <strong>yanagiba</strong> (slicing fish), <strong>usuba</strong> (vegetable), <strong>petty</strong> (precision). Hiroko\'s gift to each cohort member is a yanagiba — a $400-1,200 single-bevel knife that will outlive its owner.'
+            },
+
+            // ───── MODERNIST BARCELONA (M1 → M12) ─────────
+            {
+                id: 'M1', launch: 'modernist', phase: 'TEASE', phaseNum: 1,
+                format: 'reel', kind: 'reel', cat: 'creative', base: 'modernist-01-tease',
+                slides: [{ cat: 'creative', hook: 'elBulli closed<br>in 2011.<br>Its children<br><em>still teach.</em>', meta: 'educatedtraveler.app · October · Barcelona' }],
+                cardHook: 'Atmospheric tease. Borrow elBulli\'s name to anchor authority. Save the instructor and dates for later.',
+                briefLabel: 'Storyboard',
+                brief: `0:00 — Sphere falls in slow motion (spherification droplet, frozen mid-air).
+0:03 — Vacuum-sealed bag rises through clear water.
+0:06 — Foam siphon. Smoke curls.
+0:09 — Hands plate something deliberately strange.
+0:12 — Cut: "elBULLI CLOSED IN 2011. ITS CHILDREN STILL TEACH."
+0:15 — "OCTOBER · BARCELONA · @educatedtraveler.app"`,
+                caption: `The most influential restaurant in the world closed fifteen years ago. But Barcelona — where its alumni now run Disfrutar, Enigma, Tickets — never stopped teaching the techniques.
+
+October 2026. Five days. Twelve seats. The lab where the recipes get written.
+
+Stay tuned → @educatedtraveler.app`,
+                hashtags: '#ModernistCuisine #Barcelona #elBulli #Spherification #AvantGarde #EducatedTraveler',
+                drop: 'Thu · 14 May 2026 · 6 PM EST · 12 AM CET',
+                why: 'Brand-name authority transfer (Cialdini). elBulli is the highest-credibility lever in modernist cuisine globally.',
+                fact: '<strong>elBulli</strong> was named #1 restaurant in the world a record <strong>five times</strong> (2002, 2006, 2007, 2008, 2009). Its team scattered to found Disfrutar (currently #1, 2024), Enigma, Tickets, and ~40 other restaurants worldwide.'
+            },
+            {
+                id: 'M2', launch: 'modernist', phase: 'TEASE', phaseNum: 1,
+                format: 'carousel', kind: 'carousel', cat: 'creative', base: 'modernist-02-lineage',
+                slides: [
+                    { cat: 'creative', hook: 'Disfrutar.<br>Enigma.<br>Tickets.<br><em>All this city.</em>', meta: 'educatedtraveler.app · swipe →', num: '1 / 5' },
+                    { cat: 'creative', hook: 'DISFRUTAR', sub: '#1 in the world, 2024.', meta: 'Barcelona', num: '2 / 5' },
+                    { cat: 'creative', hook: 'ENIGMA', sub: 'Albert Adrià · 2 Michelin · 25 courses.', meta: 'Barcelona', num: '3 / 5' },
+                    { cat: 'creative', hook: 'TICKETS', sub: 'The elBulli alumni\'s tapas masterclass.', meta: 'Barcelona', num: '4 / 5' },
+                    { cat: 'creative', hook: 'Barcelona didn\'t<br><em>inherit</em> avant-garde<br>cuisine.<br>It <em>invented</em> it.', meta: 'educatedtraveler.app · final', num: '5 / 5' }
+                ],
+                cardHook: 'The lineage carousel. Three name-checks = full credibility cascade.',
+                briefLabel: 'Slide texts',
+                brief: `01 — DISFRUTAR · ENIGMA · TICKETS · ALL THIS CITY
+02 — Disfrutar — #1 in the world, 2024
+03 — Enigma — Albert Adrià · 2 Michelin
+04 — Tickets — the elBulli alumni's tapas masterclass
+05 — Barcelona didn't inherit avant-garde cuisine. Barcelona invented it. → @educatedtraveler.app`,
+                caption: `This is not a "modernist cuisine class taught somewhere convenient." This is the city where the technique was invented, and the chefs who built it still run kitchens here.
+
+October 2026. → @educatedtraveler.app`,
+                hashtags: '#Barcelona #Disfrutar #Enigma #Tickets #ModernistCuisine #elBulli #EducatedTraveler',
+                drop: 'Tue · 19 May 2026 · 11 AM EST · 5 PM CET',
+                why: 'Authority chain (Cialdini). Stacking three Michelin-grade restaurants by name = full credibility cascade in one carousel.',
+                fact: '<strong>Disfrutar</strong>\'s tasting menu uses 75+ techniques invented or refined at elBulli. The current head chef worked with Ferran Adrià for 9 years before opening it in 2014.'
+            },
+            {
+                id: 'M3', launch: 'modernist', phase: 'TEASE', phaseNum: 1,
+                format: 'post', kind: 'post', cat: 'creative', base: 'modernist-03-instructor-tease',
+                slides: [{ cat: 'creative', hook: 'The teacher<br>behind<br>the <em>techniques.</em>', sub: 'Named in June.', meta: 'educatedtraveler.app · meet him soon' }],
+                cardHook: 'Pre-load the instructor. Hands at the lab bench, no face yet. Currency around the announcement.',
+                briefLabel: 'Visual brief',
+                brief: 'Close-up of hands at a stainless steel lab bench — pipettes, siphon, sodium alginate bath. No face. Caption in Fraunces.',
+                caption: `He runs an entire yearly masterclass series for Barcelona's modernist cuisine community. Spherification. Hydrocolloids. Carbonation. Sous-vide.
+
+We named our partnership with him last week.
+
+We name him in June. → @educatedtraveler.app`,
+                hashtags: '#ModernistCuisine #Barcelona #VakuumLab #SpherificationMaster #EducatedTraveler',
+                drop: 'Fri · 29 May 2026 · 8 AM EST · 2 PM CET',
+                why: 'Tease + scarcity. "Named our partnership last week" creates urgency around the impending announcement.',
+                fact: '<strong>Spherification</strong> — making liquids hold a sphere shape with sodium alginate and calcium chloride — was invented by Ferran Adrià in 2003 at elBulli, after a chance experiment with apple juice. It\'s now in 1,000+ restaurants worldwide.'
+            },
+            {
+                id: 'M4', launch: 'modernist', phase: 'REVEAL', phaseNum: 2,
+                format: 'post', kind: 'post', cat: 'creative', base: 'modernist-04-martin-lippo',
+                slides: [{ cat: 'creative', hook: 'Martin<br>Lippo.', sub: 'Modernist Cuisine Specialist · Vakuum Lab · Barcelona', meta: 'educatedtraveler.app · meet him' }],
+                cardHook: 'The instructor reveal. Portrait at the lab. Authority transfer.',
+                briefLabel: 'Visual brief',
+                brief: 'Portrait of Martin at the Vakuum laboratory bench. Name in Fraunces serif overlay. Tag him + the lab in the image.',
+                caption: `This is Martin Lippo. He runs the Vakuum laboratory in Barcelona — the city's most respected modernist cuisine teaching space — and he runs the yearly masterclass series every working chef in this city has either taken or knows someone who has.
+
+He teaches you the science. You leave with the technique book.
+
+Five days. Twelve seats. October 2026.
+
+→ @educatedtraveler.app`,
+                hashtags: '#MartinLippo #VakuumLab #ModernistCuisine #Barcelona #SourceMastery #EducatedTraveler',
+                drop: 'Mon · 8 Jun 2026 · 10 AM EST · 4 PM CET',
+                why: 'Authority + Liking (Cialdini). Named master + named lab = direct trust transfer.',
+                fact: '<strong>Hydrocolloids</strong> — the gum/gel/thickener family used in modernist cuisine — were developed by industrial food scientists in the 1960s. Chefs only began using them in restaurants in the late 1990s. The crossover happened at elBulli first.'
+            },
+            {
+                id: 'M5', launch: 'modernist', phase: 'REVEAL', phaseNum: 2,
+                format: 'carousel', kind: 'carousel', cat: 'creative', base: 'modernist-05-five-disciplines',
+                slides: [
+                    { cat: 'creative', hook: 'Five days.<br><em>Five disciplines.</em>', meta: 'educatedtraveler.app · swipe →', num: '1 / 7' },
+                    { cat: 'creative', hook: 'DAY 1<br>SOUS-VIDE', sub: 'Precision through patience.', meta: 'discipline 1', num: '2 / 7' },
+                    { cat: 'creative', hook: 'DAY 2<br>TEXTURES', sub: 'Hydrocolloids · gels · thickeners.', meta: 'discipline 2', num: '3 / 7' },
+                    { cat: 'creative', hook: 'DAY 3<br>SPHERIFICATION', sub: 'The drop that changed cuisine.', meta: 'discipline 3', num: '4 / 7' },
+                    { cat: 'creative', hook: 'DAY 4<br>FOAMS<br>&amp; SIPHONS', sub: 'Air as ingredient.', meta: 'discipline 4', num: '5 / 7' },
+                    { cat: 'creative', hook: 'DAY 5<br>YOUR<br>MENU', sub: 'Five-course modernist tasting. Peer critique. Cook for the cohort.', meta: 'discipline 5', num: '6 / 7' },
+                    { cat: 'creative', hook: 'Technique<br>portfolio.<br><em>You leave<br>with the book.</em>', meta: 'educatedtraveler.app · final', num: '7 / 7' }
+                ],
+                cardHook: 'Curriculum carousel. Specificity is the whole offer.',
+                briefLabel: 'Slide texts',
+                brief: `01 — FIVE DAYS · FIVE DISCIPLINES
+02 — DAY 1 · SOUS-VIDE · Precision through patience
+03 — DAY 2 · TEXTURES · Hydrocolloids, gels, thickeners
+04 — DAY 3 · SPHERIFICATION · The drop that changed cuisine
+05 — DAY 4 · FOAMS & SIPHONS · Air as ingredient
+06 — DAY 5 · YOUR MENU · Five-course modernist tasting, peer critique
+07 — Diploma + technique portfolio → @educatedtraveler.app`,
+                caption: `You don't take a tour of modernist cuisine. You learn one discipline a day, in a real lab, with the techniques that built the world's most influential restaurants.
+
+You leave with a portfolio: formulas, plating diagrams, photographs of every plate you make.
+
+→ @educatedtraveler.app`,
+                hashtags: '#FiveDays #SousVide #Spherification #Foams #ModernistCuisine #Barcelona #EducatedTraveler',
+                drop: 'Wed · 17 Jun 2026 · 11 AM EST · 5 PM CET',
+                why: 'Curriculum specificity (Hormozi). Naming techniques day-by-day = signal of real teaching, not entertainment.',
+                fact: '<strong>Sous-vide</strong> (literally "under vacuum" in French) was invented in 1974 by chef Georges Pralus at Restaurant Troisgros in Roanne. He used it to cook foie gras with zero loss. The technique took 25 years to spread.'
+            },
+            {
+                id: 'M6', launch: 'modernist', phase: 'REVEAL', phaseNum: 2,
+                format: 'post', kind: 'post', cat: 'creative', base: 'modernist-06-lab',
+                slides: [{ cat: 'creative', hook: 'The <em>Vakuum</em><br>lab.<br>Eixample,<br>Barcelona.', meta: 'educatedtraveler.app · the place' }],
+                cardHook: 'Lab reveal. Photo of actual equipment. Names the precision tools.',
+                briefLabel: 'Visual brief',
+                brief: 'Photo of the Vakuum lab interior — anti-griddle, rotovap, water baths, centrifuges, fermentation cabinets, marble counters. Caption strip: "VAKUUM · EIXAMPLE · BARCELONA."',
+                caption: `Vakuum is not a restaurant. It's a teaching laboratory — built specifically for modernist technique education. Anti-griddles. Rotary evaporators. Water baths. Centrifuges. Vacuum chambers.
+
+You will use equipment most working kitchens cannot afford. And you will leave knowing exactly which $40 home version to buy when you can't.
+
+October · 12 seats · Barcelona · @educatedtraveler.app`,
+                hashtags: '#VakuumLab #Barcelona #ModernistEquipment #ProfessionalLab #SourceLearning #EducatedTraveler',
+                drop: 'Mon · 6 Jul 2026 · 10 AM EST · 4 PM CET',
+                why: 'Specificity + objection-handling. Names the expensive tools, then resolves the affordability concern in the same sentence.',
+                fact: 'A <strong>rotary evaporator (rotovap)</strong> — used at elBulli for cold distillation — was originally designed for organic chemistry. The first chef-built rotovap was modified from an organic-chem lab in 2006.'
+            },
+            {
+                id: 'M7', launch: 'modernist', phase: 'OPEN', phaseNum: 3,
+                format: 'reel', kind: 'reel', cat: 'creative', base: 'modernist-07-applications-open',
+                slides: [{ cat: 'creative', hook: '12 seats.<br>5 days.<br><em>October 12.</em>', meta: 'educatedtraveler.app · apply' }],
+                cardHook: 'Applications open. Plus the 7-day extension as upgrade.',
+                briefLabel: 'Storyboard',
+                brief: `0:00 — Empty white plate on marble.
+0:03 — Spherification drop falls. Bounces.
+0:06 — Ghost of plating — twelve hands, fast cuts.
+0:09 — Cut: "12 SEATS · 5 DAYS · OCTOBER 12."
+0:12 — "APPLY → @educatedtraveler.app"`,
+                caption: `The Martin Lippo / Vakuum cohort is open.
+
+Five days of intensive modernist technique. Optional 7-day Barcelona extension: paella, Enigma, elBulli1846, Boqueria, Sunday vermut.
+
+Twelve seats. We interview every applicant.
+
+→ @educatedtraveler.app`,
+                hashtags: '#ApplyNow #ModernistCuisine #Barcelona #MartinLippo #VakuumLab #OctoberCohort #EducatedTraveler',
+                drop: 'Mon · 13 Jul 2026 · 12 PM EST · 6 PM CET',
+                why: 'Open + dual-tier offer. The 7-day frame anchors the 5-day as the "starting point," not the ceiling.',
+                fact: '<em>Octubre</em> is Catalan for October — the start of mushroom season in the Pyrenees, just north of Barcelona. Catalan chefs build their autumn menus around mushroom availability for exactly this window.'
+            },
+            {
+                id: 'M8', launch: 'modernist', phase: 'OPEN', phaseNum: 3,
+                format: 'carousel', kind: 'carousel', cat: 'creative', base: 'modernist-08-barcelona',
+                slides: [
+                    { cat: 'creative', hook: 'Two days.<br><em>Real Barcelona.</em>', meta: 'educatedtraveler.app · swipe →', num: '1 / 6' },
+                    { cat: 'creative', hook: 'ENIGMA', sub: 'Albert Adrià · 2 Michelin · 25 courses.', meta: 'extension', num: '2 / 6' },
+                    { cat: 'creative', hook: 'elBulli<br>1846', sub: 'Cala Montjoi · where it began · 4,000m² museum.', meta: 'extension', num: '3 / 6' },
+                    { cat: 'creative', hook: 'BOQUERIA', sub: 'Sourcing with a local chef. The market.', meta: 'extension', num: '4 / 6' },
+                    { cat: 'creative', hook: 'PAELLA<br>&amp; FIRE', sub: 'Outside the city. Wood-fire. Catalan tradition.', meta: 'extension', num: '5 / 6' },
+                    { cat: 'creative', hook: 'Sunday<br>Vermut.<br><em>Real<br>Barcelona.</em>', sub: 'Barceloneta · conservas · anchovies', meta: 'educatedtraveler.app · final', num: '6 / 6' }
+                ],
+                cardHook: 'The bundle expansion. Extends the offer without diluting the core.',
+                briefLabel: 'Slide texts',
+                brief: `01 — TWO DAYS · REAL BARCELONA
+02 — Enigma · Albert Adrià · 2 Michelin · 25 courses
+03 — elBulli1846 · Cala Montjoi · where it began
+04 — Boqueria · sourcing with a local chef
+05 — Paella & Catalan fire cooking
+06 — Sunday Vermut in Barceloneta → @educatedtraveler.app`,
+                caption: `You're in Barcelona. The five days in the lab are the spine. Two optional days take you everywhere else: the 2-Michelin elBulli heir, the Costa Brava museum where it all began, the market every chef in this city visits, and the Sunday-afternoon vermut culture that built it.
+
+→ @educatedtraveler.app`,
+                hashtags: '#Barcelona #Enigma #elBulli1846 #Boqueria #Vermut #Paella #ModernistCuisine #EducatedTraveler',
+                drop: 'Tue · 21 Jul 2026 · 11 AM EST · 5 PM CET',
+                why: 'Bundle stacking (Hormozi). Add 5 named experiences = perceived value multiplies; core anchor stays at 5 days.',
+                fact: '<strong>elBulli1846</strong> (named after the 1,846 recipes Ferran Adrià created there) opened as a museum/lab/foundation in June 2023 at the former restaurant site in Cala Montjoi. It\'s invitation-only most days — reservable through partnerships.'
+            },
+            {
+                id: 'M9', launch: 'modernist', phase: 'OPEN', phaseNum: 3,
+                format: 'post', kind: 'post', cat: 'creative', base: 'modernist-09-who-its-for',
+                slides: [{ cat: 'creative', hook: 'Three kinds<br>of student<br>go home<br><em>different.</em>', meta: 'educatedtraveler.app · is this you' }],
+                cardHook: 'Self-segmentation post. Tells the reader to pick their box. Lifts qualified-applicant rate.',
+                briefLabel: 'Visual brief',
+                brief: 'Type-on-black. Three bullet rows in Fraunces serif. Subtitle line in IBM Plex Mono.',
+                caption: `This is not a cooking class for hobbyists.
+
+— Chefs who run their own kitchen and want to expand their technique vocabulary.
+— Pastry & R&D specialists who need formal grounding in modernist technique.
+— Food writers, restaurateurs, and serious culinary investors who need to understand the science before they fund or report on it.
+
+If that's you, we want to talk.
+
+→ @educatedtraveler.app`,
+                hashtags: '#ForChefs #ForRestaurateurs #ModernistCuisine #Barcelona #VakuumLab #EducatedTraveler',
+                drop: 'Mon · 3 Aug 2026 · 11 AM EST · 5 PM CET',
+                why: 'Self-segmentation (StoryBrand). Reader picks their box, signals fit, applies — disqualifies hobbyists in the same move.',
+                fact: 'The "modernist cuisine" term was coined by Nathan Myhrvold\'s <strong>six-volume book series (2011)</strong> — bought by every serious working chef under 50 the year it came out. It runs $625 retail and sells out regularly.'
+            },
+            {
+                id: 'M10', launch: 'modernist', phase: 'URGENCY', phaseNum: 4,
+                format: 'post', kind: 'post', cat: 'creative', base: 'modernist-10-last-2026',
+                slides: [{ cat: 'creative', hook: 'Last cohort<br>of <em>2026.</em>', sub: 'Next opens January for spring 2027', meta: 'educatedtraveler.app · this window' }],
+                cardHook: 'Hard scarcity framed around the calendar. Reframes commitment from "should I?" to "now or 2027."',
+                briefLabel: 'Visual brief',
+                brief: 'Calendar showing October 2026, with the cohort dates circled. Caption in Fraunces.',
+                caption: `The October 12 cohort is the last modernist Barcelona cohort of 2026. Next opens for spring 2027 applications in January.
+
+If you want to be doing this in 2026, this is the window.
+
+→ @educatedtraveler.app`,
+                hashtags: '#LastCohort2026 #ModernistCuisine #Barcelona #MartinLippo #October12 #EducatedTraveler',
+                drop: 'Mon · 7 Sep 2026 · 10 AM EST · 4 PM CET',
+                why: 'Hard scarcity (Cialdini). "Last X of YYYY" reframes commitment from indefinite to binary.',
+                fact: 'There are only <strong>~12 dedicated modernist cuisine teaching labs</strong> in the world. Vakuum is one of three in Europe. Most modernist instruction outside Spain happens as roving masterclasses — not in a stable, equipment-rich permanent space.'
+            },
+            {
+                id: 'M11', launch: 'modernist', phase: 'URGENCY', phaseNum: 4,
+                format: 'post', kind: 'post', cat: 'creative', base: 'modernist-11-closing',
+                slides: [{ cat: 'creative', hook: 'Closes<br><em>September 28.</em>', sub: 'Founder Arnaud replies in 24h.', meta: 'educatedtraveler.app · 14 days' }],
+                cardHook: 'Hard deadline + founder DM. Same play as Sushi S11 but for Barcelona.',
+                briefLabel: 'Visual brief',
+                brief: 'Calendar with Sep 28 circled. Or a countdown widget. Fraunces serif treatment.',
+                caption: `Two weeks to apply. Then the cohort closes.
+
+Founder Arnaud is reviewing every application personally and replying within 24 hours.
+
+→ @educatedtraveler.app`,
+                hashtags: '#ClosingSoon #ModernistCuisine #Barcelona #Sept28 #OctoberCohort #EducatedTraveler',
+                drop: 'Sun · 13 Sep 2026 · 7 PM EST · 1 AM CET Mon',
+                why: 'Hard deadline + founder access (Cialdini, reciprocity). Personal answer is the lowest-cost gift to convert late applicants.',
+                fact: 'The famous elBulli "30 servings, no repeat dishes" tasting menu ran ~3.5 hours and used <strong>70+ different plates per guest</strong>. Catalan stoneware manufacturers built custom pieces just for Adrià.'
+            },
+            {
+                id: 'M12', launch: 'modernist', phase: 'DURING', phaseNum: 5,
+                format: 'post', kind: 'post', cat: 'creative', base: 'modernist-12-day-one',
+                slides: [{ cat: 'creative', hook: 'Day 1.<br><em>The lab<br>is open.</em>', sub: 'Vakuum · Barcelona · October 12', meta: 'educatedtraveler.app · cohort live' }],
+                cardHook: 'Cohort confirmed. Social proof for the spring 2027 tease.',
+                briefLabel: 'Visual brief',
+                brief: 'Twelve white coats on hooks. Twelve seats at the bench. Equipment ready. Caption: "DAY 1 · THE LAB IS OPEN."',
+                caption: `Twelve chefs, restaurateurs, and culinary writers are in Barcelona. The Vakuum lab is open. Day 1 starts with sous-vide.
+
+Spring 2027 cohort opens for applications January 8. Waitlist now → @educatedtraveler.app`,
+                hashtags: '#Day1 #ModernistCuisine #Barcelona #VakuumLab #MartinLippo #October2026 #EducatedTraveler',
+                drop: 'Mon · 12 Oct 2026 · 7 AM EST · 1 PM CET',
+                why: 'Social proof + bridge to next cohort (Cialdini, commitment & consistency). The cohort happening = proof the product ships.',
+                fact: 'The chef-scientist who first formalized sous-vide as a teaching method, <strong>Bruno Goussault</strong>, calculated heat transfer in foods at the molecular level — and built the temperature/time tables every modernist cuisine school still uses, including Vakuum.'
+            }
+        ];
+
+        // ── HELPER: render a single launch card ────
+        function renderLaunchCardHTML(d) {
+            const slide = d.slides[0];
+            const sub = slide.sub ? `<p class="slide-sub">${slide.sub.replace(/\n/g, '<br>')}</p>` : '';
+            const cornerNum = slide.num ? `<span class="ig-corner">${slide.num}</span>` : '';
+            const playBtn = d.kind === 'reel' ? '<div class="ig-play"></div>' : '';
+            const slideCount = d.slides.length;
+            const formatLabel = d.format[0].toUpperCase() + d.format.slice(1);
+            const slideCountLabel = slideCount === 1 ? '1 image' : slideCount + ' slides';
+            const phaseColor = {
+                'TEASE':    '#F59E0B',
+                'REVEAL':   '#3B8DD4',
+                'OPEN':     '#22C55E',
+                'URGENCY':  '#EF4444',
+                'DURING':   '#8B5CF6'
+            }[d.phase];
+
+            return `
+                <article class="card" data-format="${d.format}" data-launch="${d.launch}" data-phase="${d.phase}">
+                    <div class="card-header">
+                        <span class="card-number">/${d.id}</span>
+                        <span class="card-format">
+                            <span class="cat-dot" style="background: ${phaseColor}"></span>
+                            ${formatLabel} · ${slideCountLabel} · <span style="color: ${phaseColor}; opacity: 0.95">${d.phase}</span>
+                        </span>
+                    </div>
+                    <div class="mockup-wrap">
+                        <div class="ig-frame ${d.kind}">
+                            <div class="ig-bg ${slide.cat}"></div>
+                            ${cornerNum}
+                            ${playBtn}
+                            <div class="ig-content">
+                                <div></div>
+                                <div>
+                                    <p class="ig-hook">${slide.hook}</p>
+                                    ${sub}
+                                    <div class="ig-meta mt-3"><span style="opacity:0.65">${slide.meta}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-hook">${d.cardHook}</p>
+                        <div class="card-section">
+                            <div class="card-section-label">${d.briefLabel}</div>
+                            <div class="card-section-content brief">${d.brief.replace(/\n/g, '<br>')}</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Caption <button class="copy-btn" data-copy="caption-${d.id}">Copy</button></div>
+                            <div class="card-section-content" id="caption-${d.id}">${d.caption}</div>
+                        </div>
+                        <div class="card-section">
+                            <div class="card-section-label">Hashtags <button class="copy-btn" data-copy="tags-${d.id}">Copy</button></div>
+                            <div class="card-section-content hashtags" id="tags-${d.id}">${d.hashtags}</div>
+                        </div>
+                        <div class="card-section intel">
+                            <div class="intel-header">Launch Intel · ${d.phase}</div>
+                            <div class="intel-row">
+                                <span class="intel-label">⏱ Drop</span>
+                                <span class="intel-value"><strong>${d.drop}</strong></span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">⚡ Why</span>
+                                <span class="intel-value">${d.why}</span>
+                            </div>
+                            <div class="intel-row">
+                                <span class="intel-label">✦ Fact</span>
+                                <span class="intel-value">${d.fact}</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        // ── INJECT LAUNCH CARDS INTO BOTH GRIDS ────
+        const sushiGrid = document.getElementById('sushi-launch-grid');
+        const modernistGrid = document.getElementById('modernist-launch-grid');
+        LAUNCH.forEach(d => {
+            const targetGrid = d.launch === 'sushi' ? sushiGrid : modernistGrid;
+            if (targetGrid) targetGrid.insertAdjacentHTML('beforeend', renderLaunchCardHTML(d));
+        });
+
         // ── FILTER ────────────────────────────────
         const cards = document.querySelectorAll('.card');
         const filterPills = document.querySelectorAll('.filter-pill');
@@ -2197,6 +3020,7 @@ You should know what we promise each other — before you trust us with two week
         // Count each format
         const counts = { post: 0, reel: 0, carousel: 0, repost: 0 };
         cards.forEach(c => counts[c.dataset.format]++);
+        document.getElementById('count-all').textContent = cards.length;
         document.getElementById('count-post').textContent = counts.post;
         document.getElementById('count-reel').textContent = counts.reel;
         document.getElementById('count-carousel').textContent = counts.carousel;
@@ -2362,6 +3186,11 @@ You should know what we promise each other — before you trust us with two week
                 { cat: 'brand', hook: 'If this is the<br>kind of company<br>you want to<br>learn from —<br><em>meet us.</em>',                                                                                                                                                                                                                                                                                                                                                                                                                            meta: 'educatedtraveler.app · final', num: '3 / 3' }
             ]}
         };
+
+        // Extend SLIDES with launch entries (Sushi S1-S12 + Modernist M1-M12)
+        LAUNCH.forEach(d => {
+            SLIDES[d.id] = { base: d.base, kind: d.kind, slides: d.slides };
+        });
 
         function makeSlideHTML(slide, kind) {
             const sub = slide.sub ? `<p class="slide-sub">${slide.sub.replace(/\n/g, '<br>')}</p>` : '';
