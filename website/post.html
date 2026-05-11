@@ -92,6 +92,41 @@
             border-bottom: 1px solid var(--line);
         }
 
+        /* ── WAVY-FADE EFFECT — "Tans fade." ──────── */
+        /* Each letter sits on a sine curve. Opacity decays left → right.    */
+        /* em-based so it scales correctly from hero to thumbnail to 1080px. */
+        .tans-fade {
+            font-style: italic;
+            display: inline-block;
+            white-space: nowrap;
+            transform-origin: left center;
+        }
+        .tans-fade .ch {
+            display: inline-block;
+            transform-origin: center bottom;
+            will-change: transform, opacity, filter;
+            animation: tan-drift 6s ease-in-out infinite;
+        }
+        .tans-fade .ch:nth-child(1)  { opacity: 1.00; transform: translateY(-0.04em) rotate(-2deg); animation-delay: 0s;    }
+        .tans-fade .ch:nth-child(2)  { opacity: 0.93; transform: translateY(-0.10em) rotate(-3deg); animation-delay: 0.05s; }
+        .tans-fade .ch:nth-child(3)  { opacity: 0.85; transform: translateY(-0.16em) rotate(-2deg); animation-delay: 0.10s; }
+        .tans-fade .ch:nth-child(4)  { opacity: 0.74; transform: translateY(-0.10em) rotate(1deg);  animation-delay: 0.15s; filter: blur(0.2px); }
+        .tans-fade .ch:nth-child(5)  { opacity: 0.64; transform: translateY(0)       rotate(3deg);  animation-delay: 0.20s; filter: blur(0.3px); }
+        .tans-fade .ch:nth-child(6)  { opacity: 0.53; transform: translateY(0.10em)  rotate(2deg);  animation-delay: 0.25s; filter: blur(0.4px); }
+        .tans-fade .ch:nth-child(7)  { opacity: 0.40; transform: translateY(0.16em)  rotate(-1deg); animation-delay: 0.30s; filter: blur(0.5px); }
+        .tans-fade .ch:nth-child(8)  { opacity: 0.26; transform: translateY(0.10em)  rotate(-3deg); animation-delay: 0.35s; filter: blur(0.7px); }
+        .tans-fade .ch:nth-child(9)  { opacity: 0.14; transform: translateY(0.04em)  rotate(-1deg); animation-delay: 0.40s; filter: blur(0.9px); }
+        .tans-fade .ch:nth-child(10) { opacity: 0.05; transform: translateY(0)       rotate(0deg);  animation-delay: 0.45s; filter: blur(1.2px); }
+
+        /* Subtle drift animation — adds life on screen, freezes cleanly in PNG export */
+        @keyframes tan-drift {
+            0%, 100% { translate: 0 0; }
+            50%      { translate: 0 -0.04em; }
+        }
+
+        /* Pause animation while html2canvas is capturing (cleaner exports) */
+        .exporting .tans-fade .ch { animation-play-state: paused; }
+
         /* ── HERO TYPE ────────────────────────────── */
         .hero-title {
             font-family: 'Fraunces', Georgia, serif;
@@ -812,7 +847,7 @@
 
             <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl mb-10">
                 Skills last.<br>
-                <em>Tans fade.</em>
+                <em class="tans-fade"><span class="ch">T</span><span class="ch">a</span><span class="ch">n</span><span class="ch">s</span><span class="ch">&nbsp;</span><span class="ch">f</span><span class="ch">a</span><span class="ch">d</span><span class="ch">e</span><span class="ch">.</span></em>
             </h1>
 
             <div class="grid md:grid-cols-2 gap-12 max-w-5xl">
@@ -934,7 +969,7 @@
                             <div class="ig-content">
                                 <div></div>
                                 <div>
-                                    <p class="ig-hook">Skills last.<br><em style="opacity:0.6">Tans fade.</em></p>
+                                    <p class="ig-hook">Skills last.<br><em class="tans-fade"><span class="ch">T</span><span class="ch">a</span><span class="ch">n</span><span class="ch">s</span><span class="ch">&nbsp;</span><span class="ch">f</span><span class="ch">a</span><span class="ch">d</span><span class="ch">e</span><span class="ch">.</span></em></p>
                                     <div class="ig-meta mt-3"><span class="handle">educatedtraveler.app</span><span>· post</span></div>
                                 </div>
                             </div>
@@ -2403,7 +2438,7 @@ You should know what we promise each other — before you trust us with two week
     <footer class="px-6 pb-12 border-t border-white/5 pt-12">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-                <p class="hero-title text-3xl mb-2">Skills last. <em>Tans fade.</em></p>
+                <p class="hero-title text-3xl mb-2">Skills last. <em class="tans-fade"><span class="ch">T</span><span class="ch">a</span><span class="ch">n</span><span class="ch">s</span><span class="ch">&nbsp;</span><span class="ch">f</span><span class="ch">a</span><span class="ch">d</span><span class="ch">e</span><span class="ch">.</span></em></p>
                 <p class="label">The Atelier · Internal asset · v1.0 · 20 drops</p>
             </div>
             <div class="flex flex-col items-start md:items-end gap-2">
@@ -3092,7 +3127,7 @@ Spring 2027 cohort opens for applications January 8. Waitlist now → @educatedt
         // ════════════════════════════════════════════
         const SLIDES = {
             '01': { base: 'et-01-manifesto', kind: 'post', slides: [
-                { cat: 'brand', hook: 'Skills last.<br><em>Tans fade.</em>', meta: 'educatedtraveler.app · post' }
+                { cat: 'brand', hook: 'Skills last.<br><em class="tans-fade"><span class="ch">T</span><span class="ch">a</span><span class="ch">n</span><span class="ch">s</span><span class="ch">&nbsp;</span><span class="ch">f</span><span class="ch">a</span><span class="ch">d</span><span class="ch">e</span><span class="ch">.</span></em>', meta: 'educatedtraveler.app · post' }
             ]},
             '02': { base: 'et-02-five-worlds', kind: 'carousel', slides: [
                 { cat: 'brand',     hook: 'FIVE WORLDS.<br><em>ONE PROMISE.</em>',   meta: 'educatedtraveler.app · swipe →', num: '1 / 10' },
@@ -3245,18 +3280,22 @@ Spring 2027 cohort opens for applications January 8. Waitlist now → @educatedt
         }
 
         async function downloadIgFrame(igFrame, filename) {
-            const isReel = igFrame.classList.contains('reel');
-            const canvas = await html2canvas(igFrame, {
-                scale: 8,
-                backgroundColor: '#000',
-                useCORS: true,
-                logging: false,
-                allowTaint: false,
-            });
-            const link = document.createElement('a');
-            link.download = filename + '.png';
-            link.href = canvas.toDataURL('image/png');
-            link.click();
+            document.body.classList.add('exporting');
+            try {
+                const canvas = await html2canvas(igFrame, {
+                    scale: 8,
+                    backgroundColor: '#000',
+                    useCORS: true,
+                    logging: false,
+                    allowTaint: false,
+                });
+                const link = document.createElement('a');
+                link.download = filename + '.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            } finally {
+                document.body.classList.remove('exporting');
+            }
         }
 
         function showToastMsg(msg) {
