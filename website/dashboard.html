@@ -272,7 +272,7 @@
                 <div>
                     <p class="section-label">Profile Setup</p>
                     <h1 class="text-3xl font-light">Who are you?</h1>
-                    <p class="text-white/40 text-sm mt-1">Your cohort and future adventure partners will see this. Be real.</p>
+                    <p class="text-white/40 text-sm mt-1">Save at any time — even partially. Only the basics are required to unlock matches.</p>
                 </div>
                 <button id="close-profile-overlay" class="text-white/30 hover:text-white p-2 transition-colors" title="Close">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -348,8 +348,8 @@
 
                 <!-- STUDENT: YOUR BACKGROUND -->
                 <div class="glass-strong rounded-2xl p-8 student-only">
-                    <p class="section-label">Your background</p>
-                    <p class="text-white/40 text-xs mb-6">Help us understand where you're coming from. This shapes the experience we recommend.</p>
+                    <p class="section-label">Your background <span class="text-white/20 normal-case tracking-normal">— optional</span></p>
+                    <p class="text-white/40 text-xs mb-6">Skip if you're in a rush. Adding it sharpens the recommendations.</p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                         <div>
                             <label class="section-label">Professional field</label>
@@ -520,8 +520,8 @@
 
                 <!-- QUEST PREFERENCES -->
                 <div id="pref-section" class="glass-strong rounded-2xl p-8 student-only">
-                    <p class="section-label">Your adventure DNA</p>
-                    <p class="text-white/40 text-xs mb-6">Optional. Shapes what the cohort sees first.</p>
+                    <p class="section-label">Your adventure DNA <span class="text-white/20 normal-case tracking-normal">— optional</span></p>
+                    <p class="text-white/40 text-xs mb-6">If you already took the home-page Quest, this is already filled in. Edit only if your taste has changed.</p>
 
                     <div class="mb-6">
                         <div class="flex items-center gap-2 mb-3">
@@ -633,7 +633,7 @@
 
                 <!-- WHAT MATTERS (student) / WHAT DRIVES YOU (instructor) -->
                 <div class="glass-strong rounded-2xl p-8">
-                    <p class="section-label student-only">What matters to you</p>
+                    <p class="section-label student-only">What matters to you <span class="text-white/20 normal-case tracking-normal">— optional</span></p>
                     <p class="section-label instructor-only hidden">What drives your teaching</p>
                     <p class="text-white/40 text-xs mb-4 student-only">What would make this the best experience of your life?</p>
                     <p class="text-white/40 text-xs mb-4 instructor-only hidden">Why do you teach? What do you want students to take away?</p>
@@ -742,9 +742,12 @@
                 <!-- SAVE -->
                 <div class="pb-8">
                     <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
-                        <p class="text-white/20 text-xs">Your crew card will be visible to cohort members.</p>
+                        <div>
+                            <p class="text-white/40 text-xs">You can save at any time — even partially.</p>
+                            <p class="text-white/20 text-[0.65rem] mt-1">Profile <span id="save-completion-pct">0</span>% complete · <span id="save-completion-hint">Add a few basics to unlock matches.</span></p>
+                        </div>
                         <button class="cta-button px-8 py-3 rounded-full text-sm font-medium" id="save-profile-btn">
-                            Save & Continue
+                            Save Profile
                         </button>
                     </div>
                     <p id="save-feedback" class="hidden mt-3 text-xs text-red-400 text-right"></p>
@@ -841,7 +844,10 @@
                         </div>
 
                         <!-- Profile + Sign Out -->
-                        <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3 flex-wrap">
+                            <div id="completion-chip" class="hidden text-xs px-3 py-1.5 rounded-full border border-blue-400/30 text-blue-300 bg-blue-400/5">
+                                Profile <span id="completion-chip-pct">0</span>% — <span id="completion-chip-hint">finish to unlock matches</span>
+                            </div>
                             <button id="edit-profile-btn" class="text-sm text-blue-400 hover:text-blue-300 transition-colors px-4 py-2 rounded-full border border-blue-400/30 hover:border-blue-400/50">
                                 Edit Profile
                             </button>
@@ -862,6 +868,18 @@
                 <div id="badges-container" class="flex flex-wrap gap-3">
                     <p id="no-badges" class="text-white/30 text-sm">Complete the quest to earn badges!</p>
                 </div>
+            </section>
+
+            <!-- Recommended For You (shown when profile is complete) -->
+            <section id="recommended-section" class="hidden mb-12 fade-up delay-2">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <h2 class="text-lg font-light">Matched to your profile</h2>
+                        <p id="recommended-subtitle" class="text-white/40 text-xs mt-1">Based on what you said draws you in.</p>
+                    </div>
+                    <a href="/offerings" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">See all</a>
+                </div>
+                <div id="recommended-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
             </section>
 
             <!-- Saved Adventures -->
@@ -948,6 +966,7 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
+    <script src="/js/experiences.js"></script>
 
     <script>
         // Badge definitions
@@ -1560,35 +1579,53 @@
                 credentials.push({ cert: cb.dataset.cert, family: cb.dataset.family });
             });
 
+            // Helper: skip empty values so a partial save doesn't blank out existing data
+            const v = (id) => {
+                const el = document.getElementById(id);
+                if (!el) return null;
+                const s = (el.value || '').toString().trim();
+                return s || null;
+            };
+
+            const completionPct = getProfileProgress();
+            const isComplete = completionPct >= 80;
+            const firstName = v('p-first-name');
+
             const profileData = {
-                first_name: document.getElementById('p-first-name').value.trim(),
-                age: document.getElementById('p-age').value.trim() || null,
-                location: document.getElementById('p-location').value.trim(),
+                first_name: firstName,
+                age: v('p-age'),
+                location: v('p-location'),
                 status: document.getElementById('p-status').value === 'other'
-                    ? 'other:' + (document.getElementById('p-status-other').value.trim() || 'Other')
-                    : document.getElementById('p-status').value,
-                about: document.getElementById('p-about').value.trim(),
+                    ? 'other:' + (v('p-status-other') || 'Other')
+                    : (v('p-status') || null),
+                about: v('p-about'),
                 interests: interests,
                 profession: document.getElementById('p-profession').value === 'other-pro'
-                    ? 'other-pro:' + (document.getElementById('p-profession-other').value.trim() || 'Other')
-                    : document.getElementById('p-profession').value,
-                adventure_years: document.getElementById('p-adventure-years').value,
-                previous_experience: document.getElementById('p-previous-experience').value.trim(),
-                skills: document.getElementById('p-skills').value
+                    ? 'other-pro:' + (v('p-profession-other') || 'Other')
+                    : (v('p-profession') || null),
+                adventure_years: v('p-adventure-years'),
+                previous_experience: v('p-previous-experience'),
+                skills: (v('p-skills') || '')
                     .split(/[,\n]/).map(s => s.trim()).filter(Boolean),
-                fitness: document.getElementById('p-fitness').value,
-                comfort_zone: document.getElementById('p-comfort').value,
+                fitness: v('p-fitness'),
+                comfort_zone: v('p-comfort'),
                 credentials: credentials,
-                existing_certs: document.getElementById('p-certs').value.trim(),
-                what_matters: document.getElementById('p-what-matters').value.trim(),
-                availability: document.getElementById('p-availability').value,
-                preferred_duration: document.getElementById('p-duration').value,
-                languages: document.getElementById('p-languages').value.trim(),
-                visible: selectedVisibility !== 'private',
+                existing_certs: v('p-certs'),
+                what_matters: v('p-what-matters'),
+                availability: v('p-availability'),
+                preferred_duration: v('p-duration'),
+                languages: v('p-languages'),
+                visible: selectedVisibility === 'public' || selectedVisibility === 'cohort',
                 visibility: selectedVisibility,
-                profile_complete: true,
-                name: document.getElementById('p-first-name').value.trim() || undefined,
+                profile_complete: isComplete,
+                completion_pct: completionPct,
+                name: firstName || undefined,
             };
+
+            // Strip null fields so we don't overwrite existing data with blanks
+            Object.keys(profileData).forEach(k => {
+                if (profileData[k] === null || profileData[k] === undefined) delete profileData[k];
+            });
 
             const user = await window.auth?.getUser();
             if (user) {
@@ -1631,7 +1668,7 @@
                         if (prefIntensity) document.getElementById('pref-intensity').textContent = iLabels[prefIntensity] || 'Level ' + prefIntensity;
                     }
 
-                    btn.textContent = 'Saved!';
+                    btn.textContent = isComplete ? 'Saved — finding your matches…' : 'Saved (' + completionPct + '%)';
                     btn.style.background = 'linear-gradient(135deg, #059669, #10B981)';
 
                     // Update dashboard header
@@ -1644,11 +1681,25 @@
                     const pubLink = document.getElementById('view-public-profile');
                     if (pubLink) pubLink.href = '/profile?id=' + user.id;
 
+                    // Refresh dashboard completion chip
+                    if (typeof refreshDashboardCompletion === 'function') {
+                        refreshDashboardCompletion(completionPct);
+                    }
+
+                    // Render recommendations if fully complete; otherwise just close
                     setTimeout(() => {
                         hideProfileOverlay();
-                        btn.textContent = 'Save & Continue';
+                        btn.textContent = 'Save Profile';
                         btn.style.background = '';
                         btn.disabled = false;
+                        if (isComplete && typeof renderRecommendedExperiences === 'function') {
+                            renderRecommendedExperiences({
+                                interests: interests,
+                                preferred_duration: profileData.preferred_duration,
+                                comfort_zone: profileData.comfort_zone,
+                                fitness: profileData.fitness,
+                            });
+                        }
                     }, 1200);
                 } catch (err) {
                     console.error('Save error:', err);
@@ -1819,9 +1870,161 @@
                 }
             }
 
+            // Completion chip
+            const pct = data.profile?.completion_pct
+                ?? computeProfilePctFromProfile(data.profile);
+            refreshDashboardCompletion(pct);
+
+            // Recommendations (if profile is meaningfully complete)
+            if (pct >= 80 && data.profile?.interests) {
+                renderRecommendedExperiences({
+                    interests: data.profile.interests,
+                    preferred_duration: data.profile.preferred_duration,
+                    comfort_zone: data.profile.comfort_zone,
+                    fitness: data.profile.fitness,
+                });
+            }
+
             // Check onboarding after a beat
             setTimeout(() => checkOnboarding(user.id), 600);
         };
+
+        // ═══════════════════════════════════════
+        // COMPLETION CHIP
+        // ═══════════════════════════════════════
+        function refreshDashboardCompletion(pct) {
+            const chip = document.getElementById('completion-chip');
+            const pctEl = document.getElementById('completion-chip-pct');
+            const hint = document.getElementById('completion-chip-hint');
+            if (!chip || !pctEl) return;
+            pct = Math.max(0, Math.min(100, pct | 0));
+            pctEl.textContent = pct;
+            chip.classList.remove('hidden');
+            if (pct >= 100) {
+                hint.textContent = 'complete';
+                chip.classList.remove('border-blue-400/30','text-blue-300','bg-blue-400/5');
+                chip.classList.add('border-emerald-400/30','text-emerald-300','bg-emerald-400/5');
+            } else if (pct >= 80) {
+                hint.textContent = 'great — matches unlocked';
+                chip.classList.add('border-blue-400/30','text-blue-300','bg-blue-400/5');
+            } else if (pct >= 40) {
+                hint.textContent = 'almost there';
+                chip.classList.add('border-blue-400/30','text-blue-300','bg-blue-400/5');
+            } else {
+                hint.textContent = 'finish to unlock matches';
+                chip.classList.add('border-blue-400/30','text-blue-300','bg-blue-400/5');
+            }
+        }
+
+        function computeProfilePctFromProfile(p) {
+            if (!p) return 0;
+            let filled = 0;
+            const total = 10;
+            if (p.first_name) filled++;
+            if (p.location) filled++;
+            if (p.status) filled++;
+            if (p.about) filled++;
+            if (p.interests && Object.keys(p.interests || {}).length > 0) filled++;
+            if (p.profession) filled++;
+            if (p.adventure_years) filled++;
+            if (p.fitness) filled++;
+            if (p.what_matters) filled++;
+            if (p.availability) filled++;
+            return Math.round((filled / total) * 100);
+        }
+
+        // ═══════════════════════════════════════
+        // RECOMMENDATIONS
+        // ═══════════════════════════════════════
+        const INTEREST_TO_CATEGORY = {
+            ocean: ['diving','sailing'],
+            adventure: ['adventure','wildlife'],
+            culinary: ['culinary'],
+            wellness: ['wellness'],
+            creative: ['culinary','wellness'], // creative crafts often live under culinary/wellness experiences
+        };
+
+        const COMFORT_TO_INTENSITY = { gentle: 1, push: 2, break: 3 };
+        const DURATION_TO_TIER  = { foundation: 'foundation', mastery: 'mastery', saga: 'saga' };
+
+        function scoreExperience(exp, profile) {
+            let score = 0;
+            // Interest category match
+            const interestCats = Object.keys(profile.interests || {});
+            const expectedCats = new Set();
+            interestCats.forEach(cat => (INTEREST_TO_CATEGORY[cat] || []).forEach(c => expectedCats.add(c)));
+            if (expectedCats.has(exp.category)) {
+                score += 50;
+                // bonus for # of selected items in matching category
+                const count = (profile.interests[interestCats.find(c => (INTEREST_TO_CATEGORY[c] || []).includes(exp.category))] || []).length;
+                score += Math.min(count * 3, 15);
+            }
+            // Tier preference
+            if (profile.preferred_duration && DURATION_TO_TIER[profile.preferred_duration] === exp.tier) {
+                score += 20;
+            }
+            // Intensity vs comfort zone (closer = better)
+            const targetIntensity = COMFORT_TO_INTENSITY[profile.comfort_zone];
+            if (targetIntensity && typeof exp.intensity === 'number') {
+                score += Math.max(0, 15 - Math.abs(targetIntensity - exp.intensity) * 7);
+            }
+            return score;
+        }
+
+        function renderRecommendedExperiences(profile) {
+            const container = document.getElementById('recommended-container');
+            const section = document.getElementById('recommended-section');
+            if (!container || !section || !Array.isArray(window.ET_EXPERIENCES)) return;
+
+            const ranked = window.ET_EXPERIENCES
+                .map(e => ({ exp: e, score: scoreExperience(e, profile) }))
+                .filter(x => x.score > 0)
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 6);
+
+            if (ranked.length === 0) {
+                section.classList.add('hidden');
+                return;
+            }
+
+            const categoryColor = {
+                diving:    '#06B6D4',
+                sailing:   '#06B6D4',
+                culinary:  '#F59E0B',
+                wellness:  '#F97316',
+                adventure: '#EF4444',
+                wildlife:  '#84CC16',
+            };
+
+            container.innerHTML = ranked.map(({ exp }) => {
+                const color = categoryColor[exp.category] || '#3B8DD4';
+                const slug = exp.id;
+                return `
+                    <a href="/offerings#${escapeHtml(slug)}" class="glass rounded-xl p-5 block hover:bg-white/5 transition-colors">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-2 h-2 rounded-full" style="background:${color}"></div>
+                            <span class="text-[0.65rem] uppercase tracking-wider font-mono" style="color:${color}">${escapeHtml(exp.category)} · ${escapeHtml(exp.tier || '')}</span>
+                        </div>
+                        <p class="text-white font-medium mb-1 leading-snug">${escapeHtml(exp.name)}</p>
+                        <p class="text-white/50 text-xs mb-3 leading-relaxed">${escapeHtml(exp.summary || '')}</p>
+                        <p class="text-white/30 text-[0.65rem] font-mono">${escapeHtml(exp.meta || '')}</p>
+                    </a>
+                `;
+            }).join('');
+            section.classList.remove('hidden');
+
+            const sub = document.getElementById('recommended-subtitle');
+            if (sub) {
+                const cats = Object.keys(profile.interests || {});
+                sub.textContent = cats.length
+                    ? 'Based on your interest in ' + cats.join(', ') + '.'
+                    : 'Based on your profile.';
+            }
+        }
+
+        // Expose so other files / future calls can trigger
+        window.renderRecommendedExperiences = renderRecommendedExperiences;
+        window.refreshDashboardCompletion   = refreshDashboardCompletion;
 
         // ═══════════════════════════════════════
         // TAMAGOTCHI
@@ -1958,6 +2161,15 @@
             const label = document.getElementById('profile-progress-label');
             if (fill) fill.style.width = pct + '%';
             if (label) label.textContent = pct + '%';
+            const pctEl = document.getElementById('save-completion-pct');
+            const hintEl = document.getElementById('save-completion-hint');
+            if (pctEl) pctEl.textContent = pct;
+            if (hintEl) {
+                hintEl.textContent =
+                    pct >= 80 ? 'Complete — we’ll surface your best matches.' :
+                    pct >= 40 ? 'Almost there. Keep going to unlock matches.' :
+                                'Add a few basics to unlock matches.';
+            }
             updateTamagotchi();
         }
     </script>
