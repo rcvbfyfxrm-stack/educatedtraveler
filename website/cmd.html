@@ -169,6 +169,32 @@
         /* Hide scrollbar in tab strip */
         .scroll-x { overflow-x: auto; scrollbar-width: none; }
         .scroll-x::-webkit-scrollbar { display: none; }
+
+        /* Asset thumbnails */
+        .asset-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.15s, border-color 0.15s;
+        }
+        .asset-thumb:hover { border-color: rgba(59,141,212,0.4); transform: translateY(-1px); }
+        .asset-thumb img, .asset-thumb video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .asset-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            font-size: 9px;
+            padding: 3px 6px;
+            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.85));
+            color: rgba(255,255,255,0.9);
+            font-family: 'IBM Plex Mono', monospace;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -457,6 +483,454 @@
                     </button>
                 </div>
             </div>
+
+            <!-- ============================================================
+                 THE IG DOCTRINE · always-visible pillar header
+                 grounded in Daemon · brand-guardrails · IdeaForge canon
+                 ============================================================ -->
+            <div class="mb-5">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h3 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ The IG Doctrine · Three Pillars · The Rhythm</h3>
+                </div>
+                <div class="glass-strong rounded-2xl overflow-hidden">
+                    <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/5">
+                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#06B6D4">
+                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#06B6D4">◆ Freedom</div>
+                            <div class="text-sm text-white/85 leading-snug mb-1.5">The open sea, the unknown horizon, the life you chose.</div>
+                            <div class="text-[11px] text-white/40 italic">Sailing · diving · open water</div>
+                        </div>
+                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#F97316">
+                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#F97316">◆ Adventure</div>
+                            <div class="text-sm text-white/85 leading-snug mb-1.5">Real stakes, real effort, real reward. Earned exhilaration.</div>
+                            <div class="text-[11px] text-white/40 italic">Surf · mountains · rapids</div>
+                        </div>
+                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#F59E0B">
+                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#F59E0B">◆ Immersion</div>
+                            <div class="text-sm text-white/85 leading-snug mb-1.5">Deep in the craft, the culture, the cohort. Living it.</div>
+                            <div class="text-[11px] text-white/40 italic">Culinary · wellness · crafts</div>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 border-t border-white/5 flex items-center justify-between gap-3 flex-wrap">
+                        <div class="text-xs text-white/65 min-w-0">
+                            <span class="text-[10px] mono text-white/40 uppercase tracking-widest mr-2">RHYTHM</span>
+                            <span class="italic text-white/55">specific skill + evocative place ·</span>
+                            <span class="text-white">"Surf in Hawaii. Sail the open sea. Cook in Tokyo."</span>
+                        </div>
+                        <button class="btn-ghost !text-[10px] !py-1 !px-2 shrink-0" onclick="copyToClipboard('Surf in Hawaii. Sail the open sea. Cook in Tokyo. Dive in Bali. Cellar in Burgundy. Throw the wheel in Cremona.')">Copy</button>
+                    </div>
+                    <div class="px-4 py-2.5 border-t border-white/5 grid grid-cols-3 gap-3 text-[11px]">
+                        <div><span class="text-white/40">Post mix:</span> <span class="text-white/85">3 Reels · 2 carousels · 1 static</span></div>
+                        <div><span class="text-white/40">Cadence:</span> <span class="text-white/85">5–6/wk · Sunday batch</span></div>
+                        <div><span class="text-white/40">Track:</span> <span class="text-white/85">saves &amp; shares · not likes</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================================
+                 ASSET LIBRARY · the actual launch posts, founder, lifestyle, reel
+                 ============================================================ -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-5" open>
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Asset Library</h3>
+                        <span class="seg seg-bmw">CLICK · COPY URL · OPEN</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 space-y-4">
+
+                    <!-- The 6 launch posts -->
+                    <div>
+                        <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">◆ Launch sequence · 6 posts · post one every 2 days</div>
+                        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2" id="asset-launch-grid">
+                            <button class="asset-thumb" data-src="/images/posts/post-01-teaser.svg" data-caption="01 · Teaser — &quot;Something's been cooking&quot;">
+                                <img src="/images/posts/post-01-teaser.svg" alt="Teaser post" loading="lazy">
+                                <div class="asset-label">01 Teaser</div>
+                            </button>
+                            <button class="asset-thumb" data-src="/images/posts/post-02-why.svg" data-caption="02 · Why — &quot;You've watched 200 cooking videos&quot;">
+                                <img src="/images/posts/post-02-why.svg" alt="Why post" loading="lazy">
+                                <div class="asset-label">02 Why</div>
+                            </button>
+                            <button class="asset-thumb" data-src="/images/posts/post-03-four.png" data-caption="03 · Four — The 4 flagship experiences">
+                                <img src="/images/posts/post-03-four.png" alt="Four experiences" loading="lazy">
+                                <div class="asset-label">03 Four</div>
+                            </button>
+                            <button class="asset-thumb" data-src="/images/posts/post-04-question.png" data-caption="04 · Question — &quot;Take time for you&quot;">
+                                <img src="/images/posts/post-04-question.png" alt="Question post" loading="lazy">
+                                <div class="asset-label">04 Question</div>
+                            </button>
+                            <button class="asset-thumb" data-src="/images/posts/post-05-yacht.png" data-caption="05 · Yacht — &quot;Nobody tells you this&quot;">
+                                <img src="/images/posts/post-05-yacht.png" alt="Yacht post" loading="lazy">
+                                <div class="asset-label">05 Yacht</div>
+                            </button>
+                            <button class="asset-thumb" data-src="/images/posts/post-06-tagline.svg" data-caption="06 · Tagline — &quot;Tans fade. Skills last.&quot;">
+                                <img src="/images/posts/post-06-tagline.svg" alt="Tagline post" loading="lazy">
+                                <div class="asset-label">06 Tagline</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reel + Founder portrait -->
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <div>
+                            <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">◆ Founder portrait</div>
+                            <button class="asset-thumb !aspect-[3/4]" data-src="/images/arnaud-portrait.jpg" data-caption="Arnaud · founder · the face of the brand">
+                                <img src="/images/arnaud-portrait.jpg" alt="Arnaud" loading="lazy">
+                                <div class="asset-label">@arnaudcallier</div>
+                            </button>
+                        </div>
+                        <div>
+                            <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">◆ Reel · yacht chef</div>
+                            <a href="/images/posts/reel-yacht-chef.mp4" target="_blank" class="block">
+                                <video class="rounded-xl w-full aspect-video object-cover bg-black border border-white/5" controls preload="metadata">
+                                    <source src="/images/posts/reel-yacht-chef.mp4" type="video/mp4">
+                                </video>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pillar lifestyle imagery -->
+                    <div>
+                        <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">◆ Lifestyle imagery · by pillar</div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="text-[11px] mb-1.5" style="color:#06B6D4">FREEDOM · open water · sailing · diving</div>
+                                <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                                    <button class="asset-thumb" data-src="/images/story/sailing-1.png" data-caption="Sailing · open sea"><img src="/images/story/sailing-1.png" alt="" loading="lazy"><div class="asset-label">sail 1</div></button>
+                                    <button class="asset-thumb" data-src="/images/story/sailing-2.png" data-caption="Sailing · open sea"><img src="/images/story/sailing-2.png" alt="" loading="lazy"><div class="asset-label">sail 2</div></button>
+                                    <button class="asset-thumb" data-src="/images/story/sailing-3.png" data-caption="Sailing · open sea"><img src="/images/story/sailing-3.png" alt="" loading="lazy"><div class="asset-label">sail 3</div></button>
+                                    <button class="asset-thumb" data-src="/images/story/freedive-line.png" data-caption="Freediving · the line"><img src="/images/story/freedive-line.png" alt="" loading="lazy"><div class="asset-label">freedive</div></button>
+                                    <button class="asset-thumb" data-src="/images/story/freedive-cenote.png" data-caption="Freediving · cenote"><img src="/images/story/freedive-cenote.png" alt="" loading="lazy"><div class="asset-label">cenote</div></button>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-[11px] mb-1.5" style="color:#F97316">ADVENTURE · real stakes · mountains</div>
+                                <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                                    <button class="asset-thumb" data-src="/images/story/mountain-climb.jpg" data-caption="Mountain climb · real stakes"><img src="/images/story/mountain-climb.jpg" alt="" loading="lazy"><div class="asset-label">climb</div></button>
+                                    <button class="asset-thumb" data-src="/images/story/mountains-snow.png" data-caption="Snow ridge · earned exhilaration"><img src="/images/story/mountains-snow.png" alt="" loading="lazy"><div class="asset-label">snow</div></button>
+                                    <button class="asset-thumb" data-src="/images/story/fishing-catch.jpg" data-caption="Fishing catch · adventure"><img src="/images/story/fishing-catch.jpg" alt="" loading="lazy"><div class="asset-label">catch</div></button>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="text-[11px] mb-1.5" style="color:#F59E0B">IMMERSION · craft · culinary</div>
+                                <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                                    <button class="asset-thumb" data-src="/images/story/chef-plating.jpg" data-caption="Chef plating · the craft"><img src="/images/story/chef-plating.jpg" alt="" loading="lazy"><div class="asset-label">plating</div></button>
+                                    <button class="asset-thumb" data-src="/images/story/kitchen-flames.png" data-caption="Kitchen flames · the line"><img src="/images/story/kitchen-flames.png" alt="" loading="lazy"><div class="asset-label">flames</div></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logo set -->
+                    <div>
+                        <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">◆ Brand marks · @educatedtraveler.app</div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                            <button class="asset-thumb !bg-black" data-src="/images/logo-et-icon.png" data-caption="Profile icon (400×400)"><img src="/images/logo-et-icon.png" alt="" loading="lazy" class="!object-contain !p-3"><div class="asset-label">icon</div></button>
+                            <button class="asset-thumb !bg-black" data-src="/images/logo-et-icon.svg" data-caption="Profile icon · SVG"><img src="/images/logo-et-icon.svg" alt="" loading="lazy" class="!object-contain !p-3"><div class="asset-label">icon svg</div></button>
+                            <button class="asset-thumb !bg-black" data-src="/images/logo-et-full.png" data-caption="Full wordmark"><img src="/images/logo-et-full.png" alt="" loading="lazy" class="!object-contain !p-3"><div class="asset-label">wordmark</div></button>
+                            <button class="asset-thumb !bg-black" data-src="/images/logo-et-full.svg" data-caption="Full wordmark · SVG"><img src="/images/logo-et-full.svg" alt="" loading="lazy" class="!object-contain !p-3"><div class="asset-label">wordmark svg</div></button>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-white/40 italic px-1">Tap any asset to preview full size + copy its URL. The 6 launch posts ship in order, one every 2 days, per the Growth Playbook Phase 1.</p>
+                </div>
+            </details>
+
+            <!-- ============================================================
+                 HOOK BUILDER · pillar × pattern × subject
+                 Patterns from IdeaForge Copywriting + Shotton
+                 ============================================================ -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-5">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Hook Builder</h3>
+                        <span class="seg seg-bmw">PILLAR × PATTERN × SUBJECT</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <div>
+                            <label class="text-[10px] mono text-white/40 uppercase block mb-1">Pillar</label>
+                            <select id="hook-pillar">
+                                <option value="immersion">Immersion · craft</option>
+                                <option value="freedom">Freedom · open water</option>
+                                <option value="adventure">Adventure · real stakes</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[10px] mono text-white/40 uppercase block mb-1">Pattern</label>
+                            <select id="hook-pattern">
+                                <option value="dayinlife">Day-in-life (immersion)</option>
+                                <option value="costly">Costly signal (Shotton)</option>
+                                <option value="contrast">Specific contrast (Hopkins)</option>
+                                <option value="counter">Counter-narrative (distinctiveness)</option>
+                                <option value="question">Question (engagement)</option>
+                                <option value="proofnumber">Proof + number (Ogilvy)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[10px] mono text-white/40 uppercase block mb-1">Subject</label>
+                            <select id="hook-subject">
+                                <option value="sushi">Sushi · Tokyo</option>
+                                <option value="diving">Diving · Koh Tao</option>
+                                <option value="sailing">Sailing · open sea</option>
+                                <option value="yoga">Yoga · Rishikesh</option>
+                                <option value="pastry">Pastry · Paris</option>
+                                <option value="wine">Wine · Burgundy</option>
+                                <option value="surf">Surf · Uluwatu</option>
+                                <option value="mezcal">Mezcal · Oaxaca</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-4">
+                        <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-1.5">Generated hook · banned-words filtered</div>
+                        <div id="hook-output" class="text-sm text-white/90 italic leading-relaxed min-h-[60px]">Pick three dropdowns and tap Generate.</div>
+                        <div id="hook-lint" class="hidden mt-2 text-[11px]"></div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <button id="hook-generate" class="btn-primary">↺ Generate</button>
+                        <button id="hook-copy" class="btn-ghost">Copy</button>
+                        <button id="hook-to-ig" class="btn-ghost">+ to IG Ideas</button>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ============================================================
+                 VOICE DISCIPLINE · use / avoid · live check
+                 ============================================================ -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-5">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Voice Discipline</h3>
+                        <span class="seg seg-emerald">USE</span>
+                        <span class="seg seg-rose">AVOID</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <div class="text-[10px] mono uppercase tracking-widest text-emerald-400 mb-2">Sacred phrases · use freely</div>
+                            <div class="flex flex-wrap gap-1.5 text-xs text-white/80">
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">certified</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">cohort</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">master</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">at the source</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">earned</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">earned not bought</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">choose your depth</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">immersion</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">the open sea</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">skill adventures</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">at the source</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">skills last, tans fade</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">7 days</span>
+                                <span class="bg-emerald-400/10 px-2 py-0.5 rounded">8–12 seats</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] mono uppercase tracking-widest text-rose-400 mb-2">Banned · refused at the gate</div>
+                            <div class="flex flex-wrap gap-1.5 text-xs text-white/75">
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">transformation</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">life-changing</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">transformative</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">vacation</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">holiday</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">luxury</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">luxurious</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">easy</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">effortless</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">journey</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">tour / tourist</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">escape</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">package</span>
+                                <span class="bg-rose-400/10 px-2 py-0.5 rounded line-through">emojis in captions</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-white/5">
+                        <label class="text-[10px] mono text-white/40 uppercase tracking-widest block mb-1.5">Paste any draft · live check</label>
+                        <textarea id="voice-check-input" rows="3" placeholder="Drop a hook, caption, story… see what would trip Hiroko's bullshit filter."></textarea>
+                        <div id="voice-check-output" class="hidden mt-2 text-xs"></div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ============================================================
+                 CAPTION FRAMEWORKS · IdeaForge Copywriting · ET-calibrated
+                 ============================================================ -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-5">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Caption Frameworks · 4 structures</h3>
+                        <span class="seg seg-bmw">OGILVY · HOPKINS · SCHWARTZ · MILLER</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 space-y-3">
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] mono accent uppercase tracking-widest">PAS · awareness · problem aware buyer</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-frame="pas">Copy</button>
+                        </div>
+                        <pre class="text-xs text-white/80 leading-relaxed whitespace-pre-wrap font-mono">PROBLEM   You've watched 200 cooking videos. You still can't read fish eyes.
+AGITATE   Videos can't correct your grip. Algorithms can't sense readiness.
+SOLVE     21 days in Tokyo. Hiroko's counter. Your knife. Real certification.</pre>
+                    </div>
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] mono accent uppercase tracking-widest">AIDA · offer reveal · solution aware</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-frame="aida">Copy</button>
+                        </div>
+                        <pre class="text-xs text-white/80 leading-relaxed whitespace-pre-wrap font-mono">ATTENTION  What if Tokyo gave you back something permanent?
+INTEREST   21 days. 12 seats. Hiroko Ishi — 30 years on the line.
+DESIRE     Your own knife. A cohort that becomes family. A credential earned.
+ACTION     Reply SUSHI for the September dossier.</pre>
+                    </div>
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] mono accent uppercase tracking-widest">SB7 · founder narrative · StoryBrand</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-frame="sb7">Copy</button>
+                        </div>
+                        <pre class="text-xs text-white/80 leading-relaxed whitespace-pre-wrap font-mono">HERO       A chef who's plateaued. A professional who craves real depth.
+PROBLEM    External: no real credentials · Internal: stuck · Stakes: time
+GUIDE      A yacht chef who built the program he wished existed.
+PLAN       Apply · Train · Certify.
+CTA        September cohort · 12 seats · $500 refundable deposit.
+SUCCESS    Certified. Connected. Earned.
+FAILURE    Another year of YouTube tutorials.</pre>
+                    </div>
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] mono accent uppercase tracking-widest">REASON-WHY · credibility · Hopkins</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-frame="reason">Copy</button>
+                        </div>
+                        <pre class="text-xs text-white/80 leading-relaxed whitespace-pre-wrap font-mono">CLAIM      The most rigorous sushi immersion you can buy.
+REASON 1   Because Hiroko has run the line for 18 years.
+REASON 2   Because we cap at 12 — knife-correction is daily, not theatrical.
+REASON 3   Because the credential is co-signed by a recognized body.
+PROOF      Cohort #1 walks the floor at Toyosu on Day 4.
+CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ============================================================
+                 BEHAVIORAL SCIENCE APPLIED · Shotton × ET
+                 ============================================================ -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-5">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Behavioral Science · 11 levers</h3>
+                        <span class="seg seg-violet">SHOTTON × ET</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 grid sm:grid-cols-2 gap-2 text-xs">
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Focused Offer</div><div class="text-white/60 leading-snug">Lead 7–21d certification. Fewer claims = higher credibility.</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Price Relativity</div><div class="text-white/60 leading-snug">Compare to certification programs · not tours · not vacations.</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Effort Signals Quality</div><div class="text-white/60 leading-snug">Show instructor rigor, prep requirements, the 5 AM Toyosu walk.</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Distinctiveness</div><div class="text-white/60 leading-snug">Cinematic visuals · "at the source" · Apple-glass aesthetic.</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Scarcity</div><div class="text-white/60 leading-snug">8–12 seats · fixed dates · waitlist priority. Must be true.</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Credible Messenger</div><div class="text-white/60 leading-snug">Masters · alumni · certifying bodies. <span class="text-white/35 italic">Not influencers.</span></div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Loss Framing</div><div class="text-white/60 leading-snug">"Don't waste years before you earn the credential." Respectful.</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Concrete Language</div><div class="text-white/60 leading-snug">"Get certified in 7 days at Koh Tao" beats "transform your life".</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Costly Signaling</div><div class="text-white/60 leading-snug">Show what you sacrificed to build this. 4× trust uplift.</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Specificity</div><div class="text-white/60 leading-snug">"6-stool counter in Tsukiji" closes. "World's best sushi" doesn't.</div></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]"><div class="font-medium text-white/85 mb-0.5">Unity (Cialdini 7th)</div><div class="text-white/60 leading-snug">Shared identity &gt; liking. "For people who cook with their hands."</div></div>
+                </div>
+            </details>
+
+            <!-- ============================================================
+                 HASHTAG LIBRARY · ET-aligned only · quality > quantity
+                 ============================================================ -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-5">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Hashtag Library · curated, never random</h3>
+                        <span class="seg seg-bmw">5–12 PER POST</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 space-y-3">
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#F59E0B">Pillar / philosophy · always 2–3</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="pillar">Copy block</button>
+                        </div>
+                        <div class="text-xs text-white/80 font-mono leading-relaxed">#immersion #earnednotbought #skillsatthesource #cohort #atthesource #craftnottourism #skillslasttansfade #chooseyourdepth</div>
+                    </div>
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#F59E0B">Culinary · sushi · pastry · wine</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="culinary">Copy block</button>
+                        </div>
+                        <div class="text-xs text-white/80 font-mono leading-relaxed">#sushichef #itamae #toyosu #lecordonbleu #ferrandi #culinaryart #pastryarts #wsetwine #sommelier #culinarycraft</div>
+                    </div>
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#06B6D4">Freedom · diving · sailing</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="freedom">Copy block</button>
+                        </div>
+                        <div class="text-xs text-white/80 font-mono leading-relaxed">#padidiver #padicertified #scubadiving #freediving #ryasailor #ryayachtmaster #openwater #sailingthemediterranean #cruisinglife</div>
+                    </div>
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#F97316">Adventure · surf · mountains</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="adventure">Copy block</button>
+                        </div>
+                        <div class="text-xs text-white/80 font-mono leading-relaxed">#surfschool #isasurfing #ifmga #alpineclimbing #mountaineering #whitewaterkayak #kitesurfing #ikoinstructor</div>
+                    </div>
+                    <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[10px] mono uppercase tracking-widest text-white/65">Founder &amp; credibility</span>
+                            <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="founder">Copy block</button>
+                        </div>
+                        <div class="text-xs text-white/80 font-mono leading-relaxed">#yachtchef #superyachtchef #chefatsea #masterinstructor #realcertification #buildinginpublic #solofounder</div>
+                    </div>
+                    <div class="rounded-xl bg-rose-400/5 border border-rose-400/15 p-3">
+                        <div class="text-[10px] mono uppercase tracking-widest text-rose-400 mb-1.5">Never use</div>
+                        <div class="text-xs text-white/65 font-mono leading-relaxed line-through">#travelporn #wanderlust #luxurytravel #blessed #vibes #worldtraveler #travelgram #vacaymode #dreamvacation</div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- ============================================================
+                 5-PHASE GROWTH PLAYBOOK · IG Growth Playbook · current phase
+                 ============================================================ -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-5">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Growth Playbook · 5 phases</h3>
+                        <span class="seg seg-emerald" id="phase-badge">PHASE 1</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 space-y-2">
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-baseline justify-between"><span class="text-xs font-medium text-white/85">Phase 1 · Foundation</span><span class="text-[10px] mono text-white/40">Week 1–2 · 100 followers who care</span></div>
+                        <div class="text-[11px] text-white/55 mt-1 leading-snug">@arnaudcallier bridges to @educatedtraveler.app · 6 launch posts · follow 50–80 personal contacts · DM 20 close friends · no hashtags yet · no strangers.</div>
+                    </div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-baseline justify-between"><span class="text-xs font-medium text-white/85">Phase 2 · Partner Bridge</span><span class="text-[10px] mono text-white/40">Week 3–4 · first partner conversation</span></div>
+                        <div class="text-[11px] text-white/55 mt-1 leading-snug">10 min/day engage Ferrandi · Tokyo sushi accounts · @vakuum_by_martin_lippo · yacht-chef accounts. Repost partner content. DM 1 partner/week.</div>
+                    </div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-baseline justify-between"><span class="text-xs font-medium text-white/85">Phase 3 · Content Engine</span><span class="text-[10px] mono text-white/40">Month 2 · 300–500 followers</span></div>
+                        <div class="text-[11px] text-white/55 mt-1 leading-snug">BTS · The skill · The question · The student. 1 Reel/week minimum (10× reach). Reels = king of discovery.</div>
+                    </div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-baseline justify-between"><span class="text-xs font-medium text-white/85">Phase 4 · Community</span><span class="text-[10px] mono text-white/40">Month 3–4 · 1,000 followers</span></div>
+                        <div class="text-[11px] text-white/55 mt-1 leading-snug">IG Live / joint Reel with one partner · tag partners always · WhatsApp chef group push · email list → drive back to IG.</div>
+                    </div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-baseline justify-between"><span class="text-xs font-medium text-white/85">Phase 5 · Paid Push</span><span class="text-[10px] mono text-white/40">Month 4+ · scale what works</span></div>
+                        <div class="text-[11px] text-white/55 mt-1 leading-snug">Only when 15+ posts live + 1 Reel ≥500 views + 1 partner collab. Boost best Reel · $5–10/day × 7d · UK/FR/US/AU 25–45.</div>
+                    </div>
+                    <div class="text-[11px] text-white/40 italic px-1 pt-2">Track saves &amp; shares · not likes · Make more of what gets saved.</div>
+                </div>
+            </details>
 
             <!-- IG kanban -->
             <div class="mb-5">
@@ -986,6 +1460,26 @@
             <div class="flex gap-2 mt-5 justify-end">
                 <button id="filter-cancel" class="btn-ghost">Refuse</button>
                 <button id="filter-accept" class="btn-primary" disabled>Accept &amp; add</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================================================================
+         ASSET PREVIEW MODAL
+         ================================================================= -->
+    <div id="asset-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/90" onclick="closeAssetModal()"></div>
+        <div class="relative max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAssetModal()" class="absolute top-3 right-3 text-white/60 hover:text-white p-2 text-xl z-10 bg-black/40 rounded-full w-9 h-9 flex items-center justify-center">×</button>
+            <div class="bg-black rounded-2xl overflow-hidden border border-white/10">
+                <div id="asset-modal-media" class="bg-black min-h-[200px] flex items-center justify-center"></div>
+                <div class="px-5 py-3 border-t border-white/5 flex items-center justify-between gap-3 flex-wrap">
+                    <div id="asset-modal-caption" class="text-sm text-white/70"></div>
+                    <div class="flex gap-2 shrink-0">
+                        <button id="asset-copy-url" class="btn-ghost !text-xs">Copy URL</button>
+                        <a id="asset-open" href="#" target="_blank" class="btn-primary !text-xs">Open</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -2305,6 +2799,9 @@
             });
         });
 
+        // IG Strategy module bindings
+        bindIgStrategy();
+
         // Friday reflection
         document.getElementById('friday-form').addEventListener('submit', (e) => {
             e.preventDefault();
@@ -2330,6 +2827,286 @@
             showToast('Decision logged');
         });
     }
+
+    // ---- IG STRATEGY MODULE -----------------------------------------------
+    const HOOK_TEMPLATES = {
+        // pattern × subject = hook text
+        // ${specific} ${place} ${detail} are subject-dependent
+        contrast: 'While most people {generic} on YouTube, you\'ll {specific} with {master} at {place}.',
+        costly: 'I just turned down {sacrifice} to film what {place} on day 4 actually looks like.',
+        question: 'What if 21 days at {place} left you certified to {action}?',
+        counter: 'Everyone thinks {commonBelief}. The masters know it\'s about {realThing}. Here\'s why day 6 at {place}…',
+        dayinlife: 'Day {N} at {place}: {time}. {master} {action}. You learn to {skill}.',
+        proofnumber: '{years} years on the line. {capacity} seats. {duration} days. One credential at {place}.'
+    };
+
+    const SUBJECTS = {
+        sushi: {
+            generic: 'watch sushi tutorials',
+            specific: 'press your first nigiri',
+            master: 'Hiroko Ishi',
+            place: 'Tsukiji counter in Tokyo',
+            placeShort: 'Tokyo',
+            commonBelief: 'sushi is about fish',
+            realThing: 'rice — temperature, vinegar, hand pressure',
+            action: 'break down a whole tuna',
+            skill: 'read fish eyes',
+            time: '5 AM at Toyosu',
+            N: '4',
+            sacrifice: 'a $14k charter',
+            years: '18',
+            capacity: '12',
+            duration: '21'
+        },
+        diving: {
+            generic: 'watch dive vlogs',
+            specific: 'clear your mask at 18m',
+            master: 'a PADI Master Instructor',
+            place: 'Koh Tao',
+            placeShort: 'Koh Tao',
+            commonBelief: 'diving is the moment you go down',
+            realThing: 'the breathing on the way down',
+            action: 'dive to 30m on a single breath',
+            skill: 'equalize without thinking',
+            time: '6 AM on the boat',
+            N: '5',
+            sacrifice: 'a season of charters',
+            years: '15',
+            capacity: '8',
+            duration: '14'
+        },
+        sailing: {
+            generic: 'read sailing forums',
+            specific: 'trim the headsail in 18kn',
+            master: 'an RYA Yachtmaster',
+            place: 'the Aegean',
+            placeShort: 'the open sea',
+            commonBelief: 'sailing is about boats',
+            realThing: 'reading wind, weather, water',
+            action: 'skipper a 40-foot yacht',
+            skill: 'feel the boat through the wheel',
+            time: 'first light on watch',
+            N: '7',
+            sacrifice: 'a flat in the city',
+            years: '20',
+            capacity: '6',
+            duration: '21'
+        },
+        yoga: {
+            generic: 'follow yoga apps',
+            specific: 'hold pincha for 60 seconds',
+            master: 'an E-RYT 500 in Rishikesh',
+            place: 'Rishikesh',
+            placeShort: 'Rishikesh',
+            commonBelief: 'yoga is about flexibility',
+            realThing: 'breath, attention, surrender',
+            action: 'teach a 60-minute Vinyasa class',
+            skill: 'sit still without effort',
+            time: '5:30 AM on the mat',
+            N: '6',
+            sacrifice: 'corporate life',
+            years: '25',
+            capacity: '10',
+            duration: '25'
+        },
+        pastry: {
+            generic: 'binge Cordon Bleu YouTube',
+            specific: 'laminate your first croissant dough',
+            master: 'a Ferrandi-trained pastry chef',
+            place: 'a Paris atelier',
+            placeShort: 'Paris',
+            commonBelief: 'pastry is about recipes',
+            realThing: 'temperature, technique, time',
+            action: 'turn out a Saint-Honoré',
+            skill: 'feel butter at exactly 14°C',
+            time: '4 AM at the marble',
+            N: '5',
+            sacrifice: 'a sous-chef paycheck',
+            years: '22',
+            capacity: '8',
+            duration: '21'
+        },
+        wine: {
+            generic: 'read wine blogs',
+            specific: 'blind-taste a Burgundy',
+            master: 'a WSET-Diploma sommelier',
+            place: 'a Côte-d\'Or cellar',
+            placeShort: 'Burgundy',
+            commonBelief: 'wine is about price',
+            realThing: 'terroir, vintage, hand',
+            action: 'pass WSET Level 3',
+            skill: 'identify pinot from gamay blind',
+            time: '8 AM among the barrels',
+            N: '4',
+            sacrifice: 'a year of conventional study',
+            years: '30',
+            capacity: '10',
+            duration: '14'
+        },
+        surf: {
+            generic: 'watch surf reels',
+            specific: 'paddle through the line-up',
+            master: 'an ISA-certified instructor',
+            place: 'Uluwatu',
+            placeShort: 'Uluwatu',
+            commonBelief: 'surfing is about waves',
+            realThing: 'reading the ocean before paddling',
+            action: 'ride a head-high reef break',
+            skill: 'time the takeoff',
+            time: 'dawn patrol',
+            N: '5',
+            sacrifice: 'a desk job',
+            years: '17',
+            capacity: '8',
+            duration: '14'
+        },
+        mezcal: {
+            generic: 'collect mezcal bottles',
+            specific: 'roast agave in a stone pit',
+            master: 'a fifth-generation mezcalero',
+            place: 'an Oaxaca palenque',
+            placeShort: 'Oaxaca',
+            commonBelief: 'mezcal is smoky tequila',
+            realThing: 'agave variety + earth + smoke + family',
+            action: 'distill your own batch',
+            skill: 'taste the difference between espadín and tobalá',
+            time: 'dawn at the pit',
+            N: '6',
+            sacrifice: 'a comfortable routine',
+            years: '40',
+            capacity: '8',
+            duration: '14'
+        }
+    };
+
+    function generateHook() {
+        const pillar = document.getElementById('hook-pillar').value;
+        const pattern = document.getElementById('hook-pattern').value;
+        const subject = document.getElementById('hook-subject').value;
+        const subj = SUBJECTS[subject] || SUBJECTS.sushi;
+        let template = HOOK_TEMPLATES[pattern] || HOOK_TEMPLATES.dayinlife;
+        // Fill template
+        let hook = template.replace(/\{(\w+)\}/g, (_, key) => subj[key] || ('{' + key + '}'));
+
+        const outEl = document.getElementById('hook-output');
+        outEl.textContent = '"' + hook + '"';
+
+        // Lint
+        const lint = checkLint(hook);
+        const lintEl = document.getElementById('hook-lint');
+        if (lint.warn) {
+            lintEl.innerHTML = `<span class="lint-warn">⚠ banned: ${lint.words.join(', ')}</span>`;
+            lintEl.classList.remove('hidden');
+        } else {
+            lintEl.innerHTML = `<span class="lint-clean">● voice clean · banned-words filter passed</span>`;
+            lintEl.classList.remove('hidden');
+        }
+    }
+
+    function bindIgStrategy() {
+        // Hook builder
+        const genBtn = document.getElementById('hook-generate');
+        if (genBtn) {
+            genBtn.addEventListener('click', generateHook);
+            document.getElementById('hook-copy').addEventListener('click', () => {
+                const t = document.getElementById('hook-output').textContent;
+                if (t && !t.startsWith('Pick')) copyToClipboard(t.replace(/^"|"$/g, ''));
+            });
+            document.getElementById('hook-to-ig').addEventListener('click', () => {
+                const t = document.getElementById('hook-output').textContent;
+                if (!t || t.startsWith('Pick')) return;
+                const pillarVal = document.getElementById('hook-pillar').value;
+                const pillarMap = { freedom: 'galley', adventure: 'galley', immersion: 'curriculum' };
+                const subject = document.getElementById('hook-subject').value;
+                igPosts.unshift({
+                    id: uid(),
+                    status: 'idea',
+                    type: 'reel',
+                    pillar: pillarMap[pillarVal] || 'galley',
+                    hook: t.replace(/^"|"$/g, ''),
+                    body: `Subject: ${subject}. Generated via Hook Builder. CTA: Reply SUSHI for the September dossier.`,
+                    scheduled: ''
+                });
+                save(IG_KEY, igPosts);
+                renderIg();
+                showToast('Added to IG Ideas →');
+            });
+            // Auto-generate one on first open
+            setTimeout(() => { if (document.getElementById('hook-output').textContent.startsWith('Pick')) generateHook(); }, 500);
+        }
+
+        // Voice check
+        const vc = document.getElementById('voice-check-input');
+        if (vc) {
+            vc.addEventListener('input', () => {
+                const text = vc.value.trim();
+                const out = document.getElementById('voice-check-output');
+                if (!text) { out.classList.add('hidden'); return; }
+                const lint = checkLint(text);
+                if (lint.warn) {
+                    out.innerHTML = `<div class="rounded-md p-2 bg-rose-400/10 border border-rose-400/20"><span class="lint-warn">⚠ Banned: ${lint.words.map(esc).join(' · ')}</span></div>`;
+                } else {
+                    out.innerHTML = `<div class="rounded-md p-2 bg-emerald-400/10 border border-emerald-400/20"><span class="lint-clean">● Voice clean · ${text.length} chars · ${text.split(/\s+/).filter(Boolean).length} words</span></div>`;
+                }
+                out.classList.remove('hidden');
+            });
+        }
+
+        // Caption framework copy
+        const frames = {
+            pas: 'PROBLEM   You\'ve watched 200 cooking videos. You still can\'t read fish eyes.\nAGITATE   Videos can\'t correct your grip. Algorithms can\'t sense readiness.\nSOLVE     21 days in Tokyo. Hiroko\'s counter. Your knife. Real certification.\n\nReply SUSHI for the September dossier.',
+            aida: 'ATTENTION  What if Tokyo gave you back something permanent?\nINTEREST   21 days. 12 seats. Hiroko Ishi — 30 years on the line.\nDESIRE     Your own knife. A cohort that becomes family. A credential earned.\nACTION     Reply SUSHI for the September dossier.',
+            sb7: 'HERO       A chef who\'s plateaued. A professional who craves real depth.\nPROBLEM    External: no real credentials · Internal: stuck · Stakes: time slipping.\nGUIDE      A yacht chef who built the program he wished existed for fellow professionals.\nPLAN       Apply · Train · Certify.\nCTA        September cohort · 12 seats · $500 refundable deposit.\nSUCCESS    Certified. Connected. Earned.\nFAILURE    Another year of YouTube tutorials.',
+            reason: 'CLAIM      The most rigorous sushi immersion you can buy.\nREASON 1   Because Hiroko has run the line for 18 years.\nREASON 2   Because we cap at 12 — knife-correction is daily, not theatrical.\nREASON 3   Because the credential is co-signed by a recognized body.\nPROOF      Cohort #1 walks the floor at Toyosu on Day 4.\nCTA        12 seats. September 21 — October 30. Apply at the link.'
+        };
+        document.querySelectorAll('[data-frame]').forEach(b => {
+            b.addEventListener('click', () => {
+                const key = b.dataset.frame;
+                if (frames[key]) copyToClipboard(frames[key]);
+            });
+        });
+
+        // Hashtag copy
+        const tagGroups = {
+            pillar: '#immersion #earnednotbought #skillsatthesource #cohort #atthesource #craftnottourism #skillslasttansfade #chooseyourdepth',
+            culinary: '#sushichef #itamae #toyosu #lecordonbleu #ferrandi #culinaryart #pastryarts #wsetwine #sommelier #culinarycraft',
+            freedom: '#padidiver #padicertified #scubadiving #freediving #ryasailor #ryayachtmaster #openwater #sailingthemediterranean #cruisinglife',
+            adventure: '#surfschool #isasurfing #ifmga #alpineclimbing #mountaineering #whitewaterkayak #kitesurfing #ikoinstructor',
+            founder: '#yachtchef #superyachtchef #chefatsea #masterinstructor #realcertification #buildinginpublic #solofounder'
+        };
+        document.querySelectorAll('[data-tags]').forEach(b => {
+            b.addEventListener('click', () => {
+                const k = b.dataset.tags;
+                if (tagGroups[k]) copyToClipboard(tagGroups[k]);
+            });
+        });
+
+        // Asset preview modal
+        document.querySelectorAll('.asset-thumb').forEach(t => {
+            t.addEventListener('click', () => openAssetModal(t.dataset.src, t.dataset.caption));
+        });
+    }
+
+    function openAssetModal(src, caption) {
+        const modal = document.getElementById('asset-modal');
+        const media = document.getElementById('asset-modal-media');
+        const cap = document.getElementById('asset-modal-caption');
+        const isVideo = /\.mp4$|\.webm$|\.mov$/i.test(src);
+        media.innerHTML = isVideo
+            ? `<video class="max-w-full max-h-[70vh]" controls autoplay><source src="${esc(src)}" type="video/mp4"></video>`
+            : `<img src="${esc(src)}" class="max-w-full max-h-[70vh] object-contain" alt="">`;
+        cap.textContent = caption || '';
+        const fullUrl = location.origin + src;
+        document.getElementById('asset-open').href = src;
+        document.getElementById('asset-copy-url').onclick = () => copyToClipboard(fullUrl);
+        modal.classList.remove('hidden');
+    }
+    function closeAssetModal() {
+        document.getElementById('asset-modal').classList.add('hidden');
+        document.getElementById('asset-modal-media').innerHTML = '';
+    }
+    window.openAssetModal = openAssetModal;
+    window.closeAssetModal = closeAssetModal;
 
     // ---- VOICE CAPTURE ---------------------------------------------------
     function startVoiceCapture() {
