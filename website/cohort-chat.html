@@ -164,6 +164,11 @@
         }
         .role-instructor { background: rgba(245,158,11,0.15); color: #fbbf24; }
         .role-student { background: rgba(99,102,241,0.12); color: #a5b4fc; }
+        .role-admin { background: rgba(244,63,94,0.12); color: #fda4af; }
+        .member-card.admin {
+            background: linear-gradient(135deg, rgba(244,63,94,0.06), rgba(255,255,255,0.02));
+            border-color: rgba(244,63,94,0.18);
+        }
 
         /* Status banner */
         .access-deny {
@@ -337,12 +342,13 @@
             membersCount.textContent =
                 (instructor ? '1 instructor · ' : '') + students.length + ' student' + (students.length === 1 ? '' : 's');
 
+            const ROLE_LABEL = { instructor: 'Host', student: 'Crew', admin: 'Admin' };
             const renderOne = (m) => {
                 const name = m.first_name || m.name || 'Member';
                 const avatar = m.avatar_url
                     ? `<img src="${esc(m.avatar_url)}" alt="${esc(name)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">`
                     : initialsOf(name);
-                const cls = m.role === 'instructor' ? 'instructor' : '';
+                const cls = m.role === 'instructor' ? 'instructor' : (m.role === 'admin' ? 'admin' : '');
                 const profession = m.profession ? esc(m.profession) : '';
                 const meta = [profession, m.location ? esc(m.location) : ''].filter(Boolean).join(' · ');
                 return `
@@ -352,13 +358,15 @@
                             <p class="text-xs font-medium text-white/85 truncate">${esc(name)}</p>
                             ${meta ? `<p class="text-[10px] text-white/35 truncate">${meta}</p>` : ''}
                         </div>
-                        <span class="role-pill role-${m.role}">${m.role === 'instructor' ? 'Host' : 'Crew'}</span>
+                        <span class="role-pill role-${m.role}">${ROLE_LABEL[m.role] || m.role}</span>
                     </a>`;
             };
 
+            const admins = rows.filter(r => r.role === 'admin');
             const html = [
                 instructor ? renderOne(instructor) : '',
-                students.map(renderOne).join('')
+                students.map(renderOne).join(''),
+                admins.map(renderOne).join('')
             ].join('');
             membersList.innerHTML = html || '<p class="text-white/30 text-xs italic">No members yet.</p>';
         }
