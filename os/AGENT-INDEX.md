@@ -18,6 +18,11 @@ These live inside the EducatedTraveler repository and are the primary references
 - **Purpose:** The complete operating system -- 500+ ideas synthesized into a single agent covering all domains: vision, marketing, sales, copy, product, UX, finance, operations, psychology, community, content, and mindset.
 - **When to use:** When you need a comprehensive reference that spans multiple domains, or when a question does not fit neatly into one focused agent below.
 
+### Agent - EducatedTraveler - Growth Engine 2026.md
+- **Location:** `os/Agent - EducatedTraveler - Growth Engine 2026.md`
+- **Purpose:** The sharp end of the agent stack — what's working in May 2026 for a solo-founder shipping a premium cohort. Synthesizes Justin Welsh, Dan Koe, Khe Hy, Priestley, Acunzo, MEA, Black Tomato, HXP, Shotton, Sutherland, plus the IG-2026 algorithm reality and the AI-augmented stack. Includes the Six Moves of May, the Reverse Cohort Calendar (back-timed off Sep 21), the Sunday Batch ritual, and a copy-paste prompt library.
+- **When to use:** Daily — when you have a free hour and need to know what to do. Pair with the Daemon for non-negotiables and the Ultimate Agent for deeper reference. Companion to the private dashboard at `/cmd`.
+
 ---
 
 ## NEXUS Focused Agents (agent-library/)

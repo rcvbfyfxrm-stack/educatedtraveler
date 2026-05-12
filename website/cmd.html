@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Center — EDUCATEDTRAVELER</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
+    <link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+    <link rel="shortcut icon" href="/images/logo-et-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bmw': {
+                            50: '#e6f0fa', 100: '#b3d1ef', 200: '#80b3e4', 300: '#4d94d9',
+                            400: '#3B8DD4', 500: '#0066B1', 600: '#00518d', 700: '#003d6a',
+                            800: '#002846', 900: '#001423',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #050505; color: #fff; }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass-strong { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .spinner { animation: spin 1s linear infinite; }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
+        .pulse-dot { animation: pulse 2s ease-in-out infinite; }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .chev { transform: rotate(90deg); }
+        .chev { transition: transform 0.2s; }
+        .check { transition: all 0.25s ease; }
+        .check.done { opacity: 0; max-height: 0; padding: 0 !important; margin: 0 !important; overflow: hidden; pointer-events: none; transform: scale(0.97); }
+        .check.done.show-completed { opacity: 0.35; max-height: 80px; padding: 12px 16px !important; transform: scale(1); }
+        .ig-card { cursor: grab; user-select: none; }
+        .ig-card:active { cursor: grabbing; }
+        .ig-col { min-height: 120px; }
+        .ig-col.drag-over { background: rgba(59,141,212,0.08); border-color: rgba(59,141,212,0.3); }
+        .accent { color: #3B8DD4; }
+        .ring-accent { ring-color: rgba(59,141,212,0.4); }
+        input[type="text"], input[type="datetime-local"], textarea, select {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #fff;
+            border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            width: 100%;
+        }
+        input[type="text"]:focus, input[type="datetime-local"]:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: rgba(59,141,212,0.5);
+        }
+        .btn-primary {
+            background: rgba(0,102,177,0.85);
+            color: #fff; border-radius: 9999px;
+            padding: 0.5rem 1.25rem; font-size: 0.8125rem; font-weight: 500;
+            border: 1px solid rgba(59,141,212,0.5);
+            transition: all 0.15s;
+        }
+        .btn-primary:hover { background: #0066B1; border-color: #3B8DD4; }
+        .btn-ghost {
+            background: rgba(255,255,255,0.03);
+            color: rgba(255,255,255,0.7);
+            border-radius: 9999px;
+            padding: 0.5rem 1.25rem; font-size: 0.8125rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.15s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.06); color: #fff; }
+        .stat-num { font-variant-numeric: tabular-nums; }
+        .seg { font-size: 0.625rem; padding: 2px 8px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+        .seg-amber { background: rgba(245,158,11,0.18); color: #fbbf24; }
+        .seg-emerald { background: rgba(16,185,129,0.18); color: #34d399; }
+        .seg-bmw { background: rgba(0,102,177,0.22); color: #4d94d9; }
+        .seg-violet { background: rgba(139,92,246,0.18); color: #a78bfa; }
+        .seg-rose { background: rgba(244,63,94,0.18); color: #fb7185; }
+        .seg-white { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+
+    <!-- Top Bar -->
+    <nav class="sticky top-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="/" class="text-base font-semibold tracking-wider">
+                    EDUCATED<span class="accent">TRAVELER</span>
+                </a>
+                <span class="mono text-[10px] text-white/40 bg-white/5 px-2 py-1 rounded-full">COMMAND</span>
+                <span class="hidden sm:inline pulse-dot w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+            </div>
+            <div class="flex items-center gap-3 text-xs">
+                <span id="last-sync" class="hidden sm:inline mono text-white/30"></span>
+                <button id="refresh-btn" class="btn-ghost">Refresh</button>
+                <button id="sign-out-btn" class="text-white/40 hover:text-white">Sign Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading -->
+    <div id="loading" class="min-h-screen flex items-center justify-center">
+        <div class="text-center">
+            <div class="w-10 h-10 mx-auto mb-4 border-2 border-bmw-400/30 border-t-bmw-400 rounded-full spinner"></div>
+            <p class="text-white/40 text-xs mono">LOADING COMMAND CENTER...</p>
+        </div>
+    </div>
+
+    <!-- Access Denied -->
+    <div id="denied" class="hidden min-h-screen flex items-center justify-center">
+        <div class="text-center max-w-sm">
+            <p class="text-rose-400 text-xl mb-3 font-light">Access Denied</p>
+            <p class="text-white/40 text-sm mb-5">This page is restricted to the founder.</p>
+            <a href="join.html?tab=signin" class="accent text-sm hover:text-white">Sign in →</a>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main id="main" class="hidden max-w-6xl mx-auto px-4 sm:px-5 pt-6">
+
+        <!-- MISSION OF THE WEEK ============================================= -->
+        <section class="mb-6">
+            <div class="flex items-baseline justify-between mb-3 px-1">
+                <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Mission · This Week</h2>
+                <span id="today-label" class="text-xs text-white/30 mono"></span>
+            </div>
+            <div class="glass-strong rounded-2xl p-5 sm:p-6 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-30 pointer-events-none" style="background: radial-gradient(circle at top right, rgba(59,141,212,0.18), transparent 60%);"></div>
+                <div class="relative grid sm:grid-cols-[1fr,auto] gap-4 items-start">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="seg seg-bmw">SUSHI MASTERY · TOKYO</span>
+                            <span class="seg seg-white" id="cohort-countdown">— days</span>
+                        </div>
+                        <h1 class="text-2xl sm:text-3xl font-light leading-tight mb-2">Open priority access. Lock 6 deposits by June&nbsp;21.</h1>
+                        <p class="text-white/55 text-sm leading-relaxed max-w-2xl">Six moves of May. Premise pinned. $500 deposit page live. Tokyo Curriculum carousel out. Existing list emailed. Sunday batch holds. DMs replied daily.</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-1">Deposits</div>
+                        <div class="text-4xl font-light accent mono stat-num"><span id="deposits-paid">2</span><span class="text-white/25">/12</span></div>
+                        <div class="text-[11px] text-white/40 mt-1">2 confirmed (Hiroko cohort)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PULSE STRIP ====================================================== -->
+        <section class="mb-6 grid grid-cols-2 md:grid-cols-5 gap-2 sm:gap-3">
+            <div class="glass rounded-xl p-3">
+                <div class="text-[10px] mono text-white/35 uppercase">Signups · 7d</div>
+                <div class="text-2xl font-light accent mono stat-num" id="pulse-signups">—</div>
+                <div class="text-[10px] text-white/35" id="pulse-signups-delta">vs prev</div>
+            </div>
+            <div class="glass rounded-xl p-3">
+                <div class="text-[10px] mono text-white/35 uppercase">Quests · 7d</div>
+                <div class="text-2xl font-light accent mono stat-num" id="pulse-quests">—</div>
+                <div class="text-[10px] text-white/35" id="pulse-quests-delta">vs prev</div>
+            </div>
+            <div class="glass rounded-xl p-3">
+                <div class="text-[10px] mono text-white/35 uppercase">Interests</div>
+                <div class="text-2xl font-light accent mono stat-num" id="pulse-interests">—</div>
+                <div class="text-[10px] text-white/35" id="pulse-interests-detail">total</div>
+            </div>
+            <div class="glass rounded-xl p-3">
+                <div class="text-[10px] mono text-white/35 uppercase">IG Scheduled</div>
+                <div class="text-2xl font-light accent mono stat-num" id="pulse-ig">—</div>
+                <div class="text-[10px] text-white/35" id="pulse-ig-detail">posts</div>
+            </div>
+            <div class="glass rounded-xl p-3 col-span-2 md:col-span-1">
+                <div class="text-[10px] mono text-white/35 uppercase">Open Tasks</div>
+                <div class="text-2xl font-light accent mono stat-num" id="pulse-tasks">—</div>
+                <div class="text-[10px] text-white/35" id="pulse-tasks-detail">to do</div>
+            </div>
+        </section>
+
+        <!-- LIVE SIGNUPS ===================================================== -->
+        <section class="mb-6">
+            <div class="flex items-baseline justify-between mb-3 px-1">
+                <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ New People · Who & What</h2>
+                <span class="text-xs text-white/30">Tap to expand</span>
+            </div>
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <div id="signups-list" class="divide-y divide-white/5">
+                    <!-- rows injected -->
+                </div>
+                <div id="signups-empty" class="hidden p-8 text-center text-white/30 text-sm">No signups yet — share the link.</div>
+            </div>
+        </section>
+
+        <!-- MARKETING + DEV STRATEGY (side by side) ========================== -->
+        <section class="mb-6 grid lg:grid-cols-2 gap-4">
+
+            <!-- MARKETING -->
+            <details class="glass-strong rounded-2xl overflow-hidden group" open>
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Marketing Strategy</h3>
+                        <span class="seg seg-bmw">2026 PLAYBOOK</span>
+                    </div>
+                    <span class="text-[10px] mono text-white/30">8 moves</span>
+                </summary>
+                <div class="px-5 pb-5 pt-1 space-y-4 text-sm">
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">The Premise (pin everywhere)</p>
+                        <p class="text-white/75 italic leading-relaxed">"A French yacht chef who turned 12 years of cooking for billionaires into the world's first certified culinary immersion run by working operators. We don't sell vacations. We sell skills you keep — at the source, with masters who never stopped working the line."</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Reverse Calendar · Sep 21 cohort</p>
+                        <div class="space-y-1.5 text-xs text-white/70">
+                            <div class="flex gap-3"><span class="mono text-white/40 w-32">May 12 → May 31</span><span>Awareness · premise live · costly-signal Reel pinned · deposit page up</span></div>
+                            <div class="flex gap-3"><span class="mono text-white/40 w-32">June 1 → June 21</span><span>Priority access (14 days) · waitlist gets first crack · daily DMs</span></div>
+                            <div class="flex gap-3"><span class="mono text-white/40 w-32">June 22 → July 5</span><span>Public open (14 days) · application + $500 deposit · hard close</span></div>
+                            <div class="flex gap-3"><span class="mono text-white/40 w-32">July 6 → Sep 14</span><span>Pre-cohort · logistics · pre-arrival kit (T-14) · cohort Slack warm-up</span></div>
+                            <div class="flex gap-3"><span class="mono text-white/40 w-32">Sep 21 → Oct 30</span><span>Cohort · photo/video brief active · daily stories · long-form drafted live</span></div>
+                            <div class="flex gap-3"><span class="mono text-white/40 w-32">Nov 1 → Nov 21</span><span>Case-study harvest · exit interviews · landing page rebuild · 2027 contract</span></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">IG Pillar Mix · 5–6 posts/week</p>
+                        <div class="grid sm:grid-cols-3 gap-2 text-xs">
+                            <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                                <div class="font-medium accent mb-1">Galley → Cohort</div>
+                                <div class="text-white/55 leading-snug">3 Reels/wk · 15–30s hands-only · hook in second 1 · knife scars > stock</div>
+                            </div>
+                            <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                                <div class="font-medium accent mb-1">Tokyo Curriculum</div>
+                                <div class="text-white/55 leading-snug">2 carousels/wk · 8 slides · "Day N: specific element" · save bait</div>
+                            </div>
+                            <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                                <div class="font-medium accent mb-1">Founder Face</div>
+                                <div class="text-white/55 leading-snug">1 static/wk · portrait + manifesto sentence · why a yacht chef</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">One DM Trigger</p>
+                        <p class="text-white/70">All content ends with: <span class="mono text-white">"Reply SUSHI for the September cohort dossier."</span></p>
+                        <p class="text-white/40 text-xs mt-1">ManyChat → Tally → Stripe deposit → Cal.com → Notion → Loom. Build once.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Voices To Steal From (2026)</p>
+                        <div class="text-xs text-white/60 leading-relaxed">
+                            <span class="text-white/80">Justin Welsh</span> (Sunday batch OS) ·
+                            <span class="text-white/80">Dan Koe</span> (price ladder $49→$4.5k) ·
+                            <span class="text-white/80">Khe Hy</span> (reverse calendar) ·
+                            <span class="text-white/80">Daniel Priestley</span> (campaign mode) ·
+                            <span class="text-white/80">Jay Acunzo</span> (premise) ·
+                            <span class="text-white/80">Chip Conley / MEA</span> (beta cohort flywheel) ·
+                            <span class="text-white/80">Black Tomato</span> (unpolished > polished) ·
+                            <span class="text-white/80">HXP</span> ($500 refundable deposit) ·
+                            <span class="text-white/80">Shotton</span> (costly signaling) ·
+                            <span class="text-white/80">Sutherland</span> (specificity beats superlative)
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- DEVELOPMENT -->
+            <details class="glass-strong rounded-2xl overflow-hidden group" open>
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <h3 class="text-sm font-medium">Development Strategy</h3>
+                        <span class="seg seg-emerald">3-LEVER PLAYBOOK</span>
+                    </div>
+                    <span class="text-[10px] mono text-white/30">sequenced</span>
+                </summary>
+                <div class="px-5 pb-5 pt-1 space-y-4 text-sm">
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Lever A · Partner Pipeline (Now → Aug)</p>
+                        <p class="text-white/65 text-xs leading-relaxed">39 partners prepped · 2 confirmed (Hiroko, Lippo) · <span class="text-amber-400">0 outreach sent</span>. Daily: partner-scout drafts → founder approves → ≤5/day. 14-day cutoff. Concentric rings: Ring 1 (10 warm flagships) → Ring 2 (15 country-led) → Ring 3 (cold verticals).</p>
+                        <p class="text-[11px] text-white/40 mt-1">Target 90d: 24 replies · 8 in-progress · 6 confirmed · 3 verticals.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Lever B · First Cohort (Sep 21 – Oct 30)</p>
+                        <p class="text-white/65 text-xs leading-relaxed">Sushi Mastery with Hiroko Ishii · 2 confirmed students · 3 levels x 2 weeks. <span class="accent">This is not a revenue event — it's a case-study factory.</span> Photo/video brief signed by Aug 31. Pre-arrival kit at T-14. Insurance + visa locked by Sep 7.</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Lever C · Demand Engine (Oct → Q1 2027)</p>
+                        <p class="text-white/65 text-xs leading-relaxed">Funnel built (quest → email → magic link → deposit). What's missing: <span class="accent">fuel at the top</span>. IG 5k→15k in 6mo. Email 0→2k. Open Mastery 2027 Spring cohort by Dec 1. Block paid ads until LTV is measurable (a 2027 question).</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Price Ladder · Missing Rungs</p>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div class="rounded-md p-2 bg-amber-400/5 border border-amber-400/15"><span class="seg seg-amber">TODO</span><div class="text-white/70 mt-1">$49 trip-wire (Field Notes PDF)</div></div>
+                            <div class="rounded-md p-2 bg-amber-400/5 border border-amber-400/15"><span class="seg seg-amber">TODO</span><div class="text-white/70 mt-1">$99 newsletter (Source Notebook)</div></div>
+                            <div class="rounded-md p-2 bg-white/[0.02] border border-white/[0.05]"><span class="seg seg-emerald">LIVE</span><div class="text-white/70 mt-1">Quest tool (free, capture)</div></div>
+                            <div class="rounded-md p-2 bg-white/[0.02] border border-white/[0.05]"><span class="seg seg-emerald">LIVE</span><div class="text-white/70 mt-1">Mastery $9.5k–$12k</div></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Stack · Solo Founder · ~$50/mo</p>
+                        <div class="text-xs text-white/65 leading-relaxed">
+                            Claude · Cursor · n8n · Descript · ElevenLabs · Granola · Perplexity · Stripe · PayPal · Supabase · HubSpot · Notion · Cal.com · Tally · ManyChat
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- CHECKLIST ======================================================== -->
+        <section class="mb-6">
+            <div class="flex items-baseline justify-between mb-3 px-1">
+                <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ The Year Ahead · Tap to check · Future phases unveil as you ship</h2>
+                <div class="flex items-center gap-3">
+                    <label class="flex items-center gap-2 text-xs text-white/40 cursor-pointer">
+                        <input type="checkbox" id="show-completed" class="w-3 h-3 accent-bmw-500">
+                        <span>Show completed</span>
+                    </label>
+                    <button id="reset-checklist" class="text-xs text-white/30 hover:text-rose-400">Reset</button>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- THIS WEEK -->
+                <div class="glass-strong rounded-2xl overflow-hidden">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-rose">PRIORITY</span>
+                            <h3 class="text-sm font-medium">This Week · The Six Moves of May</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30" id="count-now">—</span>
+                    </div>
+                    <div id="list-now" class="divide-y divide-white/5"></div>
+                </div>
+
+                <!-- NEXT 4 WEEKS -->
+                <div class="glass-strong rounded-2xl overflow-hidden">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-bmw">NEXT 4 WEEKS</span>
+                            <h3 class="text-sm font-medium">June · Priority Access → Public Open</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30" id="count-soon">—</span>
+                    </div>
+                    <div id="list-soon" class="divide-y divide-white/5"></div>
+                </div>
+
+                <!-- BEFORE SEP -->
+                <div class="glass-strong rounded-2xl overflow-hidden">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-violet">BEFORE SEP 21</span>
+                            <h3 class="text-sm font-medium">Pre-Cohort Operations</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30" id="count-cohort">—</span>
+                    </div>
+                    <div id="list-cohort" class="divide-y divide-white/5"></div>
+                </div>
+
+                <!-- ONGOING -->
+                <div class="glass-strong rounded-2xl overflow-hidden">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-emerald">ONGOING</span>
+                            <h3 class="text-sm font-medium">Weekly Rituals (auto-resurrect every 7 days)</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30" id="count-ongoing">—</span>
+                    </div>
+                    <div id="list-ongoing" class="divide-y divide-white/5"></div>
+                </div>
+
+                <!-- ============================================================
+                     LOCKED FUTURE PHASES — unveil progressively
+                     ============================================================ -->
+
+                <!-- SEP-OCT · COHORT EXECUTION (locked until now+soon+cohort done) -->
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="execute">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-amber phase-badge">SEP–OCT 2026</span>
+                            <h3 class="text-sm font-medium">Cohort Execution · Tokyo · Sushi Mastery</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-execute">—</span>
+                    </div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic leading-relaxed">
+                        🔒 Unlocks when "This Week", "June Campaign", and "Pre-Cohort Operations" are complete. Sequence is the moat.
+                    </div>
+                    <div id="list-execute" class="divide-y divide-white/5 phase-content"></div>
+                </div>
+
+                <!-- NOV · CASE STUDY HARVEST -->
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="harvest">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-violet phase-badge">NOV 2026</span>
+                            <h3 class="text-sm font-medium">Case-Study Harvest · The Asset Factory</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-harvest">—</span>
+                    </div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic leading-relaxed">
+                        🔒 Unlocks when Cohort Execution is complete. The cohort isn't the revenue event — the case-study is.
+                    </div>
+                    <div id="list-harvest" class="divide-y divide-white/5 phase-content"></div>
+                </div>
+
+                <!-- DEC · MASTERY 2027 LAUNCH -->
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="launch27">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-bmw phase-badge">DEC 2026</span>
+                            <h3 class="text-sm font-medium">Mastery 2027 Launch · Open Cohort #2</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-launch27">—</span>
+                    </div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic leading-relaxed">
+                        🔒 Unlocks when the Nov Case-Study Harvest is complete. Cohort #1 alumni become Cohort #2's strongest proof.
+                    </div>
+                    <div id="list-launch27" class="divide-y divide-white/5 phase-content"></div>
+                </div>
+
+                <!-- Q1 2027 · VERTICAL 2 + SCALE -->
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="scale27">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-emerald phase-badge">Q1 2027</span>
+                            <h3 class="text-sm font-medium">Vertical 2 + Demand Engine Scale</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-scale27">—</span>
+                    </div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic leading-relaxed">
+                        🔒 Unlocks when Mastery 2027 is open. Two cohorts before one ships = zero ship. Sequence ruthlessly.
+                    </div>
+                    <div id="list-scale27" class="divide-y divide-white/5 phase-content"></div>
+                </div>
+
+                <!-- MAY 2027 · YEAR-ONE ANNIVERSARY AUDIT -->
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="anniv">
+                    <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="seg seg-rose phase-badge">MAY 2027</span>
+                            <h3 class="text-sm font-medium">Year-One Anniversary · The Audit</h3>
+                        </div>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-anniv">—</span>
+                    </div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic leading-relaxed">
+                        🔒 Unlocks when Q1 2027 scale phase is complete. One year in. Time to choose what compounds next.
+                    </div>
+                    <div id="list-anniv" class="divide-y divide-white/5 phase-content"></div>
+                </div>
+
+                <!-- ADD CUSTOM -->
+                <form id="add-task-form" class="glass rounded-2xl px-5 py-4 flex flex-wrap gap-2">
+                    <select id="add-phase" class="!w-auto text-xs">
+                        <option value="now">This Week</option>
+                        <option value="soon">Next 4 Weeks</option>
+                        <option value="cohort">Before Sep 21</option>
+                        <option value="ongoing">Ongoing</option>
+                        <option value="execute">Sep–Oct Cohort</option>
+                        <option value="harvest">Nov Harvest</option>
+                        <option value="launch27">Dec Mastery 2027</option>
+                        <option value="scale27">Q1 2027 Scale</option>
+                        <option value="anniv">May 2027 Anniversary</option>
+                    </select>
+                    <input type="text" id="add-text" placeholder="Add a task…" class="flex-1 text-sm min-w-0" maxlength="200">
+                    <button type="submit" class="btn-primary">Add</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- INSTAGRAM TRACKER ================================================= -->
+        <section class="mb-10">
+            <div class="flex items-baseline justify-between mb-3 px-1">
+                <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Instagram · Launch & Dev Strategy</h2>
+                <button id="add-ig-btn" class="btn-primary">+ Post</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                <div class="glass-strong rounded-2xl p-3 ig-col" data-col="idea">
+                    <div class="flex items-baseline justify-between mb-3 px-2">
+                        <span class="text-xs font-medium text-white/75">Ideas</span>
+                        <span class="text-[10px] mono text-white/30" id="ig-count-idea">0</span>
+                    </div>
+                    <div class="space-y-2" id="ig-list-idea"></div>
+                </div>
+                <div class="glass-strong rounded-2xl p-3 ig-col" data-col="drafting">
+                    <div class="flex items-baseline justify-between mb-3 px-2">
+                        <span class="text-xs font-medium text-white/75">Drafting</span>
+                        <span class="text-[10px] mono text-white/30" id="ig-count-drafting">0</span>
+                    </div>
+                    <div class="space-y-2" id="ig-list-drafting"></div>
+                </div>
+                <div class="glass-strong rounded-2xl p-3 ig-col" data-col="scheduled">
+                    <div class="flex items-baseline justify-between mb-3 px-2">
+                        <span class="text-xs font-medium text-white/75">Scheduled</span>
+                        <span class="text-[10px] mono text-white/30" id="ig-count-scheduled">0</span>
+                    </div>
+                    <div class="space-y-2" id="ig-list-scheduled"></div>
+                </div>
+                <div class="glass-strong rounded-2xl p-3 ig-col" data-col="published">
+                    <div class="flex items-baseline justify-between mb-3 px-2">
+                        <span class="text-xs font-medium text-white/75">Published</span>
+                        <span class="text-[10px] mono text-white/30" id="ig-count-published">0</span>
+                    </div>
+                    <div class="space-y-2" id="ig-list-published"></div>
+                </div>
+            </div>
+            <p class="text-[11px] text-white/30 mt-2 px-1">Drag posts between columns. Click a card to edit. Voice anchors: Galley·Tokyo Curriculum·Founder Face. CTA: <span class="text-white/55">"Reply SUSHI for September dossier."</span></p>
+        </section>
+
+    </main>
+
+    <!-- IG MODAL ============================================================ -->
+    <div id="ig-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80" onclick="closeIgModal()"></div>
+        <div class="relative glass-strong rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto" style="background:rgba(8,8,8,0.97);">
+            <button onclick="closeIgModal()" class="absolute top-3 right-3 text-white/40 hover:text-white p-2 text-lg">×</button>
+            <h3 class="text-base font-medium mb-1" id="ig-modal-title">New Post</h3>
+            <p class="text-white/40 text-xs mb-5">Idea capture for Instagram — stays in this dashboard.</p>
+            <form id="ig-form" class="space-y-3">
+                <input type="hidden" id="ig-id">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] mono text-white/40 uppercase mb-1">Format</label>
+                        <select id="ig-type">
+                            <option value="reel">Reel</option>
+                            <option value="carousel">Carousel</option>
+                            <option value="static">Single Post</option>
+                            <option value="story">Story Sequence</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] mono text-white/40 uppercase mb-1">Pillar</label>
+                        <select id="ig-pillar">
+                            <option value="galley">Galley → Cohort</option>
+                            <option value="curriculum">Tokyo Curriculum</option>
+                            <option value="founder">Founder Face</option>
+                            <option value="launch">Launch Mechanics</option>
+                            <option value="dev">Dev Strategy / BTS</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-[10px] mono text-white/40 uppercase mb-1">Hook (second 1 visual or first line)</label>
+                    <input type="text" id="ig-hook" placeholder="e.g. Knife landing on a whole bonito" maxlength="160">
+                </div>
+                <div>
+                    <label class="block text-[10px] mono text-white/40 uppercase mb-1">Body / caption / slide outline</label>
+                    <textarea id="ig-body" rows="5" placeholder="Outline · slides · caption. Specificity > superlatives."></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[10px] mono text-white/40 uppercase mb-1">Scheduled</label>
+                        <input type="datetime-local" id="ig-scheduled">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] mono text-white/40 uppercase mb-1">Status</label>
+                        <select id="ig-status">
+                            <option value="idea">Idea</option>
+                            <option value="drafting">Drafting</option>
+                            <option value="scheduled">Scheduled</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between pt-3">
+                    <button type="button" id="ig-delete" class="text-xs text-rose-400/60 hover:text-rose-400 hidden">Delete</button>
+                    <div class="flex gap-2 ml-auto">
+                        <button type="button" onclick="closeIgModal()" class="btn-ghost">Cancel</button>
+                        <button type="submit" class="btn-primary">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- PROFILE EXPAND MODAL ================================================ -->
+    <div id="profile-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80" onclick="closeProfileModal()"></div>
+        <div class="relative glass-strong rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto" style="background:rgba(8,8,8,0.97);">
+            <button onclick="closeProfileModal()" class="absolute top-3 right-3 text-white/40 hover:text-white p-2 text-lg">×</button>
+            <div id="profile-modal-content"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/auth.js"></script>
+
+    <script>
+    // =========================================================================
+    // STATE
+    // =========================================================================
+    const TASKS_KEY = 'et_cmd_checklist_v3';
+    const IG_KEY = 'et_cmd_ig_v2';
+    const SHOW_COMPLETED_KEY = 'et_cmd_show_completed';
+
+    const COHORT_START = new Date('2026-09-21T00:00:00');
+
+    let data = { profiles: [], prefs: [], adventures: [], interests: [] };
+    let tasks = [];
+    let igPosts = [];
+    let showCompleted = false;
+
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const uid = () => Math.random().toString(36).slice(2, 10);
+
+    // =========================================================================
+    // SEED DATA (only first run)
+    // =========================================================================
+    const SEED_TASKS = [
+        // PRIORITY — THIS WEEK (the six moves of May)
+        { id: '6m-1', phase: 'now', text: 'Record "Why I\'m doing this" Reel — 90s, costly signal + premise — pin to profile', done: false },
+        { id: '6m-2', phase: 'now', text: 'Ship waitlist page educatedtraveler.app/sushi-tokyo with $500 refundable deposit (Stripe + Tally + Cal.com)', done: false },
+        { id: '6m-3', phase: 'now', text: 'Publish "Tokyo Curriculum" 8-slide carousel + rewrite sushi-mastery.html day-by-day narrative', done: false },
+        { id: '6m-4', phase: 'now', text: 'Email existing list: "Sushi Mastery Sep 21 – Oct 30, 12 seats, priority access opens June 1"', done: false },
+        { id: '6m-5', phase: 'now', text: 'Write $49 trip-wire product ("Yacht Chef Field Notes" PDF or "Tokyo Itamae Method" audio)', done: false },
+        { id: '6m-6', phase: 'now', text: 'Lock the Premise sentence — paste into IG bio, sales page hero, email signature, sales-call opener', done: false },
+
+        // NEXT 4 WEEKS — June campaign
+        { id: 'jun-1', phase: 'soon', text: 'June 1 · Open priority-access window for warm list (14 days)', done: false },
+        { id: 'jun-2', phase: 'soon', text: 'Build ManyChat → Tally → Stripe → Cal.com → Notion → Loom automation (n8n)', done: false },
+        { id: 'jun-3', phase: 'soon', text: 'Send first 5 partner-outreach emails from prepped 39 (Ring 1 only)', done: false },
+        { id: 'jun-4', phase: 'soon', text: 'Run 5 discovery calls with priority-access applicants — Granola records, summary to Notion', done: false },
+        { id: 'jun-5', phase: 'soon', text: 'June 22 · Open public window (14 days, hard close July 5)', done: false },
+        { id: 'jun-6', phase: 'soon', text: 'Founder long-form #1 in "Salt & Saltwater" newsletter — set up Substack/beehiiv', done: false },
+        { id: 'jun-7', phase: 'soon', text: 'Audit sushi-mastery.html against §8 anatomy (hero VSL, premise, transformation, curriculum, proof, decision, FAQ, countdown)', done: false },
+        { id: 'jun-8', phase: 'soon', text: 'Hard close July 5 · email 3-2-1 sequence (3 days out / 2 days / 1 day / last call)', done: false },
+
+        // BEFORE SEP 21 — Pre-cohort ops
+        { id: 'pre-1', phase: 'cohort', text: 'Visa, insurance, accommodation confirmed in writing for both confirmed students', done: false },
+        { id: 'pre-2', phase: 'cohort', text: 'Pre-arrival kit shipped (knife credit, Tokyo SIM, JR Pass, reading list, phrasebook)', done: false },
+        { id: 'pre-3', phase: 'cohort', text: 'Photo/video brief signed with local Tokyo videographer ($4k for full 6 weeks)', done: false },
+        { id: 'pre-4', phase: 'cohort', text: 'Day-1 dossier for Hiroko (student profiles, allergies, fitness, prior knife experience)', done: false },
+        { id: 'pre-5', phase: 'cohort', text: 'Insurance live · general liability ($2M aggregate) + foreign-student health rider', done: false },
+        { id: 'pre-6', phase: 'cohort', text: 'Refund policy locked in writing — see Playbook - Operations Stack.md', done: false },
+        { id: 'pre-7', phase: 'cohort', text: 'Hiroko weekly check-in calendar locked (Fridays 18:00 JST)', done: false },
+        { id: 'pre-8', phase: 'cohort', text: 'WhatsApp pulse system live (daily 1-tap mood/energy reading)', done: false },
+        { id: 'pre-9', phase: 'cohort', text: 'Photo/video shot list locked — Toyosu visit, knife sharpening, omakase final, etc.', done: false },
+
+        // ONGOING — Weekly rituals
+        { id: 'wk-1', phase: 'ongoing', text: 'Sunday 90-min batch: 3 Reels + 2 carousels filmed and scheduled', done: false },
+        { id: 'wk-2', phase: 'ongoing', text: 'Daily 15-min DM block — reply to every message personally', done: false },
+        { id: 'wk-3', phase: 'ongoing', text: 'Daily 25-min partner-outreach review (partner-scout drafts → approve → send ≤5)', done: false },
+        { id: 'wk-4', phase: 'ongoing', text: 'Friday metrics review: deposits paid · applications · open tasks', done: false },
+        { id: 'wk-5', phase: 'ongoing', text: 'Friday 30-min walk + voice memo: what compounded this week / what to refuse next', done: false },
+
+        // SEP-OCT 2026 · COHORT EXECUTION (locked) — case-study factory mode
+        { id: 'ex-1', phase: 'execute', text: 'Day 1 (Sep 21) · arrival + orientation + welcome dinner · photo brief captures cohort bonding', done: false },
+        { id: 'ex-2', phase: 'execute', text: 'Toyosu market visit week 1 · video shot list complete (kuromaguro auction, supplier intro, breakfast walk)', done: false },
+        { id: 'ex-3', phase: 'execute', text: 'Mid-cohort pivot point (end Week 2) — pacing/intensity review with Hiroko · adjust before Week 3', done: false },
+        { id: 'ex-4', phase: 'execute', text: 'Weekly Hiroko Friday 18:00 JST check-in calls held + minuted (5 weeks total)', done: false },
+        { id: 'ex-5', phase: 'execute', text: 'Daily WhatsApp pulse to students (1-tap mood/energy) — 6-week streak', done: false },
+        { id: 'ex-6', phase: 'execute', text: 'Long-form draft #1 of "Salt & Saltwater" published mid-cohort (live narration, yacht-chef voice)', done: false },
+        { id: 'ex-7', phase: 'execute', text: 'Every key technique filmed + photographed (knife sharpening, koji, omakase final, rice grading)', done: false },
+        { id: 'ex-8', phase: 'execute', text: 'Day 20 · exam + cohort celebration · final group portrait + cohort name engraved on knife handles', done: false },
+        { id: 'ex-9', phase: 'execute', text: 'Day 21 (Oct 30) · closing ceremony · students keep their knife set · alumni Slack channel created', done: false },
+        { id: 'ex-10', phase: 'execute', text: 'Refuse all non-cohort founder work during weeks 1–6 (no partner outreach, no new website builds)', done: false },
+
+        // NOV 2026 · CASE-STUDY HARVEST (locked)
+        { id: 'hv-1', phase: 'harvest', text: 'Exit interview each student (90 min recorded, per Playbook - Student Interview.md) by Nov 7', done: false },
+        { id: 'hv-2', phase: 'harvest', text: 'NPS + 30/60/90-day skill-retention survey sent (track durable skill use, not just satisfaction)', done: false },
+        { id: 'hv-3', phase: 'harvest', text: 'Hiroko debrief: what worked, what to change, 2027 contract signed by ≤Dec 5', done: false },
+        { id: 'hv-4', phase: 'harvest', text: 'Case-study landing page rebuilt with real photo/video/quotes (replaces aspirational copy) — ship by Nov 20', done: false },
+        { id: 'hv-5', phase: 'harvest', text: 'Founder-narrated long-form post published (yacht-chef voice, 1,500–2,500 words) by Nov 14', done: false },
+        { id: 'hv-6', phase: 'harvest', text: 'Short-form video pack: 5× IG Reels + 1× YouTube cut of cohort highlights (Descript edit)', done: false },
+        { id: 'hv-7', phase: 'harvest', text: 'Press outreach: 5 outlets (Skift, AFAR, Eater, Robb Report, La Liste) with case-study one-pager', done: false },
+        { id: 'hv-8', phase: 'harvest', text: '2 alumni signed as Ring-1 referrers — wedding-speech-grade testimonial captured on video', done: false },
+        { id: 'hv-9', phase: 'harvest', text: 'Repeatable cohort-ops playbook documented for next instructor (timeline, kit, daily ops, risk matrix)', done: false },
+
+        // DEC 2026 · MASTERY 2027 LAUNCH (locked)
+        { id: 'l27-1', phase: 'launch27', text: 'Dec 1 · Open Mastery 2027 Spring Sushi cohort (priority access to alumni + waitlist)', done: false },
+        { id: 'l27-2', phase: 'launch27', text: 'Founder long-form #2: "What 6 weeks in Tokyo with Hiroko cost me, and why I\'m doing it again"', done: false },
+        { id: 'l27-3', phase: 'launch27', text: 'Hard close Dec 21 · 12 seats locked with deposits · waitlist for fall cohort opened', done: false },
+        { id: 'l27-4', phase: 'launch27', text: 'Price raise: Mastery $9,500 → $10,500 (proven outcome justifies the move)', done: false },
+        { id: 'l27-5', phase: 'launch27', text: 'IG cohort recap series · 8 carousels + 4 Reels showing actual student progression', done: false },
+        { id: 'l27-6', phase: 'launch27', text: 'Email list segmented: alumni · waitlist warm · waitlist cold · partners — sequences per segment', done: false },
+        { id: 'l27-7', phase: 'launch27', text: 'Year-end financial close: P&L cohort #1 · cost-per-acquisition · LTV first signal · cash reserves audit', done: false },
+
+        // Q1 2027 · VERTICAL 2 + SCALE (locked)
+        { id: 's27-1', phase: 'scale27', text: 'Pick vertical 2 anchor partner from Ring-1 confirmed list (Modernist Barcelona / Yoga Bali / Wine Bordeaux)', done: false },
+        { id: 's27-2', phase: 'scale27', text: 'Vertical 2 landing page shipped using §8 sales-page anatomy + cohort #1 credibility surrogates', done: false },
+        { id: 's27-3', phase: 'scale27', text: 'Open Vertical 2 Foundation cohort (7–14 days, $3,500–$6,500 entry tier) — Jun/Jul 2027 dates', done: false },
+        { id: 's27-4', phase: 'scale27', text: 'Founder bandwidth audit: hire decision (cohort ops VA? content editor? partner coordinator?)', done: false },
+        { id: 's27-5', phase: 'scale27', text: 'IG growth: 5,000 → 12,000 followers by Mar 31 · email list: 500 → 1,500', done: false },
+        { id: 's27-6', phase: 'scale27', text: 'Newsletter cadence locked: "Salt & Saltwater" bi-weekly · 1 founder podcast appearance/month', done: false },
+        { id: 's27-7', phase: 'scale27', text: 'Hampton/peer-community decision · founder peer accountability locked', done: false },
+        { id: 's27-8', phase: 'scale27', text: '$49 trip-wire product shipped publicly · funded 50+ purchases pre-Vertical 2 launch', done: false },
+
+        // MAY 2027 · YEAR-ONE ANNIVERSARY AUDIT (locked)
+        { id: 'an-1', phase: 'anniv', text: '12-month post-mortem written: what compounded · what to refuse next year · 3 honest mistakes', done: false },
+        { id: 'an-2', phase: 'anniv', text: 'Decision: scale a 2027 Saga tier (90–180 day) OR stay focused on Foundation+Mastery — written rationale', done: false },
+        { id: 'an-3', phase: 'anniv', text: 'Year-one financials: revenue · margin · founder pay · profit-first allocations (Michalowicz audit)', done: false },
+        { id: 'an-4', phase: 'anniv', text: 'Brand audit: voice drift check · banned-words enforcement · 3 sacred phrases honored?', done: false },
+        { id: 'an-5', phase: 'anniv', text: 'Cohort #3 (Sep 2027 Sushi) closed early on alumni-only · prove the flywheel works', done: false },
+        { id: 'an-6', phase: 'anniv', text: 'Update Agent - EducatedTraveler - Growth Engine 2026 → archive dated · write Growth Engine 2027 layer', done: false },
+        { id: 'an-7', phase: 'anniv', text: 'Personal: one alum has cited the cohort as the inflection point of a career change. Documented.', done: false },
+    ];
+
+    const SEED_IG = [
+        // Launch mechanics
+        { id: uid(), status: 'idea', type: 'reel', pillar: 'founder', hook: '"Why a yacht chef is building a cooking school" — 90s manifesto, pinned', body: 'Costly signal: flight to Tokyo, scouting, declining a charter. Voice over real galley B-roll. End on premise sentence. Hook in second 1: the founder\'s face, no text overlay.', scheduled: '' },
+        { id: uid(), status: 'idea', type: 'carousel', pillar: 'curriculum', hook: 'Day 1: 5 AM at Toyosu — what you actually do', body: 'Slide 1: hook · 2: arrive 4:30 AM with Hiroko · 3: the kuromaguro auction floor · 4: how to read fish eyes · 5: the supplier intro · 6: knife test · 7: walking back at 6:30 with breakfast plan · 8: CTA reply SUSHI', scheduled: '' },
+        { id: uid(), status: 'idea', type: 'carousel', pillar: 'curriculum', hook: 'Day 4: Hand-pressing nigiri until your forearm gives out', body: '8 slides covering grip pressure, rice temp, the 3 mistakes everyone makes day 1, what Hiroko corrects on day 4. Save bait.', scheduled: '' },
+        { id: uid(), status: 'idea', type: 'reel', pillar: 'galley', hook: 'Breaking down a 12kg yellowfin in 6 minutes (yacht galley)', body: 'No music. Just blade-on-flesh sound + breathing. Text overlay: "This is what we teach. Tokyo. September." End frame: cohort dates.', scheduled: '' },
+        { id: uid(), status: 'idea', type: 'reel', pillar: 'galley', hook: 'Sharpening a yanagiba on a 6000-grit stone — close-up, no talk', body: '20s loop. Trending audio off. Caption: "Sharpening is meditation. Day 3 in Tokyo, you\'ll know why. Reply SUSHI."', scheduled: '' },
+        // Launch mechanics
+        { id: uid(), status: 'drafting', type: 'static', pillar: 'launch', hook: '12 seats. 2 confirmed. Priority access opens June 1.', body: 'Single image: cohort dates + 12 dot icons, 2 filled in. Caption explains the application + $500 refundable deposit. Hard close July 5.', scheduled: '' },
+        // Dev strategy
+        { id: uid(), status: 'idea', type: 'story', pillar: 'dev', hook: 'BTS: scouting the Tsukiji supplier we\'ll use', body: '6-frame story sequence. Phone-shot. Cyan/black aesthetic. Final frame: link sticker → sushi-mastery page.', scheduled: '' },
+        { id: uid(), status: 'idea', type: 'reel', pillar: 'founder', hook: 'I\'m 36. I just turned down a $14k charter to teach.', body: '45s talking head. The cost of doing this. No violins. Just a chef in a galley explaining the math. End: "12 seats. Tokyo. September. Reply SUSHI."', scheduled: '' },
+    ];
+
+    // =========================================================================
+    // PERSISTENCE
+    // =========================================================================
+    function loadTasks() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(TASKS_KEY) || 'null');
+            if (saved && Array.isArray(saved)) return saved;
+        } catch (e) {}
+        return JSON.parse(JSON.stringify(SEED_TASKS));
+    }
+    function saveTasks() { localStorage.setItem(TASKS_KEY, JSON.stringify(tasks)); }
+
+    function loadIg() {
+        try {
+            const saved = JSON.parse(localStorage.getItem(IG_KEY) || 'null');
+            if (saved && Array.isArray(saved)) return saved;
+        } catch (e) {}
+        return JSON.parse(JSON.stringify(SEED_IG));
+    }
+    function saveIg() { localStorage.setItem(IG_KEY, JSON.stringify(igPosts)); }
+
+    // =========================================================================
+    // INIT
+    // =========================================================================
+    document.addEventListener('DOMContentLoaded', async () => {
+        await new Promise(r => setTimeout(r, 500));
+        if (!window.supabaseClient) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('denied').classList.remove('hidden');
+            return;
+        }
+
+        const user = await window.auth.getUser();
+        if (!user) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('denied').classList.remove('hidden');
+            return;
+        }
+
+        const { data: prof } = await window.supabaseClient
+            .from('profiles')
+            .select('is_admin, email')
+            .eq('id', user.id)
+            .single();
+
+        if (!prof?.is_admin) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('denied').classList.remove('hidden');
+            return;
+        }
+
+        tasks = loadTasks();
+        igPosts = loadIg();
+        showCompleted = localStorage.getItem(SHOW_COMPLETED_KEY) === '1';
+        document.getElementById('show-completed').checked = showCompleted;
+
+        await loadLiveData();
+
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('main').classList.remove('hidden');
+
+        renderAll();
+        bindUI();
+    });
+
+    async function loadLiveData() {
+        const sb = window.supabaseClient;
+        const [profiles, prefs, adventures, interests] = await Promise.all([
+            sb.from('profiles').select('id, email, first_name, name, age, location, profession, interests, created_at, xp, level').order('created_at', { ascending: false }).limit(50),
+            sb.from('user_preferences').select('user_id, elements, desires, time_preference, intensity, updated_at'),
+            sb.from('saved_adventures').select('user_id, adventure_id, adventure_name, saved_at').order('saved_at', { ascending: false }),
+            sb.from('experience_interests').select('user_id, adventure_id, adventure_name, status, created_at').order('created_at', { ascending: false }),
+        ]);
+        data.profiles = profiles.data || [];
+        data.prefs = prefs.data || [];
+        data.adventures = adventures.data || [];
+        data.interests = interests.data || [];
+
+        const now = new Date();
+        const fmt = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        document.getElementById('last-sync').textContent = `Synced · ${fmt}`;
+    }
+
+    // =========================================================================
+    // RENDER
+    // =========================================================================
+    function renderAll() {
+        renderHeader();
+        renderPulse();
+        renderSignups();
+        renderTasks();
+        renderIg();
+    }
+
+    function renderHeader() {
+        const now = new Date();
+        document.getElementById('today-label').textContent =
+            now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+        const daysToCohort = Math.ceil((COHORT_START - now) / 86400000);
+        document.getElementById('cohort-countdown').textContent = `T-${daysToCohort} days`;
+    }
+
+    function renderPulse() {
+        const now = Date.now();
+        const wkAgo = now - 7*86400000;
+        const wk2Ago = now - 14*86400000;
+
+        const signupsThis = data.profiles.filter(p => new Date(p.created_at).getTime() >= wkAgo).length;
+        const signupsPrev = data.profiles.filter(p => {
+            const t = new Date(p.created_at).getTime();
+            return t < wkAgo && t >= wk2Ago;
+        }).length;
+        const questsThis = data.prefs.filter(p => p.updated_at && new Date(p.updated_at).getTime() >= wkAgo).length;
+        const questsPrev = data.prefs.filter(p => {
+            const t = new Date(p.updated_at || 0).getTime();
+            return t < wkAgo && t >= wk2Ago;
+        }).length;
+
+        document.getElementById('pulse-signups').textContent = signupsThis;
+        document.getElementById('pulse-signups-delta').innerHTML = delta(signupsThis, signupsPrev);
+        document.getElementById('pulse-quests').textContent = questsThis;
+        document.getElementById('pulse-quests-delta').innerHTML = delta(questsThis, questsPrev);
+
+        document.getElementById('pulse-interests').textContent = data.interests.length;
+        const uniqueInterested = new Set(data.interests.map(i => i.user_id)).size;
+        document.getElementById('pulse-interests-detail').textContent = `${uniqueInterested} people`;
+
+        const scheduledCount = igPosts.filter(p => p.status === 'scheduled').length;
+        const draftingCount = igPosts.filter(p => p.status === 'drafting').length;
+        document.getElementById('pulse-ig').textContent = scheduledCount;
+        document.getElementById('pulse-ig-detail').textContent = `${draftingCount} drafting`;
+
+        const openTasks = tasks.filter(t => !t.done).length;
+        const doneToday = tasks.filter(t => t.done && t.doneAt && (Date.now() - t.doneAt) < 86400000).length;
+        document.getElementById('pulse-tasks').textContent = openTasks;
+        document.getElementById('pulse-tasks-detail').textContent = doneToday ? `+${doneToday} done today` : 'to do';
+    }
+
+    function delta(now, prev) {
+        if (now === prev) return '<span class="text-white/30">= 0</span>';
+        if (now > prev) return `<span class="text-emerald-400">↗ +${now - prev}</span>`;
+        return `<span class="text-rose-400/60">↘ ${now - prev}</span>`;
+    }
+
+    // ---- SIGNUPS -----------------------------------------------------------
+    function renderSignups() {
+        const list = document.getElementById('signups-list');
+        const empty = document.getElementById('signups-empty');
+        const profiles = data.profiles.slice(0, 12);
+
+        if (!profiles.length) {
+            list.innerHTML = '';
+            empty.classList.remove('hidden');
+            return;
+        }
+        empty.classList.add('hidden');
+
+        const prefsByUser = Object.fromEntries(data.prefs.map(p => [p.user_id, p]));
+        const advByUser = {};
+        data.adventures.forEach(a => { (advByUser[a.user_id] = advByUser[a.user_id] || []).push(a); });
+        const intByUser = {};
+        data.interests.forEach(i => { (intByUser[i.user_id] = intByUser[i.user_id] || []).push(i); });
+
+        list.innerHTML = profiles.map(p => {
+            const pref = prefsByUser[p.id];
+            const adv = advByUser[p.id] || [];
+            const intr = intByUser[p.id] || [];
+            const ageDays = Math.floor((Date.now() - new Date(p.created_at).getTime()) / 86400000);
+            const fresh = ageDays <= 7;
+
+            const elements = pref?.elements?.slice(0, 3) || [];
+            const desires = pref?.desires?.slice(0, 2) || [];
+            const topAdv = adv.slice(0, 2);
+
+            const tags = [];
+            if (fresh) tags.push('<span class="seg seg-emerald">NEW</span>');
+            if (intr.length) tags.push(`<span class="seg seg-bmw">${intr.length} INT</span>`);
+            if (adv.length >= 3) tags.push(`<span class="seg seg-violet">${adv.length} SAVED</span>`);
+            if (pref?.intensity === 'high') tags.push('<span class="seg seg-amber">HIGH INT</span>');
+
+            const interestChips = [...new Set([...elements, ...desires, ...topAdv.map(a => a.adventure_name || a.adventure_id)])].slice(0, 4)
+                .map(t => `<span class="text-[10px] text-white/45 bg-white/[0.04] px-2 py-0.5 rounded-full">${esc(t)}</span>`).join(' ');
+
+            const name = esc(p.first_name || p.name || (p.email ? p.email.split('@')[0] : 'anonymous'));
+            const ageLabel = ageDays === 0 ? 'today' : `${ageDays}d ago`;
+
+            return `
+                <button onclick="openProfileModal('${p.id}')" class="w-full text-left px-4 sm:px-5 py-3 hover:bg-white/[0.025] flex items-center gap-3 transition-colors">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-bmw-500/40 to-bmw-700/40 flex items-center justify-center text-xs font-medium shrink-0">
+                        ${esc(name.charAt(0).toUpperCase())}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-sm font-medium truncate">${name}</span>
+                            ${tags.join('')}
+                        </div>
+                        <div class="flex items-center gap-2 mt-1 flex-wrap">
+                            ${interestChips || '<span class="text-[11px] text-white/30">No quest yet</span>'}
+                        </div>
+                    </div>
+                    <div class="text-[11px] mono text-white/30 shrink-0 hidden sm:block">${ageLabel}</div>
+                    <span class="text-white/30 text-xs">›</span>
+                </button>`;
+        }).join('');
+    }
+
+    function openProfileModal(userId) {
+        const p = data.profiles.find(x => x.id === userId);
+        if (!p) return;
+        const pref = data.prefs.find(x => x.user_id === userId);
+        const adv = data.adventures.filter(x => x.user_id === userId);
+        const intr = data.interests.filter(x => x.user_id === userId);
+        const name = esc(p.first_name || p.name || (p.email ? p.email.split('@')[0] : 'anonymous'));
+
+        const row = (label, val) => val ? `<div class="grid grid-cols-[100px,1fr] gap-3 py-1"><span class="text-[11px] mono text-white/35 uppercase">${esc(label)}</span><span class="text-sm text-white/75">${val}</span></div>` : '';
+
+        const chips = (arr) => arr && arr.length ? arr.map(t => `<span class="text-[11px] text-white/65 bg-white/[0.04] px-2 py-0.5 rounded-full">${esc(t)}</span>`).join(' ') : '<span class="text-white/30 text-sm">—</span>';
+
+        document.getElementById('profile-modal-content').innerHTML = `
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-bmw-500/50 to-bmw-700/50 flex items-center justify-center text-base font-medium">
+                    ${esc(name.charAt(0).toUpperCase())}
+                </div>
+                <div>
+                    <h3 class="text-base font-medium">${name}</h3>
+                    <p class="text-xs text-white/40 mono">${esc(p.email || '—')}</p>
+                </div>
+            </div>
+            <div class="space-y-1 mb-4">
+                ${row('Age', p.age)}
+                ${row('Location', p.location)}
+                ${row('Profession', p.profession)}
+                ${row('XP / Lvl', p.xp ? `${p.xp} XP · Lvl ${p.level || 1}` : '')}
+                ${row('Joined', new Date(p.created_at).toLocaleDateString())}
+            </div>
+            ${pref ? `
+                <div class="mb-4 pt-4 border-t border-white/5">
+                    <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Quest</p>
+                    <div class="space-y-2 text-sm">
+                        <div><span class="text-white/45 text-xs">Elements:</span> ${chips(pref.elements)}</div>
+                        <div><span class="text-white/45 text-xs">Desires:</span> ${chips(pref.desires)}</div>
+                        <div class="text-xs text-white/50">Time: <span class="text-white/75">${esc(pref.time_preference || '—')}</span> · Intensity: <span class="text-white/75">${esc(pref.intensity || '—')}</span></div>
+                    </div>
+                </div>` : ''}
+            ${adv.length ? `
+                <div class="mb-4 pt-4 border-t border-white/5">
+                    <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Saved Adventures (${adv.length})</p>
+                    <div class="space-y-1">
+                        ${adv.slice(0, 8).map(a => `<div class="text-xs text-white/65">• ${esc(a.adventure_name || a.adventure_id)}</div>`).join('')}
+                    </div>
+                </div>` : ''}
+            ${intr.length ? `
+                <div class="pt-4 border-t border-white/5">
+                    <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Interests Declared (${intr.length})</p>
+                    <div class="space-y-1">
+                        ${intr.slice(0, 8).map(i => `<div class="text-xs text-white/65 flex justify-between"><span>• ${esc(i.adventure_name || i.adventure_id)}</span><span class="text-white/30 mono">${esc(i.status)}</span></div>`).join('')}
+                    </div>
+                </div>` : ''}
+            <div class="pt-5 mt-5 border-t border-white/5 flex gap-2">
+                ${p.email ? `<a href="mailto:${esc(p.email)}?subject=Sushi%20Mastery%20Tokyo%20%E2%80%94%20Sep%202026" class="btn-primary">Email</a>` : ''}
+                <a href="admin.html" class="btn-ghost">Full admin →</a>
+            </div>`;
+        document.getElementById('profile-modal').classList.remove('hidden');
+    }
+    function closeProfileModal() { document.getElementById('profile-modal').classList.add('hidden'); }
+    window.openProfileModal = openProfileModal;
+    window.closeProfileModal = closeProfileModal;
+
+    // ---- TASKS -------------------------------------------------------------
+    // Phase definitions: visible phases + locked future phases with prereq chain
+    const PHASES = [
+        { id: 'now',     locked: false, prereqs: [] },
+        { id: 'soon',    locked: false, prereqs: [] },
+        { id: 'cohort',  locked: false, prereqs: [] },
+        { id: 'ongoing', locked: false, prereqs: [] },
+        { id: 'execute', locked: true,  prereqs: ['now','soon','cohort'] },
+        { id: 'harvest', locked: true,  prereqs: ['execute'] },
+        { id: 'launch27',locked: true,  prereqs: ['harvest'] },
+        { id: 'scale27', locked: true,  prereqs: ['launch27'] },
+        { id: 'anniv',   locked: true,  prereqs: ['scale27'] },
+    ];
+
+    function isPhaseComplete(phaseId) {
+        const items = tasks.filter(t => t.phase === phaseId);
+        if (!items.length) return false;
+        return items.every(t => t.done);
+    }
+
+    function isPhaseUnlocked(phase) {
+        if (!phase.locked) return true;
+        return phase.prereqs.every(p => isPhaseComplete(p));
+    }
+
+    function renderTasks() {
+        PHASES.forEach(phase => {
+            const items = tasks.filter(t => t.phase === phase.id);
+            const open = items.filter(t => !t.done).length;
+            const total = items.length;
+            const unlocked = isPhaseUnlocked(phase);
+
+            const countEl = document.getElementById('count-' + phase.id);
+            const listEl = document.getElementById('list-' + phase.id);
+            if (!listEl) return;
+
+            // Find the card wrapper to toggle locked/unlocked visual state
+            const card = listEl.closest('.phase-card');
+            const lockedMsg = card?.querySelector('.phase-locked-msg');
+            const badge = card?.querySelector('.phase-badge');
+
+            if (phase.locked && !unlocked) {
+                if (countEl) countEl.textContent = '🔒 locked';
+                if (lockedMsg) lockedMsg.classList.remove('hidden');
+                listEl.classList.add('hidden');
+                if (card) card.style.opacity = '0.55';
+                if (badge) badge.classList.add('opacity-60');
+                return;
+            }
+
+            // Unlocked — show content
+            if (lockedMsg) lockedMsg.classList.add('hidden');
+            listEl.classList.remove('hidden');
+            if (card) card.style.opacity = '1';
+            if (badge) badge.classList.remove('opacity-60');
+
+            // Just unlocked? Surface a quick "unveiled" celebration on count
+            const justUnlocked = phase.locked && unlocked && total > 0 && open === total;
+            if (countEl) {
+                countEl.textContent = `${open}/${total} open${justUnlocked ? ' · ◆ unveiled' : ''}`;
+            }
+
+            if (!items.length) {
+                listEl.innerHTML = '<div class="px-5 py-4 text-xs text-white/30">No tasks in this phase.</div>';
+                return;
+            }
+
+            listEl.innerHTML = items.map(t => {
+                const doneClass = t.done ? 'done' : '';
+                const showClass = (t.done && showCompleted) ? 'show-completed' : '';
+                return `
+                    <div class="check px-5 py-3 flex items-start gap-3 ${doneClass} ${showClass}" data-task="${t.id}">
+                        <button onclick="toggleTask('${t.id}')" class="mt-0.5 shrink-0 w-4 h-4 rounded border ${t.done ? 'bg-bmw-500/40 border-bmw-400/60' : 'border-white/20 hover:border-white/50'} flex items-center justify-center transition-colors">
+                            ${t.done ? '<svg class="w-3 h-3 text-bmw-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
+                        </button>
+                        <div class="flex-1 text-sm leading-snug ${t.done ? 'text-white/40 line-through' : 'text-white/85'}">${esc(t.text)}</div>
+                        <button onclick="deleteTask('${t.id}')" class="text-white/20 hover:text-rose-400 text-xs shrink-0">×</button>
+                    </div>`;
+            }).join('');
+        });
+    }
+
+    function toggleTask(id) {
+        const t = tasks.find(x => x.id === id);
+        if (!t) return;
+        t.done = !t.done;
+        t.doneAt = t.done ? Date.now() : null;
+        // Ongoing tasks auto-uncheck weekly
+        saveTasks();
+        renderTasks();
+        renderPulse();
+    }
+    window.toggleTask = toggleTask;
+
+    function deleteTask(id) {
+        tasks = tasks.filter(x => x.id !== id);
+        saveTasks();
+        renderTasks();
+        renderPulse();
+    }
+    window.deleteTask = deleteTask;
+
+    // Auto-resurrect ongoing tasks every 7 days
+    function resurrectOngoing() {
+        const wk = 7 * 86400000;
+        let changed = false;
+        tasks.forEach(t => {
+            if (t.phase === 'ongoing' && t.done && t.doneAt && (Date.now() - t.doneAt) > wk) {
+                t.done = false;
+                t.doneAt = null;
+                changed = true;
+            }
+        });
+        if (changed) saveTasks();
+    }
+
+    // ---- IG TRACKER --------------------------------------------------------
+    function renderIg() {
+        const cols = ['idea','drafting','scheduled','published'];
+        cols.forEach(col => {
+            const items = igPosts.filter(p => p.status === col);
+            const listEl = document.getElementById('ig-list-' + col);
+            const countEl = document.getElementById('ig-count-' + col);
+            countEl.textContent = items.length;
+            if (!items.length) {
+                listEl.innerHTML = `<div class="text-[11px] text-white/25 text-center py-4 italic">drop a card here</div>`;
+                return;
+            }
+            listEl.innerHTML = items.map(p => `
+                <div class="ig-card glass rounded-lg p-3 hover:border-white/15 transition-colors" draggable="true" data-id="${p.id}" onclick="openIgModal('${p.id}')">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="seg ${igPillarColor(p.pillar)}">${igPillarLabel(p.pillar)}</span>
+                        <span class="text-[10px] mono text-white/30">${igTypeLabel(p.type)}</span>
+                    </div>
+                    <div class="text-xs text-white/85 leading-snug line-clamp-3">${esc(p.hook || '(no hook yet)')}</div>
+                    ${p.scheduled ? `<div class="mt-2 text-[10px] mono text-white/40">📅 ${formatScheduled(p.scheduled)}</div>` : ''}
+                </div>`).join('');
+        });
+        bindDragAndDrop();
+    }
+
+    function igPillarColor(p) {
+        return ({galley:'seg-emerald', curriculum:'seg-bmw', founder:'seg-violet', launch:'seg-amber', dev:'seg-rose'})[p] || 'seg-white';
+    }
+    function igPillarLabel(p) {
+        return ({galley:'GALLEY', curriculum:'CURRICULUM', founder:'FOUNDER', launch:'LAUNCH', dev:'DEV / BTS'})[p] || (p || '—').toUpperCase();
+    }
+    function igTypeLabel(t) {
+        return ({reel:'REEL', carousel:'CAROUSEL', static:'POST', story:'STORY'})[t] || (t || '—').toUpperCase();
+    }
+    function formatScheduled(s) {
+        if (!s) return '';
+        const d = new Date(s);
+        return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    }
+
+    function openIgModal(id) {
+        const p = id ? igPosts.find(x => x.id === id) : null;
+        document.getElementById('ig-modal-title').textContent = p ? 'Edit Post' : 'New Post';
+        document.getElementById('ig-id').value = p?.id || '';
+        document.getElementById('ig-type').value = p?.type || 'reel';
+        document.getElementById('ig-pillar').value = p?.pillar || 'galley';
+        document.getElementById('ig-hook').value = p?.hook || '';
+        document.getElementById('ig-body').value = p?.body || '';
+        document.getElementById('ig-scheduled').value = p?.scheduled || '';
+        document.getElementById('ig-status').value = p?.status || 'idea';
+        document.getElementById('ig-delete').classList.toggle('hidden', !p);
+        document.getElementById('ig-modal').classList.remove('hidden');
+    }
+    function closeIgModal() { document.getElementById('ig-modal').classList.add('hidden'); }
+    window.openIgModal = openIgModal;
+    window.closeIgModal = closeIgModal;
+
+    function bindDragAndDrop() {
+        document.querySelectorAll('.ig-card').forEach(card => {
+            card.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('id', card.dataset.id);
+                card.style.opacity = '0.5';
+            });
+            card.addEventListener('dragend', () => { card.style.opacity = '1'; });
+        });
+        document.querySelectorAll('.ig-col').forEach(col => {
+            col.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                col.classList.add('drag-over');
+            });
+            col.addEventListener('dragleave', () => col.classList.remove('drag-over'));
+            col.addEventListener('drop', (e) => {
+                e.preventDefault();
+                col.classList.remove('drag-over');
+                const id = e.dataTransfer.getData('id');
+                const post = igPosts.find(p => p.id === id);
+                if (post) {
+                    post.status = col.dataset.col;
+                    saveIg();
+                    renderIg();
+                    renderPulse();
+                }
+            });
+        });
+    }
+
+    // =========================================================================
+    // UI BINDINGS
+    // =========================================================================
+    function bindUI() {
+        document.getElementById('refresh-btn').addEventListener('click', async () => {
+            const btn = document.getElementById('refresh-btn');
+            const orig = btn.textContent;
+            btn.textContent = 'Syncing…';
+            await loadLiveData();
+            renderAll();
+            btn.textContent = orig;
+        });
+
+        document.getElementById('sign-out-btn').addEventListener('click', async () => {
+            await window.auth.signOut();
+            window.location.href = '/';
+        });
+
+        document.getElementById('show-completed').addEventListener('change', (e) => {
+            showCompleted = e.target.checked;
+            localStorage.setItem(SHOW_COMPLETED_KEY, showCompleted ? '1' : '0');
+            renderTasks();
+        });
+
+        document.getElementById('reset-checklist').addEventListener('click', () => {
+            if (confirm('Reset checklist to seed values? Your custom tasks will be lost.')) {
+                tasks = JSON.parse(JSON.stringify(SEED_TASKS));
+                saveTasks();
+                renderTasks();
+                renderPulse();
+            }
+        });
+
+        document.getElementById('add-task-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = document.getElementById('add-text').value.trim();
+            const phase = document.getElementById('add-phase').value;
+            if (!text) return;
+            tasks.push({ id: 'u-' + uid(), phase, text, done: false });
+            saveTasks();
+            document.getElementById('add-text').value = '';
+            renderTasks();
+            renderPulse();
+        });
+
+        document.getElementById('add-ig-btn').addEventListener('click', () => openIgModal(null));
+
+        document.getElementById('ig-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = document.getElementById('ig-id').value;
+            const post = {
+                id: id || uid(),
+                type: document.getElementById('ig-type').value,
+                pillar: document.getElementById('ig-pillar').value,
+                hook: document.getElementById('ig-hook').value.trim(),
+                body: document.getElementById('ig-body').value.trim(),
+                scheduled: document.getElementById('ig-scheduled').value,
+                status: document.getElementById('ig-status').value,
+            };
+            if (id) {
+                const idx = igPosts.findIndex(p => p.id === id);
+                if (idx >= 0) igPosts[idx] = post;
+            } else {
+                igPosts.unshift(post);
+            }
+            saveIg();
+            closeIgModal();
+            renderIg();
+            renderPulse();
+        });
+
+        document.getElementById('ig-delete').addEventListener('click', () => {
+            const id = document.getElementById('ig-id').value;
+            if (!id) return;
+            if (confirm('Delete this post idea?')) {
+                igPosts = igPosts.filter(p => p.id !== id);
+                saveIg();
+                closeIgModal();
+                renderIg();
+                renderPulse();
+            }
+        });
+
+        resurrectOngoing();
+    }
+    </script>
+</body>
+</html>
