@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#050505">
     <title>Command Center — EDUCATEDTRAVELER</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -32,28 +33,49 @@
 
     <style>
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #050505; color: #fff; }
-        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+        html, body { background: #050505; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: #fff;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
         .glass-strong { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
         .mono { font-family: 'IBM Plex Mono', monospace; }
+        .accent { color: #3B8DD4; }
+        .stat-num { font-variant-numeric: tabular-nums; }
+
+        /* Animations */
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .spinner { animation: spin 1s linear infinite; }
-        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
-        .pulse-dot { animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
+        .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+        @keyframes slide-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .view.active { animation: slide-in 0.25s ease-out; }
+
+        /* View visibility */
+        .view { display: none; }
+        .view.active { display: block; }
+
+        /* Details */
         details > summary { list-style: none; cursor: pointer; }
         details > summary::-webkit-details-marker { display: none; }
         details[open] .chev { transform: rotate(90deg); }
         .chev { transition: transform 0.2s; }
-        .check { transition: all 0.25s ease; }
+
+        /* Checklist items */
+        .check { transition: opacity 0.25s, max-height 0.25s, padding 0.25s, margin 0.25s, transform 0.25s; }
         .check.done { opacity: 0; max-height: 0; padding: 0 !important; margin: 0 !important; overflow: hidden; pointer-events: none; transform: scale(0.97); }
-        .check.done.show-completed { opacity: 0.35; max-height: 80px; padding: 12px 16px !important; transform: scale(1); }
+        .check.done.show-completed { opacity: 0.35; max-height: 80px; padding: 12px 20px !important; transform: scale(1); }
+
+        /* IG kanban cards */
         .ig-card { cursor: grab; user-select: none; }
         .ig-card:active { cursor: grabbing; }
         .ig-col { min-height: 120px; }
         .ig-col.drag-over { background: rgba(59,141,212,0.08); border-color: rgba(59,141,212,0.3); }
-        .accent { color: #3B8DD4; }
-        .ring-accent { ring-color: rgba(59,141,212,0.4); }
-        input[type="text"], input[type="datetime-local"], textarea, select {
+
+        /* Inputs */
+        input[type="text"], input[type="email"], input[type="datetime-local"], textarea, select {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.08);
             color: #fff;
@@ -61,11 +83,15 @@
             padding: 0.5rem 0.75rem;
             font-size: 0.875rem;
             width: 100%;
+            font-family: inherit;
         }
-        input[type="text"]:focus, input[type="datetime-local"]:focus, textarea:focus, select:focus {
+        input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: rgba(59,141,212,0.5);
         }
+        textarea { resize: vertical; min-height: 60px; }
+
+        /* Buttons */
         .btn-primary {
             background: rgba(0,102,177,0.85);
             color: #fff; border-radius: 9999px;
@@ -83,7 +109,8 @@
             transition: all 0.15s;
         }
         .btn-ghost:hover { background: rgba(255,255,255,0.06); color: #fff; }
-        .stat-num { font-variant-numeric: tabular-nums; }
+
+        /* Segments / badges */
         .seg { font-size: 0.625rem; padding: 2px 8px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
         .seg-amber { background: rgba(245,158,11,0.18); color: #fbbf24; }
         .seg-emerald { background: rgba(16,185,129,0.18); color: #34d399; }
@@ -91,29 +118,83 @@
         .seg-violet { background: rgba(139,92,246,0.18); color: #a78bfa; }
         .seg-rose { background: rgba(244,63,94,0.18); color: #fb7185; }
         .seg-white { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); }
+
+        /* Bottom tab bar */
+        .tab-bar {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+            background: rgba(10,10,10,0.9);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .tab-btn {
+            flex: 1; padding: 10px 4px;
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.625rem; letter-spacing: 0.06em; text-transform: uppercase;
+            transition: color 0.15s;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .tab-btn.active { color: #3B8DD4; }
+        .tab-btn:hover { color: rgba(255,255,255,0.7); }
+        .tab-btn.active:hover { color: #4d94d9; }
+        .tab-btn svg { width: 20px; height: 20px; stroke-width: 1.5; }
+
+        /* North star bar */
+        .north-star {
+            background: linear-gradient(180deg, rgba(0,102,177,0.08), rgba(0,102,177,0.02));
+            border-bottom: 1px solid rgba(59,141,212,0.15);
+        }
+
+        /* Funnel bars */
+        .funnel-bar { transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        /* Lint badge */
+        .lint-clean { color: #34d399; }
+        .lint-warn { color: #fbbf24; }
+
+        /* Capture box autofocus */
+        .capture-glow:focus-within {
+            border-color: rgba(59,141,212,0.4);
+            box-shadow: 0 0 0 3px rgba(59,141,212,0.08);
+        }
+
+        /* Layout helpers */
+        .container-cmd { max-width: 64rem; margin: 0 auto; padding: 0 1rem; }
+        @media (min-width: 640px) { .container-cmd { padding: 0 1.25rem; } }
+
+        /* Hide scrollbar in tab strip */
+        .scroll-x { overflow-x: auto; scrollbar-width: none; }
+        .scroll-x::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="min-h-screen pb-24">
+<body class="min-h-screen">
 
-    <!-- Top Bar -->
+    <!-- =================================================================
+         TOP NAV — minimal: brand · sync · signout
+         ================================================================= -->
     <nav class="sticky top-0 z-50 glass">
-        <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
+        <div class="container-cmd flex items-center justify-between" style="height:52px">
+            <div class="flex items-center gap-2">
                 <a href="/" class="text-base font-semibold tracking-wider">
                     EDUCATED<span class="accent">TRAVELER</span>
                 </a>
-                <span class="mono text-[10px] text-white/40 bg-white/5 px-2 py-1 rounded-full">COMMAND</span>
-                <span class="hidden sm:inline pulse-dot w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                <span class="mono text-[10px] text-white/40 bg-white/5 px-2 py-0.5 rounded-full">CMD</span>
             </div>
-            <div class="flex items-center gap-3 text-xs">
+            <div class="flex items-center gap-2 text-xs">
                 <span id="last-sync" class="hidden sm:inline mono text-white/30"></span>
-                <button id="refresh-btn" class="btn-ghost">Refresh</button>
-                <button id="sign-out-btn" class="text-white/40 hover:text-white">Sign Out</button>
+                <button id="refresh-btn" class="btn-ghost !py-1 !px-3 !text-xs">↻</button>
+                <button id="sign-out-btn" class="text-white/40 hover:text-white text-xs">Out</button>
             </div>
         </div>
     </nav>
 
-    <!-- Loading -->
+    <!-- =================================================================
+         LOADING
+         ================================================================= -->
     <div id="loading" class="min-h-screen flex items-center justify-center">
         <div class="text-center">
             <div class="w-10 h-10 mx-auto mb-4 border-2 border-bmw-400/30 border-t-bmw-400 rounded-full spinner"></div>
@@ -121,8 +202,10 @@
         </div>
     </div>
 
-    <!-- Access Denied -->
-    <div id="denied" class="hidden min-h-screen flex items-center justify-center">
+    <!-- =================================================================
+         DENIED
+         ================================================================= -->
+    <div id="denied" class="hidden min-h-screen flex items-center justify-center px-4">
         <div class="text-center max-w-sm">
             <p class="text-rose-400 text-xl mb-3 font-light">Access Denied</p>
             <p class="text-white/40 text-sm mb-5">This page is restricted to the founder.</p>
@@ -130,203 +213,297 @@
         </div>
     </div>
 
-    <!-- Main -->
-    <main id="main" class="hidden max-w-6xl mx-auto px-4 sm:px-5 pt-6">
+    <!-- =================================================================
+         MAIN
+         ================================================================= -->
+    <main id="main" class="hidden pb-32">
 
-        <!-- MISSION OF THE WEEK ============================================= -->
-        <section class="mb-6">
-            <div class="flex items-baseline justify-between mb-3 px-1">
-                <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Mission · This Week</h2>
-                <span id="today-label" class="text-xs text-white/30 mono"></span>
+        <!-- NORTH STAR BAR (sticky under nav) -->
+        <div class="north-star sticky z-40" style="top:52px">
+            <div class="container-cmd flex items-center justify-between gap-3 py-2.5 text-xs">
+                <div class="flex items-center gap-3 flex-wrap min-w-0">
+                    <span class="flex items-center gap-1.5">
+                        <span class="text-[10px] mono text-white/40 uppercase">Deposits</span>
+                        <span class="font-medium stat-num"><span id="ns-deposits" class="accent">—</span><span class="text-white/30">/12</span></span>
+                    </span>
+                    <span class="text-white/15">·</span>
+                    <span class="flex items-center gap-1.5">
+                        <span class="text-[10px] mono text-white/40 uppercase">Apps</span>
+                        <span class="font-medium stat-num" id="ns-apps">—</span>
+                    </span>
+                    <span class="text-white/15">·</span>
+                    <span class="flex items-center gap-1.5">
+                        <span class="text-[10px] mono text-white/40 uppercase">T-</span>
+                        <span class="font-medium stat-num" id="ns-tminus">—</span>
+                    </span>
+                </div>
+                <span id="ns-priority" class="seg seg-rose hidden sm:inline-flex shrink-0">◆ open priority</span>
             </div>
-            <div class="glass-strong rounded-2xl p-5 sm:p-6 relative overflow-hidden">
-                <div class="absolute inset-0 opacity-30 pointer-events-none" style="background: radial-gradient(circle at top right, rgba(59,141,212,0.18), transparent 60%);"></div>
-                <div class="relative grid sm:grid-cols-[1fr,auto] gap-4 items-start">
-                    <div>
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="seg seg-bmw">SUSHI MASTERY · TOKYO</span>
-                            <span class="seg seg-white" id="cohort-countdown">— days</span>
+        </div>
+
+        <!-- =============================================================
+             VIEW · TODAY
+             ============================================================= -->
+        <section id="view-today" class="view active container-cmd pt-5">
+
+            <!-- Today's 3 -->
+            <div class="mb-5">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Today's 3 · auto-derived</h2>
+                    <span class="text-[11px] text-white/30 mono" id="today-label"></span>
+                </div>
+                <div class="glass-strong rounded-2xl overflow-hidden" id="today-list"></div>
+            </div>
+
+            <!-- Quick Capture -->
+            <div class="mb-5">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Capture · for later triage</h2>
+                    <span class="text-[11px] text-white/30" id="inbox-count">0 in inbox</span>
+                </div>
+                <div class="glass-strong rounded-2xl p-3 capture-glow transition">
+                    <form id="capture-form" class="flex gap-2">
+                        <textarea id="capture-text" placeholder="Idea, observation, task, voice memo transcript…" rows="2" class="flex-1 !min-h-[52px]"></textarea>
+                        <div class="flex flex-col gap-2 shrink-0">
+                            <button type="button" id="capture-voice" class="btn-ghost !px-3 !py-2" title="Voice capture (Web Speech API)">🎙</button>
+                            <button type="submit" class="btn-primary !px-3 !py-2">Save</button>
                         </div>
-                        <h1 class="text-2xl sm:text-3xl font-light leading-tight mb-2">Open priority access. Lock 6 deposits by June&nbsp;21.</h1>
-                        <p class="text-white/55 text-sm leading-relaxed max-w-2xl">Six moves of May. Premise pinned. $500 deposit page live. Tokyo Curriculum carousel out. Existing list emailed. Sunday batch holds. DMs replied daily.</p>
+                    </form>
+                    <div id="voice-status" class="hidden text-[11px] text-amber-400 mt-2 px-1"></div>
+                </div>
+            </div>
+
+            <!-- Inbox -->
+            <div class="mb-5">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Inbox · new signals · tap to triage</h2>
+                    <button data-view="people" class="text-[11px] text-white/40 hover:text-white view-link">View all →</button>
+                </div>
+                <div class="glass-strong rounded-2xl overflow-hidden">
+                    <div id="inbox-list" class="divide-y divide-white/5"></div>
+                </div>
+            </div>
+
+            <!-- Sunday Batch (visible Fri/Sat/Sun) -->
+            <div class="mb-5 hidden" id="batch-section">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Sunday Batch · this weekend's content</h2>
+                    <button id="batch-refresh" class="text-[11px] text-white/40 hover:text-white">↻ regenerate</button>
+                </div>
+                <div id="batch-list" class="space-y-2"></div>
+            </div>
+
+            <!-- Pulse mini -->
+            <div class="mb-5">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Pulse · only what matters</h2>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="glass rounded-xl p-3">
+                        <div class="text-[10px] mono text-white/35 uppercase">Deposits</div>
+                        <div class="text-2xl font-light accent mono stat-num" id="pulse-deposits-mini">—</div>
+                        <div class="text-[10px] text-white/35" id="pulse-deposits-delta">vs 12 target</div>
                     </div>
-                    <div class="text-right">
-                        <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-1">Deposits</div>
-                        <div class="text-4xl font-light accent mono stat-num"><span id="deposits-paid">2</span><span class="text-white/25">/12</span></div>
-                        <div class="text-[11px] text-white/40 mt-1">2 confirmed (Hiroko cohort)</div>
+                    <div class="glass rounded-xl p-3">
+                        <div class="text-[10px] mono text-white/35 uppercase">Apps Open</div>
+                        <div class="text-2xl font-light accent mono stat-num" id="pulse-apps-mini">—</div>
+                        <div class="text-[10px] text-white/35" id="pulse-apps-delta">awaiting</div>
+                    </div>
+                    <div class="glass rounded-xl p-3">
+                        <div class="text-[10px] mono text-white/35 uppercase">Tasks Today</div>
+                        <div class="text-2xl font-light accent mono stat-num" id="pulse-tasks-mini">—</div>
+                        <div class="text-[10px] text-white/35" id="pulse-tasks-delta">to do</div>
                     </div>
                 </div>
             </div>
+
         </section>
 
-        <!-- PULSE STRIP ====================================================== -->
-        <section class="mb-6 grid grid-cols-2 md:grid-cols-5 gap-2 sm:gap-3">
-            <div class="glass rounded-xl p-3">
-                <div class="text-[10px] mono text-white/35 uppercase">Signups · 7d</div>
-                <div class="text-2xl font-light accent mono stat-num" id="pulse-signups">—</div>
-                <div class="text-[10px] text-white/35" id="pulse-signups-delta">vs prev</div>
+        <!-- =============================================================
+             VIEW · FUNNEL
+             ============================================================= -->
+        <section id="view-funnel" class="view container-cmd pt-5">
+
+            <div class="mb-4 px-1">
+                <h2 class="text-base font-medium mb-1">Live Funnel</h2>
+                <p class="text-xs text-white/40">From Supabase · the honest mirror of the campaign.</p>
             </div>
-            <div class="glass rounded-xl p-3">
-                <div class="text-[10px] mono text-white/35 uppercase">Quests · 7d</div>
-                <div class="text-2xl font-light accent mono stat-num" id="pulse-quests">—</div>
-                <div class="text-[10px] text-white/35" id="pulse-quests-delta">vs prev</div>
+
+            <div class="glass-strong rounded-2xl p-5 mb-5">
+                <div id="funnel-cascade" class="space-y-2.5"></div>
+                <div id="funnel-diagnostic" class="mt-5 pt-5 border-t border-white/5"></div>
             </div>
-            <div class="glass rounded-xl p-3">
-                <div class="text-[10px] mono text-white/35 uppercase">Interests</div>
-                <div class="text-2xl font-light accent mono stat-num" id="pulse-interests">—</div>
-                <div class="text-[10px] text-white/35" id="pulse-interests-detail">total</div>
+
+            <div class="grid sm:grid-cols-2 gap-3 mb-5">
+                <div class="glass-strong rounded-2xl p-5">
+                    <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">Goal Trajectory</div>
+                    <div id="goal-trajectory"></div>
+                </div>
+                <div class="glass-strong rounded-2xl p-5">
+                    <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">Benchmarks (Growth Engine §8)</div>
+                    <div class="text-xs text-white/70 space-y-1.5 mt-2">
+                        <div class="flex justify-between"><span>Sales page → application</span><span class="mono text-white/45">5–10%</span></div>
+                        <div class="flex justify-between"><span>Application → discovery call</span><span class="mono text-white/45">30–60%</span></div>
+                        <div class="flex justify-between"><span>Discovery call → close</span><span class="mono text-white/45">10–25%</span></div>
+                        <div class="pt-1.5 mt-1.5 border-t border-white/5 flex justify-between text-white/85"><span>To fill 12 seats</span><span class="mono accent">~1,440 page visits</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="glass rounded-xl p-3">
-                <div class="text-[10px] mono text-white/35 uppercase">IG Scheduled</div>
-                <div class="text-2xl font-light accent mono stat-num" id="pulse-ig">—</div>
-                <div class="text-[10px] text-white/35" id="pulse-ig-detail">posts</div>
-            </div>
-            <div class="glass rounded-xl p-3 col-span-2 md:col-span-1">
-                <div class="text-[10px] mono text-white/35 uppercase">Open Tasks</div>
-                <div class="text-2xl font-light accent mono stat-num" id="pulse-tasks">—</div>
-                <div class="text-[10px] text-white/35" id="pulse-tasks-detail">to do</div>
-            </div>
+
+            <!-- Vanity metrics hidden by default -->
+            <details class="glass-strong rounded-2xl overflow-hidden">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <span class="text-sm">Vanity metrics</span>
+                        <span class="seg seg-white">SHOW ONLY IF NEEDED</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                    <div class="rounded-md p-3 bg-white/[0.02]">
+                        <div class="text-white/35 text-[10px] uppercase mono">Signups 7d</div>
+                        <div class="text-lg font-light mono accent stat-num" id="vanity-signups">—</div>
+                    </div>
+                    <div class="rounded-md p-3 bg-white/[0.02]">
+                        <div class="text-white/35 text-[10px] uppercase mono">Quests 7d</div>
+                        <div class="text-lg font-light mono accent stat-num" id="vanity-quests">—</div>
+                    </div>
+                    <div class="rounded-md p-3 bg-white/[0.02]">
+                        <div class="text-white/35 text-[10px] uppercase mono">Saved 7d</div>
+                        <div class="text-lg font-light mono accent stat-num" id="vanity-saved">—</div>
+                    </div>
+                    <div class="rounded-md p-3 bg-white/[0.02]">
+                        <div class="text-white/35 text-[10px] uppercase mono">IG sched</div>
+                        <div class="text-lg font-light mono accent stat-num" id="vanity-ig">—</div>
+                    </div>
+                </div>
+            </details>
         </section>
 
-        <!-- LIVE SIGNUPS ===================================================== -->
-        <section class="mb-6">
-            <div class="flex items-baseline justify-between mb-3 px-1">
-                <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ New People · Who & What</h2>
-                <span class="text-xs text-white/30">Tap to expand</span>
+        <!-- =============================================================
+             VIEW · PEOPLE
+             ============================================================= -->
+        <section id="view-people" class="view container-cmd pt-5">
+            <div class="mb-3 flex items-baseline justify-between px-1">
+                <h2 class="text-base font-medium">People</h2>
+                <span class="text-[11px] text-white/30" id="people-count"></span>
             </div>
+
+            <!-- Filter chips -->
+            <div class="scroll-x mb-4 -mx-1">
+                <div class="flex gap-2 px-1 whitespace-nowrap">
+                    <button data-filter="hot" class="people-filter btn-ghost !text-xs !py-1.5 !px-3">🔥 Hot</button>
+                    <button data-filter="new" class="people-filter btn-primary !text-xs !py-1.5 !px-3">New</button>
+                    <button data-filter="applicants" class="people-filter btn-ghost !text-xs !py-1.5 !px-3">Applicants</button>
+                    <button data-filter="cohort" class="people-filter btn-ghost !text-xs !py-1.5 !px-3">Cohort #1</button>
+                    <button data-filter="all" class="people-filter btn-ghost !text-xs !py-1.5 !px-3">All</button>
+                </div>
+            </div>
+
             <div class="glass-strong rounded-2xl overflow-hidden">
-                <div id="signups-list" class="divide-y divide-white/5">
-                    <!-- rows injected -->
-                </div>
-                <div id="signups-empty" class="hidden p-8 text-center text-white/30 text-sm">No signups yet — share the link.</div>
+                <div id="people-list" class="divide-y divide-white/5"></div>
+                <div id="people-empty" class="hidden p-8 text-center text-white/30 text-sm">No people in this filter yet.</div>
             </div>
         </section>
 
-        <!-- MARKETING + DEV STRATEGY (side by side) ========================== -->
-        <section class="mb-6 grid lg:grid-cols-2 gap-4">
+        <!-- =============================================================
+             VIEW · CONTENT
+             ============================================================= -->
+        <section id="view-content" class="view container-cmd pt-5">
 
-            <!-- MARKETING -->
-            <details class="glass-strong rounded-2xl overflow-hidden group" open>
-                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
-                    <div class="flex items-center gap-3">
-                        <span class="chev text-white/40">›</span>
-                        <h3 class="text-sm font-medium">Marketing Strategy</h3>
-                        <span class="seg seg-bmw">2026 PLAYBOOK</span>
-                    </div>
-                    <span class="text-[10px] mono text-white/30">8 moves</span>
-                </summary>
-                <div class="px-5 pb-5 pt-1 space-y-4 text-sm">
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">The Premise (pin everywhere)</p>
-                        <p class="text-white/75 italic leading-relaxed">"A French yacht chef who turned 12 years of cooking for billionaires into the world's first certified culinary immersion run by working operators. We don't sell vacations. We sell skills you keep — at the source, with masters who never stopped working the line."</p>
-                    </div>
+            <div class="mb-4 px-1 flex items-baseline justify-between">
+                <h2 class="text-base font-medium">Content</h2>
+                <button id="add-ig-btn" class="btn-primary !text-xs !py-1.5 !px-3">+ Post</button>
+            </div>
 
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Reverse Calendar · Sep 21 cohort</p>
-                        <div class="space-y-1.5 text-xs text-white/70">
-                            <div class="flex gap-3"><span class="mono text-white/40 w-32">May 12 → May 31</span><span>Awareness · premise live · costly-signal Reel pinned · deposit page up</span></div>
-                            <div class="flex gap-3"><span class="mono text-white/40 w-32">June 1 → June 21</span><span>Priority access (14 days) · waitlist gets first crack · daily DMs</span></div>
-                            <div class="flex gap-3"><span class="mono text-white/40 w-32">June 22 → July 5</span><span>Public open (14 days) · application + $500 deposit · hard close</span></div>
-                            <div class="flex gap-3"><span class="mono text-white/40 w-32">July 6 → Sep 14</span><span>Pre-cohort · logistics · pre-arrival kit (T-14) · cohort Slack warm-up</span></div>
-                            <div class="flex gap-3"><span class="mono text-white/40 w-32">Sep 21 → Oct 30</span><span>Cohort · photo/video brief active · daily stories · long-form drafted live</span></div>
-                            <div class="flex gap-3"><span class="mono text-white/40 w-32">Nov 1 → Nov 21</span><span>Case-study harvest · exit interviews · landing page rebuild · 2027 contract</span></div>
+            <!-- Sunday batch (full version) -->
+            <div class="mb-5">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h3 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Sunday Batch · 5 ideas → 14 days of presence</h3>
+                    <button id="batch-refresh-2" class="text-[11px] text-white/40 hover:text-white">↻</button>
+                </div>
+                <div id="batch-list-2" class="space-y-2"></div>
+            </div>
+
+            <!-- Prompt library shortcuts -->
+            <div class="mb-5">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h3 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Prompt Library · copy to clipboard</h3>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                    <button class="prompt-btn glass rounded-xl p-3 text-left hover:bg-white/[0.05] transition-colors" data-prompt="reel">
+                        <div class="text-[10px] mono accent uppercase mb-1">Reel Hook ×5</div>
+                        <div class="text-xs text-white/65">5 hooks · second-1 visual · proper nouns · banned-words filter</div>
+                    </button>
+                    <button class="prompt-btn glass rounded-xl p-3 text-left hover:bg-white/[0.05] transition-colors" data-prompt="carousel">
+                        <div class="text-[10px] mono accent uppercase mb-1">Carousel ×8 slides</div>
+                        <div class="text-xs text-white/65">Day-by-day Tokyo curriculum · save bait · final CTA</div>
+                    </button>
+                    <button class="prompt-btn glass rounded-xl p-3 text-left hover:bg-white/[0.05] transition-colors" data-prompt="dm">
+                        <div class="text-[10px] mono accent uppercase mb-1">DM Openers ×5</div>
+                        <div class="text-xs text-white/65">For warm engagers · value first · soft question</div>
+                    </button>
+                    <button class="prompt-btn glass rounded-xl p-3 text-left hover:bg-white/[0.05] transition-colors" data-prompt="email">
+                        <div class="text-[10px] mono accent uppercase mb-1">Day-3 Nurture</div>
+                        <div class="text-xs text-white/65">For uncompleted-quest signups · founder scene first</div>
+                    </button>
+                    <button class="prompt-btn glass rounded-xl p-3 text-left hover:bg-white/[0.05] transition-colors" data-prompt="longform">
+                        <div class="text-[10px] mono accent uppercase mb-1">Long-form 700w</div>
+                        <div class="text-xs text-white/65">"Salt &amp; Saltwater" newsletter · present tense · sensory open</div>
+                    </button>
+                    <button class="prompt-btn glass rounded-xl p-3 text-left hover:bg-white/[0.05] transition-colors" data-prompt="salespage">
+                        <div class="text-[10px] mono accent uppercase mb-1">Sales-Page Block</div>
+                        <div class="text-xs text-white/65">§8 anatomy · for sushi-mastery.html section</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- IG kanban -->
+            <div class="mb-5">
+                <div class="flex items-baseline justify-between mb-2 px-1">
+                    <h3 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Instagram Pipeline · drag between columns</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <div class="glass-strong rounded-2xl p-3 ig-col" data-col="idea">
+                        <div class="flex items-baseline justify-between mb-3 px-2">
+                            <span class="text-xs font-medium text-white/75">Ideas</span>
+                            <span class="text-[10px] mono text-white/30" id="ig-count-idea">0</span>
                         </div>
+                        <div class="space-y-2" id="ig-list-idea"></div>
                     </div>
-
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">IG Pillar Mix · 5–6 posts/week</p>
-                        <div class="grid sm:grid-cols-3 gap-2 text-xs">
-                            <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
-                                <div class="font-medium accent mb-1">Galley → Cohort</div>
-                                <div class="text-white/55 leading-snug">3 Reels/wk · 15–30s hands-only · hook in second 1 · knife scars > stock</div>
-                            </div>
-                            <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
-                                <div class="font-medium accent mb-1">Tokyo Curriculum</div>
-                                <div class="text-white/55 leading-snug">2 carousels/wk · 8 slides · "Day N: specific element" · save bait</div>
-                            </div>
-                            <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
-                                <div class="font-medium accent mb-1">Founder Face</div>
-                                <div class="text-white/55 leading-snug">1 static/wk · portrait + manifesto sentence · why a yacht chef</div>
-                            </div>
+                    <div class="glass-strong rounded-2xl p-3 ig-col" data-col="drafting">
+                        <div class="flex items-baseline justify-between mb-3 px-2">
+                            <span class="text-xs font-medium text-white/75">Drafting</span>
+                            <span class="text-[10px] mono text-white/30" id="ig-count-drafting">0</span>
                         </div>
+                        <div class="space-y-2" id="ig-list-drafting"></div>
                     </div>
-
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">One DM Trigger</p>
-                        <p class="text-white/70">All content ends with: <span class="mono text-white">"Reply SUSHI for the September cohort dossier."</span></p>
-                        <p class="text-white/40 text-xs mt-1">ManyChat → Tally → Stripe deposit → Cal.com → Notion → Loom. Build once.</p>
-                    </div>
-
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Voices To Steal From (2026)</p>
-                        <div class="text-xs text-white/60 leading-relaxed">
-                            <span class="text-white/80">Justin Welsh</span> (Sunday batch OS) ·
-                            <span class="text-white/80">Dan Koe</span> (price ladder $49→$4.5k) ·
-                            <span class="text-white/80">Khe Hy</span> (reverse calendar) ·
-                            <span class="text-white/80">Daniel Priestley</span> (campaign mode) ·
-                            <span class="text-white/80">Jay Acunzo</span> (premise) ·
-                            <span class="text-white/80">Chip Conley / MEA</span> (beta cohort flywheel) ·
-                            <span class="text-white/80">Black Tomato</span> (unpolished > polished) ·
-                            <span class="text-white/80">HXP</span> ($500 refundable deposit) ·
-                            <span class="text-white/80">Shotton</span> (costly signaling) ·
-                            <span class="text-white/80">Sutherland</span> (specificity beats superlative)
+                    <div class="glass-strong rounded-2xl p-3 ig-col" data-col="scheduled">
+                        <div class="flex items-baseline justify-between mb-3 px-2">
+                            <span class="text-xs font-medium text-white/75">Scheduled</span>
+                            <span class="text-[10px] mono text-white/30" id="ig-count-scheduled">0</span>
                         </div>
+                        <div class="space-y-2" id="ig-list-scheduled"></div>
+                    </div>
+                    <div class="glass-strong rounded-2xl p-3 ig-col" data-col="published">
+                        <div class="flex items-baseline justify-between mb-3 px-2">
+                            <span class="text-xs font-medium text-white/75">Published</span>
+                            <span class="text-[10px] mono text-white/30" id="ig-count-published">0</span>
+                        </div>
+                        <div class="space-y-2" id="ig-list-published"></div>
                     </div>
                 </div>
-            </details>
-
-            <!-- DEVELOPMENT -->
-            <details class="glass-strong rounded-2xl overflow-hidden group" open>
-                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
-                    <div class="flex items-center gap-3">
-                        <span class="chev text-white/40">›</span>
-                        <h3 class="text-sm font-medium">Development Strategy</h3>
-                        <span class="seg seg-emerald">3-LEVER PLAYBOOK</span>
-                    </div>
-                    <span class="text-[10px] mono text-white/30">sequenced</span>
-                </summary>
-                <div class="px-5 pb-5 pt-1 space-y-4 text-sm">
-
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Lever A · Partner Pipeline (Now → Aug)</p>
-                        <p class="text-white/65 text-xs leading-relaxed">39 partners prepped · 2 confirmed (Hiroko, Lippo) · <span class="text-amber-400">0 outreach sent</span>. Daily: partner-scout drafts → founder approves → ≤5/day. 14-day cutoff. Concentric rings: Ring 1 (10 warm flagships) → Ring 2 (15 country-led) → Ring 3 (cold verticals).</p>
-                        <p class="text-[11px] text-white/40 mt-1">Target 90d: 24 replies · 8 in-progress · 6 confirmed · 3 verticals.</p>
-                    </div>
-
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Lever B · First Cohort (Sep 21 – Oct 30)</p>
-                        <p class="text-white/65 text-xs leading-relaxed">Sushi Mastery with Hiroko Ishii · 2 confirmed students · 3 levels x 2 weeks. <span class="accent">This is not a revenue event — it's a case-study factory.</span> Photo/video brief signed by Aug 31. Pre-arrival kit at T-14. Insurance + visa locked by Sep 7.</p>
-                    </div>
-
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Lever C · Demand Engine (Oct → Q1 2027)</p>
-                        <p class="text-white/65 text-xs leading-relaxed">Funnel built (quest → email → magic link → deposit). What's missing: <span class="accent">fuel at the top</span>. IG 5k→15k in 6mo. Email 0→2k. Open Mastery 2027 Spring cohort by Dec 1. Block paid ads until LTV is measurable (a 2027 question).</p>
-                    </div>
-
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Price Ladder · Missing Rungs</p>
-                        <div class="grid grid-cols-2 gap-2 text-xs">
-                            <div class="rounded-md p-2 bg-amber-400/5 border border-amber-400/15"><span class="seg seg-amber">TODO</span><div class="text-white/70 mt-1">$49 trip-wire (Field Notes PDF)</div></div>
-                            <div class="rounded-md p-2 bg-amber-400/5 border border-amber-400/15"><span class="seg seg-amber">TODO</span><div class="text-white/70 mt-1">$99 newsletter (Source Notebook)</div></div>
-                            <div class="rounded-md p-2 bg-white/[0.02] border border-white/[0.05]"><span class="seg seg-emerald">LIVE</span><div class="text-white/70 mt-1">Quest tool (free, capture)</div></div>
-                            <div class="rounded-md p-2 bg-white/[0.02] border border-white/[0.05]"><span class="seg seg-emerald">LIVE</span><div class="text-white/70 mt-1">Mastery $9.5k–$12k</div></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Stack · Solo Founder · ~$50/mo</p>
-                        <div class="text-xs text-white/65 leading-relaxed">
-                            Claude · Cursor · n8n · Descript · ElevenLabs · Granola · Perplexity · Stripe · PayPal · Supabase · HubSpot · Notion · Cal.com · Tally · ManyChat
-                        </div>
-                    </div>
-                </div>
-            </details>
+                <p class="text-[11px] text-white/30 mt-2 px-1">CTA every post: <span class="text-white/55">"Reply SUSHI for September dossier."</span> Brand-voice lint runs on save.</p>
+            </div>
         </section>
 
-        <!-- CHECKLIST ======================================================== -->
-        <section class="mb-6">
+        <!-- =============================================================
+             VIEW · YEAR
+             ============================================================= -->
+        <section id="view-year" class="view container-cmd pt-5">
+
             <div class="flex items-baseline justify-between mb-3 px-1">
-                <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ The Year Ahead · Tap to check · Future phases unveil as you ship</h2>
+                <h2 class="text-base font-medium">The Year Ahead</h2>
                 <div class="flex items-center gap-3">
                     <label class="flex items-center gap-2 text-xs text-white/40 cursor-pointer">
                         <input type="checkbox" id="show-completed" class="w-3 h-3 accent-bmw-500">
@@ -336,65 +513,67 @@
                 </div>
             </div>
 
-            <div class="space-y-4">
+            <p class="text-[11px] text-white/40 mb-4 px-1">Tap to check · items disappear · future phases unveil as you ship · ongoing rituals auto-resurrect weekly.</p>
+
+            <div class="space-y-3">
                 <!-- THIS WEEK -->
-                <div class="glass-strong rounded-2xl overflow-hidden">
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="now">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="seg seg-rose">PRIORITY</span>
-                            <h3 class="text-sm font-medium">This Week · The Six Moves of May</h3>
+                            <span class="seg seg-rose phase-badge">PRIORITY</span>
+                            <h3 class="text-sm font-medium">This Week · Six Moves of May</h3>
                         </div>
-                        <span class="text-[11px] mono text-white/30" id="count-now">—</span>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-now">—</span>
                     </div>
-                    <div id="list-now" class="divide-y divide-white/5"></div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic"></div>
+                    <div id="list-now" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
-                <!-- NEXT 4 WEEKS -->
-                <div class="glass-strong rounded-2xl overflow-hidden">
+                <!-- JUNE -->
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="soon">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="seg seg-bmw">NEXT 4 WEEKS</span>
+                            <span class="seg seg-bmw phase-badge">NEXT 4 WEEKS</span>
                             <h3 class="text-sm font-medium">June · Priority Access → Public Open</h3>
                         </div>
-                        <span class="text-[11px] mono text-white/30" id="count-soon">—</span>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-soon">—</span>
                     </div>
-                    <div id="list-soon" class="divide-y divide-white/5"></div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic"></div>
+                    <div id="list-soon" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
-                <!-- BEFORE SEP -->
-                <div class="glass-strong rounded-2xl overflow-hidden">
+                <!-- JUL-AUG -->
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="cohort">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="seg seg-violet">BEFORE SEP 21</span>
+                            <span class="seg seg-violet phase-badge">BEFORE SEP 21</span>
                             <h3 class="text-sm font-medium">Pre-Cohort Operations</h3>
                         </div>
-                        <span class="text-[11px] mono text-white/30" id="count-cohort">—</span>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-cohort">—</span>
                     </div>
-                    <div id="list-cohort" class="divide-y divide-white/5"></div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic"></div>
+                    <div id="list-cohort" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
                 <!-- ONGOING -->
-                <div class="glass-strong rounded-2xl overflow-hidden">
+                <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="ongoing">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
-                            <span class="seg seg-emerald">ONGOING</span>
-                            <h3 class="text-sm font-medium">Weekly Rituals (auto-resurrect every 7 days)</h3>
+                            <span class="seg seg-emerald phase-badge">ONGOING</span>
+                            <h3 class="text-sm font-medium">Weekly Rituals (auto-resurrect 7d)</h3>
                         </div>
-                        <span class="text-[11px] mono text-white/30" id="count-ongoing">—</span>
+                        <span class="text-[11px] mono text-white/30 phase-status" id="count-ongoing">—</span>
                     </div>
-                    <div id="list-ongoing" class="divide-y divide-white/5"></div>
+                    <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic"></div>
+                    <div id="list-ongoing" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
-                <!-- ============================================================
-                     LOCKED FUTURE PHASES — unveil progressively
-                     ============================================================ -->
-
-                <!-- SEP-OCT · COHORT EXECUTION (locked until now+soon+cohort done) -->
+                <!-- SEP-OCT (locked) -->
                 <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="execute">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <span class="seg seg-amber phase-badge">SEP–OCT 2026</span>
-                            <h3 class="text-sm font-medium">Cohort Execution · Tokyo · Sushi Mastery</h3>
+                            <h3 class="text-sm font-medium">Cohort Execution · Tokyo</h3>
                         </div>
                         <span class="text-[11px] mono text-white/30 phase-status" id="count-execute">—</span>
                     </div>
@@ -404,12 +583,12 @@
                     <div id="list-execute" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
-                <!-- NOV · CASE STUDY HARVEST -->
+                <!-- NOV (locked) -->
                 <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="harvest">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <span class="seg seg-violet phase-badge">NOV 2026</span>
-                            <h3 class="text-sm font-medium">Case-Study Harvest · The Asset Factory</h3>
+                            <h3 class="text-sm font-medium">Case-Study Harvest</h3>
                         </div>
                         <span class="text-[11px] mono text-white/30 phase-status" id="count-harvest">—</span>
                     </div>
@@ -419,52 +598,52 @@
                     <div id="list-harvest" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
-                <!-- DEC · MASTERY 2027 LAUNCH -->
+                <!-- DEC (locked) -->
                 <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="launch27">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <span class="seg seg-bmw phase-badge">DEC 2026</span>
-                            <h3 class="text-sm font-medium">Mastery 2027 Launch · Open Cohort #2</h3>
+                            <h3 class="text-sm font-medium">Mastery 2027 Launch</h3>
                         </div>
                         <span class="text-[11px] mono text-white/30 phase-status" id="count-launch27">—</span>
                     </div>
                     <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic leading-relaxed">
-                        🔒 Unlocks when the Nov Case-Study Harvest is complete. Cohort #1 alumni become Cohort #2's strongest proof.
+                        🔒 Unlocks when Nov Harvest is complete.
                     </div>
                     <div id="list-launch27" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
-                <!-- Q1 2027 · VERTICAL 2 + SCALE -->
+                <!-- Q1 2027 (locked) -->
                 <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="scale27">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <span class="seg seg-emerald phase-badge">Q1 2027</span>
-                            <h3 class="text-sm font-medium">Vertical 2 + Demand Engine Scale</h3>
+                            <h3 class="text-sm font-medium">Vertical 2 + Scale</h3>
                         </div>
                         <span class="text-[11px] mono text-white/30 phase-status" id="count-scale27">—</span>
                     </div>
                     <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic leading-relaxed">
-                        🔒 Unlocks when Mastery 2027 is open. Two cohorts before one ships = zero ship. Sequence ruthlessly.
+                        🔒 Unlocks when Mastery 2027 is open.
                     </div>
                     <div id="list-scale27" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
-                <!-- MAY 2027 · YEAR-ONE ANNIVERSARY AUDIT -->
+                <!-- ANNIVERSARY (locked) -->
                 <div class="glass-strong rounded-2xl overflow-hidden phase-card" data-phase-id="anniv">
                     <div class="px-5 py-3 border-b border-white/5 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <span class="seg seg-rose phase-badge">MAY 2027</span>
-                            <h3 class="text-sm font-medium">Year-One Anniversary · The Audit</h3>
+                            <h3 class="text-sm font-medium">Year-One Anniversary Audit</h3>
                         </div>
                         <span class="text-[11px] mono text-white/30 phase-status" id="count-anniv">—</span>
                     </div>
                     <div class="phase-locked-msg hidden px-5 py-5 text-xs text-white/40 italic leading-relaxed">
-                        🔒 Unlocks when Q1 2027 scale phase is complete. One year in. Time to choose what compounds next.
+                        🔒 Unlocks when Q1 2027 scale phase is complete.
                     </div>
                     <div id="list-anniv" class="divide-y divide-white/5 phase-content"></div>
                 </div>
 
-                <!-- ADD CUSTOM -->
+                <!-- Add task -->
                 <form id="add-task-form" class="glass rounded-2xl px-5 py-4 flex flex-wrap gap-2">
                     <select id="add-phase" class="!w-auto text-xs">
                         <option value="now">This Week</option>
@@ -483,55 +662,242 @@
             </div>
         </section>
 
-        <!-- INSTAGRAM TRACKER ================================================= -->
-        <section class="mb-10">
-            <div class="flex items-baseline justify-between mb-3 px-1">
-                <h2 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Instagram · Launch & Dev Strategy</h2>
-                <button id="add-ig-btn" class="btn-primary">+ Post</button>
+        <!-- =============================================================
+             VIEW · PLAYBOOK
+             ============================================================= -->
+        <section id="view-playbook" class="view container-cmd pt-5">
+
+            <h2 class="text-base font-medium mb-3 px-1">Playbook</h2>
+
+            <!-- Premise (big) -->
+            <div class="glass-strong rounded-2xl p-5 mb-3">
+                <div class="text-[10px] mono accent uppercase tracking-widest mb-2">◆ The Premise · pin everywhere</div>
+                <p class="text-white/85 text-base leading-relaxed italic">
+                    "A French yacht chef who turned 12 years of cooking for billionaires into the world's first certified culinary immersion run by working operators. We don't sell vacations. We sell skills you keep — at the source, with masters who never stopped working the line."
+                </p>
+                <button class="mt-3 btn-ghost !text-xs" onclick="copyToClipboard(document.querySelector('#view-playbook .italic').textContent.trim())">Copy</button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-                <div class="glass-strong rounded-2xl p-3 ig-col" data-col="idea">
-                    <div class="flex items-baseline justify-between mb-3 px-2">
-                        <span class="text-xs font-medium text-white/75">Ideas</span>
-                        <span class="text-[10px] mono text-white/30" id="ig-count-idea">0</span>
+            <!-- The Six Moves -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-3" open>
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <span class="text-sm font-medium">The Six Moves of May</span>
+                        <span class="seg seg-rose">DO NOW</span>
                     </div>
-                    <div class="space-y-2" id="ig-list-idea"></div>
+                </summary>
+                <div class="px-5 pb-5 text-xs text-white/70 leading-relaxed space-y-1.5">
+                    <p>1. <span class="text-white/85">This weekend</span> · Record "Why I'm doing this" Reel · 90s · pin to profile.</p>
+                    <p>2. <span class="text-white/85">By May 19</span> · Ship waitlist page educatedtraveler.app/sushi-tokyo with $500 refundable deposit.</p>
+                    <p>3. <span class="text-white/85">By May 26</span> · Publish "Tokyo Curriculum" 8-slide carousel + rewrite sushi-mastery.html day-by-day.</p>
+                    <p>4. <span class="text-white/85">By May 31</span> · Email existing list announcing priority access opens June 1.</p>
+                    <p>5. <span class="text-white/85">Weekly Sunday batch</span> · 3 Reels + 2 carousels filmed and scheduled.</p>
+                    <p>6. <span class="text-white/85">Daily 15-min</span> · Reply to every DM personally.</p>
                 </div>
-                <div class="glass-strong rounded-2xl p-3 ig-col" data-col="drafting">
-                    <div class="flex items-baseline justify-between mb-3 px-2">
-                        <span class="text-xs font-medium text-white/75">Drafting</span>
-                        <span class="text-[10px] mono text-white/30" id="ig-count-drafting">0</span>
+            </details>
+
+            <!-- Reverse Calendar -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-3">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <span class="text-sm font-medium">Reverse Cohort Calendar · back-timed from Sep 21</span>
                     </div>
-                    <div class="space-y-2" id="ig-list-drafting"></div>
+                </summary>
+                <div class="px-5 pb-5 text-xs text-white/70 space-y-1.5">
+                    <div class="flex gap-3"><span class="mono text-white/40 w-32 shrink-0">May 12 → May 31</span><span>Awareness · premise live · costly-signal Reel pinned · deposit page</span></div>
+                    <div class="flex gap-3"><span class="mono text-white/40 w-32 shrink-0">Jun 1 → Jun 21</span><span>Priority access (14 days) · daily DMs</span></div>
+                    <div class="flex gap-3"><span class="mono text-white/40 w-32 shrink-0">Jun 22 → Jul 5</span><span>Public open · application + $500 deposit · hard close</span></div>
+                    <div class="flex gap-3"><span class="mono text-white/40 w-32 shrink-0">Jul 6 → Sep 14</span><span>Pre-cohort · logistics · pre-arrival kit (T-14)</span></div>
+                    <div class="flex gap-3"><span class="mono text-white/40 w-32 shrink-0">Sep 21 → Oct 30</span><span>Cohort · photo/video brief · daily stories · long-form drafted</span></div>
+                    <div class="flex gap-3"><span class="mono text-white/40 w-32 shrink-0">Nov 1 → Nov 21</span><span>Case-study harvest · exit interviews · landing rebuild · 2027 signed</span></div>
                 </div>
-                <div class="glass-strong rounded-2xl p-3 ig-col" data-col="scheduled">
-                    <div class="flex items-baseline justify-between mb-3 px-2">
-                        <span class="text-xs font-medium text-white/75">Scheduled</span>
-                        <span class="text-[10px] mono text-white/30" id="ig-count-scheduled">0</span>
+            </details>
+
+            <!-- IG Pillar Mix -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-3">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <span class="text-sm font-medium">IG Pillar Mix · 5–6 posts/week</span>
                     </div>
-                    <div class="space-y-2" id="ig-list-scheduled"></div>
-                </div>
-                <div class="glass-strong rounded-2xl p-3 ig-col" data-col="published">
-                    <div class="flex items-baseline justify-between mb-3 px-2">
-                        <span class="text-xs font-medium text-white/75">Published</span>
-                        <span class="text-[10px] mono text-white/30" id="ig-count-published">0</span>
+                </summary>
+                <div class="px-5 pb-5 grid sm:grid-cols-3 gap-2 text-xs">
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                        <div class="font-medium accent mb-1">Galley → Cohort</div>
+                        <div class="text-white/55 leading-snug">3 Reels/wk · 15–30s hands-only · hook in second 1</div>
                     </div>
-                    <div class="space-y-2" id="ig-list-published"></div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                        <div class="font-medium accent mb-1">Tokyo Curriculum</div>
+                        <div class="text-white/55 leading-snug">2 carousels/wk · 8 slides · save bait</div>
+                    </div>
+                    <div class="rounded-lg p-3 bg-white/[0.02] border border-white/[0.05]">
+                        <div class="font-medium accent mb-1">Founder Face</div>
+                        <div class="text-white/55 leading-snug">1 static/wk · portrait + manifesto sentence</div>
+                    </div>
                 </div>
+            </details>
+
+            <!-- Price Ladder -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-3">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <span class="text-sm font-medium">Price Ladder · 6 rungs</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 space-y-2 text-xs">
+                    <div class="flex items-center gap-3"><span class="seg seg-emerald shrink-0">LIVE</span><span class="text-white/75">Quest tool (free, capture)</span></div>
+                    <div class="flex items-center gap-3"><span class="seg seg-amber shrink-0">TODO</span><span class="text-white/75">$49 trip-wire · "Yacht Chef Field Notes" PDF</span></div>
+                    <div class="flex items-center gap-3"><span class="seg seg-amber shrink-0">TODO</span><span class="text-white/75">$99/yr · "Source Notebook" newsletter</span></div>
+                    <div class="flex items-center gap-3"><span class="seg seg-amber shrink-0">TODO</span><span class="text-white/75">$3.5–6.5k · Foundation tier (7–21d cert)</span></div>
+                    <div class="flex items-center gap-3"><span class="seg seg-emerald shrink-0">LIVE</span><span class="text-white/75">$9.5–12k · Mastery tier (Sushi · 6wk)</span></div>
+                    <div class="flex items-center gap-3"><span class="seg seg-white shrink-0">2027</span><span class="text-white/55">$25–40k · Saga tier · application-only</span></div>
+                </div>
+            </details>
+
+            <!-- Decision Filter -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-3">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <span class="text-sm font-medium">The Decision Filter · 5 questions</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 text-xs text-white/70 space-y-1.5">
+                    <p>Every new opportunity goes through these in order. First "no" kills it.</p>
+                    <p>1. Does this directly help Sushi Mastery ship full and proud on Sep 21?</p>
+                    <p>2. Can a 70-hr-yacht-week founder execute in &lt;2 hrs/week?</p>
+                    <p>3. Does it pass Daemon non-negotiables + partnership filter?</p>
+                    <p>4. Does it produce a compounding asset (sales page, testimonial reel, evergreen post)?</p>
+                    <p>5. Will I be proud when alum #1 references it in their wedding speech?</p>
+                </div>
+            </details>
+
+            <!-- Anti-Patterns -->
+            <details class="glass-strong rounded-2xl overflow-hidden mb-3">
+                <summary class="px-5 py-4 flex items-center justify-between hover:bg-white/[0.02]">
+                    <div class="flex items-center gap-3">
+                        <span class="chev text-white/40">›</span>
+                        <span class="text-sm font-medium">Anti-Patterns · refuse these</span>
+                    </div>
+                </summary>
+                <div class="px-5 pb-5 text-xs text-white/70 space-y-1.5">
+                    <p>• Building Diving cohort in parallel (sequence ruthlessly)</p>
+                    <p>• Starting a podcast (skip until 2028)</p>
+                    <p>• Paid ads before LTV is known</p>
+                    <p>• Joining 5 Slack/Discord communities</p>
+                    <p>• Influencer collabs to "grow followers"</p>
+                    <p>• Hiring a marketing VA (voice is the moat)</p>
+                    <p>• Adding a tool to the stack without killing one</p>
+                    <p>• Rewriting the website CSS (design locked)</p>
+                </div>
+            </details>
+
+            <!-- Two real metrics -->
+            <div class="glass-strong rounded-2xl p-5 mb-3">
+                <div class="text-[10px] mono accent uppercase tracking-widest mb-2">◆ The Two Metrics</div>
+                <div class="space-y-2 text-xs text-white/75">
+                    <div class="flex justify-between"><span>$500 deposits paid</span><span class="mono">target 12 by Sep 21</span></div>
+                    <div class="flex justify-between"><span>Applications received</span><span class="mono">target 24 (50% close)</span></div>
+                </div>
+                <p class="text-[11px] text-white/40 mt-3 italic">Followers · open rate · visitors are vanity. Block them from your view.</p>
             </div>
-            <p class="text-[11px] text-white/30 mt-2 px-1">Drag posts between columns. Click a card to edit. Voice anchors: Galley·Tokyo Curriculum·Founder Face. CTA: <span class="text-white/55">"Reply SUSHI for September dossier."</span></p>
+        </section>
+
+        <!-- =============================================================
+             VIEW · LOG
+             ============================================================= -->
+        <section id="view-log" class="view container-cmd pt-5">
+
+            <h2 class="text-base font-medium mb-1 px-1">Log</h2>
+            <p class="text-[11px] text-white/40 mb-4 px-1">The founder's memory. Captured items, reflections, decisions, refused anti-patterns.</p>
+
+            <!-- Friday reflection prompt -->
+            <div class="glass-strong rounded-2xl p-5 mb-4" id="friday-section">
+                <div class="text-[10px] mono accent uppercase tracking-widest mb-3">◆ Friday Reflection</div>
+                <form id="friday-form" class="space-y-3">
+                    <div>
+                        <label class="text-[10px] mono text-white/40 uppercase block mb-1">What compounded this week?</label>
+                        <textarea id="friday-up" rows="2" placeholder="What asset / decision / habit will pay forward?"></textarea>
+                    </div>
+                    <div>
+                        <label class="text-[10px] mono text-white/40 uppercase block mb-1">What to refuse next week?</label>
+                        <textarea id="friday-down" rows="2" placeholder="What temptation almost won? What gets a hard no?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Save reflection</button>
+                </form>
+            </div>
+
+            <!-- Decision log entry -->
+            <div class="glass-strong rounded-2xl p-5 mb-4">
+                <div class="text-[10px] mono accent uppercase tracking-widest mb-3">◆ Decision Log · Type-1 irreversible</div>
+                <form id="decision-form" class="space-y-3">
+                    <input type="text" id="decision-title" placeholder="Decision (e.g. 'Hire Tokyo videographer at $4k')" maxlength="120">
+                    <textarea id="decision-why" rows="2" placeholder="Why this · what alternatives ruled out · what would change my mind"></textarea>
+                    <button type="submit" class="btn-primary">Log decision</button>
+                </form>
+            </div>
+
+            <!-- Log feed -->
+            <div class="mb-3 flex items-baseline justify-between px-1">
+                <h3 class="text-[10px] mono text-white/40 uppercase tracking-widest">◆ Log Feed</h3>
+                <span class="text-[11px] text-white/30" id="log-count"></span>
+            </div>
+            <div class="glass-strong rounded-2xl overflow-hidden">
+                <div id="log-feed" class="divide-y divide-white/5"></div>
+                <div id="log-empty" class="hidden p-8 text-center text-white/30 text-sm">No log entries yet. Capture from anywhere.</div>
+            </div>
+
         </section>
 
     </main>
 
-    <!-- IG MODAL ============================================================ -->
+    <!-- =================================================================
+         BOTTOM TAB BAR
+         ================================================================= -->
+    <nav class="tab-bar hidden" id="tab-bar">
+        <div class="container-cmd flex">
+            <button class="tab-btn active" data-view="today">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                <span>Today</span>
+            </button>
+            <button class="tab-btn" data-view="funnel">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4h18M5 10h14M7 16h10M9 22h6"/></svg>
+                <span>Funnel</span>
+            </button>
+            <button class="tab-btn" data-view="people">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                <span>People</span>
+            </button>
+            <button class="tab-btn" data-view="content">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <span>Content</span>
+            </button>
+            <button class="tab-btn" data-view="more" id="more-tab">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <span>More</span>
+            </button>
+        </div>
+        <div id="more-menu" class="hidden absolute bottom-full right-2 mb-2 glass-strong rounded-xl p-2 min-w-[150px]">
+            <button class="more-link block w-full text-left px-3 py-2 rounded-lg hover:bg-white/[0.05] text-sm" data-view="year">Year strategy</button>
+            <button class="more-link block w-full text-left px-3 py-2 rounded-lg hover:bg-white/[0.05] text-sm" data-view="playbook">Playbook</button>
+            <button class="more-link block w-full text-left px-3 py-2 rounded-lg hover:bg-white/[0.05] text-sm" data-view="log">Log</button>
+            <hr class="my-1 border-white/5">
+            <a href="/admin" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-white/[0.05] text-sm text-white/60">Full admin →</a>
+        </div>
+    </nav>
+
+    <!-- =================================================================
+         IG MODAL
+         ================================================================= -->
     <div id="ig-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/80" onclick="closeIgModal()"></div>
         <div class="relative glass-strong rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto" style="background:rgba(8,8,8,0.97);">
             <button onclick="closeIgModal()" class="absolute top-3 right-3 text-white/40 hover:text-white p-2 text-lg">×</button>
             <h3 class="text-base font-medium mb-1" id="ig-modal-title">New Post</h3>
-            <p class="text-white/40 text-xs mb-5">Idea capture for Instagram — stays in this dashboard.</p>
+            <p class="text-white/40 text-xs mb-5">Brand-voice lint runs on save.</p>
             <form id="ig-form" class="space-y-3">
                 <input type="hidden" id="ig-id">
                 <div class="grid grid-cols-2 gap-3">
@@ -556,13 +922,14 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[10px] mono text-white/40 uppercase mb-1">Hook (second 1 visual or first line)</label>
+                    <label class="block text-[10px] mono text-white/40 uppercase mb-1">Hook</label>
                     <input type="text" id="ig-hook" placeholder="e.g. Knife landing on a whole bonito" maxlength="160">
                 </div>
                 <div>
-                    <label class="block text-[10px] mono text-white/40 uppercase mb-1">Body / caption / slide outline</label>
+                    <label class="block text-[10px] mono text-white/40 uppercase mb-1">Body / caption / slides</label>
                     <textarea id="ig-body" rows="5" placeholder="Outline · slides · caption. Specificity > superlatives."></textarea>
                 </div>
+                <div id="ig-lint" class="hidden text-xs"></div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-[10px] mono text-white/40 uppercase mb-1">Scheduled</label>
@@ -589,7 +956,9 @@
         </div>
     </div>
 
-    <!-- PROFILE EXPAND MODAL ================================================ -->
+    <!-- =================================================================
+         PROFILE MODAL
+         ================================================================= -->
     <div id="profile-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/80" onclick="closeProfileModal()"></div>
         <div class="relative glass-strong rounded-2xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto" style="background:rgba(8,8,8,0.97);">
@@ -598,51 +967,94 @@
         </div>
     </div>
 
+    <!-- =================================================================
+         DECISION FILTER MODAL
+         ================================================================= -->
+    <div id="filter-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80" onclick="document.getElementById('filter-modal').classList.add('hidden')"></div>
+        <div class="relative glass-strong rounded-2xl p-6 max-w-md w-full" style="background:rgba(8,8,8,0.97);">
+            <h3 class="text-base font-medium mb-1">Run it through the filter</h3>
+            <p class="text-white/40 text-xs mb-4">Before adding · 5 questions. First "no" kills it.</p>
+            <div id="filter-text" class="text-sm text-white/85 italic mb-4 px-3 py-2 rounded bg-white/[0.03]"></div>
+            <div class="space-y-2 text-xs text-white/75">
+                <label class="flex items-start gap-2"><input type="checkbox" class="filter-q mt-0.5"><span>1. Helps Sushi ship full + proud on Sep 21?</span></label>
+                <label class="flex items-start gap-2"><input type="checkbox" class="filter-q mt-0.5"><span>2. Doable in &lt;2 hrs/week founder time?</span></label>
+                <label class="flex items-start gap-2"><input type="checkbox" class="filter-q mt-0.5"><span>3. Passes Daemon + partnership filter?</span></label>
+                <label class="flex items-start gap-2"><input type="checkbox" class="filter-q mt-0.5"><span>4. Produces a compounding asset?</span></label>
+                <label class="flex items-start gap-2"><input type="checkbox" class="filter-q mt-0.5"><span>5. Wedding-speech proud?</span></label>
+            </div>
+            <div class="flex gap-2 mt-5 justify-end">
+                <button id="filter-cancel" class="btn-ghost">Refuse</button>
+                <button id="filter-accept" class="btn-primary" disabled>Accept &amp; add</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================================================================
+         TOAST
+         ================================================================= -->
+    <div id="toast" class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-[110] glass-strong rounded-full px-4 py-2 text-xs"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
 
     <script>
+    'use strict';
+
     // =========================================================================
     // STATE
     // =========================================================================
     const TASKS_KEY = 'et_cmd_checklist_v3';
     const IG_KEY = 'et_cmd_ig_v2';
+    const INBOX_KEY = 'et_cmd_inbox_v1';
+    const LOG_KEY = 'et_cmd_log_v1';
+    const HANDLED_KEY = 'et_cmd_handled_v1';
+    const VIEW_KEY = 'et_cmd_view_v1';
     const SHOW_COMPLETED_KEY = 'et_cmd_show_completed';
 
     const COHORT_START = new Date('2026-09-21T00:00:00');
+    const COHORT_TARGET_SEATS = 12;
+    const COHORT_TITLE_MATCH = /sushi/i;
 
-    let data = { profiles: [], prefs: [], adventures: [], interests: [] };
+    const BANNED_WORDS = ['transformation','transformative','life-changing','life changing','vacation','holiday','luxury','luxurious','effortless','easy','journey','escape','tour','tourist','package'];
+
+    let data = {
+        profiles: [], prefs: [], adventures: [], interests: [],
+        enrollments: [], cohorts: [], surveys: []
+    };
     let tasks = [];
     let igPosts = [];
+    let inbox = [];
+    let log = [];
+    let handled = {};
     let showCompleted = false;
+    let activeView = 'today';
+    let activePeopleFilter = 'new';
+    let pendingFilterPayload = null;
 
     const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const uid = () => Math.random().toString(36).slice(2, 10);
+    const daysAgo = (iso) => iso ? (Date.now() - new Date(iso).getTime()) / 86400000 : Infinity;
 
     // =========================================================================
-    // SEED DATA (only first run)
+    // SEED DATA — preserved from v1, used only on fresh installs
     // =========================================================================
     const SEED_TASKS = [
-        // PRIORITY — THIS WEEK (the six moves of May)
         { id: '6m-1', phase: 'now', text: 'Record "Why I\'m doing this" Reel — 90s, costly signal + premise — pin to profile', done: false },
         { id: '6m-2', phase: 'now', text: 'Ship waitlist page educatedtraveler.app/sushi-tokyo with $500 refundable deposit (Stripe + Tally + Cal.com)', done: false },
         { id: '6m-3', phase: 'now', text: 'Publish "Tokyo Curriculum" 8-slide carousel + rewrite sushi-mastery.html day-by-day narrative', done: false },
         { id: '6m-4', phase: 'now', text: 'Email existing list: "Sushi Mastery Sep 21 – Oct 30, 12 seats, priority access opens June 1"', done: false },
         { id: '6m-5', phase: 'now', text: 'Write $49 trip-wire product ("Yacht Chef Field Notes" PDF or "Tokyo Itamae Method" audio)', done: false },
         { id: '6m-6', phase: 'now', text: 'Lock the Premise sentence — paste into IG bio, sales page hero, email signature, sales-call opener', done: false },
-
-        // NEXT 4 WEEKS — June campaign
         { id: 'jun-1', phase: 'soon', text: 'June 1 · Open priority-access window for warm list (14 days)', done: false },
         { id: 'jun-2', phase: 'soon', text: 'Build ManyChat → Tally → Stripe → Cal.com → Notion → Loom automation (n8n)', done: false },
         { id: 'jun-3', phase: 'soon', text: 'Send first 5 partner-outreach emails from prepped 39 (Ring 1 only)', done: false },
         { id: 'jun-4', phase: 'soon', text: 'Run 5 discovery calls with priority-access applicants — Granola records, summary to Notion', done: false },
         { id: 'jun-5', phase: 'soon', text: 'June 22 · Open public window (14 days, hard close July 5)', done: false },
         { id: 'jun-6', phase: 'soon', text: 'Founder long-form #1 in "Salt & Saltwater" newsletter — set up Substack/beehiiv', done: false },
-        { id: 'jun-7', phase: 'soon', text: 'Audit sushi-mastery.html against §8 anatomy (hero VSL, premise, transformation, curriculum, proof, decision, FAQ, countdown)', done: false },
-        { id: 'jun-8', phase: 'soon', text: 'Hard close July 5 · email 3-2-1 sequence (3 days out / 2 days / 1 day / last call)', done: false },
-
-        // BEFORE SEP 21 — Pre-cohort ops
+        { id: 'jun-7', phase: 'soon', text: 'Audit sushi-mastery.html against §8 anatomy', done: false },
+        { id: 'jun-8', phase: 'soon', text: 'Hard close July 5 · email 3-2-1 sequence', done: false },
         { id: 'pre-1', phase: 'cohort', text: 'Visa, insurance, accommodation confirmed in writing for both confirmed students', done: false },
         { id: 'pre-2', phase: 'cohort', text: 'Pre-arrival kit shipped (knife credit, Tokyo SIM, JR Pass, reading list, phrasebook)', done: false },
         { id: 'pre-3', phase: 'cohort', text: 'Photo/video brief signed with local Tokyo videographer ($4k for full 6 weeks)', done: false },
@@ -651,101 +1063,96 @@
         { id: 'pre-6', phase: 'cohort', text: 'Refund policy locked in writing — see Playbook - Operations Stack.md', done: false },
         { id: 'pre-7', phase: 'cohort', text: 'Hiroko weekly check-in calendar locked (Fridays 18:00 JST)', done: false },
         { id: 'pre-8', phase: 'cohort', text: 'WhatsApp pulse system live (daily 1-tap mood/energy reading)', done: false },
-        { id: 'pre-9', phase: 'cohort', text: 'Photo/video shot list locked — Toyosu visit, knife sharpening, omakase final, etc.', done: false },
-
-        // ONGOING — Weekly rituals
+        { id: 'pre-9', phase: 'cohort', text: 'Photo/video shot list locked — Toyosu visit, knife sharpening, omakase final', done: false },
         { id: 'wk-1', phase: 'ongoing', text: 'Sunday 90-min batch: 3 Reels + 2 carousels filmed and scheduled', done: false },
         { id: 'wk-2', phase: 'ongoing', text: 'Daily 15-min DM block — reply to every message personally', done: false },
         { id: 'wk-3', phase: 'ongoing', text: 'Daily 25-min partner-outreach review (partner-scout drafts → approve → send ≤5)', done: false },
         { id: 'wk-4', phase: 'ongoing', text: 'Friday metrics review: deposits paid · applications · open tasks', done: false },
-        { id: 'wk-5', phase: 'ongoing', text: 'Friday 30-min walk + voice memo: what compounded this week / what to refuse next', done: false },
-
-        // SEP-OCT 2026 · COHORT EXECUTION (locked) — case-study factory mode
-        { id: 'ex-1', phase: 'execute', text: 'Day 1 (Sep 21) · arrival + orientation + welcome dinner · photo brief captures cohort bonding', done: false },
-        { id: 'ex-2', phase: 'execute', text: 'Toyosu market visit week 1 · video shot list complete (kuromaguro auction, supplier intro, breakfast walk)', done: false },
-        { id: 'ex-3', phase: 'execute', text: 'Mid-cohort pivot point (end Week 2) — pacing/intensity review with Hiroko · adjust before Week 3', done: false },
-        { id: 'ex-4', phase: 'execute', text: 'Weekly Hiroko Friday 18:00 JST check-in calls held + minuted (5 weeks total)', done: false },
-        { id: 'ex-5', phase: 'execute', text: 'Daily WhatsApp pulse to students (1-tap mood/energy) — 6-week streak', done: false },
-        { id: 'ex-6', phase: 'execute', text: 'Long-form draft #1 of "Salt & Saltwater" published mid-cohort (live narration, yacht-chef voice)', done: false },
-        { id: 'ex-7', phase: 'execute', text: 'Every key technique filmed + photographed (knife sharpening, koji, omakase final, rice grading)', done: false },
-        { id: 'ex-8', phase: 'execute', text: 'Day 20 · exam + cohort celebration · final group portrait + cohort name engraved on knife handles', done: false },
-        { id: 'ex-9', phase: 'execute', text: 'Day 21 (Oct 30) · closing ceremony · students keep their knife set · alumni Slack channel created', done: false },
-        { id: 'ex-10', phase: 'execute', text: 'Refuse all non-cohort founder work during weeks 1–6 (no partner outreach, no new website builds)', done: false },
-
-        // NOV 2026 · CASE-STUDY HARVEST (locked)
-        { id: 'hv-1', phase: 'harvest', text: 'Exit interview each student (90 min recorded, per Playbook - Student Interview.md) by Nov 7', done: false },
-        { id: 'hv-2', phase: 'harvest', text: 'NPS + 30/60/90-day skill-retention survey sent (track durable skill use, not just satisfaction)', done: false },
-        { id: 'hv-3', phase: 'harvest', text: 'Hiroko debrief: what worked, what to change, 2027 contract signed by ≤Dec 5', done: false },
-        { id: 'hv-4', phase: 'harvest', text: 'Case-study landing page rebuilt with real photo/video/quotes (replaces aspirational copy) — ship by Nov 20', done: false },
-        { id: 'hv-5', phase: 'harvest', text: 'Founder-narrated long-form post published (yacht-chef voice, 1,500–2,500 words) by Nov 14', done: false },
-        { id: 'hv-6', phase: 'harvest', text: 'Short-form video pack: 5× IG Reels + 1× YouTube cut of cohort highlights (Descript edit)', done: false },
-        { id: 'hv-7', phase: 'harvest', text: 'Press outreach: 5 outlets (Skift, AFAR, Eater, Robb Report, La Liste) with case-study one-pager', done: false },
-        { id: 'hv-8', phase: 'harvest', text: '2 alumni signed as Ring-1 referrers — wedding-speech-grade testimonial captured on video', done: false },
-        { id: 'hv-9', phase: 'harvest', text: 'Repeatable cohort-ops playbook documented for next instructor (timeline, kit, daily ops, risk matrix)', done: false },
-
-        // DEC 2026 · MASTERY 2027 LAUNCH (locked)
-        { id: 'l27-1', phase: 'launch27', text: 'Dec 1 · Open Mastery 2027 Spring Sushi cohort (priority access to alumni + waitlist)', done: false },
-        { id: 'l27-2', phase: 'launch27', text: 'Founder long-form #2: "What 6 weeks in Tokyo with Hiroko cost me, and why I\'m doing it again"', done: false },
-        { id: 'l27-3', phase: 'launch27', text: 'Hard close Dec 21 · 12 seats locked with deposits · waitlist for fall cohort opened', done: false },
-        { id: 'l27-4', phase: 'launch27', text: 'Price raise: Mastery $9,500 → $10,500 (proven outcome justifies the move)', done: false },
-        { id: 'l27-5', phase: 'launch27', text: 'IG cohort recap series · 8 carousels + 4 Reels showing actual student progression', done: false },
-        { id: 'l27-6', phase: 'launch27', text: 'Email list segmented: alumni · waitlist warm · waitlist cold · partners — sequences per segment', done: false },
-        { id: 'l27-7', phase: 'launch27', text: 'Year-end financial close: P&L cohort #1 · cost-per-acquisition · LTV first signal · cash reserves audit', done: false },
-
-        // Q1 2027 · VERTICAL 2 + SCALE (locked)
-        { id: 's27-1', phase: 'scale27', text: 'Pick vertical 2 anchor partner from Ring-1 confirmed list (Modernist Barcelona / Yoga Bali / Wine Bordeaux)', done: false },
-        { id: 's27-2', phase: 'scale27', text: 'Vertical 2 landing page shipped using §8 sales-page anatomy + cohort #1 credibility surrogates', done: false },
-        { id: 's27-3', phase: 'scale27', text: 'Open Vertical 2 Foundation cohort (7–14 days, $3,500–$6,500 entry tier) — Jun/Jul 2027 dates', done: false },
-        { id: 's27-4', phase: 'scale27', text: 'Founder bandwidth audit: hire decision (cohort ops VA? content editor? partner coordinator?)', done: false },
-        { id: 's27-5', phase: 'scale27', text: 'IG growth: 5,000 → 12,000 followers by Mar 31 · email list: 500 → 1,500', done: false },
-        { id: 's27-6', phase: 'scale27', text: 'Newsletter cadence locked: "Salt & Saltwater" bi-weekly · 1 founder podcast appearance/month', done: false },
-        { id: 's27-7', phase: 'scale27', text: 'Hampton/peer-community decision · founder peer accountability locked', done: false },
-        { id: 's27-8', phase: 'scale27', text: '$49 trip-wire product shipped publicly · funded 50+ purchases pre-Vertical 2 launch', done: false },
-
-        // MAY 2027 · YEAR-ONE ANNIVERSARY AUDIT (locked)
-        { id: 'an-1', phase: 'anniv', text: '12-month post-mortem written: what compounded · what to refuse next year · 3 honest mistakes', done: false },
-        { id: 'an-2', phase: 'anniv', text: 'Decision: scale a 2027 Saga tier (90–180 day) OR stay focused on Foundation+Mastery — written rationale', done: false },
-        { id: 'an-3', phase: 'anniv', text: 'Year-one financials: revenue · margin · founder pay · profit-first allocations (Michalowicz audit)', done: false },
-        { id: 'an-4', phase: 'anniv', text: 'Brand audit: voice drift check · banned-words enforcement · 3 sacred phrases honored?', done: false },
-        { id: 'an-5', phase: 'anniv', text: 'Cohort #3 (Sep 2027 Sushi) closed early on alumni-only · prove the flywheel works', done: false },
-        { id: 'an-6', phase: 'anniv', text: 'Update Agent - EducatedTraveler - Growth Engine 2026 → archive dated · write Growth Engine 2027 layer', done: false },
-        { id: 'an-7', phase: 'anniv', text: 'Personal: one alum has cited the cohort as the inflection point of a career change. Documented.', done: false },
+        { id: 'wk-5', phase: 'ongoing', text: 'Friday 30-min walk + voice memo: what compounded / what to refuse', done: false },
+        { id: 'ex-1', phase: 'execute', text: 'Day 1 (Sep 21) · arrival + orientation + welcome dinner · photo brief active', done: false },
+        { id: 'ex-2', phase: 'execute', text: 'Toyosu market visit week 1 · video shot list complete', done: false },
+        { id: 'ex-3', phase: 'execute', text: 'Mid-cohort pivot point (end Week 2) — pacing review with Hiroko', done: false },
+        { id: 'ex-4', phase: 'execute', text: 'Weekly Hiroko Friday 18:00 JST check-in calls held + minuted', done: false },
+        { id: 'ex-5', phase: 'execute', text: 'Daily WhatsApp pulse to students — 6-week streak', done: false },
+        { id: 'ex-6', phase: 'execute', text: 'Long-form draft #1 of "Salt & Saltwater" published mid-cohort', done: false },
+        { id: 'ex-7', phase: 'execute', text: 'Every key technique filmed + photographed (sharpening, koji, omakase, rice)', done: false },
+        { id: 'ex-8', phase: 'execute', text: 'Day 20 · exam + cohort celebration · cohort name engraved on knife handles', done: false },
+        { id: 'ex-9', phase: 'execute', text: 'Day 21 (Oct 30) · closing ceremony · alumni Slack channel created', done: false },
+        { id: 'ex-10', phase: 'execute', text: 'Refuse all non-cohort founder work during weeks 1–6', done: false },
+        { id: 'hv-1', phase: 'harvest', text: 'Exit interview each student (90 min recorded) by Nov 7', done: false },
+        { id: 'hv-2', phase: 'harvest', text: 'NPS + 30/60/90-day skill-retention survey sent', done: false },
+        { id: 'hv-3', phase: 'harvest', text: 'Hiroko debrief: what worked, 2027 contract signed by ≤Dec 5', done: false },
+        { id: 'hv-4', phase: 'harvest', text: 'Case-study landing page rebuilt with real photo/video/quotes by Nov 20', done: false },
+        { id: 'hv-5', phase: 'harvest', text: 'Founder-narrated long-form post published by Nov 14', done: false },
+        { id: 'hv-6', phase: 'harvest', text: 'Short-form video pack: 5 IG Reels + 1 YouTube cut', done: false },
+        { id: 'hv-7', phase: 'harvest', text: 'Press outreach: Skift · AFAR · Eater · Robb Report · La Liste', done: false },
+        { id: 'hv-8', phase: 'harvest', text: '2 alumni signed as Ring-1 referrers — wedding-speech-grade video', done: false },
+        { id: 'hv-9', phase: 'harvest', text: 'Repeatable cohort-ops playbook documented for next instructor', done: false },
+        { id: 'l27-1', phase: 'launch27', text: 'Dec 1 · Open Mastery 2027 Spring Sushi cohort', done: false },
+        { id: 'l27-2', phase: 'launch27', text: 'Founder long-form #2: "What 6 weeks in Tokyo with Hiroko cost me"', done: false },
+        { id: 'l27-3', phase: 'launch27', text: 'Hard close Dec 21 · 12 seats locked · waitlist opened', done: false },
+        { id: 'l27-4', phase: 'launch27', text: 'Price raise: Mastery $9,500 → $10,500', done: false },
+        { id: 'l27-5', phase: 'launch27', text: 'IG cohort recap series · 8 carousels + 4 Reels', done: false },
+        { id: 'l27-6', phase: 'launch27', text: 'Email list segmented · sequences per segment', done: false },
+        { id: 'l27-7', phase: 'launch27', text: 'Year-end financial close: P&L · CAC · LTV signal · reserves', done: false },
+        { id: 's27-1', phase: 'scale27', text: 'Pick vertical 2 anchor partner (Modernist Barcelona / Yoga Bali / Wine Bordeaux)', done: false },
+        { id: 's27-2', phase: 'scale27', text: 'Vertical 2 landing page shipped using §8 anatomy', done: false },
+        { id: 's27-3', phase: 'scale27', text: 'Open Vertical 2 Foundation cohort — Jun/Jul 2027 dates', done: false },
+        { id: 's27-4', phase: 'scale27', text: 'Founder bandwidth audit: first hire decision?', done: false },
+        { id: 's27-5', phase: 'scale27', text: 'IG: 5k → 12k followers by Mar 31 · email: 500 → 1.5k', done: false },
+        { id: 's27-6', phase: 'scale27', text: 'Newsletter bi-weekly · 1 podcast appearance/month', done: false },
+        { id: 's27-7', phase: 'scale27', text: 'Hampton/peer-community decision · founder accountability locked', done: false },
+        { id: 's27-8', phase: 'scale27', text: '$49 trip-wire shipped publicly · 50+ purchases pre-V2 launch', done: false },
+        { id: 'an-1', phase: 'anniv', text: '12-month post-mortem: what compounded · what to refuse · 3 honest mistakes', done: false },
+        { id: 'an-2', phase: 'anniv', text: 'Decision: scale Saga tier OR stay focused on Foundation+Mastery', done: false },
+        { id: 'an-3', phase: 'anniv', text: 'Year-one financials: revenue · margin · profit-first allocations', done: false },
+        { id: 'an-4', phase: 'anniv', text: 'Brand audit: voice drift check · banned-words · sacred phrases honored', done: false },
+        { id: 'an-5', phase: 'anniv', text: 'Cohort #3 (Sep 2027) closed early on alumni-only — flywheel proven', done: false },
+        { id: 'an-6', phase: 'anniv', text: 'Archive Growth Engine 2026 · write Growth Engine 2027 layer', done: false },
+        { id: 'an-7', phase: 'anniv', text: 'One alum cited the cohort as their career-change inflection point. Documented.', done: false },
     ];
 
     const SEED_IG = [
-        // Launch mechanics
         { id: uid(), status: 'idea', type: 'reel', pillar: 'founder', hook: '"Why a yacht chef is building a cooking school" — 90s manifesto, pinned', body: 'Costly signal: flight to Tokyo, scouting, declining a charter. Voice over real galley B-roll. End on premise sentence. Hook in second 1: the founder\'s face, no text overlay.', scheduled: '' },
-        { id: uid(), status: 'idea', type: 'carousel', pillar: 'curriculum', hook: 'Day 1: 5 AM at Toyosu — what you actually do', body: 'Slide 1: hook · 2: arrive 4:30 AM with Hiroko · 3: the kuromaguro auction floor · 4: how to read fish eyes · 5: the supplier intro · 6: knife test · 7: walking back at 6:30 with breakfast plan · 8: CTA reply SUSHI', scheduled: '' },
+        { id: uid(), status: 'idea', type: 'carousel', pillar: 'curriculum', hook: 'Day 1: 5 AM at Toyosu — what you actually do', body: '8 slides: arrive 4:30 with Hiroko · auction floor · how to read fish eyes · supplier intro · knife test · walking back at 6:30 · CTA reply SUSHI', scheduled: '' },
         { id: uid(), status: 'idea', type: 'carousel', pillar: 'curriculum', hook: 'Day 4: Hand-pressing nigiri until your forearm gives out', body: '8 slides covering grip pressure, rice temp, the 3 mistakes everyone makes day 1, what Hiroko corrects on day 4. Save bait.', scheduled: '' },
-        { id: uid(), status: 'idea', type: 'reel', pillar: 'galley', hook: 'Breaking down a 12kg yellowfin in 6 minutes (yacht galley)', body: 'No music. Just blade-on-flesh sound + breathing. Text overlay: "This is what we teach. Tokyo. September." End frame: cohort dates.', scheduled: '' },
+        { id: uid(), status: 'idea', type: 'reel', pillar: 'galley', hook: 'Breaking down a 12kg yellowfin in 6 minutes (yacht galley)', body: 'No music. Just blade-on-flesh sound + breathing. Text overlay: "This is what we teach. Tokyo. September."', scheduled: '' },
         { id: uid(), status: 'idea', type: 'reel', pillar: 'galley', hook: 'Sharpening a yanagiba on a 6000-grit stone — close-up, no talk', body: '20s loop. Trending audio off. Caption: "Sharpening is meditation. Day 3 in Tokyo, you\'ll know why. Reply SUSHI."', scheduled: '' },
-        // Launch mechanics
-        { id: uid(), status: 'drafting', type: 'static', pillar: 'launch', hook: '12 seats. 2 confirmed. Priority access opens June 1.', body: 'Single image: cohort dates + 12 dot icons, 2 filled in. Caption explains the application + $500 refundable deposit. Hard close July 5.', scheduled: '' },
-        // Dev strategy
+        { id: uid(), status: 'drafting', type: 'static', pillar: 'launch', hook: '12 seats. 2 confirmed. Priority access opens June 1.', body: 'Single image: cohort dates + 12 dot icons, 2 filled in. Caption explains application + $500 refundable deposit.', scheduled: '' },
         { id: uid(), status: 'idea', type: 'story', pillar: 'dev', hook: 'BTS: scouting the Tsukiji supplier we\'ll use', body: '6-frame story sequence. Phone-shot. Cyan/black aesthetic. Final frame: link sticker → sushi-mastery page.', scheduled: '' },
-        { id: uid(), status: 'idea', type: 'reel', pillar: 'founder', hook: 'I\'m 36. I just turned down a $14k charter to teach.', body: '45s talking head. The cost of doing this. No violins. Just a chef in a galley explaining the math. End: "12 seats. Tokyo. September. Reply SUSHI."', scheduled: '' },
+        { id: uid(), status: 'idea', type: 'reel', pillar: 'founder', hook: 'I\'m 36. I just turned down a $14k charter to teach.', body: '45s talking head. The cost of doing this. No violins. Just a chef in a galley explaining the math.', scheduled: '' },
     ];
+
+    const PROMPTS = {
+        reel: 'Generate 5 Reel hooks for a French yacht chef launching a certified sushi immersion in Tokyo, Sep 21 2026. Each hook must (1) load in second 1 with a visual or audible action, not a sentence, (2) use proper nouns or specific numbers, (3) avoid these banned words: transformation, life-changing, vacation, luxury, easy. Format: HOOK / VISUAL OPENER / CTA. The CTA is always: "Reply SUSHI for the September cohort dossier."',
+        carousel: 'Build an 8-slide IG carousel titled "Day [N]: [specific element]" for the Tokyo Sushi Mastery cohort. Each slide = one sentence + one supporting line. Use specificity (Hiroko\'s mentor, exact knife brand, Toyosu, koji, time of day). Final slide CTA: "Reply SUSHI for September dossier." Banned words: transformation, life-changing, vacation, luxury, easy, journey, escape, tour.',
+        dm: 'Write 5 DM openers I can send to people who\'ve engaged 3+ times with my IG (no name, no creep). Each: (1) acknowledges their specific interaction without quoting it back, (2) offers value before asking (1 paragraph of insight), (3) ends with a soft question, not a CTA. ≤50 words each. Yacht-chef directness, no "hey friend" energy.',
+        email: 'Write the Day-3 nurture email for a new EducatedTraveler signup who hasn\'t completed the Quest yet. Subject + preview + 180-word body. Lead with the founder\'s specific story (a Toyosu morning, a galley moment), not a feature list. CTA: "Reply with the one skill you\'d want to learn at the source." No marketing-speak.',
+        longform: 'Draft a 700-word newsletter for "Salt & Saltwater — letters from a yacht chef building a cooking school." Open with a scene (sensory, present tense, specific to a yacht galley moment). Bridge to one tension in the building of EducatedTraveler. End on a question to the reader. Voice: literary, terse, no founder-bro tropes.',
+        salespage: 'Rewrite the [section name] of educatedtraveler.app/sushi-mastery.html using the Growth Engine 2026 §8 anatomy: hero, tension, premise, transformation (arrive-as/leave-as), curriculum (day-by-day with proper nouns), proof (credibility surrogates), decision ($500 refundable deposit + Apply not Buy), FAQ, hard close countdown. Voice: yacht-chef directness, three pillars Freedom/Adventure/Immersion. Banned-words list applies.'
+    };
 
     // =========================================================================
     // PERSISTENCE
     // =========================================================================
-    function loadTasks() {
+    function load(key, fallback) {
         try {
-            const saved = JSON.parse(localStorage.getItem(TASKS_KEY) || 'null');
-            if (saved && Array.isArray(saved)) return saved;
-        } catch (e) {}
+            const v = JSON.parse(localStorage.getItem(key) || 'null');
+            return v ?? fallback;
+        } catch (e) { return fallback; }
+    }
+    function save(key, val) { localStorage.setItem(key, JSON.stringify(val)); }
+
+    function loadTasks() {
+        const saved = load(TASKS_KEY, null);
+        if (saved && Array.isArray(saved)) return saved;
         return JSON.parse(JSON.stringify(SEED_TASKS));
     }
-    function saveTasks() { localStorage.setItem(TASKS_KEY, JSON.stringify(tasks)); }
-
     function loadIg() {
-        try {
-            const saved = JSON.parse(localStorage.getItem(IG_KEY) || 'null');
-            if (saved && Array.isArray(saved)) return saved;
-        } catch (e) {}
+        const saved = load(IG_KEY, null);
+        if (saved && Array.isArray(saved)) return saved;
         return JSON.parse(JSON.stringify(SEED_IG));
     }
-    function saveIg() { localStorage.setItem(IG_KEY, JSON.stringify(igPosts)); }
 
     // =========================================================================
     // INIT
@@ -773,10 +1180,8 @@
 
     document.addEventListener('DOMContentLoaded', async () => {
         try {
-            // Wait for Supabase SDK + client + auth module to all be ready
             await waitFor(() => window.supabaseClient && window.auth && typeof window.auth.getUser === 'function');
         } catch (err) {
-            console.error('Init wait failed:', err);
             return showDenied('Connection issue — couldn\'t reach Supabase. Refresh, or check your network.');
         }
 
@@ -784,144 +1189,623 @@
         try {
             user = await window.auth.getUser();
         } catch (err) {
-            console.error('getUser failed:', err);
             return showDenied('Auth check failed. Refresh and try again.');
         }
-
-        if (!user) {
-            return showDenied('Sign in required. Use the founder account.');
-        }
+        if (!user) return showDenied('Sign in required. Use the founder account.');
 
         let prof;
         try {
-            const res = await window.supabaseClient
-                .from('profiles')
-                .select('is_admin, email')
-                .eq('id', user.id)
-                .single();
+            const res = await window.supabaseClient.from('profiles').select('is_admin, email').eq('id', user.id).single();
             prof = res.data;
-            if (res.error) console.warn('profile lookup warning:', res.error);
         } catch (err) {
-            console.error('Profile query threw:', err);
             return showDenied('Profile lookup failed. Refresh and try again.');
         }
-
-        if (!prof?.is_admin) {
-            return showDenied('Admin privileges required.');
-        }
+        if (!prof?.is_admin) return showDenied('Admin privileges required.');
 
         tasks = loadTasks();
         igPosts = loadIg();
+        inbox = load(INBOX_KEY, []);
+        log = load(LOG_KEY, []);
+        handled = load(HANDLED_KEY, {});
         showCompleted = localStorage.getItem(SHOW_COMPLETED_KEY) === '1';
         document.getElementById('show-completed').checked = showCompleted;
 
-        try {
-            await loadLiveData();
-        } catch (err) {
-            console.error('loadLiveData failed:', err);
-            // Continue with empty data rather than blocking — the dashboard
-            // still has value for the local checklist + IG tracker even
-            // without live Supabase rows.
-        }
+        try { await loadLiveData(); }
+        catch (err) { console.error('loadLiveData failed:', err); }
 
         document.getElementById('loading').classList.add('hidden');
         document.getElementById('main').classList.remove('hidden');
+        document.getElementById('tab-bar').classList.remove('hidden');
+
+        // Restore last view
+        const hashView = location.hash.replace('#','') || load(VIEW_KEY, 'today');
+        switchView(hashView, { skipSave: true });
 
         renderAll();
         bindUI();
+        resurrectOngoing();
     });
 
     async function loadLiveData() {
         const sb = window.supabaseClient;
-        const [profiles, prefs, adventures, interests] = await Promise.all([
-            sb.from('profiles').select('id, email, first_name, name, age, location, profession, interests, created_at, xp, level').order('created_at', { ascending: false }).limit(50),
+        const queries = await Promise.all([
+            sb.from('profiles').select('id, email, first_name, name, age, location, profession, interests, created_at, xp, level, is_admin').order('created_at', { ascending: false }).limit(100),
             sb.from('user_preferences').select('user_id, elements, desires, time_preference, intensity, updated_at'),
             sb.from('saved_adventures').select('user_id, adventure_id, adventure_name, saved_at').order('saved_at', { ascending: false }),
             sb.from('experience_interests').select('user_id, adventure_id, adventure_name, status, created_at').order('created_at', { ascending: false }),
+            sb.from('enrollments').select('id, user_id, cohort_id, status, payment_status, amount_paid_cents, paid_at, enrolled_at'),
+            sb.from('cohorts').select('id, title, start_date, end_date, capacity, status, price_cents, adventure_id'),
+            sb.from('survey_responses').select('id, email, lifestage, skill_specify, programs, programs_other, duration, price_range, booking_intent, top_barrier, wants_contact, created_at').order('created_at', { ascending: false }).limit(200),
         ]);
-        data.profiles = profiles.data || [];
-        data.prefs = prefs.data || [];
-        data.adventures = adventures.data || [];
-        data.interests = interests.data || [];
+        data.profiles = queries[0].data || [];
+        data.prefs = queries[1].data || [];
+        data.adventures = queries[2].data || [];
+        data.interests = queries[3].data || [];
+        data.enrollments = queries[4].data || [];
+        data.cohorts = queries[5].data || [];
+        data.surveys = queries[6].data || [];
 
-        const now = new Date();
-        const fmt = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        document.getElementById('last-sync').textContent = `Synced · ${fmt}`;
+        const fmt = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const ls = document.getElementById('last-sync');
+        if (ls) ls.textContent = `${fmt}`;
     }
 
     // =========================================================================
-    // RENDER
+    // ROUTER
+    // =========================================================================
+    function switchView(view, opts = {}) {
+        if (!view || view === 'more') return;
+        const valid = ['today','funnel','people','content','year','playbook','log'];
+        if (!valid.includes(view)) view = 'today';
+
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        const target = document.getElementById('view-' + view);
+        if (target) target.classList.add('active');
+
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        const tabBtn = document.querySelector('.tab-btn[data-view="' + view + '"]');
+        if (tabBtn) tabBtn.classList.add('active');
+        else if (['year','playbook','log'].includes(view)) {
+            const more = document.getElementById('more-tab');
+            if (more) more.classList.add('active');
+        }
+
+        if (!opts.skipSave) save(VIEW_KEY, view);
+        activeView = view;
+        if (location.hash !== '#' + view) {
+            history.replaceState(null, '', '#' + view);
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (view === 'people') renderPeople();
+        if (view === 'funnel') renderFunnel();
+    }
+
+    // =========================================================================
+    // RENDER · everything
     // =========================================================================
     function renderAll() {
-        renderHeader();
-        renderPulse();
-        renderSignups();
+        renderNorthStar();
+        renderToday();
+        renderInbox();
+        renderBatch();
         renderTasks();
         renderIg();
+        renderLog();
+        renderPeople();
+        renderFunnel();
     }
 
-    function renderHeader() {
+    // ---- NORTH STAR -------------------------------------------------------
+    function getDeposits() {
+        // Match enrollments paid for sushi-cohort
+        const sushiCohorts = data.cohorts.filter(c => COHORT_TITLE_MATCH.test(c.title || '') || COHORT_TITLE_MATCH.test(c.adventure_id || ''));
+        const sushiIds = new Set(sushiCohorts.map(c => c.id));
+        const paid = data.enrollments.filter(e =>
+            sushiIds.has(e.cohort_id) && (e.payment_status === 'paid' || e.status === 'enrolled')
+        );
+        return paid.length;
+    }
+
+    function getApplicationsOpen() {
+        // Interests with status='interested' + survey hot leads not yet handled
+        const intCount = data.interests.filter(i => i.status === 'interested').length;
+        const hot = data.surveys.filter(s =>
+            (s.booking_intent === 'deposit_now' || s.booking_intent === 'very_likely') &&
+            s.email && !handled['survey:' + s.id]
+        ).length;
+        return intCount + hot;
+    }
+
+    function getTodayPriorityTask() {
+        const unlocked = getEarliestUnlockedPhaseWithOpen();
+        if (!unlocked) return null;
+        const open = tasks.filter(t => t.phase === unlocked && !t.done);
+        return open[0] || null;
+    }
+
+    function renderNorthStar() {
+        const deposits = getDeposits();
+        const apps = getApplicationsOpen();
+        const tMinus = Math.ceil((COHORT_START - Date.now()) / 86400000);
+        document.getElementById('ns-deposits').textContent = deposits;
+        document.getElementById('ns-apps').textContent = apps;
+        document.getElementById('ns-tminus').textContent = tMinus + 'd';
+
+        const priorityTask = getTodayPriorityTask();
+        const pri = document.getElementById('ns-priority');
+        if (priorityTask) {
+            pri.textContent = '◆ ' + (priorityTask.text.length > 50 ? priorityTask.text.slice(0, 50) + '…' : priorityTask.text);
+            pri.classList.remove('hidden');
+        } else {
+            pri.classList.add('hidden');
+        }
+    }
+
+    // ---- TODAY VIEW -------------------------------------------------------
+    function renderToday() {
         const now = new Date();
-        document.getElementById('today-label').textContent =
-            now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
-        const daysToCohort = Math.ceil((COHORT_START - now) / 86400000);
-        document.getElementById('cohort-countdown').textContent = `T-${daysToCohort} days`;
+        document.getElementById('today-label').textContent = now.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+
+        // Today's 3
+        const unlocked = getEarliestUnlockedPhaseWithOpen();
+        const today3 = [];
+        if (unlocked) {
+            const open = tasks.filter(t => t.phase === unlocked && !t.done);
+            today3.push(...open.slice(0, 3));
+        }
+        // If <3, fill with ongoing
+        if (today3.length < 3) {
+            const ongoingOpen = tasks.filter(t => t.phase === 'ongoing' && !t.done && !today3.includes(t));
+            today3.push(...ongoingOpen.slice(0, 3 - today3.length));
+        }
+
+        const listEl = document.getElementById('today-list');
+        if (!today3.length) {
+            listEl.innerHTML = '<div class="px-5 py-6 text-center text-white/30 text-sm">All caught up · open the YEAR view to set the next week.</div>';
+        } else {
+            listEl.innerHTML = today3.map((t, i) => {
+                const phaseInfo = ({now:['PRIORITY','seg-rose'], soon:['JUNE','seg-bmw'], cohort:['PRE-SEP','seg-violet'], ongoing:['DAILY','seg-emerald']})[t.phase] || ['LATER','seg-white'];
+                return `
+                    <div class="check px-5 py-4 flex items-start gap-3" data-task="${t.id}">
+                        <button onclick="toggleTask('${t.id}')" class="mt-0.5 shrink-0 w-5 h-5 rounded border ${t.done ? 'bg-bmw-500/40 border-bmw-400/60' : 'border-white/20 hover:border-white/50'} flex items-center justify-center transition-colors">
+                            ${t.done ? '<svg class="w-3 h-3 text-bmw-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
+                        </button>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-0.5">
+                                <span class="seg ${phaseInfo[1]}">${phaseInfo[0]}</span>
+                                <span class="text-[10px] mono text-white/30">#${i + 1}</span>
+                            </div>
+                            <div class="text-sm leading-snug text-white/85">${esc(t.text)}</div>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+
+        // Pulse mini
+        document.getElementById('pulse-deposits-mini').textContent = getDeposits();
+        document.getElementById('pulse-apps-mini').textContent = getApplicationsOpen();
+        const openNow = tasks.filter(t => (t.phase === 'now' || t.phase === 'ongoing') && !t.done).length;
+        document.getElementById('pulse-tasks-mini').textContent = openNow;
     }
 
-    function renderPulse() {
-        const now = Date.now();
-        const wkAgo = now - 7*86400000;
-        const wk2Ago = now - 14*86400000;
-
-        const signupsThis = data.profiles.filter(p => new Date(p.created_at).getTime() >= wkAgo).length;
-        const signupsPrev = data.profiles.filter(p => {
-            const t = new Date(p.created_at).getTime();
-            return t < wkAgo && t >= wk2Ago;
-        }).length;
-        const questsThis = data.prefs.filter(p => p.updated_at && new Date(p.updated_at).getTime() >= wkAgo).length;
-        const questsPrev = data.prefs.filter(p => {
-            const t = new Date(p.updated_at || 0).getTime();
-            return t < wkAgo && t >= wk2Ago;
-        }).length;
-
-        document.getElementById('pulse-signups').textContent = signupsThis;
-        document.getElementById('pulse-signups-delta').innerHTML = delta(signupsThis, signupsPrev);
-        document.getElementById('pulse-quests').textContent = questsThis;
-        document.getElementById('pulse-quests-delta').innerHTML = delta(questsThis, questsPrev);
-
-        document.getElementById('pulse-interests').textContent = data.interests.length;
-        const uniqueInterested = new Set(data.interests.map(i => i.user_id)).size;
-        document.getElementById('pulse-interests-detail').textContent = `${uniqueInterested} people`;
-
-        const scheduledCount = igPosts.filter(p => p.status === 'scheduled').length;
-        const draftingCount = igPosts.filter(p => p.status === 'drafting').length;
-        document.getElementById('pulse-ig').textContent = scheduledCount;
-        document.getElementById('pulse-ig-detail').textContent = `${draftingCount} drafting`;
-
-        const openTasks = tasks.filter(t => !t.done).length;
-        const doneToday = tasks.filter(t => t.done && t.doneAt && (Date.now() - t.doneAt) < 86400000).length;
-        document.getElementById('pulse-tasks').textContent = openTasks;
-        document.getElementById('pulse-tasks-detail').textContent = doneToday ? `+${doneToday} done today` : 'to do';
+    function getEarliestUnlockedPhaseWithOpen() {
+        const order = ['now','soon','cohort','execute','harvest','launch27','scale27','anniv'];
+        for (const phase of order) {
+            const phaseDef = PHASES.find(p => p.id === phase);
+            if (!phaseDef) continue;
+            if (!isPhaseUnlocked(phaseDef)) continue;
+            const open = tasks.filter(t => t.phase === phase && !t.done);
+            if (open.length) return phase;
+        }
+        return null;
     }
 
-    function delta(now, prev) {
-        if (now === prev) return '<span class="text-white/30">= 0</span>';
-        if (now > prev) return `<span class="text-emerald-400">↗ +${now - prev}</span>`;
-        return `<span class="text-rose-400/60">↘ ${now - prev}</span>`;
+    // ---- INBOX (auto-generated) ------------------------------------------
+    function buildInboxItems() {
+        const items = [];
+
+        // New profiles (last 7d, with quest data)
+        const recentProfiles = data.profiles
+            .filter(p => daysAgo(p.created_at) <= 7 && !p.is_admin && !handled['profile:' + p.id])
+            .slice(0, 4);
+        const prefsByUser = Object.fromEntries(data.prefs.map(p => [p.user_id, p]));
+        recentProfiles.forEach(p => {
+            const pref = prefsByUser[p.id];
+            const interests = pref ? [...(pref.elements || []), ...(pref.desires || [])].slice(0, 3).join(' · ') : '';
+            items.push({
+                kind: 'profile',
+                id: 'profile:' + p.id,
+                key: p.id,
+                title: esc(p.first_name || p.name || (p.email || 'anonymous').split('@')[0]),
+                subtitle: interests || 'Signed up · no quest yet',
+                age: Math.floor(daysAgo(p.created_at)),
+                hot: pref?.intensity === 'high',
+                action: 'View'
+            });
+        });
+
+        // Hot survey leads (not handled)
+        const hotSurveys = data.surveys
+            .filter(s => (s.booking_intent === 'deposit_now' || s.booking_intent === 'very_likely') && s.email && !handled['survey:' + s.id])
+            .slice(0, 3);
+        hotSurveys.forEach(s => {
+            const programs = (s.programs || []).slice(0, 2).join(' · ');
+            items.push({
+                kind: 'survey',
+                id: 'survey:' + s.id,
+                key: s.id,
+                title: esc(s.email),
+                subtitle: `${esc(programs || s.skill_specify || 'skill: TBD')} · ${esc(s.booking_intent === 'deposit_now' ? 'deposit ready' : 'very likely')}`,
+                age: Math.floor(daysAgo(s.created_at)),
+                hot: true,
+                action: 'Email'
+            });
+        });
+
+        // Recent interests (confirmed status)
+        const recentInterests = data.interests
+            .filter(i => i.status === 'interested' && !handled['interest:' + i.user_id + ':' + i.adventure_id])
+            .slice(0, 3);
+        recentInterests.forEach(i => {
+            const prof = data.profiles.find(p => p.id === i.user_id);
+            const name = prof ? (prof.first_name || prof.name || (prof.email || '').split('@')[0]) : 'unknown';
+            items.push({
+                kind: 'interest',
+                id: 'interest:' + i.user_id + ':' + i.adventure_id,
+                key: i.user_id,
+                title: esc(name),
+                subtitle: `Interested in ${esc(i.adventure_name || i.adventure_id)}`,
+                age: Math.floor(daysAgo(i.created_at)),
+                hot: false,
+                action: 'View'
+            });
+        });
+
+        // Sort by age ascending (newest first)
+        items.sort((a, b) => a.age - b.age);
+        return items.slice(0, 6);
     }
 
-    // ---- SIGNUPS -----------------------------------------------------------
-    function renderSignups() {
-        const list = document.getElementById('signups-list');
-        const empty = document.getElementById('signups-empty');
-        const profiles = data.profiles.slice(0, 12);
+    function renderInbox() {
+        const items = buildInboxItems();
+        document.getElementById('inbox-count').textContent = `${items.length} to triage`;
 
-        if (!profiles.length) {
-            list.innerHTML = '';
-            empty.classList.remove('hidden');
+        const listEl = document.getElementById('inbox-list');
+        if (!items.length) {
+            listEl.innerHTML = '<div class="px-5 py-6 text-center text-white/30 text-sm">Inbox zero · 🎯</div>';
             return;
         }
-        empty.classList.add('hidden');
+        listEl.innerHTML = items.map(it => {
+            const iconMap = {profile:'👤', survey:'🔥', interest:'🎯'};
+            return `
+                <div class="px-5 py-3 flex items-center gap-3 hover:bg-white/[0.02]">
+                    <div class="shrink-0 text-base">${iconMap[it.kind] || '·'}</div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-sm font-medium truncate">${it.title}</span>
+                            ${it.hot ? '<span class="seg seg-amber">HOT</span>' : ''}
+                            <span class="text-[10px] mono text-white/30">${it.age === 0 ? 'today' : it.age + 'd ago'}</span>
+                        </div>
+                        <div class="text-xs text-white/55 truncate">${it.subtitle}</div>
+                    </div>
+                    <div class="flex gap-1 shrink-0">
+                        <button onclick="actInbox('${it.id}','${it.kind}','${it.key}','open')" class="btn-ghost !text-[11px] !py-1 !px-2">${it.action}</button>
+                        <button onclick="actInbox('${it.id}','${it.kind}','${it.key}','dismiss')" class="text-white/30 hover:text-rose-400 text-xs px-1" title="Mark handled">×</button>
+                    </div>
+                </div>`;
+        }).join('');
+    }
+
+    function actInbox(id, kind, key, action) {
+        if (action === 'dismiss') {
+            handled[id] = Date.now();
+            save(HANDLED_KEY, handled);
+            renderInbox();
+            renderNorthStar();
+            renderToday();
+            return;
+        }
+        if (kind === 'profile' || kind === 'interest') {
+            openProfileModal(key);
+        } else if (kind === 'survey') {
+            const s = data.surveys.find(x => x.id === key);
+            if (s && s.email) {
+                window.open(`mailto:${s.email}?subject=Sushi%20Mastery%20Tokyo%20%E2%80%94%20Sep%202026&body=Hi%2C%0A%0AYou%20mentioned%20${encodeURIComponent(s.skill_specify || 'a skill immersion')}%20in%20the%20EducatedTraveler%20survey...`, '_blank');
+                handled[id] = Date.now();
+                save(HANDLED_KEY, handled);
+                renderInbox();
+            }
+        }
+    }
+    window.actInbox = actInbox;
+
+    // ---- SUNDAY BATCH ----------------------------------------------------
+    function shouldShowBatch() {
+        const d = new Date().getDay();
+        return d === 5 || d === 6 || d === 0; // Fri / Sat / Sun
+    }
+
+    function generateBatch() {
+        const hooks = [
+            { pillar: 'galley', type: 'reel', text: 'Break down a whole fish in <60 sec · blade-on-flesh sound only · text overlay: "Day 6 in Tokyo, you do this."' },
+            { pillar: 'galley', type: 'reel', text: 'Sharpening 30s loop · close-up · trending audio off · caption: "Sharpening is meditation."' },
+            { pillar: 'curriculum', type: 'carousel', text: '"Day N: [one specific element]" · 8 slides · day-by-day Tokyo · save bait · CTA Reply SUSHI' },
+            { pillar: 'founder', type: 'static', text: 'Single portrait + one manifesto sentence from §3 premise. Pin if first of week.' },
+            { pillar: 'launch', type: 'reel', text: 'Behind-the-scenes scouting / supplier visit · 30s · costly signal · "12 seats, Sep 21."' },
+            { pillar: 'galley', type: 'reel', text: 'Plate it in real time · 20s · no music · text: "What we teach. Tokyo. September."' },
+            { pillar: 'curriculum', type: 'carousel', text: '"The 3 mistakes every Day-1 student makes" · 8 slides · save bait · soft CTA' },
+            { pillar: 'founder', type: 'reel', text: '"I just turned down a $X charter to teach" · 45s talking head · math out loud' },
+        ];
+        // Pick 5 deterministically per ISO week
+        const week = Math.floor(Date.now() / (7 * 86400000));
+        const picks = [];
+        for (let i = 0; i < 5; i++) {
+            picks.push(hooks[(week + i) % hooks.length]);
+        }
+        return picks;
+    }
+
+    function renderBatch() {
+        const section = document.getElementById('batch-section');
+        if (shouldShowBatch()) section.classList.remove('hidden');
+        else section.classList.add('hidden');
+
+        const picks = generateBatch();
+        const html = picks.map((p, i) => {
+            const colorMap = { galley:'seg-emerald', curriculum:'seg-bmw', founder:'seg-violet', launch:'seg-amber', dev:'seg-rose' };
+            const typeLabel = ({reel:'REEL', carousel:'CAROUSEL', static:'STATIC', story:'STORY'})[p.type] || p.type.toUpperCase();
+            return `
+                <div class="glass rounded-xl p-3 flex items-start gap-3">
+                    <span class="seg ${colorMap[p.pillar] || 'seg-white'} shrink-0">${typeLabel}</span>
+                    <div class="flex-1 text-xs text-white/75 leading-snug">${esc(p.text)}</div>
+                    <button onclick="captureBatchIdea(${i})" class="btn-ghost !text-[10px] !py-0.5 !px-2 shrink-0">+ to IG</button>
+                </div>`;
+        }).join('');
+        document.getElementById('batch-list').innerHTML = html;
+        const list2 = document.getElementById('batch-list-2');
+        if (list2) list2.innerHTML = html;
+    }
+
+    function captureBatchIdea(i) {
+        const picks = generateBatch();
+        const p = picks[i];
+        if (!p) return;
+        igPosts.unshift({ id: uid(), status: 'idea', type: p.type, pillar: p.pillar, hook: p.text, body: '', scheduled: '' });
+        save(IG_KEY, igPosts);
+        renderIg();
+        showToast('Added to IG Ideas →');
+    }
+    window.captureBatchIdea = captureBatchIdea;
+
+    // ---- TASKS / PHASES --------------------------------------------------
+    const PHASES = [
+        { id: 'now',     locked: false, prereqs: [] },
+        { id: 'soon',    locked: false, prereqs: [] },
+        { id: 'cohort',  locked: false, prereqs: [] },
+        { id: 'ongoing', locked: false, prereqs: [] },
+        { id: 'execute', locked: true,  prereqs: ['now','soon','cohort'] },
+        { id: 'harvest', locked: true,  prereqs: ['execute'] },
+        { id: 'launch27',locked: true,  prereqs: ['harvest'] },
+        { id: 'scale27', locked: true,  prereqs: ['launch27'] },
+        { id: 'anniv',   locked: true,  prereqs: ['scale27'] },
+    ];
+
+    function isPhaseComplete(phaseId) {
+        const items = tasks.filter(t => t.phase === phaseId);
+        if (!items.length) return false;
+        return items.every(t => t.done);
+    }
+    function isPhaseUnlocked(phase) {
+        if (!phase.locked) return true;
+        return phase.prereqs.every(p => isPhaseComplete(p));
+    }
+
+    function renderTasks() {
+        PHASES.forEach(phase => {
+            const items = tasks.filter(t => t.phase === phase.id);
+            const open = items.filter(t => !t.done).length;
+            const total = items.length;
+            const unlocked = isPhaseUnlocked(phase);
+
+            const countEl = document.getElementById('count-' + phase.id);
+            const listEl = document.getElementById('list-' + phase.id);
+            if (!listEl) return;
+
+            const card = listEl.closest('.phase-card');
+            const lockedMsg = card?.querySelector('.phase-locked-msg');
+            const badge = card?.querySelector('.phase-badge');
+
+            if (phase.locked && !unlocked) {
+                if (countEl) countEl.textContent = '🔒 locked';
+                if (lockedMsg) lockedMsg.classList.remove('hidden');
+                listEl.classList.add('hidden');
+                if (card) card.style.opacity = '0.55';
+                if (badge) badge.classList.add('opacity-60');
+                return;
+            }
+
+            if (lockedMsg) lockedMsg.classList.add('hidden');
+            listEl.classList.remove('hidden');
+            if (card) card.style.opacity = '1';
+            if (badge) badge.classList.remove('opacity-60');
+            if (countEl) countEl.textContent = `${open}/${total} open`;
+
+            if (!items.length) {
+                listEl.innerHTML = '<div class="px-5 py-4 text-xs text-white/30">No tasks in this phase.</div>';
+                return;
+            }
+            listEl.innerHTML = items.map(t => {
+                const doneClass = t.done ? 'done' : '';
+                const showClass = (t.done && showCompleted) ? 'show-completed' : '';
+                return `
+                    <div class="check px-5 py-3 flex items-start gap-3 ${doneClass} ${showClass}" data-task="${t.id}">
+                        <button onclick="toggleTask('${t.id}')" class="mt-0.5 shrink-0 w-4 h-4 rounded border ${t.done ? 'bg-bmw-500/40 border-bmw-400/60' : 'border-white/20 hover:border-white/50'} flex items-center justify-center transition-colors">
+                            ${t.done ? '<svg class="w-3 h-3 text-bmw-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
+                        </button>
+                        <div class="flex-1 text-sm leading-snug ${t.done ? 'text-white/40 line-through' : 'text-white/85'}">${esc(t.text)}</div>
+                        <button onclick="deleteTask('${t.id}')" class="text-white/20 hover:text-rose-400 text-xs shrink-0">×</button>
+                    </div>`;
+            }).join('');
+        });
+    }
+
+    function toggleTask(id) {
+        const t = tasks.find(x => x.id === id);
+        if (!t) return;
+        t.done = !t.done;
+        t.doneAt = t.done ? Date.now() : null;
+        save(TASKS_KEY, tasks);
+        renderTasks();
+        renderToday();
+        renderNorthStar();
+    }
+    window.toggleTask = toggleTask;
+
+    function deleteTask(id) {
+        tasks = tasks.filter(x => x.id !== id);
+        save(TASKS_KEY, tasks);
+        renderTasks();
+        renderToday();
+        renderNorthStar();
+    }
+    window.deleteTask = deleteTask;
+
+    function resurrectOngoing() {
+        const wk = 7 * 86400000;
+        let changed = false;
+        tasks.forEach(t => {
+            if (t.phase === 'ongoing' && t.done && t.doneAt && (Date.now() - t.doneAt) > wk) {
+                t.done = false;
+                t.doneAt = null;
+                changed = true;
+            }
+        });
+        if (changed) {
+            save(TASKS_KEY, tasks);
+            renderTasks();
+            renderToday();
+        }
+    }
+
+    // ---- FUNNEL ----------------------------------------------------------
+    function renderFunnel() {
+        const profiles = data.profiles.filter(p => !p.is_admin);
+        const signups = profiles.length;
+        const questDone = data.prefs.length;
+        const saved = new Set(data.adventures.map(a => a.user_id)).size;
+        const interests = new Set(data.interests.map(i => i.user_id)).size;
+        const hotSurveys = data.surveys.filter(s => s.booking_intent === 'deposit_now' || s.booking_intent === 'very_likely').length;
+        const deposits = getDeposits();
+        const enrolled = data.enrollments.filter(e => e.status === 'enrolled' && e.payment_status === 'paid').length;
+        const applications = getApplicationsOpen();
+
+        const stages = [
+            { label: 'Signups', count: signups, color: 'rgba(255,255,255,0.4)' },
+            { label: 'Quest done', count: questDone, color: 'rgba(180,180,255,0.5)' },
+            { label: 'Saved adventures', count: saved, color: 'rgba(125,165,235,0.6)' },
+            { label: 'Interests declared', count: interests, color: 'rgba(95,160,235,0.7)' },
+            { label: 'Hot survey leads', count: hotSurveys, color: 'rgba(75,150,225,0.8)' },
+            { label: 'Applications', count: applications, color: 'rgba(60,140,212,0.85)' },
+            { label: 'Deposits paid', count: deposits, color: '#3B8DD4' },
+            { label: 'Enrolled', count: enrolled, color: '#0066B1' },
+        ];
+
+        const maxCount = Math.max(1, ...stages.map(s => s.count));
+        const el = document.getElementById('funnel-cascade');
+        if (el) {
+            el.innerHTML = stages.map((s, i) => {
+                const pct = (s.count / maxCount) * 100;
+                const prev = i > 0 ? stages[i-1].count : null;
+                const convRate = (prev !== null && prev > 0) ? Math.round((s.count / prev) * 100) : null;
+                return `
+                    <div>
+                        <div class="flex items-baseline justify-between mb-1 text-xs">
+                            <span class="text-white/65">${s.label}</span>
+                            <div class="flex items-center gap-2 mono">
+                                <span class="font-medium text-white stat-num">${s.count}</span>
+                                ${convRate !== null ? `<span class="text-[10px] text-white/35">${convRate}%</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                            <div class="funnel-bar h-full rounded-full" style="width:${pct}%;background:${s.color}"></div>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+
+        // Diagnostic
+        const diag = document.getElementById('funnel-diagnostic');
+        if (diag) {
+            const lines = [];
+            if (signups === 0) lines.push({ icon: '⚠', text: 'No signups yet. Top of funnel is empty — IG/email need fuel.' });
+            else if (questDone / Math.max(1, signups) < 0.2) lines.push({ icon: '⚠', text: 'Quest completion <20%. Push quest in welcome email + bio link.' });
+            if (hotSurveys > deposits + 2) lines.push({ icon: '🔥', text: `${hotSurveys} hot survey leads vs ${deposits} deposits. Email them this week.` });
+            if (signups > 30 && interests === 0) lines.push({ icon: '⚠', text: 'Signups but no interests declared. Sushi page CTA may be invisible.' });
+            if (deposits >= COHORT_TARGET_SEATS) lines.push({ icon: '✓', text: `${deposits}/12 deposits paid — cohort full. Open waitlist for next cohort.` });
+            if (!lines.length) lines.push({ icon: '◆', text: 'Funnel reads healthy. Push more top-of-funnel via IG + partner outreach.' });
+
+            diag.innerHTML = `
+                <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">Diagnostic</div>
+                <div class="space-y-1.5 text-xs">
+                    ${lines.map(l => `<div class="flex items-start gap-2 text-white/75"><span class="shrink-0">${l.icon}</span><span>${esc(l.text)}</span></div>`).join('')}
+                </div>`;
+        }
+
+        // Goal trajectory
+        const traj = document.getElementById('goal-trajectory');
+        if (traj) {
+            const tMinus = Math.ceil((COHORT_START - Date.now()) / 86400000);
+            const needed = COHORT_TARGET_SEATS - deposits;
+            const weeksLeft = Math.max(1, Math.floor(tMinus / 7));
+            const perWeek = needed > 0 ? (needed / weeksLeft).toFixed(1) : 0;
+            traj.innerHTML = `
+                <div class="text-2xl font-light accent mono stat-num mb-1">${deposits}<span class="text-white/30">/12</span></div>
+                <div class="text-xs text-white/65 leading-relaxed">
+                    Need <span class="text-white">${needed}</span> more deposits in <span class="text-white">${weeksLeft}</span> weeks.<br>
+                    <span class="text-white/85 mono">${perWeek}/wk</span> trajectory required.
+                </div>
+                <div class="mt-3 h-2 bg-white/[0.04] rounded-full overflow-hidden">
+                    <div class="h-full bg-bmw-500 rounded-full" style="width:${Math.min(100, (deposits / COHORT_TARGET_SEATS) * 100)}%"></div>
+                </div>`;
+        }
+
+        // Vanity
+        const wkAgo = Date.now() - 7 * 86400000;
+        const v = (arr, field) => arr.filter(x => new Date(x[field] || 0).getTime() >= wkAgo).length;
+        const setV = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+        setV('vanity-signups', v(profiles, 'created_at'));
+        setV('vanity-quests', v(data.prefs, 'updated_at'));
+        setV('vanity-saved', v(data.adventures, 'saved_at'));
+        setV('vanity-ig', igPosts.filter(p => p.status === 'scheduled').length);
+    }
+
+    // ---- PEOPLE ----------------------------------------------------------
+    function getHotPeople() {
+        const hot = [];
+        // 1. Survey hot leads
+        data.surveys.forEach(s => {
+            if ((s.booking_intent === 'deposit_now' || s.booking_intent === 'very_likely') && s.email) {
+                hot.push({ kind: 'survey', id: 's:' + s.id, email: s.email, name: s.email.split('@')[0], detail: `${(s.programs || []).join(' · ') || s.skill_specify || ''} · ${s.booking_intent.replace('_',' ')}`, age: daysAgo(s.created_at) });
+            }
+        });
+        // 2. Multi-saved profiles
+        const advCount = {};
+        data.adventures.forEach(a => { advCount[a.user_id] = (advCount[a.user_id] || 0) + 1; });
+        data.profiles.forEach(p => {
+            if (!p.is_admin && (advCount[p.id] || 0) >= 3) {
+                hot.push({ kind: 'profile', id: 'p:' + p.id, profileId: p.id, email: p.email, name: p.first_name || p.name || (p.email || '').split('@')[0], detail: `${advCount[p.id]} saved adventures`, age: daysAgo(p.created_at) });
+            }
+        });
+        return hot.sort((a, b) => a.age - b.age);
+    }
+
+    function renderPeople() {
+        const filter = activePeopleFilter;
+        document.querySelectorAll('.people-filter').forEach(b => {
+            b.classList.toggle('btn-primary', b.dataset.filter === filter);
+            b.classList.toggle('btn-ghost', b.dataset.filter !== filter);
+        });
 
         const prefsByUser = Object.fromEntries(data.prefs.map(p => [p.user_id, p]));
         const advByUser = {};
@@ -929,48 +1813,95 @@
         const intByUser = {};
         data.interests.forEach(i => { (intByUser[i.user_id] = intByUser[i.user_id] || []).push(i); });
 
-        list.innerHTML = profiles.map(p => {
-            const pref = prefsByUser[p.id];
-            const adv = advByUser[p.id] || [];
-            const intr = intByUser[p.id] || [];
-            const ageDays = Math.floor((Date.now() - new Date(p.created_at).getTime()) / 86400000);
-            const fresh = ageDays <= 7;
+        let rows = [];
+        if (filter === 'new') {
+            rows = data.profiles.filter(p => !p.is_admin).slice(0, 30).map(p => makePeopleRow(p, prefsByUser, advByUser, intByUser));
+        } else if (filter === 'all') {
+            rows = data.profiles.filter(p => !p.is_admin).map(p => makePeopleRow(p, prefsByUser, advByUser, intByUser));
+        } else if (filter === 'applicants') {
+            const userIds = new Set(data.interests.map(i => i.user_id));
+            rows = data.profiles.filter(p => userIds.has(p.id)).map(p => makePeopleRow(p, prefsByUser, advByUser, intByUser));
+        } else if (filter === 'cohort') {
+            const sushiCohorts = data.cohorts.filter(c => COHORT_TITLE_MATCH.test(c.title || ''));
+            const sushiIds = new Set(sushiCohorts.map(c => c.id));
+            const enrolledUsers = new Set(data.enrollments.filter(e => sushiIds.has(e.cohort_id)).map(e => e.user_id));
+            rows = data.profiles.filter(p => enrolledUsers.has(p.id)).map(p => makePeopleRow(p, prefsByUser, advByUser, intByUser));
+        } else if (filter === 'hot') {
+            const hot = getHotPeople();
+            rows = hot.map(h => makeHotRow(h));
+        }
 
-            const elements = pref?.elements?.slice(0, 3) || [];
-            const desires = pref?.desires?.slice(0, 2) || [];
-            const topAdv = adv.slice(0, 2);
-
-            const tags = [];
-            if (fresh) tags.push('<span class="seg seg-emerald">NEW</span>');
-            if (intr.length) tags.push(`<span class="seg seg-bmw">${intr.length} INT</span>`);
-            if (adv.length >= 3) tags.push(`<span class="seg seg-violet">${adv.length} SAVED</span>`);
-            if (pref?.intensity === 'high') tags.push('<span class="seg seg-amber">HIGH INT</span>');
-
-            const interestChips = [...new Set([...elements, ...desires, ...topAdv.map(a => a.adventure_name || a.adventure_id)])].slice(0, 4)
-                .map(t => `<span class="text-[10px] text-white/45 bg-white/[0.04] px-2 py-0.5 rounded-full">${esc(t)}</span>`).join(' ');
-
-            const name = esc(p.first_name || p.name || (p.email ? p.email.split('@')[0] : 'anonymous'));
-            const ageLabel = ageDays === 0 ? 'today' : `${ageDays}d ago`;
-
-            return `
-                <button onclick="openProfileModal('${p.id}')" class="w-full text-left px-4 sm:px-5 py-3 hover:bg-white/[0.025] flex items-center gap-3 transition-colors">
-                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-bmw-500/40 to-bmw-700/40 flex items-center justify-center text-xs font-medium shrink-0">
-                        ${esc(name.charAt(0).toUpperCase())}
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex items-center gap-2 flex-wrap">
-                            <span class="text-sm font-medium truncate">${name}</span>
-                            ${tags.join('')}
-                        </div>
-                        <div class="flex items-center gap-2 mt-1 flex-wrap">
-                            ${interestChips || '<span class="text-[11px] text-white/30">No quest yet</span>'}
-                        </div>
-                    </div>
-                    <div class="text-[11px] mono text-white/30 shrink-0 hidden sm:block">${ageLabel}</div>
-                    <span class="text-white/30 text-xs">›</span>
-                </button>`;
-        }).join('');
+        document.getElementById('people-count').textContent = `${rows.length} ${filter}`;
+        const list = document.getElementById('people-list');
+        const empty = document.getElementById('people-empty');
+        if (!rows.length) {
+            list.innerHTML = '';
+            empty.classList.remove('hidden');
+        } else {
+            empty.classList.add('hidden');
+            list.innerHTML = rows.join('');
+        }
     }
+
+    function makePeopleRow(p, prefsByUser, advByUser, intByUser) {
+        const pref = prefsByUser[p.id];
+        const adv = advByUser[p.id] || [];
+        const intr = intByUser[p.id] || [];
+        const age = Math.floor(daysAgo(p.created_at));
+        const fresh = age <= 7;
+        const elements = pref?.elements?.slice(0, 2) || [];
+        const desires = pref?.desires?.slice(0, 1) || [];
+        const topAdv = adv.slice(0, 1).map(a => a.adventure_name || a.adventure_id);
+
+        const tags = [];
+        if (fresh) tags.push('<span class="seg seg-emerald">NEW</span>');
+        if (intr.length) tags.push(`<span class="seg seg-bmw">${intr.length} INT</span>`);
+        if (adv.length >= 3) tags.push(`<span class="seg seg-violet">${adv.length} SAVED</span>`);
+        if (pref?.intensity === 'high') tags.push('<span class="seg seg-amber">HIGH</span>');
+
+        const chips = [...new Set([...elements, ...desires, ...topAdv])].slice(0, 3)
+            .map(t => `<span class="text-[10px] text-white/45 bg-white/[0.04] px-2 py-0.5 rounded-full">${esc(t)}</span>`).join(' ');
+
+        const name = esc(p.first_name || p.name || (p.email ? p.email.split('@')[0] : 'anonymous'));
+        return `
+            <button onclick="openProfileModal('${p.id}')" class="w-full text-left px-4 sm:px-5 py-3 hover:bg-white/[0.025] flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-bmw-500/40 to-bmw-700/40 flex items-center justify-center text-xs font-medium shrink-0">${esc(name.charAt(0).toUpperCase())}</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-sm font-medium truncate">${name}</span>
+                        ${tags.join('')}
+                    </div>
+                    <div class="flex items-center gap-2 mt-1 flex-wrap">${chips || '<span class="text-[11px] text-white/30">No quest</span>'}</div>
+                </div>
+                <div class="text-[11px] mono text-white/30 shrink-0 hidden sm:block">${age === 0 ? 'today' : age + 'd'}</div>
+                <span class="text-white/30 text-xs">›</span>
+            </button>`;
+    }
+
+    function makeHotRow(h) {
+        const age = Math.floor(h.age);
+        const onclick = h.kind === 'profile'
+            ? `openProfileModal('${h.profileId}')`
+            : `composeEmail('${esc(h.email)}','${esc(h.name)}')`;
+        return `
+            <button onclick="${onclick}" class="w-full text-left px-4 sm:px-5 py-3 hover:bg-white/[0.025] flex items-center gap-3">
+                <div class="shrink-0 text-base">🔥</div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-sm font-medium truncate">${esc(h.name)}</span>
+                        <span class="seg seg-amber">HOT</span>
+                    </div>
+                    <div class="text-xs text-white/55 truncate">${esc(h.detail)}</div>
+                </div>
+                <div class="text-[11px] mono text-white/30 shrink-0 hidden sm:block">${age === 0 ? 'today' : age + 'd'}</div>
+                <span class="text-white/30 text-xs">›</span>
+            </button>`;
+    }
+
+    function composeEmail(email, name) {
+        window.open(`mailto:${email}?subject=Sushi%20Mastery%20Tokyo%20%E2%80%94%20Sep%202026&body=Hi%20${encodeURIComponent(name)}%2C%0A%0A`, '_blank');
+    }
+    window.composeEmail = composeEmail;
 
     function openProfileModal(userId) {
         const p = data.profiles.find(x => x.id === userId);
@@ -978,17 +1909,15 @@
         const pref = data.prefs.find(x => x.user_id === userId);
         const adv = data.adventures.filter(x => x.user_id === userId);
         const intr = data.interests.filter(x => x.user_id === userId);
+        const enr = data.enrollments.filter(x => x.user_id === userId);
         const name = esc(p.first_name || p.name || (p.email ? p.email.split('@')[0] : 'anonymous'));
 
-        const row = (label, val) => val ? `<div class="grid grid-cols-[100px,1fr] gap-3 py-1"><span class="text-[11px] mono text-white/35 uppercase">${esc(label)}</span><span class="text-sm text-white/75">${val}</span></div>` : '';
-
-        const chips = (arr) => arr && arr.length ? arr.map(t => `<span class="text-[11px] text-white/65 bg-white/[0.04] px-2 py-0.5 rounded-full">${esc(t)}</span>`).join(' ') : '<span class="text-white/30 text-sm">—</span>';
+        const row = (l, v) => v ? `<div class="grid grid-cols-[100px,1fr] gap-3 py-1"><span class="text-[11px] mono text-white/35 uppercase">${esc(l)}</span><span class="text-sm text-white/75">${v}</span></div>` : '';
+        const chips = (arr) => arr?.length ? arr.map(t => `<span class="text-[11px] text-white/65 bg-white/[0.04] px-2 py-0.5 rounded-full">${esc(t)}</span>`).join(' ') : '<span class="text-white/30 text-sm">—</span>';
 
         document.getElementById('profile-modal-content').innerHTML = `
             <div class="flex items-center gap-3 mb-5">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-bmw-500/50 to-bmw-700/50 flex items-center justify-center text-base font-medium">
-                    ${esc(name.charAt(0).toUpperCase())}
-                </div>
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-bmw-500/50 to-bmw-700/50 flex items-center justify-center text-base font-medium">${esc(name.charAt(0).toUpperCase())}</div>
                 <div>
                     <h3 class="text-base font-medium">${name}</h3>
                     <p class="text-xs text-white/40 mono">${esc(p.email || '—')}</p>
@@ -1013,181 +1942,69 @@
             ${adv.length ? `
                 <div class="mb-4 pt-4 border-t border-white/5">
                     <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Saved Adventures (${adv.length})</p>
-                    <div class="space-y-1">
-                        ${adv.slice(0, 8).map(a => `<div class="text-xs text-white/65">• ${esc(a.adventure_name || a.adventure_id)}</div>`).join('')}
-                    </div>
+                    ${adv.slice(0, 8).map(a => `<div class="text-xs text-white/65">• ${esc(a.adventure_name || a.adventure_id)}</div>`).join('')}
                 </div>` : ''}
             ${intr.length ? `
-                <div class="pt-4 border-t border-white/5">
-                    <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Interests Declared (${intr.length})</p>
-                    <div class="space-y-1">
-                        ${intr.slice(0, 8).map(i => `<div class="text-xs text-white/65 flex justify-between"><span>• ${esc(i.adventure_name || i.adventure_id)}</span><span class="text-white/30 mono">${esc(i.status)}</span></div>`).join('')}
-                    </div>
+                <div class="mb-4 pt-4 border-t border-white/5">
+                    <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Interests (${intr.length})</p>
+                    ${intr.slice(0, 8).map(i => `<div class="text-xs text-white/65 flex justify-between"><span>• ${esc(i.adventure_name || i.adventure_id)}</span><span class="text-white/30 mono">${esc(i.status)}</span></div>`).join('')}
+                </div>` : ''}
+            ${enr.length ? `
+                <div class="mb-4 pt-4 border-t border-white/5">
+                    <p class="text-[10px] mono text-white/35 uppercase tracking-widest mb-2">Enrollments (${enr.length})</p>
+                    ${enr.slice(0, 5).map(e => `<div class="text-xs text-white/65 flex justify-between"><span>• ${esc(e.status)}</span><span class="text-white/40 mono">${esc(e.payment_status || '—')}</span></div>`).join('')}
                 </div>` : ''}
             <div class="pt-5 mt-5 border-t border-white/5 flex gap-2">
                 ${p.email ? `<a href="mailto:${esc(p.email)}?subject=Sushi%20Mastery%20Tokyo%20%E2%80%94%20Sep%202026" class="btn-primary">Email</a>` : ''}
-                <a href="admin.html" class="btn-ghost">Full admin →</a>
+                <a href="admin.html" class="btn-ghost">Admin →</a>
             </div>`;
         document.getElementById('profile-modal').classList.remove('hidden');
     }
-    function closeProfileModal() { document.getElementById('profile-modal').classList.add('hidden'); }
     window.openProfileModal = openProfileModal;
+    function closeProfileModal() { document.getElementById('profile-modal').classList.add('hidden'); }
     window.closeProfileModal = closeProfileModal;
 
-    // ---- TASKS -------------------------------------------------------------
-    // Phase definitions: visible phases + locked future phases with prereq chain
-    const PHASES = [
-        { id: 'now',     locked: false, prereqs: [] },
-        { id: 'soon',    locked: false, prereqs: [] },
-        { id: 'cohort',  locked: false, prereqs: [] },
-        { id: 'ongoing', locked: false, prereqs: [] },
-        { id: 'execute', locked: true,  prereqs: ['now','soon','cohort'] },
-        { id: 'harvest', locked: true,  prereqs: ['execute'] },
-        { id: 'launch27',locked: true,  prereqs: ['harvest'] },
-        { id: 'scale27', locked: true,  prereqs: ['launch27'] },
-        { id: 'anniv',   locked: true,  prereqs: ['scale27'] },
-    ];
-
-    function isPhaseComplete(phaseId) {
-        const items = tasks.filter(t => t.phase === phaseId);
-        if (!items.length) return false;
-        return items.every(t => t.done);
-    }
-
-    function isPhaseUnlocked(phase) {
-        if (!phase.locked) return true;
-        return phase.prereqs.every(p => isPhaseComplete(p));
-    }
-
-    function renderTasks() {
-        PHASES.forEach(phase => {
-            const items = tasks.filter(t => t.phase === phase.id);
-            const open = items.filter(t => !t.done).length;
-            const total = items.length;
-            const unlocked = isPhaseUnlocked(phase);
-
-            const countEl = document.getElementById('count-' + phase.id);
-            const listEl = document.getElementById('list-' + phase.id);
-            if (!listEl) return;
-
-            // Find the card wrapper to toggle locked/unlocked visual state
-            const card = listEl.closest('.phase-card');
-            const lockedMsg = card?.querySelector('.phase-locked-msg');
-            const badge = card?.querySelector('.phase-badge');
-
-            if (phase.locked && !unlocked) {
-                if (countEl) countEl.textContent = '🔒 locked';
-                if (lockedMsg) lockedMsg.classList.remove('hidden');
-                listEl.classList.add('hidden');
-                if (card) card.style.opacity = '0.55';
-                if (badge) badge.classList.add('opacity-60');
-                return;
-            }
-
-            // Unlocked — show content
-            if (lockedMsg) lockedMsg.classList.add('hidden');
-            listEl.classList.remove('hidden');
-            if (card) card.style.opacity = '1';
-            if (badge) badge.classList.remove('opacity-60');
-
-            // Just unlocked? Surface a quick "unveiled" celebration on count
-            const justUnlocked = phase.locked && unlocked && total > 0 && open === total;
-            if (countEl) {
-                countEl.textContent = `${open}/${total} open${justUnlocked ? ' · ◆ unveiled' : ''}`;
-            }
-
-            if (!items.length) {
-                listEl.innerHTML = '<div class="px-5 py-4 text-xs text-white/30">No tasks in this phase.</div>';
-                return;
-            }
-
-            listEl.innerHTML = items.map(t => {
-                const doneClass = t.done ? 'done' : '';
-                const showClass = (t.done && showCompleted) ? 'show-completed' : '';
-                return `
-                    <div class="check px-5 py-3 flex items-start gap-3 ${doneClass} ${showClass}" data-task="${t.id}">
-                        <button onclick="toggleTask('${t.id}')" class="mt-0.5 shrink-0 w-4 h-4 rounded border ${t.done ? 'bg-bmw-500/40 border-bmw-400/60' : 'border-white/20 hover:border-white/50'} flex items-center justify-center transition-colors">
-                            ${t.done ? '<svg class="w-3 h-3 text-bmw-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
-                        </button>
-                        <div class="flex-1 text-sm leading-snug ${t.done ? 'text-white/40 line-through' : 'text-white/85'}">${esc(t.text)}</div>
-                        <button onclick="deleteTask('${t.id}')" class="text-white/20 hover:text-rose-400 text-xs shrink-0">×</button>
-                    </div>`;
-            }).join('');
-        });
-    }
-
-    function toggleTask(id) {
-        const t = tasks.find(x => x.id === id);
-        if (!t) return;
-        t.done = !t.done;
-        t.doneAt = t.done ? Date.now() : null;
-        // Ongoing tasks auto-uncheck weekly
-        saveTasks();
-        renderTasks();
-        renderPulse();
-    }
-    window.toggleTask = toggleTask;
-
-    function deleteTask(id) {
-        tasks = tasks.filter(x => x.id !== id);
-        saveTasks();
-        renderTasks();
-        renderPulse();
-    }
-    window.deleteTask = deleteTask;
-
-    // Auto-resurrect ongoing tasks every 7 days
-    function resurrectOngoing() {
-        const wk = 7 * 86400000;
-        let changed = false;
-        tasks.forEach(t => {
-            if (t.phase === 'ongoing' && t.done && t.doneAt && (Date.now() - t.doneAt) > wk) {
-                t.done = false;
-                t.doneAt = null;
-                changed = true;
-            }
-        });
-        if (changed) saveTasks();
-    }
-
-    // ---- IG TRACKER --------------------------------------------------------
+    // ---- IG TRACKER ------------------------------------------------------
     function renderIg() {
-        const cols = ['idea','drafting','scheduled','published'];
-        cols.forEach(col => {
+        ['idea','drafting','scheduled','published'].forEach(col => {
             const items = igPosts.filter(p => p.status === col);
             const listEl = document.getElementById('ig-list-' + col);
             const countEl = document.getElementById('ig-count-' + col);
+            if (!listEl || !countEl) return;
             countEl.textContent = items.length;
             if (!items.length) {
-                listEl.innerHTML = `<div class="text-[11px] text-white/25 text-center py-4 italic">drop a card here</div>`;
+                listEl.innerHTML = `<div class="text-[11px] text-white/25 text-center py-4 italic">drop here</div>`;
                 return;
             }
-            listEl.innerHTML = items.map(p => `
-                <div class="ig-card glass rounded-lg p-3 hover:border-white/15 transition-colors" draggable="true" data-id="${p.id}" onclick="openIgModal('${p.id}')">
-                    <div class="flex items-center justify-between mb-1.5">
-                        <span class="seg ${igPillarColor(p.pillar)}">${igPillarLabel(p.pillar)}</span>
-                        <span class="text-[10px] mono text-white/30">${igTypeLabel(p.type)}</span>
-                    </div>
-                    <div class="text-xs text-white/85 leading-snug line-clamp-3">${esc(p.hook || '(no hook yet)')}</div>
-                    ${p.scheduled ? `<div class="mt-2 text-[10px] mono text-white/40">📅 ${formatScheduled(p.scheduled)}</div>` : ''}
-                </div>`).join('');
+            listEl.innerHTML = items.map(p => {
+                const lint = checkLint((p.hook || '') + ' ' + (p.body || ''));
+                const lintBadge = lint.warn ? `<span class="lint-warn text-[10px]" title="${esc(lint.words.join(', '))}">●</span>` : `<span class="lint-clean text-[10px]" title="brand-voice clean">●</span>`;
+                return `
+                    <div class="ig-card glass rounded-lg p-3 hover:border-white/15 transition-colors" draggable="true" data-id="${p.id}" onclick="openIgModal('${p.id}')">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="seg ${pillarColor(p.pillar)}">${pillarLabel(p.pillar)}</span>
+                            <div class="flex items-center gap-1.5">
+                                ${lintBadge}
+                                <span class="text-[10px] mono text-white/30">${typeLabel(p.type)}</span>
+                            </div>
+                        </div>
+                        <div class="text-xs text-white/85 leading-snug line-clamp-3">${esc(p.hook || '(no hook yet)')}</div>
+                        ${p.scheduled ? `<div class="mt-2 text-[10px] mono text-white/40">📅 ${formatScheduled(p.scheduled)}</div>` : ''}
+                    </div>`;
+            }).join('');
         });
         bindDragAndDrop();
     }
 
-    function igPillarColor(p) {
-        return ({galley:'seg-emerald', curriculum:'seg-bmw', founder:'seg-violet', launch:'seg-amber', dev:'seg-rose'})[p] || 'seg-white';
-    }
-    function igPillarLabel(p) {
-        return ({galley:'GALLEY', curriculum:'CURRICULUM', founder:'FOUNDER', launch:'LAUNCH', dev:'DEV / BTS'})[p] || (p || '—').toUpperCase();
-    }
-    function igTypeLabel(t) {
-        return ({reel:'REEL', carousel:'CAROUSEL', static:'POST', story:'STORY'})[t] || (t || '—').toUpperCase();
-    }
-    function formatScheduled(s) {
-        if (!s) return '';
-        const d = new Date(s);
-        return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    function pillarColor(p) { return ({galley:'seg-emerald', curriculum:'seg-bmw', founder:'seg-violet', launch:'seg-amber', dev:'seg-rose'})[p] || 'seg-white'; }
+    function pillarLabel(p) { return ({galley:'GALLEY', curriculum:'CURRIC', founder:'FOUNDER', launch:'LAUNCH', dev:'DEV/BTS'})[p] || (p || '—').toUpperCase(); }
+    function typeLabel(t) { return ({reel:'REEL', carousel:'CARS', static:'POST', story:'STORY'})[t] || (t || '—').toUpperCase(); }
+    function formatScheduled(s) { if (!s) return ''; const d = new Date(s); return d.toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }); }
+
+    function checkLint(text) {
+        const lower = text.toLowerCase();
+        const found = BANNED_WORDS.filter(w => lower.includes(w));
+        return { warn: found.length > 0, words: found };
     }
 
     function openIgModal(id) {
@@ -1201,10 +2018,11 @@
         document.getElementById('ig-scheduled').value = p?.scheduled || '';
         document.getElementById('ig-status').value = p?.status || 'idea';
         document.getElementById('ig-delete').classList.toggle('hidden', !p);
+        document.getElementById('ig-lint').classList.add('hidden');
         document.getElementById('ig-modal').classList.remove('hidden');
     }
-    function closeIgModal() { document.getElementById('ig-modal').classList.add('hidden'); }
     window.openIgModal = openIgModal;
+    function closeIgModal() { document.getElementById('ig-modal').classList.add('hidden'); }
     window.closeIgModal = closeIgModal;
 
     function bindDragAndDrop() {
@@ -1216,10 +2034,7 @@
             card.addEventListener('dragend', () => { card.style.opacity = '1'; });
         });
         document.querySelectorAll('.ig-col').forEach(col => {
-            col.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                col.classList.add('drag-over');
-            });
+            col.addEventListener('dragover', (e) => { e.preventDefault(); col.classList.add('drag-over'); });
             col.addEventListener('dragleave', () => col.classList.remove('drag-over'));
             col.addEventListener('drop', (e) => {
                 e.preventDefault();
@@ -1228,70 +2043,223 @@
                 const post = igPosts.find(p => p.id === id);
                 if (post) {
                     post.status = col.dataset.col;
-                    saveIg();
+                    save(IG_KEY, igPosts);
                     renderIg();
-                    renderPulse();
                 }
             });
         });
     }
 
+    // ---- LOG -------------------------------------------------------------
+    function renderLog() {
+        const all = [...log].sort((a, b) => b.at - a.at);
+        const countEl = document.getElementById('log-count');
+        if (countEl) countEl.textContent = `${all.length} entries`;
+
+        const empty = document.getElementById('log-empty');
+        const feed = document.getElementById('log-feed');
+        if (!feed) return;
+        if (!all.length) { feed.innerHTML = ''; empty?.classList.remove('hidden'); return; }
+        empty?.classList.add('hidden');
+
+        feed.innerHTML = all.slice(0, 50).map(entry => {
+            const date = new Date(entry.at).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+            const typeMap = { capture:['CAPTURE','seg-white'], friday:['REFLECTION','seg-emerald'], decision:['DECISION','seg-amber'] };
+            const t = typeMap[entry.kind] || ['LOG','seg-white'];
+            return `
+                <div class="px-5 py-3">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="seg ${t[1]}">${t[0]}</span>
+                        <span class="text-[10px] mono text-white/30">${date}</span>
+                        <button onclick="deleteLog('${entry.id}')" class="ml-auto text-white/20 hover:text-rose-400 text-xs">×</button>
+                    </div>
+                    ${entry.title ? `<div class="text-sm font-medium mb-0.5">${esc(entry.title)}</div>` : ''}
+                    <div class="text-xs text-white/65 leading-relaxed whitespace-pre-wrap">${esc(entry.text || entry.body || '')}</div>
+                </div>`;
+        }).join('');
+    }
+
+    function addLog(kind, text, title) {
+        log.unshift({ id: uid(), kind, text, title, at: Date.now() });
+        save(LOG_KEY, log);
+        renderLog();
+    }
+    function deleteLog(id) {
+        log = log.filter(x => x.id !== id);
+        save(LOG_KEY, log);
+        renderLog();
+    }
+    window.deleteLog = deleteLog;
+
+    // ---- TOAST + CLIPBOARD ------------------------------------------------
+    function showToast(msg, ms = 1800) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.remove('hidden');
+        clearTimeout(t._timer);
+        t._timer = setTimeout(() => t.classList.add('hidden'), ms);
+    }
+    function copyToClipboard(text) {
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => showToast('Copied'));
+        } else {
+            const ta = document.createElement('textarea');
+            ta.value = text; document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+            showToast('Copied');
+        }
+    }
+    window.copyToClipboard = copyToClipboard;
+
     // =========================================================================
     // UI BINDINGS
     // =========================================================================
     function bindUI() {
+        // Top nav
         document.getElementById('refresh-btn').addEventListener('click', async () => {
             const btn = document.getElementById('refresh-btn');
-            const orig = btn.textContent;
-            btn.textContent = 'Syncing…';
+            btn.textContent = '…';
             await loadLiveData();
             renderAll();
-            btn.textContent = orig;
+            btn.textContent = '↻';
         });
-
         document.getElementById('sign-out-btn').addEventListener('click', async () => {
             await window.auth.signOut();
             window.location.href = '/';
         });
 
+        // Tab bar
+        document.querySelectorAll('.tab-btn').forEach(b => {
+            b.addEventListener('click', () => {
+                const v = b.dataset.view;
+                if (v === 'more') {
+                    document.getElementById('more-menu').classList.toggle('hidden');
+                } else {
+                    document.getElementById('more-menu').classList.add('hidden');
+                    switchView(v);
+                }
+            });
+        });
+        document.querySelectorAll('.more-link').forEach(b => {
+            b.addEventListener('click', () => {
+                document.getElementById('more-menu').classList.add('hidden');
+                switchView(b.dataset.view);
+            });
+        });
+        document.querySelectorAll('.view-link').forEach(b => {
+            b.addEventListener('click', () => switchView(b.dataset.view));
+        });
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('more-menu');
+            const moreTab = document.getElementById('more-tab');
+            if (menu && !menu.contains(e.target) && !moreTab.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+        window.addEventListener('hashchange', () => {
+            const v = location.hash.replace('#','') || 'today';
+            switchView(v, { skipSave: true });
+        });
+
+        // Quick capture
+        document.getElementById('capture-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const ta = document.getElementById('capture-text');
+            const text = ta.value.trim();
+            if (!text) return;
+            addLog('capture', text);
+            ta.value = '';
+            showToast('Captured → Log');
+        });
+
+        // Voice capture
+        document.getElementById('capture-voice').addEventListener('click', () => {
+            startVoiceCapture();
+        });
+
+        // Checklist
         document.getElementById('show-completed').addEventListener('change', (e) => {
             showCompleted = e.target.checked;
             localStorage.setItem(SHOW_COMPLETED_KEY, showCompleted ? '1' : '0');
             renderTasks();
         });
-
         document.getElementById('reset-checklist').addEventListener('click', () => {
-            if (confirm('Reset checklist to seed values? Your custom tasks will be lost.')) {
+            if (confirm('Reset checklist to seed values? Custom tasks will be lost.')) {
                 tasks = JSON.parse(JSON.stringify(SEED_TASKS));
-                saveTasks();
+                save(TASKS_KEY, tasks);
                 renderTasks();
-                renderPulse();
+                renderToday();
+                renderNorthStar();
             }
         });
-
         document.getElementById('add-task-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const text = document.getElementById('add-text').value.trim();
             const phase = document.getElementById('add-phase').value;
             if (!text) return;
-            tasks.push({ id: 'u-' + uid(), phase, text, done: false });
-            saveTasks();
+            // Decision filter for the highest-impact phases
+            const wantsFilter = ['now','soon','launch27','scale27'].includes(phase);
+            if (wantsFilter) {
+                pendingFilterPayload = { phase, text };
+                document.getElementById('filter-text').textContent = text;
+                document.querySelectorAll('.filter-q').forEach(q => { q.checked = false; });
+                document.getElementById('filter-accept').disabled = true;
+                document.getElementById('filter-modal').classList.remove('hidden');
+            } else {
+                tasks.push({ id: 'u-' + uid(), phase, text, done: false });
+                save(TASKS_KEY, tasks);
+                document.getElementById('add-text').value = '';
+                renderTasks();
+                renderToday();
+                renderNorthStar();
+            }
+        });
+        document.querySelectorAll('.filter-q').forEach(q => {
+            q.addEventListener('change', () => {
+                const all = Array.from(document.querySelectorAll('.filter-q')).every(x => x.checked);
+                document.getElementById('filter-accept').disabled = !all;
+            });
+        });
+        document.getElementById('filter-cancel').addEventListener('click', () => {
+            document.getElementById('filter-modal').classList.add('hidden');
+            pendingFilterPayload = null;
+            showToast('Refused · filter is the moat');
+        });
+        document.getElementById('filter-accept').addEventListener('click', () => {
+            if (!pendingFilterPayload) return;
+            tasks.push({ id: 'u-' + uid(), phase: pendingFilterPayload.phase, text: pendingFilterPayload.text, done: false });
+            save(TASKS_KEY, tasks);
             document.getElementById('add-text').value = '';
+            document.getElementById('filter-modal').classList.add('hidden');
+            pendingFilterPayload = null;
             renderTasks();
-            renderPulse();
+            renderToday();
+            renderNorthStar();
+            showToast('Filter cleared · added');
         });
 
+        // IG
         document.getElementById('add-ig-btn').addEventListener('click', () => openIgModal(null));
-
         document.getElementById('ig-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const id = document.getElementById('ig-id').value;
+            const hook = document.getElementById('ig-hook').value.trim();
+            const body = document.getElementById('ig-body').value.trim();
+            const lint = checkLint(hook + ' ' + body);
+            if (lint.warn) {
+                const ok = confirm('Brand-voice lint warning · banned word(s): ' + lint.words.join(', ') + '\n\nSave anyway?');
+                if (!ok) {
+                    const el = document.getElementById('ig-lint');
+                    el.classList.remove('hidden');
+                    el.innerHTML = `<span class="lint-warn">⚠ Banned: ${lint.words.join(', ')}</span>`;
+                    return;
+                }
+            }
             const post = {
                 id: id || uid(),
                 type: document.getElementById('ig-type').value,
                 pillar: document.getElementById('ig-pillar').value,
-                hook: document.getElementById('ig-hook').value.trim(),
-                body: document.getElementById('ig-body').value.trim(),
+                hook, body,
                 scheduled: document.getElementById('ig-scheduled').value,
                 status: document.getElementById('ig-status').value,
             };
@@ -1301,25 +2269,107 @@
             } else {
                 igPosts.unshift(post);
             }
-            saveIg();
+            save(IG_KEY, igPosts);
             closeIgModal();
             renderIg();
-            renderPulse();
         });
-
         document.getElementById('ig-delete').addEventListener('click', () => {
             const id = document.getElementById('ig-id').value;
             if (!id) return;
-            if (confirm('Delete this post idea?')) {
+            if (confirm('Delete this post?')) {
                 igPosts = igPosts.filter(p => p.id !== id);
-                saveIg();
+                save(IG_KEY, igPosts);
                 closeIgModal();
                 renderIg();
-                renderPulse();
             }
         });
 
-        resurrectOngoing();
+        // People filters
+        document.querySelectorAll('.people-filter').forEach(b => {
+            b.addEventListener('click', () => {
+                activePeopleFilter = b.dataset.filter;
+                renderPeople();
+            });
+        });
+
+        // Batch refresh
+        document.getElementById('batch-refresh').addEventListener('click', () => renderBatch());
+        const br2 = document.getElementById('batch-refresh-2');
+        if (br2) br2.addEventListener('click', () => renderBatch());
+
+        // Prompt copy
+        document.querySelectorAll('.prompt-btn').forEach(b => {
+            b.addEventListener('click', () => {
+                const key = b.dataset.prompt;
+                copyToClipboard(PROMPTS[key] || '');
+            });
+        });
+
+        // Friday reflection
+        document.getElementById('friday-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const up = document.getElementById('friday-up').value.trim();
+            const down = document.getElementById('friday-down').value.trim();
+            if (!up && !down) return;
+            const text = (up ? '✓ Compounded: ' + up + '\n' : '') + (down ? '✗ Refuse next: ' + down : '');
+            addLog('friday', text.trim());
+            document.getElementById('friday-up').value = '';
+            document.getElementById('friday-down').value = '';
+            showToast('Reflection saved');
+        });
+
+        // Decision log
+        document.getElementById('decision-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const title = document.getElementById('decision-title').value.trim();
+            const why = document.getElementById('decision-why').value.trim();
+            if (!title) return;
+            addLog('decision', why, title);
+            document.getElementById('decision-title').value = '';
+            document.getElementById('decision-why').value = '';
+            showToast('Decision logged');
+        });
+    }
+
+    // ---- VOICE CAPTURE ---------------------------------------------------
+    function startVoiceCapture() {
+        const status = document.getElementById('voice-status');
+        const Speech = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!Speech) {
+            status.textContent = 'Voice capture not supported in this browser · use text';
+            status.classList.remove('hidden');
+            setTimeout(() => status.classList.add('hidden'), 3000);
+            return;
+        }
+        const rec = new Speech();
+        rec.lang = navigator.language || 'en-US';
+        rec.interimResults = true;
+        rec.continuous = true;
+        status.textContent = '🎙 Listening… tap mic again to stop';
+        status.classList.remove('hidden');
+        let finalText = '';
+        const ta = document.getElementById('capture-text');
+        const baseText = ta.value;
+        rec.onresult = (e) => {
+            let interim = '';
+            for (let i = e.resultIndex; i < e.results.length; i++) {
+                if (e.results[i].isFinal) finalText += e.results[i][0].transcript;
+                else interim += e.results[i][0].transcript;
+            }
+            ta.value = (baseText ? baseText + ' ' : '') + finalText + interim;
+        };
+        rec.onerror = (err) => {
+            status.textContent = 'Voice error: ' + err.error;
+            setTimeout(() => status.classList.add('hidden'), 3000);
+        };
+        rec.onend = () => {
+            status.classList.add('hidden');
+        };
+        rec.start();
+        // Tap voice button again to stop
+        const btn = document.getElementById('capture-voice');
+        const stopFn = () => { rec.stop(); btn.removeEventListener('click', stopFn); };
+        btn.addEventListener('click', stopFn, { once: true });
     }
     </script>
 </body>
