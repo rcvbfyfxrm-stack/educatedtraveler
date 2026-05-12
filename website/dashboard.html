@@ -1819,6 +1819,7 @@
                 try {
                     const { error: profileError } = await window.supabaseClient.from('profiles').upsert({
                         id: user.id,
+                        email: user.email,
                         ...profileData,
                         updated_at: new Date().toISOString()
                     });
