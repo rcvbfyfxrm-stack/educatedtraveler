@@ -750,31 +750,64 @@
     // =========================================================================
     // INIT
     // =========================================================================
+    function waitFor(predicate, { interval = 60, max = 8000 } = {}) {
+        return new Promise((resolve, reject) => {
+            const start = Date.now();
+            (function tick() {
+                if (predicate()) return resolve();
+                if (Date.now() - start > max) return reject(new Error('Timed out waiting for dependency'));
+                setTimeout(tick, interval);
+            })();
+        });
+    }
+
+    function showDenied(msg) {
+        document.getElementById('loading').classList.add('hidden');
+        const denied = document.getElementById('denied');
+        if (msg) {
+            const p = denied.querySelector('p.text-white\\/40');
+            if (p) p.textContent = msg;
+        }
+        denied.classList.remove('hidden');
+    }
+
     document.addEventListener('DOMContentLoaded', async () => {
-        await new Promise(r => setTimeout(r, 500));
-        if (!window.supabaseClient) {
-            document.getElementById('loading').classList.add('hidden');
-            document.getElementById('denied').classList.remove('hidden');
-            return;
+        try {
+            // Wait for Supabase SDK + client + auth module to all be ready
+            await waitFor(() => window.supabaseClient && window.auth && typeof window.auth.getUser === 'function');
+        } catch (err) {
+            console.error('Init wait failed:', err);
+            return showDenied('Connection issue — couldn\'t reach Supabase. Refresh, or check your network.');
         }
 
-        const user = await window.auth.getUser();
+        let user;
+        try {
+            user = await window.auth.getUser();
+        } catch (err) {
+            console.error('getUser failed:', err);
+            return showDenied('Auth check failed. Refresh and try again.');
+        }
+
         if (!user) {
-            document.getElementById('loading').classList.add('hidden');
-            document.getElementById('denied').classList.remove('hidden');
-            return;
+            return showDenied('Sign in required. Use the founder account.');
         }
 
-        const { data: prof } = await window.supabaseClient
-            .from('profiles')
-            .select('is_admin, email')
-            .eq('id', user.id)
-            .single();
+        let prof;
+        try {
+            const res = await window.supabaseClient
+                .from('profiles')
+                .select('is_admin, email')
+                .eq('id', user.id)
+                .single();
+            prof = res.data;
+            if (res.error) console.warn('profile lookup warning:', res.error);
+        } catch (err) {
+            console.error('Profile query threw:', err);
+            return showDenied('Profile lookup failed. Refresh and try again.');
+        }
 
         if (!prof?.is_admin) {
-            document.getElementById('loading').classList.add('hidden');
-            document.getElementById('denied').classList.remove('hidden');
-            return;
+            return showDenied('Admin privileges required.');
         }
 
         tasks = loadTasks();
@@ -782,7 +815,14 @@
         showCompleted = localStorage.getItem(SHOW_COMPLETED_KEY) === '1';
         document.getElementById('show-completed').checked = showCompleted;
 
-        await loadLiveData();
+        try {
+            await loadLiveData();
+        } catch (err) {
+            console.error('loadLiveData failed:', err);
+            // Continue with empty data rather than blocking — the dashboard
+            // still has value for the local checklist + IG tracker even
+            // without live Supabase rows.
+        }
 
         document.getElementById('loading').classList.add('hidden');
         document.getElementById('main').classList.remove('hidden');
