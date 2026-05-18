@@ -695,6 +695,42 @@
         return body; // { url, session_id }
     }
 
+    async function createPayPalOrder(cohortId) {
+        const session = await supabase.auth.getSession();
+        const token = session.data.session?.access_token;
+        if (!token) throw new Error('Not signed in');
+
+        const res = await fetch(window.SUPABASE_URL + '/functions/v1/paypal-create-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ cohort_id: cohortId })
+        });
+        const body = await res.json();
+        if (!res.ok) throw new Error(body.error || 'Could not create order');
+        return body; // { order_id, enrollment_id }
+    }
+
+    async function capturePayPalOrder(orderId) {
+        const session = await supabase.auth.getSession();
+        const token = session.data.session?.access_token;
+        if (!token) throw new Error('Not signed in');
+
+        const res = await fetch(window.SUPABASE_URL + '/functions/v1/paypal-capture-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ order_id: orderId })
+        });
+        const body = await res.json();
+        if (!res.ok) throw new Error(body.error || 'Could not capture order');
+        return body; // { ok, enrollment_id, capture_id }
+    }
+
     // ========================================
     // FULL DASHBOARD DATA
     // ========================================
@@ -918,6 +954,10 @@
         getCohortPayments,
         startStripeOnboarding,
         startCohortCheckout,
+
+        // PayPal payments
+        createPayPalOrder,
+        capturePayPalOrder,
 
         // Instructor workflow
         inviteInstructor,
