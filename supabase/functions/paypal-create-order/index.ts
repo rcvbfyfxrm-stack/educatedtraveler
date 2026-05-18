@@ -52,7 +52,7 @@ serve(async (req) => {
 
     const { data: cohort, error: cohortErr } = await admin
       .from("cohorts")
-      .select("id, title, description, location, price_cents, currency, status, instructor_id")
+      .select("id, title, description, location, price_cents, status, instructor_id")
       .eq("id", cohort_id)
       .single();
     if (cohortErr || !cohort) return json({ error: "Cohort not found" }, 404);
@@ -91,7 +91,7 @@ serve(async (req) => {
 
     const order = await createOrder({
       amountCents: cohort.price_cents,
-      currency: (cohort.currency ?? "usd").toUpperCase(),
+      currency: "USD",
       description: [cohort.title, cohort.location].filter(Boolean).join(" — "),
       customId: enrollmentId,
       brandName: "EducatedTraveler",

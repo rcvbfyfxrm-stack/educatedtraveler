@@ -76,7 +76,7 @@ serve(async (req) => {
 
     const { data: cohort } = await admin
       .from("cohorts")
-      .select("id, price_cents, currency, instructor_id")
+      .select("id, price_cents, instructor_id")
       .eq("id", enrollment.cohort_id)
       .single();
 
@@ -100,8 +100,7 @@ serve(async (req) => {
       return json({ error: "Amount mismatch" }, 400);
     }
 
-    const expectedCurrency = (cohort.currency ?? "usd").toLowerCase();
-    if (capture.currency !== expectedCurrency) {
+    if (capture.currency !== "usd") {
       return json({ error: "Currency mismatch" }, 400);
     }
 
