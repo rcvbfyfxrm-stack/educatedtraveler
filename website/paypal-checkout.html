@@ -122,7 +122,7 @@
                 // ---- 3. Render the cohort summary ----
                 const { data: cohort, error } = await window.supabaseClient
                     .from('cohorts')
-                    .select('id, title, description, location, price_cents, currency, start_date, end_date, status, instructors(name)')
+                    .select('id, title, description, location, price_cents, start_date, end_date, status, instructors(name)')
                     .eq('id', cohortId)
                     .single();
 
