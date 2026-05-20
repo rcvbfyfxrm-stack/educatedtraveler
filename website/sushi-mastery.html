@@ -907,6 +907,180 @@
     </section>
 
     <!-- ═══════════════════════════════════════ -->
+    <!-- COMPLEMENTARY EXPERIENCES — lead capture -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="addons-interest" class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-2xl mx-auto reveal">
+            <div class="text-center mb-10">
+                <p class="font-mono text-xs tracking-[0.3em] text-noren-400/60 uppercase mb-4">Beyond the knife</p>
+                <h2 class="font-display text-4xl md:text-5xl font-300 text-white/90 mb-4">Complementary experiences</h2>
+                <p class="text-white/50 max-w-lg mx-auto leading-relaxed">
+                    Things we're lining up around the program — workshops, tastings, cultural detours. Tick the ones you would like to learn more about. We will write back when each is locked in, with dates and pricing.
+                </p>
+            </div>
+
+            <form id="addons-form" class="glass rounded-2xl p-6 md:p-8 space-y-5">
+                <div id="addons-list" class="grid gap-2">
+                    <!-- Checkboxes injected by JS from window.ET_PAGE_ADDONS -->
+                    <div class="text-white/30 text-sm font-mono py-6 text-center">Loading…</div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-3 pt-2">
+                    <input type="email" name="email" required placeholder="Your email"
+                           class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 text-sm focus:outline-none focus:border-bmw-400/60">
+                    <input type="text" name="name" placeholder="Your name (optional)"
+                           class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 text-sm focus:outline-none focus:border-bmw-400/60">
+                </div>
+
+                <textarea name="notes" rows="2" placeholder="Anything specific you would like to know?"
+                          class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder-white/30 text-sm focus:outline-none focus:border-bmw-400/60 resize-y"></textarea>
+
+                <div class="flex flex-col sm:flex-row gap-3 items-center justify-between pt-2">
+                    <p class="text-white/30 text-xs leading-relaxed">
+                        No spam, no list rental. One email per experience as it firms up.
+                    </p>
+                    <button type="submit" id="addons-submit"
+                            class="cta-sushi px-8 py-3 rounded-full text-white text-sm font-medium whitespace-nowrap">
+                        Send my interests
+                    </button>
+                </div>
+
+                <p id="addons-status" class="text-sm min-h-[1.25rem] text-center"></p>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Wires #addons-form on this page to the addon_interests Supabase table.
+        // Anonymous insert is allowed by RLS; the row carries page_slug, email,
+        // selected addon names, and optional name/notes.
+        (function () {
+            'use strict';
+
+            var PAGE_SLUG = 'sushi-mastery-tokyo';
+
+            function escapeHtml(s) {
+                var d = document.createElement('div');
+                d.textContent = s == null ? '' : String(s);
+                return d.innerHTML;
+            }
+
+            function renderAddons() {
+                var listEl = document.getElementById('addons-list');
+                var addons = Array.isArray(window.ET_PAGE_ADDONS) ? window.ET_PAGE_ADDONS : [];
+                if (!addons.length) {
+                    listEl.innerHTML = '<p class="text-white/40 text-sm text-center py-4">No upcoming experiences listed yet.</p>';
+                    return;
+                }
+                listEl.innerHTML = addons.map(function (a) {
+                    var name = typeof a === 'string' ? a : (a.name || '');
+                    var desc = typeof a === 'string' ? '' : (a.desc || '');
+                    return ''
+                        + '<label class="flex gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-white/15 transition-colors cursor-pointer">'
+                        +   '<input type="checkbox" class="et-addon-pick mt-1 accent-bmw-400" data-label="' + escapeHtml(name) + '">'
+                        +   '<span class="flex-1 min-w-0">'
+                        +     '<span class="block text-sm text-white/85">' + escapeHtml(name) + '</span>'
+                        +     (desc ? '<span class="block text-xs text-white/45 mt-1 leading-snug">' + escapeHtml(desc) + '</span>' : '')
+                        +   '</span>'
+                        + '</label>';
+                }).join('');
+            }
+
+            function collectPicks() {
+                var picks = [];
+                document.querySelectorAll('.et-addon-pick:checked').forEach(function (cb) {
+                    picks.push(cb.dataset.label);
+                });
+                return picks;
+            }
+
+            function setStatus(msg, tone) {
+                var el = document.getElementById('addons-status');
+                if (!el) return;
+                el.textContent = msg || '';
+                el.style.color =
+                    tone === 'error' ? '#fca5a5'
+                    : tone === 'ok' ? '#86efac'
+                    : 'rgba(255,255,255,0.5)';
+            }
+
+            function ready(cb, attempt) {
+                attempt = attempt || 0;
+                if (window.supabaseClient || window.SUPABASE_URL) { cb(); return; }
+                if (attempt > 100) { cb(); return; } // submit will degrade to fetch
+                setTimeout(function () { ready(cb, attempt + 1); }, 50);
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                renderAddons();
+
+                var form = document.getElementById('addons-form');
+                if (!form) return;
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var btn = document.getElementById('addons-submit');
+                    var email = (form.email.value || '').trim();
+                    var name  = (form.name.value || '').trim();
+                    var notes = (form.notes.value || '').trim();
+                    var picks = collectPicks();
+
+                    if (!email) { setStatus('Add your email so we can write back.', 'error'); return; }
+                    if (!picks.length) { setStatus('Pick at least one experience.', 'error'); return; }
+
+                    btn.disabled = true; setStatus('Sending…');
+
+                    ready(function () {
+                        var payload = {
+                            email: email,
+                            name: name || null,
+                            page_slug: PAGE_SLUG,
+                            addons: picks,
+                            notes: notes || null
+                        };
+
+                        var submit = window.supabaseClient
+                            ? window.supabaseClient.from('addon_interests').insert(payload)
+                            : null;
+
+                        var done = function (err) {
+                            btn.disabled = false;
+                            if (err) {
+                                console.error('addon_interests insert failed', err);
+                                setStatus('Could not save — try again or email founder@educatedtraveler.app.', 'error');
+                                return;
+                            }
+                            form.reset();
+                            renderAddons(); // clear ticks
+                            setStatus('Thanks. We will reach out as each experience firms up.', 'ok');
+                        };
+
+                        if (submit) {
+                            submit.then(function (res) { done(res.error); }, function (err) { done(err); });
+                        } else {
+                            // Fallback: anon REST POST (no return) using the public anon key.
+                            // Anon key is intentionally public — RLS does the gatekeeping.
+                            var ANON = (typeof SUPABASE_ANON_KEY !== 'undefined') ? SUPABASE_ANON_KEY : null;
+                            var URL = window.SUPABASE_URL;
+                            if (!ANON || !URL) { done(new Error('Supabase not initialised')); return; }
+                            fetch(URL + '/rest/v1/addon_interests', {
+                                method: 'POST',
+                                headers: {
+                                    'apikey': ANON,
+                                    'Authorization': 'Bearer ' + ANON,
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(payload)
+                            }).then(function (r) { done(r.ok ? null : new Error('HTTP ' + r.status)); },
+                                    function (e) { done(e); });
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+
+    <!-- ═══════════════════════════════════════ -->
     <!-- CONTACT / CTA                           -->
     <!-- ═══════════════════════════════════════ -->
     <section id="contact" class="py-24 px-6">
