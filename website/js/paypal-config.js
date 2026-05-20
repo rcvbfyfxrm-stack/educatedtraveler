@@ -13,10 +13,10 @@
     'use strict';
 
     // "sandbox" or "live"
-    var PAYPAL_ENV = 'live';
+    var PAYPAL_ENV = 'sandbox';
 
-    var PAYPAL_CLIENT_ID_SANDBOX = 'REPLACE_WITH_SANDBOX_CLIENT_ID';
-    var PAYPAL_CLIENT_ID_LIVE    = 'Ab1NkoeIUKr-XemR-niI9B5OjV4dtg1fNAPorAULCHRsmqRZryarj1XfkyQWrHMD1DhOtTyiE6GFK5RM';
+    var PAYPAL_CLIENT_ID_SANDBOX = 'Ab1NkoeIUKr-XemR-niI9B5OjV4dtg1fNAPorAULCHRsmqRZryarj1XfkyQWrHMD1DhOtTyiE6GFK5RM';
+    var PAYPAL_CLIENT_ID_LIVE    = 'REPLACE_WITH_LIVE_CLIENT_ID';
 
     var clientId =
         PAYPAL_ENV === 'live' ? PAYPAL_CLIENT_ID_LIVE : PAYPAL_CLIENT_ID_SANDBOX;
