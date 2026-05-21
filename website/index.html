@@ -382,13 +382,13 @@
         <div class="max-w-5xl mx-auto">
 
             <!-- Slideshow Container -->
-            <div class="relative aspect-[16/9] md:aspect-[2/1] rounded-xl overflow-hidden mb-8" style="border: 1px solid rgba(255, 255, 255, 0.06);">
+            <div class="relative aspect-[4/5] sm:aspect-[16/9] md:aspect-[2/1] rounded-xl overflow-hidden mb-8" style="border: 1px solid rgba(255, 255, 255, 0.06);">
 
                 <!-- Slide 1: The Question -->
                 <div class="slide active" data-slide="0">
                     <img src="images/story/the-beginning.jpg" alt="The beginning of the journey" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
                         <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter I</p>
                         <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">The Beginning</h2>
                         <p class="text-white/60 max-w-xl text-sm leading-relaxed">
@@ -403,7 +403,7 @@
                 <div class="slide" data-slide="1">
                     <img src="images/story/chef-plating.jpg" alt="Professional kitchen" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
                         <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter II</p>
                         <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">Culinary Mastery</h2>
                         <p class="text-white/60 max-w-xl text-sm leading-relaxed">
@@ -417,7 +417,7 @@
                 <div class="slide" data-slide="2">
                     <img src="images/story/sailing-4.png" alt="Ocean sailing" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
                         <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter III</p>
                         <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">50,000 Nautical Miles</h2>
                         <p class="text-white/60 max-w-xl text-sm leading-relaxed">
@@ -431,7 +431,7 @@
                 <div class="slide" data-slide="3">
                     <img src="images/story/freedive-line.png" alt="Adventures" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
                         <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter IV</p>
                         <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">The Depths & Heights</h2>
                         <p class="text-white/60 max-w-xl text-sm leading-relaxed">
@@ -445,7 +445,7 @@
                 <div class="slide" data-slide="4">
                     <img src="images/story/wellness.jpg" alt="Wellness journey" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
                         <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter V</p>
                         <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">Inner Immersion</h2>
                         <p class="text-white/60 max-w-xl text-sm leading-relaxed">
@@ -797,6 +797,69 @@
         </div>
     </section>
 
+    <!-- Recently Joined -->
+    <section id="recent-adventurers" class="py-24 px-6 section-border border-t">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-bmw-400 text-xs uppercase tracking-widest mb-4">The Cohort</p>
+                <h2 class="text-3xl md:text-4xl font-light mb-3 tracking-tight">Recently joined adventurers</h2>
+                <p class="text-steel-400">
+                    <span id="ra-count" class="text-white font-mono">—</span> people are choosing their depth.
+                </p>
+            </div>
+
+            <div id="ra-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
+                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
+                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
+                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
+                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
+                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
+            </div>
+
+            <div id="ra-empty" class="hidden text-center text-steel-500 text-sm py-12">
+                Be the first to join — your face goes here.
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="/join" class="cta-button inline-block px-8 py-3 rounded-full text-sm tracking-wide">
+                    Join the community
+                </a>
+            </div>
+        </div>
+
+        <style>
+            #recent-adventurers .ra-card {
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                gap: 8px; padding: 16px 10px; border-radius: 12px;
+                background: rgba(255,255,255,0.02);
+                border: 1px solid rgba(255,255,255,0.06);
+                transition: all 0.25s ease;
+                animation: ra-fade-up 0.6s ease-out;
+            }
+            #recent-adventurers .ra-card:hover {
+                background: rgba(255,255,255,0.04);
+                border-color: rgba(0,102,177,0.3);
+                transform: translateY(-2px);
+            }
+            #recent-adventurers .ra-card.fresh {
+                border-color: rgba(0,102,177,0.5);
+                box-shadow: 0 0 0 1px rgba(0,102,177,0.2), 0 8px 24px rgba(0,102,177,0.15);
+            }
+            #recent-adventurers .ra-avatar {
+                width: 48px; height: 48px; border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 14px; font-weight: 600; color: #fff;
+                letter-spacing: 0.5px;
+                background-size: cover;
+                background-position: center;
+            }
+            #recent-adventurers .ra-name { font-size: 13px; color: #fff; font-weight: 500; text-align: center; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+            #recent-adventurers .ra-meta { font-size: 10px; color: rgba(255,255,255,0.4); text-align: center; font-family: 'Courier New', monospace; letter-spacing: 0.5px; }
+            @keyframes ra-fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        </style>
+    </section>
+
     <!-- Footer -->
     <footer class="py-12 section-border border-t">
         <div class="max-w-6xl mx-auto px-6">
@@ -1121,7 +1184,7 @@
                             time_preference: answers.time || null,
                             intensity: answers.intensity || null,
                             updated_at: new Date().toISOString()
-                        });
+                        }, { onConflict: 'user_id' });
                         // Save top matched adventures
                         for (const s of scored.slice(0, 3)) {
                             const advId = s.exp.id || s.exp.name.toLowerCase().replace(/\s+/g, '-');
@@ -1129,7 +1192,7 @@
                                 user_id: authUser.id,
                                 adventure_id: advId,
                                 adventure_name: s.exp.name
-                            });
+                            }, { onConflict: 'user_id,adventure_id' });
                         }
                         // Hide email form — already saved
                         const ef = document.getElementById('quest-email-form');
@@ -1567,6 +1630,7 @@
     </script>
 
     <script src="/js/community-sidebar.js"></script>
+    <script src="/js/recent-adventurers.js"></script>
     <script src="/js/whatsapp-widget.js"></script>
 </body>
 </html>
