@@ -276,6 +276,7 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
+    <script src="/js/avatar.js"></script>
 
     <script>
     (function() {
@@ -343,6 +344,11 @@
                 (instructor ? '1 instructor · ' : '') + students.length + ' student' + (students.length === 1 ? '' : 's');
 
             const ROLE_LABEL = { instructor: 'Host', student: 'Crew', admin: 'Admin' };
+            const tierRingStyle = (xp) => {
+                if (!window.ETAvatar || xp == null) return '';
+                const t = window.ETAvatar.getXPTier(Number(xp));
+                return `box-shadow: 0 0 0 2px ${t.color}, 0 0 10px ${t.glow}; `;
+            };
             const renderOne = (m) => {
                 const name = m.first_name || m.name || 'Member';
                 const avatar = m.avatar_url
@@ -351,9 +357,10 @@
                 const cls = m.role === 'instructor' ? 'instructor' : (m.role === 'admin' ? 'admin' : '');
                 const profession = m.profession ? esc(m.profession) : '';
                 const meta = [profession, m.location ? esc(m.location) : ''].filter(Boolean).join(' · ');
+                const ring = m.role === 'student' ? tierRingStyle(m.xp) : '';
                 return `
                     <a href="/profile?id=${m.user_id}" class="member-card ${cls}" target="_blank" rel="noopener">
-                        <div class="msg-avatar ${m.role}">${avatar}</div>
+                        <div class="msg-avatar ${m.role}" style="${ring}">${avatar}</div>
                         <div style="min-width:0;flex:1;">
                             <p class="text-xs font-medium text-white/85 truncate">${esc(name)}</p>
                             ${meta ? `<p class="text-[10px] text-white/35 truncate">${meta}</p>` : ''}
@@ -400,8 +407,11 @@
             node.dataset.id = m.id;
 
             const meta = `${esc(name)}${isInstructor ? ' · Instructor' : ''} · ${timeStr(m.created_at)}`;
+            const msgRing = (!isInstructor && window.ETAvatar && author.xp != null)
+                ? `box-shadow: 0 0 0 2px ${window.ETAvatar.getXPTier(Number(author.xp)).color};`
+                : '';
             node.innerHTML = `
-                <div class="msg-avatar ${isInstructor ? 'instructor' : ''}">${avatar}</div>
+                <div class="msg-avatar ${isInstructor ? 'instructor' : ''}" style="${msgRing}">${avatar}</div>
                 <div style="min-width:0;max-width:100%;">
                     <p class="msg-meta">${meta}</p>
                     <div class="msg-bubble">${esc(m.body)}</div>

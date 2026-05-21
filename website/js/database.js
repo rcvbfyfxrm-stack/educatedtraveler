@@ -92,7 +92,7 @@
                 time_preference: preferences.time || null,
                 intensity: preferences.intensity || null,
                 updated_at: new Date().toISOString()
-            })
+            }, { onConflict: 'user_id' })
             .select()
             .single();
 
@@ -130,7 +130,7 @@
                 user_id: userId,
                 adventure_id: adventure.id,
                 adventure_name: adventure.name
-            })
+            }, { onConflict: 'user_id,adventure_id' })
             .select()
             .single();
 
