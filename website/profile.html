@@ -130,11 +130,14 @@
             <!-- Header: Photo + Name + Creature -->
             <div class="glass-strong rounded-2xl p-8 mb-6 fade-up">
                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                    <!-- Avatar -->
+                    <!-- Avatar (tiered, XP-driven — rendered by /js/avatar.js) -->
                     <div class="flex-shrink-0">
-                        <div id="card-avatar" class="w-24 h-24 rounded-full flex items-center justify-center text-3xl font-semibold" style="background: linear-gradient(135deg, #0066B1, #3B8DD4);">
+                        <div id="card-avatar" class="flex items-center justify-center text-3xl font-semibold" style="width:96px;height:96px;background: linear-gradient(135deg, #0066B1, #3B8DD4);border-radius:50%;">
                             <span id="card-initials">--</span>
                         </div>
+                        <p id="card-tier" class="hidden text-center text-[0.65rem] font-mono uppercase tracking-[0.18em] text-white/40 mt-3">
+                            <span id="card-tier-level">L1</span> · <span id="card-tier-name">Skimmer</span>
+                        </p>
                     </div>
 
                     <!-- Info -->
@@ -241,6 +244,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
+    <script src="/js/avatar.js"></script>
 
     <script>
         // Creature mapping
@@ -396,9 +400,30 @@
             document.getElementById('card-name').textContent = name;
             document.getElementById('card-initials').textContent = name.slice(0, 2).toUpperCase();
 
-            // Avatar
-            if (p.avatar_url) {
-                const avatarEl = document.getElementById('card-avatar');
+            // Tiered XP-driven avatar (visible to other members)
+            const avatarEl = document.getElementById('card-avatar');
+            if (window.ETAvatar && avatarEl) {
+                // Reset inline gradient so renderer owns the look
+                avatarEl.removeAttribute('style');
+                window.ETAvatar.renderTieredAvatar(avatarEl, {
+                    name: name,
+                    xp: Number(p.xp) || 0,
+                    avatarUrl: p.avatar_url || null,
+                    size: 96,
+                    showLevel: true
+                });
+                const tier = window.ETAvatar.getXPTier(Number(p.xp) || 0);
+                const level = window.ETAvatar.getLevel(Number(p.xp) || 0);
+                const tierEl = document.getElementById('card-tier');
+                if (tierEl) {
+                    document.getElementById('card-tier-level').textContent = 'L' + level;
+                    const tn = document.getElementById('card-tier-name');
+                    tn.textContent = tier.name;
+                    tn.style.color = tier.color;
+                    tierEl.classList.remove('hidden');
+                }
+            } else if (p.avatar_url && avatarEl) {
+                // Fallback if avatar.js failed to load
                 avatarEl.innerHTML = '<img src="' + esc(p.avatar_url) + '" class="w-full h-full object-cover rounded-full" alt="' + esc(name) + '">';
             }
 

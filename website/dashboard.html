@@ -819,22 +819,25 @@
             <section class="mb-12 fade-up">
                 <div class="glass rounded-2xl p-8">
                     <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
-                        <!-- Avatar -->
-                        <div class="profile-avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-semibold">
-                            <span id="profile-initials">--</span>
+                        <!-- Avatar (tiered, XP-driven — rendered by /js/avatar.js) -->
+                        <div id="profile-avatar-host" class="profile-avatar-host flex-shrink-0">
+                            <!-- fallback while avatar.js loads -->
+                            <div class="profile-avatar w-20 h-20 rounded-full flex items-center justify-center text-2xl font-semibold">
+                                <span id="profile-initials">--</span>
+                            </div>
                         </div>
 
                         <!-- Info -->
-                        <div class="flex-1">
+                        <div class="flex-1 min-w-0">
                             <h1 id="profile-name" class="text-2xl font-light mb-1">Explorer</h1>
                             <p id="profile-email" class="text-white/50 text-sm mb-4">Loading...</p>
 
-                            <!-- XP Bar -->
+                            <!-- XP Bar + tier label -->
                             <div class="flex items-center gap-4">
                                 <div class="flex-1 max-w-xs">
                                     <div class="flex items-center justify-between text-xs mb-1">
-                                        <span class="text-white/50">Level <span id="profile-level">1</span></span>
-                                        <span class="text-blue-400"><span id="profile-xp">0</span> XP</span>
+                                        <span class="text-white/50">Level <span id="profile-level">1</span> · <span id="profile-tier-name" class="text-white/40">Skimmer</span></span>
+                                        <span id="profile-tier-xp" class="text-blue-400"><span id="profile-xp">0</span> XP</span>
                                     </div>
                                     <div class="xp-bar h-2 rounded-full">
                                         <div id="xp-fill" class="xp-fill h-full rounded-full" style="width: 20%"></div>
@@ -843,11 +846,9 @@
                             </div>
                         </div>
 
-                        <!-- Profile + Sign Out -->
+                        <!-- Profile completion meter + actions -->
                         <div class="flex items-center gap-3 flex-wrap">
-                            <div id="completion-chip" class="hidden text-xs px-3 py-1.5 rounded-full border border-blue-400/30 text-blue-300 bg-blue-400/5">
-                                Profile <span id="completion-chip-pct">0</span>% — <span id="completion-chip-hint">finish to unlock matches</span>
-                            </div>
+                            <div id="completion-meter" class="hidden"></div>
                             <button id="edit-profile-btn" class="text-sm text-blue-400 hover:text-blue-300 transition-colors px-4 py-2 rounded-full border border-blue-400/30 hover:border-blue-400/50">
                                 Edit Profile
                             </button>
@@ -1025,6 +1026,7 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
+    <script src="/js/avatar.js"></script>
     <script src="/js/experiences.js"></script>
 
     <script>
@@ -1158,6 +1160,23 @@
             });
         });
 
+        function renderHeaderAvatar(profile, user) {
+            const host = document.getElementById('profile-avatar-host');
+            if (!host || !window.ETAvatar) return;
+            const name = profile?.first_name || profile?.name || (user?.email ? user.email.split('@')[0] : 'Explorer');
+            const xp   = Number(profile?.xp ?? 100);
+            window.ETAvatar.renderTieredAvatar(host, {
+                name: name,
+                xp: xp,
+                avatarUrl: profile?.avatar_url || null,
+                size: 80,
+                showLevel: true
+            });
+            const tier = window.ETAvatar.getXPTier(xp);
+            const tierNameEl = document.getElementById('profile-tier-name');
+            if (tierNameEl) tierNameEl.textContent = tier.name;
+        }
+
         function renderDashboard(user, data) {
             const { profile, preferences, adventures, badges } = data;
 
@@ -1165,7 +1184,10 @@
             const name = profile?.name || user.email.split('@')[0];
             const initials = name.slice(0, 2).toUpperCase();
 
-            document.getElementById('profile-initials').textContent = initials;
+            // Fallback initials (also used if avatar.js failed to load)
+            const initialsEl = document.getElementById('profile-initials');
+            if (initialsEl) initialsEl.textContent = initials;
+
             document.getElementById('profile-name').textContent = name;
             document.getElementById('profile-email').textContent = user.email;
             document.getElementById('profile-level').textContent = profile?.level || 1;
@@ -1176,6 +1198,9 @@
             const xpInLevel = xp % 500;
             const xpPercentage = Math.min((xpInLevel / 500) * 100, 100);
             document.getElementById('xp-fill').style.width = xpPercentage + '%';
+
+            // Tiered avatar with ring + level pill (XP-driven, visible to others)
+            renderHeaderAvatar(profile, user);
 
             // Badges
             const badgesContainer = document.getElementById('badges-container');
@@ -1841,7 +1866,7 @@
                             time_preference: prefTime,
                             intensity: prefIntensity ? parseInt(prefIntensity) : null,
                             updated_at: new Date().toISOString()
-                        });
+                        }, { onConflict: 'user_id' });
                         if (prefsError) throw prefsError;
 
                         // Update dashboard display
@@ -1862,7 +1887,16 @@
                     // Update dashboard header
                     if (profileData.first_name) {
                         document.getElementById('profile-name').textContent = profileData.first_name;
-                        document.getElementById('profile-initials').textContent = profileData.first_name.slice(0, 2).toUpperCase();
+                        const initialsEl = document.getElementById('profile-initials');
+                        if (initialsEl) initialsEl.textContent = profileData.first_name.slice(0, 2).toUpperCase();
+                    }
+                    // Re-render tiered avatar with latest name/avatar_url
+                    if (typeof renderHeaderAvatar === 'function') {
+                        renderHeaderAvatar({
+                            first_name: profileData.first_name,
+                            avatar_url: profileData.avatar_url,
+                            xp: Number(document.getElementById('profile-xp')?.textContent) || 100
+                        }, user);
                     }
 
                     // Set public profile link
@@ -2050,15 +2084,9 @@
         renderDashboard = function(user, data) {
             origRenderDashboard(user, data);
 
-            // Update avatar in header if available
-            if (data.profile?.avatar_url) {
-                const avatarEl = document.querySelector('.profile-avatar');
-                if (avatarEl) {
-                    avatarEl.innerHTML = '<img src="' + escapeHtml(data.profile.avatar_url) + '" class="w-full h-full object-cover rounded-full" alt="Avatar">';
-                }
-            }
+            // Tiered avatar (also picks up avatar_url if present) is rendered inside renderDashboard.
 
-            // Completion chip
+            // Completion meter
             const pct = data.profile?.completion_pct
                 ?? computeProfilePctFromProfile(data.profile);
             refreshDashboardCompletion(pct);
@@ -2081,26 +2109,16 @@
         // COMPLETION CHIP
         // ═══════════════════════════════════════
         function refreshDashboardCompletion(pct) {
-            const chip = document.getElementById('completion-chip');
-            const pctEl = document.getElementById('completion-chip-pct');
-            const hint = document.getElementById('completion-chip-hint');
-            if (!chip || !pctEl) return;
+            const meter = document.getElementById('completion-meter');
+            if (!meter) return;
             pct = Math.max(0, Math.min(100, pct | 0));
-            pctEl.textContent = pct;
-            chip.classList.remove('hidden');
-            if (pct >= 100) {
-                hint.textContent = 'complete';
-                chip.classList.remove('border-blue-400/30','text-blue-300','bg-blue-400/5');
-                chip.classList.add('border-emerald-400/30','text-emerald-300','bg-emerald-400/5');
-            } else if (pct >= 80) {
-                hint.textContent = 'great — matches unlocked';
-                chip.classList.add('border-blue-400/30','text-blue-300','bg-blue-400/5');
-            } else if (pct >= 40) {
-                hint.textContent = 'almost there';
-                chip.classList.add('border-blue-400/30','text-blue-300','bg-blue-400/5');
+            if (window.ETAvatar) {
+                window.ETAvatar.renderCompletionBar(meter, pct, { label: 'Profile' });
+                meter.classList.remove('hidden');
             } else {
-                hint.textContent = 'finish to unlock matches';
-                chip.classList.add('border-blue-400/30','text-blue-300','bg-blue-400/5');
+                // Fallback if avatar.js failed to load
+                meter.classList.remove('hidden');
+                meter.innerHTML = '<span class="text-xs text-white/60">Profile ' + pct + '/100</span>';
             }
         }
 
