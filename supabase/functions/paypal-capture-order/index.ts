@@ -141,28 +141,46 @@ serve(async (req) => {
       raw: order as unknown as Record<string, unknown>,
     });
 
-    // Same fire-and-forget dispatch the Stripe webhook used.
-    const dispatchHeaders = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
-    };
-    await Promise.allSettled([
-      fetch(`${SUPABASE_FUNCTIONS_URL}/send-receipt-email`, {
-        method: "POST",
-        headers: dispatchHeaders,
-        body: JSON.stringify({ enrollment_id: enrollment.id }),
-      }).catch((e) => console.error("send-receipt-email dispatch failed:", e)),
-      fetch(`${SUPABASE_FUNCTIONS_URL}/notify-instructor-enrollment`, {
-        method: "POST",
-        headers: dispatchHeaders,
-        body: JSON.stringify({ enrollment_id: enrollment.id }),
-      }).catch((e) => console.error("notify-instructor-enrollment dispatch failed:", e)),
+    // Dispatch the two notification emails. Previously this was a "fire and
+    // forget" with .catch() swallowing failures — which silently dropped the
+    // 2026-05-20 trial run on the floor (notify-instructor-enrollment wasn't
+    // even deployed, and the .catch hid the 404). Now: await both, log status
+    // + body on failure so the next outage is visible in function logs.
+    async function dispatch(fn: string) {
+      try {
+        const res = await fetch(`${SUPABASE_FUNCTIONS_URL}/${fn}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+          },
+          body: JSON.stringify({ enrollment_id: enrollment.id }),
+        });
+        if (!res.ok) {
+          const text = await res.text().catch(() => "");
+          console.error(`${fn} dispatch returned ${res.status}: ${text.slice(0, 500)}`);
+          return { fn, ok: false, status: res.status, body: text.slice(0, 500) };
+        }
+        console.log(`${fn} dispatch ok (${res.status})`);
+        return { fn, ok: true, status: res.status };
+      } catch (e) {
+        const msg = e instanceof Error ? e.message : String(e);
+        console.error(`${fn} dispatch threw: ${msg}`);
+        return { fn, ok: false, error: msg };
+      }
+    }
+
+    const [receiptResult, notifyResult] = await Promise.all([
+      dispatch("send-receipt-email"),
+      dispatch("notify-instructor-enrollment"),
     ]);
+    const dispatch_results = { receipt: receiptResult, notify: notifyResult };
 
     return json({
       ok: true,
       enrollment_id: enrollment.id,
       capture_id: capture.capture_id,
+      dispatch: dispatch_results,
     });
   } catch (err) {
     console.error("paypal-capture-order error:", err);
