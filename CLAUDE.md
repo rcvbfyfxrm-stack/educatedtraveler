@@ -29,7 +29,7 @@ supabase functions deploy send-welcome-email
 supabase functions deploy send-followup-emails
 ```
 
-**Deployment**: Pushes to `main` auto-deploy via Netlify → `educatedtraveler.app`. Netlify publishes `website/` with no build step.
+**Deployment**: Pushes to `main` auto-deploy via **GitHub Pages** → `educatedtraveler.app`. Workflow at `.github/workflows/deploy-pages.yml` publishes `website/` with no build step. CNAME is `website/CNAME`. (`netlify.toml` is dormant legacy config — GitHub Pages does not read it; pretty URLs work because GH Pages auto-resolves extensionless paths to their `.html` file.)
 
 ## Architecture
 
@@ -125,6 +125,8 @@ Orange (wellness): #F97316
 
 Font: Inter. Mobile-first. Netflix-style cards. Custom `.glass` and `.cta-button` classes in per-page `<style>` blocks.
 
-## Netlify Config
+## Hosting & Pretty URLs
 
-Pretty URLs configured in `netlify.toml` for `/about`, `/instructors`, `/offerings`, `/community`, `/dashboard`, and `/profile`. Add new redirects there when creating new pages.
+Hosted on **GitHub Pages** (workflow: `.github/workflows/deploy-pages.yml`, publish dir: `website/`). GH Pages serves `/foo` by automatically resolving to `/foo.html`, so adding a new HTML file in `website/` gives you the pretty URL for free — no redirect config needed.
+
+`netlify.toml` exists in the repo as legacy config from when the site was Netlify-hosted; it is **not read by GitHub Pages**. Leave it alone unless we migrate back.
