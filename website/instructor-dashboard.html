@@ -1061,6 +1061,32 @@
                     if (cohort) openStudentModal(cohort);
                 });
             });
+
+            // Confirm / decline a pending booking. On success the student flips
+            // to 'enrolled' (or 'declined') and gets an email; reload to refresh.
+            async function handleEnrollmentDecision(btn, action) {
+                const enrollmentId = action === 'confirm' ? btn.dataset.confirmEnrollment : btn.dataset.declineEnrollment;
+                if (action === 'decline' && !confirm('Decline this booking? The student is notified, and any deposit refund is handled manually.')) return;
+                const siblings = btn.parentElement ? btn.parentElement.querySelectorAll('button') : [btn];
+                siblings.forEach(b => { b.disabled = true; });
+                btn.textContent = action === 'confirm' ? 'Confirming…' : 'Declining…';
+                try {
+                    if (action === 'confirm') await window.db.confirmEnrollment(enrollmentId);
+                    else await window.db.declineEnrollment(enrollmentId);
+                    window.location.reload();
+                } catch (err) {
+                    console.error('Enrollment decision failed:', err);
+                    alert('Could not update the booking: ' + (err.message || err));
+                    siblings.forEach(b => { b.disabled = false; });
+                    btn.textContent = action === 'confirm' ? 'Confirm' : 'Decline';
+                }
+            }
+            container.querySelectorAll('[data-confirm-enrollment]').forEach(btn => {
+                btn.addEventListener('click', () => handleEnrollmentDecision(btn, 'confirm'));
+            });
+            container.querySelectorAll('[data-decline-enrollment]').forEach(btn => {
+                btn.addEventListener('click', () => handleEnrollmentDecision(btn, 'decline'));
+            });
         }
 
         // ========================================
@@ -1157,6 +1183,8 @@
         function renderCohortCard(cohort, rev) {
             const enrolled = cohort.enrollments?.filter(e => e.status === 'enrolled') || [];
             const enrolledCount = enrolled.length;
+            // Bookings that paid but await this instructor's confirmation.
+            const awaiting = cohort.enrollments?.filter(e => e.status === 'awaiting_confirmation') || [];
             const capacityPercent = Math.min((enrolledCount / cohort.capacity) * 100, 100);
             const isFilling = capacityPercent >= 75;
 
@@ -1265,6 +1293,29 @@
                                 <p class="text-[10px] uppercase tracking-wider text-white/30">Your Payout</p>
                                 <p class="text-sm text-emerald-400">${fmtUSD(Math.round((rev.gross_cents || 0) * 0.9))}</p>
                             </div>
+                        </div>
+                    ` : ''}
+
+                    <!-- Awaiting confirmation -->
+                    ${awaiting.length > 0 ? `
+                        <div class="rounded-lg p-4 mb-4" style="background:rgba(56,189,248,0.05);border:1px solid rgba(56,189,248,0.22);">
+                            <p class="text-[10px] uppercase tracking-wider text-sky-300/80 mb-3 font-mono">Awaiting your confirmation (${awaiting.length})</p>
+                            ${awaiting.map(e => {
+                                const paidLabel = e.payment_status === 'deposit_paid'
+                                    ? 'Deposit ' + fmtUSD(e.amount_paid_cents || 0) + ' paid · balance ' + fmtUSD(e.balance_cents || 0) + (e.balance_due_date ? ' due ' + new Date(e.balance_due_date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }) : '')
+                                    : 'Paid in full ' + fmtUSD(e.amount_paid_cents || 0);
+                                return `
+                                <div class="flex items-center justify-between gap-3 py-2.5 border-b border-white/5 last:border-0">
+                                    <div class="min-w-0">
+                                        <p class="text-sm truncate">${escapeHtml(e.profiles?.name || e.profiles?.email || 'Student')}</p>
+                                        <p class="text-white/40 text-xs">${escapeHtml(paidLabel)}</p>
+                                    </div>
+                                    <div class="flex gap-2 flex-shrink-0">
+                                        <button data-confirm-enrollment="${e.id}" class="text-xs px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 transition-colors">Confirm</button>
+                                        <button data-decline-enrollment="${e.id}" class="text-xs px-3 py-1.5 rounded-full border border-white/15 text-white/50 hover:bg-white/5 transition-colors">Decline</button>
+                                    </div>
+                                </div>`;
+                            }).join('')}
                         </div>
                     ` : ''}
 

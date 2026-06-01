@@ -471,9 +471,12 @@
     // ========================================
 
     async function getCohortEnrollments(cohortId) {
+        // Disambiguate the profiles embed: enrollments now has TWO FKs to
+        // profiles (user_id and confirmed_by from migration 018), so a bare
+        // profiles(...) embed errors with PGRST201. Pin it to the student FK.
         const { data, error } = await supabase
             .from('enrollments')
-            .select('*, profiles(name, email)')
+            .select('*, profiles!enrollments_user_id_fkey(name, email)')
             .eq('cohort_id', cohortId)
             .order('enrolled_at', { ascending: true });
 
@@ -488,7 +491,7 @@
     async function getPublishedCohorts() {
         const { data, error } = await supabase
             .from('cohorts')
-            .select('*, instructors(name, discipline), enrollments(id)')
+            .select('*, instructors(name, discipline), enrollments(id, status, payment_status)')
             .in('status', ['published', 'full'])
             .order('start_date', { ascending: true });
 
@@ -677,25 +680,38 @@
         return data || [];
     }
 
+    // Repointed from Stripe to the PayPal Smart-Buttons checkout page.
+    // checkout.js's applyToCohort() does `window.location.href = url`, so we
+    // just hand back the on-site checkout URL (no server round-trip needed).
     async function startCohortCheckout(cohortId) {
+        return { url: '/paypal-checkout.html?cohort=' + encodeURIComponent(cohortId) };
+    }
+
+    // plan: 'full' | 'installment'. extras: { notes, addons } (optional).
+    async function createPayPalOrder(cohortId, plan, extras) {
         const session = await supabase.auth.getSession();
         const token = session.data.session?.access_token;
         if (!token) throw new Error('Not signed in');
 
-        const res = await fetch(window.SUPABASE_URL + '/functions/v1/stripe-checkout', {
+        const payload = { cohort_id: cohortId, plan: plan === 'installment' ? 'installment' : 'full' };
+        if (extras && typeof extras.notes === 'string') payload.notes = extras.notes;
+        if (extras && Array.isArray(extras.addons)) payload.addons = extras.addons;
+
+        const res = await fetch(window.SUPABASE_URL + '/functions/v1/paypal-create-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             },
-            body: JSON.stringify({ cohort_id: cohortId })
+            body: JSON.stringify(payload)
         });
         const body = await res.json();
-        if (!res.ok) throw new Error(body.error || 'Checkout failed');
-        return body; // { url, session_id }
+        if (!res.ok) throw new Error(body.error || 'Could not create order');
+        return body; // { order_id, enrollment_id, charge_cents, kind }
     }
 
-    async function createPayPalOrder(cohortId) {
+    // Create a PayPal order for the outstanding balance on an enrollment.
+    async function createBalanceOrder(enrollmentId) {
         const session = await supabase.auth.getSession();
         const token = session.data.session?.access_token;
         if (!token) throw new Error('Not signed in');
@@ -706,11 +722,19 @@
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token
             },
-            body: JSON.stringify({ cohort_id: cohortId })
+            body: JSON.stringify({ enrollment_id: enrollmentId, kind: 'balance' })
         });
         const body = await res.json();
-        if (!res.ok) throw new Error(body.error || 'Could not create order');
-        return body; // { order_id, enrollment_id }
+        if (!res.ok) throw new Error(body.error || 'Could not create balance order');
+        return body; // { order_id, enrollment_id, charge_cents, kind: 'balance' }
+    }
+
+    // Instructor confirms / declines a booking (dashboard path).
+    async function confirmEnrollment(enrollmentId) {
+        return _callFn('confirm-enrollment', { enrollment_id: enrollmentId, action: 'confirm' });
+    }
+    async function declineEnrollment(enrollmentId) {
+        return _callFn('confirm-enrollment', { enrollment_id: enrollmentId, action: 'decline' });
     }
 
     async function capturePayPalOrder(orderId) {
@@ -957,7 +981,10 @@
 
         // PayPal payments
         createPayPalOrder,
+        createBalanceOrder,
         capturePayPalOrder,
+        confirmEnrollment,
+        declineEnrollment,
 
         // Instructor workflow
         inviteInstructor,

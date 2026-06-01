@@ -30,6 +30,16 @@
             margin: 12px auto;
         }
         @keyframes ppspin { to { transform: rotate(360deg); } }
+        .plan-option {
+            display: block; width: 100%; text-align: left; cursor: pointer;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px; padding: 16px 18px; margin-bottom: 10px; transition: all 0.18s;
+        }
+        .plan-option:hover { background: rgba(255,255,255,0.05); }
+        .plan-option.selected { border-color: #3B8DD4; background: rgba(59,141,212,0.08); }
+        .plan-radio { width: 16px; height: 16px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); flex-shrink: 0; margin-top: 2px; position: relative; }
+        .plan-option.selected .plan-radio { border-color: #3B8DD4; }
+        .plan-option.selected .plan-radio::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: #3B8DD4; }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center px-6 py-12">
@@ -39,12 +49,18 @@
         <a href="/offerings" class="text-xs uppercase tracking-[0.25em] text-white/40 hover:text-white/70 transition mb-8 inline-block">← Back to offerings</a>
 
         <p class="text-xs uppercase tracking-[0.3em] text-white/40 mb-2 font-mono">Secure checkout</p>
-        <h1 class="text-3xl font-light mb-8">Complete enrollment</h1>
+        <h1 id="page-title" class="text-3xl font-light mb-8">Complete enrollment</h1>
 
         <!-- Cohort summary -->
         <div id="summary" class="glass rounded-2xl p-6 mb-6">
             <div class="pp-spinner"></div>
-            <p class="text-center text-white/50 text-sm">Loading cohort…</p>
+            <p class="text-center text-white/50 text-sm">Loading…</p>
+        </div>
+
+        <!-- Payment plan selector (booking only) -->
+        <div id="plan-selector" class="hidden mb-6">
+            <p class="text-xs uppercase tracking-[0.2em] text-white/40 mb-3 font-mono">Choose how to pay</p>
+            <div id="plan-options"></div>
         </div>
 
         <!-- PayPal Smart Buttons -->
@@ -72,10 +88,17 @@
 
             const params = new URLSearchParams(window.location.search);
             const cohortId = params.get('cohort');
+            const enrollmentId = params.get('enrollment');
+            const isBalance = params.get('balance') === '1' && !!enrollmentId;
 
             const summaryEl = document.getElementById('summary');
             const wrapEl = document.getElementById('paypal-wrap');
             const statusEl = document.getElementById('status');
+            const planSelEl = document.getElementById('plan-selector');
+            const planOptsEl = document.getElementById('plan-options');
+
+            // 'full' | 'installment' — only meaningful in booking mode.
+            let selectedPlan = 'full';
 
             function setStatus(msg, tone) {
                 statusEl.textContent = msg || '';
@@ -91,27 +114,24 @@
                     '<p class="text-center mt-4"><a href="/offerings" class="text-xs uppercase tracking-[0.25em] text-white/50 underline">Back to offerings</a></p>';
             }
 
-            if (!cohortId) {
+            function usd(cents) { return '$' + (cents / 100).toLocaleString('en-US'); }
+            function fmtDate(iso) {
+                return iso ? new Date(iso + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }) : '';
+            }
+
+            if (!cohortId && !enrollmentId) {
                 bail('Missing cohort. Open this page from an "Apply" button.');
                 return;
             }
 
-            // ---- 1. Wait for the modules we depend on ----
             function ready(cb, attempt) {
                 attempt = attempt || 0;
-                if (window.supabaseClient && window.auth && window.db && window.PAYPAL_CONFIG) {
-                    cb();
-                    return;
-                }
-                if (attempt > 200) {
-                    bail('Could not load checkout modules. Please refresh.');
-                    return;
-                }
+                if (window.supabaseClient && window.auth && window.db && window.PAYPAL_CONFIG) { cb(); return; }
+                if (attempt > 200) { bail('Could not load checkout modules. Please refresh.'); return; }
                 setTimeout(() => ready(cb, attempt + 1), 50);
             }
 
             ready(async function () {
-                // ---- 2. Require sign-in ----
                 const user = await window.auth.getUser();
                 if (!user) {
                     const ret = encodeURIComponent(window.location.pathname + window.location.search);
@@ -119,64 +139,154 @@
                     return;
                 }
 
-                // ---- 3. Render the cohort summary ----
+                if (isBalance) {
+                    await renderBalanceMode(user);
+                } else {
+                    await renderBookingMode(user);
+                }
+            });
+
+            // ---------- BALANCE MODE ----------
+            async function renderBalanceMode(user) {
+                document.getElementById('page-title').textContent = 'Pay your balance';
+                const { data: enr, error } = await window.supabaseClient
+                    .from('enrollments')
+                    .select('id, user_id, payment_status, balance_cents, balance_due_date, cohorts(title, location, start_date, end_date)')
+                    .eq('id', enrollmentId)
+                    .single();
+
+                if (error || !enr) { bail('Booking not found.'); return; }
+                if (enr.user_id !== user.id) { bail('This balance is not on your account.'); return; }
+                if (enr.payment_status === 'paid' || !enr.balance_cents) {
+                    summaryEl.innerHTML = '<p class="text-emerald-300 text-sm text-center">You\'re all paid up for this cohort. 🎉</p>' +
+                        '<p class="text-center mt-4"><a href="/dashboard" class="text-xs uppercase tracking-[0.25em] text-white/50 underline">Go to dashboard</a></p>';
+                    return;
+                }
+
+                const c = enr.cohorts || {};
+                summaryEl.innerHTML =
+                    '<p class="text-xs uppercase tracking-[0.2em] text-white/40 mb-2 font-mono">Remaining balance</p>' +
+                    '<h2 class="text-lg font-medium mb-1">' + escapeHtml(c.title || 'Your cohort') + '</h2>' +
+                    '<p class="text-white/60 text-sm">' + escapeHtml(c.location || '—') + '</p>' +
+                    '<div class="border-t border-white/5 mt-4 pt-4 flex justify-between items-baseline">' +
+                        '<span class="text-white/50 text-sm">Balance due' + (enr.balance_due_date ? ' by ' + fmtDate(enr.balance_due_date) : '') + '</span>' +
+                        '<span class="text-2xl font-light">' + usd(enr.balance_cents) + '</span>' +
+                    '</div>';
+
+                mountButtons(
+                    async function createOrder() {
+                        setStatus('Creating order…');
+                        const { order_id } = await window.db.createBalanceOrder(enrollmentId);
+                        setStatus('');
+                        return order_id;
+                    },
+                    'balance'
+                );
+            }
+
+            // ---------- BOOKING MODE ----------
+            async function renderBookingMode(user) {
                 const { data: cohort, error } = await window.supabaseClient
                     .from('cohorts')
                     .select('id, title, description, location, price_cents, start_date, end_date, status, instructors(name)')
                     .eq('id', cohortId)
                     .single();
 
-                if (error || !cohort) {
-                    bail('Cohort not found. It may have been unpublished.');
-                    return;
-                }
-                if (cohort.status !== 'published') {
-                    bail('This cohort is not open for enrollment right now.');
-                    return;
-                }
+                if (error || !cohort) { bail('Cohort not found. It may have been unpublished.'); return; }
+                if (cohort.status !== 'published') { bail('This cohort is not open for enrollment right now.'); return; }
+                if (!cohort.price_cents) { bail('This cohort does not have a price set yet — email us and we\'ll sort it.'); return; }
 
-                const fmt = (iso) => iso
-                    ? new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-                    : '';
-                const dateRange = [fmt(cohort.start_date), fmt(cohort.end_date)].filter(Boolean).join(' — ') || 'Dates TBD';
-                const price = cohort.price_cents
-                    ? '$' + (cohort.price_cents / 100).toLocaleString()
-                    : 'TBD';
+                const total = cohort.price_cents;
+                const deposit = Math.round(total / 3);
+                const balance = total - deposit;
+                const dateRange = [fmtDate(cohort.start_date), fmtDate(cohort.end_date)].filter(Boolean).join(' — ') || 'Dates TBD';
+
+                // Installment is offered only when the balance due date (start - 1 month) is still in the future.
+                let installmentOK = false, dueStr = '';
+                if (cohort.start_date) {
+                    const due = new Date(cohort.start_date + 'T00:00:00Z');
+                    due.setUTCMonth(due.getUTCMonth() - 1);
+                    dueStr = due.toISOString().slice(0, 10);
+                    installmentOK = dueStr > new Date().toISOString().slice(0, 10);
+                }
 
                 summaryEl.innerHTML =
                     '<p class="text-xs uppercase tracking-[0.2em] text-white/40 mb-2 font-mono">Cohort</p>' +
                     '<h2 class="text-lg font-medium mb-1">' + escapeHtml(cohort.title) + '</h2>' +
                     '<p class="text-white/60 text-sm">' + escapeHtml(cohort.location || '—') + ' · ' + escapeHtml(dateRange) + '</p>' +
-                    (cohort.instructors?.name
-                        ? '<p class="text-white/40 text-xs mt-1">with ' + escapeHtml(cohort.instructors.name) + '</p>'
-                        : '') +
+                    (cohort.instructors?.name ? '<p class="text-white/40 text-xs mt-1">with ' + escapeHtml(cohort.instructors.name) + '</p>' : '') +
                     '<div class="border-t border-white/5 mt-4 pt-4 flex justify-between items-baseline">' +
-                        '<span class="text-white/50 text-sm">Total</span>' +
-                        '<span class="text-2xl font-light">' + escapeHtml(price) + '</span>' +
+                        '<span class="text-white/50 text-sm">Course price</span>' +
+                        '<span class="text-2xl font-light">' + usd(total) + '</span>' +
                     '</div>';
 
-                // ---- 4. Load the PayPal SDK, then render Smart Buttons ----
+                // Build plan options.
+                const fullOpt =
+                    '<div class="plan-option selected" data-plan="full">' +
+                        '<div style="display:flex;gap:12px;align-items:flex-start;">' +
+                            '<span class="plan-radio"></span>' +
+                            '<span style="flex:1;">' +
+                                '<span style="display:flex;justify-content:space-between;"><span class="text-sm text-white/90">Pay in full</span><span class="text-sm text-white">' + usd(total) + '</span></span>' +
+                                '<span class="block text-xs text-white/45 mt-1">One payment, you\'re done.</span>' +
+                            '</span>' +
+                        '</div>' +
+                    '</div>';
+
+                const instOpt = installmentOK ?
+                    '<div class="plan-option" data-plan="installment">' +
+                        '<div style="display:flex;gap:12px;align-items:flex-start;">' +
+                            '<span class="plan-radio"></span>' +
+                            '<span style="flex:1;">' +
+                                '<span style="display:flex;justify-content:space-between;"><span class="text-sm text-white/90">Pay 1/3 deposit now</span><span class="text-sm text-white">' + usd(deposit) + '</span></span>' +
+                                '<span class="block text-xs text-white/45 mt-1">Balance of ' + usd(balance) + ' due by ' + fmtDate(dueStr) + '. We\'ll email you a link.</span>' +
+                            '</span>' +
+                        '</div>' +
+                    '</div>' : '';
+
+                planOptsEl.innerHTML = fullOpt + instOpt;
+                planSelEl.classList.remove('hidden');
+
+                planOptsEl.querySelectorAll('.plan-option').forEach(function (el) {
+                    el.addEventListener('click', function () {
+                        planOptsEl.querySelectorAll('.plan-option').forEach(o => o.classList.remove('selected'));
+                        el.classList.add('selected');
+                        selectedPlan = el.dataset.plan;
+                    });
+                });
+
+                // Carry notes/add-ons collected by the experience-page modal.
+                let extras = {};
+                try {
+                    const stash = JSON.parse(sessionStorage.getItem('et_pending_booking') || 'null');
+                    if (stash && stash.cohortId === cohortId) {
+                        extras = { notes: stash.notes || '', addons: stash.addons || [] };
+                    }
+                } catch (e) {}
+
+                mountButtons(
+                    async function createOrder() {
+                        setStatus('Creating order…');
+                        const { order_id } = await window.db.createPayPalOrder(cohortId, selectedPlan, extras);
+                        setStatus('');
+                        try { sessionStorage.removeItem('et_pending_booking'); } catch (e) {}
+                        return order_id;
+                    },
+                    'booking'
+                );
+            }
+
+            // ---------- Shared PayPal mount ----------
+            function mountButtons(createOrderFn, mode) {
                 wrapEl.classList.remove('hidden');
                 loadScript(window.PAYPAL_CONFIG.sdkUrl, function (err) {
-                    if (err || !window.paypal) {
-                        setStatus('Could not load PayPal. Try refreshing.', 'error');
-                        return;
-                    }
+                    if (err || !window.paypal) { setStatus('Could not load PayPal. Try refreshing.', 'error'); return; }
 
                     window.paypal.Buttons({
-                        style: {
-                            layout: 'vertical',
-                            color: 'gold',
-                            shape: 'pill',
-                            label: 'paypal'
-                        },
+                        style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal' },
 
                         createOrder: async function () {
                             try {
-                                setStatus('Creating order…');
-                                const { order_id } = await window.db.createPayPalOrder(cohortId);
-                                setStatus('');
-                                return order_id;
+                                return await createOrderFn();
                             } catch (e) {
                                 console.error(e);
                                 setStatus('Could not start payment: ' + e.message, 'error');
@@ -187,23 +297,17 @@
                         onApprove: async function (data) {
                             try {
                                 setStatus('Finalizing payment…');
-                                await window.db.capturePayPalOrder(data.orderID);
-                                window.location.href =
-                                    '/enrollment-success.html?order=' +
-                                    encodeURIComponent(data.orderID);
+                                const res = await window.db.capturePayPalOrder(data.orderID);
+                                const kind = mode === 'balance' ? 'balance' : (selectedPlan === 'installment' ? 'deposit' : 'full');
+                                window.location.href = '/enrollment-success.html?order=' +
+                                    encodeURIComponent(data.orderID) + '&kind=' + kind;
                             } catch (e) {
                                 console.error(e);
-                                setStatus(
-                                    'Payment captured but our system had a hiccup. Email founder@educatedtraveler.app with this reference: ' + data.orderID,
-                                    'error'
-                                );
+                                setStatus('Payment captured but our system had a hiccup. Email founder@educatedtraveler.app with this reference: ' + data.orderID, 'error');
                             }
                         },
 
-                        onCancel: function () {
-                            setStatus('Payment cancelled. You can try again above.');
-                        },
-
+                        onCancel: function () { setStatus('Payment cancelled. You can try again above.'); },
                         onError: function (err) {
                             console.error('PayPal Buttons error:', err);
                             setStatus('Payment error. Please try again or email us.', 'error');
@@ -213,9 +317,10 @@
                         setStatus('Could not render PayPal buttons. Refresh to retry.', 'error');
                     });
                 });
-            });
+            }
 
             function loadScript(src, cb) {
+                if (window.paypal) { cb(null); return; }
                 const s = document.createElement('script');
                 s.src = src;
                 s.onload = () => cb(null);

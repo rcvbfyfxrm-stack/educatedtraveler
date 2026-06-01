@@ -89,6 +89,12 @@ export interface CreateOrderInput {
   customId?: string;       // our enrollment_id — echoed back on capture
   invoiceId?: string;      // optional human-friendly invoice number
   brandName?: string;
+  // Idempotency key. Identical values collapse to one order at PayPal (good
+  // for double-clicks); a different value forces a fresh order. Defaults to
+  // `enr_<customId>` — but that is NOT unique across deposit/balance/replan,
+  // so callers that charge different amounts for the same enrollment MUST
+  // pass a value that varies by amount/kind.
+  requestId?: string;
 }
 
 export async function createOrder(
@@ -102,8 +108,12 @@ export async function createOrder(
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
-      // Idempotency: same enrollment_id won't double-create an order
-      ...(input.customId ? { "PayPal-Request-Id": `enr_${input.customId}` } : {}),
+      // Idempotency key — see CreateOrderInput.requestId.
+      ...(input.requestId
+        ? { "PayPal-Request-Id": input.requestId }
+        : input.customId
+        ? { "PayPal-Request-Id": `enr_${input.customId}` }
+        : {}),
     },
     body: JSON.stringify({
       intent: "CAPTURE",

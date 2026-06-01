@@ -37,7 +37,9 @@ serve(async (req) => {
       return new Response("Method not allowed", { status: 405 });
     }
 
-    const { enrollment_id } = await req.json();
+    const reqBody = await req.json();
+    const enrollment_id = reqBody.enrollment_id;
+    const kind = reqBody.kind === "balance" ? "balance" : "initial";
     if (!enrollment_id) {
       return new Response(JSON.stringify({ error: "enrollment_id required" }), { status: 400 });
     }
@@ -45,7 +47,8 @@ serve(async (req) => {
     const { data: enrollment, error: enrErr } = await admin
       .from("enrollments")
       .select(`
-        id, amount_paid_cents, currency, paid_at, stripe_payment_intent_id,
+        id, amount_paid_cents, currency, paid_at, stripe_payment_intent_id, paypal_capture_id,
+        payment_status, payment_plan, price_total_cents, balance_cents, balance_due_date,
         cohorts (
           id, title, description, location, start_date, end_date,
           instructors ( name, email )
@@ -60,10 +63,10 @@ serve(async (req) => {
       return new Response(JSON.stringify({ error: "Enrollment not found" }), { status: 404 });
     }
 
-    const cohort = enrollment.cohorts as Record<string, unknown> & {
+    const cohort = enrollment.cohorts as unknown as Record<string, unknown> & {
       instructors?: { name?: string; email?: string };
     };
-    const profile = enrollment.profiles as Record<string, string | null>;
+    const profile = enrollment.profiles as unknown as Record<string, string | null>;
 
     const studentEmail = profile.email!;
     const firstName = profile.first_name || profile.name || studentEmail.split("@")[0];
@@ -74,12 +77,47 @@ serve(async (req) => {
     const dateRange = startDate && endDate ? `${startDate} – ${endDate}` : startDate || endDate;
     const instructorName = cohort?.instructors?.name ?? "your instructor";
 
-    const amountStr = fmtMoney(
-      enrollment.amount_paid_cents ?? 0,
-      (enrollment.currency as string) ?? "usd",
+    const currency = (enrollment.currency as string) ?? "usd";
+    const amountStr = fmtMoney(enrollment.amount_paid_cents ?? 0, currency);
+    const totalStr = fmtMoney(
+      (enrollment.price_total_cents as number | null) ?? enrollment.amount_paid_cents ?? 0,
+      currency,
     );
+    const balanceStr = fmtMoney((enrollment.balance_cents as number | null) ?? 0, currency);
+    const balanceDue = fmtDate(enrollment.balance_due_date as string | null);
     const paidDate = fmtDate(enrollment.paid_at as string | null);
-    const receiptId = (enrollment.stripe_payment_intent_id as string | null) ?? enrollment.id;
+    const receiptId =
+      (enrollment.paypal_capture_id as string | null) ??
+      (enrollment.stripe_payment_intent_id as string | null) ??
+      enrollment.id;
+
+    // Tailor copy to deposit / full / balance.
+    const isBalance = kind === "balance";
+    const isDeposit = !isBalance &&
+      enrollment.payment_status === "deposit_paid" &&
+      ((enrollment.balance_cents as number | null) ?? 0) > 0;
+
+    const eyebrow = isBalance ? "Payment Complete" : isDeposit ? "Deposit Received" : "Payment Received";
+    const subjectLine = isBalance
+      ? `Balance received — ${cohortTitle}`
+      : isDeposit
+      ? `Deposit received — ${cohortTitle}`
+      : `Payment received — ${cohortTitle}`;
+
+    const leadParagraph = isBalance
+      ? `Your balance is in — you're all paid up for ${cohortTitle}. See you there.`
+      : isDeposit
+      ? `Your deposit of ${amountStr} is in and your seat in ${cohortTitle} is reserved. The remaining balance of <strong>${balanceStr}</strong> is due by <strong>${balanceDue || "one month before the start"}</strong> — we'll email you a payment link closer to the date.`
+      : `Payment received in full for ${cohortTitle}.`;
+
+    const confirmParagraph = isBalance
+      ? `${instructorName} will be in touch with final prep details.`
+      : `${instructorName} will confirm your seat shortly — you'll get an email the moment they do. After that, watch your inbox for the welcome packet.`;
+
+    const amountLabel = isBalance ? "Balance paid" : isDeposit ? "Deposit paid" : "Amount";
+    const receiptExtraRow = isDeposit
+      ? `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Balance due</td><td style="color:#fbbf24;font-size:13px;padding:4px 0;text-align:right;">${balanceStr}${balanceDue ? ` by ${balanceDue}` : ""}</td></tr>`
+      : "";
 
     const html = `
 <!DOCTYPE html>
@@ -94,7 +132,7 @@ serve(async (req) => {
 
     <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;">
 
-      <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">Enrollment Confirmed</p>
+      <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">${eyebrow}</p>
 
       <p style="color:#ffffff;font-size:18px;line-height:1.6;margin:0 0 8px 0;font-weight:500;">${cohortTitle}</p>
       ${dateRange ? `<p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 0 4px 0;">${dateRange}</p>` : ""}
@@ -102,15 +140,16 @@ serve(async (req) => {
 
       <p style="color:#ffffff;font-size:16px;line-height:1.7;margin:24px 0 16px 0;">Hey ${firstName},</p>
 
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">You're in. Payment received and your spot in ${cohortTitle} is confirmed.</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">${leadParagraph}</p>
 
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 24px 0;">${instructorName} will reach out within the next few days with the welcome packet — what to bring, where to land, and the rhythm of week one.</p>
+      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 24px 0;">${confirmParagraph}</p>
 
       <!-- Receipt block -->
       <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px;margin:24px 0;">
         <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px 0;font-family:'Courier New',monospace;">Receipt</p>
         <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Amount</td><td style="color:#ffffff;font-size:13px;padding:4px 0;text-align:right;">${amountStr}</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">${amountLabel}</td><td style="color:#ffffff;font-size:13px;padding:4px 0;text-align:right;">${amountStr}</td></tr>
+          ${receiptExtraRow}
           ${paidDate ? `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Paid on</td><td style="color:#ffffff;font-size:13px;padding:4px 0;text-align:right;">${paidDate}</td></tr>` : ""}
           <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Reference</td><td style="color:rgba(255,255,255,0.7);font-size:11px;padding:4px 0;text-align:right;font-family:'Courier New',monospace;">${receiptId}</td></tr>
         </table>
@@ -118,7 +157,7 @@ serve(async (req) => {
 
       <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 8px 0;font-weight:500;">Before we begin</p>
       <ul style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.7;margin:0 0 28px 0;padding-left:20px;">
-        <li>Watch your inbox — the welcome packet lands within 5 days.</li>
+        <li>Watch your inbox — your instructor confirms your seat, then the welcome packet follows.</li>
         <li>Book your travel only after the packet confirms exact start time and meeting point.</li>
         <li>Reply to this email if you have dietary, mobility, or visa questions.</li>
       </ul>
@@ -155,7 +194,7 @@ serve(async (req) => {
         from: "Arnaud <founder@educatedtraveler.app>",
         to: [studentEmail],
         reply_to: "founder@educatedtraveler.app",
-        subject: `You're in — ${cohortTitle}`,
+        subject: subjectLine,
         html,
       }),
     });
