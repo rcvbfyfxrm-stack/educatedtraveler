@@ -30,7 +30,11 @@
 
     function spotsRemaining(cohort) {
         const taken = (cohort.enrollments || []).filter(e =>
-            e.status === 'enrolled' || e.payment_status === 'paid' || e.payment_status === 'pending'
+            e.status === 'enrolled' ||
+            e.status === 'awaiting_confirmation' ||
+            e.payment_status === 'paid' ||
+            e.payment_status === 'deposit_paid' ||
+            e.payment_status === 'pending'
         ).length;
         return Math.max(0, (cohort.capacity || 0) - taken);
     }

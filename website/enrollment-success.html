@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You're In — EDUCATEDTRAVELER</title>
-    <meta name="description" content="Your enrollment is confirmed.">
+    <title>Payment received — EDUCATEDTRAVELER</title>
+    <meta name="description" content="Your payment was received.">
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
@@ -34,33 +34,74 @@
             </svg>
         </div>
 
-        <p class="text-xs uppercase tracking-[0.3em] text-emerald-400/70 mb-3 font-mono">Payment confirmed</p>
-        <h1 class="text-3xl md:text-4xl font-light mb-4">You're in.</h1>
+        <p id="eyebrow" class="text-xs uppercase tracking-[0.3em] text-emerald-400/70 mb-3 font-mono">Payment received</p>
+        <h1 id="headline" class="text-3xl md:text-4xl font-light mb-4">Thank you.</h1>
 
-        <p class="text-white/60 text-sm leading-relaxed mb-8">
-            Your spot is locked. We've sent a receipt and welcome details to your email — keep an eye on your inbox over the next few days for cohort prep info from your instructor.
+        <p id="lead" class="text-white/60 text-sm leading-relaxed mb-8">
+            We've received your payment and emailed you a receipt.
         </p>
 
         <div class="glass rounded-xl p-6 mb-8 text-left">
-            <p class="text-xs uppercase tracking-wider text-white/40 mb-3 font-mono">Next steps</p>
-            <ol class="space-y-3 text-sm text-white/70">
-                <li class="flex gap-3"><span class="text-bmw-400 font-mono">01</span><span>Watch your inbox — welcome packet within 5 days.</span></li>
-                <li class="flex gap-3"><span class="text-bmw-400 font-mono">02</span><span>Hold off on travel bookings until the packet confirms exact start time and meeting point.</span></li>
-                <li class="flex gap-3"><span class="text-bmw-400 font-mono">03</span><span>Reply to the welcome email with any dietary, mobility, or visa questions.</span></li>
-            </ol>
+            <p class="text-xs uppercase tracking-wider text-white/40 mb-3 font-mono">What happens next</p>
+            <ol id="next-steps" class="space-y-3 text-sm text-white/70"></ol>
         </div>
 
         <a href="/dashboard" class="cta-button inline-block px-8 py-3.5 rounded-full text-white text-sm font-medium">View Your Dashboard</a>
 
         <p class="text-white/30 text-xs mt-8">
-            Receipt reference: <span id="ref" class="font-mono">—</span>
+            Reference: <span id="ref" class="font-mono">—</span>
         </p>
     </div>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const sid = params.get('session_id');
-        if (sid) document.getElementById('ref').textContent = sid.slice(-12);
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var order = params.get('order') || params.get('session_id') || '';
+            var kind = params.get('kind') || 'full'; // 'full' | 'deposit' | 'balance'
+            if (order) document.getElementById('ref').textContent = order.slice(-12);
+
+            var headline = document.getElementById('headline');
+            var lead = document.getElementById('lead');
+            var steps = document.getElementById('next-steps');
+
+            var copy = {
+                full: {
+                    headline: "Payment received.",
+                    lead: "We've got your payment in full and emailed you a receipt. Your seat is reserved while your instructor confirms it.",
+                    steps: [
+                        "Your instructor confirms your seat — you'll get an email the moment they do.",
+                        "Once confirmed, you'll show as enrolled on your dashboard and the welcome packet follows.",
+                        "Hold off on travel bookings until the packet confirms the exact start time and meeting point."
+                    ]
+                },
+                deposit: {
+                    headline: "Deposit received.",
+                    lead: "Your 1/3 deposit is in and we've emailed you a receipt. Your seat is reserved while your instructor confirms it.",
+                    steps: [
+                        "Your instructor confirms your seat — you'll get an email the moment they do.",
+                        "We'll email you a secure link to pay the balance, due at least one month before the class.",
+                        "Hold off on travel bookings until your seat is confirmed and the packet lands."
+                    ]
+                },
+                balance: {
+                    headline: "You're all paid up.",
+                    lead: "Your balance is settled — you're fully paid for this cohort.",
+                    steps: [
+                        "Watch your inbox for the welcome packet from your instructor.",
+                        "Book your travel only after the packet confirms the exact start time and meeting point.",
+                        "Reply to any of our emails with dietary, mobility, or visa questions."
+                    ]
+                }
+            };
+
+            var c = copy[kind] || copy.full;
+            headline.textContent = c.headline;
+            lead.textContent = c.lead;
+            steps.innerHTML = c.steps.map(function (s, i) {
+                var n = ('0' + (i + 1)).slice(-2);
+                return '<li class="flex gap-3"><span class="text-blue-400 font-mono">' + n + '</span><span>' + s + '</span></li>';
+            }).join('');
+        })();
     </script>
 </body>
 </html>

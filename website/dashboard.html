@@ -1390,11 +1390,17 @@
 
                     const STATUS_LABELS = {
                         planning:  { label: 'Planning to do',  css: 'text-amber-300 bg-amber-400/10 border border-amber-400/20' },
+                        awaiting:  { label: 'Awaiting confirmation', css: 'text-sky-300 bg-sky-400/10 border border-sky-400/25' },
                         doing:     { label: 'In progress',     css: 'text-emerald-300 bg-emerald-400/10 border border-emerald-400/25' },
                         completed: { label: 'Completed',       css: 'text-purple-300 bg-purple-400/10 border border-purple-400/20' },
                         cancelled: { label: 'Cancelled',       css: 'text-red-300 bg-red-400/10 border border-red-400/20' },
                         pending:   { label: 'Pending payment', css: 'text-white/50 bg-white/[0.04] border border-white/10' }
                     };
+
+                    const fmtUSD = (cents) => '$' + ((cents || 0) / 100).toLocaleString('en-US');
+                    const fmtDueDate = (d) => d
+                        ? new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
+                        : '';
 
                     container.innerHTML = timeline.map(t => {
                         const startDate = t.start_date
@@ -1408,11 +1414,26 @@
 
                         const s = STATUS_LABELS[t.timeline_status] || STATUS_LABELS.pending;
 
-                        // Cohort chat is available to paid members in any active state
-                        const chatAvailable = t.payment_status === 'paid'
-                                              && t.timeline_status !== 'cancelled';
+                        // Cohort chat opens for confirmed members who have paid at
+                        // least a deposit (mirrors is_cohort_member in the DB).
+                        const isConfirmed = t.enrollment_status === 'enrolled' || t.enrollment_status === 'completed';
+                        const hasPaid = t.payment_status === 'paid' || t.payment_status === 'deposit_paid';
+                        const chatAvailable = isConfirmed && hasPaid;
                         const chatLink = chatAvailable
                             ? `<a href="cohort-chat.html?cohort=${t.cohort_id}" class="text-[11px] px-3 py-1.5 rounded-full bg-blue-500/15 text-blue-300 hover:bg-blue-500/25 transition-colors whitespace-nowrap">Open cohort chat →</a>`
+                            : '';
+
+                        // Outstanding balance on an installment booking → show a Pay balance button.
+                        const owesBalance = t.payment_status === 'deposit_paid' && (t.balance_cents || 0) > 0;
+                        const balanceNote = owesBalance
+                            ? `<p class="text-amber-300/80 text-xs mt-2">Deposit paid · balance ${fmtUSD(t.balance_cents)} due${t.balance_due_date ? ' by ' + fmtDueDate(t.balance_due_date) : ''}</p>`
+                            : '';
+                        const payBalanceBtn = owesBalance
+                            ? `<a href="paypal-checkout.html?enrollment=${t.enrollment_id}&balance=1" class="text-[11px] px-3 py-1.5 rounded-full bg-amber-500/15 text-amber-300 hover:bg-amber-500/25 transition-colors whitespace-nowrap">Pay balance →</a>`
+                            : '';
+
+                        const footer = (chatLink || payBalanceBtn)
+                            ? `<div class="mt-3 flex justify-end gap-2 flex-wrap">${payBalanceBtn}${chatLink}</div>`
                             : '';
 
                         return `
@@ -1421,10 +1442,11 @@
                                     <div class="min-w-0">
                                         <h4 class="font-medium mb-1 truncate">${escapeHtml(t.cohort_title || 'Adventure')}</h4>
                                         <p class="text-white/40 text-xs">${meta}</p>
+                                        ${balanceNote}
                                     </div>
                                     <span class="text-[10px] px-2.5 py-1 rounded-full whitespace-nowrap uppercase tracking-wider ${s.css}">${s.label}</span>
                                 </div>
-                                ${chatLink ? `<div class="mt-3 flex justify-end">${chatLink}</div>` : ''}
+                                ${footer}
                             </div>
                         `;
                     }).join('');
@@ -1439,8 +1461,16 @@
                     const container = document.getElementById('available-cohorts-container');
                     section.classList.remove('hidden');
 
+                    // A seat is "taken" only by an active booking — not by abandoned
+                    // 'pending' or 'declined'/'cancelled' rows. Mirrors checkout.js.
+                    const seatTaken = (e) =>
+                        e.status === 'enrolled' ||
+                        e.status === 'awaiting_confirmation' ||
+                        e.payment_status === 'paid' ||
+                        e.payment_status === 'deposit_paid';
+
                     container.innerHTML = available.map(c => {
-                        const enrolled = c.enrollments?.length || 0;
+                        const enrolled = (c.enrollments || []).filter(seatTaken).length;
                         const spotsLeft = c.capacity - enrolled;
                         const instructor = c.instructors?.name || '';
                         const startDate = c.start_date
@@ -1455,11 +1485,11 @@
                                 <div class="flex items-center justify-between">
                                     <span class="text-white/30 text-xs">${spotsLeft > 0 ? spotsLeft + ' spots left' : 'Full'}</span>
                                     ${spotsLeft > 0 ? `
-                                        <button onclick="window.enrollInCohort('${c.id}', this)" class="text-xs px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors">
-                                            Enroll
-                                        </button>
+                                        <a href="paypal-checkout.html?cohort=${c.id}" class="text-xs px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors">
+                                            Book
+                                        </a>
                                     ` : `
-                                        <span class="text-xs px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-400">Waitlist</span>
+                                        <span class="text-xs px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-400">Full</span>
                                     `}
                                 </div>
                             </div>
