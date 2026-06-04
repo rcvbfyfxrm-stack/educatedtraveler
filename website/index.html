@@ -1610,21 +1610,28 @@
                 notifySubmit.textContent = 'Sending...';
 
                 try {
-                    var formData = new FormData(notifyForm);
-                    await fetch('/', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: new URLSearchParams(formData).toString()
-                    });
+                    var emailInput = notifyForm.querySelector('input[name="email"]');
+                    var email = emailInput ? emailInput.value.trim() : '';
+                    var interests = Array.prototype.map.call(checked, function(c) { return c.value; });
+
+                    if (!window.supabaseClient) throw new Error('Supabase client not ready');
+
+                    var res = await window.supabaseClient
+                        .from('launch_waitlist')
+                        .insert({ email: email, interests: interests, source: 'homepage-notify' });
+                    if (res && res.error) throw res.error;
+
+                    notifyForm.classList.add('hidden');
+                    notifySuccess.classList.remove('hidden');
+
+                    if (typeof spawnConfetti === 'function') spawnConfetti(30);
+                    if (typeof showXpPopup === 'function') showXpPopup(50, window.innerWidth / 2, window.innerHeight / 2);
                 } catch (err) {
-                    // Netlify form will 404 locally - that's fine
+                    // Don't fake success — keep the form and tell the visitor how to reach us.
+                    console.error('Waitlist signup failed:', err);
+                    notifySubmit.disabled = false;
+                    notifySubmit.textContent = 'Try again — or email hello@educatedtraveler.app';
                 }
-
-                notifyForm.classList.add('hidden');
-                notifySuccess.classList.remove('hidden');
-
-                if (typeof spawnConfetti === 'function') spawnConfetti(30);
-                if (typeof showXpPopup === 'function') showXpPopup(50, window.innerWidth / 2, window.innerHeight / 2);
             });
         })();
     </script>
