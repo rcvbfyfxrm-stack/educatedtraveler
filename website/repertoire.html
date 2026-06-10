@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Atlas — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="The repertoire of certified skill immersions worldwide. Every craft worth crossing the world for — where it was born, where its people gather, and where to go get certified.">
+    <link rel="canonical" href="https://educatedtraveler.app/repertoire">
+    <meta property="og:title" content="The Atlas — EDUCATEDTRAVELER">
+    <meta property="og:description" content="Every craft worth crossing the world for. Where it was born. Where its people gather. Where to go get certified.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.app/repertoire">
+    <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <meta property="og:site_name" content="EducatedTraveler">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="400x400" href="/images/logo-et-icon.png">
+    <link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+    <link rel="shortcut icon" href="/images/logo-et-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* ── Warm-Dark Editorial (2026-06-11 relook lock) — shared with index/about ── */
+        :root { --ink:#0d0b09; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+        * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--ink); color: var(--paper); }
+        html { scroll-behavior: smooth; }
+        ::selection { background: rgba(210,138,82,0.30); }
+        .font-serif { font-family: 'Fraunces', Georgia, serif; }
+
+        .glass {
+            background: rgba(13,11,9,0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--line);
+        }
+        .mono { font-family: 'IBM Plex Mono', monospace; }
+
+        /* ---------- Hero ---------- */
+        .hero-wrap { position: relative; overflow: hidden; }
+        .hero-glow {
+            position: absolute; inset: -40% 0 auto 0; height: 600px; pointer-events: none;
+            background:
+              radial-gradient(42% 60% at 18% 20%, rgba(127,168,165,0.16), transparent 70%),
+              radial-gradient(42% 60% at 82% 18%, rgba(210,138,82,0.13), transparent 70%);
+            filter: blur(12px);
+        }
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.42em;
+            text-transform: uppercase; color: var(--sea);
+        }
+
+        /* ---------- Search ---------- */
+        .search-box {
+            background: rgba(243,237,226,0.04);
+            border: 1px solid rgba(243,237,226,0.12);
+            border-radius: 14px; transition: all 0.25s ease;
+        }
+        .search-box:focus-within { border-color: rgba(127,168,165,0.45); background: rgba(243,237,226,0.06); }
+        .search-box input { background: transparent; outline: none; width: 100%; color: var(--paper); font-size: 15px; }
+        .search-box input::placeholder { color: rgba(243,237,226,0.34); }
+
+        /* ---------- Lens / filter bar ---------- */
+        .lensbar { position: sticky; top: 60px; z-index: 40; }
+        .pill {
+            padding: 7px 15px; border-radius: 9999px; font-size: 13px; line-height: 1;
+            border: 1px solid rgba(243,237,226,0.12); background: transparent;
+            color: rgba(243,237,226,0.56); cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+        }
+        .pill:hover { color: var(--paper); border-color: rgba(127,168,165,0.4); }
+        .pill.on { background: rgba(243,237,226,0.08); border-color: rgba(243,237,226,0.22); color: var(--paper); }
+        .pill.core-wellness.on  { background: rgba(148,173,134,0.18); border-color: rgba(148,173,134,0.5); color: #b6ccab; }
+        .pill.core-adventure.on { background: rgba(111,163,160,0.18); border-color: rgba(111,163,160,0.5); color: #a7cecb; }
+        .pill.core-creative.on  { background: rgba(207,143,110,0.18); border-color: rgba(207,143,110,0.5); color: #e6b095; }
+        .pill.core-culinary.on  { background: rgba(201,162,74,0.18);  border-color: rgba(201,162,74,0.5);  color: #e0c47e; }
+        .seg { display: inline-flex; padding: 3px; border-radius: 9999px; background: rgba(243,237,226,0.04); border: 1px solid var(--line); }
+        .seg button {
+            padding: 6px 13px; border-radius: 9999px; font-size: 12.5px; color: rgba(243,237,226,0.56);
+            cursor: pointer; transition: all 0.2s ease; white-space: nowrap; border: none; background: transparent;
+        }
+        .seg button.on { background: rgba(127,168,165,0.18); color: var(--paper); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* ---------- Discipline card ---------- */
+        .disc-card {
+            background: rgba(243,237,226,0.022);
+            border: 1px solid var(--line);
+            border-radius: 16px; overflow: hidden; transition: border-color 0.25s ease;
+        }
+        .disc-card:hover { border-color: rgba(127,168,165,0.26); }
+        .disc-head { padding: 18px 20px 14px; border-bottom: 1px solid var(--line); }
+        .disc-rail { width: 3px; border-radius: 4px; }
+        .core-tag {
+            font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+            padding: 3px 9px; border-radius: 6px;
+        }
+        .core-tag.wellness  { background: rgba(148,173,134,0.16); color: #aec59f; }
+        .core-tag.adventure { background: rgba(111,163,160,0.16); color: #9ccac6; }
+        .core-tag.creative  { background: rgba(207,143,110,0.16); color: #e0a487; }
+        .core-tag.culinary  { background: rgba(201,162,74,0.16);  color: #d9bd76; }
+        .cred-chip {
+            font-size: 11px; color: rgba(243,237,226,0.6); border: 1px solid rgba(243,237,226,0.14);
+            border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+        }
+
+        /* ---------- Destination row ---------- */
+        .dest {
+            padding: 13px 20px; border-top: 1px solid var(--line);
+            cursor: pointer; transition: background 0.18s ease;
+        }
+        .dest:first-child { border-top: none; }
+        .dest:hover { background: rgba(243,237,226,0.025); }
+        .role-pill {
+            font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+            padding: 2px 8px; border-radius: 9999px; white-space: nowrap;
+        }
+        .role-source { background: rgba(210,138,82,0.16); color: #e0b07a; border: 1px solid rgba(210,138,82,0.32); }
+        .role-scene  { background: rgba(127,168,165,0.16); color: #a3cdc9; border: 1px solid rgba(127,168,165,0.32); }
+        .role-both   { background: rgba(201,162,74,0.12);  color: #d8c081; border: 1px solid rgba(201,162,74,0.3); }
+
+        /* community meter */
+        .meter { display: inline-flex; align-items: center; gap: 6px; }
+        .dots { display: inline-flex; gap: 3px; }
+        .dot { width: 7px; height: 7px; border-radius: 9999px; background: rgba(243,237,226,0.16); }
+        .dot.on { background: var(--sea); box-shadow: 0 0 6px rgba(127,168,165,0.5); }
+        .meter-lab { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(243,237,226,0.45); }
+
+        /* badge chips */
+        .badge-chip {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 22px; height: 22px; border-radius: 7px; font-size: 12px;
+            background: rgba(243,237,226,0.05); border: 1px solid rgba(243,237,226,0.1);
+            position: relative; cursor: default;
+        }
+        .badge-chip .tip {
+            position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+            background: #1c1813; border: 1px solid rgba(243,237,226,0.14); border-radius: 8px;
+            padding: 6px 10px; width: max-content; max-width: 220px; opacity: 0; pointer-events: none;
+            transition: opacity 0.18s ease; z-index: 30; text-align: left;
+        }
+        .badge-chip:hover .tip { opacity: 1; }
+        .tip-t { font-size: 11px; font-weight: 600; display: block; color: var(--paper); }
+        .tip-d { font-size: 10.5px; color: rgba(243,237,226,0.55); display: block; margin-top: 1px; }
+
+        /* expand panel */
+        .dest-detail { display: none; padding: 4px 0 6px; }
+        .dest.open .dest-detail { display: block; }
+        .dest.open { background: rgba(243,237,226,0.03); }
+        .det-label { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(243,237,226,0.4); }
+        .school-link {
+            display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px;
+            color: rgba(243,237,226,0.75); border: 1px solid rgba(243,237,226,0.1); border-radius: 8px;
+            padding: 5px 10px; transition: all 0.18s ease; text-decoration: none;
+        }
+        .school-link:hover { color: var(--paper); border-color: rgba(127,168,165,0.4); background: rgba(127,168,165,0.06); }
+        .master-chip {
+            font-size: 12px; color: #e0b07a; background: rgba(210,138,82,0.10);
+            border: 1px solid rgba(210,138,82,0.25); border-radius: 8px; padding: 4px 10px;
+        }
+
+        /* region / credential group header */
+        .grp-head {
+            display: flex; align-items: baseline; gap: 12px; padding: 6px 2px 14px;
+            border-bottom: 1px solid var(--line); margin-bottom: 18px;
+        }
+        .grp-title { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 400; }
+        .grp-count { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(243,237,226,0.4); }
+
+        .cta-button { background: linear-gradient(135deg, var(--sea) 0%, var(--ember) 130%); color: #14110d; transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(127,168,165,0.22); filter: brightness(1.04); }
+        .btn-ghost { border: 1px solid rgba(243,237,226,0.18); color: var(--paper); transition: all 0.3s ease; }
+        .btn-ghost:hover { background: rgba(243,237,226,0.05); border-color: rgba(243,237,226,0.32); }
+        .link-quiet { color: var(--paper); opacity:.56; transition: opacity .25s ease, color .25s ease; }
+        .link-quiet:hover { opacity:1; color: var(--sea); }
+
+        .fade-in { animation: fadeIn 0.4s ease both; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--ink); }
+        ::-webkit-scrollbar-thumb { background: rgba(127,168,165,0.28); border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-base font-serif tracking-[0.18em]">
+                EDUCATED<span class="text-sea-soft" style="color:var(--sea)">TRAVELER</span>
+            </a>
+            <div class="hidden md:flex items-center gap-9">
+                <a href="repertoire.html" class="text-sm" style="color:var(--paper)">The Atlas</a>
+                <a href="about.html" class="text-sm link-quiet">The Story</a>
+                <a href="/#bridge" class="text-sm link-quiet">What This Is</a>
+                <a href="/#circle" class="text-sm px-4 py-2 rounded-full btn-ghost">Join the Circle</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16M4 17h16"/>
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass" style="border-top:1px solid var(--line)">
+            <div class="px-6 py-4 space-y-1">
+                <a href="repertoire.html" class="block py-3" style="color:var(--paper)">The Atlas</a>
+                <a href="about.html" class="block py-3 link-quiet">The Story</a>
+                <a href="/#bridge" class="block py-3 link-quiet">What This Is</a>
+                <a href="/#circle" class="block py-3" style="color:var(--sea)">Join the Circle</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-wrap pt-28 pb-10 px-6">
+        <div class="hero-glow"></div>
+        <div class="max-w-5xl mx-auto relative">
+            <p class="eyebrow mb-5">The Atlas</p>
+            <h1 class="font-serif text-4xl md:text-6xl font-light tracking-tight leading-[1.04]">
+                Every craft worth<br>crossing the world for.
+            </h1>
+            <p class="mt-6 text-lg text-paper-muted max-w-2xl leading-relaxed" style="color:rgba(243,237,226,0.56)">
+                Where it was born. Where its people gather. Where you'll find yours.
+                A living map of crafts — ranked by the strength of the community you'll meet when you land, never by who paid to be listed.
+            </p>
+
+            <!-- Search -->
+            <div class="search-box mt-8 flex items-center gap-3 px-4 py-3 max-w-2xl">
+                <svg class="w-5 h-5 text-white/40 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 18a7 7 0 110-14 7 7 0 010 14z"/></svg>
+                <input id="search" type="text" autocomplete="off" placeholder="Search a craft, a place, a credential — sushi, Tokyo, RYA, freediving…">
+                <button id="search-clear" class="text-white/30 hover:text-white/70 text-sm hidden">clear</button>
+            </div>
+
+            <!-- Live stats -->
+            <div id="stats" class="mt-6 flex flex-wrap items-center gap-x-7 gap-y-2 text-sm text-white/45"></div>
+        </div>
+    </header>
+
+    <!-- Lens bar -->
+    <div class="lensbar glass border-y border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-3 space-y-3">
+            <!-- Core filter -->
+            <div class="flex items-center gap-3 overflow-x-auto no-scrollbar">
+                <span class="det-label shrink-0 mr-1">Core</span>
+                <div id="core-pills" class="flex items-center gap-2"></div>
+            </div>
+            <!-- Arrange + role -->
+            <div class="flex items-center gap-4 overflow-x-auto no-scrollbar">
+                <span class="det-label shrink-0 mr-1">Arrange by</span>
+                <div id="arrange-pills" class="flex items-center gap-2"></div>
+                <span class="det-label shrink-0 ml-2 mr-1">Lens</span>
+                <div class="seg shrink-0" id="role-seg">
+                    <button data-role="all" class="on">All</button>
+                    <button data-role="source">At the source</button>
+                    <button data-role="scene">The scene</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <main class="max-w-6xl mx-auto px-6 py-10">
+        <div id="result-meta" class="text-sm text-white/40 mb-6 mono"></div>
+        <div id="results"></div>
+        <div id="empty" class="hidden text-center py-24">
+            <p class="text-2xl text-white/70 mb-2">No craft matches that yet.</p>
+            <p class="text-white/40">Try a broader word — or clear the search to see the whole atlas.</p>
+        </div>
+    </main>
+
+    <!-- Closing CTA -->
+    <section class="px-6 py-16" style="border-top:1px solid var(--line)">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="eyebrow mb-4">From the map to your people</p>
+            <h2 class="font-serif text-3xl md:text-4xl font-light tracking-tight">Found the one that pulls at you?</h2>
+            <p class="mt-5 leading-relaxed" style="color:rgba(243,237,226,0.56)">
+                The Atlas shows you where. The Circle shows you who with. Join it and we'll connect you to the people chasing the same craft — and to the place itself, when the time is right. Earned, not bought.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/#circle" class="cta-button inline-block px-8 py-3.5 rounded-full font-medium">Join the Circle →</a>
+                <a href="about.html" class="btn-ghost inline-block px-8 py-3.5 rounded-full">Read the story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12" style="border-top:1px solid var(--line)">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-serif tracking-[0.16em] mb-1">EDUCATED<span style="color:var(--sea)">TRAVELER</span></p>
+                    <p class="text-sm" style="color:rgba(243,237,226,0.56)">A place, a person, your people.</p>
+                    <p class="text-[11px] mono tracking-[0.25em] mt-2" style="color:rgba(243,237,226,0.34)">EARNED, NOT BOUGHT</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="/" class="link-quiet text-sm">Home</a>
+                    <a href="about.html" class="link-quiet text-sm">The Story</a>
+                    <a href="/#circle" class="link-quiet text-sm">The Circle</a>
+                    <a href="mailto:arnaudcallier@pm.me" class="link-quiet text-sm">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/repertoire.js"></script>
+    <script>
+    (function () {
+        // ---- Mobile menu ----
+        var mb = document.getElementById('mobile-menu-btn'), mm = document.getElementById('mobile-menu');
+        if (mb) mb.addEventListener('click', function () { mm.classList.toggle('hidden'); });
+
+        var ATLAS = (window.ET_ATLAS && window.ET_ATLAS.disciplines) ? window.ET_ATLAS.disciplines : [];
+
+        var CORE_META = {
+            wellness:  { label: 'Wellness',  tag: 'Heal & center' },
+            adventure: { label: 'Adventure', tag: 'Earn it outdoors' },
+            creative:  { label: 'Creative',  tag: 'Make with your hands' },
+            culinary:  { label: 'Culinary',  tag: 'Cook at the source' }
+        };
+        var CORE_ORDER = ['wellness', 'adventure', 'creative', 'culinary'];
+        var CORE_COLOR = { wellness: '#94ad86', adventure: '#6fa3a0', creative: '#cf8f6e', culinary: '#c9a24a' };
+
+        var BADGE_META = {
+            'source':    { g: '◎', t: 'The Source',              d: 'Birthplace of the craft' },
+            'scene':     { g: '✦', t: 'Home of the Scene',       d: 'The densest living community today' },
+            'mecca':     { g: '◈', t: 'Mecca',                   d: 'The bucket-list destination for this craft' },
+            'master':    { g: '♔', t: 'Living Master',           d: 'A world-renowned teacher works here' },
+            'school':    { g: '❖', t: 'Renowned School',         d: 'A globally-reputed academy is based here' },
+            'gold-cred': { g: '★', t: 'Gold-Standard Credential', d: 'The credential everyone recognizes' },
+            'heritage':  { g: '⬡', t: 'Heritage Craft',          d: 'UNESCO / recognized heritage tradition' },
+            'record':    { g: '⚑', t: 'Record Ground',           d: 'Where records are set & championships held' },
+            'lineage':   { g: '∞', t: 'Unbroken Lineage',        d: 'Centuries of continuous transmission' }
+        };
+
+        var REGION_ORDER = ['Western Europe', 'Mediterranean', 'Nordic & Baltic', 'Eastern Europe', 'North America', 'Latin America', 'Caribbean', 'Middle East & North Africa', 'Sub-Saharan Africa', 'South Asia', 'Southeast Asia', 'East Asia', 'Oceania'];
+
+        var state = { core: 'all', arrange: 'discipline', role: 'all', q: '' };
+
+        // ---------- helpers ----------
+        function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
+        function uniq(a) { return a.filter(function (v, i) { return a.indexOf(v) === i; }); }
+
+        function rolePill(role) {
+            if (role === 'source') return '<span class="role-pill role-source">At the source</span>';
+            if (role === 'scene') return '<span class="role-pill role-scene">The scene</span>';
+            return '<span class="role-pill role-both">Source + Scene</span>';
+        }
+        function meter(rank, label) {
+            var dots = '';
+            for (var i = 1; i <= 5; i++) dots += '<span class="dot ' + (i <= rank ? 'on' : '') + '"></span>';
+            return '<span class="meter" title="Community strength: ' + esc(label) + '"><span class="dots">' + dots + '</span><span class="meter-lab">' + esc(label || '') + '</span></span>';
+        }
+        function badgeChips(badges) {
+            if (!badges || !badges.length) return '';
+            return '<span class="inline-flex items-center gap-1.5">' + badges.map(function (b) {
+                var m = BADGE_META[b]; if (!m) return '';
+                return '<span class="badge-chip"><span>' + m.g + '</span><span class="tip"><span class="tip-t">' + esc(m.t) + '</span><span class="tip-d">' + esc(m.d) + '</span></span></span>';
+            }).join('') + '</span>';
+        }
+        function searchUrl(school, place) {
+            return 'https://www.google.com/search?q=' + encodeURIComponent('"' + school + '" ' + place);
+        }
+
+        // ---------- filtering ----------
+        function roleMatch(dest) {
+            if (state.role === 'all') return true;
+            if (state.role === 'source') return dest.role === 'source' || dest.role === 'both';
+            if (state.role === 'scene') return dest.role === 'scene' || dest.role === 'both';
+            return true;
+        }
+        function discMatchesSearch(d) {
+            if (!state.q) return true;
+            var q = state.q;
+            var hay = [d.discipline, d.blurb, d.certBody, d.goldCredential].join(' ').toLowerCase();
+            if (hay.indexOf(q) > -1) return true;
+            return (d.destinations || []).some(function (x) {
+                return [x.place, x.country, x.region, (x.masters || []).join(' '), (x.schools || []).join(' '), x.communityLabel].join(' ').toLowerCase().indexOf(q) > -1;
+            });
+        }
+        // returns disciplines (cloned) with destinations filtered by role; core+search applied
+        function filtered() {
+            return ATLAS.filter(function (d) {
+                return (state.core === 'all' || d.category === state.core) && discMatchesSearch(d);
+            }).map(function (d) {
+                var dd = Object.assign({}, d);
+                dd.destinations = (d.destinations || []).filter(roleMatch).slice().sort(function (a, b) {
+                    // source first, then by community rank desc
+                    var ra = (a.role === 'source' || a.role === 'both') ? 1 : 0;
+                    var rb = (b.role === 'source' || b.role === 'both') ? 1 : 0;
+                    if (rb - ra) return rb - ra;
+                    return (b.communityRank || 0) - (a.communityRank || 0);
+                });
+                return dd;
+            }).filter(function (d) { return d.destinations.length; });
+        }
+        function flatEntries(discs) {
+            var out = [];
+            discs.forEach(function (d) {
+                d.destinations.forEach(function (x) { out.push({ d: d, x: x }); });
+            });
+            return out;
+        }
+
+        // ---------- destination row ----------
+        function destRow(d, x) {
+            var schools = (x.schools || []).map(function (s) {
+                return '<a class="school-link" target="_blank" rel="noopener" href="' + searchUrl(s, x.place) + '">' + esc(s) + ' <span class="text-white/30">↗</span></a>';
+            }).join('');
+            var masters = (x.masters && x.masters.length)
+                ? '<div class="mt-3"><div class="det-label mb-1.5">Living masters &amp; lineages</div><div class="flex flex-wrap gap-2">' + x.masters.map(function (m) { return '<span class="master-chip">♔ ' + esc(m) + '</span>'; }).join('') + '</div></div>'
+                : '';
+            return '' +
+            '<div class="dest" data-dest>' +
+              '<div class="flex items-start gap-3">' +
+                '<div class="flex-1 min-w-0">' +
+                  '<div class="flex items-center gap-2.5 flex-wrap">' +
+                    '<span class="font-semibold">' + esc(x.place) + '</span>' +
+                    '<span class="text-white/35 text-sm">' + esc(x.country) + '</span>' +
+                    rolePill(x.role) +
+                  '</div>' +
+                  '<p class="text-white/55 text-sm mt-1.5 leading-snug">' + esc(x.why) + '</p>' +
+                  '<div class="flex items-center gap-3 mt-2.5 flex-wrap">' +
+                    meter(x.communityRank, x.communityLabel) +
+                    badgeChips(x.badges) +
+                  '</div>' +
+                  '<div class="dest-detail">' +
+                    '<div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 mt-4 pt-4 border-t border-white/5">' +
+                      '<div><div class="det-label mb-1">Best season</div><div class="text-sm text-white/75">' + esc(x.bestSeason || '—') + '</div></div>' +
+                      '<div><div class="det-label mb-1">Range</div><div class="text-sm text-white/75">' + esc(x.level || '—') + '</div></div>' +
+                      '<div><div class="det-label mb-1">Region</div><div class="text-sm text-white/75">' + esc(x.region) + '</div></div>' +
+                      '<div><div class="det-label mb-1">Credential</div><div class="text-sm text-white/75">' + esc(d.goldCredential) + (d.certBody && d.certBody !== '—' ? ' <span class="text-white/35">· ' + esc(d.certBody) + '</span>' : '') + '</div></div>' +
+                    '</div>' +
+                    (schools ? '<div class="mt-3"><div class="det-label mb-1.5">Trusted schools here</div><div class="flex flex-wrap gap-2">' + schools + '</div></div>' : '') +
+                    masters +
+                  '</div>' +
+                '</div>' +
+                '<svg class="chev w-4 h-4 text-white/30 mt-1.5 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>' +
+              '</div>' +
+            '</div>';
+        }
+
+        // ---------- discipline card ----------
+        function discCard(d) {
+            var color = CORE_COLOR[d.category] || '#888';
+            var cs = d.certShort || d.certBody;
+            var cred = cs && cs !== '—'
+                ? '<span class="cred-chip" title="' + esc(d.certBody || '') + '">' + esc(cs) + '</span>'
+                : '';
+            return '' +
+            '<div class="disc-card fade-in">' +
+              '<div class="disc-head flex items-start gap-3" style="background:linear-gradient(90deg,' + color + '10,transparent 60%)">' +
+                '<div class="disc-rail self-stretch" style="background:' + color + '"></div>' +
+                '<div class="flex-1 min-w-0">' +
+                  '<div class="flex items-center gap-2.5 flex-wrap">' +
+                    '<h3 class="text-lg font-semibold">' + esc(d.discipline) + '</h3>' +
+                    '<span class="core-tag ' + d.category + '">' + esc(CORE_META[d.category] ? CORE_META[d.category].label : d.category) + '</span>' +
+                    cred +
+                  '</div>' +
+                  '<p class="text-white/50 text-sm mt-1.5 leading-snug">' + esc(d.blurb) + '</p>' +
+                '</div>' +
+                '<span class="mono text-xs text-white/30 shrink-0 mt-1">' + d.destinations.length + ' ' + (d.destinations.length === 1 ? 'place' : 'places') + '</span>' +
+              '</div>' +
+              '<div>' + d.destinations.map(function (x) { return destRow(d, x); }).join('') + '</div>' +
+            '</div>';
+        }
+
+        // ---------- render modes ----------
+        function renderDiscipline(discs) {
+            if (state.core !== 'all') {
+                return discs.map(discCard).join('');
+            }
+            // grouped by core
+            return CORE_ORDER.map(function (core) {
+                var inCore = discs.filter(function (d) { return d.category === core; });
+                if (!inCore.length) return '';
+                var cm = CORE_META[core];
+                return '<section class="mb-12">' +
+                    '<div class="grp-head"><span class="grp-title" style="color:' + CORE_COLOR[core] + '">' + cm.label + '</span>' +
+                    '<span class="text-white/45 text-sm">' + cm.tag + '</span>' +
+                    '<span class="grp-count ml-auto">' + inCore.length + ' crafts</span></div>' +
+                    '<div class="space-y-4">' + inCore.map(discCard).join('') + '</div></section>';
+            }).join('');
+        }
+
+        function renderGroupedEntries(discs, keyFn, order) {
+            var entries = flatEntries(discs);
+            var groups = {};
+            entries.forEach(function (e) {
+                var k = keyFn(e) || 'Other';
+                (groups[k] = groups[k] || []).push(e);
+            });
+            var keys = Object.keys(groups);
+            if (order) keys.sort(function (a, b) {
+                var ia = order.indexOf(a), ib = order.indexOf(b);
+                if (ia === -1) ia = 999; if (ib === -1) ib = 999;
+                return ia - ib || a.localeCompare(b);
+            }); else keys.sort(function (a, b) { return groups[b].length - groups[a].length; });
+
+            return keys.map(function (k) {
+                var list = groups[k].slice().sort(function (a, b) { return (b.x.communityRank || 0) - (a.x.communityRank || 0); });
+                return '<section class="mb-11"><div class="grp-head"><span class="grp-title">' + esc(k) + '</span>' +
+                    '<span class="grp-count ml-auto">' + list.length + ' ' + (list.length === 1 ? 'place' : 'places') + '</span></div>' +
+                    '<div class="space-y-3">' + list.map(function (e) { return entryRow(e.d, e.x); }).join('') + '</div></section>';
+            }).join('');
+        }
+
+        // compact entry row (used by region / credential / source / scene lenses)
+        function entryRow(d, x) {
+            var color = CORE_COLOR[d.category] || '#888';
+            return '<div class="disc-card fade-in"><div class="dest" data-dest style="border-top:none">' +
+              '<div class="flex items-start gap-3">' +
+                '<div class="disc-rail self-stretch" style="background:' + color + '"></div>' +
+                '<div class="flex-1 min-w-0">' +
+                  '<div class="flex items-center gap-2.5 flex-wrap">' +
+                    '<span class="font-semibold">' + esc(x.place) + '</span>' +
+                    '<span class="text-white/35 text-sm">' + esc(x.country) + '</span>' +
+                    '<span class="core-tag ' + d.category + '">' + esc(d.discipline) + '</span>' +
+                    rolePill(x.role) +
+                  '</div>' +
+                  '<p class="text-white/55 text-sm mt-1.5 leading-snug">' + esc(x.why) + '</p>' +
+                  '<div class="flex items-center gap-3 mt-2.5 flex-wrap">' + meter(x.communityRank, x.communityLabel) + badgeChips(x.badges) + '</div>' +
+                  '<div class="dest-detail">' +
+                    '<div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 mt-4 pt-4 border-t border-white/5">' +
+                      '<div><div class="det-label mb-1">Best season</div><div class="text-sm text-white/75">' + esc(x.bestSeason || '—') + '</div></div>' +
+                      '<div><div class="det-label mb-1">Range</div><div class="text-sm text-white/75">' + esc(x.level || '—') + '</div></div>' +
+                      '<div><div class="det-label mb-1">Credential</div><div class="text-sm text-white/75">' + esc(d.goldCredential) + (d.certBody && d.certBody !== '—' ? ' <span class="text-white/35">· ' + esc(d.certBody) + '</span>' : '') + '</div></div>' +
+                      '<div><div class="det-label mb-1">Craft</div><div class="text-sm text-white/75">' + esc(d.discipline) + '</div></div>' +
+                    '</div>' +
+                    ((x.schools || []).length ? '<div class="mt-3"><div class="det-label mb-1.5">Trusted schools here</div><div class="flex flex-wrap gap-2">' + x.schools.map(function (s) { return '<a class="school-link" target="_blank" rel="noopener" href="' + searchUrl(s, x.place) + '">' + esc(s) + ' <span class="text-white/30">↗</span></a>'; }).join('') + '</div></div>' : '') +
+                    ((x.masters || []).length ? '<div class="mt-3"><div class="det-label mb-1.5">Living masters &amp; lineages</div><div class="flex flex-wrap gap-2">' + x.masters.map(function (m) { return '<span class="master-chip">♔ ' + esc(m) + '</span>'; }).join('') + '</div></div>' : '') +
+                  '</div>' +
+                '</div>' +
+                '<svg class="chev w-4 h-4 text-white/30 mt-1.5 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>' +
+              '</div></div></div>';
+        }
+
+        function render() {
+            var discs = filtered();
+            var resultsEl = document.getElementById('results');
+            var emptyEl = document.getElementById('empty');
+            var metaEl = document.getElementById('result-meta');
+
+            if (!discs.length) {
+                resultsEl.innerHTML = '';
+                emptyEl.classList.remove('hidden');
+                metaEl.textContent = '';
+                return;
+            }
+            emptyEl.classList.add('hidden');
+
+            var nDest = discs.reduce(function (n, d) { return n + d.destinations.length; }, 0);
+            var html = '';
+            if (state.arrange === 'discipline') {
+                metaEl.textContent = discs.length + ' crafts · ' + nDest + ' destinations';
+                html = renderDiscipline(discs);
+            } else if (state.arrange === 'region') {
+                metaEl.textContent = nDest + ' destinations across the world — grouped by where you\'re headed';
+                html = renderGroupedEntries(discs, function (e) { return e.x.region; }, REGION_ORDER);
+            } else if (state.arrange === 'credential') {
+                metaEl.textContent = nDest + ' destinations — grouped by the body that certifies you';
+                html = renderGroupedEntries(discs, function (e) { return (e.d.certBody && e.d.certBody !== '—') ? e.d.certBody : 'Diploma / Apprenticeship'; }, null);
+            } else if (state.arrange === 'source') {
+                var srcDiscs = discs.map(function (d) { var c = Object.assign({}, d); c.destinations = d.destinations.filter(function (x) { return x.role === 'source' || x.role === 'both'; }); return c; }).filter(function (d) { return d.destinations.length; });
+                metaEl.textContent = 'The pilgrimage — birthplaces where each craft was born';
+                html = renderDiscipline(srcDiscs);
+            } else if (state.arrange === 'scene') {
+                var scn = discs.map(function (d) { var c = Object.assign({}, d); c.destinations = d.destinations.filter(function (x) { return (x.communityRank || 0) >= 4; }); return c; }).filter(function (d) { return d.destinations.length; });
+                var nS = scn.reduce(function (n, d) { return n + d.destinations.length; }, 0);
+                metaEl.textContent = nS + ' thriving & legendary scenes — where your people already gather';
+                html = renderGroupedEntries(scn, function (e) { return e.x.communityLabel; }, ['Legendary', 'Thriving', 'Strong', 'Growing', 'Hidden-gem']);
+            }
+            resultsEl.innerHTML = html;
+        }
+
+        // ---------- build controls ----------
+        function buildPills() {
+            var cores = document.getElementById('core-pills');
+            var coreList = [{ k: 'all', label: 'All crafts' }].concat(CORE_ORDER.map(function (c) { return { k: c, label: CORE_META[c].label }; }));
+            cores.innerHTML = coreList.map(function (c) {
+                return '<button class="pill ' + (c.k === 'all' ? '' : 'core-' + c.k) + (c.k === state.core ? ' on' : '') + '" data-core="' + c.k + '">' + c.label + '</button>';
+            }).join('');
+
+            var arr = document.getElementById('arrange-pills');
+            var arrList = [
+                { k: 'discipline', label: 'Craft' },
+                { k: 'region', label: 'Region map' },
+                { k: 'credential', label: 'Credential' },
+                { k: 'source', label: 'The Source' },
+                { k: 'scene', label: 'Strongest scenes' }
+            ];
+            arr.innerHTML = arrList.map(function (a) {
+                return '<button class="pill' + (a.k === state.arrange ? ' on' : '') + '" data-arrange="' + a.k + '">' + a.label + '</button>';
+            }).join('');
+        }
+
+        function buildStats() {
+            var nDisc = ATLAS.length;
+            var nDest = 0, countries = [], regions = [];
+            ATLAS.forEach(function (d) { (d.destinations || []).forEach(function (x) { nDest++; countries.push(x.country); regions.push(x.region); }); });
+            var byCore = CORE_ORDER.map(function (c) { return { c: c, n: ATLAS.filter(function (d) { return d.category === c; }).length }; });
+            var el = document.getElementById('stats');
+            el.innerHTML =
+                '<span><span class="text-white font-semibold text-base">' + nDisc + '</span> crafts</span>' +
+                '<span><span class="text-white font-semibold text-base">' + nDest + '</span> destinations</span>' +
+                '<span><span class="text-white font-semibold text-base">' + uniq(countries).length + '</span> countries</span>' +
+                byCore.map(function (b) { return '<span style="color:' + CORE_COLOR[b.c] + '">' + b.n + ' ' + CORE_META[b.c].label.toLowerCase() + '</span>'; }).join('');
+        }
+
+        // ---------- events ----------
+        document.getElementById('core-pills').addEventListener('click', function (e) {
+            var b = e.target.closest('[data-core]'); if (!b) return;
+            state.core = b.getAttribute('data-core');
+            document.querySelectorAll('#core-pills .pill').forEach(function (p) { p.classList.toggle('on', p === b); });
+            render();
+        });
+        document.getElementById('arrange-pills').addEventListener('click', function (e) {
+            var b = e.target.closest('[data-arrange]'); if (!b) return;
+            state.arrange = b.getAttribute('data-arrange');
+            document.querySelectorAll('#arrange-pills .pill').forEach(function (p) { p.classList.toggle('on', p === b); });
+            render();
+        });
+        document.getElementById('role-seg').addEventListener('click', function (e) {
+            var b = e.target.closest('button'); if (!b) return;
+            state.role = b.getAttribute('data-role');
+            document.querySelectorAll('#role-seg button').forEach(function (p) { p.classList.toggle('on', p === b); });
+            render();
+        });
+        var searchEl = document.getElementById('search'), clearEl = document.getElementById('search-clear');
+        var t;
+        searchEl.addEventListener('input', function () {
+            clearEl.classList.toggle('hidden', !searchEl.value);
+            clearTimeout(t); t = setTimeout(function () { state.q = searchEl.value.trim().toLowerCase(); render(); }, 120);
+        });
+        clearEl.addEventListener('click', function () { searchEl.value = ''; state.q = ''; clearEl.classList.add('hidden'); render(); searchEl.focus(); });
+
+        // expand/collapse destination rows (delegated)
+        document.getElementById('results').addEventListener('click', function (e) {
+            var row = e.target.closest('[data-dest]'); if (!row) return;
+            if (e.target.closest('a')) return; // let school links work
+            row.classList.toggle('open');
+            var chev = row.querySelector('.chev'); if (chev) chev.style.transform = row.classList.contains('open') ? 'rotate(180deg)' : '';
+        });
+
+        // ---------- init ----------
+        if (!ATLAS.length) {
+            document.getElementById('results').innerHTML = '<div class="text-center py-24 text-white/50">The atlas data is loading. If this persists, <code class="text-white/70">js/repertoire.js</code> hasn\'t been generated yet.</div>';
+        } else {
+            buildStats();
+            buildPills();
+            render();
+        }
+    })();
+    </script>
+</body>
+</html>

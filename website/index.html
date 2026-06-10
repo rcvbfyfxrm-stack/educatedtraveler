@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDUCATEDTRAVELER — Earned, not bought. Certified at the source.</title>
+    <title>EDUCATEDTRAVELER — A place, a person, your people. Skill at the source.</title>
 
-    <meta name="description" content="Certified skill immersions at the source. Real credentials from PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu. Earned, not bought.">
+    <meta name="description" content="EducatedTraveler isn't a shop. It's a bridge — connecting people who want to learn something real, by hand, at the source, to the masters who teach it and the people chasing the same fire.">
     <link rel="canonical" href="https://educatedtraveler.app/">
-    <meta property="og:title" content="EDUCATEDTRAVELER — Earned, not bought. Certified at the source.">
-    <meta property="og:description" content="Certified skill immersions at the source. Real credentials from PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu.">
+    <meta property="og:title" content="EDUCATEDTRAVELER — A place, a person, your people.">
+    <meta property="og:description" content="Not another screen. A bridge to real skill, real masters, and the people learning alongside you — at the source.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://educatedtraveler.app/">
     <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
     <meta property="og:site_name" content="EducatedTraveler">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="EDUCATEDTRAVELER — Earned, not bought.">
-    <meta name="twitter:description" content="Certified skill immersions at the source. Real credentials from PADI, RYA, Yoga Alliance, WSET.">
+    <meta name="twitter:title" content="EDUCATEDTRAVELER — A place, a person, your people.">
+    <meta name="twitter:description" content="Not another screen. A bridge to real skill, real masters, and the people chasing the same fire.">
     <meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -25,7 +25,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -33,30 +33,15 @@
             theme: {
                 extend: {
                     colors: {
-                        'bmw': {
-                            50: '#e6f0fa',
-                            100: '#b3d1ef',
-                            200: '#80b3e4',
-                            300: '#4d94d9',
-                            400: '#3B8DD4',
-                            500: '#0066B1',
-                            600: '#00518d',
-                            700: '#003d6a',
-                            800: '#002846',
-                            900: '#001423',
-                        },
-                        'steel': {
-                            50: '#f5f5f5',
-                            100: '#e0e0e0',
-                            200: '#c0c0c0',
-                            300: '#a0a0a0',
-                            400: '#6f6f6f',
-                            500: '#4a4a4a',
-                            600: '#333333',
-                            700: '#222222',
-                            800: '#161616',
-                            900: '#0a0a0a',
-                        }
+                        sea:   { soft: '#7fa8a5', mid: '#5b8a89', deep: '#38595b' },
+                        ember: { soft: '#e0a877', mid: '#d28a52', deep: '#b06a36' },
+                        paper: { DEFAULT: '#f3ede2', muted: 'rgba(243,237,226,0.56)', faint: 'rgba(243,237,226,0.34)' },
+                        ink:   { DEFAULT: '#0d0b09', 2: '#14110d', 3: '#1c1813' },
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        sans:  ['Inter', 'system-ui', 'sans-serif'],
+                        mono:  ['IBM Plex Mono', 'monospace'],
                     }
                 }
             }
@@ -65,815 +50,421 @@
 
     <style>
         :root {
-            --bmw-blue: #0066B1;
-            --bmw-light: #3B8DD4;
-            --bmw-glow: rgba(0, 102, 177, 0.4);
-            --bmw-subtle: rgba(0, 102, 177, 0.15);
-            --steel-bg: #0a0a0a;
-            --steel-surface: #161616;
+            --ink: #0d0b09;
+            --ink-2: #14110d;
+            --paper: #f3ede2;
+            --sea: #7fa8a5;
+            --ember: #d28a52;
+            --line: rgba(243,237,226,0.09);
         }
-
         * { -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: var(--steel-bg);
+            background: var(--ink);
+            color: var(--paper);
             overflow-x: hidden;
         }
-        html { scroll-behavior: smooth; }
+        ::selection { background: rgba(210,138,82,0.30); }
 
-        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+        .font-serif { font-family: 'Fraunces', Georgia, serif; }
+        .font-mono  { font-family: 'IBM Plex Mono', monospace; }
 
-        /* ═══════════════════════════════════════ */
-        /* SLIDESHOW                               */
-        /* ═══════════════════════════════════════ */
-        .slide {
-            opacity: 0;
-            transition: opacity 0.8s ease;
-            position: absolute;
-            inset: 0;
-        }
-        .slide.active { opacity: 1; }
-
-        .progress-bar {
-            transition: width 5s linear;
+        /* Warm grain — a faint, hand-made texture instead of glassy gloss */
+        body::before {
+            content: "";
+            position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            background:
+                radial-gradient(900px 600px at 18% -5%, rgba(127,168,165,0.10), transparent 60%),
+                radial-gradient(800px 600px at 92% 8%, rgba(210,138,82,0.08), transparent 55%);
         }
 
-        /* ═══════════════════════════════════════ */
-        /* GLASS / HUD PANELS                      */
-        /* ═══════════════════════════════════════ */
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+            color: var(--sea);
         }
-
-        .glass-strong {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.10);
-        }
+        .rule-top { border-top: 1px solid var(--line); }
 
         .panel {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(20px);
+            background: rgba(243,237,226,0.022);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            transition: border-color .35s ease, background .35s ease, transform .35s ease;
+        }
+        .panel:hover {
+            border-color: rgba(127,168,165,0.28);
+            background: rgba(243,237,226,0.035);
         }
 
-        /* ═══════════════════════════════════════ */
-        /* CTA BUTTON                              */
-        /* ═══════════════════════════════════════ */
-        .cta-button {
-            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
-            transition: all 0.3s ease;
-            font-weight: 500;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sea) 0%, var(--ember) 130%);
+            color: #14110d; font-weight: 500;
+            transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
         }
-        .cta-button:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 102, 177, 0.3);
+            box-shadow: 0 14px 36px rgba(127,168,165,0.22);
+            filter: brightness(1.04);
         }
+        .btn-ghost {
+            border: 1px solid rgba(243,237,226,0.18);
+            color: var(--paper);
+            transition: background .3s ease, border-color .3s ease;
+        }
+        .btn-ghost:hover { background: rgba(243,237,226,0.05); border-color: rgba(243,237,226,0.32); }
 
-        /* Section borders */
-        .section-border { border-color: rgba(255, 255, 255, 0.05); }
+        .link-quiet { color: var(--paper); opacity: .56; transition: opacity .25s ease, color .25s ease; }
+        .link-quiet:hover { opacity: 1; color: var(--sea); }
 
-        /* ═══════════════════════════════════════ */
-        /* FADE ANIMATIONS                         */
-        /* ═══════════════════════════════════════ */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-up { animation: fadeUp 0.8s ease-out forwards; }
-        .delay-1 { animation-delay: 0.2s; opacity: 0; }
-        .delay-2 { animation-delay: 0.4s; opacity: 0; }
-        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        /* Reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+        .reveal.in { opacity: 1; transform: none; }
 
-        @keyframes pulse-line {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
-        }
+        /* Slideshow */
+        .slide { opacity: 0; transition: opacity .9s ease; position: absolute; inset: 0; }
+        .slide.active { opacity: 1; }
 
-        /* ═══════════════════════════════════════ */
-        /* PROFILE / XP STYLES                     */
-        /* ═══════════════════════════════════════ */
-        .profile-avatar {
-            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
+        /* Atlas */
+        .atlas-pill {
+            font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em;
+            padding: 8px 16px; border-radius: 999px;
+            border: 1px solid rgba(243,237,226,0.16); color: var(--paper);
+            opacity: .62; cursor: pointer; transition: all .25s ease; white-space: nowrap;
         }
-        .xp-bar {
-            background: rgba(255, 255, 255, 0.08);
-            overflow: hidden;
-            border: 1px solid rgba(0, 102, 177, 0.2);
-        }
-        .xp-fill {
-            background: linear-gradient(90deg, #0066B1 0%, #3B8DD4 100%);
-            transition: width 1s ease-out;
-            box-shadow: 0 0 10px rgba(0, 102, 177, 0.5);
-        }
-        .skill-badge {
-            background: rgba(0, 102, 177, 0.08);
-            border: 1px solid rgba(0, 102, 177, 0.25);
-            transition: all 0.3s ease;
-        }
-        .skill-badge:hover {
-            background: rgba(0, 102, 177, 0.15);
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(0, 102, 177, 0.2);
-        }
-        .skill-badge.locked {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            opacity: 0.4;
-        }
-        .adventure-card-mini {
-            background: rgba(0, 102, 177, 0.03);
-            border: 1px solid rgba(0, 102, 177, 0.1);
-            transition: all 0.3s ease;
-        }
-        .adventure-card-mini:hover {
-            background: rgba(0, 102, 177, 0.08);
-            border-color: rgba(0, 102, 177, 0.3);
-            transform: translateY(-2px);
-        }
-        .stat-ring {
-            background: conic-gradient(#0066B1 var(--progress), rgba(255,255,255,0.1) 0);
-        }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 102, 177, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(0, 102, 177, 0.5); }
-        }
-        .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .atlas-pill:hover { opacity: 1; border-color: rgba(127,168,165,0.4); }
+        .atlas-pill.active { opacity: 1; background: rgba(127,168,165,0.12); border-color: rgba(127,168,165,0.5); color: var(--sea); }
+        .atlas-card { animation: fadeUp .5s ease both; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-        /* ═══════════════════════════════════════ */
-        /* CELEBRATION ANIMATIONS                  */
-        /* ═══════════════════════════════════════ */
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-        }
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            top: -10px;
-            z-index: 9999;
-            animation: confetti-fall 3s ease-out forwards;
-        }
-        @keyframes xp-popup {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            20% { transform: translateY(-20px) scale(1.2); opacity: 1; }
-            80% { transform: translateY(-40px) scale(1); opacity: 1; }
-            100% { transform: translateY(-60px) scale(0.8); opacity: 0; }
-        }
-        .xp-popup {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-            animation: xp-popup 1.5s ease-out forwards;
-            font-weight: bold;
-            text-shadow: 0 0 20px currentColor;
-        }
-        @keyframes achievement-unlock {
-            0% { transform: scale(0) rotate(-10deg); opacity: 0; }
-            50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
-            70% { transform: scale(0.95) rotate(-2deg); }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-        .achievement-toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
-            animation: achievement-unlock 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px) rotate(-1deg); }
-            75% { transform: translateX(5px) rotate(1deg); }
-        }
-        .shake { animation: shake 0.5s ease-in-out; }
-        @keyframes level-up {
-            0% { transform: scale(1); filter: brightness(1); }
-            50% { transform: scale(1.1); filter: brightness(1.5); }
-            100% { transform: scale(1); filter: brightness(1); }
-        }
-        .level-up { animation: level-up 0.8s ease-out; }
-        @keyframes bounce-in {
-            0% { transform: scale(0); }
-            50% { transform: scale(1.15); }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); }
-        }
-        .bounce-in { animation: bounce-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(-3deg); }
-            75% { transform: rotate(3deg); }
-        }
-        .wiggle:hover { animation: wiggle 0.3s ease-in-out; }
-
-        /* Notify checkbox styles */
-        .notify-interest input:checked + span {
-            background: #0066B1;
-            border-color: #0066B1;
-        }
-        .notify-interest input:checked + span svg {
-            display: block;
-        }
-
-        /* ═══════════════════════════════════════ */
-        /* QUEST CHOICE SELECTED STATE             */
-        /* ═══════════════════════════════════════ */
-        .quest-choice.bg-white {
-            background: #0066B1 !important;
-            color: #fff !important;
-            border-color: #3B8DD4 !important;
-            box-shadow: 0 0 15px rgba(0, 102, 177, 0.3);
-        }
-        .quest-choice.bg-white .text-white\/40,
-        .quest-choice.bg-white span {
-            color: rgba(255, 255, 255, 0.8) !important;
-        }
-
-        /* Scrollbar styling */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--steel-bg); }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(0, 102, 177, 0.3);
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(0, 102, 177, 0.5); }
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--ink); }
+        ::-webkit-scrollbar-thumb { background: rgba(127,168,165,0.28); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(127,168,165,0.5); }
     </style>
 </head>
-<body class="text-white">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass">
+    <!-- ───────────────────────── NAV ───────────────────────── -->
+    <nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(13,11,9,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" class="flex items-center gap-3">
-                <span class="text-lg font-semibold tracking-[0.15em]">
-                    EDUCATED<span class="text-bmw-400">TRAVELER</span>
-                </span>
+                <span class="text-base font-serif tracking-[0.18em]">EDUCATED<span class="text-sea-soft">TRAVELER</span></span>
             </a>
-            <!-- Desktop nav -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">The Story</a>
-                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Offerings</a>
-                <a href="survey.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
-                    Survey
-                </a>
-                <a href="/join" id="join-link" class="text-sm px-4 py-2 rounded-full border border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10 transition-colors">
-                    Join the Community
-                </a>
-                <a href="/dashboard" id="dashboard-link" class="hidden text-sm px-4 py-2 rounded-full border border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10 transition-colors">
-                    Dashboard
-                </a>
+            <div class="hidden md:flex items-center gap-9">
+                <a href="repertoire.html" class="text-sm link-quiet">The Atlas</a>
+                <a href="about.html" class="text-sm link-quiet">The Story</a>
+                <a href="#bridge" class="text-sm link-quiet">What This Is</a>
+                <a href="#circle" class="text-sm px-4 py-2 rounded-full btn-ghost">Join the Circle</a>
             </div>
-            <!-- Mobile hamburger -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
+            <button id="menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-bmw-500/10">
-            <div class="px-6 py-4 space-y-3">
-                <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">The Story</a>
-                <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Offerings</a>
-                <a href="survey.html" class="block py-3 text-white/70 hover:text-white transition-colors">Take Survey</a>
-                <a href="/join" id="mobile-join-link" class="block py-3 text-bmw-400 hover:text-bmw-300 transition-colors">Join the Community</a>
-                <a href="/dashboard" id="mobile-dashboard-link" class="hidden block py-3 text-bmw-400 hover:text-bmw-300 transition-colors">My Dashboard</a>
+        <div id="mobile-menu" class="hidden md:hidden" style="border-top: 1px solid var(--line);">
+            <div class="px-6 py-4 space-y-1">
+                <a href="repertoire.html" class="block py-3 link-quiet">The Atlas</a>
+                <a href="about.html" class="block py-3 link-quiet">The Story</a>
+                <a href="#bridge" class="block py-3 link-quiet">What This Is</a>
+                <a href="#circle" class="block py-3 text-sea-soft">Join the Circle</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="min-h-screen flex items-center justify-center px-6 pt-20 relative">
+    <!-- ───────────────────────── HERO ───────────────────────── -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-24 pb-16 relative">
         <div class="max-w-3xl text-center">
-            <p class="text-bmw-400 text-sm uppercase tracking-widest mb-6 fade-up">Skill Adventures at the Source</p>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-8 fade-up delay-1 tracking-tight">
-                Full immersion at the source.<br>
-                <span class="text-white/50">With a master.</span>
+            <p class="eyebrow mb-7 reveal in">Not another screen</p>
+            <h1 class="font-serif font-light text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-8 reveal in">
+                A place. A person.<br><span class="text-paper-muted italic">Your people.</span>
             </h1>
-            <p class="text-lg text-steel-300 mb-4 fade-up delay-2 max-w-2xl mx-auto">
-                Each cohort is a complete world — master-level training in the craft, woven into the food, the culture, the people and the place that surround it. The discipline isn't a class you took. It's a world you lived in.
+            <p class="text-lg md:text-xl text-paper-muted leading-relaxed max-w-2xl mx-auto mb-5 reveal in">
+                Every real skill is learned somewhere true, from someone who lived it, alongside people chasing the same fire. EducatedTraveler isn't a shop for experiences. It's the bridge that connects the three.
             </p>
-            <p class="text-base text-steel-400 mb-4 fade-up delay-2 max-w-2xl mx-auto">
-                You leave with the credential — PADI, RYA, Yoga Alliance, WSET, culinary diplomas — and the immersion stays with you.
+            <p class="text-base text-paper-faint italic font-serif mb-11 reveal in">
+                We don't sell the journey. We introduce you to it.
             </p>
-            <p class="text-sm text-steel-400 italic mb-12 fade-up delay-2">
-                Earned, not bought. Meaning is built, not found.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-up delay-3">
-                <a href="#quest" class="cta-button px-8 py-4 rounded-full text-white font-medium">
-                    Find Your Adventure
-                </a>
-                <a href="/offerings.html#coming-soon" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/15 hover:bg-white/5 transition-colors text-steel-300">
-                    <span>See Upcoming Cohorts</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal in">
+                <a href="repertoire.html" class="btn-primary px-8 py-4 rounded-full">Open the Atlas</a>
+                <a href="#circle" class="btn-ghost px-8 py-4 rounded-full inline-flex items-center justify-center gap-2">
+                    <span>Join the Circle</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
             </div>
         </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-paper-faint animate-pulse">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
     </section>
 
-    <!-- Story Slideshow -->
-    <section id="story" class="py-24 px-6">
+    <!-- ───────────────────────── THE TURN ───────────────────────── -->
+    <section class="py-24 px-6 rule-top">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <p class="text-2xl md:text-3xl font-serif font-light leading-relaxed text-paper">
+                You can watch a thousand hours of someone else doing the thing.
+                <span class="text-paper-muted">Or you can go to where it's real, put your hands on it, and come home changed — with people who were there with you.</span>
+            </p>
+            <p class="mt-8 text-paper-faint text-sm font-mono tracking-wide">ONE OF THOSE LEAVES A MARK.</p>
+        </div>
+    </section>
+
+    <!-- ───────────────────────── FOUNDER STORY ───────────────────────── -->
+    <section id="story" class="py-24 px-6 rule-top">
         <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <p class="eyebrow mb-4">Why I can build this bridge</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight">I spent fifteen years crossing it myself.</h2>
+            </div>
 
-            <!-- Slideshow Container -->
-            <div class="relative aspect-[4/5] sm:aspect-[16/9] md:aspect-[2/1] rounded-xl overflow-hidden mb-8" style="border: 1px solid rgba(255, 255, 255, 0.06);">
-
-                <!-- Slide 1: The Question -->
+            <div class="relative aspect-[4/5] sm:aspect-[16/9] md:aspect-[2/1] rounded-2xl overflow-hidden mb-7 reveal" style="border: 1px solid var(--line);">
                 <div class="slide active" data-slide="0">
-                    <img src="images/story/the-beginning.jpg" alt="The beginning of the journey" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
-                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter I</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">The Beginning</h2>
-                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
-                            At 18, I finished high school. Everyone expected university, career, the usual path.
-                            But I kept asking myself: <span class="text-white">Is this the life I actually want to live?</span>
-                            I didn't want to watch simulations of the world—I wanted to learn by doing. <span class="text-white">So I went.</span>
+                    <img src="images/story/the-beginning.jpg" alt="The beginning" class="w-full h-full object-cover">
+                    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,11,9,0.96), rgba(13,11,9,0.45) 55%, transparent);"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12">
+                        <p class="font-mono text-sea-soft text-[10px] uppercase tracking-[0.3em] mb-3">Chapter I</p>
+                        <h3 class="font-serif text-2xl md:text-4xl font-light mb-4 tracking-tight">The Beginning</h3>
+                        <p class="text-paper-muted max-w-xl text-sm leading-relaxed">
+                            At 18, everyone expected university, career, the usual path. But I kept asking: <span class="text-paper">is this the life I actually want to live?</span> I didn't want to watch simulations of the world — I wanted to learn by doing. <span class="text-paper">So I went.</span>
                         </p>
                     </div>
                 </div>
-
-                <!-- Slide 2: Culinary Arts -->
                 <div class="slide" data-slide="1">
-                    <img src="images/story/chef-plating.jpg" alt="Professional kitchen" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
-                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter II</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">Culinary Mastery</h2>
-                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
-                            Michelin kitchens in France. Street vendors in Bangkok. WSET certified in Paris, then cycling through French vineyards learning wine from the people who grow the grapes.
-                            <span class="text-white">Each kitchen was a classroom. Each chef, a teacher.</span>
+                    <img src="images/story/chef-plating.jpg" alt="Kitchen" class="w-full h-full object-cover">
+                    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,11,9,0.96), rgba(13,11,9,0.45) 55%, transparent);"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12">
+                        <p class="font-mono text-sea-soft text-[10px] uppercase tracking-[0.3em] mb-3">Chapter II</p>
+                        <h3 class="font-serif text-2xl md:text-4xl font-light mb-4 tracking-tight">The Kitchens</h3>
+                        <p class="text-paper-muted max-w-xl text-sm leading-relaxed">
+                            Michelin kitchens in France. Street vendors in Bangkok. Cycling through French vineyards, learning wine from the people who grow the grapes. <span class="text-paper">Each kitchen was a classroom. Each chef, a teacher.</span>
                         </p>
                     </div>
                 </div>
-
-                <!-- Slide 3: Sailing -->
                 <div class="slide" data-slide="2">
                     <img src="images/story/sailing-4.png" alt="Ocean sailing" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
-                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter III</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">50,000 Nautical Miles</h2>
-                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
-                            RYA in Thailand. Regattas in Sydney. Blue-water crossings across every ocean. Private chef on some of the world's finest yachts.
-                            <span class="text-white">The ocean doesn't care about your resume. It cares about your judgment.</span>
+                    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,11,9,0.96), rgba(13,11,9,0.45) 55%, transparent);"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12">
+                        <p class="font-mono text-sea-soft text-[10px] uppercase tracking-[0.3em] mb-3">Chapter III</p>
+                        <h3 class="font-serif text-2xl md:text-4xl font-light mb-4 tracking-tight">50,000 Nautical Miles</h3>
+                        <p class="text-paper-muted max-w-xl text-sm leading-relaxed">
+                            Learning to sail in Thailand. Regattas in Sydney. Blue-water crossings across every ocean. Private chef on some of the world's finest yachts. <span class="text-paper">The ocean doesn't care about your resume. It cares about your judgment.</span>
                         </p>
                     </div>
                 </div>
-
-                <!-- Slide 4: Adventures -->
                 <div class="slide" data-slide="3">
-                    <img src="images/story/freedive-line.png" alt="Adventures" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
-                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter IV</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">The Depths & Heights</h2>
-                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
-                            Freediving with Molchanov in Mexico. Shark diving in the Galapagos. Annapurna Base Camp at 4,130m.
-                            <span class="text-white">Fear became respect. Strangers became lifelong friends.</span>
+                    <img src="images/story/freedive-line.png" alt="Freediving" class="w-full h-full object-cover">
+                    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,11,9,0.96), rgba(13,11,9,0.45) 55%, transparent);"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12">
+                        <p class="font-mono text-sea-soft text-[10px] uppercase tracking-[0.3em] mb-3">Chapter IV</p>
+                        <h3 class="font-serif text-2xl md:text-4xl font-light mb-4 tracking-tight">The Depths &amp; Heights</h3>
+                        <p class="text-paper-muted max-w-xl text-sm leading-relaxed">
+                            Freediving in Mexico. Shark diving in the Galápagos. Annapurna Base Camp at 4,130m. <span class="text-paper">Fear became respect. Strangers became lifelong friends.</span>
                         </p>
                     </div>
                 </div>
-
-                <!-- Slide 5: Wellness -->
                 <div class="slide" data-slide="4">
-                    <img src="images/story/wellness.jpg" alt="Wellness journey" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-12">
-                        <p class="font-mono text-bmw-400 text-[10px] uppercase tracking-[0.3em] mb-3">Chapter V</p>
-                        <h2 class="text-2xl md:text-4xl font-light mb-4 tracking-tight">Inner Immersion</h2>
-                        <p class="text-white/60 max-w-xl text-sm leading-relaxed">
-                            Breathwork in Bali. Ayurvedic medicine in India. Learning presence from masters who'd dedicated their lives to it.
-                            <span class="text-white">The body knows. You just have to listen.</span>
+                    <img src="images/story/wellness.jpg" alt="Stillness" class="w-full h-full object-cover">
+                    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,11,9,0.96), rgba(13,11,9,0.45) 55%, transparent);"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12">
+                        <p class="font-mono text-sea-soft text-[10px] uppercase tracking-[0.3em] mb-3">Chapter V</p>
+                        <h3 class="font-serif text-2xl md:text-4xl font-light mb-4 tracking-tight">The Stillness</h3>
+                        <p class="text-paper-muted max-w-xl text-sm leading-relaxed">
+                            Breathwork in Bali. Ayurveda in India. Learning presence from masters who'd given their lives to it. <span class="text-paper">The body knows. You just have to listen.</span>
                         </p>
                     </div>
                 </div>
 
-                <!-- Navigation Arrows -->
-                <button onclick="prevSlide()" class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-3 rounded bg-black/40 hover:bg-bmw-500/20 border border-white/10 hover:border-bmw-500/30 transition-all min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Previous slide">
-                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                    </svg>
+                <button onclick="prevSlide()" class="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 p-3 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center" style="background: rgba(13,11,9,0.5); border: 1px solid var(--line);" aria-label="Previous">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 19l-7-7 7-7"/></svg>
                 </button>
-                <button onclick="nextSlide()" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-3 rounded bg-black/40 hover:bg-bmw-500/20 border border-white/10 hover:border-bmw-500/30 transition-all min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Next slide">
-                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
+                <button onclick="nextSlide()" class="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 p-3 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center" style="background: rgba(13,11,9,0.5); border: 1px solid var(--line);" aria-label="Next">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
 
-            <!-- Progress Dots -->
             <div class="flex justify-center gap-1">
-                <button onclick="goToSlide(0)" class="slide-dot p-3 flex items-center justify-center" data-dot="0" aria-label="Go to slide 1"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
-                <button onclick="goToSlide(1)" class="slide-dot p-3 flex items-center justify-center" data-dot="1" aria-label="Go to slide 2"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
-                <button onclick="goToSlide(2)" class="slide-dot p-3 flex items-center justify-center" data-dot="2" aria-label="Go to slide 3"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
-                <button onclick="goToSlide(3)" class="slide-dot p-3 flex items-center justify-center" data-dot="3" aria-label="Go to slide 4"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
-                <button onclick="goToSlide(4)" class="slide-dot p-3 flex items-center justify-center" data-dot="4" aria-label="Go to slide 5"><span class="w-2 h-2 rounded-full bg-white/20 transition-all block"></span></button>
+                <button onclick="goToSlide(0)" class="slide-dot p-3 flex items-center justify-center" data-dot="0" aria-label="Slide 1"><span class="w-2 h-2 rounded-full block" style="background: rgba(243,237,226,0.22); transition: all .3s;"></span></button>
+                <button onclick="goToSlide(1)" class="slide-dot p-3 flex items-center justify-center" data-dot="1" aria-label="Slide 2"><span class="w-2 h-2 rounded-full block" style="background: rgba(243,237,226,0.22); transition: all .3s;"></span></button>
+                <button onclick="goToSlide(2)" class="slide-dot p-3 flex items-center justify-center" data-dot="2" aria-label="Slide 3"><span class="w-2 h-2 rounded-full block" style="background: rgba(243,237,226,0.22); transition: all .3s;"></span></button>
+                <button onclick="goToSlide(3)" class="slide-dot p-3 flex items-center justify-center" data-dot="3" aria-label="Slide 4"><span class="w-2 h-2 rounded-full block" style="background: rgba(243,237,226,0.22); transition: all .3s;"></span></button>
+                <button onclick="goToSlide(4)" class="slide-dot p-3 flex items-center justify-center" data-dot="4" aria-label="Slide 5"><span class="w-2 h-2 rounded-full block" style="background: rgba(243,237,226,0.22); transition: all .3s;"></span></button>
             </div>
         </div>
     </section>
 
-    <!-- The Pattern -->
-    <section class="py-24 px-6 section-border border-t">
+    <!-- ───────────────────────── THE PATTERN ───────────────────────── -->
+    <section class="py-24 px-6 rule-top">
         <div class="max-w-4xl mx-auto text-center">
-            <p class="text-bmw-400 text-xs uppercase tracking-widest mb-4">The Pattern</p>
-            <p class="text-steel-300 mb-10 text-lg font-light">Every skill worth having came the same way:</p>
-
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <div class="panel rounded-xl p-6">
-                    <div class="text-3xl text-bmw-400 mb-3">1</div>
-                    <h3 class="font-medium mb-2">A Place</h3>
-                    <p class="text-steel-400 text-sm">Where the knowledge was born.<br>Tokyo. Rishikesh. The Atlantic.</p>
+            <div class="reveal">
+                <p class="eyebrow mb-4">The Pattern</p>
+                <p class="text-paper-muted mb-12 text-lg font-serif font-light italic">Every skill worth having arrived the same three ways.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5 mb-14">
+                <div class="panel p-7 text-left reveal">
+                    <div class="mb-5" style="width:34px;height:2px;background:var(--sea);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">A Place</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">Where the knowledge was born and still lives. Tokyo. Rishikesh. The Atlantic. Not a backdrop — the source.</p>
                 </div>
-                <div class="panel rounded-xl p-6">
-                    <div class="text-3xl text-bmw-400 mb-3">2</div>
-                    <h3 class="font-medium mb-2">A Person</h3>
-                    <p class="text-steel-400 text-sm">Who's mastered it and is willing to share. Decades of expertise, not followers.</p>
+                <div class="panel p-7 text-left reveal" style="transition-delay:.08s">
+                    <div class="mb-5" style="width:34px;height:2px;background:var(--ember);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">A Person</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">Someone who's mastered it and is willing to hand it over. Decades of doing — not followers, not a feed.</p>
                 </div>
-                <div class="panel rounded-xl p-6">
-                    <div class="text-3xl text-bmw-400 mb-3">3</div>
-                    <h3 class="font-medium mb-2">Total Immersion</h3>
-                    <p class="text-steel-400 text-sm">Not weekends. Weeks. The kind of focus that only full immersion creates.</p>
+                <div class="panel p-7 text-left reveal" style="transition-delay:.16s">
+                    <div class="mb-5" style="width:34px;height:2px;background:var(--sea);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">Your People</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">The handful of others chasing the same thing at the same time. Shared struggle is how strangers become crew.</p>
                 </div>
             </div>
-
-            <p class="text-xl text-steel-200 font-light">
-                Not YouTube at 2 AM. Not courses you'll never finish.<br>
-                <span class="text-white">Real learning. At the source. With masters.</span>
+            <p class="text-xl md:text-2xl font-serif font-light text-paper-muted reveal">
+                Not a tutorial at 2 a.m. Not a course you'll never finish.<br>
+                <span class="text-paper">Real learning. At the source. With people.</span>
             </p>
         </div>
     </section>
 
-    <!-- The Bridge -->
-    <section class="py-24 px-6 section-border border-t">
+    <!-- ───────────────────────── THE BRIDGE / WHAT THIS IS ───────────────────────── -->
+    <section id="bridge" class="py-24 px-6 rule-top">
         <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-light mb-8 tracking-tight">So I built the bridge.</h2>
-            <p class="text-steel-400 mb-12">
-                The masters exist—but they don't advertise. The places exist—but the logistics overwhelm people.
-                The immersion works—but most never get there because the friction stops them.
-            </p>
-
-            <div class="grid sm:grid-cols-2 gap-4 text-left mb-12">
-                <div class="panel rounded-xl p-5">
-                    <p class="text-white font-medium mb-1 tracking-wide">Proof of the Work</p>
-                    <p class="text-steel-400 text-sm">PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu—credentials that open doors worldwide.</p>
-                </div>
-                <div class="panel rounded-xl p-5">
-                    <p class="text-white font-medium mb-1 tracking-wide">The Actual Source</p>
-                    <p class="text-steel-400 text-sm">Tokyo fish markets. Rishikesh ashrams. Atlantic passages. Where the knowledge was born.</p>
-                </div>
-                <div class="panel rounded-xl p-5">
-                    <p class="text-white font-medium mb-1 tracking-wide">Masters Who Teach</p>
-                    <p class="text-steel-400 text-sm">Decades of expertise, not social media followers. People who know what they know because they've lived it.</p>
-                </div>
-                <div class="panel rounded-xl p-5">
-                    <p class="text-white font-medium mb-1 tracking-wide">Cohorts Who Bond</p>
-                    <p class="text-steel-400 text-sm">8-12 people, shared struggle, lifelong friends. The way crews connect on a boat or kitchen teams in service.</p>
-                </div>
-            </div>
-
-            <p class="text-2xl font-light text-white/80 mb-2">
-                One week to earn your first credential.
-            </p>
-            <p class="text-2xl font-light text-steel-400 mb-8">
-                Six months to know who you are.
-            </p>
-            <p class="text-white/30 text-sm italic">
-                "Earned, not bought. Certified at the source."
-            </p>
-        </div>
-    </section>
-
-    <!-- Explorer Quest / Profile -->
-    <section id="quest" class="py-24 px-6 section-border border-t">
-        <div class="max-w-4xl mx-auto">
-
-            <!-- Quest Section Header -->
-            <div class="text-center mb-10">
-                <p class="text-xs uppercase tracking-[0.3em] text-bmw-400/80 mb-4">Choose Your Depth</p>
-                <h2 class="text-3xl font-light mb-3">Find your next chapter.</h2>
-                <p class="text-steel-400 text-sm">
-                    Answer a few quick prompts. We'll match you with adventures—from flagship certifications to surprising immersions you didn't know existed.
+            <div class="reveal">
+                <p class="eyebrow mb-5">What this is — and isn't</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-7">So I'm building the bridge.</h2>
+                <p class="text-paper-muted mb-12 leading-relaxed max-w-2xl mx-auto">
+                    The masters exist — but they don't advertise. The places exist — but the logistics scare people off. The right people are out there too — but they never find each other. EducatedTraveler closes those gaps. It's a map and a circle, not a checkout.
                 </p>
             </div>
 
-            <div class="panel rounded-xl p-6 md:p-8 space-y-8">
-                <!-- Q1: Element -->
-                <div>
-                    <p class="text-sm text-white/70 mb-3">1. Which world do you want to train in?</p>
-                    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="ocean">
-                            Ocean & blue water
-                            <span class="block text-xs text-white/40 font-mono">PADI · RYA · AIDA</span>
-                        </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="mountain">
-                            Mountains & adventure
-                            <span class="block text-xs text-white/40 font-mono">IFMGA · IKO · ACA</span>
-                        </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="city">
-                            Kitchens & wine cellars
-                            <span class="block text-xs text-white/40 font-mono">Le Cordon Bleu · ALMA · WSET</span>
-                        </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="temple">
-                            Ashrams & healing arts
-                            <span class="block text-xs text-white/40 font-mono">Yoga Alliance · ITM · WHM</span>
-                        </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="elements" data-value="wild">
-                            Wildlife & conservation
-                            <span class="block text-xs text-white/40 font-mono">FGASA · PADI Marine</span>
-                        </button>
-                    </div>
+            <div class="grid sm:grid-cols-2 gap-4 text-left mb-14">
+                <div class="panel p-6 reveal">
+                    <p class="font-serif text-lg mb-1.5">We connect, we don't sell</p>
+                    <p class="text-paper-muted text-sm leading-relaxed">No upsells, no booking funnel. We point you to the real teachers and trusted schools — you deal with them directly.</p>
                 </div>
-
-                <!-- Q2: Outcome -->
-                <div>
-                    <p class="text-sm text-white/70 mb-3">2. When you land back home, what do you want to have?</p>
-                    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="certification">
-                            A globally recognized certification
-                            <span class="block text-xs text-white/40 font-mono">PADI · RYA · WSET · Yoga Alliance</span>
-                        </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="career">
-                            A new career path
-                            <span class="block text-xs text-white/40 font-mono">Instructor-level credentials</span>
-                        </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="stories">
-                            Stories worth telling
-                            <span class="block text-xs text-white/40 font-mono">Atlantic crossings · Cave diving · Bush</span>
-                        </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="reset">
-                            Deep reset & immersion
-                            <span class="block text-xs text-white/40 font-mono">Yoga · Breathwork · Healing arts</span>
-                        </button>
-                        <button type="button" class="quest-choice w-full px-4 py-3 rounded border border-white/15 text-left text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all" data-group="desires" data-value="rare">
-                            Something rare & challenging
-                            <span class="block text-xs text-white/40 font-mono">Cenotes · IFMGA · WHM Instructor</span>
-                        </button>
-                    </div>
+                <div class="panel p-6 reveal" style="transition-delay:.06s">
+                    <p class="font-serif text-lg mb-1.5">The source, not the brochure</p>
+                    <p class="text-paper-muted text-sm leading-relaxed">Tokyo fish markets. Rishikesh ashrams. Atlantic passages. Where the knowledge was actually born.</p>
                 </div>
-
-                <!-- Q3: Time -->
-                <div>
-                    <p class="text-sm text-white/70 mb-3">3. How long can you disappear?</p>
-                    <div class="flex flex-wrap gap-2 md:gap-3 text-sm">
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="time" data-value="foundation">
-                            7–10 days
-                        </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="time" data-value="foundation">
-                            2–3 weeks
-                        </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="time" data-value="mastery">
-                            1–2 months
-                        </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="time" data-value="saga">
-                            3–6 months
-                        </button>
-                    </div>
+                <div class="panel p-6 reveal" style="transition-delay:.12s">
+                    <p class="font-serif text-lg mb-1.5">Masters who've lived it</p>
+                    <p class="text-paper-muted text-sm leading-relaxed">Decades of expertise, not a follower count. People who know what they know because they've done it for years.</p>
                 </div>
-
-                <!-- Q4: Intensity -->
-                <div>
-                    <p class="text-sm text-white/70 mb-3">4. Turn the intensity dial.</p>
-                    <div class="flex flex-wrap gap-2 md:gap-3 text-sm">
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="intensity" data-value="1">
-                            Soft landing
-                        </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="intensity" data-value="2">
-                            Bring it on
-                        </button>
-                        <button type="button" class="quest-choice px-4 py-3 md:py-2 rounded border border-white/15 text-white/70 hover:bg-bmw-500/10 hover:border-bmw-500/30 transition-all min-h-[44px] text-sm" data-group="intensity" data-value="3">
-                            Full send
-                        </button>
-                    </div>
+                <div class="panel p-6 reveal" style="transition-delay:.18s">
+                    <p class="font-serif text-lg mb-1.5">A circle that stays</p>
+                    <p class="text-paper-muted text-sm leading-relaxed">Find your people before you find your place. The friendships outlast the skill — the way a crew does.</p>
                 </div>
+            </div>
 
-                <div class="pt-2 space-y-3">
-                    <button id="quest-submit" type="button" class="cta-button w-full md:w-auto px-10 py-3 rounded-full text-sm tracking-wide">
-                        See Your Matches
-                    </button>
-                    <p id="quest-status" class="text-xs text-steel-500">
-                        You can change answers as much as you like.
-                    </p>
-                </div>
+            <p class="font-serif text-2xl font-light text-paper reveal">Earned, not bought.</p>
+            <p class="text-paper-faint text-sm italic mt-1 reveal">Meaning is built, not found.</p>
+        </div>
+    </section>
 
-                <div id="quest-results" class="hidden border-t border-bmw-500/15 pt-6 mt-2">
-                    <div class="mb-6">
-                        <p class="text-xs uppercase tracking-[0.3em] text-bmw-400/80 mb-2">Your profile</p>
-                        <h3 id="quest-persona-title" class="text-2xl font-light mb-1 tracking-tight">Explorer</h3>
-                        <p id="quest-persona-subtitle" class="text-sm text-steel-400">
-                            We'll tune this once you reveal your quest.
-                        </p>
-                    </div>
+    <!-- ───────────────────────── THE ATLAS ───────────────────────── -->
+    <section id="atlas" class="py-24 px-6 rule-top">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10 reveal">
+                <p class="eyebrow mb-4">The Atlas</p>
+                <h2 class="font-serif font-light text-3xl md:text-5xl tracking-tight mb-4">Where the work is real.</h2>
+                <p class="text-paper-muted max-w-2xl mx-auto leading-relaxed">
+                    A living map of disciplines and the places they're truly learned — ranked by the strength of the community that gathers there, not by who pays for the listing. Pick a path. Find your place and your people.
+                </p>
+            </div>
 
-                    <div class="grid md:grid-cols-3 gap-4 text-sm">
-                        <div id="quest-primary-card" class="panel rounded-xl p-4">
-                            <p class="text-[10px] uppercase tracking-[0.25em] text-bmw-400/80 mb-2">Recommended match</p>
-                            <h4 id="quest-primary-name" class="text-base font-medium mb-1">Quest Name</h4>
-                            <p id="quest-primary-summary" class="text-steel-400 text-xs mb-2"></p>
-                            <p id="quest-primary-meta" class="text-steel-500 text-[11px]"></p>
-                        </div>
-                        <div id="quest-secondary-card" class="panel rounded-xl p-4">
-                            <p class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">Alternative option</p>
-                            <h4 id="quest-secondary-name" class="text-base font-medium mb-1">Quest Name</h4>
-                            <p id="quest-secondary-summary" class="text-steel-400 text-xs mb-2"></p>
-                            <p id="quest-secondary-meta" class="text-steel-500 text-[11px]"></p>
-                        </div>
-                        <div id="quest-saga-card" class="panel rounded-xl p-4">
-                            <p class="text-[10px] uppercase tracking-[0.25em] text-white/40 mb-2">Longer path</p>
-                            <h4 id="quest-saga-name" class="text-base font-medium mb-1">Quest Name</h4>
-                            <p id="quest-saga-summary" class="text-steel-400 text-xs mb-2"></p>
-                            <p id="quest-saga-meta" class="text-steel-500 text-[11px]"></p>
-                        </div>
-                    </div>
+            <!-- Filter pills -->
+            <div class="flex flex-wrap justify-center gap-2.5 mb-10 reveal" id="atlas-filters">
+                <button class="atlas-pill active" data-filter="all">Everything</button>
+                <button class="atlas-pill" data-filter="ocean">Ocean</button>
+                <button class="atlas-pill" data-filter="mountain">Mountain</button>
+                <button class="atlas-pill" data-filter="kitchen">Kitchen &amp; Cellar</button>
+                <button class="atlas-pill" data-filter="healing">Healing</button>
+                <button class="atlas-pill" data-filter="wild">Wild</button>
+            </div>
 
-                    <div class="mt-6 pt-6 border-t border-bmw-500/10">
-                        <form id="quest-email-form" name="homepage-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex flex-col gap-3">
-                            <input type="hidden" name="form-name" value="homepage-interest">
-                            <input type="hidden" name="bot-field">
-                            <input type="hidden" name="depth" id="quest-depth-hidden">
-                            <input type="hidden" name="element" id="quest-element-hidden">
-                            <input type="hidden" name="saga" id="quest-saga-hidden">
-                            <p class="text-sm text-steel-300">Save your matches and get notified when cohorts open:</p>
-                            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-                                <input type="email" name="email" id="quest-email" placeholder="your@email.com" required
-                                    class="w-full sm:flex-1 sm:max-w-xs px-4 py-3 sm:py-2 rounded bg-white/5 border border-white/15 text-sm text-white placeholder:text-steel-500 min-h-[44px] focus:border-bmw-500/50 focus:outline-none transition-colors">
-                                <input type="tel" name="phone" id="quest-phone" placeholder="+1 555 123 4567 (optional)"
-                                    class="w-full sm:flex-1 sm:max-w-xs px-4 py-3 sm:py-2 rounded bg-white/5 border border-white/15 text-sm text-white placeholder:text-steel-500 min-h-[44px] focus:border-bmw-500/50 focus:outline-none transition-colors">
-                                <button type="submit" id="quest-save-btn" class="cta-button px-6 py-3 sm:py-2 rounded-full text-sm tracking-wide whitespace-nowrap min-h-[44px]">
-                                    Save Matches
-                                </button>
-                            </div>
-                            <label id="quest-whatsapp-opt-in" class="hidden items-center gap-2 text-xs text-steel-400 cursor-pointer select-none">
-                                <input type="checkbox" name="whatsapp_opt_in" id="quest-whatsapp-checkbox" checked
-                                    class="w-4 h-4 rounded border-white/20 bg-white/5 accent-blue-500">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366" class="flex-shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                Also message me on WhatsApp
-                            </label>
-                        </form>
-                        <div id="quest-email-success" class="hidden text-center py-4">
-                            <p class="text-lg text-white mb-1">You're in.</p>
-                            <p class="text-sm text-steel-400">We'll notify you when matching cohorts open.</p>
-                        </div>
-                    </div>
+            <!-- Atlas grid -->
+            <div id="atlas-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+            <!-- Preview → full Atlas -->
+            <div class="text-center mt-12 reveal">
+                <p class="text-paper-faint text-sm mb-6 max-w-xl mx-auto">
+                    A taste above. The full Atlas maps <span class="text-paper-muted">294 places across 59 countries</span> — searchable by craft, place, or credential, ranked by community strength. It will never list somewhere I haven't trusted with my own hands.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="repertoire.html" class="btn-primary inline-block px-8 py-3.5 rounded-full">Open the full Atlas →</a>
+                    <a href="#circle" class="btn-ghost inline-block px-8 py-3.5 rounded-full">Help shape it</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Get Notified -->
-    <section id="notify" class="py-24 px-6 section-border border-t">
+    <!-- ───────────────────────── THE CIRCLE ───────────────────────── -->
+    <section id="circle" class="py-24 px-6 rule-top">
         <div class="max-w-2xl mx-auto text-center">
-            <p class="text-bmw-400 text-xs uppercase tracking-widest mb-4">Stay Close</p>
-            <h2 class="text-3xl md:text-4xl font-light mb-3 tracking-tight">Get notified when we launch.</h2>
-            <p class="text-steel-400 mb-10">Pick what interests you. We'll only email you about matching launches.</p>
+            <div class="reveal">
+                <p class="eyebrow mb-4">The Circle</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">Find your people first.</h2>
+                <p class="text-paper-muted mb-10 leading-relaxed">
+                    The Circle is who this is for: people who'd rather do something real than watch it. No spam, no funnel — just the people, the places as the Atlas grows, and an early word when a master opens their doors. Tell me what pulls you.
+                </p>
+            </div>
 
-            <div class="panel rounded-xl p-6 md:p-8">
-                <form id="notify-form" name="launch-notify" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="launch-notify">
-                    <input type="hidden" name="bot-field">
-
-                    <!-- Interest checkboxes -->
-                    <p class="text-sm text-steel-300 mb-4 text-left">I'm interested in:</p>
-                    <div class="grid sm:grid-cols-2 gap-3 mb-8 text-sm">
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px]">
+            <div class="panel p-6 md:p-8 reveal" style="background: rgba(243,237,226,0.025);">
+                <form id="circle-form">
+                    <p class="text-sm text-paper-muted mb-4 text-left">What's calling you? (pick any)</p>
+                    <div class="grid sm:grid-cols-2 gap-3 mb-8 text-sm" id="circle-interests">
+                        <label class="circle-int flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer min-h-[44px]" style="border: 1px solid var(--line);">
                             <input type="checkbox" name="interests" value="ocean" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                            </span>
-                            <span class="text-white/70">Ocean & Sailing</span>
+                            <span class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 box" style="border: 1px solid rgba(243,237,226,0.3);"><svg class="w-3 h-3 hidden tick" fill="none" stroke="#14110d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+                            <span class="text-paper-muted">Ocean &amp; Sailing</span>
                         </label>
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px]">
+                        <label class="circle-int flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer min-h-[44px]" style="border: 1px solid var(--line);">
                             <input type="checkbox" name="interests" value="mountain" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                            </span>
-                            <span class="text-white/70">Mountains & Adventure</span>
+                            <span class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 box" style="border: 1px solid rgba(243,237,226,0.3);"><svg class="w-3 h-3 hidden tick" fill="none" stroke="#14110d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+                            <span class="text-paper-muted">Mountains &amp; Adventure</span>
                         </label>
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px]">
-                            <input type="checkbox" name="interests" value="city" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                            </span>
-                            <span class="text-white/70">Culinary & Wine</span>
+                        <label class="circle-int flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer min-h-[44px]" style="border: 1px solid var(--line);">
+                            <input type="checkbox" name="interests" value="kitchen" class="sr-only peer">
+                            <span class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 box" style="border: 1px solid rgba(243,237,226,0.3);"><svg class="w-3 h-3 hidden tick" fill="none" stroke="#14110d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+                            <span class="text-paper-muted">Kitchen &amp; Cellar</span>
                         </label>
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px]">
-                            <input type="checkbox" name="interests" value="temple" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                            </span>
-                            <span class="text-white/70">Wellness & Healing</span>
+                        <label class="circle-int flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer min-h-[44px]" style="border: 1px solid var(--line);">
+                            <input type="checkbox" name="interests" value="healing" class="sr-only peer">
+                            <span class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 box" style="border: 1px solid rgba(243,237,226,0.3);"><svg class="w-3 h-3 hidden tick" fill="none" stroke="#14110d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+                            <span class="text-paper-muted">Healing &amp; Stillness</span>
                         </label>
-                        <label class="notify-interest flex items-center gap-3 px-4 py-3 rounded border border-white/15 cursor-pointer hover:bg-bmw-500/5 hover:border-bmw-500/20 transition-all min-h-[44px] sm:col-span-2 sm:w-1/2">
+                        <label class="circle-int flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer min-h-[44px] sm:col-span-2 sm:w-1/2 sm:mx-auto" style="border: 1px solid var(--line);">
                             <input type="checkbox" name="interests" value="wild" class="sr-only peer">
-                            <span class="w-5 h-5 rounded border border-white/30 flex items-center justify-center transition-colors shrink-0">
-                                <svg class="w-3 h-3 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                            </span>
-                            <span class="text-white/70">Wildlife & Conservation</span>
+                            <span class="w-5 h-5 rounded-md flex items-center justify-center shrink-0 box" style="border: 1px solid rgba(243,237,226,0.3);"><svg class="w-3 h-3 hidden tick" fill="none" stroke="#14110d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></span>
+                            <span class="text-paper-muted">Wild &amp; Conservation</span>
                         </label>
                     </div>
 
-                    <!-- Email + submit -->
                     <div class="flex flex-col sm:flex-row gap-3">
                         <input type="email" name="email" placeholder="your@email.com" required
-                            class="w-full sm:flex-1 px-4 py-3 rounded bg-white/5 border border-white/15 text-sm text-white placeholder:text-steel-500 min-h-[44px] focus:border-bmw-500/50 focus:outline-none transition-colors">
-                        <button type="submit" id="notify-submit" class="cta-button px-8 py-3 rounded-full text-sm tracking-wide whitespace-nowrap min-h-[44px]">
-                            Notify Me
-                        </button>
+                            class="w-full sm:flex-1 px-4 py-3 rounded-lg text-sm text-paper min-h-[44px] focus:outline-none"
+                            style="background: rgba(243,237,226,0.04); border: 1px solid rgba(243,237,226,0.16);">
+                        <button type="submit" id="circle-submit" class="btn-primary px-8 py-3 rounded-full text-sm whitespace-nowrap min-h-[44px]">Join the Circle</button>
                     </div>
                 </form>
-
-                <!-- Success state -->
-                <div id="notify-success" class="hidden py-6">
-                    <p class="text-xl text-white mb-2">You're on the list.</p>
-                    <p class="text-sm text-steel-400">We'll reach out when something matching your interests launches.</p>
+                <div id="circle-success" class="hidden py-6">
+                    <p class="font-serif text-2xl text-paper mb-2">You're in.</p>
+                    <p class="text-sm text-paper-muted">No funnel, no noise. You'll hear from me when there's something real to share — a place worth knowing, or people worth meeting.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recently Joined -->
-    <section id="recent-adventurers" class="py-24 px-6 section-border border-t">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <p class="text-bmw-400 text-xs uppercase tracking-widest mb-4">The Cohort</p>
-                <h2 class="text-3xl md:text-4xl font-light mb-3 tracking-tight">Recently joined adventurers</h2>
-                <p class="text-steel-400">
-                    <span id="ra-count" class="text-white font-mono">—</span> people are choosing their depth.
-                </p>
-            </div>
-
-            <div id="ra-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
-                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
-                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
-                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
-                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
-                <div class="ra-skeleton panel rounded-xl p-4 animate-pulse h-32"></div>
-            </div>
-
-            <div id="ra-empty" class="hidden text-center text-steel-500 text-sm py-12">
-                Be the first to join — your face goes here.
-            </div>
-
-            <div class="text-center mt-10">
-                <a href="/join" class="cta-button inline-block px-8 py-3 rounded-full text-sm tracking-wide">
-                    Join the community
-                </a>
-            </div>
-        </div>
-
-        <style>
-            #recent-adventurers .ra-card {
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                gap: 8px; padding: 16px 10px; border-radius: 12px;
-                background: rgba(255,255,255,0.02);
-                border: 1px solid rgba(255,255,255,0.06);
-                transition: all 0.25s ease;
-                animation: ra-fade-up 0.6s ease-out;
-            }
-            #recent-adventurers .ra-card:hover {
-                background: rgba(255,255,255,0.04);
-                border-color: rgba(0,102,177,0.3);
-                transform: translateY(-2px);
-            }
-            #recent-adventurers .ra-card.fresh {
-                border-color: rgba(0,102,177,0.5);
-                box-shadow: 0 0 0 1px rgba(0,102,177,0.2), 0 8px 24px rgba(0,102,177,0.15);
-            }
-            #recent-adventurers .ra-avatar {
-                width: 48px; height: 48px; border-radius: 50%;
-                display: flex; align-items: center; justify-content: center;
-                font-size: 14px; font-weight: 600; color: #fff;
-                letter-spacing: 0.5px;
-                background-size: cover;
-                background-position: center;
-            }
-            #recent-adventurers .ra-name { font-size: 13px; color: #fff; font-weight: 500; text-align: center; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-            #recent-adventurers .ra-meta { font-size: 10px; color: rgba(255,255,255,0.4); text-align: center; font-family: 'Courier New', monospace; letter-spacing: 0.5px; }
-            @keyframes ra-fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        </style>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 section-border border-t">
+    <!-- ───────────────────────── FOOTER ───────────────────────── -->
+    <footer class="py-14 rule-top">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div>
-                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-bmw-400">TRAVELER</span></p>
-                    <p class="text-white/40 text-sm">Earned, not bought. Certified at the source.</p>
-                    <p class="text-white/20 text-xs font-mono tracking-widest mt-2">SKILLS LAST, TANS FADE</p>
+                <div class="text-center md:text-left">
+                    <p class="font-serif tracking-[0.16em] mb-1">EDUCATED<span class="text-sea-soft">TRAVELER</span></p>
+                    <p class="text-paper-muted text-sm">A place, a person, your people.</p>
+                    <p class="text-paper-faint text-[11px] font-mono tracking-[0.25em] mt-2">EARNED, NOT BOUGHT</p>
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="about.html" class="text-white/50 hover:text-white text-sm transition-colors">The Story</a>
-                    <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Offerings</a>
-                    <a href="mailto:arnaudcallier@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
-                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="text-steel-400 hover:text-bmw-400 transition-colors">
+                    <a href="repertoire.html" class="link-quiet text-sm">The Atlas</a>
+                    <a href="about.html" class="link-quiet text-sm">The Story</a>
+                    <a href="mailto:arnaudcallier@pm.me" class="link-quiet text-sm">Contact</a>
+                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="link-quiet">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
                 </div>
@@ -881,763 +472,141 @@
         </div>
     </footer>
 
+    <!-- ───────────────────────── SCRIPTS ───────────────────────── -->
     <script>
-        let currentSlide = 0;
-        const totalSlides = 5;
-        let autoplayInterval;
-
-        function showSlide(index) {
+        // Slideshow
+        let currentSlide = 0; const totalSlides = 5; let autoplay;
+        function showSlide(i) {
             document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.slide-dot span').forEach(d => {
-                d.classList.remove('bg-bmw-500');
-                d.classList.add('bg-white/20');
-            });
-
-            document.querySelector(`[data-slide="${index}"]`).classList.add('active');
-            const activeDot = document.querySelector(`[data-dot="${index}"] span`);
-            if (activeDot) {
-                activeDot.classList.remove('bg-white/20');
-                activeDot.classList.add('bg-bmw-500');
-            }
-
-            currentSlide = index;
+            document.querySelectorAll('.slide-dot span').forEach(d => { d.style.background = 'rgba(243,237,226,0.22)'; d.style.width = '8px'; });
+            document.querySelector(`[data-slide="${i}"]`).classList.add('active');
+            const dot = document.querySelector(`[data-dot="${i}"] span`);
+            if (dot) { dot.style.background = 'var(--sea)'; dot.style.width = '22px'; }
+            currentSlide = i;
         }
+        function nextSlide() { showSlide((currentSlide + 1) % totalSlides); reset(); }
+        function prevSlide() { showSlide((currentSlide - 1 + totalSlides) % totalSlides); reset(); }
+        function goToSlide(i) { showSlide(i); reset(); }
+        function reset() { clearInterval(autoplay); autoplay = setInterval(nextSlide, 9000); }
+        showSlide(0); autoplay = setInterval(nextSlide, 9000);
 
-        function nextSlide() {
-            showSlide((currentSlide + 1) % totalSlides);
-            resetAutoplay();
-        }
+        // Mobile menu
+        const mb = document.getElementById('menu-btn'), mm = document.getElementById('mobile-menu');
+        if (mb && mm) mb.addEventListener('click', () => {
+            const open = !mm.classList.contains('hidden');
+            mm.classList.toggle('hidden');
+            mb.setAttribute('aria-expanded', String(!open));
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => mm.classList.add('hidden')));
 
-        function prevSlide() {
-            showSlide((currentSlide - 1 + totalSlides) % totalSlides);
-            resetAutoplay();
-        }
-
-        function goToSlide(index) {
-            showSlide(index);
-            resetAutoplay();
-        }
-
-        function resetAutoplay() {
-            clearInterval(autoplayInterval);
-            autoplayInterval = setInterval(nextSlide, 20000);
-        }
-
-        // Initialize
-        showSlide(0);
-        autoplayInterval = setInterval(nextSlide, 20000);
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                mobileMenu.classList.toggle('hidden');
-                mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
-                const svg = mobileMenuBtn.querySelector('svg');
-                if (!isOpen) {
-                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>';
-                } else {
-                    svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
-                }
-            });
-        }
+        // Reveal on scroll
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     </script>
 
-    <script src="/js/experiences.js"></script>
+    <!-- Atlas data + render -->
     <script>
-        // ========================================
-        // QUEST SELECTION SYSTEM
-        // ========================================
-        (function() {
-            'use strict';
+        // Honest, hand-verified scaffold. Each entry is a place the founder has actually
+        // crossed. `community` is the human draw, not a sales line. No prices, no checkout.
+        const ATLAS = [
+            { cat:'kitchen',  discipline:'Sushi & knife work',      place:'Tokyo, Japan',        note:'Tsukiji dawns and counters where apprenticeship is still measured in decades.', community:'Chefs and obsessives who came to learn from one master.' },
+            { cat:'kitchen',  discipline:'Wine & terroir',          place:'Burgundy, France',    note:'Learn the vine from the families who have grown it for generations.',          community:'Sommeliers and growers who read a hillside like a page.' },
+            { cat:'ocean',    discipline:'Diving',                  place:"Côte d'Azur, France", note:'The water where Cousteau invented the modern dive.',                            community:'Divers building toward something more than a holiday card.' },
+            { cat:'ocean',    discipline:'Freediving',              place:'Dahab, Egypt',        note:'The Blue Hole — where the breath-hold world quietly gathers.',                 community:'A tight, generous tribe that lives by the line.' },
+            { cat:'ocean',    discipline:'Bluewater sailing',       place:'The Atlantic',        note:'The crossing. Judgment is earned at sea, not in a classroom.',                 community:'Crews who become family somewhere past the last island.' },
+            { cat:'healing',  discipline:'Yoga',                    place:'Rishikesh, India',    note:'The Ganges foothills — the source of the practice, not a franchise of it.',   community:'Seekers who came for the real thing and stayed for the people.' },
+            { cat:'healing',  discipline:'Breathwork & presence',  place:'Bali, Indonesia',     note:'Where stillness is taught by those who have given their lives to it.',         community:'A circle that holds space long after you leave.' },
+            { cat:'mountain', discipline:'Alpinism',               place:'Chamonix, France',    note:'The birthplace of mountaineering, under Mont Blanc.',                          community:'Climbers who trust each other with the rope.' },
+            { cat:'mountain', discipline:'High-altitude trekking', place:'Annapurna, Nepal',    note:'The long walk to base camp at 4,130m, the old way.',                           community:'Walkers who arrive as strangers and descend as friends.' },
+            { cat:'wild',     discipline:'Marine conservation',    place:'Galápagos, Ecuador',  note:'Diving in service of the reef, where the science is happening now.',           community:'People who want their skill to leave the place better.' },
+        ];
+        const CAT_LABEL = { ocean:'Ocean', mountain:'Mountain', kitchen:'Kitchen & Cellar', healing:'Healing', wild:'Wild' };
 
-            // State to track selections
-            const questState = {
-                elements: [],
-                desires: [],
-                time: null,
-                intensity: null
-            };
-
-            const questChoices = document.querySelectorAll('.quest-choice');
-            const questSubmit = document.getElementById('quest-submit');
-            const questStatus = document.getElementById('quest-status');
-            const questResults = document.getElementById('quest-results');
-            const questPersonaTitle = document.getElementById('quest-persona-title');
-            const questPersonaSubtitle = document.getElementById('quest-persona-subtitle');
-
-            const primaryNameEl = document.getElementById('quest-primary-name');
-            const primarySummaryEl = document.getElementById('quest-primary-summary');
-            const primaryMetaEl = document.getElementById('quest-primary-meta');
-
-            const secondaryCardEl = document.getElementById('quest-secondary-card');
-            const secondaryNameEl = document.getElementById('quest-secondary-name');
-            const secondarySummaryEl = document.getElementById('quest-secondary-summary');
-            const secondaryMetaEl = document.getElementById('quest-secondary-meta');
-
-            const sagaCardEl = document.getElementById('quest-saga-card');
-            const sagaNameEl = document.getElementById('quest-saga-name');
-            const sagaSummaryEl = document.getElementById('quest-saga-summary');
-            const sagaMetaEl = document.getElementById('quest-saga-meta');
-
-        // EXPANDED EXPERIENCES - All with RECOGNIZED CERTIFICATIONS
-        // Skills at the source + real credentials that matter
-        const experiences = window.ET_EXPERIENCES;
-        const personaByCategory = window.ET_PERSONAS;
-
-            function collectAnswers() {
-                return {
-                    elements: [...questState.elements],
-                    desires: [...questState.desires],
-                    time: questState.time,
-                    intensity: questState.intensity
-                };
-            }
-
-        function tierFromTimeValue(value) {
-            if (value === 'foundation') return 'foundation';
-            if (value === 'saga') return 'saga';
-            return 'mastery';
-        }
-
-        function scoreExperience(exp, answers) {
-            let score = 0;
-
-            // Environment
-            exp.envTags.forEach((tag) => {
-                if (answers.elements.includes(tag)) {
-                    score += 5;
-                }
-            });
-
-            // Desires
-            exp.desireTags.forEach((tag) => {
-                if (answers.desires.includes(tag)) {
-                    score += 7;
-                }
-            });
-
-            // Tier / time
-            const preferredTier = tierFromTimeValue(answers.time || 'foundation');
-            if (exp.tier === preferredTier) {
-                score += 8;
-            } else if (
-                (exp.tier === 'mastery' && preferredTier === 'foundation') ||
-                (exp.tier === 'foundation' && preferredTier === 'mastery') ||
-                (exp.tier === 'mastery' && preferredTier === 'saga') ||
-                (exp.tier === 'saga' && preferredTier === 'mastery')
-            ) {
-                score += 3;
-            }
-
-            // Intensity closeness
-            if (answers.intensity != null) {
-                const diff = Math.abs(exp.intensity - answers.intensity);
-                if (diff === 0) score += 6;
-                else if (diff === 1) score += 2;
-            }
-
-            return score;
-        }
-
-        function pickPersona(topExp) {
-            if (!topExp) {
-                return {
-                    title: 'Explorer',
-                    subtitle: "You're drawn to skills that leave a mark. Let's find the right one."
-                };
-            }
-            const config = personaByCategory[topExp.category];
-            if (config) return config;
-            return {
-                title: 'Explorer',
-                subtitle: "You're drawn to skills that leave a mark. Let's find the right one."
-            };
-        }
-
-            // Attach click handlers to quest choices
-            questChoices.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    const group = btn.dataset.group;
-                    const value = btn.dataset.value;
-
-                    if (group === 'elements' || group === 'desires') {
-                        // Multi-select: toggle selection
-                        const idx = questState[group].indexOf(value);
-                        if (idx > -1) {
-                            questState[group].splice(idx, 1);
-                            btn.classList.remove('bg-white', 'text-black');
-                        } else {
-                            questState[group].push(value);
-                            btn.classList.add('bg-white', 'text-black');
-                        }
-                    } else if (group === 'time') {
-                        // Single-select: deselect others first
-                        document.querySelectorAll('.quest-choice[data-group="time"]').forEach(function(other) {
-                            other.classList.remove('bg-white', 'text-black');
-                        });
-                        questState.time = value;
-                        btn.classList.add('bg-white', 'text-black');
-                    } else if (group === 'intensity') {
-                        // Single-select: deselect others first
-                        document.querySelectorAll('.quest-choice[data-group="intensity"]').forEach(function(other) {
-                            other.classList.remove('bg-white', 'text-black');
-                        });
-                        questState.intensity = parseInt(value, 10);
-                        btn.classList.add('bg-white', 'text-black');
-                    }
-
-                    console.log('Quest state:', questState);
-                });
-            });
-
-            if (questSubmit) {
-
-            questSubmit.addEventListener('click', async () => {
-                const answers = collectAnswers();
-
-                if (!answers.elements.length || !answers.desires.length || !answers.time || !answers.intensity) {
-                    if (questStatus) {
-                        questStatus.textContent = 'Choose at least one element, one outcome, a time window and an intensity.';
-                        questStatus.classList.remove('text-white/40');
-                        questStatus.classList.add('text-amber-300');
-                    }
-                    return;
-                }
-
-                const scored = experiences
-                    .map((exp) => ({ exp, score: scoreExperience(exp, answers) }))
-                    .filter((s) => s.score > 0)
-                    .sort((a, b) => b.score - a.score);
-
-                if (!scored.length) {
-                    if (questStatus) {
-                        questStatus.textContent = "You're a rare combination. We'll design a program for you — leave your email below.";
-                        questStatus.classList.remove('text-white/40');
-                        questStatus.classList.add('text-amber-300');
-                    }
-                    return;
-                }
-
-                const primary = scored[0]?.exp;
-                const secondary = scored[1]?.exp;
-                const saga = scored.find((s) => s.exp.tier === 'saga')?.exp || scored[2]?.exp;
-
-                const persona = pickPersona(primary);
-                if (questPersonaTitle) questPersonaTitle.textContent = persona.title;
-                if (questPersonaSubtitle) questPersonaSubtitle.textContent = persona.subtitle;
-
-                if (primary) {
-                    if (primaryNameEl) primaryNameEl.textContent = primary.name;
-                    if (primarySummaryEl) primarySummaryEl.textContent = primary.summary;
-                    if (primaryMetaEl) primaryMetaEl.textContent = primary.meta;
-                }
-
-                if (secondary && secondaryCardEl) {
-                    secondaryCardEl.classList.remove('hidden');
-                    if (secondaryNameEl) secondaryNameEl.textContent = secondary.name;
-                    if (secondarySummaryEl) secondarySummaryEl.textContent = secondary.summary;
-                    if (secondaryMetaEl) secondaryMetaEl.textContent = secondary.meta;
-                } else if (secondaryCardEl) {
-                    secondaryCardEl.classList.add('hidden');
-                }
-
-                if (saga && sagaCardEl) {
-                    sagaCardEl.classList.remove('hidden');
-                    if (sagaNameEl) sagaNameEl.textContent = saga.name;
-                    if (sagaSummaryEl) sagaSummaryEl.textContent = saga.summary;
-                    if (sagaMetaEl) sagaMetaEl.textContent = saga.meta;
-                } else if (sagaCardEl) {
-                    sagaCardEl.classList.add('hidden');
-                }
-
-                if (questResults) {
-                    questResults.classList.remove('hidden');
-                }
-
-                if (questStatus) {
-                    questStatus.textContent = 'Matches generated. Scroll down to join the community and stay close to updates.';
-                    questStatus.classList.remove('text-amber-300');
-                    questStatus.classList.add('text-white/40');
-                }
-
-                // Save to profile (localStorage)
-                if (typeof isSignedIn === 'function' && isSignedIn()) {
-                    if (typeof saveQuestToProfile === 'function') {
-                        saveQuestToProfile(answers, scored);
-                    }
-                }
-
-                // Auto-save to Supabase if authenticated
-                const authUser = window.auth?.getCurrentUser?.();
-                if (authUser && window.supabaseClient) {
-                    try {
-                        await window.supabaseClient.from('user_preferences').upsert({
-                            user_id: authUser.id,
-                            elements: answers.elements || [],
-                            desires: answers.desires || [],
-                            time_preference: answers.time || null,
-                            intensity: answers.intensity || null,
-                            updated_at: new Date().toISOString()
-                        }, { onConflict: 'user_id' });
-                        // Save top matched adventures
-                        for (const s of scored.slice(0, 3)) {
-                            const advId = s.exp.id || s.exp.name.toLowerCase().replace(/\s+/g, '-');
-                            await window.supabaseClient.from('saved_adventures').upsert({
-                                user_id: authUser.id,
-                                adventure_id: advId,
-                                adventure_name: s.exp.name
-                            }, { onConflict: 'user_id,adventure_id' });
-                        }
-                        // Hide email form — already saved
-                        const ef = document.getElementById('quest-email-form');
-                        const es = document.getElementById('quest-email-success');
-                        if (ef) ef.classList.add('hidden');
-                        if (es) { es.classList.remove('hidden'); es.innerHTML = '<p class="text-lg text-white mb-1">Preferences saved!</p><p class="text-sm text-steel-400">Your adventure DNA is updated. <a href="/dashboard" class="text-blue-400 hover:text-blue-300">View dashboard →</a></p>'; }
-                    } catch (err) {
-                        console.warn('Auto-save to Supabase failed:', err);
-                    }
-                } else {
-                    // Not signed in — update CTA messaging
-                    const formLabel = document.querySelector('#quest-email-form .text-sm.text-steel-300');
-                    if (formLabel) formLabel.textContent = 'Join the community to save your results and get matched with cohorts:';
-                    const saveBtn = document.getElementById('quest-save-btn');
-                    if (saveBtn) saveBtn.textContent = 'Join & Save';
-                }
-            });
-            }
-
-            // Handle quest email form submission
-            const questEmailForm = document.getElementById('quest-email-form');
-            const questEmailSuccess = document.getElementById('quest-email-success');
-
-            if (questEmailForm) {
-                questEmailForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-
-                    const form = e.target;
-                    const questSaveBtn = document.getElementById('quest-save-btn');
-                    const questEmailInput = document.getElementById('quest-email');
-                    const email = questEmailInput.value.trim();
-
-                    // Populate hidden fields with quest results
-                    const depthHidden = document.getElementById('quest-depth-hidden');
-                    const elementHidden = document.getElementById('quest-element-hidden');
-                    const sagaHidden = document.getElementById('quest-saga-hidden');
-
-                    if (depthHidden) depthHidden.value = document.getElementById('quest-depth-result')?.textContent || '';
-                    if (elementHidden) elementHidden.value = document.getElementById('quest-element-result')?.textContent || '';
-                    if (sagaHidden) sagaHidden.value = document.getElementById('quest-saga-result')?.textContent || '';
-
-                    // Disable button while sending
-                    questSaveBtn.disabled = true;
-                    questSaveBtn.textContent = 'Saving...';
-
-                    // Submit to Netlify Forms
-                    try {
-                        const formData = new FormData(form);
-                        await fetch('/', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                            body: new URLSearchParams(formData).toString()
-                        });
-                    } catch (err) {
-                        console.log('Form submitted');
-                    }
-
-                    // Create profile with email
-                    if (typeof createProfile === 'function' && typeof saveProfile === 'function' && typeof updateProfileUI === 'function') {
-                        const profile = createProfile(email);
-                        saveProfile(profile);
-                        updateProfileUI();
-                    }
-
-                    // Show success, hide form
-                    if (questEmailForm) questEmailForm.classList.add('hidden');
-                    if (questEmailSuccess) questEmailSuccess.classList.remove('hidden');
-
-                    // Celebration
-                    if (typeof spawnConfetti === 'function') spawnConfetti(30);
-                    if (typeof showXpPopup === 'function') showXpPopup(100, window.innerWidth / 2, window.innerHeight / 2);
-                });
-            }
-        })();
-    </script>
-
-    <script>
-        // ========================================
-        // PROFILE & SIGN-IN SYSTEM
-        // ========================================
-
-        const STORAGE_KEY = 'educatedtraveler_profile';
-
-        // ========================================
-        // FUN STUFF - Celebrations & Animations
-        // ========================================
-
-        const confettiColors = ['#059669', '#34d399', '#d97706', '#fbbf24', '#1d4ed8'];
-
-        function spawnConfetti(count = 50) {
-            for (let i = 0; i < count; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + 'vw';
-                    confetti.style.backgroundColor = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-                    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
-                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-                    document.body.appendChild(confetti);
-                    setTimeout(() => confetti.remove(), 4000);
-                }, i * 30);
-            }
-        }
-
-        function showXpPopup(amount, x, y) {
-            const popup = document.createElement('div');
-            popup.className = 'xp-popup text-bmw-400 text-xl font-semibold';
-            popup.textContent = `+${amount} XP`;
-            popup.style.left = (x || window.innerWidth / 2) + 'px';
-            popup.style.top = (y || window.innerHeight / 2) + 'px';
-            document.body.appendChild(popup);
-            setTimeout(() => popup.remove(), 1500);
-        }
-
-        function showAchievement(title, description, icon = '&#9670;') {
-            const toast = document.createElement('div');
-            toast.className = 'achievement-toast panel rounded-xl p-4 max-w-xs';
-            toast.innerHTML = `
-                <div class="flex items-center gap-3">
-                    <span class="text-3xl">${icon}</span>
-                    <div>
-                        <p class="font-medium text-bmw-400 text-sm">${title}</p>
-                        <p class="text-white/60 text-sm">${description}</p>
+        const grid = document.getElementById('atlas-grid');
+        function renderAtlas(filter) {
+            const items = filter === 'all' ? ATLAS : ATLAS.filter(a => a.cat === filter);
+            grid.innerHTML = items.map(a => `
+                <article class="atlas-card panel p-6 flex flex-col">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-sea-soft">${CAT_LABEL[a.cat]}</span>
+                        <span class="font-mono text-[10px] tracking-wide text-paper-faint">on the map</span>
                     </div>
-                </div>
-            `;
-            document.body.appendChild(toast);
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                toast.style.transition = 'opacity 0.5s';
-                setTimeout(() => toast.remove(), 500);
-            }, 4000);
+                    <h3 class="font-serif text-xl font-light mb-1">${a.place}</h3>
+                    <p class="text-ember-soft text-sm mb-3">${a.discipline}</p>
+                    <p class="text-paper-muted text-sm leading-relaxed mb-4">${a.note}</p>
+                    <p class="text-paper-faint text-[13px] leading-relaxed mt-auto pt-3" style="border-top:1px solid var(--line);">
+                        <span class="text-paper-muted">The people here:</span> ${a.community}
+                    </p>
+                </article>
+            `).join('');
         }
+        renderAtlas('all');
 
-        const skillBadges = {
-            ocean: { name: 'Ocean Explorer', icon: '&#9670;', color: 'blue' },
-            mountain: { name: 'Summit Seeker', icon: '&#9650;', color: 'blue' },
-            city: { name: 'Culinary Master', icon: '&#9733;', color: 'amber' },
-            temple: { name: 'Inner Voyager', icon: '&#9679;', color: 'purple' },
-            wild: { name: 'Wild Guide', icon: '&#9674;', color: 'orange' },
-            certification: { name: 'Certified Pro', icon: '&#9632;', color: 'blue' },
-            career: { name: 'Career Changer', icon: '&#9654;', color: 'indigo' },
-            stories: { name: 'Adventurer', icon: '&#9734;', color: 'pink' },
-            reset: { name: 'Zen Master', icon: '&#9675;', color: 'teal' },
-            rare: { name: 'Edge Seeker', icon: '&#9889;', color: 'gold' }
-        };
-
-        function getProfile() {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            return stored ? JSON.parse(stored) : null;
-        }
-
-        function saveProfile(profile) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
-        }
-
-        function isSignedIn() {
-            const profile = getProfile();
-            return profile && profile.email;
-        }
-
-        function createProfile(email) {
-            const name = email.split('@')[0];
-            const initials = name.slice(0, 2).toUpperCase();
-            return {
-                email: email,
-                name: name.charAt(0).toUpperCase() + name.slice(1),
-                initials: initials,
-                joinedDate: new Date().toISOString(),
-                xp: 100,
-                level: 1,
-                badges: [],
-                elements: [],
-                desires: [],
-                adventures: [],
-                completedQuests: 0
-            };
-        }
-
-        function calculateLevel(xp) {
-            const xpPerLevel = 500;
-            return Math.floor(xp / xpPerLevel) + 1;
-        }
-
-        function saveQuestToProfile(answers, scored) {
-            const profile = getProfile();
-            if (!profile) return;
-
-            profile.xp += 150;
-            profile.completedQuests++;
-            profile.level = calculateLevel(profile.xp);
-
-            profile.elements = [...new Set([...profile.elements, ...answers.elements])];
-            profile.desires = [...new Set([...profile.desires, ...answers.desires])];
-
-            const allTags = [...answers.elements, ...answers.desires];
-            allTags.forEach(tag => {
-                if (!profile.badges.includes(tag) && skillBadges[tag]) {
-                    profile.badges.push(tag);
-                    profile.xp += 50;
-                }
-            });
-
-            if (scored && scored.length) {
-                const newAdventures = scored.slice(0, 3).map(s => s.exp.id);
-                profile.adventures = [...new Set([...profile.adventures, ...newAdventures])];
-            }
-
-            profile.level = calculateLevel(profile.xp);
-            saveProfile(profile);
-            updateProfileUI();
-        }
-
-        function updateProfileUI() {
-            // Minimal implementation - full profile UI optional
-        }
-
-        updateProfileUI();
+        document.getElementById('atlas-filters').addEventListener('click', (e) => {
+            const btn = e.target.closest('.atlas-pill'); if (!btn) return;
+            document.querySelectorAll('.atlas-pill').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            renderAtlas(btn.dataset.filter);
+        });
     </script>
 
-    <!-- Supabase SDK and Auth -->
+    <!-- Circle checkbox visuals -->
+    <script>
+        document.querySelectorAll('.circle-int input').forEach(cb => {
+            cb.addEventListener('change', () => {
+                const label = cb.closest('label'), box = label.querySelector('.box'), tick = label.querySelector('.tick');
+                if (cb.checked) {
+                    label.style.borderColor = 'rgba(127,168,165,0.5)';
+                    box.style.background = 'var(--sea)'; box.style.borderColor = 'var(--sea)';
+                    tick.classList.remove('hidden');
+                } else {
+                    label.style.borderColor = 'var(--line)';
+                    box.style.background = 'transparent'; box.style.borderColor = 'rgba(243,237,226,0.3)';
+                    tick.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
+    <!-- Supabase: the Circle writes to launch_waitlist (audience we own, not a sales list) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
-    <script src="/js/auth.js"></script>
-    <script src="/js/database.js"></script>
-
     <script>
-        // ========================================
-        // SUPABASE QUEST INTEGRATION
-        // ========================================
         (function() {
             'use strict';
+            const form = document.getElementById('circle-form');
+            const success = document.getElementById('circle-success');
+            const submit = document.getElementById('circle-submit');
+            if (!form) return;
 
-            // Override the quest email form submission to use Supabase
-            const questEmailForm = document.getElementById('quest-email-form');
-            if (questEmailForm) {
-                // Remove existing listeners by cloning
-                const newForm = questEmailForm.cloneNode(true);
-                questEmailForm.parentNode.replaceChild(newForm, questEmailForm);
-
-                // Show WhatsApp opt-in when phone number is entered
-                const phoneInput = newForm.querySelector('#quest-phone');
-                const waOptIn = newForm.querySelector('#quest-whatsapp-opt-in');
-                if (phoneInput && waOptIn) {
-                    phoneInput.addEventListener('input', function() {
-                        if (phoneInput.value.trim().length > 3) {
-                            waOptIn.classList.remove('hidden');
-                            waOptIn.classList.add('flex');
-                        } else {
-                            waOptIn.classList.add('hidden');
-                            waOptIn.classList.remove('flex');
-                        }
-                    });
-                }
-
-                newForm.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-
-                    const questSaveBtn = document.getElementById('quest-save-btn');
-                    const questEmailInput = document.getElementById('quest-email');
-                    const questEmailSuccess = document.getElementById('quest-email-success');
-                    const email = questEmailInput.value.trim();
-                    const phone = document.getElementById('quest-phone')?.value.trim() || null;
-                    const whatsappOptIn = document.getElementById('quest-whatsapp-checkbox')?.checked || false;
-
-                    // Get quest state from the current selections
-                    const questState = {
-                        elements: [],
-                        desires: [],
-                        time: null,
-                        intensity: null
-                    };
-
-                    // Collect current selections
-                    document.querySelectorAll('.quest-choice.bg-white').forEach(btn => {
-                        const group = btn.dataset.group;
-                        const value = btn.dataset.value;
-                        if (group === 'elements' || group === 'desires') {
-                            questState[group].push(value);
-                        } else if (group === 'time') {
-                            questState.time = value;
-                        } else if (group === 'intensity') {
-                            questState.intensity = parseInt(value, 10);
-                        }
-                    });
-
-                    // Get matched adventures from the displayed results
-                    const matchedAdventures = [];
-                    const primaryName = document.getElementById('quest-primary-name')?.textContent;
-                    const secondaryName = document.getElementById('quest-secondary-name')?.textContent;
-                    const sagaName = document.getElementById('quest-saga-name')?.textContent;
-
-                    if (primaryName && primaryName !== 'Quest Name') {
-                        matchedAdventures.push({ id: primaryName.toLowerCase().replace(/\s+/g, '-'), name: primaryName });
-                    }
-                    if (secondaryName && secondaryName !== 'Quest Name') {
-                        matchedAdventures.push({ id: secondaryName.toLowerCase().replace(/\s+/g, '-'), name: secondaryName });
-                    }
-                    if (sagaName && sagaName !== 'Quest Name') {
-                        matchedAdventures.push({ id: sagaName.toLowerCase().replace(/\s+/g, '-'), name: sagaName });
-                    }
-
-                    // Disable button while processing
-                    questSaveBtn.disabled = true;
-                    questSaveBtn.textContent = 'Saving...';
-
-                    // Check if user is signed in
-                    const user = window.auth?.getCurrentUser();
-
-                    if (user) {
-                        // User is signed in - save directly to Supabase
-                        try {
-                            await window.db.saveQuestResults(questState, matchedAdventures, { phone, whatsappOptIn });
-
-                            // Also submit to Netlify Forms for backup
-                            const formData = new FormData(newForm);
-                            fetch('/', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                                body: new URLSearchParams(formData).toString()
-                            }).catch(() => {});
-
-                            // Show success
-                            newForm.classList.add('hidden');
-                            if (questEmailSuccess) questEmailSuccess.classList.remove('hidden');
-
-                            // Celebration
-                            if (typeof spawnConfetti === 'function') spawnConfetti(30);
-                            if (typeof showXpPopup === 'function') showXpPopup(150, window.innerWidth / 2, window.innerHeight / 2);
-                        } catch (error) {
-                            console.error('Error saving quest:', error);
-                            questSaveBtn.disabled = false;
-                            questSaveBtn.textContent = 'Save my matches';
-                        }
-                    } else {
-                        // User not signed in - store pending data and show sign-in modal
-                        sessionStorage.setItem('pendingQuest', JSON.stringify({
-                            questState,
-                            matchedAdventures,
-                            phone,
-                            whatsappOptIn
-                        }));
-
-                        // Also submit to Netlify Forms
-                        const formData = new FormData(newForm);
-                        fetch('/', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                            body: new URLSearchParams(formData).toString()
-                        }).catch(() => {});
-
-                        // Show sign-in modal with prefilled email
-                        window.auth.showSignInModal(email);
-
-                        // Show success message
-                        newForm.classList.add('hidden');
-                        if (questEmailSuccess) {
-                            questEmailSuccess.innerHTML = `
-                                <p class="text-lg text-white mb-1">Check your email!</p>
-                                <p class="text-sm text-steel-400">Click the magic link to sign in and access your matches from any device.</p>
-                            `;
-                            questEmailSuccess.classList.remove('hidden');
-                        }
-
-                        // Celebration
-                        if (typeof spawnConfetti === 'function') spawnConfetti(20);
-                    }
-                });
-            }
-        })();
-    </script>
-
-    <script>
-        // ========================================
-        // NOTIFY ME FORM
-        // ========================================
-        (function() {
-            'use strict';
-
-            const notifyForm = document.getElementById('notify-form');
-            const notifySuccess = document.getElementById('notify-success');
-            const notifySubmit = document.getElementById('notify-submit');
-
-            if (!notifyForm) return;
-
-            // Toggle visual state on checkbox labels
-            notifyForm.querySelectorAll('.notify-interest input[type="checkbox"]').forEach(function(cb) {
-                cb.addEventListener('change', function() {
-                    const label = cb.closest('label');
-                    if (cb.checked) {
-                        label.classList.add('border-bmw-500/50', 'bg-bmw-500/5');
-                        label.querySelector('svg').classList.remove('hidden');
-                    } else {
-                        label.classList.remove('border-bmw-500/50', 'bg-bmw-500/5');
-                        label.querySelector('svg').classList.add('hidden');
-                    }
-                });
-            });
-
-            notifyForm.addEventListener('submit', async function(e) {
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-
-                var checked = notifyForm.querySelectorAll('input[name="interests"]:checked');
+                const checked = form.querySelectorAll('input[name="interests"]:checked');
                 if (checked.length === 0) {
-                    notifySubmit.textContent = 'Pick at least one interest';
-                    notifySubmit.classList.add('shake');
-                    setTimeout(function() {
-                        notifySubmit.textContent = 'Notify me';
-                        notifySubmit.classList.remove('shake');
-                    }, 1500);
+                    submit.textContent = 'Pick at least one';
+                    setTimeout(() => submit.textContent = 'Join the Circle', 1500);
                     return;
                 }
-
-                notifySubmit.disabled = true;
-                notifySubmit.textContent = 'Sending...';
-
+                submit.disabled = true; submit.textContent = 'Joining…';
                 try {
-                    var emailInput = notifyForm.querySelector('input[name="email"]');
-                    var email = emailInput ? emailInput.value.trim() : '';
-                    var interests = Array.prototype.map.call(checked, function(c) { return c.value; });
-
-                    if (!window.supabaseClient) throw new Error('Supabase client not ready');
-
-                    var res = await window.supabaseClient
+                    const email = form.querySelector('input[name="email"]').value.trim();
+                    const interests = Array.prototype.map.call(checked, c => c.value);
+                    if (!window.supabaseClient) throw new Error('Supabase not ready');
+                    const res = await window.supabaseClient
                         .from('launch_waitlist')
-                        .insert({ email: email, interests: interests, source: 'homepage-notify' });
+                        .insert({ email, interests, source: 'homepage-circle' });
                     if (res && res.error) throw res.error;
-
-                    notifyForm.classList.add('hidden');
-                    notifySuccess.classList.remove('hidden');
-
-                    if (typeof spawnConfetti === 'function') spawnConfetti(30);
-                    if (typeof showXpPopup === 'function') showXpPopup(50, window.innerWidth / 2, window.innerHeight / 2);
+                    form.classList.add('hidden');
+                    success.classList.remove('hidden');
                 } catch (err) {
-                    // Don't fake success — keep the form and tell the visitor how to reach us.
-                    console.error('Waitlist signup failed:', err);
-                    notifySubmit.disabled = false;
-                    notifySubmit.textContent = 'Try again — or email hello@educatedtraveler.app';
+                    console.error('Circle signup failed:', err);
+                    submit.disabled = false;
+                    submit.textContent = 'Try again — or email arnaudcallier@pm.me';
                 }
             });
         })();
     </script>
-
-    <script src="/js/community-sidebar.js"></script>
-    <script src="/js/recent-adventurers.js"></script>
-    <script src="/js/whatsapp-widget.js"></script>
 </body>
 </html>
