@@ -15,7 +15,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -24,16 +24,16 @@
                 extend: {
                     colors: {
                         'bmw': {
-                            50: '#e6f0fa',
-                            100: '#b3d1ef',
-                            200: '#80b3e4',
-                            300: '#4d94d9',
-                            400: '#3B8DD4',
-                            500: '#0066B1',
-                            600: '#00518d',
-                            700: '#003d6a',
-                            800: '#002846',
-                            900: '#001423',
+                            50: '#1c1813',
+                            100: '#a7cecb',
+                            200: '#a7cecb',
+                            300: '#6fa3a0',
+                            400: '#7fa8a5',
+                            500: '#5b8a89',
+                            600: '#5b8a89',
+                            700: '#38595b',
+                            800: '#14110d',
+                            900: '#0d0b09',
                         },
                         'steel': {
                             50: '#f5f5f5',
@@ -44,8 +44,8 @@
                             500: '#4a4a4a',
                             600: '#333333',
                             700: '#222222',
-                            800: '#161616',
-                            900: '#0a0a0a',
+                            800: '#1c1813',
+                            900: '#0d0b09',
                         }
                     }
                 }
@@ -54,13 +54,16 @@
     </script>
 
     <style>
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
+        .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
+
         :root {
-            --bmw-blue: #0066B1;
-            --bmw-light: #3B8DD4;
+            --bmw-blue: #5b8a89;
+            --bmw-light: #7fa8a5;
             --bmw-glow: rgba(0, 102, 177, 0.4);
             --bmw-subtle: rgba(0, 102, 177, 0.15);
-            --steel-bg: #0a0a0a;
-            --steel-surface: #161616;
+            --steel-bg: #0d0b09;
+            --steel-surface: #1c1813;
         }
 
         * { -webkit-font-smoothing: antialiased; }
@@ -68,13 +71,13 @@
         html { scroll-behavior: smooth; }
 
         .glass {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(243,237,226,0.025);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(243,237,226,0.09);
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
+            background: linear-gradient(135deg, #5b8a89 0%, #7fa8a5 100%);
             transition: all 0.3s ease;
             font-weight: 500;
         }
@@ -84,22 +87,22 @@
         }
 
         .profile-avatar {
-            background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%);
+            background: linear-gradient(135deg, #5b8a89 0%, #7fa8a5 100%);
         }
 
         .stat-card {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(243,237,226,0.09);
             transition: all 0.3s ease;
         }
 
         .cohort-card {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(243,237,226,0.09);
             transition: all 0.3s ease;
         }
         .cohort-card:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(243,237,226,0.04);
             border-color: var(--bmw-glow);
         }
 
@@ -112,14 +115,14 @@
             font-weight: 600;
         }
         .status-draft { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
-        .status-published { background: rgba(0,102,177,0.2); color: #3B8DD4; }
-        .status-full { background: rgba(0,102,177,0.3); color: #80b3e4; }
-        .status-in_progress { background: rgba(59,130,246,0.2); color: #60a5fa; }
+        .status-published { background: rgba(0,102,177,0.2); color: #7fa8a5; }
+        .status-full { background: rgba(0,102,177,0.3); color: #a7cecb; }
+        .status-in_progress { background: rgba(59,130,246,0.2); color: #9cc0bd; }
         .status-completed { background: rgba(139,92,246,0.2); color: #a78bfa; }
         .status-cancelled { background: rgba(239,68,68,0.2); color: #f87171; }
-        .status-pending { background: rgba(0,102,177,0.15); color: #4d94d9; }
-        .status-approved { background: rgba(0,102,177,0.2); color: #3B8DD4; }
-        .status-pending_review { background: rgba(245,158,11,0.18); color: #fbbf24; }
+        .status-pending { background: rgba(0,102,177,0.15); color: #6fa3a0; }
+        .status-approved { background: rgba(0,102,177,0.2); color: #7fa8a5; }
+        .status-pending_review { background: rgba(245,158,11,0.18); color: #e0b07a; }
 
         .enrollment-row {
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -135,7 +138,7 @@
         }
 
         input, select, textarea {
-            background: rgba(255, 255, 255, 0.03) !important;
+            background: rgba(243,237,226,0.025) !important;
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
             color: white !important;
         }
@@ -145,7 +148,7 @@
             box-shadow: 0 0 0 2px var(--bmw-subtle);
         }
         input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.3); }
-        select option { background: #111; color: white; }
+        select option { background: #14110d; color: white; }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -168,12 +171,12 @@
     <nav class="fixed top-0 left-0 right-0 z-50 glass">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" class="text-lg font-semibold tracking-wider">
-                EDUCATED<span class="text-bmw-400">TRAVELER</span>
+                EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span>
             </a>
             <div class="hidden md:flex items-center gap-8">
-                <a href="offerings.html" class="text-sm text-white/60 hover:text-white transition-colors">Adventures</a>
+                <a href="repertoire.html" class="text-sm text-white/60 hover:text-white transition-colors">Adventures</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
-                <a href="instructor-dashboard.html" class="text-sm px-4 py-2 rounded-full border border-bmw-400/50 text-bmw-400">
+                <a href="instructor-dashboard.html" class="text-sm px-4 py-2 rounded-full border border-bmw-400/50 text-[#7fa8a5]">
                     Instructor Dashboard
                 </a>
             </div>
@@ -185,9 +188,9 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
             <div class="px-6 py-4 space-y-3">
-                <a href="offerings.html" class="block py-3 text-white/70 hover:text-white transition-colors">Adventures</a>
+                <a href="repertoire.html" class="block py-3 text-white/70 hover:text-white transition-colors">Adventures</a>
                 <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
-                <a href="instructor-dashboard.html" class="block py-3 text-bmw-400 hover:text-bmw-300 transition-colors">Instructor Dashboard</a>
+                <a href="instructor-dashboard.html" class="block py-3 text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">Instructor Dashboard</a>
             </div>
         </div>
     </nav>
@@ -210,7 +213,7 @@
                 Sign In
             </a>
             <p class="text-white/30 text-xs mt-6">
-                Not an instructor yet? <a href="instructors.html" class="text-bmw-400 hover:text-bmw-300">Apply here</a>
+                Not an instructor yet? <a href="instructors.html" class="text-[#7fa8a5] hover:text-[#9cc0bd]">Apply here</a>
             </p>
         </div>
     </div>
@@ -237,7 +240,7 @@
             <h1 class="text-2xl font-light mb-4">Application under review</h1>
             <p class="text-white/50 text-sm mb-4">We've received your application and are reviewing it. We'll be in touch soon.</p>
             <p class="text-white/30 text-xs">
-                Questions? Email <a href="mailto:arnaudcallier@pm.me" class="text-bmw-400">arnaudcallier@pm.me</a>
+                Questions? Email <a href="mailto:arnaudcallier@pm.me" class="text-[#7fa8a5]">arnaudcallier@pm.me</a>
             </p>
             <p class="text-white/30 text-xs mt-6">
                 <button id="pending-sign-out" class="text-white/40 hover:text-white transition-colors underline">Sign out</button>
@@ -265,7 +268,7 @@
                             <p id="profile-location" class="text-white/30 text-xs mt-1"></p>
                         </div>
                         <div class="flex items-center gap-2">
-                            <button id="edit-profile-btn" class="text-sm text-bmw-400/70 hover:text-bmw-400 transition-colors px-4 py-2 rounded-full border border-bmw-400/30 hover:border-bmw-400/50">
+                            <button id="edit-profile-btn" class="text-sm text-[#7fa8a5]/70 hover:text-[#7fa8a5] transition-colors px-4 py-2 rounded-full border border-bmw-400/30 hover:border-bmw-400/50">
                                 Edit Profile
                             </button>
                             <button id="sign-out-btn" class="text-sm text-white/50 hover:text-white transition-colors px-4 py-2 rounded-full border border-white/10 hover:border-white/20">
@@ -295,7 +298,7 @@
                             <textarea id="edit-approach" rows="2" class="w-full rounded-xl px-4 py-3 text-sm" placeholder="How do you teach? What makes your method different?"></textarea>
                         </div>
                         <div class="flex items-center gap-3">
-                            <button id="save-profile-btn" class="text-sm px-6 py-2 rounded-full bg-bmw-500 text-white hover:bg-bmw-400 transition-colors">Save</button>
+                            <button id="save-profile-btn" class="text-sm px-6 py-2 rounded-full bg-[#5b8a89] text-white hover:bg-bmw-400 transition-colors">Save</button>
                             <button id="cancel-profile-btn" class="text-sm text-white/40 hover:text-white transition-colors">Cancel</button>
                         </div>
                     </div>
@@ -306,19 +309,19 @@
             <section class="mb-10 fade-up delay-1">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-cohorts" class="text-2xl font-light text-bmw-400">0</p>
+                        <p id="stat-cohorts" class="text-2xl font-light text-[#7fa8a5]">0</p>
                         <p class="text-white/40 text-xs mt-1">Cohorts</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-published" class="text-2xl font-light text-bmw-400">0</p>
+                        <p id="stat-published" class="text-2xl font-light text-[#7fa8a5]">0</p>
                         <p class="text-white/40 text-xs mt-1">Published</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-students" class="text-2xl font-light text-blue-400">0</p>
+                        <p id="stat-students" class="text-2xl font-light text-[#7fa8a5]">0</p>
                         <p class="text-white/40 text-xs mt-1">Students</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="stat-spots" class="text-2xl font-light text-purple-400">0</p>
+                        <p id="stat-spots" class="text-2xl font-light text-[#c08a6a]">0</p>
                         <p class="text-white/40 text-xs mt-1">Spots Left</p>
                     </div>
                 </div>
@@ -347,19 +350,19 @@
                 <!-- Revenue summary (shown when Stripe connected) -->
                 <div id="stripe-revenue-summary" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="rev-paid-students" class="text-2xl font-light text-bmw-400">0</p>
+                        <p id="rev-paid-students" class="text-2xl font-light text-[#7fa8a5]">0</p>
                         <p class="text-white/40 text-xs mt-1">Paid Students</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="rev-gross" class="text-2xl font-light text-bmw-400">$0</p>
+                        <p id="rev-gross" class="text-2xl font-light text-[#7fa8a5]">$0</p>
                         <p class="text-white/40 text-xs mt-1">Gross Revenue</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="rev-payout" class="text-2xl font-light text-emerald-400">$0</p>
+                        <p id="rev-payout" class="text-2xl font-light text-[#7fa8a5]">$0</p>
                         <p class="text-white/40 text-xs mt-1">Your Payout (90%)</p>
                     </div>
                     <div class="stat-card rounded-xl p-5 text-center">
-                        <p id="rev-pending" class="text-2xl font-light text-amber-400">0</p>
+                        <p id="rev-pending" class="text-2xl font-light text-[#d28a52]">0</p>
                         <p class="text-white/40 text-xs mt-1">Pending</p>
                     </div>
                 </div>
@@ -370,7 +373,7 @@
             <section class="mb-10 fade-up delay-2">
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-lg font-light">Your Cohorts</h2>
-                    <button id="create-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">
+                    <button id="create-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">
                         + New Cohort
                     </button>
                 </div>
@@ -378,7 +381,7 @@
                 <div id="cohorts-container">
                     <div id="no-cohorts" class="glass rounded-xl p-10 text-center">
                         <p class="text-white/30 text-sm mb-4">No cohorts yet. Create your first one to start accepting students.</p>
-                        <button id="create-first-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">
+                        <button id="create-first-cohort-btn" class="text-sm px-5 py-2 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">
                             Create Your First Cohort
                         </button>
                     </div>
@@ -458,7 +461,7 @@
 
                 <div class="pt-2">
                     <button type="submit" id="cohort-submit-btn"
-                        class="w-full py-3 bg-bmw-500 text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
+                        class="w-full py-3 bg-[#5b8a89] text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
                         Create Cohort
                     </button>
                     <p class="text-white/30 text-xs text-center mt-3">Created as draft. You can publish when ready.</p>
@@ -493,7 +496,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <label class="text-sm text-white/40">Curriculum (phases/weeks)</label>
-                        <button type="button" id="add-phase-btn" class="text-xs text-bmw-400 hover:text-bmw-300">+ Add Phase</button>
+                        <button type="button" id="add-phase-btn" class="text-xs text-[#7fa8a5] hover:text-[#9cc0bd]">+ Add Phase</button>
                     </div>
                     <div id="curriculum-container" class="space-y-3"></div>
                 </div>
@@ -502,14 +505,14 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <label class="text-sm text-white/40">What's Included</label>
-                        <button type="button" id="add-included-btn" class="text-xs text-bmw-400 hover:text-bmw-300">+ Add Item</button>
+                        <button type="button" id="add-included-btn" class="text-xs text-[#7fa8a5] hover:text-[#9cc0bd]">+ Add Item</button>
                     </div>
                     <div id="included-container" class="space-y-3"></div>
                 </div>
 
                 <div class="pt-2">
                     <button type="submit" id="experience-submit-btn"
-                        class="w-full py-3 bg-bmw-500 text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
+                        class="w-full py-3 bg-[#5b8a89] text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
                         Save Experience Details
                     </button>
                 </div>
@@ -538,7 +541,7 @@
                     <input type="email" id="invite-email" placeholder="student@email.com"
                         class="flex-1 rounded-xl px-4 py-3 text-sm">
                     <button id="invite-student-btn"
-                        class="px-5 py-3 bg-bmw-500/20 text-bmw-400 rounded-xl text-sm hover:bg-bmw-500/30 transition-colors">
+                        class="px-5 py-3 bg-[#5b8a89]/20 text-[#7fa8a5] rounded-xl text-sm hover:bg-[#5b8a89]/30 transition-colors">
                         Send Invite
                     </button>
                 </div>
@@ -601,7 +604,7 @@
 
             <div id="contact-success" class="hidden text-center py-6">
                 <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center" style="background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);">
-                    <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <svg class="w-6 h-6 text-[#7fa8a5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 </div>
                 <p class="text-white text-sm mb-1">Sent.</p>
                 <p class="text-white/40 text-xs">Arnaud's been notified. Check your inbox for a copy.</p>
@@ -642,12 +645,12 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-bmw-400">TRAVELER</span></p>
+                    <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span></p>
                     <p class="text-white/40 text-sm">Earned, not bought. Certified at the source.</p>
                 </div>
                 <div class="flex items-center gap-6">
                     <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
-                    <a href="offerings.html" class="text-white/50 hover:text-white text-sm transition-colors">Adventures</a>
+                    <a href="repertoire.html" class="text-white/50 hover:text-white text-sm transition-colors">Adventures</a>
                     <a href="mailto:arnaudcallier@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
                 </div>
             </div>
@@ -820,7 +823,7 @@
                 loadingState.innerHTML = `
                     <div class="text-center">
                         <p class="text-red-400 mb-4">Error loading dashboard</p>
-                        <button onclick="window.location.reload()" class="text-bmw-400 hover:text-bmw-300">Try again</button>
+                        <button onclick="window.location.reload()" class="text-[#7fa8a5] hover:text-[#9cc0bd]">Try again</button>
                     </div>
                 `;
             }
@@ -1213,7 +1216,7 @@
                                 <span class="status-badge status-${cohort.status}">${cohort.status.replace('_', ' ')}</span>
                             </div>
                             <p class="text-white/40 text-xs">${escapeHtml(cohort.location || '')} ${cohort.location && dateRange !== 'TBD' ? '·' : ''} ${dateRange} ${price ? '· ' + price : ''}</p>
-                            ${expLabel ? `<p class="text-bmw-400/60 text-xs mt-1">Linked: ${escapeHtml(expLabel)}</p>` : ''}
+                            ${expLabel ? `<p class="text-[#7fa8a5]/60 text-xs mt-1">Linked: ${escapeHtml(expLabel)}</p>` : ''}
                         </div>
                         <div class="flex items-center gap-2 flex-wrap">
                             ${isLocked ? '' : `
@@ -1223,17 +1226,17 @@
                                 </button>`}
                             ${cohort.adventure_id && !isLocked ? `
                                 <button data-edit-experience="${cohort.id}" data-adventure-id="${cohort.adventure_id}"
-                                    class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-bmw-400/70 hover:bg-bmw-400/10 transition-colors">
+                                    class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-[#7fa8a5]/70 hover:bg-bmw-400/10 transition-colors">
                                     Experience
                                 </button>
                             ` : ''}
                             <button data-manage-students="${cohort.id}"
-                                class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-bmw-400/70 hover:bg-bmw-500/10 transition-colors">
+                                class="text-xs px-4 py-1.5 rounded-full border border-bmw-400/30 text-[#7fa8a5]/70 hover:bg-[#5b8a89]/10 transition-colors">
                                 Students
                             </button>
                             ${isDraft ? `
                                 <button data-submit-review="${cohort.id}"
-                                    class="text-xs px-4 py-1.5 rounded-full border border-bmw-500/50 text-bmw-400 hover:bg-bmw-500/10 transition-colors">
+                                    class="text-xs px-4 py-1.5 rounded-full border border-[#5b8a89]/50 text-[#7fa8a5] hover:bg-[#5b8a89]/10 transition-colors">
                                     Submit for review
                                 </button>
                             ` : ''}
@@ -1248,20 +1251,20 @@
 
                     ${isPendingReview ? `
                         <div class="rounded-lg p-3 mb-4 flex items-start gap-3" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);">
-                            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <div class="text-xs text-amber-400/90">
+                            <svg class="w-4 h-4 text-[#d28a52] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <div class="text-xs text-[#d28a52]/90">
                                 <span class="font-medium">In review with Arnaud.</span>
-                                <span class="text-amber-400/60">Editing is paused until it's approved or sent back. Average turnaround: 24h.</span>
+                                <span class="text-[#d28a52]/60">Editing is paused until it's approved or sent back. Average turnaround: 24h.</span>
                             </div>
                         </div>
                     ` : ''}
 
                     ${cohort.review_notes && isDraft ? `
                         <div class="rounded-lg p-3 mb-4 flex items-start gap-3" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.25);">
-                            <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                            <svg class="w-4 h-4 text-[#d28a52] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                             <div class="text-xs">
-                                <p class="font-medium text-amber-400 mb-1">Arnaud requested changes:</p>
-                                <p class="text-amber-400/80">${escapeHtml(cohort.review_notes)}</p>
+                                <p class="font-medium text-[#d28a52] mb-1">Arnaud requested changes:</p>
+                                <p class="text-[#d28a52]/80">${escapeHtml(cohort.review_notes)}</p>
                             </div>
                         </div>
                     ` : ''}
@@ -1272,10 +1275,10 @@
                     <div class="mb-4">
                         <div class="flex items-center justify-between text-xs mb-1">
                             <span class="text-white/40">${enrolledCount} / ${cohort.capacity} students</span>
-                            <span class="${isFilling ? 'text-bmw-400' : 'text-white/30'}">${Math.round(capacityPercent)}% full</span>
+                            <span class="${isFilling ? 'text-[#7fa8a5]' : 'text-white/30'}">${Math.round(capacityPercent)}% full</span>
                         </div>
                         <div class="capacity-bar h-1.5 rounded-full">
-                            <div class="capacity-fill h-full rounded-full ${isFilling ? 'bg-bmw-400' : 'bg-bmw-500'}" style="width: ${capacityPercent}%"></div>
+                            <div class="capacity-fill h-full rounded-full ${isFilling ? 'bg-bmw-400' : 'bg-[#5b8a89]'}" style="width: ${capacityPercent}%"></div>
                         </div>
                     </div>
 
@@ -1283,7 +1286,7 @@
                         <div class="grid grid-cols-3 gap-3 mb-4 p-3 rounded-lg bg-white/[0.02] border border-white/5">
                             <div>
                                 <p class="text-[10px] uppercase tracking-wider text-white/30">Paid</p>
-                                <p class="text-sm text-white/80">${rev.paid_count} ${rev.pending_count > 0 ? `<span class="text-amber-400/70">+ ${rev.pending_count} pending</span>` : ''}</p>
+                                <p class="text-sm text-white/80">${rev.paid_count} ${rev.pending_count > 0 ? `<span class="text-[#d28a52]/70">+ ${rev.pending_count} pending</span>` : ''}</p>
                             </div>
                             <div>
                                 <p class="text-[10px] uppercase tracking-wider text-white/30">Gross</p>
@@ -1291,7 +1294,7 @@
                             </div>
                             <div>
                                 <p class="text-[10px] uppercase tracking-wider text-white/30">Your Payout</p>
-                                <p class="text-sm text-emerald-400">${fmtUSD(Math.round((rev.gross_cents || 0) * 0.9))}</p>
+                                <p class="text-sm text-[#7fa8a5]">${fmtUSD(Math.round((rev.gross_cents || 0) * 0.9))}</p>
                             </div>
                         </div>
                     ` : ''}
@@ -1299,7 +1302,7 @@
                     <!-- Awaiting confirmation -->
                     ${awaiting.length > 0 ? `
                         <div class="rounded-lg p-4 mb-4" style="background:rgba(56,189,248,0.05);border:1px solid rgba(56,189,248,0.22);">
-                            <p class="text-[10px] uppercase tracking-wider text-sky-300/80 mb-3 font-mono">Awaiting your confirmation (${awaiting.length})</p>
+                            <p class="text-[10px] uppercase tracking-wider text-[#9cc0bd]/80 mb-3 font-mono">Awaiting your confirmation (${awaiting.length})</p>
                             ${awaiting.map(e => {
                                 const paidLabel = e.payment_status === 'deposit_paid'
                                     ? 'Deposit ' + fmtUSD(e.amount_paid_cents || 0) + ' paid · balance ' + fmtUSD(e.balance_cents || 0) + (e.balance_due_date ? ' due ' + new Date(e.balance_due_date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }) : '')
@@ -1311,7 +1314,7 @@
                                         <p class="text-white/40 text-xs">${escapeHtml(paidLabel)}</p>
                                     </div>
                                     <div class="flex gap-2 flex-shrink-0">
-                                        <button data-confirm-enrollment="${e.id}" class="text-xs px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 transition-colors">Confirm</button>
+                                        <button data-confirm-enrollment="${e.id}" class="text-xs px-3 py-1.5 rounded-full bg-[#5b8a89]/20 text-[#9cc0bd] hover:bg-[#5b8a89]/30 transition-colors">Confirm</button>
                                         <button data-decline-enrollment="${e.id}" class="text-xs px-3 py-1.5 rounded-full border border-white/15 text-white/50 hover:bg-white/5 transition-colors">Decline</button>
                                     </div>
                                 </div>`;
@@ -1477,13 +1480,13 @@
                 // Future: save to a cohort_experience_overrides table
                 const submitBtn = document.getElementById('experience-submit-btn');
                 submitBtn.textContent = 'Saved!';
-                submitBtn.classList.remove('bg-bmw-500');
-                submitBtn.classList.add('bg-bmw-500');
+                submitBtn.classList.remove('bg-[#5b8a89]');
+                submitBtn.classList.add('bg-[#5b8a89]');
                 setTimeout(() => {
                     modal.classList.add('hidden');
                     submitBtn.textContent = 'Save Experience Details';
-                    submitBtn.classList.add('bg-bmw-500');
-                    submitBtn.classList.remove('bg-bmw-500');
+                    submitBtn.classList.add('bg-[#5b8a89]');
+                    submitBtn.classList.remove('bg-[#5b8a89]');
                 }, 800);
             });
         }
@@ -1559,14 +1562,14 @@
                 // For now, show confirmation — full invite flow requires edge function
                 setTimeout(() => {
                     btn.textContent = 'Invite Sent!';
-                    btn.classList.remove('bg-bmw-500/20', 'text-bmw-400');
-                    btn.classList.add('bg-bmw-500/40', 'text-bmw-300');
+                    btn.classList.remove('bg-[#5b8a89]/20', 'text-[#7fa8a5]');
+                    btn.classList.add('bg-[#5b8a89]/40', 'text-[#9cc0bd]');
                     emailInput.value = '';
                     setTimeout(() => {
                         btn.disabled = false;
                         btn.textContent = 'Send Invite';
-                        btn.classList.add('bg-bmw-500/20', 'text-bmw-400');
-                        btn.classList.remove('bg-bmw-500/40', 'text-bmw-300');
+                        btn.classList.add('bg-[#5b8a89]/20', 'text-[#7fa8a5]');
+                        btn.classList.remove('bg-[#5b8a89]/40', 'text-[#9cc0bd]');
                     }, 2000);
                 }, 500);
             });
