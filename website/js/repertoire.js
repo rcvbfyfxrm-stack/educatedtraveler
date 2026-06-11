@@ -9509,6 +9509,1044 @@ window.ET_ATLAS = {
     "priceNote": "$12,000 (early) – $13,500 USD (accommodation included)",
     "confidence": "high"
    }
+  },
+  {
+   "discipline": "Sichuan & Chinese Cuisine",
+   "category": "culinary",
+   "certBody": "Sichuan Higher Institute of Cuisine (四川烹饪高等专科学校) — China's first dedicated culinary college",
+   "goldCredential": "Sichuan Cuisine certificate of completion (intensive program), or a Chinese vocational chef qualification via the full multi-month chef training track",
+   "certShort": "Sichuan Higher Institute of Cuisine",
+   "blurb": "The mala fire of Sichuan — numbing peppercorn, dried chilli, fermented bean paste and the wok hei of a screaming flame — codified in the city that defined Chinese restaurant cooking. Chengdu is the recognized birthplace of the Sichuan canon and home to China's first cuisine college.",
+   "destinations": [
+    {
+     "place": "Chengdu",
+     "country": "China",
+     "region": "East Asia",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Sichuan Higher Institute of Cuisine",
+      "New Asia Cooking School (Chengdu)",
+      "Sichuan Cuisine Museum (cooking studio)",
+      "Chilli Cool China Cooking School"
+     ],
+     "masters": [],
+     "badges": [
+      "source",
+      "scene",
+      "mecca",
+      "school",
+      "heritage"
+     ],
+     "why": "A UNESCO City of Gastronomy and home to China's first culinary college, where you tour the chilli and Pixian doubanjiang markets then learn mapo tofu and twice-cooked pork over a real wok flame.",
+     "bestSeason": "Sep-Nov",
+     "level": "Beginner -> Professional",
+     "id": "sichuan-and-chinese-cuisine--chengdu"
+    },
+    {
+     "place": "Hong Kong",
+     "country": "China",
+     "region": "East Asia",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "International Culinary Institute (ICI)",
+      "Chinese Culinary Institute (CCI)",
+      "Towngas Cooking Centre"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school",
+      "gold-cred"
+     ],
+     "why": "Hong Kong's government-run Chinese Culinary Institute teaches Cantonese and pan-Chinese technique to a recognized diploma standard, the closest thing to a formal Chinese-cuisine credential.",
+     "bestSeason": "Oct-Mar",
+     "level": "Intermediate -> Professional",
+     "id": "sichuan-and-chinese-cuisine--hong-kong"
+    },
+    {
+     "place": "Xi'an",
+     "country": "China",
+     "region": "East Asia",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Strong",
+     "schools": [
+      "New East Cooking School (Xi'an)",
+      "Local hand-pulled noodle and roujiamo workshops"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "heritage"
+     ],
+     "why": "The old Silk Road capital is the place to learn biang-biang hand-pulled noodles, roujiamo and the wheat-and-cumin northwestern table beside the Muslim Quarter.",
+     "bestSeason": "Apr-Oct",
+     "level": "Beginner -> Intermediate",
+     "id": "sichuan-and-chinese-cuisine--xian"
+    }
+   ],
+   "id": "sichuan-and-chinese-cuisine",
+   "featured": {
+    "id": "sichuan-and-chinese-cuisine--chengdu",
+    "place": "Chengdu",
+    "country": "China",
+    "school": "Sichuan Higher Institute of Cuisine",
+    "url": "http://www.admissions.cn/shic/en1.html",
+    "course": "Two-Week Intensive Sichuan Cuisine Course (English-language program for international students)",
+    "description": "An English-language intensive in Sichuan cooking run for home and professional cooks from overseas, with chef instructors and interpreters at China's first dedicated culinary college. Sessions combine demonstration and hands-on wok practice, building the Sichuan repertoire — mapo tofu, kung pao chicken, twice-cooked pork, fish-fragrant dishes — alongside knife work, the mala flavour balance and visits to the chilli and doubanjiang markets. The institute also runs longer multi-month chef training tracks toward a Chinese vocational qualification.",
+    "duration": "About two weeks, full-day sessions",
+    "format": "Intensive demonstration plus hands-on wok practice, with English-speaking instructors/translators",
+    "certification": "Certificate of completion (intensive); Chinese vocational chef qualification on the full chef training track",
+    "fitsBecause": "A hands-on Sichuan cookery intensive taught in English at the discipline's source college in Chengdu, market tours included.",
+    "sessions": [],
+    "priceNote": "Confirm current dates and tuition directly with the institute; the English intensive has historically run a couple of times per year.",
+    "confidence": "medium",
+    "sources": [
+     "http://www.admissions.cn/shic/en1.html",
+     "https://www.synotrip.com/sichuan-province/yefei/sichuan-higher-institute-cuisine",
+     "https://thomas-dubois.com/2020/08/23/cooking-school-sichuan-edition/"
+    ]
+   }
+  },
+  {
+   "discipline": "Korean Cuisine (Hansik)",
+   "category": "culinary",
+   "certBody": "Korean Food Promotion Institute / Ministry of Agriculture, Food and Rural Affairs (hansik); Le Cordon Bleu–Sookmyung Academy for accredited diplomas",
+   "goldCredential": "Le Cordon Bleu Diplôme de Cuisine (Seoul) or a hansik certificate from an accredited Korean culinary academy",
+   "certShort": "Le Cordon Bleu–Sookmyung",
+   "blurb": "Hansik — the rice, soup and banchan table built on jang (fermented soy, gochujang, doenjang), kimchi and the slow art of jangttok fermentation. Seoul is its modern capital, from royal court cuisine to the temple kitchens just outside the city.",
+   "destinations": [
+    {
+     "place": "Seoul",
+     "country": "South Korea",
+     "region": "East Asia",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Le Cordon Bleu–Sookmyung Academy",
+      "Food & Culture Academy Korea",
+      "Institute of Traditional Korean Food",
+      "O'ngo Food Communications"
+     ],
+     "masters": [],
+     "badges": [
+      "source",
+      "scene",
+      "mecca",
+      "school",
+      "gold-cred"
+     ],
+     "why": "The capital holds royal court cuisine, the jang markets and Korea's only Le Cordon Bleu campus, plus academies devoted to traditional hansik and kimchi.",
+     "bestSeason": "Sep-Nov",
+     "level": "Beginner -> Professional",
+     "id": "korean-cuisine-hansik--seoul"
+    },
+    {
+     "place": "Jeonju",
+     "country": "South Korea",
+     "region": "East Asia",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "Jeonju Hanok Village cooking workshops",
+      "Local bibimbap and kimchi (gimjang) classes"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "heritage"
+     ],
+     "why": "A UNESCO City of Gastronomy and the home of bibimbap, where the hanok-village kitchens teach the most heritage-dense regional hansik in the country.",
+     "bestSeason": "Sep-Nov",
+     "level": "Beginner -> Intermediate",
+     "id": "korean-cuisine-hansik--jeonju"
+    },
+    {
+     "place": "Mount Jiri / temple kitchens",
+     "country": "South Korea",
+     "region": "East Asia",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Hidden-gem",
+     "schools": [
+      "Korean Buddhist temple-food programs (templestay)",
+      "Sanchon-style temple cuisine workshops"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "heritage",
+      "lineage"
+     ],
+     "why": "Temple-stay kitchens teach Korean Buddhist cuisine — no garlic, onion or animal stock, all built on mountain vegetables and decades-aged jang — a meditative root of hansik.",
+     "bestSeason": "Apr-Jun",
+     "level": "Beginner -> Intermediate",
+     "id": "korean-cuisine-hansik--mount-jiri-temple-kitchens"
+    }
+   ],
+   "id": "korean-cuisine-hansik",
+   "featured": {
+    "id": "korean-cuisine-hansik--seoul",
+    "place": "Seoul",
+    "country": "South Korea",
+    "school": "Le Cordon Bleu–Sookmyung Academy",
+    "url": "https://www.cordonbleu.edu/seoul/diplome-de-cuisine/en",
+    "course": "Diplôme de Cuisine",
+    "description": "A nine-month, 540-hour professional cuisine diploma across three tiers — Basic, Intermediate and Superior Cuisine — at Le Cordon Bleu's only Korean campus, on the Sookmyung Women's University grounds in central Seoul. Classes run roughly 18 hours a week through demonstration and hands-on practical kitchens, taught in English with consecutive Korean translation. The core curriculum is classic French technique; students base themselves in Seoul, the centre of the hansik scene, with its jang markets and royal-cuisine and traditional-Korean-food academies nearby.",
+    "duration": "9 months (3 semesters), 540 hours",
+    "format": "Full-time, demonstration plus practical kitchens; English with Korean translation",
+    "certification": "Diplôme de Cuisine (Le Cordon Bleu)",
+    "fitsBecause": "Korea's only accredited Le Cordon Bleu campus, a full professional cuisine diploma based in the heart of the hansik capital.",
+    "sessions": [],
+    "priceNote": "Tuition set per intake; confirm current fees and start dates with the Seoul campus.",
+    "confidence": "high",
+    "sources": [
+     "https://www.cordonbleu.edu/seoul/diplome-de-cuisine/en",
+     "https://www.cordonbleu.edu/seoul/programmes/en",
+     "https://www.korea.net/NewsFocus/Culture/view?articleId=286496"
+    ]
+   }
+  },
+  {
+   "discipline": "Vietnamese Cuisine",
+   "category": "culinary",
+   "certBody": "— (no single accrediting body; reputation-led private cooking schools)",
+   "goldCredential": "Cooking-school certificate of completion plus a take-home recipe repertoire and market/herb-garden fieldwork",
+   "certShort": "—",
+   "blurb": "The herb-forward, broth-deep cooking of Vietnam — pho, fresh and fried rolls, clay-pot fish, nuoc cham balance and a tableful of raw herbs. Hoi An, the old trading port of central Vietnam, is its most concentrated cooking-school town, with market-to-table classes built around organic herb villages.",
+   "destinations": [
+    {
+     "place": "Hoi An",
+     "country": "Vietnam",
+     "region": "Southeast Asia",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Vy's Market Restaurant & Cooking School (Ms Vy / Taste Vietnam)",
+      "Red Bridge Cooking School",
+      "Green Bamboo Cooking School",
+      "Morning Glory Cooking School"
+     ],
+     "masters": [
+      "Trinh Diem Vy (Ms Vy, Taste Vietnam)"
+     ],
+     "badges": [
+      "source",
+      "scene",
+      "mecca",
+      "master",
+      "school"
+     ],
+     "why": "The densest cluster of cooking schools in Vietnam, where classes start in the central market or the Tra Que herb village and run through pho, banh xeo, fresh rolls and clay-pot fish.",
+     "bestSeason": "Feb-Apr",
+     "level": "Beginner -> Professional",
+     "id": "vietnamese-cuisine--hoi-an"
+    },
+    {
+     "place": "Ho Chi Minh City (Saigon)",
+     "country": "Vietnam",
+     "region": "Southeast Asia",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "GRAIN Cooking Studio (Luke Nguyen)",
+      "Saigon Cooking Class by Hoa Tuc",
+      "Vietnam Cookery Center"
+     ],
+     "masters": [
+      "Luke Nguyen (GRAIN)"
+     ],
+     "badges": [
+      "scene",
+      "master",
+      "school"
+     ],
+     "why": "The southern food capital pairs market tours with celebrity-chef studios, teaching the sweeter, herb-piled southern style and the city's street-food canon.",
+     "bestSeason": "Dec-Apr",
+     "level": "Beginner -> Intermediate",
+     "id": "vietnamese-cuisine--ho-chi-minh-city-saigon"
+    },
+    {
+     "place": "Hanoi",
+     "country": "Vietnam",
+     "region": "Southeast Asia",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Strong",
+     "schools": [
+      "Hanoi Cooking Centre",
+      "Apron Up Cooking Class",
+      "Old Hanoi street-food and pho workshops"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "heritage"
+     ],
+     "why": "The northern capital is the home ground of pho and bun cha, with classes rooted in the Old Quarter's subtler, less-sweet northern cooking.",
+     "bestSeason": "Oct-Apr",
+     "level": "Beginner -> Intermediate",
+     "id": "vietnamese-cuisine--hanoi"
+    }
+   ],
+   "id": "vietnamese-cuisine",
+   "featured": {
+    "id": "vietnamese-cuisine--hoi-an",
+    "place": "Hoi An",
+    "country": "Vietnam",
+    "school": "Vy's Market Restaurant & Cooking School (Taste Vietnam)",
+    "url": "https://tastevietnam.asia/vietnamese-cooking-classes-hoi-an",
+    "course": "Advanced Masterclass",
+    "description": "A hands-on masterclass pitched at keen home cooks and professional chefs with solid knife skills, running roughly 08:30–13:30. It opens with a walk to Hoi An's central market and a tour of the restaurant's live cooking and tastings, then the group cooks a four-course family-style Vietnamese lunch — starter, main, side and dessert — from raw ingredients around a large kitchen table. Vy's runs a ladder of classes, so beginners and longer multi-session itineraries can be arranged from the same school.",
+    "duration": "Half day, about 08:30–13:30",
+    "format": "Small-group hands-on class with market tour; advanced level",
+    "certification": "Certificate of completion (no national culinary accreditation)",
+    "fitsBecause": "The professional-level masterclass at Hoi An's best-known cooking school, market tour included, in Vietnam's densest cooking-school town.",
+    "sessions": [],
+    "priceNote": "Around 925,000 VND for the Advanced Masterclass; confirm current price and schedule with the school.",
+    "confidence": "medium",
+    "sources": [
+     "https://tastevietnam.asia/vietnamese-cooking-classes-hoi-an",
+     "https://www.byfood.com/vietnam-professional-cooking-classes"
+    ]
+   }
+  },
+  {
+   "discipline": "Asado & Open-Fire Cooking",
+   "category": "culinary",
+   "certBody": "—",
+   "goldCredential": "No formal certificate; you leave able to build and read a parrilla, manage seven kinds of fire, and cook whole cuts, fish and vegetables over wood and embers",
+   "certShort": "—",
+   "blurb": "The Argentine craft of cooking over live wood fire and embers — from the parrilla grill and asador cross to clay, ash and infiernillo — rooted in the gaucho estancias of the Pampas and Patagonia.",
+   "destinations": [
+    {
+     "place": "Patagonia / Buenos Aires",
+     "country": "Argentina",
+     "region": "Latin America",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Francis Mallmann (La Isla, Lago La Plata)",
+      "Estancia Nibepo Aike (El Calafate)",
+      "The Asado Experience (Buenos Aires)",
+      "AsadoAdventure (Buenos Aires)"
+     ],
+     "masters": [
+      "Francis Mallmann"
+     ],
+     "badges": [
+      "source",
+      "scene",
+      "mecca",
+      "master",
+      "heritage",
+      "lineage"
+     ],
+     "why": "Argentina is the home of asado, where gaucho estancias slow-cook whole lamb on the iron cross and Francis Mallmann turned seven kinds of fire into a discipline studied worldwide.",
+     "bestSeason": "Nov-Mar",
+     "level": "Beginner -> Professional",
+     "id": "asado-and-open-fire-cooking--patagonia-buenos-aires"
+    },
+    {
+     "place": "Montevideo",
+     "country": "Uruguay",
+     "region": "Latin America",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "Mercado del Puerto parrillas",
+      "Estancia VIK José Ignacio"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "heritage"
+     ],
+     "why": "Uruguay grills more beef per head than almost anywhere, and the wood-fired parrillas of the Mercado del Puerto are a living school of the asado craft.",
+     "bestSeason": "Nov-Mar",
+     "level": "Beginner -> Intermediate",
+     "id": "asado-and-open-fire-cooking--montevideo"
+    },
+    {
+     "place": "Tuscany",
+     "country": "Italy",
+     "region": "Mediterranean",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Strong",
+     "schools": [
+      "Dario Cecchini / Antica Macelleria Cecchini (Panzano)"
+     ],
+     "masters": [
+      "Dario Cecchini"
+     ],
+     "badges": [
+      "scene",
+      "master"
+     ],
+     "why": "Panzano's celebrated butcher Dario Cecchini grills bistecca alla fiorentina over oak coals, the European counterpoint to the Argentine open-fire tradition.",
+     "bestSeason": "Apr-Oct",
+     "level": "Beginner -> Intermediate",
+     "id": "asado-and-open-fire-cooking--tuscany"
+    }
+   ],
+   "id": "asado-and-open-fire-cooking",
+   "featured": {
+    "id": "asado-and-open-fire-cooking--patagonia-buenos-aires",
+    "place": "Lago La Plata, Chubut (Patagonia)",
+    "country": "Argentina",
+    "school": "Francis Mallmann — Wild Cooking in Argentina",
+    "url": "https://www.plansouthamerica.com/francis-mallmann-island-argentina/",
+    "course": "Wild Cooking in Argentina with Francis Mallmann",
+    "description": "A six-night residential cooking experience on Francis Mallmann's private island, La Isla, on Lago La Plata in Patagonia, for a small group of about eight to ten guests. Across five open-fire masterclasses guests work hands-on with Mallmann's methods — clay-baked trout, whole-animal slow-cooking, ember-roasted vegetables and his 'seven fires' — alongside discussions on cooking, food and craft. Guests stay in the timber cabin La Soplada, and the trip includes meals, drinks, flights from Buenos Aires and private transfers to the remote site.",
+    "duration": "6 nights / 7 days",
+    "format": "Residential small-group experience (~8-10 guests), five hands-on open-fire masterclasses",
+    "certification": "None — practical skills only (no certificate)",
+    "fitsBecause": "A hands-on, multi-day open-fire intensive at the source of asado, taught by the chef who codified cooking with seven kinds of fire.",
+    "sessions": [],
+    "priceNote": "From approx. US$20,000 per person; private departures (approx. US$139,200 total for 8 guests). Private departures only — dates by enquiry.",
+    "confidence": "high",
+    "sources": [
+     "https://www.plansouthamerica.com/francis-mallmann-island-argentina/"
+    ]
+   }
+  },
+  {
+   "discipline": "Whisky & Distilling",
+   "category": "culinary",
+   "certBody": "Institute of Brewing & Distilling (IBD) / Scottish Qualifications Authority (SQA)",
+   "goldCredential": "Diploma of Attendance (Spirit of Speyside Whisky School); IBD General Certificate in Distilling for the professional pathway",
+   "certShort": "Spirit of Speyside Whisky School",
+   "blurb": "The making of single malt Scotch — malting, mashing, brewing, distillation in copper pot stills and long oak-cask maturation — rooted in Speyside, the glen-and-river region with the densest concentration of distilleries on earth.",
+   "destinations": [
+    {
+     "place": "Speyside",
+     "country": "Scotland",
+     "region": "Western Europe",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Spirit of Speyside Whisky School",
+      "Edinburgh Whisky Academy (SQA-approved)",
+      "The Dram Queen (Speyside)"
+     ],
+     "masters": [],
+     "badges": [
+      "source",
+      "scene",
+      "mecca",
+      "heritage",
+      "gold-cred"
+     ],
+     "why": "Speyside packs roughly half of Scotland's malt distilleries — Macallan, Glenfiddich, Glenlivet and more — into a few river glens, making it the densest single-malt heartland on earth.",
+     "bestSeason": "Apr-Sep",
+     "level": "Beginner -> Professional",
+     "id": "whisky-and-distilling--speyside"
+    },
+    {
+     "place": "Islay",
+     "country": "Scotland",
+     "region": "Western Europe",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "Islay Whisky Academy",
+      "Bruichladdich / Laphroaig / Ardbeg distillery programmes"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "heritage"
+     ],
+     "why": "The Hebridean island of Islay is the home of heavily peated single malt, where eight working distilleries draw smoke and brine straight into the spirit.",
+     "bestSeason": "May-Sep",
+     "level": "Beginner -> Intermediate",
+     "id": "whisky-and-distilling--islay"
+    },
+    {
+     "place": "Edinburgh",
+     "country": "Scotland",
+     "region": "Western Europe",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Strong",
+     "schools": [
+      "Edinburgh Whisky Academy",
+      "The Scotch Whisky Training School (Scotch Whisky Experience)",
+      "Heriot-Watt University (ICBD — brewing & distilling)"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school",
+      "gold-cred"
+     ],
+     "why": "Edinburgh holds the academic backbone of the craft — Heriot-Watt's International Centre for Brewing & Distilling trains the industry's professional distillers and blenders.",
+     "bestSeason": "Year-round",
+     "level": "Beginner -> Professional",
+     "id": "whisky-and-distilling--edinburgh"
+    }
+   ],
+   "id": "whisky-and-distilling",
+   "featured": {
+    "id": "whisky-and-distilling--speyside",
+    "place": "Speyside",
+    "country": "Scotland",
+    "school": "Spirit of Speyside Whisky School",
+    "url": "https://www.spiritofspeyside.com/whisky-school/about",
+    "course": "Spirit of Speyside Whisky Festival's Whisky School",
+    "description": "A residential whisky school set in Speyside, extended to three and a half days, that takes a small cohort through the technical production of single malt — malting, mashing, brewing, distilling and maturation — through tutor-led lectures, distillery site visits and tutored tastings. Sessions are led by industry experts, many of them Members or Fellows of the Institute of Brewing & Distilling, and graduates receive a Diploma of Attendance. The programme includes technical visits, sensory training, course materials and networking and celebration dinners.",
+    "duration": "3.5 days, residential",
+    "format": "Small residential cohort; lectures, distillery site visits and tutored tastings",
+    "certification": "Diploma of Attendance",
+    "fitsBecause": "A small-group residential school in the Speyside heartland focused on the technical making of single malt, with hands-on distillery access and a diploma on completion.",
+    "sessions": [],
+    "priceNote": "Price by enquiry; dates announced annually (enquire for the next intake).",
+    "confidence": "medium",
+    "sources": [
+     "https://www.spiritofspeyside.com/whisky-school/about"
+    ]
+   }
+  },
+  {
+   "discipline": "Fly Fishing",
+   "category": "adventure",
+   "certBody": "Fly Fishers International (FFI) — Casting Instructor Certification Program; guiding is licensed state-by-state (Montana Board of Outfitters)",
+   "goldCredential": "Hands-on river competency in casting, reading water, entomology and presentation; a path toward FFI Certified Casting Instructor for those who continue",
+   "certShort": "FFI / Montana Outfitters",
+   "blurb": "Reading moving water, matching the hatch and laying a dry fly on a feeding trout, learned wading the blue-ribbon rivers where American fly fishing was forged.",
+   "destinations": [
+    {
+     "place": "Bozeman & the Madison Valley",
+     "country": "USA",
+     "region": "North America",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Healing Waters Lodge Fly Fishing Academy",
+      "Montana Fishing School (Master the Missouri)",
+      "Montana Women's Fly Fishing School",
+      "Glacier Anglers & Outfitters"
+     ],
+     "masters": [],
+     "badges": [
+      "source",
+      "scene",
+      "mecca",
+      "school",
+      "heritage"
+     ],
+     "why": "The Madison, Missouri, Big Hole and Beaverhead are the blue-ribbon trout rivers that defined American dry-fly fishing, ringed by guide-run academies that put you on the water for days.",
+     "bestSeason": "Jun-Sep",
+     "level": "Beginner -> Advanced",
+     "id": "fly-fishing--bozeman-and-the-madison-valley"
+    },
+    {
+     "place": "Bariloche & Junín de los Andes (Patagonia)",
+     "country": "Argentina",
+     "region": "Latin America",
+     "role": "both",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "Patagonia River Guides",
+      "Set Fly Fishing",
+      "Jurassic Lake Lodge"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "mecca"
+     ],
+     "why": "Spring-creek browns and wind-swept steppe rivers around the Limay and Chimehuin draw anglers worldwide for trophy trout in a reversed Southern-Hemisphere season.",
+     "bestSeason": "Nov-Apr",
+     "level": "Intermediate -> Advanced",
+     "id": "fly-fishing--bariloche-and-junin-de-los-andes-patagonia"
+    },
+    {
+     "place": "Aviemore & the River Spey (Scottish Highlands)",
+     "country": "United Kingdom",
+     "region": "Western Europe",
+     "role": "source",
+     "communityRank": 4,
+     "communityLabel": "Strong",
+     "schools": [
+      "Speyside Fishing School",
+      "Alba Game Fishing",
+      "Orvis-endorsed Highland guides"
+     ],
+     "masters": [],
+     "badges": [
+      "source",
+      "heritage",
+      "lineage"
+     ],
+     "why": "The River Spey gave its name to the Spey cast, and Highland ghillies still teach the two-handed salmon technique on the water where it was invented.",
+     "bestSeason": "May-Sep",
+     "level": "Beginner -> Advanced",
+     "id": "fly-fishing--aviemore-and-the-river-spey-scottish-highlands"
+    }
+   ],
+   "id": "fly-fishing",
+   "featured": {
+    "id": "fly-fishing--bozeman-and-the-madison-valley",
+    "place": "Twin Bridges / Madison Valley, Montana",
+    "country": "USA",
+    "school": "Healing Waters Lodge Fly Fishing Academy",
+    "url": "https://www.hwlodge.com/fishing-schools",
+    "course": "HWL Fly Fishing Academy",
+    "description": "A multi-day residential fly-fishing school run from Healing Waters Lodge near the Beaverhead, Big Hole and Ruby rivers in southwest Montana. Spring and fall sessions run six nights with five days of guided fishing; the summer session runs four nights with three days on the water. Instruction covers casting, knot-tying, water reading, fishing technique and entomology, with loaner equipment, lodging and meals included.",
+    "duration": "4 nights / 3 days (summer) or 6 nights / 5 days (spring & fall)",
+    "format": "Residential lodge-based academy, guided on-water instruction for all skill levels",
+    "certification": "No formal credential; on-river competency in casting, presentation, water-reading and entomology",
+    "fitsBecause": "A full immersion learning to fly fish on Montana's blue-ribbon trout rivers, lodging and guiding included, at the recognized American source of the sport.",
+    "sessions": [
+     "2026-08-16",
+     "2026-09-19"
+    ],
+    "priceNote": "$4,000 per person (lodging, meals and loaner equipment included); spring Session 1 listed full",
+    "confidence": "high",
+    "sources": [
+     "https://www.hwlodge.com/fishing-schools",
+     "https://www.montanawomensflyfishingschool.com/",
+     "https://www.montanafishingschool.com/masterthemissouri"
+    ]
+   }
+  },
+  {
+   "discipline": "Kyudo (Japanese Archery)",
+   "category": "adventure",
+   "certBody": "All Nippon Kyudo Federation (ANKF / Zen Nihon Kyudo Renmei) and the International Kyudo Federation (IKYF)",
+   "goldCredential": "ANKF kyu/dan grading (progression toward shodan and beyond) through recognized dojo and seminars",
+   "certShort": "ANKF / IKYF",
+   "blurb": "The meditative way of the bow, where a clean shot is judged less by the target than by the form, breath and stillness of the shaho-hassetsu eight stages.",
+   "destinations": [
+    {
+     "place": "Kyoto",
+     "country": "Japan",
+     "region": "East Asia",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Heki-ryu and Ogasawara-ryu lineage dojo",
+      "InsideJapan private master-archer lessons",
+      "Kyoto-area municipal kyudojo"
+     ],
+     "masters": [
+      "Ogasawara-ryu lineage",
+      "Heki-ryu lineage"
+     ],
+     "badges": [
+      "source",
+      "lineage",
+      "heritage",
+      "master"
+     ],
+     "why": "Kyoto's Sanjusangen-do hosts the centuries-old Toshiya long-range archery, and the city's lineage dojo keep classical Heki-ryu and Ogasawara-ryu forms alive.",
+     "bestSeason": "Mar-May, Oct-Nov",
+     "level": "Beginner -> Advanced",
+     "id": "kyudo-japanese-archery--kyoto"
+    },
+    {
+     "place": "Nara",
+     "country": "Japan",
+     "region": "East Asia",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Strong",
+     "schools": [
+      "Nara City Kyudo Association (Nara Municipal Budojo)",
+      "Nara Visitor Center & Inn kyudo experience"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "heritage"
+     ],
+     "why": "The Nara City Kyudo Association runs hands-on sessions at the municipal budojo where visitors are kitted in full traditional dress and taught the fundamentals by association archers.",
+     "bestSeason": "Mar-May, Oct-Nov",
+     "level": "Beginner",
+     "id": "kyudo-japanese-archery--nara"
+    },
+    {
+     "place": "Katsuura (International Budo University)",
+     "country": "Japan",
+     "region": "East Asia",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Growing",
+     "schools": [
+      "International Budo University",
+      "Nippon Budokan Training Center"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school"
+     ],
+     "why": "Chiba's budo university and the Nippon Budokan training center host the multi-day International Seminar of Budo Culture, the closest thing to a residential budo intensive for qualifying foreign practitioners.",
+     "bestSeason": "Mar",
+     "level": "Intermediate -> Advanced",
+     "id": "kyudo-japanese-archery--katsuura-international-budo-university"
+    }
+   ],
+   "id": "kyudo-japanese-archery",
+   "featured": {
+    "id": "kyudo-japanese-archery--kyoto",
+    "place": "Kyoto",
+    "country": "Japan",
+    "school": "InsideJapan Tours (private master-archer lesson)",
+    "url": "https://www.insidejapantours.com/experience-japan/i-kudo01-12/kyudo/",
+    "course": "Private Kyudo Lesson with a Master Archer",
+    "description": "A private kyudo lesson in Kyoto arranged with a master archer, in which you wear traditional dress and shoot arrows from the roughly two-metre kyudo bow under one-to-one instruction in the shaho-hassetsu form. The experience is sold only as part of a tailor-made InsideJapan itinerary rather than a fixed-date packaged course. True multi-day residential kyudo programs for foreigners are rare in Japan; longer immersion usually means stringing several private sessions together or joining a local dojo, so this is the most reliably bookable structured option.",
+    "duration": "Private session (arranged within a multi-day Kyoto itinerary; no fixed length published)",
+    "format": "Private one-to-one lesson with a master archer, traditional dress and live shooting",
+    "certification": "None at this level; ANKF kyu/dan grading requires ongoing dojo membership",
+    "fitsBecause": "Hands-on instruction in classical kyudo form with a master in Kyoto, the heart of Japan's archery lineage, bookable as part of an extended stay.",
+    "sessions": [],
+    "priceNote": "Price on request; available only within a tailor-made InsideJapan travel package, not as a standalone booking",
+    "confidence": "low",
+    "sources": [
+     "https://www.insidejapantours.com/experience-japan/i-kudo01-12/kyudo/",
+     "https://www.kyudo.jp/info/english.html",
+     "https://www.sarusawa-nara.com/post/experience-traditional-kyudo-top-fun-activity-in-nara"
+    ]
+   }
+  },
+  {
+   "discipline": "Dog Sledding & Mushing",
+   "category": "adventure",
+   "certBody": "—",
+   "goldCredential": "Competence driving and caring for a husky team — harnessing, sled handling, gangline management and Arctic camp craft",
+   "certShort": "—",
+   "blurb": "Driving your own team of huskies across the frozen Arctic, learning to harness, brake and read the trail while the dogs do what they were bred to do.",
+   "destinations": [
+    {
+     "place": "Tromsø",
+     "country": "Norway",
+     "region": "Nordic & Baltic",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Active Tromsø (Tromsø Villmarkssenter)",
+      "Tromsø Wilderness Centre",
+      "Holmen Husky Lodge"
+     ],
+     "masters": [
+      "Tore Albrigtsen (Active Tromsø)"
+     ],
+     "badges": [
+      "source",
+      "scene",
+      "mecca"
+     ],
+     "why": "From this Arctic-circle hub, multi-day expeditions let you drive your own team across the frozen valleys and lakes of Norway, Sweden and Finland under the northern lights.",
+     "bestSeason": "Dec-Apr",
+     "level": "Beginner -> Intermediate",
+     "id": "dog-sledding-and-mushing--tromso"
+    },
+    {
+     "place": "Fairbanks",
+     "country": "USA",
+     "region": "North America",
+     "role": "both",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Black Spruce Dog Sledding",
+      "Paws for Adventure Sled Dog Tours",
+      "Iditarod / Yukon Quest training kennels"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "mecca",
+      "heritage",
+      "record"
+     ],
+     "why": "Interior Alaska is the home of the Iditarod and Yukon Quest, where working kennels teach mushing the way it is raced over a thousand miles of wilderness.",
+     "bestSeason": "Dec-Mar",
+     "level": "Beginner -> Advanced",
+     "id": "dog-sledding-and-mushing--fairbanks"
+    },
+    {
+     "place": "Yellowknife / Northwest Territories",
+     "country": "Canada",
+     "region": "North America",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Growing",
+     "schools": [
+      "Beck's Kennels",
+      "Enodah Wilderness Travel"
+     ],
+     "masters": [],
+     "badges": [
+      "scene"
+     ],
+     "why": "Subarctic Canada offers multi-day mushing trips across frozen Great Slave Lake and the boreal forest, often paired with aurora viewing from the trail.",
+     "bestSeason": "Dec-Mar",
+     "level": "Beginner -> Intermediate",
+     "id": "dog-sledding-and-mushing--yellowknife-northwest-territories"
+    }
+   ],
+   "id": "dog-sledding-and-mushing",
+   "featured": {
+    "id": "dog-sledding-and-mushing--tromso",
+    "place": "Tromsø",
+    "country": "Norway",
+    "school": "Active Tromsø",
+    "url": "https://www.activetromso.no/dog-sledding/one-week-of-active-dog-sledding/",
+    "course": "One Week Of Active Dog Sledding",
+    "description": "A nine-day small-group dog-sledding expedition (two travel days plus seven nights camping) led by musher Tore Albrigtsen, driving your own husky team across the wooded valleys, mountain passes and frozen lakes of Northern Norway, Sweden and Finland. The day-one briefing and full mushing instruction mean no prior experience is required; Arctic clothing, boots, camping gear, a five-season sleeping bag, tents and all meals are included. The group is capped at eight participants.",
+    "duration": "9 days (7 nights camping)",
+    "format": "Small-group expedition (max 8), drive-your-own-team, full mushing instruction included",
+    "certification": "None; practical competence in mushing and Arctic camp craft",
+    "fitsBecause": "A true multi-day mushing immersion where beginners learn to drive their own team and live on the trail in the Arctic, from a recognized Tromsø operator.",
+    "sessions": [
+     "2027-04-01",
+     "2027-04-11",
+     "2027-04-21"
+    ],
+    "priceNote": "Price confirm with operator; transfers, Arctic clothing, all camping gear and meals included. Note: dates published on the site at time of check were the April 2027 departures.",
+    "confidence": "medium",
+    "sources": [
+     "https://www.activetromso.no/dog-sledding/one-week-of-active-dog-sledding/",
+     "https://www.destinationtromso.com/magazine/dog-sledding-tours-in-troms%C3%B8"
+    ]
+   }
+  },
+  {
+   "discipline": "Marble Sculpture & Stone Carving",
+   "category": "creative",
+   "certBody": "—",
+   "goldCredential": "A finished hand-carved marble sculpture plus working command of the four-step method (roughing, modelling, refining, polishing) and the pneumatic and hand tools of the Carrara tradition",
+   "certShort": "—",
+   "blurb": "Cutting and refining figures from blocks of white Carrara marble, learned in the studios beneath the same quarries Michelangelo chose his stone from.",
+   "destinations": [
+    {
+     "place": "Carrara",
+     "country": "Italy",
+     "region": "Mediterranean",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Arco Arte Sculpture School",
+      "Campo dell'Altissimo",
+      "Accademia di Belle Arti di Carrara"
+     ],
+     "masters": [
+      "Carrara quarry artisan lineage"
+     ],
+     "badges": [
+      "source",
+      "scene",
+      "mecca",
+      "school",
+      "heritage",
+      "lineage"
+     ],
+     "why": "The Apuan Alps above the town hold the world's most famous white marble, and Carrara's studios have carved it continuously since Roman times, with Michelangelo personally selecting blocks here.",
+     "bestSeason": "Apr-Oct",
+     "level": "Beginner -> Professional",
+     "id": "marble-sculpture-and-stone-carving--carrara"
+    },
+    {
+     "place": "Pietrasanta",
+     "country": "Italy",
+     "region": "Mediterranean",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "The Marble Workshop",
+      "Florence Academy of Art (Marble Carving in Pietrasanta)",
+      "Studio Sem"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school",
+      "heritage"
+     ],
+     "why": "This small Versilia town has been the studio hub for international sculptors for over a century, ringed by working marble ateliers and bronze foundries that finish pieces for artists worldwide.",
+     "bestSeason": "Apr-Oct",
+     "level": "Beginner -> Professional",
+     "id": "marble-sculpture-and-stone-carving--pietrasanta"
+    },
+    {
+     "place": "Athens",
+     "country": "Greece",
+     "region": "Mediterranean",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Strong",
+     "schools": [
+      "Athens School of Fine Arts (ASFA)",
+      "Tinos Preparatory and Vocational School of Fine Arts"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "heritage",
+      "lineage"
+     ],
+     "why": "The classical marble tradition that defined sculpture survives through the island of Tinos and Greece's fine-arts schools, where Pentelic and island marble are still carved by hand.",
+     "bestSeason": "Year-round",
+     "level": "Intermediate -> Professional",
+     "id": "marble-sculpture-and-stone-carving--athens"
+    }
+   ],
+   "id": "marble-sculpture-and-stone-carving",
+   "featured": {
+    "id": "marble-sculpture-and-stone-carving--carrara",
+    "place": "Carrara",
+    "country": "Italy",
+    "school": "Arco Arte Sculpture School",
+    "url": "https://www.arcoarte.com/",
+    "course": "Two-Week Marble Sculpture Course (Standard)",
+    "description": "A two-week, hands-on marble carving course held in a working studio in Carrara, where students of any level develop the technical skills to handle the stone and realise a sculptural idea using the traditional tools and materials of the Apuan marble district. The standard course covers training at the student's chosen level with use of tools, teacher guidance, and shared studio, recreational space and kitchen; an advanced option adds exclusive electric and pneumatic tools. Accommodation can be arranged on-site so students can keep working outside class hours. The school has run courses for first-time students and established artists from around the world since 1990.",
+    "duration": "Two weeks",
+    "format": "Small-group studio course (around 8 places per session), hands-on carving with a professional sculptor, optional live-in accommodation",
+    "certification": "—",
+    "fitsBecause": "An at-the-source, multi-week, small-group marble course in Carrara itself, teaching the full carving method on genuine Apuan white marble.",
+    "sessions": [
+     "2026-06-21 to 2026-07-04",
+     "2026-07-05 to 2026-07-18",
+     "2026-08-02 to 2026-08-15",
+     "2026-08-16 to 2026-08-29",
+     "2026-09-06 to 2026-09-19",
+     "2026-10-11 to 2026-10-24"
+    ],
+    "priceNote": "Standard two-week course €1,200; advanced (electric/pneumatic tools) €2,500; accommodation not included; €210 deposit on booking.",
+    "confidence": "high",
+    "sources": [
+     "https://www.arcoarte.com/",
+     "https://www.arcoarte.com/courses/course-calendar/",
+     "https://www.arcoarte.com/costs/costs-of-marble-sculpture-courses/"
+    ]
+   }
+  },
+  {
+   "discipline": "Bookbinding & Letterpress",
+   "category": "creative",
+   "certBody": "—",
+   "goldCredential": "Hand-bound original books made with traditional techniques, plus command of sewing, case-making, leather binding and decorated-paper finishing",
+   "certShort": "—",
+   "blurb": "Sewing, casing and covering books by hand in the Florentine binding tradition, working with marbled paper, cloth and leather under a master binder.",
+   "destinations": [
+    {
+     "place": "Florence",
+     "country": "Italy",
+     "region": "Mediterranean",
+     "role": "source",
+     "communityRank": 5,
+     "communityLabel": "Legendary",
+     "schools": [
+      "Legatoria Giannini (Enrico Giannini)",
+      "Studiainitalia (Simonetta bottega)",
+      "Centro Machiavelli",
+      "Santa Reparata International School of Art (SRISA)"
+     ],
+     "masters": [
+      "Giannini family binding lineage",
+      "Master binder Simonetta"
+     ],
+     "badges": [
+      "source",
+      "scene",
+      "mecca",
+      "master",
+      "school",
+      "heritage",
+      "lineage"
+     ],
+     "why": "Florence has been a centre of fine bookbinding and marbled-paper making since the Renaissance, with family botteghe like the Gianninis binding by hand on the Oltrarno for generations.",
+     "bestSeason": "Year-round",
+     "level": "Beginner -> Professional",
+     "id": "bookbinding-and-letterpress--florence"
+    },
+    {
+     "place": "London",
+     "country": "United Kingdom",
+     "region": "Western Europe",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "London Centre for Book Arts",
+      "City Lit",
+      "Society of Bookbinders workshops"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school"
+     ],
+     "why": "London is the hub of English fine binding and the letterpress revival, with the London Centre for Book Arts running hands-on courses on traditional and contemporary book and print craft.",
+     "bestSeason": "Year-round",
+     "level": "Beginner -> Professional",
+     "id": "bookbinding-and-letterpress--london"
+    },
+    {
+     "place": "Ascona",
+     "country": "United States",
+     "region": "North America",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Strong",
+     "schools": [
+      "American Academy of Bookbinding (Telluride/Ann Arbor)",
+      "North Bennet Street School (Boston)"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school",
+      "gold-cred"
+     ],
+     "why": "The American Academy of Bookbinding and Boston's North Bennet Street School run intensive, multi-week programs in fine leather binding and conservation that draw binders from across North America.",
+     "bestSeason": "Year-round",
+     "level": "Intermediate -> Professional",
+     "id": "bookbinding-and-letterpress--ascona"
+    }
+   ],
+   "id": "bookbinding-and-letterpress",
+   "featured": {
+    "id": "bookbinding-and-letterpress--florence",
+    "place": "Florence",
+    "country": "Italy",
+    "school": "Studiainitalia (artisan bottega, Florence)",
+    "url": "https://www.studiainitalia.com/en/courses/study-abroad-in-florence/bookbinding-course-in-florence/",
+    "course": "Bookbinding Course in Florence",
+    "description": "A one-to-one bookbinding course taught in a working artisan bottega in central Florence by master binder Simonetta, dedicated to keeping Italian binding traditions alive. Students with no prior experience produce their own original booklets or albums using traditional techniques, working with coloured paper, fabric and leather, and learning closures and decorated-card making; longer formats add leather binding and paper restoration. The course is offered in tiers from 24 to 96 lessons (6 to 24 hours), individually scheduled and spread across one or more weeks, so it can be run as an intensive multi-day residency in the city.",
+    "duration": "24 to 96 lessons (6-24 hours), schedulable across one or more weeks",
+    "format": "Individual one-to-one instruction in a Florence artisan workshop, taught in Italian with interpretation available, flexible scheduling",
+    "certification": "—",
+    "fitsBecause": "An at-the-source, hands-on bookbinding course in a real Florentine bottega with a master binder, building complete handmade books from sewing to cover.",
+    "sessions": [],
+    "priceNote": "24 lessons €990; 48 lessons €1,980; 72 lessons €2,970; 96 lessons €3,960; materials extra. Multiple start dates each month (e.g. 5 & 19 Jan, 11 & 25 May 2026).",
+    "confidence": "high",
+    "sources": [
+     "https://www.studiainitalia.com/en/courses/study-abroad-in-florence/bookbinding-course-in-florence/"
+    ]
+   }
   }
  ],
  "enrichedAt": "2026-06-11"
