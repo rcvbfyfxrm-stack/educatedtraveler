@@ -375,6 +375,7 @@
                 <button class="atlas-pill" data-filter="mountain">Mountain</button>
                 <button class="atlas-pill" data-filter="kitchen">Kitchen &amp; Cellar</button>
                 <button class="atlas-pill" data-filter="healing">Healing</button>
+                <button class="atlas-pill" data-filter="craft">Craft</button>
                 <button class="atlas-pill" data-filter="wild">Wild</button>
             </div>
 
@@ -511,50 +512,93 @@
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     </script>
 
-    <!-- Atlas data + render -->
+    <!-- Atlas teaser: powered by the real repertoire (js/repertoire.js) -->
+    <script src="js/repertoire.js"></script>
     <script>
-        // Honest, hand-verified scaffold. Each entry is a place the founder has actually
-        // crossed. `community` is the human draw, not a sales line. No prices, no checkout.
-        const ATLAS = [
-            { cat:'kitchen',  discipline:'Sushi & knife work',      place:'Tokyo, Japan',        note:'Tsukiji dawns and counters where apprenticeship is still measured in decades.', community:'Chefs and obsessives who came to learn from one master.' },
-            { cat:'kitchen',  discipline:'Wine & terroir',          place:'Burgundy, France',    note:'Learn the vine from the families who have grown it for generations.',          community:'Sommeliers and growers who read a hillside like a page.' },
-            { cat:'ocean',    discipline:'Diving',                  place:"Côte d'Azur, France", note:'The water where Cousteau invented the modern dive.',                            community:'Divers building toward something more than a holiday card.' },
-            { cat:'ocean',    discipline:'Freediving',              place:'Dahab, Egypt',        note:'The Blue Hole — where the breath-hold world quietly gathers.',                 community:'A tight, generous tribe that lives by the line.' },
-            { cat:'ocean',    discipline:'Bluewater sailing',       place:'The Atlantic',        note:'The crossing. Judgment is earned at sea, not in a classroom.',                 community:'Crews who become family somewhere past the last island.' },
-            { cat:'healing',  discipline:'Yoga',                    place:'Rishikesh, India',    note:'The Ganges foothills — the source of the practice, not a franchise of it.',   community:'Seekers who came for the real thing and stayed for the people.' },
-            { cat:'healing',  discipline:'Breathwork & presence',  place:'Bali, Indonesia',     note:'Where stillness is taught by those who have given their lives to it.',         community:'A circle that holds space long after you leave.' },
-            { cat:'mountain', discipline:'Alpinism',               place:'Chamonix, France',    note:'The birthplace of mountaineering, under Mont Blanc.',                          community:'Climbers who trust each other with the rope.' },
-            { cat:'mountain', discipline:'High-altitude trekking', place:'Annapurna, Nepal',    note:'The long walk to base camp at 4,130m, the old way.',                           community:'Walkers who arrive as strangers and descend as friends.' },
-            { cat:'wild',     discipline:'Marine conservation',    place:'Galápagos, Ecuador',  note:'Diving in service of the reef, where the science is happening now.',           community:'People who want their skill to leave the place better.' },
-        ];
-        const CAT_LABEL = { ocean:'Ocean', mountain:'Mountain', kitchen:'Kitchen & Cellar', healing:'Healing', wild:'Wild' };
+        (function () {
+            var DATA = (window.ET_ATLAS && window.ET_ATLAS.disciplines) ? window.ET_ATLAS.disciplines : [];
+            var grid = document.getElementById('atlas-grid');
+            if (!grid) return;
 
-        const grid = document.getElementById('atlas-grid');
-        function renderAtlas(filter) {
-            const items = filter === 'all' ? ATLAS : ATLAS.filter(a => a.cat === filter);
-            grid.innerHTML = items.map(a => `
-                <article class="atlas-card panel p-6 flex flex-col">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-sea-soft">${CAT_LABEL[a.cat]}</span>
-                        <span class="font-mono text-[10px] tracking-wide text-paper-faint">on the map</span>
-                    </div>
-                    <h3 class="font-serif text-xl font-light mb-1">${a.place}</h3>
-                    <p class="text-ember-soft text-sm mb-3">${a.discipline}</p>
-                    <p class="text-paper-muted text-sm leading-relaxed mb-4">${a.note}</p>
-                    <p class="text-paper-faint text-[13px] leading-relaxed mt-auto pt-3" style="border-top:1px solid var(--line);">
-                        <span class="text-paper-muted">The people here:</span> ${a.community}
-                    </p>
-                </article>
-            `).join('');
-        }
-        renderAtlas('all');
+            var VIBE_LABEL = { ocean:'Ocean', mountain:'Mountain', wild:'Wild', kitchen:'Kitchen & Cellar', healing:'Healing', craft:'Craft' };
+            function vibeOf(d) {
+                if (d.category === 'culinary') return 'kitchen';
+                if (d.category === 'wellness') return 'healing';
+                if (d.category === 'creative') return 'craft';
+                var n = (d.discipline || '').toLowerCase();
+                if (/muay|jiu|karate|kung fu|capoeira|boxing/.test(n)) return null; // martial arts live in the full Atlas, not this taste
+                if (/div|freediv|spearfish|sail|surf|kite|wind|wing/.test(n)) return 'ocean';
+                if (/climb|alpin|mountaineer|ski|splitboard|paraglid|skydiv|bike|trail|run/.test(n)) return 'mountain';
+                return 'wild';
+            }
+            function topDest(d) {
+                var ds = (d.destinations || []).slice().sort(function (a, b) {
+                    var ra = (a.role === 'source' || a.role === 'both') ? 1 : 0;
+                    var rb = (b.role === 'source' || b.role === 'both') ? 1 : 0;
+                    if (rb - ra) return rb - ra;
+                    return (b.communityRank || 0) - (a.communityRank || 0);
+                });
+                return ds[0];
+            }
+            var POOL = DATA.map(function (d) {
+                var v = vibeOf(d); if (!v) return null;
+                var x = topDest(d); if (!x) return null;
+                return { vibe: v, discipline: d.discipline,
+                         place: x.place + (x.country ? ', ' + x.country : ''),
+                         why: x.why, rank: x.communityRank || 0, label: x.communityLabel || '', role: x.role };
+            }).filter(Boolean);
 
-        document.getElementById('atlas-filters').addEventListener('click', (e) => {
-            const btn = e.target.closest('.atlas-pill'); if (!btn) return;
-            document.querySelectorAll('.atlas-pill').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
-            renderAtlas(btn.dataset.filter);
-        });
+            function communityLine(c) {
+                var where = (c.role === 'source') ? 'the birthplace itself'
+                          : (c.role === 'both') ? 'the source and the living scene'
+                          : 'where the craft gathers';
+                return 'A ' + (c.label || 'strong').toLowerCase() + ' community \u2014 ' + where + '.';
+            }
+            function meter(rank) {
+                var s = '<span style="display:inline-flex;gap:3px;align-items:center">';
+                for (var i = 1; i <= 5; i++) s += '<span style="width:6px;height:6px;border-radius:9999px;background:' + (i <= rank ? 'var(--sea)' : 'rgba(243,237,226,0.16)') + '"></span>';
+                return s + '</span>';
+            }
+            function card(c) {
+                return '<article class="atlas-card panel p-6 flex flex-col">'
+                    + '<div class="flex items-center justify-between mb-3">'
+                    +   '<span class="font-mono text-[10px] uppercase tracking-[0.2em] text-sea-soft">' + VIBE_LABEL[c.vibe] + '</span>'
+                    +   meter(c.rank)
+                    + '</div>'
+                    + '<h3 class="font-serif text-xl font-light mb-1">' + c.place + '</h3>'
+                    + '<p class="text-ember-soft text-sm mb-3">' + c.discipline + '</p>'
+                    + '<p class="text-paper-muted text-sm leading-relaxed mb-4">' + c.why + '</p>'
+                    + '<p class="text-paper-faint text-[13px] leading-relaxed mt-auto pt-3" style="border-top:1px solid var(--line);">'
+                    +   '<span class="text-paper-muted">The people here:</span> ' + communityLine(c)
+                    + '</p>'
+                    + '</article>';
+            }
+
+            var VIBES = ['ocean','mountain','wild','kitchen','healing','craft'];
+            function pickForAll() {
+                var out = [];
+                VIBES.forEach(function (v) {
+                    var inV = POOL.filter(function (c) { return c.vibe === v; }).sort(function (a, b) { return b.rank - a.rank; });
+                    out = out.concat(inV.slice(0, 2));
+                });
+                return out;
+            }
+            function render(filter) {
+                var items = (filter === 'all') ? pickForAll()
+                    : POOL.filter(function (c) { return c.vibe === filter; }).sort(function (a, b) { return b.rank - a.rank; }).slice(0, 9);
+                if (!items.length) { grid.innerHTML = '<p class="text-paper-faint text-sm col-span-full text-center py-8">Loading the Atlas\u2026</p>'; return; }
+                grid.innerHTML = items.map(card).join('');
+            }
+            render('all');
+
+            var filters = document.getElementById('atlas-filters');
+            if (filters) filters.addEventListener('click', function (e) {
+                var btn = e.target.closest('.atlas-pill'); if (!btn) return;
+                document.querySelectorAll('.atlas-pill').forEach(function (p) { p.classList.remove('active'); });
+                btn.classList.add('active');
+                render(btn.dataset.filter);
+            });
+        })();
     </script>
 
     <!-- Circle checkbox visuals -->
