@@ -169,6 +169,26 @@
         .school-name:hover { color: var(--sea); }
         .school-course { font-size: 11.5px; color: #e0b07a; margin-top: 2px; }
         .school-blurb { font-size: 12px; color: rgba(243,237,226,0.62); line-height: 1.5; margin-top: 3px; }
+        /* ---------- Skill picker (pick a skill -> see its places) ---------- */
+        .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 12px; }
+        .skill-tile {
+            text-align: left; width: 100%; display: block; padding: 16px;
+            border-radius: 14px; background: rgba(243,237,226,0.022); border: 1px solid var(--line);
+            cursor: pointer; transition: border-color .25s ease, background .25s ease, transform .25s ease;
+        }
+        .skill-tile:hover { border-color: rgba(127,168,165,0.4); background: rgba(243,237,226,0.045); transform: translateY(-2px); }
+        .tile-name { font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-weight: 400; color: var(--paper); line-height: 1.15; }
+        .tile-blurb { font-size: 12px; color: rgba(243,237,226,0.5); line-height: 1.5; margin-top: 8px;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .tile-feat { font-size: 11.5px; color: #e0b07a; line-height: 1.4; margin-top: 8px; }
+        .tile-cta { display: inline-block; margin-top: 11px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.05em; color: var(--sea); opacity: .82; }
+        .skill-tile:hover .tile-cta { opacity: 1; }
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px; margin-bottom: 18px; padding: 8px 16px;
+            border-radius: 999px; border: 1px solid rgba(243,237,226,0.18); background: transparent;
+            color: var(--paper); font-size: 13px; cursor: pointer; transition: all .25s ease;
+        }
+        .back-link:hover { background: rgba(243,237,226,0.05); border-color: rgba(127,168,165,0.4); color: var(--sea); }
         .master-chip {
             font-size: 12px; color: #e0b07a; background: rgba(210,138,82,0.10);
             border: 1px solid rgba(210,138,82,0.25); border-radius: 8px; padding: 4px 10px;
@@ -376,7 +396,7 @@
 
         var REGION_ORDER = ['Western Europe', 'Mediterranean', 'Nordic & Baltic', 'Eastern Europe', 'North America', 'Latin America', 'Caribbean', 'Middle East & North Africa', 'Sub-Saharan Africa', 'South Asia', 'Southeast Asia', 'East Asia', 'Oceania'];
 
-        var state = { core: 'all', arrange: 'discipline', role: 'all', q: '' };
+        var state = { core: 'all', arrange: 'discipline', role: 'all', q: '', selectedSkill: null };
 
         // ---------- helpers ----------
         function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
@@ -558,11 +578,36 @@
         }
 
         // ---------- render modes ----------
-        function renderDiscipline(discs) {
-            if (state.core !== 'all') {
-                return discs.map(discCard).join('');
+        // a compact, clickable "pick this skill" tile
+        function skillTile(d) {
+            var color = CORE_COLOR[d.category] || '#888';
+            var cs = d.certShort || d.certBody;
+            var cred = (cs && cs !== '—') ? '<span class="cred-chip">' + esc(cs) + '</span>' : '';
+            var f = d.featured;
+            var teaser = (f && f.course) ? '<p class="tile-feat">★ ' + esc(f.course) + ' · ' + esc(f.place) + '</p>' : '';
+            return '<button type="button" class="skill-tile" data-skill="' + esc(d.discipline) + '" style="border-left:3px solid ' + color + '">' +
+                '<div class="flex items-start justify-between gap-2">' +
+                  '<h3 class="tile-name">' + esc(d.discipline) + '</h3>' +
+                  '<span class="mono text-[10px] text-white/30 shrink-0 mt-1">' + d.destinations.length + '&nbsp;' + (d.destinations.length === 1 ? 'place' : 'places') + '</span>' +
+                '</div>' +
+                '<div class="flex items-center gap-2 flex-wrap mt-1.5"><span class="core-tag ' + d.category + '">' + esc(CORE_META[d.category] ? CORE_META[d.category].label : d.category) + '</span>' + cred + '</div>' +
+                '<p class="tile-blurb">' + esc(d.blurb) + '</p>' + teaser +
+                '<span class="tile-cta">See where to learn it →</span>' +
+            '</button>';
+        }
+
+        function renderDiscipline(discs, asPicker) {
+            // SKILL DETAIL — a single picked skill, full card with its places
+            if (asPicker && state.selectedSkill) {
+                var sel = discs.filter(function (x) { return x.discipline === state.selectedSkill; })[0];
+                if (sel) return '<button type="button" class="back-link" data-back>&larr; All skills</button>' + discCard(sel);
+                state.selectedSkill = null; // selection filtered out — fall back to picker
             }
-            // grouped by core
+            var tile = asPicker ? skillTile : discCard;
+            var wrap = asPicker ? 'skill-grid' : 'space-y-4';
+            if (state.core !== 'all') {
+                return '<div class="' + wrap + '">' + discs.map(tile).join('') + '</div>';
+            }
             return CORE_ORDER.map(function (core) {
                 var inCore = discs.filter(function (d) { return d.category === core; });
                 if (!inCore.length) return '';
@@ -571,7 +616,7 @@
                     '<div class="grp-head"><span class="grp-title" style="color:' + CORE_COLOR[core] + '">' + cm.label + '</span>' +
                     '<span class="text-white/45 text-sm">' + cm.tag + '</span>' +
                     '<span class="grp-count ml-auto">' + inCore.length + ' crafts</span></div>' +
-                    '<div class="space-y-4">' + inCore.map(discCard).join('') + '</div></section>';
+                    '<div class="' + wrap + '">' + inCore.map(tile).join('') + '</div></section>';
             }).join('');
         }
 
@@ -682,8 +727,13 @@
             var nDest = discs.reduce(function (n, d) { return n + d.destinations.length; }, 0);
             var html = '';
             if (state.arrange === 'discipline') {
-                metaEl.textContent = discs.length + ' crafts · ' + nDest + ' destinations';
-                html = renderDiscipline(discs);
+                if (state.selectedSkill) {
+                    var sd = discs.filter(function (x) { return x.discipline === state.selectedSkill; })[0];
+                    metaEl.textContent = sd ? (sd.discipline + ' · ' + sd.destinations.length + ' place' + (sd.destinations.length === 1 ? '' : 's') + ' to learn it') : '';
+                } else {
+                    metaEl.textContent = discs.length + ' crafts — pick one to see where to learn it';
+                }
+                html = renderDiscipline(discs, true);
             } else if (state.arrange === 'region') {
                 metaEl.textContent = nDest + ' destinations across the world — grouped by where you\'re headed';
                 html = renderGroupedEntries(discs, function (e) { return e.x.region; }, REGION_ORDER);
@@ -693,7 +743,7 @@
             } else if (state.arrange === 'source') {
                 var srcDiscs = discs.map(function (d) { var c = Object.assign({}, d); c.destinations = d.destinations.filter(function (x) { return x.role === 'source' || x.role === 'both'; }); return c; }).filter(function (d) { return d.destinations.length; });
                 metaEl.textContent = 'The pilgrimage — birthplaces where each craft was born';
-                html = renderDiscipline(srcDiscs);
+                html = renderDiscipline(srcDiscs, false);
             } else if (state.arrange === 'scene') {
                 var scn = discs.map(function (d) { var c = Object.assign({}, d); c.destinations = d.destinations.filter(function (x) { return (x.communityRank || 0) >= 4; }); return c; }).filter(function (d) { return d.destinations.length; });
                 var nS = scn.reduce(function (n, d) { return n + d.destinations.length; }, 0);
@@ -744,19 +794,19 @@
         // ---------- events ----------
         document.getElementById('core-pills').addEventListener('click', function (e) {
             var b = e.target.closest('[data-core]'); if (!b) return;
-            state.core = b.getAttribute('data-core');
+            state.core = b.getAttribute('data-core'); state.selectedSkill = null;
             document.querySelectorAll('#core-pills .pill').forEach(function (p) { p.classList.toggle('on', p === b); });
             render();
         });
         document.getElementById('arrange-pills').addEventListener('click', function (e) {
             var b = e.target.closest('[data-arrange]'); if (!b) return;
-            state.arrange = b.getAttribute('data-arrange');
+            state.arrange = b.getAttribute('data-arrange'); state.selectedSkill = null;
             document.querySelectorAll('#arrange-pills .pill').forEach(function (p) { p.classList.toggle('on', p === b); });
             render();
         });
         document.getElementById('role-seg').addEventListener('click', function (e) {
             var b = e.target.closest('button'); if (!b) return;
-            state.role = b.getAttribute('data-role');
+            state.role = b.getAttribute('data-role'); state.selectedSkill = null;
             document.querySelectorAll('#role-seg button').forEach(function (p) { p.classList.toggle('on', p === b); });
             render();
         });
@@ -764,12 +814,20 @@
         var t;
         searchEl.addEventListener('input', function () {
             clearEl.classList.toggle('hidden', !searchEl.value);
-            clearTimeout(t); t = setTimeout(function () { state.q = searchEl.value.trim().toLowerCase(); render(); }, 120);
+            clearTimeout(t); t = setTimeout(function () { state.q = searchEl.value.trim().toLowerCase(); state.selectedSkill = null; render(); }, 120);
         });
         clearEl.addEventListener('click', function () { searchEl.value = ''; state.q = ''; clearEl.classList.add('hidden'); render(); searchEl.focus(); });
 
-        // expand/collapse destination rows (delegated)
+        function scrollToResults() {
+            var m = document.querySelector('main');
+            if (m) window.scrollTo({ top: Math.max(0, m.offsetTop - 90), behavior: 'smooth' });
+        }
+        // skill drill-in / back, + expand destination rows (delegated)
         document.getElementById('results').addEventListener('click', function (e) {
+            var back = e.target.closest('[data-back]');
+            if (back) { state.selectedSkill = null; render(); scrollToResults(); return; }
+            var tile = e.target.closest('[data-skill]');
+            if (tile) { state.selectedSkill = tile.getAttribute('data-skill'); render(); scrollToResults(); return; }
             var row = e.target.closest('[data-dest]'); if (!row) return;
             if (e.target.closest('a')) return; // let school links work
             row.classList.toggle('open');
@@ -780,6 +838,21 @@
         if (!ATLAS.length) {
             document.getElementById('results').innerHTML = '<div class="text-center py-24 text-white/50">The atlas data is loading. If this persists, <code class="text-white/70">js/repertoire.js</code> hasn\'t been generated yet.</div>';
         } else {
+            // deep-link / auto-direct support: ?core=culinary  ?q=sushi  ?skill=Freediving
+            try {
+                var qp = new URLSearchParams(location.search);
+                var qcore = qp.get('core');
+                if (qcore && CORE_ORDER.indexOf(qcore) >= 0) state.core = qcore;
+                var qq = qp.get('q');
+                if (qq) { state.q = qq.trim().toLowerCase(); searchEl.value = qq; clearEl.classList.remove('hidden'); }
+                var qskill = qp.get('skill');
+                if (qskill) {
+                    var mq = qskill.trim().toLowerCase();
+                    var match = ATLAS.filter(function (d) { return d.discipline.toLowerCase() === mq; })[0]
+                             || ATLAS.filter(function (d) { return d.discipline.toLowerCase().indexOf(mq) >= 0; })[0];
+                    if (match) state.selectedSkill = match.discipline;
+                }
+            } catch (e) {}
             buildStats();
             buildPills();
             render();
