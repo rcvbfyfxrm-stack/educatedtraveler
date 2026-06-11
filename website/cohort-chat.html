@@ -15,19 +15,22 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
+        .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
+
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0d0b09; }
         html { scroll-behavior: smooth; }
 
         .glass {
-            background: rgba(255,255,255,0.03);
+            background: rgba(243,237,226,0.025);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(243,237,226,0.09);
         }
         .glass-strong {
             background: rgba(255,255,255,0.045);
@@ -48,7 +51,7 @@
             font-size: 13.5px;
             line-height: 1.5;
             background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(243,237,226,0.09);
             color: rgba(255,255,255,0.92);
             word-wrap: break-word;
             overflow-wrap: anywhere;
@@ -87,7 +90,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #0066B1, #3B8DD4);
+            background: linear-gradient(135deg, #5b8a89, #7fa8a5);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -97,7 +100,7 @@
             color: white;
         }
         .msg-avatar.instructor {
-            background: linear-gradient(135deg, #d97706, #f59e0b);
+            background: linear-gradient(135deg, #d97706, #d28a52);
         }
         .msg-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 
@@ -105,7 +108,7 @@
         .scroll-area::-webkit-scrollbar { width: 8px; }
         .scroll-area::-webkit-scrollbar-track { background: transparent; }
         .scroll-area::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.06);
+            background: rgba(243,237,226,0.09);
             border-radius: 4px;
         }
         .scroll-area::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.12); }
@@ -128,7 +131,7 @@
         .chat-input::placeholder { color: rgba(255,255,255,0.30); }
 
         .send-btn {
-            background: linear-gradient(135deg, #059669, #1d4ed8);
+            background: linear-gradient(135deg, #7fa8a5, #d28a52);
             transition: all 0.2s;
         }
         .send-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(5,150,105,0.25); }
@@ -162,7 +165,7 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        .role-instructor { background: rgba(245,158,11,0.15); color: #fbbf24; }
+        .role-instructor { background: rgba(245,158,11,0.15); color: #e0b07a; }
         .role-student { background: rgba(99,102,241,0.12); color: #a5b4fc; }
         .role-admin { background: rgba(244,63,94,0.12); color: #fda4af; }
         .member-card.admin {
@@ -276,7 +279,6 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
-    <script src="/js/avatar.js"></script>
 
     <script>
     (function() {
@@ -344,11 +346,6 @@
                 (instructor ? '1 instructor · ' : '') + students.length + ' student' + (students.length === 1 ? '' : 's');
 
             const ROLE_LABEL = { instructor: 'Host', student: 'Crew', admin: 'Admin' };
-            const tierRingStyle = (xp) => {
-                if (!window.ETAvatar || xp == null) return '';
-                const t = window.ETAvatar.getXPTier(Number(xp));
-                return `box-shadow: 0 0 0 2px ${t.color}, 0 0 10px ${t.glow}; `;
-            };
             const renderOne = (m) => {
                 const name = m.first_name || m.name || 'Member';
                 const avatar = m.avatar_url
@@ -357,10 +354,9 @@
                 const cls = m.role === 'instructor' ? 'instructor' : (m.role === 'admin' ? 'admin' : '');
                 const profession = m.profession ? esc(m.profession) : '';
                 const meta = [profession, m.location ? esc(m.location) : ''].filter(Boolean).join(' · ');
-                const ring = m.role === 'student' ? tierRingStyle(m.xp) : '';
                 return `
                     <a href="/profile?id=${m.user_id}" class="member-card ${cls}" target="_blank" rel="noopener">
-                        <div class="msg-avatar ${m.role}" style="${ring}">${avatar}</div>
+                        <div class="msg-avatar ${m.role}">${avatar}</div>
                         <div style="min-width:0;flex:1;">
                             <p class="text-xs font-medium text-white/85 truncate">${esc(name)}</p>
                             ${meta ? `<p class="text-[10px] text-white/35 truncate">${meta}</p>` : ''}
@@ -407,11 +403,8 @@
             node.dataset.id = m.id;
 
             const meta = `${esc(name)}${isInstructor ? ' · Instructor' : ''} · ${timeStr(m.created_at)}`;
-            const msgRing = (!isInstructor && window.ETAvatar && author.xp != null)
-                ? `box-shadow: 0 0 0 2px ${window.ETAvatar.getXPTier(Number(author.xp)).color};`
-                : '';
             node.innerHTML = `
-                <div class="msg-avatar ${isInstructor ? 'instructor' : ''}" style="${msgRing}">${avatar}</div>
+                <div class="msg-avatar ${isInstructor ? 'instructor' : ''}">${avatar}</div>
                 <div style="min-width:0;max-width:100%;">
                     <p class="msg-meta">${meta}</p>
                     <div class="msg-bubble">${esc(m.body)}</div>

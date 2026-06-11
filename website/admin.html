@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="/images/logo-et-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,14 +20,14 @@
                 extend: {
                     colors: {
                         'bmw': {
-                            50: '#e6f0fa', 100: '#b3d1ef', 200: '#80b3e4', 300: '#4d94d9',
-                            400: '#3B8DD4', 500: '#0066B1', 600: '#00518d', 700: '#003d6a',
-                            800: '#002846', 900: '#001423',
+                            50: '#1c1813', 100: '#b3d1ef', 200: '#a7cecb', 300: '#6fa3a0',
+                            400: '#7fa8a5', 500: '#5b8a89', 600: '#5b8a89', 700: '#38595b',
+                            800: '#14110d', 900: '#0d0b09',
                         },
                         'steel': {
                             50: '#f5f5f5', 100: '#e0e0e0', 200: '#c0c0c0', 300: '#a0a0a0',
                             400: '#6f6f6f', 500: '#4a4a4a', 600: '#333333', 700: '#222222',
-                            800: '#161616', 900: '#0a0a0a',
+                            800: '#1c1813', 900: '#0d0b09',
                         }
                     }
                 }
@@ -36,33 +36,36 @@
     </script>
 
     <style>
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
+        .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
+
         :root {
-            --bmw-blue: #0066B1;
-            --bmw-light: #3B8DD4;
+            --bmw-blue: #5b8a89;
+            --bmw-light: #7fa8a5;
             --bmw-glow: rgba(0, 102, 177, 0.4);
             --bmw-subtle: rgba(0, 102, 177, 0.15);
         }
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
-        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0d0b09; }
+        .glass { background: rgba(243,237,226,0.025); backdrop-filter: blur(20px); border: 1px solid rgba(243,237,226,0.09); }
         .glass-strong { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); }
         .mono { font-family: 'IBM Plex Mono', monospace; }
-        .tab-active { color: #3B8DD4; border-bottom: 2px solid #3B8DD4; }
+        .tab-active { color: #7fa8a5; border-bottom: 2px solid #7fa8a5; }
         .tab-inactive { color: rgba(255,255,255,0.4); border-bottom: 2px solid transparent; }
         .tab-inactive:hover { color: rgba(255,255,255,0.7); }
         .status-badge { font-size: 0.6rem; padding: 2px 8px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
-        .status-enrolled { background: rgba(0,102,177,0.2); color: #3B8DD4; }
-        .status-waitlisted { background: rgba(245,158,11,0.2); color: #fbbf24; }
+        .status-enrolled { background: rgba(0,102,177,0.2); color: #7fa8a5; }
+        .status-waitlisted { background: rgba(245,158,11,0.2); color: #e0b07a; }
         .status-cancelled { background: rgba(239,68,68,0.2); color: #f87171; }
         .status-completed { background: rgba(139,92,246,0.2); color: #a78bfa; }
-        .status-pending { background: rgba(245,158,11,0.2); color: #fbbf24; }
-        .status-approved { background: rgba(0,102,177,0.2); color: #3B8DD4; }
+        .status-pending { background: rgba(245,158,11,0.2); color: #e0b07a; }
+        .status-approved { background: rgba(0,102,177,0.2); color: #7fa8a5; }
         .status-rejected { background: rgba(239,68,68,0.2); color: #f87171; }
         .status-draft { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
-        .status-published { background: rgba(0,102,177,0.2); color: #3B8DD4; }
-        .status-full { background: rgba(0,102,177,0.3); color: #80b3e4; }
-        .status-in_progress { background: rgba(59,130,246,0.2); color: #60a5fa; }
-        .row-hover:hover { background: rgba(255,255,255,0.03); }
+        .status-published { background: rgba(0,102,177,0.2); color: #7fa8a5; }
+        .status-full { background: rgba(0,102,177,0.3); color: #a7cecb; }
+        .status-in_progress { background: rgba(59,130,246,0.2); color: #9cc0bd; }
+        .row-hover:hover { background: rgba(243,237,226,0.025); }
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .spinner { animation: spin 1s linear infinite; }
         @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
@@ -76,7 +79,7 @@
         <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <a href="/" class="text-lg font-semibold tracking-wider">
-                    EDUCATED<span class="text-bmw-400">TRAVELER</span>
+                    EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span>
                 </a>
                 <span class="mono text-xs text-white/30 bg-white/5 px-3 py-1 rounded-full">ADMIN</span>
             </div>
@@ -105,7 +108,7 @@
         <div class="text-center max-w-sm">
             <p class="text-red-400 text-xl mb-4">Access Denied</p>
             <p class="text-white/40 text-sm mb-6">Admin privileges required.</p>
-            <a href="join.html?tab=signin" class="text-bmw-400 text-sm hover:text-bmw-300">Sign in with admin account</a>
+            <a href="join.html?tab=signin" class="text-[#7fa8a5] text-sm hover:text-bmw-300">Sign in with admin account</a>
         </div>
     </div>
 
@@ -116,27 +119,27 @@
             <!-- KPI Cards -->
             <section class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-8">
                 <div class="glass rounded-xl p-4 text-center">
-                    <p id="kpi-users" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p id="kpi-users" class="text-2xl font-light text-[#7fa8a5] mono">-</p>
                     <p class="text-white/30 text-xs mt-1">Users</p>
                 </div>
                 <div class="glass rounded-xl p-4 text-center">
-                    <p id="kpi-quests" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p id="kpi-quests" class="text-2xl font-light text-[#7fa8a5] mono">-</p>
                     <p class="text-white/30 text-xs mt-1">Quests Done</p>
                 </div>
                 <div class="glass rounded-xl p-4 text-center">
-                    <p id="kpi-instructors" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p id="kpi-instructors" class="text-2xl font-light text-[#7fa8a5] mono">-</p>
                     <p class="text-white/30 text-xs mt-1">Instructors</p>
                 </div>
                 <div class="glass rounded-xl p-4 text-center">
-                    <p id="kpi-cohorts" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p id="kpi-cohorts" class="text-2xl font-light text-[#7fa8a5] mono">-</p>
                     <p class="text-white/30 text-xs mt-1">Cohorts</p>
                 </div>
                 <div class="glass rounded-xl p-4 text-center">
-                    <p id="kpi-enrollments" class="text-2xl font-light text-bmw-400 mono">-</p>
+                    <p id="kpi-enrollments" class="text-2xl font-light text-[#7fa8a5] mono">-</p>
                     <p class="text-white/30 text-xs mt-1">Enrollments</p>
                 </div>
                 <div class="glass rounded-xl p-4 text-center">
-                    <p id="kpi-surveys" class="text-2xl font-light text-emerald-400 mono">-</p>
+                    <p id="kpi-surveys" class="text-2xl font-light text-[#7fa8a5] mono">-</p>
                     <p class="text-white/30 text-xs mt-1">Survey v2</p>
                 </div>
             </section>
@@ -227,7 +230,7 @@
                             <h4 class="text-sm font-medium">Program Levels</h4>
                             <p class="text-white/30 text-xs">Add levels with dates. Students enroll per level.</p>
                         </div>
-                        <button type="button" id="add-level-btn" class="text-xs px-4 py-1.5 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">+ Add Level</button>
+                        <button type="button" id="add-level-btn" class="text-xs px-4 py-1.5 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">+ Add Level</button>
                     </div>
 
                     <div id="levels-container" class="space-y-3">
@@ -246,7 +249,7 @@
                     </div>
                 </div>
 
-                <button type="submit" id="prep-submit" class="w-full py-3 bg-bmw-500 text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
+                <button type="submit" id="prep-submit" class="w-full py-3 bg-[#5b8a89] text-white font-medium rounded-full hover:bg-bmw-400 transition-colors">
                     Create Instructor + Program
                 </button>
                 <p class="text-white/20 text-xs text-center">Instructor will be pre-approved. Cohorts created as drafts.</p>
@@ -442,7 +445,7 @@
             const pulseEnroll = pulse(enrollments, 'enrolled_at');
 
             const deltaArrow = (a, b) => {
-                if (a > b) return '<span class="text-emerald-400">&#x2197; +' + (a - b) + '</span>';
+                if (a > b) return '<span class="text-[#7fa8a5]">&#x2197; +' + (a - b) + '</span>';
                 if (a < b) return '<span class="text-red-400/60">&#x2198; ' + (a - b) + '</span>';
                 return '<span class="text-white/25">= 0</span>';
             };
@@ -499,7 +502,7 @@
                             label: 'Hot leads to contact',
                             count: hotLeads.length,
                             detail: hotLeads.length
-                                ? hotLeads.slice(0, 2).map(r => esc(r.email) + ' &middot; <span class="text-emerald-400/80">' + esc((r.booking_intent||'').replace(/_/g,' ')) + '</span>').join('<br>')
+                                ? hotLeads.slice(0, 2).map(r => esc(r.email) + ' &middot; <span class="text-[#7fa8a5]/80">' + esc((r.booking_intent||'').replace(/_/g,' ')) + '</span>').join('<br>')
                                 : 'No new hot leads.',
                             color: hotLeads.length ? 'emerald-400' : 'white/30',
                             highlight: hotLeads.length > 0,
@@ -565,7 +568,7 @@
                                 <option value="low">Low</option>
                             </select>
                             <input id="task-due" type="date" class="rounded-lg px-3 py-2 text-sm bg-white/[0.03] border border-white/[0.08] text-white">
-                            <button type="submit" class="px-4 py-2 text-sm rounded-lg bg-bmw-500 hover:bg-bmw-400 text-white transition-colors">Add</button>
+                            <button type="submit" class="px-4 py-2 text-sm rounded-lg bg-[#5b8a89] hover:bg-bmw-400 text-white transition-colors">Add</button>
                         </form>
                         <div id="task-list" class="space-y-2"></div>
                     </div>
@@ -576,28 +579,28 @@
                             <div>
                                 <div class="flex items-baseline justify-between">
                                     <span class="text-xs text-white/40">Signups</span>
-                                    <span class="text-xl mono text-bmw-400">${pulseSignups.thisWeek}</span>
+                                    <span class="text-xl mono text-[#7fa8a5]">${pulseSignups.thisWeek}</span>
                                 </div>
                                 <div class="text-xs text-white/30 mt-0.5">vs ${pulseSignups.lastWeek} last week &middot; ${deltaArrow(pulseSignups.thisWeek, pulseSignups.lastWeek)}</div>
                             </div>
                             <div>
                                 <div class="flex items-baseline justify-between">
                                     <span class="text-xs text-white/40">Quests completed</span>
-                                    <span class="text-xl mono text-purple-400">${pulseQuests.thisWeek}</span>
+                                    <span class="text-xl mono text-[#c08a6a]">${pulseQuests.thisWeek}</span>
                                 </div>
                                 <div class="text-xs text-white/30 mt-0.5">vs ${pulseQuests.lastWeek} last week &middot; ${deltaArrow(pulseQuests.thisWeek, pulseQuests.lastWeek)}</div>
                             </div>
                             <div>
                                 <div class="flex items-baseline justify-between">
                                     <span class="text-xs text-white/40">Survey responses</span>
-                                    <span class="text-xl mono text-emerald-400">${pulseSurveys.thisWeek}</span>
+                                    <span class="text-xl mono text-[#7fa8a5]">${pulseSurveys.thisWeek}</span>
                                 </div>
                                 <div class="text-xs text-white/30 mt-0.5">vs ${pulseSurveys.lastWeek} last week &middot; ${deltaArrow(pulseSurveys.thisWeek, pulseSurveys.lastWeek)}</div>
                             </div>
                             <div>
                                 <div class="flex items-baseline justify-between">
                                     <span class="text-xs text-white/40">Enrollments</span>
-                                    <span class="text-xl mono text-cyan-400">${pulseEnroll.thisWeek}</span>
+                                    <span class="text-xl mono text-[#6fa3a0]">${pulseEnroll.thisWeek}</span>
                                 </div>
                                 <div class="text-xs text-white/30 mt-0.5">vs ${pulseEnroll.lastWeek} last week &middot; ${deltaArrow(pulseEnroll.thisWeek, pulseEnroll.lastWeek)}</div>
                             </div>
@@ -608,7 +611,7 @@
                 <section class="glass rounded-xl overflow-hidden mb-8">
                     <div class="px-5 py-3 border-b border-white/5 flex items-baseline justify-between">
                         <h2 class="text-sm mono text-white/50 uppercase tracking-wider">&#x2192; New Arrivals <span class="text-white/25 ml-1 text-[10px]">(last 10)</span></h2>
-                        <button onclick="switchTab('users')" class="text-xs text-bmw-400 hover:text-bmw-300">See all &rarr;</button>
+                        <button onclick="switchTab('users')" class="text-xs text-[#7fa8a5] hover:text-bmw-300">See all &rarr;</button>
                     </div>
                     ${recentUsers.length === 0 ? '<p class="text-white/20 text-sm text-center py-8">Nobody has signed up yet.</p>' : `
                     <div class="overflow-x-auto">
@@ -642,12 +645,12 @@
                                         </div>
                                     </td>
                                     <td class="px-5 py-3 text-white/50 text-xs">${esc(p.location || '—')}</td>
-                                    <td class="px-5 py-3 text-xs">${q ? (q.elements||[]).slice(0,3).map(t=>'<span class="inline-block bg-bmw-500/15 text-bmw-400 text-[10px] px-2 py-0.5 rounded-full mr-1">' + t + '</span>').join('') : '<span class="text-white/20">—</span>'}</td>
+                                    <td class="px-5 py-3 text-xs">${q ? (q.elements||[]).slice(0,3).map(t=>'<span class="inline-block bg-[#5b8a89]/15 text-[#7fa8a5] text-[10px] px-2 py-0.5 rounded-full mr-1">' + t + '</span>').join('') : '<span class="text-white/20">—</span>'}</td>
                                     <td class="px-5 py-3 text-white/60 text-xs">${saved.length ? saved.length + ' adventure' + (saved.length>1?'s':'') : '<span class="text-white/20">—</span>'}</td>
                                     <td class="px-5 py-3 text-white/40 text-xs whitespace-nowrap">${whenLabel}</td>
                                     <td class="px-5 py-3 text-right">
-                                        <a href="mailto:${esc(p.email)}" class="text-bmw-400 hover:text-bmw-300 text-xs mr-3">Email</a>
-                                        ${p.phone && p.whatsapp_opt_in ? '<a href="https://wa.me/' + esc(p.phone.replace(/[^0-9]/g,'')) + '" target="_blank" class="text-emerald-400 hover:text-emerald-300 text-xs">WhatsApp</a>' : ''}
+                                        <a href="mailto:${esc(p.email)}" class="text-[#7fa8a5] hover:text-bmw-300 text-xs mr-3">Email</a>
+                                        ${p.phone && p.whatsapp_opt_in ? '<a href="https://wa.me/' + esc(p.phone.replace(/[^0-9]/g,'')) + '" target="_blank" class="text-[#7fa8a5] hover:text-[#9cc0bd] text-xs">WhatsApp</a>' : ''}
                                     </td>
                                 </tr>`;
                             }).join('')}
@@ -684,7 +687,7 @@
                 return (b.created_at || '').localeCompare(a.created_at || '');
             });
 
-            const priorityColor = { high: 'text-red-400/80 border-red-400/40', normal: 'text-bmw-400 border-bmw-400/30', low: 'text-white/40 border-white/15' };
+            const priorityColor = { high: 'text-red-400/80 border-red-400/40', normal: 'text-[#7fa8a5] border-bmw-400/30', low: 'text-white/40 border-white/15' };
             const priorityLabel = { high: 'HIGH', normal: 'NORM', low: 'LOW' };
 
             const row = (t) => {
@@ -693,7 +696,7 @@
                 const soon = t.due && t.status !== 'done' && daysUntil(t.due) >= 0 && daysUntil(t.due) <= 3;
                 const dueLabel = t.due
                     ? (overdue ? '<span class="text-red-400/80 text-[10px] mono">OVERDUE ' + t.due + '</span>'
-                        : soon ? '<span class="text-amber-400 text-[10px] mono">Due ' + t.due + '</span>'
+                        : soon ? '<span class="text-[#d28a52] text-[10px] mono">Due ' + t.due + '</span>'
                         : '<span class="text-white/30 text-[10px] mono">' + t.due + '</span>')
                     : '';
                 return '<div class="flex items-center gap-3 py-2 px-3 rounded-lg ' + (t.status === 'done' ? 'opacity-40' : 'bg-white/[0.02] hover:bg-white/[0.04]') + ' transition-colors">'
@@ -781,14 +784,14 @@
                 + leads.map(r => {
                     const isContacted = !!contacted[r.id];
                     const intent = (r.booking_intent || '').replace(/_/g,' ');
-                    const intentColor = r.booking_intent === 'deposit_now' ? 'text-emerald-400' : 'text-bmw-400';
+                    const intentColor = r.booking_intent === 'deposit_now' ? 'text-[#7fa8a5]' : 'text-[#7fa8a5]';
                     return '<div class="flex items-center gap-3 py-2 px-3 rounded-lg ' + (isContacted ? 'opacity-40' : 'bg-white/[0.03]') + '">'
                         + '<input type="checkbox" ' + (isContacted ? 'checked' : '') + ' onchange="toggleContacted(\'' + r.id + '\')" class="w-4 h-4 accent-emerald-400">'
                         + '<div class="flex-1 min-w-0">'
-                        + '<div class="mono text-xs text-bmw-400">' + esc(r.email) + '</div>'
+                        + '<div class="mono text-xs text-[#7fa8a5]">' + esc(r.email) + '</div>'
                         + '<div class="text-xs text-white/40 mt-0.5">' + esc((r.lifestage||'').replace(/_/g,' ')) + ' &middot; <span class="' + intentColor + '">' + esc(intent) + '</span> &middot; ' + fmtDate(r.created_at) + '</div>'
                         + '</div>'
-                        + '<a href="mailto:' + esc(r.email) + '?subject=' + encodeURIComponent('Your EducatedTraveler interest') + '" class="text-xs text-bmw-400 hover:text-bmw-300">Email</a>'
+                        + '<a href="mailto:' + esc(r.email) + '?subject=' + encodeURIComponent('Your EducatedTraveler interest') + '" class="text-xs text-[#7fa8a5] hover:text-bmw-300">Email</a>'
                         + '</div>';
                 }).join('')
                 + '</div></div>';
@@ -838,14 +841,14 @@
                                         <td class="px-4 py-3 mono text-xs">${esc(p.email)}</td>
                                         <td class="px-4 py-3">${esc(p.name || p.first_name || '—')}</td>
                                         <td class="px-4 py-3 text-white/50">${esc(p.location || '—')}</td>
-                                        <td class="px-4 py-3 mono text-bmw-400">${p.xp || 0}</td>
+                                        <td class="px-4 py-3 mono text-[#7fa8a5]">${p.xp || 0}</td>
                                         <td class="px-4 py-3 mono">${p.level || 1}</td>
                                         <td class="px-4 py-3 mono text-xs text-white/50">${esc(p.phone || '—')}</td>
-                                        <td class="px-4 py-3">${p.whatsapp_opt_in ? '<span class="text-green-400">Yes</span>' : '<span class="text-white/20">No</span>'}</td>
+                                        <td class="px-4 py-3">${p.whatsapp_opt_in ? '<span class="text-[#7fa8a5]">Yes</span>' : '<span class="text-white/20">No</span>'}</td>
                                         <td class="px-4 py-3 text-white/40 text-xs">${fmtDate(p.created_at)}</td>
                                         <td class="px-4 py-3 text-xs">
-                                            ${p.day3_email_sent ? '<span class="text-bmw-400">D3</span>' : '<span class="text-white/15">D3</span>'}
-                                            ${p.day7_email_sent ? '<span class="text-bmw-400 ml-1">D7</span>' : '<span class="text-white/15 ml-1">D7</span>'}
+                                            ${p.day3_email_sent ? '<span class="text-[#7fa8a5]">D3</span>' : '<span class="text-white/15">D3</span>'}
+                                            ${p.day7_email_sent ? '<span class="text-[#7fa8a5] ml-1">D7</span>' : '<span class="text-white/15 ml-1">D7</span>'}
                                         </td>
                                     </tr>
                                 `).join('')}
@@ -887,7 +890,7 @@
                                     return `
                                     <tr class="border-b border-white/5 row-hover">
                                         <td class="px-4 py-3 mono text-xs">${esc(user?.email || pref.user_id.slice(0,8))}</td>
-                                        <td class="px-4 py-3">${(pref.elements || []).map(t => `<span class="inline-block bg-bmw-500/15 text-bmw-400 text-xs px-2 py-0.5 rounded-full mr-1">${t}</span>`).join('')}</td>
+                                        <td class="px-4 py-3">${(pref.elements || []).map(t => `<span class="inline-block bg-[#5b8a89]/15 text-[#7fa8a5] text-xs px-2 py-0.5 rounded-full mr-1">${t}</span>`).join('')}</td>
                                         <td class="px-4 py-3">${(pref.desires || []).map(t => `<span class="inline-block bg-white/5 text-white/60 text-xs px-2 py-0.5 rounded-full mr-1">${t}</span>`).join('')}</td>
                                         <td class="px-4 py-3 text-white/60">${esc(pref.time_preference || '—')}</td>
                                         <td class="px-4 py-3 mono">${pref.intensity || '—'}</td>
@@ -924,7 +927,7 @@
                     ${popular.slice(0, 6).map(([name, count]) => `
                         <div class="glass rounded-xl p-4">
                             <p class="text-sm font-medium mb-1">${esc(name)}</p>
-                            <p class="mono text-bmw-400 text-lg">${count} <span class="text-white/30 text-xs">saves</span></p>
+                            <p class="mono text-[#7fa8a5] text-lg">${count} <span class="text-white/30 text-xs">saves</span></p>
                         </div>
                     `).join('')}
                 </div>
@@ -963,13 +966,13 @@
             if (adminData.instructors.length === 0) {
                 el.innerHTML = `<div class="text-center py-12">
                     <p class="text-white/20 text-sm mb-4">No instructors yet</p>
-                    <button onclick="openPrepModal()" class="text-sm px-6 py-2 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">+ Prepare an Instructor</button>
+                    <button onclick="openPrepModal()" class="text-sm px-6 py-2 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">+ Prepare an Instructor</button>
                 </div>`;
                 return;
             }
             el.innerHTML = `
                 <div class="flex justify-end mb-4">
-                    <button onclick="openPrepModal()" class="text-sm px-5 py-2 rounded-full bg-bmw-500/20 text-bmw-400 hover:bg-bmw-500/30 transition-colors">+ Prepare an Instructor</button>
+                    <button onclick="openPrepModal()" class="text-sm px-5 py-2 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">+ Prepare an Instructor</button>
                 </div>
                 <div class="glass rounded-xl overflow-hidden">
                     <div class="overflow-x-auto">
@@ -996,12 +999,12 @@
                                         <td class="px-4 py-3 text-white/40 text-xs">${fmtDate(i.created_at)}</td>
                                         <td class="px-4 py-3">
                                             ${i.status === 'pending' ? `
-                                                <button onclick="updateInstructorStatus('${i.id}', 'approved')" class="text-xs text-bmw-400 hover:text-bmw-300 mr-3">Approve</button>
+                                                <button onclick="updateInstructorStatus('${i.id}', 'approved')" class="text-xs text-[#7fa8a5] hover:text-bmw-300 mr-3">Approve</button>
                                                 <button onclick="updateInstructorStatus('${i.id}', 'rejected')" class="text-xs text-red-400/60 hover:text-red-400">Reject</button>
                                             ` : i.status === 'approved' ? `
-                                                <button onclick="sendInviteEmail('${i.id}')" class="text-xs text-bmw-400 hover:text-bmw-300">Send invite</button>
+                                                <button onclick="sendInviteEmail('${i.id}')" class="text-xs text-[#7fa8a5] hover:text-bmw-300">Send invite</button>
                                             ` : `
-                                                <button onclick="updateInstructorStatus('${i.id}', 'approved')" class="text-xs text-bmw-400 hover:text-bmw-300">Re-approve</button>
+                                                <button onclick="updateInstructorStatus('${i.id}', 'approved')" class="text-xs text-[#7fa8a5] hover:text-bmw-300">Re-approve</button>
                                             `}
                                         </td>
                                     </tr>
@@ -1053,8 +1056,8 @@
                                     const price = c.price_cents ? '$' + (c.price_cents / 100).toLocaleString() : '—';
                                     const reviewActions = c.status === 'pending_review' ? `
                                         <div class="flex items-center gap-1 mt-1">
-                                            <button onclick="approveCohort('${c.id}')" class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30">Approve</button>
-                                            <button onclick="bounceCohort('${c.id}', '${esc(c.title).replace(/'/g, "\\'")}')" class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 hover:bg-amber-500/30">Bounce</button>
+                                            <button onclick="approveCohort('${c.id}')" class="text-[10px] px-2 py-0.5 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30">Approve</button>
+                                            <button onclick="bounceCohort('${c.id}', '${esc(c.title).replace(/'/g, "\\'")}')" class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-[#d28a52] hover:bg-amber-500/30">Bounce</button>
                                         </div>` : '';
                                     return `
                                     <tr class="border-b border-white/5 row-hover">
@@ -1172,20 +1175,20 @@
                 <!-- Survey KPIs -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
                     <div class="glass rounded-xl p-4 text-center">
-                        <p class="text-2xl font-light text-emerald-400 mono">${total}</p>
+                        <p class="text-2xl font-light text-[#7fa8a5] mono">${total}</p>
                         <p class="text-white/30 text-xs mt-1">Total Responses</p>
                     </div>
                     <div class="glass rounded-xl p-4 text-center">
-                        <p class="text-2xl font-light text-emerald-400 mono">${hotLeads}</p>
+                        <p class="text-2xl font-light text-[#7fa8a5] mono">${hotLeads}</p>
                         <p class="text-white/30 text-xs mt-1">Hot Leads</p>
                         <p class="text-white/15 text-[10px]">deposit + very likely</p>
                     </div>
                     <div class="glass rounded-xl p-4 text-center">
-                        <p class="text-2xl font-light text-emerald-400 mono">${emails}</p>
+                        <p class="text-2xl font-light text-[#7fa8a5] mono">${emails}</p>
                         <p class="text-white/30 text-xs mt-1">Email Opt-ins</p>
                     </div>
                     <div class="glass rounded-xl p-4 text-center">
-                        <p class="text-2xl font-light text-emerald-400 mono">${total > 0 ? Math.round((hotLeads / total) * 100) : 0}%</p>
+                        <p class="text-2xl font-light text-[#7fa8a5] mono">${total > 0 ? Math.round((hotLeads / total) * 100) : 0}%</p>
                         <p class="text-white/30 text-xs mt-1">Hot Lead Rate</p>
                     </div>
                 </div>
@@ -1194,7 +1197,7 @@
                 <div class="grid md:grid-cols-2 gap-6 mb-8">
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Archetype (Life Stage)</h3>
-                        ${barChart(countField('lifestage'), total, 'bg-emerald-500')}
+                        ${barChart(countField('lifestage'), total, 'bg-[#5b8a89]')}
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Booking Intent</h3>
@@ -1210,7 +1213,7 @@
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Duration</h3>
-                        ${barChart(countField('duration'), total, 'bg-purple-500')}
+                        ${barChart(countField('duration'), total, 'bg-[#c08a6a]')}
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">#1 Barrier</h3>
@@ -1218,7 +1221,7 @@
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Trust Factors</h3>
-                        ${barChart(countArrayField('trust_factors'), total, 'bg-emerald-500')}
+                        ${barChart(countArrayField('trust_factors'), total, 'bg-[#5b8a89]')}
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Solo vs. Group</h3>
@@ -1234,11 +1237,11 @@
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Age Range</h3>
-                        ${barChart(countField('age_range'), total, 'bg-purple-500')}
+                        ${barChart(countField('age_range'), total, 'bg-[#c08a6a]')}
                     </div>
                     <div class="glass rounded-xl p-5">
                         <h3 class="text-sm font-medium text-white/60 mb-4">Location</h3>
-                        ${barChart(countField('location'), total, 'bg-emerald-500')}
+                        ${barChart(countField('location'), total, 'bg-[#5b8a89]')}
                     </div>
                 </div>
 
@@ -1264,7 +1267,7 @@
                     <div class="space-y-2">
                         ${data.filter(r => r.email).map(r => `
                             <div class="flex items-center gap-4 py-1">
-                                <span class="mono text-xs text-bmw-400">${esc(r.email)}</span>
+                                <span class="mono text-xs text-[#7fa8a5]">${esc(r.email)}</span>
                                 <span class="text-xs text-white/25">${esc(r.lifestage || '?')} · ${esc(r.booking_intent || '?')}</span>
                             </div>
                         `).join('')}
@@ -1276,7 +1279,7 @@
                 <div class="glass rounded-xl overflow-hidden">
                     <div class="px-5 py-3 border-b border-white/5 flex justify-between items-center">
                         <h3 class="text-sm font-medium text-white/60">All Responses</h3>
-                        <button onclick="exportSurveyCSV()" class="text-xs text-bmw-400 hover:text-bmw-300 px-3 py-1 border border-bmw-400/30 rounded-full">Export CSV</button>
+                        <button onclick="exportSurveyCSV()" class="text-xs text-[#7fa8a5] hover:text-bmw-300 px-3 py-1 border border-bmw-400/30 rounded-full">Export CSV</button>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm">
@@ -1294,14 +1297,14 @@
                             </thead>
                             <tbody>
                                 ${data.map(r => {
-                                    const intentColor = r.booking_intent === 'deposit_now' ? 'text-emerald-400' :
-                                        r.booking_intent === 'very_likely' ? 'text-bmw-400' :
+                                    const intentColor = r.booking_intent === 'deposit_now' ? 'text-[#7fa8a5]' :
+                                        r.booking_intent === 'very_likely' ? 'text-[#7fa8a5]' :
                                         r.booking_intent === 'possible' ? 'text-white/50' : 'text-white/25';
                                     return `
                                     <tr class="border-b border-white/5 row-hover">
                                         <td class="px-4 py-3 text-white/40 text-xs whitespace-nowrap">${fmtDate(r.created_at)}</td>
                                         <td class="px-4 py-3 text-xs">${esc((r.lifestage || '').replace(/_/g, ' '))}</td>
-                                        <td class="px-4 py-3">${(r.programs || []).map(p => '<span class="inline-block bg-cyan-500/15 text-cyan-400 text-[10px] px-2 py-0.5 rounded-full mr-1 mb-1">' + esc(p) + '</span>').join('')}</td>
+                                        <td class="px-4 py-3">${(r.programs || []).map(p => '<span class="inline-block bg-cyan-500/15 text-[#6fa3a0] text-[10px] px-2 py-0.5 rounded-full mr-1 mb-1">' + esc(p) + '</span>').join('')}</td>
                                         <td class="px-4 py-3 text-xs text-white/50">${esc((r.duration || '').replace(/_/g, ' '))}</td>
                                         <td class="px-4 py-3 text-xs text-white/50">${esc((r.price_range || '').replace(/_/g, ' '))}</td>
                                         <td class="px-4 py-3 text-xs ${intentColor} font-medium">${esc((r.booking_intent || '').replace(/_/g, ' '))}</td>
@@ -1374,11 +1377,11 @@
             }
 
             const typeColors = {
-                signup: 'text-bmw-400',
-                quest: 'text-purple-400',
-                save: 'text-cyan-400',
+                signup: 'text-[#7fa8a5]',
+                quest: 'text-[#c08a6a]',
+                save: 'text-[#6fa3a0]',
                 instructor: 'text-orange-400',
-                enrollment: 'text-green-400'
+                enrollment: 'text-[#7fa8a5]'
             };
 
             el.innerHTML = `

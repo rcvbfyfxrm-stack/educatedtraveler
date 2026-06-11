@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#050505">
+    <meta name="theme-color" content="#0d0b09">
     <title>Command Center — EDUCATEDTRAVELER</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="/images/logo-et-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,9 +21,9 @@
                 extend: {
                     colors: {
                         'bmw': {
-                            50: '#e6f0fa', 100: '#b3d1ef', 200: '#80b3e4', 300: '#4d94d9',
-                            400: '#3B8DD4', 500: '#0066B1', 600: '#00518d', 700: '#003d6a',
-                            800: '#002846', 900: '#001423',
+                            50: '#1c1813', 100: '#b3d1ef', 200: '#a7cecb', 300: '#6fa3a0',
+                            400: '#7fa8a5', 500: '#5b8a89', 600: '#5b8a89', 700: '#38595b',
+                            800: '#14110d', 900: '#0d0b09',
                         }
                     }
                 }
@@ -32,17 +32,20 @@
     </script>
 
     <style>
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
+        .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
+
         * { -webkit-font-smoothing: antialiased; }
-        html, body { background: #050505; }
+        html, body { background: #0d0b09; }
         body {
             font-family: 'Inter', system-ui, sans-serif;
             color: #fff;
             padding-bottom: env(safe-area-inset-bottom);
         }
-        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+        .glass { background: rgba(243,237,226,0.025); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(243,237,226,0.09); }
         .glass-strong { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
         .mono { font-family: 'IBM Plex Mono', monospace; }
-        .accent { color: #3B8DD4; }
+        .accent { color: #7fa8a5; }
         .stat-num { font-variant-numeric: tabular-nums; }
 
         /* Animations */
@@ -76,7 +79,7 @@
 
         /* Inputs */
         input[type="text"], input[type="email"], input[type="datetime-local"], textarea, select {
-            background: rgba(255,255,255,0.03);
+            background: rgba(243,237,226,0.025);
             border: 1px solid rgba(255,255,255,0.08);
             color: #fff;
             border-radius: 0.5rem;
@@ -99,22 +102,22 @@
             border: 1px solid rgba(59,141,212,0.5);
             transition: all 0.15s;
         }
-        .btn-primary:hover { background: #0066B1; border-color: #3B8DD4; }
+        .btn-primary:hover { background: #5b8a89; border-color: #7fa8a5; }
         .btn-ghost {
-            background: rgba(255,255,255,0.03);
+            background: rgba(243,237,226,0.025);
             color: rgba(255,255,255,0.7);
             border-radius: 9999px;
             padding: 0.5rem 1.25rem; font-size: 0.8125rem;
             border: 1px solid rgba(255,255,255,0.08);
             transition: all 0.15s;
         }
-        .btn-ghost:hover { background: rgba(255,255,255,0.06); color: #fff; }
+        .btn-ghost:hover { background: rgba(243,237,226,0.09); color: #fff; }
 
         /* Segments / badges */
         .seg { font-size: 0.625rem; padding: 2px 8px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
-        .seg-amber { background: rgba(245,158,11,0.18); color: #fbbf24; }
+        .seg-amber { background: rgba(245,158,11,0.18); color: #e0b07a; }
         .seg-emerald { background: rgba(16,185,129,0.18); color: #34d399; }
-        .seg-bmw { background: rgba(0,102,177,0.22); color: #4d94d9; }
+        .seg-bmw { background: rgba(0,102,177,0.22); color: #6fa3a0; }
         .seg-violet { background: rgba(139,92,246,0.18); color: #a78bfa; }
         .seg-rose { background: rgba(244,63,94,0.18); color: #fb7185; }
         .seg-white { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); }
@@ -125,7 +128,7 @@
             background: rgba(10,10,10,0.9);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border-top: 1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(243,237,226,0.09);
             padding-bottom: env(safe-area-inset-bottom);
         }
         .tab-btn {
@@ -138,9 +141,9 @@
             border: none;
             cursor: pointer;
         }
-        .tab-btn.active { color: #3B8DD4; }
+        .tab-btn.active { color: #7fa8a5; }
         .tab-btn:hover { color: rgba(255,255,255,0.7); }
-        .tab-btn.active:hover { color: #4d94d9; }
+        .tab-btn.active:hover { color: #6fa3a0; }
         .tab-btn svg { width: 20px; height: 20px; stroke-width: 1.5; }
 
         /* North star bar */
@@ -154,7 +157,7 @@
 
         /* Lint badge */
         .lint-clean { color: #34d399; }
-        .lint-warn { color: #fbbf24; }
+        .lint-warn { color: #e0b07a; }
 
         /* Capture box autofocus */
         .capture-glow:focus-within {
@@ -175,8 +178,8 @@
             position: relative;
             width: 100%;
             aspect-ratio: 1 / 1;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(243,237,226,0.025);
+            border: 1px solid rgba(243,237,226,0.09);
             border-radius: 0.5rem;
             overflow: hidden;
             cursor: pointer;
@@ -295,7 +298,7 @@
                             <button type="submit" class="btn-primary !px-3 !py-2">Save</button>
                         </div>
                     </form>
-                    <div id="voice-status" class="hidden text-[11px] text-amber-400 mt-2 px-1"></div>
+                    <div id="voice-status" class="hidden text-[11px] text-[#d28a52] mt-2 px-1"></div>
                 </div>
             </div>
 
@@ -494,18 +497,18 @@
                 </div>
                 <div class="glass-strong rounded-2xl overflow-hidden">
                     <div class="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/5">
-                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#06B6D4">
-                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#06B6D4">◆ Freedom</div>
+                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#6fa3a0">
+                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#6fa3a0">◆ Freedom</div>
                             <div class="text-sm text-white/85 leading-snug mb-1.5">The open sea, the unknown horizon, the life you chose.</div>
                             <div class="text-[11px] text-white/40 italic">Sailing · diving · open water</div>
                         </div>
-                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#F97316">
-                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#F97316">◆ Adventure</div>
+                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#e0a877">
+                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#e0a877">◆ Adventure</div>
                             <div class="text-sm text-white/85 leading-snug mb-1.5">Real stakes, real effort, real reward. Earned exhilaration.</div>
                             <div class="text-[11px] text-white/40 italic">Surf · mountains · rapids</div>
                         </div>
-                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#F59E0B">
-                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#F59E0B">◆ Immersion</div>
+                        <div class="p-4 border-l-2 sm:border-l-0 sm:border-t-2" style="border-color:#d28a52">
+                            <div class="text-[10px] mono uppercase tracking-widest mb-1.5" style="color:#d28a52">◆ Immersion</div>
                             <div class="text-sm text-white/85 leading-snug mb-1.5">Deep in the craft, the culture, the cohort. Living it.</div>
                             <div class="text-[11px] text-white/40 italic">Culinary · wellness · crafts</div>
                         </div>
@@ -594,7 +597,7 @@
                         <div class="text-[10px] mono text-white/40 uppercase tracking-widest mb-2">◆ Lifestyle imagery · by pillar</div>
                         <div class="space-y-3">
                             <div>
-                                <div class="text-[11px] mb-1.5" style="color:#06B6D4">FREEDOM · open water · sailing · diving</div>
+                                <div class="text-[11px] mb-1.5" style="color:#6fa3a0">FREEDOM · open water · sailing · diving</div>
                                 <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
                                     <button class="asset-thumb" data-src="/images/story/sailing-1.png" data-caption="Sailing · open sea"><img src="/images/story/sailing-1.png" alt="" loading="lazy"><div class="asset-label">sail 1</div></button>
                                     <button class="asset-thumb" data-src="/images/story/sailing-2.png" data-caption="Sailing · open sea"><img src="/images/story/sailing-2.png" alt="" loading="lazy"><div class="asset-label">sail 2</div></button>
@@ -604,7 +607,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="text-[11px] mb-1.5" style="color:#F97316">ADVENTURE · real stakes · mountains</div>
+                                <div class="text-[11px] mb-1.5" style="color:#e0a877">ADVENTURE · real stakes · mountains</div>
                                 <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
                                     <button class="asset-thumb" data-src="/images/story/mountain-climb.jpg" data-caption="Mountain climb · real stakes"><img src="/images/story/mountain-climb.jpg" alt="" loading="lazy"><div class="asset-label">climb</div></button>
                                     <button class="asset-thumb" data-src="/images/story/mountains-snow.png" data-caption="Snow ridge · earned exhilaration"><img src="/images/story/mountains-snow.png" alt="" loading="lazy"><div class="asset-label">snow</div></button>
@@ -612,7 +615,7 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="text-[11px] mb-1.5" style="color:#F59E0B">IMMERSION · craft · culinary</div>
+                                <div class="text-[11px] mb-1.5" style="color:#d28a52">IMMERSION · craft · culinary</div>
                                 <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
                                     <button class="asset-thumb" data-src="/images/story/chef-plating.jpg" data-caption="Chef plating · the craft"><img src="/images/story/chef-plating.jpg" alt="" loading="lazy"><div class="asset-label">plating</div></button>
                                     <button class="asset-thumb" data-src="/images/story/kitchen-flames.png" data-caption="Kitchen flames · the line"><img src="/images/story/kitchen-flames.png" alt="" loading="lazy"><div class="asset-label">flames</div></button>
@@ -711,7 +714,7 @@
                 <div class="px-5 pb-5 space-y-4">
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
-                            <div class="text-[10px] mono uppercase tracking-widest text-emerald-400 mb-2">Sacred phrases · use freely</div>
+                            <div class="text-[10px] mono uppercase tracking-widest text-[#7fa8a5] mb-2">Sacred phrases · use freely</div>
                             <div class="flex flex-wrap gap-1.5 text-xs text-white/80">
                                 <span class="bg-emerald-400/10 px-2 py-0.5 rounded">certified</span>
                                 <span class="bg-emerald-400/10 px-2 py-0.5 rounded">cohort</span>
@@ -856,28 +859,28 @@ CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
                 <div class="px-5 pb-5 space-y-3">
                     <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
                         <div class="flex items-center justify-between mb-1.5">
-                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#F59E0B">Pillar / philosophy · always 2–3</span>
+                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#d28a52">Pillar / philosophy · always 2–3</span>
                             <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="pillar">Copy block</button>
                         </div>
                         <div class="text-xs text-white/80 font-mono leading-relaxed">#immersion #earnednotbought #skillsatthesource #cohort #atthesource #craftnottourism #skillslasttansfade #chooseyourdepth</div>
                     </div>
                     <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
                         <div class="flex items-center justify-between mb-1.5">
-                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#F59E0B">Culinary · sushi · pastry · wine</span>
+                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#d28a52">Culinary · sushi · pastry · wine</span>
                             <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="culinary">Copy block</button>
                         </div>
                         <div class="text-xs text-white/80 font-mono leading-relaxed">#sushichef #itamae #toyosu #lecordonbleu #ferrandi #culinaryart #pastryarts #wsetwine #sommelier #culinarycraft</div>
                     </div>
                     <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
                         <div class="flex items-center justify-between mb-1.5">
-                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#06B6D4">Freedom · diving · sailing</span>
+                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#6fa3a0">Freedom · diving · sailing</span>
                             <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="freedom">Copy block</button>
                         </div>
                         <div class="text-xs text-white/80 font-mono leading-relaxed">#padidiver #padicertified #scubadiving #freediving #ryasailor #ryayachtmaster #openwater #sailingthemediterranean #cruisinglife</div>
                     </div>
                     <div class="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3">
                         <div class="flex items-center justify-between mb-1.5">
-                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#F97316">Adventure · surf · mountains</span>
+                            <span class="text-[10px] mono uppercase tracking-widest" style="color:#e0a877">Adventure · surf · mountains</span>
                             <button class="btn-ghost !text-[10px] !py-0.5 !px-2" data-tags="adventure">Copy block</button>
                         </div>
                         <div class="text-xs text-white/80 font-mono leading-relaxed">#surfschool #isasurfing #ifmga #alpineclimbing #mountaineering #whitewaterkayak #kitesurfing #ikoinstructor</div>
@@ -1862,7 +1865,7 @@ CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
                 const phaseInfo = ({now:['PRIORITY','seg-rose'], soon:['JUNE','seg-bmw'], cohort:['PRE-SEP','seg-violet'], ongoing:['DAILY','seg-emerald']})[t.phase] || ['LATER','seg-white'];
                 return `
                     <div class="check px-5 py-4 flex items-start gap-3" data-task="${t.id}">
-                        <button onclick="toggleTask('${t.id}')" class="mt-0.5 shrink-0 w-5 h-5 rounded border ${t.done ? 'bg-bmw-500/40 border-bmw-400/60' : 'border-white/20 hover:border-white/50'} flex items-center justify-center transition-colors">
+                        <button onclick="toggleTask('${t.id}')" class="mt-0.5 shrink-0 w-5 h-5 rounded border ${t.done ? 'bg-[#5b8a89]/40 border-bmw-400/60' : 'border-white/20 hover:border-white/50'} flex items-center justify-center transition-colors">
                             ${t.done ? '<svg class="w-3 h-3 text-bmw-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
                         </button>
                         <div class="flex-1 min-w-0">
@@ -2134,7 +2137,7 @@ CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
                 const showClass = (t.done && showCompleted) ? 'show-completed' : '';
                 return `
                     <div class="check px-5 py-3 flex items-start gap-3 ${doneClass} ${showClass}" data-task="${t.id}">
-                        <button onclick="toggleTask('${t.id}')" class="mt-0.5 shrink-0 w-4 h-4 rounded border ${t.done ? 'bg-bmw-500/40 border-bmw-400/60' : 'border-white/20 hover:border-white/50'} flex items-center justify-center transition-colors">
+                        <button onclick="toggleTask('${t.id}')" class="mt-0.5 shrink-0 w-4 h-4 rounded border ${t.done ? 'bg-[#5b8a89]/40 border-bmw-400/60' : 'border-white/20 hover:border-white/50'} flex items-center justify-center transition-colors">
                             ${t.done ? '<svg class="w-3 h-3 text-bmw-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : ''}
                         </button>
                         <div class="flex-1 text-sm leading-snug ${t.done ? 'text-white/40 line-through' : 'text-white/85'}">${esc(t.text)}</div>
@@ -2201,8 +2204,8 @@ CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
             { label: 'Interests declared', count: interests, color: 'rgba(95,160,235,0.7)' },
             { label: 'Hot survey leads', count: hotSurveys, color: 'rgba(75,150,225,0.8)' },
             { label: 'Applications', count: applications, color: 'rgba(60,140,212,0.85)' },
-            { label: 'Deposits paid', count: deposits, color: '#3B8DD4' },
-            { label: 'Enrolled', count: enrolled, color: '#0066B1' },
+            { label: 'Deposits paid', count: deposits, color: '#7fa8a5' },
+            { label: 'Enrolled', count: enrolled, color: '#5b8a89' },
         ];
 
         const maxCount = Math.max(1, ...stages.map(s => s.count));
@@ -2260,7 +2263,7 @@ CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
                     <span class="text-white/85 mono">${perWeek}/wk</span> trajectory required.
                 </div>
                 <div class="mt-3 h-2 bg-white/[0.04] rounded-full overflow-hidden">
-                    <div class="h-full bg-bmw-500 rounded-full" style="width:${Math.min(100, (deposits / COHORT_TARGET_SEATS) * 100)}%"></div>
+                    <div class="h-full bg-[#5b8a89] rounded-full" style="width:${Math.min(100, (deposits / COHORT_TARGET_SEATS) * 100)}%"></div>
                 </div>`;
         }
 
@@ -3046,7 +3049,7 @@ CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
                 if (lint.warn) {
                     out.innerHTML = `<div class="rounded-md p-2 bg-rose-400/10 border border-rose-400/20"><span class="lint-warn">⚠ Banned: ${lint.words.map(esc).join(' · ')}</span></div>`;
                 } else {
-                    out.innerHTML = `<div class="rounded-md p-2 bg-emerald-400/10 border border-emerald-400/20"><span class="lint-clean">● Voice clean · ${text.length} chars · ${text.split(/\s+/).filter(Boolean).length} words</span></div>`;
+                    out.innerHTML = `<div class="rounded-md p-2 bg-emerald-400/10 border border-[#7fa8a5]/20"><span class="lint-clean">● Voice clean · ${text.length} chars · ${text.split(/\s+/).filter(Boolean).length} words</span></div>`;
                 }
                 out.classList.remove('hidden');
             });

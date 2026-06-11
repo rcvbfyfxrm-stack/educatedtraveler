@@ -12,18 +12,21 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
+        .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
+
         * { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0d0b09; }
 
         .glass {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(243,237,226,0.025);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(243,237,226,0.09);
         }
 
         @keyframes spin {
@@ -83,7 +86,7 @@
                     minlength="8"
                     class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
                 >
-                <button type="submit" id="reset-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#059669 0%,#1d4ed8 100%);">
+                <button type="submit" id="reset-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);">
                     Update Password
                 </button>
             </form>

@@ -13,13 +13,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #fff; }
-        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
-        .cta-button { background: linear-gradient(135deg, #0066B1 0%, #3B8DD4 100%); transition: all 0.3s ease; }
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; }
+        .mono,.font-mono { font-family:'IBM Plex Mono',monospace; }
+
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0d0b09; color: #fff; }
+        .glass { background: rgba(243,237,226,0.025); backdrop-filter: blur(20px); border: 1px solid rgba(243,237,226,0.09); }
+        .cta-button { background: linear-gradient(135deg, #5b8a89 0%, #7fa8a5 100%); transition: all 0.3s ease; }
         .cta-button:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0,102,177,0.3); }
     </style>
 </head>
@@ -52,7 +55,7 @@
         const cohort = params.get('cohort_id');
         const ref = document.referrer && new URL(document.referrer).origin === window.location.origin
             ? document.referrer
-            : '/offerings';
+            : '/repertoire';
         document.getElementById('back-link').href = ref;
     </script>
 </body>
