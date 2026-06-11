@@ -167,6 +167,32 @@
             border: 1px solid rgba(210,138,82,0.25); border-radius: 8px; padding: 4px 10px;
         }
 
+        /* ---------- Featured "best course for this craft" ---------- */
+        .feat {
+            margin: 0 16px 14px; padding: 16px 18px; border-radius: 12px;
+            background: linear-gradient(135deg, rgba(127,168,165,0.07), rgba(210,138,82,0.05));
+            border: 1px solid rgba(127,168,165,0.22);
+        }
+        .feat-tag {
+            font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--sea); margin-bottom: 7px;
+        }
+        .feat-title { font-family: 'Fraunces', Georgia, serif; font-size: 18px; line-height: 1.2; color: var(--paper); }
+        .feat-meta { font-size: 12.5px; color: #e0b07a; margin-top: 2px; }
+        .feat-desc { font-size: 13.5px; line-height: 1.6; color: rgba(243,237,226,0.72); margin-top: 10px; }
+        .feat-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; }
+        .feat-chip {
+            font-size: 11px; color: rgba(243,237,226,0.78);
+            background: rgba(243,237,226,0.05); border: 1px solid rgba(243,237,226,0.12);
+            border-radius: 6px; padding: 3px 9px; white-space: nowrap;
+        }
+        .feat-sess { font-size: 12px; color: rgba(243,237,226,0.7); margin-top: 10px; }
+        .feat-sess-lab {
+            font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(243,237,226,0.4); margin-right: 4px;
+        }
+        .feat-fit { font-size: 12.5px; font-style: italic; color: rgba(243,237,226,0.55); margin-top: 10px; }
+
         /* region / credential group header */
         .grp-head {
             display: flex; align-items: baseline; gap: 12px; padding: 6px 2px 14px;
@@ -449,6 +475,40 @@
         }
 
         // ---------- discipline card ----------
+        // ---------- featured "best course for this craft" (research-enriched) ----------
+        function featChip(t) { return t ? '<span class="feat-chip">' + esc(t) + '</span>' : ''; }
+        function featuredBlock(d) {
+            var f = d.featured; if (!f || !f.course) return '';
+            var chips = [f.duration, f.format, (f.certification && f.certification !== '—') ? f.certification : '', f.priceNote].map(featChip).join('');
+            var sess = (f.sessions && f.sessions.length)
+                ? '<div class="feat-sess"><span class="feat-sess-lab">Next sessions</span> ' + f.sessions.slice(0, 4).map(esc).join('&nbsp;·&nbsp;') + '</div>' : '';
+            var link = f.url ? '<a class="school-link" target="_blank" rel="noopener" href="' + esc(f.url) + '">Visit ' + esc(f.school) + ' <span class="text-white/30">↗</span></a>' : '';
+            return '<div class="feat">' +
+                '<div class="feat-tag">' + (f.confidence === 'low' ? '★ Best course · provisional, verifying' : '★ Best course for this craft') + '</div>' +
+                '<div class="feat-title">' + esc(f.course) + '</div>' +
+                '<div class="feat-meta">' + esc(f.school) + ' — ' + esc(f.place) + (f.country ? ', ' + esc(f.country) : '') + '</div>' +
+                (f.description ? '<p class="feat-desc">' + esc(f.description) + '</p>' : '') +
+                (chips ? '<div class="feat-chips">' + chips + '</div>' : '') +
+                sess +
+                (f.fitsBecause ? '<p class="feat-fit">' + esc(f.fitsBecause) + '</p>' : '') +
+                (link ? '<div class="mt-2.5">' + link + '</div>' : '') +
+                '</div>';
+        }
+        // earliest real session month (0-11) from a sessions array, or null
+        function sessionMonth(sessions) {
+            if (!sessions || !sessions.length) return null;
+            var MK = { jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11 };
+            var best = null;
+            sessions.forEach(function (s) {
+                s = String(s).toLowerCase(); var m = null, y = 9999;
+                var iso = s.match(/(\d{4})-(\d{2})-\d{2}/);
+                if (iso) { y = +iso[1]; m = +iso[2] - 1; }
+                else { var mm = s.match(/(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*/); var yy = s.match(/(20\d{2})/); if (mm) { m = MK[mm[1]]; if (yy) y = +yy[1]; } }
+                if (m != null) { var key = y * 12 + m; if (best === null || key < best.key) best = { key: key, m: m }; }
+            });
+            return best ? best.m : null;
+        }
+
         function discCard(d) {
             var color = CORE_COLOR[d.category] || '#888';
             var cs = d.certShort || d.certBody;
@@ -469,6 +529,7 @@
                 '</div>' +
                 '<span class="mono text-xs text-white/30 shrink-0 mt-1">' + d.destinations.length + ' ' + (d.destinations.length === 1 ? 'place' : 'places') + '</span>' +
               '</div>' +
+              featuredBlock(d) +
               '<div>' + d.destinations.map(function (x) { return destRow(d, x); }).join('') + '</div>' +
             '</div>';
         }
@@ -529,6 +590,7 @@
                   '<p class="text-white/55 text-sm mt-1.5 leading-snug">' + esc(x.why) + '</p>' +
                   '<div class="flex items-center gap-3 mt-2.5 flex-wrap">' + meter(x.communityRank, x.communityLabel) + badgeChips(x.badges) + '</div>' +
                   '<div class="dest-detail">' +
+                    ((d.featured && (x.id === d.featured.id || x.place === d.featured.place)) ? featuredBlock(d).replace('margin: 0 16px 14px', 'margin: 14px 0 0') : '') +
                     '<div class="grid sm:grid-cols-2 gap-x-8 gap-y-3 mt-4 pt-4 border-t border-white/5">' +
                       '<div><div class="det-label mb-1">Best season</div><div class="text-sm text-white/75">' + esc(x.bestSeason || '—') + '</div></div>' +
                       '<div><div class="det-label mb-1">Range</div><div class="text-sm text-white/75">' + esc(x.level || '—') + '</div></div>' +
@@ -541,6 +603,43 @@
                 '</div>' +
                 '<svg class="chev w-4 h-4 text-white/30 mt-1.5 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>' +
               '</div></div></div>';
+        }
+
+        // ---------- "When to go" lens: order each craft by the month its best window opens ----------
+        var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        function seasonStart(str) {
+            if (!str) return null;
+            var s = String(str).toLowerCase().replace(/\([^)]*\)/g, ' '); // drop parentheticals like "(dry season)"
+            var MK = { jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11 };
+            var first = null;
+            s.replace(/(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*/, function (m, p1) { first = MK[p1]; return m; });
+            return first; // null = year-round / unspecified
+        }
+        function renderWhen(discs) {
+            var entries = flatEntries(discs);
+            var groups = {}, flexible = [];
+            entries.forEach(function (e) {
+                // Prefer a real verified course session date when this is the craft's featured place
+                var st = null;
+                var f = e.d.featured;
+                if (f && (e.x.id === f.id || e.x.place === f.place)) st = sessionMonth(f.sessions);
+                if (st === null) st = seasonStart(e.x.bestSeason);
+                if (st === null) flexible.push(e);
+                else (groups[st] = groups[st] || []).push(e);
+            });
+            function byRank(a, b) { return (b.x.communityRank || 0) - (a.x.communityRank || 0); }
+            function section(title, sub, list) {
+                return '<section class="mb-11"><div class="grp-head"><span class="grp-title">' + esc(title) + '</span>' +
+                    '<span class="text-sm" style="color:rgba(243,237,226,0.45)">' + esc(sub) + '</span>' +
+                    '<span class="grp-count ml-auto">' + list.length + ' ' + (list.length === 1 ? 'place' : 'places') + '</span></div>' +
+                    '<div class="space-y-3">' + list.map(function (e) { return entryRow(e.d, e.x); }).join('') + '</div></section>';
+            }
+            var html = '';
+            for (var mi = 0; mi < 12; mi++) {
+                if (groups[mi] && groups[mi].length) html += section(MONTH_NAMES[mi], 'season opens', groups[mi].slice().sort(byRank));
+            }
+            if (flexible.length) html += section('Year-round & flexible', 'go whenever you can', flexible.slice().sort(byRank));
+            return html;
         }
 
         function render() {
@@ -577,6 +676,9 @@
                 var nS = scn.reduce(function (n, d) { return n + d.destinations.length; }, 0);
                 metaEl.textContent = nS + ' thriving & legendary scenes — where your people already gather';
                 html = renderGroupedEntries(scn, function (e) { return e.x.communityLabel; }, ['Legendary', 'Thriving', 'Strong', 'Growing', 'Hidden-gem']);
+            } else if (state.arrange === 'when') {
+                metaEl.textContent = nDest + ' destinations — ordered by when each craft is best learned at the source';
+                html = renderWhen(discs);
             }
             resultsEl.innerHTML = html;
         }
@@ -592,6 +694,7 @@
             var arr = document.getElementById('arrange-pills');
             var arrList = [
                 { k: 'discipline', label: 'Craft' },
+                { k: 'when', label: 'When to go' },
                 { k: 'region', label: 'Region map' },
                 { k: 'credential', label: 'Credential' },
                 { k: 'source', label: 'The Source' },

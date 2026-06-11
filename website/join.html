@@ -25,20 +25,23 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+        h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; font-weight:400; }
+        .mono { font-family:'IBM Plex Mono',monospace; }
+
         :root {
-            --blue: #0066B1;
-            --blue-light: #3B8DD4;
-            --dark: #0a0a0a;
+            --blue: #7fa8a5;
+            --blue-light: #d28a52;
+            --dark: #0d0b09;
         }
 
         * { -webkit-font-smoothing: antialiased; margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); overflow-x: hidden; }
-        .font-serif { font-family: 'Cormorant Garamond', 'Georgia', serif; }
+        .font-serif { font-family: 'Fraunces', 'Georgia', serif; }
 
         /* ═══════════════════════════════════════════ */
         /* SPLIT LAYOUT                                */
@@ -210,7 +213,7 @@
 
         .glass-form {
             background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(243,237,226,0.09);
             border-radius: 1.25rem;
             padding: 2.25rem;
         }
@@ -377,7 +380,7 @@
                     <p>Alpine Mountaineering &middot; Chamonix, France</p>
                 </div>
                 <div class="story-phrase" data-phrase="2">
-                    <h2>The certification that changes everything.</h2>
+                    <h2>The skill that changes everything.</h2>
                     <p>RYA Yachtmaster &middot; Gibraltar</p>
                 </div>
                 <div class="story-phrase" data-phrase="3">
@@ -402,7 +405,7 @@
             <!-- Logo overlay (top-left on visual) -->
             <a href="/" style="position:absolute;top:1.75rem;left:2rem;z-index:5;text-decoration:none;">
                 <span style="font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.7);">
-                    EDUCATED<span style="color:#3B8DD4;">TRAVELER</span>
+                    EDUCATED<span style="color:#7fa8a5;">TRAVELER</span>
                 </span>
             </a>
         </div>
@@ -421,7 +424,7 @@
 
                 <!-- Loading -->
                 <div id="state-loading" class="text-center" style="padding:5rem 0;">
-                    <div style="width:40px;height:40px;margin:0 auto 1rem;border:2px solid rgba(59,141,212,0.2);border-top-color:#3B8DD4;border-radius:50%;" class="spinner"></div>
+                    <div style="width:40px;height:40px;margin:0 auto 1rem;border:2px solid rgba(127,168,165,0.25);border-top-color:#7fa8a5;border-radius:50%;" class="spinner"></div>
                 </div>
 
                 <!-- Already signed in -->
@@ -500,7 +503,7 @@
                         <p id="signup-error" class="hidden" style="color:#f87171;font-size:0.7rem;text-align:center;"></p>
 
                         <p style="color:rgba(255,255,255,0.15);font-size:0.65rem;text-align:center;line-height:1.6;margin-top:0.25rem;" class="tagline">
-                            8&ndash;12 per cohort &middot; Certified at the source &middot; Earned, not bought
+                            Earned, not bought &middot; A place, a person, your people
                         </p>
                     </form>
 
@@ -532,7 +535,7 @@
                         <p id="signin-error" class="hidden" style="color:#f87171;font-size:0.7rem;text-align:center;"></p>
 
                         <p style="color:rgba(255,255,255,0.15);font-size:0.65rem;text-align:center;line-height:1.6;margin-top:0.25rem;" class="tagline">
-                            8&ndash;12 per cohort &middot; Certified at the source &middot; Earned, not bought
+                            Earned, not bought &middot; A place, a person, your people
                         </p>
                     </form>
 

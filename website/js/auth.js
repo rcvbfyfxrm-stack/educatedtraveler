@@ -171,6 +171,9 @@
 
         // Migrate localStorage data if exists
         await migrateLocalStorage(user.id);
+
+        // Record any pre-signup "I'm interested" click from a flagship page
+        await migratePendingInterest(user.id);
     }
 
     function handleSignOut() {
@@ -241,7 +244,7 @@
                     desires: questState.desires || [],
                     time_preference: questState.time,
                     intensity: questState.intensity
-                }, { onConflict: 'user_id' });
+                });
             }
 
             // Save phone + WhatsApp opt-in if provided
@@ -260,13 +263,33 @@
                         user_id: userId,
                         adventure_id: adventure.id,
                         adventure_name: adventure.name
-                    }, { onConflict: 'user_id,adventure_id' });
+                    });
                 }
             }
 
             sessionStorage.removeItem('pendingQuest');
         } catch (e) {
             console.error('Error migrating pending data:', e);
+        }
+    }
+
+    async function migratePendingInterest(userId) {
+        const pending = localStorage.getItem('et_pending_interest');
+        if (!pending) return;
+
+        try {
+            const { adventureId, adventureName } = JSON.parse(pending);
+            if (adventureId) {
+                await supabase.from('experience_interests').upsert({
+                    user_id: userId,
+                    adventure_id: adventureId,
+                    adventure_name: adventureName || adventureId,
+                    status: 'interested'
+                }, { onConflict: 'user_id,adventure_id' });
+            }
+            localStorage.removeItem('et_pending_interest');
+        } catch (e) {
+            console.error('Error migrating pending interest:', e);
         }
     }
 
@@ -284,7 +307,7 @@
                     user_id: userId,
                     elements: profile.elements || [],
                     desires: profile.desires || []
-                }, { onConflict: 'user_id' });
+                });
             }
 
             // Migrate badges
@@ -293,7 +316,7 @@
                     await supabase.from('user_badges').upsert({
                         user_id: userId,
                         badge_key: badge
-                    }, { onConflict: 'user_id,badge_key' });
+                    });
                 }
             }
 
@@ -303,7 +326,7 @@
                     await supabase.from('saved_adventures').upsert({
                         user_id: userId,
                         adventure_id: adventureId
-                    }, { onConflict: 'user_id,adventure_id' });
+                    });
                 }
             }
 

@@ -49,7 +49,7 @@
 
         // Fetch visible profiles (public) + count all
         const [visibleRes, countRes, badgeRes] = await Promise.all([
-            sb.from('profiles').select('id, name, first_name, email, location, profession, interests, avatar_url, created_at')
+            sb.from('profiles').select('id, name, first_name, location, profession, interests, avatar_url, created_at')
               .in('visibility', ['public', 'cohort']).order('created_at', { ascending: false }).limit(20),
             sb.from('profiles').select('id', { count: 'exact', head: true }),
             sb.from('user_badges').select('badge_key, user_id'),
@@ -163,8 +163,8 @@
                 <!-- Stacked avatars preview -->
                 <div style="display:flex;justify-content:center;margin-bottom:16px;">
                     ${profiles.slice(0, 6).map((p, i) => {
-                        const [c1, c2] = getGradient(p.email);
-                        const initials = getInitials(p.name || p.first_name, p.email);
+                        const [c1, c2] = getGradient(p.id);
+                        const initials = getInitials(p.name || p.first_name, '');
                         return `<div class="cs-avatar" style="background:linear-gradient(135deg,${c1},${c2});margin-left:${i > 0 ? '-8px' : '0'};border:2px solid #0a0a0a;z-index:${10-i};" title="${p.name || 'Adventurer'}">${
                             p.avatar_url ? `<img src="${p.avatar_url}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` : initials
                         }</div>`;
@@ -180,8 +180,8 @@
                 <div id="cs-members">
                     ${profiles.length === 0 ? '<p style="color:rgba(255,255,255,0.2);font-size:12px;text-align:center;padding:12px 0;">Be the first to join</p>' :
                     profiles.slice(0, 10).map(p => {
-                        const [c1, c2] = getGradient(p.email);
-                        const initials = getInitials(p.name || p.first_name, p.email);
+                        const [c1, c2] = getGradient(p.id);
+                        const initials = getInitials(p.name || p.first_name, '');
                         const displayName = p.name || p.first_name || 'Adventurer';
                         const isYou = currentUser && p.id === currentUser.id;
                         return `
@@ -250,8 +250,8 @@
         const existing = document.getElementById('cs-profile-card');
         if (existing) existing.remove();
 
-        const [c1, c2] = getGradient(profile.email);
-        const initials = getInitials(profile.name || profile.first_name, profile.email);
+        const [c1, c2] = getGradient(profile.id);
+        const initials = getInitials(profile.name || profile.first_name, '');
         const displayName = profile.name || profile.first_name || 'Adventurer';
 
         const badgeLabels = {

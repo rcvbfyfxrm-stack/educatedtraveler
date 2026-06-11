@@ -442,10 +442,15 @@
                             style="background: rgba(243,237,226,0.04); border: 1px solid rgba(243,237,226,0.16);">
                         <button type="submit" id="circle-submit" class="btn-primary px-8 py-3 rounded-full text-sm whitespace-nowrap min-h-[44px]">Join the Circle</button>
                     </div>
+                    <p class="text-xs text-paper-faint text-center mt-4">Rather have a profile straight away? <a href="community.html" class="underline" style="color:var(--sea)">Create your account →</a></p>
                 </form>
                 <div id="circle-success" class="hidden py-6">
-                    <p class="font-serif text-2xl text-paper mb-2">You're in.</p>
-                    <p class="text-sm text-paper-muted">No funnel, no noise. You'll hear from me when there's something real to share — a place worth knowing, or people worth meeting.</p>
+                    <p class="font-serif text-2xl text-paper mb-2">You're in the Circle.</p>
+                    <p class="text-sm text-paper-muted mb-7">No funnel, no noise. You'll hear from me when there's something real to share — a place worth knowing, or people worth meeting.</p>
+                    <div class="pt-6" style="border-top:1px solid var(--line)">
+                        <p class="text-sm text-paper-muted mb-4">Want more than emails? Create a profile — you become visible to your people, and you can save places from the Atlas.</p>
+                        <a href="community.html" class="btn-ghost inline-block px-7 py-3 rounded-full text-sm">Create your account →</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -598,6 +603,8 @@
                         .from('launch_waitlist')
                         .insert({ email, interests, source: 'homepage-circle' });
                     if (res && res.error) throw res.error;
+                    // Carry the quick-join into account creation so nothing is re-typed
+                    try { sessionStorage.setItem('et_circle', JSON.stringify({ email, interests })); } catch (e) {}
                     form.classList.add('hidden');
                     success.classList.remove('hidden');
                 } catch (err) {
