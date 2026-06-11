@@ -112,7 +112,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "hatha-and-vinyasa-yoga",
-   "certShort": "Yoga Alliance"
+   "certShort": "Yoga Alliance",
+   "featured": {
+    "id": "hatha-and-vinyasa-yoga--rishikesh",
+    "place": "Rishikesh",
+    "country": "India",
+    "school": "Parmarth School of Yoga (Parmarth Niketan Ashram)",
+    "url": "https://courses.parmarth.org/",
+    "course": "200-Hour Yoga Teacher Training Course (YTTC)",
+    "description": "A residential teacher-training run inside Parmarth Niketan, the large ashram on the banks of the Ganga in Rishikesh. Days combine asana practice, pranayama, yoga philosophy, anatomy and teaching methodology, with students living in the ashram and attending the evening Ganga Aarti. Graduates can register as 200-hour teachers with Yoga Alliance USA.",
+    "duration": "200 hours (approx. 3-4 weeks)",
+    "format": "Residential at the ashram; shared/double A/C rooms; group cohort",
+    "certification": "Certificate of completion; eligible for Yoga Alliance RYT-200 registration",
+    "fitsBecause": "Full-time residential immersion living in a working ashram at the historic home of modern yoga, in a group cohort, leading to a recognized 200-hour credential.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Ashtanga Yoga",
@@ -194,7 +210,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "ashtanga-yoga",
-   "certShort": "Sharath Yoga Centre"
+   "certShort": "Sharath Yoga Centre",
+   "featured": {
+    "id": "ashtanga-yoga--mysore-gokulam",
+    "place": "Mysore (Gokulam)",
+    "country": "India",
+    "school": "Sharath Yoga Centre (SYC)",
+    "url": "https://sharathyogacentre.com/",
+    "course": "Mysore-style Ashtanga study at SYC (regular classes)",
+    "description": "Study at the source institution carrying the Pattabhi Jois / Sharath Jois lineage in Gokulam, Mysuru. Students practice the set Ashtanga sequence in the daily dawn Mysore-style format, receiving individual adjustments and being given postures one at a time, supplemented by led classes and philosophy/Sanskrit study. Admission is by written application to the shala and a minimum study period is required.",
+    "duration": "Minimum one month per visit (registration in two-week minimum blocks)",
+    "format": "Daily early-morning Mysore-style self-practice in the shala; not residential (students arrange own housing in Gokulam)",
+    "certification": "No course certificate; pathway toward SYC Authorisation/Certification over years of study",
+    "fitsBecause": "You practice daily at the lineage's mother shala in the neighbourhood where Ashtanga is rooted, inside a committed practitioner community, learning at the source exactly as the tradition is transmitted.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Pranayama & Breathwork",
@@ -277,7 +309,28 @@ window.ET_ATLAS = {
     }
    ],
    "id": "pranayama-and-breathwork",
-   "certShort": "Kaivalyadhama"
+   "certShort": "Kaivalyadhama",
+   "featured": {
+    "id": "pranayama-and-breathwork--lonavla",
+    "place": "Lonavla",
+    "country": "India",
+    "school": "Kaivalyadhama Yoga Institute",
+    "url": "https://kdham.com/certificate-course-in-yoga/",
+    "course": "Certificate Course in Yoga (CCY) - residential",
+    "description": "A four-week (200-hour) residential course at the century-old Kaivalyadhama research institute in Lonavla, where physiology and the classical yogic texts are studied side by side. The curriculum centres heavily on pranayama and the subtle breathing/kriya practices that Kaivalyadhama has researched for over a hundred years, alongside asana, anatomy and teaching method. Students live on campus and follow a full daily schedule of practice and study. (Kaivalyadhama also runs a dedicated multi-year Pranayama Teacher Training, but that is an intermittent one-week-per-phase format rather than a single immersion.)",
+    "duration": "4 weeks (200 hours)",
+    "format": "Residential, full-time on the Lonavla campus; group cohort; hostel with meals",
+    "certification": "Certificate accredited by Indian Yoga Association; YCB Level 2 (Yoga Wellness Instructor); RYS-200",
+    "fitsBecause": "A full-time residential immersion at the oldest scientific yoga research institute, in a living-and-learning community, with pranayama as a core focus and a recognized certificate.",
+    "sessions": [
+     "May 2026",
+     "Aug 2026",
+     "Nov 2026",
+     "Jan 2027"
+    ],
+    "priceNote": "Course fee ~USD 2,100 (international); +hostel/food from ~USD 265",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Pilates",
@@ -380,7 +433,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "pilates",
-   "certShort": "Romana's Pilates"
+   "certShort": "Romana's Pilates",
+   "featured": {
+    "id": "pilates--new-york-city",
+    "place": "New York City",
+    "country": "United States",
+    "school": "Power Pilates",
+    "url": "https://www.powerpilates.com/certification/comprehensive/",
+    "course": "600-Hour Comprehensive Pilates Certification",
+    "description": "A classical Pilates instructor certification taught at Power Pilates' New York studio, covering beginner through advanced repertoire on the full apparatus set: Mat, Reformer, Cadillac, Chair, Barrels, Ped-o-Pull and Magic Circle, plus working with special-case clients. The program is built around the classical Joseph Pilates method and combines taught intensive sessions with a supervised teaching apprenticeship; an accelerated route runs as two 5-6 day intensive blocks. Prerequisite Core Mat I & II precede the comprehensive track.",
+    "duration": "600 hours; comprehensive ~6-9 months (12-day intensive option, or two 5-6 day intensive blocks)",
+    "format": "Full-time intensive plus supervised apprenticeship at the NYC studio; small-group",
+    "certification": "Power Pilates Comprehensive Certification (classical Pilates instructor)",
+    "fitsBecause": "Hands-on apprenticeship on the original apparatus in New York's classical-Pilates community, learning the method as it is transmitted teacher-to-student and earning a recognized comprehensive certification.",
+    "sessions": [],
+    "priceNote": "~$4,995 (US comprehensive program)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Iyengar Yoga",
@@ -459,7 +528,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "iyengar-yoga",
-   "certShort": "RIMYI"
+   "certShort": "RIMYI",
+   "featured": {
+    "id": "iyengar-yoga--pune",
+    "place": "Pune",
+    "country": "India",
+    "school": "Ramamani Iyengar Memorial Yoga Institute (RIMYI)",
+    "url": "https://rimyi.org/",
+    "course": "One-month intensive study at the Pune Institute",
+    "description": "Study at the mother institute of Iyengar Yoga, founded by B.K.S. Iyengar in Pune, where the exacting prop-assisted alignment method and long-held postures are taught directly by the Iyengar family and senior teachers. Foreign students apply by email and attend regular classes during a fixed study period; this is study at the source for experienced practitioners rather than an entry-level packaged course. Admission requires years of prior Iyengar practice (including sustained inversions) and familiarity with Light on Yoga.",
+    "duration": "Typically a one-month study period per visit",
+    "format": "Full-time class attendance at the Pune institute; not residential (own housing in Pune); small classes",
+    "certification": "No course certificate; study supports the separate RIMYI-governed CIYT pathway",
+    "fitsBecause": "Direct study at the worldwide source of the method, immersed in Pune's Iyengar community for a sustained period exactly where the tradition lives.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Vipassana & Meditation",
@@ -572,7 +657,27 @@ window.ET_ATLAS = {
     }
    ],
    "id": "vipassana-and-meditation",
-   "certShort": "Vipassana Research Institute"
+   "certShort": "Vipassana Research Institute",
+   "featured": {
+    "id": "vipassana-and-meditation--igatpuri-dhamma-giri",
+    "place": "Igatpuri (Dhamma Giri)",
+    "country": "India",
+    "school": "Dhamma Giri - Vipassana International Academy",
+    "url": "https://giri.vridhamma.org/",
+    "course": "10-Day Vipassana Course (Goenka tradition)",
+    "description": "A ten-day residential silent course at Dhamma Giri, one of the world's largest Vipassana centres and the headquarters of S.N. Goenka's tradition. Participants observe Noble Silence throughout, meditate roughly ten hours a day from before dawn, and progress from anapana (breath observation) to Vipassana (observing bodily sensation), guided by recorded Goenka instruction and assistant teachers. Students live on site under a code of discipline; the course is run entirely on donation.",
+    "duration": "10 days (residential, full daily meditation schedule)",
+    "format": "Residential, segregated by gender, Noble Silence; large cohort sharing the same timetable",
+    "certification": "Completion of the 10-day course (prerequisite to serve and to take long courses)",
+    "fitsBecause": "A fully residential, community-held immersion at the headquarters of the tradition, taught exactly as in the source lineage and open to first-time students on a donation basis.",
+    "sessions": [
+     "2026-06-24",
+     "2026-07-08",
+     "2026-08-05"
+    ],
+    "priceNote": "Donation only (no fee)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Reiki & Energy Healing",
@@ -654,7 +759,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "reiki-and-energy-healing",
-   "certShort": "Usui lineage attunement system"
+   "certShort": "Usui lineage attunement system",
+   "featured": {
+    "id": "reiki-and-energy-healing--kyoto-mount-kurama",
+    "place": "Kyoto",
+    "country": "Japan",
+    "school": "Jikiden Reiki Institute (Jikiden Reiki Kenkyukai)",
+    "url": "https://www.jikiden-reiki.com/en/seminar/",
+    "course": "Jikiden Reiki Shoden & Okuden seminar (with Shihan-kaku teacher training)",
+    "description": "Training in the original Japanese form of Reiki taught at the Jikiden Reiki Institute in Kyoto, the form preserved unchanged from the Usui-Hayashi lineage. The seminars cover Shoden (first degree) and Okuden (advanced), teaching the historical hands-on healing methods and reiju attunements as they were practiced in Japan, followed by a separate teacher-training (Shihan-kaku) course for those continuing. Held at the institute's Kyoto base near where the tradition is rooted.",
+    "duration": "Shoden + Okuden over ~3 days; teacher-training course additional days",
+    "format": "In-person seminar at the Kyoto institute; small group",
+    "certification": "Jikiden Reiki Shoden/Okuden certificates; Shihan-kaku (teacher) qualification on the training course",
+    "fitsBecause": "Learning Reiki in its authentic Japanese form directly at the Kyoto institute that preserves the original lineage, in a small in-person cohort with formal certification.",
+    "sessions": [
+     "2026-07-03",
+     "2026-07-06"
+    ],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Sound Healing",
@@ -733,7 +857,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "sound-healing",
-   "certShort": "No single global body"
+   "certShort": "No single global body",
+   "featured": {
+    "id": "sound-healing--kathmandu-pokhara",
+    "place": "Kathmandu (Budhanilkantha)",
+    "country": "Nepal",
+    "school": "Pragya Yoga School",
+    "url": "https://pragyayogaschool.com/details/10-days-50-hours-gong-and-singing-bowl-sound-therapy-training-in-nepal",
+    "course": "10 Days / 50 Hours Advanced (Professional) Singing Bowl & Gong Sound Therapy Training",
+    "description": "A ten-day professional sound-healing training in Budhanilkantha, Kathmandu, grounded in classical Himalayan and Tibetan practice. Each day runs from a morning theory/healing session through practical bowl and gong technique, self-practice, and an outdoor 'tuning with nature' session; students learn chakra balancing, vibroacoustic and massage techniques, kundalini work and self-healing. Meals are included and the course leads to a school certification.",
+    "duration": "10 days (50 hours)",
+    "format": "Full-time daily schedule; shared or private room with meals; small group",
+    "certification": "Pragya Yoga School Sound Healing certificate",
+    "fitsBecause": "A residential, full-day immersion in Himalayan singing-bowl healing in Nepal where the practice is rooted, in a small group, with daily hands-on practice and certification.",
+    "sessions": [],
+    "priceNote": "~$1,000 shared room / ~$1,200 private A/C (meals included)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Tantra & Conscious Intimacy",
@@ -816,7 +956,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "tantra-and-conscious-intimacy",
-   "certShort": "No formal body"
+   "certShort": "No formal body",
+   "featured": {
+    "id": "tantra-and-conscious-intimacy--khajuraho",
+    "place": "Khajuraho",
+    "country": "India",
+    "school": "Tantra Essence (Ma Ananda Sarita)",
+    "url": "https://www.anandasarita.com/khajuraho-retreat",
+    "course": "Living Tantra Retreat, Khajuraho",
+    "description": "A residential Tantra retreat held at Khajuraho, site of the famous tantric temples, led by Ma Ananda Sarita of the Osho/SkyDancing neo-tantra lineage. Days combine guided Tantra meditations, breath and embodiment practices, sacred ritual and visits to the Khajuraho temple complex, exploring conscious intimacy, chakra work and kundalini activation in a held group setting. It serves as the at-source experiential entry to Tantra Essence's longer teacher-training pathway.",
+    "duration": "Approx. 7-8 days (residential retreat)",
+    "format": "Residential group retreat at Khajuraho; facilitated cohort",
+    "certification": "Retreat completion (entry point toward Tantra Essence facilitator/teacher training)",
+    "fitsBecause": "An immersive residential retreat at the very temples where Indian tantric tradition is rooted, held in a facilitated community and feeding a recognized teacher-training pathway.",
+    "sessions": [
+     "2026-11-15"
+    ],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Thai Massage",
@@ -883,7 +1041,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "thai-massage",
-   "certShort": "Thai Ministry of Public Health"
+   "certShort": "Thai Ministry of Public Health",
+   "featured": {
+    "id": "thai-massage--chiang-mai",
+    "place": "Chiang Mai",
+    "country": "Thailand",
+    "school": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
+    "url": "https://www.oldmedicine.org/courses",
+    "course": "Thai Massage Foundations & Therapeutic Levels 1-4",
+    "description": "Training at the 1962-founded school that is the birthplace of Northern-style Thai massage in Chiang Mai. The full progression runs four 30-hour (5-day) levels: Foundations Levels 1-2 build the complete core sequence, while Therapeutic Levels 3-4 go into therapy work, herbal compress, and the Sen Sib energy lines. Students practice hands-on in pairs throughout and receive a certificate and lineage pin at each level; several levels are NCBTMB-approved for US continuing-education credit.",
+    "duration": "30 hours (5 days) per level; ~20 days for the full four-level progression",
+    "format": "Daytime hands-on classes in small groups at the Chiang Mai school (not residential)",
+    "certification": "Certificate of completion per level in the Shivagakomarpaj lineage; some levels NCBTMB-approved (CEUs)",
+    "fitsBecause": "Hands-on training at the founding school of Northern Thai massage in Chiang Mai where the lineage originates, learning in pairs within a student community toward recognized certificates.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Ayurveda",
@@ -947,7 +1121,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "ayurveda",
-   "certShort": "Ministry of AYUSH, India"
+   "certShort": "Ministry of AYUSH, India",
+   "featured": {
+    "id": "ayurveda--kottakkal-and-kerala-backwaters",
+    "place": "Kottakkal, Kerala",
+    "country": "India",
+    "school": "Kottakkal Ayurveda Academy",
+    "url": "https://www.kottakkalayurvedaacademy.com/courses",
+    "course": "Panchakarma Therapist Training",
+    "description": "Run by the academy arm of Kottakkal's Arya Vaidya Sala lineage, the program trains students to perform classical Kerala Panchakarma procedures: medicated oil massages, Shirodhara, Kizhi (herbal bolus) treatments, and the staged detox protocols. Training combines theory on the doshas and treatment indications with supervised hands-on practice in a working Ayurvedic setting. Aimed at people building a career as Ayurveda therapists rather than at qualified physicians.",
+    "duration": "Multi-week (typically 3-4 weeks for the therapist certificate; longer diploma tracks available)",
+    "format": "Full-time, residential, small supervised groups in Kottakkal",
+    "certification": "Panchakarma / Ayurveda Therapist certificate of completion",
+    "fitsBecause": "Trains at the historic home of Kerala Ayurveda (Kottakkal) with full-time hands-on practice and a recognized therapist certificate.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Traditional Spa & Hydrotherapy",
@@ -1045,7 +1235,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "traditional-spa-and-hydrotherapy",
-   "certShort": "National balneology"
+   "certShort": "National balneology",
+   "featured": {
+    "id": "traditional-spa-and-hydrotherapy--budapest",
+    "place": "Budapest",
+    "country": "Hungary",
+    "school": "Semmelweis University (Faculty of Health Sciences, physiotherapy & balneotherapy)",
+    "url": "https://semmelweis.hu/english/",
+    "course": "Physiotherapy / balneotherapy training (Faculty of Health Sciences)",
+    "description": "Budapest is the centre of Hungary's doctor-prescribed thermal-cure tradition, and Semmelweis University teaches the physiotherapy and balneotherapy behind it. Searches of the thermal baths (Szechenyi, Gellert, Rudas) and balneology schools found only two routes: multi-semester academic physiotherapy degrees, or 2-3 week medically-supervised cure programmes for patients (not practitioner training). No week-or-longer immersive practitioner course aimed at travellers was found; the credential runs through the university's longer health-sciences programmes, and standalone balneotherapy 'certificates' online are not at-the-source training.",
+    "duration": "Academic programme (multi-semester); no verified short residential immersion",
+    "format": "University degree / longer health-sciences programme (not a short traveller immersion)",
+    "certification": "Recognised physiotherapy / balneotherapy qualification via the degree programme",
+    "fitsBecause": "At the source of Hungary's medical balneology tradition, but the only credentialed path is a long academic programme, not a residential week.",
+    "sessions": [],
+    "priceNote": "University tuition (per programme); not a fixed short-course fee",
+    "confidence": "low"
+   }
   },
   {
    "discipline": "Reflexology & Shiatsu",
@@ -1136,7 +1342,27 @@ window.ET_ATLAS = {
     }
    ],
    "id": "reflexology-and-shiatsu",
-   "certShort": "International Institute of Refle…"
+   "certShort": "International Institute of Refle…",
+   "featured": {
+    "id": "reflexology-and-shiatsu--tokyo",
+    "place": "Tokyo",
+    "country": "Japan",
+    "school": "Iokai Shiatsu Center",
+    "url": "https://www.iokai.co.jp/kousyu_e.htm",
+    "course": "Intensive Course for Foreigners (Zen Shiatsu)",
+    "description": "Founded by Shizuto Masunaga, originator of Zen Shiatsu, Iokai runs a dedicated intensive for international students that teaches a complete shiatsu treatment from the Zen Shiatsu method, including the 'sasae-atsu' (supporting pressure) technique and work along the meridians to free the flow of ki. Classes run as consecutive full days in their Tokyo center, taught in Japanese with a shared interpreter. It is hands-on, partner-based practice rather than lecture.",
+    "duration": "5 consecutive days (flexible 1-5 days)",
+    "format": "Full-time, small group (3-15 participants), in-person Tokyo",
+    "certification": "Certificate of completion",
+    "fitsBecause": "Hands-on small-group training in Zen Shiatsu at its source school in Tokyo, with a course built specifically for visiting international students.",
+    "sessions": [
+     "Jul 2026",
+     "Aug 2026",
+     "Dec 2026"
+    ],
+    "priceNote": "Interpreter fee approx ¥40,000-80,000 shared among the group (course fee additional)",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Tai Chi & Qigong",
@@ -1242,7 +1468,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "tai-chi-and-qigong",
-   "certShort": "Chinese Wushu Association"
+   "certShort": "Chinese Wushu Association",
+   "featured": {
+    "id": "tai-chi-and-qigong--chenjiagou-chen-village-wen-county",
+    "place": "Chenjiagou (Chen Village), Wen County, Henan",
+    "country": "China",
+    "school": "Chenjiagou Tai Chi School",
+    "url": "https://www.chenschool.com/taiji-school/",
+    "course": "Full-time Chen-style Taijiquan residential training",
+    "description": "Located in the birthplace of tai chi and led within the Chen family lineage (Chen Xiaoxing / Chen Ziqiang), the school runs full-time residential training where foreign students drill Chen-style forms, silk-reeling (chan si gong), standing qigong, push-hands and weapons over six days a week, more than five hours a day. Students live on-site in private rooms with full board and train in small groups alongside other international and Chinese students. Stays are flexible from a week to a full year, with reduced rates for longer commitments.",
+    "duration": "Flexible: 1 week to 1 year (5+ hrs/day, 6 days/week)",
+    "format": "Residential, max 15 students per group, full room and board on-site",
+    "certification": "Lineage school completion / instructor certification for advanced long-term students",
+    "fitsBecause": "Immersive residential training in the actual village where tai chi was created, in small groups under direct Chen-family lineage masters.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Cold Exposure (Wim Hof Method)",
@@ -1323,7 +1565,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "cold-exposure-wim-hof-method",
-   "certShort": "Wim Hof Method Academy"
+   "certShort": "Wim Hof Method Academy",
+   "featured": {
+    "id": "cold-exposure-wim-hof-method--przesieka-karkonosze-mountains",
+    "place": "Przesieka, Karkonosze Mountains",
+    "country": "Poland",
+    "school": "Wim Hof Method Academy",
+    "url": "https://www.wimhofmethod.com/academy",
+    "course": "WHM Instructor Academy - Module III (in-person intensive)",
+    "description": "The official instructor-certification pathway culminates in a multi-day in-person intensive held at the Academy base in Przesieka, in the Karkonosze mountains where Wim Hof trains. Participants do repeated ice baths, extended breath-holds and cold-water swims, then teach practice sessions to their cohort while trainers assess their cueing, safety awareness and presence. It is the practical, residential capstone of the three-module Wim Hof Method instructor program covering breathing, cold exposure and mindset.",
+    "duration": "5-day in-person intensive (Module III; full certification spans 3 modules)",
+    "format": "Residential intensive, cohort-based, at the Przesieka base",
+    "certification": "Certified Wim Hof Method Instructor",
+    "fitsBecause": "The genuine source-location residential capstone where you train in winter cold alongside a cohort and earn the official WHM instructor credential.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Ecstatic Dance & Movement",
@@ -1423,7 +1681,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "ecstatic-dance-and-movement",
-   "certShort": "Ecstatic Dance International"
+   "certShort": "Ecstatic Dance International",
+   "featured": {
+    "id": "ecstatic-dance-and-movement--big-sur-esalen-institute-california",
+    "place": "Big Sur, California",
+    "country": "United States",
+    "school": "Esalen Institute",
+    "url": "https://www.esalen.org/learn/workshops",
+    "course": "Maps to Ecstasy: A 5Rhythms Waves & Mindfulness Retreat",
+    "description": "Held on the Esalen cliffs at Big Sur, this week-long residential retreat in the 5Rhythms lineage (Gabrielle Roth's framework) moves a group through the wave of Flowing, Staccato, Chaos, Lyrical and Stillness as barefoot, freeform movement meditation. Days mix live music and DJ-built waves with mindfulness practice, and participants stay and eat on-site. It is an experiential, community immersion rather than a teacher-certification course.",
+    "duration": "5 days (Jul 13-17, 2026)",
+    "format": "Residential, group-based, room and meals at Esalen",
+    "certification": "—",
+    "fitsBecause": "A multi-day residential 5Rhythms immersion at Esalen, the spiritual home of the U.S. ecstatic-movement and human-potential scene.",
+    "sessions": [
+     "2026-07-13"
+    ],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Kundalini Yoga",
@@ -1524,7 +1800,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "kundalini-yoga",
-   "certShort": "Kundalini Research Institute"
+   "certShort": "Kundalini Research Institute",
+   "featured": {
+    "id": "kundalini-yoga--espanola-new-mexico",
+    "place": "Espanola, New Mexico",
+    "country": "United States",
+    "school": "Kundalini Research Institute (KRI)",
+    "url": "https://immersion.kriteachings.org/",
+    "course": "The Aquarian Teacher KRI Level One Immersion",
+    "description": "KRI's flagship in-person teacher training is a 28-day residential immersion held each August at the Espanola, New Mexico ashram, the home of the Kundalini Yoga community in the U.S. Days follow an ashram rhythm of early-morning sadhana, kriyas, pranayama, mantra, yogic anatomy and humanology, plus teaching practicums; the full 220-hour certification (180 classroom + 40 independent hours, including a 40-day meditation and service project) wraps over the following six months. It is built for people committing to teach.",
+    "duration": "28-day residential (within a 220-hour, ~6-month certification)",
+    "format": "Residential ashram immersion, cohort-based, in Espanola",
+    "certification": "KRI Certified Instructor of Kundalini Yoga (meets Yoga Alliance RYT-200)",
+    "fitsBecause": "A 28-day live-in immersion at the actual community ashram, alongside a cohort, leading to the recognized KRI Level One teaching credential.",
+    "sessions": [
+     "Aug 2026"
+    ],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Scuba Diving",
@@ -1626,7 +1920,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "scuba-diving",
-   "certShort": "PADI"
+   "certShort": "PADI",
+   "featured": {
+    "id": "scuba-diving--marseille-and-bandol-calanques",
+    "place": "Marseille (Calanques)",
+    "country": "France",
+    "school": "Au-Delà Plongée Marseille (PADI 5-Star IDC Center)",
+    "url": "https://www.plongee-a-marseille.fr/",
+    "course": "PADI Instructor Development Course (IDC)",
+    "description": "Run by a PADI 5-Star IDC Center on the Marseille coast, the IDC turns experienced divers into scuba instructors over consecutive full days of classroom theory, teaching presentations and in-water skill demonstrations, with the sea sessions done in the Calanques right by the center. It prepares candidates for the PADI Instructor Examination. The same center runs the earlier professional rung, the Divemaster course, for those building toward it.",
+    "duration": "11 days (IDC)",
+    "format": "Full-time, classroom plus daily sea dives in the Calanques",
+    "certification": "PADI Open Water Scuba Instructor (after passing the PADI IE)",
+    "fitsBecause": "Full-time professional dive training in the Marseille Calanques where Cousteau's Aqua-Lung diving was born, ending in a recognized PADI instructor rating.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Freediving",
@@ -1733,7 +2043,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "freediving",
-   "certShort": "AIDA"
+   "certShort": "AIDA",
+   "featured": {
+    "id": "freediving--apnea-academy-italian-mediterranean",
+    "place": "Apnea Academy (Italy-based; instructor course held in the Mediterranean/Red Sea)",
+    "country": "Italy",
+    "school": "Apnea Academy (Umberto Pelizzari)",
+    "url": "https://apnea.academy/en/instructors/freediver-instructor/",
+    "course": "Apnea Academy Freediving Instructor Course",
+    "description": "Founded and run by 17-time world-record holder Umberto Pelizzari, the Apnea Academy instructor course is a 7-day intensive of theory and water work: relaxation and breathing technique, respiratory and ear physiology, diet, teaching method, psychology and group control, plus static, dynamic and constant/variable-weight apnea, with practical pool and sea sessions led by Pelizzari and senior instructors. Entry requires real performance benchmarks (e.g. 4:30 static, 35m constant weight) and First Aid certification.",
+    "duration": "7 days",
+    "format": "Full-time intensive; lectures plus pool and open-water sessions",
+    "certification": "Apnea Academy Freediving Instructor (Levels 1-3, Apnea Discovery)",
+    "fitsBecause": "The flagship instructor course of Italy's founding freediving school, taught by Pelizzari himself in a week-long, performance-gated immersion.",
+    "sessions": [
+     "2026-11-07"
+    ],
+    "priceNote": "~€895 (instructor course)",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Spearfishing",
@@ -1806,7 +2134,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "spearfishing",
-   "certShort": "CMAS"
+   "certShort": "CMAS",
+   "featured": {
+    "id": "spearfishing--c-te-d-azur-cassis-to-antibes",
+    "place": "Antibes, Côte d'Azur",
+    "country": "France",
+    "school": "CREPS PACA (Antibes)",
+    "url": "https://www.creps-paca.fr/formation.fiche-BPJEPS-PSS-06",
+    "course": "BPJEPS Plongée subaquatique option 'sans scaphandre' (apnée)",
+    "description": "France's state-recognized professional diploma for breath-hold disciplines, delivered at the national CREPS center in Antibes on the Côte d'Azur. The program covers freediving, underwater hunting (chasse sous-marine), underwater hiking and target shooting, with training in safety, regulation, physiology and environmental protection alongside in-water practical work in the Mediterranean. It qualifies the holder to professionally lead and teach apnea and spearfishing activities. Aimed at serious practitioners pursuing a career, not casual visitors.",
+    "duration": "6 months (alternating; ~280-819 hours depending on pathway)",
+    "format": "Full-time alternance: center-based instruction plus placement in dive structures",
+    "certification": "BPJEPS (French state professional sports diploma), apnea/spearfishing option",
+    "fitsBecause": "An immersive, months-long, state-credentialed apnea-and-spearfishing program on the Côte d'Azur, the heart of French Mediterranean spearfishing.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Cave & Technical Diving",
@@ -1889,7 +2233,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "cave-and-technical-diving",
-   "certShort": "GUE"
+   "certShort": "GUE",
+   "featured": {
+    "id": "cave-and-technical-diving--high-springs-cave-country-north-florida",
+    "place": "High Springs (Cave Country, North Florida)",
+    "country": "United States",
+    "school": "Global Underwater Explorers (GUE)",
+    "url": "https://www.gue.com/diver-training/explore-gue-courses/technical/cave-1",
+    "course": "GUE Cave Diver Level 1",
+    "description": "The entry point into GUE's cave progression, run over six days across the North Florida springs (Ginnie Springs, Devil's, Peacock and others around High Springs). You run continuous guideline into flooded limestone, drill lost-line and lost-buddy and gas-failure procedures, practise cave navigation, and learn conservative gas management and team protocols on doubles. Requires a minimum of twelve dives (ten in at least three different caves) and roughly 48 hours of classroom lectures, land drills and in-water work. Prerequisite is GUE Technical Fundamentals plus around 100 logged dives.",
+    "duration": "6 days (~48 hours instruction, 12+ dives)",
+    "format": "Full-time, small-group (GUE caps classes at 4 students per instructor); non-residential — students arrange local lodging",
+    "certification": "GUE Cave Diver Level 1 certification",
+    "fitsBecause": "A multi-day, full-immersion, small-team course taught in the world's premier cave-diving region by the body that wrote the modern cave-diving standard, leading to a real certification.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Sailing & Yachtmaster",
@@ -1968,7 +2328,28 @@ window.ET_ATLAS = {
     }
    ],
    "id": "sailing-and-yachtmaster",
-   "certShort": "RYA"
+   "certShort": "RYA",
+   "featured": {
+    "id": "sailing-and-yachtmaster--the-solent-cowes-and-hamble",
+    "place": "Cowes, Isle of Wight (The Solent)",
+    "country": "United Kingdom",
+    "school": "UKSA (United Kingdom Sailing Academy), Cowes",
+    "url": "https://uksa.org/course/professional-yachtmaster-offshore/",
+    "course": "Professional Yachtmaster Offshore",
+    "description": "A 16-week residential programme that takes trainees from novice to commercially-endorsed Yachtmaster on the Solent. It mixes classroom theory, navigation and radar simulator work, and roughly 70 days afloat (minimum 2,500 tidal miles) aboard a Farr 65 ocean racer and Jeanneau cruising yachts, covering passage planning, engineering, sea survival and seamanship. Along the way trainees stack RYA Day Skipper, Coastal Skipper, VHF radio, radar, diesel engine and STCW Basic Safety certificates, then sit the RYA Yachtmaster Offshore exam.",
+    "duration": "16 weeks (113 days, ~70 afloat)",
+    "format": "Residential at the Cowes campus (shared accommodation when ashore), full-time, group-based",
+    "certification": "RYA Yachtmaster Offshore (Sail) Certificate of Competence, with commercial endorsement capability; plus stacked RYA/STCW certificates",
+    "fitsBecause": "A genuinely residential, months-long, community programme on the Solent — the spiritual home of British yacht racing — ending in a recognised professional Certificate of Competence.",
+    "sessions": [
+     "2026-08-10",
+     "2026-09-02",
+     "2026-10-05",
+     "2026-11-09"
+    ],
+    "priceNote": "~£14,500 residential (£13,640 course-only)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Surfing",
@@ -2052,7 +2433,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "surfing",
-   "certShort": "ISA"
+   "certShort": "ISA",
+   "featured": {
+    "id": "surfing--waikiki-oahu",
+    "place": "Waikiki, Oahu",
+    "country": "United States",
+    "school": "Hans Hedemann Surf School",
+    "url": "https://hhsurf.com/waikiki-multi-day-surf-lesson-packages/",
+    "course": "Week-Long Multi-Day Surf Lesson Package",
+    "description": "A multi-day package on the gentle Waikiki rollers where surfing was born, run by the school of former pro Hans Hedemann. Each progressive session builds on the last — paddling technique, pop-up and stance, timing, trimming and turning — with board, leash and rash guard provided and instruction scaled to your level. Lessons are taught daily on the same beachboy waves that have served as Waikiki's learning ground for a century. Note: this is a structured lesson package rather than a formal instructor certification course.",
+    "duration": "Week-long package (also 2- and 3-day options)",
+    "format": "Multi-day, small-group or private; non-residential (Waikiki-based)",
+    "certification": "—",
+    "fitsBecause": "A multi-day, progressive, hands-on programme on the birthplace beach of modern surfing — at the genuine source even though it is not a certification course.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Kitesurfing",
@@ -2133,7 +2530,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "kitesurfing",
-   "certShort": "IKO"
+   "certShort": "IKO",
+   "featured": {
+    "id": "kitesurfing--maui-kite-beach-kanaha",
+    "place": "Maui (Kite Beach, Kanaha)",
+    "country": "United States",
+    "school": "HST Windsurfing & Kitesurfing School",
+    "url": "https://hstwindsurfing.com/maui-kitesurfing-lessons/",
+    "course": "Three-Day Learn-to-Rip Kitesurfing Course",
+    "description": "A three-day learn-to-kite course at Kanaha (Kite Beach) on Maui, the trade-wind reach where the sport matured. You progress from kite setup, launch, land and safety on land, into water relaunch, body-dragging and waterstart, then riding upwind on the board — all with the instructor on the water alongside you using radio-helmet coaching, and all kite gear, harness and helmet supplied. Run by Maui's oldest water-sports school (operating since 1985).",
+    "duration": "3 days",
+    "format": "Small-group / private on-water coaching with radio helmet; non-residential (Kanaha-based)",
+    "certification": "Certificate of completion (school); IKO certification available via Action Sports Maui as an alternative",
+    "fitsBecause": "A multi-day, instructor-on-the-water course at Kanaha, one of the world's defining kite spots, with the rider learning in a busy community of kiters.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Windsurfing & Wing-foil",
@@ -2238,7 +2651,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "windsurfing-and-wing-foil",
-   "certShort": "VDWS"
+   "certShort": "VDWS",
+   "featured": {
+    "id": "windsurfing-and-wing-foil--santa-monica-southern-california",
+    "place": "Kanaha Beach, Maui",
+    "country": "United States",
+    "school": "Action Sports Maui",
+    "url": "https://actionsportsmaui.com/windsurfing/multi-day-course/",
+    "course": "Classic 5-Day Progressive Windsurfing Course",
+    "description": "A named five-day windsurfing course at Kanaha Beach Park on Maui, with about 2.5 hours of progressive instruction per day; days need not be consecutive so they can be fitted around wind and weather. The structured progression covers wind theory, balance, rope-start, beginner sailing, self-launch, tacking, beach starts, self-rescue and upwind sailing, and all gear (board, sail, rig, harness, PFD, rashguard, booties) is included. Lessons run Monday to Saturday at Kanaha, which has a sandy bottom and no shorebreak. Action Sports Maui also offers wing-surfing lessons at the same beach.",
+    "duration": "5 days (~2.5 hours/day, non-consecutive permitted)",
+    "format": "Multi-day progressive course, small-group or private, at Kanaha Beach",
+    "certification": "None (skills course, not a VDWS/IWO licence)",
+    "fitsBecause": "A structured multi-day course (not a one-off taster) at Kanaha, the recognised home of high-wind windsurfing, with a clear beginner-to-improver progression and gear included.",
+    "sessions": [],
+    "priceNote": "Per-person course fee not published online; price unconfirmed (contact school)",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Rock Climbing",
@@ -2340,7 +2769,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "rock-climbing",
-   "certShort": "AMGA"
+   "certShort": "AMGA",
+   "featured": {
+    "id": "rock-climbing--yosemite-valley",
+    "place": "Yosemite Valley",
+    "country": "United States",
+    "school": "Yosemite Mountaineering School & Guide Service",
+    "url": "https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service/",
+    "course": "Big Wall Climbing Seminar",
+    "description": "An advanced multi-day seminar on the granite of Yosemite Valley that teaches the full big-wall toolkit for objectives like El Capitan: placing camming devices, chocks, pitons, hooks and copperheads, bolt inspection, aid climbing, ascending fixed ropes, organising hanging belays, hauling with pulley systems, leading and cleaning pendulums and bivouac craft. Run by the Park's in-Valley school (operating April to October), which also offers a graded ladder of beginner-to-advanced rock courses for those building toward this level. Lodging and meals are arranged separately.",
+    "duration": "2 days (part of a wider April-October course ladder)",
+    "format": "Small-group, full-day instruction; non-residential (arrange Valley lodging)",
+    "certification": "—",
+    "fitsBecause": "Taught in the Valley that invented modern big-wall climbing by the only guide service permitted to operate there, alongside other climbers — climbing at the literal source.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Alpinism & Mountaineering",
@@ -2445,7 +2890,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "alpinism-and-mountaineering",
-   "certShort": "IFMGA"
+   "certShort": "IFMGA",
+   "featured": {
+    "id": "alpinism-and-mountaineering--chamonix-mont-blanc",
+    "place": "Chamonix-Mont-Blanc",
+    "country": "France",
+    "school": "Chamonix Experience (Chamex)",
+    "url": "https://www.chamex.com/trip_courses/alpinists-mont-blanc-course/",
+    "course": "Alpinist's Mont Blanc Course",
+    "description": "A 5-day course that splits into three days of skills and acclimatisation followed by a three-day ascent of Mont Blanc by the normal route. The training days run on the Mer de Glace and surrounding terrain, covering glacier-travel safety, crampon and ice-axe technique, ice screws, essential mountaineering knots, rope work and basic mixed climbing, before the guide leads the group to the summit as the week's finale. Built for fit beginners who want both instruction and a real summit, led by IFMGA/UIAGM guides from the Chamonix valley.",
+    "duration": "5 days",
+    "format": "Small-group, guided; non-residential base in Chamonix plus mountain huts on the climb",
+    "certification": "—",
+    "fitsBecause": "A week of genuine skills-plus-summit alpinism in the birthplace of the sport, taught in a roped team by Chamonix IFMGA guides.",
+    "sessions": [],
+    "priceNote": "from €1,480",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Ski & Snowboard Mountain Guiding",
@@ -2526,7 +2987,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "ski-and-snowboard-mountain-guiding",
-   "certShort": "IFMGA"
+   "certShort": "IFMGA",
+   "featured": {
+    "id": "ski-and-snowboard-mountain-guiding--chamonix-mont-blanc",
+    "place": "Chamonix-Mont-Blanc",
+    "country": "France",
+    "school": "Chamonix Experience (Chamex)",
+    "url": "https://www.chamex.com/trip_courses/chamonix-off-piste-course/",
+    "course": "Off-Piste Introduction Course",
+    "description": "A 5-day off-piste and freeride course around Chamonix and Courmayeur, with most training at Les Grands Montets, Chamonix's biggest off-piste arena. Skiers learn to read and handle varied snow and terrain and run companion avalanche-rescue (transceiver search, probing, shovelling) drills, building toward confident backcountry skiing. An optional sixth day adds a guided descent of the classic Vallée Blanche led by a UIAGM mountain guide. Taught by ENSA-qualified Chamonix instructors working with the company's IFMGA guides.",
+    "duration": "5 days (optional 6th-day Vallée Blanche)",
+    "format": "Small-group, guided; non-residential (Chamonix-based)",
+    "certification": "—",
+    "fitsBecause": "A multi-day, community-based off-piste and avalanche-skills course in the off-piste capital of the Alps, taught by ENSA instructors and IFMGA guides at the source.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Ski-touring & Splitboard",
@@ -2606,7 +3083,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "ski-touring-and-splitboard",
-   "certShort": "IFMGA guides + national avalanch…"
+   "certShort": "IFMGA guides + national avalanch…",
+   "featured": {
+    "id": "ski-touring-and-splitboard--chamonix-verbier-haute-route",
+    "place": "Chamonix to Zermatt (the Haute Route)",
+    "country": "France / Switzerland",
+    "school": "Compagnie des Guides de Chamonix",
+    "url": "https://www.chamonix-guides.com/en/activities/details/ski-touring-haute-route-chamonix-zermatt-6-days",
+    "course": "Haute Route Chamonix-Zermatt Ski Tour (6 days)",
+    "description": "The classic six-day ski traverse from Chamonix to Zermatt, climbing on skins and sleeping in mountain huts along the way. Each day brings 575-1,130m of ascent and 7-8 hours of effort over glaciers and cols (Argentière, Grand Désert, Pigne d'Arolla, the Vignettes), finishing with the long drop into Zermatt beneath the Matterhorn. Guided by an IFMGA mountain guide with avalanche safety kit provided; suited to fit skiers competent in off-piste and kick-turns. Half-board in the huts is included.",
+    "duration": "6 days",
+    "format": "Small group of 4-6 per IFMGA guide; hut-to-hut with half-board (residential in mountain refuges)",
+    "certification": "—",
+    "fitsBecause": "The defining multi-day ski-touring traverse of the Alps, lived hut-to-hut in a small roped team and guided by the historic Chamonix guides' company at the route's birthplace.",
+    "sessions": [],
+    "priceNote": "€1,690 (2026, min. 4)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Paragliding",
@@ -2713,7 +3206,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "paragliding",
-   "certShort": "FAI"
+   "certShort": "FAI",
+   "featured": {
+    "id": "paragliding--mieussy-and-annecy",
+    "place": "Mieussy",
+    "country": "France",
+    "school": "École de Parapente Les Choucas (Mieussy)",
+    "url": "https://leschoucas.com/index.php/formations-stages/",
+    "course": "Stage Initiation (Beginner Course)",
+    "description": "A 4-5 day beginner course in Mieussy, the village where paragliding was born in 1978. Each day moves to a different flying site around the valley while keeping the daily meeting point in Mieussy, progressing you from ground-handling and first slope flights toward early autonomous flight under instruction. All certified equipment — wing, harness, reserve parachute, helmet and radio — is provided and matched to your level and weight, and the instructors are French state-certified. The school is clear that one week brings you to early flight; full autonomy/brevet typically comes over a second or third week.",
+    "duration": "4-5 days",
+    "format": "Small-group, state-certified instructors; non-residential (Mieussy-based)",
+    "certification": "Progress toward FFVL brevet (initial brevet usually validated over a second/third week)",
+    "fitsBecause": "A multi-day immersive course in the literal birthplace of paragliding, learning in a group under state-certified pioneers of the sport.",
+    "sessions": [],
+    "priceNote": "~€510-630",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Skydiving",
@@ -2812,7 +3321,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "skydiving",
-   "certShort": "USPA"
+   "certShort": "USPA",
+   "featured": {
+    "id": "skydiving--eloy-skydive-arizona",
+    "place": "Eloy, Arizona (Skydive Arizona)",
+    "country": "United States",
+    "school": "AXIS Flight School (at Skydive Arizona)",
+    "url": "https://www.axisflightschool.com/",
+    "course": "Progressive Coaching Programs at Skydive Arizona",
+    "description": "Run by world-champion competitors Niklas Daniel and Brianne Thompson, AXIS builds bespoke, progressive jump-and-tunnel programs at Skydive Arizona, the largest dropzone in the US. Licensed jumpers work day after day on belly flying, freefall body position, canopy piloting and the dive-flow skills needed to advance toward higher USPA licenses and instructor ratings, mixing wind-tunnel blocks at SkyVenture Arizona with progression jumps from the turbine fleet. Coaching is one-on-one or small-group and tailored to each jumper's goals, alongside specialist partners (Arizona Airspeed for formation, Flight-1 for canopy). Aimed at licensed skydivers who want focused multi-day coaching rather than first-timers.",
+    "duration": "Multi-day coaching blocks (length set per athlete)",
+    "format": "Residential at the dropzone; one-on-one / small-group coaching, jump + wind-tunnel",
+    "certification": "Progression toward USPA licenses / instructor & coach ratings (not a single fixed certificate)",
+    "fitsBecause": "Immersive, multi-day, small-group coaching at the sport's premier US source dropzone, on the pathway to recognized USPA ratings.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Whitewater Kayaking",
@@ -2912,7 +3437,27 @@ window.ET_ATLAS = {
     }
    ],
    "id": "whitewater-kayaking",
-   "certShort": "ACA"
+   "certShort": "ACA",
+   "featured": {
+    "id": "whitewater-kayaking--nantahala-and-bryson-city-appalachians",
+    "place": "Bryson City, North Carolina (Nantahala River)",
+    "country": "United States",
+    "school": "Nantahala Outdoor Center (NOC)",
+    "url": "https://noc.com/courses/learn-to-kayak/",
+    "course": "4-Day Learn to Kayak (Fundamentals of Whitewater Kayaking)",
+    "description": "Over four full days on and around the Nantahala, students get outfitted in a boat and gear, then start on a calm lake learning basic strokes and wet exits before moving onto moving water. The course drills strokes, river-reading, rescue and the combat roll, and includes travel days to paddle other southeastern rivers such as the French Broad or Chattooga. Taught by NOC's paddling-school instructors, who have trained more paddlers than any other US school. Built for beginners moving toward confident Class II river running; ages 16+.",
+    "duration": "4 days",
+    "format": "Full-day instruction, small-group; based in Bryson City, NC",
+    "certification": "Certificate of completion (foundation toward ACA progressions; ACA instructor courses offered separately)",
+    "fitsBecause": "Immersive multi-day, small-group instruction on the Nantahala, the river where American whitewater paddling instruction is centered.",
+    "sessions": [
+     "2026-06-15",
+     "2026-09",
+     "2026-10-26"
+    ],
+    "priceNote": "from ~$875",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Whitewater Rafting",
@@ -3012,7 +3557,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "whitewater-rafting",
-   "certShort": "IRF"
+   "certShort": "IRF",
+   "featured": {
+    "id": "whitewater-rafting--grand-canyon-colorado-river",
+    "place": "Estacada, Oregon (Clackamas River) — IRF guide school nearest the Grand Canyon tradition",
+    "country": "United States",
+    "school": "Northwest Rafting Company",
+    "url": "https://www.nwrafting.com/training/pro-guide-school",
+    "course": "Professional River Guide School",
+    "description": "A seven-day live-in guide school where students learn to row and paddle-captain rafts on Class II and III water, deliver safety talks and paddle commands, set rescue lines, throw rope and swim rapids. Taught by IRF-certified instructors to IRF standards, with camping and meals included. Graduates can earn a provisional International Rafting Federation (IRF) Guide Training & Education Award plus a Rescue 3 river-rescue certificate. Chosen because Grand Canyon outfitters do not run open guide-certification schools, while this is the US source for the only globally recognized raft-guiding award.",
+    "duration": "7 days",
+    "format": "Residential / camping, full-time small-group guide training",
+    "certification": "Provisional IRF Guide Training & Education (GTE) Award + Rescue 3 river-rescue cert",
+    "fitsBecause": "Immersive, week-long, community-based training leading to the only globally recognized raft-guide credential (IRF GTE).",
+    "sessions": [
+     "Apr 2026 (dates released annually; 2025 ran Apr 20-26)"
+    ],
+    "priceNote": "~$1,395 (incl. food, gear, camping)",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Canyoning",
@@ -3112,7 +3675,31 @@ window.ET_ATLAS = {
     }
    ],
    "id": "canyoning",
-   "certShort": "ICOpro"
+   "certShort": "ICOpro",
+   "featured": {
+    "id": "canyoning--sierra-de-guara-alqu-zar-and-rodellar",
+    "place": "Rodellar valley, Sierra de Guara",
+    "country": "Spain",
+    "school": "Terres d'Aventure (Terdav)",
+    "url": "https://www.terdav.com/ps-espagne/rn-pyrenees-espagnoles/tp-voyage-famille/at-canyoning/espf20--aventures-canyon-sierra-guara",
+    "course": "Aventures canyon en Sierra de Guara (7-day canyoning trip)",
+    "description": "A seven-day guided canyoning trip based in the Rodellar valley at the heart of Sierra de Guara, Europe's classic canyoning region. Days are spent descending a progression of canyons (Rio Barazil, Rio Vero, Rio Mascun, Rio Formiga and the Peonera inferior), with full wetsuits, helmets, harnesses, canyon bags and waterproof barrels provided. Accommodation is in the valley (Guara Inluka auberge-hotel or Valle de Rodellar apart'hotel, family rooms with a pool), and a welcome gathering precedes the first dinner. This is a guided skills/adventure week, not the ICOpro professional guide-certification course.",
+    "duration": "7 days",
+    "format": "Residential guided week, valley-based, small group (min 5)",
+    "certification": "None (guided week, not the ICOpro/CIC guide certification)",
+    "fitsBecause": "A verified week-long residential trip at the recognised source of European canyoning, with a progression of named canyons, included equipment and lodging, and concrete 2026 departure dates.",
+    "sessions": [
+     "2026-07-05",
+     "2026-07-19",
+     "2026-07-26",
+     "2026-08-02",
+     "2026-08-09",
+     "2026-08-16",
+     "2026-08-23"
+    ],
+    "priceNote": "from EUR 1,070-1,130 per person depending on departure",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Safari & Wildlife Guiding",
@@ -3190,7 +3777,28 @@ window.ET_ATLAS = {
     }
    ],
    "id": "safari-and-wildlife-guiding",
-   "certShort": "FGASA"
+   "certShort": "FGASA",
+   "featured": {
+    "id": "safari-and-wildlife-guiding--greater-kruger-makuleke-concession",
+    "place": "Greater Kruger / Makuleke Concession (multi-camp)",
+    "country": "South Africa",
+    "school": "EcoTraining",
+    "url": "https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/",
+    "course": "55-day Field Guide Course",
+    "description": "An immersive, residential 55-day course split between at least two remote bush camps, including Greater Kruger and the Makuleke Concession. Students live in camp and learn the full field-guide syllabus: planning and leading game drives and walks, navigation, radio procedure, ecology, geology, weather, and identification of mammals, birds, reptiles, amphibians and fish, with daily practical guiding. On enrolment you are registered with FGASA and CATHSSETA. It leads to the EcoTraining/FGASA Nature Site Guide (NQF2) qualification, the entry credential for a professional field guide; a follow-on Trails Guide course adds the on-foot dangerous-game endorsement.",
+    "duration": "55 days",
+    "format": "Residential at remote bush camps; small student groups, full-time",
+    "certification": "FGASA Nature Site Guide (NQF2) / EcoTraining Field Guide qualification (CATHSSETA)",
+    "fitsBecause": "Fully residential, weeks-long, community camp life learning to guide at the source in Greater Kruger, leading to a recognized FGASA credential.",
+    "sessions": [
+     "2026-07-03",
+     "2026-08-05",
+     "2026-09-14",
+     "2026-10-12"
+    ],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Horsemanship",
@@ -3294,7 +3902,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "horsemanship",
-   "certShort": "Classical academy diploma"
+   "certShort": "Classical academy diploma",
+   "featured": {
+    "id": "horsemanship--saumur",
+    "place": "Saumur",
+    "country": "France",
+    "school": "IFCE — École Nationale d'Équitation / Cadre Noir de Saumur",
+    "url": "https://www.ifce.fr/en/cadre-noir/",
+    "course": "Stage de perfectionnement équitation (IFCE / Cadre Noir)",
+    "description": "At the home of French classical equitation, the IFCE training pole at Saumur runs perfectionnement courses where riders work in the Cadre Noir's arenas under écuyers and IFCE trainers, refining position and the principles of classical French riding (the tradition of haute école: piaffe, passage, airs above the ground). The courses run multi-day on IFCE or personal horses and are oriented toward developing technical and teaching competence; most structured programs are aimed at instructors and advanced/competition riders rather than novices. Best suited to serious riders wanting time inside the institution that defines the discipline.",
+    "duration": "Multi-day (e.g. 7-14 hours of instruction per module)",
+    "format": "On-site at the National Riding School, Saumur; small-group, instructor/advanced-rider oriented",
+    "certification": "Course attestation; pathway toward French equestrian teaching diplomas (BPJEPS/DEJEPS)",
+    "fitsBecause": "Hands-on time inside the Cadre Noir's school at Saumur, the literal source of classical French horsemanship, under master écuyers.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Wilderness Survival & Bushcraft",
@@ -3393,7 +4017,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "wilderness-survival-and-bushcraft",
-   "certShort": "—"
+   "certShort": "—",
+   "featured": {
+    "id": "wilderness-survival-and-bushcraft--boulder-utah",
+    "place": "Boulder, Utah",
+    "country": "United States",
+    "school": "Boulder Outdoor Survival School (BOSS)",
+    "url": "https://www.boss-inc.com/pages/program/field-expedition",
+    "course": "14-Day Field Expedition",
+    "description": "Running since 1968, BOSS's Field Expedition moves students through the mountains, mesas and canyons of southern Utah carrying little more than a blanket, poncho and knife — no tents, sleeping bags, stoves, watches or phones. The course builds through phases: an orientation and fast-moving 'Impact' hike, a group expedition teaching navigation and survival, large-animal processing, a solo, a student-led expedition and a final challenge, hiking 8-10 miles most days. No prior outdoor experience is required. The 14-day sits between the 7- and 28-day versions and is the school's signature primitive-living intensive.",
+    "duration": "14 days (also 7- and 28-day)",
+    "format": "Residential field expedition, small group, fully immersive off-grid",
+    "certification": "Certificate of completion",
+    "fitsBecause": "Two weeks fully immersed, living off the land in a small group in the Utah wilderness where the school has taught bushcraft since 1968.",
+    "sessions": [
+     "2026-06-14",
+     "2026-08-30"
+    ],
+    "priceNote": "from ~$2,620",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Mountain Biking",
@@ -3493,7 +4136,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "mountain-biking",
-   "certShort": "PMBIA"
+   "certShort": "PMBIA",
+   "featured": {
+    "id": "mountain-biking--marin-county-mount-tamalpais-fairfax",
+    "place": "Whistler, British Columbia (birthplace of PMBIA)",
+    "country": "Canada",
+    "school": "ZEP Techniques / ZEP MTB Camps",
+    "url": "https://www.zeptechniques.com/instructor-training/zep-instructor-academy/",
+    "course": "ZEP Instructor Academy",
+    "description": "A 3- or 5-week residential instructor camp based in the Whistler Bike Park and on Whistler's valley trails, pump tracks and dirt jumps. Riders train four days a week with certified coaches through three phases — riding-skill development, instructor training, then instructor development — and the camp is the only program in the world to include the PMBIA Instructor Certification courses, the cert born in Whistler in 2006. Extra sessions cover suspension setup, video analysis and feedback skills, nutrition, and strength and conditioning. Graduates can be hired directly by Whistler Bike Park / ZEP. Chosen over the Marin heritage site because Marin has no multi-week immersive course; Whistler is the home of modern bike-park riding and of PMBIA.",
+    "duration": "3 or 5 weeks",
+    "format": "Residential camp, small-group, 4 riding days/week",
+    "certification": "PMBIA Level 1 (and Level 2 on the 5-week) Mountain Bike Instructor Certification",
+    "fitsBecause": "Multi-week, live-in, small-group camp at the birthplace of the sport's instructor certification, ending in a recognized PMBIA credential.",
+    "sessions": [
+     "May 2026",
+     "Aug 2026"
+    ],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Trail & Ultra Running",
@@ -3571,7 +4233,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "trail-and-ultra-running",
-   "certShort": "ITRA"
+   "certShort": "ITRA",
+   "featured": {
+    "id": "trail-and-ultra-running--auburn-olympic-valley",
+    "place": "Foresthill / Auburn, California (Western States trail)",
+    "country": "United States",
+    "school": "Western States Endurance Run (WSER) — Memorial Weekend Training Camp",
+    "url": "https://www.wser.org/training-runs/",
+    "course": "Western States Training Camp — Memorial Weekend",
+    "description": "A three-day camp run on the actual final ~70 miles of the Western States 100 course, the birthplace of modern American ultrarunning. Saturday covers 32 miles from Robinson Flat to Foresthill, Sunday 19 miles through the Rucky Chucky river crossing to Driver's Flat, and Monday from Green Gate to the Placer High School track in Auburn. Runners share the trail with a large field that mixes elite athletes and first-timers, supported by stocked aid stations, post-run meals and massage. Open to the public, not just race entrants; it is a community training weekend rather than a coached clinic or certification course.",
+    "duration": "3 days",
+    "format": "Group training runs on-course, large open field, self-paced with aid stations",
+    "certification": "—",
+    "fitsBecause": "Running the legendary course itself alongside the ultra community at the home of the sport — at-the-source and communal, if short of a week.",
+    "sessions": [
+     "2026-05-23"
+    ],
+    "priceNote": "~$70-80/day",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Pottery & Ceramics",
@@ -3683,7 +4363,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "pottery-and-ceramics",
-   "certShort": "Apprenticeship"
+   "certShort": "Apprenticeship",
+   "featured": {
+    "id": "pottery-and-ceramics--mashiko",
+    "place": "Mashiko, Tochigi",
+    "country": "Japan",
+    "school": "Mashiko Ceramic Art Club (Mashiko Tougei Club)",
+    "url": "http://mashiko-tougei-club.jp/",
+    "course": "Pottery accommodation plan (live-in stay) / full-day intensive workshop",
+    "description": "A folk-style pottery studio in Mashiko, the town tied to Shoji Hamada and the mingei movement, that runs hands-on classes with unlimited clay and offers live-in stay plans pairing pottery making with lodging in Kominka Koki, a 200-300-year-old farmhouse behind the workshop. Foreign staff provide English support (for an added fee). Standard classes are a full-day intensive at 7,500 yen and a half-day at 4,800 yen; the multi-day stay is a separate combined accommodation-plus-class package booked direct. Exact stay length and curriculum are not published online and must be confirmed with the studio. (The other Mashiko route, the Mashiko Museum residency, is a ~2-month juried programme for established artists, not for travellers.)",
+    "duration": "Half-day or full-day classes; multi-day live-in stay available (exact length unpublished)",
+    "format": "Studio classes with optional live-in kominka stay, English support available",
+    "certification": "None (studio experience, not a diploma/apprenticeship credential)",
+    "fitsBecause": "At the source in a working pottery town, with unlimited wheel/hand-building time and a live-in farmhouse stay, English-supported — immersive rather than a one-off taster, though stay length is unconfirmed.",
+    "sessions": [],
+    "priceNote": "Classes ~JPY 4,800 (half-day) / JPY 7,500 (full-day); English instruction extra; multi-day stay priced separately",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Woodworking & Joinery",
@@ -3781,7 +4477,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "woodworking-and-joinery",
-   "certShort": "City & Guilds"
+   "certShort": "City & Guilds",
+   "featured": {
+    "id": "woodworking-and-joinery--okayama-tokyo-sashimono-and-kumiko",
+    "place": "Okayama (Sashimono & Kumiko)",
+    "country": "Japan",
+    "school": "The Somakosha School",
+    "url": "https://www.somakoshaschool.com/kumiko",
+    "course": "Fine Woodworking: Kumiko",
+    "description": "Run by Somakosha, a traditional Japanese carpentry firm in Okayama, this hands-on kumiko intensive teaches you to set up and sharpen the specialized tools and jigs used to make kumiko lattice by hand. Working 9am to 3pm Monday through Sunday, you build square, diamond, and hexagonal jigumi foundation grids and cut classic patterns such as asa-no-ha, soroban-kuzushi, and goma-gara, finishing your own kumiko panel. Taught in English in a class of 2 to 3 students; the foundation carpentry course is recommended but not required.",
+    "duration": "7 days",
+    "format": "Full-time, non-residential (daily transport from Okayama Station); class size 2-3 students",
+    "certification": "—",
+    "fitsBecause": "A tiny-group, at-the-source intensive with a working Japanese carpentry firm, exactly the immersive hands-on skill-learning EducatedTraveler curates.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Blacksmithing & Bladesmithing",
@@ -3882,7 +4594,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "blacksmithing-and-bladesmithing",
-   "certShort": "ABS"
+   "certShort": "ABS",
+   "featured": {
+    "id": "blacksmithing-and-bladesmithing--seki-gifu",
+    "place": "Shimanto River area, Kochi Prefecture (Shikoku)",
+    "country": "Japan",
+    "school": "Workshop Kurogane (Nobuya Hayashi)",
+    "url": "https://www.workshop-kurogane.com/",
+    "course": "6-Day Tamahagane & Knife Course",
+    "description": "A six-day residential bladesmithing course on the Shimanto River in rural Kochi: three days of traditional tatara iron-making, smelting and refining steel from beach-sand magnetite, followed by three days forging a knife from the tamahagane the participant helped produce. Run in English and Japanese by smith Nobuya Hayashi (24 years' experience), with a Canadian apprentice assisting English-led sessions. This is a far deeper option than the single-day Seki/Gifu forging experiences, which do not run multi-day residential courses.",
+    "duration": "6 days (3 days tatara smelting + 3 days forging)",
+    "format": "Residential multi-day course, small group, English instruction",
+    "certification": "None (skills course; not the ABS Journeyman/Master path)",
+    "fitsBecause": "A genuine week-long residential course at a working smithy where you smelt your own steel then forge a blade, English-taught and small-group — the immersive, at-the-source standard the seed's one-day Seki sessions could not meet.",
+    "sessions": [
+     "2026-09-14",
+     "2026-12-14"
+    ],
+    "priceNote": "JPY 330,000 for 2026 sessions (JPY 440,000 from 2027)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Glassblowing",
@@ -3991,7 +4722,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "glassblowing",
-   "certShort": "Studio-school certificate"
+   "certShort": "Studio-school certificate",
+   "featured": {
+    "id": "glassblowing--murano-venice",
+    "place": "Murano, Venice",
+    "country": "Italy",
+    "school": "Scuola del Vetro Abate Zanetti",
+    "url": "https://www.lascuoladelvetro.it/en/",
+    "course": "Glassblowing course (Soffiatura)",
+    "description": "Abate Zanetti is Murano's historic glass school, run in collaboration with the Fondazione Musei Civici di Venezia, with courses taught by expert Murano master glassworkers combining practical furnace work and theory. Students learn the core Murano forming techniques at the furnace, blowing pieces such as Venetian goblets, plates and vases and decorating with filigree, reticello, murrina and incalmo. Short-format courses range from a weekend to a few weeks; foreign students typically attend the more intensive 2-3 week sessions.",
+    "duration": "~20 hours per module; 2-3 week intensives available",
+    "format": "Full-time studio/furnace, non-residential, small group",
+    "certification": "Certificate of attendance",
+    "fitsBecause": "It is the authoritative at-the-source school in Murano teaching real furnace glassblowing in small groups, ideal for EducatedTraveler's multi-week immersive track.",
+    "sessions": [],
+    "priceNote": "~€770 for a 20-hour course",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Painting & Fine Art",
@@ -4102,7 +4849,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "painting-and-fine-art",
-   "certShort": "Atelier diploma"
+   "certShort": "Atelier diploma",
+   "featured": {
+    "id": "painting-and-fine-art--florence",
+    "place": "Florence",
+    "country": "Italy",
+    "school": "The Florence Academy of Art",
+    "url": "https://www.florenceacademyofart.edu/academics-certificate-programs/certificate-programs-drawing-painting/",
+    "course": "Drawing & Painting Program (Certificate)",
+    "description": "A full-time classical atelier program where students work daily from life — figure, cast, portrait and still life — building from drawing to painting under faculty who are graduates of the program. Classes run Monday to Friday, 9:00am to 4:00pm, supplemented by lectures in anatomy, art history, and materials & techniques, plus an additional weekly evening figure-drawing session. It normally takes a minimum of three years to complete the curriculum, with students progressing at their own pace through the sequence.",
+    "duration": "3 years (full-time; minimum to complete)",
+    "format": "Residential city program, full-time Mon-Fri 9:00-16:00, small atelier studios",
+    "certification": "Drawing & Painting Certificate",
+    "fitsBecause": "It is the flagship full academic-year, at-the-source classical atelier training in Florence, exactly the multi-year immersive format ideal for this craft.",
+    "sessions": [
+     "2026-09"
+    ],
+    "priceNote": "Approx. €16,900 tuition per academic year (2026-27), paid in three installments",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Photography",
@@ -4205,7 +4970,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "photography",
-   "certShort": "ICP"
+   "certShort": "ICP",
+   "featured": {
+    "id": "photography--paris",
+    "place": "Paris",
+    "country": "France",
+    "school": "Spéos Paris Photographic Institute",
+    "url": "https://speos-photo.com/en/1-year-photography-programs/professional/",
+    "course": "Professional Photography Program in 1 year",
+    "description": "A one-year intensive, English-taught program in central Paris covering studio photography, photo reportage, fashion, corporate work, art direction, and image management/publication. The first semester builds core competencies; the second lets students specialize in either studio or photo reportage, with classes 4-5 days per week plus independent shooting and post-production assignments. It is open to international students (B2 English required) and aimed at those building a professional photography career.",
+    "duration": "9 months (September-May)",
+    "format": "Full-time, classroom + studio, 4-5 days/week, intensive in-person",
+    "certification": "Spéos School Certificate (professional program)",
+    "fitsBecause": "An immersive year-long, at-the-source program in Paris taught entirely in English that an international learner can actually enroll in.",
+    "sessions": [
+     "2026-09"
+    ],
+    "priceNote": "€18,950 (EU/France) / €20,950 (international)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Filmmaking",
@@ -4307,7 +5090,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "filmmaking",
-   "certShort": "National film-school diploma"
+   "certShort": "National film-school diploma",
+   "featured": {
+    "id": "filmmaking--paris",
+    "place": "Paris",
+    "country": "France",
+    "school": "3iS – International School of Creative Arts (Paris)",
+    "url": "https://3is-international.com/summer-school/",
+    "course": "Filmmaking Summer School in Paris",
+    "description": "A three-week, fully English-taught residential summer program where international students make their first cinematic project end to end — shooting on professional cinema cameras, lighting, directing and directing actors, and editing in industry-standard studios. Students collaborate on an interdisciplinary film project alongside peers from the sound design, acting, and animation tracks. Housing is included at the 3iS student residence, making it a genuinely immersive option for learners worldwide.",
+    "duration": "3 weeks",
+    "format": "Residential (housing included), full-time, small interdisciplinary cohort",
+    "certification": "3iS certificate of completion",
+    "fitsBecause": "Unlike La Fémis's Summer University (restricted to grant-funded non-EU applicants under 27 with French fluency), this is an open, English-language, residential immersive an international learner can actually attend in Paris.",
+    "sessions": [
+     "2026-07-06"
+    ],
+    "priceNote": "€3,900 (housing included for the 3-week period)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Printmaking",
@@ -4411,7 +5212,27 @@ window.ET_ATLAS = {
     }
    ],
    "id": "printmaking",
-   "certShort": "Tamarind master-printer certific…"
+   "certShort": "Tamarind master-printer certific…",
+   "featured": {
+    "id": "printmaking--tokyo-mt-fuji-kawaguchiko",
+    "place": "Echizen, Fukui (program relocated from Kawaguchiko / Mt. Fuji in 2024)",
+    "country": "Japan",
+    "school": "MI-LAB (Mokuhanga Innovation Laboratory) Artist-in-Residence",
+    "url": "https://endeavor.or.jp/mi-lab/air/open-call-for-2026/",
+    "course": "Basic Training Program (BPA / BPB / BPC)",
+    "description": "A residential mokuhanga (Japanese water-based woodblock) artist-in-residence run by MI-LAB. Over five weeks, a small international group works full-time in a shared studio learning the full mokuhanga process: carving cherry/shina blocks, hand-printing with baren, registration (kento), pigment and paste (nori) mixing, and editioning, with side workshops in the famous Echizen washi papermaking region. Aimed at practicing artists, printmakers and art teachers who want to deepen woodblock skills at the source.",
+    "duration": "5 weeks",
+    "format": "Residential, full-time studio; small group (around 6 artists per program)",
+    "certification": "Certificate of completion",
+    "fitsBecause": "A multi-week, residential, small-group immersion in authentic Japanese mokuhanga taught by master printers — the deepest woodblock program of its kind.",
+    "sessions": [
+     "2026-04-12",
+     "2026-09-06",
+     "2026-10-18"
+    ],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Textiles & Weaving",
@@ -4491,7 +5312,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "textiles-and-weaving",
-   "certShort": "City & Guilds"
+   "certShort": "City & Guilds",
+   "featured": {
+    "id": "textiles-and-weaving--teotitlan-del-valle-oaxaca",
+    "place": "Teotitlan del Valle / Mitla, Oaxaca",
+    "country": "Mexico",
+    "school": "Thread Caravan (with Teotitlan del Valle Zapotec master weavers)",
+    "url": "https://www.threadcaravan.com/oaxacaweaving",
+    "course": "Oaxaca Weaving Workshop (Zapotec weaving & natural dye)",
+    "description": "A seven-day, residential weaving immersion taught by Zapotec master weavers from Teotitlan del Valle, where the wool-rug tradition lives. Participants visit 2,000-year-old Zapotec archaeological sites, build 2-3 natural dye vats from local ingredients (cochineal, marigold, indigo), then spend two-plus days learning Zapotec symbology and weaving their own piece on a loom. Capped at eight guests with a Thread Caravan facilitator; based at a rural B&B in Mitla with daily sessions alongside the artisans in Teotitlan. For beginners and experienced fiber artists alike.",
+    "duration": "7 days",
+    "format": "Residential (rural B&B in Mitla); small group capped at 8 guests",
+    "certification": "—",
+    "fitsBecause": "A multi-day, small-group, residential immersion taught by Teotitlan del Valle's own Zapotec master weavers in natural dye and loom weaving at the source.",
+    "sessions": [
+     "2026-07-12",
+     "2026-10-24"
+    ],
+    "priceNote": "$3,050 shared room / $3,950 private room per person",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Natural Dyeing",
@@ -4570,7 +5410,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "natural-dyeing",
-   "certShort": "—"
+   "certShort": "—",
+   "featured": {
+    "id": "natural-dyeing--tokushima-awa",
+    "place": "Tokushima (Awa) — sessions in Tokushima city, Kamiyama & Marugame",
+    "country": "Japan",
+    "school": "Thread Caravan — 'Exploring Japanese Blues' (visits Watanabe indigo cultivation & Tokushima aizome artisans)",
+    "url": "https://www.threadcaravan.com/japan-tokushima",
+    "course": "Exploring Japanese Blues (Tokushima indigo immersion)",
+    "description": "An eight-day residential immersion in Awa aizome (Tokushima Japanese indigo) led by artist Natalia Munro with local artisan partners. Participants tour an indigo museum and farm, dye katazome (stencil-paste) bandanas, learn stitched shibori and dye it in the indigo vat, and spend full days on tsutsugaki and kakishibu (persimmon-tannin) techniques in Kamiyama, plus traditional fan-making in Marugame. Capped at 10 guests, based at a hotel in central Tokushima.",
+    "duration": "8 days",
+    "format": "Residential (hotel in Tokushima city); small group capped at 10 guests",
+    "certification": "—",
+    "fitsBecause": "A genuine multi-day, small-group, residential aizome immersion in Tokushima — the home of Awa indigo — since BUAISOU itself now only runs single-day monthly open workshops, not multi-day programs.",
+    "sessions": [
+     "2026-11-14",
+     "2026-11-22"
+    ],
+    "priceNote": "$3,950 shared room / $4,450 private room per person (both Nov 2026 dates currently sold out)",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Leatherwork",
@@ -4647,7 +5506,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "leatherwork",
-   "certShort": "Worshipful Company of Cordwainers"
+   "certShort": "Worshipful Company of Cordwainers",
+   "featured": {
+    "id": "leatherwork--florence-santa-croce",
+    "place": "Florence (Santa Croce)",
+    "country": "Italy",
+    "school": "Scuola del Cuoio (Leather School of Florence) / SCHOLA Academy",
+    "url": "https://scuoladelcuoio.it/en/content/13-professional-courses-",
+    "course": "Leather Bag Making Course (20-week long-term professional program)",
+    "description": "Scuola del Cuoio's flagship long-term professional course, a full-time immersion in traditional Florentine leatherworking taught by two Master Artisans. Students start from the basics and progress through pattern making and the full construction process of handbags — clutches, saddle bags, totes, satchels and bucket bags — building a portfolio of finished pieces. No prior experience required; over 2,000 students from 40+ countries have completed the school's long-term programs.",
+    "duration": "20 weeks (a 10-week option and a 3-month 'Artigiano' advanced program also run)",
+    "format": "Full-time, in-studio at the SCHOLA campus in Florence; small group",
+    "certification": "Diploma / certificate of completion",
+    "fitsBecause": "A multi-month, full-time, hands-on leatherworking program in Santa Croce, the historic heart of Florentine leather craft, taught by master artisans.",
+    "sessions": [
+     "2026-02",
+     "2026-09"
+    ],
+    "priceNote": "approx. EUR 11,500 tuition for the 20-week course",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Jewelry & Goldsmithing",
@@ -4753,7 +5631,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "jewelry-and-goldsmithing",
-   "certShort": "GIA"
+   "certShort": "GIA",
+   "featured": {
+    "id": "jewelry-and-goldsmithing--florence",
+    "place": "Florence",
+    "country": "Italy",
+    "school": "Le Arti Orafe Jewellery School (LAO)",
+    "url": "https://artiorafe.it/en/courses/courses-goldsmith-school/",
+    "course": "Annual Goldsmithing Course (Goldsmithery)",
+    "description": "A bench-based program in a Florence goldsmithing school running since 1985, weighted heavily toward practical hours: students saw, solder, file, raise and finish metal, set stones and take a design from sketch to finished wearable piece. Offered in three-month, six-month, annual and two-year formats across goldsmithery, jewellery design and stone-setting, with deliberately limited enrolment for close one-to-one mentoring. Suited to beginners through aspiring professionals who want a full-time workshop immersion rather than short demos.",
+    "duration": "Annual course (full academic year); also 3-month, 6-month and 2-year tracks",
+    "format": "Full-time, in-workshop, small limited-enrolment groups",
+    "certification": "LAO school diploma / course completion (goldsmithing)",
+    "fitsBecause": "Full-time, hands-on bench training in Florence's historic goldsmithing tradition, in a small mentored group leading to a recognized school diploma.",
+    "sessions": [
+     "Sep 2026"
+    ],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Tattooing",
@@ -4833,7 +5729,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "tattooing",
-   "certShort": "—"
+   "certShort": "—",
+   "featured": {
+    "id": "tattooing--yokohama-tokyo",
+    "place": "Tokyo",
+    "country": "Japan",
+    "school": "Japan Tattoo Academy (NTA / Nihon Tattoo Academy)",
+    "url": "https://tattooacademy.jp/",
+    "course": "NTA Tattoo Artist Curriculum (beginner to advanced)",
+    "description": "NTA is an incorporated tattoo school with campuses in Tokyo, Osaka and Okinawa where active professional artists teach a step-by-step curriculum covering machine and needle technique, design sense, and lectures on tattoo culture and history. After completing the program, students receive introductions to partner studios and continued online access. It is the open-enrolment route in Japan, since traditional irezumi (horishi) training is a private master-led apprenticeship that is not sold as a fixed program.",
+    "duration": "Step-by-step curriculum, beginner through advanced (exact total hours not published on the official site)",
+    "format": "In-person school, taught by active professional artists; partner-studio placement on completion",
+    "certification": "School completion + partner-studio introduction (no state tattoo licence exists in Japan; a bloodborne-pathogen / hygiene certification is needed to practise safely)",
+    "fitsBecause": "Hands-on, master-taught study of tattooing at the source in Japan, with technique, culture and history and a path into a working studio, rather than a short taster.",
+    "sessions": [],
+    "priceNote": "Tuition not published on the English-facing pages; confirm directly with the school.",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Flamenco & Dance",
@@ -4918,7 +5830,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "flamenco-and-dance",
-   "certShort": "Conservatorio Profesional de Danza"
+   "certShort": "Conservatorio Profesional de Danza",
+   "featured": {
+    "id": "flamenco-and-dance--jerez-de-la-frontera",
+    "place": "Seville (Triana)",
+    "country": "Spain",
+    "school": "Fundación Cristina Heeren de Arte Flamenco",
+    "url": "https://www.flamencoheeren.com/en/homepage/",
+    "course": "Annual Professional Flamenco Course (Dance / Cante / Guitar)",
+    "description": "A nine-month professional program in the Triana neighbourhood of Seville, taught across a 1,500 m2 school with nine studios, a theatre and a recording studio. Students train daily in technique and repertoire for dance, cante or guitar, plus core subjects like compas, improvisation and tablao codes, with guest-artist master classes included. Offered at basic, intermediate and advanced levels for committed students aiming to become performing artists; a shorter intensive runs in July.",
+    "duration": "9 months (October to June); summer intensive in July",
+    "format": "Full-time, in-person, three levels (basic/intermediate/advanced)",
+    "certification": "Fundación Cristina Heeren professional course certificate",
+    "fitsBecause": "A full academic-year, community-based immersion in flamenco's Andalusian source, training alongside other dancers, singers and guitarists toward a recognized foundation certificate.",
+    "sessions": [
+     "Oct 2026"
+    ],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Perfumery",
@@ -4977,7 +5907,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "perfumery",
-   "certShort": "ISIPCA"
+   "certShort": "ISIPCA",
+   "featured": {
+    "id": "perfumery--grasse",
+    "place": "Grasse",
+    "country": "France",
+    "school": "Grasse Institute of Perfumery (GIP)",
+    "url": "https://www.grasse-perfumery.com/long-term/international-technical-degree-in-fragrance-creation-and-sensory-evaluation/",
+    "course": "International Technical Degree in Fragrance Creation and Sensory Evaluation",
+    "description": "A long-form program in the historic perfume capital totalling 1,200 training hours, of which 600 are practical and supervised at the perfumer's organ. Students learn raw materials, fragrance families, accord building and blending, plus chemistry, olfaction training, regulations and analysis (gas chromatography, mass spectrometry), and visit jasmine, rose and lavender growers and local factories. Taught in English to a class capped at twelve, selected for olfactory talent, followed by a six-month industry internship.",
+    "duration": "18 months of classroom (Jan-Dec) + 6-month internship; 1,200 hours",
+    "format": "Full-time, English-taught, limited to 12 students",
+    "certification": "International Technical Degree in Fragrance Creation and Sensory Evaluation (validated by Prodarom)",
+    "fitsBecause": "A small-cohort, full-time immersion in Grasse, the birthplace of French perfumery, with hands-on lab time and field visits leading to an industry-recognized degree.",
+    "sessions": [
+     "Jan 2027"
+    ],
+    "priceNote": "~€13,500",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Lutherie & Instrument-making",
@@ -5043,7 +5991,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "lutherie-and-instrument-making",
-   "certShort": "Scuola Internazionale di Liuteria"
+   "certShort": "Scuola Internazionale di Liuteria",
+   "featured": {
+    "id": "lutherie-and-instrument-making--cremona",
+    "place": "Cremona",
+    "country": "Italy",
+    "school": "Academia Cremonensis",
+    "url": "https://academiacremonensis.org/foundational-course/",
+    "course": "Professional Violin Making Course (Foundational Course)",
+    "description": "A three-year, full-time program in Cremona where students work at individual benches Monday to Friday, 9 to 5, for 880 hours a year. From wood selection and tool use through every construction phase, each student builds violins, violas or cellos by hand using the school's traditional methods, with mostly one-to-one instruction supplemented by group theory. No prior experience is required; teachers give detailed written evaluations rather than grades.",
+    "duration": "3 years full-time; 880 hours per year",
+    "format": "Full-time, individual workbenches, Mon-Fri 9:00-17:00",
+    "certification": "Academia Cremonensis foundation certificate",
+    "fitsBecause": "A multi-year, hands-on apprenticeship-style immersion in Cremona, the world's center of violin making, learning the carving tradition bench by bench in a small cohort.",
+    "sessions": [],
+    "priceNote": "~€15,000 per year",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Guitar & Music Performance",
@@ -5123,7 +6087,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "guitar-and-music-performance",
-   "certShort": "Trinity College London"
+   "certShort": "Trinity College London",
+   "featured": {
+    "id": "guitar-and-music-performance--boston",
+    "place": "Boston",
+    "country": "United States",
+    "school": "Berklee College of Music",
+    "url": "https://summer.berklee.edu/programs/aspire-five-week-music-performance-intensive",
+    "course": "Aspire: Five-Week Music Performance Intensive",
+    "description": "A five-week residential intensive at Berklee in Boston drawing musicians from more than 70 countries. Days run roughly 9 a.m. to 8 p.m. and combine private lessons, theory and musicianship classes with ensemble rehearsals in styles from jazz and pop/rock to funk/fusion, salsa and world music; guitarists study their principal instrument and play in over 200 ensemble showcases during the final week. Open to players 15 and up with at least six months' experience; a credit track awards three college credits.",
+    "duration": "5 weeks (July 5 - August 7, 2026)",
+    "format": "Residential, full-time, ensemble-based with private lessons",
+    "certification": "Program completion; optional 3 college credits (credit track)",
+    "fitsBecause": "A residential, full-time immersion at the leading contemporary-music school, learning by playing in small ensembles with peers from around the world.",
+    "sessions": [
+     "2026-07-05"
+    ],
+    "priceNote": "~$5,430 tuition (+ ~$4,200 housing)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Calligraphy & Lettering",
@@ -5206,7 +6188,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "calligraphy-and-lettering",
-   "certShort": "Calligraphy & Lettering Arts Soc…"
+   "certShort": "Calligraphy & Lettering Arts Soc…",
+   "featured": {
+    "id": "calligraphy-and-lettering--xi-an-beijing",
+    "place": "Hangzhou",
+    "country": "China",
+    "school": "China Academy of Art (International College, Xiangshan campus)",
+    "url": "https://caa.at0086.cn/site/admission/show-5653.html",
+    "course": "Non-degree Chinese Painting & Calligraphy Program",
+    "description": "A non-degree program at China's foremost art academy, taught at the Xiangshan campus in Hangzhou with around 20 class sessions a week. Students work in small bilingual (English/Chinese) groups on brush and pigment technique, ink brushwork, study of master works, calligraphy and seal carving, building from fundamentals to creative composition. Available as full 18-19 week semesters or as shorter 2-8 week workshops; completers receive a certificate from the International College.",
+    "duration": "Full semester 18-19 weeks; short-term workshops 2-8 weeks",
+    "format": "Full-time, small bilingual groups, on-campus",
+    "certification": "Certificate of non-degree Chinese Painting and Calligraphy (CAA International College)",
+    "fitsBecause": "An immersive, small-group residency at China's leading art academy, learning brush calligraphy at the source through traditional technique toward a school certificate.",
+    "sessions": [
+     "Sep 2026",
+     "Feb 2027"
+    ],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "French Pastry & Patisserie",
@@ -5317,7 +6318,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "french-pastry-and-patisserie",
-   "certShort": "CAP Pâtissier"
+   "certShort": "CAP Pâtissier",
+   "featured": {
+    "id": "french-pastry-and-patisserie--paris",
+    "place": "Paris",
+    "country": "France",
+    "school": "FERRANDI Paris",
+    "url": "https://www.ferrandi-paris.com/en/french-pastry-programs/intensive-professional-program-french-pastry",
+    "course": "Intensive Professional Program in French Pastry",
+    "description": "A 16-week intensive at one of France's top culinary schools, taught entirely in English, with an optional three-month internship in French restaurants and hotels. Students train hands-on in the techniques of French patisserie, building from fundamentals through entremets, glazing, ganache and plated desserts, alongside professional visits and demonstrations. Designed for career-changers and aspiring professionals; it covers the technical craft (though not the French-language CAP state exam itself).",
+    "duration": "16 weeks (about 4 months) + optional 3-month internship",
+    "format": "Full-time, English-taught, hands-on small cohort",
+    "certification": "FERRANDI Paris certificate (program completion)",
+    "fitsBecause": "A full-time, English-language immersion in Paris, the home of French patisserie, learning the craft hands-on in a small cohort toward a respected school certificate.",
+    "sessions": [],
+    "priceNote": "~€24,500",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Bread & Boulangerie",
@@ -5423,7 +6440,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "bread-and-boulangerie",
-   "certShort": "CAP Boulanger"
+   "certShort": "CAP Boulanger",
+   "featured": {
+    "id": "bread-and-boulangerie--paris",
+    "place": "Paris",
+    "country": "France",
+    "school": "École de Boulangerie et de Pâtisserie de Paris (EBP)",
+    "url": "https://www.ebp-paris.com/formations/cap-boulangerie/",
+    "course": "CAP Boulangerie (Adult Continuing-Education Track)",
+    "description": "France's first dedicated bakery school, founded in 1929, runs an adult retraining route to the CAP Boulanger state diploma. The continuing-education track is 13 full-time weeks of in-school practice (September to June, Monday-Friday, 7:30-17:30) focused on bread-making technique, applied technology, sciences and food-safety, with the remaining time spent baking in real bakeries. Each year roughly 100 career-changers enrol, with an exam pass rate near 100%.",
+    "duration": "8 months continuous training (13 weeks full-time in-school) or 1-year apprenticeship",
+    "format": "Full-time in-school blocks plus bakery placement; adult cohort",
+    "certification": "CAP Boulanger (French national state diploma, RNCP level 3)",
+    "fitsBecause": "A full-time, hands-on path to the recognized CAP Boulanger diploma in Paris, learning the levain-and-oven craft in a working-bakery cohort at the source.",
+    "sessions": [
+     "Sep 2026"
+    ],
+    "priceNote": "~€7,986 (continuing-education track)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Chocolate & Confectionery",
@@ -5535,7 +6570,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "chocolate-and-confectionery",
-   "certShort": "Callebaut"
+   "certShort": "Callebaut",
+   "featured": {
+    "id": "chocolate-and-confectionery--tain-l-hermitage",
+    "place": "Tain-l'Hermitage",
+    "country": "France",
+    "school": "L'École Valrhona (via École Chocolat residential program)",
+    "url": "https://www.ecolechocolat.com/en/french-chocolate.html",
+    "course": "Professional Chocolatier Program in France (Tain-l'Hermitage residency)",
+    "description": "A one-week residency (six nights) built around three full days of hands-on training at L'École Valrhona in Tain-l'Hermitage, Valrhona's home in the Drôme. Students work with professional enrobing and airbrushing equipment, prepare ganache, make and decorate bonbons, and take a guided tour of Paris chocolatier boutiques. Capped at 8-12 participants; it serves chocolatiers building professional skills and is tied to École Chocolat's Professional Chocolatier track.",
+    "duration": "1 week (6 nights; 3 full training days)",
+    "format": "Residential, small group (8-12), hands-on at L'École Valrhona",
+    "certification": "École Chocolat Certificate of Achievement",
+    "fitsBecause": "A residential, small-group week at Valrhona's source school in Tain-l'Hermitage, working the tempering and bonbon craft hands-on toward a certificate.",
+    "sessions": [
+     "Apr 2027"
+    ],
+    "priceNote": "~€4,600 (single occupancy)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Viennoiserie",
@@ -5616,7 +6669,26 @@ window.ET_ATLAS = {
     }
    ],
    "id": "viennoiserie",
-   "certShort": "CAP Boulanger"
+   "certShort": "CAP Boulanger",
+   "featured": {
+    "id": "viennoiserie--paris",
+    "place": "Paris",
+    "country": "France",
+    "school": "FERRANDI Paris",
+    "url": "https://www.ferrandi-paris.com/en/bread-baking-programs/intensive-professional-program-bread-baking",
+    "course": "Intensive Professional Program in French Bread Baking (Boulangerie)",
+    "description": "Taught fully in English by bilingual chef-instructors to small groups of about 12, this hands-on boulangerie program (roughly 70% practice) drills yeasted doughs, baguettes, country and specialty breads, rolls, brioche and laminated viennoiseries such as croissants and pains aux raisins. No prior experience is required; the program is built for career-changers and serious beginners. It pairs classroom production with a month-long internship arranged through FERRANDI's network of industry contacts.",
+    "duration": "Approx. 5 months in-school plus a 1-month internship",
+    "format": "Residential city program, full-time, small groups of ~12 students, taught in English",
+    "certification": "FERRANDI Paris professional program certificate (with internship)",
+    "fitsBecause": "A full-time, small-group immersive at the Paris institution most associated with French baking, taught in English and ending in a real internship and certificate.",
+    "sessions": [
+     "Sep 2026",
+     "Feb 2027"
+    ],
+    "priceNote": "~€24,500",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Classical French Cuisine",
@@ -5704,7 +6776,27 @@ window.ET_ATLAS = {
     }
    ],
    "id": "classical-french-cuisine",
-   "certShort": "Le Cordon Bleu"
+   "certShort": "Le Cordon Bleu",
+   "featured": {
+    "id": "classical-french-cuisine--paris",
+    "place": "Paris",
+    "country": "France",
+    "school": "Le Cordon Bleu Paris",
+    "url": "https://www.cordonbleu.edu/paris/cuisine-diploma/en",
+    "course": "Diplôme de Cuisine",
+    "description": "The classic three-tier French cuisine diploma — Basic, Intermediate and Superior — taught through chef demonstrations followed by individual hands-on practice. Students drill knife skills, the mother sauces, stocks, butchery, fish work and progressively complex classical and contemporary dishes, working up to autonomous plating under the brigade system. Levels must be passed in sequence; the full diploma can be taken intensively over 6 months or at a standard 9-month pace.",
+    "duration": "6 months (intensive) or 9 months (standard), three sequential levels",
+    "format": "Residential city program, full-time, demonstration plus individual practical kitchens",
+    "certification": "Diplôme de Cuisine (Le Cordon Bleu Foundation institutional diploma)",
+    "fitsBecause": "The codified grammar of French cooking, learned full-time and in sequence at the school that defined the brigade-and-mother-sauce canon, ending in a recognized diploma.",
+    "sessions": [
+     "2026-04-07",
+     "2026-07-06",
+     "2026-10-05"
+    ],
+    "priceNote": "~€35,500",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Italian Cuisine & Pasta",
@@ -5790,7 +6882,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "italian-cuisine-and-pasta",
-   "certShort": "ALMA — La Scuola Internazionale…"
+   "certShort": "ALMA — La Scuola Internazionale…",
+   "featured": {
+    "id": "italian-cuisine-and-pasta--bologna",
+    "place": "Bologna",
+    "country": "Italy",
+    "school": "La Vecchia Scuola Bolognese (VSB)",
+    "url": "https://www.vsb-bologna.it/en/",
+    "course": "Sfoglia: Professional Course with Alessandra Spisni",
+    "description": "Run by founder and master sfoglina Alessandra Spisni at the only school dedicated to forming sfoglini, this professional course teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of Bolognese fresh pasta — tortellini, tagliatelle, lasagne and more — worked by hand on the wooden board until dough is read by touch. Sessions run mornings, Monday to Saturday. Admission requires first completing the 3-day beginner Pasta Class and the teacher's approval; uniform, materials and equipment are provided.",
+    "duration": "Multi-week professional course (mornings, Mon–Sat); exact length set per cohort",
+    "format": "Small in-person workshop, hands-on, taught by Alessandra Spisni and her team",
+    "certification": "VSB professional sfoglia course completion (sfoglina training)",
+    "fitsBecause": "Hands-on, community-table training in hand-rolled pasta at the only school in the world that forms sfoglini, in the city the sfoglia comes from.",
+    "sessions": [],
+    "priceNote": "~€6,000 (professional course)",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "New Basque Cuisine",
@@ -5857,7 +6965,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "new-basque-cuisine",
-   "certShort": "Basque Culinary Center"
+   "certShort": "Basque Culinary Center",
+   "featured": {
+    "id": "new-basque-cuisine--san-sebasti-n-donostia",
+    "place": "San Sebastián (Donostia)",
+    "country": "Spain",
+    "school": "Basque Culinary Center",
+    "url": "https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias",
+    "course": "Culinary Techniques Mastery (Perfeccionamiento de Técnicas Culinarias)",
+    "description": "A campus-based specialization course at the faculty founded by San Sebastián's avant-garde chefs, aimed at cooks who already have training or kitchen experience and want to sharpen technique. Across five weeks, Monday to Friday mornings, it covers the modern chef and culinary context plus core techniques — food handling, preservation and cooking methods applied to vegetables, meats, fish, seafood and grains, with pastry and bakery fundamentals. Cohorts are capped at 18.",
+    "duration": "5 weeks (Mon–Fri, 08:30–13:30), 6 ECTS",
+    "format": "On-campus, in-person, full mornings, max 18 students; taught in Spanish",
+    "certification": "Basque Culinary Center specialization certificate (6 ECTS)",
+    "fitsBecause": "An immersive, small-cohort technique program at the academic home of New Basque cuisine, in the city where the movement was born.",
+    "sessions": [
+     "2026-05-25"
+    ],
+    "priceNote": "~€3,320",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Modernist Spanish Cuisine",
@@ -5944,7 +7070,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "modernist-spanish-cuisine",
-   "certShort": "elBullifoundation legacy"
+   "certShort": "elBullifoundation legacy",
+   "featured": {
+    "id": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
+    "place": "Donostia-San Sebastián (Gipuzkoa)",
+    "country": "Spain",
+    "school": "Basque Culinary Center (Faculty of Gastronomic Sciences)",
+    "url": "https://www.bculinary.com/en/programas-especializacion",
+    "course": "Avant-Garde Culinary Techniques (Tecnicas Culinarias de Vanguardia) - in-person specialization course",
+    "description": "Basque Culinary Center runs an in-person Avant-Garde Culinary Techniques specialization course on its San Sebastian campus, covering the context of the modern chef, creative processes, and cutting-edge techniques with their culinary application and dishes. It runs roughly five weeks (the 2026 edition listed as 25 May to 26 June), Monday and Tuesday 15:00-20:30, in Spanish, priced at 3,320 euros. The course replaces the iconic but inaccessible elBulli1846 site at Cala Montjoi, which is now a seasonal museum with no enrolment-based cooking course for travelers.",
+    "duration": "Approximately 5 weeks (2026 edition: 25 May - 26 June)",
+    "format": "In-person, on-campus in San Sebastian; Monday and Tuesday 15:00-20:30; taught in Spanish",
+    "certification": "Basque Culinary Center course completion certificate (specialization course)",
+    "fitsBecause": "A real, bookable in-person modernist/avant-garde cooking course in the Basque heart of Spain's vanguard cuisine, taught at a leading gastronomy institution with a concrete published curriculum, schedule and price.",
+    "sessions": [
+     "2026-05-25"
+    ],
+    "priceNote": "3,320 EUR (2026 edition).",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Sushi & Washoku",
@@ -6031,7 +7175,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "sushi-and-washoku",
-   "certShort": "Japanese government National Coo…"
+   "certShort": "Japanese government National Coo…",
+   "featured": {
+    "id": "sushi-and-washoku--tokyo-tsukiji-toyosu",
+    "place": "Tokyo",
+    "country": "Japan",
+    "school": "Tokyo Sushi Academy",
+    "url": "https://www.sushischool.jp/en/5weeks-total-course",
+    "course": "International Sushi Chef Course (5 weeks)",
+    "description": "Japan's first sushi school and the only one teaching professionals in English, Tokyo Sushi Academy runs an intensive five-week course centered on edomae nigiri: shari (sushi rice) preparation, fish cleaning and filleting, sashimi cutting, rolled sushi, and omakase service, with repeated hands-on practice. Students also learn Japanese knife use and maintenance and food-hygiene management. It is built for career-changers and aspiring professional sushi chefs.",
+    "duration": "5 weeks, intensive",
+    "format": "Full-time, in-person, hands-on, taught in English",
+    "certification": "Tokyo Sushi Academy course completion certificate (school certificate; not a government Chorishi license)",
+    "fitsBecause": "A full-time, hands-on edomae sushi immersion in Tokyo, taught to professionals in English at the city's pioneering sushi school.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Thai Cuisine",
@@ -6093,7 +7253,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "thai-cuisine",
-   "certShort": "Thai Ministry of Education"
+   "certShort": "Thai Ministry of Education",
+   "featured": {
+    "id": "thai-cuisine--bangkok",
+    "place": "Bangkok",
+    "country": "Thailand",
+    "school": "Le Cordon Bleu Dusit Culinary School",
+    "url": "https://www.cordonbleu.edu/thailand/professional-thai-cuisine/en",
+    "course": "Professional Thai Cuisine Programme (Diplôme de Cuisine Thaïe)",
+    "description": "A long-form professional Thai program of about 540 instruction hours over roughly 30 weeks, teaching more than 200 recipes across traditional, regional and royal Thai cuisine, Thai-Chinese dishes and Thai desserts. Students learn curry-paste pounding, the sour-sweet-salty-spicy balance, and classical techniques through demonstration plus hands-on practical kitchens. The diploma is accredited by Thailand's Ministry of Education.",
+    "duration": "540 hours over ~30 weeks",
+    "format": "Full-time professional program, demonstration plus practical kitchens",
+    "certification": "Diplôme de Cuisine Thaïe (accredited by the Thai Ministry of Education)",
+    "fitsBecause": "An in-depth, ministry-accredited Thai cuisine diploma taught in Bangkok, covering regional and royal Thai cooking from curry pastes up.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Oaxacan & Mexican Cuisine",
@@ -6177,7 +7353,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "oaxacan-and-mexican-cuisine",
-   "certShort": "—"
+   "certShort": "—",
+   "featured": {
+    "id": "oaxacan-and-mexican-cuisine--oaxaca",
+    "place": "Oaxaca",
+    "country": "Mexico",
+    "school": "Seasons of My Heart (Susana Trilling)",
+    "url": "https://www.seasonsofmyheart.com/food-tours/mexico/oaxaca/chefs-intensive",
+    "course": "6-Day Chef's Intensive",
+    "description": "Led by Chef Kaelin Ulrich Trilling at Susana Trilling's long-running Oaxaca school, this six-day intensive pairs morning visits to local markets, artisans and producers with afternoon hands-on kitchen sessions. Modules include five mole variations, masa and corn-heritage work, a survey of around 28 chiles, chocolate, carnitas, coastal Oaxacan dishes, mezcal tasting and plating. The group is capped at about 12, with most meals and lodging at a local hotel included.",
+    "duration": "6 days",
+    "format": "Residential intensive, max ~12 students, market visits plus hands-on kitchen",
+    "certification": "Certificate of completion",
+    "fitsBecause": "A small-group, residential week embedded in Oaxaca's markets and traditions, teaching mole, masa and mezcal at the source from a school rooted in the community.",
+    "sessions": [
+     "2026-06-11"
+    ],
+    "priceNote": "~$3,850 (double occupancy)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "North Indian Cuisine",
@@ -6253,7 +7447,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "north-indian-cuisine",
-   "certShort": "NCHMCT"
+   "certShort": "NCHMCT",
+   "featured": {
+    "id": "north-indian-cuisine--lucknow",
+    "place": "Lucknow",
+    "country": "India",
+    "school": "Institute of Hotel Management, Catering Technology & Applied Nutrition (IHM Lucknow)",
+    "url": "https://www.ihmlucknow.com/diploma-in-food-production/",
+    "course": "Diploma in Food Production",
+    "description": "A government IHM diploma focused entirely on the kitchen, run in the Awadhi capital of Lucknow. The full-time program covers professional food production — stocks, sauces, butchery, Indian and continental cookery and kitchen operations — with hands-on training kitchens, and includes a six-month industrial training placement. Entry requires completion of 10+2 schooling.",
+    "duration": "18 months (includes 6 months industrial training)",
+    "format": "Full-time institutional program with practical training kitchens and industry placement",
+    "certification": "Diploma in Food Production (IHM / NCHMCT-affiliated system)",
+    "fitsBecause": "A full-time, hands-on culinary diploma at a government hotel-management institute in Lucknow, the home city of Awadhi and Mughlai cooking.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Peruvian Cuisine",
@@ -6335,7 +7545,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "peruvian-cuisine",
-   "certShort": "Le Cordon Bleu Peru"
+   "certShort": "Le Cordon Bleu Peru",
+   "featured": {
+    "id": "peruvian-cuisine--lima",
+    "place": "Lima",
+    "country": "Peru",
+    "school": "Le Cordon Bleu Perú",
+    "url": "https://www.cordonbleu.edu/peru/home/en",
+    "course": "Diploma in Gastronomy (Diploma en Gastronomía)",
+    "description": "At Le Cordon Bleu's university-status campus in Lima, the gastronomy diploma trains cooks in basic and advanced culinary technique and a working recipe repertoire spanning Peruvian and international cuisine, alongside running kitchen and bar brigades. Coursework combines demonstrations with practice in professional kitchens; teaching is in Spanish. Iconic Peruvian dishes such as ceviche and lomo saltado feature within the broader curriculum.",
+    "duration": "Diploma program (length set by intake; multi-month)",
+    "format": "Full-time campus program, demonstration plus practical kitchens; taught in Spanish",
+    "certification": "Le Cordon Bleu Perú Certificate/Diploma in Gastronomy",
+    "fitsBecause": "A multi-month, hands-on gastronomy diploma in Lima, the capital of Peru's celebrated cuisine, at the country's leading recognized culinary school.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Wine & Sommellerie",
@@ -6418,7 +7644,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "wine-and-sommellerie",
-   "certShort": "WSET"
+   "certShort": "WSET",
+   "featured": {
+    "id": "wine-and-sommellerie--bordeaux",
+    "place": "Bordeaux",
+    "country": "France",
+    "school": "L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School)",
+    "url": "https://www.ecoleduvindebordeaux.com/en",
+    "course": "Intensive Programme (Grand Cru level)",
+    "description": "A seven-day, roughly 60-hour intensive run by the Bordeaux wine council in an 18th-century building in the city centre, combining structured tasting technique with three days travelling through the vineyards. You taste across the 65 appellations, study the classified growths of Medoc, Sauternes, Graves and Saint-Emilion, and learn appellation, vintage and food-and-wine pairing alongside a small group. Tutors are working winegrowers, oenologists and cellar masters; the programme is available in English. Suited to serious enthusiasts and trade entrants building toward formal wine study.",
+    "duration": "7 days (approx. 60 hours)",
+    "format": "Full-time, small-group; city-based with vineyard travel days (accommodation not included)",
+    "certification": "Bordeaux Wine School certificate of completion (preparation toward WSET-level study)",
+    "fitsBecause": "Multi-day full-time study at the institutional source of Bordeaux wine, taught by working growers and oenologists with hands-in-the-vineyard days.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Sake & Sommellerie of Sake",
@@ -6526,7 +7768,27 @@ window.ET_ATLAS = {
     }
    ],
    "id": "sake-and-sommellerie-of-sake",
-   "certShort": "SSI"
+   "certShort": "SSI",
+   "featured": {
+    "id": "sake-and-sommellerie-of-sake--nada-kobe-hyogo",
+    "place": "Sado Island, Niigata",
+    "country": "Japan",
+    "school": "Obata Shuzo - Gakkogura",
+    "url": "https://www.obata-shuzo.com/home/gakkogura/gakkogura1eng.asp",
+    "course": "Gakkogura One Week Course (sake brewing)",
+    "description": "A residential hands-on brewing course at Obata Shuzo's Gakkogura, a microbrewery built inside a former elementary school on Sado Island. A handful of participants work through the core of sake production over a week - koji making, steaming and cooling rice, and the three-stage brewing of a single designated tank - with English guidance. The sake the group brews is later bottled and sold under the Gakkogura label. A longer 20-day course is offered for a fuller cycle. Suited to people who want to actually make sake rather than only taste it.",
+    "duration": "1 week (also a 20-day course)",
+    "format": "Residential, small group (a handful of participants per tank/team); requires staying on the island at least a week",
+    "certification": "Completion of the brewing program (group-brewed sake bottled under the Gakkogura label)",
+    "fitsBecause": "True at-the-source residential immersion - you brew a real tank of sake alongside a small team inside a working Sado brewery, not a classroom tasting.",
+    "sessions": [
+     "May 2026",
+     "Jun 2026",
+     "Jul 2026"
+    ],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Coffee & Barista",
@@ -6631,7 +7893,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "coffee-and-barista",
-   "certShort": "SCA"
+   "certShort": "SCA",
+   "featured": {
+    "id": "coffee-and-barista--yirgacheffe-addis-ababa",
+    "place": "Kaffa region & Addis Ababa",
+    "country": "Ethiopia",
+    "school": "African Coffee Campus",
+    "url": "https://africancoffeecampus.ambrellaluxurysafaris.com/",
+    "course": "Immersive Coffee Program (bean-to-cup)",
+    "description": "A multi-week bean-to-cup program that opens with hands-on work on coffee farms in the Kaffa region - cultivation, harvesting and processing with local producers - then moves to Addis Ababa for intensive professional training across the four SCA disciplines: Barista Skills, Green Coffee, Sensory Skills and Roasting. Days combine farm fieldwork with espresso dialling-in, cupping and roasting practice at a partner training facility. Accommodation, transport and meals are included. Aimed at coffee lovers and aspiring professionals who want origin and barista craft in one residency.",
+    "duration": "approx. 3-4 weeks",
+    "format": "Residential; farm phase (Kaffa) + technical phase (Addis Ababa); accommodation, transport and meals included",
+    "certification": "SCA-based credential / Specialty Coffee Association module certificates",
+    "fitsBecause": "Immersive, residential, weeks-long, taught from farm to cup at coffee's genetic origin with an SCA-framework credential and a small cohort.",
+    "sessions": [
+     "2026-01-31"
+    ],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Mixology & Bartending",
@@ -6715,7 +7995,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "mixology-and-bartending",
-   "certShort": "European Bartender School"
+   "certShort": "European Bartender School",
+   "featured": {
+    "id": "mixology-and-bartending--havana",
+    "place": "Havana",
+    "country": "Cuba",
+    "school": "Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron)",
+    "url": "https://cantineroscuba.org.cu/",
+    "course": "No standing week-long public course; cantinero training is free, resident-only, and the tourist-facing option is a short cocktail workshop at the Museo del Ron",
+    "description": "The Asociacion de Cantineros de Cuba (founded 1924) runs the cantinero tradition, where trainees learn 150-200 cocktails from memory over roughly six months before an exam, but its courses are free and reserved for members with permanent residency in Cuba, not sold to travelers. The traveler-facing alternative at the source is the Havana Club Rum Museum (Museo del Ron), which offers cocktail-making demonstrations and classes alongside its rum exhibits, but these run only about 1.5-2 hours, not a week. No verifiable standing week-or-longer public bartending immersion at the source could be confirmed; the residency course must be arranged directly with the association, and a true immersion would need a bespoke arrangement.",
+    "duration": "Cantinero path ~6 months (residents only); museum workshops ~1.5-2 hours",
+    "format": "Association training is local, free and resident-only; the public option is a short museum workshop, not residential or week-long",
+    "certification": "Cantinero accreditation via the Asociacion de Cantineros de Cuba after exam (residents); museum workshop is non-credential",
+    "fitsBecause": "Honest fit is partial: the authentic credential exists at the source but is closed to travelers, and no verifiable week-long public immersion is currently bookable in Havana.",
+    "sessions": [],
+    "priceNote": "Association courses are free but resident-only; museum workshop pricing varies, confirm on site.",
+    "confidence": "low"
+   }
   },
   {
    "discipline": "Cheese & Fermentation",
@@ -6802,7 +8098,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "cheese-and-fermentation",
-   "certShort": "ENIL"
+   "certShort": "ENIL",
+   "featured": {
+    "id": "cheese-and-fermentation--poligny-jura",
+    "place": "Ambierle (near Roanne)",
+    "country": "France",
+    "school": "Mons Formation (Mons Fromager-Affineur)",
+    "url": "https://www.mons-formation.com/?lang=en",
+    "course": "Affinage course (maturing cheese)",
+    "description": "A five-day, full-time residency run by the Mons family's training centre, split roughly half theory and half hands-on work in the Mons maturing caves alongside their staff. Students learn the life cycle of rind flora and how it drives ripening (proteolysis, glycolysis, lipolysis), the tools and techniques French affineurs use across cheese styles, common defects and their fixes, and the economics of affinage. Capped at six students. Lodging, breakfasts, lunches and ground transport during the course are included. Aimed at cheese professionals and serious learners.",
+    "duration": "5 days (one-week residency)",
+    "format": "Residential, full-time; max 6 students; lodging, breakfasts, lunches and local transport included",
+    "certification": "Mons Formation certificate of completion",
+    "fitsBecause": "Week-long residential, tiny-cohort training inside a renowned French affineur's working caves - hands-on at the source of cheese maturing.",
+    "sessions": [],
+    "priceNote": "~EUR 2,800",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Tea & Tea Ceremony",
@@ -6863,7 +8175,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "tea-and-tea-ceremony",
-   "certShort": "Urasenke"
+   "certShort": "Urasenke",
+   "featured": {
+    "id": "tea-and-tea-ceremony--hangzhou-fujian",
+    "place": "Wu Yi Shan, Fujian",
+    "country": "China",
+    "school": "Tea Drunk",
+    "url": "https://www.teadrunk.com/products/educational-tea-tour-wu-yi-shan",
+    "course": "Educational Tea Tour - Wu Yi Shan",
+    "description": "A small-group educational tour in the UNESCO-listed Wu Yi Shan, the home of rock tea (yan cha), offered as a 6-day or 10-day program with English translation throughout. Days mix a tea-history foundation course, terroir hikes into famed gorges (Jiu Long Ke, Niu Lan Keng), hands-on tea processing with local masters, and structured tea-evaluation workshops led by national-level evaluators, alongside temple visits and teaware study. The 10-day extension adds further terroir sites, Zen tea practice and producer meetings. For tea enthusiasts wanting to read terroir in the cup at the source.",
+    "duration": "6 days or 10 days",
+    "format": "Small-group, full-time tour; boutique-hotel accommodation, meals and transfers included; English translation",
+    "certification": "Certificate of completion",
+    "fitsBecause": "At-the-source, multi-day small-group immersion in rock-tea terroir with hands-on processing and evaluation taught by national-level Chinese tea experts.",
+    "sessions": [
+     "2026-11-02"
+    ],
+    "priceNote": "~$7,600",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Muay Thai",
@@ -6948,7 +8278,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "muay-thai",
-   "certShort": "Kru Muay Thai Association"
+   "certShort": "Kru Muay Thai Association",
+   "featured": {
+    "id": "muay-thai--bangkok",
+    "place": "Bangkok",
+    "country": "Thailand",
+    "school": "Petchyindee Kingdom",
+    "url": "https://www.muaythaimap.com/gyms/petchyindee-kingdom",
+    "course": "Weekly / Monthly Muay Thai Training Package",
+    "description": "A residential training package at one of Bangkok's oldest fight camps (founded 1976), with two Muay Thai sessions a day, six days a week, in group classes plus private options, taught by English-speaking trainers. Mornings are quieter technical sessions; the gym has on-site air-conditioned en-suite accommodation, sauna and Thai massage. Programs scale from a beginner-friendly week for visitors up to month-long blocks for serious fighters, with the option to watch or tag into a stadium fight night. For anyone wanting to train the art of eight limbs at a working Bangkok camp.",
+    "duration": "1 week to 1 month (rolling start)",
+    "format": "Residential at the camp; 2 sessions/day, 6 days/week; group + private; on-site accommodation",
+    "certification": "Training-camp completion (path toward Kru/professional ranking via Thai bodies)",
+    "fitsBecause": "Live-in, daily, weeks-long training at a decades-old Bangkok fight camp - immersive and community-based at the source of Muay Thai.",
+    "sessions": [],
+    "priceNote": "~$340/week (no meals), ~$700/month (no meals)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Brazilian Jiu-Jitsu",
@@ -7040,7 +8386,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "brazilian-jiu-jitsu",
-   "certShort": "International Brazilian Jiu-Jits…"
+   "certShort": "International Brazilian Jiu-Jits…",
+   "featured": {
+    "id": "brazilian-jiu-jitsu--rio-de-janeiro",
+    "place": "Barra da Tijuca, Rio de Janeiro",
+    "country": "Brazil",
+    "school": "Gracie Barra (Barra da Tijuca HQ)",
+    "url": "https://trainbjjinrio.com/gracie-barra-rio/",
+    "course": "Open training / visitor membership at Gracie Barra HQ",
+    "description": "Drop-in and monthly training at the Gracie Barra headquarters founded by Carlos Gracie Jr., on the top floor of a large health club with one of Rio's biggest mats. The emphasis is on fundamentals - three to four techniques per class - with quieter morning sessions (10-20 students) and large evening classes (50+). Classes run mainly in Portuguese, with several English-speaking black belts; official Gracie Barra gis are required. Partner service Connection Rio arranges accommodation a block away, making an open-ended live-and-train stay practical. For grapplers who want lineage training at the source.",
+    "duration": "Open-ended (monthly membership; recommend multi-week stay)",
+    "format": "Drop-in / monthly membership at the HQ academy; nearby visitor accommodation via Connection Rio",
+    "certification": "IBJJF-recognized belt promotion by certified black-belt professors (earned over time, not course-based)",
+    "fitsBecause": "Train in unbroken Gracie lineage at the founding Gracie Barra HQ in Rio, the city where the art was forged, with visitor housing for an immersive live-and-train stay.",
+    "sessions": [],
+    "priceNote": "~R$172/month + R$30 joining fee",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Karate",
@@ -7104,7 +8466,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "karate",
-   "certShort": "Dan"
+   "certShort": "Dan",
+   "featured": {
+    "id": "karate--naha-and-shuri-okinawa",
+    "place": "Naha & Shuri, Okinawa",
+    "country": "Japan",
+    "school": "Visit Karate Okinawa (Ageshio Japan) at Okinawa Karate Kaikan & affiliated dojos",
+    "url": "https://ageshiojapan.com/category_page/program",
+    "course": "Island Special Karate Camp",
+    "description": "A 14-day karate immersion in karate's birthplace, training under high-ranking Okinawan masters at authentic dojos and the Okinawa Karate Kaikan, with exposure to the leading Okinawan styles (Shorin-ryu, Goju-ryu, Uechi-ryu) and kobudo weapons work. The camp pairs daily dojo training with travel through Okinawa and the Yaeyama islands, including outdoor beach training. Coordinated for international practitioners by Ageshio Japan. For karateka who want to train kata and kihon where the art originated rather than abroad.",
+    "duration": "14 days",
+    "format": "Multi-day immersive camp; dojo training plus island travel; small group",
+    "certification": "Certificate of participation (training under recognized Okinawan-lineage masters)",
+    "fitsBecause": "Two weeks of training under Okinawan-lineage masters at the Karate Kaikan and real dojos in karate's birthplace - immersive and at the source.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Kung Fu",
@@ -7190,7 +8568,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "kung-fu",
-   "certShort": "Shaolin Duanwei"
+   "certShort": "Shaolin Duanwei",
+   "featured": {
+    "id": "kung-fu--dengfeng-songshan-shaolin-temple-henan",
+    "place": "Dengfeng (Songshan Shaolin Temple), Henan",
+    "country": "China",
+    "school": "Shaolin Tagou Martial Arts School",
+    "url": "https://www.shaolintagou.org/",
+    "course": "Long-term Kung Fu Training (monthly enrollment)",
+    "description": "Full room-and-board training at China's largest martial-arts school, in the Mount Song Shaolin Temple scenic area, with stays from one month to a year. Students train under Shaolin masters from the original temple and national-level instructors across Shaolin kung fu, taijiquan, praying mantis, wing chun and sanda sparring, structured around group drills and combat training that scale from beginner to advanced. International students train alongside Chinese students. For those who want to live and train traditional kung fu at the temple's home rather than sample it.",
+    "duration": "1 month to 1 year (rolling enrollment)",
+    "format": "Residential, full room and board; large-group drills; foreigners welcome",
+    "certification": "School completion (path toward Shaolin Duanwei grading)",
+    "fitsBecause": "Live-in, month-plus residential training under original-temple Shaolin masters at the literal home of Shaolin kung fu in Dengfeng.",
+    "sessions": [],
+    "priceNote": "~$1,200/month (room and board)",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Capoeira",
@@ -7254,7 +8648,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "capoeira",
-   "certShort": "Cordão"
+   "certShort": "Cordão",
+   "featured": {
+    "id": "capoeira--salvador-bahia",
+    "place": "Abrantes, Salvador (Bahia)",
+    "country": "Brazil",
+    "school": "Capoeira Engenho — Mestre Grandão (Centro de Treinamento Engenho, Abrantes)",
+    "url": "https://www.tripaneer.com/bahia-vacation-tours/30-day-capoeira-teacher-training-with-diploma-in-salvador-bahia",
+    "course": "30-Day Intensive \"Monitor\" Capoeira Training with Diploma",
+    "description": "A month-long residential capoeira immersion in the Abrantes district outside Salvador, run by Mestre Grandão of Capoeira Engenho. You take a daily private lesson and train five days alongside the local capoeira group in the club's own academy, working on movement, the berimbau and the roda, plus the history and different styles of capoeira. Capoeiristas with at least five years' experience can be assessed for a Monitor (teacher-level) diploma; the group is small (the partner pousada has just 10 rooms).",
+    "duration": "30 days",
+    "format": "Residential, small group; daily private lessons plus group training in the academy",
+    "certification": "Monitor de Capoeira diploma (for candidates with 5+ years' experience); otherwise certificate of completion",
+    "fitsBecause": "A month living and training in Bahia, capoeira's birthplace, learning daily inside a real mestre's group and able to earn a recognized teacher-level grading.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Argentine Tango",
@@ -7360,7 +8770,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "argentine-tango",
-   "certShort": "No single grading federation"
+   "certShort": "No single grading federation",
+   "featured": {
+    "id": "argentine-tango--buenos-aires",
+    "place": "Buenos Aires (Almagro)",
+    "country": "Argentina",
+    "school": "DNI Tango",
+    "url": "https://www.dni-tango.com",
+    "course": "Intensive Tango Course (tourist/intensive packages)",
+    "description": "DNI Tango is a full-curriculum tango school in the Almagro/Palermo barrios whose method is built on biomechanics so dancers move comfortably and fluidly. Classes run Monday to Saturday from morning to night across all levels, with group and private technique classes plus complementary yoga and contemporary movement; visitors build an intensive week or multi-week package and practice at the school's own milongas. It suits travellers staying a few weeks to a few months who want structured progress rather than a single class.",
+    "duration": "Flexible intensive: a regular programme runs 4–16 weeks (classes ~6x/week); a compressed intensive is ~2 weeks (classes ~8x/week)",
+    "format": "Non-residential, group and private; mirrored studios with sprung wooden floors",
+    "certification": "—",
+    "fitsBecause": "Immersive daily training inside Buenos Aires, tango's birthplace, in a leading school where you also dance the city's milongas alongside locals.",
+    "sessions": [],
+    "priceNote": "",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Salsa",
@@ -7469,7 +8895,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "salsa",
-   "certShort": "No global belt or grading author…"
+   "certShort": "No global belt or grading author…",
+   "featured": {
+    "id": "salsa--havana",
+    "place": "Havana",
+    "country": "Cuba",
+    "school": "Salsabor a Cuba",
+    "url": "https://www.salsaborcuba.com/english/our-offers/",
+    "course": "Intensive Week Course (10-hour package)",
+    "description": "Salsabor a Cuba is a Havana dance school teaching Cuban Salsa (casino) alongside son, rumba, cha-cha-cha, mambo, Yoruba folklore and Rueda de Casino. The recommended immersive format is a 10-hour course over a week (roughly two hours a day for five days), in individual or small-group lessons with Cuban instructors, and you can extend across several weeks and arrange a taxi-dancer to practise at night in the city's clubs. It is open seven days a week and you set your own daily schedule.",
+    "duration": "10-hour course over ~5 days (extendable across multiple weeks)",
+    "format": "Non-residential; individual or small group (groups from 5 students)",
+    "certification": "—",
+    "fitsBecause": "You learn Cuban casino at its Afro-Cuban source in Havana, daily with local teachers, then test it on the city's social dance floors.",
+    "sessions": [],
+    "priceNote": "~160 USD per 10-hour course (individual); ~140 USD in a group of 5+",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Bharatanatyam Indian Classical Dance",
@@ -7555,7 +8997,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "bharatanatyam-indian-classical-dance",
-   "certShort": "Sangeet Natak Akademi"
+   "certShort": "Sangeet Natak Akademi",
+   "featured": {
+    "id": "bharatanatyam-indian-classical-dance--chennai",
+    "place": "Chennai",
+    "country": "India",
+    "school": "Kalakshetra Foundation (Rukmini Devi College of Fine Arts)",
+    "url": "https://kalakshetra.in/",
+    "course": "Diploma in Bharatanatyam (4-year full-time)",
+    "description": "Kalakshetra, founded by Rukmini Devi Arundale and now an Institute of National Importance under India's Ministry of Culture, runs a four-year full-time Diploma in Bharatanatyam on its Chennai campus. Students train daily in the Kalakshetra style under senior gurus, learning adavus, nritta and abhinaya, theory, Carnatic music and the full margam repertoire across the years. Foreign applicants apply with a self-introduction and a DVD of their dance/music experience; the rigorous transmission culminates in the diploma and the path toward the arangetram solo debut.",
+    "duration": "4 years, full-time",
+    "format": "Full-time, campus-based, cohort/conservatory; selective admission",
+    "certification": "Kalakshetra Diploma in Bharatanatyam",
+    "fitsBecause": "Years of disciplined guru-to-student transmission at India's premier Bharatanatyam conservatory, in the dance's Tamil Nadu home, leading to a nationally significant diploma.",
+    "sessions": [
+     "Jun 2026"
+    ],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Watchmaking",
@@ -7638,7 +9098,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "watchmaking",
-   "certShort": "WOSTEP"
+   "certShort": "WOSTEP",
+   "featured": {
+    "id": "watchmaking--le-sentier-vall-e-de-joux",
+    "place": "Neuchâtel",
+    "country": "Switzerland",
+    "school": "WOSTEP (Watchmakers of Switzerland Training and Educational Program)",
+    "url": "https://www.wostep.ch/en/training/watchmaker-program",
+    "course": "WOSTEP Watchmaker Program (3000-hour)",
+    "description": "WOSTEP's flagship Watchmaker Program is a 22-month full-time course at its Neuchâtel school, the classic 3000-hour curriculum recognised across the Swiss industry. Students are at the bench 8:00–17:00 Monday to Friday, learning by hands-on work to service and repair all types of modern Swiss mechanical and electronic watches, with theory integrated as they go. Entry requires a two-day dexterity assessment; graduates pass exams to earn the WOSTEP certificate. Taught in English; places are limited.",
+    "duration": "22 months (~3000 hours), full-time",
+    "format": "Full-time, bench-based, small cohort; 8:00–17:00 Mon–Fri",
+    "certification": "WOSTEP Watchmaker certificate/diploma",
+    "fitsBecause": "The diploma the watch industry salutes, earned full-time at the bench in the Swiss watchmaking heartland near the Vallée de Joux.",
+    "sessions": [
+     "2027-08-02"
+    ],
+    "priceNote": "CHF 38,000 (tuition, toolkit, materials; accommodation excluded)",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Wooden Boatbuilding",
@@ -7716,7 +9194,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "wooden-boatbuilding",
-   "certShort": "City & Guilds boatbuilding quali…"
+   "certShort": "City & Guilds boatbuilding quali…",
+   "featured": {
+    "id": "wooden-boatbuilding--lowestoft-suffolk",
+    "place": "Lyme Regis, Dorset",
+    "country": "United Kingdom",
+    "school": "Boat Building Academy (Lyme Regis)",
+    "url": "https://boatbuildingacademy.com/",
+    "course": "38/40-Week Boat Building Course (City & Guilds Level 3)",
+    "description": "With the IBTC Lowestoft having closed in late 2024, the Boat Building Academy at Lyme Regis is the UK's leading full-time wooden boatbuilding school. Over 38–40 weeks students take complete beginners to professional standard, building real boats by hand across construction types from traditional and clinker wood to composites, working daily in the workshop on the Dorset coast. The course carries a City & Guilds Level 3 diploma; entry is by CV plus an in-person interview and the school has trained 650+ boatbuilders since 1997.",
+    "duration": "38–40 weeks, full-time",
+    "format": "Full-time, workshop-based, small cohort (non-residential; help with local lodging)",
+    "certification": "City & Guilds Level 3 Diploma (Marine Construction) + BBA course completion",
+    "fitsBecause": "Nearly a year building real wooden boats by hand alongside a small group in a coastal boatbuilding school, to a recognized City & Guilds qualification.",
+    "sessions": [
+     "Sep 2026"
+    ],
+    "priceNote": "",
+    "confidence": "high"
+   }
   },
   {
    "discipline": "Cigar Rolling",
@@ -7797,7 +9293,25 @@ window.ET_ATLAS = {
     }
    ],
    "id": "cigar-rolling",
-   "certShort": "Habanos S.A. torcedor category s…"
+   "certShort": "Habanos S.A. torcedor category s…",
+   "featured": {
+    "id": "cigar-rolling--havana-and-pinar-del-r-o",
+    "place": "La Romana and Santiago de los Caballeros",
+    "country": "Dominican Republic",
+    "school": "ProCigar (Asociacion de Fabricantes de Tabacos de la Republica Dominicana) - ProCigar Festival",
+    "url": "https://procigar.org/procigar-festival/",
+    "course": "ProCigar Festival - factory tours, tobacco-field visits and rolling/blending seminars",
+    "description": "ProCigar's annual festival is a multi-day immersion in the Dominican Republic's premium-cigar heartland, running across La Romana (Casa de Campo) and Santiago de los Caballeros with guided visits to top factories such as Tabacalera A. Fuente and General Cigar, tobacco-field tours, and interactive rolling and blending seminars where guests roll their own cigars. The 2026 edition ran 15-20 February, with the full festival package around US$2,500. It replaces the Cuban Festival del Habano, whose 2026 edition was sold out and then postponed indefinitely amid Cuba's fuel and power crisis, leaving no bookable Cuban rolling immersion.",
+    "duration": "About 5-6 days (2026: 15-20 February)",
+    "format": "Residential festival circuit (hotel-based) with factory tours, field visits, and hands-on rolling/blending seminars",
+    "certification": "No formal torcedor credential; education and hands-on rolling experience at the source (ProCigar attendance, not a graded certificate)",
+    "fitsBecause": "A real, bookable, multi-day immersion at the source of premium cigars, with hands-on rolling alongside master torcedores and factory access, available to travelers, unlike the closed in-house Cuban torcedor apprenticeship.",
+    "sessions": [
+     "Feb 2027"
+    ],
+    "priceNote": "Full Festival Package approximately US$2,500 (2026 edition); early registration discount offered before late August.",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Falconry",
@@ -7880,7 +9394,23 @@ window.ET_ATLAS = {
     }
    ],
    "id": "falconry",
-   "certShort": "UNESCO Intangible Cultural Herit…"
+   "certShort": "UNESCO Intangible Cultural Herit…",
+   "featured": {
+    "id": "falconry--abu-dhabi",
+    "place": "Forest of Dean, Gloucestershire",
+    "country": "United Kingdom",
+    "school": "Forest Barn Falconry School",
+    "url": "https://www.forestbarnholidays.co.uk/activities/falconryschool",
+    "course": "Intensive 6-Day Falconry and Bird of Prey Management Course",
+    "description": "Forest Barn's intensive six-day (five-night) residential course runs Sunday to Sunday and is built for people serious about owning and flying a raptor, covering handling, training, equipment-making, aviary design, legislation, fitness management and first aid through hands-on tuition and classroom theory with resident falconer Mark Parker. All participants receive a handbook and a completion certificate, and an optional assessment toward the recognised Raptor Award qualification can be added. It replaces the Mohamed Bin Zayed Falconry School in Al Ain, whose structured courses are weekend-only and aimed at ages 7-17, making them a poor fit for an adult immersion.",
+    "duration": "6 days / 5 nights (Sunday to Sunday)",
+    "format": "Residential (optional full-board accommodation), hands-on tuition plus classroom theory, small-group, adult-suitable",
+    "certification": "Forest Barn completion certificate; optional Raptor Award assessment and coaching for the recognised qualification",
+    "fitsBecause": "A genuine week-long residential, hands-on adult falconry immersion leading to a recognised Raptor Award credential, where the UAE school's structured program is weekend-only and youth-aged.",
+    "sessions": [],
+    "priceNote": "Approximately GBP 940 for the 6-day course (tuition); accommodation about GBP 95 per person per night; Raptor Award assessment +GBP 350.",
+    "confidence": "medium"
+   }
   },
   {
    "discipline": "Kintsugi (Japanese gold-repair)",
@@ -7959,7 +9489,27 @@ window.ET_ATLAS = {
     }
    ],
    "id": "kintsugi-japanese-gold-repair",
-   "certShort": "Traditional urushi-shi"
+   "certShort": "Traditional urushi-shi",
+   "featured": {
+    "id": "kintsugi-japanese-gold-repair--kyoto",
+    "place": "Kyoto",
+    "country": "Japan",
+    "school": "POJ Studio",
+    "url": "https://pojstudio.com/pages/kap",
+    "course": "Kintsugi Apprentice Program",
+    "description": "POJ Studio's Kintsugi Apprentice Program is a 150-hour apprenticeship over two months in Kyoto, taught in English by kintsugi specialists. You learn authentic urushi (natural lacquer) repair of ceramic and porcelain — joining broken pieces, filling chips and cracks, and finishing with gold powder — alongside the philosophy, history and tools of the craft, with field trips to artisans, tool makers and material sources. Apprentices live on-site in a furnished private studio apartment included in the program, learning in a small cohort.",
+    "duration": "150 hours over 2 months",
+    "format": "Residential (private studio apartment included), small cohort, English-language",
+    "certification": "Certificate of completion",
+    "fitsBecause": "Two months living in Kyoto doing daily hands-on natural-urushi kintsugi in a small group with master artisans — immersive, residential and at the source of the craft.",
+    "sessions": [
+     "2026-06-16",
+     "2026-09-01"
+    ],
+    "priceNote": "$12,000 (early) – $13,500 USD (accommodation included)",
+    "confidence": "high"
+   }
   }
- ]
+ ],
+ "enrichedAt": "2026-06-11"
 };
