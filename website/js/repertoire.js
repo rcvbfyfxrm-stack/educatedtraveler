@@ -2940,7 +2940,30 @@ window.ET_ATLAS = {
      "why": "Warm year-round water, shore-entry walls and the legendary Blue Hole pack the densest backpacker-to-instructor diving crowd on the Red Sea.",
      "bestSeason": "Year-round",
      "level": "Beginner -> Instructor",
-     "id": "scuba-diving--dahab-red-sea"
+     "id": "scuba-diving--dahab-red-sea",
+     "schoolsInfo": [
+      {
+       "name": "Desert Divers Dahab",
+       "url": "https://desert-divers.com/",
+       "course": "PADI Open Water Diver",
+       "blurb": "A PADI dive resort and freediving center in Dahab known for its Bedouin camp accommodation and camel-supported desert dive safaris, running the full PADI ladder from Open Water through professional courses.",
+       "confidence": "high"
+      },
+      {
+       "name": "H2O Divers Dahab",
+       "url": "https://www.h2odiversdahab.com/",
+       "course": "Instructor Development Course (IDC)",
+       "blurb": "An SDI/TDI 5-star Instructor and Professional Development Centre and AIDA freediving center on Masbat Bay that trains divers from first breaths through to instructor level.",
+       "confidence": "high"
+      },
+      {
+       "name": "Reef 2000 (Blue Hole)",
+       "url": "https://reef2000diveclub.com/",
+       "course": "IANTD Technical Diving Courses (to 100m)",
+       "blurb": "A PADI 5-star dive club attached to the Bedouin Moon Hotel near the Blue Hole, running small-group recreational and IANTD technical courses to 100m with multi-day guided diving packages.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Bonaire",
@@ -2961,7 +2984,30 @@ window.ET_ATLAS = {
      "why": "A whole-island marine park with 80-plus marked shore sites lets you pick your depth on your own clock, making this the most self-directed certified-diver scene anywhere.",
      "bestSeason": "Year-round",
      "level": "Beginner -> Instructor",
-     "id": "scuba-diving--bonaire"
+     "id": "scuba-diving--bonaire",
+     "schoolsInfo": [
+      {
+       "name": "Buddy Dive Resort",
+       "url": "https://buddydive.com/",
+       "course": "PADI Career Development Center (Divemaster to Instructor)",
+       "blurb": "A shore-diving resort with the on-site Buddy Dive Academy, the only PADI Career Development Center on Bonaire, offering residential training from Open Water through Divemaster and Instructor courses.",
+       "confidence": "high"
+      },
+      {
+       "name": "Dive Friends Bonaire",
+       "url": "https://www.divefriendsbonaire.com/",
+       "course": "PADI Instructor Development Course (IDC)",
+       "blurb": "A PADI 5-Star IDC dive operation with multiple Bonaire locations teaching the full course range from Discover Scuba and Open Water through Divemaster and the Instructor Development Course.",
+       "confidence": "high"
+      },
+      {
+       "name": "VIP Diving",
+       "url": "https://www.vipdiving.com/",
+       "course": "PADI Professional Courses (Divemaster & Instructor)",
+       "blurb": "A PADI 5-star dive center in Kralendijk offering recreational, technical (TEC), and professional courses from Open Water through Divemaster and Instructor levels.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Koh Tao",
@@ -2983,7 +3029,30 @@ window.ET_ATLAS = {
      "why": "More divers are certified on this one granite island than almost anywhere on Earth, and you can arrive a tourist and leave a working Divemaster inside a real instructor cohort.",
      "bestSeason": "Year-round (best Mar-Sep)",
      "level": "Beginner -> Instructor",
-     "id": "scuba-diving--koh-tao"
+     "id": "scuba-diving--koh-tao",
+     "schoolsInfo": [
+      {
+       "name": "Crystal Dive Resort",
+       "url": "https://www.crystaldive.com/",
+       "course": "PADI Divemaster Course / Instructor Development Course (IDC)",
+       "blurb": "Crystal Dive is a long-running Koh Tao PADI 5-Star centre on Sairee Beach offering the full professional pathway, including a multi-week Divemaster internship and a 14-day Instructor Development Course run by Platinum Course Directors.",
+       "confidence": "high"
+      },
+      {
+       "name": "Ban's Diving Resort",
+       "url": "https://www.bansdivingresort.com/en/",
+       "course": "PADI Divemaster internship / Career Development pathway to Master Instructor",
+       "blurb": "Ban's Diving Resort, established on Sairee Beach in 1993, is a PADI 5-Star Career Development Centre running the full professional progression from Divemaster internship through Instructor and Master Instructor with on-site resort accommodation.",
+       "confidence": "high"
+      },
+      {
+       "name": "Big Blue Diving",
+       "url": "https://www.bigbluediving.com/",
+       "course": "Divemaster Training Course (4-6 week internship)",
+       "blurb": "Big Blue Diving is a Koh Tao dive school on Sairee Beach whose Divemaster candidates typically train over a 4-6 week internship with mentoring and workshops, alongside a separate technical-diving centre and marine conservation program.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "scuba-diving",
@@ -3083,7 +3152,30 @@ window.ET_ATLAS = {
      "why": "Flat, deep and warm all year, the current-free Blue Hole is the global base where the world's freedivers go to find depth and find their cohort.",
      "bestSeason": "Year-round",
      "level": "Beginner -> Instructor",
-     "id": "freediving--dahab-red-sea"
+     "id": "freediving--dahab-red-sea",
+     "schoolsInfo": [
+      {
+       "name": "Freedive Dahab",
+       "url": "https://freedivedahab.com/",
+       "course": "Beginner to Instructor Package / Freediving Master Program (2-4+ weeks)",
+       "blurb": "Freedive Dahab is an SSI freediving school founded in 2003 by former world record holder Lotta Ericson, offering a Beginner-to-Instructor pathway and a 2-to-4-week Master Program training at Dahab's Lighthouse and Blue Hole sites.",
+       "confidence": "high"
+      },
+      {
+       "name": "Dahab Freedivers",
+       "url": "https://www.dahabfreedivers.com/",
+       "course": "AIDA Instructor Course (requires AIDA 4)",
+       "blurb": "Dahab Freedivers is an AIDA freediving school in Dahab running courses from AIDA 1 through the AIDA Instructor Course, plus a 2-to-4-week non-certifying Master Program with multiple coaching sessions weekly.",
+       "confidence": "high"
+      },
+      {
+       "name": "Touchdown Freediving",
+       "url": "https://touchdown-space.com/",
+       "course": "Ultimate Freediver (one-month intensive)",
+       "blurb": "Touchdown (Touchdown Space) is a Dahab freediving centre founded by Lithuanian record holder Gus Kreivenas, whose one-month Ultimate Freediver intensive combines 10 lectures, 25 dry sessions and 18 water sessions at the Blue Hole.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Dean's Blue Hole, Long Island",
@@ -3108,7 +3200,23 @@ window.ET_ATLAS = {
      "why": "A 202m sapphire shaft steps from the beach, where Trubridge's invite-only Vertical Blue is the most prestigious meet on Earth and world records fall.",
      "bestSeason": "Apr-Jul",
      "level": "Beginner -> Advanced / Competition",
-     "id": "freediving--dean-s-blue-hole-long-island"
+     "id": "freediving--dean-s-blue-hole-long-island",
+     "schoolsInfo": [
+      {
+       "name": "Vertical Blue (William Trubridge)",
+       "url": "https://verticalblue.net/",
+       "course": "Vertical Blue Master Class",
+       "blurb": "The freediving school founded by record-holder William Trubridge at Dean's Blue Hole on Long Island, teaching AIDA-structured beginner-to-advanced courses plus a once-yearly multi-day Master Class led by Trubridge and a guest instructor.",
+       "confidence": "high"
+      },
+      {
+       "name": "Blue Hole Freediving",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Kalamata & the Mani",
@@ -3129,7 +3237,23 @@ window.ET_ATLAS = {
      "why": "Host of the 2024 CMAS Depth World Championship, Kalamata's deep sheltered bay has become the Mediterranean's premier competition depth-line.",
      "bestSeason": "May-Oct",
      "level": "Beginner -> Competition",
-     "id": "freediving--kalamata-and-the-mani"
+     "id": "freediving--kalamata-and-the-mani",
+     "schoolsInfo": [
+      {
+       "name": "Kalamata Freedivers",
+       "url": "https://kalamatafreedivers.com/",
+       "course": "Advanced / Performance Freediver Course",
+       "blurb": "An SSI educational and apnea training center in Kalamata offering SSI and AIDA freediving courses from introduction through advanced and performance levels, plus workshops and athlete masterclasses.",
+       "confidence": "high"
+      },
+      {
+       "name": "Freediving Greece",
+       "url": "https://www.freediving-club.com/",
+       "course": "AIDA Freediver Courses (Beginner to Instructor)",
+       "blurb": "Freediving Club Greece, a Kalamata marina-based center founded in 2007 by AIDA world-record holder Stavros Kastrinakis, running AIDA freediving courses from beginner through instructor year-round.",
+       "confidence": "medium"
+      }
+     ]
     }
    ],
    "id": "freediving",
@@ -3224,7 +3348,30 @@ window.ET_ATLAS = {
      "why": "Deep blue water and a steep drop-off minutes from shore make Kona one of the world's classrooms for bluewater pelagic hunting.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Advanced",
-     "id": "spearfishing--kona-big-island"
+     "id": "spearfishing--kona-big-island",
+     "schoolsInfo": [
+      {
+       "name": "Kona Freedivers",
+       "url": "https://www.konafreedivers.com/",
+       "course": "Kona Spearfishing Course (2-day)",
+       "blurb": "Kona Freedivers is an FII freediving facility in Kailua-Kona offering a two-day spearfishing course covering safety, gear, technique, and sustainable hunting (requiring Level 1 Freediver certification as a prerequisite).",
+       "confidence": "high"
+      },
+      {
+       "name": "Top Shot Spearfishing",
+       "url": "https://topshotspearfishing.com/",
+       "course": "Private Spearfishing Charter (1-on-1 instruction)",
+       "blurb": "Top Shot Spearfishing runs guided spearfishing charters and lessons off the Kona coast, with private one-on-one tours teaching freediving form, speargun control, fish identification, and Hawaii spearfishing regulations.",
+       "confidence": "high"
+      },
+      {
+       "name": "Blue Water Hunter Spearfishing",
+       "url": "https://www.tripadvisor.com/Attraction_Review-g60872-d5221195-Reviews-Blue_Water_Hunter_Spearfishing_Charters-Kailua_Kona_Island_of_Hawaii_Hawaii.html",
+       "course": "Guided reef and blue-water spearfishing charters",
+       "blurb": "Blue Water Hunter is a Kailua-Kona spearfishing and freediving shop and charter operation offering guided reef and blue-water dives with an in-water instructor alongside each diver.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Cabo San Lucas / Sea of Cortez",
@@ -3309,7 +3456,30 @@ window.ET_ATLAS = {
      "why": "The densest cave systems on the planet and the birthplace of GUE's 'Doing It Right' standard, where cave-diving protocol itself was forged and where the gold credential is earned.",
      "bestSeason": "Year-round",
      "level": "Cavern -> Full Cave / Technical Instructor",
-     "id": "cave-and-technical-diving--high-springs-cave-country-north-florida"
+     "id": "cave-and-technical-diving--high-springs-cave-country-north-florida",
+     "schoolsInfo": [
+      {
+       "name": "Global Underwater Explorers (GUE)",
+       "url": "https://www.gue.com/diver-training/explore-gue-courses/technical/cave-1",
+       "course": "GUE Cave Diver Level 1",
+       "blurb": "The entry point into GUE's cave progression, run over six days across the North Florida springs (Ginnie Springs, Devil's, Peacock and others around High Springs).",
+       "confidence": "high"
+      },
+      {
+       "name": "Cave Country Dive Shop",
+       "url": "https://www.cavecountrydiving.com/",
+       "course": "Cave diving training (Cavern through Full Cave and Cave CCR via NSS-CDS / NACD / TDI)",
+       "blurb": "Cave Country Dive Shop is a full-service shop in High Springs, Florida whose cave-instructor team teaches overhead training from cavern up to full cave and cave CCR through the NSS-CDS, NACD and TDI/SDI agencies.",
+       "confidence": "high"
+      },
+      {
+       "name": "Wet Rocks Diving",
+       "url": "https://www.wetrocksdiving.com/",
+       "course": "GUE Cave 1 and Cave 2 training and guided cave diving",
+       "blurb": "Wet Rocks Diving, led by GUE instructor Meredith Tanguay, provides GUE Cave 1 and Cave 2 training and professional cave guiding across North Florida's High Springs spring-and-cave systems.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Tulum & Playa del Carmen (Riviera Maya cenotes)",
@@ -3331,7 +3501,30 @@ window.ET_ATLAS = {
      "why": "Above the longest underwater cave systems on Earth, Sac Actun and Ox Bel Ha, the cenotes are the most beautiful cave-training ground anywhere and a thriving global tech cohort.",
      "bestSeason": "Year-round (best Nov-Apr)",
      "level": "Cavern -> Full Cave / CCR",
-     "id": "cave-and-technical-diving--tulum-and-playa-del-carmen-riviera-maya-cenotes"
+     "id": "cave-and-technical-diving--tulum-and-playa-del-carmen-riviera-maya-cenotes",
+     "schoolsInfo": [
+      {
+       "name": "ProTec Dive Centers",
+       "url": "https://protecdivecenters.com/",
+       "course": "Full Cave diving and KISS Sidewinder rebreather courses",
+       "blurb": "ProTec Dive Centers, operating in Playa del Carmen and Tulum since 2001, teaches cave diving and is Mexico's largest hub for factory-approved KISS Sidewinder rebreather training, minutes from the Sac-Actun and Ox-Bel-Ha systems.",
+       "confidence": "high"
+      },
+      {
+       "name": "Zero Gravity",
+       "url": "https://zerogravity.com.mx/",
+       "course": "GUE Cave 1 and Cave 2 (instructor-trainer level)",
+       "blurb": "Zero Gravity is a Puerto Aventuras cave-diving center between Playa del Carmen and Tulum that serves as the regional GUE hub with instructor-trainers, offering GUE cave courses and on-site accommodation steps from numerous cenotes.",
+       "confidence": "high"
+      },
+      {
+       "name": "Under The Jungle",
+       "url": "https://www.underthejungle.com/en/home/",
+       "course": "Cave diving training and annual cave photography workshop",
+       "blurb": "Under The Jungle is a cave-diving center based at Cenote Tajma Ha in the Riviera Maya offering cave training, cave guiding and an annual multi-day cave photography workshop.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Bandol & the Provençal coast",
@@ -3421,7 +3614,37 @@ window.ET_ATLAS = {
      "why": "The Solent is where the RYA built its Yachtmaster scheme, and its tidal chaos still forges the most respected ticket afloat, one examined and earned rather than bought.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Instructor",
-     "id": "sailing-and-yachtmaster--the-solent-cowes-and-hamble"
+     "id": "sailing-and-yachtmaster--the-solent-cowes-and-hamble",
+     "schoolsInfo": [
+      {
+       "name": "UKSA (United Kingdom Sailing Academy), Cowes",
+       "url": "https://uksa.org/course/professional-yachtmaster-offshore/",
+       "course": "Professional Yachtmaster Offshore",
+       "blurb": "A 16-week residential programme that takes trainees from novice to commercially-endorsed Yachtmaster on the Solent.",
+       "confidence": "high"
+      },
+      {
+       "name": "Hamble Point Sailing School",
+       "url": "https://www.yacht-school.co.uk/",
+       "course": "RYA Yachtmaster Prep & Exam (5-day)",
+       "blurb": "Based at Hamble Point Marina on the River Hamble, this RYA centre runs a 5-day Yachtmaster Coastal/Offshore prep and exam course on its fleet of cruising yachts.",
+       "confidence": "high"
+      },
+      {
+       "name": "Solent Boat Training",
+       "url": "https://www.solentboattraining.co.uk/",
+       "course": "Yachtmaster Offshore Certificate of Competence Prep (Sail)",
+       "blurb": "An RYA training centre at Shamrock Quay, Southampton offering practical courses through to a Yachtmaster Offshore Certificate of Competence prep on both sail and motor yachts across the Solent.",
+       "confidence": "high"
+      },
+      {
+       "name": "Commodore Yachting, Gosport",
+       "url": "https://commodore-yachting.com/",
+       "course": "RYA Yachtmaster Fast Track",
+       "blurb": "An RYA training centre at Premier Gosport Marina in Portsmouth Harbour, running courses from Competent Crew through a Yachtmaster Fast Track programme.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Auckland",
@@ -3441,7 +3664,16 @@ window.ET_ATLAS = {
      "why": "The City of Sails runs the RYA scheme deep into the southern summer and is one of the rare places teaching full Yachtmaster Ocean theory, so your cohort sails while the north freezes.",
      "bestSeason": "Nov-Apr",
      "level": "Beginner -> Yachtmaster Ocean",
-     "id": "sailing-and-yachtmaster--auckland"
+     "id": "sailing-and-yachtmaster--auckland",
+     "schoolsInfo": [
+      {
+       "name": "Auckland Sailing School",
+       "url": "https://aucklandsailingschool.com/",
+       "course": "RYA Yachtmaster Ocean Shorebased Course (6 days)",
+       "blurb": "Auckland Sailing School delivers RYA maritime training, including a six-day RYA/MCA Yachtmaster Ocean shorebased theory course taught by an RYA Yachtmaster Ocean Instructor.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Tortola (Nanny Cay)",
@@ -3462,7 +3694,23 @@ window.ET_ATLAS = {
      "why": "Line-of-sight islands, steady trades and gin-clear anchorages make the BVI the world's finest liveaboard classroom, where you learn passage-making alongside a cohort drawn from every continent.",
      "bestSeason": "Dec-May",
      "level": "Beginner -> Offshore Skipper",
-     "id": "sailing-and-yachtmaster--tortola-nanny-cay"
+     "id": "sailing-and-yachtmaster--tortola-nanny-cay",
+     "schoolsInfo": [
+      {
+       "name": "Horizon Sailing School",
+       "url": "https://horizonsailingschool.com/",
+       "course": "Liveaboard ASA 101-114 sail-and-cruise course",
+       "blurb": "Horizon Sailing School at Nanny Cay, Tortola is an American Sailing-certified school whose RYA Yachtmaster instructors teach ASA 101 through 114 aboard chartered monohulls and catamarans across the BVI cruising grounds.",
+       "confidence": "high"
+      },
+      {
+       "name": "Rob Swain Sailing School",
+       "url": "https://www.swainsailing.com/",
+       "course": "ASA liveaboard cruising certification (101-104)",
+       "blurb": "Rob Swain Sailing School, based at Nanny Cay on Tortola, is a long-running American Sailing-accredited school offering liveaboard beginner-to-bareboat cruising certification aboard a fleet of 36-54ft monohulls.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "sailing-and-yachtmaster",
@@ -3522,7 +3770,30 @@ window.ET_ATLAS = {
      "why": "He'e nalu was born on these rolling rights, and to learn at the source where Duke Kahanamoku carried surfing to the world is the pilgrimage every surfer owes the sea.",
      "bestSeason": "Year-round (summer south swell for learners)",
      "level": "Beginner -> Instructor",
-     "id": "surfing--waikiki-oahu"
+     "id": "surfing--waikiki-oahu",
+     "schoolsInfo": [
+      {
+       "name": "Hans Hedemann Surf School",
+       "url": "https://hhsurf.com/waikiki-multi-day-surf-lesson-packages/",
+       "course": "Week-Long Multi-Day Surf Lesson Package",
+       "blurb": "A multi-day package on the gentle Waikiki rollers where surfing was born, run by the school of former pro Hans Hedemann.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Waikiki Beach Services (Beachboys)",
+       "url": "https://www.waikikibeachservices.com/",
+       "course": "Private and group surf lessons with licensed Beachboys",
+       "blurb": "Operating on Waikiki Beach since 1955, this outfit teaches private and group surf lessons with licensed Waikiki Beachboys from beachfront stations at the Sheraton and Royal Hawaiian hotels.",
+       "confidence": "high"
+      },
+      {
+       "name": "Faith Surf School",
+       "url": "https://faithsurfschool.com/",
+       "course": "Private, semi-private and group surf lessons",
+       "blurb": "Founded in 2000 by Hawaiian professional surfer Tony Moniz and based fronting the Outrigger Waikiki Beach Resort, it offers private, semi-private and group surf lessons plus board rentals and outrigger canoe rides.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Ericeira",
@@ -3545,7 +3816,30 @@ window.ET_ATLAS = {
      "why": "Europe's only World Surfing Reserve protects seven world-class breaks along a single 4km coast, drawing the continent's densest surf cohort to a town that breathes salt and wax year-round.",
      "bestSeason": "Sep-May (Jun-Sep for beginners)",
      "level": "Beginner -> Advanced",
-     "id": "surfing--ericeira"
+     "id": "surfing--ericeira",
+     "schoolsInfo": [
+      {
+       "name": "Ericeira Surf Camp",
+       "url": "https://ericeirasurfcamp.com/",
+       "course": "Surf package combining accommodation, lessons and activities (weekly)",
+       "blurb": "An accredited surf camp and school in the centre of Ericeira village whose instructors are certified by the Portuguese Surf Federation, offering surf packages that combine accommodation with lessons and options such as yoga or board shaping.",
+       "confidence": "high"
+      },
+      {
+       "name": "Lapoint Surf Camp Ericeira",
+       "url": "https://www.lapointcamps.com/surfcamp/portugal/ericeira/",
+       "course": "Weekly surf camp with graded lessons (levels 1-4) and surf guiding",
+       "blurb": "Set in a converted winery near the beach, this Lapoint camp runs weekly stays with graded lessons across levels 1 to 4 plus surf guiding, alongside a pool, yoga shala and co-working space.",
+       "confidence": "high"
+      },
+      {
+       "name": "Rapture Surfcamp Ericeira",
+       "url": "https://www.rapturecamps.com/surfcamp/portugal/ericeira-lizandro/",
+       "course": "Weekly beginner-to-progression surf camp",
+       "blurb": "Housed in a two-storey Portuguese villa overlooking Foz do Lizandro beach, this camp runs daily lessons that progress from complete beginner upward, with added yoga and SUP sessions.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Peniche",
@@ -3567,7 +3861,30 @@ window.ET_ATLAS = {
      "why": "Home of Supertubos, Europe's heaviest barrel and a Championship Tour fixture, where you can graduate from Baleal's gentle sand to a world-stage break inside a single corridor.",
      "bestSeason": "Sep-May (summer for beginners)",
      "level": "Beginner -> Advanced",
-     "id": "surfing--peniche"
+     "id": "surfing--peniche",
+     "schoolsInfo": [
+      {
+       "name": "Baleal Surf Camp",
+       "url": "https://www.balealsurfcamp.com/",
+       "course": "Week-long beachfront surf camp with progressive coaching",
+       "blurb": "Baleal Surf Camp, running on the Peniche peninsula since 1993, is a beachfront residential surf camp offering week-long packages of accommodation and daily progressive surf instruction for all levels.",
+       "confidence": "high"
+      },
+      {
+       "name": "Peniche Surf Camp",
+       "url": "https://www.penichesurfcamp.com/",
+       "course": "Residential weekly surf camp with multi-level lessons",
+       "blurb": "Peniche Surf Camp, founded in 2004, is a residential surf school near Peniche's surf spots offering weekly packages combining accommodation with beginner-to-advanced surf lessons.",
+       "confidence": "high"
+      },
+      {
+       "name": "Surfcamp Peniche (Maktub)",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     }
    ],
    "id": "surfing",
@@ -3617,7 +3934,30 @@ window.ET_ATLAS = {
      "why": "Maui's North Shore is where modern kiteboarding was proven and pushed in the late '90s, and Kanaha's reliable trades still draw the riders who write the sport's playbook.",
      "bestSeason": "Apr-Oct",
      "level": "Intermediate -> Advanced",
-     "id": "kitesurfing--maui-kite-beach-kanaha"
+     "id": "kitesurfing--maui-kite-beach-kanaha",
+     "schoolsInfo": [
+      {
+       "name": "HST Windsurfing & Kitesurfing School",
+       "url": "https://hstwindsurfing.com/maui-kitesurfing-lessons/",
+       "course": "Three-Day Learn-to-Rip Kitesurfing Course",
+       "blurb": "A three-day learn-to-kite course at Kanaha (Kite Beach) on Maui, the trade-wind reach where the sport matured.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Action Sports Maui",
+       "url": "https://actionsportsmaui.com/kiteboarding-lessons-maui/",
+       "course": "3-Day Kiteboarding Lesson Series",
+       "blurb": "Action Sports Maui is an IKO/PASA-certified kiteboarding and windsurfing school at Kanaha (Kite) Beach offering a three-day private lesson series that takes beginners from trainer-kite control to independent riding.",
+       "confidence": "high"
+      },
+      {
+       "name": "Kiteboarding School of Maui",
+       "url": "https://www.ksmaui.com/packages/",
+       "course": "Three-Day Private Coaching Series (9 hours)",
+       "blurb": "The Kiteboarding School of Maui is a CORE-supported kiteboarding school at the Kite Beach end of Kanaha Beach Park whose flagship offering is a three-day, nine-hour series of private coaching for riders aiming to master the sport.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Tarifa",
@@ -3642,7 +3982,37 @@ window.ET_ATLAS = {
      "why": "The wind capital of Europe funnels Levante and Poniente over Valdevaqueros some 300 days a year, a regular GKA Kite World Tour stop where every school flies the IKO standard.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Instructor",
-     "id": "kitesurfing--tarifa"
+     "id": "kitesurfing--tarifa",
+     "schoolsInfo": [
+      {
+       "name": "Freeride Tarifa",
+       "url": "https://freeridetarifa.com/",
+       "course": "IKO kitesurf course (max 2-4 students per instructor)",
+       "blurb": "An IKO-affiliated kite school teaching at the Los Lances and Valdevaqueros beaches with a maximum of two to four students per instructor and radio-headset instruction.",
+       "confidence": "high"
+      },
+      {
+       "name": "Matos Tarifa",
+       "url": "https://matos-tarifa.com/en/",
+       "course": "IKO kitesurf courses, beginner to advanced",
+       "blurb": "A Tarifa kite school whose instructors are certified by the IKO and the Andalusian Sailing Federation, teaching levels from beginner discovery to advanced strapless using radio-helmet instruction.",
+       "confidence": "high"
+      },
+      {
+       "name": "Subcielo Kite School",
+       "url": "https://www.subcielokiteschooltarifa.com/en/",
+       "course": "IKO-certified group, semi-private and private kitesurf courses",
+       "blurb": "Operating in Tarifa for over 20 years from the Valdevaqueros beach, this IKO-certified school offers group, semi-private and private courses with an IKO certificate on completion.",
+       "confidence": "high"
+      },
+      {
+       "name": "KBC (Kiteboarding Club) Tarifa",
+       "url": "https://www.kiteboarding-club.com/en/tarifa/",
+       "course": "IKO kitesurf courses with radio instruction",
+       "blurb": "Located at Los Lances Norte in Tarifa, this kite school uses IKO-certified coaches and radio training, with kitesurf and wingfoil courses plus an associated hostel.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Cabarete",
@@ -3664,7 +4034,30 @@ window.ET_ATLAS = {
      "why": "The Caribbean's kiteboarding capital stacks 250-plus kiteable days, thermal afternoon trades and a wall of schools into one bay, so finding your people and your first jump takes a single afternoon.",
      "bestSeason": "Jun-Sep (Dec-Mar for waves)",
      "level": "Beginner -> Advanced",
-     "id": "kitesurfing--cabarete"
+     "id": "kitesurfing--cabarete",
+     "schoolsInfo": [
+      {
+       "name": "Laurel Eastman Kiteboarding",
+       "url": "https://laureleastman.com/",
+       "course": "Beginner-to-independent kiteboarding lessons taught over multiple days by IKO-certified instructors, in private or small-group format",
+       "blurb": "Founded by professional kiteboarder Laurel Eastman, the school operates beachside at the Millennium Resort & Spa on Cabarete Bay with IKO-certified instructors and Ozone and Core rental equipment.",
+       "confidence": "high"
+      },
+      {
+       "name": "Cabarete Kite Point",
+       "url": "https://cabaretekitepoint.com/",
+       "course": "Multi-session beginner, intermediate and advanced kiteboarding lessons with certified instructors, plus advanced clinics run by local pros",
+       "blurb": "Located on Kite Beach in Cabarete, the school runs lessons in English and Spanish using radio-helmet coaching, and also teaches wing and kite foiling alongside its on-site El Cocotazo Cafe.",
+       "confidence": "high"
+      },
+      {
+       "name": "GoKite Cabarete",
+       "url": "https://gokitecabarete.com/",
+       "course": "IKO Assistant and Instructor certification course training participants to teach kitesurfing from beginner to independent level",
+       "blurb": "Based at the Extreme Hotel on Kite Beach, this locally owned school offers IKO courses, kids' kite camps and hydrofoiling lessons in addition to its instructor-training program.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "kitesurfing",
@@ -3766,7 +4159,30 @@ window.ET_ATLAS = {
      "why": "Ho'okipa is the global temple of wave-sailing and home of the Aloha Classic, while Kanaha's flatwater nursery makes Maui the one place a beginner and a world champion share the same launch.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Instructor",
-     "id": "windsurfing-and-wing-foil--maui-ho-okipa-and-kanaha"
+     "id": "windsurfing-and-wing-foil--maui-ho-okipa-and-kanaha",
+     "schoolsInfo": [
+      {
+       "name": "HST Windsurfing & Kitesurfing School",
+       "url": "https://hstwindsurfing.com/",
+       "course": "Three-Day Learn-to-Rip kitesurfing course covering kite setup, launch, landing, waterstarting and harness use; progressive multi-level windsurfing lessons also offered",
+       "blurb": "Founded by Alan Cadiz in 1985 and based at Hi-Tech Surf Sports in Kahului, HST teaches windsurfing, kitesurfing and wing foiling for beginner through advanced sailors.",
+       "confidence": "high"
+      },
+      {
+       "name": "Action Sports Maui",
+       "url": "https://actionsportsmaui.com/",
+       "course": "Private and group beginner windsurfing lessons at Kanaha Beach Park, beginning with a land-based safety and wind-theory briefing followed by on-water instruction",
+       "blurb": "Established in 1996, Action Sports Maui runs daily windsurfing, kiteboarding and wing lessons at Kanaha Beach Park using stable beginner boards and sails matched to the student's size.",
+       "confidence": "high"
+      },
+      {
+       "name": "Hawaiian Sailboarding Techniques",
+       "url": "https://hstwindsurfing.com/",
+       "course": "Progressive windsurfing lessons from beginner shortboard fundamentals to intermediate waterstarting, harness, footstrap and stance training",
+       "blurb": "Hawaiian Sailboarding Techniques, established by Alan Cadiz in 1985, is the same operation that now trades as HST Windsurfing & Kitesurfing School at hstwindsurfing.com.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Pozo Izquierdo, Gran Canaria",
@@ -3788,7 +4204,23 @@ window.ET_ATLAS = {
      "why": "Nuclear summer trades pin the queen wave event of the PWA World Tour to this lava-rock bay, drawing the planet's heaviest-wind wave-sailing cohort to push the discipline's limits.",
      "bestSeason": "May-Sep",
      "level": "Intermediate -> Expert",
-     "id": "windsurfing-and-wing-foil--pozo-izquierdo-gran-canaria"
+     "id": "windsurfing-and-wing-foil--pozo-izquierdo-gran-canaria",
+     "schoolsInfo": [
+      {
+       "name": "Pozo Winds",
+       "url": "https://www.pozowinds.com/windsurfing-lessons",
+       "course": "Windsurfing Clinics / Improvement Courses",
+       "blurb": "Pozowinds is a windsurf, wing-foil, SUP and surf school and rental center based at Pozo Izquierdo, Gran Canaria, running multi-day windsurfing courses and clinics for beginners through advanced riders on the Bahia de Formas flatwater and nearby wave spots.",
+       "confidence": "high"
+      },
+      {
+       "name": "ION Club Pozo (Club Mistral)",
+       "url": "",
+       "course": "",
+       "blurb": "Could not verify an operating ION Club / Club Mistral center at Pozo Izquierdo: the former Club Mistral Gran Canaria operation at nearby Bahia Feliz was succeeded by the separate Fanatic Boarders Centre in 2016, and ION Club's current Spanish centers are Tarifa and Golf de Roses.",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Tarifa",
@@ -3808,7 +4240,23 @@ window.ET_ATLAS = {
      "why": "Europe's windiest town now doubles as a wing-foil cohort hub, where flatwater stretches and relentless wind let you cross from sail to wing inside one season.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Advanced",
-     "id": "windsurfing-and-wing-foil--tarifa"
+     "id": "windsurfing-and-wing-foil--tarifa",
+     "schoolsInfo": [
+      {
+       "name": "ION Club Tarifa",
+       "url": "https://www.ion-club.net/tarifa/",
+       "course": "VDWS Windsurf & Wingfoil Courses",
+       "blurb": "ION Club Tarifa is a windsurf, wing-foil, kitesurf and SUP center on Valdevaqueros beach near Tarifa whose lessons are taught by FAV- or VDWS-certified instructors across all levels.",
+       "confidence": "high"
+      },
+      {
+       "name": "Spin Out Tarifa",
+       "url": "https://www.tarifaspinout.com/",
+       "course": "Windsurf-Foil & Wing-Foil Courses",
+       "blurb": "Tarifa Spin Out is a windsurf, windsurf-foil and wing-foil school and rental operation running since 1988 on Valdevaqueros beach, offering courses for all levels with a focus on foiling disciplines.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "windsurfing-and-wing-foil",
@@ -3857,7 +4305,30 @@ window.ET_ATLAS = {
      "why": "El Capitan's granite is the planet's bucket-list wall, and the Valley floor is where big-wall craft is still taught and tested by the people pushing it.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Big-wall",
-     "id": "rock-climbing--yosemite-valley"
+     "id": "rock-climbing--yosemite-valley",
+     "schoolsInfo": [
+      {
+       "name": "Yosemite Mountaineering School & Guide Service",
+       "url": "https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service/",
+       "course": "Big Wall Climbing Seminar",
+       "blurb": "An advanced multi-day seminar on the granite of Yosemite Valley that teaches the full big-wall toolkit for objectives like El Capitan: placing camming devices, chocks, pitons, hooks and copperheads, b",
+       "confidence": "medium"
+      },
+      {
+       "name": "Yosemite Mountaineering School",
+       "url": "https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service",
+       "course": "Sequential multi-day rock climbing classes from the beginner 'Welcome to the Rock' through a two-day Big Wall Climbing course covering aid technique, anchors and haul-bag handling",
+       "blurb": "Operating in Yosemite Valley since 1969 from Half Dome Village and Tuolumne Meadows, the school caps classes at six students per instructor with most sessions running about seven hours.",
+       "confidence": "high"
+      },
+      {
+       "name": "American Alpine Institute",
+       "url": "https://www.alpineinstitute.com/",
+       "course": "Private and custom guided rock climbing trips; the catalogued Aid Climbing and Big Wall Techniques course runs at Red Rock Canyon, Nevada and Index, Washington rather than in Yosemite Valley",
+       "blurb": "Founded in 1975, the Institute offers Yosemite climbing only through private custom trips and does not advertise a scheduled Yosemite Valley rock climbing program, with its catalogued big wall course held elsewhere.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Chamonix-Mont-Blanc",
@@ -3882,7 +4353,23 @@ window.ET_ATLAS = {
      "why": "Home of ENSA and the world's oldest guides' company, Chamonix is where granite climbing and the IFMGA credential are forged together at the source of the profession.",
      "bestSeason": "Jun-Sep",
      "level": "Beginner -> IFMGA Guide",
-     "id": "rock-climbing--chamonix-mont-blanc"
+     "id": "rock-climbing--chamonix-mont-blanc",
+     "schoolsInfo": [
+      {
+       "name": "Compagnie des Guides de Chamonix",
+       "url": "https://www.chamonix-guides.com/",
+       "course": "Two-day multi-pitch rock climbing course in the Aiguilles Rouges (requires French grade IV experience) covering belaying, leading and abseiling, in groups of up to three or four",
+       "blurb": "The Chamonix guides' company runs bolted multi-pitch and trad climbing courses led by IFMGA mountain guides, with packages including lift access, helmet and harness.",
+       "confidence": "high"
+      },
+      {
+       "name": "ENSA (École Nationale de Ski et d'Alpinisme)",
+       "url": "https://www.ensm.sports.gouv.fr/ensa/",
+       "course": "Professional state training for the diplôme de guide de haute montagne (high-mountain guide), alongside alpine ski, paragliding and rescue qualifications",
+       "blurb": "Created in 1946 at the foot of Mont Blanc and now part of the École nationale des sports de montagne, ENSA is a French state institution that trains mountain professionals rather than a commercial recreational climbing school.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Peak District (Stanage, Sheffield)",
@@ -3904,7 +4391,30 @@ window.ET_ATLAS = {
      "why": "On Stanage's coarse gritstone, where Puttrell and the Victorians pioneered British crag climbing, you learn footwork and jamming on the rock that built a national style.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Instructor",
-     "id": "rock-climbing--peak-district-stanage-sheffield"
+     "id": "rock-climbing--peak-district-stanage-sheffield",
+     "schoolsInfo": [
+      {
+       "name": "Plas y Brenin (National Outdoor Centre)",
+       "url": "https://pyb.co.uk/climb/",
+       "course": "Improve Your Rock Climbing - 5 Day",
+       "blurb": "Plas y Brenin is the National Outdoor Centre for England and Wales (based in Snowdonia) offering residential rock-climbing courses, including a five-day Improve Your Rock Climbing course covering ropework, safety and on-rock mileage.",
+       "confidence": "high"
+      },
+      {
+       "name": "The Climbing Academy (Sheffield)",
+       "url": "https://www.theclimbingacademy.com/locations/",
+       "course": "Coached climbing sessions / instruction",
+       "blurb": "The Climbing Academy is an indoor bouldering operator with a Sheffield centre offering walk-in bouldering plus tailored coached sessions and instruction, though it does not advertise a multi-day residential gritstone program.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Foundry Climbing Centre",
+       "url": "https://www.foundryclimbing.com/adult-climbing",
+       "course": "Learn to Lead course",
+       "blurb": "The Foundry Climbing Centre in Sheffield, the UK's first dedicated indoor climbing centre (opened 1991), offers structured adult courses including Introduction to Climbing and a progressive Learn to Lead lead-climbing course.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Joshua Tree National Park",
@@ -3926,7 +4436,23 @@ window.ET_ATLAS = {
      "why": "The desert monzogranite is North America's classroom for the AMGA Single Pitch Instructor cert, with a dense winter cohort that lives for the moves.",
      "bestSeason": "Oct-Apr",
      "level": "Beginner -> SPI / Rock Guide",
-     "id": "rock-climbing--joshua-tree-national-park"
+     "id": "rock-climbing--joshua-tree-national-park",
+     "schoolsInfo": [
+      {
+       "name": "Vertical Adventures Rock Climbing School",
+       "url": "https://verticaladventures.com/",
+       "course": "Joshua Tree Multi-Day Rock Climbing Seminars",
+       "blurb": "Vertical Adventures is an AMGA-certified rock climbing school operating in Joshua Tree National Park since 1983, running one-to-four-day hands-on climbing seminars and private instruction for beginners through advanced climbers.",
+       "confidence": "high"
+      },
+      {
+       "name": "The Climbing Life Guides",
+       "url": "https://www.theclimbinglifeguides.com/",
+       "course": "AMGA Single Pitch Instructor Course",
+       "blurb": "The Climbing Life Guides is a Joshua Tree climbing guide service led by AMGA-certified guides, offering an AMGA Single Pitch Instructor course alongside multi-pitch and self-rescue courses in the national park.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "rock-climbing",
@@ -3981,7 +4507,37 @@ window.ET_ATLAS = {
      "why": "Beneath Mont Blanc, where the profession was born in 1821 and ENSA still trains the world's guides, you learn alpinism at its literal source.",
      "bestSeason": "Jun-Sep",
      "level": "Beginner -> IFMGA Guide",
-     "id": "alpinism-and-mountaineering--chamonix-mont-blanc"
+     "id": "alpinism-and-mountaineering--chamonix-mont-blanc",
+     "schoolsInfo": [
+      {
+       "name": "Chamonix Experience (Chamex)",
+       "url": "https://www.chamex.com/trip_courses/alpinists-mont-blanc-course/",
+       "course": "Alpinist's Mont Blanc Course",
+       "blurb": "A 5-day course that splits into three days of skills and acclimatisation followed by a three-day ascent of Mont Blanc by the normal route.",
+       "confidence": "high"
+      },
+      {
+       "name": "Compagnie des Guides de Chamonix",
+       "url": "https://www.chamonix-guides.com/en",
+       "course": "Beginner Mountaineering Course (3 days)",
+       "blurb": "The Compagnie des Guides de Chamonix runs a 3-day beginner mountaineering course in the Mont-Blanc massif covering basic glacier and high-mountain techniques, led by IFMGA guides.",
+       "confidence": "high"
+      },
+      {
+       "name": "ENSA (École Nationale de Ski et d'Alpinisme)",
+       "url": "https://www.ensm.sports.gouv.fr/ensa/",
+       "course": "High Mountain Guide (Guide de Haute Montagne) professional diploma training",
+       "blurb": "ENSA in Chamonix is France's national school that delivers the multi-year professional training program leading to the state High Mountain Guide diploma, with about 70 percent of instruction conducted in the field.",
+       "confidence": "high"
+      },
+      {
+       "name": "Chamonix Experience",
+       "url": "https://www.chamex.com/",
+       "course": "5-day Alpine Climbing Course",
+       "blurb": "Chamonix Experience (Chamex), founded in 1996, offers a 5-day Alpine Climbing Course in the Chamonix Valley led by IFMGA/UIAGM guides for climbers progressing beyond beginner level.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Zermatt",
@@ -4003,7 +4559,23 @@ window.ET_ATLAS = {
      "why": "Under the Matterhorn, the most iconic peak in alpinism, you join a village whose every family carries an unbroken guiding lineage.",
      "bestSeason": "Jun-Sep",
      "level": "Beginner -> Advanced",
-     "id": "alpinism-and-mountaineering--zermatt"
+     "id": "alpinism-and-mountaineering--zermatt",
+     "schoolsInfo": [
+      {
+       "name": "Zermatters (Alpin Center Zermatt)",
+       "url": "https://www.zermatters.ch/en/",
+       "course": "Technique and Safety Training (alpine skills courses)",
+       "blurb": "Zermatters, Zermatt's combined mountain-guide and ski-school office, runs technique and safety training courses covering belaying, crevasse rescue, and tour planning with UIAGM-certified guides.",
+       "confidence": "high"
+      },
+      {
+       "name": "Alpinschule Zermatt",
+       "url": "https://www.zermattersalpineschool.ch/en/mountaineering/",
+       "course": "Mountaineering courses (Mammut Mountain School Zermatt)",
+       "blurb": "The Mammut Mountain School operates a Zermatt base offering guided mountaineering courses on rock, glacier, and snow, combining technical instruction with practical ascents.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Canmore / Banff (Bow Valley)",
@@ -4025,7 +4597,23 @@ window.ET_ATLAS = {
      "why": "The Bow Valley is North America's densest alpine and ice cohort, home of the ACMG and a year-round community chasing rock, snow, and frozen waterfalls.",
      "bestSeason": "Jun-Sep (alpine); Dec-Mar (ice)",
      "level": "Beginner -> ACMG/IFMGA Guide",
-     "id": "alpinism-and-mountaineering--canmore-banff-bow-valley"
+     "id": "alpinism-and-mountaineering--canmore-banff-bow-valley",
+     "schoolsInfo": [
+      {
+       "name": "Yamnuska Mountain Adventures",
+       "url": "https://yamnuska.com/mountaineering/beginner-programs/alpine-instruction/",
+       "course": "Intro to Mountaineering Course (hut-based)",
+       "blurb": "Yamnuska Mountain Adventures runs a hut-based Intro to Mountaineering course in the Wapta Icefields of Banff National Park teaching glacier travel, crevasse rescue, and snow and ice climbing with ACMG-certified guides.",
+       "confidence": "high"
+      },
+      {
+       "name": "ACMG / Alpine Club of Canada programs",
+       "url": "https://alpineclubofcanada.ca/adventures/",
+       "course": "Skills courses and instructor-led mountaineering camps",
+       "blurb": "The Alpine Club of Canada runs professionally led mountaineering camps and skills courses across the Canadian Rockies, while the ACMG operates the professional Training and Assessment Program for certifying mountain guides.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Cortina d'Ampezzo (Dolomites)",
@@ -4047,7 +4635,23 @@ window.ET_ATLAS = {
      "why": "On the UNESCO Dolomites, you climb the vertical limestone and exposed via ferrata that shaped a century of alpine technique, with a guiding company rooted in the rock.",
      "bestSeason": "Jun-Sep",
      "level": "Beginner -> Advanced",
-     "id": "alpinism-and-mountaineering--cortina-d-ampezzo-dolomites"
+     "id": "alpinism-and-mountaineering--cortina-d-ampezzo-dolomites",
+     "schoolsInfo": [
+      {
+       "name": "Guide Alpine Cortina (Gruppo Guide Alpine Cortina)",
+       "url": "https://guidecortina.com/",
+       "course": "Cortina Mountain Guides Alpinism School",
+       "blurb": "Guide Alpine Cortina is the alpine guiding school of Cortina d'Ampezzo in the UNESCO-listed Dolomites, with around 25 guides leading multi-day mountaineering, climbing, and via ferrata expeditions.",
+       "confidence": "high"
+      },
+      {
+       "name": "Dolomite Mountains",
+       "url": "https://www.dolomitemountains.com/",
+       "course": "Multi-Day Guided Dolomites Mountaineering and Via Ferrata Adventures",
+       "blurb": "Dolomite Mountains is a Dolomites-based destination management and tour operator offering guided multi-day mountaineering, via ferrata, and trekking journeys with local guides across the range, including the Cortina d'Ampezzo area.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "alpinism-and-mountaineering",
@@ -4100,7 +4704,30 @@ window.ET_ATLAS = {
      "why": "ENSA in Chamonix is the source of the modern guide diploma, and the Vallée Blanche off the Aiguille du Midi is where ski-guiding became an art.",
      "bestSeason": "Dec-Apr",
      "level": "Intermediate -> IFMGA Guide",
-     "id": "ski-and-snowboard-mountain-guiding--chamonix-mont-blanc"
+     "id": "ski-and-snowboard-mountain-guiding--chamonix-mont-blanc",
+     "schoolsInfo": [
+      {
+       "name": "Chamonix Experience (Chamex)",
+       "url": "https://www.chamex.com/trip_courses/chamonix-off-piste-course/",
+       "course": "Off-Piste Introduction Course",
+       "blurb": "A 5-day off-piste and freeride course around Chamonix and Courmayeur, with most training at Les Grands Montets, Chamonix's biggest off-piste arena.",
+       "confidence": "medium"
+      },
+      {
+       "name": "ENSA (École Nationale de Ski et d'Alpinisme)",
+       "url": "https://www.ensm.sports.gouv.fr/ensa/",
+       "course": "National ski instructor and high mountain guide professional training",
+       "blurb": "ENSA in Chamonix is the French national school that trains and certifies professional ski instructors and high mountain guides, including ski-mountaineering competencies, with most instruction delivered in the field.",
+       "confidence": "high"
+      },
+      {
+       "name": "Compagnie des Guides de Chamonix",
+       "url": "https://www.chamonix-guides.com/en/activities/details/ski-touring-haute-route-chamonix-zermatt-6-days",
+       "course": "Haute Route Chamonix-Zermatt ski tour (6 days)",
+       "blurb": "The Compagnie des Guides de Chamonix guides the 6-day Haute Route ski tour from Chamonix to Zermatt with IFMGA guides, including hut half-board and avalanche safety equipment for skiers with off-piste and ski-touring experience.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Revelstoke / Golden (British Columbia)",
@@ -4167,7 +4794,23 @@ window.ET_ATLAS = {
      "why": "Verbier's lift-served couloirs and freeride lines draw the strongest off-piste community in the Alps, a magnet for riders learning to read steep snow.",
      "bestSeason": "Dec-Apr",
      "level": "Advanced -> Expert",
-     "id": "ski-and-snowboard-mountain-guiding--verbier"
+     "id": "ski-and-snowboard-mountain-guiding--verbier",
+     "schoolsInfo": [
+      {
+       "name": "Bureau des Guides de Verbier (Les Guides de Verbier)",
+       "url": "https://www.guides-verbier.com/en/",
+       "course": "Multi-Day Off-Piste and Freeride Mountain Guiding",
+       "blurb": "The Bureau des Guides de Verbier is a Verbier mountain guides office staffed by UIAGM/IFMGA-certified guides, leading multi-day freeride, off-piste, and ski-mountaineering programs in the 4 Vallees and surrounding Valais Alps.",
+       "confidence": "high"
+      },
+      {
+       "name": "Adrenaline Ski & Snowboard School",
+       "url": "https://adrenaline-verbier.ch/en/",
+       "course": "Multi-Day Ski and Snowboard Courses",
+       "blurb": "Adrenaline is an ESI- and Swiss Snow Sports-affiliated ski and snowboard school in Verbier offering multi-day group and private ski and snowboard instruction.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "ski-and-snowboard-mountain-guiding",
@@ -4302,7 +4945,23 @@ window.ET_ATLAS = {
      "why": "Skinning from fjord to summit under the midnight sun, Lyngen is the Arctic's bucket-list ski-touring scene where lines drop straight to the sea.",
      "bestSeason": "Mar-May",
      "level": "Intermediate -> Expert",
-     "id": "ski-touring-and-splitboard--lyngen-alps"
+     "id": "ski-touring-and-splitboard--lyngen-alps",
+     "schoolsInfo": [
+      {
+       "name": "Lyngen Lodge",
+       "url": "https://www.lyngenlodge.com/en/ski-touring-1/",
+       "course": "Six-Day Guided Ski Touring Week",
+       "blurb": "Lyngen Lodge is a boutique lodge in Norway's Lyngen Alps running Saturday-to-Saturday ski touring weeks with six days of guiding by UIAGM/IFMGA-qualified mountain guides across more than sixty summits accessed by boat and snowmobile.",
+       "confidence": "high"
+      },
+      {
+       "name": "Lyngen Outdoor Center",
+       "url": "https://lyngen-outdoor.com/skitouring/",
+       "course": "Seven-Night All-Inclusive Ski Touring & Splitboard Week",
+       "blurb": "Lyngen Outdoor Center is a backcountry operator based on Uloya island in the Lyngen Alps offering seven-night all-inclusive ski touring and splitboard weeks with six guided days led by IFMGA/IVBV guides and boat access to surrounding terrain.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "ski-touring-and-splitboard",
@@ -4463,7 +5122,30 @@ window.ET_ATLAS = {
      "why": "Asia's flying capital and the site that hosted India's first Paragliding World Cup in 2015, where Himalayan thermals carry a fast-growing cohort across the Dhauladhar range.",
      "bestSeason": "Oct-Jun",
      "level": "Beginner -> Instructor",
-     "id": "paragliding--bir-billing"
+     "id": "paragliding--bir-billing",
+     "schoolsInfo": [
+      {
+       "name": "Temple Pilots Paragliding",
+       "url": "https://www.templepilots.com/",
+       "course": "Himalayan High (Thermalling/XC tour)",
+       "blurb": "An APPI-certified Indian paragliding school that runs multi-day Himalayan High thermalling and cross-country tours at Bir Billing for licensed pilots progressing toward independent XC flying.",
+       "confidence": "high"
+      },
+      {
+       "name": "Billing Paragliding School",
+       "url": "https://www.paraglidingbilling.org/",
+       "course": "P1-P2 Solo Pilot Course",
+       "blurb": "A Bir Billing paragliding operator offering multi-day P1-P2 solo pilot training courses with internationally certified instructors at the Billing launch site.",
+       "confidence": "medium"
+      },
+      {
+       "name": "FlyBir",
+       "url": "https://flybir.com/",
+       "course": "P1-P4 Pilot Course",
+       "blurb": "A Bir Billing flight school running progressive 15-day P1-P4 pilot courses, from ground handling through solo flights and soaring off the 2,400m Billing launch.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Interlaken (Bernese Oberland)",
@@ -4485,7 +5167,30 @@ window.ET_ATLAS = {
      "why": "Fly between the Eiger, Mönch and Jungfrau over Lakes Thun and Brienz: a year-round alpine scene where world-class instructors sharpen pilots in serious mountain air.",
      "bestSeason": "May-Oct",
      "level": "Beginner -> Advanced",
-     "id": "paragliding--interlaken-bernese-oberland"
+     "id": "paragliding--interlaken-bernese-oberland",
+     "schoolsInfo": [
+      {
+       "name": "AlpinAir Paragliding",
+       "url": "https://www.alpinair.com/",
+       "course": "Tandem flights (Top Flight)",
+       "blurb": "An Interlaken tandem paragliding operator flying licensed pilots over the Bernese Oberland with its higher-altitude Top Flight option; primarily tandem rather than a residential pilot course.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Paragliding Interlaken",
+       "url": "https://paragliding-interlaken.ch/en/",
+       "course": "Tandem paragliding flights",
+       "blurb": "An Interlaken company operating tandem paragliding flights high above the Swiss Alps since 1990; a flight provider rather than a multi-day SHV pilot school.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Skywings Paragliding",
+       "url": "https://skywings.ch/",
+       "course": "Tandem paragliding flights",
+       "blurb": "An Interlaken tandem paragliding operator founded in 2007, flying guests over Lakes Brienz and Thun under Swiss SHPA regulation; tandem flights rather than a residential course.",
+       "confidence": "medium"
+      }
+     ]
     }
    ],
    "id": "paragliding",
@@ -4618,7 +5323,23 @@ window.ET_ATLAS = {
      "why": "A Southern California institution with an on-site tunnel and a constant calendar of boogies and record attempts that pulls in the sport's best.",
      "bestSeason": "Year-round",
      "level": "First jump -> Instructor",
-     "id": "skydiving--perris-southern-california"
+     "id": "skydiving--perris-southern-california",
+     "schoolsInfo": [
+      {
+       "name": "Skydive Perris",
+       "url": "https://skydiveperris.com/",
+       "course": "Perris Skydiving Program (AFF)",
+       "blurb": "A large Southern California dropzone whose Perris Skydiving Program teaches solo freefall through a multi-level AFF course combining wind-tunnel time, ground school and 15 instructor-coached jumps.",
+       "confidence": "high"
+      },
+      {
+       "name": "Perris Indoor Skydiving (wind tunnel)",
+       "url": "https://skydiveperris.com/",
+       "course": "Wind tunnel flight training",
+       "blurb": "The on-site vertical wind tunnel at Skydive Perris used for indoor bodyflight training and freefall practice that feeds the dropzone's AFF student progression.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Interlaken / Lauterbrunnen",
@@ -4789,7 +5510,30 @@ window.ET_ATLAS = {
      "why": "Norway's whitewater capital: crystal-clear granite rivers from playful Class II to committing creeks, where a summer paddling cohort gathers under the midnight sun.",
      "bestSeason": "Jun-Sep",
      "level": "Beginner -> Expert",
-     "id": "whitewater-kayaking--sjoa-heidal-valley"
+     "id": "whitewater-kayaking--sjoa-heidal-valley",
+     "schoolsInfo": [
+      {
+       "name": "Mad Goats Norway",
+       "url": "https://madgoats.no/",
+       "course": "Sjoa Kayak Camp",
+       "blurb": "A Sjoa-based paddling outfit whose multi-day Sjoa Kayak Camp trains beginner through advanced whitewater kayakers across different river sections from a riverside base with sauna and camping.",
+       "confidence": "high"
+      },
+      {
+       "name": "Sjoa Kajakksenter",
+       "url": "https://www.kajakksenteret.no/sjoa-kajakksenter-kayak-courses_223.html",
+       "course": "River kayak courses (beginner / advanced)",
+       "blurb": "A Heidal kayak school running since 1997, offering multi-day river kayaking courses for beginners and advanced paddlers with BCU/ACA/Rescue-3-certified instructors in small groups.",
+       "confidence": "high"
+      },
+      {
+       "name": "Heidal Rafting",
+       "url": "https://heidalraftingisjoa.no/?lang=en",
+       "course": "Whitewater kayaking courses",
+       "blurb": "A Sjoa Valley adventure centre operating since 1992 that offers whitewater kayaking courses and tours on the Grade 2-3 Sjoa, Laagen and Otta rivers with on-site accommodation and meals.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "White Salmon & Hood River (Pacific NW)",
@@ -4810,7 +5554,23 @@ window.ET_ATLAS = {
      "why": "The Columbia Gorge's spring-fed White Salmon and a tight Pacific Northwest community make this the West's classroom for clean-water creeking and instructor training.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Instructor",
-     "id": "whitewater-kayaking--white-salmon-and-hood-river-pacific-nw"
+     "id": "whitewater-kayaking--white-salmon-and-hood-river-pacific-nw",
+     "schoolsInfo": [
+      {
+       "name": "Wet Planet Whitewater",
+       "url": "https://wetplanetwhitewater.com/",
+       "course": "ACA Kayak Instructor Course (with Sundance)",
+       "blurb": "A White Salmon River kayak school offering a full progression from 3-day beginner courses to a 5-day ACA kayak instructor certification course run each spring with Sundance Kayak School.",
+       "confidence": "high"
+      },
+      {
+       "name": "Northwest Rafting Company",
+       "url": "https://www.nwrafting.com/",
+       "course": "Class IV Rowing School",
+       "blurb": "A Hood River whitewater outfitter whose multi-day rowing schools and swiftwater rescue courses train private boaters on the region's Class III-IV rivers.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "whitewater-kayaking",
@@ -4962,7 +5722,23 @@ window.ET_ATLAS = {
      "why": "Below the thundering falls runs the planet's most legendary day of big-volume Class V, where named monsters like Oblivion forge raft guides in pure adrenaline.",
      "bestSeason": "Aug-Dec (low water)",
      "level": "Intermediate -> Guide",
-     "id": "whitewater-rafting--victoria-falls-zambezi-river"
+     "id": "whitewater-rafting--victoria-falls-zambezi-river",
+     "schoolsInfo": [
+      {
+       "name": "Safari Par Excellence",
+       "url": "https://safpar.com/",
+       "course": "Zambezi white water rafting (IRF-certified guiding)",
+       "blurb": "A Livingstone rafting pioneer operating Class V day trips below Victoria Falls, notable as the Zambezi operator with full International Rafting Federation guide certification.",
+       "confidence": "high"
+      },
+      {
+       "name": "Bundu Adventures",
+       "url": "https://www.bunduadventures.com/",
+       "course": "Zambezi multi-day rafting expedition",
+       "blurb": "A Livingstone adventure company running half-day, full-day and multi-day Zambezi rafting trips through the Grade III-IV-V rapids below Victoria Falls, with veteran trip leaders.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Sjoa (Heidal)",
@@ -4983,7 +5759,30 @@ window.ET_ATLAS = {
      "why": "Norway's rafting capital, where IRF-certified outfitters run clean granite gorges and a young Nordic guiding cohort earns its stripes through the long arctic summer.",
      "bestSeason": "Jun-Sep",
      "level": "Beginner -> Guide",
-     "id": "whitewater-rafting--sjoa-heidal"
+     "id": "whitewater-rafting--sjoa-heidal",
+     "schoolsInfo": [
+      {
+       "name": "Heidal Rafting",
+       "url": "https://heidalraftingisjoa.no/?lang=en",
+       "course": "Sjoa rafting trips (multi-day packages)",
+       "blurb": "A Sjoa Valley operator running since 1992, offering graded rafting trips on the Sjoa with all-inclusive activity, accommodation and meal packages at its riverside base.",
+       "confidence": "high"
+      },
+      {
+       "name": "Sjoa Rafting",
+       "url": "https://sjoarafting.no/en/",
+       "course": "Raft guide course (5 days)",
+       "blurb": "A Sjoa rafting company offering a 5-day raft guide course following Norwegian Rafting Organization guidelines, with guesthouse lodging and a path into training-guide work for top participants.",
+       "confidence": "high"
+      },
+      {
+       "name": "Go Rafting Sjoa",
+       "url": "https://raftingsjoa.no/en/",
+       "course": "Raft guide course",
+       "blurb": "A Sjoa rafting operator running since 1989 whose multi-day raft guide course follows Norwegian Rafting Organization guidelines and feeds Rescue-3 whitewater safety certification.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "whitewater-rafting",
@@ -5132,7 +5931,30 @@ window.ET_ATLAS = {
      "why": "The adventure hub of the Bernese Oberland packs jumps, slides and waterfall rappels into glacier-fed gorges minutes from town, with a dense professional guiding base.",
      "bestSeason": "May-Sep",
      "level": "Beginner -> Advanced",
-     "id": "canyoning--interlaken-bernese-oberland"
+     "id": "canyoning--interlaken-bernese-oberland",
+     "schoolsInfo": [
+      {
+       "name": "Outdoor Interlaken",
+       "url": "https://outdoor.ch/en/outdoor-activities/canyoning-interlaken/",
+       "course": "Canyoning Interlaken (half/full day)",
+       "blurb": "An Interlaken adventure operator running guided canyoning descents from the beginner Saxeten gorge to the advanced Chli Schliere, with rappels, slides and jumps; guided day trips rather than a leader course.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Alpin Raft",
+       "url": "https://www.alpinraft.com/",
+       "course": "Canyoning (Chli Schliere / Grimsel)",
+       "blurb": "An Interlaken outdoor specialist with over 25 years' experience offering guided canyoning routes including Saxeten, Chli Schliere and Grimsel; guided day adventures rather than a certification course.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Swiss Alpine Guides",
+       "url": "https://www.swissalpineguides.ch/english/Canyoning/default.html",
+       "course": "Canyoning Interlaken (graded routes)",
+       "blurb": "An Interlaken-based mountain-guide company offering guided canyoning across graded routes from the beginner local gorge to the technical Chli Schliere and high-alpine Grimsel.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Blue Mountains (Sydney region)",
@@ -5154,7 +5976,30 @@ window.ET_ATLAS = {
      "why": "The world's densest concentration of slot canyons inside a UNESCO-listed wilderness, where an abseiling and canyoning culture runs generations deep.",
      "bestSeason": "Nov-Mar",
      "level": "Beginner -> Guide",
-     "id": "canyoning--blue-mountains-sydney-region"
+     "id": "canyoning--blue-mountains-sydney-region",
+     "schoolsInfo": [
+      {
+       "name": "Australian School of Mountaineering",
+       "url": "https://climbingadventures.com.au/",
+       "course": "Canyon Leader's Course (4 days)",
+       "blurb": "A Katoomba-based instruction school established 1981 whose 4-day Canyon Leader's Course builds the skills toward a recognised guiding qualification, alongside 2-3 day introductory and advanced canyon courses.",
+       "confidence": "high"
+      },
+      {
+       "name": "High n Wild",
+       "url": "https://www.highandwild.com.au/",
+       "course": "Blue Mountains canyoning adventures",
+       "blurb": "A Katoomba adventure provider operating since 1989 running guided Blue Mountains canyoning trips with abseils, swims and waterfall descents for all ability levels; guided trips rather than a leader course.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Blue Mountains Adventure Company",
+       "url": "https://bmac.com.au/",
+       "course": "Guided canyoning (Grand Canyon, Empress Falls)",
+       "blurb": "Established 1984 as the first company to offer guided canyon trips in the Blue Mountains World Heritage area, running graded canyoning from the beginner Grand Canyon to Empress Falls' 30m abseil.",
+       "confidence": "medium"
+      }
+     ]
     }
    ],
    "id": "canyoning",
@@ -5258,7 +6103,23 @@ window.ET_ATLAS = {
      "why": "Earn your guiding chops poling a mokoro through the world's greatest inland delta, where big-game density and a tight cohort of apprentice guides sharpen your bushcraft daily.",
      "bestSeason": "May-Oct",
      "level": "Apprentice -> Professional Guide",
-     "id": "safari-and-wildlife-guiding--okavango-delta-mashatu"
+     "id": "safari-and-wildlife-guiding--okavango-delta-mashatu",
+     "schoolsInfo": [
+      {
+       "name": "EcoTraining (Mashatu camp)",
+       "url": "https://www.ecotraining.co.za/",
+       "course": "55-day Field Guide Course",
+       "blurb": "A field-guide training provider whose 55-day course at its Mashatu camp in Botswana's Tuli Block delivers the FGASA Apprentice Field Guide (NQF2) qualification through immersion across remote wilderness camps.",
+       "confidence": "high"
+      },
+      {
+       "name": "African Guide Academy",
+       "url": "https://www.guidetrainingcourses.com/",
+       "course": "FGASA Apprentice Field Guide (NQF2) course",
+       "blurb": "Botswana's first private guide-training school, registered on both FGASA and BQA platforms, running Okavango Delta field-guide courses covering ecology, tracking, rifle handling and guiding by foot, boat and mokoro.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Maasai Mara / Laikipia",
@@ -5279,7 +6140,23 @@ window.ET_ATLAS = {
      "why": "Train alongside Maasai trackers whose ancestral reading of the Mara is unbroken, in a community where wildlife guiding is living heritage rather than a course.",
      "bestSeason": "Jul-Oct (migration)",
      "level": "Beginner -> Professional Guide (KPSGA)",
-     "id": "safari-and-wildlife-guiding--maasai-mara-laikipia"
+     "id": "safari-and-wildlife-guiding--maasai-mara-laikipia",
+     "schoolsInfo": [
+      {
+       "name": "Koiyaki Guiding School",
+       "url": "https://www.maasaimara.com/entries/koiyaki-guiding-school",
+       "course": "One-year Safari Guide course",
+       "blurb": "A Maasai-community guiding school in the Mara Naboisho Conservancy whose residential one-year course trains young Maasai as professional safari guides in nature management, guest relations and languages.",
+       "confidence": "high"
+      },
+      {
+       "name": "EcoTraining (Mara camp)",
+       "url": "https://www.ecotraining.co.za/",
+       "course": "55-day Kenya Field Guide Course",
+       "blurb": "A field-guide training provider whose 55-day course at its Maasai Mara camp ranges across three conservancies and works toward the FGASA Apprentice Field Guide (NQF2) qualification.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "safari-and-wildlife-guiding",
@@ -5415,7 +6292,16 @@ window.ET_ATLAS = {
      "why": "Andalusia's Royal School keeps both haute ecole and doma vaquera alive, where the dancing Andalusian and the working cattle-horse tradition share one saddlery.",
      "bestSeason": "Mar-Jun, Sep-Nov",
      "level": "Intermediate -> Advanced / technician",
-     "id": "horsemanship--jerez-de-la-frontera"
+     "id": "horsemanship--jerez-de-la-frontera",
+     "schoolsInfo": [
+      {
+       "name": "Real Escuela Andaluza del Arte Ecuestre",
+       "url": "https://www.realescuela.org/en/",
+       "course": "Technical Equestrian Courses / Specialist Training Courses",
+       "blurb": "The Royal Andalusian School of Equestrian Art in Jerez, founded 1973, offering intensive technical riding courses on Purebred Spanish Horses up to Grand Prix level plus year-long specialist horsemanship and carriage-driving training.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Cordoba (Sierras Chicas estancias)",
@@ -5436,7 +6322,16 @@ window.ET_ATLAS = {
      "why": "Ride for days across open hill country with gauchos whose criollo horsemanship is a living, centuries-old working culture, not an arena exercise.",
      "bestSeason": "Oct-Apr",
      "level": "Beginner -> experienced trail rider",
-     "id": "horsemanship--cordoba-sierras-chicas-estancias"
+     "id": "horsemanship--cordoba-sierras-chicas-estancias",
+     "schoolsInfo": [
+      {
+       "name": "Estancia Los Potreros",
+       "url": "https://www.estancialospotreros.com/",
+       "course": "Multi-day riding holiday with gauchos",
+       "blurb": "A family-run 6,500-acre ranch in Cordoba's Sierras Chicas offering multi-day immersive riding holidays on Criollo and Peruvian Paso horses alongside resident gauchos, with polo lessons and country-house lodging.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "horsemanship",
@@ -5509,7 +6404,30 @@ window.ET_ATLAS = {
      "why": "Founded in 1983, Ray Mears's Woodlore is the engine of the modern bushcraft movement, with a famously rigorous instructor apprenticeship that sets the European benchmark.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Instructor",
-     "id": "wilderness-survival-and-bushcraft--east-sussex-scottish-highlands"
+     "id": "wilderness-survival-and-bushcraft--east-sussex-scottish-highlands",
+     "schoolsInfo": [
+      {
+       "name": "Woodlore - Ray Mears",
+       "url": "https://www.raymears.com/Bushcraft_Courses/",
+       "course": "Woodlore Fundamental Bushcraft (week-long)",
+       "blurb": "Founded in 1983 by Ray Mears in East Sussex, Woodlore is a long-running British bushcraft school whose week-long residential Fundamental Bushcraft course teaches fire-lighting, shelter, tracking and woodcraft as the foundation of its instructor pathway.",
+       "confidence": "high"
+      },
+      {
+       "name": "Frontier Bushcraft",
+       "url": "https://frontierbushcraft.com/",
+       "course": "Elementary Wilderness Bushcraft (6 days)",
+       "blurb": "Founded in 2010 by Paul Kirtley, Frontier Bushcraft runs courses in Ashdown Forest woodland in East Sussex, with a six-day Elementary Wilderness Bushcraft course covering fire, shelter, axe and knife work, plants, tracking and navigation under canvas.",
+       "confidence": "high"
+      },
+      {
+       "name": "Bushcraft Expeditions",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Prescott, Arizona",
@@ -5620,7 +6538,23 @@ window.ET_ATLAS = {
      "why": "On the Repack fire road of Mount Tam, a band of free-thinkers raced cruisers downhill in the mid-70s and invented the sport, the undisputed birthplace pilgrimage.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Advanced",
-     "id": "mountain-biking--marin-county-mount-tamalpais-fairfax"
+     "id": "mountain-biking--marin-county-mount-tamalpais-fairfax",
+     "schoolsInfo": [
+      {
+       "name": "ZEP Techniques / ZEP MTB Camps",
+       "url": "https://www.zeptechniques.com/instructor-training/zep-instructor-academy/",
+       "course": "ZEP Instructor Academy",
+       "blurb": "A 3- or 5-week residential instructor camp based in the Whistler Bike Park and on Whistler's valley trails, pump tracks and dirt jumps.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Marin Museum of Bicycling & Mountain Bike Hall of Fame (heritage rides)",
+       "url": "https://mmbhof.org/",
+       "course": "",
+       "blurb": "A Fairfax bicycle-history museum and home of the Mountain Bike Hall of Fame at the birthplace of mountain biking; a heritage and cultural site rather than a school offering multi-day instruction.",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Whistler",
@@ -5645,7 +6579,30 @@ window.ET_ATLAS = {
      "why": "The world's most famous bike park and the birthplace of PMBIA, the gold-standard instructor cert, make this the bucket-list scene where the densest community of riders gathers.",
      "bestSeason": "May-Oct",
      "level": "Beginner -> Instructor",
-     "id": "mountain-biking--whistler"
+     "id": "mountain-biking--whistler",
+     "schoolsInfo": [
+      {
+       "name": "Whistler Mountain Bike Park (Whistler Bike School)",
+       "url": "https://www.whistlerblackcomb.com/explore-the-resort/activities-and-events/whistler-mountain-bike-park/bike-school/bike-school.aspx",
+       "course": "Bike Park multi-day lessons and seasonal camps",
+       "blurb": "The official school of the Whistler Mountain Bike Park, the Whistler Bike School delivers lift-access lessons and multi-day gravity and downhill camps on the park's trails, and serves as the PMBIA instructor-certification venue.",
+       "confidence": "high"
+      },
+      {
+       "name": "PMBIA (founded here)",
+       "url": "https://pmbia.org/",
+       "course": "PMBIA Level 1 Mountain Bike Instructor Certification",
+       "blurb": "The Professional Mountain Bike Instructors Association, founded in Whistler in 2006, is the governing body for MTB instructor certification and runs its multi-day Level 1 and Level 2 courses in the Whistler Bike Park.",
+       "confidence": "high"
+      },
+      {
+       "name": "Ride Like a Ninja",
+       "url": "https://ridelikeaninja.com/",
+       "course": "Ninja Mountain Bike Performance multi-day skills clinics",
+       "blurb": "Ride Like a Ninja (Ninja Mountain Bike Performance) is a touring coaching outfit that runs multi-day mountain-bike skills clinics on cornering, jumping, drops and technical terrain, though its clinics are mainly US-based rather than fixed in Whistler.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Finale Ligure",
@@ -5667,7 +6624,23 @@ window.ET_ATLAS = {
      "why": "Sea-to-summit enduro trails and a long Enduro World Series pedigree make this Ligurian coast Europe's gravity-riding capital and a magnet for the global enduro cohort.",
      "bestSeason": "Mar-Jun, Sep-Nov",
      "level": "Intermediate -> Advanced",
-     "id": "mountain-biking--finale-ligure"
+     "id": "mountain-biking--finale-ligure",
+     "schoolsInfo": [
+      {
+       "name": "Finale Outdoor Resort",
+       "url": "https://www.finaleoutdoor.com/en",
+       "course": "",
+       "blurb": "The Finale Outdoor Region portal for the Ligurian MTB area's 200-plus enduro and all-mountain trails, with shuttles, guiding and multi-day options; a regional outdoor brand rather than a single named riding school.",
+       "confidence": "low"
+      },
+      {
+       "name": "Riding Finale",
+       "url": "",
+       "course": "",
+       "blurb": "Could not verify a Finale Ligure mountain-bike school operating under this exact name; the area's named guiding and skills schools include Flow School, Ride Extreme and MTB Italy.",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Queenstown",
@@ -5688,7 +6661,23 @@ window.ET_ATLAS = {
      "why": "Alpine bike parks and an endless web of singletrack make the Southern Hemisphere's riding capital the place to ride against the seasons up north.",
      "bestSeason": "Oct-Apr",
      "level": "Beginner -> Advanced",
-     "id": "mountain-biking--queenstown"
+     "id": "mountain-biking--queenstown",
+     "schoolsInfo": [
+      {
+       "name": "Queenstown Bike Park (Skyline)",
+       "url": "https://queenstown.skyline.co.nz/things-to-do/mountain-bike-uplift/bike-park-info/",
+       "course": "Bike Park uplift and skills sessions",
+       "blurb": "The Skyline-operated Queenstown Bike Park on Ben Lomond offers 45 gondola-uplift trails for all levels, with affiliated coaching for skills progression; an uplift park rather than a residential course provider.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Vertigo Bikes",
+       "url": "https://www.vertigobikes.co.nz/",
+       "course": "Skills clinics with IDP-qualified coach",
+       "blurb": "Queenstown's longtime mountain-bike shop, established 1999, offering skills clinics for all levels under an IDP Level 1 & 2 qualified head coach plus guided Bike Park sessions.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "mountain-biking",
@@ -5741,7 +6730,30 @@ window.ET_ATLAS = {
      "why": "The gold-rush canyons above Auburn host Western States, the original 100-mile trail run and birthplace of mountain ultrarunning, where the silver buckle is earned, never bought.",
      "bestSeason": "Apr-Oct (Jun race)",
      "level": "Experienced runner -> ultra finisher",
-     "id": "trail-and-ultra-running--auburn-olympic-valley"
+     "id": "trail-and-ultra-running--auburn-olympic-valley",
+     "schoolsInfo": [
+      {
+       "name": "Western States Endurance Run (WSER) — Memorial Weekend Training Camp",
+       "url": "https://www.wser.org/training-runs/",
+       "course": "Western States Training Camp — Memorial Weekend",
+       "blurb": "A three-day camp run on the actual final ~70 miles of the Western States 100 course, the birthplace of modern American ultrarunning.",
+       "confidence": "high"
+      },
+      {
+       "name": "Western States Endurance Run (WSER) community",
+       "url": "https://www.wser.org/",
+       "course": "Memorial Day Training Runs weekend (Western States Trail)",
+       "blurb": "The Western States 100-Mile Endurance Run, the oldest 100-mile trail race, runs from Olympic Valley to Auburn and hosts an open Memorial Day training-run weekend on its Sierra Nevada course that draws the ultra community to preview the route.",
+       "confidence": "high"
+      },
+      {
+       "name": "Auburn-area trail clubs",
+       "url": "https://www.sierratrailblazers.org/",
+       "course": "Sierra TrailBlazers group runs and training programs",
+       "blurb": "Auburn-area trail clubs such as the Sierra TrailBlazers Running Club organize regular group runs, community events and training programs on the Sierra foothill trails around the self-styled 'Endurance Capital of the World'.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Chamonix-Mont-Blanc",
@@ -5763,7 +6775,23 @@ window.ET_ATLAS = {
      "why": "Home of UTMB, the sport's most coveted finish line, where every August the entire trail-running world converges on the 170km loop around Mont Blanc.",
      "bestSeason": "Jun-Sep (Aug race)",
      "level": "Experienced runner -> ultra finisher",
-     "id": "trail-and-ultra-running--chamonix-mont-blanc"
+     "id": "trail-and-ultra-running--chamonix-mont-blanc",
+     "schoolsInfo": [
+      {
+       "name": "UTMB (Ultra-Trail du Mont-Blanc)",
+       "url": "https://montblanc.utmb.world/",
+       "course": "UTMB Mont-Blanc (171 km, ~10,000 m climb) race week",
+       "blurb": "Created in 2003 and based in Chamonix, the UTMB is the flagship Alpine ultra whose ~171 km loop around the Mont-Blanc massif through France, Italy and Switzerland is the August centerpiece of the UTMB World Series Finals.",
+       "confidence": "high"
+      },
+      {
+       "name": "Chamonix trail-running camps",
+       "url": "https://tracks-and-trails.com/holidays/chamonix-trail-running-camp",
+       "course": "Tracks and Trails Chamonix Trail Running Camp (week-long)",
+       "blurb": "Operators such as Tracks and Trails run week-long Chamonix trail-running camps that combine guided runs on legendary UTMB and Marathon du Mont-Blanc sections with coaching on technique, nutrition and pacing for runners progressing in alpine terrain.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "KwaZulu-Natal (Durban-Pietermaritzburg)",
@@ -5859,7 +6887,37 @@ window.ET_ATLAS = {
      "why": "Hamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.",
      "bestSeason": "Apr-Nov (spring & autumn pottery fairs)",
      "level": "Beginner -> Apprentice",
-     "id": "pottery-and-ceramics--mashiko"
+     "id": "pottery-and-ceramics--mashiko",
+     "schoolsInfo": [
+      {
+       "name": "Mashiko Ceramic Art Club (Mashiko Tougei Club)",
+       "url": "http://mashiko-tougei-club.jp/",
+       "course": "Pottery accommodation plan (live-in stay) / full-day intensive workshop",
+       "blurb": "A folk-style pottery studio in Mashiko, the town tied to Shoji Hamada and the mingei movement, that runs hands-on classes with unlimited clay and offers live-in stay plans pairing pottery making with ",
+       "confidence": "medium"
+      },
+      {
+       "name": "Mashiko Ceramics Art Museum / Tougei Messe Mashiko (Ceramic Art Center)",
+       "url": "https://www.mashiko-museum.jp/en/",
+       "course": "Mashiko Museum Residency Program",
+       "blurb": "Opened in 1993 at the Tougei Messe Mashiko complex, the Mashiko Museum of Ceramic Art holds Hamada Shoji's work and runs an international artist-in-residence program plus an on-site workshop where visitors throw, hand-build and paint Mashiko ware.",
+       "confidence": "high"
+      },
+      {
+       "name": "Hamada Shoji Memorial Mashiko Sankokan",
+       "url": "https://mashiko-sankokan.net/",
+       "course": "Sankokan museum study collection (Hamada studio and kilns)",
+       "blurb": "Established in 1977 by Living National Treasure Shoji Hamada on his own home grounds, the Mashiko Sankokan preserves his house, climbing kilns and the reference collection of folk pottery he gathered, serving as a study site rather than a hands-on school.",
+       "confidence": "high"
+      },
+      {
+       "name": "Mashiko Togei Club",
+       "url": "https://mashiko-togei.net/",
+       "course": "Half-day to full-day wheel and hand-building pottery classes",
+       "blurb": "The Mashiko Togei Club is a relaxed folk-style pottery studio in the Mashiko ceramic town offering three-hour and full-day wheel and hand-building classes, with English-speaking staff and accommodation arranged on request.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Bizen / Seto / Tokoname (Six Ancient Kilns)",
@@ -5930,7 +6988,30 @@ window.ET_ATLAS = {
      "why": "The Porcelain Capital that fired the emperors' kilns for a millennium, where you join the densest cohort of ceramicists on Earth at the true source of porcelain.",
      "bestSeason": "Sep-Nov (cooler firing season)",
      "level": "Beginner -> Master",
-     "id": "pottery-and-ceramics--jingdezhen"
+     "id": "pottery-and-ceramics--jingdezhen",
+     "schoolsInfo": [
+      {
+       "name": "Jingdezhen Ceramic University",
+       "url": "https://www.jcu.edu.cn/english/",
+       "course": "International Ceramic Art Work Camp / summer training college",
+       "blurb": "Jingdezhen Ceramic University is China's only multidisciplinary university named after ceramics, running degree programs and short International Ceramic Art Work Camps that immerse overseas students in traditional Chinese porcelain technique and design.",
+       "confidence": "high"
+      },
+      {
+       "name": "The Pottery Workshop Jingdezhen (residency & courses)",
+       "url": "https://pws-hub.com/",
+       "course": "Jingdezhen International Residency (residency studio)",
+       "blurb": "The Pottery Workshop's Jingdezhen hub offers an international ceramic residency with on-campus studio and housing plus year-round workshops and master classes, embedding artists in the city's porcelain-craft networks.",
+       "confidence": "high"
+      },
+      {
+       "name": "Sanbao International Ceramic Art Village",
+       "url": "https://www.facebook.com/SanbaoCeramic/",
+       "course": "Sanbao ceramic residency (one to six months)",
+       "blurb": "Founded in 1995 by ceramic artist Li Jianshen in the Sanbao valley outside Jingdezhen, the village runs a full ceramic-artist residency of roughly one to six months that hosts dozens of domestic and international makers each year for creative exchange.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "St Ives, Cornwall",
@@ -6052,7 +7133,16 @@ window.ET_ATLAS = {
      "why": "James Krenov's nine-month crucible on the Mendocino coast remains the cohort every fine-furniture maker dreams of, where hand-planed surfaces become philosophy.",
      "bestSeason": "Aug-May (9-month program)",
      "level": "Beginner -> Furniture Maker",
-     "id": "woodworking-and-joinery--fort-bragg-california-krenov-school"
+     "id": "woodworking-and-joinery--fort-bragg-california-krenov-school",
+     "schoolsInfo": [
+      {
+       "name": "The Krenov School of Fine Furniture (Mendocino College, formerly College of the Redwoods)",
+       "url": "https://thekrenovschool.org/",
+       "course": "Nine-Month Woodworking Program",
+       "blurb": "Founded by James Krenov and now part of Mendocino College in Fort Bragg, the Krenov School runs an intensive nine-month, hands-on cabinet- and furniture-making program (six days a week, August to May) rooted in classic joinery and design.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Boston, Massachusetts (North Bennet Street School)",
@@ -6073,7 +7163,16 @@ window.ET_ATLAS = {
      "why": "America's oldest trade school for the hand crafts runs a full-time bench program that turns out cabinetmakers the trade actually recognizes.",
      "bestSeason": "Sep-Jun (full-time) / summer workshops",
      "level": "Beginner -> Professional Cabinetmaker",
-     "id": "woodworking-and-joinery--boston-massachusetts-north-bennet-street-school"
+     "id": "woodworking-and-joinery--boston-massachusetts-north-bennet-street-school",
+     "schoolsInfo": [
+      {
+       "name": "North Bennet Street School (Cabinet & Furniture Making program)",
+       "url": "https://nbss.edu/full-time-programs/cabinet-furniture-making/",
+       "course": "Cabinet & Furniture Making (two-year full-time program)",
+       "blurb": "North Bennet Street School in Boston's North End is a long-established trades school whose two-year, full-time Cabinet & Furniture Making program teaches hand-tool and machine craftsmanship through 18th- and 19th-century furniture projects.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Franklin, Indiana (Marc Adams School)",
@@ -6152,7 +7251,37 @@ window.ET_ATLAS = {
      "why": "Eight centuries of do-not-break, do-not-bend, cut-well steel, the Magoroku swordsmith lineage that still makes Seki the spiritual home of the blade.",
      "bestSeason": "Mar-Nov (Cutlery Festival in Oct)",
      "level": "Observer -> Apprentice",
-     "id": "blacksmithing-and-bladesmithing--seki-gifu"
+     "id": "blacksmithing-and-bladesmithing--seki-gifu",
+     "schoolsInfo": [
+      {
+       "name": "Workshop Kurogane (Nobuya Hayashi)",
+       "url": "https://www.workshop-kurogane.com/",
+       "course": "6-Day Tamahagane & Knife Course",
+       "blurb": "A six-day residential bladesmithing course on the Shimanto River in rural Kochi: three days of traditional tatara iron-making, smelting and refining steel from beach-sand magnetite, followed by three ",
+       "confidence": "high"
+      },
+      {
+       "name": "Seki Traditional Swordsmith Museum (forging demonstrations & study)",
+       "url": "https://visitgifu.com/see-do/seki-traditional-swordsmith-museum/",
+       "course": "Monthly public swordsmith forging demonstration",
+       "blurb": "Part of the Sekiterrace complex in Seki, the Traditional Swordsmith Museum preserves the town's 700-year swordmaking heritage and stages monthly public forging demonstrations by licensed smiths at a working smithy with a close viewing platform.",
+       "confidence": "high"
+      },
+      {
+       "name": "Seki swordsmith ateliers (Kanemoto/Magoroku lineage workshops)",
+       "url": "",
+       "course": "",
+       "blurb": "Seki's working swordsmith ateliers in the Kanemoto/Magoroku lineage continue traditional nihonto forging in the city, but no single official school site or named multi-day program could be verified.",
+       "confidence": "low"
+      },
+      {
+       "name": "Seki Hamono (Cutlery) District craft workshops",
+       "url": "https://visitgifu.com/see-do/cutler-sansyu-seki-hamono-museum/",
+       "course": "Seki Hamono Museum / Cutler Sansyu blade-craft experiences",
+       "blurb": "Seki's cutlery district, one of the world's noted blade towns alongside Solingen and Sheffield, offers craft experiences such as those at the Cutler Sansyu / Seki Hamono Museum where visitors engage with knife-making and sharpening traditions.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Texarkana, Texas (Bill Moran School)",
@@ -6176,7 +7305,16 @@ window.ET_ATLAS = {
      "why": "The ABS forged its Journeyman-to-Master ladder at Bill Moran's school, where you earn the stamp the whole knife world respects rather than buy it.",
      "bestSeason": "Mar-Nov",
      "level": "Beginner -> Master Smith",
-     "id": "blacksmithing-and-bladesmithing--texarkana-texas-bill-moran-school"
+     "id": "blacksmithing-and-bladesmithing--texarkana-texas-bill-moran-school",
+     "schoolsInfo": [
+      {
+       "name": "W.F. Moran Bladesmith & Artisan Academy (ABS, Texarkana College)",
+       "url": "https://www.americanbladesmith.org/texarkana-college/",
+       "course": "ABS Bill Moran School of Bladesmithing courses (Texarkana College)",
+       "blurb": "Established at Texarkana College in 1988 with the American Bladesmith Society, the Bill Moran School of Bladesmithing was the first school dedicated solely to bladesmithing and runs hands-on forging courses on the ABS Journeyman/Master Smith pathway.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Auburn, Maine (New England School of Metalwork)",
@@ -6303,7 +7441,37 @@ window.ET_ATLAS = {
      "why": "Venice exiled its furnaces to this island in 1291 and never let the secrets leave, the undisputed source where maestros still pass the pipe.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Maestro track",
-     "id": "glassblowing--murano-venice"
+     "id": "glassblowing--murano-venice",
+     "schoolsInfo": [
+      {
+       "name": "Scuola del Vetro Abate Zanetti",
+       "url": "https://www.lascuoladelvetro.it/en/",
+       "course": "Glassblowing course (Soffiatura)",
+       "blurb": "Abate Zanetti is Murano's historic glass school, run in collaboration with the Fondazione Musei Civici di Venezia, with courses taught by expert Murano master glassworkers combining practical furnace ",
+       "confidence": "medium"
+      },
+      {
+       "name": "Abate Zanetti Glass School (heir to the 1862 Murano drawing school)",
+       "url": "https://www.abatezanetti.it/",
+       "course": "Murano hot-glass blowing courses (weekend to multi-week)",
+       "blurb": "Heir to the drawing school founded in 1862 by Vincenzo Zanetti, the Scuola Abate Zanetti on Murano is the island's official glass school, offering weekend to multi-week hot-glass courses in blowing and sculpture taught by Murano maestros at its furnace.",
+       "confidence": "high"
+      },
+      {
+       "name": "Berengo Studio Murano",
+       "url": "https://berengo.com/",
+       "course": "Artist collaboration residencies (Glasstress / Fondazione Berengo)",
+       "blurb": "Founded in 1989 by Adriano Berengo on Murano, Berengo Studio pairs contemporary artists with master glassblowers to realize sculptural work, functioning as a collaboration studio and foundation rather than a structured teaching school.",
+       "confidence": "medium"
+      },
+      {
+       "name": "master furnace workshops (Murano glassmaking families)",
+       "url": "",
+       "course": "",
+       "blurb": "Murano's hereditary glassmaking families run private master furnace workshops on the island, but no single official school site or named immersive program could be verified for this entry.",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Stanwood, Washington (Pilchuck)",
@@ -6328,7 +7496,16 @@ window.ET_ATLAS = {
      "why": "Chihuly's mountain campus where Venetian maestros met American invention, the cohort that defined studio glass in the New World.",
      "bestSeason": "May-Sep (summer sessions)",
      "level": "Beginner -> Advanced",
-     "id": "glassblowing--stanwood-washington-pilchuck"
+     "id": "glassblowing--stanwood-washington-pilchuck",
+     "schoolsInfo": [
+      {
+       "name": "Pilchuck Glass School (founded 1971 by Dale Chihuly)",
+       "url": "https://www.pilchuck.org/",
+       "course": "Summer Sessions (one-, two- and three-week resident classes)",
+       "blurb": "Founded in 1971 by Dale Chihuly on a former tree farm near Stanwood, Washington, Pilchuck Glass School runs residential one-, two- and three-week summer sessions taught by leading artists across blowing, casting, flameworking and other glass processes.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Corning, New York",
@@ -6455,7 +7632,44 @@ window.ET_ATLAS = {
      "why": "The cradle of the Renaissance still runs full multi-year ateliers where you draw from cast and life under living heirs of the sight-size tradition.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Atelier Graduate",
-     "id": "painting-and-fine-art--florence"
+     "id": "painting-and-fine-art--florence",
+     "schoolsInfo": [
+      {
+       "name": "The Florence Academy of Art",
+       "url": "https://www.florenceacademyofart.edu/academics-certificate-programs/certificate-programs-drawing-painting/",
+       "course": "Drawing & Painting Program (Certificate)",
+       "blurb": "A full-time classical atelier program where students work daily from life — figure, cast, portrait and still life — building from drawing to painting under faculty who are graduates of the program.",
+       "confidence": "high"
+      },
+      {
+       "name": "Angel Academy of Art",
+       "url": "https://angelacademyofart.com/",
+       "course": "Three-Year Diploma in Classical Drawing & Painting",
+       "blurb": "Founded in 1997 by Michael John Angel in Florence, the Angel Academy of Art is a representational-painting atelier whose three-year diploma teaches the sight-size method, old-master drawing and oil technique alongside anatomy and composition.",
+       "confidence": "high"
+      },
+      {
+       "name": "Florence Academy of Art",
+       "url": "https://www.florenceacademyofart.edu/",
+       "course": "Three-Year Certificate Program in Drawing & Painting",
+       "blurb": "The Florence Academy of Art trains artists in classical drawing and painting through a roughly three-year certificate program of full-day work from life under north light, housed in a large former customs building outside the city center.",
+       "confidence": "high"
+      },
+      {
+       "name": "Charles H. Cecil Studios",
+       "url": "https://charlescecilstudios.com/",
+       "course": "Full-time atelier training in drawing and oil painting (sight-size)",
+       "blurb": "Run by American painter Charles H. Cecil and founded in 1991, this Florence atelier offers full-time training in drawing and oil painting from life by lamplight, centered on the nineteenth-century Parisian sight-size method.",
+       "confidence": "high"
+      },
+      {
+       "name": "Accademia di Belle Arti di Firenze",
+       "url": "https://www.accademia.firenze.it/en/",
+       "course": "Three-year (BA) Painting degree (Pittura)",
+       "blurb": "Founded in 1563 under Cosimo I de' Medici, the Accademia di Belle Arti di Firenze is Florence's state fine-arts academy offering Bologna-process three-year and two-year degrees in painting and related disciplines.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Paris",
@@ -6670,7 +7884,30 @@ window.ET_ATLAS = {
      "why": "ICP's one-year certificate and the world's deepest editorial scene make this the place to find a real cohort and a working photographer's market.",
      "bestSeason": "Aug-May",
      "level": "Intermediate -> Professional",
-     "id": "photography--new-york-city"
+     "id": "photography--new-york-city",
+     "schoolsInfo": [
+      {
+       "name": "International Center of Photography (ICP)",
+       "url": "https://www.icp.org/school/oyc",
+       "course": "One-Year Certificate (Creative Practices / Documentary Practice)",
+       "blurb": "The International Center of Photography in New York runs intensive August-to-May One-Year Certificate programs, including on-site Creative Practices and Documentary Practice & Visual Journalism tracks mentored by working photographers.",
+       "confidence": "high"
+      },
+      {
+       "name": "School of Visual Arts (SVA)",
+       "url": "https://sva.edu/academics/graduate/mfa-photography-video-and-related-media",
+       "course": "MFA Photography, Video and Related Media",
+       "blurb": "The School of Visual Arts in Manhattan offers a BFA in Photography and Video and an interdisciplinary MFA in Photography, Video and Related Media spanning lens-based, screen and installation practice.",
+       "confidence": "high"
+      },
+      {
+       "name": "Pratt Institute",
+       "url": "https://www.pratt.edu/art/photography/",
+       "course": "Photography MFA",
+       "blurb": "Pratt Institute in Brooklyn offers BFA and MFA photography degrees combining technical and conceptual training, with graduate studios at the Brooklyn Navy Yard's Dock 72 and dedicated photo labs.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Arles",
@@ -6867,7 +8104,30 @@ window.ET_ATLAS = {
      "why": "Hollywood is the densest film-industry cohort on earth, where the top conservatories sit inside the working machine you want to enter.",
      "bestSeason": "Aug-May",
      "level": "Intermediate -> Professional",
-     "id": "filmmaking--los-angeles"
+     "id": "filmmaking--los-angeles",
+     "schoolsInfo": [
+      {
+       "name": "USC School of Cinematic Arts",
+       "url": "https://cinema.usc.edu/",
+       "course": "MFA in Film & Television Production",
+       "blurb": "USC's School of Cinematic Arts in Los Angeles offers an MFA in Film & Television Production with hands-on tracks in directing, cinematography, editing and sound on its sound stages and post-production facilities.",
+       "confidence": "high"
+      },
+      {
+       "name": "UCLA School of Theater, Film and Television",
+       "url": "https://www.tft.ucla.edu/",
+       "course": "Production/Directing MFA (Narrative)",
+       "blurb": "UCLA's School of Theater, Film and Television offers a three-year Production/Directing MFA that immerses students in collaborative filmmaking from screenwriting through post and culminates in a thesis production.",
+       "confidence": "high"
+      },
+      {
+       "name": "AFI Conservatory",
+       "url": "https://conservatory.afi.com/",
+       "course": "Two-year MFA (Directing, Cinematography, Editing, Producing, Production Design, Screenwriting)",
+       "blurb": "The AFI Conservatory in the Hollywood Hills is a graduate film school offering a two-year MFA across six narrative disciplines, with small cohorts collaborating to produce up to 175 films a year.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Prague",
@@ -6928,7 +8188,23 @@ window.ET_ATLAS = {
      "why": "FTII feeds the largest film industry on the planet, training directors and cinematographers inside the heat of Indian cinema.",
      "bestSeason": "Oct-Mar",
      "level": "Intermediate -> Professional",
-     "id": "filmmaking--pune-mumbai"
+     "id": "filmmaking--pune-mumbai",
+     "schoolsInfo": [
+      {
+       "name": "Film and Television Institute of India (FTII)",
+       "url": "https://ftii.ac.in/",
+       "course": "Three-Year Postgraduate Diploma in Direction & Screenplay Writing",
+       "blurb": "FTII is the Indian government's national film and television training institute in Pune, where the three-year residential Postgraduate Diploma in Direction & Screenplay Writing puts students through hands-on production across screenwriting, casting and post-production.",
+       "confidence": "high"
+      },
+      {
+       "name": "Whistling Woods International (Mumbai)",
+       "url": "https://www.whistlingwoods.net/",
+       "course": "BA in Filmmaking (School of Filmmaking)",
+       "blurb": "Whistling Woods International is a film and creative-arts institute inside Mumbai's Film City complex whose School of Filmmaking runs multi-year, practical degree and diploma programs combining classroom study with on-set production.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "filmmaking",
@@ -6981,7 +8257,37 @@ window.ET_ATLAS = {
      "why": "Carve and pull water-based mokuhanga where ukiyo-e was perfected, under the lineage of carvers and printers who still reproduce Hokusai by hand.",
      "bestSeason": "Mar-Nov",
      "level": "Beginner -> Advanced",
-     "id": "printmaking--tokyo-mt-fuji-kawaguchiko"
+     "id": "printmaking--tokyo-mt-fuji-kawaguchiko",
+     "schoolsInfo": [
+      {
+       "name": "MI-LAB (Mokuhanga Innovation Laboratory) Artist-in-Residence",
+       "url": "https://endeavor.or.jp/mi-lab/air/open-call-for-2026/",
+       "course": "Basic Training Program (BPA / BPB / BPC)",
+       "blurb": "A residential mokuhanga (Japanese water-based woodblock) artist-in-residence run by MI-LAB.",
+       "confidence": "high"
+      },
+      {
+       "name": "MI-LAB (Mokuhanga Innovation Laboratory)",
+       "url": "https://endeavor.or.jp/mi-lab/aboutus/",
+       "course": "Mokuhanga Artist-in-Residence Program",
+       "blurb": "MI-LAB is a water-based woodblock (mokuhanga) artist-in-residence program at a residential studio beside Lake Kawaguchi at the foot of Mt. Fuji, running multi-week residencies that teach traditional Japanese woodblock printmaking from introductory to advanced level.",
+       "confidence": "high"
+      },
+      {
+       "name": "The Adachi Institute of Woodcut Prints",
+       "url": "https://www.adachi-hanga.com/en/",
+       "course": "Adachi Foundation woodblock-printing artisan training program",
+       "blurb": "The Adachi Institute, founded in 1928 in Tokyo, reproduces ukiyo-e using traditional carving and printing techniques and, through its Adachi Foundation, runs a training program for aspiring woodcut-print artisans alongside periodic public demonstrations and workshops.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Mokuhankan (Asakusa)",
+       "url": "https://mokuhankan.com/",
+       "course": "Woodblock Print Party (hands-on printing workshop)",
+       "blurb": "Mokuhankan is woodblock printmaker David Bull's Asakusa workshop and shop in Tokyo, offering hands-on Print Party sessions where visitors ink pre-carved blocks and pull their own prints with a baren.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Albuquerque",
@@ -7003,7 +8309,16 @@ window.ET_ATLAS = {
      "why": "Tamarind single-handedly revived American lithography and still issues the master-printer certification the whole field measures itself against.",
      "bestSeason": "Sep-May",
      "level": "Intermediate -> Master Printer",
-     "id": "printmaking--albuquerque"
+     "id": "printmaking--albuquerque",
+     "schoolsInfo": [
+      {
+       "name": "Tamarind Institute (University of New Mexico)",
+       "url": "https://tamarind.unm.edu/",
+       "course": "Professional Printer Training Program (two-semester certificate)",
+       "blurb": "Part of the University of New Mexico in Albuquerque, the Tamarind Institute is a lithography center whose selective two-semester Professional Printer Training Program (no more than eight students) trains master collaborative lithography printers.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Paris",
@@ -7027,7 +8342,30 @@ window.ET_ATLAS = {
      "why": "Stanley William Hayter's Atelier 17 reinvented intaglio here, and its successor studios still pull editions for the world's leading artists.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Professional",
-     "id": "printmaking--paris"
+     "id": "printmaking--paris",
+     "schoolsInfo": [
+      {
+       "name": "Atelier Contrepoint (heir to Atelier 17)",
+       "url": "http://www.ateliercontrepoint.com/",
+       "course": "Open intaglio/etching atelier (apprenticeship)",
+       "blurb": "Atelier Contrepoint is the Paris etching studio that succeeded Stanley William Hayter's Atelier 17 in 1988, operating as an open intaglio workshop where artists learn its simultaneous colour-printing technique alongside resident assistants.",
+       "confidence": "high"
+      },
+      {
+       "name": "Idem Paris (lithography)",
+       "url": "https://idemparis.com/en/",
+       "course": "Lithography studio collaboration / atelier",
+       "blurb": "Idem Paris is a historic Montparnasse art-printing house, once home to the Mourlot presses, that still produces hand-pulled lithographs on traditional stone presses in collaboration with artists in its working atelier.",
+       "confidence": "medium"
+      },
+      {
+       "name": "École des Beaux-Arts (ENSBA)",
+       "url": "https://beauxartsparis.fr/en/",
+       "course": "DNSAP (five-year fine art diploma) with printmaking ateliers",
+       "blurb": "The Beaux-Arts de Paris is France's national fine-art school whose five-year DNSAP program includes dedicated gravure and lithography ateliers for intaglio, etching and screen-printing.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "London",
@@ -7050,7 +8388,37 @@ window.ET_ATLAS = {
      "why": "London holds one of the densest open-access print-studio scenes anywhere, where a beginner can join a real cohort at the press tomorrow.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Professional",
-     "id": "printmaking--london"
+     "id": "printmaking--london",
+     "schoolsInfo": [
+      {
+       "name": "Royal Academy Schools",
+       "url": "https://www.royalacademy.org.uk/page/the-ra-schools",
+       "course": "Three-year postgraduate programme in contemporary fine art practice",
+       "blurb": "The RA Schools runs a tuition-free three-year postgraduate fine-art programme in central London with staffed intaglio, relief and screen-printing studios integrated into each student's practice.",
+       "confidence": "high"
+      },
+      {
+       "name": "Thames-Side Print Studio",
+       "url": "https://thamessideprintstudio.wordpress.com/",
+       "course": "Printmaking short courses (etching, relief, screenprint, litho)",
+       "blurb": "Thames-Side Print Studio is an open-access printmaking workshop in Greenwich SE18 offering short courses and keyholder membership across screenprinting, etching, relief and offset lithography.",
+       "confidence": "high"
+      },
+      {
+       "name": "Slade School of Fine Art (UCL)",
+       "url": "https://www.ucl.ac.uk/slade/",
+       "course": "MFA Fine Art (Fine Art Media, including printmaking)",
+       "blurb": "The Slade School of Fine Art at UCL runs an 18-month practice-based MFA whose Fine Art Media facilities include screen printing, etching and stone lithography taught by practising artists.",
+       "confidence": "high"
+      },
+      {
+       "name": "City & Guilds of London Art School",
+       "url": "https://www.cityandguildsartschool.ac.uk/",
+       "course": "BA (Hons) Fine Art with Print specialism",
+       "blurb": "City & Guilds of London Art School offers BA and MA Fine Art with a print specialist route, taught in a 19th-century Engraving Room focused on traditional intaglio processes including aquatint and colour etching.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "printmaking",
@@ -7104,7 +8472,30 @@ window.ET_ATLAS = {
      "why": "Zapotec families have thrown wool across treadle looms here for centuries, and you learn warp, weft and motif at the source from the cohort that never stopped.",
      "bestSeason": "Oct-Apr",
      "level": "Beginner -> Advanced",
-     "id": "textiles-and-weaving--teotitlan-del-valle-oaxaca"
+     "id": "textiles-and-weaving--teotitlan-del-valle-oaxaca",
+     "schoolsInfo": [
+      {
+       "name": "Thread Caravan (with Teotitlan del Valle Zapotec master weavers)",
+       "url": "https://www.threadcaravan.com/oaxacaweaving",
+       "course": "Oaxaca Weaving Workshop (Zapotec weaving & natural dye)",
+       "blurb": "A seven-day, residential weaving immersion taught by Zapotec master weavers from Teotitlan del Valle, where the wool-rug tradition lives.",
+       "confidence": "high"
+      },
+      {
+       "name": "Vida Nueva Women's Weaving Cooperative",
+       "url": "https://www.facebook.com/VidaNuevaWomensCooperative/",
+       "course": "One-Day Natural Dye Weaving & Textile Study Tour",
+       "blurb": "Vida Nueva is a Zapotec women's wool-weaving cooperative founded in Teotitlan del Valle in 1996, whose hands-on study tour walks small groups through washing, carding, natural dyeing, spinning, and pedal-loom weaving in their workshop.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Bii Dauu Cooperative (Teotitlan del Valle)",
+       "url": "https://www.biidauu.com.mx/",
+       "course": "Natural Dyeing and Weaving Workshop",
+       "blurb": "Bii Dauu is a Zapotec textile-arts cooperative in Teotitlan del Valle, formed in the early 2000s, that dyes all its wool with plant and insect dyes grown on its own organic farm and runs hands-on natural-dye and loom-weaving workshops for visitors.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Osaka",
@@ -7128,7 +8519,23 @@ window.ET_ATLAS = {
      "why": "Where Misao Jo started SAORI free-weaving, you join a worldwide cohort proving cloth a machine cannot make on looms that forbid the very idea of a mistake.",
      "bestSeason": "Mar-Nov",
      "level": "Beginner -> Instructor",
-     "id": "textiles-and-weaving--osaka"
+     "id": "textiles-and-weaving--osaka",
+     "schoolsInfo": [
+      {
+       "name": "SAORI no Mori (SAORI Worldwide HQ, Izumi, Osaka)",
+       "url": "https://www.saoriglobal.com/saorinomori",
+       "course": "Multi-Day SAORI Retreat (3, 7 or 12 days)",
+       "blurb": "SAORINOMORI is the Izumi, Osaka headquarters and studio of the free-style SAORI hand-weaving method founded by Misao Jo in 1969, offering residential 3-, 7- or 12-day weaving retreats with on-site accommodation.",
+       "confidence": "high"
+      },
+      {
+       "name": "Kawashima Textile School (Kyoto)",
+       "url": "https://www.kawashima-textile-school.jp/e/international-course.html",
+       "course": "Beginners Weaving Course (10 days, English)",
+       "blurb": "Founded in 1973 in the hills of Sakyo-ku, Kyoto, Kawashima Textile School runs a 10-day English-language Beginners Course in dyeing and weaving plus multi-week foundation and kasuri courses for international students.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "West Dean, Chichester",
@@ -7150,7 +8557,23 @@ window.ET_ATLAS = {
      "why": "Home to one of only two professional tapestry studios in the UK, where you earn a recognized diploma in a house hung with the kind of masterpieces you are learning to weave.",
      "bestSeason": "Mar-Oct",
      "level": "Beginner -> Diploma",
-     "id": "textiles-and-weaving--west-dean-chichester"
+     "id": "textiles-and-weaving--west-dean-chichester",
+     "schoolsInfo": [
+      {
+       "name": "West Dean College of Arts and Conservation",
+       "url": "https://www.westdean.ac.uk/degrees-and-diplomas/foundation-diploma-in-tapestry-weaving",
+       "course": "Foundation Diploma in Tapestry Weaving",
+       "blurb": "West Dean College, on the West Dean Estate near Chichester and home to a tapestry studio established in 1974, offers a two-year part-time Foundation Diploma in Tapestry Weaving covering the technical and creative techniques of woven tapestry.",
+       "confidence": "high"
+      },
+      {
+       "name": "Handweavers Studio & Gallery (London)",
+       "url": "https://www.handweavers.co.uk/",
+       "course": "Two-Year Part-Time Weaving Diploma",
+       "blurb": "The Handweavers Studio & Gallery, a long-running weaving, spinning and dyeing supplier and workshop provider, runs a two-year part-time weaving Diploma alongside multi-day introductory weaving workshops.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "textiles-and-weaving",
@@ -7203,7 +8626,30 @@ window.ET_ATLAS = {
      "why": "The historic heart of growing and fermenting sukumo for true Awa indigo, where centuries of Japan-blue are taught vat-side by the families who keep the craft alive.",
      "bestSeason": "Apr-Nov",
      "level": "Beginner -> Apprentice",
-     "id": "natural-dyeing--tokushima-awa"
+     "id": "natural-dyeing--tokushima-awa",
+     "schoolsInfo": [
+      {
+       "name": "Thread Caravan — 'Exploring Japanese Blues' (visits Watanabe indigo cultivation & Tokushima aizome artisans)",
+       "url": "https://www.threadcaravan.com/japan-tokushima",
+       "course": "Exploring Japanese Blues (Tokushima indigo immersion)",
+       "blurb": "An eight-day residential immersion in Awa aizome (Tokushima Japanese indigo) led by artist Natalia Munro with local artisan partners.",
+       "confidence": "medium"
+      },
+      {
+       "name": "BUAISOU (Tokushima aizome studio)",
+       "url": "https://www.buaisou-i.com/",
+       "course": "Workshop in Tokushima",
+       "blurb": "BUAISOU is a Tokushima indigo collective founded in 2012 that grows its own indigo and ferments sukumo under a farm-to-closet model, offering hands-on dyeing workshops and farm-and-studio tours at its rural Tokushima base.",
+       "confidence": "high"
+      },
+      {
+       "name": "Watanabe's Aizome (Tokushima)",
+       "url": "https://watanabes.jp/en",
+       "course": "Indigo Dyeing Experience at Aihata",
+       "blurb": "Watanabe's is the Kamiita-cho, Tokushima indigo house of aishi Kenta Watanabe, who controls the full cycle from cultivating tadeai to fermenting sukumo, and whose hands-on experience lets visitors dye their own item (T-shirt, scarf, hat, cushion cover, or bandana) in his fermentation vats.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Teotitlan del Valle / Oaxaca",
@@ -7227,7 +8673,30 @@ window.ET_ATLAS = {
      "why": "Crush cochineal off the nopal and ferment indigo with wood ash in the Zapotec heartland that gave the world its most prized reds, at the source and in your own hands.",
      "bestSeason": "Oct-Apr",
      "level": "Beginner -> Advanced",
-     "id": "natural-dyeing--teotitlan-del-valle-oaxaca"
+     "id": "natural-dyeing--teotitlan-del-valle-oaxaca",
+     "schoolsInfo": [
+      {
+       "name": "Vida Nueva Women's Cooperative",
+       "url": "https://www.facebook.com/VidaNuevaWomensCooperative/",
+       "course": "One-Day Natural Dye Weaving & Textile Study Tour",
+       "blurb": "Vida Nueva is a Zapotec women's cooperative in Teotitlan del Valle whose textile study tour demonstrates natural pigments such as cochineal, pomegranate, and indigo alongside the full wash-card-dye-spin-weave process in their workshop.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Bii Dauu Cooperative (Teotitlan del Valle)",
+       "url": "https://www.biidauu.com.mx/",
+       "course": "Natural Dyeing and Weaving Workshop",
+       "blurb": "Bii Dauu is a Teotitlan del Valle Zapotec cooperative that dyes exclusively with natural materials grown on its own organic dye-plant farm and teaches its solar-heated, water-recycling natural-dye methods in hands-on workshops.",
+       "confidence": "high"
+      },
+      {
+       "name": "Fe y Lola cochineal workshops",
+       "url": "https://feylolarugs.com/workshop/",
+       "course": "Studio Visit (natural dye and weaving)",
+       "blurb": "Fe y Lola is a Teotitlan del Valle rug studio (Galeria Fe y Lola) specializing in chemical-free natural dyeing, where Omar Chavez Santiago has taught cochineal workshops covering wool mordanting, dye-bath preparation, and pH color manipulation, though its current public offering is a 1.5-to-2-hour studio visit rather than a multi-day immersion.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Stroud / Cotswolds",
@@ -7318,7 +8787,30 @@ window.ET_ATLAS = {
      "why": "Tanneries have lined the Arno here since the 13th century, and inside a former Franciscan monastery you learn the craft from artisans working benches handed down for generations.",
      "bestSeason": "Mar-Oct",
      "level": "Beginner -> Advanced",
-     "id": "leatherwork--florence-santa-croce"
+     "id": "leatherwork--florence-santa-croce",
+     "schoolsInfo": [
+      {
+       "name": "Scuola del Cuoio (Leather School of Florence) / SCHOLA Academy",
+       "url": "https://scuoladelcuoio.it/en/content/13-professional-courses-",
+       "course": "Leather Bag Making Course (20-week long-term professional program)",
+       "blurb": "Scuola del Cuoio's flagship long-term professional course, a full-time immersion in traditional Florentine leatherworking taught by two Master Artisans.",
+       "confidence": "high"
+      },
+      {
+       "name": "Scuola del Cuoio (Leather School of Florence)",
+       "url": "https://scuoladelcuoio.it/en/",
+       "course": "Long-Term Professional Course (10 or 20 weeks)",
+       "blurb": "A working leather school founded in 1950 inside the Santa Croce monastery complex in Florence, offering 10- and 20-week full-immersion professional courses where students work seven hours a day under master leather craftsmen on bag-making, pattern-making and construction.",
+       "confidence": "high"
+      },
+      {
+       "name": "artisan botteghe of Santa Croce",
+       "url": "",
+       "course": "",
+       "blurb": "A reference to the traditional family-run leather workshops (botteghe) clustered in Florence's Santa Croce district, where artisans craft and sell leather goods and some offer informal hands-on apprenticeship-style training rather than a single formal school.",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Enfield / London",
@@ -7340,7 +8832,23 @@ window.ET_ATLAS = {
      "why": "Here Capel Manor runs Britain's full saddlery course, issuing the Cordwainers and Saddlers guild diplomas that turn a hobbyist into a certified craftsman.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Diploma",
-     "id": "leatherwork--enfield-london"
+     "id": "leatherwork--enfield-london",
+     "schoolsInfo": [
+      {
+       "name": "Capel Manor College (saddlery & leatherwork, Enfield)",
+       "url": "https://www.capel.ac.uk/courses/subject/saddlery-and-shoemaking/",
+       "course": "Worshipful Company of Cordwainers Diploma in Saddle, Harness and Bridle Making",
+       "blurb": "Capel Manor College, at its Enfield campus with a leather workshop in historic Victorian stables, runs Europe's only full-time traditional English saddlery course, leading to the Worshipful Company of Cordwainers Diploma in Saddle, Harness and Bridle Making.",
+       "confidence": "high"
+      },
+      {
+       "name": "London School of Saddlery",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Ubrique",
@@ -7360,7 +8868,16 @@ window.ET_ATLAS = {
      "why": "This white village quietly makes leather goods for the great fashion houses, so you learn marroquineria inside the workshops that supply the world.",
      "bestSeason": "Mar-Nov",
      "level": "Beginner -> Advanced",
-     "id": "leatherwork--ubrique"
+     "id": "leatherwork--ubrique",
+     "schoolsInfo": [
+      {
+       "name": "Escuela de Marroquineria de Ubrique (town leather school)",
+       "url": "https://www.ubriqueturismo.es/escuela-de-artesanos-de-la-piel-de-ubrique/",
+       "course": "Curso de pequeña marroquinería (small leather goods)",
+       "blurb": "The Escuela de Artesanos de la Piel in Ubrique, Cádiz, is the town's vocational leather-craft school offering hands-on training in small leather-goods making and industrial sewing-machine work for the local high-end leather trade.",
+       "confidence": "medium"
+      }
+     ]
     }
    ],
    "id": "leatherwork",
@@ -7417,7 +8934,23 @@ window.ET_ATLAS = {
      "why": "In the city of the goldsmiths' bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Diploma",
-     "id": "jewelry-and-goldsmithing--florence"
+     "id": "jewelry-and-goldsmithing--florence",
+     "schoolsInfo": [
+      {
+       "name": "Le Arti Orafe Jewellery School (LAO)",
+       "url": "https://artiorafe.it/en/courses/courses-goldsmith-school/",
+       "course": "Annual Goldsmithing Course (Goldsmithery)",
+       "blurb": "A bench-based program in a Florence goldsmithing school running since 1985, weighted heavily toward practical hours: students saw, solder, file, raise and finish metal, set stones and take a design fr",
+       "confidence": "medium"
+      },
+      {
+       "name": "Alchimia Contemporary Jewellery School",
+       "url": "https://alchimia.it/",
+       "course": "BFA Program in Contemporary Jewellery and Jewellery Design",
+       "blurb": "A contemporary jewellery school in Florence offering a two-year full-immersion BFA program (six 14-week modules) capped at twelve students per year, alongside shorter intensive and summer courses combining practical bench skills with design theory.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Carlsbad / New York",
@@ -7440,7 +8973,30 @@ window.ET_ATLAS = {
      "why": "Home of the GIA, which sets the global diamond standard, where the Graduate Gemologist diploma you earn is recognized at every bench on earth.",
      "bestSeason": "Year-round",
      "level": "Beginner -> Graduate Gemologist",
-     "id": "jewelry-and-goldsmithing--carlsbad-new-york"
+     "id": "jewelry-and-goldsmithing--carlsbad-new-york",
+     "schoolsInfo": [
+      {
+       "name": "Gemological Institute of America (GIA)",
+       "url": "https://www.gia.edu/graduate-jeweler-program",
+       "course": "Graduate Jeweler Diploma Program (28 weeks, Carlsbad)",
+       "blurb": "A nonprofit gemological and jewelry institute headquartered in Carlsbad, California, whose on-campus 28-week Graduate Jeweler diploma program teaches fabrication, repair and stone-setting skills for the professional bench, incorporating curriculum developed with goldsmith Alan Revere.",
+       "confidence": "high"
+      },
+      {
+       "name": "Revere Academy of Jewelry Arts (San Francisco)",
+       "url": "",
+       "course": "",
+       "blurb": "A professional jewelry-arts school that operated in San Francisco from 1979 until it closed in 2017, having run multi-month Jewelry Technician Intensive diploma programs and short hands-on goldsmithing classes under founder Alan Revere; it is no longer in operation.",
+       "confidence": "low"
+      },
+      {
+       "name": "Studio Jewelers (New York)",
+       "url": "https://studiojewelersltd.com/",
+       "course": "Comprehensive Training Program (24 weeks)",
+       "blurb": "A licensed jewelry trade school in midtown Manhattan teaching since 1979, whose full-time 24-week Comprehensive Training program covers fundamental jewelry techniques, stone setting, wax modeling and casting in small groups for those entering the professional trade.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Pforzheim",
@@ -7462,7 +9018,23 @@ window.ET_ATLAS = {
      "why": "Germany's 'Goldstadt' has forged jewellers since 1767, and its Goldschmiedeschule is where European technical mastery is still drilled into the hand.",
      "bestSeason": "Sep-Jul",
      "level": "Beginner -> Master",
-     "id": "jewelry-and-goldsmithing--pforzheim"
+     "id": "jewelry-and-goldsmithing--pforzheim",
+     "schoolsInfo": [
+      {
+       "name": "Goldschmiedeschule mit Uhrmacherschule Pforzheim",
+       "url": "https://goldschmiedeschule.de/",
+       "course": "Berufskolleg für Goldschmiede / Meisterschule (full-time goldsmithing)",
+       "blurb": "The Goldschmiedeschule mit Uhrmacherschule Pforzheim is a near-250-year-old vocational school for goldsmiths, designers and watchmakers, offering full-time vocational colleges and a goldsmith and engraver master's school plus continuing-education courses.",
+       "confidence": "high"
+      },
+      {
+       "name": "Hochschule Pforzheim (Jewellery & Objects of Daily Use)",
+       "url": "https://designpf.hs-pforzheim.de/en/ba_jewellery_design",
+       "course": "BA in Jewellery Design (SOdA programme)",
+       "blurb": "Hochschule Pforzheim's Design PF faculty runs the Jewellery and Objects of Daily Use (SOdA) BA and MA, a project-based programme combining traditional goldsmithing craft with contemporary object design in Germany's historic jewellery city.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Jaipur",
@@ -7485,7 +9057,23 @@ window.ET_ATLAS = {
      "why": "The world capital of colored-stone cutting and kundan-meenakari, where generational lapidary and enamel lineages still teach hand-cut brilliance in the lanes behind Johari Bazaar.",
      "bestSeason": "Oct-Mar",
      "level": "Beginner -> Advanced",
-     "id": "jewelry-and-goldsmithing--jaipur"
+     "id": "jewelry-and-goldsmithing--jaipur",
+     "schoolsInfo": [
+      {
+       "name": "Indian Institute of Gems & Jewellery (IIGJ Jaipur)",
+       "url": "https://iigj.org/institutes/jaipur-institute/",
+       "course": "Diploma in Jewellery Manufacturing & Production",
+       "blurb": "IIGJ Jaipur is an industry-backed gems and jewellery institute offering full-time diplomas in jewellery manufacturing, gemmology, CAD/CAM and gemstone cutting in India's stone-cutting hub.",
+       "confidence": "high"
+      },
+      {
+       "name": "lapidary & meenakari ateliers of Johari Bazaar",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     }
    ],
    "id": "jewelry-and-goldsmithing",
@@ -7540,7 +9128,30 @@ window.ET_ATLAS = {
      "why": "The home of tebori and full-body irezumi, where the Horiyoshi lineage passes its title master-to-apprentice exactly as it has for generations.",
      "bestSeason": "Mar-Nov",
      "level": "Apprentice -> Horishi",
-     "id": "tattooing--yokohama-tokyo"
+     "id": "tattooing--yokohama-tokyo",
+     "schoolsInfo": [
+      {
+       "name": "Japan Tattoo Academy (NTA / Nihon Tattoo Academy)",
+       "url": "https://tattooacademy.jp/",
+       "course": "NTA Tattoo Artist Curriculum (beginner to advanced)",
+       "blurb": "NTA is an incorporated tattoo school with campuses in Tokyo, Osaka and Okinawa where active professional artists teach a step-by-step curriculum covering machine and needle technique, design sense, an",
+       "confidence": "medium"
+      },
+      {
+       "name": "Horiyoshi III lineage / Yokohama Tattoo Museum",
+       "url": "https://www.tattooinjapan.com/horiyoshi-iii/",
+       "course": "Horishi apprenticeship under the Horiyoshi III lineage (tebori)",
+       "blurb": "The Yokohama Tattoo Museum is a private archive and studio founded in 2000 by irezumi master Horiyoshi III, whose lineage transmits full-body Japanese tattooing and the hand-tattooing tebori technique through traditional horishi apprenticeship rather than open enrolment.",
+       "confidence": "low"
+      },
+      {
+       "name": "traditional horishi apprenticeships (Tokyo irezumi ateliers)",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Bangkok",
@@ -7562,7 +9173,23 @@ window.ET_ATLAS = {
      "why": "The heartland of Sak Yant, where you learn the sacred bamboo-rod method from ajarn masters in a tradition handed down through Buddhist lineages.",
      "bestSeason": "Nov-Mar",
      "level": "Beginner -> Apprentice",
-     "id": "tattooing--bangkok"
+     "id": "tattooing--bangkok",
+     "schoolsInfo": [
+      {
+       "name": "Bangkok Ink Tattoo Studio & Academy",
+       "url": "https://bangkok-ink.com/",
+       "course": "Bamboo / Sak Yant Hand-Poke Tattoo Course (4 weeks)",
+       "blurb": "Bangkok Ink is a licensed Sukhumvit tattoo studio and academy whose four-week bamboo hand-poke course teaches Sak Yant stencilling, hygiene and technique, progressing students from pig-skin practice to tattooing live models.",
+       "confidence": "high"
+      },
+      {
+       "name": "Tattoo School Thailand (bamboo & Sak Yant course)",
+       "url": "https://tattoo-school-thailand.com/",
+       "course": "Bamboo Hand-Poke Tattoo Course (4 weeks / 20 days)",
+       "blurb": "Tattoo School Thailand is a Bangkok tattoo school near Phrom Phong BTS running a four-week (20-day) bamboo hand-poke course where students tattoo several models a week and receive a completion certificate.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Los Angeles",
@@ -7583,7 +9210,23 @@ window.ET_ATLAS = {
      "why": "The densest professional tattoo scene on earth, where black-and-grey fine line was sharpened and the deepest cohort of pros works elbow to elbow.",
      "bestSeason": "Year-round",
      "level": "Apprentice -> Professional",
-     "id": "tattooing--los-angeles"
+     "id": "tattooing--los-angeles",
+     "schoolsInfo": [
+      {
+       "name": "Shamrock Social Club (Mark Mahoney, West Hollywood)",
+       "url": "https://www.shamrocksocialclub.com/",
+       "course": "",
+       "blurb": "A working tattoo studio opened by Mark Mahoney in 2002 on the Sunset Strip, known for single-needle black-and-grey fine line work, where training happens through in-shop artist mentorship rather than any advertised public course.",
+       "confidence": "medium"
+      },
+      {
+       "name": "established LA street-shop apprenticeships",
+       "url": "",
+       "course": "",
+       "blurb": "Traditional in-person tattoo apprenticeships at established Los Angeles street shops, where an aspiring artist learns hygiene, machine building, and tattooing hands-on over months to years under a resident artist.",
+       "confidence": "low"
+      }
+     ]
     }
    ],
    "id": "tattooing",
@@ -7637,7 +9280,37 @@ window.ET_ATLAS = {
      "why": "The undisputed cuna of flamenco, where bulerías were born and the gitano peñas still pass the compás down by blood, not by book.",
      "bestSeason": "Feb-Mar (Festival de Jerez), Sep-Jun",
      "level": "Beginner -> Professional",
-     "id": "flamenco-and-dance--jerez-de-la-frontera"
+     "id": "flamenco-and-dance--jerez-de-la-frontera",
+     "schoolsInfo": [
+      {
+       "name": "Fundación Cristina Heeren de Arte Flamenco",
+       "url": "https://www.flamencoheeren.com/en/homepage/",
+       "course": "Annual Professional Flamenco Course (Dance / Cante / Guitar)",
+       "blurb": "A nine-month professional program in the Triana neighbourhood of Seville, taught across a 1,500 m2 school with nine studios, a theatre and a recording studio.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Centro Andaluz de Documentación del Flamenco",
+       "url": "https://www.centroandaluzdeflamenco.es/",
+       "course": "",
+       "blurb": "A public flamenco documentation and research center created in 1987, housed in the Palacio Pemartín in Jerez's Santiago neighborhood, holding archives, recordings, and a graphic collection, functioning as a study resource rather than a hands-on dance school.",
+       "confidence": "high"
+      },
+      {
+       "name": "Centro de Baile Jerez",
+       "url": "https://www.academiadebailejerez.com/",
+       "course": "Encuentros Internacionales de Baile Flamenco (summer intensives)",
+       "blurb": "A long-running Jerez flamenco dance academy whose summer Encuentros Internacionales run multi-week intensive courses with maestros such as Eva Yerbabuena and Manuel Liñán, alongside intensives held during the Festival de Jerez.",
+       "confidence": "high"
+      },
+      {
+       "name": "Peña Flamenca Tío José de Paula",
+       "url": "https://www.facebook.com/PFtiojosedepaula/",
+       "course": "",
+       "blurb": "A flamenco peña in Jerez's Santiago neighborhood that hosts regular live performances and Thursday cante (flamenco singing) instruction in November, rather than a structured multi-day immersive program.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Seville (Triana)",
@@ -7661,7 +9334,30 @@ window.ET_ATLAS = {
      "why": "Triana's tablaos and the Cristina Heeren Foundation put you inside the densest living cohort in flamenco, certified at the source.",
      "bestSeason": "Sep-Jun (avoid Aug heat); Apr Feria",
      "level": "Beginner -> Professional",
-     "id": "flamenco-and-dance--seville-triana"
+     "id": "flamenco-and-dance--seville-triana",
+     "schoolsInfo": [
+      {
+       "name": "Fundación Cristina Heeren de Arte Flamenco",
+       "url": "https://www.flamencoheeren.com/en/homepage/",
+       "course": "Intensive Summer Course (July)",
+       "blurb": "A non-profit flamenco school founded in 1993 in Seville's Triana district teaching dance, cante, and guitar, whose July intensive summer course offers concentrated hands-on training in master classes for visiting students.",
+       "confidence": "high"
+      },
+      {
+       "name": "Conservatorio Profesional de Danza Antonio Ruiz Soler",
+       "url": "https://www.conservatoriodanzasevilla.com/",
+       "course": "",
+       "blurb": "A public professional dance conservatory in Seville offering official multi-year curricula in classical, contemporary, Spanish, and flamenco dance, structured as enrolled long-term schooling rather than short-stay immersive courses.",
+       "confidence": "high"
+      },
+      {
+       "name": "Taller Flamenco Seville",
+       "url": "https://tallerflamenco.com/en/",
+       "course": "Intensive Flamenco Courses (March, June, August)",
+       "blurb": "An international flamenco and Spanish-language school founded in 1994 in Seville offering intensive multi-day courses in dance technique, palmas, and singing in groups capped at seven students.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Madrid",
@@ -7684,7 +9380,30 @@ window.ET_ATLAS = {
      "why": "Amor de Dios is the crucible where the world's touring bailaores sharpen their craft shoulder to shoulder.",
      "bestSeason": "Sep-Jun",
      "level": "Intermediate -> Professional",
-     "id": "flamenco-and-dance--madrid"
+     "id": "flamenco-and-dance--madrid",
+     "schoolsInfo": [
+      {
+       "name": "Amor de Dios",
+       "url": "https://flamencomadrid.com/en/schools/amor-de-dios/",
+       "course": "Intensive flamenco dance courses (cursos intensivos)",
+       "blurb": "Amor de Dios is a long-running Madrid flamenco and Spanish-dance centre in Lavapiés offering daily classes and intensive courses in dance, cante and guitar, with alumni including Sara Baras and Joaquín Cortés.",
+       "confidence": "high"
+      },
+      {
+       "name": "Real Conservatorio Profesional de Danza Mariemma",
+       "url": "https://rcpdmariemma.com/",
+       "course": "Professional Grade in Spanish Dance (Flamenco specialism)",
+       "blurb": "The Real Conservatorio Profesional de Danza Mariemma is Madrid's public professional dance conservatory awarding the official Título Profesional, with a six-year Spanish Dance grade covering escuela bolera, folklore, stylized dance and flamenco.",
+       "confidence": "high"
+      },
+      {
+       "name": "Casa Patas (Fundación Conservatorio Flamenco Casa Patas)",
+       "url": "https://casapatas.com/clases-de-flamenco-en-madrid/",
+       "course": "Flamenco dance, cante, guitar and compás classes",
+       "blurb": "The Fundación Conservatorio Flamenco Casa Patas, a non-profit founded in 2000, continues teaching flamenco dance, cante, guitar, cajón and compás in Madrid in English or Spanish after the associated tablao closed.",
+       "confidence": "medium"
+      }
+     ]
     }
    ],
    "id": "flamenco-and-dance",
@@ -7738,7 +9457,30 @@ window.ET_ATLAS = {
      "why": "The world capital of perfume, where the UNESCO-listed know-how of fields, distillery and the nose has flowed unbroken since the 1600s.",
      "bestSeason": "May-Oct (rose & jasmine harvest)",
      "level": "Enthusiast -> Professional",
-     "id": "perfumery--grasse"
+     "id": "perfumery--grasse",
+     "schoolsInfo": [
+      {
+       "name": "Grasse Institute of Perfumery (GIP)",
+       "url": "https://www.grasse-perfumery.com/long-term/international-technical-degree-in-fragrance-creation-and-sensory-evaluation/",
+       "course": "International Technical Degree in Fragrance Creation and Sensory Evaluation",
+       "blurb": "A long-form program in the historic perfume capital totalling 1,200 training hours, of which 600 are practical and supervised at the perfumer's organ.",
+       "confidence": "high"
+      },
+      {
+       "name": "Cinquième Sens",
+       "url": "https://www.cinquiemesens.com",
+       "course": "Summer School",
+       "blurb": "Cinquième Sens is a perfumery training center (founded 1976) with classrooms in Grasse and Paris that runs 5- and 10-day Summer School sessions covering raw-material olfaction and hands-on formulation work using its Olfactorium perfume-organ.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Molinard (harvest-season perfume workshops)",
+       "url": "https://molinard.com/en/pages/the-grasse-workshops",
+       "course": "Classic Perfume Workshop",
+       "blurb": "Molinard is a Grasse perfume house (founded 1849) offering on-site workshops in which a guide walks participants through a fragrance's structure and they blend their own scent from up to 90 essences, though its sessions are short (roughly 20 minutes to one hour) rather than multi-day or residential.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Versailles / Paris",
@@ -7761,7 +9503,30 @@ window.ET_ATLAS = {
      "why": "ISIPCA, founded by a Guerlain, issues the diploma the great houses actually hire on, inside the beating heart of French fragrance.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Professional",
-     "id": "perfumery--versailles-paris"
+     "id": "perfumery--versailles-paris",
+     "schoolsInfo": [
+      {
+       "name": "ISIPCA",
+       "url": "https://www.isipca.fr/en",
+       "course": "Art of Perfumery \"A la Française\" (Summer School)",
+       "blurb": "ISIPCA is a postgraduate perfume, cosmetics and food-flavoring institute in Versailles whose 10-day, 70-hour \"Art of Perfumery À la Française\" summer school teaches fragrance history, raw-material evaluation and laboratory formulation in subgroups to participants aged 18 and over.",
+       "confidence": "high"
+      },
+      {
+       "name": "Cinquième Sens",
+       "url": "https://www.cinquiemesens.com",
+       "course": "Summer School",
+       "blurb": "Cinquième Sens is a perfumery training center (founded 1976) with a Paris classroom that runs 5- and 10-day Summer School sessions combining olfactory study of raw materials with hands-on formulation exercises.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Givaudan Perfumery School (industry)",
+       "url": "https://www.givaudan.com/fragrance-beauty/perfumery-school",
+       "course": "Perfumery School (4-year program)",
+       "blurb": "The Givaudan Perfumery School, founded in 1946 and based in Argenteuil near Paris (with a Singapore campus), is an internal, selective four-year program that trains the company's own future perfumers on roughly 600 raw materials and is not open to public enrollment.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "perfumery",
@@ -7818,7 +9583,30 @@ window.ET_ATLAS = {
      "why": "The birthplace of the violin and a UNESCO heritage craft, where Stradivari's city still trains the world's makers bench by bench.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Maestro Liutaio",
-     "id": "lutherie-and-instrument-making--cremona"
+     "id": "lutherie-and-instrument-making--cremona",
+     "schoolsInfo": [
+      {
+       "name": "Academia Cremonensis",
+       "url": "https://academiacremonensis.org/foundational-course/",
+       "course": "Professional Violin Making Course (Foundational Course)",
+       "blurb": "A three-year, full-time program in Cremona where students work at individual benches Monday to Friday, 9 to 5, for 880 hours a year.",
+       "confidence": "high"
+      },
+      {
+       "name": "Scuola Internazionale di Liuteria di Cremona",
+       "url": "https://www.scuoladiliuteria.it",
+       "course": "Violin Making (five-year diploma)",
+       "blurb": "The Scuola Internazionale di Liuteria di Cremona, founded in 1938, is a vocational school teaching bowed-string-instrument making in the Cremonese tradition through bench labs of 10-12 students, culminating in a fifth-year apprenticeship in professional luthiers' workshops.",
+       "confidence": "high"
+      },
+      {
+       "name": "Cremona Bottega network (maestro workshops)",
+       "url": "",
+       "course": "",
+       "blurb": "This refers to the network of master violin-makers' workshops in Cremona, coordinated in part by the Consorzio Liutai \"Antonio Stradivari\" (over 50 masters), which arranges short guided visits where a luthier demonstrates handcrafting stages rather than running a single multi-day residential program.",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Granada",
@@ -7845,7 +9633,30 @@ window.ET_ATLAS = {
      "why": "The cradle of the Spanish classical guitar, where the Granada School passes its tradition from master to apprentice beside the Alhambra.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Master luthier",
-     "id": "lutherie-and-instrument-making--granada"
+     "id": "lutherie-and-instrument-making--granada",
+     "schoolsInfo": [
+      {
+       "name": "Taller de Antonio Marín Montero",
+       "url": "",
+       "course": "Master luthier workshop (informal apprenticeship)",
+       "blurb": "The Granada workshop of master luthier Antonio Marín Montero (born 1933) is a hand-built classical and flamenco guitar atelier that has trained disciples including his nephew José Marín Plazuelo and José González López, though it offers no formal enrolled course.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Taller de José Marín Plazuelo",
+       "url": "",
+       "course": "Master luthier workshop (informal apprenticeship)",
+       "blurb": "José Marín Plazuelo, nephew and pupil of Antonio Marín Montero, builds classical and flamenco guitars by traditional methods in a workshop near the Alhambra in central Granada, working alongside his uncle and José González López.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Casa Ferrer (Granada guitar-making house)",
+       "url": "https://guitarreriacasaferrer.com/historia.php",
+       "course": "Granada guitar-making workshop (Guitarrería Casa Ferrer)",
+       "blurb": "Guitarrería Casa Ferrer, founded in 1875 by Benito Ferrer on Cuesta de Gomérez, is one of Spain's oldest guitar-making houses and a training ground that has shaped generations of Granada luthiers, now run by the fourth-generation Durán Ferrer family.",
+       "confidence": "medium"
+      }
+     ]
     }
    ],
    "id": "lutherie-and-instrument-making",
@@ -7896,7 +9707,30 @@ window.ET_ATLAS = {
      "why": "Berklee is the global magnet for contemporary players, the densest cohort of working musicians you will ever stand among.",
      "bestSeason": "Sep-May (academic year)",
      "level": "Intermediate -> Professional",
-     "id": "guitar-and-music-performance--boston"
+     "id": "guitar-and-music-performance--boston",
+     "schoolsInfo": [
+      {
+       "name": "Berklee College of Music",
+       "url": "https://summer.berklee.edu/programs/aspire-five-week-music-performance-intensive",
+       "course": "Aspire: Five-Week Music Performance Intensive",
+       "blurb": "A five-week residential intensive at Berklee in Boston drawing musicians from more than 70 countries.",
+       "confidence": "high"
+      },
+      {
+       "name": "New England Conservatory",
+       "url": "https://necmusic.edu/the-college/departments/strings/guitar-studies/",
+       "course": "Summer at NEC (immersive summer programs)",
+       "blurb": "New England Conservatory is a Boston music conservatory with a degree-granting Guitar Studies department whose Expanded Education arm runs multi-day, faculty-led summer intensives in chamber, orchestral, and contemporary performance on its Boston campus.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Berklee Online",
+       "url": "https://online.berklee.edu/guitar",
+       "course": "Guitar Advanced Professional Certificate",
+       "blurb": "Berklee Online is the online extension of Berklee College of Music in Boston, offering a multi-course Guitar Advanced Professional Certificate that builds from chords and scales to command of multiple styles, taught by the same faculty as the Boston campus.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Los Angeles (Hollywood)",
@@ -7918,7 +9752,30 @@ window.ET_ATLAS = {
      "why": "Musicians Institute drops you into the session-player capital, where the craft is forged on stages and in studios every night.",
      "bestSeason": "Year-round",
      "level": "Beginner -> Professional",
-     "id": "guitar-and-music-performance--los-angeles-hollywood"
+     "id": "guitar-and-music-performance--los-angeles-hollywood",
+     "schoolsInfo": [
+      {
+       "name": "Musicians Institute (MI)",
+       "url": "https://www.mi.edu/guitar/",
+       "course": "Certificate in Performance (Guitar) — successor to the Guitar Institute of Technology",
+       "blurb": "Musicians Institute is a Hollywood contemporary-music college, founded in 1977 as the Guitar Institute of Technology, whose four-quarter Certificate in Performance trains guitarists in technique, reading and contemporary styles with active professional players.",
+       "confidence": "high"
+      },
+      {
+       "name": "Thornton School of Music (USC)",
+       "url": "https://music.usc.edu/departments/popular-music/",
+       "course": "BM in Popular Music (Guitar emphasis)",
+       "blurb": "USC Thornton School of Music runs a four-year BM in Popular Music, launched in 2009, where guitar-emphasis students train in small-group performance, private instruction, songwriting and studio production.",
+       "confidence": "high"
+      },
+      {
+       "name": "Los Angeles College of Music",
+       "url": "https://lacm.edu/guitarprogram/",
+       "course": "Guitar Performance program (with 1-3 week Summer at LACM)",
+       "blurb": "Los Angeles College of Music in Pasadena offers guitar-performance degrees and certificates plus a one-to-three-week Summer at LACM program of master classes, private lessons and ensembles for all skill levels.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "London",
@@ -7941,7 +9798,30 @@ window.ET_ATLAS = {
      "why": "Home of the Trinity and RSL grade system, London hands you a globally recognized ladder from first chord to performance diploma.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Professional",
-     "id": "guitar-and-music-performance--london"
+     "id": "guitar-and-music-performance--london",
+     "schoolsInfo": [
+      {
+       "name": "Institute of Contemporary Music Performance (ICMP)",
+       "url": "https://www.icmp.ac.uk/study-at-icmp/find-a-course/guitar-courses",
+       "course": "BMus (Hons) Popular Music Performance (Guitar)",
+       "blurb": "ICMP is a London contemporary-music college, founded in 1986 as the Guitar Institute, offering three-year BMus and BA guitar degrees plus shorter certificate courses focused on performance technique and music-industry skills.",
+       "confidence": "high"
+      },
+      {
+       "name": "BIMM Institute London",
+       "url": "https://www.bimm.ac.uk/guitar/",
+       "course": "BMus (Hons) Popular Music Performance (Guitar)",
+       "blurb": "BIMM Institute London offers guitar courses from Diploma to BMus (Hons) Popular Music Performance, combining performance, technique and session skills with industry-standard amps, guitars and recording facilities.",
+       "confidence": "high"
+      },
+      {
+       "name": "Trinity College London (graded exams)",
+       "url": "https://www.trinitycollege.com/",
+       "course": "Graded music exams and performance diplomas (Grade 8 / ATCL)",
+       "blurb": "Trinity College London is an international exam board awarding graded music exams and performance diplomas up to Grade 8 and ATCL, providing the credential benchmark for guitarists rather than residential tuition.",
+       "confidence": "medium"
+      }
+     ]
     }
    ],
    "id": "guitar-and-music-performance",
@@ -8049,7 +9929,30 @@ window.ET_ATLAS = {
      "why": "Heir to Edward Johnston's modern revival, the UK is where the gold-standard calligraphy diploma is earned, not bought.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> Fellow",
-     "id": "calligraphy-and-lettering--london-roehampton"
+     "id": "calligraphy-and-lettering--london-roehampton",
+     "schoolsInfo": [
+      {
+       "name": "Society of Scribes and Illuminators (SSI)",
+       "url": "https://calligraphyonline.org/",
+       "course": "Creative Development Course",
+       "blurb": "The Society of Scribes and Illuminators, founded in 1921 and based at the Art Workers' Guild in London, runs a three-year part-time Creative Development Course guiding calligraphers toward their own personal direction under SSI Fellows.",
+       "confidence": "high"
+      },
+      {
+       "name": "Calligraphy & Lettering Arts Society (CLAS)",
+       "url": "https://www.clas.co.uk/",
+       "course": "Festival of Calligraphy (Summer School)",
+       "blurb": "The Calligraphy & Lettering Arts Society is a UK lettering-arts organisation founded in 1994 that holds an annual week-long residential Summer School (Festival of Calligraphy) of workshops with leading tutors.",
+       "confidence": "high"
+      },
+      {
+       "name": "City Lit (Calligraphy & Lettering)",
+       "url": "https://www.citylit.ac.uk/courses/art-and-design/contemporary-crafts/calligraphy",
+       "course": "Calligraphy and illumination (three-term programme)",
+       "blurb": "City Lit is a central London adult-education college whose calligraphy department offers a three-term programme covering broad-edged scripts, illumination, and gold-leaf work taught by SSI-Fellow tutors.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Kyoto",
@@ -8157,7 +10060,37 @@ window.ET_ATLAS = {
      "why": "This is the source: stand at the bench where the CAP Pâtissier was forged and earn the diploma the rest of the world measures itself against.",
      "bestSeason": "Sep-Jun",
      "level": "Beginner -> MOF",
-     "id": "french-pastry-and-patisserie--paris"
+     "id": "french-pastry-and-patisserie--paris",
+     "schoolsInfo": [
+      {
+       "name": "FERRANDI Paris",
+       "url": "https://www.ferrandi-paris.com/en/french-pastry-programs/intensive-professional-program-french-pastry",
+       "course": "Intensive Professional Program in French Pastry",
+       "blurb": "A 16-week intensive at one of France's top culinary schools, taught entirely in English, with an optional three-month internship in French restaurants and hotels.",
+       "confidence": "high"
+      },
+      {
+       "name": "Le Cordon Bleu Paris",
+       "url": "https://www.cordonbleu.edu/paris/patisserie-diploma/en",
+       "course": "Diplôme de Pâtisserie",
+       "blurb": "Le Cordon Bleu Paris is a culinary institute whose three-level Diplôme de Pâtisserie gives full-time hands-on training in French pastry, decorative techniques, and classics such as Paris-Brest, fraisier, and macarons.",
+       "confidence": "high"
+      },
+      {
+       "name": "École Bellouet Conseil",
+       "url": "https://ecolebellouetconseil.com/",
+       "course": "Formation pâtisserie longue durée (3-month pastry course)",
+       "blurb": "École Bellouet Conseil is a Paris professional pastry school founded in 1989 in the 15th arrondissement, offering a three-month long-duration pastry course interspersed with internships alongside shorter advanced workshops for working chefs.",
+       "confidence": "high"
+      },
+      {
+       "name": "École Lenôtre",
+       "url": "https://www.ecole-lenotre.com/en/pastry-program/",
+       "course": "Pastry Program (8-week training plus on-the-job placement)",
+       "blurb": "École Lenôtre, founded by Gaston Lenôtre in 1971 and now based near Paris in Rungis, runs an eight-week Pastry Program followed by four to nine weeks of on-the-job training for adults entering the profession.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Tain-l'Hermitage / Lyon",
@@ -8183,7 +10116,30 @@ window.ET_ATLAS = {
      "why": "Lyon hosts the Coupe du Monde de la Pâtisserie and Valrhona's atelier sits an hour south — the densest cohort of world-champion chefs you will ever stand beside.",
      "bestSeason": "Sep-Jun",
      "level": "Intermediate -> Competition",
-     "id": "french-pastry-and-patisserie--tain-l-hermitage-lyon"
+     "id": "french-pastry-and-patisserie--tain-l-hermitage-lyon",
+     "schoolsInfo": [
+      {
+       "name": "L'École Valrhona",
+       "url": "https://www.valrhona.com/en/l-ecole-valrhona/discover-l-ecole-valrhona/presentation-of-l-ecole-valrhona",
+       "course": "Two- and three-day professional pastry and chocolate courses",
+       "blurb": "L'École Valrhona, at the chocolate maker's headquarters in Tain-l'Hermitage, runs two- to three-day professional courses in pastry, chocolate, viennoiserie, ice cream, and plated desserts led by its pastry chefs.",
+       "confidence": "high"
+      },
+      {
+       "name": "École Nationale Supérieure de la Pâtisserie (ENSP, Yssingeaux)",
+       "url": "https://www.ecoleducasse.com/en/campus-en/ecole-nationale-superieure-de-patisserie",
+       "course": "French Pastry Arts Diploma",
+       "blurb": "ENSP is a pastry, bakery, chocolate, and confectionery school housed in the Château de Montbarnier at Yssingeaux with on-site student accommodation, whose residential French Pastry Arts Diploma covers traditional and modern French pastry techniques.",
+       "confidence": "high"
+      },
+      {
+       "name": "Institut Paul Bocuse",
+       "url": "https://www.ecoledecuisine.institutpaulbocuse.com/patisserie-passion.html",
+       "course": "Pâtisserie & Passion (3-week program)",
+       "blurb": "Institut Paul Bocuse (now Institut Lyfe) is a culinary and hospitality school in Écully near Lyon whose three-week Pâtisserie & Passion program combines pastry demonstrations and hands-on practice under its pastry chef.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Tokyo / Osaka",
@@ -11723,7 +13679,30 @@ window.ET_ATLAS = {
      "why": "Train at the literal birthplace of Shaolin kung fu beneath Mount Song, where lineage masters certify your Duanwei the way they have for centuries.",
      "bestSeason": "April to June and September to October (mild, dry)",
      "level": "All levels, from foundation to warrior program",
-     "id": "kung-fu--dengfeng-songshan-shaolin-temple-henan"
+     "id": "kung-fu--dengfeng-songshan-shaolin-temple-henan",
+     "schoolsInfo": [
+      {
+       "name": "Shaolin Tagou Martial Arts School",
+       "url": "https://www.shaolintagou.org/",
+       "course": "Long-term Kung Fu Training (monthly enrollment)",
+       "blurb": "Full room-and-board training at China's largest martial-arts school, in the Mount Song Shaolin Temple scenic area, with stays from one month to a year.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Shaolin Tagou Wushu School",
+       "url": "https://www.shaolintagou.org/",
+       "course": "Residential Shaolin Kung Fu training (full room and board, customizable stays from one month upward)",
+       "blurb": "A large martial-arts academy at the foot of Mount Song inside the Shaolin Temple scenic area in Dengfeng, offering live-in residential training in traditional Shaolin kung fu, Tai Chi and Qi Gong with three meals a day and on-site lodging.",
+       "confidence": "high"
+      },
+      {
+       "name": "Shaolin Temple Kung Fu Academy (Dengfeng)",
+       "url": "https://shaolin-kungfu.net/",
+       "course": "Live-in monk-led Shaolin Kung Fu immersion (monthly residential program, board included)",
+       "blurb": "A monk-led academy near Songshan Shaolin Temple in Dengfeng where international students live on site for monthly stays training in traditional Shaolin styles, tai chi, chi kung and meditation alongside temple visits and language help.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Wudang Mountains, Hubei",
@@ -11859,7 +13838,30 @@ window.ET_ATLAS = {
      "why": "Enter the roda at the source, where Mestre Bimba and Mestre Pastinha codified the art and a UNESCO-recognized heritage still beats to the berimbau.",
      "bestSeason": "September to March (warm, drier; February Carnival is electric)",
      "level": "All levels, from first ginga to cordão",
-     "id": "capoeira--salvador-bahia"
+     "id": "capoeira--salvador-bahia",
+     "schoolsInfo": [
+      {
+       "name": "Capoeira Engenho — Mestre Grandão (Centro de Treinamento Engenho, Abrantes)",
+       "url": "https://www.tripaneer.com/bahia-vacation-tours/30-day-capoeira-teacher-training-with-diploma-in-salvador-bahia",
+       "course": "30-Day Intensive \"Monitor\" Capoeira Training with Diploma",
+       "blurb": "A month-long residential capoeira immersion in the Abrantes district outside Salvador, run by Mestre Grandão of Capoeira Engenho.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Associacao de Capoeira Mestre Bimba",
+       "url": "https://www.capoeiramestrebimba.com.br/",
+       "course": "Capoeira Regional classes and group training in the Mestre Bimba lineage",
+       "blurb": "The institutional continuation of the first formal capoeira school in Brazil, founded by Mestre Bimba in Salvador in 1937, teaching Capoeira Regional and related Afro-Brazilian arts to locals and visitors.",
+       "confidence": "high"
+      },
+      {
+       "name": "Escola de Capoeira Angola da Bahia (Mestre Boca Rica)",
+       "url": "",
+       "course": "Capoeira Angola classes for adults at the Forte da Capoeira, Santo Antonio Alem do Carmo",
+       "blurb": "A Capoeira Angola school in the Pastinha lineage led by Mestre Boca Rica at the Forte da Capoeira in Salvador, offering ongoing Angola classes, group experiences and private lessons.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Rio de Janeiro",
@@ -11959,7 +13961,37 @@ window.ET_ATLAS = {
      "why": "This is where tango was born and still danced every night until dawn — train at the source, then test your embrace at the milonga among the cohort that hosts the August World Championship.",
      "bestSeason": "March–May or September–November (autumn and spring milonga season; August hosts the Mundial)",
      "level": "All levels — beginners welcome nightly, but the floor will humble you",
-     "id": "argentine-tango--buenos-aires"
+     "id": "argentine-tango--buenos-aires",
+     "schoolsInfo": [
+      {
+       "name": "DNI Tango",
+       "url": "https://www.dni-tango.com",
+       "course": "Intensive Tango Course (tourist/intensive packages)",
+       "blurb": "DNI Tango is a full-curriculum tango school in the Almagro/Palermo barrios whose method is built on biomechanics so dancers move comfortably and fluidly.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Escuela Argentina de Tango",
+       "url": "https://escuelatangoba.com/",
+       "course": "Tango courses and intensive/immersion programs for visiting students",
+       "blurb": "A Buenos Aires institution dedicated to preserving and teaching Argentine tango, offering structured courses and intensive immersion options for foreign students alongside its regular classes.",
+       "confidence": "high"
+      },
+      {
+       "name": "La Viruta Tango Club",
+       "url": "https://lavirutatangoar.com/en/",
+       "course": "Tango group classes paired with the nightly milonga for practice",
+       "blurb": "An emblematic Palermo tango school and milonga founded by Luis Solanas in 1990, where students take leveled group classes with bilingual instructors and then practice on the floor at one of the city's largest social dances.",
+       "confidence": "high"
+      },
+      {
+       "name": "Mariposita de San Telmo",
+       "url": "https://mariposita.com.ar/",
+       "course": "Tango school combined with on-site boutique hotel for a stay-and-learn immersion",
+       "blurb": "An intimate San Telmo tango school directed by Carolina Bonaventura, pairing a concept-based teaching method with an attached boutique hotel so visitors can lodge and study tango in one place.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Montevideo",
@@ -11981,7 +14013,23 @@ window.ET_ATLAS = {
      "why": "The quieter co-birthplace named alongside Buenos Aires in tango's UNESCO inscription, where the candombe drumbeat in the embrace runs deepest and you dance with locals, not tourists.",
      "bestSeason": "October–March (warm-season milongas; carnival candombe in February)",
      "level": "Intermediate — best once you can already navigate a crowded floor",
-     "id": "argentine-tango--montevideo"
+     "id": "argentine-tango--montevideo",
+     "schoolsInfo": [
+      {
+       "name": "Joventango (Mercado de la Abundancia)",
+       "url": "https://joventango.com.uy/",
+       "course": "Daily tango classes and weekend milongas at Mercado de la Abundancia",
+       "blurb": "Joventango is a non-profit tango cultural association founded in 1977, running graded daily classes and weekend milongas at the historic Mercado de la Abundancia, each weekday focused on a different tango style with a different teacher.",
+       "confidence": "high"
+      },
+      {
+       "name": "Casa de los Tangos",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Berlin",
@@ -12045,7 +14093,23 @@ window.ET_ATLAS = {
      "why": "A fast-rising scene straddling two continents with a passionate festival culture, where the milongas run late and the welcome is warm.",
      "bestSeason": "April–June and September–October",
      "level": "All levels",
-     "id": "argentine-tango--istanbul"
+     "id": "argentine-tango--istanbul",
+     "schoolsInfo": [
+      {
+       "name": "Tango Fabrika",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      },
+      {
+       "name": "Catwalk Tango Istanbul",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     }
    ],
    "id": "argentine-tango",
@@ -12100,7 +14164,37 @@ window.ET_ATLAS = {
      "why": "The self-declared world capital of salsa with 100+ academies and the Festival Mundial de Salsa, where lightning-fast caleño footwork is drilled by champions and danced in the salsa temples every night.",
      "bestSeason": "September (Festival Mundial de Salsa) or December (Feria de Cali)",
      "level": "All levels — but caleño speed rewards the committed",
-     "id": "salsa--cali"
+     "id": "salsa--cali",
+     "schoolsInfo": [
+      {
+       "name": "Swing Latino",
+       "url": "https://www.instagram.com/swinglatinoacademy/",
+       "course": "Formalized salsa caleña training program (monthly class blocks)",
+       "blurb": "Cali's well-known competition-level salsa academy founded by Luis Eduardo Hernandez 'El Mulato', running a structured, formalized training program focused on the fast-footwork salsa caleña style.",
+       "confidence": "high"
+      },
+      {
+       "name": "Son de Luz",
+       "url": "https://sondeluz.co/",
+       "course": "Salsa caleña classes for visitors plus group and private dance programs",
+       "blurb": "A Cali dance school and artistic foundation directed by Luz Aide Moncayo that teaches salsa caleña and other Latin styles to all ages and nationalities, with classes geared to both residents and visiting dancers.",
+       "confidence": "high"
+      },
+      {
+       "name": "Arrebato Caleño",
+       "url": "https://arrebatocaleno.com/",
+       "course": "Social salsa caleña classes for foreigners with cultural-exchange immersion",
+       "blurb": "A San Antonio salsa school built around connecting foreign visitors and locals, offering personalized and group social salsa caleña classes plus cultural-exchange activities around the city's dance scene.",
+       "confidence": "high"
+      },
+      {
+       "name": "Academia Latin Fever",
+       "url": "",
+       "course": "Salsa caleña and social dance classes for all ages and nationalities",
+       "blurb": "A Cali dance academy founded in 2006 by Gustavo A. Collazos in the San Fernando Viejo neighborhood, teaching salsa caleña, salsa en linea, bachata and other social dances to students of all ages and nationalities.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Havana",
@@ -12216,7 +14310,23 @@ window.ET_ATLAS = {
      "why": "The other Caribbean cradle of the sound, where Puerto Rican style and the island's salsa congress keep the social-floor tradition fierce and proud.",
      "bestSeason": "December–April (dry season; congress season)",
      "level": "All levels",
-     "id": "salsa--san-juan"
+     "id": "salsa--san-juan",
+     "schoolsInfo": [
+      {
+       "name": "Tito Ortos & Tamara Livolsi (PR Salsa Congress)",
+       "url": "https://www.salsavida.com/sf/tito-ortos-tamara-livolsi/",
+       "course": "Puerto Rican-style salsa instruction and the Puerto Rico Hustle and Salsa Festival",
+       "blurb": "Tito Ortos and Tamara Livolsi are San Juan-based Puerto Rican-style salsa specialists and World Salsa Championship judges who teach at their Rhythms Dance Studio and co-produce the multi-day Puerto Rico Hustle and Salsa Festival.",
+       "confidence": "high"
+      },
+      {
+       "name": "Salsa con Clave",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     }
    ],
    "id": "salsa",
@@ -12272,7 +14382,37 @@ window.ET_ATLAS = {
      "why": "Home of the Kalakshetra Foundation, where Rukmini Devi systematized the dance into a four-year diploma — train inside the lineage and earn the credential the world recognizes, then perform during the Margazhi season.",
      "bestSeason": "December–January (Margazhi dance and music festival, the global high season)",
      "level": "All levels — but the diploma is a multi-year, full-immersion commitment",
-     "id": "bharatanatyam-indian-classical-dance--chennai"
+     "id": "bharatanatyam-indian-classical-dance--chennai",
+     "schoolsInfo": [
+      {
+       "name": "Kalakshetra Foundation (Rukmini Devi College of Fine Arts)",
+       "url": "https://kalakshetra.in/",
+       "course": "Diploma in Bharatanatyam (4-year full-time)",
+       "blurb": "Kalakshetra, founded by Rukmini Devi Arundale and now an Institute of National Importance under India's Ministry of Culture, runs a four-year full-time Diploma in Bharatanatyam on its Chennai campus.",
+       "confidence": "high"
+      },
+      {
+       "name": "Kalakshetra Foundation",
+       "url": "https://kalakshetra.in/",
+       "course": "Diploma in Bharatanatyam (four-year full-time residential program)",
+       "blurb": "An arts academy in Chennai founded by Rukmini Devi Arundale in 1936 that runs a four-year full-time Bharatanatyam diploma teaching the systematized adavu method, abhinaya, and allied Carnatic music.",
+       "confidence": "high"
+      },
+      {
+       "name": "Rukmini Devi College of Fine Arts (Kalakshetra)",
+       "url": "https://kalakshetra.in/college/rdcfa/",
+       "course": "Diploma in Dance (Bharatanatyam), four-year full-time",
+       "blurb": "Kalakshetra's autonomous degree-granting college in Chennai delivering a four-year full-time Bharatanatyam diploma with allied Carnatic vocal, mridangam, nattuvangam, and dance theory.",
+       "confidence": "high"
+      },
+      {
+       "name": "Bharata Kalanjali",
+       "url": "https://bharatakalanjali.in/",
+       "course": "Bharatanatyam training under the Dhananjayan teaching tradition",
+       "blurb": "A Bharatanatyam institution in Chennai founded in 1968 by Shanta and V.P. Dhananjayan that offers in-person classical dance training integrating technique, abhinaya, and repertoire.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Thanjavur",
@@ -12297,7 +14437,23 @@ window.ET_ATLAS = {
      "why": "The birthplace where the Brihadeeswarar Temple's early-11th-century carvings encode the karanas and the Thanjavur Quartet fixed the margam recital format — the unbroken source itself.",
      "bestSeason": "December–February (cooler temple-town season)",
      "level": "Intermediate to advanced — best for those grounded in the basics seeking the root lineage",
-     "id": "bharatanatyam-indian-classical-dance--thanjavur"
+     "id": "bharatanatyam-indian-classical-dance--thanjavur",
+     "schoolsInfo": [
+      {
+       "name": "Tamil University Department of Dance",
+       "url": "https://www.tamiluniversity.ac.in/",
+       "course": "Grade-based diploma study in Bharatanatyam at the Cultural Centre for Tamil",
+       "blurb": "Tamil University in Thanjavur runs a Department of Dance offering grade-based Bharatanatyam study combining practical performance and theory rooted in the Tanjore Quartet margam tradition.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Thanjavur Quartet-lineage gurukulams",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     },
     {
      "place": "Bengaluru",
@@ -12390,7 +14546,37 @@ window.ET_ATLAS = {
      "why": "This is the cradle of haute horlogerie itself, where the CFC and WOSTEP diplomas are forged at the source among the workshops that supply the world's grandest complications.",
      "bestSeason": "September to June (academic intake)",
      "level": "Beginner to advanced",
-     "id": "watchmaking--le-sentier-vall-e-de-joux"
+     "id": "watchmaking--le-sentier-vall-e-de-joux",
+     "schoolsInfo": [
+      {
+       "name": "WOSTEP (Watchmakers of Switzerland Training and Educational Program)",
+       "url": "https://www.wostep.ch/en/training/watchmaker-program",
+       "course": "WOSTEP Watchmaker Program (3000-hour)",
+       "blurb": "WOSTEP's flagship Watchmaker Program is a 22-month full-time course at its Neuchâtel school, the classic 3000-hour curriculum recognised across the Swiss industry.",
+       "confidence": "high"
+      },
+      {
+       "name": "École Technique de la Vallée de Joux (ETVJ)",
+       "url": "https://www.etvj.ch/",
+       "course": "CFC Horloger·ère (full-time/dual federal watchmaking apprenticeship)",
+       "blurb": "A technical school in Le Sentier founded in 1901 in the Vallée de Joux watchmaking valley that trains watchmakers, micromechanics, and jeweller-goldsmiths through multi-year federal vocational diplomas.",
+       "confidence": "high"
+      },
+      {
+       "name": "WOSTEP (Neuchâtel)",
+       "url": "https://www.wostep.ch/en",
+       "course": "Watchmaker I+II+III (22-month full-time program)",
+       "blurb": "An independent watchmaking training foundation in Neuchâtel established in 1966 whose 22-month full-time Watchmaker program certifies students in traditional fine-watch repair and craftsmanship.",
+       "confidence": "high"
+      },
+      {
+       "name": "CIFOM École Technique (Le Locle)",
+       "url": "https://www.cifom.ch/",
+       "course": "CFC Horloger / watchmaking initial and continuing training",
+       "blurb": "The technical school of Le Locle, heir to the 1868 Le Locle watchmaking school, offering full-time and dual federal watchmaking diplomas plus a modular adult course toward a watch-fitter or watchmaker certificate.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Glashütte",
@@ -12451,7 +14637,23 @@ window.ET_ATLAS = {
      "why": "A WOSTEP affiliate delivering the same Swiss-certified bench standard in English, it is the cohort English-speakers join to earn a credential recognised in every service centre on earth.",
      "bestSeason": "Year-round",
      "level": "Beginner to advanced",
-     "id": "watchmaking--manchester"
+     "id": "watchmaking--manchester",
+     "schoolsInfo": [
+      {
+       "name": "British School of Watchmaking",
+       "url": "https://www.britishschoolofwatchmaking.co.uk/",
+       "course": "WOSTEP 3000-hour Watchmaker Programme",
+       "blurb": "The British School of Watchmaking in Manchester is a full-time horology school whose flagship two-year WOSTEP 3000-hour Watchmaker Programme leads to the internationally recognised WOSTEP diploma, with no prior watchmaking knowledge required.",
+       "confidence": "high"
+      },
+      {
+       "name": "BHI (British Horological Institute, Upton Hall)",
+       "url": "https://bhi.co.uk/",
+       "course": "Residential short courses at Upton Hall",
+       "blurb": "The British Horological Institute, founded in 1858 and based at Upton Hall in Nottinghamshire, runs residential intensive short courses (from servicing skills to a multi-day Build Your Own Watch) with on-site accommodation, professional workshops and a major horological collection.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "watchmaking",
@@ -12650,7 +14852,37 @@ window.ET_ATLAS = {
      "why": "From the Vuelta Abajo fields to the rolling galleys of Havana, this is the undisputed source where the nine-level torcedor ranking was born and the world's finest leaves are still spun by hand.",
      "bestSeason": "November to April (dry season; Habanos Festival late February)",
      "level": "Beginner to advanced",
-     "id": "cigar-rolling--havana-and-pinar-del-r-o"
+     "id": "cigar-rolling--havana-and-pinar-del-r-o",
+     "schoolsInfo": [
+      {
+       "name": "ProCigar (Asociacion de Fabricantes de Tabacos de la Republica Dominicana) - ProCigar Festival",
+       "url": "https://procigar.org/procigar-festival/",
+       "course": "ProCigar Festival - factory tours, tobacco-field visits and rolling/blending seminars",
+       "blurb": "ProCigar's annual festival is a multi-day immersion in the Dominican Republic's premium-cigar heartland, running across La Romana (Casa de Campo) and Santiago de los Caballeros with guided visits to t",
+       "confidence": "medium"
+      },
+      {
+       "name": "El Laguito (former Escuela de Torcedores)",
+       "url": "https://www.habanos.com/en/",
+       "course": "Cohiba rolling-floor demonstrations (access during Festival del Habano)",
+       "blurb": "The Havana mansion factory that is Cohiba's home of fully handmade long-filler cigars, generally closed to the public but opened for rolling demonstrations during the annual Festival del Habano.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Partagás factory roller program",
+       "url": "https://www.habanos.com/en/",
+       "course": "Guided rolling-room factory tour (approx. 45 minutes)",
+       "blurb": "The historic Partagás cigar house in Havana, casa matriz for Partagás and several other Habanos brands, offering guided walk-throughs of its working rolling room where torcedores hand-roll cigars.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Habanos S.A. festival rolling workshops",
+       "url": "https://www.habanos.com/en/el-festival-del-habano/",
+       "course": "Festival del Habano cigar-rolling seminars (multi-day, February)",
+       "blurb": "The official Habanos S.A. cigar event held each February in Havana whose week-long program includes plantation and factory visits plus hands-on torcedor-led workshops on rolling one's own cigar.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Santiago & La Romana",
@@ -12673,7 +14905,30 @@ window.ET_ATLAS = {
      "why": "The planet's largest premium-cigar output rolls out of here, and ProCigar's 135-hour hands-on program puts you bench-to-bench with the torcedores of legendary houses.",
      "bestSeason": "January to April (ProCigar Festival in February)",
      "level": "Beginner to advanced",
-     "id": "cigar-rolling--santiago-and-la-romana"
+     "id": "cigar-rolling--santiago-and-la-romana",
+     "schoolsInfo": [
+      {
+       "name": "ProCigar technical training program",
+       "url": "https://procigar.org/procigar-festival/",
+       "course": "ProCigar Festival (multi-day; factory tours, blending and rolling seminars)",
+       "blurb": "The Dominican cigar-manufacturers association whose annual February festival spans La Romana and Santiago with member-factory tours and hands-on blending and rolling seminars.",
+       "confidence": "high"
+      },
+      {
+       "name": "Tabacalera de García (La Romana)",
+       "url": "https://cigarcountry.com/tours/tabacalera-de-garcia-dominican-heritage/",
+       "course": "By-appointment factory tour with master-roller demonstration",
+       "blurb": "The large handmade-cigar factory in La Romana that makes Montecristo, Romeo y Julieta, and H. Upmann and runs appointment-only tours through its full production floor including live master-roller demonstrations.",
+       "confidence": "high"
+      },
+      {
+       "name": "Tabacalera A. Fuente",
+       "url": "https://procigar.org/procigar-festival/",
+       "course": "Restricted factory access (typically via ProCigar Festival)",
+       "blurb": "The Fuente family's hand-rolled cigar factory in Santiago, home of Arturo Fuente and Fuente Fuente OpusX, whose tightly restricted floor is generally accessible only through the ProCigar Festival.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Estelí",
@@ -12803,7 +15058,37 @@ window.ET_ATLAS = {
      "why": "The UAE led falconry onto the UNESCO list and pours national pride into it, so its purpose-built school and clubs offer the most structured, certified immersion on earth.",
      "bestSeason": "November to March (cool season; Abu Dhabi Hunting & Equestrian Exhibition late August/September)",
      "level": "Beginner to advanced",
-     "id": "falconry--abu-dhabi"
+     "id": "falconry--abu-dhabi",
+     "schoolsInfo": [
+      {
+       "name": "Forest Barn Falconry School",
+       "url": "https://www.forestbarnholidays.co.uk/activities/falconryschool",
+       "course": "Intensive 6-Day Falconry and Bird of Prey Management Course",
+       "blurb": "Forest Barn's intensive six-day (five-night) residential course runs Sunday to Sunday and is built for people serious about owning and flying a raptor, covering handling, training, equipment-making, a",
+       "confidence": "medium"
+      },
+      {
+       "name": "Mohamed Bin Zayed Falconry & Desert Physiognomy School",
+       "url": "https://mbzfalconryschool.com/",
+       "course": "Falconry and Desert Physiognomy training courses (theory, falcon handling, training, breeding, and desert tracking) held at the Remah desert site near Al Ain",
+       "blurb": "A dedicated Abu Dhabi institution teaching traditional Arab falconry and desert physiognomy, with multi-stage hands-on courses in falcon handling, training and care run on a desert hunting reserve.",
+       "confidence": "high"
+      },
+      {
+       "name": "Emirates Falconers' Club",
+       "url": "https://efcuae.com/",
+       "course": "Falconry training delivered through its Mohamed Bin Zayed Falconry & Desert Physiognomy School initiative",
+       "blurb": "The Abu Dhabi-based national falconry body that founded and runs the Mohamed Bin Zayed Falconry School, through which it delivers structured hands-on courses in Arabian falconry.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Abu Dhabi Falconers Club",
+       "url": "https://www.efcad.ae/en/",
+       "course": "Falconry workshops, competitions and educational lectures for members and enthusiasts",
+       "blurb": "An Abu Dhabi heritage club centred on falconry that runs competitions, workshops and educational lectures, though without a clearly published multi-day residential program for outside learners.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Gloucestershire & Hampshire countryside",
@@ -12901,7 +15186,30 @@ window.ET_ATLAS = {
      "why": "Born in the tea culture of Muromachi-era Kyoto under Ashikaga Yoshimasa, the craft still lives at its source here, where you join a recognised master to mend with real urushi and gold the slow, certified way.",
      "bestSeason": "March to May and October to November (mild lacquer-curing weather)",
      "level": "Beginner to advanced",
-     "id": "kintsugi-japanese-gold-repair--kyoto"
+     "id": "kintsugi-japanese-gold-repair--kyoto",
+     "schoolsInfo": [
+      {
+       "name": "POJ Studio",
+       "url": "https://pojstudio.com/pages/kap",
+       "course": "Kintsugi Apprentice Program",
+       "blurb": "POJ Studio's Kintsugi Apprentice Program is a 150-hour apprenticeship over two months in Kyoto, taught in English by kintsugi specialists.",
+       "confidence": "high"
+      },
+      {
+       "name": "Heian Kintsugi / Kyoto lacquer studios (e.g. Hyobodo)",
+       "url": "https://wabunka-lux.jp/experiences/en_hyobodo/",
+       "course": "Hands-on kintsugi session at Hyobodo lacquer studio, repairing a vintage Japanese ceramic with real urushi lacquer and gold powder to take home the same day",
+       "blurb": "A working Kyoto lacquer studio run by a lacquer artist and a maki-e gold-decoration artist, offering a hands-on kintsugi session that repairs a vintage piece with genuine lacquer and gold.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Sharing Kyoto recognised-master kintsugi workshops",
+       "url": "https://experience.sharing-kyoto.com/tour/kintsugi/",
+       "course": "3.5-hour kintsugi workshop in central Kyoto with a government-recognised Traditional Craftsman, joining and gold-finishing a broken piece with genuine lacquer",
+       "blurb": "A Kyoto experience program offering a hands-on kintsugi workshop led by a government-recognised master craftsman, working broken ceramics with genuine urushi lacquer and gold powder.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Kanazawa",
@@ -12961,7 +15269,23 @@ window.ET_ATLAS = {
      "why": "Family studios with forty-plus years at the bench make Tokyo the most accessible place to join a cohort and learn the traditional repair from artisans who teach it daily.",
      "bestSeason": "Year-round (spring and autumn ideal)",
      "level": "Beginner to intermediate",
-     "id": "kintsugi-japanese-gold-repair--tokyo"
+     "id": "kintsugi-japanese-gold-repair--tokyo",
+     "schoolsInfo": [
+      {
+       "name": "Kuge Crafts Studio (Suginami)",
+       "url": "https://www.veltra.com/en/asia/japan/tokyo/a/116573",
+       "course": "Hands-on kintsugi workshop (bring your own broken pottery)",
+       "blurb": "Kuge Crafts is a family-run Suginami studio that has practised and taught kintsugi for over 40 years, offering English-friendly hands-on workshops where visitors mend their own broken pottery, though it uses a quick-drying epoxy method rather than full traditional urushi.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Tsugu Tsugu kintsugi school",
+       "url": "https://kintsugi-kit.com/pages/kintsugi-workshops-in-tokyo",
+       "course": "Traditional urushi kintsugi course series (Ebisu and Asakusa studios)",
+       "blurb": "Tsugu Tsugu is a Tokyo kintsugi school with Ebisu and Asakusa studios that teaches exclusively traditional urushi-lacquer kintsugi, from a discovery workshop through multi-session courses that build the full range of food-safe repair techniques.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "kintsugi-japanese-gold-repair",
@@ -13018,7 +15342,37 @@ window.ET_ATLAS = {
      "why": "A UNESCO City of Gastronomy and home to China's first culinary college, where you tour the chilli and Pixian doubanjiang markets then learn mapo tofu and twice-cooked pork over a real wok flame.",
      "bestSeason": "Sep-Nov",
      "level": "Beginner -> Professional",
-     "id": "sichuan-and-chinese-cuisine--chengdu"
+     "id": "sichuan-and-chinese-cuisine--chengdu",
+     "schoolsInfo": [
+      {
+       "name": "Sichuan Higher Institute of Cuisine",
+       "url": "http://www.admissions.cn/shic/en1.html",
+       "course": "Two-Week Intensive Sichuan Cuisine Course (English-language program for international students)",
+       "blurb": "An English-language intensive in Sichuan cooking run for home and professional cooks from overseas, with chef instructors and interpreters at China's first dedicated culinary college.",
+       "confidence": "medium"
+      },
+      {
+       "name": "New Asia Cooking School (Chengdu)",
+       "url": "",
+       "course": "Intensive Sichuan cuisine boot camp of around 25 days covering roughly 75 dishes, daily full-day sessions",
+       "blurb": "A Chengdu vocational cooking school offering an intensive multi-week Sichuan cuisine boot camp covering dozens of dishes, oriented toward students with kitchen experience.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Sichuan Cuisine Museum (cooking studio)",
+       "url": "https://www.chinadiscovery.com/sichuan/chengdu/sichuan-cuisine-museum.html",
+       "course": "Hands-on cooking class in the museum's demonstration hall, preparing classic Sichuan dishes under a Chuancai chef after a snack-tasting and museum tour",
+       "blurb": "A museum of Sichuan culinary culture in Pidu District, Chengdu with an interactive cooking studio where visitors prepare classic Sichuan dishes under a specialist chef.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Chilli Cool China Cooking School",
+       "url": "https://www.chillicoolchina.com/",
+       "course": "Sichuan cooking class with a local market walk and preparation of several wok-cooked Sichuan dishes, plus longer culinary travel itineraries",
+       "blurb": "A traveler-focused cooking school in Chengdu (and Xi'an) pairing local market tours with hands-on classes cooking several Sichuan dishes, alongside longer culinary trips.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Hong Kong",
@@ -13085,7 +15439,23 @@ window.ET_ATLAS = {
      "why": "The old Silk Road capital is the place to learn biang-biang hand-pulled noodles, roujiamo and the wheat-and-cumin northwestern table beside the Muslim Quarter.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Intermediate",
-     "id": "sichuan-and-chinese-cuisine--xian"
+     "id": "sichuan-and-chinese-cuisine--xian",
+     "schoolsInfo": [
+      {
+       "name": "New East Cooking School (Xi'an)",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      },
+      {
+       "name": "Local hand-pulled noodle and roujiamo workshops",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     }
    ],
    "id": "sichuan-and-chinese-cuisine",
@@ -13143,7 +15513,37 @@ window.ET_ATLAS = {
      "why": "The capital holds royal court cuisine, the jang markets and Korea's only Le Cordon Bleu campus, plus academies devoted to traditional hansik and kimchi.",
      "bestSeason": "Sep-Nov",
      "level": "Beginner -> Professional",
-     "id": "korean-cuisine-hansik--seoul"
+     "id": "korean-cuisine-hansik--seoul",
+     "schoolsInfo": [
+      {
+       "name": "Le Cordon Bleu–Sookmyung Academy",
+       "url": "https://www.cordonbleu.edu/seoul/diplome-de-cuisine/en",
+       "course": "Diplôme de Cuisine",
+       "blurb": "A nine-month, 540-hour professional cuisine diploma across three tiers — Basic, Intermediate and Superior Cuisine — at Le Cordon Bleu's only Korean campus, on the Sookmyung Women's University grounds ",
+       "confidence": "high"
+      },
+      {
+       "name": "Food & Culture Academy Korea",
+       "url": "https://www.tripadvisor.com/Attraction_Review-g294197-d3612021-Reviews-Food_Culture_Academy-Seoul.html",
+       "course": "Korean cuisine cooking classes with related market visits, based in Jongno-gu, Seoul",
+       "blurb": "A Seoul culinary academy in Jongno-gu focused on Korean cuisine, offering practical cooking classes paired with visits to related food markets.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Institute of Traditional Korean Food",
+       "url": "https://en.wikipedia.org/wiki/Yoon_Sook-ja",
+       "course": "Traditional Korean food and rice-cake (tteok) classes taught in its studio kitchens, led by researcher Yoon Sook-ja",
+       "blurb": "A Seoul research institute near Changdeok Palace, headed by Korean-food expert Yoon Sook-ja, that teaches traditional hansik and rice-cake making in its classrooms and studio kitchen.",
+       "confidence": "medium"
+      },
+      {
+       "name": "O'ngo Food Communications",
+       "url": "https://ongofood.com/",
+       "course": "Hands-on Korean cooking classes (kimchi, Korean barbecue, temple cuisine) and food tours in Jongno, taught in English by Korean chefs",
+       "blurb": "A Seoul culinary-education company running hands-on Korean cooking classes and food tours since 2008, teaching dishes like kimchi and temple cuisine in English.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Jeonju",
@@ -13202,7 +15602,23 @@ window.ET_ATLAS = {
      "why": "Temple-stay kitchens teach Korean Buddhist cuisine — no garlic, onion or animal stock, all built on mountain vegetables and decades-aged jang — a meditative root of hansik.",
      "bestSeason": "Apr-Jun",
      "level": "Beginner -> Intermediate",
-     "id": "korean-cuisine-hansik--mount-jiri-temple-kitchens"
+     "id": "korean-cuisine-hansik--mount-jiri-temple-kitchens",
+     "schoolsInfo": [
+      {
+       "name": "Korean Buddhist temple-food programs (templestay)",
+       "url": "https://www.templestay.com/",
+       "course": "Templestay temple-food programs (e.g. Baekyangsa with nun Jeong Kwan)",
+       "blurb": "Korea's official Templestay network runs residential temple-food programs at around 130 temples, some letting participants cook alongside resident nuns such as Baekyangsa's Jeong Kwan, learning meat-free, allium-free Buddhist hansik cuisine.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Sanchon-style temple cuisine workshops",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     }
    ],
    "id": "korean-cuisine-hansik",
@@ -13262,7 +15678,44 @@ window.ET_ATLAS = {
      "why": "The densest cluster of cooking schools in Vietnam, where classes start in the central market or the Tra Que herb village and run through pho, banh xeo, fresh rolls and clay-pot fish.",
      "bestSeason": "Feb-Apr",
      "level": "Beginner -> Professional",
-     "id": "vietnamese-cuisine--hoi-an"
+     "id": "vietnamese-cuisine--hoi-an",
+     "schoolsInfo": [
+      {
+       "name": "Vy's Market Restaurant & Cooking School (Taste Vietnam)",
+       "url": "https://tastevietnam.asia/vietnamese-cooking-classes-hoi-an",
+       "course": "Advanced Masterclass",
+       "blurb": "A hands-on masterclass pitched at keen home cooks and professional chefs with solid knife skills, running roughly 08:30–13:30.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Vy's Market Restaurant & Cooking School (Ms Vy / Taste Vietnam)",
+       "url": "https://tastevietnam.asia/vietnamese-cooking-classes-hoi-an",
+       "course": "Advanced Masterclass",
+       "blurb": "Ms Vy's market-style restaurant and cooking school on An Hoi Islet runs Vietnamese cooking classes across four skill levels, topping out with the Advanced Masterclass in which small groups prepare a four-course traditional family-style lunch from scratch.",
+       "confidence": "high"
+      },
+      {
+       "name": "Red Bridge Cooking School",
+       "url": "https://redbridge.visithoian.com/",
+       "course": "Deluxe Tour",
+       "blurb": "A riverside Vietnamese cooking school reached by boat on the Thu Bon River, whose Deluxe Tour pairs a village market visit and organic herb-garden walk with a three-hour hands-on class capped at eight participants.",
+       "confidence": "high"
+      },
+      {
+       "name": "Green Bamboo Cooking School",
+       "url": "https://greenbamboo-hoian.com/",
+       "course": "Full-Day Cooking Class",
+       "blurb": "A small home-run Vietnamese cooking school led by chef Van near Cua Dai Beach, offering a full-day class with market visit and transfers where each guest of a 2-12 person group picks their own dish from an extensive menu.",
+       "confidence": "high"
+      },
+      {
+       "name": "Morning Glory Cooking School",
+       "url": "https://tastevietnam.asia/vietnamese-cooking-classes-hoi-an",
+       "course": "Advanced Masterclass",
+       "blurb": "Ms Vy's Hoi An cooking school, run from the dedicated training facility at Vy's Market Restaurant, offers Vietnamese classes at several levels, the most in-depth being the Advanced Masterclass for keen cooks preparing a four-course family-style lunch from raw ingredients.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Ho Chi Minh City (Saigon)",
@@ -13332,7 +15785,30 @@ window.ET_ATLAS = {
      "why": "The northern capital is the home ground of pho and bun cha, with classes rooted in the Old Quarter's subtler, less-sweet northern cooking.",
      "bestSeason": "Oct-Apr",
      "level": "Beginner -> Intermediate",
-     "id": "vietnamese-cuisine--hanoi"
+     "id": "vietnamese-cuisine--hanoi",
+     "schoolsInfo": [
+      {
+       "name": "Hanoi Cooking Centre",
+       "url": "https://www.hanoicookingcentre.com/",
+       "course": "Hands-on Vietnamese cooking classes and short courses",
+       "blurb": "The Hanoi Cooking Centre is a purpose-built cooking school, cafe and shop on the edge of the Old Quarter founded by chef Tracey Lister, offering hands-on Vietnamese cooking classes and short courses for small groups.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Apron Up Cooking Class",
+       "url": "https://www.apronupcookingclass.com/",
+       "course": "Market-tour cooking class with cookbook and certificate",
+       "blurb": "Apron Up is an Old Quarter cooking class founded in 2015 whose three-hour session pairs a guided local market tour with hands-on cooking of five Vietnamese dishes, sending students home with a cookbook and certificate.",
+       "confidence": "high"
+      },
+      {
+       "name": "Old Hanoi street-food and pho workshops",
+       "url": "",
+       "course": "",
+       "blurb": "",
+       "confidence": "low"
+      }
+     ]
     }
    ],
    "id": "vietnamese-cuisine",
@@ -13392,7 +15868,44 @@ window.ET_ATLAS = {
      "why": "Argentina is the home of asado, where gaucho estancias slow-cook whole lamb on the iron cross and Francis Mallmann turned seven kinds of fire into a discipline studied worldwide.",
      "bestSeason": "Nov-Mar",
      "level": "Beginner -> Professional",
-     "id": "asado-and-open-fire-cooking--patagonia-buenos-aires"
+     "id": "asado-and-open-fire-cooking--patagonia-buenos-aires",
+     "schoolsInfo": [
+      {
+       "name": "Francis Mallmann — Wild Cooking in Argentina",
+       "url": "https://www.plansouthamerica.com/francis-mallmann-island-argentina/",
+       "course": "Wild Cooking in Argentina with Francis Mallmann",
+       "blurb": "A six-night residential cooking experience on Francis Mallmann's private island, La Isla, on Lago La Plata in Patagonia, for a small group of about eight to ten guests.",
+       "confidence": "high"
+      },
+      {
+       "name": "Francis Mallmann (La Isla, Lago La Plata)",
+       "url": "https://www.plansouthamerica.com/francis-mallmann-island-argentina/",
+       "course": "Wild Cooking Experience with Francis Mallmann",
+       "blurb": "A six-night residential trip to Francis Mallmann's private Patagonian island on Lago La Plata, booked through operator Plan South America, with five hands-on open-fire cooking classes taught by Mallmann.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Estancia Nibepo Aike (El Calafate)",
+       "url": "https://nibepoaike.com.ar/en/inicio-english/",
+       "course": "Estancia day visit / lodge stay with traditional Patagonian lamb asado",
+       "blurb": "A working century-old sheep ranch beside Lago Roca in Los Glaciares National Park near El Calafate, offering day visits and a 10-room lodge stay built around a traditional Patagonian lamb asado.",
+       "confidence": "medium"
+      },
+      {
+       "name": "The Asado Experience (Buenos Aires)",
+       "url": "https://www.theasadoexperience.com/",
+       "course": "The Asado Experience",
+       "blurb": "A women-run, three-hour hands-on asado experience held in a century-old private home in the Belgrano R neighborhood of Buenos Aires, where guests take part in the fire and preparation of Argentine beef.",
+       "confidence": "high"
+      },
+      {
+       "name": "AsadoAdventure (Buenos Aires)",
+       "url": "https://www.asadoadventure.com/asadoadventure",
+       "course": "The Original AsadoAdventure Tour",
+       "blurb": "A five-hour small-group asado tour in Buenos Aires that includes a Palermo butcher walk and hands-on open-fire grilling and chimichurri-making in a private 1890s home.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Montevideo",
@@ -13451,7 +15964,16 @@ window.ET_ATLAS = {
      "why": "Panzano's celebrated butcher Dario Cecchini grills bistecca alla fiorentina over oak coals, the European counterpoint to the Argentine open-fire tradition.",
      "bestSeason": "Apr-Oct",
      "level": "Beginner -> Intermediate",
-     "id": "asado-and-open-fire-cooking--tuscany"
+     "id": "asado-and-open-fire-cooking--tuscany",
+     "schoolsInfo": [
+      {
+       "name": "Dario Cecchini / Antica Macelleria Cecchini (Panzano)",
+       "url": "https://www.dariocecchini.com/?lang=en",
+       "course": "Butchery lesson and whole-animal dining at the Officina della Bistecca",
+       "blurb": "Antica Macelleria Cecchini in Panzano in Chianti is the shop and restaurant group of eighth-generation butcher Dario Cecchini, who offers whole-animal butchery lessons and feasts built on a use-everything philosophy of fire and meat.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "asado-and-open-fire-cooking",
@@ -13506,7 +16028,30 @@ window.ET_ATLAS = {
      "why": "Speyside packs roughly half of Scotland's malt distilleries — Macallan, Glenfiddich, Glenlivet and more — into a few river glens, making it the densest single-malt heartland on earth.",
      "bestSeason": "Apr-Sep",
      "level": "Beginner -> Professional",
-     "id": "whisky-and-distilling--speyside"
+     "id": "whisky-and-distilling--speyside",
+     "schoolsInfo": [
+      {
+       "name": "Spirit of Speyside Whisky School",
+       "url": "https://www.spiritofspeyside.com/whisky-school/about",
+       "course": "Spirit of Speyside Whisky Festival's Whisky School",
+       "blurb": "A residential whisky school set in Speyside, extended to three and a half days, that takes a small cohort through the technical production of single malt — malting, mashing, brewing, distilling and ma",
+       "confidence": "medium"
+      },
+      {
+       "name": "Edinburgh Whisky Academy (SQA-approved)",
+       "url": "https://www.edinburghwhiskyacademy.com/",
+       "course": "In-person Diploma in Single Malt Whisky",
+       "blurb": "Edinburgh Whisky Academy is an SQA-approved centre whose in-person Diploma in Single Malt Whisky combines two online modules with two in-person days of classroom learning, guided tastings, a distillery visit, and a blind sensory assessment.",
+       "confidence": "high"
+      },
+      {
+       "name": "The Dram Queen (Speyside)",
+       "url": "https://dramqueen.co.uk/",
+       "course": "Bespoke multi-day Speyside whisky tour",
+       "blurb": "Run by Ann Miller, a Speyside-based Master of the Quaich with over 30 years in the Scotch industry, The Dram Queen builds bespoke half-day to multi-day Speyside whisky tours with distillery visits and tutored tastings in a Dram Room between Macallan and Cardhu.",
+       "confidence": "medium"
+      }
+     ]
     },
     {
      "place": "Islay",
@@ -13566,7 +16111,30 @@ window.ET_ATLAS = {
      "why": "Edinburgh holds the academic backbone of the craft — Heriot-Watt's International Centre for Brewing & Distilling trains the industry's professional distillers and blenders.",
      "bestSeason": "Year-round",
      "level": "Beginner -> Professional",
-     "id": "whisky-and-distilling--edinburgh"
+     "id": "whisky-and-distilling--edinburgh",
+     "schoolsInfo": [
+      {
+       "name": "Edinburgh Whisky Academy",
+       "url": "https://www.edinburghwhiskyacademy.com/",
+       "course": "SQA-certified Diploma in Single Malt Whisky",
+       "blurb": "The Edinburgh Whisky Academy is the only Qualifications-Scotland-approved whisky and gin education centre, whose flagship SQA-certified Diploma in Single Malt Whisky runs across seven modules, taught in person at Arniston House or online.",
+       "confidence": "high"
+      },
+      {
+       "name": "The Scotch Whisky Training School (Scotch Whisky Experience)",
+       "url": "https://www.scotchwhiskyexperience.co.uk/whisky-training-school/",
+       "course": "One-day Certificate of Expertise course",
+       "blurb": "The Scotch Whisky Training School at the Scotch Whisky Experience near Edinburgh Castle runs an immersive one-day, hands-on course leading to the industry-recognised Certificate of Expertise.",
+       "confidence": "high"
+      },
+      {
+       "name": "Heriot-Watt University (ICBD — brewing & distilling)",
+       "url": "https://icbd.site.hw.ac.uk/",
+       "course": "MSc Brewing and Distilling",
+       "blurb": "Heriot-Watt University's International Centre for Brewing and Distilling in Edinburgh, with teaching dating to 1903, delivers a 12-month MSc in Brewing and Distilling spanning malting, brewing and distilling science for the professional industry pathway.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "whisky-and-distilling",
@@ -13622,7 +16190,37 @@ window.ET_ATLAS = {
      "why": "The Madison, Missouri, Big Hole and Beaverhead are the blue-ribbon trout rivers that defined American dry-fly fishing, ringed by guide-run academies that put you on the water for days.",
      "bestSeason": "Jun-Sep",
      "level": "Beginner -> Advanced",
-     "id": "fly-fishing--bozeman-and-the-madison-valley"
+     "id": "fly-fishing--bozeman-and-the-madison-valley",
+     "schoolsInfo": [
+      {
+       "name": "Healing Waters Lodge Fly Fishing Academy",
+       "url": "https://www.hwlodge.com/fishing-schools",
+       "course": "HWL Fly Fishing Academy",
+       "blurb": "A multi-day residential fly-fishing school run from Healing Waters Lodge near the Beaverhead, Big Hole and Ruby rivers in southwest Montana.",
+       "confidence": "high"
+      },
+      {
+       "name": "Montana Fishing School (Master the Missouri)",
+       "url": "https://www.montanafishingschool.com/masterthemissouri",
+       "course": "Master the Missouri",
+       "blurb": "A 5-night, 4-day residential fly fishing course on the Missouri River near Helena, Montana, with a 10-student limit, 2:1 angler-to-instructor ratio, drift-boat instruction in dry fly, nymph, and streamer techniques, and hosted lodging and meals.",
+       "confidence": "high"
+      },
+      {
+       "name": "Montana Women's Fly Fishing School",
+       "url": "https://www.montanawomensflyfishingschool.com/",
+       "course": "Three-Day Fly Fishing School",
+       "blurb": "A three-day women's fly fishing school in Big Sky and Bozeman, Montana, combining classroom instruction with on-the-water days on the Gallatin, Madison, and Yellowstone Rivers at a 2-to-1 student-to-instructor ratio.",
+       "confidence": "high"
+      },
+      {
+       "name": "Glacier Anglers & Outfitters",
+       "url": "https://www.glacierparkcollection.com/activities/glacier-anglers-outfitters/multi-day-trips/",
+       "course": "Great Bear Wilderness 5-Day Trip",
+       "blurb": "A 5-day guided fly fishing expedition for native westslope cutthroat trout on the Middle Fork of the Flathead River in Montana's Great Bear Wilderness, with riverside camping and overnight backcountry stays.",
+       "confidence": "high"
+      }
+     ]
     },
     {
      "place": "Bariloche & Junín de los Andes (Patagonia)",
@@ -13863,7 +16461,23 @@ window.ET_ATLAS = {
      "why": "Chiba's budo university and the Nippon Budokan training center host the multi-day International Seminar of Budo Culture, the closest thing to a residential budo intensive for qualifying foreign practitioners.",
      "bestSeason": "Mar",
      "level": "Intermediate -> Advanced",
-     "id": "kyudo-japanese-archery--katsuura-international-budo-university"
+     "id": "kyudo-japanese-archery--katsuura-international-budo-university",
+     "schoolsInfo": [
+      {
+       "name": "International Budo University",
+       "url": "https://www.budo-u.ac.jp/english/",
+       "course": "One-year Budo Specialization Program",
+       "blurb": "International Budo University in Katsuura, Chiba is a Japanese martial-arts university whose one-year residential Budo Specialization Program trains foreign practitioners in budo (judo or kendo focus) alongside Japanese culture and language, with kyudo among its martial-arts offerings.",
+       "confidence": "medium"
+      },
+      {
+       "name": "Nippon Budokan Training Center",
+       "url": "https://www.nipponbudokan.or.jp/english/semi_english",
+       "course": "International Seminar of Budo Culture",
+       "blurb": "The Nippon Budokan's Training Center in Katsuura hosts the annual residential International Seminar of Budo Culture, drawing practitioners from dozens of countries for lectures and hands-on training across budo disciplines including kyudo.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "kyudo-japanese-archery",
@@ -14017,7 +16631,23 @@ window.ET_ATLAS = {
      "why": "Subarctic Canada offers multi-day mushing trips across frozen Great Slave Lake and the boreal forest, often paired with aurora viewing from the trail.",
      "bestSeason": "Dec-Mar",
      "level": "Beginner -> Intermediate",
-     "id": "dog-sledding-and-mushing--yellowknife-northwest-territories"
+     "id": "dog-sledding-and-mushing--yellowknife-northwest-territories",
+     "schoolsInfo": [
+      {
+       "name": "Beck's Kennels",
+       "url": "http://www.beckskennels.com/",
+       "course": "Drive-your-own-team dog sled tours",
+       "blurb": "Beck's Kennels, operating in Yellowknife since 1989 with over 150 huskies, offers dog sled tours including the option to drive your own team, alongside aurora viewing.",
+       "confidence": "high"
+      },
+      {
+       "name": "Enodah Wilderness Travel",
+       "url": "https://enodah.com/",
+       "course": "Enodah Kennel drive-your-own-sled dogsled tour",
+       "blurb": "Enodah Wilderness Travel runs a small secluded kennel near Yellowknife where guests can drive their own sled or ride guided, warming up afterward at its Aurora Station with the trained loose-running pack.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "dog-sledding-and-mushing",
@@ -14171,7 +16801,23 @@ window.ET_ATLAS = {
      "why": "The classical marble tradition that defined sculpture survives through the island of Tinos and Greece's fine-arts schools, where Pentelic and island marble are still carved by hand.",
      "bestSeason": "Year-round",
      "level": "Intermediate -> Professional",
-     "id": "marble-sculpture-and-stone-carving--athens"
+     "id": "marble-sculpture-and-stone-carving--athens",
+     "schoolsInfo": [
+      {
+       "name": "Athens School of Fine Arts (ASFA)",
+       "url": "https://www.asfa.gr/en/",
+       "course": "Five-year integrated master's with Sculpture Division marble studios",
+       "blurb": "The Athens School of Fine Arts, founded in 1836, runs a five-year integrated master's in visual arts whose Sculpture Division provides studio-based training that includes marble carving.",
+       "confidence": "high"
+      },
+      {
+       "name": "Tinos Preparatory and Vocational School of Fine Arts",
+       "url": "https://tinosartschool.gr/en/",
+       "course": "Three-year marble craftsmanship and sculpture program",
+       "blurb": "The Fine Arts school at Pyrgos on Tinos, established in 1955 on an island whose marble craftsmanship is UNESCO-listed, runs a three-year program teaching marble craftsmanship, sculpture, drawing and architectural drafting to train young marble sculptors.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "marble-sculpture-and-stone-carving",
@@ -14345,7 +16991,23 @@ window.ET_ATLAS = {
      "why": "The American Academy of Bookbinding and Boston's North Bennet Street School run intensive, multi-week programs in fine leather binding and conservation that draw binders from across North America.",
      "bestSeason": "Year-round",
      "level": "Intermediate -> Professional",
-     "id": "bookbinding-and-letterpress--ascona"
+     "id": "bookbinding-and-letterpress--ascona",
+     "schoolsInfo": [
+      {
+       "name": "American Academy of Bookbinding (Telluride/Ann Arbor)",
+       "url": "https://bookbindingacademy.org/",
+       "course": "Intensive fine-leather binding and conservation courses",
+       "blurb": "The American Academy of Bookbinding, founded in Telluride in 1993 with a satellite campus in Ann Arbor, runs week-long intensive courses progressing from introductory case binding through fine leather binding, conservation and diploma-track study.",
+       "confidence": "high"
+      },
+      {
+       "name": "North Bennet Street School (Boston)",
+       "url": "https://nbss.edu/full-time-programs/bookbinding/",
+       "course": "Two-year full-time Bookbinding program",
+       "blurb": "North Bennet Street School in Boston's North End offers North America's only two-year full-time Bookbinding program (six students a year), teaching historical and modern binding structures, leather binding, finishing and conservation.",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "bookbinding-and-letterpress",
