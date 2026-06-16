@@ -1,0 +1,608 @@
+/* EducatedTraveler Studio — content operations cockpit.
+ * Zero-dep vanilla JS. State lives in localStorage (offline-first; works at sea).
+ * Data sources: studio-calendar.js (window.ET_DAILY_DROP), studio-plan.js
+ * (window.ET_PLAN), studio-articles.js (window.ET_ARTICLES_SEED).
+ * Voice lock for anything published: connect/introduce, never sell/book/enroll.
+ * Banned words in public copy: transformation, life-changing, vacation, luxury, easy. */
+(function () {
+  "use strict";
+
+  // ---------- tiny helpers ----------
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const el = (t, a = {}, kids = []) => {
+    const n = document.createElement(t);
+    for (const k in a) {
+      if (k === "class") n.className = a[k];
+      else if (k === "html") n.innerHTML = a[k];
+      else if (k === "text") n.textContent = a[k];
+      else if (k.startsWith("on") && typeof a[k] === "function") n.addEventListener(k.slice(2), a[k]);
+      else if (a[k] != null) n.setAttribute(k, a[k]);
+    }
+    (Array.isArray(kids) ? kids : [kids]).forEach((c) => c != null && n.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
+    return n;
+  };
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const uid = () => "x" + Math.random().toString(36).slice(2, 9);
+  const todayISO = () => new Date().toISOString().slice(0, 10);
+
+  function toast(msg) {
+    const t = $("#toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("show"), 2200);
+  }
+  async function copy(text) {
+    try { await navigator.clipboard.writeText(text); toast("Copied to clipboard"); }
+    catch (e) {
+      const ta = el("textarea", {}); ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); toast("Copied"); } catch (_) { toast("Copy failed — select manually"); }
+      ta.remove();
+    }
+  }
+  async function shareOrCopy(text, title) {
+    if (navigator.share) { try { await navigator.share({ title: title || "EducatedTraveler", text }); return; } catch (e) { /* cancelled */ } }
+    copy(text);
+  }
+
+  // ---------- state ----------
+  const KEY = "et_studio_v1";
+  const DROP = (window.ET_DAILY_DROP || []).slice();
+  const PLAN = window.ET_PLAN || fallbackPlan();
+  const ARTICLE_SEED = (window.ET_ARTICLES_SEED || []).slice();
+
+  const DEFAULT_STATE = { plan: {}, drops: {}, outreach: [], articles: null, metrics: [], settings: { gate: "source" }, _v: 1 };
+  let S = load();
+
+  function load() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(KEY) || "{}");
+      return Object.assign({}, DEFAULT_STATE, raw, {
+        plan: raw.plan || {}, drops: raw.drops || {}, outreach: raw.outreach || [],
+        metrics: raw.metrics || [], settings: Object.assign({}, DEFAULT_STATE.settings, raw.settings || {}),
+        articles: raw.articles || null,
+      });
+    } catch (e) { return JSON.parse(JSON.stringify(DEFAULT_STATE)); }
+  }
+  function save() { localStorage.setItem(KEY, JSON.stringify(S)); }
+
+  // articles = seed overlaid by user edits/additions (seed gives ids)
+  function articles() {
+    if (!S.articles) S.articles = JSON.parse(JSON.stringify(ARTICLE_SEED));
+    return S.articles;
+  }
+
+  // ---------- gate ----------
+  function initGate() {
+    const gate = $("#gate"), input = $("#gate-input"), err = $("#gate-err");
+    const PASS = "source"; // soft gate only
+    const ok = () => { gate.classList.add("hidden"); $("#app").style.display = "block"; boot(); };
+    if (localStorage.getItem("et_studio_gate") === "ok") return ok();
+    const tryPass = () => {
+      if ((input.value || "").trim().toLowerCase() === PASS) { localStorage.setItem("et_studio_gate", "ok"); ok(); }
+      else { err.textContent = "Not it. (hint: where the craft is alive)"; input.value = ""; }
+    };
+    $("#gate-btn").addEventListener("click", tryPass);
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") tryPass(); });
+    input.focus();
+  }
+
+  // ---------- boot ----------
+  let activeTab = "plan";
+  function boot() {
+    $("#today-line").textContent = todayISO();
+    setFocusLine();
+    $$(".tab").forEach((b) => b.addEventListener("click", () => { setTab(b.dataset.tab); }));
+    $("#btn-export").addEventListener("click", doExport);
+    $("#btn-import").addEventListener("click", () => $("#file-import").click());
+    $("#file-import").addEventListener("change", doImport);
+    render();
+  }
+  function setTab(t) {
+    activeTab = t;
+    $$(".tab").forEach((b) => b.classList.toggle("active", b.dataset.tab === t));
+    render();
+    window.scrollTo({ top: 0 });
+  }
+  function setFocusLine() {
+    // surface the first unchecked "this week" item as the standing focus
+    const wk = (PLAN.horizons || []).find((h) => h.id === "week");
+    if (!wk) return;
+    const items = wk.groups.flatMap((g) => g.items);
+    const next = items.find((it) => !S.plan[it.id]);
+    $("#focus-line").innerHTML = next
+      ? 'Focus now → <span style="color:var(--paper)">' + esc(next.t) + "</span>"
+      : '<span style="color:#94ad86">This week is clear — keep the daily drop running.</span>';
+  }
+
+  function render() {
+    const v = $("#view"); v.innerHTML = "";
+    ({ plan: renderPlan, drop: renderDrop, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderPlan)(v);
+  }
+
+  // ================= PLAN =================
+  function renderPlan(v) {
+    v.appendChild(sectionHead("The Plan", "How to grow EducatedTraveler — week, weeks, months. One north star: grow the audience, not the machinery."));
+
+    // North star + the one metric
+    const ns = el("div", { class: "panel", style: "padding:20px; margin-bottom:22px;" });
+    ns.innerHTML =
+      '<div class="eyebrow" style="margin-bottom:8px;">North star</div>' +
+      '<p class="font-serif" style="font-size:20px; margin:0 0 14px; line-height:1.4;">' + esc(PLAN.northStar || "") + "</p>" +
+      '<div style="display:flex; gap:20px; flex-wrap:wrap;">' +
+      '<div><div class="eyebrow" style="margin-bottom:4px;">The one metric (90 days)</div><div style="color:var(--paper); font-size:14px;">' + esc(PLAN.oneMetric || "") + "</div></div>" +
+      "</div>";
+    v.appendChild(ns);
+
+    // Do-not-build
+    if (PLAN.stop && PLAN.stop.length) {
+      const stop = el("div", { class: "panel", style: "padding:18px; margin-bottom:24px; border-color: rgba(207,143,110,.3);" });
+      stop.appendChild(el("div", { class: "eyebrow", style: "color:#cf8f6e; margin-bottom:10px;", text: "Stop / do not build" }));
+      const ul = el("ul", { style: "margin:0; padding-left:18px; color:var(--muted); font-size:13.5px; line-height:1.8;" });
+      PLAN.stop.forEach((s) => ul.appendChild(el("li", { text: s })));
+      stop.appendChild(ul);
+      v.appendChild(stop);
+    }
+
+    // progress
+    const allItems = (PLAN.horizons || []).flatMap((h) => h.groups.flatMap((g) => g.items));
+    const done = allItems.filter((it) => S.plan[it.id]).length;
+    v.appendChild(el("div", { class: "font-mono", style: "font-size:12px; color:var(--faint); margin-bottom:18px;", text: done + " / " + allItems.length + " done across all horizons" }));
+
+    (PLAN.horizons || []).forEach((h) => {
+      const wrap = el("div", { style: "margin-bottom:30px;" });
+      wrap.appendChild(el("h3", { class: "font-serif", style: "font-size:22px; margin:0 0 4px;", text: h.title }));
+      if (h.sub) wrap.appendChild(el("p", { style: "color:var(--muted); font-size:13px; margin:0 0 16px;", text: h.sub }));
+      h.groups.forEach((g) => {
+        const card = el("div", { class: "panel", style: "padding:18px 20px; margin-bottom:14px;" });
+        const head = el("div", { style: "display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:6px;" });
+        head.appendChild(el("div", { class: "font-serif", style: "font-size:16px;", text: g.title }));
+        if (g.metric) head.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--sea); text-align:right;", text: "✓ " + g.metric }));
+        card.appendChild(head);
+        if (g.goal) card.appendChild(el("p", { style: "color:var(--muted); font-size:13px; margin:0 0 8px;", text: g.goal }));
+        g.items.forEach((it) => card.appendChild(planItem(it)));
+        wrap.appendChild(card);
+      });
+      v.appendChild(wrap);
+    });
+
+    // weekly cadence + dashboard refs
+    if (PLAN.cadence && PLAN.cadence.length) {
+      const c = el("div", { class: "panel", style: "padding:18px 20px; margin-bottom:14px;" });
+      c.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:10px;", text: "Weekly operating rhythm" }));
+      const ul = el("ul", { style: "margin:0; padding-left:18px; color:var(--muted); font-size:13.5px; line-height:1.9;" });
+      PLAN.cadence.forEach((x) => ul.appendChild(el("li", { html: x })));
+      c.appendChild(ul); v.appendChild(c);
+    }
+  }
+  function planItem(it) {
+    const done = !!S.plan[it.id];
+    const row = el("div", { class: "chk" + (done ? " done" : "") });
+    const cb = el("input", { type: "checkbox" }); cb.checked = done;
+    cb.addEventListener("change", () => { S.plan[it.id] = cb.checked; if (!cb.checked) delete S.plan[it.id]; save(); row.classList.toggle("done", cb.checked); setFocusLine(); });
+    row.appendChild(cb);
+    const body = el("div", { style: "flex:1;" });
+    body.appendChild(el("div", { class: "chk-text", style: "font-size:14px; line-height:1.5;", text: it.t }));
+    const meta = el("div", { style: "display:flex; gap:6px; margin-top:6px; flex-wrap:wrap; align-items:center;" });
+    if (it.done) meta.appendChild(el("span", { class: "tag", style: "color:var(--faint)", text: "done when: " + it.done }));
+    if (it.effort) meta.appendChild(el("span", { class: "tag " + (it.effort === "Quick" ? "quick" : ""), text: it.effort }));
+    if (it.impact) meta.appendChild(el("span", { class: "tag " + (it.impact === "High" ? "high" : "med"), text: it.impact + " impact" }));
+    if (meta.children.length) body.appendChild(meta);
+    row.appendChild(body);
+    return row;
+  }
+
+  // ================= DAILY DROP =================
+  const DROP_STATUSES = ["idea", "requested", "in", "editing", "ready", "posted"];
+  const DROP_LABELS = { idea: "idea", requested: "footage asked", in: "footage in", editing: "editing", ready: "ready", posted: "posted" };
+  function dropState(day) { return S.drops[day] || (S.drops[day] = { status: "idea" }); }
+
+  function renderDrop(v) {
+    v.appendChild(sectionHead("Daily Drop", "One wordless 30–60s craft clip a day → TikTok + Reels + Shorts, same clip, one account. Footage from the schools (that ask = partner recruitment). Never vary the format before day 90."));
+
+    // progress strip
+    const counts = DROP_STATUSES.reduce((a, s) => ((a[s] = 0), a), {});
+    DROP.forEach((d) => counts[dropState(d.day).status]++);
+    const strip = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px;" });
+    DROP_STATUSES.forEach((s) => strip.appendChild(el("span", { class: "pill " + s, text: DROP_LABELS[s] + " · " + counts[s] })));
+    v.appendChild(strip);
+
+    // view toggle
+    const toggle = el("div", { style: "display:flex; gap:8px; margin-bottom:20px;" });
+    const mkT = (id, label) => el("button", { class: dropView === id ? "btn-primary" : "btn-ghost", style: "padding:7px 14px; border-radius:9px; font-size:12px;", onclick: () => { dropView = id; render(); } }, label);
+    toggle.appendChild(mkT("feed", "Feed")); toggle.appendChild(mkT("board", "Board"));
+    v.appendChild(toggle);
+
+    if (dropView === "board") return renderDropBoard(v);
+
+    // next-up hero = first not-posted
+    const next = DROP.find((d) => dropState(d.day).status !== "posted") || DROP[0];
+    if (next) { v.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:10px;", text: "Next up" })); v.appendChild(dropCard(next, true)); }
+
+    v.appendChild(el("div", { class: "eyebrow", style: "margin:26px 0 10px;", text: "Full 30-day rotation" }));
+    DROP.forEach((d) => { if (!next || d.day !== next.day) v.appendChild(dropCard(d, false)); });
+  }
+
+  function renderDropBoard(v) {
+    const board = el("div", { class: "kanban" });
+    DROP_STATUSES.forEach((s) => {
+      const col = el("div", {});
+      col.appendChild(el("div", { style: "display:flex; justify-content:space-between; margin-bottom:10px;" }, [
+        el("span", { class: "pill " + s, text: DROP_LABELS[s] }),
+      ]));
+      DROP.filter((d) => dropState(d.day).status === s).forEach((d) => {
+        const c = el("div", { class: "panel", style: "padding:11px 12px; margin-bottom:10px; cursor:pointer;", onclick: () => { dropView = "feed"; render(); setTimeout(() => { const t = document.getElementById("drop-" + d.day); if (t) t.scrollIntoView({ behavior: "smooth", block: "center" }); }, 60); } });
+        c.appendChild(el("div", { style: "display:flex; gap:7px; align-items:center; margin-bottom:4px;" }, [
+          el("span", { class: "core-dot core-" + d.core }), el("span", { class: "font-mono", style: "font-size:10px; color:var(--faint);", text: "Day " + d.day }),
+        ]));
+        c.appendChild(el("div", { style: "font-size:13px; line-height:1.35;", text: d.discipline }));
+        c.appendChild(el("div", { style: "font-size:11px; color:var(--muted); margin-top:2px;", text: d.place }));
+        col.appendChild(c);
+      });
+      board.appendChild(col);
+    });
+    v.appendChild(board);
+  }
+
+  function dropCard(d, hero) {
+    const st = dropState(d.day);
+    const card = el("div", { class: "panel", id: "drop-" + d.day, style: "padding:18px 20px; margin-bottom:14px;" });
+    const head = el("div", { style: "display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;" });
+    const left = el("div", {}, [
+      el("div", { style: "display:flex; gap:8px; align-items:center; margin-bottom:5px;" }, [
+        el("span", { class: "core-dot core-" + d.core }),
+        el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint);", text: "Day " + d.day + " · " + d.core }),
+      ]),
+      el("div", { class: "font-serif", style: "font-size:" + (hero ? "21px" : "17px") + ";", text: d.discipline }),
+      el("div", { style: "font-size:13px; color:var(--muted); margin-top:2px;", text: d.place }),
+    ]);
+    head.appendChild(left);
+    // status selector
+    const sel = el("select", { style: "width:auto; min-width:140px; font-size:12px; padding:7px 10px;" });
+    DROP_STATUSES.forEach((s) => sel.appendChild(el("option", { value: s, text: DROP_LABELS[s] })));
+    sel.value = st.status;
+    sel.addEventListener("change", () => { st.status = sel.value; if (sel.value === "posted") st.postedAt = todayISO(); save(); if (dropView === "board" || hero) render(); else { const p = card.querySelector(".drop-pill"); if (p) { p.className = "pill " + sel.value + " drop-pill"; p.textContent = DROP_LABELS[sel.value]; } } setFocusLine(); });
+    head.appendChild(sel);
+    card.appendChild(head);
+
+    // brief
+    card.appendChild(el("p", { style: "font-size:12.5px; color:var(--faint); margin:14px 0 4px; font-style:italic;", text: d.clipBrief }));
+
+    // caption (editable)
+    const capWrap = el("div", { style: "margin-top:12px;" });
+    capWrap.appendChild(el("label", { class: "fld", text: "Caption (TikTok / Reels / Shorts — identical)" }));
+    const ta = el("textarea", { rows: hero ? "9" : "7" }); ta.value = st.caption != null ? st.caption : d.caption;
+    ta.addEventListener("input", () => { st.caption = ta.value; save(); });
+    capWrap.appendChild(ta);
+    card.appendChild(capWrap);
+
+    // footage line
+    if (d.footageSource) {
+      const f = el("div", { style: "font-size:12px; color:var(--muted); margin-top:10px;" });
+      f.innerHTML = 'Footage: <span style="color:var(--paper)">' + esc(d.footageSource) + "</span>" + (d.footageUrl ? ' · <a class="link-quiet" href="' + esc(d.footageUrl) + '" target="_blank" rel="noopener">source ↗</a>' : "");
+      card.appendChild(f);
+    }
+
+    // actions
+    const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:16px;" });
+    const a = (label, cls, fn) => el("button", { class: cls, style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: fn }, label);
+    acts.appendChild(a("Share / post", "btn-primary", () => shareOrCopy(ta.value, d.discipline + " — " + d.place)));
+    acts.appendChild(a("Copy caption", "btn-ghost", () => copy(ta.value)));
+    acts.appendChild(a("Request footage", "btn-ghost", () => openOutreachFor(d)));
+    acts.appendChild(linkBtn("Instagram", "https://www.instagram.com/"));
+    acts.appendChild(linkBtn("TikTok", "https://www.tiktok.com/upload"));
+    acts.appendChild(linkBtn("Shorts", "https://www.youtube.com/upload"));
+    acts.appendChild(linkBtn("Atlas page", d.atlasUrl));
+    card.appendChild(acts);
+    return card;
+  }
+  function linkBtn(label, href) { return el("a", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px; text-decoration:none; display:inline-block;", href: href, target: "_blank", rel: "noopener" }, label + " ↗"); }
+  let dropView = "feed";
+
+  // ================= OUTREACH =================
+  const OUTREACH_TPL = ({ name, school, discipline, place, atlasUrl }) =>
+`Subject: Featuring ${school || "{SCHOOL}"} on the EducatedTraveler Atlas — may we share your footage?
+
+Dear ${name || "{NAME}"},
+
+I'm Arnaud Callier — a French chef who has spent fifteen years working on the water, and the founder of EducatedTraveler. We build the Atlas: a hand-verified map of the places where real crafts are truly alive, ranked by the strength of the community that gathers there. No bookings, no commissions, no prices — we introduce people to the right school and get out of the way.
+
+${school || "{SCHOOL}"} is featured on our ${discipline || "{DISCIPLINE}"} page for ${place || "{PLACE}"}:
+${atlasUrl || "{ATLAS_URL}"}
+
+We publish one short film each day — hands, material, the finished piece — and we would love to feature ${school || "{SCHOOL}"}'s work, fully credited and linked. Could we have your permission to share 1–3 short clips of your teaching or workshop (anything you already have — phone footage is perfect)? We handle the editing.
+
+If it resonates, I'd also welcome a short call: we are selecting a small number of schools to introduce our community to directly, and ${school || "{SCHOOL}"} is exactly the kind of place we built this for.
+
+Warmly,
+Arnaud Callier
+EducatedTraveler — a place, a person, your people.
+https://educatedtraveler.app`;
+
+  let outreachDraft = { name: "", school: "", discipline: "", place: "", atlasUrl: "", contact: "" };
+
+  function openOutreachFor(d) {
+    outreachDraft = { name: "", school: d.footageSource || "", discipline: d.discipline || "", place: d.place || "", atlasUrl: d.atlasUrl || "", contact: "" };
+    setTab("outreach");
+  }
+
+  function renderOutreach(v) {
+    v.appendChild(sectionHead("Outreach", "One email, two jobs: license the daily clip AND open the Phase-2 partner relationship. High-confidence schools first. Always credit. Never promise ranking or traffic."));
+
+    // generator
+    const gen = el("div", { class: "panel", style: "padding:20px; margin-bottom:24px;" });
+    gen.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:14px;", text: "Email generator" }));
+    const grid = el("div", { style: "display:grid; grid-template-columns:1fr 1fr; gap:12px;" });
+    const fields = [
+      ["school", "School"], ["name", "Contact name"], ["discipline", "Discipline"],
+      ["place", "Place"], ["atlasUrl", "Atlas URL"], ["contact", "Email / contact (for tracker)"],
+    ];
+    const inputs = {};
+    fields.forEach(([k, label]) => {
+      const w = el("div", {});
+      w.appendChild(el("label", { class: "fld", text: label }));
+      const inp = el("input", { type: "text", value: outreachDraft[k] || "" });
+      inp.addEventListener("input", () => { outreachDraft[k] = inp.value; });
+      inputs[k] = inp; w.appendChild(inp); grid.appendChild(w);
+    });
+    gen.appendChild(grid);
+
+    // quick-fill from calendar schools
+    const quick = el("div", { style: "margin-top:14px;" });
+    quick.appendChild(el("label", { class: "fld", text: "Quick-fill from the drop calendar" }));
+    const qsel = el("select", {});
+    qsel.appendChild(el("option", { value: "", text: "— pick a school from the rotation —" }));
+    const seen = new Set();
+    DROP.forEach((d) => { const key = (d.footageSource || "") + d.place; if (d.footageSource && !seen.has(key)) { seen.add(key); qsel.appendChild(el("option", { value: d.day, text: d.footageSource + " · " + d.discipline + " · " + d.place })); } });
+    qsel.addEventListener("change", () => {
+      const d = DROP.find((x) => String(x.day) === qsel.value); if (!d) return;
+      outreachDraft = { name: "", school: d.footageSource || "", discipline: d.discipline || "", place: d.place || "", atlasUrl: d.atlasUrl || "", contact: "" };
+      inputs.school.value = outreachDraft.school; inputs.discipline.value = outreachDraft.discipline;
+      inputs.place.value = outreachDraft.place; inputs.atlasUrl.value = outreachDraft.atlasUrl;
+      inputs.name.value = ""; inputs.contact.value = "";
+    });
+    quick.appendChild(qsel); gen.appendChild(quick);
+
+    const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:16px;" });
+    acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 14px; border-radius:9px; font-size:12px;", onclick: () => copy(OUTREACH_TPL(outreachDraft)) }, "Copy email"));
+    acts.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 14px; border-radius:9px; font-size:12px;", onclick: () => {
+      const t = OUTREACH_TPL(outreachDraft); const subj = t.split("\n")[0].replace(/^Subject:\s*/, ""); const body = t.split("\n").slice(2).join("\n");
+      window.location.href = "mailto:" + encodeURIComponent(outreachDraft.contact || "") + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(body);
+    } }, "Open in mail"));
+    acts.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 14px; border-radius:9px; font-size:12px;", onclick: () => {
+      if (!outreachDraft.school) return toast("Add a school first");
+      S.outreach.unshift({ id: uid(), date: todayISO(), school: outreachDraft.school, where: (outreachDraft.discipline || "") + " · " + (outreachDraft.place || ""), contact: outreachDraft.contact || "", status: "contacted", clips: "" });
+      save(); toast("Added to tracker"); render();
+    } }, "Log as sent →"));
+    gen.appendChild(acts);
+
+    // preview
+    const prev = el("details", { style: "margin-top:14px;" });
+    prev.appendChild(el("summary", { class: "link-quiet", style: "font-size:12px;", text: "Preview email" }));
+    prev.appendChild(el("pre", { style: "white-space:pre-wrap; font-size:12px; color:var(--muted); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin-top:8px; line-height:1.6;", text: OUTREACH_TPL(outreachDraft) }));
+    gen.appendChild(prev);
+    v.appendChild(gen);
+
+    // tracker
+    v.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:12px;", text: "Tracker · " + S.outreach.length + " schools" }));
+    if (!S.outreach.length) { v.appendChild(el("p", { style: "color:var(--faint); font-size:13px;", text: "Nothing logged yet. Generate an email above and hit “Log as sent”." })); return; }
+    const OUT_ST = ["contacted", "replied", "confirmed", "none"];
+    const OUT_LBL = { contacted: "contacted", replied: "replied", confirmed: "confirmed", none: "no" };
+    const tbl = el("div", { class: "panel", style: "padding:6px 0;" });
+    S.outreach.forEach((r) => {
+      const row = el("div", { style: "display:grid; grid-template-columns: 92px 1fr 130px 130px 80px 34px; gap:10px; align-items:center; padding:11px 16px; border-bottom:1px solid var(--line); font-size:13px;" });
+      row.appendChild(el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint);", text: r.date }));
+      row.appendChild(el("div", {}, [el("div", { style: "color:var(--paper);", text: r.school }), el("div", { style: "font-size:11px; color:var(--muted);", text: r.where || "" })]));
+      const cst = el("select", { style: "font-size:11px; padding:5px 8px;" });
+      OUT_ST.forEach((s) => cst.appendChild(el("option", { value: s, text: OUT_LBL[s] }))); cst.value = r.status;
+      cst.addEventListener("change", () => { r.status = cst.value; save(); });
+      row.appendChild(cst);
+      const ci = el("input", { type: "text", value: r.clips || "", placeholder: "clips received", style: "font-size:12px; padding:6px 8px;" });
+      ci.addEventListener("input", () => { r.clips = ci.value; save(); });
+      row.appendChild(ci);
+      row.appendChild(el("span", { class: "pill " + r.status, text: OUT_LBL[r.status] }));
+      row.appendChild(el("button", { class: "link-quiet", style: "font-size:16px;", title: "remove", onclick: () => { S.outreach = S.outreach.filter((x) => x.id !== r.id); save(); render(); } }, "×"));
+      tbl.appendChild(row);
+    });
+    v.appendChild(tbl);
+  }
+
+  // ================= ARTICLES =================
+  function renderArticles(v) {
+    v.appendChild(sectionHead("Articles", "The science-backed essays — real research, named experts, ET voice. The pillar that makes people want to step up and do something real. (No banned words; connect, don't sell.)"));
+
+    const arts = articles();
+    const acts = el("div", { style: "display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap;" });
+    acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 14px; border-radius:9px; font-size:12px;", onclick: () => { arts.unshift(blankArticle()); save(); render(); } }, "+ New article"));
+    acts.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 14px; border-radius:9px; font-size:12px;", onclick: () => { if (confirm("Restore the seeded article ideas? Your edits to articles will be lost.")) { S.articles = JSON.parse(JSON.stringify(ARTICLE_SEED)); save(); render(); } } }, "Reset to seed"));
+    v.appendChild(acts);
+
+    arts.forEach((art) => v.appendChild(articleCard(art, arts)));
+  }
+  function blankArticle() { return { id: uid(), title: "Untitled essay", core: "wellness", skill: "", hook: "", science: "", experts: [], promise: "", outline: [], status: "idea", targetWeek: "" }; }
+
+  const ART_ST = ["idea", "researching", "drafting", "published"];
+  function articleCard(art, arts) {
+    const card = el("div", { class: "panel", style: "padding:20px; margin-bottom:16px;" });
+    const head = el("div", { style: "display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap;" });
+    head.appendChild(el("div", { style: "display:flex; gap:8px; align-items:center;" }, [
+      el("span", { class: "core-dot core-" + art.core }),
+      el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint); text-transform:capitalize;", text: art.core }),
+    ]));
+    const right = el("div", { style: "display:flex; gap:8px; align-items:center;" });
+    const sel = el("select", { style: "width:auto; font-size:11px; padding:5px 9px;" });
+    ART_ST.forEach((s) => sel.appendChild(el("option", { value: s, text: s }))); sel.value = art.status;
+    sel.addEventListener("change", () => { art.status = sel.value; save(); render(); });
+    right.appendChild(sel);
+    right.appendChild(el("button", { class: "link-quiet", style: "font-size:18px;", title: "remove", onclick: () => { S.articles = arts.filter((x) => x.id !== art.id); save(); render(); } }, "×"));
+    head.appendChild(right);
+    card.appendChild(head);
+
+    const titleEl = el("h3", { class: "font-serif", contenteditable: "true", style: "font-size:21px; margin:10px 0 4px; outline:none;", text: art.title });
+    titleEl.addEventListener("blur", () => { art.title = titleEl.textContent.trim(); save(); });
+    card.appendChild(titleEl);
+
+    if (art.status) card.appendChild(el("span", { class: "pill " + art.status, text: art.status }));
+
+    const fld = (label, key, ph, area) => {
+      const w = el("div", { style: "margin-top:14px;" });
+      w.appendChild(el("label", { class: "fld", text: label }));
+      const inp = area ? el("textarea", { rows: "3", placeholder: ph }) : el("input", { type: "text", placeholder: ph });
+      inp.value = art[key] || "";
+      inp.addEventListener("input", () => { art[key] = inp.value; save(); });
+      w.appendChild(inp); return w;
+    };
+    const skillW = el("div", { style: "display:grid; grid-template-columns:1fr 160px; gap:12px; margin-top:14px;" });
+    const skin = el("input", { type: "text", value: art.skill || "", placeholder: "skill / discipline" });
+    skin.addEventListener("input", () => { art.skill = skin.value; save(); });
+    const w1 = el("div", {}, [el("label", { class: "fld", text: "Skill" }), skin]);
+    const coreSel = el("select", {});
+    ["wellness", "adventure", "creative", "culinary"].forEach((c) => coreSel.appendChild(el("option", { value: c, text: c })));
+    coreSel.value = art.core; coreSel.addEventListener("change", () => { art.core = coreSel.value; save(); render(); });
+    const w2 = el("div", {}, [el("label", { class: "fld", text: "Core" }), coreSel]);
+    skillW.appendChild(w1); skillW.appendChild(w2);
+    card.appendChild(skillW);
+
+    card.appendChild(fld("Hook (the one-line pull)", "hook", "what makes a reader lean in", true));
+    card.appendChild(fld("The science (real research to write from)", "science", "mechanism + framing", true));
+    card.appendChild(fld("Promise (what the reader should feel / do — ET voice)", "promise", "make them want to step up — no banned words", true));
+
+    // experts (comma list)
+    const ew = el("div", { style: "margin-top:14px;" });
+    ew.appendChild(el("label", { class: "fld", text: "Experts / sources (comma-separated)" }));
+    const ein = el("input", { type: "text", value: (art.experts || []).join(", "), placeholder: "named researchers, books, fields" });
+    ein.addEventListener("input", () => { art.experts = ein.value.split(",").map((s) => s.trim()).filter(Boolean); save(); });
+    ew.appendChild(ein); card.appendChild(ew);
+
+    // outline (one per line)
+    const ow = el("div", { style: "margin-top:14px;" });
+    ow.appendChild(el("label", { class: "fld", text: "Outline (one beat per line)" }));
+    const oin = el("textarea", { rows: "4", placeholder: "structure the read" }); oin.value = (art.outline || []).join("\n");
+    oin.addEventListener("input", () => { art.outline = oin.value.split("\n").map((s) => s.trim()).filter(Boolean); save(); });
+    ow.appendChild(oin); card.appendChild(ow);
+
+    const tw = el("div", { style: "display:grid; grid-template-columns:1fr; gap:12px; margin-top:14px;" });
+    const tin = el("input", { type: "text", value: art.targetWeek || "", placeholder: "target window (e.g. Month 2)" });
+    tin.addEventListener("input", () => { art.targetWeek = tin.value; save(); });
+    tw.appendChild(el("div", {}, [el("label", { class: "fld", text: "Target window" }), tin]));
+    card.appendChild(tw);
+
+    // research handoff
+    const foot = el("div", { style: "margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;" });
+    foot.appendChild(el("button", { class: "btn-ghost", style: "padding:7px 12px; border-radius:9px; font-size:12px;", onclick: () => copy(articleBrief(art)) }, "Copy research brief"));
+    card.appendChild(foot);
+    return card;
+  }
+  function articleBrief(a) {
+    return [
+      "ARTICLE BRIEF — EducatedTraveler (voice: connect/introduce, NO banned words: transformation, life-changing, vacation, luxury, easy)",
+      "Title: " + a.title, "Core: " + a.core + " · Skill: " + (a.skill || ""),
+      "Hook: " + (a.hook || ""), "Science to write from: " + (a.science || ""),
+      "Experts/sources: " + (a.experts || []).join("; "),
+      "Reader promise: " + (a.promise || ""),
+      "Outline:", ...(a.outline || []).map((o, i) => "  " + (i + 1) + ". " + o),
+      "Verify all claims against primary sources before publishing. End every essay pointing to one Atlas page + the Circle.",
+    ].join("\n");
+  }
+
+  // ================= METRICS =================
+  const METRIC_FIELDS = [
+    ["followers", "Followers (all platforms)"], ["posts", "Clips posted (cumulative)"],
+    ["saves", "Best-clip saves"], ["atlasVisits", "Atlas page visits / wk"],
+    ["circle", "Circle sign-ups (total)"], ["schools", "Schools confirmed footage"],
+  ];
+  function renderMetrics(v) {
+    v.appendChild(sectionHead("Metrics", "Watch the audience, not the vanity. Saves > profile taps > atlas clicks > Circle sign-ups. Followers are last. Log a snapshot weekly."));
+
+    // entry
+    const card = el("div", { class: "panel", style: "padding:20px; margin-bottom:24px;" });
+    card.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:14px;", text: "Log this week" }));
+    const grid = el("div", { style: "display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;" });
+    const draft = { date: todayISO() };
+    METRIC_FIELDS.forEach(([k, label]) => {
+      const w = el("div", {});
+      w.appendChild(el("label", { class: "fld", text: label }));
+      const inp = el("input", { type: "number", placeholder: "0" });
+      inp.addEventListener("input", () => { draft[k] = inp.value === "" ? null : Number(inp.value); });
+      w.appendChild(inp); grid.appendChild(w);
+    });
+    card.appendChild(grid);
+    card.appendChild(el("button", { class: "btn-primary", style: "padding:9px 16px; border-radius:9px; font-size:12px; margin-top:16px;", onclick: () => { S.metrics.unshift(Object.assign({ id: uid() }, draft)); save(); toast("Snapshot saved"); render(); } }, "Save snapshot"));
+    v.appendChild(card);
+
+    // latest vs previous
+    if (S.metrics.length) {
+      const cur = S.metrics[0], prev = S.metrics[1];
+      const cards = el("div", { style: "display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-bottom:24px;" });
+      METRIC_FIELDS.forEach(([k, label]) => {
+        const val = cur[k]; if (val == null) return;
+        const d = prev && prev[k] != null ? val - prev[k] : null;
+        const c = el("div", { class: "panel", style: "padding:16px;" });
+        c.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin-bottom:8px;", text: label }));
+        c.appendChild(el("div", { class: "metric-num", text: String(val) }));
+        if (d != null) c.appendChild(el("div", { style: "font-size:12px; margin-top:5px; color:" + (d >= 0 ? "#94ad86" : "#cf8f6e") + ";", text: (d >= 0 ? "▲ +" : "▼ ") + d + " vs last" }));
+        cards.appendChild(c);
+      });
+      v.appendChild(cards);
+
+      // history
+      v.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:10px;", text: "History" }));
+      const tbl = el("div", { class: "panel", style: "padding:6px 0; overflow-x:auto;" });
+      const headRow = el("div", { style: "display:grid; grid-template-columns: 100px repeat(" + METRIC_FIELDS.length + ", 1fr) 34px; gap:8px; padding:10px 16px; border-bottom:1px solid var(--line);" });
+      headRow.appendChild(el("span", { class: "font-mono", style: "font-size:10px; color:var(--faint);", text: "date" }));
+      METRIC_FIELDS.forEach(([, label]) => headRow.appendChild(el("span", { class: "font-mono", style: "font-size:10px; color:var(--faint);", text: label.split(" ")[0] })));
+      headRow.appendChild(el("span", {}));
+      tbl.appendChild(headRow);
+      S.metrics.forEach((m) => {
+        const row = el("div", { style: "display:grid; grid-template-columns: 100px repeat(" + METRIC_FIELDS.length + ", 1fr) 34px; gap:8px; padding:10px 16px; border-bottom:1px solid var(--line); font-size:13px;" });
+        row.appendChild(el("span", { class: "font-mono", style: "font-size:11px; color:var(--muted);", text: m.date }));
+        METRIC_FIELDS.forEach(([k]) => row.appendChild(el("span", { text: m[k] == null ? "—" : String(m[k]) })));
+        row.appendChild(el("button", { class: "link-quiet", style: "font-size:15px;", onclick: () => { S.metrics = S.metrics.filter((x) => x.id !== m.id); save(); render(); } }, "×"));
+        tbl.appendChild(row);
+      });
+      v.appendChild(tbl);
+    }
+  }
+
+  // ---------- shared UI ----------
+  function sectionHead(title, sub) {
+    const h = el("div", { style: "margin-bottom:22px;" });
+    h.appendChild(el("h2", { class: "font-serif", style: "font-size:28px; margin:0 0 6px;", text: title }));
+    if (sub) h.appendChild(el("p", { style: "color:var(--muted); font-size:14px; max-width:760px; line-height:1.6; margin:0;", text: sub }));
+    return h;
+  }
+
+  // ---------- export / import ----------
+  function doExport() {
+    const blob = new Blob([JSON.stringify(S, null, 2)], { type: "application/json" });
+    const a = el("a", { href: URL.createObjectURL(blob), download: "et-studio-" + todayISO() + ".json" });
+    document.body.appendChild(a); a.click(); a.remove(); toast("Exported");
+  }
+  function doImport(e) {
+    const f = e.target.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = () => { try { const data = JSON.parse(r.result); S = Object.assign({}, DEFAULT_STATE, data); save(); toast("Imported"); render(); setFocusLine(); } catch (err) { toast("Bad file"); } };
+    r.readAsText(f); e.target.value = "";
+  }
+
+  // ---------- fallback plan (used only if studio-plan.js missing) ----------
+  function fallbackPlan() {
+    return {
+      northStar: "Grow an owned audience that trusts the Atlas — so that when the first curated immersion opens, the people are already there.",
+      oneMetric: "Circle sign-ups (the owned list). Everything upstream — clips, saves, atlas visits — exists to grow this number.",
+      stop: ["Do not re-surface selling / pricing / checkout on the public site.", "Do not build more Atlas features — it is done; distribute it.", "Do not start a second content format before day 90."],
+      horizons: [
+        { id: "week", title: "This week", sub: "Unblock and launch.", groups: [
+          { title: "Make it measurable + start posting", goal: "You can't grow what you can't see.", metric: "first clip live", items: [
+            { id: "w-gsc", t: "Submit sitemap.xml to Google Search Console", effort: "Quick", impact: "High", done: "sitemap shows ‘Success’" },
+            { id: "w-analytics", t: "Install a privacy-light analytics snippet site-wide", effort: "Half-day", impact: "High", done: "live visits visible" },
+            { id: "w-firstdrop", t: "Post Day 1 of the daily drop", effort: "Half-day", impact: "High", done: "clip live on 3 platforms" },
+            { id: "w-outreach", t: "Send 5 footage-license emails to high-confidence schools", effort: "Half-day", impact: "High", done: "5 logged in tracker" },
+          ] },
+        ] },
+      ],
+      cadence: ["<b>Every day:</b> post one clip.", "<b>Weekly:</b> 5 outreach emails, log metrics, draft one article beat."],
+    };
+  }
+
+  // ---------- go ----------
+  document.addEventListener("DOMContentLoaded", initGate);
+})();

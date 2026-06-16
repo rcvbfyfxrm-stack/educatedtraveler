@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio — EducatedTraveler</title>
+
+    <!-- Internal content cockpit. Not for the public index. -->
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="description" content="EducatedTraveler Studio — internal content operations.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sea:   { soft: '#7fa8a5', mid: '#5b8a89', deep: '#38595b' },
+                        ember: { soft: '#e0a877', mid: '#d28a52', deep: '#b06a36' },
+                        paper: { DEFAULT: '#f3ede2', muted: 'rgba(243,237,226,0.56)', faint: 'rgba(243,237,226,0.34)' },
+                        ink:   { DEFAULT: '#0d0b09', 2: '#14110d', 3: '#1c1813' },
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        sans:  ['Inter', 'system-ui', 'sans-serif'],
+                        mono:  ['IBM Plex Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --ink: #0d0b09; --ink-2: #14110d; --ink-3: #1c1813;
+            --paper: #f3ede2;
+            --muted: rgba(243,237,226,0.56); --faint: rgba(243,237,226,0.34);
+            --sea: #7fa8a5; --sea-deep: #38595b;
+            --ember: #d28a52;
+            --line: rgba(243,237,226,0.09);
+        }
+        * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--ink); color: var(--paper);
+            overflow-x: hidden; margin: 0;
+        }
+        ::selection { background: rgba(210,138,82,0.30); }
+        .font-serif { font-family: 'Fraunces', Georgia, serif; }
+        .font-mono  { font-family: 'IBM Plex Mono', monospace; }
+
+        body::before {
+            content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            background:
+                radial-gradient(900px 600px at 18% -5%, rgba(127,168,165,0.10), transparent 60%),
+                radial-gradient(800px 600px at 92% 8%, rgba(210,138,82,0.08), transparent 55%);
+        }
+
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+            color: var(--sea);
+        }
+
+        .panel {
+            background: rgba(243,237,226,0.022);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            transition: border-color .35s ease, background .35s ease, transform .35s ease;
+        }
+        .panel:hover { border-color: rgba(127,168,165,0.28); background: rgba(243,237,226,0.035); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sea) 0%, var(--ember) 130%);
+            color: #14110d; font-weight: 500;
+            transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+        }
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(127,168,165,0.22); filter: brightness(1.04); }
+        .btn-ghost { border: 1px solid rgba(243,237,226,0.18); color: var(--paper); transition: background .25s ease, border-color .25s ease; }
+        .btn-ghost:hover { background: rgba(243,237,226,0.05); border-color: rgba(243,237,226,0.32); }
+        .link-quiet { color: var(--paper); opacity: .56; transition: opacity .25s ease, color .25s ease; cursor: pointer; }
+        .link-quiet:hover { opacity: 1; color: var(--sea); }
+
+        button { cursor: pointer; font-family: inherit; }
+
+        /* Inputs */
+        input[type=text], input[type=email], input[type=number], input[type=date], textarea, select {
+            background: rgba(243,237,226,0.04);
+            border: 1px solid var(--line);
+            color: var(--paper);
+            border-radius: 10px; padding: 10px 12px; width: 100%;
+            font-family: inherit; font-size: 14px;
+            transition: border-color .25s ease, background .25s ease;
+        }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: rgba(127,168,165,0.5); background: rgba(243,237,226,0.06); }
+        textarea { resize: vertical; line-height: 1.55; }
+        label.fld { display:block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin-bottom: 6px; font-family:'IBM Plex Mono',monospace; }
+        select option { background: var(--ink-2); color: var(--paper); }
+
+        /* Tabs */
+        .tab {
+            font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+            padding: 10px 4px; color: var(--muted); border-bottom: 2px solid transparent;
+            background: none; border-top:none; border-left:none; border-right:none;
+            white-space: nowrap; transition: color .25s ease, border-color .25s ease;
+        }
+        .tab:hover { color: var(--paper); }
+        .tab.active { color: var(--sea); border-bottom-color: var(--ember); }
+
+        /* Status pills */
+        .pill { font-family:'IBM Plex Mono',monospace; font-size: 10px; letter-spacing:.08em; text-transform:uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
+        .pill.idea      { color: var(--faint); }
+        .pill.requested { color: #c9a24a; border-color: rgba(201,162,74,.35); }
+        .pill.in        { color: var(--sea); border-color: rgba(127,168,165,.35); }
+        .pill.editing   { color: #cf8f6e; border-color: rgba(207,143,110,.35); }
+        .pill.ready     { color: var(--ember); border-color: rgba(210,138,82,.45); }
+        .pill.posted    { color: #94ad86; border-color: rgba(148,173,134,.45); background: rgba(148,173,134,.08); }
+        .pill.researching { color: var(--sea); border-color: rgba(127,168,165,.35); }
+        .pill.drafting  { color: #cf8f6e; border-color: rgba(207,143,110,.35); }
+        .pill.published { color: #94ad86; border-color: rgba(148,173,134,.45); background: rgba(148,173,134,.08); }
+        .pill.contacted { color: #c9a24a; border-color: rgba(201,162,74,.35); }
+        .pill.replied   { color: var(--sea); border-color: rgba(127,168,165,.35); }
+        .pill.confirmed { color: #94ad86; border-color: rgba(148,173,134,.45); background: rgba(148,173,134,.08); }
+        .pill.none      { color: var(--faint); }
+
+        /* Core dots */
+        .core-dot { width: 8px; height: 8px; border-radius: 50%; display:inline-block; }
+        .core-wellness { background:#94ad86; } .core-adventure { background:#6fa3a0; }
+        .core-creative { background:#cf8f6e; } .core-culinary { background:#c9a24a; }
+
+        /* Checklist */
+        .chk { display:flex; gap:12px; align-items:flex-start; padding: 11px 0; border-bottom: 1px solid var(--line); }
+        .chk:last-child { border-bottom: none; }
+        .chk input[type=checkbox] { width:18px; height:18px; margin-top:2px; accent-color: var(--ember); flex:none; cursor:pointer; }
+        .chk.done .chk-text { opacity:.42; text-decoration: line-through; }
+        .tag { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.06em; padding:2px 7px; border-radius:6px; border:1px solid var(--line); color:var(--faint); white-space:nowrap; }
+        .tag.high { color: var(--ember); border-color: rgba(210,138,82,.4); }
+        .tag.med  { color: var(--sea); border-color: rgba(127,168,165,.35); }
+        .tag.quick { color:#94ad86; border-color: rgba(148,173,134,.35); }
+
+        .grain-divider { height:1px; background: var(--line); border:none; margin: 0; }
+        .toast {
+            position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: var(--ink-3); border: 1px solid rgba(127,168,165,.4); color: var(--paper);
+            padding: 12px 20px; border-radius: 12px; font-size: 14px; z-index: 200;
+            opacity: 0; pointer-events: none; transition: opacity .3s ease, transform .3s ease;
+            box-shadow: 0 14px 40px rgba(0,0,0,.4);
+        }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        .gate { position: fixed; inset:0; z-index: 300; background: var(--ink); display:flex; align-items:center; justify-content:center; padding: 24px; }
+        .gate.hidden { display:none; }
+
+        ::-webkit-scrollbar { height: 8px; width: 8px; }
+        ::-webkit-scrollbar-thumb { background: rgba(243,237,226,0.14); border-radius: 8px; }
+
+        .kanban { display:grid; grid-template-columns: repeat(6, minmax(210px,1fr)); gap: 14px; overflow-x:auto; padding-bottom: 8px; }
+        @media (max-width: 900px){ .kanban { grid-template-columns: repeat(6, 220px); } }
+
+        .metric-num { font-family:'Fraunces',serif; font-size: 30px; line-height:1; }
+    </style>
+</head>
+<body>
+
+<!-- Soft passcode gate. NOT real security (client-side) — just keeps the cockpit out of casual view. -->
+<div class="gate" id="gate">
+  <div class="panel" style="max-width:380px; width:100%; padding: 32px; text-align:center;">
+    <div class="eyebrow" style="margin-bottom:14px;">EducatedTraveler</div>
+    <h1 class="font-serif" style="font-size:30px; margin:0 0 6px;">Studio</h1>
+    <p style="color:var(--muted); font-size:14px; margin:0 0 22px;">Content operations — internal.</p>
+    <input type="text" id="gate-input" placeholder="passcode" style="text-align:center; letter-spacing:.2em;" autocomplete="off">
+    <button class="btn-primary" id="gate-btn" style="width:100%; padding:11px; border-radius:10px; margin-top:14px;">Enter</button>
+    <p id="gate-err" style="color:#cf8f6e; font-size:12px; margin:12px 0 0; min-height:16px;"></p>
+  </div>
+</div>
+
+<div id="app" style="display:none;">
+  <!-- Top bar -->
+  <header style="border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50; background: rgba(13,11,9,0.86); backdrop-filter: blur(10px);">
+    <div style="max-width:1180px; margin:0 auto; padding: 14px 20px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:baseline; gap:10px;">
+        <span class="font-serif" style="font-size:19px; letter-spacing:-.01em;">EducatedTraveler</span>
+        <span class="eyebrow">Studio</span>
+      </div>
+      <div id="focus-line" style="flex:1; min-width:180px; color:var(--muted); font-size:13px;"></div>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <span id="today-line" class="font-mono" style="font-size:11px; color:var(--faint);"></span>
+        <button class="btn-ghost" id="btn-export" style="padding:7px 12px; border-radius:9px; font-size:12px;">Export</button>
+        <button class="btn-ghost" id="btn-import" style="padding:7px 12px; border-radius:9px; font-size:12px;">Import</button>
+        <input type="file" id="file-import" accept="application/json" style="display:none;">
+      </div>
+    </div>
+    <!-- Tabs -->
+    <div style="max-width:1180px; margin:0 auto; padding: 0 20px;">
+      <nav style="display:flex; gap:26px; overflow-x:auto;">
+        <button class="tab active" data-tab="plan">Plan</button>
+        <button class="tab" data-tab="drop">Daily Drop</button>
+        <button class="tab" data-tab="outreach">Outreach</button>
+        <button class="tab" data-tab="articles">Articles</button>
+        <button class="tab" data-tab="metrics">Metrics</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="view" style="max-width:1180px; margin:0 auto; padding: 26px 20px 80px;"></main>
+
+  <footer style="border-top:1px solid var(--line); padding: 22px 20px; text-align:center;">
+    <p class="font-mono" style="font-size:11px; color:var(--faint); margin:0; line-height:1.7;">
+      A place, a person, your people · EARNED, NOT BOUGHT<br>
+      Internal tool — saves to this browser only. Export weekly to back up. Regenerate the drop calendar with
+      <span style="color:var(--muted);">scripts/build-daily-drop.py</span> then rebuild
+      <span style="color:var(--muted);">js/studio-calendar.js</span>.
+    </p>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/js/studio-calendar.js"></script>
+<script src="/js/studio-plan.js"></script>
+<script src="/js/studio-articles.js"></script>
+<script src="/js/studio.js"></script>
+</body>
+</html>
