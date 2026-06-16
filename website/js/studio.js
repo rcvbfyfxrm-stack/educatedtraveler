@@ -48,6 +48,7 @@
   const DROP = (window.ET_DAILY_DROP || []).slice();
   const PLAN = window.ET_PLAN || fallbackPlan();
   const ARTICLE_SEED = (window.ET_ARTICLES_SEED || []).slice();
+  const IDEAS = window.ET_IDEAS || { shotList: [], hooks: [], series: [], saveTriggers: [], neverPost: [] };
 
   const DEFAULT_STATE = { plan: {}, drops: {}, outreach: [], articles: null, metrics: [], settings: { gate: "source" }, _v: 1 };
   let S = load();
@@ -115,7 +116,7 @@
 
   function render() {
     const v = $("#view"); v.innerHTML = "";
-    ({ plan: renderPlan, drop: renderDrop, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderPlan)(v);
+    ({ plan: renderPlan, drop: renderDrop, ideas: renderIdeas, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderPlan)(v);
   }
 
   // ================= PLAN =================
@@ -296,6 +297,70 @@
   }
   function linkBtn(label, href) { return el("a", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px; text-decoration:none; display:inline-block;", href: href, target: "_blank", rel: "noopener" }, label + " ↗"); }
   let dropView = "feed";
+
+  // ================= IDEAS =================
+  function renderIdeas(v) {
+    v.appendChild(sectionHead("Ideas", "Your ready-to-shoot first 10, plus the creative library. One wordless process clip per craft — end on the moment of competence, same clip to all 3 platforms, each pointing at one Atlas page. Optimise for saves + shares, not views."));
+
+    v.appendChild(el("div", { class: "eyebrow", style: "margin:4px 0 12px;", text: "Start here — your first 10 posts" }));
+    IDEAS.shotList.forEach((s) => v.appendChild(ideaCard(s)));
+
+    v.appendChild(el("div", { class: "eyebrow", style: "margin:30px 0 12px;", text: "Creative library" }));
+    v.appendChild(refBlock("Hook library — line 1 is a standalone, screenshot-able fact", IDEAS.hooks.map((h) =>
+      "<strong>" + esc(h.name) + "</strong> — <span style='color:var(--muted)'>" + esc(h.template) + "</span><br><span style='color:var(--faint);font-style:italic'>e.g. " + esc(h.example) + "</span>")));
+    v.appendChild(refBlock("Recurring series (all inside the one format)", IDEAS.series.map((s) =>
+      "<strong>" + esc(s.name) + "</strong> — <span style='color:var(--muted)'>" + esc(s.note) + "</span>")));
+    v.appendChild(refBlock("Engineer for saves & shares", IDEAS.saveTriggers.map((t) => "<span style='color:var(--muted)'>" + esc(t) + "</span>")));
+    v.appendChild(refBlock("Never post this", IDEAS.neverPost.map((t) => "<span style='color:var(--muted)'>" + esc(t) + "</span>"), true));
+  }
+
+  function ideaCard(s) {
+    const card = el("div", { class: "panel", style: "padding:18px 20px; margin-bottom:14px;" });
+    const head = el("div", { style: "display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;" });
+    head.appendChild(el("div", {}, [
+      el("div", { style: "display:flex; gap:8px; align-items:center; margin-bottom:5px; flex-wrap:wrap;" }, [
+        el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint);", text: "#" + s.n }),
+        el("span", { class: "core-dot core-" + s.core }),
+        el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint);", text: s.core }),
+        s.lead ? el("span", { class: "pill ready", text: "shoot it yourself" }) : null,
+      ]),
+      el("div", { class: "font-serif", style: "font-size:18px;", text: s.craft }),
+      el("div", { style: "font-size:13px; color:var(--muted); margin-top:2px;", text: s.place }),
+    ]));
+    head.appendChild(el("span", { class: "pill", style: "align-self:flex-start;", text: "card: " + s.placeCard }));
+    card.appendChild(head);
+
+    card.appendChild(el("div", { style: "font-size:12px; color:var(--faint); margin:12px 0 0;", text: "Footage: " + s.footage }));
+
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: "Shoot these beats" }));
+    const ol = el("ol", { style: "margin:0; padding-left:20px; font-size:13.5px; line-height:1.7;" });
+    s.beats.forEach((b) => ol.appendChild(el("li", { text: b })));
+    card.appendChild(ol);
+
+    card.appendChild(el("p", { style: "font-size:13.5px; margin:12px 0 0;", html: "<strong style='color:#94ad86'>End on:</strong> " + esc(s.ending) }));
+    card.appendChild(el("p", { style: "font-size:12.5px; color:var(--muted); margin:6px 0 0;", text: "Sound: " + s.sound + "   ·   Cover: " + s.cover }));
+
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: "Caption (paste-ready)" }));
+    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(243,237,226,0.82); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: s.caption }));
+    card.appendChild(el("p", { class: "font-mono", style: "font-size:12px; color:var(--sea); margin:8px 0 0; word-break:break-word;", text: s.hashtags }));
+
+    const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;" });
+    acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(s.caption + "\n\n" + s.hashtags) }, "Copy caption + tags"));
+    acts.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(s.beats.map((b, i) => (i + 1) + ". " + b).join("\n") + "\nEnd on: " + s.ending) }, "Copy shot list"));
+    acts.appendChild(linkBtn("Atlas page", s.atlasUrl));
+    card.appendChild(acts);
+    return card;
+  }
+
+  function refBlock(title, htmlItems, open) {
+    const d = el("details", { class: "panel", style: "padding:14px 18px; margin-bottom:12px;" });
+    if (open) d.setAttribute("open", "");
+    d.appendChild(el("summary", { class: "font-serif", style: "font-size:15px; cursor:pointer;", text: title }));
+    const ul = el("ul", { style: "margin:12px 0 0; padding-left:18px; line-height:1.9; font-size:13.5px;" });
+    htmlItems.forEach((h) => ul.appendChild(el("li", { html: h })));
+    d.appendChild(ul);
+    return d;
+  }
 
   // ================= OUTREACH =================
   const OUTREACH_TPL = ({ name, school, discipline, place, atlasUrl }) =>
