@@ -17,6 +17,10 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://educatedtraveler.app"
 OUT = ROOT / "website" / "atlas"
 
+# Privacy-light, cookieless analytics (no consent banner needed). Keep in sync with the
+# hand-built pages — see scripts/add-analytics.py.
+ANALYTICS = '<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>'
+
 src = (ROOT / "website/js/repertoire.js").read_text()
 DATA = json.loads(src[src.index("{", src.index("window.ET_ATLAS")):src.rindex("}") + 1])
 DISC = DATA["disciplines"]
@@ -62,6 +66,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 {crumbs}{extra}
+{ANALYTICS}
 <style>
 :root {{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
@@ -100,7 +105,7 @@ footer a {{ color:var(--sea); }}
 <div style="display:flex;gap:22px"><a href="/atlas/">Atlas</a><a href="/about">About</a><a href="/#circle">The Circle</a></div>
 </div></nav>
 {body}
-<footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.</div></footer>
+<footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 </body>
 </html>"""
 
@@ -215,7 +220,7 @@ hub_body = f"""<header class="hero"><div class="wrap">
     "/atlas/", hub_body, breadcrumbs=[("Atlas", "/atlas/")]))
 
 # ---------- sitemap + robots ----------
-static_urls = ["/", "/about", "/community", "/manifesto"]
+static_urls = ["/", "/about", "/community"]
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for u in static_urls + urls:
     sm.append(f"<url><loc>{SITE}{u}</loc></url>")
