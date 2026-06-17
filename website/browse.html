@@ -204,8 +204,9 @@ function seasonMonths(s){if(!s)return null;s=s.toLowerCase();
 function ratingDisc(did){return RATINGS[did]||null;}
 function ratingDest(x){var r=RATINGS[x.did];return (r&&r.destId===x.id)?r:null;}
 function trustHTML(r){if(!r)return "";
+  var who=r.school?'<div style="font-size:11px;color:var(--muted);margin-top:3px">'+esc(r.school)+'</div>':'';
   if(r.stars){var s=Math.round(r.stars);var st="★★★★★".slice(0,s)+"☆☆☆☆☆".slice(0,5-s);
-    return '<div class="trust"><span class="stars">'+st+'</span> <span class="src">'+esc(r.stars)+(r.count?' · '+Number(r.count).toLocaleString()+' reviews':'')+(r.source?' on '+esc(r.source):'')+'</span>'+(r.whyPick?'<span class="why">'+esc(r.whyPick)+'</span>':'')+'</div>';}
+    return '<div class="trust"><span class="stars">'+st+'</span> <span class="src">'+esc(r.stars)+(r.count?' · '+Number(r.count).toLocaleString()+' reviews':'')+(r.source?' on '+esc(r.source):'')+'</span>'+who+(r.whyPick?'<span class="why">'+esc(r.whyPick)+'</span>':'')+'</div>';}
   if(r.whyPick){return '<div class="trust"><span class="src" style="color:var(--sea)">✓ '+esc(r.school)+'</span><span class="why">'+esc(r.whyPick)+'</span></div>';}
   return "";}
 
@@ -307,6 +308,7 @@ function renderRails(){
     sec.innerHTML='<div class="shelf-h"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="n">'+list.length+' crafts</span><button class="more" data-w="'+w+'">See all places →</button></div>';
     var rw=document.createElement("div");rw.className="railwrap";var rail=document.createElement("div");rail.className="rail";
     list.forEach(function(o){var t=o.top,r=ratingDisc(o.d.id);
+      if(r&&r.destId){var rd=(o.d.destinations||[]).find(function(z){return z.id===r.destId;}); if(rd)t=rd;}
       var a=document.createElement("a");a.className="dcard";a.style.setProperty("--sc",m.color);a.href="/atlas/"+o.d.id;
       a.innerHTML='<div class="cred"><span class="gem">✦</span><span class="t">'+esc(credLabel(o.d))+'</span></div>'+
         '<div class="craft">'+esc(o.d.discipline)+'</div>'+
