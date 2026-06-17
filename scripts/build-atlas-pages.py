@@ -102,7 +102,7 @@ footer a {{ color:var(--sea); }}
 <body>
 <nav class="top"><div class="wrap">
 <a class="brand" href="/">EDUCATEDTRAVELER</a>
-<div style="display:flex;gap:22px"><a href="/atlas/">Atlas</a><a href="/about">About</a><a href="/#circle">The Circle</a></div>
+<div style="display:flex;gap:22px"><a href="/atlas/">Atlas</a><a href="/about">About</a><a href="/journal/">Journal</a><a href="/#circle">The Circle</a></div>
 </div></nav>
 {body}
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>

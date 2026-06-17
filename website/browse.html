@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse the Atlas — certified skills at the source — EducatedTraveler</title>
+<meta name="description" content="Five worlds, 99 certified crafts. Spin the camembert, filter by craft, credential, level, region and season, and find the place where your skill is most alive — with real reviews of every school.">
+<link rel="canonical" href="https://educatedtraveler.app/browse">
+<meta property="og:title" content="Browse the Atlas — certified skills at the source">
+<meta property="og:description" content="Five worlds, 99 certified crafts. Filter to the place where your skill is most alive.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://educatedtraveler.app/browse">
+<meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+<meta property="og:site_name" content="EducatedTraveler">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/images/logo-et-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<style>
+:root{--ink:#0d0b09;--ink2:#14110d;--ink3:#1c1813;--paper:#f3ede2;--muted:rgba(243,237,226,.56);--faint:rgba(243,237,226,.34);--sea:#7fa8a5;--ember:#d28a52;--gold:#e7b54e;--line:rgba(243,237,226,.09)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--paper);font-weight:300;line-height:1.6;overflow-x:hidden}
+::selection{background:rgba(210,138,82,.3)}
+a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;color:inherit;background:none;border:none}
+.serif{font-family:'Fraunces',Georgia,serif}.mono{font-family:'IBM Plex Mono',monospace}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sea)}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3.4vw,38px)}
+nav.top{position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(13,11,9,.66);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav.top .row{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3.4vw,38px);height:60px;display:flex;align-items:center;justify-content:space-between}
+nav.top .brand{font-family:'Fraunces',Georgia,serif;font-size:17px;letter-spacing:.14em}.brand b{color:var(--sea);font-weight:400}
+nav.top .links{display:flex;gap:24px;align-items:center}.links a{font-size:14px;opacity:.62;transition:opacity .25s,color .25s}.links a:hover{opacity:1;color:var(--sea)}
+nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:7px 15px;border-radius:99px}.join:hover{border-color:var(--sea)}
+@media(max-width:820px){nav.top .links a:not(.join){display:none}}
+
+/* hero + camembert */
+.hero{padding:84px 0 22px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;transition:background 1.4s ease}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.hero-copy h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(33px,4.8vw,58px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 14px}.hero-copy h1 em{font-style:italic;color:var(--sea)}
+.hero-copy .sub{color:var(--muted);max-width:46ch;font-size:clamp(14px,1.5vw,16px)}
+.hero-copy .tag{margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.cues{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 22px;border-radius:99px;font-size:14px;font-weight:500;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#14110d;transition:transform .25s,box-shadow .25s,filter .25s}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(127,168,165,.22);filter:brightness(1.05)}
+.btn-ghost{display:inline-block;padding:12px 20px;border-radius:99px;font-size:14px;border:1px solid rgba(243,237,226,.2);transition:border-color .25s,background .25s}.btn-ghost:hover{border-color:var(--sea);background:rgba(243,237,226,.04)}
+
+.cam-wrap{position:relative;width:min(88vw,430px);margin:0 auto}
+.cam{width:100%;display:block;filter:drop-shadow(0 24px 50px rgba(0,0,0,.5))}
+.wedge{stroke:var(--ink);stroke-width:2.4;fill-opacity:.18;cursor:pointer;transition:fill-opacity .3s}
+.wedge:hover{fill-opacity:.5}.wedge.active{fill-opacity:.62}
+.wlabel{font-family:'Fraunces',Georgia,serif;font-size:11.5px;fill:var(--paper);text-anchor:middle;pointer-events:none}
+.wcount{font-family:'IBM Plex Mono',monospace;font-size:7.5px;fill:rgba(243,237,226,.55);text-anchor:middle;pointer-events:none;letter-spacing:.05em}
+.cam-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:38%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 36%,var(--ink3),var(--ink2));border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5%;cursor:pointer;box-shadow:inset 0 1px 0 rgba(243,237,226,.06)}
+.cam-center .lab{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.cam-center .rot{opacity:0;transition:opacity .5s}.cam-center .rot.on{opacity:1}
+.cam-center .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(13px,1.8vw,16px);line-height:1.1}
+.cam-center .place{font-size:10.5px;color:var(--ember);margin-top:4px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.legend button{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);padding:5px 11px;border:1px solid var(--line);border-radius:99px;transition:all .2s}
+.legend button:hover{color:var(--paper)}.legend button.on{color:var(--paper);border-color:var(--lc)}
+.legend .d{width:9px;height:9px;border-radius:2px;background:var(--lc)}
+@media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:18px}.hero-copy{text-align:center}.cues{justify-content:center}}
+
+/* studio */
+.studio{padding:12px 0 30px}.studio .grid{display:grid;grid-template-columns:272px 1fr;gap:26px;align-items:start}
+@media(max-width:880px){.studio .grid{grid-template-columns:1fr}}
+.side{position:sticky;top:74px;border:1px solid var(--line);border-radius:16px;background:var(--ink2);padding:16px 16px 8px;max-height:calc(100vh - 90px);overflow:auto}
+@media(max-width:880px){.side{position:static;max-height:none}}
+.side h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:16px 0 8px}.side h4:first-child{margin-top:2px}
+.fin{width:100%;background:rgba(243,237,226,.05);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:var(--paper);font-size:13.5px;font-family:inherit}.fin:focus{outline:none;border-color:rgba(127,168,165,.5)}
+select.fin option{background:var(--ink2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.03em;padding:6px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);transition:all .2s;white-space:nowrap}
+.chip:hover{color:var(--paper);border-color:rgba(243,237,226,.3)}.chip.on{color:#14110d;background:var(--cc,var(--sea));border-color:transparent;font-weight:500}
+.chip .wd{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cc);margin-right:6px;vertical-align:middle}.chip.on .wd{background:#14110d}
+.months{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.months .chip{text-align:center;padding:6px 0;font-size:9.5px}
+.rankrow{display:flex;gap:6px}.rankrow .chip{flex:1;text-align:center}
+.lvlrow{display:flex;gap:6px}.lvlrow .chip{flex:1;text-align:center}
+.reset{width:100%;margin:14px 0 10px;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:13px;color:var(--muted)}.reset:hover{border-color:var(--ember);color:var(--paper)}
+
+.results{min-height:60vh}
+.rhead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:2px 2px 18px;flex-wrap:wrap}
+.rhead .count{font-family:'Fraunces',Georgia,serif;font-size:clamp(20px,2.6vw,26px)}.rhead .count b{color:var(--sea);font-weight:400}
+.rhead .sortby{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)}
+.shelf{margin-bottom:30px}.shelf-h{display:flex;align-items:center;gap:12px;margin:0 2px 12px}
+.shelf-h .bar{width:30px;height:3px;border-radius:3px;background:var(--sc)}.shelf-h h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.4vw,25px)}.shelf-h .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)}.shelf-h .more{margin-left:auto;font-size:12.5px;color:var(--muted)}.shelf-h .more:hover{color:var(--sc)}
+.railwrap{position:relative}.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:4px 2px 14px;scrollbar-width:none;cursor:grab}.rail::-webkit-scrollbar{display:none}.rail.drag{cursor:grabbing;scroll-behavior:auto}
+.arrow{position:absolute;top:36%;z-index:5;width:38px;height:38px;border-radius:50%;background:rgba(20,17,13,.92);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s,border-color .25s;font-size:17px}.railwrap:hover .arrow{opacity:.92}.arrow:hover{border-color:var(--sea)}.arrow.l{left:-6px}.arrow.r{right:-6px}
+@media(max-width:820px){.arrow{display:none}}
+
+/* cards — CRAFT + CREDENTIAL first, place secondary */
+.dcard,.gcard{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:17px;position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
+.dcard{scroll-snap-align:start;flex:0 0 auto;width:clamp(228px,25vw,262px)}
+.dcard::before,.gcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.5;transition:opacity .3s}
+.dcard:hover,.gcard:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));box-shadow:0 18px 40px rgba(0,0,0,.45)}.dcard:hover::before,.gcard:hover::before{opacity:1}
+.cred{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(231,181,78,.34);border-radius:99px;padding:4px 9px;margin-bottom:11px;max-width:100%}
+.cred .gem{color:var(--gold)}.cred span.t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.craft{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:20px;line-height:1.1;margin-bottom:7px}
+.srcscene{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc);margin-bottom:9px}
+.where{font-size:12.5px;color:var(--muted);display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.dots{color:var(--sc);letter-spacing:2px;font-size:11px}
+.metaline{font-size:11px;color:var(--faint);margin-top:7px;display:flex;gap:7px;flex-wrap:wrap}
+.trust{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:12px}
+.trust .stars{color:var(--gold);letter-spacing:1px}.trust .src{color:var(--muted)}.trust .why{display:block;color:var(--faint);font-size:11.5px;margin-top:4px;line-height:1.45}
+.gridwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:13px}
+.empty{padding:60px 10px;text-align:center;color:var(--muted)}.empty .btn-ghost{margin-top:16px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
+.circle{text-align:center;border:1px solid var(--line);border-radius:18px;padding:clamp(30px,5vw,52px) 24px;margin:46px 0 18px;background:rgba(243,237,226,.02)}
+.circle h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(24px,3.6vw,36px);margin:12px 0 12px}.circle p{color:var(--muted);max-width:46ch;margin:0 auto 22px;font-size:15px}
+footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color:var(--faint)}footer a{color:var(--sea)}.frow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<nav class="top"><div class="row">
+  <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
+  <div class="links"><a href="/browse">Browse</a><a href="/about">The Story</a><a href="/journal/">Journal</a><a class="join" href="/#circle">Join the Circle</a></div>
+</div></nav>
+
+<header class="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">The Atlas · five worlds, 99 crafts</div>
+      <h1 class="serif">Certified skill,<br>at the <em>source</em>.</h1>
+      <p class="sub">Pick a slice of the world, then filter by craft, credential, level, region and season. We rank you to the one place where the skill is most alive — and show you the real reviews of every school before you ever go.</p>
+      <div class="tag">★ certified · hand-verified · real reviews</div>
+      <div class="cues"><a class="btn" href="#studio">Filter by everything</a><a class="btn-ghost" href="/#circle">Join the Circle</a></div>
+    </div>
+    <div class="cam-wrap">
+      <svg class="cam" id="cam" viewBox="0 0 240 240" role="group" aria-label="Choose a world"></svg>
+      <button class="cam-center" id="hub"><span class="lab">where it's alive</span><span class="rot on" id="rot"></span></button>
+    </div>
+  </div>
+  <div class="wrap"><div class="legend" id="legend"></div></div>
+</header>
+
+<main class="studio" id="studio"><div class="wrap"><div class="grid">
+  <aside class="side" id="side"></aside>
+  <section class="results" id="results"></section>
+</div></div></main>
+
+<div class="wrap"><div class="circle reveal">
+  <div class="eyebrow">The Circle</div><h2 class="serif">Found the place that pulls you?</h2>
+  <p>Tell us what you want to learn. As the Atlas grows we send you the places and the people worth knowing — and when the moment is right, we introduce you. No selling, ever.</p>
+  <a class="btn" href="/#circle">Join the Circle</a>
+</div></div>
+
+<footer><div class="wrap frow">
+  <span>EducatedTraveler — a place, a person, your people. <a href="/#circle">Join the Circle</a> · <a href="/journal/">Journal</a> · <a href="/repertoire">Atlas index</a></span>
+  <span style="opacity:.7">Privacy-light, cookieless analytics.</span>
+</div></footer>
+
+<script src="/js/repertoire.js"></script>
+<script src="/js/atlas-ratings.js"></script>
+<script>
+(function(){
+"use strict";
+var A=(window.ET_ATLAS&&window.ET_ATLAS.disciplines)||[];
+var RATINGS=window.ET_RATINGS||{};
+var MOVE={"muay-thai":1,"brazilian-jiu-jitsu":1,"karate":1,"kung-fu":1,"capoeira":1,"flamenco-and-dance":1,"argentine-tango":1,"salsa":1,"bharatanatyam-indian-classical-dance":1,"ecstatic-dance-and-movement":1};
+var WORLDS={
+  adventure:{label:"The Wild",short:"Wild",color:"#6fa3a0"},
+  culinary:{label:"Kitchen & Cellar",short:"Kitchen",color:"#c9a24a"},
+  creative:{label:"Craft & Art",short:"Craft",color:"#cf8f6e"},
+  movement:{label:"Movement & Rhythm",short:"Movement",color:"#bf8088"},
+  wellness:{label:"Body & Spirit",short:"Body",color:"#94ad86"}
+};
+var ORDER=["adventure","culinary","creative","movement","wellness"];
+function worldOf(d){return MOVE[d.id]?"movement":(WORLDS[d.category]?d.category:"creative");}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function dots(n){n=n||0;return "●●●●●".slice(0,n)+"○○○○○".slice(0,5-n);}
+function credLabel(d){var c=d.certShort||"";return (c&&!/^no /i.test(c))?c:"Hand-verified";}
+function srcLabel(role){return role==="source"?"At the source":role==="both"?"Source & scene":"A strong scene";}
+function levelBucket(lv){lv=(lv||"").toLowerCase();var e=lv.split("->")[0];
+  if(/intermediate/.test(e))return "intermediate";
+  if(/advanced|experienced|expert/.test(e))return "advanced";
+  return "beginner"; }
+
+// flat destinations
+var DESTS=[];
+A.forEach(function(d){var w=worldOf(d);
+  (d.destinations||[]).forEach(function(x){
+    DESTS.push({world:w,discipline:d.discipline,did:d.id,cred:credLabel(d),gold:d.goldCredential||d.certBody||"",
+      place:x.place,country:x.country,region:x.region||"",role:x.role||"",rank:x.communityRank||0,
+      rankLabel:x.communityLabel||"",season:x.bestSeason||"",level:x.level||"",lvl:levelBucket(x.level),
+      schools:(x.schoolsInfo||x.schools||[]).length,id:x.id});
+  });
+});
+var byWorldDisc={};ORDER.forEach(function(w){byWorldDisc[w]=[];});
+A.forEach(function(d){var w=worldOf(d),t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});byWorldDisc[w].push({d:d,top:t||{}});});
+ORDER.forEach(function(w){byWorldDisc[w].sort(function(a,b){return (b.top.communityRank||0)-(a.top.communityRank||0);});});
+var REGIONS=Object.keys(DESTS.reduce(function(a,x){if(x.region)a[x.region]=1;return a;},{})).sort();
+var MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+var MNAMES=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function seasonMonths(s){if(!s)return null;s=s.toLowerCase();
+  if(s.indexOf("year-round")>=0||s.indexOf("all year")>=0)return {1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1,9:1,10:1,11:1,12:1};
+  s=s.replace(/\([^)]*\)/g," ");var set={},m,found=false;
+  var re=/(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s*[-–to]+\s*(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/g;
+  while((m=re.exec(s))){found=true;var a=MON[m[1]],b=MON[m[2]],i=a;for(var k=0;k<12;k++){set[i]=1;if(i===b)break;i=i%12+1;}}
+  if(!found){var r2=/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b/g;while((m=r2.exec(s))){set[MON[m[1]]]=1;found=true;}}
+  return found?set:null;}
+function ratingDisc(did){return RATINGS[did]||null;}
+function ratingDest(x){var r=RATINGS[x.did];return (r&&r.destId===x.id)?r:null;}
+function trustHTML(r){if(!r)return "";
+  if(r.stars){var s=Math.round(r.stars);var st="★★★★★".slice(0,s)+"☆☆☆☆☆".slice(0,5-s);
+    return '<div class="trust"><span class="stars">'+st+'</span> <span class="src">'+esc(r.stars)+(r.count?' · '+Number(r.count).toLocaleString()+' reviews':'')+(r.source?' on '+esc(r.source):'')+'</span>'+(r.whyPick?'<span class="why">'+esc(r.whyPick)+'</span>':'')+'</div>';}
+  if(r.whyPick){return '<div class="trust"><span class="src" style="color:var(--sea)">✓ '+esc(r.school)+'</span><span class="why">'+esc(r.whyPick)+'</span></div>';}
+  return "";}
+
+// ── camembert ──
+var cam=document.getElementById("cam"),hub=document.getElementById("hub"),rot=document.getElementById("rot"),bg=document.getElementById("hero-bg"),legend=document.getElementById("legend");
+var CX=120,CY=120,R=116,RL=72;
+function pt(ang,r){var a=(ang-90)*Math.PI/180;return [CX+r*Math.cos(a),CY+r*Math.sin(a)];}
+ORDER.forEach(function(w,i){var m=WORLDS[w],a0=i*72,a1=a0+72,am=a0+36;
+  var p0=pt(a0,R),p1=pt(a1,R),pl=pt(am,RL);
+  var path=document.createElementNS("http://www.w3.org/2000/svg","path");
+  path.setAttribute("d","M"+CX+","+CY+" L"+p0[0].toFixed(1)+","+p0[1].toFixed(1)+" A"+R+","+R+" 0 0 1 "+p1[0].toFixed(1)+","+p1[1].toFixed(1)+" Z");
+  path.setAttribute("class","wedge");path.setAttribute("fill",m.color);path.setAttribute("data-w",w);
+  path.addEventListener("click",function(){toggleWorld(w);});
+  cam.appendChild(path);
+  var t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("class","wlabel");t.setAttribute("x",pl[0].toFixed(1));t.setAttribute("y",(pl[1]-2).toFixed(1));t.textContent=m.short;cam.appendChild(t);
+  var c=document.createElementNS("http://www.w3.org/2000/svg","text");c.setAttribute("class","wcount");c.setAttribute("x",pl[0].toFixed(1));c.setAttribute("y",(pl[1]+9).toFixed(1));c.textContent=byWorldDisc[w].length+" crafts";cam.appendChild(c);
+  var lb=document.createElement("button");lb.style.setProperty("--lc",m.color);lb.dataset.w=w;lb.innerHTML='<span class="d"></span>'+esc(m.label)+' <span style="opacity:.5">'+byWorldDisc[w].length+'</span>';
+  lb.onclick=function(){toggleWorld(w);};legend.appendChild(lb);
+});
+function syncWorld(){cam.querySelectorAll(".wedge").forEach(function(p){p.classList.toggle("active",!!F.worlds[p.dataset.w]);});legend.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",!!F.worlds[b.dataset.w]);});}
+hub.onclick=function(){F.worlds={};F.craft="";renderSide();render();syncWorld();};
+function hexA(h,a){var n=parseInt(h.slice(1),16);return "rgba("+((n>>16)&255)+","+((n>>8)&255)+","+(n&255)+","+a+")";}
+var feats=[];ORDER.forEach(function(w){byWorldDisc[w].slice(0,4).forEach(function(o){if(o.top.place)feats.push({craft:o.d.discipline,place:o.top.place,color:WORLDS[w].color});});});
+var ri=0;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];rot.classList.remove("on");
+  setTimeout(function(){rot.innerHTML='<span class="craft">'+esc(f.craft)+'</span><br><span class="place">'+esc(f.place)+'</span>';rot.classList.add("on");},280);
+  bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
+tick();setInterval(tick,2700);
+
+// ── filter state ──
+var F={worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:""};
+function anyFilter(){return Object.keys(F.worlds).length||F.craft||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.q;}
+function toggleWorld(w){if(F.worlds[w])delete F.worlds[w];else F.worlds[w]=1;F.craft="";renderSide();render();syncWorld();document.getElementById("studio").scrollIntoView({behavior:"smooth"});}
+
+// ── sidebar (multi-level) ──
+var side=document.getElementById("side");
+function craftOptions(){
+  var ws=Object.keys(F.worlds);var ds=A.filter(function(d){return !ws.length||F.worlds[worldOf(d)];});
+  ds.sort(function(a,b){return a.discipline.localeCompare(b.discipline);});
+  return '<option value="">All crafts'+(ws.length?" in selection":"")+'</option>'+ds.map(function(d){return '<option value="'+d.id+'"'+(F.craft===d.id?" selected":"")+'>'+esc(d.discipline)+'</option>';}).join("");
+}
+function renderSide(){
+  var h="";
+  h+='<h4>Search</h4><input class="fin" id="q" placeholder="craft, place, country…" value="'+esc(F.q)+'">';
+  h+='<h4>1 · World</h4><div class="chips">'+ORDER.map(function(w){return '<button class="chip world '+(F.worlds[w]?"on":"")+'" data-w="'+w+'" style="--cc:'+WORLDS[w].color+'"><span class="wd"></span>'+esc(WORLDS[w].short)+'</button>';}).join("")+'</div>';
+  h+='<h4>2 · Craft</h4><select class="fin" id="craft">'+craftOptions()+'</select>';
+  h+='<h4>3 · Level</h4><div class="lvlrow">'+[["beginner","Beginner"],["intermediate","Interm."],["advanced","Advanced"]].map(function(p){return '<button class="chip lv '+(F.level===p[0]?"on":"")+'" data-lv="'+p[0]+'" style="--cc:#94ad86">'+p[1]+'</button>';}).join("")+'</div>';
+  h+='<h4>Community strength</h4><div class="rankrow">'+[5,4,3,2].map(function(r){return '<button class="chip rk '+(F.minRank===r?"on":"")+'" data-r="'+r+'" style="--cc:var(--gold)">'+r+'★+</button>';}).join("")+'</div>';
+  h+='<h4>When to go</h4><div class="months">'+MNAMES.map(function(n,i){return '<button class="chip mo '+(F.month===i+1?"on":"")+'" data-m="'+(i+1)+'" style="--cc:var(--ember)">'+n+'</button>';}).join("")+'</div>';
+  h+='<h4>Region</h4><div class="chips">'+REGIONS.map(function(r){return '<button class="chip rg '+(F.regions[r]?"on":"")+'" data-rg="'+esc(r)+'" style="--cc:var(--sea)">'+esc(r)+'</button>';}).join("")+'</div>';
+  h+='<h4>Its role</h4><div class="chips">'+[["source","The source"],["scene","A strong scene"],["both","Both"]].map(function(p){return '<button class="chip role '+(F.role===p[0]?"on":"")+'" data-role="'+p[0]+'" style="--cc:var(--sea)">'+p[1]+'</button>';}).join("")+'</div>';
+  h+='<button class="reset" id="reset">Clear all filters</button>';
+  side.innerHTML=h;
+  side.querySelector("#q").oninput=function(){F.q=this.value;render();};
+  side.querySelector("#craft").onchange=function(){F.craft=this.value;render();};
+  side.querySelectorAll(".world").forEach(function(b){b.onclick=function(){toggleWorld(b.dataset.w);};});
+  side.querySelectorAll(".lv").forEach(function(b){b.onclick=function(){F.level=F.level===b.dataset.lv?"":b.dataset.lv;renderSide();render();};});
+  side.querySelectorAll(".rk").forEach(function(b){b.onclick=function(){F.minRank=F.minRank===+b.dataset.r?0:+b.dataset.r;renderSide();render();};});
+  side.querySelectorAll(".mo").forEach(function(b){b.onclick=function(){F.month=F.month===+b.dataset.m?0:+b.dataset.m;renderSide();render();};});
+  side.querySelectorAll(".rg").forEach(function(b){b.onclick=function(){var r=b.dataset.rg;if(F.regions[r])delete F.regions[r];else F.regions[r]=1;renderSide();render();};});
+  side.querySelectorAll(".role").forEach(function(b){b.onclick=function(){F.role=F.role===b.dataset.role?"":b.dataset.role;renderSide();render();};});
+  side.querySelector("#reset").onclick=function(){F={worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:""};renderSide();render();syncWorld();};
+}
+function matchDest(x){
+  if(Object.keys(F.worlds).length&&!F.worlds[x.world])return false;
+  if(F.craft&&x.did!==F.craft)return false;
+  if(F.level&&x.lvl!==F.level)return false;
+  if(Object.keys(F.regions).length&&!F.regions[x.region])return false;
+  if(F.minRank&&x.rank<F.minRank)return false;
+  if(F.role){if(F.role==="source"&&!(x.role==="source"||x.role==="both"))return false;if(F.role==="scene"&&!(x.role==="scene"||x.role==="both"))return false;if(F.role==="both"&&x.role!=="both")return false;}
+  if(F.month){var s=seasonMonths(x.season);if(!s||!s[F.month])return false;}
+  if(F.q){var q=F.q.toLowerCase();if((x.discipline+" "+x.place+" "+x.country).toLowerCase().indexOf(q)<0)return false;}
+  return true;
+}
+// ── render ──
+var results=document.getElementById("results");
+function render(){
+  if(!anyFilter()){renderRails();return;}
+  var list=DESTS.filter(matchDest).sort(function(a,b){return (b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
+  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> certified place'+(list.length===1?"":"s")+'</div><div class="sortby">ranked by community strength</div></div>';
+  if(!list.length){results.innerHTML='<div class="empty">No place matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>';document.getElementById("clr").onclick=function(){F={worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:""};renderSide();render();syncWorld();};return;}
+  h+='<div class="gridwrap">'+list.slice(0,120).map(gcard).join("")+'</div>';
+  if(list.length>120)h+='<p style="color:var(--faint);text-align:center;margin-top:22px;font-size:13px">Showing the 120 strongest — narrow the filters to see the rest.</p>';
+  results.innerHTML=h;
+}
+function gcard(x){var c=WORLDS[x.world].color,r=ratingDest(x);
+  return '<a class="gcard" style="--sc:'+c+'" href="/atlas/'+esc(x.id)+'">'+
+    '<div class="cred"><span class="gem">✦</span><span class="t">'+esc(x.cred)+'</span></div>'+
+    '<div class="craft">'+esc(x.discipline)+'</div>'+
+    '<div class="srcscene">'+srcLabel(x.role)+'</div>'+
+    '<div class="where"><span>'+esc(x.place)+', '+esc(x.country)+'</span><span class="dots">'+dots(x.rank)+'</span></div>'+
+    '<div class="metaline">'+(x.region?'<span>'+esc(x.region)+'</span>':'')+(x.season?'<span>· '+esc(x.season)+'</span>':'')+(x.schools?'<span>· '+x.schools+' school'+(x.schools===1?"":"s")+'</span>':'')+'</div>'+
+    trustHTML(r)+'</a>';
+}
+function renderRails(){
+  var h='<div class="rhead"><div class="count">Browse <b>five worlds</b> of certified craft</div><div class="sortby">pick a slice, or filter →</div></div>';
+  results.innerHTML=h;
+  ORDER.forEach(function(w){var m=WORLDS[w],list=byWorldDisc[w];if(!list.length)return;
+    var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
+    sec.innerHTML='<div class="shelf-h"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="n">'+list.length+' crafts</span><button class="more" data-w="'+w+'">See all places →</button></div>';
+    var rw=document.createElement("div");rw.className="railwrap";var rail=document.createElement("div");rail.className="rail";
+    list.forEach(function(o){var t=o.top,r=ratingDisc(o.d.id);
+      var a=document.createElement("a");a.className="dcard";a.style.setProperty("--sc",m.color);a.href="/atlas/"+o.d.id;
+      a.innerHTML='<div class="cred"><span class="gem">✦</span><span class="t">'+esc(credLabel(o.d))+'</span></div>'+
+        '<div class="craft">'+esc(o.d.discipline)+'</div>'+
+        '<div class="srcscene">'+srcLabel(t.role)+'</div>'+
+        '<div class="where"><span>'+(t.place?esc(t.place):"")+'</span>'+(t.communityRank?'<span class="dots">'+dots(t.communityRank)+'</span>':'')+'</div>'+
+        '<div class="metaline">'+(t.communityLabel?'<span>'+esc(t.communityLabel)+' community</span>':'')+'</div>'+trustHTML(r);
+      rail.appendChild(a);});
+    rw.appendChild(rail);
+    ["l","r"].forEach(function(sd){var b=document.createElement("button");b.className="arrow "+sd;b.innerHTML=sd==="l"?"‹":"›";b.onclick=function(){rail.scrollBy({left:(sd==="l"?-1:1)*rail.clientWidth*0.85,behavior:"smooth"});};rw.appendChild(b);});
+    sec.appendChild(rw);results.appendChild(sec);sec.querySelector(".more").onclick=function(){toggleWorld(w);};enableDrag(rail);
+  });
+}
+function enableDrag(rail){var down=false,sx=0,sl=0,mv=0;
+  rail.addEventListener("pointerdown",function(e){down=true;mv=0;sx=e.clientX;sl=rail.scrollLeft;rail.classList.add("drag");try{rail.setPointerCapture(e.pointerId);}catch(_){}});
+  rail.addEventListener("pointermove",function(e){if(!down)return;var dx=e.clientX-sx;mv=Math.max(mv,Math.abs(dx));rail.scrollLeft=sl-dx;});
+  function up(){down=false;rail.classList.remove("drag");}rail.addEventListener("pointerup",up);rail.addEventListener("pointercancel",up);rail.addEventListener("pointerleave",up);
+  rail.addEventListener("click",function(e){if(mv>6)e.preventDefault();},true);}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.1});
+document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+if(!A.length){results.innerHTML='<div class="empty">The Atlas didn’t load — <a href="/repertoire" style="color:var(--sea)">open it directly</a>.</div>';}
+else{renderSide();render();}
+})();
+</script>
+</body>
+</html>
