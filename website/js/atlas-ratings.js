@@ -325,12 +325,13 @@ window.ET_RATINGS = {
     "destId": "ayurveda--kottakkal-and-kerala-backwaters",
     "school": "Kottakkal Ayurveda Academy",
     "place": "Kottakkal, Kerala, India",
-    "stars": 3.9,
-    "count": 39,
-    "source": "Justdial",
-    "url": "https://www.justdial.com/Malappuram/Kottakkal-Ayurveda-Academy-Kottakkal/9999PX483-X483-140215063358-Y4G2_BZDET",
+    "stars": null,
+    "count": null,
+    "source": "",
+    "url": "",
     "whyPick": "Founded in 1999 and led by principal Dr. Sooraj (BAMS) with a BAMS/BAMS-MD advisory board, the academy runs NSDC- and NIOS-affiliated certificate courses in classical Ayurveda Panchakarma and therapy, and reviewers single out its hands-on Panchakarma and spa-therapy training.",
-    "destPlace": "Kottakkal & Kerala backwaters"
+    "destPlace": "Kottakkal & Kerala backwaters",
+    "_note": "2026-06-18 re-verify: Justdial page empty/unreadable; rating could not be confirmed → demoted to qualitative-only."
   },
   "traditional-spa-and-hydrotherapy": {
     "destId": "traditional-spa-and-hydrotherapy--budapest",
@@ -556,12 +557,13 @@ window.ET_RATINGS = {
     "destId": "pottery-and-ceramics--mashiko",
     "school": "Mashiko Ceramic Art Club (Mashiko Tougei Club)",
     "place": "Mashiko, Tochigi, Japan",
-    "stars": 3.9,
-    "count": 76,
-    "source": "Jalan (じゃらんnet)",
-    "url": "https://www.jalan.net/kankou/spt_guide000000183643/kuchikomi/",
+    "stars": null,
+    "count": null,
+    "source": "",
+    "url": "",
     "whyPick": "It is documented as the first and oldest pottery class founded in Mashiko (started roughly 40 years ago), and reviewers consistently praise the unlimited clay and the patient, hands-on wheel instruction, with English-speaking staff available.",
-    "destPlace": "Mashiko"
+    "destPlace": "Mashiko",
+    "_note": "2026-06-18 re-verify: Jalan page empty/unreadable; rating could not be confirmed → demoted to qualitative-only."
   },
   "glassblowing": {
     "destId": "glassblowing--murano-venice",
@@ -666,12 +668,13 @@ window.ET_RATINGS = {
     "destId": "italian-cuisine-and-pasta--bologna",
     "school": "La Vecchia Scuola Bolognese (VSB)",
     "place": "Bologna, Italy",
-    "stars": 3.5,
-    "count": 101,
-    "source": "Tripadvisor",
-    "url": "https://www.tripadvisor.com/Attraction_Review-g187801-d2203642-Reviews-Vecchia_Scuola_Bolognese-Bologna_Province_of_Bologna_Emilia_Romagna.html",
-    "whyPick": "Founded by Alessandra Spisni, an internationally known Bolognese sfoglina (hand-rolled-pasta master), the school built its name on teaching the traditional sfoglia and fresh pasta of Emilia-Romagna, and reviewers consistently praise the hands-on, small-group instruction in making tagliatelle, tortelloni, and tortellini by hand.",
-    "destPlace": "Bologna"
+    "stars": null,
+    "count": null,
+    "source": "",
+    "url": "",
+    "whyPick": "",
+    "destPlace": "Bologna",
+    "_note": "2026-06-18 re-verify: TripAdvisor reports La Vecchia Scuola Bolognese PERMANENTLY CLOSED. Rating hidden; replace featured school in repertoire.js."
   },
   "new-basque-cuisine": {
     "destId": "new-basque-cuisine--san-sebasti-n-donostia",
