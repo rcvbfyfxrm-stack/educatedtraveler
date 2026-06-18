@@ -213,6 +213,14 @@ for d in DISC:
             inner = f'<strong style="font-weight:500">{e(s["name"])}</strong>'
             if s.get("course"): inner += f'<div class="meta">{e(s["course"])}</div>'
             if s.get("blurb"): inner += f'<div style="font-size:14px;opacity:.75;margin-top:4px">{e(s["blurb"])}</div>'
+            if s.get("rating"):
+                rcnt = f' · {s["ratingCount"]} reviews' if s.get("ratingCount") else ""
+                rurl = s.get("ratingUrl") or s.get("url")
+                src = s.get("ratingSource", "")
+                cited = f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(rurl)}">{e(src)} ↗</a>' if rurl else e(src)
+                inner += (f'<div class="meta" style="margin-top:5px"><span class="dots">★</span> '
+                          f'<strong style="font-weight:500">{e(str(s["rating"]))}/5</strong>{e(rcnt)} on {cited} '
+                          f'<span style="opacity:.7">— verify it yourself</span></div>')
             if s.get("url"): inner += f'<div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="{e(s["url"])}">{e(s["url"])}</a></div>'
             rows.append(f"<li>{inner}</li>")
         if rows:

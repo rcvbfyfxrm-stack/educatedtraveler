@@ -672,9 +672,9 @@ window.ET_RATINGS = {
     "count": null,
     "source": "",
     "url": "",
-    "whyPick": "",
+    "whyPick": "The only school in the world dedicated to forming sfoglini — founded by master sfoglina Alessandra Spisni in 1993 and listed by Bologna's official tourism board (Bologna Welcome). You learn the hand-rolled egg sheet by touch on the wooden board — tortellini, tortelloni, tagliatelle — in the city the sfoglia comes from.",
     "destPlace": "Bologna",
-    "_note": "2026-06-18 re-verify: TripAdvisor reports La Vecchia Scuola Bolognese PERMANENTLY CLOSED. Rating hidden; replace featured school in repertoire.js."
+    "_note": "2026-06-18: VSB confirmed OPEN (own e-shop sells 2026 sfoglia classes; listed by Bologna Welcome). TA attraction listing contested (crowd-flagged closed, 3.5) so NO star cited here — qualitative only. Bologna Cooking School added as 2nd school w/ its real 4.8/133 TA rating in repertoire.js."
   },
   "new-basque-cuisine": {
     "destId": "new-basque-cuisine--san-sebasti-n-donostia",
