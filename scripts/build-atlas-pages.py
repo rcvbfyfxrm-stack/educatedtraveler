@@ -45,13 +45,23 @@ def rating_block(d, x):
         return ""
     why = r.get("whyPick") or ""
     school = r.get("school") or "this school"
+    # Multiple cited sources per school (TripAdvisor + Google + craft-respected).
+    # Back-compat: synthesize from legacy single fields if no sources[].
+    srcs = r.get("sources")
+    if srcs is None:
+        srcs = ([{"source": r["source"], "stars": r["stars"], "count": r.get("count"), "url": r["url"]}]
+                if r.get("stars") and r.get("url") and _clean_source(r.get("source")) else [])
+    rows = []
+    for s in srcs:
+        if not (s.get("stars") and s.get("url")):
+            continue
+        cnt = f' · {s["count"]} reviews' if s.get("count") else ""
+        rows.append(f'<li><span class="dots">★</span> <strong style="font-weight:500">{e(str(s["stars"]))}/5</strong>{e(cnt)} on '
+                    f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(s["url"])}">{e(s["source"])} ↗</a></li>')
     line = ""
-    if r.get("stars") and r.get("url") and _clean_source(r.get("source")):
-        cnt = f' · {r["count"]} reviews' if r.get("count") else ""
-        line = (f'<p style="margin-bottom:12px"><span class="dots">★</span> '
-                f'<strong style="font-weight:500">{e(str(r["stars"]))}/5</strong>{e(cnt)} on '
-                f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(r["url"])}">{e(r["source"])} ↗</a> '
-                f'<span class="meta">— don\'t take my word, check it yourself</span></p>')
+    if rows:
+        verify = "— don't take my word, check them yourself" if len(rows) > 1 else "— don't take my word, check it yourself"
+        line = f'<ul class="clean" style="margin-bottom:12px">{"".join(rows)}</ul><p class="meta" style="margin:-4px 0 12px">{verify}</p>'
     if not (line or why):
         return ""
     head = "Why this school — real and cited, not my opinion dressed up"
