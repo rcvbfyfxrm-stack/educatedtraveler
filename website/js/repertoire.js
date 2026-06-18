@@ -4093,10 +4093,7 @@ window.ET_ATLAS = {
      "role": "source",
      "communityRank": 3,
      "communityLabel": "Strong",
-     "schools": [
-      "Cabrillo Beach Windsurfing Association (Long Beach)",
-      "CBI (California Boater) sailing centers"
-     ],
+     "schools": [],
      "masters": [
       "Jim Drake & Hoyle Schweitzer (founding lineage)"
      ],
@@ -4105,33 +4102,11 @@ window.ET_ATLAS = {
       "heritage",
       "lineage"
      ],
-     "why": "Jim Drake and Hoyle Schweitzer built and tested the first Windsurfer off this coast in 1967, making it the literal birthplace where the sail-board craft was patented and named.",
+     "why": "Jim Drake and Hoyle Schweitzer built and tested the first Windsurfer off this coast in 1967, making it the literal birthplace where the sail-board craft was patented and named. Listed here as the discipline's heritage source; no verified local windsurf school is vouched for yet.",
      "bestSeason": "Mar-Oct",
      "level": "Beginner -> Intermediate",
      "id": "windsurfing-and-wing-foil--santa-monica-southern-california",
-     "schoolsInfo": [
-      {
-       "name": "Action Sports Maui",
-       "url": "https://actionsportsmaui.com/windsurfing/multi-day-course/",
-       "course": "Classic 5-Day Progressive Windsurfing Course",
-       "blurb": "A named five-day windsurfing course at Kanaha Beach Park on Maui, with about 2.5 hours of progressive instruction per day; days need not be consecutive so they can be fitted around wind and weather.",
-       "confidence": "medium"
-      },
-      {
-       "name": "Cabrillo Beach Windsurfing Association (Long Beach)",
-       "url": "",
-       "course": "",
-       "blurb": "A community windsurfing group active at Cabrillo Beach in the Los Angeles harbor area, but it operates as a member/enthusiast club rather than a verifiable school with structured multi-day immersive courses.",
-       "confidence": "low"
-      },
-      {
-       "name": "CBI (California Boater) sailing centers",
-       "url": "https://www.cal-sailing.org/lessons-menu/windsurfing",
-       "course": "Novice I-III Windsurfing course progression",
-       "blurb": "Cal Sailing Club is a member-run California sailing and windsurfing center running a structured Novice I-III windsurfing course progression across the April-October season near the Santa Monica/Marina del Rey shoreline.",
-       "confidence": "medium"
-      }
-     ]
+     "schoolsInfo": []
     },
     {
      "place": "Maui (Ho'okipa & Kanaha)",
@@ -4192,8 +4167,7 @@ window.ET_ATLAS = {
      "communityRank": 4,
      "communityLabel": "Thriving",
      "schools": [
-      "Pozo Winds",
-      "ION Club Pozo (Club Mistral)"
+      "Pozo Winds"
      ],
      "masters": [],
      "badges": [
@@ -4212,13 +4186,6 @@ window.ET_ATLAS = {
        "course": "Windsurfing Clinics / Improvement Courses",
        "blurb": "Pozowinds is a windsurf, wing-foil, SUP and surf school and rental center based at Pozo Izquierdo, Gran Canaria, running multi-day windsurfing courses and clinics for beginners through advanced riders on the Bahia de Formas flatwater and nearby wave spots.",
        "confidence": "high"
-      },
-      {
-       "name": "ION Club Pozo (Club Mistral)",
-       "url": "",
-       "course": "",
-       "blurb": "Could not verify an operating ION Club / Club Mistral center at Pozo Izquierdo: the former Club Mistral Gran Canaria operation at nearby Bahia Feliz was succeeded by the separate Fanatic Boarders Centre in 2016, and ION Club's current Spanish centers are Tarifa and Golf de Roses.",
-       "confidence": "low"
       }
      ]
     },
@@ -4257,25 +4224,188 @@ window.ET_ATLAS = {
        "confidence": "high"
       }
      ]
+    },
+    {
+     "place": "Lo Stagnone / Marsala, Sicily",
+     "country": "Italy",
+     "region": "Mediterranean",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "Stagnone Kitesurf",
+      "ION Club Sicily"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school"
+     ],
+     "why": "A shallow, waist-deep flatwater lagoon with a clockwork afternoon thermal makes Lo Stagnone the gentlest place on the Mediterranean to learn and to drill the first planing gybe with no chop and no fear. The vibe is laid-back and watersports-focused — aperitivo and beach-bar culture rather than nightclubs — and it stays the best-value spot in the Med for a long, quiet learning stay. Note it leans kite/wing, so windsurf-specific long-term rental is worth confirming directly.",
+     "bestSeason": "Apr-Oct",
+     "level": "Beginner -> Advanced",
+     "id": "windsurfing-and-wing-foil--lo-stagnone-marsala-sicily",
+     "schoolsInfo": [
+      {
+       "name": "Stagnone Kitesurf",
+       "url": "https://www.stagnonekitesurf.com/en/windsurf/",
+       "course": "Windsurf lessons and rental on the Lo Stagnone lagoon",
+       "blurb": "Rated 4.8/5 on TripAdvisor (25 reviews). Sicily's first lagoon watersports school (operating since the late 1990s), IKO + FIV certified and family-run with multilingual one-on-one tuition; offers a dedicated windsurf course and full-kit rental on the shallow, standable flatwater alongside its larger kite operation.",
+       "rating": "TripAdvisor 4.8/5 (25 reviews)",
+       "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g194817-d8830088-Reviews-Stagnone_Kitesurf-Marsala_Province_of_Trapani_Sicily.html",
+       "confidence": "high"
+      },
+      {
+       "name": "ION Club Sicily",
+       "url": "https://www.ion-club.net/sicily/windsurf-lessons/",
+       "course": "VDWS windsurf, wing and kite courses + rental",
+       "blurb": "Rated 4.8/5 on TripAdvisor (38 reviews, as Duotone Pro Center Sicily). Part of the established ION Club network (founded 1985), with a premium current-season Duotone/Fanatic windsurf fleet rigged on-site and VDWS/FAV-certified multilingual instructors on the Lo Stagnone flatwater lagoon.",
+       "rating": "TripAdvisor 4.8/5 (38 reviews)",
+       "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g21329138-d23424934-Reviews-Duotone_Pro_Center_Sicily-Birgi_Vecchi_Marsala_Province_of_Trapani_Sicily.html",
+       "confidence": "high"
+      }
+     ]
+    },
+    {
+     "place": "Dahab (the Lagoon), Sinai",
+     "country": "Egypt",
+     "region": "Middle East & North Africa",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "Harry Nass Dahab",
+      "ION Club Dahab"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school"
+     ],
+     "why": "Dahab's shallow side-shore lagoon, warm wetsuit-free water and steady thermal wind make it one of the world's best value-for-mileage improver spots — purpose-built for nailing footstraps, planing and the carve gybe. The town is a quiet, chilled diver-and-nomad hub with a strong cheap-and-healthy food scene, not a party resort. Caveat: July-August air hits 38-40C so you sail mornings; September-October is the sweeter window with the heat gone and the wind still on.",
+     "bestSeason": "Mar-Nov",
+     "level": "Beginner -> Advanced",
+     "id": "windsurfing-and-wing-foil--dahab-the-lagoon-sinai",
+     "schoolsInfo": [
+      {
+       "name": "Harry Nass Dahab",
+       "url": "https://www.harry-nass.com/en/windsurfing-lessons-dahab/",
+       "course": "Windsurf courses + weekly/monthly rental with free gear-size swapping",
+       "blurb": "Rated 4.5/5 on TripAdvisor (118 reviews, Harry Nass Windsurf & Kite Centres). Operating since 1999 and VDWS-certified, it runs the largest windsurf fleet in Dahab (~250 JP boards / ~250 Neil Pryde rigs) across two centres, with a beginner-safe shallow lagoon you can walk back through and a free shuttle boat between sites; awarded Best Windsurfing & Kite Centre by the Egyptian Ministry of Tourism (2011).",
+       "rating": "TripAdvisor 4.5/5 (118 reviews)",
+       "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g297549-d9826270-Reviews-Harry_Nass_Windsurf_Kite_Centres-Hurghada_Red_Sea_and_Sinai.html",
+       "confidence": "high"
+      },
+      {
+       "name": "ION Club Dahab",
+       "url": "https://www.ion-club.net/dahab/windsurf-rental/",
+       "course": "VDWS windsurf, wing and kite courses + rental",
+       "blurb": "ION Club's Dahab Boarder Center (descended from Club Mistral Dahab, since 1997) sits directly on a flat, sandbank-sheltered lagoon with staff-rigged gear and rescue-boat cover; spendable voucher credit transfers across ION centers worldwide though rental is per-station. No independent public rating verified yet, and the Dahab station may share branding with Fanatic Boarders Dahab — confirm the current operator directly before relying on it.",
+       "confidence": "medium"
+      }
+     ]
+    },
+    {
+     "place": "Naxos (St. George Lagoon)",
+     "country": "Greece",
+     "region": "Mediterranean",
+     "role": "scene",
+     "communityRank": 3,
+     "communityLabel": "Strong",
+     "schools": [
+      "Flisvos Sport Club",
+      "Naxos Surf Club"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "school"
+     ],
+     "why": "The shallow, flat St. George (Laguna) Bay beside Naxos Town is repeatedly described as one of the safest beginner windsurf spots in the world — side/onshore wind, standable water, no transfer needed. The wind is the lightest of the Greek spots, friendlier for learning than gusty Karpathos, and the island itself is relaxed and family-sporty with excellent fresh produce, never a party scene. Quiet and well-rounded for a long stay, with the trade-off that July accommodation is squeezed. (Mikri Vigla, further south, is the kite headland.)",
+     "bestSeason": "May-Oct",
+     "level": "Beginner -> Advanced",
+     "id": "windsurfing-and-wing-foil--naxos-st-george-lagoon",
+     "schoolsInfo": [
+      {
+       "name": "Flisvos Sport Club",
+       "url": "https://www.flisvos-sportclub.com/",
+       "course": "Windsurf and wing courses + rental on the St. George lagoon",
+       "blurb": "Rated 4.4/5 on TripAdvisor (79 reviews). A long-running windsurf/wingfoil center on the behind-the-reef St. George flatwater lagoon, with a full course program plus on-site studios/apartments and a beach restaurant — a one-stop windsurf-holiday base for beginners through advanced.",
+       "rating": "TripAdvisor 4.4/5 (79 reviews)",
+       "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g189431-d6706745-Reviews-Flisvos_Sportclub_Naxos-Naxos_Cyclades_South_Aegean.html",
+       "confidence": "high"
+      },
+      {
+       "name": "Naxos Surf Club",
+       "url": "https://www.naxos-surf.com/",
+       "course": "Windsurf lessons and rental on the St. George lagoon",
+       "blurb": "Rated 4.3/5 on TripAdvisor (49 reviews). A St. George lagoon windsurf center offering rental and lessons for all levels on current/new gear, within walking distance of Naxos Town on shallow, flat, side/onshore water ideal for learning.",
+       "rating": "TripAdvisor 4.3/5 (49 reviews)",
+       "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g580192-d1485497-Reviews-Naxos_Surf_Club-Naxos_Town_Naxos_Cyclades_South_Aegean.html",
+       "confidence": "high"
+      }
+     ]
+    },
+    {
+     "place": "Karpathos (Afiartis)",
+     "country": "Greece",
+     "region": "Mediterranean",
+     "role": "scene",
+     "communityRank": 4,
+     "communityLabel": "Thriving",
+     "schools": [
+      "ION Club Karpathos",
+      "Karpathos Surf Club"
+     ],
+     "masters": [],
+     "badges": [
+      "scene",
+      "mecca",
+      "school"
+     ],
+     "why": "The Afiartis bay funnels the strongest, most reliable meltemi in Greece — 25-35 knots gusting higher for weeks on end — making it a mecca for powered-up intermediate-to-expert sailors, with a tamer Chicken Bay for those stepping up. It is the quietest and least-developed of the Greek spots, where the windsurf community is the entire scene and there is no nightlife. Remote and effectively car-dependent, but cheap on gear and gloriously empty.",
+     "bestSeason": "May-Sep",
+     "level": "Intermediate -> Expert",
+     "id": "windsurfing-and-wing-foil--karpathos-afiartis",
+     "schoolsInfo": [
+      {
+       "name": "ION Club Karpathos",
+       "url": "https://www.ion-club.net/karpathos/",
+       "course": "VDWS windsurf and wing courses + rental across Gun Bay and Chicken Bay",
+       "blurb": "Rated 4.9/5 on TripAdvisor (17 reviews). ION Club's flagship Karpathos station runs two adjacent Afiartis bays on a single rental — the shallow learner Chicken Bay and the high-wind Gun Bay (35-40 kt with a wave ~500m out in summer) — so a student can progress from first-timer to jumps without changing schools, on full Duotone/Fanatic quivers.",
+       "rating": "TripAdvisor 4.9/5 (17 reviews)",
+       "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g4604901-d12150304-Reviews-ION_CLUB_Karpathos-Afiartis_Karpathos_Dodecanese_South_Aegean.html",
+       "confidence": "high"
+      },
+      {
+       "name": "Karpathos Surf Club",
+       "url": "https://karpathosurf.com/",
+       "course": "Windsurf rental and lessons at Afiartis (official RRD center)",
+       "blurb": "Rated 4.7/5 on TripAdvisor (18 reviews). An official RRD station on the shallow Chicken Bay flatwater with brand-new boards/sails and hands-on, owner-led tuition from basics through waterstart, jibing and looping; open daily May-Oct, good for a personalized small-school feel.",
+       "rating": "TripAdvisor 4.7/5 (18 reviews)",
+       "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g4604901-d4874440-Reviews-Kaparthos_Surf_Club-Afiartis_Karpathos_Dodecanese_South_Aegean.html",
+       "confidence": "high"
+      }
+     ]
     }
    ],
    "id": "windsurfing-and-wing-foil",
    "certShort": "VDWS",
    "featured": {
-    "id": "windsurfing-and-wing-foil--santa-monica-southern-california",
-    "place": "Kanaha Beach, Maui",
-    "country": "United States",
-    "school": "Action Sports Maui",
-    "url": "https://actionsportsmaui.com/windsurfing/multi-day-course/",
-    "course": "Classic 5-Day Progressive Windsurfing Course",
-    "description": "A named five-day windsurfing course at Kanaha Beach Park on Maui, with about 2.5 hours of progressive instruction per day; days need not be consecutive so they can be fitted around wind and weather. The structured progression covers wind theory, balance, rope-start, beginner sailing, self-launch, tacking, beach starts, self-rescue and upwind sailing, and all gear (board, sail, rig, harness, PFD, rashguard, booties) is included. Lessons run Monday to Saturday at Kanaha, which has a sandy bottom and no shorebreak. Action Sports Maui also offers wing-surfing lessons at the same beach.",
-    "duration": "5 days (~2.5 hours/day, non-consecutive permitted)",
-    "format": "Multi-day progressive course, small-group or private, at Kanaha Beach",
-    "certification": "None (skills course, not a VDWS/IWO licence)",
-    "fitsBecause": "A structured multi-day course (not a one-off taster) at Kanaha, the recognised home of high-wind windsurfing, with a clear beginner-to-improver progression and gear included.",
+    "id": "windsurfing-and-wing-foil--karpathos-afiartis",
+    "place": "Afiartis, Karpathos",
+    "country": "Greece",
+    "school": "ION Club Karpathos",
+    "url": "https://www.ion-club.net/karpathos/",
+    "course": "VDWS windsurf courses + rental across Chicken Bay and Gun Bay",
+    "description": "ION Club's flagship Karpathos station runs two adjacent bays on a single rental in the strong, reliable Afiartis meltemi: the shallow, standable Chicken Bay for learning and consolidating, and the high-wind Gun Bay (35-40 kt with a wave breaking ~500m out in midsummer) for stepping up to footstraps, planing, the carve gybe and beyond. Instruction follows the VDWS method on full current-season Duotone/Fanatic quivers, so an improver can progress from reliable tacks/gybes to powered planing without changing schools. Rated 4.9/5 on TripAdvisor.",
+    "duration": "Flexible — daily, weekly or longer rental + coaching blocks",
+    "format": "VDWS courses and rental, two-bay station at Afiartis (beginner bay + high-wind bay)",
+    "certification": "VDWS windsurf licence levels available",
+    "fitsBecause": "The strongest, most reliable meltemi in Greece paired with a safe learner bay AND a genuine high-wind bay in one location — ideal for an improver chasing consistent planing and the carve gybe over a long stay. Verified 4.9/5 TripAdvisor (17 reviews).",
     "sessions": [],
-    "priceNote": "Per-person course fee not published online; price unconfirmed (contact school)",
-    "confidence": "medium"
+    "priceNote": "Monthly/long-stay rental rates not published online; contact the center for a flat 1-2 month quote",
+    "confidence": "high"
    }
   },
   {
