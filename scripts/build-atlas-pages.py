@@ -25,6 +25,40 @@ src = (ROOT / "website/js/repertoire.js").read_text()
 DATA = json.loads(src[src.index("{", src.index("window.ET_ATLAS")):src.rindex("}") + 1])
 DISC = DATA["disciplines"]
 
+# Real, cited public ratings (window.ET_RATINGS) — the trust layer. Keyed by discipline id;
+# each entry names the matched school + destId. We show a star NUMBER only for clean
+# first-party sources with a working link; self-flagged aggregated/indirect sources render
+# as the qualitative reason only. Never fabricated; always linked so readers can verify.
+RSRC = ROOT / "website/js/atlas-ratings.js"
+RATINGS = {}
+if RSRC.exists():
+    _rt = RSRC.read_text()
+    RATINGS = json.loads(_rt[_rt.index("{", _rt.index("ET_RATINGS")):_rt.rindex("}") + 1])
+
+def _clean_source(s):
+    s = (s or "").lower()
+    return bool(s) and not any(w in s for w in ["via", "aggreg", "not ", "company-wide", "directory", "syncs"])
+
+def rating_block(d, x):
+    r = RATINGS.get(d["id"])
+    if not r or r.get("destId") != x["id"]:
+        return ""
+    why = r.get("whyPick") or ""
+    school = r.get("school") or "this school"
+    line = ""
+    if r.get("stars") and r.get("url") and _clean_source(r.get("source")):
+        cnt = f' · {r["count"]} reviews' if r.get("count") else ""
+        line = (f'<p style="margin-bottom:12px"><span class="dots">★</span> '
+                f'<strong style="font-weight:500">{e(str(r["stars"]))}/5</strong>{e(cnt)} on '
+                f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(r["url"])}">{e(r["source"])} ↗</a> '
+                f'<span class="meta">— don\'t take my word, check it yourself</span></p>')
+    if not (line or why):
+        return ""
+    head = "Why this school — real and cited, not my opinion dressed up"
+    return (f'<section><div class="wrap" style="max-width:720px"><div class="mono">{head}</div>'
+            f'<h2 style="margin:6px 0 10px">Why {e(school)}</h2>{line}'
+            f'<p style="opacity:.82">{e(why)}</p></div></section>')
+
 CORES = {
     "wellness": ("Wellness", "Breath, stillness, the body as instrument"),
     "adventure": ("Adventure", "Wind, water, rock, snow — competence outdoors"),
@@ -218,7 +252,7 @@ for d in DISC:
 <p class="lead">{e(x['why'])}</p>{cred}
 </div></header>
 <section><div class="wrap">{dest_card(d, x, link=False)}{circle_cta(f"We are mapping the strongest communities on earth for {d['discipline']}. If {x['place']} pulls you, raise your hand — we will introduce you to the school and the people going.")}</div></section>
-{schools_html}{masters_html}{sib_html}"""
+{rating_block(d, x)}{schools_html}{masters_html}{sib_html}"""
         (OUT / f'{x["id"]}.html').write_text(page(title, desc, path, body,
             breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], f'/atlas/{d["id"]}'), (x["place"], path)], jsonld=jsonld))
 
