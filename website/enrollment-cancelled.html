@@ -55,7 +55,7 @@
         const cohort = params.get('cohort_id');
         const ref = document.referrer && new URL(document.referrer).origin === window.location.origin
             ? document.referrer
-            : '/repertoire';
+            : '/browse';
         document.getElementById('back-link').href = ref;
     </script>
 </body>

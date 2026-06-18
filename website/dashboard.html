@@ -766,7 +766,7 @@
                 EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span>
             </a>
             <div class="hidden md:flex items-center gap-8">
-                <a href="repertoire.html" class="text-sm text-white/60 hover:text-white transition-colors">Adventures</a>
+                <a href="/browse" class="text-sm text-white/60 hover:text-white transition-colors">The Atlas</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
                 <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
                     Join Waitlist
@@ -783,7 +783,7 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
             <div class="px-6 py-4 space-y-3">
-                <a href="repertoire.html" class="block py-3 text-white/70 hover:text-white transition-colors">Adventures</a>
+                <a href="/browse" class="block py-3 text-white/70 hover:text-white transition-colors">The Atlas</a>
                 <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
                 <a href="community.html" class="block py-3 text-white/70 hover:text-white transition-colors">Join Waitlist</a>
                 <a href="dashboard.html" class="block py-3 text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">My Dashboard</a>
@@ -880,7 +880,7 @@
                         <h2 class="text-lg font-light">Matched to your profile</h2>
                         <p id="recommended-subtitle" class="text-white/40 text-xs mt-1">Based on what you said draws you in.</p>
                     </div>
-                    <a href="/repertoire" class="text-sm text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">See all</a>
+                    <a href="/browse" class="text-sm text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">See all</a>
                 </div>
                 <div id="recommended-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
             </section>
@@ -1016,7 +1016,7 @@
                 </div>
                 <div class="flex items-center gap-6">
                     <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
-                    <a href="repertoire.html" class="text-white/50 hover:text-white text-sm transition-colors">Adventures</a>
+                    <a href="/browse" class="text-white/50 hover:text-white text-sm transition-colors">The Atlas</a>
                     <a href="mailto:arnaudcallier@pm.me" class="text-white/50 hover:text-white text-sm transition-colors">Contact</a>
                 </div>
             </div>
@@ -2221,7 +2221,7 @@
                 const color = categoryColor[exp.category] || '#7fa8a5';
                 const slug = exp.id;
                 return `
-                    <a href="/repertoire" class="glass rounded-xl p-5 block hover:bg-white/5 transition-colors">
+                    <a href="/browse" class="glass rounded-xl p-5 block hover:bg-white/5 transition-colors">
                         <div class="flex items-center gap-2 mb-3">
                             <div class="w-2 h-2 rounded-full" style="background:${color}"></div>
                             <span class="text-[0.65rem] uppercase tracking-wider font-mono" style="color:${color}">${escapeHtml(exp.category)} · ${escapeHtml(exp.tier || '')}</span>

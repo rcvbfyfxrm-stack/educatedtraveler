@@ -148,7 +148,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 </div></div>
 
 <footer><div class="wrap frow">
-  <span>EducatedTraveler — a place, a person, your people. <a href="/#circle">Join the Circle</a> · <a href="/journal/">Journal</a> · <a href="/repertoire">Atlas index</a></span>
+  <span>EducatedTraveler — a place, a person, your people. <a href="/#circle">Join the Circle</a> · <a href="/journal/">Journal</a> · <a href="/browse">Atlas index</a></span>
   <span style="opacity:.7">Privacy-light, cookieless analytics.</span>
 </div></footer>
 
@@ -328,7 +328,7 @@ function enableDrag(rail){var down=false,sx=0,sl=0,mv=0;
   rail.addEventListener("click",function(e){if(mv>6)e.preventDefault();},true);}
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.1});
 document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
-if(!A.length){results.innerHTML='<div class="empty">The Atlas didn’t load — <a href="/repertoire" style="color:var(--sea)">open it directly</a>.</div>';}
+if(!A.length){results.innerHTML='<div class="empty">The Atlas didn’t load — <a href="/browse" style="color:var(--sea)">open it directly</a>.</div>';}
 else{renderSide();render();}
 })();
 </script>
