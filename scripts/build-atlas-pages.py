@@ -40,6 +40,36 @@ ROLE_LABELS = {"source": "Birthplace of the discipline", "scene": "Strong living
 
 e = html.escape
 
+# Founder-voice trust block — appears small at the bottom of every Atlas page.
+# Voice: Arnaud, first person, plain, no hype. No fabricated ratings — only what
+# we can stand behind. The reader's 5 questions sit in <details> to stay compact.
+TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(--ink2)">
+<div class="wrap" style="max-width:720px">
+<div class="mono">Why you can trust this map</div>
+<h2 style="font-size:20px;margin:8px 0 14px">What I check before I send you anywhere</h2>
+<p style="opacity:.82;font-size:15px;margin-bottom:16px">I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — so I know the difference between a real school and a good-looking website. I built the Atlas because I got tired of the second kind. Here is what a place has to clear before it goes on here, and what I'll tell you straight when it doesn't.</p>
+<ul class="clean" style="font-size:14.5px">
+<li><strong style="font-weight:500">The craft is actually alive there.</strong> A working scene, with people who do this every day — not a demo put on for visitors.</li>
+<li><strong style="font-weight:500">There's a real teacher behind it.</strong> Named, still practising, and certified where the craft has certificates.</li>
+<li><strong style="font-weight:500">The credential is what it claims to be.</strong> A state diploma and a certificate a school prints itself are not the same thing. I check which, and I say which.</li>
+<li><strong style="font-weight:500">I tell you how sure I am.</strong> Most pages here are verified by hand. A few say "still checking" — I'd rather admit that than pretend.</li>
+<li><strong style="font-weight:500">Nobody pays to be here.</strong> No commission, no selling the trip. The order on this map is the strength of the community, never the size of the wallet.</li>
+<li><strong style="font-weight:500">If I wouldn't send a friend, it isn't on the map.</strong></li>
+</ul>
+<details style="margin-top:18px">
+<summary style="cursor:pointer;color:var(--sea);font-size:14px">Before you trust any school — mine or anyone else's — ask these five things</summary>
+<ol style="font-size:14px;opacity:.84;margin:14px 0 0 18px;line-height:1.75">
+<li>Who actually teaches it? Can you find them by name, with a track record you can check yourself?</li>
+<li>Is the craft alive in that place, or is the school the only thing there? A real scene has more than one good option.</li>
+<li>What exactly do you walk away with — a recognised qualification, or a certificate they printed themselves? Ask which.</li>
+<li>Can you speak to someone who did the course? A real person, not a testimonial on their own page.</li>
+<li>What happens on a bad day — weather, an injury, a teacher who doesn't show? A serious place has an honest answer.</li>
+</ol>
+<p style="font-size:13px;opacity:.6;margin-top:12px">If a place dodges these, that's your answer. It costs you nothing to ask, and it tells you everything.</p>
+</details>
+</div>
+</section>"""
+
 def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None):
     crumbs = ""
     if breadcrumbs:
@@ -105,6 +135,7 @@ footer a {{ color:var(--sea); }}
 <div style="display:flex;gap:22px"><a href="/atlas/">Atlas</a><a href="/about">About</a><a href="/journal/">Journal</a><a href="/#circle">The Circle</a></div>
 </div></nav>
 {body}
+{TRUST_HTML}
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 </body>
 </html>"""
@@ -151,7 +182,14 @@ for d in DISC:
             if s.get("url"): inner += f'<div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="{e(s["url"])}">{e(s["url"])}</a></div>'
             rows.append(f"<li>{inner}</li>")
         if rows:
-            schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2><ul class="clean">{"".join(rows)}</ul></div></section>'
+            feat = d.get("featured") or {}
+            if feat.get("confidence") == "low":
+                vnote = ('<p class="meta" style="margin-bottom:12px;color:var(--ember);opacity:.85">'
+                         'Honest note: this one is still provisional — I\'m verifying it. Treat it as a lead worth checking, not a verdict.</p>')
+            else:
+                vnote = ('<p class="meta" style="margin-bottom:12px">'
+                         'Checked by hand against each school\'s own course pages. No school paid to be listed.</p>')
+            schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="clean">{"".join(rows)}</ul></div></section>'
 
         masters_html = ""
         if x["masters"]:
