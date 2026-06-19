@@ -109,7 +109,7 @@ footer a { color:var(--sea); }
 <script src="/js/supabase-config.js"></script>
 <script src="/js/intent-capture.js" defer></script>
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
-<div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — approximate, converted at fixed rates; the original is the source of truth">
+<div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — converted at live ECB rates; the original is the source of truth">
 <span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>
 <script>
 (function(){
@@ -130,6 +130,19 @@ footer a { color:var(--sea); }
     bar.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.dataset.c===sel); });
   }
   bar.addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b)return; sel=b.dataset.c; localStorage.setItem("et_cur",sel); apply(); });
+  // Live FX (ECB via Frankfurter, no key, CORS). Cache 6h; fall back to the fixed table above if offline/down.
+  function setRates(r,date){ R=r; if(date) bar.title="Prices shown at live ECB rates as of "+date+" — converted, the original is the source of truth"; apply(); }
+  function useRates(rates,date){ rates.USD=rates.USD||1; localStorage.setItem("et_fx",JSON.stringify({r:rates,t:Date.now(),date:date})); setRates(rates,date); }
+  (function loadFX(){
+    try{ var c=JSON.parse(localStorage.getItem("et_fx")||"null"); if(c&&c.r&&c.t&&(Date.now()-c.t<21600000)){ setRates(c.r,c.date); return; } }catch(e){}
+    fetch("https://api.frankfurter.dev/v1/latest?base=USD").then(function(x){return x.json();}).then(function(d){
+      if(d&&d.rates){ useRates(d.rates,d.date); } else { throw 0; }
+    }).catch(function(){
+      fetch("https://open.er-api.com/v6/latest/USD").then(function(x){return x.json();}).then(function(d){
+        if(d&&d.rates){ useRates(d.rates,(d.time_last_update_utc||"").slice(0,16)); }
+      }).catch(function(){});
+    });
+  })();
   apply();
 })();
 </script>
