@@ -19374,6 +19374,809 @@ window.ET_ATLAS = {
           }
         ]
       }
+    },
+    {
+      "discipline": "Bush & Floatplane Flying",
+      "category": "adventure",
+      "id": "bush-and-floatplane-flying",
+      "certBody": "FAA (USA) / Transport Canada / national CAAs (e.g. CAA New Zealand)",
+      "certShort": "FAA ASES",
+      "goldCredential": "FAA Single-Engine Seaplane (ASES) rating + tailwheel / backcountry mountain-canyon competency",
+      "blurb": "Learn to put a tail-dragger on a gravel bar or set a floatplane down on a glassy backcountry lake — here the flying is the adventure, and the rating is real. Alaska is the heartland: SuperCubs on floats, mountain passes, and a tight community of bush pilots who treat off-airport skill as a craft.",
+      "ceiling": "Most courses require an existing private pilot licence (PPL) first — you are adding a rating or endorsement, not learning to fly from zero. A 5–6 day seaplane course (~10–15 flight hours) earns you a legitimate FAA ASES rating and a genuine taste of bush technique, but it is a licence to keep learning, not backcountry mastery. Real off-airport, mountain-pass and remote-water competence takes years of mentored hours; a short course gets you certified and safe to practise, not seasoned.",
+      "room": {
+        "ratio": "1:1 dual instruction in the aircraft (single student, single instructor)",
+        "day": "1–2 flights/day plus ground briefings; weather-dependent, with intensive seasonal courses running roughly June–September in the northern hemisphere",
+        "who": "Licensed PPL+ pilots adding a seaplane rating, tailwheel or backcountry/mountain-canyon skills; a few schools also build hours toward the licence itself"
+      },
+      "destinations": [
+        {
+          "place": "Kenai Peninsula (Trail Lake / Moose Pass)",
+          "country": "United States",
+          "region": "North America",
+          "role": "source",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Alaska Float Ratings"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "mecca",
+            "scene",
+            "school",
+            "gold-cred",
+            "heritage"
+          ],
+          "why": "Alaska is the global heartland of bush and floatplane flying — more floatplanes per capita than anywhere on earth, and a culture where landing on a wild lake is daily life. The Kenai Peninsula's backcountry lakes and mountain passes are the classic proving ground, and a SuperCub-on-floats rating earned here carries the weight of the source.",
+          "bestSeason": "June–mid September (operations run ~June 1–September 15)",
+          "level": "PPL holder -> FAA ASES (Single-Engine Sea) rating + bush technique",
+          "id": "bush-and-floatplane-flying--kenai-peninsula",
+          "schoolsInfo": [
+            {
+              "name": "Alaska Float Ratings",
+              "url": "https://alaskafloatratings.com/",
+              "course": "Adventure Bush Flying Course — 5–6 days, 15 flight hours, SuperCub on floats, toward FAA SES rating",
+              "blurb": "Floatplane and backcountry training on Trail Lake, Kenai Peninsula, in a SuperCub on floats; a designated pilot examiner (DPE) is on site. Course tiers run from a 4-hour refresher up to the 15-hour Adventure Bush Flying Course that pairs rating training with backcountry exploration and fishing.",
+              "confidence": "high — course names, durations, flight hours and prices verified on the school's own rates page",
+              "rating": 4.7,
+              "ratingSource": "TripAdvisor",
+              "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g31060-d7725248-Reviews-Alaska_Float_Ratings-Moose_Pass_Alaska.html",
+              "ratingCount": 13
+            }
+          ]
+        },
+        {
+          "place": "McCall, Idaho",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "McCall Mountain/Canyon Flying Seminars"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "school",
+            "heritage",
+            "lineage"
+          ],
+          "why": "McCall sits on the edge of the Frank Church–River of No Return Wilderness, home to the legendary Idaho backcountry airstrips. The school, founded in 1997, is the most prominent backcountry/mountain-canyon flight school in the United States — the place pilots go to learn gravel-bar landings, canyon turns and density-altitude flying on wheels.",
+          "bestSeason": "Late spring through autumn (mountain/canyon season); some seminars year-round",
+          "level": "PPL holder -> tailwheel + backcountry mountain/canyon competency",
+          "id": "bush-and-floatplane-flying--mccall-idaho",
+          "schoolsInfo": [
+            {
+              "name": "McCall Mountain/Canyon Flying Seminars",
+              "url": "https://mountaincanyonflying.com/",
+              "course": "4-Day Comprehensive Mountain and Canyon Flying Course (6–9 hrs dual); also 2/3-day Fundamentals and a 5-day Diamond D Ranch wilderness excursion",
+              "blurb": "Established 1997, the nation's leading backcountry flight school. Instructors carry tens of thousands of hours of backcountry experience; training covers steep stabilized approaches, emergency canyon turns, confined-area operations and high-density-altitude tailwheel work in the Idaho and Utah backcountry.",
+              "confidence": "high — course names, durations and prices verified on the school's own seminars page",
+              "ratingSource": "",
+              "ratingUrl": ""
+            }
+          ]
+        },
+        {
+          "place": "Victoria / Vancouver Island, British Columbia",
+          "country": "Canada",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Ocean Air Floatplanes"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "heritage"
+          ],
+          "why": "Coastal British Columbia is the other great floatplane culture of North America — a working seaplane economy of harbours, fjords and island runs. Vancouver Island schools deliver the Transport Canada seaplane rating in protected coastal water, an ideal place for a PPL holder to add floats.",
+          "bestSeason": "Spring through autumn (ice-free coastal water; year-round on the mild coast)",
+          "level": "PPL holder -> Transport Canada single-engine seaplane rating",
+          "id": "bush-and-floatplane-flying--vancouver-island-bc",
+          "schoolsInfo": [
+            {
+              "name": "Ocean Air Floatplanes",
+              "url": "https://oceanair.ca/transport-canada-seaplane-rating/",
+              "course": "Transport Canada seaplane rating (basic ~7-hour endorsement) and an extended 50-hour professional seaplane course (25 hrs dual + 25 hrs PIC-supervised)",
+              "blurb": "Victoria-based floatplane school offering the Transport Canada seaplane rating in sheltered coastal water; minimum prerequisite is a valid Canadian PPL or a foreign-licence validation. No flight test — the instructor certifies competency to hold the rating.",
+              "confidence": "high — course structure, hours and prerequisites verified via the school site and Transport Canada rating requirements",
+              "ratingSource": "",
+              "ratingUrl": ""
+            }
+          ]
+        },
+        {
+          "place": "Wanaka, Otago",
+          "country": "New Zealand",
+          "region": "Oceania",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Learn To Fly NZ (Wanaka)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "Wanaka sits at the gateway to Mt Aspiring National Park in the lee of the Southern Alps — some of the most spectacular mountain-flying terrain on earth, taking in Milford Sound, Fiordland and Mt Cook. New Zealand is a recognised destination for pilots converting overseas licences and building genuine alpine/backcountry skill.",
+          "bestSeason": "October–April (Southern Hemisphere summer; year-round operations possible)",
+          "level": "Licensed pilot -> mountain-flying competency / overseas-licence conversion",
+          "id": "bush-and-floatplane-flying--wanaka-nz",
+          "schoolsInfo": [
+            {
+              "name": "Learn To Fly NZ (Wanaka)",
+              "url": "https://www.learntoflynz.com/mountain-flying",
+              "course": "Mountain-flying training in the Southern Alps (Milford/Doubtful Sound, Fiordland, Mt Cook)",
+              "blurb": "Wanaka-based school at the gateway to Mt Aspiring National Park, offering mountain-flying training across the Southern Alps. Confirm current course length, prerequisites and pricing directly with the school.",
+              "confidence": "medium — school, location and mountain-flying focus verified via search; the school's own page returned a 403 so course specifics and pricing are not directly confirmed here",
+              "ratingSource": "",
+              "ratingUrl": ""
+            }
+          ]
+        }
+      ],
+      "featured": {
+        "id": "bush-and-floatplane-flying--kenai-peninsula",
+        "place": "Kenai Peninsula (Trail Lake / Moose Pass)",
+        "country": "United States",
+        "school": "Alaska Float Ratings",
+        "url": "https://alaskafloatratings.com/",
+        "course": "Adventure Bush Flying Course",
+        "description": "Five to six days on Trail Lake in the Alaskan backcountry, flying a SuperCub on floats one-on-one with an instructor toward your FAA single-engine seaplane (SES) rating — with a designated pilot examiner on site. Fifteen flight hours pair rating training with real backcountry exploration and fishing, so you earn the credential at the literal source of floatplane culture.",
+        "duration": "5–6 days, 15 flight hours",
+        "format": "1:1 dual instruction, SuperCub on floats; cabin lodging available",
+        "certification": "FAA Single-Engine Seaplane (ASES/SES) rating (checkride/examiner fees separate; rating not guaranteed)",
+        "fitsBecause": "Alaska is the undisputed source of bush and floatplane flying, and this is the flagship course — a legitimate FAA rating earned in the world's heartland of the craft, exactly ET's certified-skills-at-the-source model.",
+        "sessions": [
+          "Float and backcountry technique on Trail Lake",
+          "Mountain-pass and off-water operations",
+          "Rating checkride with on-site DPE",
+          "Backcountry exploration and fishing flights"
+        ],
+        "priceNote": "Course only $5,995; $6,695 with cabin lodging. Checkride/examiner fees separate.",
+        "priceFrom": "$5,995",
+        "confidence": "high — course name, 5–6 day duration, 15 flight hours and price verified on the school's own rates page (June 2026)",
+        "alternatives": [
+          {
+            "course": "Optimal Float Backcountry Course",
+            "school": "Alaska Float Ratings",
+            "place": "Kenai Peninsula, Alaska, USA",
+            "duration": "3–4 days, 8 flight hours",
+            "priceFrom": "$3,395",
+            "url": "https://alaskafloatratings.com/rates/",
+            "fit": "Shorter",
+            "note": "Their most popular fast-track to the float rating — same source, but less backcountry exploration time, so it tastes less of the full bush-flying immersion.",
+            "confidence": "high — verified on the school's rates page"
+          },
+          {
+            "course": "4-Day Comprehensive Mountain and Canyon Flying Course",
+            "school": "McCall Mountain/Canyon Flying Seminars",
+            "place": "McCall, Idaho, USA",
+            "duration": "4 days, 6–9 hrs dual",
+            "priceFrom": "$9,950",
+            "url": "https://mountaincanyonflying.com/seminars",
+            "fit": "Intro",
+            "note": "Premier wheels-based backcountry/canyon training rather than floatplane — a different (if adjacent) source; no seaplane rating, so it sits beside rather than inside the float-flying core.",
+            "confidence": "high — verified on the school's seminars page"
+          },
+          {
+            "course": "Transport Canada seaplane rating (basic ~7-hr endorsement)",
+            "school": "Ocean Air Floatplanes",
+            "place": "Victoria, British Columbia, Canada",
+            "duration": "2–3 days, ~7 flight hours",
+            "url": "https://oceanair.ca/transport-canada-seaplane-rating/",
+            "fit": "Taster",
+            "note": "A quick, sheltered-coastal-water float endorsement under Transport Canada — efficient and legitimate, but a fast endorsement rather than the deeper Alaskan backcountry immersion.",
+            "confidence": "high — structure and prerequisites verified"
+          }
+        ]
+      }
+    },
+    {
+      "discipline": "Motorsport & Race Driving",
+      "category": "adventure",
+      "id": "motorsport-and-race-driving",
+      "certBody": "SCCA / NASA (USA) · Motorsport UK / ARDS (UK) · FIA national ASNs",
+      "certShort": "SCCA / ARDS race licence",
+      "goldCredential": "SCCA Competition Racing License (USA) · Motorsport UK National Race Licence via ARDS (UK)",
+      "blurb": "Go from licensed road driver to wheel-to-wheel competitor on a real circuit: a few intense days of instruction, an on-track exam, and you walk away holding a genuine competition racing licence. The track is the adventure, and the paddock is the community.",
+      "ceiling": "A 2-3 day accredited course gets you a novice/entry competition licence and the right to grid up in club racing - it proves you can drive safely wheel-to-wheel, read flags, and pass an on-track test. It does not make you fast or a finished racer: real race craft (qualifying pace, traffic, consistency, car setup) takes seasons of club events after the licence. Most bodies still require you to log races to upgrade from a provisional/novice permit to a full licence.",
+      "room": {
+        "ratio": "Typically 2:1 to 4:1 students per instructor on track; some legacy formula schools run small fleets with 1:1 in-car coaching.",
+        "day": "Long, physical days: classroom flag/safety briefings, lead-follow lapping, skid/car-control drills, then a timed on-track evaluation. US licence courses often end with a short wheel-to-wheel race against classmates.",
+        "who": "Any licensed road driver who is reasonably fit and over 18 (16 with consent in some US programs). No prior racing required; a track-day or HPDE intro is a common prerequisite for the licensing course."
+      },
+      "destinations": [
+        {
+          "place": "Silverstone",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Silverstone (NDTC/ARDS courses)",
+            "BRSCC (race licence pathway)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred",
+            "heritage",
+            "lineage"
+          ],
+          "why": "The home of British motorsport and the circuit where the modern Novice Driver Training Course (ARDS) was created in the early 1990s. The UK has one of the deepest amateur club-racing scenes in the world, and the ARDS pass is the recognised gateway to a Motorsport UK National race licence.",
+          "bestSeason": "Spring to autumn (Mar-Oct); winter dates run but are weather-dependent.",
+          "level": "Road driver -> Motorsport UK National Race Licence",
+          "id": "motorsport-and-race-driving--silverstone",
+          "schoolsInfo": [
+            {
+              "name": "Silverstone (NDTC / ARDS Course)",
+              "url": "https://www.silverstone.co.uk/track-and-testing/ards-courses",
+              "course": "Novice Driver Training Course (ARDS) - Clubman (half-day) or Pro (full-day)",
+              "blurb": "The course that launched the modern ARDS test, run on the Grand Prix venue. Track-craft briefing, on-track sessions, car-control work and a written exam; a pass plus a Motorsport UK starter pack gets you your first National race licence.",
+              "confidence": "verified",
+              "ratingSource": "",
+              "ratingUrl": ""
+            },
+            {
+              "name": "BRSCC (British Racing & Sports Car Club)",
+              "url": "https://brscc.co.uk/start-racing/get-your-motorsport-uk-ards-licence/",
+              "course": "Get your Motorsport UK ARDS Licence - start-racing pathway",
+              "blurb": "One of the UK's major club-racing organisers, explaining and supporting the ARDS route from Go Racing pack to your first competition licence and into club championships.",
+              "confidence": "verified",
+              "ratingSource": "",
+              "ratingUrl": ""
+            }
+          ]
+        },
+        {
+          "place": "Kent (Pacific Raceways)",
+          "country": "United States",
+          "region": "North America",
+          "role": "both",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "ProFormance Racing School"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "school",
+            "gold-cred"
+          ],
+          "why": "ProFormance is a long-running Pacific Northwest racing school whose 2-day course is fully accredited for SCCA, Conference (ICSCC) and SOVREN - one of the most thorough licensing programs in the US, ending with an actual 30-minute wheel-to-wheel race alongside licensed racers.",
+          "bestSeason": "Late spring to early autumn (May-Sep); Pacific NW dates cluster in the drier months.",
+          "level": "Road driver -> SCCA / ICSCC / SOVREN Competition License",
+          "id": "motorsport-and-race-driving--kent-pacific-raceways",
+          "schoolsInfo": [
+            {
+              "name": "ProFormance Racing School",
+              "url": "https://proformanceracingschool.com/driving-programs/two-day-accredited-competition-race-licensing/",
+              "course": "2-Day Accredited Competition Race Licensing (SCCA, Conference, SOVREN)",
+              "blurb": "Two days in school-provided GR86 race coupes at a 2:1 instructor-to-student ratio, culminating in a 30-minute race with classmates and licensed racers from partner PRO3. Qualifies graduates for SCCA, ICSCC and SOVREN competition licences. Prerequisite: a one-day high-performance driving experience or equivalent.",
+              "confidence": "verified",
+              "rating": 4.5,
+              "ratingSource": "Yelp",
+              "ratingUrl": "https://www.yelp.com/biz/proformance-racing-school-kent",
+              "ratingCount": 17
+            }
+          ]
+        },
+        {
+          "place": "Nationwide circuits (Skip Barber)",
+          "country": "United States",
+          "region": "North America",
+          "role": "source",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Skip Barber Racing School"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "school",
+            "gold-cred",
+            "heritage",
+            "lineage"
+          ],
+          "why": "The most storied racing school in America: the Skip Barber pathway has fed drivers into pro racing for decades. The 3-Day Racing School earns an SCCA Novice Permit, and adding the 2-Day Advanced course upgrades graduates to a full SCCA Competition License.",
+          "bestSeason": "Year-round across multiple venues (e.g. COTA, Sebring-region tracks); pick a date by region and climate.",
+          "level": "Road driver -> SCCA Novice Permit -> Full SCCA Competition License",
+          "id": "motorsport-and-race-driving--skip-barber-nationwide",
+          "schoolsInfo": [
+            {
+              "name": "Skip Barber Racing School",
+              "url": "https://www.skipbarber.com/courses/3-day-racing-school/",
+              "course": "3-Day Racing School (SCCA Novice Permit); + 2-Day Advanced for full SCCA Competition License",
+              "blurb": "The legendary American race school. The 3-Day program qualifies you for an SCCA Novice Permit; completing it together with the 2-Day Advanced Racing School qualifies graduates for a full SCCA Competition License. Runs at multiple major US circuits in Mustang and formula cars.",
+              "confidence": "verified",
+              "ratingSource": "",
+              "ratingUrl": ""
+            }
+          ]
+        },
+        {
+          "place": "Regional chapters (NASA, nationwide)",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "National Auto Sport Association (NASA) Competition School"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "gold-cred"
+          ],
+          "why": "NASA runs the largest grassroots HPDE-to-racing ladder in the US, with regional chapters coast to coast. Drivers progress through HPDE levels, then Comp School earns a NASA Provisional Competition License - an accessible, community-driven route into wheel-to-wheel racing.",
+          "bestSeason": "Year-round by region; warmer chapters (CA, TX, FL) run through winter.",
+          "level": "Road driver -> HPDE -> NASA Provisional Competition License",
+          "id": "motorsport-and-race-driving--nasa-regional",
+          "schoolsInfo": [
+            {
+              "name": "National Auto Sport Association (NASA) - Competition School",
+              "url": "https://drivenasa.com/licensing/",
+              "course": "HPDE progression + Competition School -> NASA Provisional Competition License",
+              "blurb": "NASA's structured ladder: HPDE1-4 driver education, then Competition School for drivers transitioning to wheel-to-wheel racing. Successful Comp School grads become eligible for a NASA Provisional Competition License. Organised through regional chapters across the United States.",
+              "confidence": "verified",
+              "ratingSource": "",
+              "ratingUrl": ""
+            }
+          ]
+        }
+      ],
+      "featured": {
+        "id": "motorsport-and-race-driving--kent-pacific-raceways",
+        "place": "Kent (Pacific Raceways)",
+        "country": "United States",
+        "school": "ProFormance Racing School",
+        "url": "https://proformanceracingschool.com/driving-programs/two-day-accredited-competition-race-licensing/",
+        "course": "2-Day Accredited Competition Race Licensing",
+        "description": "A complete, no-fluff path from road driver to licensed racer in a single weekend. Two days in school-provided GR86 race coupes at a 2:1 instructor ratio, building from track-craft to wheel-to-wheel, then a real 30-minute race with classmates and licensed PRO3 racers - and you leave qualified for an SCCA, ICSCC and SOVREN competition licence.",
+        "duration": "2 days",
+        "format": "In-person, school-provided race cars (GR86), 2:1 instructor-to-student",
+        "certification": "Accredited for SCCA, Conference (ICSCC) and SOVREN competition racing licences",
+        "fitsBecause": "It is one of the most thorough licensing courses in the US, uses school cars (no need to own a race car), and ends with an actual wheel-to-wheel race - the adventure and the credential in one weekend, at a clean published price.",
+        "sessions": [
+          "Classroom: flags, safety, race procedure",
+          "Lead-follow lapping and car-control drills",
+          "On-track evaluation",
+          "Day-two 30-minute race with classmates and licensed racers"
+        ],
+        "priceNote": "$4,490 per participant; race-car rental included. Prerequisite: a one-day high-performance driving experience at Pacific Raceways or equivalent.",
+        "priceFrom": "$4,490",
+        "confidence": "verified",
+        "alternatives": [
+          {
+            "course": "NDTC / ARDS Clubman Course",
+            "school": "Silverstone",
+            "place": "Silverstone, UK",
+            "duration": "Half-day",
+            "priceFrom": "£366",
+            "url": "https://www.silverstone.co.uk/track-and-testing/ards-courses",
+            "fit": "Cheaper",
+            "note": "The UK gateway: pass the ARDS test plus a Motorsport UK starter pack and you earn your first National race licence at the home of British motorsport.",
+            "confidence": "verified"
+          },
+          {
+            "course": "3-Day Racing School",
+            "school": "Skip Barber Racing School",
+            "place": "Multiple US circuits",
+            "duration": "3 days",
+            "url": "https://www.skipbarber.com/courses/3-day-racing-school/",
+            "fit": "Intro",
+            "note": "America's most storied race school - earns an SCCA Novice Permit; add the 2-Day Advanced course for a full SCCA Competition License. Premium pricing varies by venue and car.",
+            "confidence": "verified"
+          },
+          {
+            "course": "HPDE + Competition School",
+            "school": "National Auto Sport Association (NASA)",
+            "place": "Regional chapters, USA",
+            "duration": "Multi-event progression",
+            "url": "https://drivenasa.com/licensing/",
+            "fit": "Taster",
+            "note": "Grassroots ladder from HPDE driver education to Comp School and a NASA Provisional Competition License - the most accessible community route into racing.",
+            "confidence": "verified"
+          }
+        ]
+      }
+    },
+    {
+      "discipline": "Adventure & Off-Road Motorcycling",
+      "category": "adventure",
+      "id": "adventure-and-off-road-motorcycling",
+      "certBody": "Manufacturer-sanctioned riding academies (BMW Off Road Skills / RawHyde Adventures, BMW Motorrad's official North American off-road academy) and national rider-training bodies. These are academy-graded skill levels, not government licences.",
+      "certShort": "BMW Off Road Skills",
+      "goldCredential": "RawHyde / BMW Off Road Skills graduation levels (Level 1 -> 3) — academy-graded skills certification, not a state licence",
+      "blurb": "Learn to ride a fully-laden adventure bike where the road ends — sand, rock, water crossings and mountain trails — at the same manufacturer academies that train Dakar and round-the-world riders. Here the ride itself is the destination.",
+      "ceiling": "A 2-3 day Level 1/Intro course turns a competent road rider into someone who can control a big adventure bike off-tarmac: standing technique, slow-speed balance, hill climbs/descents, picking the bike up, basic trail riding. It does not make you an expedition or enduro rider — real remote/multi-day off-road capability takes the Level 2/3 progression plus many seasons of saddle time. The 'certification' is an academy graduation level recognised within the adventure-riding community, not a licence or legal qualification.",
+      "room": {
+        "ratio": "Roughly 1 instructor to 4-6 riders in graded groups by ability",
+        "day": "Full days on a closed off-road facility or trail network: morning drills (clutch control, standing, braking on loose surfaces), afternoon applied riding on hills, ruts and obstacles, with debriefs",
+        "who": "Licensed road riders who want to take an adventure/dual-sport bike off the pavement — from total off-road novices (Intro/Level 1) up to confident riders chasing advanced enduro and expedition skills (Level 3)"
+      },
+      "destinations": [
+        {
+          "place": "Castaic",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "RawHyde Adventures"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred"
+          ],
+          "why": "RawHyde's 2,500-acre California facility is BMW Motorrad's official off-road training academy in North America and the spiritual home of US adventure riding, with a clear Intro -> Level 2 -> Level 3 progression and a deep alumni community.",
+          "bestSeason": "Spring and autumn (Mar-May, Sep-Nov) to avoid peak summer desert heat",
+          "level": "Road rider -> Off-road competent",
+          "id": "adventure-and-off-road-motorcycling--castaic",
+          "schoolsInfo": [
+            {
+              "name": "RawHyde Adventures",
+              "url": "https://rawhydeadventures.com/",
+              "course": "Intro to Adventure (2.5 days)",
+              "blurb": "BMW's official North American off-road academy on a 2,500-acre site near Castaic, operating since 2003. The flagship Intro to Adventure runs Friday evening to Monday morning with two full instruction days, lodging and meals, then feeds Next Step (Level 2) and Level 3 courses plus a Colorado high-altitude program.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Brecon Beacons (South Wales)",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "BMW Off Road Skills"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred",
+            "lineage"
+          ],
+          "why": "Run by Dakar legend Simon Pavey as part of BMW Motorrad UK's official programme, Off Road Skills has trained generations of British adventure riders on the demanding terrain of the Brecon Beacons, with a Level One to Level Three ladder and a women-only group.",
+          "bestSeason": "Late spring to early autumn (May-Sep); year-round but Welsh winters are cold and wet",
+          "level": "Road rider -> Off-road competent",
+          "id": "adventure-and-off-road-motorcycling--brecon-beacons-south-wales",
+          "schoolsInfo": [
+            {
+              "name": "BMW Off Road Skills",
+              "url": "https://www.offroadskills.com/",
+              "course": "Level One (2-day course)",
+              "blurb": "Official BMW Motorrad UK off-road academy headed by Dakar finisher Simon Pavey, based on the edge of the Brecon Beacons just north of Swansea. Two-day courses run from Level One (novice/refresher) through Level Two and Level Three, with BMW GS bikes (F 750/850 GS, R 1250 GS) provided and an Adventure Maintenance course alongside.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Niedereschach (Black Forest)",
+          "country": "Germany",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Touratech Travel Event (off-road taster courses)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "heritage"
+          ],
+          "why": "Touratech's headquarters in the Black Forest hosts the Travel Event, the annual get-together of the international adventure-travel scene since 2002 — tens of thousands of riders, off-road taster courses, factory tours and travel workshops. It is the community and gear heart of European adventure riding rather than a graded academy.",
+          "bestSeason": "Early June, timed to the annual Travel Event",
+          "level": "Road rider -> Off-road competent",
+          "id": "adventure-and-off-road-motorcycling--niedereschach-black-forest",
+          "schoolsInfo": [
+            {
+              "name": "Touratech Travel Event",
+              "url": "https://www.touratech.com/en/events/travel-event.html",
+              "course": "Off-road taster courses and test rides (festival weekend)",
+              "blurb": "Held at Touratech's Niedereschach HQ (21st edition 5-7 June 2026), the Travel Event draws the international adventure-travel community for off-road taster courses, multi-brand off-road test rides on prepared quarry tracks, equipment workshops and travel-planning talks. A scene gathering and skills sampler, not a certified academy.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Gubbio (Umbria)",
+          "country": "Italy",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "KTM Europe Adventure Rally"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "heritage"
+          ],
+          "why": "KTM's Europe Adventure Rally brings 250 invited riders to ride graded Blue/Red/Black loops through the Umbrian hills around Lake Trasimeno — a marquee manufacturer-run gathering where adventure riders apply and extend their off-road skills on real terrain. It is an event and applied-riding scene, not a graded training academy.",
+          "bestSeason": "Early-to-mid September, tied to the rally dates",
+          "level": "Off-road competent",
+          "id": "adventure-and-off-road-motorcycling--gubbio-umbria",
+          "schoolsInfo": [
+            {
+              "name": "KTM Europe Adventure Rally",
+              "url": "https://www.ktm.com/en-int/ktm-world/ktm-adventure-rally/italy-2026.html",
+              "course": "Three-day guided rally with Blue/Red/Black skill routes (7-11 Sep 2026)",
+              "blurb": "KTM's official European adventure rally, 2026 edition based in the medieval town of Gubbio with daily loops circling Lake Trasimeno in Umbria. New graded Blue (beginner), Red and Black (expert/enduro) routes let riders ride to their level. A community rally and applied-skills test rather than a certification course.",
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "featured": {
+        "id": "adventure-and-off-road-motorcycling--castaic",
+        "place": "Castaic",
+        "country": "United States",
+        "school": "RawHyde Adventures",
+        "url": "https://rawhydeadventures.com/",
+        "course": "Intro to Adventure",
+        "description": "BMW Motorrad's official North American off-road academy. Over a long weekend on RawHyde's 2,500-acre California facility, a competent road rider is taught to control a big adventure bike off the pavement — standing technique, clutch and brake control on loose surfaces, hill climbs and descents, slow-speed balance and picking the bike back up — then pointed toward the Level 2 and Level 3 progression.",
+        "duration": "2.5 days (Friday evening arrival to Monday morning, with two full instruction days)",
+        "format": "Residential course on a closed off-road facility; small graded groups, lodging and meals included; bring your own bike or rent",
+        "certification": "Academy graduation level (Intro to Adventure) within RawHyde's BMW-sanctioned progression — a community-recognised skills credential, not a government licence",
+        "fitsBecause": "It is the clearest 'certified skill at the source' in adventure riding: the official BMW academy, a defined skills ladder, and a genuine community — exactly the ET model of learning a real, verifiable skill where the discipline lives.",
+        "sessions": [
+          "Intro to Adventure (flagship)",
+          "Next Step / Level 2",
+          "Level 3 advanced",
+          "Colorado high-altitude program"
+        ],
+        "priceNote": "$1,695 for the Intro to Adventure weekend riding your own bike (includes two instruction days, lodging and meals); bike rental extra. Verify current pricing and dates when booking.",
+        "priceFrom": "$1,695",
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Level One (2-day off-road course)",
+            "school": "BMW Off Road Skills",
+            "place": "Brecon Beacons, Wales",
+            "duration": "2 days",
+            "url": "https://www.offroadskills.com/",
+            "fit": "Intro",
+            "note": "Europe's equivalent official BMW academy, headed by Dakar legend Simon Pavey; bikes provided. UK reporting puts comparable courses from around £649-£749 — verify current pricing on the site.",
+            "confidence": "high"
+          },
+          {
+            "course": "Travel Event off-road taster courses",
+            "school": "Touratech Travel Event",
+            "place": "Niedereschach, Germany",
+            "duration": "Festival weekend",
+            "url": "https://www.touratech.com/en/events/travel-event.html",
+            "fit": "Taster",
+            "note": "Try off-road riding and multi-brand test bikes at the heart of the European adventure scene before committing to a full academy course.",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "discipline": "Ice & Mixed Climbing",
+      "category": "adventure",
+      "id": "ice-and-mixed-climbing",
+      "certBody": "IFMGA mountain-guide federation, with national bodies: AMGA (USA), ACMG (Canada), and the national guide companies/associations of the Alps and Nordic countries",
+      "certShort": "IFMGA / AMGA / ACMG-guided",
+      "goldCredential": "Guided ice-climbing progression (top-rope to lead WI/M grades) under certified mountain guides; for instructors, AMGA Ice Instructor / ACMG Alpine Guide / IFMGA certification",
+      "blurb": "Swing two tools into a frozen waterfall and the ascent itself becomes the adventure. This is pure water-ice and mixed rock-and-ice dry-tooling, learned beside guides in the world's great winter amphitheatres.",
+      "ceiling": "A 2-3 day intro gets you top-roping moderate water-ice (roughly WI2-WI3) with sound technique, gear handling, and belay skills, no prior experience needed. Leading steep WI5+ or hard mixed M-grades cleanly, placing screws on vertical ice and managing real winter hazard, takes several seasons of guided mileage and self-led practice.",
+      "room": {
+        "ratio": "Typically 1:2 to 1:4 guide-to-climber for courses; 1:1 or 1:2 for lead coaching",
+        "day": "Full days on the ice; multi-day courses run consecutive days, early winter starts",
+        "who": "Beginners welcome (no rock-climbing prerequisite for intro ice); fitness and cold tolerance help, lead courses expect prior top-rope ice mileage"
+      },
+      "destinations": [
+        {
+          "place": "Ouray",
+          "country": "USA",
+          "region": "North America",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "San Juan Mountain Guides"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred"
+          ],
+          "why": "The Ouray Ice Park is a human-made ice-climbing venue in a gorge with concentrated, accessible routes, and the annual Ouray Ice Festival is the sport's North American community hub. San Juan Mountain Guides is the AMGA-accredited program based in town.",
+          "bestSeason": "December to March",
+          "level": "Beginner -> Lead WI/M grades",
+          "id": "ice-and-mixed-climbing--ouray",
+          "schoolsInfo": [
+            {
+              "name": "San Juan Mountain Guides",
+              "url": "https://mtnguide.net/",
+              "course": "Ouray ice-climbing courses and private ice guiding (AMGA-certified/trained guides; gear included)",
+              "blurb": "AMGA-accredited program based in Ouray running ice-climbing instruction in the Ouray Ice Park and San Juan backcountry, plus the host of the Ouray Ice Festival.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Canmore / Banff",
+          "country": "Canada",
+          "region": "North America",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Yamnuska Mountain Adventures"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred"
+          ],
+          "why": "The Canadian Rockies hold a vast concentration of world-class frozen waterfalls (the Banff/Canmore/Kananaskis corridor), and ACMG/IFMGA guiding here is among the deepest in the world.",
+          "bestSeason": "December to March",
+          "level": "Beginner -> Lead WI/M grades",
+          "id": "ice-and-mixed-climbing--canmore-banff",
+          "schoolsInfo": [
+            {
+              "name": "Yamnuska Mountain Adventures",
+              "url": "https://yamnuska.com/ice-climbing/",
+              "course": "Ice Climbing Level 1 - Basic Ice (2 days, $529 CAD + GST; ACMG-certified guides; all technical gear included), with optional multi-pitch add-on",
+              "blurb": "Long-established Canmore guiding company running beginner-to-advanced ice courses in the Banff/Canmore/Kananaskis area with ACMG-certified guides.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Chamonix-Mont-Blanc",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "both",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Compagnie des Guides de Chamonix"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "school",
+            "gold-cred",
+            "heritage"
+          ],
+          "why": "Chamonix is the historic heart of Alpine guiding; the Compagnie des Guides (IFMGA guides) runs cascade-de-glace courses on terrain from the Mer de Glace to nearby icefall sites.",
+          "bestSeason": "Late December to early March",
+          "level": "Beginner -> Lead WI/M grades",
+          "id": "ice-and-mixed-climbing--chamonix",
+          "schoolsInfo": [
+            {
+              "name": "Compagnie des Guides de Chamonix",
+              "url": "https://www.chamonix-guides.com/en/activities/details/ice-climbing-beginner-ice-cimbing-course",
+              "course": "Beginner ice-climbing course (2-day discovery / 3-day autonomy), groups of 3-4 with an IFMGA guide; equipment and transfer included",
+              "blurb": "The world's oldest mountain-guide company, running ice-cascade discovery and autonomy courses around the Chamonix valley.",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "place": "Rjukan",
+          "country": "Norway",
+          "region": "Nordic & Baltic",
+          "role": "both",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Telemark Opplevelser"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "mecca",
+            "school"
+          ],
+          "why": "A narrow Telemark valley packed with well over a hundred icefalls of every grade, reliably frozen and easily accessed, making it Northern Europe's premier ice-climbing destination.",
+          "bestSeason": "November to April",
+          "level": "Beginner -> Lead WI/M grades",
+          "id": "ice-and-mixed-climbing--rjukan",
+          "schoolsInfo": [
+            {
+              "name": "Telemark Opplevelser",
+              "url": "https://www.visitnorway.com/listings/ice-climbing-course-telemark-opplevelser/1518/",
+              "course": "Ice-climbing courses and guided ice climbing in the Rjukan valley",
+              "blurb": "Rjukan-based operator specialising in ice-climbing courses and guided climbing across the valley's icefalls.",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ],
+      "featured": {
+        "id": "ice-and-mixed-climbing--canmore-banff",
+        "place": "Canmore / Banff",
+        "country": "Canada",
+        "school": "Yamnuska Mountain Adventures",
+        "url": "https://yamnuska.com/ice-climbing/basic-instruction/",
+        "course": "Ice Climbing Level 1 - Basic Ice",
+        "description": "A 2-day beginner course in the Canadian Rockies that takes you from your first swings on top-rope to confident moderate water-ice, taught by ACMG-certified guides at some of the Rockies' best learning venues. No prior experience required.",
+        "duration": "2 days",
+        "format": "Guided course, small group, all technical gear (boots, crampons, harness, helmet, ice tools, belay equipment) included",
+        "certification": "Instruction by ACMG-certified mountain guides; progression toward independent top-rope and (with further courses) lead ice climbing",
+        "fitsBecause": "The Canadian Rockies are a top-tier, deeply-guided ice heartland, and this course is a true source-level intro: certified guides, real frozen-waterfall terrain, beginners welcome.",
+        "sessions": [
+          "Day 1: ice-tool and crampon technique, movement and body position on ice, belay and safety systems",
+          "Day 2: more terrain and mileage on the ice, building toward independent top-rope climbing"
+        ],
+        "priceNote": "$529 CAD plus GST per person; optional guided multi-pitch ice day available for an additional $459 plus GST",
+        "priceFrom": "529 CAD",
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Beginner ice-climbing course (cascade de glace)",
+            "school": "Compagnie des Guides de Chamonix",
+            "place": "Chamonix-Mont-Blanc, France",
+            "duration": "2 days",
+            "url": "https://www.chamonix-guides.com/en/activities/details/ice-climbing-beginner-ice-cimbing-course",
+            "fit": "Intro",
+            "note": "Discovery course with the historic IFMGA Compagnie des Guides; equipment and transfer included.",
+            "confidence": "medium"
+          },
+          {
+            "course": "Ouray ice-climbing course / private ice guiding",
+            "school": "San Juan Mountain Guides",
+            "place": "Ouray, Colorado, USA",
+            "duration": "1+ day",
+            "url": "https://mtnguide.net/",
+            "fit": "Taster",
+            "note": "AMGA-accredited program in the Ouray Ice Park, the North American community hub; gear included.",
+            "confidence": "high"
+          },
+          {
+            "course": "Beginner ice-climbing course",
+            "school": "Telemark Opplevelser",
+            "place": "Rjukan, Norway",
+            "duration": "1+ day",
+            "url": "https://www.visitnorway.com/listings/ice-climbing-course-telemark-opplevelser/1518/",
+            "fit": "Intro",
+            "note": "Courses in a valley with well over a hundred icefalls; long Nov-Apr season.",
+            "confidence": "medium"
+          }
+        ]
+      }
     }
   ],
   "enrichedAt": "2026-06-11",
