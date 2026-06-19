@@ -46,6 +46,15 @@ ul.clean li:last-child { border-bottom:none; }
 .cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--paper); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .cta:hover { opacity:.92; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
+.intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }
+.intent-q { font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }
+.intent-row { display:flex; gap:8px; flex-wrap:wrap; }
+.intent-input { flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:14px; }
+.intent-input:focus { outline:none; border-color:var(--sea); }
+.intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.intent-go:hover { filter:brightness(1.05); } .intent-go:disabled { opacity:.5; cursor:default; }
+.intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#e0915f; }
+.intent-fine { font-size:12px; opacity:.5; margin-top:8px; }
 footer { padding:40px 0 60px; font-size:13px; opacity:.5; }
 footer a { color:var(--sea); }
 </style>
@@ -84,9 +93,13 @@ footer a { color:var(--sea); }
 <li>What happens on a bad day — weather, an injury, a teacher who doesn't show? A serious place has an honest answer.</li>
 </ol>
 <p style="font-size:13px;opacity:.6;margin-top:12px">If a place dodges these, that's your answer. It costs you nothing to ask, and it tells you everything.</p>
+<p style="font-size:13px;opacity:.6;margin-top:10px">This is the short version. <a href="/journal/how-to-find-the-best-school-online" style="color:var(--sea)">The full method is here</a> — the six questions, in order, for any craft anywhere.</p>
 </details>
 </div>
 </section>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script src="/js/intent-capture.js" defer></script>
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 </body>
 </html>

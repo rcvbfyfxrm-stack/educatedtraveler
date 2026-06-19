@@ -110,6 +110,7 @@ TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(
 <li>What happens on a bad day — weather, an injury, a teacher who doesn't show? A serious place has an honest answer.</li>
 </ol>
 <p style="font-size:13px;opacity:.6;margin-top:12px">If a place dodges these, that's your answer. It costs you nothing to ask, and it tells you everything.</p>
+<p style="font-size:13px;opacity:.6;margin-top:10px">This is the short version. <a href="/journal/how-to-find-the-best-school-online" style="color:var(--sea)">The full method is here</a> — the six questions, in order, for any craft anywhere.</p>
 </details>
 </div>
 </section>"""
@@ -169,6 +170,15 @@ ul.clean li:last-child {{ border-bottom:none; }}
 .cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--paper); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .cta:hover {{ opacity:.92; }}
 .grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }}
+.intent {{ border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }}
+.intent-q {{ font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }}
+.intent-row {{ display:flex; gap:8px; flex-wrap:wrap; }}
+.intent-input {{ flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:14px; }}
+.intent-input:focus {{ outline:none; border-color:var(--sea); }}
+.intent-go {{ border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
+.intent-go:hover {{ filter:brightness(1.05); }} .intent-go:disabled {{ opacity:.5; cursor:default; }}
+.intent-msg {{ font-size:13.5px; margin-top:10px; }} .intent-msg.ok {{ color:var(--sea); }} .intent-msg.err {{ color:#e0915f; }}
+.intent-fine {{ font-size:12px; opacity:.5; margin-top:8px; }}
 footer {{ padding:40px 0 60px; font-size:13px; opacity:.5; }}
 footer a {{ color:var(--sea); }}
 </style>
@@ -180,6 +190,9 @@ footer a {{ color:var(--sea); }}
 </div></nav>
 {body}
 {TRUST_HTML}
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script src="/js/intent-capture.js" defer></script>
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 </body>
 </html>"""
@@ -188,6 +201,49 @@ def circle_cta(line):
     return (f'<p style="margin-top:8px;opacity:.78;max-width:60ch">{e(line)}</p>'
             '<a class="cta" href="/#circle">Tell us this pulls you — join the Circle</a>'
             '<p class="meta" style="margin-top:10px">No prices, no checkout, no spam. We introduce; you decide.</p>')
+
+def intent_form(prompt, source, discipline=None, place=None, label=None):
+    data = f' data-discipline="{e(discipline)}"' if discipline else ""
+    data += f' data-place="{e(place)}"' if place else ""
+    data += f' data-label="{e(label)}"' if label else ""
+    return (f'<form class="intent"{data} data-source="{e(source)}">'
+            f'<p class="intent-q">{e(prompt)}</p>'
+            '<div class="intent-row">'
+            '<input type="email" name="email" required placeholder="you@email.com" class="intent-input">'
+            '<button type="submit" class="intent-go">Raise your hand</button></div>'
+            '<p class="intent-msg" hidden></p>'
+            '<p class="intent-fine">No prices, no checkout, no spam. We introduce; you decide.</p>'
+            '</form>'
+            '<noscript><a class="cta" href="/#circle">Join the Circle</a></noscript>')
+
+def ceiling_line(x):
+    c = x.get("ceiling")
+    if c:
+        return f'<p style="opacity:.82;font-size:15px;margin:14px 0 0;max-width:62ch"><strong style="font-weight:500">What you can realistically reach:</strong> {e(c)}</p>'
+    if x.get("level"):
+        return f'<p class="meta" style="margin:14px 0 0">Honest level: {e(x["level"])} — ask the school exactly how far that goes in the time you have.</p>'
+    return ""
+
+def room_block(x):
+    r = x.get("room") or {}
+    items = []
+    if r.get("ratio"): items.append(f'<li><strong style="font-weight:500">Group</strong> — {e(r["ratio"])}</li>')
+    if r.get("day"):   items.append(f'<li><strong style="font-weight:500">A normal day</strong> — {e(r["day"])}</li>')
+    if r.get("who"):   items.append(f'<li><strong style="font-weight:500">Who comes</strong> — {e(r["who"])}</li>')
+    if not items:
+        return ""
+    return ('<section><div class="wrap"><div class="mono">What the days are like</div>'
+            f'<h2>The room</h2><ul class="clean" style="font-size:14.5px">{"".join(items)}</ul>'
+            '<p class="meta" style="margin-top:10px">Want the rest — a normal day, first hour to last? '
+            'Ask the school; a serious one answers in two minutes.</p></div></section>')
+
+def credential_section(d):
+    if not d.get("goldCredential"):
+        return ""
+    body = (f'<p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">{e(d["goldCredential"])}</strong>'
+            + (f' · Certifying body: {e(d["certBody"])}' if d.get("certBody") else "") + '</p>'
+            '<p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p>')
+    return f'<section><div class="wrap" style="max-width:720px"><div class="mono">What you walk away with</div><h2>The credential</h2>{body}</div></section>'
 
 def dest_card(d, x, link=True):
     dots = "●" * x["communityRank"] + "○" * (5 - x["communityRank"])
@@ -254,23 +310,29 @@ for d in DISC:
             links = "".join(f'<div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/{s["id"]}">{e(s["place"])}, {e(s["country"])}</a><div class="meta"><span class="dots">{"●"*s["communityRank"]}{"○"*(5-s["communityRank"])}</span> {e(s["communityLabel"])}</div></div>' for s in sorted(siblings, key=lambda s: -s["communityRank"]))
             sib_html = f'<section><div class="wrap"><div class="mono">Same discipline, other sources</div><h2>Also for {e(d["discipline"])}</h2><div class="grid">{links}</div></div></section>'
 
-        cred = ""
-        if d.get("goldCredential"):
-            cred = f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">{e(d["goldCredential"])}</strong>{" · Certifying body: " + e(d["certBody"]) if d.get("certBody") else ""}</p>'
-
         jsonld = {"@context": "https://schema.org", "@type": "Place",
                   "name": f'{x["place"]}, {x["country"]}',
                   "description": x["why"],
                   "url": SITE + path,
                   "containedInPlace": {"@type": "Country", "name": x["country"]}}
 
+        intent = intent_form(
+            f"{x['place']} pulls you? Leave an email — we'll introduce you to the school and the "
+            f"people going as the map grows toward it.",
+            source=f'atlas:{x["id"]}', discipline=d["id"], place=x["id"],
+            label=f'{d["discipline"]} · {x["place"]}')
         body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
 <h1>Learn {e(d['discipline'])} in {e(x['place'])}</h1>
-<p class="lead">{e(x['why'])}</p>{cred}
+<p class="lead">{e(x['why'])}</p>
 </div></header>
-<section><div class="wrap">{dest_card(d, x, link=False)}{circle_cta(f"We are mapping the strongest communities on earth for {d['discipline']}. If {x['place']} pulls you, raise your hand — we will introduce you to the school and the people going.")}</div></section>
-{rating_block(d, x)}{schools_html}{masters_html}{sib_html}"""
+<section><div class="wrap">{dest_card(d, x, link=False)}{ceiling_line(x)}</div></section>
+{masters_html}
+{rating_block(d, x)}{schools_html}
+{room_block(x)}
+{credential_section(d)}
+<section><div class="wrap">{intent}</div></section>
+{sib_html}"""
         (OUT / f'{x["id"]}.html').write_text(page(title, desc, path, body,
             breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], f'/atlas/{d["id"]}'), (x["place"], path)], jsonld=jsonld))
 
@@ -287,7 +349,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}
 </div></header>
-<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{circle_cta(f"Tell us {d['discipline']} pulls you and we will introduce you to the right place and the right people.")}</div></section>"""
+<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{intent_form(f"{d['discipline']} pulls you? Leave an email — we'll introduce you to the right place and the right people as the map grows.", source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
         breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)]))
 
