@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Browse the Atlas — certified skills at the source — EducatedTraveler</title>
+<title>The Atlas — certified skills at the source — EducatedTraveler</title>
 <meta name="description" content="Five worlds, 99 certified crafts. Spin the camembert, filter by craft, credential, level, region and season, and find the place where your skill is most alive — with real reviews of every school.">
 <link rel="canonical" href="https://educatedtraveler.app/browse">
-<meta property="og:title" content="Browse the Atlas — certified skills at the source">
+<meta property="og:title" content="The Atlas — certified skills at the source">
 <meta property="og:description" content="Five worlds, 99 certified crafts. Filter to the place where your skill is most alive.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/browse">
@@ -104,6 +104,8 @@ select.fin option{background:var(--ink2)}
 .metaline{font-size:11px;color:var(--faint);margin-top:7px;display:flex;gap:7px;flex-wrap:wrap}
 .trust{margin-top:11px;padding-top:11px;border-top:1px solid var(--line);font-size:12px}
 .trust .stars{color:var(--gold);letter-spacing:1px}.trust .src{color:var(--muted)}.trust .why{display:block;color:var(--faint);font-size:11.5px;margin-top:4px;line-height:1.45}
+.bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
+.comm{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
 .gridwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:13px}
 .empty{padding:60px 10px;text-align:center;color:var(--muted)}.empty .btn-ghost{margin-top:16px}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.in{opacity:1;transform:none}
@@ -115,7 +117,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 <body>
 <nav class="top"><div class="row">
   <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
-  <div class="links"><a href="/browse">Browse</a><a href="/about">The Story</a><a href="/journal/">Journal</a><a class="join" href="/#circle">Join the Circle</a></div>
+  <div class="links"><a href="/browse">The Atlas</a><a href="/about">The Story</a><a href="/journal/">Journal</a><a class="join" href="/#circle">Join the Circle</a></div>
 </div></nav>
 
 <header class="hero">
@@ -130,7 +132,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
     </div>
     <div class="cam-wrap">
       <svg class="cam" id="cam" viewBox="0 0 240 240" role="group" aria-label="Choose a world"></svg>
-      <button class="cam-center" id="hub"><span class="lab">where it's alive</span><span class="rot on" id="rot"></span></button>
+      <button class="cam-center" id="hub" aria-label="Open the highlighted craft"><span class="lab">tap to explore</span><span class="rot on" id="rot"></span></button>
     </div>
   </div>
   <div class="wrap"><div class="legend" id="legend"></div></div>
@@ -173,6 +175,9 @@ function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return
 function dots(n){n=n||0;return "●●●●●".slice(0,n)+"○○○○○".slice(0,5-n);}
 function credLabel(d){var c=d.certShort||"";return (c&&!/^no /i.test(c))?c:"Hand-verified";}
 function srcLabel(role){return role==="source"?"At the source":role==="both"?"Source & scene":"A strong scene";}
+var COMMCOL={Legendary:"#f0c27a",Thriving:"#a3cdc9",Strong:"rgba(243,237,226,.72)",Growing:"rgba(243,237,226,.5)","Hidden-gem":"rgba(243,237,226,.5)"};
+function commDots(rank,label){var c=COMMCOL[label]||"var(--sea)";return '<span class="dots" style="color:'+c+'">'+dots(rank)+'</span>';}
+function commLabel(label){if(!label)return "";var c=COMMCOL[label]||"rgba(243,237,226,.6)";return '<span class="comm" style="color:'+c+'">'+esc(label)+' living community</span>';}
 function levelBucket(lv){lv=(lv||"").toLowerCase();var e=lv.split("->")[0];
   if(/intermediate/.test(e))return "intermediate";
   if(/advanced|experienced|expert/.test(e))return "advanced";
@@ -191,6 +196,12 @@ A.forEach(function(d){var w=worldOf(d);
 var byWorldDisc={};ORDER.forEach(function(w){byWorldDisc[w]=[];});
 A.forEach(function(d){var w=worldOf(d),t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});byWorldDisc[w].push({d:d,top:t||{}});});
 ORDER.forEach(function(w){byWorldDisc[w].sort(function(a,b){return (b.top.communityRank||0)-(a.top.communityRank||0);});});
+// the single "best place to go" per craft — featured place if set, else strongest community
+var BEST={};A.forEach(function(d){var f=d.featured||{},bid=null;
+  if(f.id){(d.destinations||[]).forEach(function(x){if(x.id===f.id)bid=x.id;});}
+  if(!bid&&f.place){(d.destinations||[]).forEach(function(x){if(x.place===f.place)bid=x.id;});}
+  if(!bid){var top=null;(d.destinations||[]).forEach(function(x){if(!top||(x.communityRank||0)>(top.communityRank||0))top=x;});if(top)bid=top.id;}
+  BEST[d.id]=bid;});
 var REGIONS=Object.keys(DESTS.reduce(function(a,x){if(x.region)a[x.region]=1;return a;},{})).sort();
 var MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
 var MNAMES=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -227,11 +238,17 @@ ORDER.forEach(function(w,i){var m=WORLDS[w],a0=i*72,a1=a0+72,am=a0+36;
   lb.onclick=function(){toggleWorld(w);};legend.appendChild(lb);
 });
 function syncWorld(){cam.querySelectorAll(".wedge").forEach(function(p){p.classList.toggle("active",!!F.worlds[p.dataset.w]);});legend.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",!!F.worlds[b.dataset.w]);});}
-hub.onclick=function(){F.worlds={};F.craft="";renderSide();render();syncWorld();};
+hub.onclick=function(){if(curFeat&&curFeat.did){location.href="/atlas/"+curFeat.did;}else{F.worlds={};F.craft="";renderSide();render();syncWorld();}};
 function hexA(h,a){var n=parseInt(h.slice(1),16);return "rgba("+((n>>16)&255)+","+((n>>8)&255)+","+(n&255)+","+a+")";}
-var feats=[];ORDER.forEach(function(w){byWorldDisc[w].slice(0,4).forEach(function(o){if(o.top.place)feats.push({craft:o.d.discipline,place:o.top.place,color:WORLDS[w].color});});});
-var ri=0;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];rot.classList.remove("on");
-  setTimeout(function(){rot.innerHTML='<span class="craft">'+esc(f.craft)+'</span><br><span class="place">'+esc(f.place)+'</span>';rot.classList.add("on");},280);
+// the flashing centre cycles the most surprising crafts first; each links to its best place
+var SURPRISE=["freediv","apnea","knife","blade","smith","forge","perfum","falconr","cheese","ferment","sake","chocolat","glassblow","glass","tango","flamenco","calligraph","indigo","dye","forag","mushroom","sourdough","kintsugi","leather","ceramic","pottery","blacksmith","woodblock","beekeep","honey","spearfish","cooper","lacquer","weav","whisky","whiskey","mezcal","truffle","oyster","lutherie","violin","wooden boat"];
+function isSurprising(name){name=(name||"").toLowerCase();return SURPRISE.some(function(k){return name.indexOf(k)>-1;});}
+function topDest(d){var bid=BEST[d.id];return (d.destinations||[]).filter(function(x){return x.id===bid;})[0]||(d.destinations||[])[0]||null;}
+var feats=[];
+A.forEach(function(d){if(!isSurprising(d.discipline))return;var t=topDest(d);if(t&&t.place)feats.push({craft:d.discipline,place:t.place,color:WORLDS[worldOf(d)].color,did:d.id});});
+ORDER.forEach(function(w){byWorldDisc[w].slice(0,3).forEach(function(o){if(o.top.place&&!feats.some(function(f){return f.did===o.d.id;}))feats.push({craft:o.d.discipline,place:o.top.place,color:WORLDS[w].color,did:o.d.id});});});
+var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];curFeat=f;rot.classList.remove("on");
+  setTimeout(function(){rot.innerHTML='<span class="craft">'+esc(f.craft)+'</span><br><span class="place">'+esc(f.place)+' <span style="opacity:.7">↗</span></span>';rot.classList.add("on");},280);
   bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
 tick();setInterval(tick,2700);
 
@@ -291,13 +308,14 @@ function render(){
   if(list.length>120)h+='<p style="color:var(--faint);text-align:center;margin-top:22px;font-size:13px">Showing the 120 strongest — narrow the filters to see the rest.</p>';
   results.innerHTML=h;
 }
-function gcard(x){var c=WORLDS[x.world].color,r=ratingDest(x);
+function gcard(x){var c=WORLDS[x.world].color,r=ratingDest(x),best=BEST[x.did]===x.id;
   return '<a class="gcard" style="--sc:'+c+'" href="/atlas/'+esc(x.id)+'">'+
+    (best?'<div class="bestflag">★ Best place to go</div>':'')+
     '<div class="cred"><span class="gem">✦</span><span class="t">'+esc(x.cred)+'</span></div>'+
     '<div class="craft">'+esc(x.discipline)+'</div>'+
     '<div class="srcscene">'+srcLabel(x.role)+'</div>'+
-    '<div class="where"><span>'+esc(x.place)+', '+esc(x.country)+'</span><span class="dots">'+dots(x.rank)+'</span></div>'+
-    '<div class="metaline">'+(x.region?'<span>'+esc(x.region)+'</span>':'')+(x.season?'<span>· '+esc(x.season)+'</span>':'')+(x.schools?'<span>· '+x.schools+' school'+(x.schools===1?"":"s")+'</span>':'')+'</div>'+
+    '<div class="where"><span>'+esc(x.place)+', '+esc(x.country)+'</span>'+commDots(x.rank,x.rankLabel)+'</div>'+
+    '<div class="metaline">'+(x.rankLabel?commLabel(x.rankLabel):'')+(x.region?'<span>· '+esc(x.region)+'</span>':'')+(x.season?'<span>· '+esc(x.season)+'</span>':'')+(x.schools?'<span>· '+x.schools+' school'+(x.schools===1?"":"s")+'</span>':'')+'</div>'+
     trustHTML(r)+'</a>';
 }
 function renderRails(){
@@ -310,11 +328,13 @@ function renderRails(){
     list.forEach(function(o){var t=o.top,r=ratingDisc(o.d.id);
       if(r&&r.destId){var rd=(o.d.destinations||[]).find(function(z){return z.id===r.destId;}); if(rd)t=rd;}
       var a=document.createElement("a");a.className="dcard";a.style.setProperty("--sc",m.color);a.href="/atlas/"+o.d.id;
-      a.innerHTML='<div class="cred"><span class="gem">✦</span><span class="t">'+esc(credLabel(o.d))+'</span></div>'+
+      var isBest=BEST[o.d.id]===t.id;
+      a.innerHTML=(isBest?'<div class="bestflag">★ Best place to go</div>':'')+
+        '<div class="cred"><span class="gem">✦</span><span class="t">'+esc(credLabel(o.d))+'</span></div>'+
         '<div class="craft">'+esc(o.d.discipline)+'</div>'+
         '<div class="srcscene">'+srcLabel(t.role)+'</div>'+
-        '<div class="where"><span>'+(t.place?esc(t.place):"")+'</span>'+(t.communityRank?'<span class="dots">'+dots(t.communityRank)+'</span>':'')+'</div>'+
-        '<div class="metaline">'+(t.communityLabel?'<span>'+esc(t.communityLabel)+' community</span>':'')+'</div>'+trustHTML(r);
+        '<div class="where"><span>'+(t.place?esc(t.place):"")+'</span>'+(t.communityRank?commDots(t.communityRank,t.communityLabel):"")+'</div>'+
+        '<div class="metaline">'+commLabel(t.communityLabel)+'</div>'+trustHTML(r);
       rail.appendChild(a);});
     rw.appendChild(rail);
     ["l","r"].forEach(function(sd){var b=document.createElement("button");b.className="arrow "+sd;b.innerHTML=sd==="l"?"‹":"›";b.onclick=function(){rail.scrollBy({left:(sd==="l"?-1:1)*rail.clientWidth*0.85,behavior:"smooth"});};rw.appendChild(b);});

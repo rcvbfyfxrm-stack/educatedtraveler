@@ -232,7 +232,18 @@ window.ET_ATLAS = {
         "fitsBecause": "Full-time residential immersion living in a working ashram at the historic home of modern yoga, in a group cohort, leading to a recognized 200-hour credential.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Yoga Therapy: Diabetes (residential short course)",
+            "duration": "7 days",
+            "format": "Residential retreat",
+            "url": "https://courses.parmarth.org/",
+            "fit": "Shorter",
+            "note": "A one-week themed residential, not a teacher training — far less depth and no 200-hour certification.",
+            "confidence": "low"
+          }
+        ]
       }
     },
     {
@@ -801,7 +812,8 @@ window.ET_ATLAS = {
         "fitsBecause": "Direct study at the worldwide source of the method, immersed in Pune's Iyengar community for a sustained period exactly where the tradition lives.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "USD 500"
       }
     },
     {
@@ -1182,7 +1194,8 @@ window.ET_ATLAS = {
           "2026-07-06"
         ],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "JPY 85,000"
       }
     },
     {
@@ -1339,7 +1352,29 @@ window.ET_ATLAS = {
         "fitsBecause": "A residential, full-day immersion in Himalayan singing-bowl healing in Nepal where the practice is rooted, in a small group, with daily hands-on practice and certification.",
         "sessions": [],
         "priceNote": "~$1,000 shared room / ~$1,200 private A/C (meals included)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "4 Days / 20 Hours Basic Level Singing Bowl Sound Healing Training",
+            "duration": "4 days / 20 hours",
+            "format": "Residential",
+            "priceFrom": "USD 500",
+            "url": "https://pragyayogaschool.com/details/4-days-20-hours-singing-bowl-sound-healing-training-course-in-nepal",
+            "fit": "Shorter",
+            "note": "Basic-level foundation only; covers core technique in 20 hours versus the 50-hour advanced training, so far less depth and no gong work.",
+            "confidence": "high"
+          },
+          {
+            "course": "1 Day / 5 Hour Singing Bowl & Gong Workshop",
+            "duration": "1 day / 5 hours",
+            "format": "Workshop",
+            "priceFrom": "USD 150",
+            "url": "https://pragyayogaschool.com/details/1-day-5-hour-singing-bowl-workshop-in-nepal-1",
+            "fit": "Taster",
+            "note": "A single-day introduction; an experiential sampler rather than a practitioner training, with no certification depth.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -1502,7 +1537,19 @@ window.ET_ATLAS = {
           "2026-11-15"
         ],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "USD 1,995",
+        "alternatives": [
+          {
+            "course": "Tantra Essence Online Learning",
+            "duration": "Self-paced",
+            "format": "Online",
+            "url": "https://www.anandasarita.com/free-courses",
+            "fit": "Online",
+            "note": "Home-study discourses and meditations with free intro classes; no in-person hands-on immersion at the source.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -1638,7 +1685,28 @@ window.ET_ATLAS = {
         "fitsBecause": "Hands-on training at the founding school of Northern Thai massage in Chiang Mai where the lineage originates, learning in pairs within a student community toward recognized certificates.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "priceFrom": "THB 6,500",
+        "alternatives": [
+          {
+            "course": "Introduction to Thai Massage",
+            "duration": "18 hours (3 days)",
+            "priceFrom": "THB 5,000",
+            "url": "https://www.oldmedicine.org/courses",
+            "fit": "Taster",
+            "note": "Three-day overview with no certificate; covers basics only, not the full therapeutic levels and energy-line work.",
+            "confidence": "high"
+          },
+          {
+            "course": "One Day Drop-In Pass",
+            "duration": "1 day",
+            "priceFrom": "THB 2,000",
+            "url": "https://www.oldmedicine.org/courses",
+            "fit": "Taster",
+            "note": "Single drop-in session; a sampler with no structured progression or certification.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -1764,7 +1832,26 @@ window.ET_ATLAS = {
         "fitsBecause": "Trains at the historic home of Kerala Ayurveda (Kottakkal) with full-time hands-on practice and a recognized therapist certificate.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Certificate in SPA Therapy",
+            "duration": "1 month",
+            "url": "https://www.kottakkalayurvedaacademy.com/courses",
+            "fit": "Shorter",
+            "note": "One-month spa-therapy certificate rather than the full Panchakarma therapist training; far less depth in classical detox treatment.",
+            "confidence": "med"
+          },
+          {
+            "course": "Ayurveda Panchakarma (distance learning)",
+            "duration": "6 months",
+            "format": "Online",
+            "url": "https://www.kottakkalayurvedaacademy.com/courses",
+            "fit": "Online",
+            "note": "Distance-learning version; loses the hands-on hospital therapy practice central to becoming a therapist.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -2322,7 +2409,30 @@ window.ET_ATLAS = {
         "fitsBecause": "Immersive residential training in the actual village where tai chi was created, in small groups under direct Chen-family lineage masters.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "priceFrom": "USD 1,050",
+        "alternatives": [
+          {
+            "course": "1-Week Short-Term Chen Taijiquan Training",
+            "duration": "1 week",
+            "format": "Residential (room + 3 meals included)",
+            "priceFrom": "USD 455",
+            "url": "https://www.chenschool.com/taiji-school/tuition-fees/",
+            "fit": "Taster",
+            "note": "A week at the source village, but far too short to absorb the form or build the village-community bond the full residency gives.",
+            "confidence": "high"
+          },
+          {
+            "course": "2-Week Short-Term Chen Taijiquan Training",
+            "duration": "2 weeks",
+            "format": "Residential",
+            "priceFrom": "USD 840",
+            "url": "https://www.chenschool.com/taiji-school/tuition-fees/",
+            "fit": "Shorter",
+            "note": "Still at Chen Village, but two weeks only scratches the foundations versus deep daily monthly immersion.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -2474,7 +2584,18 @@ window.ET_ATLAS = {
         "fitsBecause": "The genuine source-location residential capstone where you train in winter cold alongside a cohort and earn the official WHM instructor credential.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "WHM Travel Experience (mountain expedition)",
+            "duration": "Several days",
+            "format": "In-person, in nature",
+            "url": "https://www.wimhofmethod.com/academy",
+            "fit": "Taster",
+            "note": "A guided in-person experience rather than the full instructor immersion, so less depth and no teaching mastery.",
+            "confidence": "low"
+          }
+        ]
       }
     },
     {
@@ -2677,7 +2798,18 @@ window.ET_ATLAS = {
           "2026-07-13"
         ],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Moon Lodge: Honoring the Sacred Feminine (incl. 5Rhythms moving meditation)",
+            "duration": "3 days (Jul 10-12, 2026)",
+            "format": "In-person retreat at Esalen",
+            "url": "https://www.esalen.org/learn/workshops",
+            "fit": "Shorter",
+            "note": "Same Big Sur source and 5Rhythms movement, but a weekend with a narrower focus rather than the full waves-and-mindfulness arc.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -2860,7 +2992,21 @@ window.ET_ATLAS = {
           "Aug 2026"
         ],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Aquarian Teacher KRI Level One Teacher Training",
+            "school": "Kundalini Yoga International (San Diego)",
+            "place": "San Diego, California",
+            "duration": "180 hours over ~9 months, weekends",
+            "format": "In-person, part-time weekends",
+            "priceFrom": "USD 3,795",
+            "url": "https://www.sdkyi.com/level-one-tuition-and-enrollment/",
+            "fit": "Cheaper",
+            "note": "Same KRI Level One curriculum but spread over part-time weekends off-site, so it loses the residential at-the-source immersion in Espanola.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -3083,7 +3229,27 @@ window.ET_ATLAS = {
         "fitsBecause": "Full-time professional dive training in the Marseille Calanques where Cousteau's Aqua-Lung diving was born, ending in a recognized PADI instructor rating.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "PADI Divemaster",
+            "duration": "4-8 weeks",
+            "format": "In the Calanques, Marseille",
+            "url": "https://www.plongee-a-marseille.fr/formations",
+            "fit": "Shorter",
+            "note": "The first pro level and a true Calanques immersion, but stops short of the instructor crossover and teaching depth of the full IDC.",
+            "confidence": "med"
+          },
+          {
+            "course": "PADI Advanced Open Water",
+            "duration": "2-3 days",
+            "format": "In the Calanques",
+            "url": "https://www.plongee-a-marseille.fr/formations",
+            "fit": "Taster",
+            "note": "A short recreational step that samples the Calanques but is nowhere near the time-on-the-water professional path.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -3436,7 +3602,8 @@ window.ET_ATLAS = {
         "fitsBecause": "An immersive, months-long, state-credentialed apnea-and-spearfishing program on the Côte d'Azur, the heart of French Mediterranean spearfishing.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "€3,696"
       }
     },
     {
@@ -3758,7 +3925,28 @@ window.ET_ATLAS = {
           "2026-11-09"
         ],
         "priceNote": "~£14,500 residential (£13,640 course-only)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "RYA Day Skipper Practical",
+            "duration": "5 days",
+            "format": "Residential at UKSA Cowes, on the Solent",
+            "priceFrom": "£790",
+            "url": "https://uksa.org/course/rya-day-skipper/",
+            "fit": "Cheaper",
+            "note": "Same Solent waters and UKSA base, but a single intro week rather than the months-long professional Yachtmaster pathway and sea-time.",
+            "confidence": "high"
+          },
+          {
+            "course": "RYA Day Skipper Shorebased Theory",
+            "duration": "Theory course",
+            "priceFrom": "£480",
+            "url": "https://uksa.org/course/rya-day-skipper-shorebased/",
+            "fit": "Intro",
+            "note": "Classroom theory only, so it gives knowledge without any hands-on time on the water at the source.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -3933,7 +4121,29 @@ window.ET_ATLAS = {
         "fitsBecause": "A multi-day, progressive, hands-on programme on the birthplace beach of modern surfing — at the genuine source even though it is not a certification course.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "3-Day Private Guided Surf Package",
+            "duration": "3 days (2-hour daily session)",
+            "format": "Private, Waikiki",
+            "priceFrom": "USD 472",
+            "url": "https://hhsurf.com/waikiki-multi-day-surf-lesson-packages/",
+            "fit": "Shorter",
+            "note": "Same Waikiki break and coaching, but three days builds far less water-time and progression than the week-long package.",
+            "confidence": "high"
+          },
+          {
+            "course": "Group Surf Lesson",
+            "duration": "2 hours",
+            "format": "Group, Waikiki",
+            "priceFrom": "USD 95",
+            "url": "https://hhsurf.com/waikiki-multi-day-surf-lesson-packages/",
+            "fit": "Taster",
+            "note": "A single shared lesson is a one-off taste, with none of the sustained immersion or relationship the multi-day package offers.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -4106,7 +4316,20 @@ window.ET_ATLAS = {
         "fitsBecause": "A multi-day, instructor-on-the-water course at Kanaha, one of the world's defining kite spots, with the rider learning in a busy community of kiters.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "USD 897",
+        "alternatives": [
+          {
+            "course": "Private Single Kitesurfing Lesson",
+            "duration": "2.5 hours",
+            "format": "Private, Kite Beach Kanaha",
+            "priceFrom": "USD 325",
+            "url": "https://hstwindsurfing.com/maui-kitesurfing-lessons/",
+            "fit": "Taster",
+            "note": "Same world-class Kanaha spot, but a single session can't carry you to independent riding the way the three-day course does.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -4435,7 +4658,18 @@ window.ET_ATLAS = {
         "fitsBecause": "The strongest, most reliable meltemi in Greece paired with a safe learner bay AND a genuine high-wind bay in one location — ideal for an improver chasing consistent planing and the carve gybe over a long stay. Verified 4.9/5 TripAdvisor (17 reviews).",
         "sessions": [],
         "priceNote": "Monthly/long-stay rental rates not published online; contact the center for a flat 1-2 month quote",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Beginner Windsurf Course / Lessons",
+            "duration": "Multi-session",
+            "format": "Group or private, Afiartis Karpathos",
+            "url": "https://www.ion-club.net/karpathos/windsurf-lessons/",
+            "fit": "Intro",
+            "note": "A structured short course at the same legendary bay, but a few sessions rather than the long-stay immersion in the conditions.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -4637,7 +4871,18 @@ window.ET_ATLAS = {
         "fitsBecause": "Taught in the Valley that invented modern big-wall climbing by the only guide service permitted to operate there, alongside other climbers — climbing at the literal source.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Welcome to the Rock (intro rock climbing class)",
+            "duration": "~7 hours, one day",
+            "format": "Guided, Yosemite Valley",
+            "url": "https://www.travelyosemite.com/things-to-do/rock-climbing",
+            "fit": "Intro",
+            "note": "A first day on Yosemite granite, but a one-day intro is worlds away from the multi-day big-wall craft and exposure.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -4836,7 +5081,27 @@ window.ET_ATLAS = {
         "fitsBecause": "A week of genuine skills-plus-summit alpinism in the birthplace of the sport, taught in a roped team by Chamonix IFMGA guides.",
         "sessions": [],
         "priceNote": "from €1,480",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Alpine Climbing Course in Chamonix – Level 1",
+            "duration": "5 days",
+            "priceFrom": "€1,480",
+            "url": "https://www.chamex.com/trip_courses/alpine-climbing-course-in-chamonix-level-1/",
+            "fit": "Cheaper",
+            "note": "Teaches core alpine skills but omits the Mont Blanc summit ascent that anchors the full immersion.",
+            "confidence": "high"
+          },
+          {
+            "course": "Mont Blanc Ascent – Exclusive Experience",
+            "duration": "4 days",
+            "priceFrom": "€2,750",
+            "url": "https://www.chamex.com/trip_courses/mont-blanc-exclusive-experience/",
+            "fit": "Shorter",
+            "note": "Summit-focused and shorter, with less of the multi-day technical instruction that builds real competence.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -4995,7 +5260,19 @@ window.ET_ATLAS = {
         "fitsBecause": "A multi-day, community-based off-piste and avalanche-skills course in the off-piste capital of the Alps, taught by ENSA instructors and IFMGA guides at the source.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "€970",
+        "alternatives": [
+          {
+            "course": "Chamonix Off Piste with CHAMEX'PLORE (Guided Off-Piste Tour)",
+            "duration": "3 days",
+            "priceFrom": "€590",
+            "url": "https://www.chamex.com/trip_courses/guided-off-piste-tour-chamonix/",
+            "fit": "Shorter",
+            "note": "A 3-day guided ride rather than a full progression course, so less time building skills and far less of the deep, instruction-heavy immersion the 5-day course offers.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -5146,7 +5423,27 @@ window.ET_ATLAS = {
         "fitsBecause": "The defining multi-day ski-touring traverse of the Alps, lived hut-to-hut in a small roped team and guided by the historic Chamonix guides' company at the route's birthplace.",
         "sessions": [],
         "priceNote": "€1,690 (2026, min. 4)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Ski touring Vallée Blanche",
+            "duration": "2 days",
+            "priceFrom": "€520",
+            "url": "https://www.chamonix-guides.com/en/activities/details/ski-touring-vallee-blanche",
+            "fit": "Shorter",
+            "note": "Two-day taster of high-mountain ski touring with one hut night, not the full Chamonix–Zermatt traverse.",
+            "confidence": "high"
+          },
+          {
+            "course": "Ski touring Half day",
+            "duration": "Half day (3–4 hours)",
+            "priceFrom": "€120",
+            "url": "https://www.chamonix-guides.com/en/activities/details/ski-touring-half-day",
+            "fit": "Taster",
+            "note": "An introductory half-day on technique only — no multi-day route, hut life, or alpine traverse depth.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -5375,7 +5672,18 @@ window.ET_ATLAS = {
         "fitsBecause": "A multi-day immersive course in the literal birthplace of paragliding, learning in a group under state-certified pioneers of the sport.",
         "sessions": [],
         "priceNote": "~€510-630",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Vol Rando (mountain/bivouac stage)",
+            "duration": "2 days",
+            "priceFrom": "€150",
+            "url": "https://leschoucas.com/index.php/formations-stages/",
+            "fit": "Shorter",
+            "note": "A 2-day add-on experience for pilots, not a from-scratch course, so it skips the full hands-on learning arc of the 5-day beginner initiation.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -5561,7 +5869,29 @@ window.ET_ATLAS = {
         "fitsBecause": "Immersive, multi-day, small-group coaching at the sport's premier US source dropzone, on the pathway to recognized USPA ratings.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Accelerated Skydiving Program (ASP/AFF) at Skydive Arizona",
+            "school": "Adventures in Skydiving (Skydive Arizona)",
+            "duration": "24 jumps to A-License",
+            "priceFrom": "USD 2322",
+            "url": "https://adventuresinskydiving.com/aff-prices/",
+            "fit": "Intro",
+            "note": "The standard licensing pipeline rather than AXIS's elite one-on-one coaching, so less personalized, less deep mentorship.",
+            "confidence": "med"
+          },
+          {
+            "course": "Tandem Skydive (first jump)",
+            "school": "Adventures in Skydiving (Skydive Arizona)",
+            "duration": "Single jump",
+            "priceFrom": "USD 259",
+            "url": "https://adventuresinskydiving.com/tandem-skydiving/",
+            "fit": "Taster",
+            "note": "A one-off strapped-to-an-instructor jump with no skill-building or progression, the opposite of sustained at-source immersion.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -5759,7 +6089,18 @@ window.ET_ATLAS = {
           "2026-10-26"
         ],
         "priceNote": "from ~$875",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "2-Day Fundamentals of Whitewater Kayaking",
+            "duration": "2 days",
+            "priceFrom": "USD 475",
+            "url": "https://noc.com/courses/learn-to-kayak/",
+            "fit": "Shorter",
+            "note": "Covers only foundational strokes and wet exits over two days, missing the rolling, rescue and river-running depth of the 4-day immersion.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -5969,7 +6310,25 @@ window.ET_ATLAS = {
           "Apr 2026 (dates released annually; 2025 ran Apr 20-26)"
         ],
         "priceNote": "~$1,395 (incl. food, gear, camping)",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Class III Safety & Rescue",
+            "duration": "3 days",
+            "url": "https://www.nwrafting.com/training/safety-rescue-training",
+            "fit": "Shorter",
+            "note": "A focused 3-day rescue clinic rather than the full live-on-the-river guide formation, so it teaches one skill set instead of the whole immersive craft.",
+            "confidence": "med"
+          },
+          {
+            "course": "Online Rowing and Rescue Schools",
+            "duration": "Self-paced",
+            "url": "https://www.nwrafting.com/training/online-rowing-school",
+            "fit": "Online",
+            "note": "Self-paced digital learning with no time on the water or community at the source, the least immersive option available.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -6346,7 +6705,25 @@ window.ET_ATLAS = {
           "2026-10-12"
         ],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "28-day Safari Guide Course",
+            "duration": "28 days",
+            "url": "https://www.ecotraining.co.za/courses-experiences/28-day-safari-guide-course/",
+            "fit": "Shorter",
+            "note": "Half the immersion time at the same camps; builds toward, but does not equal, the full 55-day guide grounding.",
+            "confidence": "high"
+          },
+          {
+            "course": "7-day Birding in the Bush Course",
+            "duration": "7 days",
+            "url": "https://www.ecotraining.co.za/courses-experiences/7-day-birding-in-the-bush-course/",
+            "fit": "Taster",
+            "note": "A one-week single-topic bush introduction rather than a deep field-guide apprenticeship.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -6516,7 +6893,18 @@ window.ET_ATLAS = {
         "fitsBecause": "Hands-on time inside the Cadre Noir's school at Saumur, the literal source of classical French horsemanship, under master écuyers.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Perfectionnement technique et pédagogique en Hunter (2-day stage)",
+            "duration": "2 days (14h)",
+            "priceFrom": "€456",
+            "url": "https://www.ifce.fr/cadre-noir/formations-ifce-cadre-noir-de-saumur/stage-de-perfectionnement/",
+            "fit": "Shorter",
+            "note": "A two-day topical clinic, far short of an immersive residential perfectionnement at the source with the Cadre Noir.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -6675,7 +7063,18 @@ window.ET_ATLAS = {
           "2026-08-30"
         ],
         "priceNote": "from ~$2,620",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "7-Day Field Expedition",
+            "duration": "7 days",
+            "priceFrom": "USD 2620",
+            "url": "https://www.boss-inc.com/14-day-field-course/",
+            "fit": "Shorter",
+            "note": "Same demanding backcountry format but half the time, so less of the deep self-reliance arc the 14-day builds.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -6865,7 +7264,17 @@ window.ET_ATLAS = {
           "Aug 2026"
         ],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Enduro Weekend Camp",
+            "duration": "2 days",
+            "url": "https://www.zeptechniques.com/camps/skills-camps/enduro-camps/",
+            "fit": "Shorter",
+            "note": "A two-day skills weekend, not the multi-week live-in coaching residency the Academy provides.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -7016,7 +7425,18 @@ window.ET_ATLAS = {
           "2026-05-23"
         ],
         "priceNote": "~$70-80/day",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Memorial Day Single-Day Training Run",
+            "duration": "1 day",
+            "priceFrom": "USD 70",
+            "url": "https://www.wser.org/training-runs/",
+            "fit": "Shorter",
+            "note": "A single day on the course rather than the full three-day camp experience along the trail.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -7235,7 +7655,17 @@ window.ET_ATLAS = {
         "fitsBecause": "At the source in a working pottery town, with unlimited wheel/hand-building time and a live-in farmhouse stay, English-supported — immersive rather than a one-off taster, though stay length is unconfirmed.",
         "sessions": [],
         "priceNote": "Classes ~JPY 4,800 (half-day) / JPY 7,500 (full-day); English instruction extra; multi-day stay priced separately",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Pottery Experience Class",
+            "duration": "Single session",
+            "url": "https://mashiko-tougei-club.jp/school.html",
+            "fit": "Taster",
+            "note": "A one-off beginner experience with unlimited clay; lacks the live-in stay and sustained immersion at the source.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -7392,7 +7822,18 @@ window.ET_ATLAS = {
         "fitsBecause": "A tiny-group, at-the-source intensive with a working Japanese carpentry firm, exactly the immersive hands-on skill-learning EducatedTraveler curates.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Foundation",
+            "duration": "14 days",
+            "format": "In-person",
+            "url": "https://www.somakoshaschool.com/foundation",
+            "fit": "Intro",
+            "note": "An entry course in tools, sharpening and joinery rather than the specialised hand-cut Kumiko panel work; broad grounding over deep craft.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -7576,7 +8017,18 @@ window.ET_ATLAS = {
           "2026-12-14"
         ],
         "priceNote": "JPY 330,000 for 2026 sessions (JPY 440,000 from 2027)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "One-Day Knife-Making Workshop (2026)",
+            "duration": "7 hr 30 min",
+            "priceFrom": "¥44,000",
+            "url": "https://www.workshop-kurogane.com/service-page/one-day-knife-making-workshop-2026",
+            "fit": "Shorter",
+            "note": "One forging day only, with no tatara iron-making; skips the multi-day source-to-blade immersion of the 6-day tamahagane course.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -7765,7 +8217,26 @@ window.ET_ATLAS = {
         "fitsBecause": "It is the authoritative at-the-source school in Murano teaching real furnace glassblowing in small groups, ideal for EducatedTraveler's multi-week immersive track.",
         "sessions": [],
         "priceNote": "~€770 for a 20-hour course",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Glassblowing course (20 hours)",
+            "duration": "20 hours over one week",
+            "priceFrom": "€770",
+            "url": "http://www.lascuoladelvetro.it/en/the-school-of-glass",
+            "fit": "Shorter",
+            "note": "A compact one-week introduction to blowing at the furnace; far less time and community depth than an extended residency.",
+            "confidence": "med"
+          },
+          {
+            "course": "Glass demonstration (dimostrazione)",
+            "duration": "Single session",
+            "url": "https://www.lascuoladelvetro.it/en/demonstrations/",
+            "fit": "Taster",
+            "note": "A watch-only demonstration of furnace work, not hands-on practice; observation rather than immersion.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -7986,7 +8457,18 @@ window.ET_ATLAS = {
           "2026-09"
         ],
         "priceNote": "Approx. €16,900 tuition per academic year (2026-27), paid in three installments",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Summer Program (Drawing & Painting)",
+            "duration": "~5 weeks (late June-late July)",
+            "priceFrom": "USD 11,000",
+            "url": "https://www.florenceacademyofart.edu/all-workshops/",
+            "fit": "Shorter",
+            "note": "A five-week summer intensive rather than the multi-year certificate; condensed exposure without the sustained atelier community.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -8198,7 +8680,27 @@ window.ET_ATLAS = {
           "2026-09"
         ],
         "priceNote": "€18,950 (EU/France) / €20,950 (international)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Summer Photography Course - Introduction to Photography",
+            "duration": "2 months",
+            "format": "In-person (Paris)",
+            "url": "https://speos-photo.com/en/short-photography-programs/summer-photography-course-introduction-to-photography-in-2-months/",
+            "fit": "Intro",
+            "note": "An introductory summer course, not the year-long professional immersion at the source.",
+            "confidence": "high"
+          },
+          {
+            "course": "Professional Photography Fundamentals - 5 months",
+            "duration": "5 months",
+            "format": "In-person (Paris)",
+            "url": "https://speos-photo.com/en/short-photography-programs/photo-fundamentals-paris/",
+            "fit": "Shorter",
+            "note": "Less than half the duration, so shallower hands-on depth than the 1-year program.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -8403,7 +8905,29 @@ window.ET_ATLAS = {
           "2026-07-06"
         ],
         "priceNote": "€3,900 (housing included for the 3-week period)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Sound Design Summer School in Paris",
+            "duration": "3 weeks",
+            "format": "In-person, hands-on (housing included)",
+            "priceFrom": "€3,900",
+            "url": "https://3is-international.com/summer-school/",
+            "fit": "Taster",
+            "note": "Same school, same 3-week format and price, but narrows to sound rather than full filmmaking immersion.",
+            "confidence": "high"
+          },
+          {
+            "course": "Acting for Camera Summer School in Paris",
+            "duration": "3 weeks",
+            "format": "In-person, hands-on (housing included)",
+            "priceFrom": "€3,900",
+            "url": "https://3is-international.com/summer-school/",
+            "fit": "Taster",
+            "note": "Same campus and length but a performance focus, not the director/crew filmmaking craft.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -8773,7 +9297,27 @@ window.ET_ATLAS = {
           "2026-10-24"
         ],
         "priceNote": "$3,050 shared room / $3,950 private room per person",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Oaxaca Ceramics + Textiles",
+            "duration": "5 days / 4 nights",
+            "priceFrom": "USD 3,200",
+            "url": "https://www.threadcaravan.com/oaxaca-ceramics-textiles",
+            "fit": "Shorter",
+            "note": "Same operator and region but splits time across ceramics and textiles, so less sustained weaving immersion with the master weavers.",
+            "confidence": "high"
+          },
+          {
+            "course": "Oaxaca Caracol Purpura (natural sea-snail dye)",
+            "place": "Costa Chica, Oaxaca",
+            "duration": "6 days (Dec 2-7, 2026)",
+            "url": "https://www.threadcaravan.com/trip-deposits/p/oaxaca-caracol-purpura-2026",
+            "fit": "Shorter",
+            "note": "Same operator and state but centers on a rare natural dye rather than loom weaving in Teotitlan.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -8933,7 +9477,18 @@ window.ET_ATLAS = {
           "2026-11-22"
         ],
         "priceNote": "$3,950 shared room / $4,450 private room per person (both Nov 2026 dates currently sold out)",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Oaxaca Caracol Purpura (natural sea-snail dye)",
+            "place": "Costa Chica, Oaxaca, Mexico",
+            "duration": "6 days (Dec 2-7, 2026)",
+            "url": "https://www.threadcaravan.com/trip-deposits/p/oaxaca-caracol-purpura-2026",
+            "fit": "Cheaper",
+            "note": "Same operator and a natural-dye immersion, but a different tradition and place - not the Awa indigo lineage in Tokushima.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -9077,7 +9632,28 @@ window.ET_ATLAS = {
           "2026-09"
         ],
         "priceNote": "approx. EUR 11,500 tuition for the 20-week course",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Bag Making Summer Course",
+            "duration": "3 weeks",
+            "format": "On-site",
+            "url": "https://www.schola.academy/footwear-accessories-department/bag-making-summer-course/",
+            "fit": "Shorter",
+            "note": "Same school and craft, but three weeks can't reach the depth or community of the 20-week program.",
+            "confidence": "high"
+          },
+          {
+            "course": "Two-Day Shopper Tote Workshop",
+            "duration": "2 days (approx. 6 hours/day)",
+            "format": "On-site",
+            "priceFrom": "€955",
+            "url": "https://scuoladelcuoio.it/en/content/8-workshops",
+            "fit": "Taster",
+            "note": "A hands-on taster at the source, but a single finished bag over two days is a sampler, not immersion.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -9272,7 +9848,29 @@ window.ET_ATLAS = {
           "Sep 2026"
         ],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Complete Stone Setting Course",
+            "duration": "7 days",
+            "format": "On-site",
+            "priceFrom": "€1,000",
+            "url": "https://artiorafe.it/en/courses/courses-goldsmith-school/",
+            "fit": "Shorter",
+            "note": "Same school, real bench time, but a single technique over a week lacks the annual course's full goldsmithing arc and cohort.",
+            "confidence": "high"
+          },
+          {
+            "course": "Introduction to Rhino3D for Goldsmithing (CAD.WE1)",
+            "duration": "2 days (12 hours)",
+            "format": "On-site",
+            "priceFrom": "€300",
+            "url": "https://artiorafe.it/en/enrollment-form/?cat=Flash+courses&fla=CAD.WE1",
+            "fit": "Intro",
+            "note": "Cheap entry at the source, but a CAD intro is digital and narrow versus hands-at-the-bench immersion.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -9602,7 +10200,27 @@ window.ET_ATLAS = {
           "Oct 2026"
         ],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Intensive Summer Flamenco Course (Cante / Baile / Guitarra)",
+            "duration": "2 weeks (July)",
+            "format": "In-person, Triana (Seville)",
+            "url": "https://www.flamencoheeren.com/en/homepage/",
+            "fit": "Shorter",
+            "note": "Two-week July intensive at the same source school, but lacks the 9-month annual course's depth and community immersion.",
+            "confidence": "med"
+          },
+          {
+            "course": "Dance Workshops",
+            "duration": "Short workshop sessions",
+            "format": "In-person, Seville",
+            "url": "https://www.flamencoheeren.com/en/annual-dance-course/dance-workshops/",
+            "fit": "Taster",
+            "note": "Single-focus workshops give a taste but skip the full cante/baile/guitarra ensemble training and time at source.",
+            "confidence": "low"
+          }
+        ]
       }
     },
     {
@@ -9725,7 +10343,28 @@ window.ET_ATLAS = {
           "Jan 2027"
         ],
         "priceNote": "~€13,500",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Fragrance Summer School - Level 1",
+            "duration": "2 weeks",
+            "format": "In-person, Grasse (English, max 10)",
+            "priceFrom": "€2,400",
+            "url": "https://www.grasse-perfumery.com/product/fragrance-summer-school-level-1/",
+            "fit": "Shorter",
+            "note": "Two weeks in Grasse at the same institute, but an introduction rather than the long technical degree's deep, qualifying immersion.",
+            "confidence": "high"
+          },
+          {
+            "course": "Scents of Provence (Level 1)",
+            "duration": "1 week",
+            "format": "In-person, Grasse",
+            "url": "https://www.grasse-perfumery.com/product/scents-of-provence-level-1/",
+            "fit": "Taster",
+            "note": "One-week regional-scent taster; samples the place but not the sustained hands-on creation training.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -9853,7 +10492,29 @@ window.ET_ATLAS = {
         "fitsBecause": "A multi-year, hands-on apprenticeship-style immersion in Cremona, the world's center of violin making, learning the carving tradition bench by bench in a small cohort.",
         "sessions": [],
         "priceNote": "~€15,000 per year",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Taster Course (e.g. Violin Scroll Workshop)",
+            "duration": "1-5 days (3-107 hours)",
+            "format": "In-person, Cremona",
+            "priceFrom": "€160",
+            "url": "https://academiacremonensis.org/taster-course/",
+            "fit": "Taster",
+            "note": "Short single-skill workshops at the same Cremona school, but no full instrument built or sustained mentorship.",
+            "confidence": "high"
+          },
+          {
+            "course": "Summer School (1-3 months intensive)",
+            "duration": "1-3 months (June/July/Sept)",
+            "format": "In-person, Cremona",
+            "priceFrom": "€700",
+            "url": "https://www.academiacremonensis.org/summer-school",
+            "fit": "Shorter",
+            "note": "Intensive summer block at source; broader than a taster but still short of the year-long foundational immersion.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -10020,7 +10681,27 @@ window.ET_ATLAS = {
           "2026-07-05"
         ],
         "priceNote": "~$5,430 tuition (+ ~$4,200 housing)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Guitar Sessions",
+            "duration": "5 days (Aug 10-14)",
+            "format": "In-person, Boston",
+            "priceFrom": "$1,295",
+            "url": "https://summer.berklee.edu/programs/guitar-sessions",
+            "fit": "Shorter",
+            "note": "One week of guitar-only ensembles and clinics at Berklee; far less depth than the 5-week performance intensive.",
+            "confidence": "high"
+          },
+          {
+            "course": "Online Guitar Summer Courses",
+            "format": "Online",
+            "url": "https://online.berklee.edu/summer-programs/guitar",
+            "fit": "Online",
+            "note": "Remote study removes the on-campus community and live ensemble immersion entirely.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -10198,7 +10879,20 @@ window.ET_ATLAS = {
           "Feb 2027"
         ],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "¥2,400/week",
+        "alternatives": [
+          {
+            "course": "Short-term Calligraphy & Painting Program (1 week)",
+            "duration": "1 week",
+            "format": "In-person, Hangzhou (Xiangshan campus)",
+            "priceFrom": "¥2,400",
+            "url": "https://caa.at0086.cn/site/admission/show-5096.html",
+            "fit": "Shorter",
+            "note": "One-week module at the same academy; introduces brushwork but not the sustained non-degree program's immersion.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -10403,7 +11097,19 @@ window.ET_ATLAS = {
         "fitsBecause": "A full-time, English-language immersion in Paris, the home of French patisserie, learning the craft hands-on in a small cohort toward a respected school certificate.",
         "sessions": [],
         "priceNote": "~€24,500",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Introduction to the Fundamentals of French Pastry",
+            "duration": "2 weeks (70 hours)",
+            "format": "In-person, Paris (English, max 14)",
+            "priceFrom": "€4,000",
+            "url": "https://www.ferrandi-paris.com/en/french-pastry-programs/introduction-fundamentals-french-pastry-class-paris",
+            "fit": "Shorter",
+            "note": "Two-week foundations at the same school, but covers basics only versus the 16-week professional immersion plus internship.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -10590,7 +11296,29 @@ window.ET_ATLAS = {
           "Sep 2026"
         ],
         "priceNote": "~€7,986 (continuing-education track)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Fondamentaux Short Course (Boulangerie)",
+            "duration": "2-4 days (14-28 hours)",
+            "format": "In-person, Paris",
+            "priceFrom": "€840",
+            "url": "https://www.ebp-paris.com/en/courses/initiation/",
+            "fit": "Shorter",
+            "note": "A few days of hands-on practice at the same school; a focused skill block, not the full CAP qualification.",
+            "confidence": "high"
+          },
+          {
+            "course": "Traditional Breadbaking and Freshly Baked Pastries",
+            "school": "Le Cordon Bleu Paris",
+            "duration": "4 days",
+            "format": "In-person, Paris",
+            "url": "https://www.cordonbleu.edu/paris/4-day-traditional-breadbaking-class/en",
+            "fit": "Taster",
+            "note": "Short same-city class for enthusiasts; gives a feel for the craft but not professional certification or depth.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -10791,7 +11519,30 @@ window.ET_ATLAS = {
           "Apr 2027"
         ],
         "priceNote": "~€4,600 (single occupancy)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Professional Chocolatier Program (online)",
+            "duration": "3 months, part-time",
+            "format": "Online",
+            "priceFrom": "USD 750",
+            "url": "https://www.ecolechocolat.com/en/chocolatier-school.html",
+            "fit": "Online",
+            "note": "Same provider's fully online track; flexible and far cheaper but loses the at-source Valrhona residency and community.",
+            "confidence": "high"
+          },
+          {
+            "course": "Cité du Chocolat Valrhona Workshop",
+            "school": "La Cité du Chocolat Valrhona",
+            "place": "Tain-l'Hermitage",
+            "duration": "30 min - 2h30",
+            "format": "In-person",
+            "url": "https://citeduchocolat.com/en/workshops",
+            "fit": "Taster",
+            "note": "A short hands-on workshop in the same town; a brief taste, not professional chocolatier training.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -10939,7 +11690,28 @@ window.ET_ATLAS = {
           "Feb 2027"
         ],
         "priceNote": "~€24,500",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Introduction to the Fundamentals of French Pastry",
+            "duration": "2 weeks (70 hours)",
+            "format": "In-person, Paris (English, max 14)",
+            "priceFrom": "€4,000",
+            "url": "https://www.ferrandi-paris.com/en/french-pastry-programs/introduction-fundamentals-french-pastry-class-paris",
+            "fit": "Shorter",
+            "note": "Two-week foundations at FERRANDI; broad basics rather than the 16-week immersive boulangerie professional program.",
+            "confidence": "high"
+          },
+          {
+            "course": "Bakery School Short Programmes",
+            "school": "Le Cordon Bleu Paris",
+            "format": "In-person, Paris",
+            "url": "https://www.cordonbleu.edu/paris/bakery-programmes/en",
+            "fit": "Shorter",
+            "note": "Alternative same-city bakery courses; useful but not the sustained source immersion of the intensive program.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -11095,7 +11867,29 @@ window.ET_ATLAS = {
           "2026-10-05"
         ],
         "priceNote": "~€35,500",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Basic Cuisine Certificate (Intensive)",
+            "duration": "6 weeks intensive (or 12 weeks standard)",
+            "format": "In-person, Paris",
+            "priceFrom": "€13,500",
+            "url": "https://www.cordonbleu.edu/paris/basic-cuisine-certificate/en",
+            "fit": "Shorter",
+            "note": "First module only of the same Diplôme at the same school; less depth than the full three-certificate cuisine diploma.",
+            "confidence": "high"
+          },
+          {
+            "course": "Gourmet Short Courses / Workshops",
+            "duration": "2h30 - 4 days",
+            "format": "In-person, Paris",
+            "priceFrom": "€60",
+            "url": "https://www.cordonbleu.edu/paris/pastry-cuisine-wine-workshops-in-paris/en",
+            "fit": "Taster",
+            "note": "Single hands-on sessions for enthusiasts; a taste of technique, not professional training or community.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -11248,7 +12042,18 @@ window.ET_ATLAS = {
         "fitsBecause": "Hands-on, community-table training in hand-rolled pasta at the only school in the world that forms sfoglini, in the city the sfoglia comes from.",
         "sessions": [],
         "priceNote": "~€6,000 (professional course)",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "One-Day Fresh Pasta Class",
+            "duration": "1 day (approx. 3 hours)",
+            "format": "In-person, Bologna",
+            "url": "https://www.vsb-bologna.it/en/our-courses",
+            "fit": "Taster",
+            "note": "Hands-on single class at the same school making tagliatelle/tortellini; authentic but a brief taste, not the professional Sfoglia course.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -11372,7 +12177,26 @@ window.ET_ATLAS = {
           "2026-05-25"
         ],
         "priceNote": "~€3,320",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Pintxos & Gilda Workshop (enthusiasts)",
+            "duration": "Half-day / short workshop",
+            "format": "In-person, Donostia-San Sebastián (English for visitors)",
+            "url": "https://www.bculinary.com/en/formacion",
+            "fit": "Taster",
+            "note": "Short hands-on workshop at the same center; tastes Basque culture but not the structured technique mastery course.",
+            "confidence": "med"
+          },
+          {
+            "course": "Online Gastronomy Courses",
+            "format": "Online",
+            "url": "https://www.bculinary.com/en/cursos-online",
+            "fit": "Online",
+            "note": "Remote learning from the same institution removes the on-site kitchen immersion and San Sebastián community.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -11525,7 +12349,26 @@ window.ET_ATLAS = {
           "2026-05-25"
         ],
         "priceNote": "3,320 EUR (2026 edition).",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Pintxos & Tapas Short Workshop (enthusiasts)",
+            "duration": "Short workshop",
+            "format": "In-person, Donostia-San Sebastián",
+            "url": "https://www.bculinary.com/en/formacion",
+            "fit": "Taster",
+            "note": "Brief hands-on session at the same faculty; an accessible taste rather than the avant-garde specialization course.",
+            "confidence": "med"
+          },
+          {
+            "course": "Online Gastronomy Courses",
+            "format": "Online",
+            "url": "https://www.bculinary.com/en/cursos-online",
+            "fit": "Online",
+            "note": "Online format strips out the lab-based hands-on practice and place-based community of the in-person course.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -11696,7 +12539,8 @@ window.ET_ATLAS = {
         "fitsBecause": "A full-time, hands-on edomae sushi immersion in Tokyo, taught to professionals in English at the city's pioneering sushi school.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "priceFrom": "¥880,000"
       }
     },
     {
@@ -11827,7 +12671,19 @@ window.ET_ATLAS = {
         "fitsBecause": "An in-depth, ministry-accredited Thai cuisine diploma taught in Bangkok, covering regional and royal Thai cooking from curry pastes up.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Thai Cuisine Workshop (Beef Selection)",
+            "duration": "6 hours (1 day)",
+            "format": "Hands-on workshop",
+            "priceFrom": "฿10,900",
+            "url": "https://www.cordonbleu.edu/thailand/short-courses/en",
+            "fit": "Taster",
+            "note": "Single-day workshop on one ingredient; no source-region depth or the 540-hour professional curriculum.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -11991,7 +12847,17 @@ window.ET_ATLAS = {
           "2026-06-11"
         ],
         "priceNote": "~$3,850 (double occupancy)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "One-day masterclass / Wednesday class",
+            "duration": "1 day",
+            "url": "https://www.seasonsofmyheart.com/food-tours/mexico/oaxaca/chefs-intensive",
+            "fit": "Shorter",
+            "note": "Single-day class with Susana Trilling; lacks the multi-day market-to-table immersion of the intensive.",
+            "confidence": "low"
+          }
+        ]
       }
     },
     {
@@ -12122,7 +12988,8 @@ window.ET_ATLAS = {
         "fitsBecause": "A full-time, hands-on culinary diploma at a government hotel-management institute in Lucknow, the home city of Awadhi and Mughlai cooking.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "₹30,900"
       }
     },
     {
@@ -12463,7 +13330,19 @@ window.ET_ATLAS = {
         "fitsBecause": "Multi-day full-time study at the institutional source of Bordeaux wine, taught by working growers and oenologists with hands-in-the-vineyard days.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Introduction to Tasting",
+            "duration": "2 hours",
+            "format": "In-person workshop",
+            "priceFrom": "€45",
+            "url": "https://www.ecoleduvindebordeaux.com/en/tasting-workshops",
+            "fit": "Intro",
+            "note": "Two-hour beginner tasting at the same school; no winemaking immersion or Grand Cru-level depth.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -13080,7 +13959,20 @@ window.ET_ATLAS = {
         "fitsBecause": "Honest fit is partial: the authentic credential exists at the source but is closed to travelers, and no verifiable week-long public immersion is currently bookable in Havana.",
         "sessions": [],
         "priceNote": "Association courses are free but resident-only; museum workshop pricing varies, confirm on site.",
-        "confidence": "low"
+        "confidence": "low",
+        "alternatives": [
+          {
+            "course": "Cocktail-making workshop",
+            "school": "Museo del Ron Havana Club",
+            "duration": "~1.5 hours",
+            "format": "Workshop with a Cuban bartender",
+            "priceFrom": "CUC$15",
+            "url": "https://www.havanaclubmuseum.com/en/experiences/",
+            "fit": "Taster",
+            "note": "90-minute tourist workshop making two cocktails; not the cantinero craft training or any sustained community immersion.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -13384,7 +14276,20 @@ window.ET_ATLAS = {
           "2026-11-02"
         ],
         "priceNote": "~$7,600",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Guided Tea Tasting",
+            "place": "New York, USA",
+            "duration": "2 hours",
+            "format": "In-person, apprentice-led",
+            "priceFrom": "$75",
+            "url": "https://www.teadrunk.com/products/guided-tasting",
+            "fit": "Taster",
+            "note": "Two-hour NYC tasting, far from the Fujian source; no terroir fieldwork or grower community contact.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -13560,7 +14465,18 @@ window.ET_ATLAS = {
         "fitsBecause": "Live-in, daily, weeks-long training at a decades-old Bangkok fight camp - immersive and community-based at the source of Muay Thai.",
         "sessions": [],
         "priceNote": "~$340/week (no meals), ~$700/month (no meals)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Single group Muay Thai class",
+            "duration": "~1.5 hours",
+            "format": "Drop-in group class",
+            "url": "https://www.gowabi.com/en/organization_services/muaythai-class-group-class",
+            "fit": "Taster",
+            "note": "One-off drop-in session; lacks the daily camp grind and long-stay gym community of a training package.",
+            "confidence": "low"
+          }
+        ]
       }
     },
     {
@@ -13870,7 +14786,27 @@ window.ET_ATLAS = {
         "fitsBecause": "Two weeks of training under Okinawan-lineage masters at the Karate Kaikan and real dojos in karate's birthplace - immersive and at the source.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "priceFrom": "JPY 275,000",
+        "alternatives": [
+          {
+            "course": "Karate Trial Lesson",
+            "duration": "90–120 minutes (single session)",
+            "priceFrom": "JPY 10,000",
+            "url": "https://ageshiojapan.com/program/karate-trial-lesson",
+            "fit": "Taster",
+            "note": "A single evening dojo session for beginners — none of the 14-day at-the-source island immersion, masters tour, or community time of the camp.",
+            "confidence": "high"
+          },
+          {
+            "course": "Island Karate Camp in Okinawa",
+            "duration": "shorter island camp",
+            "url": "https://ageshiojapan.com/program/island-karate-camp-in-okinawa",
+            "fit": "Shorter",
+            "note": "A briefer island camp with the masters; less time on the island and fewer training/history days than the 14-day Special.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -14027,7 +14963,29 @@ window.ET_ATLAS = {
         "fitsBecause": "Live-in, month-plus residential training under original-temple Shaolin masters at the literal home of Shaolin kung fu in Dengfeng.",
         "sessions": [],
         "priceNote": "~$1,200/month (room and board)",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Short-Term Kung Fu Training (under 1 month)",
+            "duration": "Flexible, billed per day",
+            "format": "On-site residential",
+            "priceFrom": "USD 75/day",
+            "url": "https://www.shaolintagou.org/tagou-wushu-school/fees-prices/",
+            "fit": "Shorter",
+            "note": "A few days or weeks gives a taste of the regime but not the months of disciplined daily practice and community life the long-term immersion is built on.",
+            "confidence": "high"
+          },
+          {
+            "course": "1-Month Kung Fu Training",
+            "duration": "1 month",
+            "format": "On-site residential (room and board, 3 meals/day included)",
+            "priceFrom": "USD 1,320",
+            "url": "https://www.shaolintagou.org/tagou-wushu-school/fees-prices/",
+            "fit": "Cheaper",
+            "note": "One month builds real foundations but lacks the year-long depth and progression that defines training at the source under Shaolin masters.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -14146,7 +15104,26 @@ window.ET_ATLAS = {
         "fitsBecause": "A month living and training in Bahia, capoeira's birthplace, learning daily inside a real mestre's group and able to earn a recognized teacher-level grading.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "15-Day Capoeira Training Camp (All Levels)",
+            "duration": "15 days",
+            "priceFrom": "BRL 3,999",
+            "url": "https://www.tripaneer.com/bahia-vacation-tours/15-day-capoeira-training-camp-in-salvador-da-bahia-camacari-for-all-levels",
+            "fit": "Shorter",
+            "note": "Same Mestre Grandão / Capoeira Engenho and same coast, but half the time and no Monitor diploma path — less of the deep teacher-training arc.",
+            "confidence": "high"
+          },
+          {
+            "course": "8-Day Capoeira Training Camp (All Levels)",
+            "duration": "8 days",
+            "url": "https://www.tripaneer.com/bahia-vacation-tours/8-day-capoeira-training-camp-in-salvador-da-bahia-camacari-for-all-levels",
+            "fit": "Taster",
+            "note": "Same school/place but barely a week — a sampler of training at the source rather than the immersive monitor formation.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -14359,7 +15336,17 @@ window.ET_ATLAS = {
         "fitsBecause": "Immersive daily training inside Buenos Aires, tango's birthplace, in a leading school where you also dance the city's milongas alongside locals.",
         "sessions": [],
         "priceNote": "",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Group Tango Class (drop-in)",
+            "duration": "single class",
+            "url": "https://www.dni-tango.com",
+            "fit": "Taster",
+            "note": "A single drop-in group class at the same Almagro school — useful sampler but none of the sustained daily immersion or local community embedding of the intensive.",
+            "confidence": "low"
+          }
+        ]
       }
     },
     {
@@ -14576,7 +15563,29 @@ window.ET_ATLAS = {
         "fitsBecause": "You learn Cuban casino at its Afro-Cuban source in Havana, daily with local teachers, then test it on the city's social dance floors.",
         "sessions": [],
         "priceNote": "~160 USD per 10-hour course (individual); ~140 USD in a group of 5+",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Group Intensive Course (10 hours)",
+            "duration": "10 hours (e.g. 2 hrs/day for 5 days)",
+            "format": "Small group (min. 5 students)",
+            "priceFrom": "USD 140",
+            "url": "https://www.salsaborcuba.com/english/our-offers/",
+            "fit": "Cheaper",
+            "note": "Same intensive week structure but in a group, so less one-on-one correction and slower personal progress than private immersion in the dance's home city.",
+            "confidence": "high"
+          },
+          {
+            "course": "Individual Class (per hour)",
+            "duration": "1 hour minimum",
+            "format": "Private one-on-one",
+            "priceFrom": "USD 18",
+            "url": "https://www.salsaborcuba.com/english/our-offers/",
+            "fit": "Taster",
+            "note": "A single lesson samples Cuban salsa but skips the sustained daily practice and cultural immersion that makes learning at the source transformative.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -14742,7 +15751,8 @@ window.ET_ATLAS = {
           "Jun 2026"
         ],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "priceFrom": "₹95,400"
       }
     },
     {
@@ -14905,7 +15915,28 @@ window.ET_ATLAS = {
           "2027-08-02"
         ],
         "priceNote": "CHF 38,000 (tuition, toolkit, materials; accommodation excluded)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Introduction to Polishing",
+            "duration": "3 days",
+            "format": "In-person, theory plus hands-on workshop",
+            "priceFrom": "CHF 1,850",
+            "url": "https://www.wostep.ch/en/training/introduction-polishing",
+            "fit": "Taster",
+            "note": "A focused 3-day craft module is a true taste of Swiss watchmaking rigour, but it touches one skill rather than the full multi-year path to a qualified watchmaker.",
+            "confidence": "high"
+          },
+          {
+            "course": "WOSTEP Short Courses (specialised modules)",
+            "duration": "2-3 weeks",
+            "format": "In-person, brand-oriented intensive",
+            "url": "https://www.wostep.ch/en/training",
+            "fit": "Shorter",
+            "note": "Designed for rapid upskilling on specific techniques, these lack the comprehensive micromechanical and horological grounding of the full 3000-hour program.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -15049,7 +16080,19 @@ window.ET_ATLAS = {
           "Sep 2026"
         ],
         "priceNote": "",
-        "confidence": "high"
+        "confidence": "high",
+        "priceFrom": "£18,950",
+        "alternatives": [
+          {
+            "course": "Traditional Wooden Boat Building (short course)",
+            "school": "Boat Building Academy",
+            "duration": "5 days",
+            "url": "https://boatbuildingacademy.com/1-to-10-day-courses/",
+            "fit": "Shorter",
+            "note": "A one-week hands-on taster of traditional methods — no City & Guilds qualification and not the full from-scratch build-a-boat immersion of the 40-week course.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -15217,7 +16260,21 @@ window.ET_ATLAS = {
           "Feb 2027"
         ],
         "priceNote": "Full Festival Package approximately US$2,500 (2026 edition); early registration discount offered before late August.",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Roll Your Own Cigar in Puerto Plata (Tabacalera Cremo)",
+            "school": "Tabacalera Cremo",
+            "place": "Puerto Plata, Dominican Republic",
+            "duration": "1 hour",
+            "format": "Hands-on with a torcedor at a working factory",
+            "priceFrom": "USD 100",
+            "url": "https://www.tripadvisor.com/AttractionProductReview-g147288-d27926022-Roll_your_Own_Cigar_in_Puerto_Plata-Dominican_Republic.html",
+            "fit": "Taster",
+            "note": "A one-hour hands-on roll is a genuine but fleeting touch of the craft, missing the multi-day festival immersion in the region's tobacco culture and master blenders.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -15385,7 +16442,28 @@ window.ET_ATLAS = {
         "fitsBecause": "A genuine week-long residential, hands-on adult falconry immersion leading to a recognised Raptor Award credential, where the UAE school's structured program is weekend-only and youth-aged.",
         "sessions": [],
         "priceNote": "Approximately GBP 940 for the 6-day course (tuition); accommodation about GBP 95 per person per night; Raptor Award assessment +GBP 350.",
-        "confidence": "medium"
+        "confidence": "medium",
+        "alternatives": [
+          {
+            "course": "Falconry Taster Course (One Day)",
+            "duration": "1 day",
+            "format": "In-person, includes handbook and certificate",
+            "priceFrom": "£175",
+            "url": "https://www.forestbarnholidays.co.uk/activities/falconryschool",
+            "fit": "Taster",
+            "note": "A single day introduces handling and flying birds of prey but cannot build the deep, sustained bond and management skills of the residential 6-day immersion.",
+            "confidence": "high"
+          },
+          {
+            "course": "Half-Day Falconry Course",
+            "duration": "2.5 hours (morning or afternoon)",
+            "format": "In-person hands-on session",
+            "url": "https://www.forestbarnholidays.co.uk/activities/falconryschool",
+            "fit": "Shorter",
+            "note": "A brief hands-on taster of flying hawks; far from the immersive, multi-day learning and bird-management depth of the intensive course.",
+            "confidence": "med"
+          }
+        ]
       }
     },
     {
@@ -15538,7 +16616,29 @@ window.ET_ATLAS = {
           "2026-09-01"
         ],
         "priceNote": "$12,000 (early) – $13,500 USD (accommodation included)",
-        "confidence": "high"
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Kintsugi Class – The Scene (2h)",
+            "duration": "2 hours, single session",
+            "format": "In-studio, Kyoto",
+            "priceFrom": "¥16,000",
+            "url": "https://pojstudio.com/products/kintsugi-class-the-scene",
+            "fit": "Taster",
+            "note": "A single 2-hour hands-on session at the Kyoto studio — real at-source contact, but a one-off taste rather than the apprenticeship's sustained mentorship and material-source field trips.",
+            "confidence": "high"
+          },
+          {
+            "course": "2-Day Kintsugi Immersion",
+            "duration": "2 days",
+            "format": "In-studio, Kyoto",
+            "priceFrom": "¥95,000",
+            "url": "https://pojstudio.com/products/kintsugi-class-2-day-immersion",
+            "fit": "Shorter",
+            "note": "Two concentrated days at the same Kyoto studio — far deeper than a kit, yet still a compressed sampler beside the two-month apprentice program's repeated practice and artisan visits.",
+            "confidence": "high"
+          }
+        ]
       }
     },
     {
@@ -15709,6 +16809,19 @@ window.ET_ATLAS = {
           "http://www.admissions.cn/shic/en1.html",
           "https://www.synotrip.com/sichuan-province/yefei/sichuan-higher-institute-cuisine",
           "https://thomas-dubois.com/2020/08/23/cooking-school-sichuan-edition/"
+        ],
+        "alternatives": [
+          {
+            "course": "Sichuan Cuisine Museum Cooking Class",
+            "school": "Sichuan Cuisine Museum (Chuancai Museum)",
+            "place": "Pixian, Chengdu, China",
+            "duration": "Half-day (approx. 4 hours)",
+            "format": "Hands-on class for visitors",
+            "url": "https://www.chinadiscovery.com/sichuan/chengdu/sichuan-cuisine-museum.html",
+            "fit": "Taster",
+            "note": "A single half-day class cooking a few signature dishes — a tourist-friendly window into Sichuan flavor, not the professional two-week intensive's systematic technique training at a culinary institute.",
+            "confidence": "med"
+          }
         ]
       }
     },
@@ -15872,6 +16985,17 @@ window.ET_ATLAS = {
           "https://www.cordonbleu.edu/seoul/diplome-de-cuisine/en",
           "https://www.cordonbleu.edu/seoul/programmes/en",
           "https://www.korea.net/NewsFocus/Culture/view?articleId=286496"
+        ],
+        "alternatives": [
+          {
+            "course": "Blue Ribbon Series (Gourmet & Short Courses)",
+            "duration": "Short condensed workshops",
+            "format": "In-person, Seoul campus",
+            "url": "https://www.cordonbleu.edu/seoul/gourmet-short-courses/en",
+            "fit": "Taster",
+            "note": "Condensed single-theme workshops at the same Seoul academy — a glimpse of Le Cordon Bleu technique, without the nine-month Diplôme de Cuisine's full progressive Basic-to-Superior mastery.",
+            "confidence": "low"
+          }
         ]
       }
     },
@@ -16061,6 +17185,16 @@ window.ET_ATLAS = {
         "sources": [
           "https://tastevietnam.asia/vietnamese-cooking-classes-hoi-an",
           "https://www.byfood.com/vietnam-professional-cooking-classes"
+        ],
+        "alternatives": [
+          {
+            "course": "The Market Restaurant Cooking Class (standard programme)",
+            "duration": "Half-day (about 2.5 hours hands-on; ~5 hours with market tour and lunch)",
+            "url": "https://tastevietnam.asia/vietnamese-cooking-classes-hoi-an",
+            "fit": "Shorter",
+            "note": "Same school, but a single half-day session of four dishes rather than an advanced, repeat-visit deep dive into technique.",
+            "confidence": "med"
+          }
         ]
       }
     },
@@ -16225,6 +17359,20 @@ window.ET_ATLAS = {
         "confidence": "high",
         "sources": [
           "https://www.plansouthamerica.com/francis-mallmann-island-argentina/"
+        ],
+        "alternatives": [
+          {
+            "course": "Francis Mallmann Teaches His Argentine Cuisine",
+            "school": "YesChef",
+            "place": "Online",
+            "duration": "Self-paced video course (40+ recipes)",
+            "format": "Online",
+            "priceFrom": "USD 119/year",
+            "url": "https://yeschef.me/classes/francis-mallmann-teaches-his-argentine-cuisine",
+            "fit": "Online",
+            "note": "Filmed on his Patagonian island, but watching at home removes the at-the-source fire, landscape and shared-week community that define the immersion.",
+            "confidence": "high"
+          }
         ]
       }
     },
@@ -16392,6 +17540,18 @@ window.ET_ATLAS = {
         "confidence": "medium",
         "sources": [
           "https://www.spiritofspeyside.com/whisky-school/about"
+        ],
+        "alternatives": [
+          {
+            "course": "Glenfiddich Explorer Tour",
+            "school": "Glenfiddich Distillery",
+            "duration": "About 90 minutes",
+            "priceFrom": "£10",
+            "url": "https://www.glenfiddich.com/distillery/",
+            "fit": "Taster",
+            "note": "A single guided distillery tour and tasting in Speyside — a glimpse, not the multi-day, behind-the-scenes whisky-making study of the school.",
+            "confidence": "high"
+          }
         ]
       }
     },
@@ -16574,6 +17734,19 @@ window.ET_ATLAS = {
           "https://www.hwlodge.com/fishing-schools",
           "https://www.montanawomensflyfishingschool.com/",
           "https://www.montanafishingschool.com/masterthemissouri"
+        ],
+        "alternatives": [
+          {
+            "course": "Guided Madison Valley Fly Fishing (Half Day)",
+            "school": "Madison River Fishing Company",
+            "place": "Ennis, Montana (Madison Valley)",
+            "duration": "Half day",
+            "priceFrom": "USD 550 per boat (1-2 anglers)",
+            "url": "https://www.mrfc.com/pages/montana-fly-fishing-trips",
+            "fit": "Cheaper",
+            "note": "Same river valley and guided, but a one-off float rather than the multi-day, lodge-based academy that builds skills over time with the community.",
+            "confidence": "high"
+          }
         ]
       }
     },
@@ -16737,6 +17910,17 @@ window.ET_ATLAS = {
           "https://www.insidejapantours.com/experience-japan/i-kudo01-12/kyudo/",
           "https://www.kyudo.jp/info/english.html",
           "https://www.sarusawa-nara.com/post/experience-traditional-kyudo-top-fun-activity-in-nara"
+        ],
+        "alternatives": [
+          {
+            "course": "1-Hour Japanese Archery (Kyudo) Experience in Kyoto",
+            "school": "Honey J Tours",
+            "duration": "1 hour",
+            "url": "https://www.honeyj-tours.com/1-hour-japanese-archery-experience-in-kyoto/",
+            "fit": "Taster",
+            "note": "Bookable standalone with a veteran teacher, but a single hour is an introduction rather than sustained practice with a master in the discipline.",
+            "confidence": "med"
+          }
         ]
       }
     },
@@ -16910,6 +18094,18 @@ window.ET_ATLAS = {
         "sources": [
           "https://www.activetromso.no/dog-sledding/one-week-of-active-dog-sledding/",
           "https://www.destinationtromso.com/magazine/dog-sledding-tours-in-troms%C3%B8"
+        ],
+        "alternatives": [
+          {
+            "course": "One Day Of Active Dog Sledding",
+            "school": "Active Tromsø",
+            "duration": "6-7 hours (one day)",
+            "priceFrom": "NOK 2,100",
+            "url": "https://www.activetromso.no/dog-sledding/one-day-active-dog-sledding/",
+            "fit": "Shorter",
+            "note": "Same operator, but a single guided day rather than living the musher's lifestyle and learning over a full week.",
+            "confidence": "high"
+          }
         ]
       }
     },
@@ -17084,6 +18280,18 @@ window.ET_ATLAS = {
           "https://www.arcoarte.com/",
           "https://www.arcoarte.com/courses/course-calendar/",
           "https://www.arcoarte.com/costs/costs-of-marble-sculpture-courses/"
+        ],
+        "alternatives": [
+          {
+            "course": "One-Week Marble Sculpture Course",
+            "school": "Arco Arte Sculpture School",
+            "duration": "1 week",
+            "priceFrom": "€700",
+            "url": "https://www.arcoarte.com/costs/costs-of-marble-sculpture-courses/",
+            "fit": "Shorter",
+            "note": "Same studio in Carrara, but half the time at the source means less depth of hands-on carving with the master.",
+            "confidence": "high"
+          }
         ]
       }
     },
@@ -17265,10 +18473,23 @@ window.ET_ATLAS = {
         "confidence": "high",
         "sources": [
           "https://www.studiainitalia.com/en/courses/study-abroad-in-florence/bookbinding-course-in-florence/"
+        ],
+        "alternatives": [
+          {
+            "course": "Bookbinding Course - 24 lessons",
+            "school": "Studiainitalia",
+            "duration": "24 one-hour lessons (can be condensed or spread out)",
+            "priceFrom": "€990",
+            "url": "https://www.studiainitalia.com/en/courses/study-abroad-in-florence/bookbinding-course-in-florence/",
+            "fit": "Shorter",
+            "note": "Same Florence bottega and one-to-one teaching, but the shortest tier covers fewer techniques than the longer immersion.",
+            "confidence": "high"
+          }
         ]
       }
     }
   ],
   "enrichedAt": "2026-06-11",
-  "wave2At": "2026-06-11"
+  "wave2At": "2026-06-11",
+  "altsEnrichedAt": "2026-06-19"
 };

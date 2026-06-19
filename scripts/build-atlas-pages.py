@@ -7,7 +7,9 @@ Emits:
   website/atlas/<destination-id>.html         — one per discipline x destination (324)
   website/sitemap.xml, website/robots.txt
 
-Strategy lock (CLAUDE.md): NO prices, NO booking. Every page CTA -> the Circle (/#circle).
+Prices (2026-06-19 owner override): the Atlas now shows a verified, cited price-START for the
+best course + cheaper/shorter "Other ways in" alternatives. Still no on-site booking; every CTA
+-> the Circle (/#circle). Prices are research-verified or "price on request" — never fabricated.
 Re-run after regenerating repertoire.js. Idempotent: wipes website/atlas/ first.
 """
 import json, html, re, shutil
@@ -200,7 +202,7 @@ footer a {{ color:var(--sea); }}
 def circle_cta(line):
     return (f'<p style="margin-top:8px;opacity:.78;max-width:60ch">{e(line)}</p>'
             '<a class="cta" href="/#circle">Tell us this pulls you — join the Circle</a>'
-            '<p class="meta" style="margin-top:10px">No prices, no checkout, no spam. We introduce; you decide.</p>')
+            '<p class="meta" style="margin-top:10px">Prices are a verified starting point — no checkout, no hard sell. We introduce; you decide.</p>')
 
 def intent_form(prompt, source, discipline=None, place=None, label=None):
     data = f' data-discipline="{e(discipline)}"' if discipline else ""
@@ -212,7 +214,7 @@ def intent_form(prompt, source, discipline=None, place=None, label=None):
             '<input type="email" name="email" required placeholder="you@email.com" class="intent-input">'
             '<button type="submit" class="intent-go">Raise your hand</button></div>'
             '<p class="intent-msg" hidden></p>'
-            '<p class="intent-fine">No prices, no checkout, no spam. We introduce; you decide.</p>'
+            '<p class="intent-fine">Prices are a verified starting point — no checkout, no hard sell. We introduce; you decide.</p>'
             '</form>'
             '<noscript><a class="cta" href="/#circle">Join the Circle</a></noscript>')
 
@@ -245,17 +247,121 @@ def credential_section(d):
             '<p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p>')
     return f'<section><div class="wrap" style="max-width:720px"><div class="mono">What you walk away with</div><h2>The credential</h2>{body}</div></section>'
 
-def dest_card(d, x, link=True):
+COMMUNITY_TIER = {
+    "Legendary":  ("#f0c27a", "Legendary living community"),
+    "Thriving":   ("#a3cdc9", "Thriving living community"),
+    "Strong":     ("rgba(243,237,226,.78)", "Strong living community"),
+    "Growing":    ("rgba(243,237,226,.55)", "Growing community"),
+    "Hidden-gem": ("rgba(243,237,226,.55)", "Hidden-gem community"),
+}
+
+def community_pill(x):
+    col, text = COMMUNITY_TIER.get(x.get("communityLabel"), ("rgba(243,237,226,.78)", (x.get("communityLabel") or "") + " community"))
     dots = "●" * x["communityRank"] + "○" * (5 - x["communityRank"])
+    return (f'<span style="color:{col};letter-spacing:3px">{dots}</span> '
+            f'<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.1em;'
+            f'text-transform:uppercase;color:{col};font-weight:500">{e(text)}</span>')
+
+def price_start(f):
+    if not f:
+        return None
+    pf = f.get("priceFrom")
+    if pf:
+        return pf.strip()
+    n = f.get("priceNote") or ""
+    if not n or n == "—":
+        return None
+    if re.search(r"donation", n, re.I):
+        return "Donation-based"
+    m = re.search(r"(?:from\s*)?(?:~|approx\.?\s*)?(€|£|\$|¥|USD|EUR|GBP|CHF|AUD|CAD|NZD|JPY)\s?~?\s?(\d[\d.,]*)", n, re.I)
+    if m:
+        cur = m.group(1).upper()
+        return cur + ("" if cur in "€£$¥" else " ") + m.group(2)
+    return None
+
+def best_dest_id(d):
+    f = d.get("featured") or {}
+    if f.get("id"):
+        for x in d["destinations"]:
+            if x["id"] == f["id"]:
+                return x["id"]
+    if f.get("place"):
+        for x in d["destinations"]:
+            if x["place"] == f["place"]:
+                return x["id"]
+    best = max(d["destinations"], key=lambda x: x["communityRank"], default=None)
+    return best["id"] if best else None
+
+def dest_card(d, x, link=True, is_best=False):
     badges = "".join(f'<span class="badge">{e(BADGE_LABELS.get(b, b))}</span>' for b in x["badges"])
     title = f'{e(x["place"])}, {e(x["country"])}'
     if link:
         title = f'<a class="t" href="/atlas/{x["id"]}">{title}</a>'
-    return (f'<div class="card"><div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
+    ribbon = ('<div style="display:inline-block;font-family:\'IBM Plex Mono\',monospace;font-size:10px;'
+              'letter-spacing:.14em;text-transform:uppercase;color:#14110d;font-weight:600;'
+              'background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:6px;padding:3px 9px;'
+              'margin-bottom:10px">★ Best place to go</div>') if is_best else ""
+    border = 'border-left:3px solid #d28a52;' if is_best else ""
+    return (f'<div class="card" style="{border}">{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
             f'<h2 style="margin:6px 0 4px">{title}</h2>'
-            f'<div class="meta" style="margin-bottom:10px"><span class="dots">{dots}</span> {e(x["communityLabel"])} community'
+            f'<div class="meta" style="margin-bottom:10px">{community_pill(x)}'
             f' · Season: {e(x["bestSeason"])} · {e(x["level"])}</div>'
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{badges}</div>')
+
+def alts_block(f):
+    alts = f.get("alternatives") or []
+    rows = []
+    for a in alts:
+        if not a.get("course"):
+            continue
+        name = (f'<a class="school-url" target="_blank" rel="noopener" href="{e(a["url"])}">{e(a["course"])} ↗</a>'
+                if a.get("url") else e(a["course"]))
+        meta = " · ".join(e(v) for v in [a.get("duration"), a.get("format"), a.get("school"), a.get("place")] if v)
+        ps = price_start(a)
+        price = ("from " + e(ps)) if ps and ps != "Donation-based" else (e(ps) if ps else "price on request")
+        fit = f'<span class="badge">{e(a["fit"])}</span>' if a.get("fit") else ""
+        note = f'<div style="font-size:13px;opacity:.6;font-style:italic;margin-top:3px">{e(a["note"])}</div>' if a.get("note") else ""
+        rows.append('<li><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">'
+                    f'<div><strong style="font-weight:500">{name}</strong>'
+                    + ((' <span class="meta">' + meta + '</span>') if meta else "") + note + '</div>'
+                    f'<div style="text-align:right;white-space:nowrap"><div class="meta">{price}</div>{fit}</div></div></li>')
+    if not rows:
+        return ""
+    return ('<div style="margin-top:24px"><div class="mono">Other ways in</div>'
+            '<p class="meta" style="margin:6px 0 10px">Shorter or cheaper options — a lighter immersion, so they fit the '
+            'EducatedTraveler philosophy less, but a real first step.</p>'
+            f'<ul class="clean">{"".join(rows)}</ul></div>')
+
+def featured_block(d, x):
+    f = d.get("featured") or {}
+    if not f.get("course"):
+        return ""
+    if not (f.get("id") == x["id"] or f.get("place") == x["place"]):
+        return ""
+    ps = price_start(f)
+    if ps and ps != "Donation-based":
+        price_html = f'<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#f0c27a">from {e(ps)}</span>'
+    elif ps == "Donation-based":
+        price_html = '<span style="color:#f0c27a">Donation-based</span>'
+    else:
+        price_html = '<span style="opacity:.6;font-style:italic">Price on request</span>'
+    chips = " ".join(f'<span class="badge">{e(c)}</span>' for c in
+                     [f.get("duration"), f.get("format"),
+                      (f.get("certification") if f.get("certification") not in (None, "—") else None)] if c)
+    desc = f'<p style="opacity:.82;margin-top:10px">{e(f["description"])}</p>' if f.get("description") else ""
+    sessions = ('<p class="meta" style="margin-top:8px">Next sessions: ' + e(" · ".join(f["sessions"][:4])) + '</p>') if f.get("sessions") else ""
+    fit = f'<p style="font-style:italic;opacity:.72;margin-top:10px">{e(f["fitsBecause"])}</p>' if f.get("fitsBecause") else ""
+    link = (f'<a class="school-url" target="_blank" rel="noopener" href="{e(f["url"])}">Visit {e(f.get("school",""))} ↗</a>'
+            if f.get("url") else "")
+    note = f'<p class="meta" style="margin-top:8px">{e(f["priceNote"])}</p>' if f.get("priceNote") and f.get("priceNote") != "—" else ""
+    tag = "Best course · provisional, verifying" if f.get("confidence") == "low" else "Best course for this craft"
+    return (f'<section><div class="wrap"><div class="mono" style="color:#f0c27a">★ {e(tag)}</div>'
+            f'<h2 style="margin:8px 0 4px">{e(f["course"])}</h2>'
+            f'<div class="meta">{e(f.get("school",""))} — {e(f.get("place",""))}'
+            f'{", " + e(f["country"]) if f.get("country") else ""}</div>{desc}'
+            f'<div style="margin-top:12px">{chips}</div>{sessions}{fit}'
+            f'<div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px">{price_html}{link}</div>'
+            f'{note}{alts_block(f)}</div></section>')
 
 shutil.rmtree(OUT, ignore_errors=True)
 OUT.mkdir(parents=True)
@@ -326,7 +432,8 @@ for d in DISC:
 <h1>Learn {e(d['discipline'])} in {e(x['place'])}</h1>
 <p class="lead">{e(x['why'])}</p>
 </div></header>
-<section><div class="wrap">{dest_card(d, x, link=False)}{ceiling_line(x, d)}</div></section>
+<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
+{featured_block(d, x)}
 {masters_html}
 {rating_block(d, x)}{schools_html}
 {room_block(x, d)}
@@ -342,7 +449,8 @@ for d in DISC:
     desc = (d["blurb"][:155] + "…") if len(d["blurb"]) > 156 else d["blurb"]
     path = f'/atlas/{d["id"]}'
     urls.append(path)
-    cards = "".join(dest_card(d, x) for x in sorted(d["destinations"], key=lambda x: -x["communityRank"]))
+    _bid = best_dest_id(d)
+    cards = "".join(dest_card(d, x, is_best=(x["id"] == _bid)) for x in sorted(d["destinations"], key=lambda x: -x["communityRank"]))
     cred = f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">{e(d.get("goldCredential",""))}</strong>{" · " + e(d["certBody"]) if d.get("certBody") else ""}</p>' if d.get("goldCredential") else ""
     body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / {e(CORES[d['category']][0])}</div>
