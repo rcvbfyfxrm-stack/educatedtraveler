@@ -57,6 +57,14 @@ ul.clean li:last-child { border-bottom:none; }
 .intent-fine { font-size:12px; opacity:.5; margin-top:8px; }
 footer { padding:40px 0 60px; font-size:13px; opacity:.5; }
 footer a { color:var(--sea); }
+.cur-toggle { position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
+  background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
+.cur-toggle .lab { font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; }
+.cur-toggle button { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }
+.cur-toggle button:hover { opacity:1; }
+.cur-toggle button.on { opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#14110d; font-weight:500; }
+.price[data-amt] { cursor:default; }
+@media(max-width:560px) { .cur-toggle .lab { display:none; } .cur-toggle { right:10px; bottom:10px; } }
 </style>
 </head>
 <body>
@@ -108,5 +116,29 @@ footer a { color:var(--sea); }
 <script src="/js/supabase-config.js"></script>
 <script src="/js/intent-capture.js" defer></script>
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — approximate, converted at fixed rates; the original is the source of truth">
+<span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>
+<script>
+(function(){
+  var R={USD:1,EUR:0.92,GBP:0.79,CAD:1.37,JPY:150,CHF:0.88,AUD:1.52,NZD:1.66,THB:36,SGD:1.34,INR:84,MXN:18};
+  var SYM={USD:"$",EUR:"€",GBP:"£",CAD:"CA$",JPY:"¥",CHF:"CHF ",AUD:"A$",NZD:"NZ$",THB:"฿",SGD:"S$",INR:"₹",MXN:"MX$"};
+  var prices=document.querySelectorAll(".price[data-amt]");
+  var bar=document.getElementById("cur-toggle");
+  if(!prices.length){ if(bar) bar.remove(); return; }
+  bar.hidden=false;
+  function fmt(cur,amt){ var n=Math.round(amt); return (SYM[cur]||cur+" ")+n.toLocaleString("en-US"); }
+  var sel=localStorage.getItem("et_cur")||"orig";
+  function apply(){
+    prices.forEach(function(el){
+      var cur=el.getAttribute("data-cur"), amt=parseFloat(el.getAttribute("data-amt")), orig=el.getAttribute("data-orig");
+      if(sel==="orig"||sel===cur||!R[cur]||!R[sel]||isNaN(amt)){ el.textContent=orig; return; }
+      el.textContent="≈ "+fmt(sel, amt/R[cur]*R[sel]);
+    });
+    bar.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.dataset.c===sel); });
+  }
+  bar.addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b)return; sel=b.dataset.c; localStorage.setItem("et_cur",sel); apply(); });
+  apply();
+})();
+</script>
 </body>
 </html>

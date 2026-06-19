@@ -117,6 +117,33 @@ TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(
 </div>
 </section>"""
 
+# Currency switcher (Original / EUR / USD principally) — converts every .price[data-amt]
+# span client-side at fixed approximate rates; the original price stays the source of truth.
+CUR_TOGGLE = """<div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — approximate, converted at fixed rates; the original is the source of truth">
+<span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>
+<script>
+(function(){
+  var R={USD:1,EUR:0.92,GBP:0.79,CAD:1.37,JPY:150,CHF:0.88,AUD:1.52,NZD:1.66,THB:36,SGD:1.34,INR:84,MXN:18};
+  var SYM={USD:"$",EUR:"€",GBP:"£",CAD:"CA$",JPY:"¥",CHF:"CHF ",AUD:"A$",NZD:"NZ$",THB:"฿",SGD:"S$",INR:"₹",MXN:"MX$"};
+  var prices=document.querySelectorAll(".price[data-amt]");
+  var bar=document.getElementById("cur-toggle");
+  if(!prices.length){ if(bar) bar.remove(); return; }
+  bar.hidden=false;
+  function fmt(cur,amt){ var n=Math.round(amt); return (SYM[cur]||cur+" ")+n.toLocaleString("en-US"); }
+  var sel=localStorage.getItem("et_cur")||"orig";
+  function apply(){
+    prices.forEach(function(el){
+      var cur=el.getAttribute("data-cur"), amt=parseFloat(el.getAttribute("data-amt")), orig=el.getAttribute("data-orig");
+      if(sel==="orig"||sel===cur||!R[cur]||!R[sel]||isNaN(amt)){ el.textContent=orig; return; }
+      el.textContent="≈ "+fmt(sel, amt/R[cur]*R[sel]);
+    });
+    bar.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.dataset.c===sel); });
+  }
+  bar.addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b)return; sel=b.dataset.c; localStorage.setItem("et_cur",sel); apply(); });
+  apply();
+})();
+</script>"""
+
 def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None):
     crumbs = ""
     if breadcrumbs:
@@ -183,6 +210,14 @@ ul.clean li:last-child {{ border-bottom:none; }}
 .intent-fine {{ font-size:12px; opacity:.5; margin-top:8px; }}
 footer {{ padding:40px 0 60px; font-size:13px; opacity:.5; }}
 footer a {{ color:var(--sea); }}
+.cur-toggle {{ position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
+  background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }}
+.cur-toggle .lab {{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; }}
+.cur-toggle button {{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }}
+.cur-toggle button:hover {{ opacity:1; }}
+.cur-toggle button.on {{ opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#14110d; font-weight:500; }}
+.price[data-amt] {{ cursor:default; }}
+@media(max-width:560px) {{ .cur-toggle .lab {{ display:none; }} .cur-toggle {{ right:10px; bottom:10px; }} }}
 </style>
 </head>
 <body>
@@ -196,6 +231,7 @@ footer a {{ color:var(--sea); }}
 <script src="/js/supabase-config.js"></script>
 <script src="/js/intent-capture.js" defer></script>
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+{CUR_TOGGLE}
 </body>
 </html>"""
 
@@ -279,6 +315,42 @@ def price_start(f):
         return cur + ("" if cur in "€£$¥" else " ") + m.group(2)
     return None
 
+_SYM2ISO = {"€": "EUR", "£": "GBP", "$": "USD", "¥": "JPY"}
+
+def parse_money(text):
+    """Extract (iso_currency, amount) from a price-start string, or None.
+    Handles symbol-prefix ($5,995 / €600), code-prefix (USD 2,100) and code-suffix (529 CAD)."""
+    if not text:
+        return None
+    t = str(text)
+    cur = None
+    cm = re.search(r"\b(USD|EUR|GBP|CHF|AUD|CAD|NZD|JPY|THB|SGD|INR|MXN)\b", t, re.I)
+    if cm:
+        cur = cm.group(1).upper()
+    else:
+        sm = re.search(r"[€£$¥]", t)
+        if sm:
+            cur = _SYM2ISO[sm.group(0)]
+    if not cur:
+        return None
+    nm = re.search(r"(\d[\d,]*(?:\.\d+)?)", t)
+    if not nm:
+        return None
+    try:
+        amt = float(nm.group(1).replace(",", ""))
+    except ValueError:
+        return None
+    return (cur, amt)
+
+def money_html(text, style=""):
+    """A price span carrying data-amt/data-cur so the client-side currency toggle can convert it."""
+    p = parse_money(text)
+    if p:
+        iso, amt = p
+        amt_s = ("%g" % amt)
+        return f'<span class="price" data-amt="{amt_s}" data-cur="{iso}" data-orig="{e(text)}" style="{style}">{e(text)}</span>'
+    return f'<span class="price" style="{style}">{e(text)}</span>'
+
 def best_dest_id(d):
     f = d.get("featured") or {}
     if f.get("id"):
@@ -318,7 +390,7 @@ def alts_block(f):
                 if a.get("url") else e(a["course"]))
         meta = " · ".join(e(v) for v in [a.get("duration"), a.get("format"), a.get("school"), a.get("place")] if v)
         ps = price_start(a)
-        price = ("from " + e(ps)) if ps and ps != "Donation-based" else (e(ps) if ps else "price on request")
+        price = ("from " + money_html(ps)) if ps and ps != "Donation-based" else (money_html(ps) if ps else "price on request")
         fit = f'<span class="badge">{e(a["fit"])}</span>' if a.get("fit") else ""
         note = f'<div style="font-size:13px;opacity:.6;font-style:italic;margin-top:3px">{e(a["note"])}</div>' if a.get("note") else ""
         rows.append('<li><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">'
@@ -340,7 +412,8 @@ def featured_block(d, x):
         return ""
     ps = price_start(f)
     if ps and ps != "Donation-based":
-        price_html = f'<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#f0c27a">from {e(ps)}</span>'
+        price_html = ('<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#f0c27a">from </span>'
+                      + money_html(ps, style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#f0c27a"))
     elif ps == "Donation-based":
         price_html = '<span style="color:#f0c27a">Donation-based</span>'
     else:

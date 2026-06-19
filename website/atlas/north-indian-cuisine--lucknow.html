@@ -57,6 +57,14 @@ ul.clean li:last-child { border-bottom:none; }
 .intent-fine { font-size:12px; opacity:.5; margin-top:8px; }
 footer { padding:40px 0 60px; font-size:13px; opacity:.5; }
 footer a { color:var(--sea); }
+.cur-toggle { position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
+  background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
+.cur-toggle .lab { font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; }
+.cur-toggle button { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--paper); opacity:.6; background:none; border:none; cursor:pointer; border-radius:99px; padding:4px 9px; transition:all .18s; }
+.cur-toggle button:hover { opacity:1; }
+.cur-toggle button.on { opacity:1; background:linear-gradient(135deg,var(--sea),var(--ember) 130%); color:#14110d; font-weight:500; }
+.price[data-amt] { cursor:default; }
+@media(max-width:560px) { .cur-toggle .lab { display:none; } .cur-toggle { right:10px; bottom:10px; } }
 </style>
 </head>
 <body>
@@ -70,7 +78,7 @@ footer a { color:var(--sea); }
 <p class="lead">The cradle of Awadhi dum-pukht cooking, where the famed slow-fire lineage and a national-grade hotel-management institute meet in one city.</p>
 </div></header>
 <section><div class="wrap"><div class="card" style="border-left:3px solid #d28a52;"><div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:6px;padding:3px 9px;margin-bottom:10px">★ Best place to go</div><div class="mono">Birthplace of the discipline</div><h2 style="margin:6px 0 4px">Lucknow, India</h2><div class="meta" style="margin-bottom:10px"><span style="color:#f0c27a;letter-spacing:3px">●●●●●</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#f0c27a;font-weight:500">Legendary living community</span> · Season: Oct-Mar · Beginner -&gt; Professional</div><p style="opacity:.82;margin-bottom:12px">The cradle of Awadhi dum-pukht cooking, where the famed slow-fire lineage and a national-grade hotel-management institute meet in one city.</p><span class="badge">Birthplace</span><span class="badge">Heritage</span><span class="badge">Verified schools</span><span class="badge">Gold credential</span><span class="badge">Unbroken lineage</span></div><p class="meta" style="margin:14px 0 0">Honest level: Beginner -&gt; Professional — ask the school exactly how far that goes in the time you have.</p></div></section>
-<section><div class="wrap"><div class="mono" style="color:#f0c27a">★ Best course for this craft</div><h2 style="margin:8px 0 4px">Diploma in Food Production</h2><div class="meta">Institute of Hotel Management, Catering Technology &amp; Applied Nutrition (IHM Lucknow) — Lucknow, India</div><p style="opacity:.82;margin-top:10px">A government IHM diploma focused entirely on the kitchen, run in the Awadhi capital of Lucknow. The full-time program covers professional food production — stocks, sauces, butchery, Indian and continental cookery and kitchen operations — with hands-on training kitchens, and includes a six-month industrial training placement. Entry requires completion of 10+2 schooling.</p><div style="margin-top:12px"><span class="badge">18 months (includes 6 months industrial training)</span> <span class="badge">Full-time institutional program with practical training kitchens and industry placement</span> <span class="badge">Diploma in Food Production (IHM / NCHMCT-affiliated system)</span></div><p style="font-style:italic;opacity:.72;margin-top:10px">A full-time, hands-on culinary diploma at a government hotel-management institute in Lucknow, the home city of Awadhi and Mughlai cooking.</p><div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px"><span style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#f0c27a">from ₹30,900</span><a class="school-url" target="_blank" rel="noopener" href="https://www.ihmlucknow.com/diploma-in-food-production/">Visit Institute of Hotel Management, Catering Technology &amp; Applied Nutrition (IHM Lucknow) ↗</a></div></div></section>
+<section><div class="wrap"><div class="mono" style="color:#f0c27a">★ Best course for this craft</div><h2 style="margin:8px 0 4px">Diploma in Food Production</h2><div class="meta">Institute of Hotel Management, Catering Technology &amp; Applied Nutrition (IHM Lucknow) — Lucknow, India</div><p style="opacity:.82;margin-top:10px">A government IHM diploma focused entirely on the kitchen, run in the Awadhi capital of Lucknow. The full-time program covers professional food production — stocks, sauces, butchery, Indian and continental cookery and kitchen operations — with hands-on training kitchens, and includes a six-month industrial training placement. Entry requires completion of 10+2 schooling.</p><div style="margin-top:12px"><span class="badge">18 months (includes 6 months industrial training)</span> <span class="badge">Full-time institutional program with practical training kitchens and industry placement</span> <span class="badge">Diploma in Food Production (IHM / NCHMCT-affiliated system)</span></div><p style="font-style:italic;opacity:.72;margin-top:10px">A full-time, hands-on culinary diploma at a government hotel-management institute in Lucknow, the home city of Awadhi and Mughlai cooking.</p><div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px"><span style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#f0c27a">from </span><span class="price" style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#f0c27a">₹30,900</span><a class="school-url" target="_blank" rel="noopener" href="https://www.ihmlucknow.com/diploma-in-food-production/">Visit Institute of Hotel Management, Catering Technology &amp; Applied Nutrition (IHM Lucknow) ↗</a></div></div></section>
 
 <section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in Lucknow</h2><p class="meta" style="margin-bottom:12px">Checked by hand against each school's own course pages. No school paid to be listed.</p><ul class="clean"><li><strong style="font-weight:500">Institute of Hotel Management, Catering Technology &amp; Applied Nutrition (IHM Lucknow)</strong><div class="meta">Diploma in Food Production</div><div style="font-size:14px;opacity:.75;margin-top:4px">A government IHM diploma focused entirely on the kitchen, run in the Awadhi capital of Lucknow.</div><div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="https://www.ihmlucknow.com/diploma-in-food-production/">https://www.ihmlucknow.com/diploma-in-food-production/</a></div></li><li><strong style="font-weight:500">Institute of Hotel Management (IHM) Lucknow</strong><div class="meta">Diploma in Food Production (18 months)</div><div style="font-size:14px;opacity:.75;margin-top:4px">NCHMCT-affiliated central Institute of Hotel Management in Lucknow offering an 18-month Diploma in Food Production covering cooking technique, menu planning and Indian, continental and international cuisines with six months of industrial training.</div><div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="https://ihmlucknow.com/">https://ihmlucknow.com/</a></div></li><li><strong style="font-weight:500">BNG Hotel Management Academy</strong><div class="meta">Diploma in Food Production</div><div style="font-size:14px;opacity:.75;margin-top:4px">Hotel management institute (based in Kolkata, not Lucknow) offering food production and patisserie diploma training that blends theory with practical kitchen exposure including bakery and patisserie.</div><div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="https://bngkolkata.com/">https://bngkolkata.com/</a></div></li></ul></div></section>
 
@@ -108,5 +116,29 @@ footer a { color:var(--sea); }
 <script src="/js/supabase-config.js"></script>
 <script src="/js/intent-capture.js" defer></script>
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — approximate, converted at fixed rates; the original is the source of truth">
+<span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>
+<script>
+(function(){
+  var R={USD:1,EUR:0.92,GBP:0.79,CAD:1.37,JPY:150,CHF:0.88,AUD:1.52,NZD:1.66,THB:36,SGD:1.34,INR:84,MXN:18};
+  var SYM={USD:"$",EUR:"€",GBP:"£",CAD:"CA$",JPY:"¥",CHF:"CHF ",AUD:"A$",NZD:"NZ$",THB:"฿",SGD:"S$",INR:"₹",MXN:"MX$"};
+  var prices=document.querySelectorAll(".price[data-amt]");
+  var bar=document.getElementById("cur-toggle");
+  if(!prices.length){ if(bar) bar.remove(); return; }
+  bar.hidden=false;
+  function fmt(cur,amt){ var n=Math.round(amt); return (SYM[cur]||cur+" ")+n.toLocaleString("en-US"); }
+  var sel=localStorage.getItem("et_cur")||"orig";
+  function apply(){
+    prices.forEach(function(el){
+      var cur=el.getAttribute("data-cur"), amt=parseFloat(el.getAttribute("data-amt")), orig=el.getAttribute("data-orig");
+      if(sel==="orig"||sel===cur||!R[cur]||!R[sel]||isNaN(amt)){ el.textContent=orig; return; }
+      el.textContent="≈ "+fmt(sel, amt/R[cur]*R[sel]);
+    });
+    bar.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.dataset.c===sel); });
+  }
+  bar.addEventListener("click",function(e){ var b=e.target.closest("button"); if(!b)return; sel=b.dataset.c; localStorage.setItem("et_cur",sel); apply(); });
+  apply();
+})();
+</script>
 </body>
 </html>
