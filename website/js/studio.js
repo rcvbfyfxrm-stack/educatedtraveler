@@ -49,6 +49,7 @@
   const PLAN = window.ET_PLAN || fallbackPlan();
   const ARTICLE_SEED = (window.ET_ARTICLES_SEED || []).slice();
   const IDEAS = window.ET_IDEAS || { shotList: [], hooks: [], series: [], saveTriggers: [], neverPost: [] };
+  const POSTS = (window.ET_POSTS || []).slice();
 
   const DEFAULT_STATE = { plan: {}, drops: {}, outreach: [], articles: null, metrics: [], settings: { gate: "source" }, _v: 1 };
   let S = load();
@@ -116,7 +117,7 @@
 
   function render() {
     const v = $("#view"); v.innerHTML = "";
-    ({ plan: renderPlan, drop: renderDrop, ideas: renderIdeas, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderPlan)(v);
+    ({ plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderPlan)(v);
   }
 
   // ================= PLAN =================
@@ -360,6 +361,71 @@
     htmlItems.forEach((h) => ul.appendChild(el("li", { html: h })));
     d.appendChild(ul);
     return d;
+  }
+
+  // ================= POSTS =================
+  function renderPosts(v) {
+    v.appendChild(sectionHead("Posts", "Ready-to-publish posts. Copy the caption or download it as a text file — each routes to ONE Atlas page or the Circle. Voice-locked: connect, never sell. The Circle (the letter) is the hero; video is a feeder."));
+
+    if (!POSTS.length) { v.appendChild(el("p", { style: "color:var(--faint); font-size:13px;", text: "No posts loaded (studio-posts.js missing)." })); return; }
+
+    const top = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;" });
+    top.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => download("et-posts-" + todayISO() + ".md", allPostsText()) }, "Download all posts (.md)"));
+    v.appendChild(top);
+
+    POSTS.forEach((p) => v.appendChild(postCard(p)));
+  }
+
+  function postCard(p) {
+    const card = el("div", { class: "panel", style: "padding:18px 20px; margin-bottom:14px;" });
+    const head = el("div", { style: "display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;" });
+    head.appendChild(el("div", {}, [
+      el("div", { style: "display:flex; gap:8px; align-items:center; margin-bottom:5px; flex-wrap:wrap;" }, [
+        p.core ? el("span", { class: "core-dot core-" + p.core }) : null,
+        el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint);", text: p.format }),
+      ]),
+      el("div", { class: "font-serif", style: "font-size:18px;", text: p.title }),
+    ]));
+    if (p.linkLabel) head.appendChild(el("span", { class: "pill", style: "align-self:flex-start;", text: "→ " + p.linkLabel }));
+    card.appendChild(head);
+
+    if (p.slides && p.slides.length) {
+      card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: "Carousel slides" }));
+      const ol = el("ol", { style: "margin:0; padding-left:20px; font-size:13.5px; line-height:1.7;" });
+      p.slides.forEach((s) => ol.appendChild(el("li", { text: s })));
+      card.appendChild(ol);
+    }
+
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: "Caption (paste-ready)" }));
+    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(243,237,226,0.82); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: p.caption }));
+    if (p.hashtags) card.appendChild(el("p", { class: "font-mono", style: "font-size:12px; color:var(--sea); margin:8px 0 0; word-break:break-word;", text: p.hashtags }));
+
+    const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;" });
+    acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(postCopyText(p)) }, "Copy caption + tags"));
+    acts.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => download(postFileName(p), postDownloadText(p)) }, "Download .txt"));
+    if (p.link) acts.appendChild(linkBtn(p.linkLabel || "Open link", p.link));
+    card.appendChild(acts);
+    return card;
+  }
+
+  function postCopyText(p) { return p.hashtags ? p.caption + "\n\n" + p.hashtags : p.caption; }
+  function postFileName(p) { return "et-post-" + (p.id || "x") + ".txt"; }
+  function postDownloadText(p) {
+    const lines = [p.title, p.format + (p.linkLabel ? "  ·  -> " + p.linkLabel : ""), ""];
+    if (p.slides && p.slides.length) { lines.push("CAROUSEL SLIDES:"); p.slides.forEach((s, i) => lines.push("  " + (i + 1) + ". " + s)); lines.push(""); }
+    lines.push("CAPTION:", p.caption, "");
+    if (p.hashtags) lines.push(p.hashtags);
+    if (p.link) lines.push("", "Link: " + p.link);
+    return lines.join("\n");
+  }
+  function allPostsText() {
+    return ["# EducatedTraveler — ready posts (" + todayISO() + ")", "Voice-locked: connect, never sell. Each routes to one Atlas page or the Circle.", ""]
+      .concat(POSTS.map((p) => "---\n\n" + postDownloadText(p) + "\n")).join("\n");
+  }
+  function download(filename, text) {
+    const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+    const a = el("a", { href: URL.createObjectURL(blob), download: filename });
+    document.body.appendChild(a); a.click(); a.remove(); toast("Downloaded " + filename);
   }
 
   // ================= OUTREACH =================

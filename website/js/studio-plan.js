@@ -120,6 +120,60 @@ window.ET_PLAN = {
           ]
         }
       ]
+    },
+    {
+      id: "vision", title: "The 0–5-year arc", sub: "The honest verdict: a great thesis, a hard solo build — the binding risk is distribution stamina, not the idea. The build is done; the experiment is whether you run the loop for 18 months. Full reasoning in VISION.md.",
+      groups: [
+        {
+          title: "The one bet & the tripwires", goal: "If one discipline holds, the moat compounds into something un-buyable. If it doesn't, nothing downstream saves it.", metric: "a real letter goes out every two weeks, to real people",
+          items: [
+            { id: "v-bet", t: "THE BET — send one genuinely good, firsthand-voiced Circle letter every two weeks to real people, for 18 months. Treat video, SEO, the crew network and essays purely as feeders into it.", effort: "Multi-session", impact: "High", done: "a real letter ships on cadence — not a test to your own inbox" },
+            { id: "v-tripwire3", t: "MONTH-3 TRIPWIRE — if real Circle letters still are not going out on cadence by month 3, that is a behavioural kill signal regardless of metrics (the build-instead-of-distribute trap has won). Decide honestly.", effort: "Quick", impact: "High", done: "letters are shipping, or the honest call is made in writing" },
+            { id: "v-ceiling", t: "Accept the realistic ceiling NOW: a respected media-and-community property with modest side income (the optimistic comp, VAWAA, reached ~$1.45M after ~9 years, full-time and funded). A good outcome — but decide it's worth the years before spending them.", effort: "Quick", impact: "Med", done: "ceiling consciously accepted" }
+          ]
+        },
+        {
+          title: "Sharpen the vision (3 moves)", goal: "Make the proof of the spine your own earned authority, made inspectable.", metric: "the public face = what you have personally earned",
+          items: [
+            { id: "v-sharp-letter", t: "Make the owned Circle — a letter — the hero, not the video. Reframe ET publicly as 'a living atlas and a letter from someone who actually went and learned the thing.'", effort: "Half-day", impact: "High", done: "home / Story copy leads with the letter; video demoted to one feeder" },
+            { id: "v-sharp-founder", t: "Lead with a small 'Founder's Atlas' of the disciplines you have personally earned (cooking, sailing, freediving, wine, breathwork) — 'I trained here, here is the honest truth.' Label the wider agent-built Atlas 'researched, verifying' beneath it. Nobody can clone a Michelin chef's firsthand verdict.", effort: "Multi-session", impact: "High", done: "Founder's Atlas live; the broader Atlas clearly labelled" },
+            { id: "v-sharp-passport", t: "Recast the Skill Passport as a 'proof-of-doing' belonging artifact, not a credential play; only chase real credentials in the narrow chef / sommelier / dive / sailing subset where issuer reputation can compound.", effort: "Quick", impact: "Med", done: "passport framed as proof-of-doing, not certification" }
+          ]
+        },
+        {
+          title: "Now (0–3 months) — turn the live machine ON", goal: "Stop building; run a distribution loop you can see. (Granular steps live in 'This week' + 'Next weeks'.)", metric: "letter #1 sent to real people · first visitor visible",
+          items: [
+            { id: "v-now-measure", t: "Finish the three measurement owings: the Plausible account, GSC + Bing verify + sitemap, and the DB webhook auto-welcome + Resend open/click tracking. Without these you are blind on the one metric.", effort: "Half-day", impact: "High", done: "the one metric is actually visible" },
+            { id: "v-now-letter1", t: "Ship Circle letter #1 to actual subscribers (not a test to your own inbox). This single act is the line between a hobby and a business.", effort: "Half-day", impact: "High", done: "issue #1 sent; opens + clicks tracked" },
+            { id: "v-now-crew", t: "Fire the warmest free channel first — share /crew into your yacht / chef WhatsApp groups and 1:1 to chef peers.", effort: "Quick", impact: "High", done: "posted to ≥3 groups; /crew visits show in analytics" },
+            { id: "v-now-archive", t: "Hard-archive (not 'dormant') the marketplace / payments / instructor stack off the live auth surface — it's a security + attention liability you cannot monitor at sea.", effort: "Half-day", impact: "Med", done: "payments / checkout / cohort code off the production path" }
+          ]
+        },
+        {
+          title: "Year 1 — hold the loop to ~1,000 engaged subscribers", goal: "Let signal pick the pillar; survive the month-6 checkpoint honestly.", metric: "~500–1,000 engaged subs at 40%+ open / 6–9% click",
+          items: [
+            { id: "v-y1-cadence", t: "Hold the letter (biweekly, weekly ashore); reply to every reply + DM; ask one question per issue. The letter is the spine — protect it above all.", effort: "Multi-session", impact: "High", done: "≥6 issues at 40%+ open" },
+            { id: "v-y1-feeders", t: "Run video / SEO / essays as feeders only; enrich + verify ONLY the 10–15 proven-traffic Atlas pages with firsthand language. Do not chase more pages.", effort: "Multi-session", impact: "Med", done: "feeders route to the Circle; top pages enriched" },
+            { id: "v-y1-tax", t: "Start the tax-residence conversation (France vs Cayman) in the background — long external lead time, gates everything commercial — plus a light legal pass on the Atlas outbound links.", effort: "Multi-session", impact: "Med", done: "residence position in progress with advice" }
+          ]
+        },
+        {
+          title: "Years 2–3 — clear the 8-gate, soft-test demand, run ONE immersion", goal: "Prove the subscriber → immersion conversion the strategy has zero data on — without breaking cadence.", metric: "a deposit-backed cohort fills; first co-host fee banked",
+          items: [
+            { id: "v-y2-gate", t: "Only when all 8 gates clear, launch one referral / co-host immersion — off-site, never an on-site transaction, never published on the Atlas / Circle.", effort: "Multi-session", impact: "High", done: "8 / 8 gates green before any launch" },
+            { id: "v-y2-deposit", t: "Soft-test the specific immersion with a small refundable deposit / paid waitlist before committing. It must fill or oversubscribe first.", effort: "Half-day", impact: "High", done: "the deposit list fills" },
+            { id: "v-y2-own", t: "Structure the deal so ET keeps owning the demand relationship (the cohort forms in the Circle, trust lives with ET) to resist disintermediation after the first cohort.", effort: "Half-day", impact: "Med", done: "terms protect the relationship" }
+          ]
+        },
+        {
+          title: "Years 3–5 — compound the un-buyable layers", goal: "A durable, defensible media-and-community property. Credentials and chapters stay late, narrow experiments — not pillars.", metric: "WOM referral ~15–20% · recurring co-host income · self-organising chapters",
+          items: [
+            { id: "v-y3-verify", t: "Scale firsthand verification Atlas-Obscura-style — an editorial gate plus a few trusted firsthand contributors — so verified coverage outpaces directory growth and the honesty moat stays inspectable.", effort: "Multi-session", impact: "Med", done: "verified coverage grows faster than the directory" },
+            { id: "v-y3-diversify", t: "Diversify distribution off any single algorithm: the owned Circle primary, plus podcast guesting, press (only once a clip has travelled), and Littoralicious cross-pollination.", effort: "Multi-session", impact: "Med", done: "≥2 feeder channels beyond short-form" },
+            { id: "v-y3-irl", t: "Run IRL only as volunteer / community-led local chapters once a city reaches natural critical mass; never convert the media property into an events-ops business you can't run from sea.", effort: "Multi-session", impact: "Low", done: "first volunteer-led chapter self-organises" }
+          ]
+        }
+      ]
     }
   ],
   cadence: [
