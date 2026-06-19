@@ -174,6 +174,54 @@ window.ET_PLAN = {
           ]
         }
       ]
+    },
+    {
+      id: "playbook", title: "Build & present — the playbook", sub: "How to build and present EducatedTraveler. The line to lead with: 'a hand-checked map of where a craft is still alive — and a circle that introduces you to the people already there.' Full definition + this checklist in PLAYBOOK.md.",
+      groups: [
+        {
+          title: "Phase 0 — Foundation: lock the story & the rails", goal: "Do once, now. A confused brand never converts; a machine you can't see can't grow.", metric: "the one-liner is live everywhere · the one metric is visible",
+          items: [
+            { id: "pb-oneliner", t: "Lock the one-liner + difference lines and put them IDENTICALLY on every surface (bio, home, Story, captions).", effort: "Half-day", impact: "High", done: "live everywhere; you can say it the same way twice" },
+            { id: "pb-founder", t: "Make the founder the proof — lead public copy with 'I learned these at the source'; the Story is the spine.", effort: "Quick", impact: "High", done: "Story on /about, linked from bio" },
+            { id: "pb-machine", t: "Turn the machine on — analytics + Search Console + the Circle sender with open/click tracking.", effort: "Half-day", impact: "High", done: "the one metric is visible" },
+            { id: "pb-archive", t: "Hard-archive the dormant selling / payments code off the live surface.", effort: "Half-day", impact: "Med", done: "off the production path" }
+          ]
+        },
+        {
+          title: "Phase 1 — Own the audience (the Circle is the hero)", goal: "The whole game for ~18 months. The owned list is the only asset no algorithm can take.", metric: "≥6 letters at 40%+ open · every surface routes to one place",
+          items: [
+            { id: "pb-letter1", t: "Ship Circle letter #1 to real people (not a test to yourself).", effort: "Half-day", impact: "High", done: "issue #1 sent, opens tracked" },
+            { id: "pb-cadence", t: "Hold a firsthand letter every 2 weeks (weekly ashore); reply to every reply.", effort: "Multi-session", impact: "High", done: "6 issues out at 40%+ open" },
+            { id: "pb-onedest", t: "One destination per piece — every post / page routes to one Atlas page or the Circle, carrying the 'what we are' line.", effort: "Quick", impact: "High", done: "a single CTA on every surface" },
+            { id: "pb-feeders", t: "Feeders, not pillars — video / SEO / essays / the crew network all funnel INTO the letter.", effort: "Multi-session", impact: "Med", done: "each channel links to the Circle" },
+            { id: "pb-crew", t: "Fire the warmest free channel first — the yacht / chef WhatsApp network + peers via /crew.", effort: "Quick", impact: "High", done: "shared to ≥3 groups; visits show in analytics" }
+          ]
+        },
+        {
+          title: "Phase 2 — Earn trust & proof", goal: "In parallel with Phase 1. Trust-heavy buyers need third-party proof, not assertions.", metric: "Founder's Atlas is the lead · cited proof on top pages",
+          items: [
+            { id: "pb-founderatlas", t: "Build the 'Founder's Atlas' — the disciplines you've personally earned, 'I trained here'; mark the wider Atlas 'researched, verifying'.", effort: "Multi-session", impact: "High", done: "the Founder's Atlas is the public lead" },
+            { id: "pb-proof", t: "Show real, cited social proof on schools (public ratings, named + linked).", effort: "Multi-session", impact: "Med", done: "top pages carry cited proof" },
+            { id: "pb-method", t: "Publish a one-line public 'how we rank' methodology.", effort: "Quick", impact: "Med", done: "live and honest" }
+          ]
+        },
+        {
+          title: "Phase 3 — First honest money (GATED)", goal: "Do NOT start until the 8 gates are green. Launching early starves the core and burns trust.", metric: "8 / 8 gates green · a deposit list fills",
+          items: [
+            { id: "pb-gate", t: "Hold to the 8-gate before any immersion (traffic 3+ mo · ~1–2k engaged subs · 40%+ open / 6–9% click · unprompted inbound · a clip travelled · a vetted co-host · a deposit test fills · founder capacity).", effort: "—", impact: "High", done: "8 / 8 green" },
+            { id: "pb-deposit", t: "Soft-test demand with a small refundable deposit before committing an immersion.", effort: "Half-day", impact: "High", done: "the deposit list fills" },
+            { id: "pb-immersion", t: "Run ONE curated partner immersion — referral / co-host, off-site, never an on-site checkout; the cohort forms in the Circle.", effort: "Multi-session", impact: "High", done: "one runs; fee banked; zero trust incidents" }
+          ]
+        },
+        {
+          title: "Phase 4 — Compound (years 2–5)", goal: "Build the durable, defensible layers; never become an ops business you can't run from sea.", metric: "≥2 feeders beyond short-form · verified coverage outpacing the directory",
+          items: [
+            { id: "pb-diversify", t: "Diversify off any single algorithm — the Circle primary, plus podcast guesting, press once a clip travels, and Littoralicious cross-pollination.", effort: "Multi-session", impact: "Med", done: "≥2 feeders beyond short-form" },
+            { id: "pb-verify", t: "Scale verification Atlas-Obscura-style — an editorial gate plus a few trusted firsthand contributors.", effort: "Multi-session", impact: "Med", done: "verified coverage outpaces directory growth" },
+            { id: "pb-irl", t: "IRL only as volunteer-led local chapters; credentials only in the narrow chef / sommelier / dive / sailing subset.", effort: "Multi-session", impact: "Low", done: "a chapter self-organises without you operating it" }
+          ]
+        }
+      ]
     }
   ],
   cadence: [
