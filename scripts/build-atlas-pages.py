@@ -216,16 +216,16 @@ def intent_form(prompt, source, discipline=None, place=None, label=None):
             '</form>'
             '<noscript><a class="cta" href="/#circle">Join the Circle</a></noscript>')
 
-def ceiling_line(x):
-    c = x.get("ceiling")
+def ceiling_line(x, d=None):
+    c = x.get("ceiling") or (d.get("ceiling") if d else None)
     if c:
         return f'<p style="opacity:.82;font-size:15px;margin:14px 0 0;max-width:62ch"><strong style="font-weight:500">What you can realistically reach:</strong> {e(c)}</p>'
     if x.get("level"):
         return f'<p class="meta" style="margin:14px 0 0">Honest level: {e(x["level"])} — ask the school exactly how far that goes in the time you have.</p>'
     return ""
 
-def room_block(x):
-    r = x.get("room") or {}
+def room_block(x, d=None):
+    r = x.get("room") or (d.get("room") if d else None) or {}
     items = []
     if r.get("ratio"): items.append(f'<li><strong style="font-weight:500">Group</strong> — {e(r["ratio"])}</li>')
     if r.get("day"):   items.append(f'<li><strong style="font-weight:500">A normal day</strong> — {e(r["day"])}</li>')
@@ -326,10 +326,10 @@ for d in DISC:
 <h1>Learn {e(d['discipline'])} in {e(x['place'])}</h1>
 <p class="lead">{e(x['why'])}</p>
 </div></header>
-<section><div class="wrap">{dest_card(d, x, link=False)}{ceiling_line(x)}</div></section>
+<section><div class="wrap">{dest_card(d, x, link=False)}{ceiling_line(x, d)}</div></section>
 {masters_html}
 {rating_block(d, x)}{schools_html}
-{room_block(x)}
+{room_block(x, d)}
 {credential_section(d)}
 <section><div class="wrap">{intent}</div></section>
 {sib_html}"""

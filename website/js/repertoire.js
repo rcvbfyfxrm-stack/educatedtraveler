@@ -13,6 +13,12 @@ window.ET_ATLAS = {
       "certBody": "Yoga Alliance",
       "goldCredential": "RYT-200 / RYT-500 (Registered Yoga Teacher)",
       "blurb": "The breath-linked flow of posture and stillness that became the world's most-practiced moving meditation, rooted on the banks of the Ganges and in the halls of the Mysore Palace.",
+      "ceiling": "A 200-hour teacher training (3–4 weeks, residential) genuinely qualifies you to register as a teacher and lead a basic class — it is a foundation, not mastery. A one-week retreat deepens your own practice but will not certify you to teach.",
+      "room": {
+        "ratio": "Cohorts of roughly 15–30, with several teachers across asana, philosophy and pranayama.",
+        "day": "Pre-dawn practice, philosophy and anatomy through the day, a second practice at dusk — usually six days a week.",
+        "who": "Mostly dedicated practitioners, often solo, a wide age range; many planning to teach."
+      },
       "destinations": [
         {
           "place": "Rishikesh",
@@ -2863,6 +2869,12 @@ window.ET_ATLAS = {
       "certBody": "PADI / SSI / CMAS",
       "goldCredential": "Open Water Diver -> Divemaster -> Open Water Scuba Instructor (PADI / SSI)",
       "blurb": "Strap on a tank and the open-circuit Aqua-Lung that Cousteau co-invented, then breathe underwater and hang weightless over a living reef.",
+      "ceiling": "An Open Water course (3–4 days) certifies you to dive to 18 m independently with a buddy — a real, globally recognised qualification. Deeper, technical and instructor levels are clearly defined steps beyond.",
+      "room": {
+        "ratio": "Small groups, a few students per instructor, tightly capped underwater.",
+        "day": "Theory and pool/confined skills first, then open-water dives building to the certification dives.",
+        "who": "Travellers and holidaymakers of all levels, a wide age range."
+      },
       "destinations": [
         {
           "place": "Marseille & Bandol (Calanques)",
@@ -3080,6 +3092,12 @@ window.ET_ATLAS = {
       "certBody": "AIDA / Molchanovs / Apnea Academy / SSI",
       "goldCredential": "AIDA 1-4 / Molchanovs Wave 1-3 -> Instructor",
       "blurb": "Drop on a single breath into the blue, slow your heart, and learn the discipline of going deep on nothing but your lungs and your nerve.",
+      "ceiling": "A beginner course (2–3 days) realistically takes you to a calm 16–20 m on a single breath, because the limit at this stage is relaxation and technique, not years of training. Instructor level is weeks of work, not days.",
+      "room": {
+        "ratio": "Small by necessity — usually a few students per instructor in the water, for safety.",
+        "day": "Mornings on breath-hold theory and dry technique, afternoons doing supervised dives in open water or a pool.",
+        "who": "Often solo travellers, divers and freedivers of mixed levels, 20s–50s."
+      },
       "destinations": [
         {
           "place": "Apnea Academy / Italian Mediterranean",
@@ -3588,6 +3606,12 @@ window.ET_ATLAS = {
       "certBody": "RYA (Royal Yachting Association)",
       "goldCredential": "RYA Yachtmaster Offshore / Ocean (Certificate of Competence)",
       "blurb": "Take command of a yacht offshore, reading wind, tide and stars until the sea answers to your hand on the helm.",
+      "ceiling": "An RYA Competent Crew or Day Skipper week earns a recognised certificate and real on-the-water competence for coastal sailing. Yachtmaster is significant logged sea-miles beyond that — an honest school maps the gap.",
+      "room": {
+        "ratio": "Small — a handful of crew aboard one yacht with an instructor.",
+        "day": "Living aboard: sailing passages by day with navigation, manoeuvres and watch-keeping; theory in the evenings.",
+        "who": "Mixed experience, often couples and solo sailors, 25–65."
+      },
       "destinations": [
         {
           "place": "The Solent (Cowes & Hamble)",
@@ -3743,6 +3767,12 @@ window.ET_ATLAS = {
       "certBody": "ISA (International Surfing Association)",
       "goldCredential": "ISA Surf Instructor / Coach Certification (Levels 1-2)",
       "blurb": "Read the ocean, paddle into a moving wall of water and trim along its face in the oldest wave-riding craft on earth.",
+      "ceiling": "A week of daily coached sessions can take a true beginner to reliably catching and riding unbroken waves on a green face — a real milestone. Confident turns and bigger surf are seasons away.",
+      "room": {
+        "ratio": "Small groups in the water — a few surfers per coach — plus video review on land.",
+        "day": "Two tide-timed sessions a day with theory and video between; you rest when the surf is flat.",
+        "who": "Mixed-ability travellers, often solo or couples, teens to 50s."
+      },
       "destinations": [
         {
           "place": "Waikiki, Oahu",
@@ -4414,6 +4444,12 @@ window.ET_ATLAS = {
       "certBody": "AMGA / IFMGA (national bodies: BMG, AMGA); UIAA standards",
       "goldCredential": "AMGA / IFMGA Rock Guide (recreational tier: AMGA Single Pitch Instructor)",
       "blurb": "Reading stone with your fingertips and trusting your own placements as you move up vertical rock under your own power.",
+      "ceiling": "A focused course gets a beginner safely leading easy routes, belaying and building basic anchors — genuine, transferable skills. Self-sufficient multi-pitch and hard grades are seasons of mileage away.",
+      "room": {
+        "ratio": "Low by necessity for safety — one or two climbers per instructor on the rock.",
+        "day": "Skills and safety drills, then routes on real rock; full days outdoors, weather-dependent.",
+        "who": "Beginners to intermediates, often solo or in pairs, teens to 50s."
+      },
       "destinations": [
         {
           "place": "Yosemite Valley",
@@ -6989,6 +7025,12 @@ window.ET_ATLAS = {
       "certBody": "Apprenticeship / studio-residency lineage (no single global body)",
       "goldCredential": "Recognized studio apprenticeship completion or college diploma in ceramics (e.g. Leach/Mashiko lineage, MA Ceramics)",
       "blurb": "You center wet clay on a spinning wheel and pull a living vessel up out of mud, then trust it to the fire.",
+      "ceiling": "A week at the wheel gets you reliably centring clay, pulling a wall and trimming a foot — real, hand-earned basics. You will not yet glaze and fire finished work to a standard; that is the months after.",
+      "room": {
+        "ratio": "Typically intimate — a handful of students per potter, because the wheel is taught almost hand-over-hand.",
+        "day": "Long stretches at the wheel with short demos; drying and trimming between sessions, firing on a fixed kiln schedule.",
+        "who": "Mixed levels, often first-timers and hobbyists, a broad age range."
+      },
       "destinations": [
         {
           "place": "Mashiko",
@@ -7953,6 +7995,12 @@ window.ET_ATLAS = {
       "certBody": "ICP / Spéos / no universal body (portfolio + diploma based)",
       "goldCredential": "One-Year Photography Certificate (e.g. ICP)",
       "blurb": "Seeing with light and time, then committing to a single frame, in darkroom and field, until your eye becomes unmistakably your own.",
+      "ceiling": "An intensive week sharpens real craft — exposure, light, composition and a disciplined editing workflow — and you will leave with a stronger body of work. A personal visual voice is the work of years.",
+      "room": {
+        "ratio": "Small groups, with one-to-one reviews of your images.",
+        "day": "Shooting assignments on location, then critique and editing back at base — a mix of field and screen.",
+        "who": "Keen amateurs and emerging professionals, a broad age range."
+      },
       "destinations": [
         {
           "place": "Paris",
@@ -10364,6 +10412,12 @@ window.ET_ATLAS = {
       "certBody": "CAP Boulanger (French State Diploma) / Bac Pro Boulangerie",
       "goldCredential": "CAP Boulanger (State Diploma) — or the EIDB state-recognized organic-sourdough diploma",
       "blurb": "Flour, water, salt and time — the oldest culinary craft, where a living levain and a fierce oven turn four ingredients into something alive.",
+      "ceiling": "A week in a bakery teaches you to build and read a levain, shape, score and bake a real crusty loaf — honestly enough to bake well at home. Running a production bakery is another craft entirely.",
+      "room": {
+        "ratio": "Small, hands-in-the-dough classes, a few students per baker.",
+        "day": "Early starts on the bakery's clock — mixing, fermenting, shaping and baking through the morning, dough theory between.",
+        "who": "Serious home bakers and career-changers, mixed ages."
+      },
       "destinations": [
         {
           "place": "Paris",
@@ -11050,6 +11104,12 @@ window.ET_ATLAS = {
       "certBody": "ALMA — La Scuola Internazionale di Cucina Italiana (Italian Cuisine Diploma)",
       "goldCredential": "ALMA Diploma in Italian Cuisine / La Vecchia Scuola Bolognese Sfoglina certificate",
       "blurb": "The art of the rolled sheet and the regional table — hands learning to read dough by touch and build a menu from the land it grows on.",
+      "ceiling": "A few days with a pasta maestra gets your hands genuinely fluent in fresh dough, shaping and a handful of regional classics — enough to cook them honestly forever. The full regional repertoire is a lifetime.",
+      "room": {
+        "ratio": "Small home- or studio-kitchen classes, a few students per cook.",
+        "day": "Hands-on from the board — dough, shaping, sauces — then sitting down to eat what you made; some include a market visit.",
+        "who": "Home cooks and food-lovers, often couples and friends, mixed ages."
+      },
       "destinations": [
         {
           "place": "Bologna",
@@ -11474,6 +11534,12 @@ window.ET_ATLAS = {
       "certBody": "Japanese government National Cooking License (Chorishi) / MAFF Japanese Cuisine Skills Certification",
       "goldCredential": "Chorishi National Chef's License (or MAFF Japanese Cuisine Gold/Silver certification)",
       "blurb": "The exacting art of edomae sushi and washoku, where a lifetime is spent mastering rice, knife, and the fifth taste at the source of a UNESCO-listed cuisine.",
+      "ceiling": "A short intensive teaches knife handling, rice (shari) and the logic of a washoku meal — enough to cook honestly at home. The traditional path to itamae mastery is measured in years, and an honest school says so.",
+      "room": {
+        "ratio": "Small kitchen classes, a few students per chef.",
+        "day": "Knife and rice fundamentals first, then building and plating dishes through the day; some courses include a market visit.",
+        "who": "Serious home cooks and career-changers, mixed nationalities."
+      },
       "destinations": [
         {
           "place": "Tokyo (Tsukiji / Toyosu)",
@@ -12218,6 +12284,12 @@ window.ET_ATLAS = {
       "certBody": "WSET (Wine & Spirit Education Trust) / Court of Master Sommeliers",
       "goldCredential": "WSET Level 4 Diploma in Wines (and beyond, the Master of Wine / Master Sommelier title)",
       "blurb": "The disciplined reading of terroir, vintage and varietal in the glass, until your palate can name a wine's birthplace blind.",
+      "ceiling": "A WSET Level 2 or 3 intensive (a few days to a couple of weeks) genuinely earns a recognised qualification and a structured tasting method. The Diploma, MW and MS titles are years beyond that — worth not confusing with a short course.",
+      "room": {
+        "ratio": "Classroom-sized groups with structured blind-tasting flights.",
+        "day": "Theory and regional study in the morning, guided tasting in the afternoon, exams at set points.",
+        "who": "Trade professionals and serious enthusiasts, mixed ages."
+      },
       "destinations": [
         {
           "place": "Bordeaux",
@@ -12620,6 +12692,12 @@ window.ET_ATLAS = {
       "certBody": "SCA (Specialty Coffee Association)",
       "goldCredential": "SCA Coffee Skills Diploma (Barista, Brewing, Sensory, Roasting, Green Coffee modules)",
       "blurb": "Dialling in espresso, brewing and sensory cupping until you can taste origin, roast and extraction in a single cup.",
+      "ceiling": "A few days of hands-on training gets you pulling consistent espresso, steaming milk and dialling in a grinder — the real working basics, often toward an SCA module. Roasting and sensory mastery are a longer road.",
+      "room": {
+        "ratio": "Small and hands-on at the machine — a few trainees per espresso station.",
+        "day": "Short theory blocks then repeated hands-on extraction, milk and latte-art practice, plus cupping sessions.",
+        "who": "Aspiring and working baristas and café owners, mixed ages."
+      },
       "destinations": [
         {
           "place": "Yirgacheffe / Addis Ababa",
@@ -13315,6 +13393,12 @@ window.ET_ATLAS = {
       "certBody": "Kru Muay Thai Association (KMA), accredited by Thailand's Ministry of Culture & Education; WMC / WBC Muaythai for professional ranking",
       "goldCredential": "Certified Kru (instructor) rank via the Kru Muay Thai Association, or a sanctioned WMC/WBC Muaythai professional fight record",
       "blurb": "The Art of Eight Limbs, where fists, elbows, knees and shins are forged into weapons under the watch of stadium-hardened Kru.",
+      "ceiling": "Training daily at a Thai camp for a week or two sharpens real technique, conditioning and pad work fast — you will leave genuinely fitter and more skilled. Fighting-level competence is months of daily training.",
+      "room": {
+        "ratio": "Group sessions with trainers rotating one-on-one on the pads.",
+        "day": "Two sessions daily, early morning and late afternoon — running, bag work, pad rounds, clinch and sparring; rest in the heat of the day.",
+        "who": "All levels, from fitness travellers to aspiring fighters, mostly 18–45."
+      },
       "destinations": [
         {
           "place": "Bangkok",
@@ -14071,6 +14155,12 @@ window.ET_ATLAS = {
       "certBody": "No single grading federation; competitive standard set by the Mundial de Tango (Tango BA World Championship) and conservatory diplomas from Buenos Aires academies",
       "goldCredential": "Mundial de Tango (Tango Dance World Championship) title in Tango de Pista or Escenario — or a completed professional diploma from a recognized Buenos Aires conservatory",
       "blurb": "Born in the immigrant tenements and dance halls of the Río de la Plata, tango is an embrace you don't perform but feel — a conversation in walking, certified at the source where the world championship is won.",
+      "ceiling": "Immersing in Buenos Aires for a week or two — lessons by day, milongas by night — gets a beginner genuinely dancing socially, with a real embrace and walk. Musicality and improvisation deepen for years.",
+      "room": {
+        "ratio": "Group classes plus private lessons; partner rotation is the norm.",
+        "day": "Technique and figures in daytime classes, then real milongas in the evening to dance what you learned.",
+        "who": "Solo dancers and couples, all levels, a wide age range."
+      },
       "destinations": [
         {
           "place": "Buenos Aires",
@@ -16145,6 +16235,12 @@ window.ET_ATLAS = {
       "goldCredential": "Diploma of Attendance (Spirit of Speyside Whisky School); IBD General Certificate in Distilling for the professional pathway",
       "certShort": "Spirit of Speyside Whisky School",
       "blurb": "The making of single malt Scotch — malting, mashing, brewing, distillation in copper pot stills and long oak-cask maturation — rooted in Speyside, the glen-and-river region with the densest concentration of distilleries on earth.",
+      "ceiling": "A distilling short course teaches the real process — mashing, fermentation, the cut — and the sensory vocabulary of whisky. Master-distiller judgement is built over years and many casks.",
+      "room": {
+        "ratio": "Small groups around the still and the tasting bench.",
+        "day": "Production walk-throughs and hands-on stages where allowed, paired with structured nosing and tasting.",
+        "who": "Enthusiasts and trade entrants, mostly adults of all ages."
+      },
       "destinations": [
         {
           "place": "Speyside",
