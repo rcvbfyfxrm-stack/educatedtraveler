@@ -18487,9 +18487,897 @@ window.ET_ATLAS = {
           }
         ]
       }
+    },
+    {
+      "discipline": "Expedition Sea Kayaking",
+      "category": "adventure",
+      "id": "expedition-sea-kayaking",
+      "certBody": "British Canoeing / Paddle UK; Paddle Canada and the Sea Kayak Guides Alliance of BC (SKGABC) in Canada; American Canoe Association (ACA) in the US",
+      "certShort": "British Canoeing",
+      "goldCredential": "Sea Kayak Leader / Advanced Sea Kayak Leader (British Canoeing)",
+      "blurb": "Load the boat, point the bow at the horizon and let the coastline unspool for days. In expedition sea kayaking the journey itself is the adventure: tides, wild camps and committing crossings stitched into one continuous line under your own paddle.",
+      "ceiling": "A weekend intro or two-day course gets you confident in sheltered, benign water and basic rescues, not leading anyone. Reading tidal races, planning open crossings and leading a loaded multi-day group in committing conditions is the Sea Kayak Leader / Advanced Sea Kayak Leader end of the ladder, built over seasons of logged days, not a single course.",
+      "room": {
+        "ratio": "Typically 1 coach to 3-6 paddlers on advanced coaching; small expedition pods of 4-8",
+        "day": "Pack and load the boats, a tidal-planning briefing, a committing paddle between camps with crossings and tide races, lunch on a beach, then a wild camp and debrief as the light goes",
+        "who": "Confident intermediates building toward leadership, alongside coaches who hold British Canoeing / Paddle Canada / SKGABC awards and years of guiding"
+      },
+      "destinations": [
+        {
+          "place": "Anglesey",
+          "country": "Wales",
+          "region": "Western Europe",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Sea Kayaking UK (SKUK)",
+            "Sea Kayaking Wales",
+            "Coastal Spirit"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred",
+            "heritage"
+          ],
+          "why": "Anglesey is the spiritual home of British sea kayaking: world-famous tide races at Penrhyn Mawr and the Stacks, a dense cluster of coaches and award providers, and a coastline built for circumnavigations and crossings. If you want to learn where the modern discipline was shaped, this is it.",
+          "bestSeason": "Apr-Oct",
+          "level": "Beginner -> Leader",
+          "id": "expedition-sea-kayaking--anglesey",
+          "schoolsInfo": [
+            {
+              "name": "Sea Kayaking UK (SKUK)",
+              "url": "https://www.seakayakinguk.com/courses",
+              "course": "Sea Proficiency Awards and 5 Star (Sea) / Sea Kayak Leader training",
+              "blurb": "The Holyhead-based SKUK is a cornerstone of UK sea kayaking, building boats and running coaching and leadership awards on Anglesey's classic tidal waters.",
+              "confidence": "high"
+            },
+            {
+              "name": "Sea Kayaking Wales",
+              "url": "https://seakayakingwales.com/",
+              "course": "British Canoeing leadership, coach and personal-performance awards; Outer Hebrides expedition",
+              "blurb": "An Anglesey-based provider running the full British Canoeing leadership and coaching ladder plus pointed expeditions to the Hebrides.",
+              "confidence": "high"
+            },
+            {
+              "name": "Coastal Spirit",
+              "url": "https://www.coastalspirit.com/sea-kayaking-courses",
+              "course": "Intermediate, Moderate Water and Advanced Sea Kayaking courses; Sea Kayak Award",
+              "blurb": "A North Wales sea-kayak specialist running progressive courses from intermediate skills up to advanced tidal water on Anglesey.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Arisaig & the Hebrides",
+          "country": "Scotland",
+          "region": "Western Europe",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Arisaig Sea Kayak Centre",
+            "Glenmore Lodge",
+            "South Skye Sea Kayak"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred"
+          ],
+          "why": "The West Highland coast and the Outer Hebrides are the great British expedition ground: machair-backed beaches, exposed crossings of the Minch and week-long camping journeys around Lewis, Harris, Mull and the Small Isles. This is multi-day sea kayaking at its most committing and most beautiful.",
+          "bestSeason": "May-Sep",
+          "level": "Intermediate -> Leader",
+          "id": "expedition-sea-kayaking--arisaig-hebrides",
+          "schoolsInfo": [
+            {
+              "name": "Arisaig Sea Kayak Centre",
+              "url": "https://arisaigseakayakcentre.co.uk/sea-kayak-expeditions",
+              "course": "Outer Hebrides Expedition (7 days) and a full programme of 3-8 day West Coast / Skye / Mull / Orkney expeditions",
+              "blurb": "Based on the Sound of Arisaig, this centre runs one of the deepest catalogues of true multi-day camping expeditions on the Scottish west coast and islands.",
+              "confidence": "high"
+            },
+            {
+              "name": "Glenmore Lodge",
+              "url": "https://www.glenmorelodge.org.uk/paddlesports/sea-kayaking/",
+              "course": "British Canoeing Sea Kayak Leader training and guided multi-day sea kayak expeditions",
+              "blurb": "Scotland's national outdoor training centre, delivering the British Canoeing Sea Kayak Leader ladder and wild-camping expeditions in the North West.",
+              "confidence": "high"
+            },
+            {
+              "name": "South Skye Sea Kayak",
+              "url": "https://www.southskyeseakayak.co.uk/",
+              "course": "Guided trips and coaching in the Inner Hebrides",
+              "blurb": "Small-group guided journeys and coaching around South Skye and Lochalsh, led by guides qualified through the Scottish Canoe Association and British Canoeing.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Vancouver Island & the BC Coast",
+          "country": "Canada",
+          "region": "North America",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "SKILS (Sea Kayak Instruction & Leadership School)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred",
+            "heritage"
+          ],
+          "why": "British Columbia's coast - the Broken Group, the Discovery Islands, the wild outer shores - is the home of North American expedition guiding, and the SKGABC certification born here set the professional standard worldwide. Long protected channels and committing outer coast make it a complete training ground.",
+          "bestSeason": "May-Sep",
+          "level": "Intermediate -> Guide",
+          "id": "expedition-sea-kayaking--vancouver-island-bc",
+          "schoolsInfo": [
+            {
+              "name": "SKILS",
+              "url": "https://skils.ca/skgabc-guide-training-courses/",
+              "course": "SKGABC Assistant Overnight Guide (9 days) and the full SKGABC / Paddle Canada guide and leadership ladder",
+              "blurb": "Based in Ucluelet on Vancouver Island, SKILS delivers Canada's full range of professional sea-kayak guide and leadership certifications, including the multi-day Assistant Overnight Guide course that launches BC guiding careers.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Lofoten Islands",
+          "country": "Norway",
+          "region": "Nordic & Baltic",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Kayak More Tomorrow",
+            "Lofoten Arctic Adventures"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca"
+          ],
+          "why": "Granite walls dropping straight into Arctic sea, white beaches and a low golden light: a Lofoten circumnavigation is a bucket-list expedition where each day's crossing between islands is the whole point. A scene built on guided multi-day journeys rather than a formal award ladder.",
+          "bestSeason": "Jun-Aug",
+          "level": "Intermediate -> Expedition",
+          "id": "expedition-sea-kayaking--lofoten",
+          "schoolsInfo": [
+            {
+              "name": "Kayak More Tomorrow",
+              "url": "https://kayakmoretomorrow.com/product/sea-kayaking-norway-8-days-sea-kayaking-in-lofoten-islands/",
+              "course": "8-Day Lofoten Islands sea kayak expedition",
+              "blurb": "Long-running specialists who were among the first to design and lead commercial sea-kayak expeditions in the Lofoten Islands, now a classic of the genre.",
+              "confidence": "med"
+            },
+            {
+              "name": "Lofoten Arctic Adventures",
+              "url": "https://lofotenarcticadventures.com/",
+              "course": "Guided multi-day Lofoten kayak expeditions",
+              "blurb": "Local Lofoten operator running guided tours and multi-day expeditions through the archipelago's fjords and outer islands.",
+              "confidence": "med"
+            }
+          ]
+        }
+      ],
+      "featured": {
+        "id": "expedition-sea-kayaking--arisaig-hebrides",
+        "place": "Arisaig & the Hebrides",
+        "country": "Scotland",
+        "school": "Arisaig Sea Kayak Centre",
+        "url": "https://arisaigseakayakcentre.co.uk/sea-kayak-expeditions/outer-hebrides-expedition",
+        "course": "Outer Hebrides Expedition",
+        "description": "A seven-day camping expedition through the Outer Hebrides, paddling flexible routes around Lewis, Harris, the Uists and Benbecula with crossings of the Minch by ferry to reach the islands. Wild beaches, committing open water and self-supported camping make the journey itself the adventure.",
+        "duration": "7 days",
+        "format": "Self-supported / wild-camping guided expedition for confident intermediate paddlers (8-20+ prior sea-kayak days recommended)",
+        "certification": "Logged expedition experience and skills toward the British Canoeing Sea Kayak Leader pathway (no award is guaranteed on the trip itself)",
+        "fitsBecause": "A real multi-day journey at one of the discipline's spiritual homes, led at the source rather than a sampler - exactly ET's deep-at-the-source ideal.",
+        "priceNote": "Breakfasts and dinners (Day 1 dinner to Day 7 breakfast), all specialist kayaking and camping equipment except sleeping bags, and ferry transport across the Minch are included; lunches, snacks, tent rental (GBP 25) and campsite fees (about GBP 5/person/night) are extra. Headline price is not published online - confirm with the centre.",
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Sea Kayak the West Coast / Skye / Mull (5-day expeditions)",
+            "school": "Arisaig Sea Kayak Centre",
+            "place": "West Highland coast, Scotland",
+            "duration": "5 days",
+            "url": "https://arisaigseakayakcentre.co.uk/sea-kayak-expeditions",
+            "fit": "Shorter",
+            "note": "Shorter mainland-and-inner-island expeditions; a strong source-immersion option but less committing than the full Outer Hebrides crossing.",
+            "confidence": "high"
+          },
+          {
+            "course": "British Canoeing Sea Kayak Leader training",
+            "school": "Glenmore Lodge",
+            "place": "Cairngorms / NW Scotland",
+            "duration": "Multi-day",
+            "url": "https://www.glenmorelodge.org.uk/paddlesports/sea-kayaking/",
+            "fit": "Intro",
+            "note": "Squarely a leadership-award course rather than a continuous expedition - the credential focus, but less of a single sustained journey.",
+            "confidence": "med"
+          },
+          {
+            "course": "SKGABC Assistant Overnight Guide",
+            "school": "SKILS",
+            "place": "Vancouver Island, BC, Canada",
+            "duration": "9 days",
+            "url": "https://skils.ca/skgabc-guide-training-courses/",
+            "fit": "Intro",
+            "note": "A professional guide-certification course on the BC coast; deeper credential than the Hebrides trip but framed as guide training, not a self-directed expedition.",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "discipline": "International Mountain Leadership & Trekking",
+      "category": "adventure",
+      "id": "mountain-leadership-and-trekking",
+      "certBody": "UIMLA (Union of International Mountain Leader Associations); Mountain Training (UK home nations) and BAIML for the UK; national IML member associations (e.g. France's ENSM/accompagnateur en moyenne montagne, Italy's media-montagna scheme, Nepal Mountaineering Association)",
+      "certShort": "UIMLA IML",
+      "goldCredential": "International Mountain Leader (UIMLA), built on the Mountain Leader award (Mountain Training)",
+      "blurb": "The discipline of leading multi-day mountain treks and hut-to-hut journeys, where the long walk itself is the adventure. It is mountain walking leadership, not roped alpinism: the IML lets you guide groups across mountain country worldwide, summer and winter, anywhere glaciers and climbing technique are not required.",
+      "ceiling": "A weekend Mountain Skills or 5-day Mountain Leader training course gives a beginner real navigation and group-management foundations within a single season. The full progression to the gold credential is long and honest: you first earn the Mountain Leader award, then register for the IML and build roughly 100 quality mountain days, 40 days of training and 14 days of assessment. BAIML states most people take 2 to 5 years to complete the IML award after gaining their summer Mountain Leader.",
+      "room": {
+        "ratio": "Typically up to 8 candidates per instructor on UK Mountain Training courses; in the field IMLs commonly lead trekking groups of around 8-12 walkers.",
+        "day": "Long days on foot in mountain terrain: navigation legs, group management, hazard assessment, ropework for steep ground, plus classroom sessions on weather, environment, legal liability and the business of guiding.",
+        "who": "Hillwalkers and aspiring professional trekking leaders who want a recognised, internationally portable credential rather than a one-off holiday skill."
+      },
+      "destinations": [
+        {
+          "place": "Snowdonia / Eryri",
+          "country": "Wales (UK)",
+          "region": "Western Europe",
+          "role": "source",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Plas y Brenin (National Outdoor Centre)"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "school",
+            "gold-cred",
+            "heritage"
+          ],
+          "why": "Home of Plas y Brenin, a UK national mountain centre, and the cradle of the Mountain Training award scheme that underpins the UIMLA IML. Eryri's compact, fast-changing mountains are the classic proving ground for Mountain Leader and IML training.",
+          "bestSeason": "April to October for summer Mountain Leader / IML training; winter skills run December to March in Scotland rather than here.",
+          "level": "Beginner -> IML",
+          "id": "mountain-leadership-and-trekking--snowdonia-eryri",
+          "schoolsInfo": [
+            {
+              "name": "Plas y Brenin (National Outdoor Centre)",
+              "url": "https://pyb.co.uk/course/international-mountain-leader-summer-training/",
+              "course": "International Mountain Leader Summer Training (5 days)",
+              "blurb": "A UK national mountain sports centre in Capel Curig, run on behalf of Sport England by the Mountain Training Trust. Delivers the full ladder from 2-day Mountain Skills through Mountain Leader to International Mountain Leader training, accredited by Mountain Training.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Cairngorms / Scottish Highlands",
+          "country": "Scotland (UK)",
+          "region": "Western Europe",
+          "role": "source",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Glenmore Lodge (Scotland's National Outdoor Training Centre)"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "school",
+            "gold-cred",
+            "heritage"
+          ],
+          "why": "Glenmore Lodge is Scotland's national mountain centre and one of the official IML providers, delivering summer training in the Highlands and winter training based out of Voss, Norway. The Cairngorms' arctic-style plateau is the benchmark for serious UK mountain navigation.",
+          "bestSeason": "May to September for summer training; December to March for winter skills and mountaineering.",
+          "level": "Beginner -> IML",
+          "id": "mountain-leadership-and-trekking--cairngorms-highlands",
+          "schoolsInfo": [
+            {
+              "name": "Glenmore Lodge",
+              "url": "https://www.glenmorelodge.org.uk/summer-rock-mountain/qualifications/international-mountain-leader-summer-training/",
+              "course": "International Mountain Leader Summer Training (5 days)",
+              "blurb": "Scotland's National Outdoor Training Centre, an approved IML provider running summer training in the Highlands and winter training based from Voss, Norway. Covers leadership, environmental knowledge, ropework, huts, alpine weather, GPS and the business of guiding.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Chamonix-Mont-Blanc",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "ENSM / ENSA Chamonix (national mountain sports school)"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "mecca",
+            "heritage",
+            "lineage"
+          ],
+          "why": "Chamonix is the historic capital of mountain guiding and home to France's national mountain sports school (ENSM/ENSA), which trains the accompagnateur en moyenne montagne. The 1992 framework that became UIMLA's mutual-recognition platform was drawn up under ENSA's auspices, making this a true source of the profession.",
+          "bestSeason": "June to September for trekking and middle-mountain leadership; the Tour du Mont Blanc hut-to-hut circuit peaks July-August.",
+          "level": "Intermediate -> IML (French AMM pathway)",
+          "id": "mountain-leadership-and-trekking--chamonix",
+          "schoolsInfo": [
+            {
+              "name": "ENSM / ENSA Chamonix",
+              "url": "https://www.ensm.sports.gouv.fr/nos-sites-ensm/",
+              "course": "Accompagnateur en moyenne montagne (national mountain leader training)",
+              "blurb": "The French state reference school for mountain professions. Training units for the accompagnateur en moyenne montagne (the French IML-equivalent) take place at ENSA Chamonix and partner CREPS centres. Recognised internationally through UIMLA.",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "place": "Khumbu / Solukhumbu (Everest region)",
+          "country": "Nepal",
+          "region": "South Asia",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Nepal Mountaineering Association (NMA) Mountain Leader Course"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "gold-cred"
+          ],
+          "why": "The Khumbu is the world's most famous trekking landscape and the working ground for a vast guiding community. The Nepal Mountaineering Association now runs its Mountain Leader Course to UIMLA standards, letting Nepali leaders earn an internationally recognised IML badge to work abroad.",
+          "bestSeason": "Spring (March-May) and autumn (late September-November) are the prime trekking seasons; monsoon (June-August) and deep winter are avoided.",
+          "level": "Experienced trekking guide -> IML",
+          "id": "mountain-leadership-and-trekking--khumbu-solukhumbu",
+          "schoolsInfo": [
+            {
+              "name": "Nepal Mountaineering Association (NMA)",
+              "url": "https://nepalmountaineering.org/mountain-leader-training-",
+              "course": "Mountain Leader Course (now delivered to UIMLA standards)",
+              "blurb": "Nepal's national mountaineering body and UIMLA member association. Its Mountain Leader Course trains expedition planning, navigation, weather and group leadership; successful candidates are recognised as National Mountain Leaders and can sit for a UIMLA badge.",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ],
+      "featured": {
+        "id": "mountain-leadership-and-trekking--snowdonia-eryri",
+        "place": "Snowdonia / Eryri",
+        "country": "Wales (UK)",
+        "school": "Plas y Brenin (National Outdoor Centre)",
+        "url": "https://pyb.co.uk/course/international-mountain-leader-summer-training/",
+        "course": "International Mountain Leader Summer Training",
+        "description": "The 5-day summer training stage of the UIMLA International Mountain Leader award, run at a UK national mountain centre. It covers navigation, leadership and group management on multi-day terrain, ropework for steep ground, alpine weather, environmental knowledge, legal liability and the business of guiding, with an assessed timed navigation test and a personal action plan.",
+        "duration": "5 days",
+        "format": "Residential or non-residential, based at Plas y Brenin in Eryri (Snowdonia), North Wales",
+        "certification": "Mountain Training accredited; the summer-training stage on the path to the UIMLA International Mountain Leader award (full IML adds further quality mountain days, summer assessment and winter training/assessment)",
+        "fitsBecause": "It is the real source-credential entry point for trekking leadership: a recognised, internationally portable award taught at a national centre, where the multi-day mountain journey itself is the craft, distinct from roped alpinism or trail running.",
+        "sessions": [
+          "Navigation and timed navigation test",
+          "Leadership and group management on multi-day terrain",
+          "Ropework for steep ground",
+          "Alpine weather, altitude, anatomy and physiology",
+          "Environmental knowledge and legal liability",
+          "Marketing and the business of guiding"
+        ],
+        "priceNote": "Plas y Brenin does not publish the IML summer-training price on its public course page; book or contact the centre for current fees. Prerequisite: holding the Mountain Leader award plus logged international summer and winter mountain days.",
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "International Mountain Leader Summer Training (5 days)",
+            "school": "Glenmore Lodge",
+            "place": "Cairngorms / Scottish Highlands",
+            "duration": "5 days",
+            "url": "https://www.glenmorelodge.org.uk/summer-rock-mountain/qualifications/international-mountain-leader-summer-training/",
+            "fit": "Intro",
+            "note": "The same official IML summer-training stage delivered at Scotland's national mountain centre, with winter training based from Voss, Norway.",
+            "confidence": "high"
+          },
+          {
+            "course": "International Mountain Leader Summer Training (6 days)",
+            "school": "Abacus Mountain Guides",
+            "place": "Snowdonia / Wales (UK)",
+            "duration": "6 days",
+            "priceFrom": "GBP 425",
+            "url": "https://www.abacusmountainguides.com/mountain-leader-courses.html",
+            "fit": "Cheaper",
+            "note": "An approved-provider route with a publicly listed 2026 price of GBP 425 per person; verify dates and current fee at booking.",
+            "confidence": "medium"
+          },
+          {
+            "course": "Mountain Skills (2 days)",
+            "school": "Plas y Brenin",
+            "place": "Snowdonia / Eryri (UK)",
+            "duration": "2 days",
+            "url": "https://pyb.co.uk/courses/mountain-skills---2-days/",
+            "fit": "Taster",
+            "note": "A true beginner entry point in navigation and mountain movement, well before the Mountain Leader and IML ladder.",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "discipline": "Caving & Speleology",
+      "category": "adventure",
+      "id": "caving-and-speleology",
+      "certBody": "Fédération Française de Spéléologie / École Française de Spéléologie (FFS/EFS) · British Caving Association (BCA) · National Speleological Society (NSS, USA) · Jamarska zveza Slovenije (Speleological Association of Slovenia)",
+      "certShort": "FFS·EFS / BCA",
+      "goldCredential": "Cave Instructor Certificate / Local Cave & Mine Leader Award (BCA, UK) · DEJEPS spéléologie — Diplôme d'État (France) · Moniteur / Instructeur fédéral (EFS)",
+      "blurb": "The descent is the expedition: roping down shafts, squeezing through karst passages and surfacing in chambers no daylight has ever touched. A tight, federated community where progression runs from a first guided cave to a state-qualified leader.",
+      "ceiling": "A first guided descent (half-day to a weekend) teaches movement, rope basics and reading a cave — enough to follow a leader safely. Autonomy in vertical systems takes a multi-day stage plus club mileage; the federal instructor ladder (EFS initiateur/moniteur, BCA LCMLA) is several seasons of logged caving, and a paid professional credential (DEJEPS spéléologie in France, BCA Cave Instructor Certificate in the UK) is multi-year.",
+      "room": {
+        "ratio": "2-6 cavers per qualified leader (commercial guides typically cap at 6)",
+        "day": "Kit and rope check, technique briefing, then a progressive descent — abseil/ascent on rope, crawls and squeezes, an underground chamber or river, de-rig and surface; multi-day stages add real exploration and self-rescue.",
+        "who": "Adventurers comfortable with confined, dark, wet spaces who want a genuine skill ladder — not a one-off thrill but a credentialed path into a real exploration community."
+      },
+      "destinations": [
+        {
+          "place": "Vercors & Ardèche",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "École Française de Spéléologie (EFS / FFS)",
+            "Guides Spéléo d'Ardèche",
+            "Antre 2 Mondes (Vercors)"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "mecca",
+            "gold-cred",
+            "lineage",
+            "heritage"
+          ],
+          "why": "The heartland of world speleology: the FFS/EFS runs the federal training ladder, France issues the only fully state-recognised professional caving diploma (DEJEPS spéléologie), and the Vercors and Ardèche karst hold deep, classic exploration systems.",
+          "bestSeason": "April to October (stages and guided descents run in the warmer months)",
+          "level": "Beginner -> Leader",
+          "id": "caving-and-speleology--vercors-ardeche",
+          "schoolsInfo": [
+            {
+              "name": "Guides Spéléo d'Ardèche",
+              "url": "https://www.guides-speleo-ardeche.com/speleologie/stage",
+              "course": "Stage Grande exploration (5 days) · Mini Stage de Spéléologie (2-day weekend)",
+              "blurb": "A collective of caving guides running multi-day progression stages — rope descent and ascent technique plus real cave exploration (Aven Rochas −192 m, the Foussoubie system).",
+              "confidence": "high"
+            },
+            {
+              "name": "Antre 2 Mondes (Vercors, Autrans-Méaudre)",
+              "url": "https://www.antre2mondes.fr/en/speleologie-vercors/stage-formation-speleo",
+              "course": "Formation technique (~7h) · Aventure Antre 2 Mondes (4-day stage)",
+              "blurb": "Run by a state-qualified caving guide (diplôme d'État / DEJEPS spéléologie); technical-skills training and multi-day autonomy stages in the Vercors massif near Grenoble.",
+              "confidence": "high"
+            },
+            {
+              "name": "École Française de Spéléologie (EFS / FFS)",
+              "url": "https://efs.ffspeleo.fr/",
+              "course": "Federal cadre training — Initiateur, Moniteur, Instructeur fédéral",
+              "blurb": "The teaching commission of the Fédération Française de Spéléologie; delivers the volunteer/federal credential ladder through training stages nationwide.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Yorkshire Dales & South Wales",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "British Caving Association (BCA)",
+            "How Stean Gorge (Yorkshire)",
+            "Black Mountain Adventure (Brecon Beacons)",
+            "Hawk Adventures (South Wales)"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "gold-cred",
+            "lineage",
+            "heritage"
+          ],
+          "why": "The BCA awards the nationally recognised LCMLA and Cave Instructor Certificate, and the Yorkshire Dales and Brecon Beacons karst are among the most caved ground in the world, with a deep club-caving culture.",
+          "bestSeason": "Year-round (caves run cool but stable); avoid heavy-rain periods for river caves",
+          "level": "Beginner -> Leader",
+          "id": "caving-and-speleology--yorkshire-south-wales",
+          "schoolsInfo": [
+            {
+              "name": "How Stean Gorge (Nidderdale, Yorkshire)",
+              "url": "https://www.howstean.co.uk/outdoor-activities/caving/",
+              "course": "Half-day caving adventure",
+              "blurb": "Beginner-friendly guided half-day caving in the Yorkshire Dales; ages 7+, no experience needed, all equipment and free gorge entry included.",
+              "confidence": "high"
+            },
+            {
+              "name": "Black Mountain Adventure (Brecon Beacons)",
+              "url": "https://www.blackmountain.co.uk/tours/caving/",
+              "course": "Caving in the Brecon Beacons (half or full day)",
+              "blurb": "Guided caving at Porth-yr-Ogof, Ystradfellte; half-day or full-day options, ages 8+, equipment included.",
+              "confidence": "high"
+            },
+            {
+              "name": "Hawk Adventures (South Wales)",
+              "url": "https://www.hawkadventures.co.uk/services/caving-brecon-beacons/",
+              "course": "Caving in South Wales (half day 3.5h / full day 7h)",
+              "blurb": "Guided descents in the Ystradfellte area — Porth-yr-Ogof, Little Neath River Cave, Eglwys Faen.",
+              "confidence": "high"
+            },
+            {
+              "name": "British Caving Association (BCA)",
+              "url": "https://british-caving.org.uk/our-work/training/",
+              "course": "Local Cave & Mine Leader Award (LCMLA) · Cave Instructor Certificate (CIC)",
+              "blurb": "The UK governing body; the CIC is its highest instructing award, the LCMLA the leader scheme for experienced cavers taking parties underground.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Kanin Massif & Classical Karst",
+          "country": "Slovenia",
+          "region": "Eastern Europe",
+          "role": "both",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Jamarska zveza Slovenije (Speleological Association of Slovenia)",
+            "SportMix (Bovec)",
+            "Alpi Center (Mt Kanin)"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "heritage",
+            "lineage"
+          ],
+          "why": "Slovenia is the home of the 'classical karst' — the very word karst comes from the Kras region — with a long scientific speleology tradition, a national federation tied to the UIS and European cave-rescue bodies, and adventure caving in the deep Kanin massif away from the show-cave crowds.",
+          "bestSeason": "Mid-April to late October",
+          "level": "Beginner -> Intermediate",
+          "id": "caving-and-speleology--kanin-classical-karst",
+          "schoolsInfo": [
+            {
+              "name": "SportMix (Bovec)",
+              "url": "https://sportmix.si/en/adventure/caving/",
+              "course": "Guided caving in Srnica cave, Kanin massif (4 hours)",
+              "blurb": "Adventure caving through a ~700 m karst system — narrow passages, a rappel down a steep wall, stalactites, flowstone and underground lakes; guide, full gear and transport included.",
+              "confidence": "high"
+            },
+            {
+              "name": "Alpi Center (Mt Kanin, Bovec)",
+              "url": "https://www.alpicenter.cz/en/activities/caving/",
+              "course": "Guided caving — Srnica Cave or Mala Boka Cave (1–1.5h each)",
+              "blurb": "Climbing, crawling and a 50 m abseil from a cave window over the Bovec basin (Srnica), or the more spacious Mala Boka near a 106 m waterfall.",
+              "confidence": "high"
+            },
+            {
+              "name": "Jamarska zveza Slovenije (Speleological Association of Slovenia)",
+              "url": "https://www.jamarska-zveza.si",
+              "course": "National federation — cave registry, safety standards, expeditions, cave rescue",
+              "blurb": "The national speleological federation uniting Slovenia's caving societies; affiliated with the UIS, European Speleological Federation and European Cave Rescue Association.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Yucatán & Sistema Huautla",
+          "country": "Mexico",
+          "region": "Latin America",
+          "role": "both",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Ko'ox Diving (Tulum)",
+            "ProTec Dive Centers (Playa del Carmen & Tulum)",
+            "Proyecto Espeleológico Sistema Huautla (PESH)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "record",
+            "lineage"
+          ],
+          "why": "The Yucatán's flooded cenote labyrinth is the world capital of cave diving, while Oaxaca's Sistema Huautla — explored to −1,560 m — is the deepest known cave in the Western Hemisphere and a benchmark expedition frontier.",
+          "bestSeason": "Year-round for cenote diving; cooler/drier months (Nov–Apr) most comfortable",
+          "level": "Intermediate -> Advanced",
+          "id": "caving-and-speleology--yucatan-huautla",
+          "schoolsInfo": [
+            {
+              "name": "Ko'ox Diving (Tulum)",
+              "url": "https://www.kooxdiving.com/en/courses/cave-dive-training/",
+              "course": "IANTD Cave Diver Course (min. 5 days)",
+              "blurb": "Full cave-diving certification in the Tulum cenotes — min. 20 hrs in-water, 4 cave entrances, 500 m+ penetration; accommodation and equipment included. Prereq: 20 logged dives, Advanced Open Water, 18+.",
+              "confidence": "high"
+            },
+            {
+              "name": "ProTec Dive Centers (Playa del Carmen & Tulum)",
+              "url": "https://protecdivecenters.com/cave-cavern-diving-courses/",
+              "course": "Cavern Diver · Intro to Cave · Cave Diver · Cave Decompression (overhead-environment ladder)",
+              "blurb": "A full technical overhead-environment training ladder plus sidemount, DPV, survey and exploration workshops across the Riviera Maya.",
+              "confidence": "medium"
+            },
+            {
+              "name": "Proyecto Espeleológico Sistema Huautla (PESH)",
+              "url": "http://www.peshcaving.org/about-sistema-huautla",
+              "course": "Ongoing exploration expedition project (not a tourist service)",
+              "blurb": "The official exploration project of Sistema Huautla, Oaxaca — explored to −1,560 m, the deepest known cave in the Western Hemisphere; the global benchmark for deep American caving.",
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "featured": {
+        "id": "caving-and-speleology--vercors-ardeche",
+        "place": "Ardèche",
+        "country": "France",
+        "school": "Guides Spéléo d'Ardèche",
+        "url": "https://www.guides-speleo-ardeche.com/speleologie/stage",
+        "course": "Stage Grande exploration",
+        "description": "A five-day caving stage in the Ardèche karst with a collective of professional guides: you build rope descent and ascent technique, then put it to use on real exploration cave — including the Aven Rochas to −192 m and the Foussoubie system. Caving in the country that invented the discipline and issues its only state-recognised professional diploma.",
+        "duration": "5 days",
+        "format": "Small-group guided stage (in person)",
+        "certification": "No diploma issued; progression stage toward EFS federal credentials. France's professional caving credential is the DEJEPS spéléologie (Diplôme d'État).",
+        "fitsBecause": "EducatedTraveler is certified skills at the source — and there is no more authoritative source for speleology than France, where the FFS/EFS run the global federal training tradition and a multi-day stage takes you from technique into genuine vertical exploration.",
+        "sessions": [
+          "April to October"
+        ],
+        "priceNote": "From €600 per person, excluding accommodation and food (verified on the provider's site).",
+        "priceFrom": "€600",
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Mini Stage de Spéléologie",
+            "school": "Guides Spéléo d'Ardèche",
+            "place": "Ardèche, France",
+            "duration": "2 days (weekend)",
+            "priceFrom": "€250",
+            "url": "https://www.guides-speleo-ardeche.com/speleologie/stage",
+            "fit": "Shorter",
+            "note": "Weekend taster of the same progression, min. 4 people, €250 per participant.",
+            "confidence": "high"
+          },
+          {
+            "course": "Aventure Antre 2 Mondes (4-day stage)",
+            "school": "Antre 2 Mondes",
+            "place": "Vercors, France",
+            "url": "https://www.antre2mondes.fr/en/speleologie-vercors/stage-formation-speleo",
+            "duration": "4 days",
+            "fit": "Intro",
+            "note": "Multi-day autonomy and progression stage in the Vercors, led by a state-qualified (DEJEPS) caving guide. Confirm current price on the provider's site.",
+            "confidence": "medium"
+          },
+          {
+            "course": "Half-day caving adventure",
+            "school": "How Stean Gorge",
+            "place": "Yorkshire Dales, UK",
+            "duration": "Half day",
+            "priceFrom": "£70",
+            "url": "https://www.howstean.co.uk/outdoor-activities/caving/",
+            "fit": "Taster",
+            "note": "Beginner half-day in the Yorkshire Dales, ages 7+, all gear included — easiest English-language entry point.",
+            "confidence": "high"
+          }
+        ]
+      }
+    },
+    {
+      "discipline": "Outdoor Leadership & Wilderness Expeditions",
+      "category": "adventure",
+      "id": "outdoor-leadership-and-wilderness-expeditions",
+      "certBody": "NOLS (National Outdoor Leadership School); Outward Bound; NOLS Wilderness Medicine for the medical credentials",
+      "certShort": "NOLS",
+      "goldCredential": "NOLS Semester / Outdoor Educator track with Wilderness First Responder (WFR)",
+      "blurb": "Multi-week backcountry expeditions where the route itself is the classroom: you backpack, sea kayak and mountaineer for weeks while learning expedition leadership, judgment and risk management — and walk out with a recognized credential. The journey is the adventure.",
+      "ceiling": "A 9-10 day Wilderness First Responder (WFR) gets you a respected, transferable medical certification but not leadership standing. A full 68-77 day semester earns the leadership and field credentials guides and programs actually look for; becoming a NOLS field instructor or earning a Wilderness EMT (via the 75-day WMR semester) is a further, much longer step.",
+      "room": {
+        "ratio": "Roughly 2-3 instructors to 8-15 students on expedition courses",
+        "day": "Days are spent traveling under your own power — backpacking, paddling, climbing — with leadership rotated to students so each person practices route-finding, decision-making and group care",
+        "who": "Aspiring guides, outdoor educators, gap-year and college students, and career-changers who want real leadership experience plus a credential, not a vacation"
+      },
+      "destinations": [
+        {
+          "place": "Lander",
+          "country": "United States",
+          "region": "North America",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "NOLS (NOLS Rocky Mountain)"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred",
+            "heritage",
+            "lineage"
+          ],
+          "why": "The birthplace of NOLS and of the American outdoor-leadership semester: the first NOLS course ran in the Wind River Range in 1965, and Lander remains the world headquarters and the hub for courses across the Rockies.",
+          "bestSeason": "June to September for summer expeditions; semesters run spring and fall",
+          "level": "Beginner -> Instructor",
+          "id": "outdoor-leadership-and-wilderness-expeditions--lander",
+          "schoolsInfo": [
+            {
+              "name": "NOLS (NOLS Rocky Mountain, Lander)",
+              "url": "https://www.nols.edu/locations/nols-rocky-mountain/",
+              "course": "Semester in the Rockies (68 days) and Wilderness Medicine & Rescue Semester (75 days)",
+              "blurb": "Where NOLS began in 1965. Backpacking the Wind Rivers, rock climbing the American West, canyon paddling, plus wilderness medicine certification on semester tracks.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Patagonia (Coyhaique region)",
+          "country": "Chile",
+          "region": "Latin America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "NOLS Patagonia"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "school"
+          ],
+          "why": "NOLS' flagship international campus, in wildly varied terrain — steppe, temperate rainforest, alpine and ocean fjords — with semester and year courses that combine mountaineering, sea kayaking and living alongside a host family.",
+          "bestSeason": "Southern-hemisphere spring and summer (roughly October to March)",
+          "level": "Beginner -> Advanced",
+          "id": "outdoor-leadership-and-wilderness-expeditions--patagonia",
+          "schoolsInfo": [
+            {
+              "name": "NOLS Patagonia",
+              "url": "https://www.nols.edu/locations/nols-patagonia/",
+              "course": "Spring/Fall Semester in Patagonia; Patagonia Coastal Expedition; Year in Patagonia",
+              "blurb": "Month-long to five-month immersions through fjords, rainforest and alpine terrain by sea kayak and on foot, with cultural immersion and leadership at the core.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Nelson / South Island",
+          "country": "New Zealand",
+          "region": "Oceania",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "NOLS New Zealand"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "The NOLS New Zealand campus in coastal Nelson launches expeditions across the South Island — sea kayaking the Marlborough Sounds, backpacking beech forests and craggy peaks, plus sailing and cultural-immersion sections.",
+          "bestSeason": "Southern-hemisphere summer; spring semester runs roughly February to April",
+          "level": "Beginner -> Advanced",
+          "id": "outdoor-leadership-and-wilderness-expeditions--new-zealand",
+          "schoolsInfo": [
+            {
+              "name": "NOLS New Zealand",
+              "url": "https://www.nols.edu/locations/nols-new-zealand/",
+              "course": "Spring Semester in New Zealand (77 days); Sea Kayaking; Backpacking",
+              "blurb": "South Island expeditions blending cultural immersion, sea kayaking, backpacking and sailing, with 16 college credits available on the semester.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Asheville / Pisgah National Forest",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "North Carolina Outward Bound School (NCOBS)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "heritage"
+          ],
+          "why": "Outward Bound — the original wilderness-expedition leadership movement — runs deep in the Southern Appalachians, where crews progress through training, main and final phases, taking on real leadership in the field.",
+          "bestSeason": "Spring through fall for backcountry expeditions",
+          "level": "Beginner -> Advanced",
+          "id": "outdoor-leadership-and-wilderness-expeditions--asheville",
+          "schoolsInfo": [
+            {
+              "name": "North Carolina Outward Bound School (NCOBS)",
+              "url": "https://www.ncobs.org/expeditions/",
+              "course": "Wilderness expedition courses for teens and adults (backpacking, leadership)",
+              "blurb": "A leading Outward Bound school in the U.S., building confidence, resilience and leadership through phased wilderness expeditions in the Appalachians.",
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "featured": {
+        "id": "outdoor-leadership-and-wilderness-expeditions--lander",
+        "place": "Lander",
+        "country": "United States",
+        "school": "NOLS",
+        "url": "https://www.nols.edu/courses/wm/wilderness-first-responder-wfr/",
+        "course": "Wilderness First Responder (WFR)",
+        "description": "The 9-10 day WFR is the most accessible, widely recognized credential in the field — an intensive blend of classroom and realistic scenario training that certifies you to manage medical emergencies far from help. It is the standard entry credential for guides, outdoor educators and serious backcountry travelers, and the natural first step toward a full NOLS leadership semester.",
+        "duration": "9-10 days",
+        "format": "In-person intensive; offered at NOLS locations across the U.S. and abroad",
+        "certification": "Wilderness First Responder (WFR), plus Adult/Child/Infant CPR and epinephrine auto-injector",
+        "fitsBecause": "It delivers a real, transferable credential in under two weeks — proof of the EducatedTraveler model of certified skills at the source — and opens the door to NOLS' longer expedition semesters.",
+        "sessions": [
+          "Year-round at multiple NOLS sites; dates and locations vary"
+        ],
+        "priceNote": "NOLS lists WFR tuition from roughly $845 to $1,550 depending on location and date.",
+        "priceFrom": "$845",
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Semester in the Rockies",
+            "school": "NOLS (Lander, WY)",
+            "place": "Lander, United States",
+            "duration": "68 days",
+            "url": "https://www.nols.edu/locations/nols-rocky-mountain/",
+            "fit": "Intro",
+            "note": "The full original outdoor-leadership semester: backpacking, climbing and paddling across the American West, with a Wilderness First Aid certification.",
+            "confidence": "medium"
+          },
+          {
+            "course": "Wilderness Medicine & Rescue Semester (WMR)",
+            "school": "NOLS (Lander, WY)",
+            "place": "Lander, United States",
+            "duration": "75 days",
+            "priceFrom": "$20,090",
+            "url": "https://www.nols.edu/courses/exp/wilderness-medicine-and-rescue-semester-wmr/",
+            "fit": "Intro",
+            "note": "The deep-end track: earns Wilderness EMT/EMT plus rescue and Leave No Trace Level 2 Educator credentials. Tuition listed from $20,090.",
+            "confidence": "high"
+          },
+          {
+            "course": "Spring Semester in Patagonia",
+            "school": "NOLS Patagonia",
+            "place": "Patagonia, Chile",
+            "duration": "approx. 75 days",
+            "url": "https://www.nols.edu/courses/exp/spring-semester-in-patagonia-jsp/",
+            "fit": "Intro",
+            "note": "International alternative combining mountaineering, sea kayaking and cultural immersion in Chilean Patagonia.",
+            "confidence": "medium"
+          }
+        ]
+      }
     }
   ],
   "enrichedAt": "2026-06-11",
   "wave2At": "2026-06-11",
-  "altsEnrichedAt": "2026-06-19"
+  "altsEnrichedAt": "2026-06-19",
+  "newCraftsAddedAt": "2026-06-19"
 };
