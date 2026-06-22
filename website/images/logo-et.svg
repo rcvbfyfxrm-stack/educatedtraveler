@@ -1,38 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
-  <rect width="1080" height="1080" fill="#000000"/>
-
-  <!-- EDUCATED — white, larger, readable -->
-  <text x="540" y="340" text-anchor="middle" font-family="'Courier New', 'SF Mono', monospace" font-size="32" fill="rgba(255,255,255,0.85)" letter-spacing="3">
-    <tspan x="540" dy="0">███████╗██████╗ ██╗   ██╗ ██████╗</tspan>
-    <tspan x="540" dy="32">██╔════╝██╔══██╗██║   ██║██╔════╝</tspan>
-    <tspan x="540" dy="32">█████╗  ██║  ██║██║   ██║██║     </tspan>
-    <tspan x="540" dy="32">██╔══╝  ██║  ██║██║   ██║██║     </tspan>
-    <tspan x="540" dy="32">███████╗██████╔╝╚██████╔╝╚██████╗</tspan>
-    <tspan x="540" dy="32">╚══════╝╚═════╝  ╚═════╝  ╚═════╝</tspan>
+  <defs>
+    <radialGradient id="g-sea" cx="18%" cy="0%" r="60%">
+      <stop offset="0%" stop-color="#7fa8a5" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#7fa8a5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g-ember" cx="92%" cy="10%" r="55%">
+      <stop offset="0%" stop-color="#d28a52" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#d28a52" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="#0d0b09"/>
+  <rect width="1080" height="1080" fill="url(#g-sea)"/>
+  <rect width="1080" height="1080" fill="url(#g-ember)"/>
+  <text x="540" y="500" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="360" font-weight="500" letter-spacing="-14">
+    <tspan fill="#f3ede2">E</tspan><tspan fill="#7fa8a5">T</tspan>
   </text>
-
-  <!-- ATED — second half, blue -->
-  <text x="540" y="555" text-anchor="middle" font-family="'Courier New', 'SF Mono', monospace" font-size="32" fill="rgba(59,130,246,0.85)" letter-spacing="3">
-    <tspan x="540" dy="0"> █████╗ ████████╗███████╗██████╗ </tspan>
-    <tspan x="540" dy="32">██╔══██╗╚══██╔══╝██╔════╝██╔══██╗</tspan>
-    <tspan x="540" dy="32">███████║   ██║   █████╗  ██║  ██║</tspan>
-    <tspan x="540" dy="32">██╔══██║   ██║   ██╔══╝  ██║  ██║</tspan>
-    <tspan x="540" dy="32">██║  ██║   ██║   ███████╗██████╔╝</tspan>
-    <tspan x="540" dy="32">╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═════╝ </tspan>
-  </text>
-
-  <!-- Clean line -->
-  <line x1="280" y1="770" x2="800" y2="770" stroke="rgba(59,130,246,0.2)" stroke-width="0.5"/>
-
-  <!-- TRAVELER in clean Inter -->
-  <text x="540" y="820" text-anchor="middle"
-    font-family="Inter, system-ui, sans-serif" font-weight="300" font-size="38" fill="rgba(59,130,246,0.6)" letter-spacing="16">
-    TRAVELER
-  </text>
-
-  <!-- Tagline -->
-  <text x="540" y="890" text-anchor="middle"
-    font-family="Inter, system-ui, sans-serif" font-weight="300" font-size="18" fill="rgba(255,255,255,0.2)" letter-spacing="8">
-    TANS FADE. SKILLS LAST.
-  </text>
+  <rect x="380" y="560" width="320" height="6" rx="3" fill="#d28a52" fill-opacity="0.9"/>
+  <text x="540" y="660" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="400" font-size="58" fill="#f3ede2" letter-spacing="22">EDUCATED<tspan fill="#7fa8a5">TRAVELER</tspan></text>
+  <text x="540" y="730" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="300" font-size="34" fill="#d28a52" fill-opacity="0.8" letter-spacing="2">Tans fade. Skills last.</text>
 </svg>
