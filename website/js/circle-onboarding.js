@@ -1,16 +1,18 @@
 /* ════════════════════════════════════════════════════════════════════
    The Circle — conversational onboarding (self-injecting, additive).
    Reads window.ET_ATLAS (repertoire.js) + window.supabaseClient.
-   Saves to launch_waitlist (anon insert, migration 019) — no migration.
+   Saves to launch_waitlist (anon insert) — no migration.
    STRATEGY LOCK: no prices, no booking — we introduce.
    TRUST LOCK: every claim must be literally true of the data.
 
-   INSTALL  (one line, after supabase-config.js + repertoire.js):
-     <script defer src="/js/circle-onboarding.js"></script>
-   TRIGGERS  orb launcher (always) · any .join / a[href="/#circle"] /
-     [data-circle] click · timed nudge (flag) · window.ETCircle.open(world)
-   All CSS classes are namespaced .etc-* to avoid collisions.
-   Remove the feature = delete the one <script> line. Fully reversible.
+   Flow: what pulls you (worlds, multi) → what are you after (motivation)
+   → how far → when → pick your skills (multi, up to 9) → keep them.
+   No global "level" (level is per-skill — refined later in the profile).
+   No "solo vs group" question (the Circle IS the people).
+
+   INSTALL  <script defer src="/js/circle-onboarding.js"></script>
+   TRIGGERS  orb launcher · .join / a[href="/#circle"] · timed nudge ·
+     window.ETCircle.open(world). Namespaced .etc-*. Fully reversible.
 ═══════════════════════════════════════════════════════════════════════ */
 (function(){
   if(window.ETCircle) return;                       // singleton
@@ -30,27 +32,13 @@
   var CAT_WORLD={wellness:"body",adventure:"wild",culinary:"kitchen",creative:"craft"};
   var MOVEMENT_RE=/(dance|tango|flamenco|capoeira|salsa|ballet|samba|kizomba|bachata|rhythm|drum)/i;
   var EU_REGIONS=/(europe|mediterran|balkan|iberia|scandinav|nordic|alps|aegean)/i;
-  var LEVELS=["beginner","intermediate","advanced"];
 
-  /* ── data adapter: ET_ATLAS → scoreable crafts ──────────────────────
-     levelBuckets handles every real format (130 distinct): "X -> Y",
-     lowercase "X to Y", "All levels", single tokens, instructor/pro etc. */
-  function levelBuckets(lv){
-    lv=(lv||"").toLowerCase().trim();
-    if(!lv||/all\s*levels?|any\s*level|everyone|all\s*welcome|open\s*to\s*all/.test(lv))return LEVELS.slice();
-    function bucket(t){t=t.trim();if(/interm/.test(t))return"intermediate";if(/adv|exper|expert|instr|profess|guide|master|practition|certif/.test(t))return"advanced";return"beginner";}
-    var parts=lv.split(/\s*(?:->|—|–|>|\bto\b|\bthrough\b|\bup to\b)\s*/).filter(Boolean);
-    if(parts.length>=2){var a=LEVELS.indexOf(bucket(parts[0])),z=LEVELS.indexOf(bucket(parts[parts.length-1]));if(a<0)a=0;if(z<0)z=2;if(a>z){var t=a;a=z;z=t;}return LEVELS.slice(a,z+1);}
-    return[bucket(lv)];
-  }
-  function inferStyles(badges){badges=badges||[];var s=[];if(badges.indexOf("master")>=0||badges.indexOf("lineage")>=0)s.push("master");if(badges.indexOf("school")>=0||badges.indexOf("scene")>=0)s.push("circle");s.push("hands");return s;}
-  function flattenBadges(d){var set={};(d.destinations||[]).forEach(function(x){(x.badges||[]).forEach(function(b){set[b]=1;});});return Object.keys(set);}
+  /* ── data adapter: ET_ATLAS → scoreable crafts (keeps all destinations) ── */
   function worldOfDisc(d){if(MOVEMENT_RE.test(d.discipline))return"movement";return CAT_WORLD[d.category]||"craft";}
   function destOf(x){
     return {
       place:x.place+(x.country?", "+x.country:""),
       cont:EU_REGIONS.test(x.region||"")?"europe":"far",
-      levels:levelBuckets(x.level),
       season:(x.bestSeason||"").toLowerCase().indexOf("year")>=0?"year-round":(x.bestSeason||"seasonal"),
       rank:x.communityRank||0, rankLabel:x.communityLabel||"", role:x.role||"",
       certified:(x.badges||[]).indexOf("gold-cred")>=0,
@@ -67,35 +55,32 @@
         id:topId||(d.discipline).toLowerCase().replace(/[^a-z0-9]+/g,"-"),
         world:worldOfDisc(d), craft:d.discipline, discipline:d.discipline,
         cred:d.goldCredential||d.certBody||"Hand-verified",
-        styles:inferStyles(flattenBadges(d)),
         dests:dests
       });
     });
     return out;
   }
-  /* wrap a flat sample row into the dests[] shape so scoring is uniform */
   function sampleToCraft(c){
-    return {id:c.id,world:c.world,craft:c.craft,discipline:c.discipline,cred:c.cred,styles:c.styles,
-      dests:[{place:c.place,cont:c.cont,levels:c.levels,season:c.season,rank:c.rank,rankLabel:c.rankLabel,role:c.role,certified:!!c.certified,hasSchool:!!c.hasSchool}]};
+    return {id:c.id,world:c.world,craft:c.craft,discipline:c.discipline,cred:c.cred,
+      dests:[{place:c.place,cont:c.cont,season:c.season,rank:c.rank,rankLabel:c.rankLabel,role:c.role,certified:!!c.certified,hasSchool:!!c.hasSchool}]};
   }
 
   /* sample fallback so the module is demoable without ET_ATLAS */
   var SAMPLE=[
-   {id:"vermut",world:"kitchen",craft:"Vermut & Conserva",discipline:"Vermut & Conserva",cred:"Hand-verified",place:"Barcelona, Spain",cont:"europe",levels:["beginner","intermediate"],styles:["circle","master","hands"],season:"year-round",rank:4,rankLabel:"Thriving",role:"both",hasSchool:true},
-   {id:"murano",world:"craft",craft:"Murano Glassblowing",discipline:"Murano Glassblowing",cred:"Maestro Artigiano",place:"Venice, Italy",cont:"europe",levels:["beginner","intermediate","advanced"],styles:["hands","master"],season:"year-round",rank:5,rankLabel:"Legendary",role:"source",hasSchool:true,certified:true},
-   {id:"flamenco",world:"movement",craft:"Flamenco Compás",discipline:"Flamenco Compás",cred:"Hand-verified",place:"Seville, Spain",cont:"europe",levels:["beginner","intermediate","advanced"],styles:["circle","master","hands"],season:"year-round",rank:5,rankLabel:"Legendary",role:"source",hasSchool:true},
-   {id:"ashtanga",world:"body",craft:"Ashtanga Mysore",discipline:"Ashtanga Mysore",cred:"Yoga Alliance RYT",place:"Mysore, India",cont:"far",levels:["intermediate","advanced"],styles:["master","circle","hands"],season:"winter",rank:5,rankLabel:"Legendary",role:"both",hasSchool:true,certified:true},
-   {id:"alpine",world:"wild",craft:"Alpine Mountaineering",discipline:"Alpine Mountaineering",cred:"Mountain Guide UIAGM",place:"Chamonix, France",cont:"europe",levels:["intermediate","advanced"],styles:["hands","master"],season:"summer",rank:5,rankLabel:"Legendary",role:"source",hasSchool:true,certified:true},
-   {id:"pasta",world:"kitchen",craft:"Hand-rolled Pasta",discipline:"Hand-rolled Pasta",cred:"Hand-verified",place:"Bologna, Italy",cont:"europe",levels:["beginner","intermediate"],styles:["hands","circle"],season:"year-round",rank:4,rankLabel:"Thriving",role:"source",hasSchool:true},
-   {id:"ceramics",world:"craft",craft:"Wheel-thrown Ceramics",discipline:"Wheel-thrown Ceramics",cred:"Studio-led",place:"Sintra, Portugal",cont:"europe",levels:["beginner","intermediate","advanced"],styles:["hands","circle"],season:"year-round",rank:3,rankLabel:"Growing",role:"scene",hasSchool:true},
-   {id:"freedive",world:"wild",craft:"Freediving",discipline:"Freediving",cred:"AIDA / PADI",place:"Dahab, Egypt",cont:"far",levels:["beginner","intermediate","advanced"],styles:["hands","circle"],season:"year-round",rank:4,rankLabel:"Thriving",role:"source",hasSchool:true,certified:true}
+   {id:"vermut",world:"kitchen",craft:"Vermut & Conserva",discipline:"Vermut & Conserva",cred:"Hand-verified",place:"Barcelona, Spain",cont:"europe",season:"year-round",rank:4,rankLabel:"Thriving",role:"both",hasSchool:true},
+   {id:"murano",world:"craft",craft:"Murano Glassblowing",discipline:"Murano Glassblowing",cred:"Maestro Artigiano",place:"Venice, Italy",cont:"europe",season:"year-round",rank:5,rankLabel:"Legendary",role:"source",hasSchool:true,certified:true},
+   {id:"flamenco",world:"movement",craft:"Flamenco Compás",discipline:"Flamenco Compás",cred:"Hand-verified",place:"Seville, Spain",cont:"europe",season:"year-round",rank:5,rankLabel:"Legendary",role:"source",hasSchool:true},
+   {id:"ashtanga",world:"body",craft:"Ashtanga Mysore",discipline:"Ashtanga Mysore",cred:"Yoga Alliance RYT",place:"Mysore, India",cont:"far",season:"winter",rank:5,rankLabel:"Legendary",role:"both",hasSchool:true,certified:true},
+   {id:"alpine",world:"wild",craft:"Alpine Mountaineering",discipline:"Alpine Mountaineering",cred:"Mountain Guide UIAGM",place:"Chamonix, France",cont:"europe",season:"summer",rank:5,rankLabel:"Legendary",role:"source",hasSchool:true,certified:true},
+   {id:"pasta",world:"kitchen",craft:"Hand-rolled Pasta",discipline:"Hand-rolled Pasta",cred:"Hand-verified",place:"Bologna, Italy",cont:"europe",season:"year-round",rank:4,rankLabel:"Thriving",role:"source",hasSchool:true},
+   {id:"ceramics",world:"craft",craft:"Wheel-thrown Ceramics",discipline:"Wheel-thrown Ceramics",cred:"Studio-led",place:"Sintra, Portugal",cont:"europe",season:"year-round",rank:3,rankLabel:"Growing",role:"scene",hasSchool:true},
+   {id:"freedive",world:"wild",craft:"Freediving",discipline:"Freediving",cred:"AIDA / PADI",place:"Dahab, Egypt",cont:"far",season:"year-round",rank:4,rankLabel:"Thriving",role:"source",hasSchool:true,certified:true}
   ];
   var PROD=!!(window.ET_ATLAS&&window.ET_ATLAS.disciplines&&window.ET_ATLAS.disciplines.length);
   var CRAFTS=PROD?adaptAtlas(window.ET_ATLAS):SAMPLE.map(sampleToCraft);
 
-  /* ── scoring: ties every answer together; picks the best-FIT venue ──
-     pickDest honours reach first (a "close to home" learner sees the
-     European venue of a globally-taught craft), then community rank.   */
+  /* ── scoring: world + reach + timing + community strength ──
+     pickDest honours reach (closest strong venue), then community rank.   */
   function pickDest(c){
     var ds=c.dests,pool=ds;
     if(profile.reach==="region"||profile.reach==="europe"){var eu=ds.filter(function(x){return x.cont==="europe";});if(eu.length)pool=eu;}
@@ -104,27 +89,28 @@
   function scoreCraft(c){
     var d=pickDest(c),s=0,why=[];
     if(profile.worlds&&profile.worlds.indexOf(c.world)>=0)s+=5;else s-=3;
-    if(profile.level&&d.levels.indexOf(profile.level)>=0){s+=3;why.push(({beginner:"beginner-friendly",intermediate:"right for your level",advanced:"advanced depth"})[profile.level]);}
-    if(profile.style&&c.styles.indexOf(profile.style)>=0){s+=2;why.push(({hands:"hands-on",master:"taught one-to-one",circle:"small circle"})[profile.style]);}
     if(profile.reach==="region"||profile.reach==="europe"){if(d.cont==="europe"){s+=2;if(profile.reach==="region")why.push("close to home");}else s-=2;}
     else if(profile.reach==="world")s+=1;
     if(profile.timing==="soon"&&d.season==="year-round"){s+=1;why.push("open now");}
-    s+=(d.rank||0)*0.2;                            // community-strength gradient: the best places float up
+    // motivation: a gentle, honest nudge toward strong communities for "deeper"/"people"
+    if((profile.motivation==="deeper"||profile.motivation==="people")&&d.rank>=4)s+=0.5;
+    s+=(d.rank||0)*0.2;                              // community-strength gradient
+    if(d.rank>=5)why.push("legendary scene");else if(d.rank>=4)why.push("thriving scene");
     return{c:c,d:d,s:s,why:why};
   }
   function curate(){
     var ranked=CRAFTS.map(scoreCraft).sort(function(a,b){return b.s-a.s;});
     var picked=(profile.worlds&&profile.worlds.length>1)?profile.worlds:null;
     var t;
-    if(picked){                                     // multi-world: round-robin so each picked world contributes its best ("the best from each")
+    if(picked){                                     // multi-world: round-robin so each picked world contributes its best
       var byW={};ranked.forEach(function(r){(byW[r.c.world]=byW[r.c.world]||[]).push(r);});
       t=[];var idx={},added=true;
-      while(t.length<6&&added){added=false;
-        picked.forEach(function(w){if(t.length>=6)return;var list=byW[w]||[],k=idx[w]||0;if(list[k]&&list[k].s>=4){t.push(list[k]);idx[w]=k+1;added=true;}});
+      while(t.length<9&&added){added=false;
+        picked.forEach(function(w){if(t.length>=9)return;var list=byW[w]||[],k=idx[w]||0;if(list[k]&&list[k].s>=4){t.push(list[k]);idx[w]=k+1;added=true;}});
       }
       if(t.length<3)ranked.forEach(function(r){if(t.length<4&&t.indexOf(r)<0)t.push(r);});
     }else{
-      t=ranked.filter(function(x){return x.s>=4;}).slice(0,6);
+      t=ranked.filter(function(x){return x.s>=4;}).slice(0,9);
       if(t.length<3)t=ranked.slice(0,4);
     }
     t.forEach(function(x){x.c._dest=x.d;});         // remember the chosen venue for the card + save
@@ -136,22 +122,23 @@
    worlds:{type:"multi",key:"worlds",hint:"Pick all that fit",say:"What pulls you?",reflect:"More than one is fine — most of us are a mix.",
     options:[{label:"The Wild",sub:"mountains, sea, open",em:"⛰",value:"wild"},{label:"Kitchen & Cellar",sub:"food, wine, ferment",em:"🍷",value:"kitchen"},{label:"Craft & Art",sub:"hands, material, making",em:"✦",value:"craft"},{label:"Movement",sub:"dance, rhythm, body",em:"♫",value:"movement"},{label:"Body & Spirit",sub:"yoga, breath, stillness",em:"☯",value:"body"}],
     afterMulti:function(v){return v.length===1?({wild:"The wild it is — every guide here is one we've vetted ourselves.",kitchen:"A person of the table. Every host here is a working maker.",craft:"The slow crafts. We look for a real teacher behind each one, never just a logo.",movement:"We'll point you to where the form is most alive.",body:"We check the teacher before we ever list a place."})[v[0]]:"A wide appetite — good. I'll pull the best from each.";}},
-   style:{type:"single",key:"style",say:"How do you learn best?",reflect:"This decides who we sit you next to.",options:[{label:"Hands-on, doing",sub:"throw me in",em:"✋",value:"hands"},{label:"Beside a master",sub:"one-to-one",em:"◆",value:"master"},{label:"In a small circle",sub:"a few peers",em:"○",value:"circle"}],after:{hands:"Then you'll feel at home — every immersion here is making, not watching.",master:"The whole point — elbow-to-elbow with the real ones.",circle:"That's literally our name. Small circles, no crowds."}},
-   level:{type:"single",key:"level",say:"Where are you with it today?",reflect:"Only changes which door we open.",options:[{label:"Curious beginner",sub:"starting fresh",em:"○",value:"beginner"},{label:"Some experience",sub:"a few years in",em:"◐",value:"intermediate"},{label:"Serious / advanced",sub:"want real depth",em:"●",value:"advanced"}],after:{beginner:"Good — we'll mark exactly which places welcome a true beginner.",intermediate:"That's the level where the right teacher changes everything.",advanced:"Then you'll want the source itself — exactly what we curate."}},
+   motivation:{type:"single",key:"motivation",say:"What are you really after?",reflect:"No wrong answer — it just helps me choose.",
+    options:[{label:"A brand-new craft",sub:"start from zero",em:"○",value:"new"},{label:"Go deeper in one I love",sub:"real depth",em:"●",value:"deeper"},{label:"Find my people",sub:"a circle that gets it",em:"◇",value:"people"},{label:"A real change",sub:"a doorway out",em:"✦",value:"change"}],
+    after:{new:"Then we'll start you somewhere a true beginner is welcome.",deeper:"Good — we'll point you at the places known for real depth.",people:"That's the whole idea — a place is only as good as its circle.",change:"Sometimes the craft is just the doorway. Let's find the place."}},
    reach:{type:"single",key:"reach",say:"How far would you go?",reflect:"Mastery rarely needs a passport — but sometimes it's worth one.",options:[{label:"Close to home",sub:"my region",em:"⌂",value:"region"},{label:"Anywhere in Europe",sub:"a short hop",em:"✈",value:"europe"},{label:"Anywhere on earth",sub:"to the source",em:"⊕",value:"world"}],after:{region:"Beautiful — I'll lean toward the closest strong place for each.",europe:"Plenty within reach.",world:"Then I'll point you straight at the source."}},
-   timing:{type:"single",key:"timing",say:"And when does this happen?",reflect:"Last one — then your crafts.",options:[{label:"Soon, I'm itching",sub:"next 3 months",em:"▲",value:"soon"},{label:"This year",sub:"no rush",em:"◆",value:"year"},{label:"Just dreaming",sub:"for now",em:"☁",value:"dreaming"}],after:{soon:"Then let's not waste a day.",year:"The best immersions are worth planning toward.",dreaming:"Dreaming is how every trip starts."}},
-   shelf:{type:"shelf",say:"Then <em>these</em> are yours.",reflect:"Built from your answers. Tap the ones you'd love to learn."},
+   timing:{type:"single",key:"timing",say:"And when does this happen?",reflect:"Last one — then your skills.",options:[{label:"Soon, I'm itching",sub:"next 3 months",em:"▲",value:"soon"},{label:"This year",sub:"no rush",em:"◆",value:"year"},{label:"Just dreaming",sub:"for now",em:"☁",value:"dreaming"}],after:{soon:"Then let's not waste a day.",year:"The best immersions are worth planning toward.",dreaming:"Dreaming is how every trip starts."}},
+   shelf:{type:"shelf",say:"Then <em>these</em> are yours.",reflect:"Tap every skill you'd love to learn — pick as many as call you."},
    acct:{type:"acct",say:"Want me to <em>keep</em> them for you?",reflect:"Your profile's already built. Just say where to send it."}
   };
   function buildFlow(seed){
     var intro,qs;
     if(seed&&WORLD_LABEL[seed]){
       profile.worlds=[seed];
-      intro={type:"cta",say:"Lovely choice. Want me to find <em>more like that</em> — the ones that truly fit you?",reflect:"Four taps, about a minute.",cta:"Yes, show me →"};
-      qs=[Q.style,Q.level,Q.reach,Q.timing];
+      intro={type:"cta",say:"Lovely choice. Want me to find <em>more like that</em> — the ones that truly fit you?",reflect:"Three taps, about a minute.",cta:"Yes, show me →"};
+      qs=[Q.motivation,Q.reach,Q.timing];
     }else{
       intro={type:"cta",say:"There are <em>"+CRAFTS.length+" crafts</em> in this atlas. A few taps and I'll lay out the ones that are yours.",reflect:"About a minute. Ready?",cta:"Go on →"};
-      qs=[Q.worlds,Q.style,Q.level,Q.reach,Q.timing];
+      qs=[Q.worlds,Q.motivation,Q.reach,Q.timing];
     }
     var flow=[intro].concat(qs,[Q.shelf,Q.acct]);
     var qn=0;flow.forEach(function(s){if(s.type==="single"||s.type==="multi")s.progress=++qn;});
@@ -207,7 +194,7 @@
   ".etc-cred{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:#e7b54e;margin-bottom:4px}"+
   ".etc-ctitle{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:18px;line-height:1.1}.etc-cplace{font-size:12px;color:rgba(243,237,226,.56);margin-top:3px}"+
   ".etc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px;font-size:10.5px;font-family:'IBM Plex Mono',monospace}"+
-  ".etc-tag{padding:3px 8px;border-radius:99px;border:1px solid rgba(243,237,226,.09);color:rgba(243,237,226,.56)}.etc-tag.etc-why{color:#7fa8a5;border-color:rgba(127,168,165,.3)}.etc-tag.etc-price{color:#d28a52}"+
+  ".etc-tag{padding:3px 8px;border-radius:99px;border:1px solid rgba(243,237,226,.09);color:rgba(243,237,226,.56)}.etc-tag.etc-why{color:#7fa8a5;border-color:rgba(127,168,165,.3)}"+
   ".etc-verified{font-size:11px;color:#7fa8a5;margin-top:8px}"+
   ".etc-selcount{text-align:center;font-size:12.5px;color:rgba(243,237,226,.56);padding:6px 22px 0}.etc-selcount b{color:#f3ede2}"+
   ".etc-acct{padding:6px 22px 24px}.etc-acct input{width:100%;background:rgba(243,237,226,.05);border:1px solid rgba(243,237,226,.09);border-radius:12px;padding:13px 14px;color:#f3ede2;font-size:15px;font-family:inherit;margin-bottom:9px}.etc-acct input:focus{outline:none;border-color:rgba(127,168,165,.5)}"+
@@ -218,7 +205,6 @@
   "@media(max-width:600px){.etc-panel{width:100vw;max-height:100vh;height:100vh;border-radius:0}.etc-scrim{padding:0}}"+
   "@media(prefers-reduced-motion:reduce){.etc-lorb,.etc-lorb::after,.etc-orb,.etc-orb::after,.etc-card,.etc-launcher.etc-nudge .etc-lorb{animation:none!important}.etc-scrim,.etc-panel,.etc-say,.etc-reflect,.etc-opt,.etc-cta,.etc-lorb{transition:none!important}}";
 
-  /* ── panel markup (reset to this on reopen — no node churn, no dup styles) ── */
   var PANEL_INNER='<div class="etc-head"><span class="etc-brand">EDUCATED<b>TRAVELER</b></span>'+
     '<div class="etc-ring" style="display:none"><svg width="40" height="40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="rgba(243,237,226,.1)" stroke-width="3"/><circle class="etc-ringc" cx="20" cy="20" r="16" fill="none" stroke="#7fa8a5" stroke-width="3" stroke-linecap="round" stroke-dasharray="100.5" stroke-dashoffset="100.5"/></svg><span class="etc-pct">0%</span></div>'+
     '<button class="etc-skip" type="button">Later</button></div>'+
@@ -239,7 +225,7 @@
     els.launcher=L; els.scrim=S; els.panel=S.querySelector(".etc-panel");
     L.addEventListener("click",function(){open(null);});
     L.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open(null);}});
-    S.addEventListener("click",function(e){if(e.target===S)close();}); // backdrop = dismiss
+    S.addEventListener("click",function(e){if(e.target===S)close();});
     bindSkip();
   }
   function bindSkip(){var sk=els.panel.querySelector(".etc-skip");if(sk)sk.addEventListener("click",close);}
@@ -284,7 +270,6 @@
       html+='<div class="etc-grp"><span style="color:'+WORLD_COLOR[w]+'" aria-hidden="true">●</span> '+esc(WORLD_LABEL[w])+'<span class="etc-ln"></span></div>';
       byW[w].forEach(function(r){var c=r.c,dst=r.d,sel=chosen.indexOf(c.id)>=0,whys=r.why.slice(0,2).map(function(t){return'<span class="etc-tag etc-why">'+esc(t)+'</span>';}).join("");
         var roleTag=dst.role?'<span class="etc-tag">'+({source:"at the source",scene:"a strong scene",both:"source & scene"}[dst.role]||"")+'</span>':'';
-        // TRUST: only say "certified" when a gold credential exists; else honestly "school listed".
         var proof=dst.rankLabel?dst.rankLabel+" community":"Hand-verified";
         proof+=dst.certified?" · certified credential":(dst.hasSchool?" · school listed":"");
         html+='<div class="etc-card'+(sel?' etc-sel':'')+'" role="button" tabindex="0" aria-pressed="'+(sel?"true":"false")+'" data-id="'+esc(c.id)+'" style="--sc:'+WORLD_COLOR[w]+';animation-delay:'+(d*60)+'ms"><div class="etc-ctop"><div style="flex:1"><div class="etc-cred">◆ '+esc(c.cred)+'</div><div class="etc-ctitle">'+esc(c.craft)+'</div><div class="etc-cplace">'+esc(dst.place)+'</div><div class="etc-meta">'+whys+roleTag+'</div><div class="etc-verified">✓ '+esc(proof)+'</div></div><div class="etc-heart" aria-hidden="true">♥</div></div></div>';d++;});
@@ -299,12 +284,12 @@
     els.bar.style.display="flex";els.bar.innerHTML='<button class="etc-cta etc-keep" type="button">Keep these for me →</button>';
     els.bar.querySelector(".etc-keep").onclick=function(){if(chosen.length){profile.crafts=chosen.slice();next();}};
   }
-  function selCount(){var n=chosen.length;els.selc.innerHTML=n?('<b>'+n+'</b> craft'+(n>1?"s":"")+' selected — tap to add or remove'):'Tap at least one to continue';var k=els.bar.querySelector(".etc-keep");if(k)k.classList.toggle("etc-dim",n===0);}
+  function selCount(){var n=chosen.length;els.selc.innerHTML=n?('<b>'+n+'</b> skill'+(n>1?"s":"")+' selected — tap to add or remove'):'Tap at least one to continue';var k=els.bar.querySelector(".etc-keep");if(k)k.classList.toggle("etc-dim",n===0);}
 
   function renderAcct(){
     els.acct.style.display="block";els.bar.style.display="none";
     var names=chosen.map(function(id){var c=byId(id);return c?c.craft:"";}).filter(Boolean);
-    els.acct.innerHTML='<div class="etc-chosen">'+names.map(function(n){return'<span class="etc-pill">'+esc(n)+'</span>';}).join("")+'</div><div class="etc-built">'+recap()+'</div><input class="etc-fn" placeholder="First name" autocomplete="given-name" aria-label="First name"><input class="etc-em" type="email" placeholder="Email" autocomplete="email" aria-label="Email"><button class="etc-cta etc-finish" type="button" style="width:100%">Save my '+names.length+' craft'+(names.length>1?"s":"")+'</button><div class="etc-fine">No spam. Finish your profile whenever — it\'s already built from your answers.</div>';
+    els.acct.innerHTML='<div class="etc-chosen">'+names.map(function(n){return'<span class="etc-pill">'+esc(n)+'</span>';}).join("")+'</div><div class="etc-built">'+recap()+'</div><input class="etc-fn" placeholder="First name" autocomplete="given-name" aria-label="First name"><input class="etc-em" type="email" placeholder="Email" autocomplete="email" aria-label="Email"><button class="etc-cta etc-finish" type="button" style="width:100%">Save my '+names.length+' skill'+(names.length>1?"s":"")+'</button><div class="etc-fine">No spam. Finish your profile whenever — it\'s already built from your answers.</div>';
     var fn=els.acct.querySelector(".etc-fn");if(fn)setTimeout(function(){fn.focus();},30);
     els.acct.querySelector(".etc-finish").onclick=function(){
       profile.fname=(els.acct.querySelector(".etc-fn").value||"friend").trim();
@@ -315,12 +300,12 @@
     };
   }
   function byId(id){return CRAFTS.filter(function(x){return x.id===id;})[0];}
-  function recap(){var w=(profile.worlds||[]).map(function(x){return WORLD_LABEL[x];}).join(", ");return'Saved: <b>'+esc(w)+'</b><br>'+({hands:"learns by doing",master:"wants a master",circle:"a small circle"}[profile.style]||"")+' · '+({beginner:"beginner",intermediate:"some experience",advanced:"advanced"}[profile.level]||"")+' · '+({region:"close to home",europe:"open to Europe",world:"goes anywhere"}[profile.reach]||"")+' · '+({soon:"ready soon",year:"this year",dreaming:"dreaming"}[profile.timing]||"");}
+  function recap(){var w=(profile.worlds||[]).map(function(x){return WORLD_LABEL[x];}).join(", ");return'Saved: <b>'+esc(w)+'</b><br>'+({new:"after a new craft",deeper:"going deeper",people:"here for the people",change:"after a change"}[profile.motivation]||"")+' · '+({region:"close to home",europe:"open to Europe",world:"goes anywhere"}[profile.reach]||"")+' · '+({soon:"ready soon",year:"this year",dreaming:"dreaming"}[profile.timing]||"");}
 
   /* ── persist (reuses launch_waitlist) ── */
   function buildInterests(){
     var crafts=chosen.map(function(id){var c=byId(id);if(!c)return null;var place=(c._dest&&c._dest.place)||(c.dests&&c.dests[0]&&c.dests[0].place)||null;return{kind:"discipline",discipline:c.discipline||c.craft,place:place,label:c.craft};}).filter(Boolean);
-    var pref={kind:"profile",worlds:profile.worlds||[],style:profile.style||null,level:profile.level||null,reach:profile.reach||null,timing:profile.timing||null,name:profile.fname||null};
+    var pref={kind:"profile",worlds:profile.worlds||[],motivation:profile.motivation||null,reach:profile.reach||null,timing:profile.timing||null,name:profile.fname||null};
     return[pref].concat(crafts);
   }
   function saveProfile(){
@@ -335,18 +320,18 @@
   }
   function renderDone(saved){
     setCap({completed:true});
-    var line=saved===false?"We couldn't reach the server just now — your picks are noted on this device. Try again and we'll keep them properly.":"Your crafts are saved. We'll only ever write when there's a real master worth your time.";
+    var line=saved===false?"We couldn't reach the server just now — your picks are noted on this device. Try again and we'll keep them properly.":"Your skills are saved. We'll only ever write when there's a real master worth your time.";
     els.panel.innerHTML='<div class="etc-done"><div class="etc-orb" aria-hidden="true"></div><h2>Welcome to the Circle, '+esc(profile.fname)+'.</h2><p>'+esc(line)+'</p><div class="etc-recap">'+recap().replace(/<b>|<\/b>/g,"")+'</div><button class="etc-cta etc-explore" type="button">Explore the Atlas →</button></div>';
     els.panel.querySelector(".etc-explore").onclick=close;
     setTimeout(function(){var e=els.panel.querySelector(".etc-explore");if(e)e.focus();},30);
     console.log("[Circle] profile →",JSON.parse(JSON.stringify(profile)),"saved:",saved);
   }
 
-  /* ── open / close (with focus + ESC management) ── */
+  /* ── open / close (focus + ESC) ── */
   function onKey(e){if(e.key==="Escape")close();}
   function open(seed){
     if(els.scrim.classList.contains("etc-on"))return;
-    if(!els.panel.querySelector(".etc-stage")){els.panel.innerHTML=PANEL_INNER;bindSkip();} // reset after a completed run
+    if(!els.panel.querySelector(".etc-stage")){els.panel.innerHTML=PANEL_INNER;bindSkip();}
     lastFocus=document.activeElement;
     profile={};i=0;multiSel=[];chosen=[];flow=buildFlow(seed);cache();
     els.orb.style.background="";els.launcher.classList.add("etc-hidden");
@@ -386,6 +371,5 @@
     }
   });
 
-  // public API + test hooks (e.g. /atlas/ detail pages, and node simulation)
-  window.ETCircle={open:open,close:close,config:CONFIG,__test:{levelBuckets:levelBuckets,adaptAtlas:adaptAtlas,scoreCraft:scoreCraft,curate:curate,pickDest:pickDest,setProfile:function(p){profile=p;},getCrafts:function(){return CRAFTS;}}};
+  window.ETCircle={open:open,close:close,config:CONFIG,__test:{adaptAtlas:adaptAtlas,scoreCraft:scoreCraft,curate:curate,pickDest:pickDest,setProfile:function(p){profile=p;},getCrafts:function(){return CRAFTS;}}};
 })();
