@@ -84,8 +84,9 @@ select.fin option{background:var(--ink2)}
 .rhead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:2px 2px 18px;flex-wrap:wrap}
 .rhead .count{font-family:'Fraunces',Georgia,serif;font-size:clamp(20px,2.6vw,26px)}.rhead .count b{color:var(--sea);font-weight:400}
 .rhead .sortby{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)}
-.shelf{margin-bottom:30px}.shelf-h{display:flex;align-items:center;gap:12px;margin:0 2px 12px}
-.shelf-h .bar{width:30px;height:3px;border-radius:3px;background:var(--sc)}.shelf-h h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.4vw,25px)}.shelf-h .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)}.shelf-h .more{margin-left:auto;font-size:12.5px;color:var(--muted)}.shelf-h .more:hover{color:var(--sc)}
+.shelf{margin-bottom:30px}.shelf-h{display:flex;align-items:center;gap:12px;margin:0 2px 12px;cursor:pointer;border-radius:10px;padding:4px 6px;transition:background .2s}.shelf-h:hover{background:rgba(243,237,226,.04)}.shelf-h:hover h3{color:var(--sc)}
+.shelf-h .bar{width:30px;height:3px;border-radius:3px;background:var(--sc)}.shelf-h h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.4vw,25px);transition:color .2s}.shelf-h .n{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--faint)}.shelf-h .more{margin-left:auto;font-size:12.5px;color:var(--muted)}.shelf-h:hover .more{color:var(--sc)}
+.cathead{margin:2px 2px 22px;position:relative}.cathead .backcat{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:inline-flex;align-items:center;gap:6px}.cathead .backcat:hover{color:var(--sea)}.cathead .catbar{width:46px;height:4px;border-radius:4px;background:var(--sc);margin-bottom:13px}.cathead .catttl{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(28px,4.2vw,46px);line-height:1.04;letter-spacing:-.01em}.cathead .catsub{color:var(--muted);max-width:56ch;margin-top:9px;font-size:14.5px}
 .railwrap{position:relative}.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:4px 2px 14px;scrollbar-width:none;cursor:grab}.rail::-webkit-scrollbar{display:none}.rail.drag{cursor:grabbing;scroll-behavior:auto}
 .arrow{position:absolute;top:34%;z-index:5;width:42px;height:42px;border-radius:50%;background:rgba(28,24,19,.96);border:1px solid rgba(243,237,226,.28);color:var(--paper);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,border-color .25s,background .25s,transform .2s;font-size:20px;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.55)}.arrow.show{opacity:.95;pointer-events:auto}.railwrap:hover .arrow.show{opacity:1}.arrow:hover{border-color:var(--sea);background:var(--sea);color:#14110d;transform:scale(1.06)}.arrow.l{left:6px}.arrow.r{right:6px}
 @media(max-width:820px){.arrow{display:none}}
@@ -326,7 +327,7 @@ function renderRails(){
   results.innerHTML=h;
   ORDER.forEach(function(w){var m=WORLDS[w],list=byWorldDisc[w];if(!list.length)return;
     var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
-    sec.innerHTML='<div class="shelf-h"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="n">'+list.length+' crafts</span><button class="more" data-w="'+w+'">See all places →</button></div>';
+    sec.innerHTML='<div class="shelf-h" role="button" tabindex="0" aria-label="Open the '+esc(m.label)+' catalogue"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="n">'+list.length+' crafts</span><span class="more">See all '+list.length+' crafts →</span></div>';
     var rw=document.createElement("div");rw.className="railwrap";var rail=document.createElement("div");rail.className="rail";
     list.forEach(function(o){var t=o.top,r=ratingDisc(o.d.id);
       if(r&&r.destId){var rd=(o.d.destinations||[]).find(function(z){return z.id===r.destId;}); if(rd)t=rd;}
@@ -344,8 +345,29 @@ function renderRails(){
     ["l","r"].forEach(function(sd){var b=document.createElement("button");b.className="arrow "+sd;b.setAttribute("aria-label",sd==="l"?"Scroll back":"See more crafts");b.innerHTML=sd==="l"?"‹":"›";b.onclick=function(){rail.scrollBy({left:(sd==="l"?-1:1)*rail.clientWidth*0.85,behavior:"smooth"});};rw.appendChild(b);if(sd==="l")larrow=b;else rarrow=b;});
     function updateArrows(){var max=rail.scrollWidth-rail.clientWidth-2;larrow.classList.toggle("show",rail.scrollLeft>4);rarrow.classList.toggle("show",max>4&&rail.scrollLeft<max);}
     rail.addEventListener("scroll",updateArrows);
-    sec.appendChild(rw);results.appendChild(sec);sec.querySelector(".more").onclick=function(){toggleWorld(w);};enableDrag(rail);updateArrows();setTimeout(updateArrows,400);
+    sec.appendChild(rw);results.appendChild(sec);
+    var sh=sec.querySelector(".shelf-h");sh.onclick=function(){openCatalogue(w);};sh.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openCatalogue(w);}};
+    enableDrag(rail);updateArrows();setTimeout(updateArrows,400);
   });
+}
+// ── full-page catalogue for one category ──
+function openCatalogue(w){renderCatalogue(w);document.getElementById("studio").scrollIntoView({behavior:"smooth"});}
+function catCard(o,c){var d=o.d,t=o.top,r=ratingDisc(d.id);
+  if(r&&r.destId){var rd=(d.destinations||[]).find(function(z){return z.id===r.destId;});if(rd)t=rd;}
+  var isBest=BEST[d.id]===t.id;
+  return '<a class="gcard" style="--sc:'+c+'" href="/atlas/'+esc(d.id)+'">'+
+    (isBest?'<div class="bestflag">★ Best place to go</div>':'')+
+    '<div class="cred"><span class="gem">✦</span><span class="t">'+esc(credLabel(d))+'</span></div>'+
+    '<div class="craft">'+esc(d.discipline)+'</div>'+
+    '<div class="srcscene">'+srcLabel(t.role)+'</div>'+
+    '<div class="where"><span>'+(t.place?esc(t.place)+(t.country?', '+esc(t.country):''):'')+'</span>'+(t.communityRank?commDots(t.communityRank,t.communityLabel):'')+'</div>'+
+    '<div class="metaline">'+commLabel(t.communityLabel)+'</div>'+trustHTML(r)+'</a>';
+}
+function renderCatalogue(w){var m=WORLDS[w],list=byWorldDisc[w];
+  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub"><b style="color:var(--paper);font-weight:500">'+list.length+' certified crafts</b> — every skill in this world, each with the place where its community is most alive.</p></div>';
+  h+='<div class="gridwrap">'+list.map(function(o){return catCard(o,m.color);}).join("")+'</div>';
+  results.innerHTML=h;
+  document.getElementById("backcat").onclick=function(){renderRails();document.getElementById("studio").scrollIntoView({behavior:"smooth"});};
 }
 function enableDrag(rail){var down=false,sx=0,sl=0,mv=0;
   rail.addEventListener("pointerdown",function(e){down=true;mv=0;sx=e.clientX;sl=rail.scrollLeft;rail.classList.add("drag");try{rail.setPointerCapture(e.pointerId);}catch(_){}});
