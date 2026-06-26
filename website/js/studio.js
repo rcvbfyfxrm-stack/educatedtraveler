@@ -389,6 +389,22 @@
     if (p.linkLabel) head.appendChild(el("span", { class: "pill", style: "align-self:flex-start;", text: "→ " + p.linkLabel }));
     card.appendChild(head);
 
+    if (p.images && p.images.length) {
+      const ih = el("div", { style: "display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin:16px 0 8px; flex-wrap:wrap;" });
+      ih.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; color:var(--ember);", text: "Branded images · ET design" }));
+      ih.appendChild(el("button", { class: "btn-ghost", style: "padding:5px 11px; border-radius:8px; font-size:11px;", onclick: () => downloadImages(p) }, "Download all images"));
+      card.appendChild(ih);
+      if (p.imageNote) card.appendChild(el("p", { style: "font-size:12px; color:var(--faint); margin:0 0 10px; line-height:1.5;", text: p.imageNote }));
+      const strip = el("div", { style: "display:flex; gap:10px; overflow-x:auto; padding-bottom:6px;" });
+      p.images.forEach((src, i) => {
+        const cell = el("a", { href: src, download: imgName(p, i), title: "Download " + imgName(p, i), style: "flex:none; display:block; text-decoration:none;" });
+        cell.appendChild(el("img", { src: src, loading: "lazy", style: "display:block; height:150px; width:auto; border-radius:8px; border:1px solid var(--line);" }));
+        cell.appendChild(el("div", { class: "font-mono", style: "font-size:10px; color:var(--faint); text-align:center; margin-top:5px;", text: (i + 1) + " ↓" }));
+        strip.appendChild(cell);
+      });
+      card.appendChild(strip);
+    }
+
     if (p.slides && p.slides.length) {
       card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: "Carousel slides" }));
       const ol = el("ol", { style: "margin:0; padding-left:20px; font-size:13.5px; line-height:1.7;" });
@@ -419,6 +435,15 @@
     return card;
   }
 
+  function imgName(p, i) { return "et-" + (p.id || "x") + "-" + String(i + 1).padStart(2, "0") + ".png"; }
+  function downloadImages(p) {
+    (p.images || []).forEach((src, i) => {
+      const a = el("a", { href: src, download: imgName(p, i) });
+      document.body.appendChild(a); a.click(); a.remove();
+    });
+    toast("Saving " + (p.images || []).length + " images");
+  }
+
   function postCopyText(p) { return p.hashtags ? p.caption + "\n\n" + p.hashtags : p.caption; }
   function postFileName(p) { return "et-post-" + (p.id || "x") + ".txt"; }
   function postDownloadText(p) {
@@ -428,6 +453,7 @@
     lines.push(p.story ? "RESHARE / DM TEXT:" : "CAPTION:", p.caption, "");
     if (p.hashtags) lines.push(p.hashtags);
     if (p.strategy) lines.push("", "POSTING STRATEGY:", p.strategy);
+    if (p.images && p.images.length) lines.push("", "BRANDED IMAGES (ET design): " + p.images.length + " files at educatedtraveler.app" + p.images[0].replace(/[^/]+$/, "") + " — download from the Studio Posts tab.");
     if (p.link) lines.push("", "Link: " + p.link);
     return lines.join("\n");
   }

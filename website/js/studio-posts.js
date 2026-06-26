@@ -8,6 +8,12 @@ window.ET_POSTS = [
     id: "this-is-et", format: "Carousel · pinned launch post", core: "",
     title: "This is EducatedTraveler",
     link: "https://educatedtraveler.app/browse", linkLabel: "Open the Atlas",
+    images: [
+      "/images/posts/this-is-et/slide-01.png", "/images/posts/this-is-et/slide-02.png",
+      "/images/posts/this-is-et/slide-03.png", "/images/posts/this-is-et/slide-04.png",
+      "/images/posts/this-is-et/slide-05.png", "/images/posts/this-is-et/slide-06.png",
+    ],
+    imageNote: "Branded slides (1080×1350). One per carousel card, in order.",
     slides: [
       "There's a place where the thing you've always wanted to learn is still truly alive.",
       "Not a video. Not an app. A real bench, a real master, real people chasing the same fire.",
@@ -26,6 +32,12 @@ window.ET_POSTS = [
     id: "story-what-would-you-learn", format: "Instagram Story · 6 frames, interactive", core: "",
     title: "What would you learn? (Story)",
     link: "https://educatedtraveler.app/#circle", linkLabel: "Get the letter",
+    images: [
+      "/images/posts/story-learn/frame-01.png", "/images/posts/story-learn/frame-02.png",
+      "/images/posts/story-learn/frame-03.png", "/images/posts/story-learn/frame-04.png",
+      "/images/posts/story-learn/frame-05.png", "/images/posts/story-learn/frame-06.png",
+    ],
+    imageNote: "Branded story backgrounds (1080×1920). Post in order; add the real Question / Poll / Link stickers on top in-app where the cue points.",
     story: [
       "Frame 1 — warm-dark background, one line: \"Quick question.\" Hold ~2s.",
       "Frame 2 — \"If you could spend two weeks learning ONE thing — at the source, by hand — what would it be?\"  + QUESTION sticker labelled \"type it\". (This frame is the gold — it surfaces a real desire.)",
