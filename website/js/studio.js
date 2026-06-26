@@ -396,9 +396,20 @@
       card.appendChild(ol);
     }
 
-    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: "Caption (paste-ready)" }));
+    if (p.story && p.story.length) {
+      card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: "Story frames" }));
+      const ol = el("ol", { style: "margin:0; padding-left:20px; font-size:13.5px; line-height:1.7;" });
+      p.story.forEach((s) => ol.appendChild(el("li", { text: s })));
+      card.appendChild(ol);
+    }
+
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:14px 0 6px;", text: p.story ? "Reshare / DM text (paste-ready)" : "Caption (paste-ready)" }));
     card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(243,237,226,0.82); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: p.caption }));
     if (p.hashtags) card.appendChild(el("p", { class: "font-mono", style: "font-size:12px; color:var(--sea); margin:8px 0 0; word-break:break-word;", text: p.hashtags }));
+    if (p.strategy) {
+      card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:16px 0 6px; color:var(--ember);", text: "Posting strategy" }));
+      card.appendChild(el("p", { style: "font-size:12.5px; line-height:1.7; color:var(--muted); margin:0;", text: p.strategy }));
+    }
 
     const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;" });
     acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(postCopyText(p)) }, "Copy caption + tags"));
@@ -413,8 +424,10 @@
   function postDownloadText(p) {
     const lines = [p.title, p.format + (p.linkLabel ? "  ·  -> " + p.linkLabel : ""), ""];
     if (p.slides && p.slides.length) { lines.push("CAROUSEL SLIDES:"); p.slides.forEach((s, i) => lines.push("  " + (i + 1) + ". " + s)); lines.push(""); }
-    lines.push("CAPTION:", p.caption, "");
+    if (p.story && p.story.length) { lines.push("STORY FRAMES:"); p.story.forEach((s) => lines.push("  " + s)); lines.push(""); }
+    lines.push(p.story ? "RESHARE / DM TEXT:" : "CAPTION:", p.caption, "");
     if (p.hashtags) lines.push(p.hashtags);
+    if (p.strategy) lines.push("", "POSTING STRATEGY:", p.strategy);
     if (p.link) lines.push("", "Link: " + p.link);
     return lines.join("\n");
   }
