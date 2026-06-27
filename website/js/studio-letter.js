@@ -43,23 +43,23 @@ You're getting this because you're one of mine — family, or a friend I've talk
 
 So here's the thing I won't shut up about.
 
-You know what I do now — I cook on boats. But the first time anyone put a knife in my hand, I was the dishwasher. I'd left school at eighteen and was washing pots in a little Mexican kitchen in Darwin, Australia. One afternoon, after lunch service, they were short a pair of hands — the chef pulled me off the sink, slid a board in front of me, and told me to slice an onion. I'd never really done it before. I wasn't hopeless, but I was wide open to learning something new — and being shown, standing right next to someone who actually knew how, taught me more than any classroom ever could. Almost everything I can do, I picked up exactly like that. Never off a screen.
+I cook on boats now. But the first time anyone put a knife in my hand, I was the dishwasher in a little Mexican kitchen in Darwin. One afternoon, after lunch service, they were short a pair of hands — the chef pulled me off the sink, slid a board over and told me to slice an onion. I'd never done it. But being shown, right next to someone who knew how, taught me more than any classroom could. Almost everything I can do, I picked up like that. Never off a screen.
 
-EducatedTraveler is me trying to bottle that. Two things, really.
+EducatedTraveler is me trying to bottle that:
 
-A map of where those people still are — where a skill is genuinely alive and someone still teaches it by hand. Freediving, pottery, pastry, sailing, the morning breath on a mat. Not ranked by who pays me, but by how good the people are and how real the place is. Nothing on it I wouldn't send you to myself.
+A map of where a skill is still alive and someone teaches it by hand — freediving, pottery, pastry, sailing, the breath on a mat. Ranked by how good the people are, not who pays me. Nothing on it I wouldn't send you to myself.
 
-And this — a letter, every couple of weeks: one place, one skill, the people who keep it, and how to actually go. No selling. I just want to point you at the good stuff. Down the line, when I find a school worth it, I'll set up a proper class with them and you lot hear first.
+And a short letter every couple of weeks: one place, one skill, the people who keep it, and how to go. No selling — just pointing you at the good stuff. Down the line, when I find a school worth it, I'll set one up with them and you lot hear first.
 
-Funny part: building it, I've turned into the guy who could use an EducatedTraveler. I'm learning ten things I've never done and figuring half of it out as I go — so if it's a bit rough at the edges for a while, that's why. We're early, and you're early with me.
+Funny thing: building it, I've become the guy who could use an EducatedTraveler — learning ten things I've never done as I go. We're early, and you're early with me.
 
-One favour: if someone comes to mind who'd love this — the friend always picking up something new, the one who keeps saying "one day" — send them to educatedtraveler.app. A word from you is worth more than anything else right now.
+One favour: if someone comes to mind who'd love this, send them to educatedtraveler.app. A word from you is worth more than anything right now.
 
 Thank you for being here at the start. Truly.
 
 Bisous, les amis.
 — Arnaud`,
-      ps: "P.S. Me, right now? I want to go learn breathwork properly — maybe some massage too. What's yours: if you could disappear for two weeks and learn one thing by hand, what would it be? Hit reply and I'll point you somewhere. (And yeah, I'll hold you to it.)",
+      ps: "P.S. Me, right now? I want to learn breathwork — maybe massage too. What's yours: if you could disappear for two weeks and learn one thing by hand, what would it be? Hit reply.",
     },
     {
       id: "issue-02",
