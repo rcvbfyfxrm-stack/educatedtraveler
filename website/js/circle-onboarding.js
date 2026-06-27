@@ -5,12 +5,18 @@
    STRATEGY LOCK: no prices, no booking — we introduce.
    TRUST LOCK: every claim must be literally true of the data.
 
-   Flow: what pulls you (worlds, multi) → what are you after (motivation)
-   → how far → when → pick your skills (multi, up to 9) → keep them.
-   No global "level" (level is per-skill — refined later in the profile).
+   Flow: the TURN (which life-moment is yours — warm mirror, founder-truth,
+   NO fabricated science) → (intro = what ET is) → what pulls you (worlds,
+   multi) → where you're starting from (experience) → how far → when → pick
+   your skills (multi, up to 9) → keep them → the story + the Atlas.
+   The turn derives a hidden motivation bias for scoring (o.motiv).
+   Experience is a general starting-point signal (saved to the profile);
+   the fine-grained level stays per-skill, refined later in the profile.
    No "solo vs group" question (the Circle IS the people).
 
    INSTALL  <script defer src="/js/circle-onboarding.js"></script>
+   FIRST-THING  set window.ET_CIRCLE_AUTOOPEN = true before this loads to
+     auto-open once on first visit (e.g. the homepage). Gated by the cap.
    TRIGGERS  orb launcher · .join / a[href="/#circle"] · timed nudge ·
      window.ETCircle.open(world). Namespaced .etc-*. Fully reversible.
 ═══════════════════════════════════════════════════════════════════════ */
@@ -20,7 +26,8 @@
   var CONFIG={
     timedNudge:true, nudgeAfterMs:20000, nudgeAfterScrollPct:35,
     capKey:"et_circle_state", showPrices:false,
-    waitlistTable:"launch_waitlist", saveSource:"circle-onboarding"
+    waitlistTable:"launch_waitlist", saveSource:"circle-onboarding",
+    autoOpen:false, autoOpenDelayMs:1100, atlasUrl:"/browse", storyUrl:"/about"
   };
   var isMobile=matchMedia("(max-width:600px)").matches;
   function capState(){try{return JSON.parse(localStorage.getItem(CONFIG.capKey))||{};}catch(e){return{};}}
@@ -122,9 +129,22 @@
    worlds:{type:"multi",key:"worlds",hint:"Pick all that fit",say:"What pulls you?",reflect:"More than one is fine — most of us are a mix.",
     options:[{label:"The Wild",sub:"mountains, sea, open",em:"⛰",value:"wild"},{label:"Kitchen & Cellar",sub:"food, wine, ferment",em:"🍷",value:"kitchen"},{label:"Craft & Art",sub:"hands, material, making",em:"✦",value:"craft"},{label:"Movement",sub:"dance, rhythm, body",em:"♫",value:"movement"},{label:"Body & Spirit",sub:"yoga, breath, stillness",em:"☯",value:"body"}],
     afterMulti:function(v){return v.length===1?({wild:"The wild it is — every guide here is one we've vetted ourselves.",kitchen:"A person of the table. Every host here is a working maker.",craft:"The slow crafts. We look for a real teacher behind each one, never just a logo.",movement:"We'll point you to where the form is most alive.",body:"We check the teacher before we ever list a place."})[v[0]]:"A wide appetite — good. I'll pull the best from each.";}},
+   turn:{type:"single",key:"turn",say:"Most people arrive here at a <em>turn</em>. Which one is yours?",reflect:"No wrong answer — it just helps me understand you.",
+    options:[
+     {label:"I picked a path before I knew myself",sub:"chosen too early",em:"○",value:"lost",motiv:"change"},
+     {label:"I've taken all this one had to give",sub:"ready for the next thing",em:"◐",value:"spent",motiv:"deeper"},
+     {label:"I just want to learn something real",sub:"a new craft, by hand",em:"✦",value:"learn",motiv:"new"}
+    ],
+    after:{
+     lost:"Most of us did — you choose at eighteen, for reasons that were never really yours. Wanting out isn't failure; it's information. Let's find what you'd have chosen.",
+     spent:"That restlessness is a sign you're ready, not a flaw. The trick is to point it at something real — with your hands, at the source.",
+     learn:"The healthiest reason there is. A new skill doesn't just fill time; it reminds you that you're still becoming. Let's find one worth your hands."}},
    motivation:{type:"single",key:"motivation",say:"What are you really after?",reflect:"No wrong answer — it just helps me choose.",
     options:[{label:"A brand-new craft",sub:"start from zero",em:"○",value:"new"},{label:"Go deeper in one I love",sub:"real depth",em:"●",value:"deeper"},{label:"Find my people",sub:"a circle that gets it",em:"◇",value:"people"},{label:"A real change",sub:"a doorway out",em:"✦",value:"change"}],
     after:{new:"Then we'll start you somewhere a true beginner is welcome.",deeper:"Good — we'll point you at the places known for real depth.",people:"That's the whole idea — a place is only as good as its circle.",change:"Sometimes the craft is just the doorway. Let's find the place."}},
+   experience:{type:"single",key:"experience",say:"And where are you <em>starting from</em>?",reflect:"Be honest — no level is too low here. It just helps me pitch this right.",
+    options:[{label:"Total beginner",sub:"never really tried",em:"○",value:"beginner"},{label:"I've dabbled",sub:"a little under my belt",em:"◐",value:"some"},{label:"Real grounding",sub:"years in something",em:"●",value:"seasoned"}],
+    after:{beginner:"Perfect — the best teachers love a true beginner, and we only list places that welcome one.",some:"Good base. We'll aim you where you actually level up — not start over.",seasoned:"Then we'll point you at the masters worth a seasoned hand's time."}},
    reach:{type:"single",key:"reach",say:"How far would you go?",reflect:"Mastery rarely needs a passport — but sometimes it's worth one.",options:[{label:"Close to home",sub:"my region",em:"⌂",value:"region"},{label:"Anywhere in Europe",sub:"a short hop",em:"✈",value:"europe"},{label:"Anywhere on earth",sub:"to the source",em:"⊕",value:"world"}],after:{region:"Beautiful — I'll lean toward the closest strong place for each.",europe:"Plenty within reach.",world:"Then I'll point you straight at the source."}},
    timing:{type:"single",key:"timing",say:"And when does this happen?",reflect:"Last one — then your skills.",options:[{label:"Soon, I'm itching",sub:"next 3 months",em:"▲",value:"soon"},{label:"This year",sub:"no rush",em:"◆",value:"year"},{label:"Just dreaming",sub:"for now",em:"☁",value:"dreaming"}],after:{soon:"Then let's not waste a day.",year:"The best immersions are worth planning toward.",dreaming:"Dreaming is how every trip starts."}},
    shelf:{type:"shelf",say:"Then <em>these</em> are yours.",reflect:"Tap every skill you'd love to learn — pick as many as call you."},
@@ -134,13 +154,13 @@
     var intro,qs;
     if(seed&&WORLD_LABEL[seed]){
       profile.worlds=[seed];
-      intro={type:"cta",say:"Lovely choice. Want me to find <em>more like that</em> — the ones that truly fit you?",reflect:"Three taps, about a minute.",cta:"Yes, show me →"};
-      qs=[Q.motivation,Q.reach,Q.timing];
+      intro={type:"cta",say:"That's exactly what this is for. EducatedTraveler isn't a shop — it's a <em>bridge</em>: to a real skill, the master who teaches it, and the people learning beside you.",reflect:"A few taps about you, then the crafts that are yours. About a minute.",cta:"Show me →"};
+      qs=[Q.experience,Q.reach,Q.timing];
     }else{
-      intro={type:"cta",say:"There are <em>"+CRAFTS.length+" crafts</em> in this atlas. A few taps and I'll lay out the ones that are yours.",reflect:"About a minute. Ready?",cta:"Go on →"};
-      qs=[Q.worlds,Q.motivation,Q.reach,Q.timing];
+      intro={type:"cta",say:"That's exactly what this is for. EducatedTraveler isn't a shop — it's a <em>bridge</em>: to a real skill, the master who teaches it, and the people learning beside you.",reflect:"Tell me a little more and I'll lay out the crafts that are yours — from "+CRAFTS.length+" we've vetted by hand. About a minute.",cta:"Show me →"};
+      qs=[Q.worlds,Q.experience,Q.reach,Q.timing];
     }
-    var flow=[intro].concat(qs,[Q.shelf,Q.acct]);
+    var flow=[Q.turn,intro].concat(qs,[Q.shelf,Q.acct]);
     var qn=0;flow.forEach(function(s){if(s.type==="single"||s.type==="multi")s.progress=++qn;});
     TOTAL=qn;Q.shelf.progress=qn;
     return flow;
@@ -148,6 +168,7 @@
 
   /* ── styles (namespaced) ── */
   var CSS=
+  ".etc-scrim,.etc-scrim *,.etc-launcher,.etc-launcher *{box-sizing:border-box}"+
   ".etc-launcher{position:fixed;bottom:24px;right:24px;z-index:9000;display:flex;align-items:center;cursor:pointer;font-family:Inter,system-ui,sans-serif}"+
   ".etc-launcher:focus-visible{outline:2px solid #7fa8a5;outline-offset:4px;border-radius:99px}"+
   ".etc-lorb{width:58px;height:58px;border-radius:50%;position:relative;flex:0 0 auto;background:radial-gradient(circle at 50% 38%,rgba(127,168,165,.65),rgba(210,138,82,.3) 70%,rgba(20,17,13,.9) 73%);box-shadow:0 8px 30px rgba(0,0,0,.5);animation:etc-breathe 4.5s ease-in-out infinite;transition:transform .3s}"+
@@ -162,7 +183,7 @@
   "@keyframes etc-halo{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.5);opacity:0}}"+
   ".etc-scrim{position:fixed;inset:0;z-index:9001;background:rgba(8,7,5,.74);backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .5s;font-family:Inter,system-ui,sans-serif}"+
   ".etc-scrim.etc-on{opacity:1;pointer-events:auto}"+
-  ".etc-panel{width:min(94vw,480px);max-height:92vh;overflow-y:auto;background:linear-gradient(180deg,#14110d,#0d0b09);border:1px solid rgba(243,237,226,.09);border-radius:24px;box-shadow:0 40px 100px rgba(0,0,0,.6);transform:translateY(22px) scale(.98);transition:transform .5s cubic-bezier(.2,.8,.2,1);color:#f3ede2;font-weight:300;line-height:1.6}"+
+  ".etc-panel{width:min(94vw,480px);max-height:92vh;overflow-y:auto;overflow-x:hidden;background:linear-gradient(180deg,#14110d,#0d0b09);border:1px solid rgba(243,237,226,.09);border-radius:24px;box-shadow:0 40px 100px rgba(0,0,0,.6);transform:translateY(22px) scale(.98);transition:transform .5s cubic-bezier(.2,.8,.2,1);color:#f3ede2;font-weight:300;line-height:1.6}"+
   ".etc-panel:focus{outline:none}"+
   ".etc-scrim.etc-on .etc-panel{transform:none}"+
   ".etc-head{display:flex;align-items:center;gap:13px;padding:20px 22px 0;position:sticky;top:0;background:linear-gradient(180deg,#14110d 70%,transparent);z-index:2}"+
@@ -170,10 +191,10 @@
   ".etc-skip{margin-left:auto;font-size:12px;color:rgba(243,237,226,.34);background:none;border:none;cursor:pointer}.etc-skip:hover{color:rgba(243,237,226,.56)}"+
   ".etc-ring{position:relative;width:40px;height:40px;flex:0 0 auto}.etc-ring svg{transform:rotate(-90deg)}.etc-ring .etc-pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:9px;color:#7fa8a5}"+
   ".etc-stage{padding:8px 22px 0;text-align:center}"+
-  ".etc-orb{width:84px;height:84px;margin:10px auto 6px;border-radius:50%;position:relative;background:radial-gradient(circle at 50% 38%,rgba(127,168,165,.5),rgba(210,138,82,.2) 70%,transparent 72%);animation:etc-breathe 4.5s ease-in-out infinite}"+
+  ".etc-orb{width:84px;height:84px;margin:10px auto 6px;border-radius:50%;position:relative;background:radial-gradient(circle at 50% 34%,rgba(190,224,220,.98),rgba(127,168,165,.82) 44%,rgba(210,138,82,.5) 72%,transparent 78%);box-shadow:0 0 42px rgba(127,168,165,.34),0 0 14px rgba(210,138,82,.18);animation:etc-breathe 4.5s ease-in-out infinite}"+
   ".etc-orb::after{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid rgba(127,168,165,.4);animation:etc-halo 4.5s ease-in-out infinite}.etc-orb.etc-think{animation:etc-breathe 1.1s ease-in-out infinite}"+
-  ".etc-say{min-height:54px;font-family:Fraunces,Georgia,serif;font-weight:300;font-size:clamp(19px,4.6vw,23px);line-height:1.3;margin:6px 0 4px;transition:opacity .35s}.etc-say em{font-style:italic;color:#7fa8a5}.etc-fade{opacity:0}"+
-  ".etc-reflect{font-size:13.5px;color:rgba(243,237,226,.56);min-height:20px;margin-bottom:6px;transition:opacity .35s}"+
+  ".etc-say{min-height:54px;font-family:Fraunces,Georgia,serif;font-weight:300;font-size:clamp(19px,4.4vw,23px);line-height:1.3;margin:6px 0 4px;transition:opacity .35s;overflow-wrap:break-word;max-width:100%}.etc-say em{font-style:italic;color:#7fa8a5}.etc-fade{opacity:0}"+
+  ".etc-reflect{font-size:13.5px;color:rgba(243,237,226,.56);min-height:20px;margin-bottom:6px;transition:opacity .35s;overflow-wrap:break-word;max-width:100%}"+
   ".etc-hint{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,237,226,.34);margin-bottom:2px}"+
   ".etc-answers{padding:12px 22px 6px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}"+
   ".etc-opt{font-size:14px;padding:10px 15px;border-radius:99px;border:1px solid rgba(243,237,226,.09);color:#f3ede2;background:rgba(243,237,226,.03);transition:all .2s;display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-family:inherit}"+
@@ -202,6 +223,7 @@
   ".etc-built{font-size:12px;color:rgba(243,237,226,.56);text-align:center;margin-bottom:12px;line-height:1.7}.etc-built b{color:#7fa8a5;font-weight:500}"+
   ".etc-chosen{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:14px}.etc-pill{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#f3ede2;border:1px solid rgba(127,168,165,.4);background:rgba(127,168,165,.1);border-radius:99px;padding:5px 11px}"+
   ".etc-done{text-align:center;padding:30px 26px 40px}.etc-done .etc-orb{margin-bottom:14px}.etc-done h2{font-family:Fraunces,Georgia,serif;font-weight:300;font-size:26px;margin-bottom:10px}.etc-done p{color:rgba(243,237,226,.56);font-size:14px;max-width:36ch;margin:0 auto 18px}.etc-recap{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(243,237,226,.34);margin:0 auto 18px;max-width:32ch;line-height:1.9}"+
+  ".etc-story{display:inline-block;margin-top:16px;font-size:12.5px;color:rgba(243,237,226,.56);text-decoration:underline;text-underline-offset:3px;transition:color .2s}.etc-story:hover{color:#7fa8a5}.etc-story:focus-visible{outline:2px solid #7fa8a5;outline-offset:2px}"+
   "@media(max-width:600px){.etc-panel{width:100vw;max-height:100vh;height:100vh;border-radius:0}.etc-scrim{padding:0}}"+
   "@media(prefers-reduced-motion:reduce){.etc-lorb,.etc-lorb::after,.etc-orb,.etc-orb::after,.etc-card,.etc-launcher.etc-nudge .etc-lorb{animation:none!important}.etc-scrim,.etc-panel,.etc-say,.etc-reflect,.etc-opt,.etc-cta,.etc-lorb{transition:none!important}}";
 
@@ -253,11 +275,11 @@
       if(s.type==="multi"){els.bar.style.display="flex";els.bar.innerHTML='<button class="etc-cta etc-dim etc-cont" type="button">Continue</button>';els.bar.querySelector(".etc-cont").onclick=function(){if(multiSel.length)confirmMulti(s);};}
     },360);
   }
-  function chooseSingle(s,o){profile[s.key]=o.value;tint(s,o.value);els.ans.innerHTML="";reflectAfter(s.after&&s.after[o.value],next);}
+  function chooseSingle(s,o){profile[s.key]=o.value;if(o.motiv)profile.motivation=o.motiv;tint(s,o.value);els.ans.innerHTML="";reflectAfter(s.after&&s.after[o.value],next);}
   function toggleMulti(s,o,b){var x=multiSel.indexOf(o.value);if(x>=0){multiSel.splice(x,1);b.classList.remove("etc-sel");b.setAttribute("aria-pressed","false");}else{multiSel.push(o.value);b.classList.add("etc-sel");b.setAttribute("aria-pressed","true");}if(s.key==="worlds"&&multiSel.length)tint(s,multiSel[0]);els.bar.querySelector(".etc-cont").classList.toggle("etc-dim",multiSel.length===0);}
   function confirmMulti(s){profile[s.key]=multiSel.slice();els.ans.innerHTML="";els.bar.style.display="none";reflectAfter(s.afterMulti?s.afterMulti(multiSel):null,next);}
   function reflectAfter(txt,done){if(!txt){think(600,done);return;}els.reflect.classList.add("etc-fade");setTimeout(function(){els.reflect.innerHTML='<span style="color:#7fa8a5">'+esc(txt)+'</span>';els.reflect.classList.remove("etc-fade");think(950,done);},300);}
-  function tint(s,v){var c=(s.key==="worlds")?WORLD_COLOR[v]:null;if(c)els.orb.style.background="radial-gradient(circle at 50% 38%,"+hexA(c,.55)+",rgba(210,138,82,.18) 70%,transparent 72%)";}
+  function tint(s,v){var c=(s.key==="worlds")?WORLD_COLOR[v]:null;if(c)els.orb.style.background="radial-gradient(circle at 50% 34%,"+hexA(c,.98)+","+hexA(c,.62)+" 46%,rgba(210,138,82,.42) 72%,transparent 78%)";}
   function next(){i++;if(i<flow.length)render();}
 
   function renderShelf(){
@@ -300,12 +322,12 @@
     };
   }
   function byId(id){return CRAFTS.filter(function(x){return x.id===id;})[0];}
-  function recap(){var w=(profile.worlds||[]).map(function(x){return WORLD_LABEL[x];}).join(", ");return'Saved: <b>'+esc(w)+'</b><br>'+({new:"after a new craft",deeper:"going deeper",people:"here for the people",change:"after a change"}[profile.motivation]||"")+' · '+({region:"close to home",europe:"open to Europe",world:"goes anywhere"}[profile.reach]||"")+' · '+({soon:"ready soon",year:"this year",dreaming:"dreaming"}[profile.timing]||"");}
+  function recap(){var w=(profile.worlds||[]).map(function(x){return WORLD_LABEL[x];}).join(", ");var parts=[({lost:"ready for a change",spent:"outgrew the last thing",learn:"here to learn"}[profile.turn]||{new:"after a new craft",deeper:"going deeper",people:"here for the people",change:"after a change"}[profile.motivation]||""),({beginner:"starting fresh",some:"some grounding",seasoned:"seasoned hand"}[profile.experience]||""),({region:"close to home",europe:"open to Europe",world:"goes anywhere"}[profile.reach]||""),({soon:"ready soon",year:"this year",dreaming:"dreaming"}[profile.timing]||"")].filter(Boolean);return'Saved: <b>'+esc(w)+'</b><br>'+parts.join(' · ');}
 
   /* ── persist (reuses launch_waitlist) ── */
   function buildInterests(){
     var crafts=chosen.map(function(id){var c=byId(id);if(!c)return null;var place=(c._dest&&c._dest.place)||(c.dests&&c.dests[0]&&c.dests[0].place)||null;return{kind:"discipline",discipline:c.discipline||c.craft,place:place,label:c.craft};}).filter(Boolean);
-    var pref={kind:"profile",worlds:profile.worlds||[],motivation:profile.motivation||null,reach:profile.reach||null,timing:profile.timing||null,name:profile.fname||null};
+    var pref={kind:"profile",turn:profile.turn||null,worlds:profile.worlds||[],motivation:profile.motivation||null,experience:profile.experience||null,reach:profile.reach||null,timing:profile.timing||null,name:profile.fname||null};
     return[pref].concat(crafts);
   }
   function saveProfile(){
@@ -321,8 +343,8 @@
   function renderDone(saved){
     setCap({completed:true});
     var line=saved===false?"We couldn't reach the server just now — your picks are noted on this device. Try again and we'll keep them properly.":"Your skills are saved. We'll only ever write when there's a real master worth your time.";
-    els.panel.innerHTML='<div class="etc-done"><div class="etc-orb" aria-hidden="true"></div><h2>Welcome to the Circle, '+esc(profile.fname)+'.</h2><p>'+esc(line)+'</p><div class="etc-recap">'+recap().replace(/<b>|<\/b>/g,"")+'</div><button class="etc-cta etc-explore" type="button">Explore the Atlas →</button></div>';
-    els.panel.querySelector(".etc-explore").onclick=close;
+    els.panel.innerHTML='<div class="etc-done"><div class="etc-orb" aria-hidden="true"></div><h2>Welcome to the Circle, '+esc(profile.fname)+'.</h2><p>'+esc(line)+'</p><div class="etc-recap">'+recap().replace(/<b>|<\/b>/g,"")+'</div><button class="etc-cta etc-explore" type="button">See your Atlas →</button><a class="etc-story" href="'+CONFIG.storyUrl+'">First, the story of why I built this →</a></div>';
+    els.panel.querySelector(".etc-explore").onclick=goAtlas;
     setTimeout(function(){var e=els.panel.querySelector(".etc-explore");if(e)e.focus();},30);
     console.log("[Circle] profile →",JSON.parse(JSON.stringify(profile)),"saved:",saved);
   }
@@ -346,6 +368,8 @@
     document.removeEventListener("keydown",onKey);
     try{(lastFocus&&lastFocus.focus)?lastFocus.focus():els.launcher.focus();}catch(e){}
   }
+  // The Atlas IS the destination — already there → reveal it; elsewhere → go to it.
+  function goAtlas(){var p=location.pathname||"";if(/\/browse|browse\.html/.test(p)){close();}else{try{location.href=CONFIG.atlasUrl;}catch(e){close();}}}
 
   /* ── wire triggers + nudge ── */
   function ready(fn){if(document.readyState!=="loading")fn();else document.addEventListener("DOMContentLoaded",fn);}
@@ -354,6 +378,13 @@
     document.querySelectorAll('.join,a[href="/#circle"],a[href="#circle"],[data-circle]').forEach(function(el){
       el.addEventListener("click",function(e){var seed=el.getAttribute("data-circle-world");e.preventDefault();open(seed||null);});
     });
+    // First-thing: auto-open once on a welcome page (set window.ET_CIRCLE_AUTOOPEN).
+    if(CONFIG.autoOpen||window.ET_CIRCLE_AUTOOPEN){
+      var sa=capState();
+      if(!(sa.completed||sa.dismissed)){
+        setTimeout(function(){if(!els.scrim.classList.contains("etc-on"))open(null);},CONFIG.autoOpenDelayMs);
+      }
+    }
     if(CONFIG.timedNudge&&!isMobile){
       var st=capState();
       if(!(st.completed||st.dismissed||st.nudged)){

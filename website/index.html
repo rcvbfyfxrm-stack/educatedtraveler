@@ -466,6 +466,15 @@
     <!-- Supabase: the Circle writes to launch_waitlist (audience we own, not a sales list) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
+
+    <!-- The Circle — conversational onboarding, OPENS FIRST on arrival.
+         Explains what ET is while learning who you are (interests · experience ·
+         the skills you'd love to learn), saves you to the Circle, then sends you
+         into the Atlas. Real Atlas data via repertoire.js. Gated to open once. -->
+    <script>window.ET_CIRCLE_AUTOOPEN = true;</script>
+    <script src="/js/repertoire.js"></script>
+    <script defer src="/js/circle-onboarding.js"></script>
+
     <script>
         (function() {
             'use strict';
