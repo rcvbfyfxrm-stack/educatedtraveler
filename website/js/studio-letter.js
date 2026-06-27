@@ -31,38 +31,34 @@ window.ET_LETTER = {
   issues: [
     {
       id: "issue-01",
-      title: "Issue 01 — To the first few (send this first)",
-      kind: "Inaugural · founding circle · thank-you + the vision",
+      title: "Issue 01 — To my first few (send this first)",
+      kind: "Inaugural · the friends who got me started · thank-you + the vision + a share ask",
       portrait: "/images/arnaud-portrait.jpg",
-      subject: "You were here first",
-      preview: "A thank-you to the first few — and what EducatedTraveler is going to be.",
+      subject: "Thanks for humouring me",
+      preview: "A proper thank-you — and where I want to take EducatedTraveler.",
       body:
-`Hello —
+`Hey —
 
-I'm Arnaud, and I want to start with a thank-you.
+Let's be honest: most of you are on this list because I asked you to be. I cornered you over dinner, or sent you the link, or wouldn't shut up about it until you signed up. So first — thank you for humouring me. It means more than you'd think.
 
-You found EducatedTraveler before it was really anything — before there was much to see — and you put your name down anyway. That makes you one of the first, and I don't take it lightly. The first handful of people are the ones who decide whether a thing like this becomes real. So, genuinely: thank you for being part of the beginning.
+Here's why I keep going on about it.
 
-Let me tell you what you're early to.
+I'm a chef. I left school at eighteen and learned almost everything worth knowing from people who were good at something real and willing to show me — at the stove, on the water, on the line. Never from a screen. EducatedTraveler is the thing I wish I'd had back then, and here's where I want to take it:
 
-I'm a chef. I left school at eighteen and learned almost everything I know from people who were good at something real and willing to show me — at the stove, on the water, on the line. Never from a screen. EducatedTraveler is the thing I wish I'd had then.
+A map of skills you can learn, anywhere in the world. Where a craft is still genuinely alive — freediving, pottery, pastry, sailing, the morning breath on a mat — and who still teaches it by hand, at the source. Ranked by the people who gather there, not by who pays. Nothing on it I wouldn't send you to myself.
 
-Here's what it's going to be:
+A circle — this. Every couple of weeks I'll write you one place, one skill, the people who keep it, and the way in. No selling, ever — I just want to point you at the good stuff.
 
-A map of skills you can learn, anywhere in the world. Where a craft is still genuinely alive — freediving, pottery, pastry, sailing, the morning breath on a mat — and who still teaches it by hand, at the source. Ranked by the strength of the people who gather there, not by who pays. Nothing on it I wouldn't send a friend to.
+And down the line, when I find a school worth it, I want to set up proper classes with them — taught at the source, by people who live it — and you lot get first dibs.
 
-A circle — this. The people, like you, chasing something real. Every couple of weeks I'll write you one place, one skill, the people who keep it, and the way in. No selling, ever. We don't sell the journey; we introduce you to it.
+That's the dream: a place, a person, your people. Skills learned by hand, where they're alive — because that kind of learning doesn't just sit on your CV. It changes you a little.
 
-And now and then, a door. When I find a school worth it, I'll set up a proper class with them — taught at the source, by the people who live it — and you, the founding circle, hear about it first.
+So here's the one thing I'll ask of you: if you know someone who'd love this — the friend who keeps saying "one day", the one always picking up something new — send them to educatedtraveler.app. Early word from people I trust is worth more than anything else right now.
 
-That's the whole idea: a place, a person, your people. Skills, learned by hand, where they're alive — because a skill learned that way doesn't just sit on your CV. It remakes you a little.
-
-Because you're here at the start, you get to shape it. Reply to these letters — tell me what you'd love to learn, what's missing from the map, which teacher I should know. Right now, with so few of us, your voice actually moves it.
-
-Glad you're here. Let's build something worth being early to.
+Thank you for being in from the start. Genuinely.
 
 — Arnaud`,
-      ps: "P.S. To get us going: if you could spend two weeks learning one skill, at the source, by hand — what would it be? Hit reply, I read every one. And if someone you love would belong here, send them to educatedtraveler.app.",
+      ps: "P.S. Hit reply and tell me — if you could spend two weeks learning one skill, at the source, by hand, what would it be? I want to know what to build toward. (And yes, I'll hold you to it.)",
     },
     {
       id: "issue-02",
