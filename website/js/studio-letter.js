@@ -31,37 +31,38 @@ window.ET_LETTER = {
   issues: [
     {
       id: "issue-01",
-      title: "Issue 01 — Why we drew a map instead of a shop",
-      kind: "Inaugural · philosophy + science",
-      subject: "Why we drew a map instead of a shop",
-      preview: "The case for learning with your hands, at the source — and the science that says it remakes you.",
+      title: "Issue 01 — To the first few (send this first)",
+      kind: "Inaugural · founding circle · thank-you + the vision",
+      portrait: "/images/arnaud-portrait.jpg",
+      subject: "You were here first",
+      preview: "A thank-you to the first few — and what EducatedTraveler is going to be.",
       body:
 `Hello —
 
-I'm Arnaud. I left school at eighteen and went looking for the world instead. Almost everything I know that's worth anything, I learned from someone who was good at something real and willing to show me — at the stove, on the water, on the line. Never from a screen.
+I'm Arnaud, and I want to start with a thank-you.
 
-EducatedTraveler is the thing I wish I'd had then: a map of where a craft is still genuinely alive, and a circle that introduces you to the people keeping it warm. We don't sell trips. We point, and we introduce. That's the whole job.
+You found EducatedTraveler before it was really anything — before there was much to see — and you put your name down anyway. That makes you one of the first, and I don't take it lightly. The first handful of people are the ones who decide whether a thing like this becomes real. So, genuinely: thank you for being part of the beginning.
 
-Here's the quiet belief underneath it — and the reason this letter exists.
+Let me tell you what you're early to.
 
-A skill learned by hand doesn't just sit on your CV. It remakes who you are. That isn't a slogan; the research is unusually clear about it:
+I'm a chef. I left school at eighteen and learned almost everything I know from people who were good at something real and willing to show me — at the stove, on the water, on the line. Never from a screen. EducatedTraveler is the thing I wish I'd had then.
 
-— When adults learn a demanding physical skill, the brain physically rebuilds to fit it. Volunteers who learned to juggle over three months grew measurable grey matter in the brain's motion areas — and it faded when they stopped (Draganski et al., Nature, 2004). The brain builds what you practice.
+Here's what it's going to be:
 
-— The biggest accelerator of skill isn't talent or hours alone — it's tight feedback from someone who already has it. Decades of work on expert performance keep landing on the same place: a teacher beside you, correcting you in the moment, beats any amount of watching. A master isn't a luxury. Mechanically, they're the shortcut.
+A map of skills you can learn, anywhere in the world. Where a craft is still genuinely alive — freediving, pottery, pastry, sailing, the morning breath on a mat — and who still teaches it by hand, at the source. Ranked by the strength of the people who gather there, not by who pays. Nothing on it I wouldn't send a friend to.
 
-— And the most absorbing hours of a life — the ones people name when asked when they felt most alive — tend to come not from rest but from full immersion at the edge of their ability (Csikszentmihalyi's work on flow). Difficulty, in good company, is where the good stuff is.
+A circle — this. The people, like you, chasing something real. Every couple of weeks I'll write you one place, one skill, the people who keep it, and the way in. No selling, ever. We don't sell the journey; we introduce you to it.
 
-Put those together and you have the case for going to the source: your brain remakes itself around what you do, it does it fastest with a master's hand on yours, and the doing is where meaning hides. A screen can show you the thing. It can't put the clay under your nails.
+And now and then, a door. When I find a school worth it, I'll set up a proper class with them — taught at the source, by the people who live it — and you, the founding circle, hear about it first.
 
-So this letter, every couple of weeks, will do one simple thing: take you to one place where a craft is truly alive, introduce you to the people who keep it, tell you why that particular skill is worth your hands and your time — and show you the door.
+That's the whole idea: a place, a person, your people. Skills, learned by hand, where they're alive — because a skill learned that way doesn't just sit on your CV. It remakes you a little.
 
-No selling. Just a door, and an introduction.
+Because you're here at the start, you get to shape it. Reply to these letters — tell me what you'd love to learn, what's missing from the map, which teacher I should know. Right now, with so few of us, your voice actually moves it.
 
-If that's your kind of thing, you're in the right circle.
+Glad you're here. Let's build something worth being early to.
 
 — Arnaud`,
-      ps: "P.S. Tell me one thing: if you could spend two weeks learning one skill, at the source, by hand — what would it be? Hit reply; I read every one. And if someone you love would like this letter, send them to educatedtraveler.app — the door's open.",
+      ps: "P.S. To get us going: if you could spend two weeks learning one skill, at the source, by hand — what would it be? Hit reply, I read every one. And if someone you love would belong here, send them to educatedtraveler.app.",
     },
     {
       id: "issue-02",
@@ -96,7 +97,7 @@ educatedtraveler.app/atlas/freediving--dahab-red-sea
     "One idea, one place, one link. Cut anything that isn't pulling its weight.",
     "Every named school/master verified from the Atlas — nothing invented.",
     "Ends with one reply-question + one forward/referral line.",
-    "Plain and personal — reads like a letter, not a brochure. No images required.",
+    "Plain and personal — reads like a letter, not a brochure. One photo at most.",
     "Test-send to yourself; read it on a phone; then schedule.",
   ],
 };

@@ -240,7 +240,10 @@
   }
 
   function letterFullText(it) {
-    return ["SUBJECT: " + it.subject, "PREVIEW: " + it.preview, "", it.body, "", it.ps || ""].join("\n").trim();
+    const lines = ["SUBJECT: " + it.subject, "PREVIEW: " + it.preview, ""];
+    if (it.portrait) lines.push("[Header image — your black-and-white portrait at the very top: educatedtraveler.app" + it.portrait + "]", "");
+    lines.push(it.body, "", it.ps || "");
+    return lines.join("\n").trim();
   }
 
   // ---- week drafter: turn a Daily Drop place into a Letter draft + week of posts ----
@@ -321,6 +324,12 @@
     const card = el("div", { class: "panel", style: "padding:18px 20px; margin-bottom:14px;" });
     card.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--faint); margin-bottom:4px;", text: it.kind || "" }));
     card.appendChild(el("div", { class: "font-serif", style: "font-size:19px; margin-bottom:10px;", text: it.title }));
+    if (it.portrait) {
+      const fig = el("div", { style: "margin:0 0 12px;" });
+      fig.appendChild(el("img", { src: it.portrait, loading: "lazy", style: "display:block; width:170px; max-width:48%; height:auto; border-radius:10px; border:1px solid var(--line); filter:grayscale(1);" }));
+      fig.appendChild(el("div", { class: "font-mono", style: "font-size:10.5px; color:var(--faint); margin-top:5px;", text: "Header image — place this at the top of the email." }));
+      card.appendChild(fig);
+    }
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 4px;", text: "Subject line" }));
     card.appendChild(el("div", { style: "font-size:14px; color:var(--paper); margin-bottom:8px;", text: it.subject }));
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 4px;", text: "Preview text" }));
