@@ -43,7 +43,7 @@ You're getting this because you're one of mine — family, or a friend I've talk
 
 So here's the thing I won't shut up about.
 
-You know what I do — I cook on boats. Almost everything I'm any good at I didn't get from a classroom; I left school at eighteen and picked it up standing next to people who actually knew their craft and were happy to show me. None of it off a screen.
+You know what I do now — I cook on boats. But the first time anyone put a knife in my hand, I was the dishwasher. I'd left school at eighteen and was washing pots in a little Mexican kitchen in Darwin, Australia, when one night they were short a pair of hands. The chef pulled me off the sink, slid a board in front of me, and told me to slice an onion. I'd never done it — I was hopeless. But being shown, standing right next to someone who actually knew how, I learned more in one service than any classroom ever gave me. Almost everything I can do, I picked up exactly like that. Never off a screen.
 
 EducatedTraveler is me trying to bottle that. Two things, really.
 
@@ -57,8 +57,9 @@ One favour: if someone comes to mind who'd love this — the friend always picki
 
 Thank you for being here at the start. Truly.
 
+Bisous, les amis.
 — Arnaud`,
-      ps: "P.S. Tell me — if you could disappear for two weeks and learn one thing properly, by hand, what would it be? Reply and I'll point you somewhere. (And yeah, I'll hold you to it.)",
+      ps: "P.S. Me, right now? I want to go learn breathwork properly — maybe some massage too. What's yours: if you could disappear for two weeks and learn one thing by hand, what would it be? Hit reply and I'll point you somewhere. (And yeah, I'll hold you to it.)",
     },
     {
       id: "issue-02",
