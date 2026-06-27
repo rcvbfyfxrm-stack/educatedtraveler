@@ -43,7 +43,7 @@ You're getting this because you're one of mine — family, or a friend I've talk
 
 So here's the thing I won't shut up about.
 
-You know what I do now — I cook on boats. But the first time anyone put a knife in my hand, I was the dishwasher. I'd left school at eighteen and was washing pots in a little Mexican kitchen in Darwin, Australia, when one night they were short a pair of hands. The chef pulled me off the sink, slid a board in front of me, and told me to slice an onion. I'd never done it — I was hopeless. But being shown, standing right next to someone who actually knew how, I learned more in one service than any classroom ever gave me. Almost everything I can do, I picked up exactly like that. Never off a screen.
+You know what I do now — I cook on boats. But the first time anyone put a knife in my hand, I was the dishwasher. I'd left school at eighteen and was washing pots in a little Mexican kitchen in Darwin, Australia. One afternoon, after lunch service, they were short a pair of hands — the chef pulled me off the sink, slid a board in front of me, and told me to slice an onion. I'd never really done it before. I wasn't hopeless, but I was wide open to learning something new — and being shown, standing right next to someone who actually knew how, taught me more than any classroom ever could. Almost everything I can do, I picked up exactly like that. Never off a screen.
 
 EducatedTraveler is me trying to bottle that. Two things, really.
 
