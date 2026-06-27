@@ -35,30 +35,30 @@ window.ET_LETTER = {
       kind: "Inaugural · the friends who got me started · thank-you + the vision + a share ask",
       portrait: "/images/arnaud-portrait.jpg",
       subject: "Thank you for helping me build this",
-      preview: "A proper thank-you — and where I want to take EducatedTraveler.",
+      preview: "What I keep going on about — and one small favour to ask.",
       body:
-`Hey —
+`Hey you —
 
-Let's be honest: most of you are on this list because I asked you to be. I cornered you over dinner, or sent you the link, or wouldn't shut up about it until you signed up. So first — thank you for helping me with this. It means more than you'd think.
+You're getting this because you're one of mine — family, or a friend I've talked half to death about this idea. Some of you signed up just to get me to stop going on about it. Either way: thank you. I mean it.
 
-Here's why I keep going on about it.
+So here's the thing I won't shut up about.
 
-I'm a chef. I left school at eighteen and learned almost everything worth knowing from people who were good at something real and willing to show me — at the stove, on the water, on the line. Never from a screen. EducatedTraveler is the thing I wish I'd had back then, and here's where I want to take it:
+You know what I do — I cook on boats. Almost everything I'm any good at I didn't get from a classroom; I left school at eighteen and picked it up standing next to people who actually knew their craft and were happy to show me. None of it off a screen.
 
-A map of skills you can learn, anywhere in the world. Where a craft is still genuinely alive — freediving, pottery, pastry, sailing, the morning breath on a mat — and who still teaches it by hand, at the source. Ranked by the people who gather there, not by who pays. Nothing on it I wouldn't send you to myself.
+EducatedTraveler is me trying to bottle that. Two things, really.
 
-A circle — this. Every couple of weeks I'll write you one place, one skill, the people who keep it, and the way in. No selling, ever — I just want to point you at the good stuff.
+A map of where those people still are — where a skill is genuinely alive and someone still teaches it by hand. Freediving, pottery, pastry, sailing, the morning breath on a mat. Not ranked by who pays me, but by how good the people are and how real the place is. Nothing on it I wouldn't send you to myself.
 
-And down the line, when I find a school worth it, I want to set up proper classes with them — taught at the source, by people who live it — and you lot get first dibs.
+And this — a letter, every couple of weeks: one place, one skill, the people who keep it, and how to actually go. No selling. I just want to point you at the good stuff. Down the line, when I find a school worth it, I'll set up a proper class with them and you lot hear first.
 
-That's the dream: a place, a person, your people. Skills learned by hand, where they're alive — because that kind of learning doesn't just sit on your CV. It changes you a little.
+Funny part: building it, I've turned into the guy who could use an EducatedTraveler. I'm learning ten things I've never done and figuring half of it out as I go — so if it's a bit rough at the edges for a while, that's why. We're early, and you're early with me.
 
-So here's the one thing I'll ask of you: if you know someone who'd love this — the friend who keeps saying "one day", the one always picking up something new — send them to educatedtraveler.app. Early word from people I trust is worth more than anything else right now.
+One favour: if someone comes to mind who'd love this — the friend always picking up something new, the one who keeps saying "one day" — send them to educatedtraveler.app. A word from you is worth more than anything else right now.
 
-Thank you for being in from the start. Genuinely.
+Thank you for being here at the start. Truly.
 
 — Arnaud`,
-      ps: "P.S. Hit reply and tell me — if you could spend two weeks learning one skill, at the source, by hand, what would it be? I want to know what to build toward. (And yes, I'll hold you to it.)",
+      ps: "P.S. Tell me — if you could disappear for two weeks and learn one thing properly, by hand, what would it be? Reply and I'll point you somewhere. (And yeah, I'll hold you to it.)",
     },
     {
       id: "issue-02",
