@@ -51,7 +51,7 @@ A map of where a skill is still alive and someone teaches it by hand — freediv
 
 And a short letter every couple of weeks: one place, one skill, the people who keep it, and how to go. No selling — just pointing you at the good stuff. Down the line, when I find a school worth it, I'll set one up with them and you lot hear first.
 
-Funny thing: building it, I've become the guy who could use an EducatedTraveler — learning ten things I've never done as I go. We're early, and you're early with me.
+Truth is, I'm learning all of this as I go — the website, this letter, all of it new to me. So I'm building it with you: any idea or bit of feedback you've got, I'd genuinely love to hear it. We're early, and you're early with me.
 
 One favour: if someone comes to mind who'd love this, send them to educatedtraveler.app. A word from you is worth more than anything right now.
 
