@@ -176,6 +176,22 @@
     v.appendChild(sectionHead("The Letter", LETTER.standfirst || ""));
     v.appendChild(el("p", { class: "font-mono", style: "font-size:11px; color:var(--sea); margin:-6px 0 18px; letter-spacing:.04em;", text: LETTER.cadence || "" }));
 
+    // ---- one-click week drafter (Daily Drop place -> Letter + week of posts) ----
+    if (DROP.length) {
+      const drafter = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:22px;" });
+      drafter.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; color:var(--ember); margin-bottom:4px;", text: "Draft a week from a place" }));
+      drafter.appendChild(el("p", { style: "font-size:12.5px; color:var(--muted); margin:0 0 10px; line-height:1.5;", text: "Pick a place from the Daily Drop. One click drafts the Letter — with a science beat matched to the craft — and the week of posts around it." }));
+      const row = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; align-items:center;" });
+      const sel = el("select", { style: "flex:1; min-width:220px;" });
+      DROP.forEach((d, i) => sel.appendChild(el("option", { value: String(i), text: (d.discipline || "?") + " · " + (d.place || "?") })));
+      row.appendChild(sel);
+      const out = el("div", { style: "margin-top:14px;" });
+      row.appendChild(el("button", { class: "btn-primary", style: "padding:9px 15px; border-radius:9px; font-size:12px;", onclick: () => { out.innerHTML = ""; const d = DROP[+sel.value]; if (d) renderWeekDraft(out, d); } }, "Draft the week"));
+      drafter.appendChild(row);
+      drafter.appendChild(out);
+      v.appendChild(drafter);
+    }
+
     // issues — copy/download ready
     v.appendChild(el("div", { class: "eyebrow", style: "margin:0 0 10px;", text: "Ready to send" }));
     (LETTER.issues || []).forEach((it) => v.appendChild(letterCard(it)));
@@ -225,6 +241,81 @@
 
   function letterFullText(it) {
     return ["SUBJECT: " + it.subject, "PREVIEW: " + it.preview, "", it.body, "", it.ps || ""].join("\n").trim();
+  }
+
+  // ---- week drafter: turn a Daily Drop place into a Letter draft + week of posts ----
+  function nuggetForCore(d) {
+    const vault = LETTER.scienceVault || [];
+    if (!vault.length) return { claim: "", detail: "", source: "" };
+    const map = { adventure: [4, 0], culinary: [1, 0], creative: [0, 2], wellness: [2, 4] };
+    const arr = map[d.core] || [0];
+    const idx = arr[Math.max(0, (d.day || 1) - 1) % arr.length];
+    return vault[idx] || vault[0];
+  }
+  function draftLetterFromDrop(d) {
+    const paras = String(d.caption || "").split("\n\n");
+    const hook = (paras[0] || "").trim();
+    const ctx = (paras[1] || "").trim();
+    const seasonLine = (String(d.caption || "").split("\n").find((l) => /Season:|Community strength/i.test(l)) || "").trim();
+    const sci = nuggetForCore(d);
+    const disc = d.discipline || "this craft";
+    // single-word craft -> lower-case it in prose ("freediving"); multi-word stays as titled
+    const discL = disc.trim().split(/\s+/).length === 1 ? disc.charAt(0).toLowerCase() + disc.slice(1) : disc;
+    const subject = (d.place || "") + ": where " + discL + " is still alive";
+    const preview = "One place where " + discL + " is genuinely alive, the people who keep it, and what learning it does to you.";
+    const body = [
+      "Hello —", "",
+      "This week, one place — " + (d.place || "") + " — and one skill: " + disc + ".", "",
+      hook,
+    ].concat(ctx ? ["", ctx] : []).concat([
+      "",
+      sci.detail + " (" + sci.source + ") — which is the quiet case for learning " + discL + " where it's still alive, with a teacher's hand on yours, not off a screen.", "",
+      "The people: " + (d.footageSource ? (d.footageSource + " is the kind of school we'd point a friend to — ") : "") + "confirm the credential and why them straight from the Atlas page; never invent one.", "",
+      "How to go: " + (seasonLine ? seasonLine + " " : "") + "Start with the first real course and let the place do the rest. The full page, with the community rank and the way in:",
+      d.atlasUrl || "educatedtraveler.app",
+      "", "— Arnaud",
+    ]).join("\n");
+    const ps = "P.S. Not " + discL + "? Reply and tell me your skill — the map is wide. And forward this to the friend who keeps saying 'one day.'";
+    return { subject, preview, body, ps, science: sci };
+  }
+  function weekPlanFromDrop(d) {
+    const disc = d.discipline || "the craft";
+    const sci = nuggetForCore(d);
+    return [
+      "THE WEEK · " + disc + " · " + (d.place || ""), "",
+      "Mon — Send the Circle Letter above (this place + the science beat).",
+      "Tue — Place reel: the " + disc + " clip" + (d.footageSource ? (" (" + d.footageSource + " footage — with permission + credit)") : "") + " → " + (d.atlasUrl || ""),
+      "Wed — 'Why this skill' card from the science beat: \"" + sci.claim + "\" (" + sci.source + ").",
+      "Thu — Story: a Question or this-or-that Poll about " + disc + ".",
+      "Fri — One library post (a Circle or Become carousel) routing to the Atlas + the Circle.",
+      "Sat/Sun — Reshare the best replies, answer DMs, rest. Hold the rhythm.",
+    ].join("\n");
+  }
+  function renderWeekDraft(container, d) {
+    const draft = draftLetterFromDrop(d);
+    const full = "SUBJECT: " + draft.subject + "\nPREVIEW: " + draft.preview + "\n\n" + draft.body + "\n\n" + draft.ps;
+    const plan = weekPlanFromDrop(d);
+    const slug = String(d.discipline || "week").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+    const card = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:12px; border-color:rgba(210,138,82,0.3);" });
+    card.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--faint); margin-bottom:6px;", text: "Draft letter · edit before sending · verify the school from the Atlas" }));
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:4px 0 4px;", text: "Subject" }));
+    card.appendChild(el("div", { style: "font-size:14px; color:var(--paper); margin-bottom:6px;", text: draft.subject }));
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:4px 0 4px;", text: "Preview" }));
+    card.appendChild(el("div", { style: "font-size:13px; color:var(--muted); margin-bottom:8px;", text: draft.preview }));
+    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(243,237,226,0.86); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: draft.body + "\n\n" + draft.ps }));
+    const a1 = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;" });
+    a1.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(full) }, "Copy letter"));
+    a1.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(full + "\n\n----\n\n" + plan) }, "Copy whole week"));
+    a1.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => download("et-week-" + slug + ".txt", full + "\n\n----\n\n" + plan) }, "Download .txt"));
+    card.appendChild(a1);
+    container.appendChild(card);
+
+    const pc = el("div", { class: "panel", style: "padding:14px 16px;" });
+    pc.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin-bottom:6px; color:var(--sea);", text: "The week of posts around it" }));
+    pc.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13px; line-height:1.6; color:var(--muted); margin:0;", text: plan }));
+    container.appendChild(pc);
+    toast("Drafted the week for " + (d.place || ""));
   }
   function letterCard(it) {
     const card = el("div", { class: "panel", style: "padding:18px 20px; margin-bottom:14px;" });
