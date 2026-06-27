@@ -50,8 +50,10 @@
   const ARTICLE_SEED = (window.ET_ARTICLES_SEED || []).slice();
   const IDEAS = window.ET_IDEAS || { shotList: [], hooks: [], series: [], saveTriggers: [], neverPost: [] };
   const POSTS = (window.ET_POSTS || []).slice();
+  const LAUNCH = window.ET_LAUNCH || { intro: "", surfaces: [], phases: [] };
+  const LETTER = window.ET_LETTER || { masthead: "The Circle", structure: [], scienceVault: [], issues: [], sendChecklist: [] };
 
-  const DEFAULT_STATE = { plan: {}, drops: {}, outreach: [], articles: null, metrics: [], settings: { gate: "source" }, _v: 1 };
+  const DEFAULT_STATE = { plan: {}, drops: {}, outreach: [], articles: null, metrics: [], seq: {}, settings: { gate: "source" }, _v: 1 };
   let S = load();
 
   function load() {
@@ -60,7 +62,7 @@
       return Object.assign({}, DEFAULT_STATE, raw, {
         plan: raw.plan || {}, drops: raw.drops || {}, outreach: raw.outreach || [],
         metrics: raw.metrics || [], settings: Object.assign({}, DEFAULT_STATE.settings, raw.settings || {}),
-        articles: raw.articles || null,
+        articles: raw.articles || null, seq: raw.seq || {},
       });
     } catch (e) { return JSON.parse(JSON.stringify(DEFAULT_STATE)); }
   }
@@ -88,7 +90,7 @@
   }
 
   // ---------- boot ----------
-  let activeTab = "plan";
+  let activeTab = "launch";
   function boot() {
     $("#today-line").textContent = todayISO();
     setFocusLine();
@@ -117,7 +119,128 @@
 
   function render() {
     const v = $("#view"); v.innerHTML = "";
-    ({ plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderPlan)(v);
+    ({ launch: renderLaunch, letter: renderLetter, plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderLaunch)(v);
+  }
+
+  // ================= LAUNCH (ordered playbook) =================
+  function renderLaunch(v) {
+    v.appendChild(sectionHead("Launch", LAUNCH.intro || ""));
+
+    // surfaces legend — clears up Daily Drop vs Posts vs Letter
+    const leg = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:18px;" });
+    leg.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin-bottom:10px;", text: "What each tab is for" }));
+    (LAUNCH.surfaces || []).forEach((s) => {
+      const row = el("div", { style: "display:flex; gap:10px; padding:6px 0; font-size:13px; line-height:1.5;" });
+      row.appendChild(el("span", { class: "pill in", style: "align-self:flex-start; flex:none;", text: s.name }));
+      row.appendChild(el("span", { style: "color:var(--muted);", text: s.what }));
+      leg.appendChild(row);
+    });
+    v.appendChild(leg);
+
+    // progress
+    const allSteps = (LAUNCH.phases || []).flatMap((p) => p.steps);
+    const done = allSteps.filter((s) => S.seq[s.id]).length;
+    const prog = el("div", { style: "display:flex; align-items:baseline; gap:10px; margin-bottom:16px;" });
+    prog.appendChild(el("span", { class: "metric-num", style: "color:var(--ember);", text: done + "/" + allSteps.length }));
+    prog.appendChild(el("span", { style: "color:var(--muted); font-size:13px;", text: "steps ticked" }));
+    if (done) prog.appendChild(el("button", { class: "btn-ghost", style: "padding:5px 11px; border-radius:8px; font-size:11px; margin-left:auto;", onclick: () => { allSteps.forEach((s) => delete S.seq[s.id]); save(); render(); } }, "Reset"));
+    v.appendChild(prog);
+
+    (LAUNCH.phases || []).forEach((ph) => {
+      v.appendChild(el("div", { class: "eyebrow", style: "margin:22px 0 4px;", text: ph.title }));
+      if (ph.sub) v.appendChild(el("p", { style: "color:var(--muted); font-size:13px; margin:0 0 12px; line-height:1.5;", text: ph.sub }));
+      const card = el("div", { class: "panel", style: "padding:6px 18px;" });
+      ph.steps.forEach((s) => card.appendChild(seqRow(s)));
+      v.appendChild(card);
+    });
+  }
+
+  function seqRow(s) {
+    const isDone = !!S.seq[s.id];
+    const row = el("div", { class: "chk" + (isDone ? " done" : "") });
+    const cb = el("input", { type: "checkbox" }); cb.checked = isDone;
+    cb.addEventListener("change", () => { if (cb.checked) S.seq[s.id] = 1; else delete S.seq[s.id]; save(); row.classList.toggle("done", cb.checked); });
+    const body = el("div", { style: "flex:1;" });
+    const top = el("div", { style: "display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:3px;" });
+    top.appendChild(el("span", { class: "font-mono", style: "font-size:10.5px; color:var(--ember); letter-spacing:.08em;", text: s.when }));
+    if (s.where) top.appendChild(el("span", { class: "tag", text: "→ " + s.where }));
+    body.appendChild(top);
+    body.appendChild(el("div", { class: "chk-text", style: "font-size:14px; line-height:1.5;", text: s.do }));
+    if (s.why) body.appendChild(el("div", { class: "chk-text", style: "font-size:12.5px; color:var(--faint); line-height:1.5; margin-top:3px;", text: s.why }));
+    row.appendChild(cb); row.appendChild(body);
+    return row;
+  }
+
+  // ================= LETTER (the Circle newsletter) =================
+  function renderLetter(v) {
+    v.appendChild(sectionHead("The Letter", LETTER.standfirst || ""));
+    v.appendChild(el("p", { class: "font-mono", style: "font-size:11px; color:var(--sea); margin:-6px 0 18px; letter-spacing:.04em;", text: LETTER.cadence || "" }));
+
+    // issues — copy/download ready
+    v.appendChild(el("div", { class: "eyebrow", style: "margin:0 0 10px;", text: "Ready to send" }));
+    (LETTER.issues || []).forEach((it) => v.appendChild(letterCard(it)));
+
+    // repeatable structure
+    v.appendChild(el("div", { class: "eyebrow", style: "margin:26px 0 10px; color:var(--ember);", text: "Write every issue to this shape" }));
+    const sc = el("div", { class: "panel", style: "padding:6px 18px;" });
+    (LETTER.structure || []).forEach((p) => {
+      const row = el("div", { class: "chk" });
+      row.appendChild(el("div", {}, [
+        el("div", { style: "font-size:13.5px; color:var(--paper); margin-bottom:2px;", text: p.part }),
+        el("div", { style: "font-size:12.5px; color:var(--muted); line-height:1.5;", text: p.note }),
+      ]));
+      sc.appendChild(row);
+    });
+    v.appendChild(sc);
+
+    // science vault
+    v.appendChild(el("div", { class: "eyebrow", style: "margin:26px 0 4px; color:var(--ember);", text: "Science vault — the why-it-remakes-you beat" }));
+    v.appendChild(el("p", { style: "color:var(--faint); font-size:12px; margin:0 0 12px; line-height:1.5;", text: "Pull ONE into each letter (and into a Wednesday 'why this skill' card). Real research — cite the study if you quote a number." }));
+    (LETTER.scienceVault || []).forEach((n) => {
+      const card = el("div", { class: "panel", style: "padding:14px 16px; margin-bottom:10px;" });
+      card.appendChild(el("div", { class: "font-serif", style: "font-size:16px; margin-bottom:5px;", text: n.claim }));
+      card.appendChild(el("div", { style: "font-size:13px; color:var(--muted); line-height:1.55;", text: n.detail }));
+      const f = el("div", { style: "display:flex; justify-content:space-between; align-items:center; margin-top:8px; gap:10px;" });
+      f.appendChild(el("span", { class: "font-mono", style: "font-size:11px; color:var(--sea);", text: n.source }));
+      f.appendChild(el("button", { class: "btn-ghost", style: "padding:4px 10px; border-radius:8px; font-size:11px;", onclick: () => copy(n.claim + " — " + n.detail + " (" + n.source + ")") }, "Copy"));
+      card.appendChild(f);
+      v.appendChild(card);
+    });
+
+    // send checklist
+    v.appendChild(el("div", { class: "eyebrow", style: "margin:26px 0 10px;", text: "Before you hit send" }));
+    const ck = el("div", { class: "panel", style: "padding:6px 18px;" });
+    (LETTER.sendChecklist || []).forEach((t, i) => {
+      const id = "letter-send-" + i;
+      const dn = !!S.seq[id];
+      const row = el("div", { class: "chk" + (dn ? " done" : "") });
+      const cb = el("input", { type: "checkbox" }); cb.checked = dn;
+      cb.addEventListener("change", () => { if (cb.checked) S.seq[id] = 1; else delete S.seq[id]; save(); row.classList.toggle("done", cb.checked); });
+      row.appendChild(cb);
+      row.appendChild(el("div", { class: "chk-text", style: "font-size:13.5px; line-height:1.5;", text: t }));
+      ck.appendChild(row);
+    });
+    v.appendChild(ck);
+  }
+
+  function letterFullText(it) {
+    return ["SUBJECT: " + it.subject, "PREVIEW: " + it.preview, "", it.body, "", it.ps || ""].join("\n").trim();
+  }
+  function letterCard(it) {
+    const card = el("div", { class: "panel", style: "padding:18px 20px; margin-bottom:14px;" });
+    card.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--faint); margin-bottom:4px;", text: it.kind || "" }));
+    card.appendChild(el("div", { class: "font-serif", style: "font-size:19px; margin-bottom:10px;", text: it.title }));
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 4px;", text: "Subject line" }));
+    card.appendChild(el("div", { style: "font-size:14px; color:var(--paper); margin-bottom:8px;", text: it.subject }));
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 4px;", text: "Preview text" }));
+    card.appendChild(el("div", { style: "font-size:13px; color:var(--muted); margin-bottom:10px;", text: it.preview }));
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 6px;", text: "Letter (paste-ready)" }));
+    card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.62; color:rgba(243,237,226,0.86); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: it.body + "\n\n" + (it.ps || "") }));
+    const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;" });
+    acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(letterFullText(it)) }, "Copy full letter"));
+    acts.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => download("et-letter-" + it.id + ".txt", letterFullText(it)) }, "Download .txt"));
+    card.appendChild(acts);
+    return card;
   }
 
   // ================= PLAN =================
