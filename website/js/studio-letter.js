@@ -34,12 +34,12 @@ window.ET_LETTER = {
       title: "Issue 01 — To my first few (send this first)",
       kind: "Inaugural · the friends who got me started · thank-you + the vision + a share ask",
       portrait: "/images/arnaud-portrait.jpg",
-      subject: "Thank you for saying yes",
+      subject: "Thank you for helping me build this",
       preview: "A proper thank-you — and where I want to take EducatedTraveler.",
       body:
 `Hey —
 
-Let's be honest: most of you are on this list because I asked you to be. I cornered you over dinner, or sent you the link, or wouldn't shut up about it until you signed up. So first — thank you for saying yes. It means more than you'd think.
+Let's be honest: most of you are on this list because I asked you to be. I cornered you over dinner, or sent you the link, or wouldn't shut up about it until you signed up. So first — thank you for helping me with this. It means more than you'd think.
 
 Here's why I keep going on about it.
 
