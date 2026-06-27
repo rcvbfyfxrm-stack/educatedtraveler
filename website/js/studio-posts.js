@@ -1,8 +1,17 @@
 /* Studio "Posts" tab — ready-to-publish posts. Copy the caption or download it
  * as a text file. Each routes to ONE Atlas page or the Circle.
+ *
+ * THE CORE (every post must carry it):
+ *  - Spine:  a place, a person, your people.
+ *  - Wedge:  we connect / introduce — never sell, book, or enroll.
+ *  - At the source, not the simulation · earned, not bought.
+ *  - Trust at all levels (the first rule): lead with the real craft + credential,
+ *    only places/masters we vouch for; never fabricate proof.
+ *  - The two surfaces: the Atlas (map of where a craft is alive) + the Circle (the letter).
+ *
  * Voice-locked: connect / introduce, never sell / book / enroll. No banned words
  * (transformation, life-changing, vacation, luxury, easy), no prices, no emoji.
- * Aligned with the Vision: the Circle (the letter) is the hero; video is a feeder. */
+ * Every post carries branded ET-design images (images[] + imageNote). */
 window.ET_POSTS = [
   {
     id: "this-is-et", format: "Carousel · pinned launch post", core: "",
@@ -56,6 +65,8 @@ window.ET_POSTS = [
     id: "founder", format: "Reel / carousel / text", core: "",
     title: "Why I built this (founder)",
     link: "https://educatedtraveler.app/about", linkLabel: "The Story",
+    images: ["/images/posts/founder/cover.png"],
+    imageNote: "Branded quote card (1080×1350) — use as the reel cover or the single text post.",
     caption:
 "I left school at eighteen and went out into the world instead of staying in a classroom.\n\nAlmost everything I know, I learned from someone who was good at something real and happy to share it. Cooking. Sailing. Freediving. Wine. The slow morning breath on a mat. Never off a screen — from people who actually did it, where they did it.\n\nSo I built EducatedTraveler: a map of where a craft is still alive, and a circle that introduces you to the people keeping it warm.\n\nA place, a person, your people.\nThe story: https://educatedtraveler.app/about",
     hashtags: "#learnbydoing #atthesource #educatedtraveler #craftsmanship #yourpeople",
@@ -64,6 +75,12 @@ window.ET_POSTS = [
     id: "circle", format: "Carousel", core: "",
     title: "What the Circle is",
     link: "https://educatedtraveler.app/#circle", linkLabel: "Join the Circle",
+    images: [
+      "/images/posts/circle/slide-01.png", "/images/posts/circle/slide-02.png",
+      "/images/posts/circle/slide-03.png", "/images/posts/circle/slide-04.png",
+      "/images/posts/circle/slide-05.png",
+    ],
+    imageNote: "Branded slides (1080×1350). One per carousel card, in order.",
     slides: [
       "There's a place where your craft is still truly alive.",
       "And people already there — the master, the school, the others chasing the same thing.",
@@ -79,6 +96,12 @@ window.ET_POSTS = [
     id: "source-sim", format: "Carousel", core: "",
     title: "Source vs simulation",
     link: "https://educatedtraveler.app/#circle", linkLabel: "Join the Circle",
+    images: [
+      "/images/posts/source-sim/slide-01.png", "/images/posts/source-sim/slide-02.png",
+      "/images/posts/source-sim/slide-03.png", "/images/posts/source-sim/slide-04.png",
+      "/images/posts/source-sim/slide-05.png",
+    ],
+    imageNote: "Branded slides (1080×1350). One per carousel card, in order.",
     slides: [
       "A screen can show you the thing.",
       "It can't put the clay under your nails, or a master's hand over yours.",
@@ -94,6 +117,12 @@ window.ET_POSTS = [
     id: "become", format: "Carousel", core: "",
     title: "What do you want to become?",
     link: "https://educatedtraveler.app/browse", linkLabel: "Open the Atlas",
+    images: [
+      "/images/posts/become/slide-01.png", "/images/posts/become/slide-02.png",
+      "/images/posts/become/slide-03.png", "/images/posts/become/slide-04.png",
+      "/images/posts/become/slide-05.png",
+    ],
+    imageNote: "Branded slides (1080×1350). One per carousel card, in order.",
     slides: [
       "Don't ask what class to take.",
       "Ask what you want to become.",
@@ -109,6 +138,8 @@ window.ET_POSTS = [
     id: "letter", format: "Story / post", core: "",
     title: "The letter (Circle teaser)",
     link: "https://educatedtraveler.app/#circle", linkLabel: "Get the letter",
+    images: ["/images/posts/letter/cover.png"],
+    imageNote: "Branded quote card (1080×1350) — feed post or story background.",
     caption:
 "Every couple of weeks I write one letter: a single place where a craft is genuinely alive, the people who keep it, and how to go.\n\nNo selling. Just a door, and an introduction.\n\nGet the letter: https://educatedtraveler.app/#circle",
     hashtags: "#educatedtraveler #newsletter #learnatthesource #craft #yourpeople",
@@ -117,46 +148,58 @@ window.ET_POSTS = [
     id: "freediving", format: "Reel", core: "adventure",
     title: "Freediving · Dahab",
     link: "https://educatedtraveler.app/atlas/freediving--dahab-red-sea", linkLabel: "Atlas page",
+    images: ["/images/posts/freediving/cover.png"],
+    imageNote: "Branded reel cover (1080×1920) — pair with your own dive footage.",
     caption:
-"The strongest freediving community on earth gathers around Dahab's Blue Hole.\n\nFlat, deep and warm all year — it's where the world's freedivers go to find depth, and find their cohort.\n\nWe map where every craft is truly alive, and introduce you to the school and the people going.\nWhere to learn it: https://educatedtraveler.app/atlas/freediving--dahab-red-sea",
+"The strongest freediving community on earth gathers around Dahab's Blue Hole.\n\nFlat, deep and warm all year — it's where the world's freedivers go to find depth, and find their cohort.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/freediving--dahab-red-sea",
     hashtags: "#freediving #dahab #bluehole #learnbydoing #atthesource",
   },
   {
     id: "sailing", format: "Reel", core: "adventure",
     title: "Sailing & Yachtmaster · The Solent",
     link: "https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-solent-cowes-and-hamble", linkLabel: "Atlas page",
+    images: ["/images/posts/sailing/cover.png"],
+    imageNote: "Branded reel cover (1080×1920) — pair with your own sailing footage.",
     caption:
-"The most respected ticket afloat was forged in the Solent's tidal chaos — earned, never bought.\n\nThis is where the RYA built the Yachtmaster scheme, and the water still examines you the hard way.\n\nWe map where every craft is truly alive, and introduce you to the school and the people going.\nWhere to learn it: https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-solent-cowes-and-hamble",
+"The most respected ticket afloat was forged in the Solent's tidal chaos — earned, never bought.\n\nThis is where the RYA built the Yachtmaster scheme, and the water still examines you the hard way.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-solent-cowes-and-hamble",
     hashtags: "#sailing #yachtmaster #rya #learnbydoing #thesolent",
   },
   {
     id: "pastry", format: "Reel", core: "culinary",
     title: "French Pastry · Paris",
     link: "https://educatedtraveler.app/atlas/french-pastry-and-patisserie--paris", linkLabel: "Atlas page",
+    images: ["/images/posts/pastry/cover.png"],
+    imageNote: "Branded reel cover (1080×1920) — pair with your own bench footage.",
     caption:
-"Paris is still the living capital of French pastry.\n\nStand at the bench where the CAP Patissier was forged and learn the craft the rest of the world measures itself against.\n\nWe map where every craft is truly alive, and introduce you to the school and the people going.\nWhere to learn it: https://educatedtraveler.app/atlas/french-pastry-and-patisserie--paris",
+"Paris is still the living capital of French pastry.\n\nStand at the bench where the CAP Patissier was forged and learn the craft the rest of the world measures itself against.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/french-pastry-and-patisserie--paris",
     hashtags: "#pastrychef #paris #frenchpastry #learnbydoing #foodtok",
   },
   {
     id: "asado", format: "Reel", core: "culinary",
     title: "Asado & Open Fire · Argentina",
     link: "https://educatedtraveler.app/atlas/asado-and-open-fire-cooking--patagonia-buenos-aires", linkLabel: "Atlas page",
+    images: ["/images/posts/asado/cover.png"],
+    imageNote: "Branded reel cover (1080×1920) — pair with your own fire footage.",
     caption:
-"Argentina is the home of asado.\n\nOn the estancias the whole lamb slow-cooks on the iron cross, and the fire itself is the craft — learn to build it and read it.\n\nWe map where every craft is truly alive, and introduce you to the people going.\nWhere to learn it: https://educatedtraveler.app/atlas/asado-and-open-fire-cooking--patagonia-buenos-aires",
+"Argentina is the home of asado.\n\nOn the estancias the whole lamb slow-cooks on the iron cross, and the fire itself is the craft — learn to build it and read it.\n\nWe map where a craft is truly alive, and introduce you to the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/asado-and-open-fire-cooking--patagonia-buenos-aires",
     hashtags: "#asado #argentina #livefire #learnbydoing #foodtok",
   },
   {
     id: "pranayama", format: "Reel", core: "wellness",
     title: "Pranayama & Breathwork · Lonavla",
     link: "https://educatedtraveler.app/atlas/pranayama-and-breathwork--lonavla", linkLabel: "Atlas page",
+    images: ["/images/posts/pranayama/cover.png"],
+    imageNote: "Branded reel cover (1080×1920) — pair with your own breath/mat footage.",
     caption:
-"The world's oldest scientific yoga research institute, founded 1924.\n\nWhere pranayama was first put under the microscope and is still taught from the original texts — learn the breath at the source.\n\nWe map where every craft is truly alive, and introduce you to the school and the people going.\nWhere to learn it: https://educatedtraveler.app/atlas/pranayama-and-breathwork--lonavla",
+"The world's oldest scientific yoga research institute, founded 1924.\n\nWhere pranayama was first put under the microscope and is still taught from the original texts — learn the breath at the source.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/pranayama-and-breathwork--lonavla",
     hashtags: "#breathwork #pranayama #lonavla #yoga #learnbydoing",
   },
   {
     id: "rolltack", format: "Reel / quote", core: "",
     title: "You can't learn a roll-tack from a video",
     link: "https://educatedtraveler.app/#circle", linkLabel: "Join the Circle",
+    images: ["/images/posts/rolltack/cover.png"],
+    imageNote: "Branded quote card (1080×1350) — feed post or story background.",
     caption:
 "You can't learn a roll-tack from a video.\n\nSome skills only the wind, the water, and a teacher beside you can give you. We map where they're still taught by hand, and introduce you to the people who teach them.\n\nA place, a person, your people: https://educatedtraveler.app/#circle",
     hashtags: "#sailing #learnbydoing #atthesource #educatedtraveler #skills",
