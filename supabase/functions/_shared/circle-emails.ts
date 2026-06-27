@@ -94,10 +94,75 @@ function issue02Html(unsub: string): string {
   return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Letter N&ordm; 2", heading: "The snack named after a movie star", body, unsub });
 }
 
+function issue03Html(unsub: string): string {
+  const body = `
+      <p style="${P}margin:0 0 22px 0;">Here's something worth knowing before you ever plan a trip around food.</p>
+      <div style="${GIFT}">
+        <p style="color:rgba(243,237,226,0.82);font-size:15px;line-height:1.75;margin:0;">You can eat at noma. You can, if you book months ahead, eat at <strong style="color:#f3ede2;">Disfrutar</strong> in Barcelona — named the best restaurant in the world in 2024. What you cannot do is <em style="color:rgba(243,237,226,0.85);">learn</em> in either of them. The world's most celebrated kitchens are restaurants, not schools. The only way in is a <em style="color:rgba(243,237,226,0.85);">stage</em>: an unpaid, fiercely contested apprenticeship you apply for and almost never get. The talent is real. The door is shut.</p>
+      </div>
+      <p style="${P}margin:0 0 16px 0;">So the most valuable person in any craft isn't the most famous one. It's the master who will actually <strong style="color:#f3ede2;">teach</strong> you. They are rarer than you'd think — and finding them, by hand, is most of what I do. Three I'd send a friend to tomorrow:</p>
+      <p style="${P}margin:0 0 16px 0;"><strong style="color:#f3ede2;">In Barcelona — Martín Lippo.</strong> An Argentine chef who arrived in 2000 and became one of Spain's pioneers of sous-vide and low-temperature cooking. He took the avant-garde toolkit that Ferran Adrià unleashed — the foams, the spherification, the work with liquid nitrogen — and instead of guarding it behind a restaurant pass, he built a laboratory called <em style="color:rgba(243,237,226,0.85);">Vakuum</em> to teach it, hands-on, to anyone serious enough to show up. I met him there, in person. The door is open.</p>
+      <p style="${P}margin:0 0 16px 0;"><strong style="color:#f3ede2;">In Bologna — Alessandra Spisni.</strong> A <em style="color:rgba(243,237,226,0.85);">sfoglina</em>: she rolls pasta by hand with a meter-long pin, the way Emilia-Romagna has for centuries. Since 1993 she has run the one school in the world dedicated to training <em style="color:rgba(243,237,226,0.85);">sfogline</em> — the women who keep tortellini and tagliatelle alive as living knowledge, not a museum piece.</p>
+      <p style="${P}margin:0 0 16px 0;"><strong style="color:#f3ede2;">In Caracas — María Fernanda Di Giacobbe.</strong> At the source of Venezuela's legendary <em style="color:rgba(243,237,226,0.85);">criollo</em> cacao, she won the first-ever Basque Culinary World Prize — the cooking world's closest thing to a Nobel — for one idea: teach people to make chocolate <em style="color:rgba(243,237,226,0.85);">from the seed</em>. Her lab trains chocolate-makers where the bean actually grows.</p>
+      <p style="${P}margin:0 0 16px 0;">What links them isn't fame. It's that they teach — at the source, with their own hands on the work beside yours. That is the rarest and most valuable thing in any craft, and almost nobody is mapping it.</p>
+      <p style="${P}margin:0 0 28px 0;">So I've started to. On the Atlas, the places where a real master will actually take you on now carry a single mark — <strong style="color:#f3ede2;">Enrol with the master.</strong> It's the opposite of a listicle ranked by who paid, and the opposite of a screen you watch alone. It's a door, with a name on it.</p>
+      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/atlas" style="${BTN}">Find a master who teaches</a></div>
+      <p style="color:rgba(243,237,226,0.45);font-size:13px;line-height:1.6;margin:0;text-align:center;">The masters above, and the rest, are on the Atlas.</p>
+      <p style="${P}margin:28px 0 0 0;">And a question — just hit reply:</p>
+      <p style="${QSER}">Which craft would you cross an ocean to learn, if someone who'd actually teach you were waiting?</p>
+      <p style="color:rgba(243,237,226,0.5);font-size:14px;line-height:1.7;margin:14px 0 0 0;">Tell me the craft — and I'll tell you who I'd point you toward.</p>`;
+  return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Letter N&ordm; 3", heading: "The rarest thing in a kitchen isn't talent", body, unsub });
+}
+
+// Founding letter — sent once to the first signups + the friends Arnaud gathered
+// by hand. Thank-you + the vision + a share ask. Personal voice, B&W portrait.
+function foundingHtml(unsub: string): string {
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#0d0b09;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="text-align:center;margin-bottom:28px;">
+      <span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#f3ede2;">EDUCATED</span><span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#7fa8a5;">TRAVELER</span>
+    </div>
+    <div style="text-align:center;margin-bottom:26px;">
+      <img src="https://educatedtraveler.app/images/arnaud-portrait.jpg" width="150" alt="Arnaud" style="width:150px;height:150px;object-fit:cover;border-radius:14px;border:1px solid rgba(243,237,226,0.12);filter:grayscale(1);display:inline-block;">
+    </div>
+    <div style="background:rgba(243,237,226,0.03);border:1px solid rgba(243,237,226,0.08);border-radius:16px;padding:36px 28px;">
+      <p style="color:rgba(243,237,226,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 22px 0;font-family:'Courier New',monospace;">The Circle &middot; Letter 01</p>
+      <p style="color:#f3ede2;font-family:Georgia,'Times New Roman',serif;font-size:19px;line-height:1.55;margin:0 0 20px 0;">Hey you &mdash;</p>
+      <p style="${P}margin:0 0 18px 0;">You're getting this because you're one of mine &mdash; family, or a friend I've talked half to death about this idea. Some of you signed up just to get me to stop going on about it. Either way: thank you. I mean it.</p>
+      <p style="${P}margin:0 0 18px 0;">So here's the thing I won't shut up about.</p>
+      <p style="${P}margin:0 0 18px 0;">I cook on boats now. But the first time anyone put a knife in my hand, I was the dishwasher in a little Mexican kitchen in Darwin. One afternoon, after lunch service, they were short a pair of hands &mdash; the chef pulled me off the sink, slid a board over and told me to slice an onion. I'd never done it. But being shown, right next to someone who knew how, taught me more than any classroom could. Almost everything I can do, I picked up like that. Never off a screen.</p>
+      <p style="${P}margin:0 0 18px 0;">EducatedTraveler is me trying to bottle that:</p>
+      <p style="${P}margin:0 0 18px 0;"><strong style="color:#f3ede2;">A map of where those people still are</strong> &mdash; where a skill is still alive and someone teaches it by hand: freediving, pottery, pastry, sailing, the breath on a mat. Ranked by how good the people are, not who pays me. Nothing on it I wouldn't send you to myself.</p>
+      <p style="${P}margin:0 0 18px 0;"><strong style="color:#f3ede2;">And a short letter</strong>, every couple of weeks: one place, one skill, the people who keep it, and how to go. No selling &mdash; just pointing you at the good stuff. Down the line, when I find a school worth it, I'll set one up with them and you lot hear first.</p>
+      <p style="${P}margin:0 0 18px 0;">Truth is, I'm learning all of this as I go &mdash; the website, this letter, all of it new to me. So I'm building it with you: any idea or bit of feedback you've got, I'd genuinely love to hear it. We're early, and you're early with me.</p>
+      <p style="${P}margin:0 0 26px 0;">And one favour: if someone comes to mind who'd love this, send them the door. A word from you is worth more than anything right now.</p>
+      <div style="text-align:center;margin:26px 0;"><a href="https://educatedtraveler.app" style="${BTN}">Share educatedtraveler.app</a></div>
+      <p style="${P}margin:22px 0 0 0;">Thank you for being here at the start. Truly.</p>
+    </div>
+    <div style="margin-top:30px;padding:0 4px;">
+      <p style="color:rgba(243,237,226,0.62);font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.5;margin:0;">Bisous, les amis.</p>
+      <p style="color:rgba(243,237,226,0.62);font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.5;margin:2px 0 0 0;">&mdash; Arnaud</p>
+      <p style="color:rgba(243,237,226,0.28);font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
+    </div>
+    <div style="margin-top:24px;padding:18px 20px;background:rgba(210,138,82,0.05);border-left:2px solid rgba(210,138,82,0.5);border-radius:0 10px 10px 0;">
+      <p style="color:rgba(243,237,226,0.7);font-size:14px;line-height:1.7;margin:0;"><strong style="color:#d28a52;">P.S.</strong> Me, right now? I want to learn breathwork &mdash; maybe massage too. What's yours: if you could disappear for two weeks and learn one thing by hand, what would it be? Hit reply.</p>
+    </div>
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(243,237,226,0.06);text-align:center;">
+      <p style="color:rgba(243,237,226,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="margin:12px 0 0 0;"><a href="https://educatedtraveler.app" style="color:rgba(127,168,165,0.5);font-size:11px;text-decoration:none;">educatedtraveler.app</a></p>
+      <p style="color:rgba(243,237,226,0.18);font-size:10px;line-height:1.6;margin:14px 0 0 0;">You're receiving this because you joined the Circle (or asked me to keep you posted) at educatedtraveler.app.<br><a href="${unsub}" style="color:rgba(243,237,226,0.3);">Leave the Circle</a></p>
+    </div>
+  </div>
+</body></html>`;
+}
+
 export const ISSUES: Record<string, { subject: string; html: (unsub: string) => string }> = {
   "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomeHtml },
   "issue-01": { subject: "The Circle, Letter Nº 1 — where the divers go to find the deep", html: issue01Html },
   "issue-02": { subject: "The Circle, Letter Nº 2 — the snack named after a movie star", html: issue02Html },
+  "issue-03": { subject: "The Circle, Letter Nº 3 — the rarest thing in a kitchen isn't talent", html: issue03Html },
 };
 
 export async function sendCircleEmail(

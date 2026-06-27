@@ -81,6 +81,7 @@ BADGE_LABELS = {
     "source": "Birthplace", "scene": "Living scene", "mecca": "Mecca",
     "master": "Named masters", "school": "Verified schools", "gold-cred": "Gold credential",
     "heritage": "Heritage", "record": "Record holder", "lineage": "Unbroken lineage",
+    "master-lab": "Enrol with the master",
 }
 ROLE_LABELS = {"source": "Birthplace of the discipline", "scene": "Strong living community", "both": "Birthplace & living capital"}
 

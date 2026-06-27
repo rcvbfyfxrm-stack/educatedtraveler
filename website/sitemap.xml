@@ -216,6 +216,8 @@
 <url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery--zurich-broc</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery--paris</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery--las-vegas</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/chocolate-and-confectionery--caracas</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/viennoiserie--vienna</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/viennoiserie--paris</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/viennoiserie--tokyo</loc></url>
@@ -233,6 +235,7 @@
 <url><loc>https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/sushi-and-washoku--osaka</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/sushi-and-washoku--kyoto</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/sushi-and-washoku--los-angeles-torrance</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/thai-cuisine--bangkok</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/thai-cuisine--chiang-mai</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/oaxacan-and-mexican-cuisine--oaxaca</loc></url>
@@ -261,6 +264,7 @@
 <url><loc>https://educatedtraveler.app/atlas/cheese-and-fermentation--poligny-jura</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/cheese-and-fermentation--vermont</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/cheese-and-fermentation--copenhagen</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/cheese-and-fermentation--tokyo</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/tea-and-tea-ceremony--hangzhou-fujian</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/tea-and-tea-ceremony--kyoto-uji</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/muay-thai--bangkok</loc></url>
@@ -364,6 +368,9 @@
 <url><loc>https://educatedtraveler.app/atlas/ice-and-mixed-climbing--canmore-banff</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/ice-and-mixed-climbing--chamonix</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/ice-and-mixed-climbing--rjukan</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/avant-garde-and-modernist-technique--barcelona</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/avant-garde-and-modernist-technique--puebla-mexico-city</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/avant-garde-and-modernist-technique--melbourne-lilydale</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/hatha-and-vinyasa-yoga</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/ashtanga-yoga</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/pranayama-and-breathwork</loc></url>
@@ -471,4 +478,5 @@
 <url><loc>https://educatedtraveler.app/atlas/motorsport-and-race-driving</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/adventure-and-off-road-motorcycling</loc></url>
 <url><loc>https://educatedtraveler.app/atlas/ice-and-mixed-climbing</loc></url>
+<url><loc>https://educatedtraveler.app/atlas/avant-garde-and-modernist-technique</loc></url>
 </urlset>

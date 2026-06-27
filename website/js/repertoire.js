@@ -11185,7 +11185,8 @@ window.ET_ATLAS = {
             "scene",
             "school",
             "gold-cred",
-            "master"
+            "master",
+            "master-lab"
           ],
           "why": "France's state-recognized diploma in organic sourdough — a cohort that turns you into a stone-milled, levain-driven artisan in fifteen weeks.",
           "bestSeason": "Mar-Nov",
@@ -11219,7 +11220,8 @@ window.ET_ATLAS = {
           "badges": [
             "scene",
             "school",
-            "record"
+            "record",
+            "master-lab"
           ],
           "why": "The capital of naturally-leavened bread — Tartine and the SFBI, training ground of Team USA, made the Bay Area the densest sourdough cohort on the planet.",
           "bestSeason": "Year-round",
@@ -11497,6 +11499,73 @@ window.ET_ATLAS = {
               "course": "Three-day professional pastry, viennoiserie and chocolate workshops",
               "blurb": "Founded in 1989 in Paris's 15th arrondissement by Meilleurs Ouvriers de France, this school runs three-day professional workshops in pastry, viennoiserie and chocolate, plus longer extended programs.",
               "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Las Vegas",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Melissa Coppel Chocolate & Pastry School"
+          ],
+          "masters": [
+            "Melissa Coppel"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "school",
+            "master-lab"
+          ],
+          "why": "Master chocolatier Melissa Coppel runs one of the world's most sought-after bonbon and bean-to-bar schools — small, hands-on, and built entirely around her own confectionery craft.",
+          "bestSeason": "Year-round",
+          "level": "Intermediate -> Professional",
+          "id": "chocolate-and-confectionery--las-vegas",
+          "schoolsInfo": [
+            {
+              "name": "Melissa Coppel Chocolate & Pastry School",
+              "url": "https://school.melissacoppel.com/school-courses/",
+              "course": "2-8 day hands-on intensives — bonbons, bean-to-bar, ganache, enrobing, spraying, panning (max 14)",
+              "blurb": "Founded in 2016 by Colombian-born master chocolatier Melissa Coppel, a dedicated school whose courses (e.g. a 6-day Chocolate Bootcamp) are 100% hands-on with open public booking. A world-class confectionery hub rather than a cacao-origin.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Caracas",
+          "country": "Venezuela",
+          "region": "Americas",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Cacao de Origen"
+          ],
+          "masters": [
+            "Maria Fernanda Di Giacobbe"
+          ],
+          "badges": [
+            "source",
+            "master",
+            "school",
+            "heritage",
+            "master-lab"
+          ],
+          "why": "At the source of Venezuelan criollo cacao, Maria Fernanda Di Giacobbe — winner of the inaugural Basque Culinary World Prize — runs a bean-to-bar lab built on training chocolate-makers 'from the seed.'",
+          "bestSeason": "Year-round",
+          "level": "Beginner -> Professional",
+          "id": "chocolate-and-confectionery--caracas",
+          "schoolsInfo": [
+            {
+              "name": "Cacao de Origen",
+              "url": "https://cacaodeorigenvenezuela.com/",
+              "course": "Bean-to-bar lab: tastings, weekly public talks, bonbon workshops and a 5-day cacao-to-chocolate course",
+              "blurb": "Founded 2013 by chocolatier Maria Fernanda Di Giacobbe (2016 Basque Culinary World Prize), a teaching lab at cacao origin that has trained thousands. Booking is by email/phone and Venezuela travel is a real logistical hurdle — confirm directly.",
+              "confidence": "med"
             }
           ]
         }
@@ -11926,7 +11995,8 @@ window.ET_ATLAS = {
             "mecca",
             "master",
             "heritage",
-            "lineage"
+            "lineage",
+            "master-lab"
           ],
           "why": "The world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.",
           "bestSeason": "Year-round",
@@ -11934,18 +12004,11 @@ window.ET_ATLAS = {
           "id": "italian-cuisine-and-pasta--bologna",
           "schoolsInfo": [
             {
-              "name": "La Vecchia Scuola Bolognese (VSB)",
+              "name": "La Vecchia Scuola Bolognese (Alessandra Spisni)",
               "url": "https://www.vsb-bologna.it/en/",
               "course": "Sfoglia: Professional Course with Alessandra Spisni",
               "blurb": "Run by founder and master sfoglina Alessandra Spisni at the only school dedicated to forming sfoglini, this professional course teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of B",
               "confidence": "medium"
-            },
-            {
-              "name": "La Vecchia Scuola Bolognese (VSB, Alessandra Spisni)",
-              "url": "https://www.vsb-bologna.it/en/",
-              "course": "Hand-pulled sfoglia / fresh-pasta courses (amateur to professional)",
-              "blurb": "Bologna fresh-pasta school led by master sfoglina Alessandra Spisni teaching hand-rolled sfoglia and traditional Bolognese cuisine through morning courses ranging from amateur sessions to a professional sfoglina path.",
-              "confidence": "high"
             },
             {
               "name": "Bologna Cooking School",
@@ -12146,14 +12209,14 @@ window.ET_ATLAS = {
               "name": "Mugaritz (creativity stage)",
               "url": "https://www.mugaritz.com/en/",
               "course": "Kitchen stage / culinary internship at Mugaritz (Errenteria)",
-              "blurb": "Andoni Luis Aduriz's two-Michelin-star restaurant in Errenteria runs a multi-month kitchen stage where selected cooks work the line and rotate through its research-and-development team that builds each season's menu.",
+              "blurb": "Andoni Luis Aduriz's two-Michelin-star restaurant in Errenteria runs a multi-month kitchen stage where selected cooks work the line and rotate through its research-and-development team that builds each season's menu. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
               "confidence": "high"
             },
             {
               "name": "Martín Berasategui (restaurant stage)",
               "url": "https://www.martinberasategui.com/en/inicio",
               "course": "Restaurant stage / práctica at the Lasarte-Oria flagship ('Work with us')",
-              "blurb": "The three-Michelin-star flagship in Lasarte-Oria takes on stagiaires through its 'Work with us' channel, placing experienced cooks in the kitchen brigade of Martín Berasategui's original restaurant.",
+              "blurb": "The three-Michelin-star flagship in Lasarte-Oria takes on stagiaires through its 'Work with us' channel, placing experienced cooks in the kitchen brigade of Martín Berasategui's original restaurant. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
               "confidence": "high"
             }
           ]
@@ -12278,7 +12341,7 @@ window.ET_ATLAS = {
               "name": "El Celler de Can Roca (stage program)",
               "url": "https://cellercanroca.com/en/",
               "course": "Internship / stage at El Celler de Can Roca (incl. BBVA scholarship intake)",
-              "blurb": "The Roca brothers' three-Michelin-star restaurant in Girona hosts paid stages, including a BBVA scholarship cohort that adds accommodation, meals and University of Barcelona-backed coursework on chocolate, caviar and team management.",
+              "blurb": "The Roca brothers' three-Michelin-star restaurant in Girona hosts paid stages, including a BBVA scholarship cohort that adds accommodation, meals and University of Barcelona-backed coursework on chocolate, caviar and team management. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
               "confidence": "high"
             },
             {
@@ -12325,7 +12388,7 @@ window.ET_ATLAS = {
               "name": "Mugaritz (creativity stage)",
               "url": "https://www.mugaritz.com/en/",
               "course": "MACC creativity program (6 months, one-week residency at Mugaritz) / kitchen stage",
-              "blurb": "Mugaritz, just outside San Sebastián in Errenteria, runs the six-month MACC creativity program built around an interdisciplinary teaching team and a one-week residency at the restaurant, alongside its season-long kitchen stage.",
+              "blurb": "Mugaritz, just outside San Sebastián in Errenteria, runs the six-month MACC creativity program built around an interdisciplinary teaching team and a one-week residency at the restaurant, alongside its season-long kitchen stage. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
               "confidence": "high"
             }
           ]
@@ -12518,6 +12581,39 @@ window.ET_ATLAS = {
               "url": "https://www.kyoto-cooking-class.com/",
               "course": "Vegetarian / Nishiki Market washoku class",
               "blurb": "A small home-kitchen class near Shimogamo Shrine for up to six guests, Haru teaches Kyoto-style washoku with options for a vegetarian menu, Kobe beef or a guided Nishiki Market shopping tour.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Los Angeles (Torrance)",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Sushi Chef Institute"
+          ],
+          "masters": [
+            "Andy Matsuda"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "school",
+            "master-lab"
+          ],
+          "why": "The strongest single-named-master sushi school outside Japan — Osaka-trained master Andy Matsuda teaches a full professional course hands-on near Los Angeles.",
+          "bestSeason": "Year-round",
+          "level": "Beginner -> Professional",
+          "id": "sushi-and-washoku--los-angeles-torrance",
+          "schoolsInfo": [
+            {
+              "name": "Sushi Chef Institute",
+              "url": "https://sushischool.net/",
+              "course": "2-month Professional Course — rice, nigiri, sashimi, rolls, fish/shellfish prep, knife maintenance",
+              "blurb": "Founded in 2002 by master chef Andy Matsuda (Kobe-born, five-year Osaka apprenticeship, Yosei-kai member). A dedicated, openly enrollable sushi school — authoritative, though in California rather than at the source in Japan.",
               "confidence": "high"
             }
           ]
@@ -14124,6 +14220,38 @@ window.ET_ATLAS = {
               "course": "",
               "blurb": "Empirical is a Copenhagen flavour-focused distillery founded by Nordic Food Lab and noma alumni Lars Williams and Mark Emil Hermansen, built on fermentation, brewing, and distilling, though it does not appear to run a formal public fermentation course.",
               "confidence": "low"
+            }
+          ]
+        },
+        {
+          "place": "Tokyo",
+          "country": "Japan",
+          "region": "Asia",
+          "role": "source",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "&LAB TOKYO"
+          ],
+          "masters": [
+            "Chie Ando"
+          ],
+          "badges": [
+            "source",
+            "school",
+            "master-lab"
+          ],
+          "why": "At the home of koji, &LAB Tokyo teaches Japan's fermentation toolkit — koji, miso, shio-koji, amazake — as a progressive hands-on curriculum you can actually enrol in.",
+          "bestSeason": "Year-round",
+          "level": "Beginner -> Professional",
+          "id": "cheese-and-fermentation--tokyo",
+          "schoolsInfo": [
+            {
+              "name": "&LAB TOKYO",
+              "url": "https://www.andlabtokyo.com/en/fermentation",
+              "course": "Progressive koji-centred courses (Basic / Intermediate / Master) plus a Fermentation Creator masterclass, in English",
+              "blurb": "A dedicated Tokyo fermentation school led by instructor Chie Ando, teaching koji cultivation, miso and koji seasonings hands-on from beginner to professional. Ando is a teaching/media expert rather than a traditional brewery (jozo) master.",
+              "confidence": "med"
             }
           ]
         }
@@ -20177,6 +20305,142 @@ window.ET_ATLAS = {
           }
         ]
       }
+    },
+    {
+      "discipline": "Avant-Garde & Modernist Technique",
+      "category": "culinary",
+      "id": "avant-garde-and-modernist-technique",
+      "certShort": "Master-led technique lab",
+      "certBody": "No single formal body — master-led technique labs / certificates of attendance",
+      "goldCredential": "A completed hands-on course at a master-led avant-garde technique lab",
+      "blurb": "The teachable toolkit of modernist cuisine — sous-vide and low temperature, spherification, foams, hydrocolloids, liquid nitrogen — taught hands-on at dedicated labs run by named masters. The rare places where the avant-garde is a course you can actually enrol in, not a restaurant you can only eat at.",
+      "featured": {
+        "id": "avant-garde-and-modernist-technique--barcelona",
+        "place": "Barcelona",
+        "country": "Spain",
+        "school": "Vakuum by Martin Lippo",
+        "url": "https://martinlippo.com/en/",
+        "course": "Open courses, private masterclasses & online modules in modernist technique",
+        "description": "Martin Lippo, an Argentine chef in Barcelona since 2000 and a pioneer of sous-vide and low-temperature cooking, runs Vakuum, a dedicated laboratory and training school. It teaches the full modernist toolkit hands-on — sous-vide, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen — through in-person intensives and a deep online curriculum.",
+        "duration": "2-day intensives and longer modular tracks",
+        "format": "in-person + online",
+        "certification": "Vakuum certificate of attendance",
+        "fitsBecause": "It is a master-led avant-garde lab with genuine open enrolment and an unusually complete curriculum — the clearest fit for learning the technique at the source.",
+        "sessions": [],
+        "priceNote": "In-person intensives roughly EUR 580; open group classes run in Spanish, with English/French as private courses (confirm current terms).",
+        "confidence": "high"
+      },
+      "destinations": [
+        {
+          "place": "Barcelona",
+          "country": "Spain",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Vakuum by Martin Lippo",
+            "Espai Sucre"
+          ],
+          "masters": [
+            "Martin Lippo",
+            "Jordi Butron"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "school",
+            "mecca",
+            "master-lab"
+          ],
+          "why": "Catalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can actually enrol with a master, at Martin Lippo's Vakuum lab and Jordi Butron's Espai Sucre.",
+          "bestSeason": "Year-round",
+          "level": "Enthusiast -> Professional",
+          "id": "avant-garde-and-modernist-technique--barcelona",
+          "schoolsInfo": [
+            {
+              "name": "Vakuum by Martin Lippo",
+              "url": "https://martinlippo.com/en/",
+              "course": "Open courses, private masterclasses & online modules — sous-vide and low-temperature cooking, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen",
+              "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. Open group courses run in Spanish; English or French is available as a private course. Listed because the founder met Martin Lippo in person.",
+              "confidence": "high"
+            },
+            {
+              "name": "Espai Sucre",
+              "url": "https://espaisucre.com/en/",
+              "course": "11-month Restaurant Pastry and Traditional Pastry programs, plus 2-4 day monthly intensives",
+              "blurb": "Founded in 2000 by Jordi Butron and Xano Saguer, Espai Sucre is the world's first restaurant-dessert school and a pioneer of avant-garde plated desserts — the modern technique applied to the sweet side. The school is operating and enrollable (the original restaurant has closed).",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Puebla & Mexico City",
+          "country": "Mexico",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Molecular Cuisine Academy (MCS)"
+          ],
+          "masters": [
+            "Miguel Angel Cepeda"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "school",
+            "master-lab"
+          ],
+          "why": "The closest thing in the Americas to a European modernist lab — Miguel Angel Cepeda has taught techno-emotional cuisine since 2009 and runs a dedicated academy you can actually enrol in.",
+          "bestSeason": "Year-round",
+          "level": "Beginner -> Professional",
+          "id": "avant-garde-and-modernist-technique--puebla-mexico-city",
+          "schoolsInfo": [
+            {
+              "name": "Molecular Cuisine Academy (MCS)",
+              "url": "https://molecularcs.com/",
+              "course": "Diplomado en Cocina Molecular (multi-week) plus in-person workshops and online courses",
+              "blurb": "Founded by chef Miguel Angel Cepeda, this Puebla- and Mexico City-based academy teaches spherification, foams, liquid-nitrogen ices, gels and molecular mixology, with open enrolment for chefs and enthusiasts. Confirm the next intake directly.",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "place": "Melbourne (Lilydale)",
+          "country": "Australia",
+          "region": "Oceania",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Sous Vide Australia"
+          ],
+          "masters": [
+            "Dale Prentice"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "school",
+            "master-lab"
+          ],
+          "why": "The clearest Southern-Hemisphere match — chef Dale Prentice runs a dedicated sous-vide and low-temperature teaching lab, the same vacuum-cooking archetype as Vakuum.",
+          "bestSeason": "Year-round",
+          "level": "Enthusiast -> Professional",
+          "id": "avant-garde-and-modernist-technique--melbourne-lilydale",
+          "schoolsInfo": [
+            {
+              "name": "Sous Vide Australia (The Upper Room)",
+              "url": "https://www.sousvideaustralia.com/",
+              "course": "Public sous-vide and low-temperature workshops (e.g. '101 Sous Vide Workshop for the Chef')",
+              "blurb": "A dedicated recipe-development and teaching space near Melbourne run by chef Dale Prentice (22+ years; ex-exec chef Stones of the Yarra Valley), with public workshops for chefs, apprentices and home cooks. Sous-vide / low-temperature focused rather than the full modernist spectrum.",
+              "confidence": "med"
+            }
+          ]
+        }
+      ]
     }
   ],
   "enrichedAt": "2026-06-11",
