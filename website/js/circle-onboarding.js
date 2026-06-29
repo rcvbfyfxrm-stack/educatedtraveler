@@ -208,6 +208,8 @@
   ".etc-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(127,168,165,.22)}.etc-cta.etc-dim{opacity:.4;pointer-events:none;transform:none;box-shadow:none}"+
   ".etc-shelf{padding:2px 22px 6px}"+
   ".etc-grp{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7fa8a5;margin:14px 2px 8px;display:flex;align-items:center;gap:8px}.etc-grp .etc-ln{flex:1;height:1px;background:rgba(243,237,226,.09)}"+
+  ".etc-grp-wide{color:rgba(243,237,226,.52);margin-top:20px}"+
+  ".etc-more{font-size:12px;color:rgba(243,237,226,.5);text-align:center;padding:16px 10px 4px;line-height:1.65}.etc-more b{color:#7fa8a5;font-weight:500}"+
   ".etc-card{background:#1c1813;border:1px solid rgba(243,237,226,.09);border-radius:14px;padding:14px 15px;position:relative;overflow:hidden;margin-bottom:9px;cursor:pointer;transition:border-color .25s,transform .25s,background .25s;animation:etc-rise .5s cubic-bezier(.2,.8,.2,1) both}"+
   ".etc-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc)}.etc-card:hover{transform:translateY(-2px)}.etc-card.etc-sel{border-color:#7fa8a5;background:rgba(127,168,165,.09)}"+
   "@keyframes etc-rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}"+
@@ -285,6 +287,28 @@
   function tint(s,v){var c=(s.key==="worlds")?WORLD_COLOR[v]:null;if(c)els.orb.style.background="radial-gradient(circle at 50% 34%,"+hexA(c,.98)+","+hexA(c,.62)+" 46%,rgba(210,138,82,.42) 72%,transparent 78%)";}
   function next(){i++;if(i<flow.length)render();}
 
+  function rankWhy(dst){var a=[];if(dst.rank>=5)a.push("legendary scene");else if(dst.rank>=4)a.push("thriving scene");return a;}
+  function shelfCard(c,dst,w,sel,whys,d){
+    var roleTag=dst.role?'<span class="etc-tag">'+({source:"at the source",scene:"a strong scene",both:"source & scene"}[dst.role]||"")+'</span>':'';
+    var proof=dst.rankLabel?dst.rankLabel+" community":"Hand-verified";
+    proof+=dst.certified?" · certified credential":(dst.hasSchool?" · school listed":"");
+    var whyHtml=(whys||[]).slice(0,2).map(function(t){return'<span class="etc-tag etc-why">'+esc(t)+'</span>';}).join("");
+    return '<div class="etc-card'+(sel?' etc-sel':'')+'" role="button" tabindex="0" aria-pressed="'+(sel?"true":"false")+'" data-id="'+esc(c.id)+'" style="--sc:'+WORLD_COLOR[w]+';animation-delay:'+(d*55)+'ms"><div class="etc-ctop"><div style="flex:1"><div class="etc-cred">◆ '+esc(c.cred)+'</div><div class="etc-ctitle">'+esc(c.craft)+'</div><div class="etc-cplace">'+esc(dst.place)+'</div><div class="etc-meta">'+whyHtml+roleTag+'</div><div class="etc-verified">✓ '+esc(proof)+'</div></div><div class="etc-heart" aria-hidden="true">♥</div></div></div>';
+  }
+  // Broad spectrum: a diverse cross-world sample drawn from the rest of the Atlas,
+  // leaning to worlds they did NOT pick, strongest community first — things to start with.
+  function widerPicks(shownIds,maxN){
+    var pool=CRAFTS.filter(function(c){return shownIds.indexOf(c.id)<0;}).map(function(c){return{c:c,d:pickDest(c)};});
+    var byW={};pool.forEach(function(p){(byW[p.c.world]=byW[p.c.world]||[]).push(p);});
+    Object.keys(byW).forEach(function(w){byW[w].sort(function(a,b){return (b.d.rank||0)-(a.d.rank||0);});});
+    var worldsOrder=Object.keys(byW).sort(function(a,b){var pa=(profile.worlds||[]).indexOf(a)>=0,pb=(profile.worlds||[]).indexOf(b)>=0;return (pa===pb)?0:(pa?1:-1);});
+    var out=[],idx={},added=true;
+    while(out.length<maxN&&added){added=false;
+      worldsOrder.forEach(function(w){if(out.length>=maxN)return;var list=byW[w]||[],k=idx[w]||0;if(list[k]){out.push(list[k]);idx[w]=k+1;added=true;}});
+    }
+    out.forEach(function(p){p.c._dest=p.d;});
+    return out;
+  }
   function renderShelf(){
     var picks=curate();chosen=picks.slice(0,Math.min(3,picks.length)).map(function(r){return r.c.id;});
     els.shelf.style.display="block";
@@ -293,12 +317,14 @@
     var html="",d=0;
     order.forEach(function(w){if(!byW[w])return;
       html+='<div class="etc-grp"><span style="color:'+WORLD_COLOR[w]+'" aria-hidden="true">●</span> '+esc(WORLD_LABEL[w])+'<span class="etc-ln"></span></div>';
-      byW[w].forEach(function(r){var c=r.c,dst=r.d,sel=chosen.indexOf(c.id)>=0,whys=r.why.slice(0,2).map(function(t){return'<span class="etc-tag etc-why">'+esc(t)+'</span>';}).join("");
-        var roleTag=dst.role?'<span class="etc-tag">'+({source:"at the source",scene:"a strong scene",both:"source & scene"}[dst.role]||"")+'</span>':'';
-        var proof=dst.rankLabel?dst.rankLabel+" community":"Hand-verified";
-        proof+=dst.certified?" · certified credential":(dst.hasSchool?" · school listed":"");
-        html+='<div class="etc-card'+(sel?' etc-sel':'')+'" role="button" tabindex="0" aria-pressed="'+(sel?"true":"false")+'" data-id="'+esc(c.id)+'" style="--sc:'+WORLD_COLOR[w]+';animation-delay:'+(d*60)+'ms"><div class="etc-ctop"><div style="flex:1"><div class="etc-cred">◆ '+esc(c.cred)+'</div><div class="etc-ctitle">'+esc(c.craft)+'</div><div class="etc-cplace">'+esc(dst.place)+'</div><div class="etc-meta">'+whys+roleTag+'</div><div class="etc-verified">✓ '+esc(proof)+'</div></div><div class="etc-heart" aria-hidden="true">♥</div></div></div>';d++;});
+      byW[w].forEach(function(r){html+=shelfCard(r.c,r.d,w,chosen.indexOf(r.c.id)>=0,r.why,d);d++;});
     });
+    var wider=widerPicks(picks.map(function(r){return r.c.id;}),5);
+    if(wider.length){
+      html+='<div class="etc-grp etc-grp-wide"><span aria-hidden="true">✦</span> A wider world — worth starting too<span class="etc-ln"></span></div>';
+      wider.forEach(function(p){html+=shelfCard(p.c,p.d,p.c.world,false,rankWhy(p.d),d);d++;});
+    }
+    html+='<div class="etc-more">Not enough here? This is only a handful — the full Atlas holds <b>'+CRAFTS.length+'</b> crafts, and there\'s more waiting for whatever pulls you. You\'ll see it all next.</div>';
     els.shelf.innerHTML=html;
     els.shelf.querySelectorAll(".etc-card").forEach(function(card){
       function toggle(){var id=card.dataset.id,x=chosen.indexOf(id);if(x>=0){chosen.splice(x,1);card.classList.remove("etc-sel");card.setAttribute("aria-pressed","false");}else{chosen.push(id);card.classList.add("etc-sel");card.setAttribute("aria-pressed","true");}selCount();}
