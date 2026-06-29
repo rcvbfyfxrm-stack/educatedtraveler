@@ -280,10 +280,21 @@
   function chooseSingle(s,o){profile[s.key]=o.value;if(o.motiv)profile.motivation=o.motiv;tint(s,o.value);els.ans.innerHTML="";reflectAfter(s.after&&s.after[o.value],next);}
   function toggleMulti(s,o,b){var x=multiSel.indexOf(o.value);if(x>=0){multiSel.splice(x,1);b.classList.remove("etc-sel");b.setAttribute("aria-pressed","false");}else{multiSel.push(o.value);b.classList.add("etc-sel");b.setAttribute("aria-pressed","true");}if(s.key==="worlds"&&multiSel.length)tint(s,multiSel[0]);els.bar.querySelector(".etc-cont").classList.toggle("etc-dim",multiSel.length===0);}
   function confirmMulti(s){profile[s.key]=multiSel.slice();els.ans.innerHTML="";els.bar.style.display="none";reflectAfter(s.afterMulti?s.afterMulti(multiSel):null,next);}
-  // Dwell long enough to actually READ the reflection — scaled to its length
-  // (calm orb while reading, then a brief think before advancing).
-  function readMs(txt){var w=String(txt).trim().split(/\s+/).length;return Math.min(6800,Math.max(2400,1200+w*220));}
-  function reflectAfter(txt,done){if(!txt){think(900,done);return;}els.reflect.classList.add("etc-fade");setTimeout(function(){els.reflect.innerHTML='<span style="color:#7fa8a5">'+esc(txt)+'</span>';els.reflect.classList.remove("etc-fade");setTimeout(function(){think(420,done);},readMs(txt));},300);}
+  // Show the reflection, then let the reader advance on THEIR tap — never a timer
+  // (a fixed dwell always left someone short on time to read). Full control.
+  function reflectAfter(txt,done){
+    if(!txt){think(900,done);return;}
+    els.reflect.classList.add("etc-fade");
+    setTimeout(function(){
+      els.reflect.innerHTML='<span style="color:#7fa8a5">'+esc(txt)+'</span>';
+      els.reflect.classList.remove("etc-fade");
+      els.bar.style.display="flex";
+      els.bar.innerHTML='<button class="etc-cta etc-next" type="button">Continue →</button>';
+      var b=els.bar.querySelector(".etc-next");
+      b.onclick=function(){els.bar.style.display="none";els.bar.innerHTML="";think(360,done);};
+      setTimeout(function(){try{b.focus();}catch(e){}},40);
+    },300);
+  }
   function tint(s,v){var c=(s.key==="worlds")?WORLD_COLOR[v]:null;if(c)els.orb.style.background="radial-gradient(circle at 50% 34%,"+hexA(c,.98)+","+hexA(c,.62)+" 46%,rgba(210,138,82,.42) 72%,transparent 78%)";}
   function next(){i++;if(i<flow.length)render();}
 
