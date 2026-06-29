@@ -206,6 +206,11 @@
   ".etc-bar{padding:8px 22px 22px;display:flex;justify-content:center}"+
   ".etc-cta{display:inline-block;padding:12px 26px;border-radius:99px;font-size:15px;font-weight:500;background:linear-gradient(135deg,#7fa8a5,#d28a52 130%);color:#14110d;transition:transform .25s,box-shadow .25s,opacity .25s;cursor:pointer;border:none;font-family:inherit}"+
   ".etc-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(127,168,165,.22)}.etc-cta.etc-dim{opacity:.4;pointer-events:none;transform:none;box-shadow:none}"+
+  ".etc-flash{position:relative;overflow:hidden;animation:etc-glow 2.2s ease-in-out infinite}"+
+  ".etc-flash::after{content:'';position:absolute;top:0;left:-130%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.34),transparent);transform:skewX(-18deg);pointer-events:none;animation:etc-sheen 2.8s ease-in-out infinite}"+
+  ".etc-flash.etc-dim{animation:none}.etc-flash.etc-dim::after{display:none}"+
+  "@keyframes etc-glow{0%,100%{box-shadow:0 6px 20px rgba(127,168,165,.30)}50%{box-shadow:0 12px 36px rgba(210,138,82,.55),0 0 0 4px rgba(210,138,82,.14)}}"+
+  "@keyframes etc-sheen{0%{left:-130%}60%{left:140%}100%{left:140%}}"+
   ".etc-shelf{padding:2px 22px 6px}"+
   ".etc-grp{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7fa8a5;margin:14px 2px 8px;display:flex;align-items:center;gap:8px}.etc-grp .etc-ln{flex:1;height:1px;background:rgba(243,237,226,.09)}"+
   ".etc-grp-wide{color:rgba(243,237,226,.52);margin-top:20px}"+
@@ -227,7 +232,7 @@
   ".etc-done{text-align:center;padding:30px 26px 40px}.etc-done .etc-orb{margin-bottom:14px}.etc-done h2{font-family:Fraunces,Georgia,serif;font-weight:300;font-size:26px;margin-bottom:10px}.etc-done p{color:rgba(243,237,226,.56);font-size:14px;max-width:36ch;margin:0 auto 18px}.etc-recap{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(243,237,226,.34);margin:0 auto 18px;max-width:32ch;line-height:1.9}"+
   ".etc-story{display:inline-block;margin-top:16px;font-size:12.5px;color:rgba(243,237,226,.56);text-decoration:underline;text-underline-offset:3px;transition:color .2s}.etc-story:hover{color:#7fa8a5}.etc-story:focus-visible{outline:2px solid #7fa8a5;outline-offset:2px}"+
   "@media(max-width:600px){.etc-panel{width:100vw;max-height:100vh;height:100vh;border-radius:0}.etc-scrim{padding:0}}"+
-  "@media(prefers-reduced-motion:reduce){.etc-lorb,.etc-lorb::after,.etc-orb,.etc-orb::after,.etc-card,.etc-launcher.etc-nudge .etc-lorb{animation:none!important}.etc-scrim,.etc-panel,.etc-say,.etc-reflect,.etc-opt,.etc-cta,.etc-lorb{transition:none!important}}";
+  "@media(prefers-reduced-motion:reduce){.etc-lorb,.etc-lorb::after,.etc-orb,.etc-orb::after,.etc-card,.etc-flash,.etc-flash::after,.etc-launcher.etc-nudge .etc-lorb{animation:none!important}.etc-scrim,.etc-panel,.etc-say,.etc-reflect,.etc-opt,.etc-cta,.etc-lorb{transition:none!important}}";
 
   var PANEL_INNER='<div class="etc-head"><span class="etc-brand">EDUCATED<b>TRAVELER</b></span>'+
     '<div class="etc-ring" style="display:none"><svg width="40" height="40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="rgba(243,237,226,.1)" stroke-width="3"/><circle class="etc-ringc" cx="20" cy="20" r="16" fill="none" stroke="#7fa8a5" stroke-width="3" stroke-linecap="round" stroke-dasharray="100.5" stroke-dashoffset="100.5"/></svg><span class="etc-pct">0%</span></div>'+
@@ -343,7 +348,7 @@
       card.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();}});
     });
     els.selc.style.display="block";selCount();
-    els.bar.style.display="flex";els.bar.innerHTML='<button class="etc-cta etc-keep" type="button">Keep these for me →</button>';
+    els.bar.style.display="flex";els.bar.innerHTML='<button class="etc-cta etc-keep etc-flash" type="button">Keep these for me →</button>';
     els.bar.querySelector(".etc-keep").onclick=function(){if(chosen.length){profile.crafts=chosen.slice();next();}};
   }
   function selCount(){var n=chosen.length;els.selc.innerHTML=n?('<b>'+n+'</b> skill'+(n>1?"s":"")+' selected — tap to add or remove'):'Tap at least one to continue';var k=els.bar.querySelector(".etc-keep");if(k)k.classList.toggle("etc-dim",n===0);}
@@ -351,7 +356,7 @@
   function renderAcct(){
     els.acct.style.display="block";els.bar.style.display="none";
     var names=chosen.map(function(id){var c=byId(id);return c?c.craft:"";}).filter(Boolean);
-    els.acct.innerHTML='<div class="etc-chosen">'+names.map(function(n){return'<span class="etc-pill">'+esc(n)+'</span>';}).join("")+'</div><div class="etc-built">'+recap()+'</div><input class="etc-fn" placeholder="First name" autocomplete="given-name" aria-label="First name"><input class="etc-em" type="email" placeholder="Email" autocomplete="email" aria-label="Email"><button class="etc-cta etc-finish" type="button" style="width:100%">Save my '+names.length+' skill'+(names.length>1?"s":"")+'</button><div class="etc-fine">No spam. Finish your profile whenever — it\'s already built from your answers.</div>';
+    els.acct.innerHTML='<div class="etc-chosen">'+names.map(function(n){return'<span class="etc-pill">'+esc(n)+'</span>';}).join("")+'</div><div class="etc-built">'+recap()+'</div><input class="etc-fn" placeholder="First name" autocomplete="given-name" aria-label="First name"><input class="etc-em" type="email" placeholder="Email" autocomplete="email" aria-label="Email"><button class="etc-cta etc-finish etc-flash" type="button" style="width:100%">Save my '+names.length+' skill'+(names.length>1?"s":"")+'</button><div class="etc-fine">No spam. Finish your profile whenever — it\'s already built from your answers.</div>';
     var fn=els.acct.querySelector(".etc-fn");if(fn)setTimeout(function(){fn.focus();},30);
     els.acct.querySelector(".etc-finish").onclick=function(){
       profile.fname=(els.acct.querySelector(".etc-fn").value||"friend").trim();
