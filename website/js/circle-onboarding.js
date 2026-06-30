@@ -171,16 +171,17 @@
   ".etc-scrim,.etc-scrim *,.etc-launcher,.etc-launcher *{box-sizing:border-box}"+
   ".etc-launcher{position:fixed;bottom:24px;right:24px;z-index:9000;display:flex;align-items:center;cursor:pointer;font-family:Inter,system-ui,sans-serif}"+
   ".etc-launcher:focus-visible{outline:2px solid #7fa8a5;outline-offset:4px;border-radius:99px}"+
-  ".etc-lorb{width:58px;height:58px;border-radius:50%;position:relative;flex:0 0 auto;background:radial-gradient(circle at 50% 38%,rgba(127,168,165,.65),rgba(210,138,82,.3) 70%,rgba(20,17,13,.9) 73%);box-shadow:0 8px 30px rgba(0,0,0,.5);animation:etc-breathe 4.5s ease-in-out infinite;transition:transform .3s}"+
+  ".etc-lorb{width:60px;height:60px;border-radius:50%;position:relative;flex:0 0 auto;background:radial-gradient(circle at 50% 35%,rgba(196,228,224,.98),rgba(127,168,165,.88) 44%,rgba(210,138,82,.6) 72%,rgba(20,17,13,.96) 80%);box-shadow:0 8px 30px rgba(0,0,0,.5);animation:etc-breathe 4.5s ease-in-out infinite,etc-lglow 2.4s ease-in-out infinite;transition:transform .3s}"+
   ".etc-lorb::after{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid rgba(127,168,165,.5);animation:etc-halo 4.5s ease-in-out infinite}"+
   ".etc-launcher:hover .etc-lorb{transform:scale(1.08)}"+
   ".etc-llabel{max-width:0;overflow:hidden;white-space:nowrap;font-size:13.5px;color:#f3ede2;background:rgba(20,17,13,.95);border:1px solid rgba(243,237,226,.12);border-radius:99px;height:40px;display:flex;align-items:center;opacity:0;transition:max-width .4s,opacity .3s,padding .4s,margin .4s;order:-1;padding:0;margin-right:-29px;padding-left:38px}"+
-  ".etc-launcher:hover .etc-llabel,.etc-launcher.etc-nudge .etc-llabel{max-width:260px;opacity:1;padding:0 44px 0 16px;margin-right:-30px}"+
-  ".etc-launcher.etc-nudge .etc-lorb{animation:etc-breathe 4.5s ease-in-out infinite,etc-bob 1.2s ease 1}"+
+  ".etc-launcher:hover .etc-llabel,.etc-launcher:focus .etc-llabel,.etc-launcher.etc-nudge .etc-llabel{max-width:280px;opacity:1;padding:0 44px 0 16px;margin-right:-30px}"+
+  ".etc-launcher.etc-nudge .etc-lorb{animation:etc-breathe 4.5s ease-in-out infinite,etc-bob 1.2s ease 1,etc-lglow 2.4s ease-in-out infinite}"+
   ".etc-launcher.etc-hidden{display:none}"+
   "@keyframes etc-bob{0%,100%{transform:translateY(0)}30%{transform:translateY(-9px)}60%{transform:translateY(-3px)}}"+
   "@keyframes etc-breathe{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}"+
   "@keyframes etc-halo{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.5);opacity:0}}"+
+  "@keyframes etc-lglow{0%,100%{box-shadow:0 8px 30px rgba(0,0,0,.5),0 0 0 0 rgba(210,138,82,0)}50%{box-shadow:0 8px 30px rgba(0,0,0,.5),0 0 26px 5px rgba(210,138,82,.5),0 0 0 9px rgba(127,168,165,.12)}}"+
   ".etc-scrim{position:fixed;inset:0;z-index:9001;background:rgba(8,7,5,.74);backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .5s;font-family:Inter,system-ui,sans-serif}"+
   ".etc-scrim.etc-on{opacity:1;pointer-events:auto}"+
   ".etc-panel{width:min(94vw,480px);max-height:92vh;overflow-y:auto;overflow-x:hidden;background:linear-gradient(180deg,#14110d,#0d0b09);border:1px solid rgba(243,237,226,.09);border-radius:24px;box-shadow:0 40px 100px rgba(0,0,0,.6);transform:translateY(22px) scale(.98);transition:transform .5s cubic-bezier(.2,.8,.2,1);color:#f3ede2;font-weight:300;line-height:1.6}"+
