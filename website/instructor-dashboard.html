@@ -818,6 +818,24 @@
                 loadingState.classList.add('hidden');
                 dashboardContent.classList.remove('hidden');
 
+                // Post-render wiring — needs `data`, so it must run INSIDE this try
+                // (block-scoped `const data` is not visible after the catch below).
+                setupCohortModal(user);
+                setupExperienceModal();
+                setupStudentModal();
+                setupProfileEdit(data.instructor);
+                setupContactModal(data.instructor, data.cohorts || []);
+                setupSubmitReviewModal();
+
+                // Show "Welcome to your dashboard" toast on first invite-link landing
+                const params = new URLSearchParams(window.location.search);
+                if (params.get('welcome') === '1') {
+                    showWelcomeToast(data.instructor);
+                    params.delete('welcome');
+                    const cleanUrl = window.location.pathname + (params.toString() ? '?' + params : '');
+                    window.history.replaceState({}, '', cleanUrl);
+                }
+
             } catch (error) {
                 console.error('Error loading instructor dashboard:', error);
                 loadingState.innerHTML = `
@@ -833,23 +851,6 @@
                 await window.auth.signOut();
                 window.location.href = '/';
             });
-
-            // Cohort modal handlers
-            setupCohortModal(user);
-            setupExperienceModal();
-            setupStudentModal();
-            setupProfileEdit(data.instructor);
-            setupContactModal(data.instructor, data.cohorts || []);
-            setupSubmitReviewModal();
-
-            // Show "Welcome to your dashboard" toast on first invite-link landing
-            const params = new URLSearchParams(window.location.search);
-            if (params.get('welcome') === '1') {
-                showWelcomeToast(data.instructor);
-                params.delete('welcome');
-                const cleanUrl = window.location.pathname + (params.toString() ? '?' + params : '');
-                window.history.replaceState({}, '', cleanUrl);
-            }
         });
 
         // ========================================

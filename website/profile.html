@@ -308,10 +308,15 @@
             const userId = params.get('id');
 
             if (!userId) {
-                // No ID — redirect to dashboard if signed in, else show not found
+                // No ID — route a signed-in user to their dashboard; otherwise show not found.
+                // getCurrentUser() is null until auth.js's async getSession() resolves, so wait
+                // for auth and check the REAL session (avoids a false "profile not found").
+                let waited = 0;
+                while (!window.auth && waited < 80) { await new Promise(r => setTimeout(r, 50)); waited++; }
+                let session = null;
+                try { session = window.auth ? await window.auth.getSession() : null; } catch (e) {}
                 document.getElementById('loading-state').classList.add('hidden');
-                const user = window.auth?.getCurrentUser?.();
-                if (user) {
+                if (session && session.user) {
                     window.location.href = '/dashboard';
                 } else {
                     document.getElementById('not-found-state').classList.remove('hidden');

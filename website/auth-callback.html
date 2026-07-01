@@ -49,15 +49,14 @@
     <div class="text-center fade-up">
         <!-- Loading State -->
         <div id="loading-state">
-            <div class="w-12 h-12 mx-auto mb-6 border-2 border-cyan-400/30 border-t-cyan-400 rounded-full spinner"></div>
+            <div class="w-12 h-12 mx-auto mb-6 border-2 border-[#7fa8a5]/30 border-t-[#7fa8a5] rounded-full spinner"></div>
             <h1 class="text-2xl font-light mb-2">Signing you in...</h1>
-            <p class="text-white/50 text-sm">Just a moment while we verify your magic link.</p>
+            <p class="text-white/50 text-sm">Just a moment while we verify your link.</p>
         </div>
 
         <!-- Success State -->
         <div id="success-state" class="hidden">
-            <div class="text-5xl mb-6">&#x2728;</div>
-            <h1 class="text-2xl font-light mb-2">Welcome aboard!</h1>
+            <h1 class="text-2xl font-light mb-2">Welcome aboard.</h1>
             <p class="text-white/50 text-sm mb-6">You're signed in. Redirecting to your dashboard...</p>
         </div>
 
@@ -95,11 +94,16 @@
 
         <!-- Error State -->
         <div id="error-state" class="hidden">
-            <h1 class="text-2xl font-light mb-2">Something went wrong</h1>
-            <p id="error-message" class="text-white/50 text-sm mb-6">We couldn't sign you in. The link may have expired.</p>
-            <a href="/" class="inline-block px-6 py-3 rounded-full border border-white/20 hover:bg-white/5 transition-colors text-sm">
-                Back to Home
-            </a>
+            <h1 class="text-2xl font-light mb-2">That link didn't work</h1>
+            <p id="error-message" class="text-white/50 text-sm mb-6">This link may have expired or already been used. Ask for a fresh one.</p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="/join?tab=signin" class="inline-block px-6 py-3 rounded-full text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);">
+                    Email me a new link
+                </a>
+                <a href="/" class="inline-block px-6 py-3 rounded-full border border-white/20 hover:bg-white/5 transition-colors text-sm">
+                    Back to Home
+                </a>
+            </div>
         </div>
     </div>
 
@@ -108,104 +112,146 @@
     <script src="/js/supabase-config.js"></script>
 
     <script>
-        (async function() {
+        (function () {
             const loadingState = document.getElementById('loading-state');
             const successState = document.getElementById('success-state');
             const resetState = document.getElementById('reset-state');
             const errorState = document.getElementById('error-state');
             const errorMessage = document.getElementById('error-message');
 
-            // Check if this is a password recovery flow
-            const hash = window.location.hash;
-            const isRecovery = hash.includes('type=recovery');
+            // A recovery link lands here as /auth-callback.html?type=recovery ; on the
+            // implicit flow Supabase also appends type=recovery to the hash. Check both,
+            // and rely on the PASSWORD_RECOVERY event as the authoritative signal.
+            const hash = window.location.hash || '';
+            const search = window.location.search || '';
+            const isRecovery = hash.indexOf('type=recovery') !== -1 || search.indexOf('type=recovery') !== -1;
 
-            try {
-                const supabase = window.supabaseClient;
+            let handled = false;
 
-                // Get the auth code from URL (Supabase handles this automatically via hash)
-                const { data, error } = await supabase.auth.getSession();
-
-                if (error) throw error;
-
-                if (data.session) {
-                    if (isRecovery) {
-                        // Show password reset form
-                        loadingState.classList.add('hidden');
-                        resetState.classList.remove('hidden');
-
-                        document.getElementById('reset-form').addEventListener('submit', async (e) => {
-                            e.preventDefault();
-                            const pw = document.getElementById('reset-password').value;
-                            const confirm = document.getElementById('reset-password-confirm').value;
-                            const resetError = document.getElementById('reset-error');
-                            const submitBtn = document.getElementById('reset-submit-btn');
-
-                            resetError.classList.add('hidden');
-
-                            if (pw !== confirm) {
-                                resetError.textContent = 'Passwords do not match.';
-                                resetError.classList.remove('hidden');
-                                return;
-                            }
-                            if (pw.length < 8) {
-                                resetError.textContent = 'Password must be at least 8 characters.';
-                                resetError.classList.remove('hidden');
-                                return;
-                            }
-
-                            submitBtn.disabled = true;
-                            submitBtn.textContent = 'Updating...';
-
-                            try {
-                                const { error: updateError } = await supabase.auth.updateUser({ password: pw });
-                                if (updateError) throw updateError;
-
-                                resetState.classList.add('hidden');
-                                successState.querySelector('h1').textContent = 'Password updated!';
-                                successState.querySelector('p').textContent = 'Redirecting to your dashboard...';
-                                successState.classList.remove('hidden');
-
-                                setTimeout(() => { window.location.href = '/dashboard.html'; }, 1500);
-                            } catch (err) {
-                                resetError.textContent = err.message || 'Failed to update password.';
-                                resetError.classList.remove('hidden');
-                                submitBtn.disabled = false;
-                                submitBtn.textContent = 'Update Password';
-                            }
-                        });
-                    } else {
-                        // Normal sign-in success
-                        loadingState.classList.add('hidden');
-                        successState.classList.remove('hidden');
-                        setTimeout(() => { window.location.href = '/dashboard.html'; }, 1500);
-                    }
-                } else {
-                    // No session yet - wait for auth to complete from URL hash
-                    const { data: authData, error: authError } = await supabase.auth.exchangeCodeForSession(window.location.href);
-
-                    if (authError) throw authError;
-
-                    if (authData.session) {
-                        if (isRecovery) {
-                            window.location.reload(); // Reload to hit the session branch above
-                        } else {
-                            loadingState.classList.add('hidden');
-                            successState.classList.remove('hidden');
-                            setTimeout(() => { window.location.href = '/dashboard.html'; }, 1500);
-                        }
-                    } else {
-                        throw new Error('No session received');
-                    }
-                }
-            } catch (err) {
-                console.error('Auth callback error:', err);
+            function show(el) {
                 loadingState.classList.add('hidden');
-                errorState.classList.remove('hidden');
-
-                if (err.message) {
-                    errorMessage.textContent = err.message;
-                }
+                successState.classList.add('hidden');
+                resetState.classList.add('hidden');
+                errorState.classList.add('hidden');
+                el.classList.remove('hidden');
             }
+
+            function showReset() {
+                if (handled) return; handled = true;
+                show(resetState);
+            }
+
+            function showSuccessRedirect() {
+                if (handled) return; handled = true;
+                show(successState);
+                setTimeout(function () { window.location.href = '/dashboard.html'; }, 1500);
+            }
+
+            function showError(msg) {
+                if (handled) return; handled = true;
+                show(errorState);
+                if (msg) errorMessage.textContent = msg;
+            }
+
+            function curateError(code, desc) {
+                const c = (code || '').toLowerCase();
+                if (c.indexOf('expired') !== -1 || c === 'otp_expired')
+                    return 'This link has expired or was already used. Ask for a fresh one below.';
+                if (c.indexOf('access_denied') !== -1)
+                    return 'This link is no longer valid. Ask for a fresh one below.';
+                if (desc) return decodeURIComponent(desc.replace(/\+/g, ' '));
+                return 'This link may have expired or already been used. Ask for a fresh one below.';
+            }
+
+            function wireResetForm(supabase) {
+                const form = document.getElementById('reset-form');
+                if (!form || form.dataset.wired) return;
+                form.dataset.wired = '1';
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const pw = document.getElementById('reset-password').value;
+                    const confirm = document.getElementById('reset-password-confirm').value;
+                    const resetError = document.getElementById('reset-error');
+                    const submitBtn = document.getElementById('reset-submit-btn');
+
+                    resetError.classList.add('hidden');
+                    if (pw !== confirm) {
+                        resetError.textContent = 'Passwords do not match.';
+                        resetError.classList.remove('hidden');
+                        return;
+                    }
+                    if (pw.length < 8) {
+                        resetError.textContent = 'Password must be at least 8 characters.';
+                        resetError.classList.remove('hidden');
+                        return;
+                    }
+
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Updating...';
+                    try {
+                        const { error: updateError } = await supabase.auth.updateUser({ password: pw });
+                        if (updateError) throw updateError;
+
+                        show(successState);
+                        successState.querySelector('h1').textContent = 'Password updated.';
+                        successState.querySelector('p').textContent = 'Redirecting to your dashboard...';
+                        setTimeout(function () { window.location.href = '/dashboard.html'; }, 1500);
+                    } catch (err) {
+                        resetError.textContent = err.message || 'Failed to update password.';
+                        resetError.classList.remove('hidden');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Update Password';
+                    }
+                });
+            }
+
+            function boot() {
+                const supabase = window.supabaseClient;
+                if (window.supabaseError || !supabase) {
+                    showError('We couldn’t reach the sign-in service. Please check your connection and try again.');
+                    return;
+                }
+
+                // Wire the reset form up-front so PASSWORD_RECOVERY can reveal it instantly.
+                wireResetForm(supabase);
+
+                // Event-driven: the reliable signal for magic-link / recovery on the implicit flow.
+                supabase.auth.onAuthStateChange(function (event, session) {
+                    if (event === 'PASSWORD_RECOVERY') { showReset(); return; }
+                    if (session) {
+                        if (isRecovery) showReset();
+                        else showSuccessRedirect();
+                    }
+                });
+
+                // Immediate check for an already-established session.
+                supabase.auth.getSession().then(function (res) {
+                    if (res && res.data && res.data.session) {
+                        if (isRecovery) showReset();
+                        else showSuccessRedirect();
+                    }
+                }).catch(function () {});
+
+                // If the link carried an explicit error, surface it in human terms.
+                const hp = new URLSearchParams(hash.charAt(0) === '#' ? hash.slice(1) : hash);
+                const qp = new URLSearchParams(search);
+                const errCode = hp.get('error_code') || qp.get('error_code') || hp.get('error') || qp.get('error');
+                const errDesc = hp.get('error_description') || qp.get('error_description');
+                if (errCode || errDesc) { showError(curateError(errCode, errDesc)); return; }
+
+                // Otherwise give detectSessionInUrl a moment; if nothing lands, it's a dead link.
+                setTimeout(function () {
+                    if (!handled) showError('This link has expired or was already used. Ask for a fresh one below.');
+                }, 4500);
+            }
+
+            // Wait briefly for the Supabase SDK/client to initialise.
+            (function waitForClient(attempt) {
+                attempt = attempt || 0;
+                if (window.supabaseClient || window.supabaseError) { boot(); return; }
+                if (attempt > 140) { showError('We couldn’t reach the sign-in service. Please check your connection and try again.'); return; }
+                setTimeout(function () { waitForClient(attempt + 1); }, 50);
+            })();
         })();
     </script>
 </body>

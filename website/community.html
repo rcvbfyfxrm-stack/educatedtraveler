@@ -172,8 +172,8 @@
                     type="password"
                     name="password"
                     required
-                    minlength="6"
-                    placeholder="Create a password (min 6 characters)"
+                    minlength="8"
+                    placeholder="Create a password (min 8 characters)"
                     class="w-full rounded-full px-4 py-3 text-sm text-white" style="background:rgba(243,237,226,0.04);border:1px solid rgba(243,237,226,0.16)"
                 />
 
@@ -228,7 +228,14 @@
                     Sign in
                 </button>
 
+                <div style="display:flex;justify-content:center;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+                    <button type="button" id="magic-link-btn" class="text-xs" style="background:none;border:none;color:var(--sea);cursor:pointer;padding:2px;">Email me a sign-in link</button>
+                    <span class="text-xs" style="color:rgba(243,237,226,0.2)">&middot;</span>
+                    <button type="button" id="forgot-btn" class="text-xs" style="background:none;border:none;color:rgba(243,237,226,0.5);cursor:pointer;padding:2px;">Forgot your password?</button>
+                </div>
+
                 <p id="signin-error" class="hidden text-red-400 text-xs text-center"></p>
+                <p id="signin-notice" class="hidden text-xs text-center" style="color:var(--sea);line-height:1.55"></p>
 
                 <p class="text-white/30 text-xs text-center">
                     Don't have an account?
@@ -354,14 +361,30 @@
                 const { data, error } = await supabase.auth.signUp({
                     email: email,
                     password: password,
-                    options: { data: { name, role } }
+                    options: {
+                        data: { name, role },
+                        emailRedirectTo: window.location.origin + '/auth-callback.html'
+                    }
                 });
 
                 if (error) throw error;
 
+                // Already registered? Supabase returns a user with empty identities.
+                if (data?.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
+                    errorEl.textContent = "That email is already registered. Choose “Sign in” below — or use “Email me a sign-in link” if you don’t have a password yet.";
+                    errorEl.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Join the Circle';
+                    communityForm.classList.add('hidden');
+                    signinForm.classList.remove('hidden');
+                    signinForm.querySelector('input[name="email"]').value = email;
+                    return;
+                }
+
                 const user = data?.user;
-                if (user) {
-                    // Create profile in DB
+                const hasSession = !!data?.session;
+                if (user && hasSession) {
+                    // Create profile in DB (only meaningful once a real session exists)
                     try {
                         var allInterests = [].concat(window.__etCircleInterests || [], chosenCore ? [chosenCore] : []);
                         await supabase.from('profiles').upsert({
@@ -393,12 +416,26 @@
 
                 communityForm.classList.add('hidden');
 
+                if (!hasSession) {
+                    // Confirmation is ON: no session yet. Don't redirect into a gated page —
+                    // tell them to confirm by email first.
+                    successEl.innerHTML = `
+                        <p class="text-2xl text-white mb-2">Check your inbox.</p>
+                        <p class="text-white/70 mb-2">We sent a link to finish joining the Circle to</p>
+                        <p class="mb-6" style="color:var(--paper)"><span class="cm-email"></span></p>
+                        <p class="text-white/40 text-xs">Open it on this device to continue. You can close this tab.</p>
+                    `;
+                    successEl.querySelector('.cm-email').textContent = email;
+                    successEl.classList.remove('hidden');
+                    return;
+                }
+
                 if (role === 'instructor') {
                     successEl.innerHTML = `
-                        <p class="text-2xl text-white mb-2">Welcome, ${name}!</p>
+                        <p class="text-2xl text-white mb-2">Welcome, ${name}.</p>
                         <p class="text-white/70 mb-6">Your account is created. Complete your instructor profile to get started.</p>
                         <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                            <a href="/instructors#connect" class="inline-block px-6 py-3 rounded-full bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 text-sm transition-colors">
+                            <a href="/instructors#connect" class="inline-block px-6 py-3 rounded-full text-sm transition-colors" style="background:rgba(210,138,82,0.16);color:#e0a877">
                                 Complete instructor profile
                             </a>
                             <a href="/dashboard" class="inline-block px-6 py-3 rounded-full bg-white/10 text-white/70 hover:bg-white/20 text-sm transition-colors">
@@ -434,8 +471,10 @@
             const password = signinForm.querySelector('input[name="password"]').value;
             const submitBtn = document.getElementById('signin-submit');
             const errorEl = document.getElementById('signin-error');
+            const noticeEl = document.getElementById('signin-notice');
 
             errorEl.classList.add('hidden');
+            noticeEl.classList.add('hidden');
             submitBtn.disabled = true;
             submitBtn.textContent = 'Signing in...';
 
@@ -448,7 +487,7 @@
 
                 signinForm.classList.add('hidden');
                 successEl.innerHTML = `
-                    <p class="text-2xl text-white mb-2">Welcome back!</p>
+                    <p class="text-2xl text-white mb-2">Welcome back.</p>
                     <p class="text-white/70 mb-6">You're signed in.</p>
                     <a href="/dashboard" class="inline-block px-6 py-3 rounded-full cta-button text-white text-sm font-medium">
                         Go to your dashboard
@@ -458,11 +497,84 @@
 
             } catch (err) {
                 console.error('Sign in error:', err);
-                errorEl.textContent = err.message || 'Invalid email or password.';
+                errorEl.textContent = friendlySignInError(err);
                 errorEl.classList.remove('hidden');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Sign in';
             }
+        });
+
+        // ── Recovery: friendly errors + magic-link + password reset ──────────
+        // Legacy members who joined with a magic link have no password, so a
+        // failed password sign-in must point them to the escape hatches below.
+        function friendlySignInError(err) {
+            const m = ((err && err.message) || '').toLowerCase();
+            if (m.includes('invalid login'))
+                return "We couldn’t sign you in. If you first joined with a magic link, you may not have a password yet — try “Email me a sign-in link” just below.";
+            if (m.includes('email not confirmed'))
+                return "Almost there — please confirm your email first. Use “Email me a sign-in link” below to get a fresh one.";
+            if (m.includes('rate') || m.includes('too many') || m.includes('only request'))
+                return "Too many attempts just now. Give it a minute, then try again.";
+            return (err && err.message) ? err.message : 'Something went wrong. Please try again.';
+        }
+
+        function isRateLimit(err) {
+            const m = ((err && err.message) || '').toLowerCase();
+            return m.includes('rate') || m.includes('too many') || m.includes('only request');
+        }
+
+        async function sendRecovery(kind, sourceBtn) {
+            const email = signinForm.querySelector('input[name="email"]').value.trim();
+            const errorEl = document.getElementById('signin-error');
+            const noticeEl = document.getElementById('signin-notice');
+            errorEl.classList.add('hidden');
+            noticeEl.classList.add('hidden');
+
+            if (!email || email.indexOf('@') === -1) {
+                errorEl.textContent = 'Type your email in the box above first, then tap this.';
+                errorEl.classList.remove('hidden');
+                return;
+            }
+
+            const label = sourceBtn.textContent;
+            sourceBtn.disabled = true;
+            sourceBtn.textContent = 'Sending…';
+            try {
+                if (kind === 'magic') {
+                    await supabase.auth.signInWithOtp({
+                        email,
+                        options: { emailRedirectTo: window.location.origin + '/auth-callback.html', shouldCreateUser: false }
+                    });
+                } else {
+                    await supabase.auth.resetPasswordForEmail(email, {
+                        redirectTo: window.location.origin + '/auth-callback.html?type=recovery'
+                    });
+                }
+                noticeEl.textContent = (kind === 'magic')
+                    ? 'If that email is in the Circle, a sign-in link is on its way. Check your inbox (and spam).'
+                    : 'If that email is in the Circle, a password-reset link is on its way. Check your inbox (and spam).';
+                noticeEl.classList.remove('hidden');
+            } catch (err) {
+                if (isRateLimit(err)) {
+                    errorEl.textContent = 'Too many requests just now. Give it a minute, then try again.';
+                    errorEl.classList.remove('hidden');
+                } else {
+                    noticeEl.textContent = (kind === 'magic')
+                        ? 'If that email is in the Circle, a sign-in link is on its way. Check your inbox (and spam).'
+                        : 'If that email is in the Circle, a password-reset link is on its way. Check your inbox (and spam).';
+                    noticeEl.classList.remove('hidden');
+                }
+            } finally {
+                sourceBtn.disabled = false;
+                sourceBtn.textContent = label;
+            }
+        }
+
+        document.getElementById('magic-link-btn')?.addEventListener('click', function () {
+            sendRecovery('magic', this);
+        });
+        document.getElementById('forgot-btn')?.addEventListener('click', function () {
+            sendRecovery('reset', this);
         });
         }); // end waitForSupabase
     </script>

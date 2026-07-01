@@ -384,8 +384,8 @@
         modal.className = 'fixed inset-0 z-[100] flex items-center justify-center p-4';
         modal.innerHTML = `
             <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="window.closeAuthModal()"></div>
-            <div class="relative glass rounded-2xl p-8 max-w-md w-full" style="background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);">
-                <button onclick="window.closeAuthModal()" class="absolute top-4 right-4 text-white/50 hover:text-white p-2">
+            <div role="dialog" aria-modal="true" aria-label="Account" class="relative glass rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto" style="background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06);">
+                <button onclick="window.closeAuthModal()" aria-label="Close" class="absolute top-4 right-4 text-white/50 hover:text-white p-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
@@ -418,7 +418,7 @@
                             required
                             class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
                         >
-                        <button type="submit" id="auth-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#059669 0%,#1d4ed8 100%);">
+                        <button type="submit" id="auth-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);color:#14110d;">
                             Sign In
                         </button>
                     </form>
@@ -448,7 +448,7 @@
                             required
                             class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
                         >
-                        <button type="submit" id="auth-magic-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#059669 0%,#1d4ed8 100%);">
+                        <button type="submit" id="auth-magic-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);color:#14110d;">
                             Send Magic Link
                         </button>
                     </form>
@@ -477,7 +477,7 @@
                             required
                             class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
                         >
-                        <button type="submit" id="auth-forgot-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#059669 0%,#1d4ed8 100%);">
+                        <button type="submit" id="auth-forgot-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);color:#14110d;">
                             Send Reset Link
                         </button>
                     </form>
@@ -500,9 +500,45 @@
 
         document.body.appendChild(modal);
 
+        // ── a11y: lock scroll, trap focus, Escape to close, restore focus on close
+        const previouslyFocused = document.activeElement;
+        document.documentElement.style.overflow = 'hidden';
+        const dialogPanel = modal.querySelector('[role="dialog"]');
+        function getFocusable() {
+            return dialogPanel.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),textarea,select,[tabindex]:not([tabindex="-1"])');
+        }
+        function onModalKeydown(e) {
+            if (e.key === 'Escape') { window.closeAuthModal(); return; }
+            if (e.key === 'Tab') {
+                const f = getFocusable();
+                if (!f.length) return;
+                const first = f[0], last = f[f.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+        }
+        document.addEventListener('keydown', onModalKeydown);
+        modal._cleanup = function () {
+            document.removeEventListener('keydown', onModalKeydown);
+            document.documentElement.style.overflow = '';
+            if (previouslyFocused && previouslyFocused.focus) { try { previouslyFocused.focus(); } catch (e) {} }
+        };
+
         // Focus email input
         const emailInput = document.getElementById('auth-email-input');
         if (emailInput) emailInput.focus();
+
+        // Map raw Supabase errors to honest, actionable guidance.
+        function friendlyAuthError(error) {
+            const m = ((error && error.message) || '').toLowerCase();
+            if (m.includes('invalid login'))
+                return 'We couldn’t sign you in. If you joined with a magic link, you may not have a password yet — try “Use magic link instead”, or “Forgot password?” below.';
+            if (m.includes('email not confirmed'))
+                return 'Please confirm your email first — use “Use magic link instead” below to get a fresh link.';
+            if (m.includes('rate') || m.includes('too many') || m.includes('only request'))
+                return 'Too many attempts just now. Give it a minute, then try again.';
+            return (error && error.message) ? error.message : 'Something went wrong. Please try again.';
+        }
 
         // View switching helpers
         function showView(viewId) {
@@ -549,7 +585,7 @@
                 window.closeAuthModal();
                 window.location.reload();
             } catch (error) {
-                errorEl.textContent = error.message || 'Invalid email or password.';
+                errorEl.textContent = friendlyAuthError(error);
                 errorEl.classList.remove('hidden');
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Sign In';
@@ -609,7 +645,10 @@
 
     window.closeAuthModal = function() {
         const modal = document.getElementById('auth-modal');
-        if (modal) modal.remove();
+        if (modal) {
+            if (typeof modal._cleanup === 'function') modal._cleanup();
+            modal.remove();
+        }
     };
 
     // ========================================
