@@ -83,7 +83,12 @@ window.ET_ATLAS = {
               "blurb": "A 25-acre ashram in Rishikesh established in 1964, offering residential programs in Hatha and Raja yoga, meditation, pranayama and yoga philosophy on a fixed daily schedule.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Parmarth Niketan 200hr YTTC is delivered in English for international students (Yoga Alliance USA certified); confirmed by course listings"
         },
         {
           "place": "Mysore",
@@ -131,7 +136,12 @@ window.ET_ATLAS = {
               "blurb": "A Mysore Ashtanga Vinyasa and Vedanta centre offering traditional Mysore-style self-practice and residential teacher-training courses with on-site vegetarian ashram accommodation.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Indea Yoga has trained 2100+ teachers from over 80 countries; international 200hr TTC taught in English"
         },
         {
           "place": "Ubud, Bali",
@@ -176,7 +186,12 @@ window.ET_ATLAS = {
               "blurb": "A solar-powered, two-tiered yoga complex in Nyuh Kuning, Ubud, focused on daily drop-in classes including hot/Bikram yoga, Vinyasa, Hatha, Yin and Kundalini rather than a verified multi-week teacher-training program.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "The Yoga Barn is a well-known international Ubud school running its 200hr TTC in English for a global cohort"
         },
         {
           "place": "Encinitas, California",
@@ -213,7 +228,12 @@ window.ET_ATLAS = {
               "blurb": "A San Diego (South Park) yoga studio offering a range of styles and a 200-hour teacher training; note the studio is in San Diego proper rather than Encinitas.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "hatha-and-vinyasa-yoga",
@@ -302,7 +322,12 @@ window.ET_ATLAS = {
               "blurb": "A Mysore centre led by Ajay Kumar teaching daily Mysore-style Ashtanga Vinyasa practice, Vedanta and meditation alongside a roughly month-long residential Yoga Teacher Training program with on-site accommodation.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Sharath Yoga Centre is the global Ashtanga headquarters drawing students from 70+ countries; classes/conferences conducted in English"
         },
         {
           "place": "London",
@@ -346,7 +371,12 @@ window.ET_ATLAS = {
               "blurb": "A long-running Bethnal Green studio in East London offering traditional Ashtanga in both counted-led and daily morning Mysore self-practice formats alongside Hatha, Iyengar, and Vinyasa classes.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "New York City",
@@ -384,7 +414,12 @@ window.ET_ATLAS = {
               "blurb": "A Brooklyn Ashtanga initiative co-founded in the Pattabhi Jois lineage by Eddie Stern; no standalone official website could be verified (active social presence only), so details are unconfirmed.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "ashtanga-yoga",
@@ -436,7 +471,11 @@ window.ET_ATLAS = {
           "why": "The world's oldest scientific yoga research institute, founded 1924, where pranayama was first put under the microscope and is still taught from the original texts.",
           "bestSeason": "Oct-Mar",
           "level": "Beginner -> Pranayama Teacher",
-          "id": "pranayama-and-breathwork--lonavla"
+          "id": "pranayama-and-breathwork--lonavla",
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": null
         },
         {
           "place": "Rishikesh",
@@ -482,7 +521,12 @@ window.ET_ATLAS = {
               "blurb": "An organic-farm yoga and Ayurveda ashram offering RYS 200/300 residential teacher trainings and pranayama-focused retreats, but it is located on the River Kabini near Mysore, Karnataka, not in Rishikesh, so it does not match this destination's place.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Parmarth Niketan residential YTTC/pranayama is taught in English for international students (same flagship as Rishikesh yoga entry)"
         },
         {
           "place": "Amsterdam",
@@ -515,7 +559,12 @@ window.ET_ATLAS = {
               "blurb": "The Wim Hof Method Academy, the Netherlands-based body that trains and certifies Wim Hof instructors, oversees Fundamentals workshops (offered by certified instructors in Amsterdam) teaching its three pillars of breathing technique, cold exposure and commitment.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Wim Hof Method workshops/Academy operate primarily in English (mini-class 'also available in' other languages); international program, 1200+ instructors worldwide"
         }
       ],
       "id": "pranayama-and-breathwork",
@@ -598,7 +647,12 @@ window.ET_ATLAS = {
               "blurb": "A Manhattan studio that has taught classical Pilates in the Joseph Pilates lineage for over 30 years, offering private and small-group instruction in the method.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Mönchengladbach",
@@ -616,7 +670,11 @@ window.ET_ATLAS = {
           "why": "The Rhineland town where Joseph Pilates was born in 1883, the birthplace of the man who invented Contrology.",
           "bestSeason": "Year-round",
           "level": "Beginner -> Instructor",
-          "id": "pilates--m-nchengladbach"
+          "id": "pilates--m-nchengladbach",
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": null
         },
         {
           "place": "Costa Mesa, California",
@@ -648,7 +706,12 @@ window.ET_ATLAS = {
               "blurb": "BASI Pilates is a Pilates education organization founded in 1989 by Rael Isacowitz and headquartered in Costa Mesa, California, whose Comprehensive Teacher Training Program covers the full apparatus repertoire (Reformer, Cadillac, Wunda Chair, Ladder Barrel, Spine Corrector, Mat and more) and prepares graduates for the national NCPT exam.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Miami",
@@ -680,7 +743,12 @@ window.ET_ATLAS = {
               "blurb": "Polestar Pilates is a rehabilitation-oriented Pilates education company founded by physical therapist Dr. Brent Anderson with its flagship studio in Miami (Dadeland), offering a 450-hour Comprehensive Teacher Training that combines online lectures with in-person modules and prepares students for national certification.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "pilates",
@@ -735,7 +803,11 @@ window.ET_ATLAS = {
           "why": "The institute B.K.S. Iyengar built and his son Prashant still directs, where every certified teacher's lineage traces back to one room.",
           "bestSeason": "Oct-Mar",
           "level": "Intermediate -> Certified Teacher",
-          "id": "iyengar-yoga--pune"
+          "id": "iyengar-yoga--pune",
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": null
         },
         {
           "place": "London",
@@ -764,7 +836,12 @@ window.ET_ATLAS = {
               "blurb": "The Iyengar Yoga Institute in Maida Vale, established in 1984, teaches the B.K.S. Iyengar method through daily classes and runs a multi-year mentorship-based teacher-training route toward Certified Iyengar Yoga Teacher (CIYT) status under Iyengar Yoga (UK).",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "San Francisco",
@@ -793,7 +870,12 @@ window.ET_ATLAS = {
               "blurb": "The Iyengar Yoga Institute of San Francisco, founded in 1974, runs the oldest Iyengar teacher-training program in the US, a state-accredited Advanced Studies/Teacher Training course covering asana, pranayama, anatomy, philosophy and supervised teaching practice.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "iyengar-yoga",
@@ -872,7 +954,12 @@ window.ET_ATLAS = {
               "blurb": "A Goenka-tradition meditation centre in the hills of Igatpuri, adjacent to Dhamma Giri, dedicated exclusively to long residential Vipassana courses of 20 to 60 days for students who have completed the introductory 10-day course.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Dhamma Giri is the Goenka-tradition international academy; 10-day courses provide English instructions and English-language evening discourses for foreign students"
         },
         {
           "place": "Yangon",
@@ -922,7 +1009,12 @@ window.ET_ATLAS = {
               "blurb": "The International Meditation Centre, opened in Yangon in 1952 by Sayagyi U Ba Khin, teaches Theravada Vipassana in his tradition through monthly ten-day courses that begin with Anapana before progressing to Vipassana.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Chanmyay Yeiktha has experienced English-speaking assistant teachers and a long tradition of teaching international/English-speaking yogis (Chanmyay Sayadaw known for English teaching)"
         },
         {
           "place": "Chiang Mai",
@@ -960,7 +1052,12 @@ window.ET_ATLAS = {
               "blurb": "Wat Suan Dok in Chiang Mai, through the Mahachulalongkornrajavidyalaya University Monk Chat programme, offers English-language Buddhism conversations and short residential meditation retreats for foreigners, including a weekly two-day course and a longer three-day course at month's end.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Wat Ram Poeng 26-day Vipassana course is conducted in English and Thai; foreign students get an English-speaking teacher or translator"
         },
         {
           "place": "Barre, Massachusetts",
@@ -1001,7 +1098,12 @@ window.ET_ATLAS = {
               "blurb": "The Barre Center for Buddhist Studies, founded in 1990 by Joseph Goldstein and Sharon Salzberg as a complement to the nearby IMS, offers residential and online courses that combine classical Buddhist study, discussion, and meditation practice on its forested Barre campus.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "vipassana-and-meditation",
@@ -1088,7 +1190,12 @@ window.ET_ATLAS = {
               "blurb": "The Usui Reiki Ryoho Gakkai is the original Reiki organization founded in Tokyo by Mikao Usui that still teaches in Japan, but membership and seminars are effectively closed to non-Japanese and no public immersive course or official site could be verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Jikiden Reiki Institute runs English Shoden & Okuden seminars with interpreters (4-5 day format); dedicated /en/ English site"
         },
         {
           "place": "London / Surrey",
@@ -1134,7 +1241,12 @@ window.ET_ATLAS = {
               "blurb": "The UK's largest Reiki-only professional organisation, which verifies practitioners for CNHC registration and maintains a Directory of Approved Courses assessed against the Reiki Core Curriculum rather than delivering training itself.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "UK-based Reiki schools (London/Surrey); Reiki Master/Shinpiden courses delivered in English in an English-speaking country"
         },
         {
           "place": "Rhinebeck, New York",
@@ -1172,7 +1284,12 @@ window.ET_ATLAS = {
               "blurb": "A residential holistic-studies campus in Rhinebeck, NY offering all-inclusive multi-day Reiki workshops including First & Second Degree training and a Reiki Master Training & Certification program with on-site accommodation and meals.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "reiki-and-energy-healing",
@@ -1257,7 +1374,12 @@ window.ET_ATLAS = {
               "blurb": "A yoga and retreat center in Pokhara offering a 10-day, 9-night residential advanced singing-bowl course covering sound-bath technique, chakra work, bowl massage and Level 1 and 2 certification.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Pragya Yoga School singing bowl/gong sound therapy training is marketed to and run for international students in English (Kathmandu); curriculum presented in English with airport pickup for foreign st"
         },
         {
           "place": "San Francisco / Bay Area",
@@ -1295,7 +1417,12 @@ window.ET_ATLAS = {
               "blurb": "An accredited San Francisco university whose Sound, Voice and Music in the Healing Arts certificate, created by Silvia Nakkach, is a year-long program integrating voice work, music and sound for healing within an academic setting.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Glastonbury / South West England",
@@ -1333,7 +1460,12 @@ window.ET_ATLAS = {
               "blurb": "A Monmouthshire-based academy whose Professional Diploma trains students to deliver therapeutic sound interventions and rhythm sessions to groups through a blended in-person and distance-learning format.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "UK-based (College of Sound Healing / British Academy of Sound Therapy); diploma trainings delivered in English in an English-speaking country"
         }
       ],
       "id": "sound-healing",
@@ -1430,7 +1562,12 @@ window.ET_ATLAS = {
               "blurb": "The OSHO International Meditation Resort in Pune runs daily meditation sessions and multi-day Multiversity courses drawing on tantra, Zen and Sufism, though it is in Pune rather than Khajuraho.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Tantra Essence run by British teacher Ma Ananda Sarita for a global/international cohort; retreats conducted in English"
         },
         {
           "place": "Ubud, Bali",
@@ -1479,7 +1616,12 @@ window.ET_ATLAS = {
               "blurb": "A tantric-arts academy led by Chantelle Raven that runs tantra retreats in Bali and an 18-month, roughly 700-hour Tantra Practitioner Training (online study plus an optional in-person Bali retreat) toward practitioner certification.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "ISTA (International School of Temple Arts) Level 1 SSSEX is a global English-language training drawing many nationalities"
         },
         {
           "place": "Tuscany",
@@ -1516,7 +1658,12 @@ window.ET_ATLAS = {
               "blurb": "Ma Ananda Sarita's Tantra Essence school holds residential retreats and a two-part, two-year Tantra Teacher Training across European and Bali locations, teaching facilitation of her Tantra Mastery framework.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "ISTA Europe Level 1 trainings are international and conducted in English"
         }
       ],
       "id": "tantra-and-conscious-intimacy",
@@ -1626,7 +1773,12 @@ window.ET_ATLAS = {
               "blurb": "The Chiang Mai branch of the Wat Pho/Chetawan school network, offering the Wat Pho lineage's longer professional Thai massage programs including a 165-hour Professional Thai Massage for Health and a 200-hour therapy course.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Old Medicine Hospital school runs classes in both Thai and English; majority of 20,000+ students international"
         },
         {
           "place": "Bangkok",
@@ -1666,7 +1818,12 @@ window.ET_ATLAS = {
               "blurb": "The Wat Pho school's purpose-built professional branch in Nonthaburi/Salaya near Bangkok, it teaches a 200-hour, five-week Professional Thai Massage Therapy course that issues the same nationally recognized Wat Pho certificate.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Wat Pho school states courses are given in English with programs designed for international students"
         }
       ],
       "id": "thai-massage",
@@ -1772,7 +1929,11 @@ window.ET_ATLAS = {
               "blurb": "A skill-development body of the Kerala government's Higher Education Department running a 1200-hour Ayurveda Therapist training course covering Panchakarma and wellness methods with internship and placement support, certified with Arya Vaidya Sala Kottakkal.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         },
         {
           "place": "Yakkala / Gampaha",
@@ -1813,7 +1974,11 @@ window.ET_ATLAS = {
               "blurb": "The 120-bed teaching hospital affiliated with the Gampaha Wickramarachchi university in Yakkala, where Ayurveda students receive supervised clinical and Panchakarma ward training.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         }
       ],
       "id": "ayurveda",
@@ -1904,7 +2069,12 @@ window.ET_ATLAS = {
               "blurb": "A non-profit professional and scientific society (Magyar Balneologiai Egyesulet) that promotes Hungarian balneology through annual conferences and research, but no enrollable immersive balneotherapist training course could be verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Semmelweis University Physiotherapy BSc (incl. balneotherapy) is taught entirely in English for international students"
         },
         {
           "place": "Karlovy Vary",
@@ -1941,7 +2111,11 @@ window.ET_ATLAS = {
               "blurb": "The medically supervised mineral-spring cure programmes offered across Karlovy Vary's spa hotels and sanatoria, drawing on the town's balneological tradition rather than a single training school.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         },
         {
           "place": "Istanbul",
@@ -1978,7 +2152,11 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         },
         {
           "place": "Finnish Lakeland",
@@ -2017,7 +2195,12 @@ window.ET_ATLAS = {
               "blurb": "A non-profit society founded in 1937 that safeguards Finnish sauna culture, runs a member sauna centre in Helsinki and organizes seminars and symposiums, but no formal credentialed immersive course for visitors could be verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Sauna from Finland Academy coaching/certificate program is explicitly available in English"
         }
       ],
       "id": "traditional-spa-and-hydrotherapy",
@@ -2096,7 +2279,12 @@ window.ET_ATLAS = {
               "blurb": "Established in 1968 by Zen Shiatsu founder Shizuto Masunaga in Tokyo, the center teaches meridian-based Zen Shiatsu through multi-day intensive group courses (1-5 days) covering full treatment, ki-sensitive supporting pressure, and Masunaga meridian exercises.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Iokai Intensive Course for Foreigners is delivered in Japanese with full English interpretation provided so participants follow in English"
         },
         {
           "place": "St. Petersburg, Florida",
@@ -2139,7 +2327,12 @@ window.ET_ATLAS = {
               "blurb": "The hands-on certification seminars run by the International Institute of Reflexology that teach the Original Ingham Method through multi-day Phase I and II workshops culminating in a certification exam.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Taitung / Taipei",
@@ -2179,7 +2372,12 @@ window.ET_ATLAS = {
               "blurb": "Reflexology practice centres carrying the legacy of Fr. Josef Eugster (Chinese name Wu Rwo-Shur), the Swiss Catholic priest in Taitung who originated the Rwo Shur foot reflexology method in Taiwan.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Rwo Shur Health Institute International (Garden of Tao, Malaysia) trains an international cohort with an English-language site/program"
         }
       ],
       "id": "reflexology-and-shiatsu",
@@ -2269,7 +2467,12 @@ window.ET_ATLAS = {
               "blurb": "Founded by Wang Xi'an, one of the 'Four Great Diamonds' of Chenjiagou and a senior disciple of Chen Zhaopi, this school just outside Chen Village trains students in traditional Chen-style Taijiquan in a residential setting.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Chenjiagou Tai Chi School markets residential training optimized for foreigners with English-language instruction available"
         },
         {
           "place": "Wudang Mountains, Hubei",
@@ -2315,7 +2518,12 @@ window.ET_ATLAS = {
               "blurb": "A Taoist academy near the Purple Heaven Palace in the Wudang Mountains run by 15th-generation Sanfeng Pai teacher Master Gu, offering multi-day to multi-week residential immersions in Wudang tai chi, qigong, and Taoist philosophy taught in English.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Wudang Daoist Traditional Kung Fu Academy states instruction is available in English and Chinese; students from 50+ countries"
         },
         {
           "place": "Beijing",
@@ -2353,7 +2561,12 @@ window.ET_ATLAS = {
               "blurb": "A traditional kung fu school in a Ming Dynasty courtyard in Beijing founded by champion Master Zhang Shengli, teaching the school's Zhang-style taichi, xingyi, bagua, and qigong through group classes and extended one-on-one training.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Milun head instructor Zhang teaches in Chinese and English to international students"
         },
         {
           "place": "London",
@@ -2390,7 +2603,12 @@ window.ET_ATLAS = {
               "blurb": "A qigong organisation founded in New Zealand with a network of over 200 instructors worldwide, offering instructor certification through live trainings and online courses, though its base is not in London.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "tai-chi-and-qigong",
@@ -2496,7 +2714,12 @@ window.ET_ATLAS = {
               "blurb": "Wim Hof Method Travel offers official week-long, in-person training programs combining breathing technique, cold exposure, and mindset work at locations such as the WHM Center in the French Alps.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "WHM Instructor Academy is conducted only in English; theory exam is in English (official site + activities.wimhofmethod.com)."
         },
         {
           "place": "Amsterdam",
@@ -2537,7 +2760,12 @@ window.ET_ATLAS = {
               "blurb": "The Amsterdam-based company founded by Enahm Hof that owns the Wim Hof Method and is the sole body authorized to grant its instructor certifications, delivering the teacher-training module that produces Certified WHM Instructors.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "WHM Academy/Fundamentals instructor training is English-only; HQ runs international cohorts in English."
         },
         {
           "place": "Reykjavik & surrounds",
@@ -2565,7 +2793,12 @@ window.ET_ATLAS = {
               "blurb": "The official Wim Hof Method activities directory lists certified Iceland instructors such as Andri Einarsson running breathwork and cold-exposure sessions and 3-day and 7-day nature tours through South Iceland.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Certified WHM instructor-led multi-day nature tours marketed to international/English-speaking visitors via the global WHM activities platform."
         }
       ],
       "id": "cold-exposure-wim-hof-method",
@@ -2643,7 +2876,12 @@ window.ET_ATLAS = {
               "blurb": "The moving-meditation practice created by Gabrielle Roth, taught through multi-day residential retreats at the Esalen Institute in Big Sur by lineage teachers such as Lucia Horan, with workshop hours counting toward 5Rhythms Teacher Training certification.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Ubud, Bali",
@@ -2688,7 +2926,12 @@ window.ET_ATLAS = {
               "blurb": "Pyramids of Chi is a sound-healing and movement center north of Ubud built around large pyramid structures, where breath, rhythm, and movement sessions are run alongside its gong and didgeridoo sound journeys.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "The Yoga Barn / Alchemy operate in Ubud's international expat wellness scene; English-language sites and global community; facilitation in English."
         },
         {
           "place": "Amsterdam",
@@ -2732,7 +2975,12 @@ window.ET_ATLAS = {
               "blurb": "A network of Open Floor International-trained teachers and therapists across the Netherlands offering conscious-movement and dance classes, workshops, and sessions rooted in the Open Floor curriculum.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Ecstatic Dance Amsterdam draws an international community with international DJs; English-language site; a global hub of the movement."
         },
         {
           "place": "London",
@@ -2777,7 +3025,12 @@ window.ET_ATLAS = {
               "blurb": "A sober barefoot dance organisation running since 2009 that hosts London ecstatic-dance events including cacao-ceremony Sunset Sessions and monthly wellbeing workshops, though it offers single events rather than a multi-day residential program.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "ecstatic-dance-and-movement",
@@ -2866,7 +3119,12 @@ window.ET_ATLAS = {
               "blurb": "Founded by Yogi Bhajan in 1970, the Hacienda de Guru Ram Das ashram in Espanola hosts a residential community with daily morning sadhana and runs a 28-day immersion KRI Level One Aquarian Teacher Training (220 hours) certifying Kundalini Yoga instructors.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Amritsar (Miri Piri Academy / Golden Temple)",
@@ -2896,7 +3154,12 @@ window.ET_ATLAS = {
               "blurb": "A 3HO-affiliated academy on 13 acres in Amritsar about 9 km from the Golden Temple, offering a KRI-certified Level 1 Kundalini Yoga Teacher Training Immersion that includes a residential training period in India.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Miri Piri Academy teaches all subjects (except Punjabi) in English; KRI Teacher Training serves students from 20+ countries."
         },
         {
           "place": "Los Angeles, California",
@@ -2934,7 +3197,12 @@ window.ET_ATLAS = {
               "blurb": "A Los Angeles Kundalini Yoga center co-founded and directed by Gurmukh Kaur Khalsa, a direct student of Yogi Bhajan, offering a KRI- and Yoga Alliance-approved Level 1 Kundalini Yoga teacher training.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "London",
@@ -2971,7 +3239,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "kundalini-yoga",
@@ -3076,7 +3349,11 @@ window.ET_ATLAS = {
               "blurb": "Cassis Calanques Plongée, operating in the Calanques National Park near Cassis since 1956, offers diving baptisms, explorations and ANMP/FFESSM/FSGT/TDI training including technical Nitrox, Trimix and wreck diving.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         },
         {
           "place": "Dahab (Red Sea)",
@@ -3121,7 +3398,12 @@ window.ET_ATLAS = {
               "blurb": "A PADI 5-star dive club attached to the Bedouin Moon Hotel near the Blue Hole, running small-group recreational and IANTD technical courses to 100m with multi-day guided diving packages.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Dahab is a renowned international PADI dive hub; English-language site (Desert Divers) serving a global tourist cohort."
         },
         {
           "place": "Bonaire",
@@ -3165,7 +3447,12 @@ window.ET_ATLAS = {
               "blurb": "A PADI 5-star dive center in Kralendijk offering recreational, technical (TEC), and professional courses from Open Water through Divemaster and Instructor levels.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Bonaire is a top international (US/Dutch) dive destination; Buddy Dive English-language site with US toll-free number and PADI courses for global divers."
         },
         {
           "place": "Koh Tao",
@@ -3210,7 +3497,12 @@ window.ET_ATLAS = {
               "blurb": "Big Blue Diving is a Koh Tao dive school on Sairee Beach whose Divemaster candidates typically train over a 4-6 week internship with mentoring and workshops, alongside a separate technical-diving centre and marine conservation program.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Crystal Dive Koh Tao runs PADI Divemaster/IDC for a global cohort with English-speaking instructors (reviews name multiple English instructors)."
         }
       ],
       "id": "scuba-diving",
@@ -3314,7 +3606,12 @@ window.ET_ATLAS = {
               "blurb": "Y-40 The Deep Joy in Montegrotto Terme is a 42-meter thermal-water pool (a Guinness-record depth) offering scuba and freediving courses from beginner to professional level, including training in its 60 meters of underwater caves.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Site explicitly states next Apnea Academy Instructor Course is in English; English proficiency required for admission."
         },
         {
           "place": "Dahab (Red Sea)",
@@ -3359,7 +3656,12 @@ window.ET_ATLAS = {
               "blurb": "Touchdown (Touchdown Space) is a Dahab freediving centre founded by Lithuanian record holder Gus Kreivenas, whose one-month Ultimate Freediver intensive combines 10 lectures, 25 dry sessions and 18 water sessions at the Blue Hole.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Dahab is a leading international freediving hub; Freedive Dahab English-language site serving a global student community (AIDA/Molchanovs)."
         },
         {
           "place": "Dean's Blue Hole, Long Island",
@@ -3400,7 +3702,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Vertical Blue Master Class led by William Trubridge (English) for an elite international freediving cohort in the Bahamas."
         },
         {
           "place": "Kalamata & the Mani",
@@ -3437,7 +3744,12 @@ window.ET_ATLAS = {
               "blurb": "Freediving Club Greece, a Kalamata marina-based center founded in 2007 by AIDA world-record holder Stavros Kastrinakis, running AIDA freediving courses from beginner through instructor year-round.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Kalamata Freedivers English-language site with international clientele and reviews from freedivers across many countries; AIDA courses in English."
         }
       ],
       "id": "freediving",
@@ -3510,7 +3822,13 @@ window.ET_ATLAS = {
               "blurb": "CMAS (World Confederation of Underwater Activities) is the international body whose standards underpin FFESSM-affiliated spearfishing and freediving certifications offered by regional Côte d'Azur clubs, though no single named regional CMAS spearfishing school could be verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": false,
+          "englishBasis": "Flagship is CREPS PACA BPJEPS, a French state vocational diploma taught and examined in French; other entries are FFESSM French-federation clubs.",
+          "instructionLanguage": "French"
         },
         {
           "place": "Kona, Big Island",
@@ -3555,7 +3873,12 @@ window.ET_ATLAS = {
               "blurb": "Blue Water Hunter is a Kailua-Kona spearfishing and freediving shop and charter operation offering guided reef and blue-water dives with an in-water instructor alongside each diver.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Cabo San Lucas / Sea of Cortez",
@@ -3583,7 +3906,12 @@ window.ET_ATLAS = {
               "blurb": "A Cabo San Lucas charter operation on the Cabo marina that runs guide-led reef and bluewater spearfishing trips for all levels alongside freediving courses where the Sea of Cortez meets the Pacific.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Spearfishing Baja English-language site targeting English-speaking (US) customers in the Cabo tourist market."
         }
       ],
       "id": "spearfishing",
@@ -3664,7 +3992,12 @@ window.ET_ATLAS = {
               "blurb": "Wet Rocks Diving, led by GUE instructor Meredith Tanguay, provides GUE Cave 1 and Cave 2 training and professional cave guiding across North Florida's High Springs spring-and-cave systems.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Tulum & Playa del Carmen (Riviera Maya cenotes)",
@@ -3709,7 +4042,12 @@ window.ET_ATLAS = {
               "blurb": "Under The Jungle is a cave-diving center based at Cenote Tajma Ha in the Riviera Maya offering cave training, cave guiding and an annual multi-day cave photography workshop.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "ProTec states international instructor team teaches/guides in several languages incl. English; Under The Jungle runs an English-language site (/en/)."
         },
         {
           "place": "Bandol & the Provençal coast",
@@ -3745,7 +4083,12 @@ window.ET_ATLAS = {
               "blurb": "Azur Plongee is a La Ciotat technical-diving center specializing in tek, rebreather and wreck diving with training and guided exploration along the Bandol-Marseille coast, including local WWII wreck sites.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Manta Club Bandol lists English among its spoken languages (alongside French)."
         }
       ],
       "id": "cave-and-technical-diving",
@@ -3835,7 +4178,12 @@ window.ET_ATLAS = {
               "blurb": "An RYA training centre at Premier Gosport Marina in Portsmouth Harbour, running courses from Competent Crew through a Yachtmaster Fast Track programme.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Auckland",
@@ -3864,7 +4212,12 @@ window.ET_ATLAS = {
               "blurb": "Auckland Sailing School delivers RYA maritime training, including a six-day RYA/MCA Yachtmaster Ocean shorebased theory course taught by an RYA Yachtmaster Ocean Instructor.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Tortola (Nanny Cay)",
@@ -3901,7 +4254,12 @@ window.ET_ATLAS = {
               "blurb": "Rob Swain Sailing School, based at Nanny Cay on Tortola, is a long-running American Sailing-accredited school offering liveaboard beginner-to-bareboat cruising certification aboard a fleet of 36-54ft monohulls.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "ASA-certified school in the English-speaking British Virgin Islands; English website and ASA 101-118 instruction."
         }
       ],
       "id": "sailing-and-yachtmaster",
@@ -4011,7 +4369,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 2000 by Hawaiian professional surfer Tony Moniz and based fronting the Outrigger Waikiki Beach Resort, it offers private, semi-private and group surf lessons plus board rentals and outrigger canoe rides.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Ericeira",
@@ -4057,7 +4420,12 @@ window.ET_ATLAS = {
               "blurb": "Housed in a two-storey Portuguese villa overlooking Foz do Lizandro beach, this camp runs daily lessons that progress from complete beginner upward, with added yoga and SUP sessions.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "International clientele since 2005, English testimonials and English-language site; instruction accessible in English."
         },
         {
           "place": "Peniche",
@@ -4102,7 +4470,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Baleal Surf Camp markets a 'relaxed International atmosphere', multilingual site incl. English; instruction in English."
         }
       ],
       "id": "surfing",
@@ -4197,7 +4570,12 @@ window.ET_ATLAS = {
               "blurb": "The Kiteboarding School of Maui is a CORE-supported kiteboarding school at the Kite Beach end of Kanaha Beach Park whose flagship offering is a three-day, nine-hour series of private coaching for riders aiming to master the sport.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Tarifa",
@@ -4252,7 +4630,12 @@ window.ET_ATLAS = {
               "blurb": "Located at Los Lances Norte in Tarifa, this kite school uses IKO-certified coaches and radio training, with kitesurf and wingfoil courses plus an associated hostel.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Freeride Tarifa explicitly states it teaches 'Speaking French, English & Spanish'."
         },
         {
           "place": "Cabarete",
@@ -4297,7 +4680,12 @@ window.ET_ATLAS = {
               "blurb": "Based at the Extreme Hotel on Kite Beach, this locally owned school offers IKO courses, kids' kite camps and hydrofoiling lessons in addition to its instructor-training program.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Laurel Eastman Kiteboarding has an English-speaking founder, multilingual instructors and an English-language site."
         }
       ],
       "id": "kitesurfing",
@@ -4359,7 +4747,12 @@ window.ET_ATLAS = {
           "bestSeason": "Mar-Oct",
           "level": "Beginner -> Intermediate",
           "id": "windsurfing-and-wing-foil--santa-monica-southern-california",
-          "schoolsInfo": []
+          "schoolsInfo": [],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Maui (Ho'okipa & Kanaha)",
@@ -4410,7 +4803,12 @@ window.ET_ATLAS = {
               "blurb": "Hawaiian Sailboarding Techniques, established by Alan Cadiz in 1985, is the same operation that now trades as HST Windsurfing & Kitesurfing School at hstwindsurfing.com.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Pozo Izquierdo, Gran Canaria",
@@ -4440,7 +4838,12 @@ window.ET_ATLAS = {
               "blurb": "Pozowinds is a windsurf, wing-foil, SUP and surf school and rental center based at Pozo Izquierdo, Gran Canaria, running multi-day windsurfing courses and clinics for beginners through advanced riders on the Bahia de Formas flatwater and nearby wave spots.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Pozo Winds instructor bios list multiple instructors who speak Spanish and English."
         },
         {
           "place": "Tarifa",
@@ -4476,7 +4879,12 @@ window.ET_ATLAS = {
               "blurb": "Tarifa Spin Out is a windsurf, windsurf-foil and wing-foil school and rental operation running since 1988 on Valdevaqueros beach, offering courses for all levels with a focus on foiling disciplines.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "ION Club Tarifa is an international, multicultural team (staff from 24+ countries), VDWS instructors who speak several languages incl. English."
         },
         {
           "place": "Lo Stagnone / Marsala, Sicily",
@@ -4517,7 +4925,12 @@ window.ET_ATLAS = {
               "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g21329138-d23424934-Reviews-Duotone_Pro_Center_Sicily-Birgi_Vecchi_Marsala_Province_of_Trapani_Sicily.html",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "ION Club Sicily instructors are internationally certified (FAV/VDWS) and speak several languages incl. English; multilingual site."
         },
         {
           "place": "Dahab (the Lagoon), Sinai",
@@ -4556,7 +4969,12 @@ window.ET_ATLAS = {
               "blurb": "ION Club's Dahab Boarder Center (descended from Club Mistral Dahab, since 1997) sits directly on a flat, sandbank-sheltered lagoon with staff-rigged gear and rescue-boat cover; spendable voucher credit transfers across ION centers worldwide though rental is per-station. No independent public rating verified yet, and the Dahab station may share branding with Fanatic Boarders Dahab — confirm the current operator directly before relying on it.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Harry Nass Dahab states all instructors are multilingual and VDWS-certified; English site and ION Club presence reinforce English instruction."
         },
         {
           "place": "Naxos (St. George Lagoon)",
@@ -4597,7 +5015,12 @@ window.ET_ATLAS = {
               "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g580192-d1485497-Reviews-Naxos_Surf_Club-Naxos_Town_Naxos_Cyclades_South_Aegean.html",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Flisvos Sport Club has an international VDWS-licensed team; courses offered in English (and other languages per sister center)."
         },
         {
           "place": "Karpathos (Afiartis)",
@@ -4639,7 +5062,12 @@ window.ET_ATLAS = {
               "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g4604901-d4874440-Reviews-Kaparthos_Surf_Club-Afiartis_Karpathos_Dodecanese_South_Aegean.html",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "ION Club Karpathos is part of the international ION chain (multilingual VDWS instructors, English site); a major international windsurf destination."
         }
       ],
       "id": "windsurfing-and-wing-foil",
@@ -4728,7 +5156,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 1975, the Institute offers Yosemite climbing only through private custom trips and does not advertise a scheduled Yosemite Valley rock climbing program, with its catalogued big wall course held elsewhere.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Chamonix-Mont-Blanc",
@@ -4769,7 +5202,12 @@ window.ET_ATLAS = {
               "blurb": "Created in 1946 at the foot of Mont Blanc and now part of the École nationale des sports de montagne, ENSA is a French state institution that trains mountain professionals rather than a commercial recreational climbing school.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Compagnie des Guides de Chamonix serves an international clientele with a dedicated English site and English-speaking IFMGA guides."
         },
         {
           "place": "Peak District (Stanage, Sheffield)",
@@ -4814,7 +5252,12 @@ window.ET_ATLAS = {
               "blurb": "The Foundry Climbing Centre in Sheffield, the UK's first dedicated indoor climbing centre (opened 1991), offers structured adult courses including Introduction to Climbing and a progressive Learn to Lead lead-climbing course.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Joshua Tree National Park",
@@ -4852,7 +5295,12 @@ window.ET_ATLAS = {
               "blurb": "The Climbing Life Guides is a Joshua Tree climbing guide service led by AMGA-certified guides, offering an AMGA Single Pitch Instructor course alongside multi-pitch and self-rescue courses in the national park.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "rock-climbing",
@@ -4948,7 +5396,12 @@ window.ET_ATLAS = {
               "blurb": "Chamonix Experience (Chamex), founded in 1996, offers a 5-day Alpine Climbing Course in the Chamonix Valley led by IFMGA/UIAGM guides for climbers progressing beyond beginner level.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Chamonix Experience (Chamex) is an English-language, internationally-marketed guiding company with UIAGM guides; Compagnie des Guides also English."
         },
         {
           "place": "Zermatt",
@@ -4986,7 +5439,12 @@ window.ET_ATLAS = {
               "blurb": "The Mammut Mountain School operates a Zermatt base offering guided mountaineering courses on rock, glacier, and snow, combining technical instruction with practical ascents.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Zermatters runs an English site with UIAGM-certified guides serving international clients ('speak your language'); standard for English-speaking Zermatt clientele."
         },
         {
           "place": "Canmore / Banff (Bow Valley)",
@@ -5024,7 +5482,12 @@ window.ET_ATLAS = {
               "blurb": "The Alpine Club of Canada runs professionally led mountaineering camps and skills courses across the Canadian Rockies, while the ACMG operates the professional Training and Assessment Program for certifying mountain guides.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Cortina d'Ampezzo (Dolomites)",
@@ -5062,7 +5525,12 @@ window.ET_ATLAS = {
               "blurb": "Dolomite Mountains is a Dolomites-based destination management and tour operator offering guided multi-day mountaineering, via ferrata, and trekking journeys with local guides across the range, including the Cortina d'Ampezzo area.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Guide Alpine Cortina has an English site (guidecortina.com/en); Dolomites IFMGA guides (Dolomite Mountains and peers) routinely guide English-speaking international clients"
         }
       ],
       "id": "alpinism-and-mountaineering",
@@ -5158,7 +5626,12 @@ window.ET_ATLAS = {
               "blurb": "The Compagnie des Guides de Chamonix guides the 6-day Haute Route ski tour from Chamonix to Zermatt with IFMGA guides, including hut half-board and avalanche safety equipment for skiers with off-piste and ski-touring experience.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Chamex states its UIAGM ski guides speak English; English course pages for off-piste progression"
         },
         {
           "place": "Revelstoke / Golden (British Columbia)",
@@ -5204,7 +5677,12 @@ window.ET_ATLAS = {
               "blurb": "Eagle Pass Heliskiing operates ACMG-guided heliski terrain in the Monashees near Revelstoke, but no formal published guide-mentorship program could be verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Verbier",
@@ -5241,7 +5719,12 @@ window.ET_ATLAS = {
               "blurb": "Adrenaline is an ESI- and Swiss Snow Sports-affiliated ski and snowboard school in Verbier offering multi-day group and private ski and snowboard instruction.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Bureau des Guides de Verbier runs an English site with UIAGM guides serving a major international/English-speaking freeride resort; Adrenaline also has an English version"
         }
       ],
       "id": "ski-and-snowboard-mountain-guiding",
@@ -5321,7 +5804,12 @@ window.ET_ATLAS = {
               "blurb": "France's national mountain-sports school at the foot of Mont Blanc in Chamonix trains the state high-mountain-guide diploma through a selective multi-year program that is roughly 70% in-the-field, including a required ski-touring climbing record.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Compagnie des Guides de Chamonix page explicitly offers 'IFMGA English speaking mountain guiding service'"
         },
         {
           "place": "Wasatch (Salt Lake City / Park City)",
@@ -5367,7 +5855,12 @@ window.ET_ATLAS = {
               "blurb": "The American Avalanche Institute, which teaches Avalanche Level 1 courses in the Wasatch, runs the 5-day Pro 1 professional training that coaches and evaluates the observation, snowpack, and risk-management skills required to contribute to an operational avalanche program.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Lyngen Alps",
@@ -5404,7 +5897,12 @@ window.ET_ATLAS = {
               "blurb": "Lyngen Outdoor Center is a backcountry operator based on Uloya island in the Lyngen Alps offering seven-night all-inclusive ski touring and splitboard weeks with six guided days led by IFMGA/IVBV guides and boat access to surrounding terrain.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Lyngen Lodge runs in English with UIAGM/IFMGA guides and UK guest testimonials confirming English-language guiding"
         }
       ],
       "id": "ski-touring-and-splitboard",
@@ -5516,7 +6014,12 @@ window.ET_ATLAS = {
               "blurb": "Aerogliss, a long-established school based at Saint-Andre-les-Alpes in the Southern Alps, runs piloting and SIV courses that use the dedicated lakeside landing field at Doussard on Lake Annecy.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "FlyEO (Annecy, part of this destination) explicitly states all instructors speak English on its 5-day courses; Les Choucas in Mieussy appears French-only"
         },
         {
           "place": "Ölüdeniz",
@@ -5562,7 +6065,12 @@ window.ET_ATLAS = {
               "blurb": "Easy Riders is an Oludeniz multi-activity operator that books tandem paragliding alongside boat trips and other excursions, but no dedicated paragliding-school website or structured immersive pilot course could be verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Sky Sports Turkey has English-fluent SIV instructors; Olüdeniz is an international, largely English-speaking paragliding hub"
         },
         {
           "place": "Bir Billing",
@@ -5608,7 +6116,12 @@ window.ET_ATLAS = {
               "blurb": "A Bir Billing flight school running progressive 15-day P1-P4 pilot courses, from ground handling through solo flights and soaring off the 2,400m Billing launch.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Temple Pilots is an internationally rated, English-language school (APPI international licensing, English site, international students incl. Ireland testimonial)"
         },
         {
           "place": "Interlaken (Bernese Oberland)",
@@ -5653,7 +6166,12 @@ window.ET_ATLAS = {
               "blurb": "An Interlaken tandem paragliding operator founded in 2007, flying guests over Lakes Brienz and Thun under Swiss SHPA regulation; tandem flights rather than a residential course.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "AlpinAir runs an English-default multilingual site targeting international tourists for tandem flights in the Interlaken tourist hub"
         }
       ],
       "id": "paragliding",
@@ -5737,7 +6255,12 @@ window.ET_ATLAS = {
               "blurb": "Based at Skydive Arizona since 2010, AXIS Flight School delivers progressive sport and military skydiving coaching across freefall, canopy and tunnel disciplines, taught personally by world-champion competitors Niklas Daniel and Brianne Thompson.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Empuriabrava (Costa Brava)",
@@ -5775,7 +6298,12 @@ window.ET_ATLAS = {
               "blurb": "Windoor operates a 14-foot recirculating vertical wind tunnel at Empuriabrava whose flight school sells instructor-led training packs for learning and refining bodyflight skills individually or in groups.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Skydive Empuriabrava (largest European school) states high-level international instructors speak several languages incl. English; internationally recognised AFF"
         },
         {
           "place": "Perris (Southern California)",
@@ -5813,7 +6341,12 @@ window.ET_ATLAS = {
               "blurb": "The on-site vertical wind tunnel at Skydive Perris used for indoor bodyflight training and freefall practice that feeds the dropzone's AFF student progression.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Interlaken / Lauterbrunnen",
@@ -5850,7 +6383,12 @@ window.ET_ATLAS = {
               "blurb": "Scenic Air is an Interlaken aviation operator running tandem skydives and helicopter/airplane scenic flights over the Bernese Oberland peaks and lakes, though its skydiving is jump-experience oriented rather than a structured solo licensing program.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Skydive Switzerland AFF instructors available in English; USPA license option, international tourist dropzone"
         }
       ],
       "id": "skydiving",
@@ -5946,7 +6484,12 @@ window.ET_ATLAS = {
               "blurb": "Bryson City non-profit founded in 1989 that runs year-round coaching and training camps in canoe slalom, kayak cross and wildwater on the Nantahala River and has developed athletes who have reached the Olympics and World Cup circuit.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Ötztal (Tirol)",
@@ -5984,7 +6527,12 @@ window.ET_ATLAS = {
               "blurb": "An operator named H2O Adventure (h2o-adventure.at) runs rafting and canyoning from Ried im Oberinntal rather than verified whitewater-kayak instruction in the Ötztal, so the match could not be confirmed.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Source to Sea (S2S) kayak school offers Ötztal kayak camps with English instruction and an English course site"
         },
         {
           "place": "Sjoa (Heidal Valley)",
@@ -6029,7 +6577,12 @@ window.ET_ATLAS = {
               "blurb": "A Sjoa Valley adventure centre operating since 1992 that offers whitewater kayaking courses and tours on the Grade 2-3 Sjoa, Laagen and Otta rivers with on-site accommodation and meals.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Mad Goats Norway states all public kayak courses in Sjoa are taught in English"
         },
         {
           "place": "White Salmon & Hood River (Pacific NW)",
@@ -6066,7 +6619,12 @@ window.ET_ATLAS = {
               "blurb": "A Hood River whitewater outfitter whose multi-day rowing schools and swiftwater rescue courses train private boaters on the region's Class III-IV rivers.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "whitewater-kayaking",
@@ -6162,7 +6720,12 @@ window.ET_ATLAS = {
               "blurb": "Colorado River outfitter offering multi-day oar-powered and motorized Grand Canyon rafting expeditions, including an 8-day trip with guides handling camp setup, cooking and side-canyon hikes.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Futaleufú",
@@ -6207,7 +6770,12 @@ window.ET_ATLAS = {
               "blurb": "Lodge-based operator on the Class IV-V Futaleufu River offering all-whitewater rafting or kayaking trips, or whitewater bundled with canyoning, hiking and horseback riding, from a riverside lodge with spa and bungalows.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Bio Bio Expeditions is a US (California) operator with English-speaking guides and international clientele on Futaleufu trips"
         },
         {
           "place": "Victoria Falls (Zambezi River)",
@@ -6245,7 +6813,12 @@ window.ET_ATLAS = {
               "blurb": "A Livingstone adventure company running half-day, full-day and multi-day Zambezi rafting trips through the Grade III-IV-V rapids below Victoria Falls, with veteran trip leaders.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Safari Par Excellence operates in Zambia (English an official language) with English-language guiding for international guests"
         },
         {
           "place": "Sjoa (Heidal)",
@@ -6289,7 +6862,12 @@ window.ET_ATLAS = {
               "blurb": "A Sjoa rafting operator running since 1989 whose multi-day raft guide course follows Norwegian Rafting Organization guidelines and feeds Rescue-3 whitewater safety certification.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Sjoa rafting operators run English sites (/en, ?lang=en) for international clients; Mad Goats confirms English-language courses on the Sjoa"
         }
       ],
       "id": "whitewater-rafting",
@@ -6390,7 +6968,12 @@ window.ET_ATLAS = {
               "blurb": "A mountain-guide company with two decades in the Sierra de Guara running a two-day hands-on canyoning course covering rope work, rappelling, handrails, moving-water progression and risk management, with optional rural-hostel accommodation in Alquezar.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Expediciones runs an English site with English-speaking guests/testimonials and multilingual guides; Vertientes & Guias Boira also have /en course pages; Sierra de Guara is a major international canyo"
         },
         {
           "place": "Ticino (Verzasca & Maggia valleys)",
@@ -6435,7 +7018,12 @@ window.ET_ATLAS = {
               "blurb": "A locally rooted, ISO-certified outdoor company based in Cresciano running guided canyoning across the Verzasca and Maggia valleys plus a multi-day Ticino canyoning camp.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Both Purelements and Ticino Adventures offer English-speaking guides for Verzasca/Ticino canyoning tours"
         },
         {
           "place": "Interlaken (Bernese Oberland)",
@@ -6479,7 +7067,12 @@ window.ET_ATLAS = {
               "blurb": "An Interlaken-based mountain-guide company offering guided canyoning across graded routes from the beginner local gorge to the technical Chli Schliere and high-alpine Grimsel.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Outdoor Interlaken states 'Our guides speak German & English'"
         },
         {
           "place": "Blue Mountains (Sydney region)",
@@ -6524,7 +7117,12 @@ window.ET_ATLAS = {
               "blurb": "Established 1984 as the first company to offer guided canyon trips in the Blue Mountains World Heritage area, running graded canyoning from the beginner Grand Canyon to Empress Falls' 30m abseil.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "canyoning",
@@ -6607,7 +7205,12 @@ window.ET_ATLAS = {
               "blurb": "A FGASA-accredited provider running a 60-day residential Field Guide course in the Greater Kruger area that delivers the FGASA Apprentice Field Guide / NQF2 qualification plus a CyberTracker Track and Sign certificate.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "EcoTraining 55-day Field Guide Course requires ability to communicate effectively in spoken/written English; taught in English"
         },
         {
           "place": "Okavango Delta / Mashatu",
@@ -6644,7 +7247,12 @@ window.ET_ATLAS = {
               "blurb": "Botswana's first private guide-training school, registered on both FGASA and BQA platforms, running Okavango Delta field-guide courses covering ecology, tracking, rifle handling and guiding by foot, boat and mokoro.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Same EcoTraining 55-day Field Guide Course (Mashatu camp), taught in English (English communication required)"
         },
         {
           "place": "Maasai Mara / Laikipia",
@@ -6681,7 +7289,12 @@ window.ET_ATLAS = {
               "blurb": "A field-guide training provider whose 55-day course at its Maasai Mara camp ranges across three conservancies and works toward the FGASA Apprentice Field Guide (NQF2) qualification.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "EcoTraining Kenya Field Guide course taught in English; Kenya guiding instruction is in English (official language)"
         }
       ],
       "id": "safari-and-wildlife-guiding",
@@ -6780,7 +7393,11 @@ window.ET_ATLAS = {
               "blurb": "The French public institute operating the Saumur training centre, delivering professional equestrian instructor and trainer qualifications (BPJEPS, DEJEPS, DESJEPS) and perfectionnement stages taught by Cadre Noir écuyers.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": null
         },
         {
           "place": "Vienna",
@@ -6813,7 +7430,13 @@ window.ET_ATLAS = {
               "blurb": "A UNESCO Intangible Cultural Heritage institution in Vienna where applicants aged 16-25 train over several years through the eleve, aspiring-rider and rider stages in classical High School dressage on Lipizzaner stallions.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": false,
+          "englishBasis": "Spanish Riding School rider training is conducted in German; applicants must be fluent in German",
+          "instructionLanguage": "German"
         },
         {
           "place": "Jerez de la Frontera",
@@ -6844,7 +7467,11 @@ window.ET_ATLAS = {
               "blurb": "The Royal Andalusian School of Equestrian Art in Jerez, founded 1973, offering intensive technical riding courses on Purebred Spanish Horses up to Grand Prix level plus year-long specialist horsemanship and carriage-driving training.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": null
         },
         {
           "place": "Cordoba (Sierras Chicas estancias)",
@@ -6874,7 +7501,12 @@ window.ET_ATLAS = {
               "blurb": "A family-run 6,500-acre ranch in Cordoba's Sierras Chicas offering multi-day immersive riding holidays on Criollo and Peruvian Paso horses alongside resident gauchos, with polo lessons and country-house lodging.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Estancia Los Potreros has English-speaking Anglo-Argentine (Begg family) hosts and an English-speaking guide on all rides/activities"
         }
       ],
       "id": "horsemanship",
@@ -6933,7 +7565,12 @@ window.ET_ATLAS = {
           "why": "Running survival expeditions through southern Utah's deep canyons since 1968, BOSS is the oldest traditional-living-skills school on earth, where 'know more, carry less' was born.",
           "bestSeason": "Apr-Oct",
           "level": "Beginner -> Field Instructor",
-          "id": "wilderness-survival-and-bushcraft--boulder-utah"
+          "id": "wilderness-survival-and-bushcraft--boulder-utah",
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "East Sussex / Scottish Highlands",
@@ -6981,7 +7618,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Prescott, Arizona",
@@ -7012,7 +7654,12 @@ window.ET_ATLAS = {
               "blurb": "Founded by Cody Lundin in 1991 near Prescott, Arizona, this school teaches multi-day field courses in modern wilderness survival, primitive living skills and desert self-reliance across Arizona's varied terrain.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Asnen / Swedish Lakeland",
@@ -7041,7 +7688,11 @@ window.ET_ATLAS = {
               "blurb": "A Swedish bushcraft instruction operation in the Smaland/lakeland region, but its official site and a specific named multi-day course at Asnen could not be verified, with several other Swedish providers found instead.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         }
       ],
       "id": "wilderness-survival-and-bushcraft",
@@ -7119,7 +7770,12 @@ window.ET_ATLAS = {
               "blurb": "A Fairfax bicycle-history museum and home of the Mountain Bike Hall of Fame at the birthplace of mountain biking; a heritage and cultural site rather than a school offering multi-day instruction.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Whistler",
@@ -7167,7 +7823,12 @@ window.ET_ATLAS = {
               "blurb": "Ride Like a Ninja (Ninja Mountain Bike Performance) is a touring coaching outfit that runs multi-day mountain-bike skills clinics on cornering, jumping, drops and technical terrain, though its clinics are mainly US-based rather than fixed in Whistler.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Finale Ligure",
@@ -7205,7 +7866,12 @@ window.ET_ATLAS = {
               "blurb": "Could not verify a Finale Ligure mountain-bike school operating under this exact name; the area's named guiding and skills schools include Flow School, Ride Extreme and MTB Italy.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Finale Ligure is a global MTB hub; multiple operators (Startline MTB, H+I Adventures, Local MTB Guide) provide English-speaking MTB guides"
         },
         {
           "place": "Queenstown",
@@ -7242,7 +7908,12 @@ window.ET_ATLAS = {
               "blurb": "Queenstown's longtime mountain-bike shop, established 1999, offering skills clinics for all levels under an IDP Level 1 & 2 qualified head coach plus guided Bike Park sessions.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "mountain-biking",
@@ -7328,7 +7999,12 @@ window.ET_ATLAS = {
               "blurb": "Auburn-area trail clubs such as the Sierra TrailBlazers Running Club organize regular group runs, community events and training programs on the Sierra foothill trails around the self-styled 'Endurance Capital of the World'.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Chamonix-Mont-Blanc",
@@ -7366,7 +8042,12 @@ window.ET_ATLAS = {
               "blurb": "Operators such as Tracks and Trails run week-long Chamonix trail-running camps that combine guided runs on legendary UTMB and Marathon du Mont-Blanc sections with coaching on technique, nutrition and pacing for runners progressing in alpine terrain.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Tracks and Trails Chamonix camp confirmed guided in English (English guides/reviews); UTMB is an international event operating in English"
         },
         {
           "place": "KwaZulu-Natal (Durban-Pietermaritzburg)",
@@ -7404,7 +8085,12 @@ window.ET_ATLAS = {
               "blurb": "Generic reference to KwaZulu-Natal running clubs (such as those affiliated to KZN Athletics) that host weekly long runs and Comrades-focused group training; no single official entity to verify.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Comrades Marathon and its official training programmes operate in English (South Africa, English-language event)"
         }
       ],
       "id": "trail-and-ultra-running",
@@ -7509,7 +8195,12 @@ window.ET_ATLAS = {
               "blurb": "The Mashiko Togei Club is a relaxed folk-style pottery studio in the Mashiko ceramic town offering three-hour and full-day wheel and hand-building classes, with English-speaking staff and accommodation arranged on request.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Mashiko Ceramic Art Club (Tougei Club) has English-speaking/foreign staff and offers classes for English speakers"
         },
         {
           "place": "Bizen / Seto / Tokoname (Six Ancient Kilns)",
@@ -7555,7 +8246,12 @@ window.ET_ATLAS = {
               "blurb": "The Tokoname ceramics centre on the town's Pottery Footpath, displaying local Tokoname ware and offering visitor pottery and painting experiences; it functions as a cultural hall and short-experience venue rather than a residential school.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Tokoname and Bizen hands-on pottery experiences are conducted in English with English-speaking guides/instruction for tourists"
         },
         {
           "place": "Jingdezhen",
@@ -7603,7 +8299,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 1995 by ceramic artist Li Jianshen in the Sanbao valley outside Jingdezhen, the village runs a full ceramic-artist residency of roughly one to six months that hosts dozens of domestic and international makers each year for creative exchange.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "The Pottery Workshop Jingdezhen International Residency hosts international artists (all levels) with bilingual coordinators/interpreters; English-accessible."
         },
         {
           "place": "St Ives, Cornwall",
@@ -7636,7 +8337,12 @@ window.ET_ATLAS = {
               "blurb": "Bernard Leach's historic St Ives studio, now a working pottery and museum, running multi-day adult throwing courses, the year-long 'Leach Year' programme and national/international residencies in the Leach-tradition (residencies resuming 2027 during building works).",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "pottery-and-ceramics",
@@ -7710,7 +8416,12 @@ window.ET_ATLAS = {
               "blurb": "The teaching arm of Somakosha, a traditional Japanese carpentry firm in Okayama building temples, shrines and teahouses, running multi-day foundation, kumiko and joinery intensives where students hand-make jigs and assemble their own kumiko panel.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Somakosha is an international school ('Worldwide') run by English-speaking founder Jon Stollenmeyer with Western instructors; course content and site are in English."
         },
         {
           "place": "Fort Bragg, California (Krenov School)",
@@ -7744,7 +8455,12 @@ window.ET_ATLAS = {
               "blurb": "Founded by James Krenov and now part of Mendocino College in Fort Bragg, the Krenov School runs an intensive nine-month, hands-on cabinet- and furniture-making program (six days a week, August to May) rooted in classic joinery and design.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Boston, Massachusetts (North Bennet Street School)",
@@ -7774,7 +8490,12 @@ window.ET_ATLAS = {
               "blurb": "North Bennet Street School in Boston's North End is a long-established trades school whose two-year, full-time Cabinet & Furniture Making program teaches hand-tool and machine craftsmanship through 18th- and 19th-century furniture projects.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Franklin, Indiana (Marc Adams School)",
@@ -7803,7 +8524,12 @@ window.ET_ATLAS = {
               "blurb": "A large dedicated woodworking school in Franklin, Indiana offering around 250 workshops a year from April to October, including Monday-to-Friday full-week classes in furniture making, joinery and related crafts taught by visiting specialist instructors.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "woodworking-and-joinery",
@@ -7894,7 +8620,12 @@ window.ET_ATLAS = {
               "blurb": "Seki's cutlery district, one of the world's noted blade towns alongside Solingen and Sheffield, offers craft experiences such as those at the Cutler Sansyu / Seki Hamono Museum where visitors engage with knife-making and sharpening traditions.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Workshop Kurogane states 'Classes are available in English and Japanese' and runs English-led knife/tamahagane workshops."
         },
         {
           "place": "Texarkana, Texas (Bill Moran School)",
@@ -7927,7 +8658,12 @@ window.ET_ATLAS = {
               "blurb": "Established at Texarkana College in 1988 with the American Bladesmith Society, the Bill Moran School of Bladesmithing was the first school dedicated solely to bladesmithing and runs hands-on forging courses on the ABS Journeyman/Master Smith pathway.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Auburn, Maine (New England School of Metalwork)",
@@ -7957,7 +8693,12 @@ window.ET_ATLAS = {
               "blurb": "A non-profit metalworking school in Auburn, Maine offering blacksmithing, welding and ABS-approved bladesmithing classes whose introductory courses reduce the ABS apprentice waiting period by a year toward Journeyman Smith judging.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Holme Lacy, Hereford",
@@ -7995,7 +8736,12 @@ window.ET_ATLAS = {
               "blurb": "An arts college delivering a three-year BA (Hons) Artist Blacksmithing taught at the National School of Blacksmithing in Holme Lacy, blending forging, fabrication and welding with design and critical practice.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "blacksmithing-and-bladesmithing",
@@ -8095,7 +8841,12 @@ window.ET_ATLAS = {
               "blurb": "Murano's hereditary glassmaking families run private master furnace workshops on the island, but no single official school site or named immersive program could be verified for this entry.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Abate Zanetti glass school offers short courses for international students of all levels; demonstrations/activities available in English (IT/EN/FR)."
         },
         {
           "place": "Stanwood, Washington (Pilchuck)",
@@ -8129,7 +8880,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 1971 by Dale Chihuly on a former tree farm near Stanwood, Washington, Pilchuck Glass School runs residential one-, two- and three-week summer sessions taught by leading artists across blowing, casting, flameworking and other glass processes.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Corning, New York",
@@ -8158,7 +8914,12 @@ window.ET_ATLAS = {
               "blurb": "The teaching studio of the Corning Museum of Glass, equipped for furnace, flame, kiln and cold working, offering multi-day glassmaking classes and a long-running residency programme (over 150 artists since 1996) with housing and stipend support.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Toledo, Ohio",
@@ -8198,7 +8959,12 @@ window.ET_ATLAS = {
               "blurb": "Now operating as Huron Street Studios in Toledo's Warehouse District, this studio offers glassblowing classes, workshops and private sessions for all levels where students make their own blown pieces, but it runs short sessions rather than week-plus immersions.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "glassblowing",
@@ -8312,7 +9078,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 1563 under Cosimo I de' Medici, the Accademia di Belle Arti di Firenze is Florence's state fine-arts academy offering Bologna-process three-year and two-year degrees in painting and related disciplines.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "The Florence Academy of Art is an English-language international atelier; course content and instruction are in English with a global student body."
         },
         {
           "place": "Paris",
@@ -8350,7 +9121,13 @@ window.ET_ATLAS = {
               "blurb": "The City of Paris's network of 120 studios across 15 sites offering adults year-long, three-hour studio modules (mid-September to late June) in drawing and painting from still life, casts and the live model.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": false,
+          "englishBasis": "Beaux-Arts de Paris DNSAP is taught entirely in French; foreign applicants must have B2 French. No English-taught option.",
+          "instructionLanguage": "French"
         },
         {
           "place": "St. Petersburg / Moscow",
@@ -8388,7 +9165,12 @@ window.ET_ATLAS = {
               "blurb": "Moscow's V.I. Surikov State Academic Institute of Fine Arts (Russian Academy of Arts), running multi-year academic painting training across dedicated easel, monumental and theatrical-scenery workshops.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Repin Academy Summer School recruits a dedicated English-speaking student group taught by Academy professors (separate from Russian/Chinese groups)."
         },
         {
           "place": "New York City",
@@ -8436,7 +9218,12 @@ window.ET_ATLAS = {
               "blurb": "A historic New York artists' honorary organisation with a fine-art school offering studio-based classes in drawing, painting and printmaking; note its degree-granting school has operated intermittently, so multi-year credentialing should be confirmed directly.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "painting-and-fine-art",
@@ -8520,7 +9307,12 @@ window.ET_ATLAS = {
               "blurb": "A Paris image school founded in 1963 by the regional Chamber of Commerce, training photographers across shooting, post-production and video from analogue technique to VR within its Photo & Video department.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Speos Professional Photography Program explicitly states 'Language of instruction: in English only' (B2 English required)."
         },
         {
           "place": "New York City",
@@ -8567,7 +9359,12 @@ window.ET_ATLAS = {
               "blurb": "Pratt Institute in Brooklyn offers BFA and MFA photography degrees combining technical and conceptual training, with graduate studios at the Brooklyn Navy Yard's Dock 72 and dedicated photo labs.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Arles",
@@ -8614,7 +9411,13 @@ window.ET_ATLAS = {
               "blurb": "The Magnum agency's education arm runs photographer-led workshops, talks and free portfolio reviews, including programming staged in Arles around its general meeting and the Rencontres festival; Arles-specific multi-day courses are occasional rather than fixed.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": false,
+          "englishBasis": "Flagship ENSP three-year master diploma is taught in French with B2 French required; English-only readers cannot follow the diploma (Rencontres workshops offer some English but are not the school prog",
+          "instructionLanguage": "French"
         },
         {
           "place": "London",
@@ -8659,7 +9462,12 @@ window.ET_ATLAS = {
               "blurb": "A University of the Arts London college offering MA Contemporary Photography: Practices and Philosophies alongside multi-week photography short courses taught by industry practitioners.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "photography",
@@ -8761,7 +9569,12 @@ window.ET_ATLAS = {
               "blurb": "Paris's oldest private film school (founded 1963), running a state-certified three-year cycle (two common years plus a specialisation year) toward roles such as assistant director, editor, script supervisor and screenwriter.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "3iS Filmmaking Summer School Paris is explicitly described as a 'premium English-taught summer program' for international students."
         },
         {
           "place": "Los Angeles",
@@ -8807,7 +9620,12 @@ window.ET_ATLAS = {
               "blurb": "The AFI Conservatory in the Hollywood Hills is a graduate film school offering a two-year MFA across six narrative disciplines, with small cohorts collaborating to produce up to 175 films a year.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Prague",
@@ -8846,7 +9664,12 @@ window.ET_ATLAS = {
               "blurb": "A private hands-on film school in Prague whose intensive one-year filmmaking program covers screenwriting, directing, cinematography and editing, with each student directing four to five of their own films while crewing on many more.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "FAMU International offers filmmaking programs (BA/MA/one-year/summer) taught in English for international students."
         },
         {
           "place": "Pune / Mumbai",
@@ -8884,7 +9707,12 @@ window.ET_ATLAS = {
               "blurb": "Whistling Woods International is a film and creative-arts institute inside Mumbai's Film City complex whose School of Filmmaking runs multi-year, practical degree and diploma programs combining classroom study with on-set production.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Whistling Woods International (TISS-affiliated BA) and FTII are English-medium Indian film schools; instruction in higher-ed Indian film degrees is in English."
         }
       ],
       "id": "filmmaking",
@@ -8989,7 +9817,12 @@ window.ET_ATLAS = {
               "blurb": "Mokuhankan is woodblock printmaker David Bull's Asakusa workshop and shop in Tokyo, offering hands-on Print Party sessions where visitors ink pre-carved blocks and pull their own prints with a baren.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "MI-LAB mokuhanga Artist-in-Residence is designed for international artists/printmakers learning under Japanese teachers; conducted in English."
         },
         {
           "place": "Albuquerque",
@@ -9020,7 +9853,12 @@ window.ET_ATLAS = {
               "blurb": "Part of the University of New Mexico in Albuquerque, the Tamarind Institute is a lithography center whose selective two-semester Professional Printer Training Program (no more than eight students) trains master collaborative lithography printers.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Paris",
@@ -9067,7 +9905,12 @@ window.ET_ATLAS = {
               "blurb": "The Beaux-Arts de Paris is France's national fine-art school whose five-year DNSAP program includes dedicated gravure and lithography ateliers for intaglio, etching and screen-printing.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Atelier Contrepoint (heir to Atelier 17) is an international etching atelier frequented by artists/students 'from all corners of the world' with an English info page; Idem Paris collaborates with inte"
         },
         {
           "place": "London",
@@ -9120,7 +9963,12 @@ window.ET_ATLAS = {
               "blurb": "City & Guilds of London Art School offers BA and MA Fine Art with a print specialist route, taught in a 19th-century Engraving Room focused on traditional intaglio processes including aquatint and colour etching.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "printmaking",
@@ -9197,7 +10045,12 @@ window.ET_ATLAS = {
               "blurb": "Bii Dauu is a Zapotec textile-arts cooperative in Teotitlan del Valle, formed in the early 2000s, that dyes all its wool with plant and insect dyes grown on its own organic farm and runs hands-on natural-dye and loom-weaving workshops for visitors.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Thread Caravan is a US/English-language workshop operator running the Oaxaca Zapotec weaving workshop in English, with local guides facilitating with the master weavers."
         },
         {
           "place": "Osaka",
@@ -9237,7 +10090,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 1973 in the hills of Sakyo-ku, Kyoto, Kawashima Textile School runs a 10-day English-language Beginners Course in dyeing and weaving plus multi-week foundation and kasuri courses for international students.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Kawashima Textile School Beginners Weaving Course is explicitly 'Held in English'; SAORI Worldwide HQ also serves international students."
         },
         {
           "place": "West Dean, Chichester",
@@ -9275,7 +10133,12 @@ window.ET_ATLAS = {
               "blurb": "The Handweavers Studio & Gallery, a long-running weaving, spinning and dyeing supplier and workshop provider, runs a two-year part-time weaving Diploma alongside multi-day introductory weaving workshops.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "textiles-and-weaving",
@@ -9371,7 +10234,12 @@ window.ET_ATLAS = {
               "blurb": "Watanabe's is the Kamiita-cho, Tokushima indigo house of aishi Kenta Watanabe, who controls the full cycle from cultivating tadeai to fermenting sukumo, and whose hands-on experience lets visitors dye their own item (T-shirt, scarf, hat, cushion cover, or bandana) in his fermentation vats.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Thread Caravan is a US English-language immersion operator; BUAISOU runs English workshops internationally (NY/London/Singapore); Watanabe's hosts international visitors with an /en site. Indigo immer"
         },
         {
           "place": "Teotitlan del Valle / Oaxaca",
@@ -9418,7 +10286,11 @@ window.ET_ATLAS = {
               "blurb": "Fe y Lola is a Teotitlan del Valle rug studio (Galeria Fe y Lola) specializing in chemical-free natural dyeing, where Omar Chavez Santiago has taught cochineal workshops covering wool mordanting, dye-bath preparation, and pH color manipulation, though its current public offering is a 1.5-to-2-hour studio visit rather than a multi-day immersion.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": null
         },
         {
           "place": "Stroud / Cotswolds",
@@ -9455,7 +10327,12 @@ window.ET_ATLAS = {
               "blurb": "Botanical Inks is Babs Behan's non-toxic natural-dye studio working with foraged and organically grown plant dyes, offering small-group (around five places) two-day workshops in natural dyeing, ink-making and ecological print techniques.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "natural-dyeing",
@@ -9543,7 +10420,12 @@ window.ET_ATLAS = {
               "blurb": "A reference to the traditional family-run leather workshops (botteghe) clustered in Florence's Santa Croce district, where artisans craft and sell leather goods and some offer informal hands-on apprenticeship-style training rather than a single formal school.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Scuola del Cuoio requires B2 English OR Italian, draws students from 40 countries, and runs courses in English for international students."
         },
         {
           "place": "Enfield / London",
@@ -9581,7 +10463,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Ubrique",
@@ -9610,7 +10497,13 @@ window.ET_ATLAS = {
               "blurb": "The Escuela de Artesanos de la Piel in Ubrique, Cádiz, is the town's vocational leather-craft school offering hands-on training in small leather-goods making and industrial sewing-machine work for the local high-end leather trade.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": false,
+          "englishBasis": "Municipal Spanish artisan school (Escuela de Artesanos de la Piel); course 'Curso de pequena marroquineria' is Spanish-medium, cohort from Spain/EU/Latin America (Spanish-speaking). No English option ",
+          "instructionLanguage": "Spanish"
         }
       ],
       "id": "leatherwork",
@@ -9704,7 +10597,12 @@ window.ET_ATLAS = {
               "blurb": "A contemporary jewellery school in Florence offering a two-year full-immersion BFA program (six 14-week modules) capped at twelve students per year, alongside shorter intensive and summer courses combining practical bench skills with design theory.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Le Arti Orafe lists a dedicated 'Courses in English' category alongside Italian; goldsmithing offered to international students in English."
         },
         {
           "place": "Carlsbad / New York",
@@ -9750,7 +10648,12 @@ window.ET_ATLAS = {
               "blurb": "A licensed jewelry trade school in midtown Manhattan teaching since 1979, whose full-time 24-week Comprehensive Training program covers fundamental jewelry techniques, stone setting, wax modeling and casting in small groups for those entering the professional trade.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Pforzheim",
@@ -9788,7 +10691,13 @@ window.ET_ATLAS = {
               "blurb": "Hochschule Pforzheim's Design PF faculty runs the Jewellery and Objects of Daily Use (SOdA) BA and MA, a project-based programme combining traditional goldsmithing craft with contemporary object design in Germany's historic jewellery city.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": false,
+          "englishBasis": "Hochschule Pforzheim BA Jewellery Design course language is German; the Goldschmiedeschule Berufskolleg/Meisterschule is a German vocational program taught in German.",
+          "instructionLanguage": "German"
         },
         {
           "place": "Jaipur",
@@ -9827,7 +10736,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "IIGJ Jaipur (GJEPC institute): English is explicitly stated to be the medium of instruction for the diploma program."
         }
       ],
       "id": "jewelry-and-goldsmithing",
@@ -9927,7 +10841,11 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         },
         {
           "place": "Bangkok",
@@ -9965,7 +10883,12 @@ window.ET_ATLAS = {
               "blurb": "Tattoo School Thailand is a Bangkok tattoo school near Phrom Phong BTS running a four-week (20-day) bamboo hand-poke course where students tattoo several models a week and receive a completion certificate.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Bangkok Ink offers English-speaking instruction and one-on-one training, taking hundreds of students from all over the world; clearly English-language for international students."
         },
         {
           "place": "Los Angeles",
@@ -10002,7 +10925,12 @@ window.ET_ATLAS = {
               "blurb": "Traditional in-person tattoo apprenticeships at established Los Angeles street shops, where an aspiring artist learns hygiene, machine building, and tattooing hands-on over months to years under a resident artist.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "tattooing",
@@ -10086,7 +11014,12 @@ window.ET_ATLAS = {
               "blurb": "A flamenco peña in Jerez's Santiago neighborhood that hosts regular live performances and Thursday cante (flamenco singing) instruction in November, rather than a structured multi-day immersive program.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Flagship Fundacion Cristina Heeren is an international flamenco school (40% foreign students from around the world), English-language website and materials, with optional Spanish classes for non-Spani"
         },
         {
           "place": "Seville (Triana)",
@@ -10133,7 +11066,12 @@ window.ET_ATLAS = {
               "blurb": "An international flamenco and Spanish-language school founded in 1994 in Seville offering intensive multi-day courses in dance technique, palmas, and singing in groups capped at seven students.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Cristina Heeren (international school) plus Taller Flamenco Seville, which markets to international students with English-language site and pairs flamenco with Spanish-language classes."
         },
         {
           "place": "Madrid",
@@ -10179,7 +11117,11 @@ window.ET_ATLAS = {
               "blurb": "The Fundación Conservatorio Flamenco Casa Patas, a non-profit founded in 2000, continues teaching flamenco dance, cante, guitar, cajón and compás in Madrid in English or Spanish after the associated tablao closed.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": null
         }
       ],
       "id": "flamenco-and-dance",
@@ -10276,7 +11218,12 @@ window.ET_ATLAS = {
               "blurb": "Molinard is a Grasse perfume house (founded 1849) offering on-site workshops in which a guide walks participants through a fragrance's structure and they blend their own scent from up to 90 essences, though its sessions are short (roughly 20 minutes to one hour) rather than multi-day or residential.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Grasse Institute of Perfumery International Technical Degree explicitly states 'The working language is English.'"
         },
         {
           "place": "Versailles / Paris",
@@ -10322,7 +11269,12 @@ window.ET_ATLAS = {
               "blurb": "The Givaudan Perfumery School, founded in 1946 and based in Argenteuil near Paris (with a Singapore campus), is an internal, selective four-year program that trains the company's own future perfumers on roughly 600 raw materials and is not open to public enrollment.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "ISIPCA runs English-taught international Summer Schools including 'Art of Perfumery A la Francaise'; offered in English to international participants."
         }
       ],
       "id": "perfumery",
@@ -10423,7 +11375,12 @@ window.ET_ATLAS = {
               "blurb": "This refers to the network of master violin-makers' workshops in Cremona, coordinated in part by the Consorzio Liutai \"Antonio Stradivari\" (over 50 masters), which arranges short guided visits where a luthier demonstrates handcrafting stages rather than running a single multi-day residential program.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Academia Cremonensis is internationally oriented with an International Enrollment Representative; courses available in English (applications/CV in English), with English-medium foundational/master pro"
         },
         {
           "place": "Granada",
@@ -10473,7 +11430,11 @@ window.ET_ATLAS = {
               "blurb": "Guitarrería Casa Ferrer, founded in 1875 by Benito Ferrer on Cuesta de Gomérez, is one of Spain's oldest guitar-making houses and a training ground that has shaped generations of Granada luthiers, now run by the fourth-generation Durán Ferrer family.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         }
       ],
       "id": "lutherie-and-instrument-making",
@@ -10569,7 +11530,12 @@ window.ET_ATLAS = {
               "blurb": "Berklee Online is the online extension of Berklee College of Music in Boston, offering a multi-course Guitar Advanced Professional Certificate that builds from chords and scales to command of multiple styles, taught by the same faculty as the Boston campus.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Los Angeles (Hollywood)",
@@ -10614,7 +11580,12 @@ window.ET_ATLAS = {
               "blurb": "Los Angeles College of Music in Pasadena offers guitar-performance degrees and certificates plus a one-to-three-week Summer at LACM program of master classes, private lessons and ensembles for all skill levels.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "London",
@@ -10660,7 +11631,12 @@ window.ET_ATLAS = {
               "blurb": "Trinity College London is an international exam board awarding graded music exams and performance diplomas up to Grade 8 and ATCL, providing the credential benchmark for guitarists rather than residential tuition.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "guitar-and-music-performance",
@@ -10762,7 +11738,12 @@ window.ET_ATLAS = {
               "blurb": "Xi'an's Beilin (Forest of Stone Steles) Museum holds some 3,000 engraved steles by Tang masters such as Yan Zhenqing and Liu Gongquan, and can arrange calligraphy workshops on site, but no formal multi-day study program is verifiable.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "CAA International College runs Chinese Painting & Calligraphy workshops/programs for overseas students taught in English"
         },
         {
           "place": "London / Roehampton",
@@ -10811,7 +11792,12 @@ window.ET_ATLAS = {
               "blurb": "City Lit is a central London adult-education college whose calligraphy department offers a three-term programme covering broad-edged scripts, illumination, and gold-leaf work taught by SSI-Fellow tutors.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Kyoto",
@@ -10857,7 +11843,12 @@ window.ET_ATLAS = {
               "blurb": "Kyoto studios such as Sakura Shodo and Malligraphy in Gion run hands-on Japanese ink-brush calligraphy workshops for visitors, typically 60-to-90-minute single sessions in English rather than week-long immersions.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Sakura Shodo experience is run for English-speaking visitors (English booking site, English-speaker testimonials)"
         }
       ],
       "id": "calligraphy-and-lettering",
@@ -10962,7 +11953,12 @@ window.ET_ATLAS = {
               "blurb": "École Lenôtre, founded by Gaston Lenôtre in 1971 and now based near Paris in Rungis, runs an eight-week Pastry Program followed by four to nine weeks of on-the-job training for adults entering the profession.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "FERRANDI states the Intensive Professional Program in French Pastry is taught in English with English course materials"
         },
         {
           "place": "Tain-l'Hermitage / Lyon",
@@ -11011,7 +12007,12 @@ window.ET_ATLAS = {
               "blurb": "Institut Paul Bocuse (now Institut Lyfe) is a culinary and hospitality school in Écully near Lyon whose three-week Pâtisserie & Passion program combines pastry demonstrations and hands-on practice under its pastry chef.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "ENSP (Ecole Ducasse) offers English-language programs; Institut Paul Bocuse Patisserie & Passion is 'provided in English only'"
         },
         {
           "place": "Tokyo / Osaka",
@@ -11049,7 +12050,12 @@ window.ET_ATLAS = {
               "blurb": "Tokyo branch of the French institute delivering the three-level Pâtisserie Diploma that adds Japanese elements such as entremets japonais and wagashi to classical French pastry technique.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Tokyo provides diploma classes in English (alumni confirm English-language study); note Tokyo campus refurbishing"
         },
         {
           "place": "New York City",
@@ -11078,7 +12084,12 @@ window.ET_ATLAS = {
               "blurb": "ICE's lower-Manhattan campus runs an eight-month Pastry & Baking Arts diploma drawing on French, Italian, Austrian and Swiss traditions across roughly 100 hands-on lessons plus an off-site externship.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "french-pastry-and-patisserie",
@@ -11166,7 +12177,12 @@ window.ET_ATLAS = {
               "blurb": "Paris flagship of the French culinary institute running an eight-month Boulangerie Diploma across basic and advanced levels plus a two-month internship, teaching kneading, fermentation and traditional and artistic bread production.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Paris Boulangerie Diploma taught in French with simultaneous English translation"
         },
         {
           "place": "Vallée du Jabron (Provence)",
@@ -11200,7 +12216,13 @@ window.ET_ATLAS = {
               "blurb": "Founded by Thomas Teffri-Chambelland and based in the Jabron valley near Aix-en-Provence, EIDB runs a residential 582-hour, roughly 15-week course in organic sourdough breadmaking leading to a state-registered Boulanger level-4 diploma.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": false,
+          "englishBasis": "EIDB flagship Boulanger niveau-4 (15-week/582h organic) diploma is FR-only; only shorter 5-day courses are FR/EN",
+          "instructionLanguage": "French"
         },
         {
           "place": "San Francisco / Bay Area",
@@ -11249,7 +12271,12 @@ window.ET_ATLAS = {
               "blurb": "Pioneering Berkeley artisan bakery founded in 1983 by Steve Sullivan that helped launch the American artisan-bread movement; it is a wholesale and retail bakery rather than a school, with Sullivan teaching occasional guest classes at the San Francisco Baking Institute.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Copenhagen",
@@ -11277,7 +12304,12 @@ window.ET_ATLAS = {
               "blurb": "Claus Meyer's Copenhagen culinary center runs hands-on organic bread-making classes (in English) covering moist-dough technique, sourdough and Danish rye and cinnamon swirls, though these are single-session classes rather than week-long diplomas.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Meyers offers the bread-making class explicitly 'In English'"
         }
       ],
       "id": "bread-and-boulangerie",
@@ -11377,7 +12409,12 @@ window.ET_ATLAS = {
               "blurb": "Valrhona's 2,000 m² interactive chocolate discovery centre on the site of its historic Tain-l'Hermitage factory, offering short 30-minute to 2-hour hands-on pastry and chocolate workshops led by a Valrhona pastry chef.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Ecole Chocolat Professional Chocolatier Program in France (Tain-l'Hermitage residency) is 'delivered in English'"
         },
         {
           "place": "Brussels / Wieze",
@@ -11421,7 +12458,12 @@ window.ET_ATLAS = {
               "blurb": "The Cacao Barry-branded arm of Barry Callebaut's Chocolate Academy network, delivering seminars, demonstrations and hands-on practical workshops on chocolate technique, recipes and trends taught by professional chefs.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Callebaut Chocolate Academy Wieze hosts international guest-chef courses incl. English-delivered programs (e.g. Ecole Chocolat residency at Wieze)"
         },
         {
           "place": "Zurich / Broc",
@@ -11460,7 +12502,12 @@ window.ET_ATLAS = {
               "blurb": "Cailler's chocolate factory in Broc, La Gruyère, offers chocolatier atelier workshops where small groups learn tempering, conching and ganache and make their own chocolates, though these are roughly 90-minute sessions rather than a multi-day course.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Richemont 'Swiss Artisan Excellence' confectionery/chocolate courses (with Campus Week in Lucerne) are held in English"
         },
         {
           "place": "Paris",
@@ -11500,7 +12547,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 1989 in Paris's 15th arrondissement by Meilleurs Ouvriers de France, this school runs three-day professional workshops in pastry, viennoiserie and chocolate, plus longer extended programs.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Callebaut Chocolate Academy Paris masterclasses offered with English (French primary, English secondary/translation)"
         },
         {
           "place": "Las Vegas",
@@ -11533,7 +12585,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 2016 by Colombian-born master chocolatier Melissa Coppel, a dedicated school whose courses (e.g. a 6-day Chocolate Bootcamp) are 100% hands-on with open public booking. A world-class confectionery hub rather than a cacao-origin.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Caracas",
@@ -11567,7 +12624,11 @@ window.ET_ATLAS = {
               "blurb": "Founded 2013 by chocolatier Maria Fernanda Di Giacobbe (2016 Basque Culinary World Prize), a teaching lab at cacao origin that has trained thousands. Booking is by email/phone and Venezuela travel is a real logistical hurdle — confirm directly.",
               "confidence": "med"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": null
         }
       ],
       "id": "chocolate-and-confectionery",
@@ -11657,7 +12718,11 @@ window.ET_ATLAS = {
               "blurb": "Joseph Brot is an organic Vienna bakery founded by Josef Weghaupt known for hand-crafted heritage-grain sourdough and laminated pastries, but it is a working bakery with no verified structured public apprenticeship or immersive course program.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         },
         {
           "place": "Paris",
@@ -11708,7 +12773,12 @@ window.ET_ATLAS = {
               "blurb": "France's first dedicated bakery-and-pastry training centre, founded in 1929, running CAP Boulanger and CAP Pâtissier diplomas plus short courses that cover viennoiserie production for apprentices and career-changers.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "FERRANDI Intensive Professional Program in French Bread Baking taught in English; LCB Paris boulangerie also English-translated"
         },
         {
           "place": "Tokyo",
@@ -11737,7 +12807,12 @@ window.ET_ATLAS = {
               "blurb": "Le Cordon Bleu's Tokyo institute has taught a Boulangerie diploma covering viennoiserie and artisan bread, though it announced the closure of its Daikanyama campus and is no longer enrolling new students locally.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Tokyo boulangerie/diploma classes provided in English for international students"
         }
       ],
       "id": "viennoiserie",
@@ -11840,7 +12915,12 @@ window.ET_ATLAS = {
               "blurb": "Alain Ducasse's culinary school, with its Paris-area campus in Meudon, running a nine-month intensive Culinary Arts Diploma for career-changers that pairs hands-on French technique with management and entrepreneurial modules.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Paris Diplome de Cuisine: theory/demos in French consecutively translated into English for international students."
         },
         {
           "place": "Lyon",
@@ -11883,7 +12963,12 @@ window.ET_ATLAS = {
               "blurb": "Public hospitality lycée and apprentice training centre near Lyon, founded in 1975, whose CAP Cuisine programme teaches culinary technique, supply management and hygiene across a campus with nine kitchens and public training restaurants.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Institut Lyfe (Paul Bocuse) Bachelor in International Culinary Arts Management can be followed 100% in English."
         },
         {
           "place": "Hyde Park, New York",
@@ -11913,7 +12998,12 @@ window.ET_ATLAS = {
               "blurb": "At its Hyde Park campus the CIA runs multi-day, small-group Boot Camps for amateur cooks, including a French bistro session covering soups, stews, omelets and savoury tarts taught by its chef-instructors.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "classical-french-cuisine",
@@ -12020,7 +13110,12 @@ window.ET_ATLAS = {
               "ratingSource": "TripAdvisor",
               "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g187801-d1464270-Reviews-Bologna_Cooking_School-Bologna_Province_of_Bologna_Emilia_Romagna.html"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Bologna Cooking School hands-on fresh-pasta classes run in English for international visitors; VSB/Spisni professional course is Italian."
         },
         {
           "place": "Forlimpopoli (Emilia-Romagna)",
@@ -12052,7 +13147,11 @@ window.ET_ATLAS = {
               "blurb": "Set in Pellegrino Artusi's hometown of Forlimpopoli, this gastronomic-culture center's cooking school has the Mariette sfogline teach hand-rolled egg-pasta technique and Romagna classics such as tagliatelle, cappelletti and tortelli to enthusiasts and professionals.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         },
         {
           "place": "Colorno (Parma)",
@@ -12086,7 +13185,12 @@ window.ET_ATLAS = {
               "blurb": "Based in the Palazzo Ducale of Colorno near Parma, ALMA runs residential programs for international students including a dedicated Italian Pasta Program covering fresh and dry pasta techniques and production.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "ALMA Italian Pasta Program is a 3-week certificate course taught in English for international students."
         }
       ],
       "id": "italian-cuisine-and-pasta",
@@ -12178,7 +13282,12 @@ window.ET_ATLAS = {
               "blurb": "Hospitality school founded in 1996 by chef Karlos Arguiñano in coastal Zarautz, training cooks through a practice-led Cocina y Gastronomía cycle with small groups and a public pedagogical restaurant.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Escuela Luis Irizar professional culinary diploma offered with English option for international students (BCC mastery course itself is Spanish-delivered)."
         },
         {
           "place": "Errenteria / Lasarte-Oria (Gipuzkoa)",
@@ -12219,7 +13328,11 @@ window.ET_ATLAS = {
               "blurb": "The three-Michelin-star flagship in Lasarte-Oria takes on stagiaires through its 'Work with us' channel, placing experienced cooks in the kitchen brigade of Martín Berasategui's original restaurant. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": null
         }
       ],
       "id": "new-basque-cuisine",
@@ -12309,7 +13422,13 @@ window.ET_ATLAS = {
               "blurb": "Built on the former elBulli restaurant site at Cala Montjoi in Roses, elBulli1846 is the elBullifoundation's exhibition lab and museum of avant-garde gastronomy offering a roughly two-hour self-guided/guided tour rather than a hands-on cooking immersion.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": false,
+          "englishBasis": "BCC Avant-Garde Culinary Techniques in-person specialization is listed under 'Training delivered in Spanish'; elBulli1846 is a museum tour, not a course.",
+          "instructionLanguage": "Spanish"
         },
         {
           "place": "Girona",
@@ -12351,7 +13470,13 @@ window.ET_ATLAS = {
               "blurb": "Catalonia's first catering school, opened in 1965 in Girona, runs full professional cooking and pastry programs and operates a student-run restaurant, with alumni who have earned some 20 Michelin stars.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": false,
+          "englishBasis": "Escola d'Hostaleria de Girona FP Cuina is a Catalan public vocational program (Catalan/Spanish); El Celler de Can Roca stage works in Spanish/Catalan.",
+          "instructionLanguage": "Spanish"
         },
         {
           "place": "San Sebastián (Donostia)",
@@ -12391,7 +13516,13 @@ window.ET_ATLAS = {
               "blurb": "Mugaritz, just outside San Sebastián in Errenteria, runs the six-month MACC creativity program built around an interdisciplinary teaching team and a one-week residency at the restaurant, alongside its season-long kitchen stage. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": false,
+          "englishBasis": "BCC in-person specialization/intensive courses delivered in Spanish; Mugaritz MACC postgraduate (Madrid) runs in Spanish.",
+          "instructionLanguage": "Spanish"
         }
       ],
       "id": "modernist-spanish-cuisine",
@@ -12497,7 +13628,12 @@ window.ET_ATLAS = {
               "blurb": "Tokyo campus of the Tsujicho Group culinary institute offering a Japanese cuisine course covering core washoku skills including sushi and tempura preparation.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Tokyo Sushi Academy International Sushi Chef Course is an English-language course (instructor in Japanese with English interpreter; Japanese not required)."
         },
         {
           "place": "Osaka",
@@ -12537,7 +13673,13 @@ window.ET_ATLAS = {
               "blurb": "Osaka cooking and confectionery college (ecole UMEDA) offering small-group, practice-heavy one-year courses in Japanese, Western and Chinese cooking that prepare students for the national Cooking Chef and fugu-handling licenses.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": false,
+          "englishBasis": "Tsuji Culinary Institute and Osaka Cooking College are government-authorized colleges taught exclusively in Japanese; foreign students must first learn Japanese.",
+          "instructionLanguage": "Japanese"
         },
         {
           "place": "Kyoto",
@@ -12583,7 +13725,12 @@ window.ET_ATLAS = {
               "blurb": "A small home-kitchen class near Shimogamo Shrine for up to six guests, Haru teaches Kyoto-style washoku with options for a vegetarian menu, Kobe beef or a guided Nishiki Market shopping tour.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Haru Cooking Class delivers washoku/market classes in English for international visitors; Kyoto Culinary Art College/La Carriere are Japanese-medium colleges."
         },
         {
           "place": "Los Angeles (Torrance)",
@@ -12616,7 +13763,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 2002 by master chef Andy Matsuda (Kobe-born, five-year Osaka apprenticeship, Yosei-kai member). A dedicated, openly enrollable sushi school — authoritative, though in California rather than at the source in Japan.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "sushi-and-washoku",
@@ -12703,7 +13855,12 @@ window.ET_ATLAS = {
               "blurb": "Small-group Bangkok cooking school on Soi Decho running market-tour Thai classes for around 9-10 students in a traditional open kitchen across morning, afternoon and evening sessions.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Dusit Professional Thai Cuisine Programme: 'Language: English with Thai translation in Demonstration Sessions.'"
         },
         {
           "place": "Chiang Mai",
@@ -12748,7 +13905,12 @@ window.ET_ATLAS = {
               "blurb": "Run by members of the Akha hill-tribe in an open-air bamboo kitchen south of Chiang Mai's old city, this school's market-tour class has each student cook an 11-dish Thai-Akha menu at their own wok and mortar station.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Thai Farm Cooking School states 'Instruction in English by a Thai cooking teacher'; the Chiang Mai farm schools run English classes for international visitors."
         }
       ],
       "id": "thai-cuisine",
@@ -12846,7 +14008,12 @@ window.ET_ATLAS = {
               "blurb": "Oaxaca City cooking school led by chef Pilar Cabrera of restaurant La Olla, teaching hands-on Oaxacan menus including moles for groups of 2-8 with a market tour, mezcal tasting and a five-course meal.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Seasons of My Heart (Susana/Kaelin Trilling) classes can be taught in English; all guides speak English."
         },
         {
           "place": "Mexico City",
@@ -12884,7 +14051,12 @@ window.ET_ATLAS = {
               "blurb": "Northwest Mexico's first specialised culinary school (founded 2003 in Tijuana) teaches a 70%-practical curriculum and offers a Master's in Mexican Cuisine plus certifications, though it sits in Baja California rather than at the Oaxacan/Mexico City source.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Casa Jacaranda FAQ states experiences are generally in English for international visitors (Spanish on request)"
         },
         {
           "place": "Merida (Yucatan)",
@@ -12922,7 +14094,12 @@ window.ET_ATLAS = {
               "blurb": "A Merida Yucatecan cooking-experience offering could not be verified to a single official school and site of this exact name, as searches surfaced multiple generic market-tour cooking classes instead.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Los Dos Taste of Yucatan runs with bilingual English/Spanish guides; reviews confirm English instruction"
         }
       ],
       "id": "oaxacan-and-mexican-cuisine",
@@ -13008,7 +14185,12 @@ window.ET_ATLAS = {
               "blurb": "Hotel management institute (based in Kolkata, not Lucknow) offering food production and patisserie diploma training that blends theory with practical kitchen exposure including bakery and patisserie.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "IHM Lucknow (NCHMCT) diploma is English-medium; English is a compulsory eligibility subject, standard for Indian IHMs"
         },
         {
           "place": "Delhi",
@@ -13047,7 +14229,12 @@ window.ET_ATLAS = {
               "blurb": "New Delhi culinary institute founded in 2005 by Chef Virender S. Datta, India's first WACS-accredited culinary school, offering two-year diplomas in Culinary Arts, Bakery & Patisserie and Food Production with City & Guilds certification.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "IHM Pusa (NCHMCT) Food Production diploma delivered in English medium like all Indian IHM programs"
         },
         {
           "place": "Amritsar (Punjab)",
@@ -13065,7 +14252,11 @@ window.ET_ATLAS = {
           "why": "The beating heart of Punjabi cooking, where butter chicken, dal makhani, and the langar tradition are learned hands-on in living home kitchens.",
           "bestSeason": "Oct-Mar",
           "level": "Beginner -> Intermediate",
-          "id": "north-indian-cuisine--amritsar-punjab"
+          "id": "north-indian-cuisine--amritsar-punjab",
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         }
       ],
       "id": "north-indian-cuisine",
@@ -13151,7 +14342,11 @@ window.ET_ATLAS = {
               "blurb": "Instituto Columbia is a Lima institution founded in 1983 whose Alta Cocina program (launched 2003) runs six academic cycles of practical kitchen and pastry training and awards a state-recognized professional technical title in Peruvian and International Gastronomy.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         },
         {
           "place": "Cusco",
@@ -13189,7 +14384,12 @@ window.ET_ATLAS = {
               "blurb": "A Cusco-based Peruvian cooking class was referenced under this name, but no official site or specific multi-day program could be verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Marcelo Batata offers a dedicated English cooking class (10am English session); reviews confirm English instruction"
         },
         {
           "place": "Arequipa",
@@ -13219,7 +14419,12 @@ window.ET_ATLAS = {
               "blurb": "Based at Casa de Avila in Arequipa, this hands-on cooking school teaches regional dishes such as rocoto relleno and solterito alongside a century-old market tour and an optional Pisco Sour session, in sessions of a few hours rather than week-long programs.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Peruvian Cooking Experience site states classes are entirely available in English and Spanish with bilingual guides"
         }
       ],
       "id": "peruvian-cuisine",
@@ -13306,7 +14511,12 @@ window.ET_ATLAS = {
               "blurb": "Run by the University of Bordeaux's Institut des Sciences de la Vigne et du Vin (ISVV), the DUAD is a long-running university tasting diploma of roughly 175 hours across four modules from October to June, open to enthusiasts and professionals with a baccalaureate.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "CIVB Bordeaux Wine School promotes English-language workshops and runs an English course site for international students"
         },
         {
           "place": "London",
@@ -13361,7 +14571,12 @@ window.ET_ATLAS = {
               "blurb": "The Court of Master Sommeliers, with its European arm running UK courses, offers a tiered sommelier path beginning with a two-day Introductory Sommelier Certificate covering viticulture, winemaking, spirits, service and blind tasting, taught by Master Sommeliers.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Napa Valley",
@@ -13407,7 +14622,12 @@ window.ET_ATLAS = {
               "blurb": "The CIA's St. Helena campus runs a 30-week Accelerated Wine and Beverage certificate at its Rudd Center for Professional Wine Studies, covering sensory evaluation, cellar management, service, and beverage pairing.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "wine-and-sommellerie",
@@ -13502,7 +14722,12 @@ window.ET_ATLAS = {
               "blurb": "The Sake Service Institute is the Japanese body that certifies sake professionals, and its International Kikisake-shi program is a three-day course with self-study, tasting and service training plus a graded exam, delivered in English through authorized partner schools.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Obata Shuzo Gakkogura provides English course information and hosts foreign participants; SSI International Kikisake-shi (an alt listed) is delivered in English"
         },
         {
           "place": "Niigata",
@@ -13551,7 +14776,12 @@ window.ET_ATLAS = {
               "blurb": "The Sake Service Institute certifies sake professionals through its Kikisake-shi qualification, delivered as a multi-day course covering production, tasting and service with a graded exam available in English via authorized partner schools.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "SSI International Kikisake-shi certification is the English-language sake sommelier program studied globally; Imayotsukasa Gakkogura accommodates foreign participants"
         },
         {
           "place": "Tokyo",
@@ -13597,7 +14827,12 @@ window.ET_ATLAS = {
               "blurb": "The national producers' association in Tokyo runs the Japan Sake & Shochu Academy, an intensive course of lectures and tastings of roughly 70 sake and shochu that issues a completion certificate co-signed by the National Research Institute of Brewing.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Sake Sommelier Academy and SSI International Kikisake-shi are international English-language certification courses based in Tokyo"
         },
         {
           "place": "London",
@@ -13635,7 +14870,12 @@ window.ET_ATLAS = {
               "blurb": "The London-based SSI-accredited sake course (run by Enshu) delivers the three-day International Kikisake-shi Sake Sommelier certification covering sake production, service and tasting in classes capped at fifteen, with a Japan-recognized diploma.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "sake-and-sommellerie-of-sake",
@@ -13725,7 +14965,12 @@ window.ET_ATLAS = {
               "blurb": "Coffee Craft Academy is an Addis Ababa specialty-coffee training center offering expert-led SCA-aligned barista, cupping and brewing courses with first-hand access to fresh Ethiopian coffee, representative of the city's SCA-affiliated cupping labs.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "African Coffee Campus is an international, SCA-certified immersive program marketed to global coffee lovers; SCA courses run in English"
         },
         {
           "place": "Melbourne",
@@ -13779,7 +15024,12 @@ window.ET_ATLAS = {
               "blurb": "St. ALi is a Melbourne specialty-coffee brand whose education work spans hands-on barista training initiatives and a structured coffee-tasting course covering cupping, roasting, origin and processing.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "London",
@@ -13828,7 +15078,12 @@ window.ET_ATLAS = {
               "blurb": "An East London specialty roaster that runs guided tasting sessions, hands-on brewing workshops, and roastery tours rather than full SCA certification, partnering with the Prufrock training centre for structured courses.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Portland",
@@ -13865,7 +15120,12 @@ window.ET_ATLAS = {
               "blurb": "A Portland coffee school (Bellissimo) running a five-day comprehensive workshop for cafe owners and managers that combines business lectures with hands-on espresso-lab training, plus a 2.5-day intensive barista course.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "coffee-and-barista",
@@ -13941,7 +15201,12 @@ window.ET_ATLAS = {
               "blurb": "The Havana Club Rum Museum in Habana Vieja offers short rum-tasting and cocktail-making workshops led by a Cuban bartender, an introductory hands-on experience rather than a multi-day certification program.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Havana Club Rum Museum cocktail-making workshops/experiences are offered in English among other languages"
         },
         {
           "place": "London",
@@ -13987,7 +15252,12 @@ window.ET_ATLAS = {
               "blurb": "WSET School London is the flagship campus of the Wine & Spirit Education Trust, and its Level 3 Award in Spirits is a classroom course with tutored tastings of 58 spirits aimed at bartenders and drinks professionals, finishing in an internationally recognised qualification.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "New York City",
@@ -14036,7 +15306,12 @@ window.ET_ATLAS = {
               "blurb": "The Columbia Bartending Agency and School of Mixology is a student-run school operating at Columbia University since 1965 that teaches public mixology classes using real alcohol, covering bar setup, classic and contemporary drinks and service, with a certificate awarded on passing a performance and written exam.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "mixology-and-bartending",
@@ -14133,7 +15408,12 @@ window.ET_ATLAS = {
               "blurb": "Maison Mons is the Mons family's fromager-affineur business whose Ambierle maturing cellars, converted from a 180-metre railway tunnel, serve as the hands-on affinage classroom for Mons Formation trainees ripening cheeses alongside the maison's affineurs.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Mons Formation (formerly Academie MonS) is an English-language professional affinage program for international cheese pros, co-taught by an anglophone instructor"
         },
         {
           "place": "Vermont",
@@ -14181,7 +15461,12 @@ window.ET_ATLAS = {
               "blurb": "The Vermont Cheese Council is the state's cheesemaker trade body whose education arm offers the self-paced eight-module online course The Science of Farmstead Cheese alongside in-person workshops and an annual conference.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Copenhagen",
@@ -14221,7 +15506,12 @@ window.ET_ATLAS = {
               "blurb": "Empirical is a Copenhagen flavour-focused distillery founded by Nordic Food Lab and noma alumni Lars Williams and Mark Emil Hermansen, built on fermentation, brewing, and distilling, though it does not appear to run a formal public fermentation course.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Noma Projects / Taste Buds is a global English-language membership with Copenhagen HQ events and fermentation guidance; noma operates in English"
         },
         {
           "place": "Tokyo",
@@ -14253,7 +15543,12 @@ window.ET_ATLAS = {
               "blurb": "A dedicated Tokyo fermentation school led by instructor Chie Ando, teaching koji cultivation, miso and koji seasonings hands-on from beginner to professional. Ando is a teaching/media expert rather than a traditional brewery (jozo) master.",
               "confidence": "med"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "&LAB Tokyo runs its koji/fermentation planner courses on a fully English course site with English textbook references and online English course options aimed at an international audience"
         }
       ],
       "id": "cheese-and-fermentation",
@@ -14333,7 +15628,12 @@ window.ET_ATLAS = {
               "blurb": "Around West Lake in Hangzhou, the Longjing (Dragon Well) villages of Meijiawu and Longjing offer hands-on immersions where visitors pick leaves, learn pan-roasting from intangible-heritage masters and taste the result.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Flagship is Tea Drunk's Educational Tea Tour of Wuyi Shan, run by a US (NY)-based company in English for foreign tea students"
         },
         {
           "place": "Kyoto / Uji",
@@ -14383,7 +15683,12 @@ window.ET_ATLAS = {
               "blurb": "In Uji, the historic center of Japanese green tea, producers such as Fukujuen's Ujicha Kobo run hands-on workshops where participants roll and process tea leaves and grind tencha into matcha on a traditional stone mill before brewing it under an instructor's guidance.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Urasenke Midorikai program explicitly states it makes the study of chado possible in English for non-Japanese students"
         }
       ],
       "id": "tea-and-tea-ceremony",
@@ -14482,7 +15787,12 @@ window.ET_ATLAS = {
               "blurb": "Sitsongpeenong is a Muay Thai camp in the Prawet district of Bangkok offering twice-daily training under professional trainers, with on-site accommodation for short- and long-term residential stays.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "YOKKAO Training Center Bangkok has English-speaking coaches and trains both foreigners and locals at all levels"
         },
         {
           "place": "Phuket (Chalong)",
@@ -14529,7 +15839,12 @@ window.ET_ATLAS = {
               "blurb": "Sinbi Muay Thai is an open-air camp in Rawai near Nai Harn beach in southern Phuket with three full-size rings, offering group and private training plus a 21-room on-site apartment for residential stays.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Tiger Muay Thai is foreigner-focused with English-speaking trainers and a large international clientele"
         },
         {
           "place": "Chiang Mai",
@@ -14574,7 +15889,12 @@ window.ET_ATLAS = {
               "blurb": "Hongthong Muay Thai is a Chiang Mai gym founded by twin Lumpinee-Stadium veterans Hongthongnoi and Hongthonglek, offering twice-daily group classes and private coaching across multi-day and multi-week programs with on-site recovery amenities.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Santai Muay Thai caters to all levels with English-speaking trainers and a roughly 50/50 Thai-foreigner mix"
         }
       ],
       "id": "muay-thai",
@@ -14671,7 +15991,13 @@ window.ET_ATLAS = {
               "blurb": "Alliance Jiu-Jitsu, co-founded in 1993 by Alexandre Paiva, Romero Cavalcanti and Fabio Gurgel, is a competition-focused BJJ team whose Leblon school sits on Rua Alberto Rangel in Rio de Janeiro.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": false,
+          "englishBasis": "Gracie Barra Rio HQ classes are taught solely in Portuguese (head instructor speaks no English); only informal ad-hoc translation by other students, no English course",
+          "instructionLanguage": "Portuguese"
         },
         {
           "place": "San Diego",
@@ -14721,7 +16047,12 @@ window.ET_ATLAS = {
               "blurb": "BJJ Revolution Team's San Diego home is the Pacific Beach Jiujitsu Center, run by Carlson Gracie black belt and team founder Rodrigo Medeiros, and is one of the city's oldest BJJ academies.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Sao Paulo",
@@ -14769,7 +16100,12 @@ window.ET_ATLAS = {
               "blurb": "PSLPB Cicero Costha is the competition team and Projeto Social Lutando Pelo Bem social project run from Cicero Costha's Ipiranga, Sao Paulo academy, combining elite gi and no-gi training with housing and structure for youth from low-income communities.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Alliance HQ Sao Paulo hosts an organized English-facing Brazil Immersion Camp for a global cohort to train with Fabio Gurgel; official site has English support"
         }
       ],
       "id": "brazilian-jiu-jitsu",
@@ -14856,7 +16192,12 @@ window.ET_ATLAS = {
               "blurb": "The Higaonna Dojo in Tsuboya, Naha, is the honbu of the Traditional Okinawan Goju-Ryu Karate-do Federation (TOGKF), founded by Morio Higaonna in 2022 to teach his lineage of Okinawan Goju-ryu.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Visit Karate Okinawa (Ageshio Japan) is a licensed agency specializing in karate programs for foreigners, with English-language website and programs designed for international participants"
         },
         {
           "place": "Tokyo",
@@ -14895,7 +16236,11 @@ window.ET_ATLAS = {
               "blurb": "The Japan Karatedo Federation is the Tokyo-based national governing body for sport karate in Japan, affiliated with the Japanese Olympic Committee and World Karate Federation, that oversees dan grading and competition rather than running its own residential immersion course.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         }
       ],
       "id": "karate",
@@ -14991,7 +16336,12 @@ window.ET_ATLAS = {
               "blurb": "A monk-led academy near Songshan Shaolin Temple in Dengfeng where international students live on site for monthly stays training in traditional Shaolin styles, tai chi, chi kung and meditation alongside temple visits and language help.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Foreigner-oriented Dengfeng Shaolin academies state training is in Chinese but explained in English by translators/foreign-affairs staff; trainers speak English, students from 40+ countries"
         },
         {
           "place": "Wudang Mountains, Hubei",
@@ -15033,7 +16383,12 @@ window.ET_ATLAS = {
               "blurb": "A residential academy founded in 2004 in Wudangshan, Hubei, run by 15th-generation Wudang San Feng disciple and ordained Daoist priest Master Yuan Xiu Gang, offering structured one-year and three-year programs covering Tai Chi, internal kung fu, Qigong and traditional weapon forms.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Wudang Daoist Traditional Kung Fu Academy: Master Yuan speaks English and teaches international students (50+ countries), with on-site translators"
         },
         {
           "place": "Foshan & Hong Kong",
@@ -15072,7 +16427,12 @@ window.ET_ATLAS = {
               "blurb": "Wing Chun training centers in Foshan, Guangdong, the city regarded as the art's birthplace and home to Ip Man's early training, though no single official school under this name could be verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Ip Man-lineage Wing Chun schools in Hong Kong (e.g. Kwok/Ip Chun lineage, The Wing Chun School) teach international students with English instruction/translation"
         }
       ],
       "id": "kung-fu",
@@ -15172,7 +16532,12 @@ window.ET_ATLAS = {
               "blurb": "A Capoeira Angola school in the Pastinha lineage led by Mestre Boca Rica at the Forte da Capoeira in Salvador, offering ongoing Angola classes, group experiences and private lessons.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Tripaneer/BookMartialArts 30-day capoeira training is an international booking marketed in English, with Bahia Vacation Tours providing translation as needed"
         },
         {
           "place": "Rio de Janeiro",
@@ -15213,7 +16578,11 @@ window.ET_ATLAS = {
               "blurb": "One of the most internationally established capoeira groups, formed in 1960s Rio de Janeiro under brothers Rafael and Paulo Flores and three-time winner of the Berimbau de Ouro tournament, with a graded training system and nuclei across multiple countries.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         }
       ],
       "id": "capoeira",
@@ -15327,7 +16696,12 @@ window.ET_ATLAS = {
               "blurb": "An intimate San Telmo tango school directed by Carolina Bonaventura, pairing a concept-based teaching method with an attached boutique hotel so visitors can lodge and study tango in one place.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "DNI Tango offers classes in multiple languages and is reviewed by visitors as the best place for tango classes in English"
         },
         {
           "place": "Montevideo",
@@ -15365,7 +16739,11 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": null
         },
         {
           "place": "Berlin",
@@ -15409,7 +16787,12 @@ window.ET_ATLAS = {
               "blurb": "An Argentine tango school in Berlin-Schöneberg (Kolonnenstr. 29) offering graded courses, workshops and intensive seminars, anchored by its long-running weekly Mala Junta milonga.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Berlin is a top international tango hub; Mala Junta runs international summer intensives drawing a global cohort, bilingual scene"
         },
         {
           "place": "Istanbul",
@@ -15445,7 +16828,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Dedicated 'Istanbul Tango School for Foreigners' and the international tanGOTOistanbul festival indicate English instruction for foreigners"
         }
       ],
       "id": "argentine-tango",
@@ -15540,7 +16928,12 @@ window.ET_ATLAS = {
               "blurb": "A Cali dance academy founded in 2006 by Gustavo A. Collazos in the San Fernando Viejo neighborhood, teaching salsa caleña, salsa en linea, bachata and other social dances to students of all ages and nationalities.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Cali salsa schools commonly teach foreigners; sources confirm instructors who speak English; Arrebato Caleno is foreigner/cultural-exchange focused"
         },
         {
           "place": "Havana",
@@ -15586,7 +16979,12 @@ window.ET_ATLAS = {
               "blurb": "A social-project dance school in Havana offering five- and six-day salsa, son and rumba course packages with one-to-one Cuban partners, casa particular lodging and nightly accompaniment to dance clubs.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Baila Habana caters to English-speaking international students; teachers speak very good English; English-language booking site"
         },
         {
           "place": "New York City",
@@ -15635,7 +17033,12 @@ window.ET_ATLAS = {
               "blurb": "A nonprofit Latin dance school operating in Midtown Manhattan since 2000, directed by Joe Burgos and Bianca Soto, teaching salsa, mambo, bachata and many other styles across levels with an unlimited-class membership model.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "San Juan",
@@ -15672,7 +17075,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Puerto Rico is a bilingual US territory; PR Salsa Congress is an international event with English-language instruction"
         }
       ],
       "id": "salsa",
@@ -15780,7 +17188,11 @@ window.ET_ATLAS = {
               "blurb": "A Bharatanatyam institution in Chennai founded in 1968 by Shanta and V.P. Dhananjayan that offers in-person classical dance training integrating technique, abhinaya, and repertoire.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         },
         {
           "place": "Thanjavur",
@@ -15821,7 +17233,11 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         },
         {
           "place": "Bengaluru",
@@ -15858,7 +17274,12 @@ window.ET_ATLAS = {
               "blurb": "Chithkala School of Dance in Bengaluru, founded by ICCR-empanelled dancer Praveen Kumar, trains Bharatanatyam students in the traditional style of gurus Narmada and C.V. Chandrasekhar; it runs ongoing class-based tuition rather than an advertised multi-day residential immersion.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Nrityagram's residential summer/Dance Unlimited workshops admit international students worldwide; instruction by English-fluent directors"
         }
       ],
       "id": "bharatanatyam-indian-classical-dance",
@@ -15945,7 +17366,12 @@ window.ET_ATLAS = {
               "blurb": "The technical school of Le Locle, heir to the 1868 Le Locle watchmaking school, offering full-time and dual federal watchmaking diplomas plus a modular adult course toward a watch-fitter or watchmaker certificate.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "WOSTEP Watchmaker Program is explicitly taught in English ('Languages: English', requires fluent English/IELTS)"
         },
         {
           "place": "Glashütte",
@@ -15984,7 +17410,13 @@ window.ET_ATLAS = {
               "blurb": "The Swatch Group's network of watchmaking schools (Glashütte, Pforzheim, Shanghai, Miami) trains professional watchmakers and after-sales specialists through WOSTEP-certified programmes, though in Glashütte the principal watchmaker training is run by Glashütte Original's Alfred Helwig school.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": false,
+          "englishBasis": "Flagship is a German dual vocational watchmaking apprenticeship (Berufsausbildung), conducted in German with German Berufsschule; no English-language pathway for the apprenticeship",
+          "instructionLanguage": "German"
         },
         {
           "place": "Manchester",
@@ -16022,7 +17454,12 @@ window.ET_ATLAS = {
               "blurb": "The British Horological Institute, founded in 1858 and based at Upton Hall in Nottinghamshire, runs residential intensive short courses (from servicing skills to a multi-day Build Your Own Watch) with on-site accommodation, professional workshops and a major horological collection.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "watchmaking",
@@ -16110,7 +17547,12 @@ window.ET_ATLAS = {
               "blurb": "IBTC Lowestoft, which ran a 47-week IBTC Diploma plus City & Guilds Level 3 in traditional boatbuilding inside a working boatyard, entered liquidation and permanently closed its doors on 20 December 2024.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Rockland & Brooklin, Maine",
@@ -16157,7 +17599,12 @@ window.ET_ATLAS = {
               "blurb": "A full-time accredited postsecondary marine-trades school in Arundel founded in 1978, The Landing School offers a nine-month Wooden Boatbuilding program in which each student designs and builds a boat, alongside tracks in composite boatbuilding, yacht design, and marine systems.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Roskilde",
@@ -16187,7 +17634,11 @@ window.ET_ATLAS = {
               "blurb": "The Viking Ship Museum's working boatyard in Roskilde reconstructs Viking-age vessels using clinker (overlapping-plank) techniques and runs hands-on boatbuilding workshops where participants split and hew oak planks and shape a hull, no prior experience required.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": null
         }
       ],
       "id": "wooden-boatbuilding",
@@ -16284,7 +17735,12 @@ window.ET_ATLAS = {
               "blurb": "The official Habanos S.A. cigar event held each February in Havana whose week-long program includes plantation and factory visits plus hands-on torcedor-led workshops on rolling one's own cigar.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Festival del Habano International Seminar draws 70-80 countries; Havana cigar-rolling workshops are offered to English-speaking international tourists"
         },
         {
           "place": "Santiago & La Romana",
@@ -16330,7 +17786,12 @@ window.ET_ATLAS = {
               "blurb": "The Fuente family's hand-rolled cigar factory in Santiago, home of Arturo Fuente and Fuente Fuente OpusX, whose tightly restricted floor is generally accessible only through the ProCigar Festival.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "ProCigar Festival is an international event (~1000 guests from 40+ countries, US-dominated); seminars and tours run for an English-speaking global cohort"
         },
         {
           "place": "Estelí",
@@ -16367,7 +17828,12 @@ window.ET_ATLAS = {
               "blurb": "Plasencia and Joya de Nicaragua both operate major hand-rolling factories in Estelí that host arranged tours and blending sessions, but neither offers a publicly bookable structured roller-training program under this name.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Drew Estate Cigar Safari is run by a US company for a predominantly US/international cigar-enthusiast cohort; conducted in English"
         }
       ],
       "id": "cigar-rolling",
@@ -16450,7 +17916,12 @@ window.ET_ATLAS = {
               "blurb": "Becoming a Kazakh eagle hunter is a years-long family tradition rather than a formal course, but operators such as Discover Altai run multi-day winter homestays with berkutchi families in Bayan-Ölgii where visitors join morning eagle preparation and horseback hunting.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Eagle-hunter homestay tours are served by English-speaking Kazakh guides/interpreters for international visitors"
         },
         {
           "place": "Abu Dhabi",
@@ -16504,7 +17975,12 @@ window.ET_ATLAS = {
               "blurb": "An Abu Dhabi heritage club centred on falconry that runs competitions, workshops and educational lectures, though without a clearly published multi-day residential program for outside learners.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "MBZ Falconry School presents its curricula in English; courses delivered in English, announced internationally (82 countries)"
         },
         {
           "place": "Gloucestershire & Hampshire countryside",
@@ -16551,7 +18027,12 @@ window.ET_ATLAS = {
               "blurb": "Based at Ashover in Derbyshire, The National Falconry School offers introductions, half- and full-day hawk-and-owl flying experiences, and a hands-on course for prospective bird-of-prey owners leading to its Certificate of Competence.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "falconry",
@@ -16646,7 +18127,12 @@ window.ET_ATLAS = {
               "blurb": "A Kyoto experience program offering a hands-on kintsugi workshop led by a government-recognised master craftsman, working broken ceramics with genuine urushi lacquer and gold powder.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "POJ Studio Kintsugi Apprentice Program: 'All classes and experiences are conducted in English'; designed for international students"
         },
         {
           "place": "Kanazawa",
@@ -16684,7 +18170,12 @@ window.ET_ATLAS = {
               "blurb": "Kanazawa, a UNESCO Creative City of Crafts, hosts numerous urushi studios offering hands-on natural-lacquer kintsugi workshops with local artisans; most are single-session experiences rather than a single multi-day residential program.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Wabunka Urushitoki experience explicitly includes an English-speaking guide/interpreter"
         },
         {
           "place": "Tokyo",
@@ -16722,7 +18213,12 @@ window.ET_ATLAS = {
               "blurb": "Tsugu Tsugu is a Tokyo kintsugi school with Ebisu and Asakusa studios that teaches exclusively traditional urushi-lacquer kintsugi, from a discovery workshop through multi-session courses that build the full range of food-safe repair techniques.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Tsugu Tsugu studios have English-speaking staff; online classes run in English (advance contact advised for some in-person sessions)"
         }
       ],
       "id": "kintsugi-japanese-gold-repair",
@@ -16831,7 +18327,12 @@ window.ET_ATLAS = {
               "blurb": "A traveler-focused cooking school in Chengdu (and Xi'an) pairing local market tours with hands-on classes cooking several Sichuan dishes, alongside longer culinary trips.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Two-week 'Cooking School in China' program at Sichuan Higher Institute is offered in English for foreign chefs (chef demos translated into English)"
         },
         {
           "place": "Hong Kong",
@@ -16877,7 +18378,12 @@ window.ET_ATLAS = {
               "blurb": "The Towngas Cooking Centre in Causeway Bay runs flame-cooking classes in Cantonese, Chinese, and international cuisines plus certificate courses, offering short hands-on wok-cooking sessions rather than a multi-day Sichuan residential program.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "ICI Diploma in International Culinary Arts medium of instruction is English (VTC)"
         },
         {
           "place": "Xi'an",
@@ -16914,7 +18420,11 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         }
       ],
       "id": "sichuan-and-chinese-cuisine",
@@ -17015,7 +18525,12 @@ window.ET_ATLAS = {
               "blurb": "A Seoul culinary-education company running hands-on Korean cooking classes and food tours since 2008, teaching dishes like kimchi and temple cuisine in English.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "O'ngo Food Communications offers Korean cooking classes in English; instructor speaks fluent English"
         },
         {
           "place": "Jeonju",
@@ -17052,7 +18567,11 @@ window.ET_ATLAS = {
               "blurb": "Several Jeonju venues, such as the Sinbaengi kimchi house run by kimchi master Ahn Myung-Ja, offer bookable bibimbap and gimjang (kimchi-making) classes that teach the city's signature dishes; these are short single-session experiences.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         },
         {
           "place": "Mount Jiri / temple kitchens",
@@ -17090,7 +18609,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Templestay temple-food program bookable via official English site; Baekyangsa/Jeong Kwan class taught in Korean with a full English translator throughout"
         }
       ],
       "id": "korean-cuisine-hansik",
@@ -17198,7 +18722,12 @@ window.ET_ATLAS = {
               "blurb": "Ms Vy's Hoi An cooking school, run from the dedicated training facility at Vy's Market Restaurant, offers Vietnamese classes at several levels, the most in-depth being the Advanced Masterclass for keen cooks preparing a four-course family-style lunch from raw ingredients.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Taste Vietnam / Vy's Market classes run for international visitors with English-speaking guide and English demonstrations"
         },
         {
           "place": "Ho Chi Minh City (Saigon)",
@@ -17246,7 +18775,12 @@ window.ET_ATLAS = {
               "blurb": "Established in 1999 as Ho Chi Minh City's first cooking school, the Vietnam Cookery Center runs half-day classes (max 12 students) with a Ben Thanh Market visit and three Vietnamese dishes, plus extended courses for professional chefs and residents.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "Saigon Cooking Class (Hoa Tuc) chefs 'speak perfect English'; GRAIN by Luke Nguyen runs English classes for international guests"
         },
         {
           "place": "Hanoi",
@@ -17291,7 +18825,12 @@ window.ET_ATLAS = {
               "blurb": "",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Hanoi Cooking Centre (founder Tracey Lister, Melbourne chef) classes conducted in English"
         }
       ],
       "id": "vietnamese-cuisine",
@@ -17398,7 +18937,12 @@ window.ET_ATLAS = {
               "blurb": "A five-hour small-group asado tour in Buenos Aires that includes a Palermo butcher walk and hands-on open-fire grilling and chimichurri-making in a private 1890s home.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "Francis Mallmann private-island wild-cooking experience hosted for international guests via English luxury operator; Mallmann teaches/guides in English"
         },
         {
           "place": "Montevideo",
@@ -17435,7 +18979,12 @@ window.ET_ATLAS = {
               "blurb": "Estancia Vik, a 4,000-acre ranch near José Ignacio, fires its tin-walled parrillero with a central open fogón several times a week for a Gran Asado of grass-fed cuts and sausages, offering an immersive open-fire dining experience rather than a formal cooking course.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Estancia VIK Gran Asado is a luxury international resort experience with English website and English-speaking hosts for global guests"
         },
         {
           "place": "Tuscany",
@@ -17466,7 +19015,12 @@ window.ET_ATLAS = {
               "blurb": "Antica Macelleria Cecchini in Panzano in Chianti is the shop and restaurant group of eighth-generation butcher Dario Cecchini, who offers whole-animal butchery lessons and feasts built on a use-everything philosophy of fire and meat.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Dario Cecchini/Officina della Bistecca hosts international guests with English website/booking; Dario famously greets and guides diners in English"
         }
       ],
       "id": "asado-and-open-fire-cooking",
@@ -17564,7 +19118,12 @@ window.ET_ATLAS = {
               "blurb": "Run by Ann Miller, a Speyside-based Master of the Quaich with over 30 years in the Scotch industry, The Dram Queen builds bespoke half-day to multi-day Speyside whisky tours with distillery visits and tutored tastings in a Dram Room between Macallan and Cardhu.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Islay",
@@ -17601,7 +19160,12 @@ window.ET_ATLAS = {
               "blurb": "Islay's working distilleries including Bruichladdich, Laphroaig, and Ardbeg run their own visitor tours, warehouse tastings, and hands-on experiences at the source, though these are individual brand experiences rather than a unified diploma programme.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Edinburgh",
@@ -17647,7 +19211,12 @@ window.ET_ATLAS = {
               "blurb": "Heriot-Watt University's International Centre for Brewing and Distilling in Edinburgh, with teaching dating to 1903, delivers a 12-month MSc in Brewing and Distilling spanning malting, brewing and distilling science for the professional industry pathway.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "whisky-and-distilling",
@@ -17745,7 +19314,12 @@ window.ET_ATLAS = {
               "blurb": "A 5-day guided fly fishing expedition for native westslope cutthroat trout on the Middle Fork of the Flathead River in Montana's Great Bear Wilderness, with riverside camping and overnight backcountry stays.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Bariloche & Junín de los Andes (Patagonia)",
@@ -17790,7 +19364,12 @@ window.ET_ATLAS = {
               "blurb": "Jurassic Lake Lodge sits on the remote shore of Lago Strobel with exclusive access to the Barrancoso River mouth, running full- and half-week guided programs (October–April) for the trophy rainbow trout the fishery is known for.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Site states all PRG guides are fluent in English; program serves international anglers"
         },
         {
           "place": "Aviemore & the River Spey (Scottish Highlands)",
@@ -17836,7 +19415,12 @@ window.ET_ATLAS = {
               "blurb": "Orvis endorses a network of Highland fly-fishing guides and outfitters (including Alba Game Fishing) offering instruction and guided salmon and trout days on the Spey and other rivers; this is a category of endorsed providers rather than a single school.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "fly-fishing",
@@ -17941,7 +19525,12 @@ window.ET_ATLAS = {
               "blurb": "Kyoto's public/national kyudo facilities admit foreign practitioners with translator support and step-by-step instruction using real bows, but no specific named municipal kyudojo with a defined multi-day immersive program for visitors was verified.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "Sold via English tour operator InsideJapan for international visitors; instructor basic English plus demonstration-based learning"
         },
         {
           "place": "Nara",
@@ -17978,7 +19567,12 @@ window.ET_ATLAS = {
               "blurb": "The Nara Visitor Center & Inn arranges bookings for a hands-on kyudo session at the Nara Municipal Budojo in cooperation with the Nara City Kyudo Association, including full traditional costume and a Japanese certificate of merit on completion.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Page states event is 'in Japanese and English only'; instructors use translation devices for English speakers"
         },
         {
           "place": "Katsuura (International Budo University)",
@@ -18015,7 +19609,13 @@ window.ET_ATLAS = {
               "blurb": "The Nippon Budokan's Training Center in Katsuura hosts the annual residential International Seminar of Budo Culture, drawing practitioners from dozens of countries for lectures and hands-on training across budo disciplines including kyudo.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": false,
+          "englishBasis": "Budo Specialization Program is for foreign practitioners but taught in/stresses Japanese language, not English instruction",
+          "instructionLanguage": "Japanese"
         }
       ],
       "id": "kyudo-japanese-archery",
@@ -18113,7 +19713,12 @@ window.ET_ATLAS = {
               "blurb": "Holmen Husky is a family-run kennel and lodge based in Alta (not Tromsø) whose five-day Ultimate Expedition has each guest ride their own team across the Finnmarksvidda plateau, overnighting in wood-stove lavvu tents.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "English website, English-speaking guides, international guests; English testimonials"
         },
         {
           "place": "Fairbanks",
@@ -18160,7 +19765,12 @@ window.ET_ATLAS = {
               "blurb": "Several competitive Iditarod and Yukon Quest racing kennels operate around Fairbanks and some host hands-on mushing experiences, but no single named training kennel with a verified multi-day immersive program could be confirmed under this generic heading.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Yellowknife / Northwest Territories",
@@ -18196,7 +19806,12 @@ window.ET_ATLAS = {
               "blurb": "Enodah Wilderness Travel runs a small secluded kennel near Yellowknife where guests can drive their own sled or ride guided, warming up afterward at its Aurora Station with the trained loose-running pack.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "dog-sledding-and-mushing",
@@ -18294,7 +19909,11 @@ window.ET_ATLAS = {
               "blurb": "The Accademia di Belle Arti di Carrara is a public fine-arts academy founded in 1769 that teaches traditional and contemporary marble and stone sculpture through its diploma workshops, though it is a degree-granting institution rather than a short-stay immersive course provider.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": null
         },
         {
           "place": "Pietrasanta",
@@ -18340,7 +19959,12 @@ window.ET_ATLAS = {
               "blurb": "Studio Sem is a historic sculpture studio founded by Sem Ghelardini in the 1950s (now in Camaiore near Pietrasanta) that produces marble and granite work and assists artists, but its site shows no structured immersive course for students.",
               "confidence": "low"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "The Marble Workshop runs entirely in English (English site/instructors); destination also served by Florence Academy of Art's English-taught Pietrasanta marble program"
         },
         {
           "place": "Athens",
@@ -18378,7 +20002,13 @@ window.ET_ATLAS = {
               "blurb": "The Fine Arts school at Pyrgos on Tinos, established in 1955 on an island whose marble craftsmanship is UNESCO-listed, runs a three-year program teaching marble craftsmanship, sculpture, drawing and architectural drafting to train young marble sculptors.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": false,
+          "englishBasis": "Flagship is a Greek national 5-year integrated fine-arts diploma taught in Greek; no English-taught option found",
+          "instructionLanguage": "Greek"
         }
       ],
       "id": "marble-sculpture-and-stone-carving",
@@ -18497,7 +20127,12 @@ window.ET_ATLAS = {
               "blurb": "SRISA is an English-language art college in Florence (founded 1970) whose Printmaking and Book Arts department offers letterpress, bookbinding and papermaking on a well-equipped studio with a Swiss motorized letterpress, taught within semester, year, or summer study-abroad programs.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "One-to-one course nominally in Italian but instructor speaks English well, interpretation offered, English-speaking students accommodated"
         },
         {
           "place": "London",
@@ -18542,7 +20177,12 @@ window.ET_ATLAS = {
               "blurb": "The Society of Bookbinders runs a yearly series of weekend workshops (jointly with Designer Bookbinders) at locations around the UK, offering structured tuition in traditional and contemporary binding techniques and a Certificates of Competence scheme.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Ascona",
@@ -18580,7 +20220,12 @@ window.ET_ATLAS = {
               "blurb": "North Bennet Street School in Boston's North End offers North America's only two-year full-time Bookbinding program (six students a year), teaching historical and modern binding structures, leather binding, finishing and conservation.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "id": "bookbinding-and-letterpress",
@@ -18678,7 +20323,12 @@ window.ET_ATLAS = {
               "blurb": "A North Wales sea-kayak specialist running progressive courses from intermediate skills up to advanced tidal water on Anglesey.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Arisaig & the Hebrides",
@@ -18725,7 +20375,12 @@ window.ET_ATLAS = {
               "blurb": "Small-group guided journeys and coaching around South Skye and Lochalsh, led by guides qualified through the Scottish Canoe Association and British Canoeing.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Vancouver Island & the BC Coast",
@@ -18757,7 +20412,12 @@ window.ET_ATLAS = {
               "blurb": "Based in Ucluelet on Vancouver Island, SKILS delivers Canada's full range of professional sea-kayak guide and leadership certifications, including the multi-day Assistant Overnight Guide course that launches BC guiding careers.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Lofoten Islands",
@@ -18794,7 +20454,11 @@ window.ET_ATLAS = {
               "blurb": "Local Lofoten operator running guided tours and multi-day expeditions through the archipelago's fjords and outer islands.",
               "confidence": "med"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": null
         }
       ],
       "featured": {
@@ -18889,7 +20553,11 @@ window.ET_ATLAS = {
               "blurb": "A UK national mountain sports centre in Capel Curig, run on behalf of Sport England by the Mountain Training Trust. Delivers the full ladder from 2-day Mountain Skills through Mountain Leader to International Mountain Leader training, accredited by Mountain Training.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": null
         },
         {
           "place": "Cairngorms / Scottish Highlands",
@@ -18920,7 +20588,11 @@ window.ET_ATLAS = {
               "blurb": "Scotland's National Outdoor Training Centre, an approved IML provider running summer training in the Highlands and winter training based from Voss, Norway. Covers leadership, environmental knowledge, ropework, huts, alpine weather, GPS and the business of guiding.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": null
         },
         {
           "place": "Chamonix-Mont-Blanc",
@@ -18952,7 +20624,11 @@ window.ET_ATLAS = {
               "blurb": "The French state reference school for mountain professions. Training units for the accompagnateur en moyenne montagne (the French IML-equivalent) take place at ENSA Chamonix and partner CREPS centres. Recognised internationally through UIMLA.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         },
         {
           "place": "Khumbu / Solukhumbu (Everest region)",
@@ -18982,7 +20658,11 @@ window.ET_ATLAS = {
               "blurb": "Nepal's national mountaineering body and UIMLA member association. Its Mountain Leader Course trains expedition planning, navigation, weather and group leadership; successful candidates are recognised as National Mountain Leaders and can sit for a UIMLA badge.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         }
       ],
       "featured": {
@@ -19104,7 +20784,11 @@ window.ET_ATLAS = {
               "blurb": "The teaching commission of the Fédération Française de Spéléologie; delivers the volunteer/federal credential ladder through training stages nationwide.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": null
         },
         {
           "place": "Yorkshire Dales & South Wales",
@@ -19160,7 +20844,12 @@ window.ET_ATLAS = {
               "blurb": "The UK governing body; the CIC is its highest instructing award, the LCMLA the leader scheme for experienced cavers taking parties underground.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Kanin Massif & Classical Karst",
@@ -19207,7 +20896,11 @@ window.ET_ATLAS = {
               "blurb": "The national speleological federation uniting Slovenia's caving societies; affiliated with the UIS, European Speleological Federation and European Cave Rescue Association.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": null
         },
         {
           "place": "Yucatán & Sistema Huautla",
@@ -19254,7 +20947,11 @@ window.ET_ATLAS = {
               "blurb": "The official exploration project of Sistema Huautla, Oaxaca — explored to −1,560 m, the deepest known cave in the Western Hemisphere; the global benchmark for deep American caving.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": null
         }
       ],
       "featured": {
@@ -19358,7 +21055,12 @@ window.ET_ATLAS = {
               "blurb": "Where NOLS began in 1965. Backpacking the Wind Rivers, rock climbing the American West, canyon paddling, plus wilderness medicine certification on semester tracks.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Patagonia (Coyhaique region)",
@@ -19388,7 +21090,11 @@ window.ET_ATLAS = {
               "blurb": "Month-long to five-month immersions through fjords, rainforest and alpine terrain by sea kayak and on foot, with cultural immersion and leadership at the core.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": null
         },
         {
           "place": "Nelson / South Island",
@@ -19417,7 +21123,12 @@ window.ET_ATLAS = {
               "blurb": "South Island expeditions blending cultural immersion, sea kayaking, backpacking and sailing, with 16 college credits available on the semester.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Asheville / Pisgah National Forest",
@@ -19447,7 +21158,12 @@ window.ET_ATLAS = {
               "blurb": "A leading Outward Bound school in the U.S., building confidence, resilience and leadership through phased wilderness expeditions in the Appalachians.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "featured": {
@@ -19553,7 +21269,12 @@ window.ET_ATLAS = {
               "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g31060-d7725248-Reviews-Alaska_Float_Ratings-Moose_Pass_Alaska.html",
               "ratingCount": 13
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "McCall, Idaho",
@@ -19587,7 +21308,12 @@ window.ET_ATLAS = {
               "ratingSource": "",
               "ratingUrl": ""
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Victoria / Vancouver Island, British Columbia",
@@ -19619,7 +21345,12 @@ window.ET_ATLAS = {
               "ratingSource": "",
               "ratingUrl": ""
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Wanaka, Otago",
@@ -19650,7 +21381,12 @@ window.ET_ATLAS = {
               "ratingSource": "",
               "ratingUrl": ""
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "featured": {
@@ -19768,7 +21504,12 @@ window.ET_ATLAS = {
               "ratingSource": "",
               "ratingUrl": ""
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Kent (Pacific Raceways)",
@@ -19803,7 +21544,12 @@ window.ET_ATLAS = {
               "ratingUrl": "https://www.yelp.com/biz/proformance-racing-school-kent",
               "ratingCount": 17
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Nationwide circuits (Skip Barber)",
@@ -19837,7 +21583,12 @@ window.ET_ATLAS = {
               "ratingSource": "",
               "ratingUrl": ""
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Regional chapters (NASA, nationwide)",
@@ -19869,7 +21620,12 @@ window.ET_ATLAS = {
               "ratingSource": "",
               "ratingUrl": ""
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "featured": {
@@ -19972,7 +21728,12 @@ window.ET_ATLAS = {
               "blurb": "BMW's official North American off-road academy on a 2,500-acre site near Castaic, operating since 2003. The flagship Intro to Adventure runs Friday evening to Monday morning with two full instruction days, lodging and meals, then feeds Next Step (Level 2) and Level 3 courses plus a Colorado high-altitude program.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Brecon Beacons (South Wales)",
@@ -20004,7 +21765,12 @@ window.ET_ATLAS = {
               "blurb": "Official BMW Motorrad UK off-road academy headed by Dakar finisher Simon Pavey, based on the edge of the Brecon Beacons just north of Swansea. Two-day courses run from Level One (novice/refresher) through Level Two and Level Three, with BMW GS bikes (F 750/850 GS, R 1250 GS) provided and an Adventure Maintenance course alongside.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Niedereschach (Black Forest)",
@@ -20033,7 +21799,11 @@ window.ET_ATLAS = {
               "blurb": "Held at Touratech's Niedereschach HQ (21st edition 5-7 June 2026), the Travel Event draws the international adventure-travel community for off-road taster courses, multi-brand off-road test rides on prepared quarry tracks, equipment workshops and travel-planning talks. A scene gathering and skills sampler, not a certified academy.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": null
         },
         {
           "place": "Gubbio (Umbria)",
@@ -20062,7 +21832,11 @@ window.ET_ATLAS = {
               "blurb": "KTM's official European adventure rally, 2026 edition based in the medieval town of Gubbio with daily loops circling Lake Trasimeno in Umbria. New graded Blue (beginner), Red and Black (expert/enduro) routes let riders ride to their level. A community rally and applied-skills test rather than a certification course.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         }
       ],
       "featured": {
@@ -20155,7 +21929,12 @@ window.ET_ATLAS = {
               "blurb": "AMGA-accredited program based in Ouray running ice-climbing instruction in the Ouray Ice Park and San Juan backcountry, plus the host of the Ouray Ice Festival.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Canmore / Banff",
@@ -20187,7 +21966,12 @@ window.ET_ATLAS = {
               "blurb": "Long-established Canmore guiding company running beginner-to-advanced ice courses in the Banff/Canmore/Kananaskis area with ACMG-certified guides.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         },
         {
           "place": "Chamonix-Mont-Blanc",
@@ -20219,7 +22003,11 @@ window.ET_ATLAS = {
               "blurb": "The world's oldest mountain-guide company, running ice-cascade discovery and autonomy courses around the Chamonix valley.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": null
         },
         {
           "place": "Rjukan",
@@ -20250,7 +22038,11 @@ window.ET_ATLAS = {
               "blurb": "Rjukan-based operator specialising in ice-climbing courses and guided climbing across the valley's icefalls.",
               "confidence": "medium"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": null
         }
       ],
       "featured": {
@@ -20372,7 +22164,12 @@ window.ET_ATLAS = {
               "blurb": "Founded in 2000 by Jordi Butron and Xano Saguer, Espai Sucre is the world's first restaurant-dessert school and a pioneer of avant-garde plated desserts — the modern technique applied to the sweet side. The school is operating and enrollable (the original restaurant has closed).",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Martin Lippo site has full English version (/en/), courses/masterclasses presented in English for international cohort"
         },
         {
           "place": "Puebla & Mexico City",
@@ -20405,7 +22202,13 @@ window.ET_ATLAS = {
               "blurb": "Founded by chef Miguel Angel Cepeda, this Puebla- and Mexico City-based academy teaches spherification, foams, liquid-nitrogen ices, gels and molecular mixology, with open enrolment for chefs and enthusiasts. Confirm the next intake directly.",
               "confidence": "high"
             }
-          ]
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": false,
+          "englishBasis": "Entirely Spanish-language site and Diplomado en Cocina Molecular for local professional chefs; no English option found",
+          "instructionLanguage": "Spanish"
         },
         {
           "place": "Melbourne (Lilydale)",
@@ -20438,7 +22241,12 @@ window.ET_ATLAS = {
               "blurb": "A dedicated recipe-development and teaching space near Melbourne run by chef Dale Prentice (22+ years; ex-exec chef Stones of the Yarra Valley), with public workshops for chefs, apprentices and home cooks. Sous-vide / low-temperature focused rather than the full modernist spectrum.",
               "confidence": "med"
             }
-          ]
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ]
     }
