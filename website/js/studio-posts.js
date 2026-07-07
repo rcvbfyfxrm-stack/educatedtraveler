@@ -14,6 +14,36 @@
  * Every post carries branded ET-design images (images[] + imageNote). */
 window.ET_POSTS = [
   {
+    id: "lab-week-announce", format: "Feed post · INVITE MARTIN AS COLLABORATOR · HOLD until his written yes", core: "",
+    title: "Lab Week 01 — the announcement (collab with @vakuum_by_martin_lippo)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "Take a seat",
+    images: ["/images/posts/lab-week/announce.jpg"],
+    imageNote: "1080×1350 branded card (the Vakuum lab through the glass). Invite Martin as collaborator — he only taps accept; the post lives on both profiles.",
+    slides: [],
+    caption:
+"Twelve chefs, one lab, five days.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: spherification, liquid nitrogen, foams, textures, sous-vide. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't: his open sessions run in Spanish, and the real thing was always a door too far. This door is open.\n\nIt confirms the moment ten chefs are in. If we don't get there by 15 September, every euro goes back — the honest terms, the day-by-day and the live seat count are all on the page.\n\nTake a seat: educatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-founder", format: "Feed post · documentary arc #1 · HOLD until Martin's written yes", core: "",
+    title: "Why I built the Barcelona week (founder)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
+    images: ["/images/posts/lab-week/announce.jpg"],
+    imageNote: "Swap in a founder photo or a licensed lab shot once the shoot happens; the announce card works as fallback.",
+    slides: [],
+    caption:
+"Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in yard period — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nI'm not selling a dream week. It confirms at ten paid or everyone gets refunded, the terms are public, and you can check every claim — his lab, his sessions, his prices — on his own site.\n\nThe page has all of it: educatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-count", format: "Story template · repeat at every real milestone", core: "",
+    title: "Seat-count story (honest milestone)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "Link sticker → the page",
+    images: [],
+    imageNote: "Plain warm-dark story frame: the number huge in ember, one line under it, link sticker. Only ever the REAL count.",
+    slides: [],
+    caption:
+"[N] of 10.\nReal count, updated today. When it reaches ten, Barcelona is on — if it doesn't by 15 September, everyone is refunded in full.\n(Link sticker → educatedtraveler.app/barcelona)",
+  },
+  {
     id: "this-is-et", format: "Carousel · pinned launch post", core: "",
     title: "This is EducatedTraveler",
     link: "https://educatedtraveler.app/browse", linkLabel: "Open the Atlas",

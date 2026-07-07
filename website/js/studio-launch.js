@@ -15,6 +15,21 @@ window.ET_LAUNCH = {
 
   phases: [
     {
+      id: "labweek01",
+      title: "Lab Week 01 — Barcelona (the live campaign)",
+      sub: "The paid week with Martin Lippo, 22–26 October. One goal: 10 paid seats by 15 September. The full private playbook (agreement points, gate branches) lives in the local LAUNCH-CHECKLIST — this is the working order. Nothing goes public before the signed yes.",
+      steps: [
+        { id: "lb-1", when: "Now", do: "Close the week with Martin in writing — the date (22–26 Oct) and the agreed terms on one signed page. If email stalls a few days, WhatsApp him.", where: "Private playbook · phase 1", why: "Everything downstream hangs on this one thread. No announcement, no post, no share before the signature." },
+        { id: "lb-2", when: "Same week", do: "Arm the machine: the gestor hour, scrub the retired pages, confirm October leave in writing, write the 30–50 names list.", where: "Private playbook · phase 2", why: "The funnel can't open over a surface that contradicts the first rule, and the first seats live in your own phone." },
+        { id: "lb-3", when: "Gates passed", do: "Soft launch — named list only. One personal WhatsApp at a time, never a broadcast. Target: the first 3 seats.", where: "educatedtraveler.app/barcelona", why: "Peers who trust you carry the close before any seat counter can." },
+        { id: "lb-4", when: "Same days", do: "Circle letter #1 — the campaign diary begins. Biweekly from here, no exceptions.", where: "Letter tab", why: "The letter is the hero, and the cadence is the tripwire: if letters stop shipping, the builder's trap has won." },
+        { id: "lb-5", when: "At 3 paid", do: "Go public: the collab post with Martin, chef Facebook groups (admin-cleared, as yourself), press pitches, the site strip.", where: "Posts → Lab Week 01", why: "The counter only helps once it has something honest to show." },
+        { id: "lb-6", when: "Weekly", do: "Update the real seat count everywhere it appears — same day in September, never inflated, never stale.", where: "barcelona.html seat vars", why: "Honest scarcity is the engine; a stale count is an accidentally false one." },
+        { id: "lb-7", when: "15 Sept", do: "The gate: decide with Martin against the written ledger and announce whichever branch is true — confirmed, or everyone refunded in full.", where: "Private playbook · phase 5", why: "Either branch banks trust, as long as it happens in public and on time." },
+        { id: "lb-8", when: "22–26 Oct", do: "Deliver — and harvest: testimonials on the record, photos under the licence, the case study published within two weeks.", where: "Private playbook · phase 6", why: "The proof asset — not the fee — is the real payment of edition one, and it fills edition two." },
+      ],
+    },
+    {
       id: "launch",
       title: "Launch week — introduce EducatedTraveler",
       sub: "Post once, in this order. One flagship a day, the Letter on day one. Reply to every comment.",
