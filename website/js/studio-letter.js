@@ -30,6 +30,56 @@ window.ET_LETTER = {
 
   issues: [
     {
+      id: "issue-02-avantgarde",
+      title: "Issue 02 — The movement and the master (ready to send)",
+      kind: "Evergreen editorial · avant-garde cuisine + Martin Lippo · safe before the signature (teaser names no dates or terms)",
+      portrait: "/images/lippo/martin-teaching.png",
+      subject: "The night cuisine stopped copying the past",
+      preview: "A cove in Catalonia, 1,846 ideas, and the man in Barcelona who kept the flame teachable.",
+      body:
+`On the night of 30 July 2011, in a small cove called Cala Montjoi, the most influential restaurant of our lifetime served dinner for the last time. Two years ago, that building reopened — not as a restaurant, but as a museum. It's called elBulli1846: one number for the 1,846 creations Ferran Adrià's team catalogued over three decades, and, by a coincidence he loved, the year Escoffier was born.
+
+A restaurant that becomes a museum. Sit with that for a second. Not because it was old — because it changed what a kitchen is.
+
+WHAT ACTUALLY CHANGED
+
+For most of a century, great cooking meant perfecting a canon. Escoffier had written the grammar; excellence meant speaking it beautifully. The avant-garde kitchen asked a different question entirely — not "how is this dish made?" but "what is cooking?" Adrià's motto was two words: comprender para crear. Understand, in order to create. His team split the workshop from the service, poured a fifth of the restaurant's spending into pure research, and wrote down every idea like a laboratory: numbered, dated, catalogued.
+
+What came out of that cove didn't stay there. The foam from a siphon on a breakfast buffet. The sphere that bursts on the tongue. Gels that hold at heat, crisps made from anything, sous-vide run with a thermometer's honesty instead of a prayer. If you've plated any of it — and if you cook professionally, you have — you've spoken a language that was invented, tested and named by a small crew on the Catalan coast while most of the world wasn't looking.
+
+But the tools were never the real influence. The real influence was permission: the idea that a working kitchen could think — that technique itself is an ingredient, that texture is a language, that understanding a product deeply enough gives you the right to remake it.
+
+WHY THIS MATTERS TO US
+
+Here's the working-chef version. Your guests have eaten everywhere. The difference between a good week and a legendary one is three plates they've never seen — and those plates, almost always, come out of this toolkit. Not as gimmicks. As grammar. A chef who understands why a foam holds or why a gel sets doesn't copy recipes; they answer whatever the galley throws at them.
+
+And the research on skill is blunt about how that understanding actually arrives: the biggest accelerator isn't hours watched or recipes saved — it's tight, in-the-moment feedback from someone who already has the skill in their hands. A master beside you is the shortcut. It always was.
+
+THE MAN WHO KEPT THE DOOR OPEN
+
+Which brings me to the problem: most of that generation ended up behind velvet ropes. The famous kitchens take a handful of stagiaires a year from thousands. The knowledge exists — behind doors that don't open when you knock.
+
+Martin Lippo went the other way.
+
+Argentine, named his country's most creative young chef at twenty-seven by its leading culinary magazine. In 1995 he co-founded Delfuego Traveling Chefs — cooking as a travelling conversation, years before anyone called that a concept. In Barcelona since 2000, right through the city's avant-garde supernova. And instead of a restaurant with a rope, he built Vakuum: a laboratory whose entire purpose is teaching. He founded the Nitro School there — liquid nitrogen is his signature terrain. Les Vergers Boiron, the French fruit house, built a sixty-video technique library around him; the pastry journal so good.. has featured his work across three issues. The people who write about him describe his cooking as standing between Adrià's modernism and Escoffier's classicism — one foot in the canon, one on the frontier. A bridge, in other words.
+
+I've stood in that lab. Steel benches, glass spheres, the fog coming off the nitrogen — and a man who has spent twenty years choosing to put technique into other people's hands rather than guard it. In a trade full of gatekept brilliance, that's the rarest thing I know: not the talent — the open door.
+
+ONE MORE THING
+
+I'm building something with Martin, in that lab, for chefs like us. It's not signed yet, so I'll say no more than that — but when it is, this letter is where you'll hear it first. That's a promise.
+
+Until then, a question I genuinely want your answer to — just hit reply:
+
+Which technique do you wish someone had put in your hands, properly, years ago?
+
+And if you know a chef who'd want this letter, forward it. That's how the Circle grows — one cook telling another.
+
+A place, a person, your people.
+
+Arnaud`,
+    },
+    {
       id: "issue-01",
       title: "Issue 01 — To my first few (send this first)",
       kind: "Inaugural · the friends who got me started · thank-you + the vision + a share ask",
