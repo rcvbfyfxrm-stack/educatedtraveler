@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>How to choose an online course, from first principles — DRAFT — EducatedTraveler</title>
+<meta name="description" content="A first-principles method for choosing an online course: follow the money, count the doing, book the room. Eight runnable steps, every claim sourced.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+body::before { content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background: radial-gradient(900px 600px at 18% -5%, rgba(127,168,165,0.10), transparent 60%), radial-gradient(800px 600px at 92% 8%, rgba(210,138,82,0.08), transparent 55%); }
+.serif { font-family:'Fraunces',Georgia,serif; }
+.mono { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }
+a { color:inherit; }
+.wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+nav.top { position:sticky; top:0; background:rgba(13,11,9,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }
+nav.top .row { max-width:920px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; height:60px; }
+nav.top a { text-decoration:none; opacity:.7; font-size:14px; } nav.top a:hover { opacity:1; color:var(--sea); }
+.brand { font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; font-size:13px; opacity:1 !important; }
+header.hero { padding:66px 0 30px; }
+h1 { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:clamp(32px,5.4vw,50px); line-height:1.1; margin:16px 0 18px; letter-spacing:-0.01em; }
+.dek { font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:300; font-size:clamp(18px,2.4vw,22px); line-height:1.5; opacity:.8; max-width:60ch; }
+.byline { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.06em; opacity:.55; margin-top:24px; }
+.rule { height:1px; background:var(--line); border:none; margin:6px 0 0; }
+article { padding:30px 0 10px; }
+article p { font-size:17.5px; line-height:1.78; opacity:.86; margin:0 0 24px; }
+article p.lead-para:first-of-type::first-letter { font-family:'Fraunces',Georgia,serif; font-size:64px; line-height:.8; float:left; padding:6px 12px 0 0; color:var(--ember); }
+.step-num { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; color:var(--ember); display:block; margin:46px 0 2px; }
+article h2 { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:27px; line-height:1.18; margin:4px 0 16px; }
+em { font-style:italic; opacity:.95; }
+strong { font-weight:500; color:var(--paper); }
+.pull { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:clamp(21px,3vw,27px); line-height:1.35; color:var(--paper); border-left:2px solid var(--ember); padding:6px 0 6px 22px; margin:34px 0; opacity:.95; }
+.tells { background:var(--ink2); border:1px solid var(--line); border-radius:12px; padding:22px 26px; margin:30px 0; }
+.tells .mono { margin-bottom:14px; }
+.tells .row { display:grid; grid-template-columns:1fr 1fr; gap:0 26px; }
+.tells ul { list-style:none; }
+.tells li { font-size:14.5px; line-height:1.55; padding:7px 0; opacity:.84; border-bottom:1px solid var(--line); }
+.tells li:last-child { border-bottom:none; }
+.tells .good b { color:var(--sea); font-weight:500; }
+.tells .bad b { color:var(--ember); font-weight:500; }
+.tells h4 { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; opacity:.6; margin-bottom:4px; }
+@media (max-width:560px){ .tells .row{ grid-template-columns:1fr; gap:0; } .tells .bad{ margin-top:10px; } }
+.ask { font-size:16.5px; opacity:.92; border-left:2px solid var(--sea); padding:2px 0 2px 18px; margin:18px 0 24px; font-style:normal; }
+.callout { background:var(--ink2); border:1px solid var(--line); border-radius:12px; padding:24px 26px; margin:40px 0; }
+.callout .mono { margin-bottom:8px; }
+.callout h3 { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:21px; margin-bottom:8px; }
+.callout p { font-size:15px; opacity:.78; margin:0 0 14px; }
+.cta { display:inline-block; padding:13px 26px; border-radius:99px; text-decoration:none; color:#14110d; font-size:14px; font-weight:500; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.cta:hover { filter:brightness(1.05); }
+.circle { text-align:center; border:1px solid var(--line); border-radius:14px; padding:36px 26px; margin:46px 0 10px; background:rgba(243,237,226,0.02); }
+.circle h3 { font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:25px; margin-bottom:10px; }
+.circle p { font-size:15px; opacity:.78; max-width:46ch; margin:0 auto 20px; }
+.tldr { border:1px solid var(--line); border-radius:12px; padding:20px 24px; margin:26px 0 4px; background:rgba(243,237,226,0.02); }
+.tldr .mono { margin-bottom:10px; }
+.tldr ol { margin:0; padding-left:20px; }
+.tldr li { font-size:15px; line-height:1.5; opacity:.84; padding:4px 0; }
+.tldr li a { color:var(--sea); text-decoration:none; } .tldr li a:hover { text-decoration:underline; }
+.sources { font-size:12.5px; opacity:.5; margin:34px 0 0; line-height:1.7; }
+.sources a { color:var(--sea); text-decoration:none; } .sources a:hover { text-decoration:underline; }
+footer { padding:46px 0 64px; font-size:13px; opacity:.5; border-top:1px solid var(--line); margin-top:30px; }
+footer a { color:var(--sea); }
+
+.draftbar { position:sticky; top:0; z-index:60; background:#3a2b14; border-bottom:1px solid rgba(210,138,82,.5); color:#f3ede2; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; text-align:center; padding:9px 16px; }
+</style>
+</head>
+<body>
+<div class="draftbar">Draft — in review · not linked, not indexed · Studio</div>
+<nav class="top"><div class="row">
+<a class="brand" href="/">EDUCATEDTRAVELER</a>
+<div style="display:flex;gap:22px"><a href="/journal/">Journal</a><a href="/atlas/">Atlas</a><a href="/lab-weeks">Lab Weeks</a><a href="/about">Story</a><a href="/#circle">The Circle</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+<div class="mono">The Method · first principles · DRAFT</div>
+<h1>How to choose an online course, from first principles</h1>
+<p class="dek">Follow the money, count the doing, and book the room before you start the screen. A twenty-minute method derived from what a skill actually is — with the evidence attached.</p>
+<p class="byline">Arnaud Callier · Founder — draft for review</p>
+<hr class="rule">
+</div></header>
+
+<article><div class="wrap">
+<div class="tldr"><div class="mono">The process, in eight lines</div><ol><li>Say the skill as a loop: &#x27;By the end, my hands will do X under conditions Y.&#x27;</li><li>Find the money&#x27;s timing — a school paid after it teaches beats one paid once for access.</li><li>Reload the sales page in a private window; a countdown that resets ends the conversation.</li><li>Count the doing: progress must be measured in things you submit, not videos you finish.</li><li>Check who sees your work — a named, still-practising human, verifiable off the platform.</li><li>Test the exit: can you fail, and who besides the seller recognises what you leave with?</li><li>Decide by the loop, not the library: three alignments to pay, two for a small trial, fewer — walk.</li><li>Book the room before you start the screen — give the course a deadline and a destination.</li></ol></div>
+<p class="lead-para">The whole method fits in one sentence: <strong>follow the money, count the doing, and book the room before you start the screen.</strong> Hold onto that and you will already choose better than most of the market would like. The rest of this piece is the reasoning behind the sentence — because it is not a list of tips, it is a chain, and once you own the chain you can vet any online course, in any craft, in about twenty minutes.</p>
+
+<p>I should admit something first. I have paid for online courses I never finished. The open-course record is even blunter about what access alone does: across every open online course MIT and Harvard ran on edX from 2012 to 2018, 3.13 percent of participants completed in the final year measured, and 52 percent of the people who signed up never started at all. Across 221 courses in Katy Jordan's dataset, the median completion was 12.6 percent. Those are free courses — nothing rode on anyone's progress, and almost nobody progressed. In the same MIT–Harvard data, the small minority who paid for the verified certificate track completed at around half in the later years: skin in the game, and a credential at stake, change behaviour. Keep both facts; the whole method lives between them. Fifteen years of walking into kitchens and schools taught me to read a room in minutes; it took a screen to remind me I could still be sold a story. So this method starts from first principles — from what a skill actually is — so that it holds even for courses that do not exist yet.</p>
+
+<h2>What a skill is</h2>
+
+<p>A skill is not something you know. It is a loop you run: attempt, error, correction, again — until the judgment moves out of your head and into your hands. Knowledge can be handed over. A skill can only be grown, and it grows in exactly one soil: your own attempts, corrected.</p>
+
+<p>That definition is not poetry; it dictates requirements. The research on skill acquisition keeps returning the same four irreducibles. You must <strong>do the thing</strong> — in a real online course where this was measured, doing interactive work carried an estimated six-times-plus the learning value of watching video or reading. You must get <strong>feedback on your own attempt</strong> from someone qualified to judge it; Ericsson's deliberate-practice research found expert performance is built from designed tasks with error correction, never from exposure. You must <strong>come back, spaced</strong> — across 317 experiments, practice spread over time reliably beat cramming. And you must have <strong>somewhere real to use it</strong>, because an 89-study meta-analysis found that transfer to real performance depends heavily on the environment waiting after the training. Miss any of the four and you meet the cruelest failure mode in the literature, demonstrated across six experiments: people who merely watch others perform grow confident without growing competent. You finish more sure, and no better.</p>
+
+<h2>What a screen can carry — honestly, both ways</h2>
+
+<p>Run those four requirements through a screen and they meet three different fates. Some things <strong>digitize cleanly</strong>: theory, vocabulary, the map of a field, preparation, spaced review. Screens are genuinely good at these — the U.S. Department of Education's meta-analysis found online learners doing modestly better than classroom learners on knowledge outcomes, with the advantage strongest in blended formats, and even that came bundled with extra learning time. Some things <strong>degrade but survive</strong>: feedback, above all. A master watching video of your playing and filming a critique back — the model a school like ArtistWorks is built on — is proof that a practising expert's judgment survives compression. And some things <strong>vanish</strong>: the osmosis of a real room, hearing what the master mutters at someone else's work; the calibration of your hands against real heat, real weather, real pressure; the certifying moment when someone qualified watches you do the thing for real. Permission is its own case — it never lived on the screen or in the room. It lives in who controls the paper: a credential is worth exactly what its issuer's reputation is worth, wherever you sat.</p>
+
+<p>Now add the economics. The only part of teaching sellable at zero marginal cost is video — demonstration. Feedback on your work is expensive human labour, lesson after lesson. That mismatch explains most of what goes wrong in this market: the worst sellers price demonstration as if it were apprenticeship. A school only pays for the expensive ingredient when its business model forces it to.</p>
+
+<div class="pull">The incentive structure predicts whether the expensive ingredient — feedback on your own output — exists at all.</div>
+
+<p>Four cash-flow shapes cover almost every course you will meet, and each one tells you what the school is paid to optimise. <strong>Paid once, upfront, for access:</strong> revenue is complete the moment you click, so every hour of teaching afterwards is pure cost — the rational move is to perfect the sales page and let the course coast. Nothing in that shape pays anyone to care whether you finish; your completion is your problem, purchased in advance. <strong>Paid per lesson, or refundable past the midpoint:</strong> the school must re-earn you every session — italki charges lesson by lesson; Maven refunds to the midpoint of its courses. This is the honest shape: the provider carries the risk of being bad. <strong>Paid for a credential a third party controls:</strong> the school's real asset is the credential's outside reputation, so it must protect rigour even at the cost of failing paying customers — Launch School publishes pass rates of roughly 50 to 70 percent and makes a "not yet" wait before retrying. <strong>Paid through upsells:</strong> the cheap course is bait and the "coaches" are commissioned closers — the anatomy the FTC documented at MOBE, at Digital Altitude, whose coaches were in fact salespeople, and at Online Trading Academy, whose refund-gagging contracts were charged as illegal.</p>
+
+<p>If you have read <a href="/journal/how-to-find-the-best-school-online">the six questions</a> we use to vet a physical school through its website, this is the same instinct on different terrain. There, you are deciding whether a room deserves a journey. Here, you are deciding whether a screen deserves your evenings. The process below takes about twenty minutes, with the pricing page and the syllabus open.</p>
+
+<h2><span class="step-num">STEP 1</span> Say the skill as a loop</h2>
+
+<p>Ten seconds, out loud: <em>"By the end, my hands — or my voice, or my keyboard — will do X under conditions Y."</em> Not "I will understand X." If the sentence refuses to form that way, you are shopping for knowledge, and that is a fine purchase — books and video are excellent at it — but then pay a content price, never a school price. <strong>Why this follows:</strong> a skill is a loop, and this sentence is the ruler you will hold against every claim the course makes from here on.</p>
+
+<h2><span class="step-num">STEP 2</span> Find the money's timing</h2>
+
+<p>Three minutes on the pricing page, before the trailer gets a vote. Pay-per-lesson, a refund window reaching past the midpoint, or a credential controlled by a third party: proceed. A single upfront payment for lifetime access with a fourteen-day refund window: continue, but demand much stronger proof at steps 4 and 5. Tiered "levels" opened through an application call: walk — that is the documented upsell funnel, and the FTC has put more than a thousand companies on notice that unsubstantiated earnings pitches of exactly this shape carry civil penalties. <strong>Why:</strong> whatever a school is paid for, and when, is what it will quietly optimise — the cash-flow shape predicts the teaching before you have watched a single lesson.</p>
+
+<h2><span class="step-num">STEP 3</span> Reload the page in a private window</h2>
+
+<p>One minute. If the countdown timer resets, or the "3 seats left" refills, the seller is using what the FTC's dark-patterns report names as deception: baseless timers and false scarcity. One fake signal poisons every other claim on the page — the testimonials, the outcomes, the instructor bio. Walk. <strong>Why:</strong> you have just run the cheapest possible experiment on the seller's honesty, and it returned a binary answer.</p>
+
+<h2><span class="step-num">STEP 4</span> Count the doing</h2>
+
+<p>Four minutes in the syllabus, counting two numbers: things <em>you submit</em>, and videos you watch. The unit of progress must be a thing you make and hand over — a recording, a dish, a repository, a passage plan — because doing carries several times the learning value of watching, and watching alone builds confidence, not competence. While you are there, check the rhythm: work spread over weeks beats a binge, and a course engineered to be binged is engineered to feel finished, not to teach. <strong>Why:</strong> doing is the first irreducible, and the syllabus is where doing is either scheduled or absent.</p>
+
+<h2><span class="step-num">STEP 5</span> Check who sees your work</h2>
+
+<div class="ask">Ask the school one question, verbatim: who sees my work, and what happens when it is not good enough?</div>
+
+<p>Four minutes. Search the FAQ for the fate of your submissions, then search the instructor's name off the platform. The expensive ingredient looks like ArtistWorks' video exchanges, or Designlab's working designers giving weekly one-to-one sessions and written critique on every project: a named, qualified, still-practising human judging your actual output. Auto-graded checks are honest feedback wherever a machine can truly judge correctness — code that runs, theory that is right or wrong. Where taste and technique are the skill, auto-grades plus a community forum is a library dressed as a school. And anonymous "expert coaches" deserve zero benefit of the doubt — in the Digital Altitude case, they turned out to be salespeople. <strong>Why:</strong> feedback on your own attempt is the second irreducible and the only expensive one; this is where you verify the school actually bought it.</p>
+
+<h2><span class="step-num">STEP 6</span> Test the exit</h2>
+
+<p>Three minutes, two questions. Can you fail? And who besides the seller recognises what you leave with? <strong>A course you cannot fail cannot certify that you can do anything.</strong> Schools confident enough to be measured publish their numbers, ugly ones included. On the paper itself, the credentialing bodies draw a hard line: an independent, proctored certification can move hiring; an end-of-course certificate generally does not; a completion certificate is proof of attendance. The experimental evidence agrees — in randomised trials, a course certificate beat having nothing at all, yet every traditional credential beat the course certificate — and a century of selection research finds samples of actual work predict performance far better than years of education do. So the strongest exits are an external ladder, or a portfolio of real work the course forces out of you. <strong>Why:</strong> permission never comes from the seller — on screen or off. It comes from whoever controls the paper, or from work people can inspect; only external recognition or a real portfolio carries it.</p>
+
+<h2><span class="step-num">STEP 7</span> Decide by the loop, not the library</h2>
+
+<p>Add it up. Three alignments: the money arrives after the teaching; your work is judged by a practising human; the exit is recognised outside the seller's walls, or produces a portfolio that is. Three of three — pay, gladly. Two of three — buy the smallest unit first: one lesson, one refundable fortnight. Fewer — close the tab; the course is a funnel, and you were the product. <strong>Why:</strong> the three alignments are the cheapest reliable tests of the chain: the money test predicts whether feedback was ever paid for, the judged-work test verifies it exists, and the recognised exit checks the skill has somewhere to land. Never decide on the size of the library; a thousand videos of demonstration still round to zero without your loop inside them.</p>
+
+<h2><span class="step-num">STEP 8</span> Book the room before you start the screen</h2>
+
+<p>Before you press play on lesson one, put the real-stakes moment — with witnesses — in your calendar: the practical exam, the in-water dives, the recital, the dinner you will cook for twelve, the client who ships your work. This is how the most respected blended architectures already work — PADI's online theory exists to feed in-water training with an instructor; ABRSM's online theory grades gate a ladder of live performance. <strong>Why:</strong> transfer is not automatic — it depends on a real environment and an opportunity to use the skill — and blended formats are where online learning shows at its best. A date in the calendar gives a course the two things self-paced video never has: a deadline, and a destination.</p>
+
+<div class="pull">The screen prepares and maintains. The room certifies and calibrates.</div>
+
+<h2>Where the screen ends</h2>
+
+<p>If you choose well, an evening comes when the screen has given you everything it honestly can. The theory is in place. The loop runs. Your work has been seen and corrected by someone entitled to an opinion. And for the crafts we map — the ones that live in hands — the next correction you need rarely arrives by upload. It lives in the muttered aside at the bench beside yours, in hands calibrated against real heat and real weather, in someone qualified standing a metre away saying <em>again</em>. That is not the course failing. That is the course finished with its half of the work.</p>
+
+<p>That edge is where we spend our days. The <a href="/atlas/">Atlas</a> is our map of the rooms on the other side of it — places where a craft is still alive and taught at the source, by named people whose work you can check. The <a href="/#circle">Circle</a> is where people who have made that crossing compare notes with people about to. We keep the map and make the introductions; the crossing is yours. The screen can carry you all the way to the water's edge. Book the room.</p>
+
+<div class="tells">
+<div class="mono">The tells — a school that teaches vs a funnel that converts</div>
+<div class="row">
+<div class="good"><h4>A school that teaches</h4><ul><li><b>✓</b> The money arrives after the teaching: pay-per-lesson, or a refund window that reaches past the course midpoint.</li><li><b>✓</b> The syllabus counts in submissions, not hours of video — and you can see the assignment list before you pay.</li><li><b>✓</b> A named instructor who still practises the craft reviews your actual work, and you can verify them off the platform.</li><li><b>✓</b> You can fail — and the school publishes its pass or completion rates, ugly ones included.</li><li><b>✓</b> The certificate is recognised by someone other than the seller — an accredited body, an external ladder — or is honestly scoped as in-house.</li><li><b>✓</b> The course points beyond itself: a practical exam, a portfolio, a room where the skill gets used for real.</li></ul></div>
+<div class="bad"><h4>A funnel that converts</h4><ul><li><b>✕</b> A countdown timer or &#x27;seats left&#x27; counter that resets when you reload the page in a private window.</li><li><b>✕</b> The page sells who you will become — an income, an identity — instead of what you will submit and be judged on.</li><li><b>✕</b> One lifetime-access payment for videos, a short refund window, and no human who ever sees your work.</li><li><b>✕</b> Tiered &#x27;levels&#x27; unlocked through an application call with a &#x27;coach&#x27; — the documented shape of the upsell funnel.</li><li><b>✕</b> A certificate the seller alone issues, presented as if it were a qualification.</li><li><b>✕</b> Glowing testimonials only on pages the seller controls, and silence about outcomes everywhere else.</li></ul></div>
+</div>
+</div>
+
+<div class="circle">
+<h3>The Circle heard it first</h3>
+<p>One letter when something real happens — a place worth knowing, a master who opens a door. No funnel, no noise.</p>
+<a class="cta" href="/#circle">Join the Circle</a>
+</div>
+
+<p class="sources"><strong>Sources.</strong><br>
+Reich &amp; Ruipérez-Valiente — The MOOC Pivot, Science (2019) <a href="https://www.researchgate.net/publication/330316898_The_MOOC_pivot" rel="noopener">https://www.researchgate.net/publication/330316898_The_MOOC_pivot</a><br>
+Katy Jordan — MOOC completion rates dataset, IRRODL (2015) <a href="https://www.irrodl.org/index.php/irrodl/article/view/2112" rel="noopener">https://www.irrodl.org/index.php/irrodl/article/view/2112</a><br>
+Koedinger et al. — Learning Is Not a Spectator Sport: Doing Is Better than Watching for Learning from a MOOC, Learning@Scale (2015) <a href="https://www.researchgate.net/publication/281962456_Learning_is_Not_a_Spectator_Sport_Doing_is_Better_than_Watching_for_Learning_from_a_MOOC" rel="noopener">https://www.researchgate.net/publication/281962456_Learning_is_Not_a_Spectator_Sport_Doing_is_Better_than_Watching_for_Learning_from_a_MOOC</a><br>
+Kardas &amp; O&#x27;Brien — Easier Seen Than Done: Merely Watching Others Perform Can Foster an Illusion of Skill Acquisition, Psychological Science (2018) <a href="https://journals.sagepub.com/doi/abs/10.1177/0956797617740646" rel="noopener">https://journals.sagepub.com/doi/abs/10.1177/0956797617740646</a><br>
+Ericsson, Krampe &amp; Tesch-Römer — The Role of Deliberate Practice in the Acquisition of Expert Performance, Psychological Review (1993) <a href="https://eric.ed.gov/?id=EJ471947" rel="noopener">https://eric.ed.gov/?id=EJ471947</a><br>
+Cepeda et al. — Distributed Practice in Verbal Recall Tasks: A Review and Quantitative Synthesis, Psychological Bulletin (2006) <a href="https://pubmed.ncbi.nlm.nih.gov/16719566/" rel="noopener">https://pubmed.ncbi.nlm.nih.gov/16719566/</a><br>
+Blume et al. — Transfer of Training: A Meta-Analytic Review, Journal of Management (2010) <a href="https://journals.sagepub.com/doi/10.1177/0149206309352880" rel="noopener">https://journals.sagepub.com/doi/10.1177/0149206309352880</a><br>
+Means et al., U.S. Department of Education — Evaluation of Evidence-Based Practices in Online Learning (2009) <a href="https://eric.ed.gov/?id=ED505824" rel="noopener">https://eric.ed.gov/?id=ED505824</a><br>
+FTC — Bringing Dark Patterns to Light, staff report (2022) <a href="https://www.ftc.gov/system/files/ftc_gov/pdf/P214800+Dark+Patterns+Report+9.14.2022+-+FINAL.pdf" rel="noopener">https://www.ftc.gov/system/files/ftc_gov/pdf/P214800+Dark+Patterns+Report+9.14.2022+-+FINAL.pdf</a><br>
+FTC — Online Trading Academy settlement (2020) <a href="https://www.ftc.gov/news-events/news/press-releases/2020/09/ftc-settlement-requires-online-trading-academy-forgive-consumer-debt-principals-turn-over-millions" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2020/09/ftc-settlement-requires-online-trading-academy-forgive-consumer-debt-principals-turn-over-millions</a><br>
+FTC — Action halts MOBE internet business coaching scheme (2018) <a href="https://www.ftc.gov/news-events/news/press-releases/2018/06/ftc-action-halts-mobe-massive-internet-business-coaching-scheme" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2018/06/ftc-action-halts-mobe-massive-internet-business-coaching-scheme</a><br>
+FTC — Refunds to victims of Digital Altitude business coaching scheme (2021) <a href="https://www.ftc.gov/news-events/news/press-releases/2021/02/ftc-sends-nearly-47-million-victims-digital-altitude-business-coaching-scheme" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2021/02/ftc-sends-nearly-47-million-victims-digital-altitude-business-coaching-scheme</a><br>
+FTC — Notice of Penalty Offenses on false money-making claims (2021) <a href="https://www.ftc.gov/news-events/news/press-releases/2021/10/ftc-puts-businesses-notice-false-money-making-claims-could-lead-big-penalties" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2021/10/ftc-puts-businesses-notice-false-money-making-claims-could-lead-big-penalties</a><br>
+FTC — Final rule banning fake reviews and testimonials (2024) <a href="https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" rel="noopener">https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials</a><br>
+ArtistWorks — How It Works: Video Exchange Learning <a href="https://artistworks.com/how-it-works" rel="noopener">https://artistworks.com/how-it-works</a><br>
+Designlab — UX Academy Mentorship <a href="https://help.designlab.com/hc/en-us/articles/32100956072475-UX-Academy-Mentorship" rel="noopener">https://help.designlab.com/hc/en-us/articles/32100956072475-UX-Academy-Mentorship</a><br>
+italki — Pay-per-lesson marketplace <a href="https://www.italki.com/" rel="noopener">https://www.italki.com/</a><br>
+Maven — Satisfaction Guarantee <a href="https://help.maven.com/en/articles/8705540-maven-s-satisfaction-guarantee" rel="noopener">https://help.maven.com/en/articles/8705540-maven-s-satisfaction-guarantee</a><br>
+Launch School — Mastery-Based Learning <a href="https://public.launchschool.com/mastery" rel="noopener">https://public.launchschool.com/mastery</a><br>
+PADI — eLearning FAQ <a href="https://www.padi.com/help/elearning-faq" rel="noopener">https://www.padi.com/help/elearning-faq</a><br>
+ABRSM — About Music Theory <a href="https://www.abrsm.org/en-gb/music-theory/about-music-theory" rel="noopener">https://www.abrsm.org/en-gb/music-theory/about-music-theory</a><br>
+ONCC — Certification, Certificate Program, or Certificate of Completion? <a href="https://www.oncc.org/it-certification-certificate-program-or-certificate-completion" rel="noopener">https://www.oncc.org/it-certification-certificate-program-or-certificate-completion</a><br>
+Rivas, Baker &amp; Evans — Do MOOC Certificates Matter?, AERA Open (2020) <a href="https://journals.sagepub.com/doi/full/10.1177/2332858420973577" rel="noopener">https://journals.sagepub.com/doi/full/10.1177/2332858420973577</a><br>
+Schmidt &amp; Oh — The Validity and Utility of Selection Methods in Personnel Psychology: 100 Years of Research (2016) <a href="https://home.ubalt.edu/tmitch/645/session%204/Schmidt%20&%20Oh%20validity%20and%20util%20100%20yrs%20of%20research%20Wk%20PPR%202016.pdf" rel="noopener">https://home.ubalt.edu/tmitch/645/session%204/Schmidt%20&%20Oh%20validity%20and%20util%20100%20yrs%20of%20research%20Wk%20PPR%202016.pdf</a></p>
+</div></article>
+
+<footer><div class="wrap">
+EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a> · <a href="/atlas/">Open the Atlas</a>.
+</div></footer>
+</body>
+</html>

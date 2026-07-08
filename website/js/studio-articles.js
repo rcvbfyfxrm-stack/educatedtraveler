@@ -4,6 +4,27 @@
  * (transformation, life-changing, vacation, luxury, easy). Edits live in localStorage. */
 window.ET_ARTICLES_SEED = [
   {
+    id: "choose-online-course",
+    title: "How to choose an online course, from first principles",
+    core: "method",
+    skill: "All disciplines — choosing online learning that actually teaches",
+    hook: "Follow the money, count the doing, and book the room before you start the screen. A 20-minute vetting method derived from what a skill actually is.",
+    science: "Reich & Ruipérez-Valiente (Science 2019) MOOC completion; Ericsson deliberate practice; Cepeda spacing meta-analysis; Koedinger doer effect; US DoE online-learning meta-analysis; Blume transfer meta-analysis; FTC dark-patterns report + MOBE/Digital Altitude/OTA cases.",
+    experts: ["Reich & Ruipérez-Valiente", "K. Anders Ericsson", "Kenneth Koedinger", "FTC enforcement record"],
+    promise: "The reader can vet any online course in 20 minutes and knows exactly where the screen ends and the room begins.",
+    outline: [
+      "What a skill is (the loop) → four irreducibles",
+      "What a screen carries: digitizes / degrades / vanishes — honest both ways",
+      "Four cash-flow shapes → what the school is paid to optimise",
+      "The 8-step process (money timing, private-window test, count the doing, who sees your work, test the exit, decide by the loop, book the room)",
+      "Where the screen ends → Atlas bridge"
+    ],
+    status: "draft",
+    draftUrl: "/journal/how-to-choose-an-online-course",
+    reviewNotes: "FULL DRAFT LIVE (noindex, unlisted, draft banner) at /journal/how-to-choose-an-online-course. Built 2026-07-09 by a 13-agent workflow (4 research sweeps, 3 first-principles derivations — incentives lens won the judge panel, 3 adversarial critics). All blocker+major findings fixed: MOOC stats scoped to free courses with the verified-track counterpoint added, permission re-categorised as issuer-dependent, step-7 mapping stated honestly, 'the room' defined functionally. 13 minor critic notes remain, none factual. TO PUBLISH: remove draft banner + noindex meta, add the journal index card, and decide whether it complements or replaces the six-questions piece.",
+    targetWeek: "await founder review"
+  },
+  {
     id: "hands-reward",
     title: "Why your hands settle your head",
     core: "wellness",
