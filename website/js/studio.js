@@ -52,8 +52,11 @@
   const POSTS = (window.ET_POSTS || []).slice();
   const LAUNCH = window.ET_LAUNCH || { intro: "", surfaces: [], phases: [] };
   const LETTER = window.ET_LETTER || { masthead: "The Circle", structure: [], scienceVault: [], issues: [], sendChecklist: [] };
+  const CAMPAIGNS = (window.ET_CAMPAIGNS || []).slice();
+  const MESSAGES = (window.ET_MESSAGES || []).slice();
+  const PATH = window.ET_PATH || null;
 
-  const DEFAULT_STATE = { plan: {}, drops: {}, outreach: [], articles: null, metrics: [], seq: {}, settings: { gate: "source" }, _v: 1 };
+  const DEFAULT_STATE = { plan: {}, drops: {}, outreach: [], articles: null, metrics: [], seq: {}, camp: {}, settings: { gate: "source" }, _v: 1 };
   let S = load();
 
   function load() {
@@ -62,7 +65,7 @@
       return Object.assign({}, DEFAULT_STATE, raw, {
         plan: raw.plan || {}, drops: raw.drops || {}, outreach: raw.outreach || [],
         metrics: raw.metrics || [], settings: Object.assign({}, DEFAULT_STATE.settings, raw.settings || {}),
-        articles: raw.articles || null, seq: raw.seq || {},
+        articles: raw.articles || null, seq: raw.seq || {}, camp: raw.camp || {},
       });
     } catch (e) { return JSON.parse(JSON.stringify(DEFAULT_STATE)); }
   }
@@ -90,7 +93,7 @@
   }
 
   // ---------- boot ----------
-  let activeTab = "launch";
+  let activeTab = CAMPAIGNS.length ? "campaign" : "launch";
   function boot() {
     $("#today-line").textContent = todayISO();
     setFocusLine();
@@ -107,7 +110,15 @@
     window.scrollTo({ top: 0 });
   }
   function setFocusLine() {
-    // surface the first unchecked "this week" item as the standing focus
+    // during a live campaign, the standing focus is that campaign's next unticked step
+    const live = CAMPAIGNS.find((c) => c.status === "live");
+    if (live) {
+      const next = campaignNextStep(live);
+      if (next) {
+        $("#focus-line").innerHTML = 'Do next → <span style="color:var(--paper)">' + esc(next.do) + "</span>";
+        return;
+      }
+    }
     const wk = (PLAN.horizons || []).find((h) => h.id === "week");
     if (!wk) return;
     const items = wk.groups.flatMap((g) => g.items);
@@ -117,9 +128,222 @@
       : '<span style="color:#94ad86">This week is clear — keep the daily drop running.</span>';
   }
 
+  // first unticked step of a campaign's launch phase (shared with the Launch tab via S.seq)
+  function campaignNextStep(c) {
+    const ph = (LAUNCH.phases || []).find((p) => p.id === c.launchPhaseId);
+    if (!ph) return null;
+    return ph.steps.find((s) => !S.seq[s.id]) || null;
+  }
+
   function render() {
     const v = $("#view"); v.innerHTML = "";
-    ({ launch: renderLaunch, letter: renderLetter, plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderLaunch)(v);
+    ({ campaign: renderCampaign, launch: renderLaunch, letter: renderLetter, plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderCampaign)(v);
+  }
+
+  // ================= CAMPAIGN (the cockpit — home) =================
+  function daysTo(dateStr, tz) {
+    if (!dateStr) return null;
+    return Math.ceil((new Date(dateStr + "T23:59:59" + (tz || "+00:00")) - Date.now()) / 864e5);
+  }
+  function camp(cid) {
+    if (!S.camp[cid]) S.camp[cid] = { seats: 0, confirmed: false, updated: "", pushedAt: "" };
+    return S.camp[cid];
+  }
+
+  function renderCampaign(v) {
+    v.appendChild(sectionHead("Campaign", "Your cockpit. What to do next, the clock, the real seat count, and every message one tap away. The whole plan is at the bottom."));
+
+    // --- ONE THING banner ---
+    if (PATH && PATH.oneThing) {
+      const ot = el("div", { class: "panel", style: "padding:14px 18px; margin-bottom:18px; border-left:3px solid var(--ember);" });
+      ot.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:6px;", text: "The one thing that matters now" }));
+      ot.appendChild(el("div", { style: "font-size:14.5px; line-height:1.55; color:var(--paper);", text: PATH.oneThing }));
+      v.appendChild(ot);
+    }
+
+    CAMPAIGNS.forEach((c) => v.appendChild(c.status === "live" ? liveCampaignCard(c) : groundworkCard(c)));
+
+    // --- message library ---
+    if (MESSAGES.length) v.appendChild(messageLibrary());
+
+    // --- the whole path ---
+    if (PATH) v.appendChild(pathPanel());
+  }
+
+  function liveCampaignCard(c) {
+    const st = camp(c.id);
+    const wrap = el("div", { class: "panel", style: "padding:20px; margin-bottom:20px;" });
+    wrap.appendChild(el("div", { class: "eyebrow", style: "color:var(--ember); margin-bottom:2px;", text: "Live campaign" }));
+    wrap.appendChild(el("h3", { class: "font-serif", style: "font-size:22px; margin:0 0 2px;", text: c.name }));
+    wrap.appendChild(el("div", { style: "color:var(--muted); font-size:13px; margin-bottom:16px;", text: c.partner }));
+
+    // countdown strip
+    const dGate = daysTo(c.deadline, c.tz), dEvent = daysTo(c.eventStart, c.tz);
+    const need = Math.max(0, (c.goal || 0) - st.seats);
+    const strip = el("div", { style: "display:flex; flex-wrap:wrap; gap:22px; margin-bottom:18px;" });
+    const stat = (num, lab, warn) => {
+      const b = el("div", {});
+      b.appendChild(el("div", { class: "metric-num", style: "font-size:26px;" + (warn ? " color:var(--ember);" : ""), text: String(num) }));
+      b.appendChild(el("div", { class: "font-mono", style: "font-size:10px; letter-spacing:.1em; color:var(--muted); text-transform:uppercase;", text: lab }));
+      return b;
+    };
+    if (dGate != null) strip.appendChild(stat(dGate, "days to decide", dGate <= 14));
+    strip.appendChild(stat(st.seats, "paid seats", false));
+    strip.appendChild(stat(need, "still needed", need > 0 && dGate != null && dGate <= 21));
+    if (dEvent != null) strip.appendChild(stat(dEvent, "days to the week", false));
+    if (dGate != null && dGate > 0 && need > 0) strip.appendChild(stat((need / Math.max(1, dGate / 7)).toFixed(1), "seats / week pace", false));
+    wrap.appendChild(strip);
+
+    // next action (shared with Launch via S.seq)
+    const next = campaignNextStep(c);
+    if (next) {
+      wrap.appendChild(el("div", { class: "eyebrow", style: "margin:6px 0 6px;", text: "Do next" }));
+      const box = el("div", { class: "panel", style: "padding:2px 14px; background:rgba(255,255,255,.02);" });
+      box.appendChild(seqRow(next));
+      wrap.appendChild(box);
+      wrap.appendChild(el("div", { style: "font-size:11.5px; color:var(--faint); margin:6px 0 14px;", text: "Ticking this also ticks it in the Launch tab. The full ordered list lives there." }));
+    } else {
+      wrap.appendChild(el("div", { style: "font-size:13px; color:#94ad86; margin:8px 0 14px;", text: "Every launch step is ticked. Keep the count honest and the letters shipping." }));
+    }
+
+    // live seat count entry
+    wrap.appendChild(el("div", { class: "eyebrow", style: "margin:8px 0 6px;", text: "Record a paid seat" }));
+    const row = el("div", { style: "display:flex; gap:10px; align-items:center; flex-wrap:wrap;" });
+    const inp = el("input", { class: "fld", type: "number", min: "0", value: String(st.seats), style: "width:80px; text-align:center; font-size:18px;" });
+    const commit = (val) => { st.seats = Math.max(0, val | 0); st.updated = todayISO(); save(); setFocusLine(); render(); };
+    inp.addEventListener("change", () => commit(parseInt(inp.value || "0", 10)));
+    row.appendChild(inp);
+    row.appendChild(el("button", { class: "btn-primary", style: "padding:8px 14px; border-radius:9px; font-size:13px;", onclick: () => commit(st.seats + 1) }, "+1 paid"));
+    row.appendChild(el("span", { style: "font-size:12px; color:var(--muted);", text: st.updated ? "updated " + st.updated : "not set yet" }));
+    wrap.appendChild(row);
+    wrap.appendChild(el("div", { style: "font-size:11.5px; color:var(--faint); margin-top:6px; line-height:1.5;", text: "REAL paid seats confirmed by the lab in writing. Never inflate — a made-up count is the one thing that breaks the whole campaign." }));
+
+    // page-count reminder + "I pushed" stamp
+    const rem = el("div", { class: "panel", style: "padding:10px 14px; margin-top:12px; border-left:3px solid var(--ember); background:rgba(210,138,82,.06);" });
+    rem.appendChild(el("div", { style: "font-size:12.5px; line-height:1.5; color:var(--paper);", text: "The public page has its own count. When this changes, edit var " + (c.publicCountVar || "SEATS_TAKEN") + " in website/barcelona.html and push — same day (step lb-6)." }));
+    const stampRow = el("div", { style: "display:flex; gap:10px; align-items:center; margin-top:8px;" });
+    stampRow.appendChild(el("button", { class: "btn-ghost", style: "padding:6px 12px; border-radius:8px; font-size:12px;", onclick: () => { st.pushedAt = todayISO(); save(); render(); } }, "I updated the page"));
+    if (st.updated && st.pushedAt !== st.updated) stampRow.appendChild(el("span", { class: "pill", style: "background:var(--ember); color:#1a1206;", text: "page is behind — push it" }));
+    else if (st.pushedAt) stampRow.appendChild(el("span", { style: "font-size:12px; color:#94ad86;", text: "page synced " + st.pushedAt }));
+    rem.appendChild(stampRow);
+    wrap.appendChild(rem);
+
+    // milestone callout
+    const hit = (c.milestones || []).filter((m) => st.seats >= m.at).sort((a, b) => b.at - a.at)[0];
+    if (hit) {
+      const mc = el("div", { class: "panel", style: "padding:10px 14px; margin-top:12px; border-left:3px solid var(--sea);" });
+      mc.appendChild(el("div", { class: "eyebrow", style: "color:var(--sea); margin-bottom:3px;", text: "At " + hit.at + " paid" }));
+      mc.appendChild(el("div", { style: "font-size:13px; line-height:1.5; color:var(--paper);", text: hit.do }));
+      wrap.appendChild(mc);
+    }
+
+    // quick links
+    const links = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:16px;" });
+    (c.links || []).forEach((l) => {
+      if (l.href) links.appendChild(linkBtn(l.label, l.href));
+      else if (l.tab) links.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => setTab(l.tab) }, l.label + " →"));
+    });
+    links.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => setTab("launch") }, "Full checklist →"));
+    wrap.appendChild(links);
+
+    if (c.note) wrap.appendChild(el("div", { style: "font-size:11.5px; color:var(--faint); margin-top:12px; line-height:1.5;", text: c.note }));
+    return wrap;
+  }
+
+  function groundworkCard(c) {
+    const wrap = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:20px; opacity:.9;" });
+    wrap.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:2px;", text: "Groundwork — not selling yet" }));
+    wrap.appendChild(el("h3", { class: "font-serif", style: "font-size:18px; margin:0 0 2px;", text: c.name }));
+    wrap.appendChild(el("div", { style: "color:var(--muted); font-size:13px; margin-bottom:8px;", text: c.partner }));
+    if (c.note) wrap.appendChild(el("div", { style: "font-size:12.5px; color:var(--faint); line-height:1.55; margin-bottom:10px;", text: c.note }));
+    const next = campaignNextStep(c);
+    if (next) { const box = el("div", { class: "panel", style: "padding:2px 14px; background:rgba(255,255,255,.02);" }); box.appendChild(seqRow(next)); wrap.appendChild(box); }
+    return wrap;
+  }
+
+  function messageLibrary() {
+    const wrap = el("div", { style: "margin-bottom:24px;" });
+    wrap.appendChild(el("div", { class: "eyebrow", style: "margin:6px 0 4px;", text: "Messages — tap to copy" }));
+    wrap.appendChild(el("p", { style: "color:var(--muted); font-size:13px; margin:0 0 14px; line-height:1.5;", text: "Counts and the deadline fill in automatically. Fill any [blank] before it will copy — that guard is what stops a fake number ever going out." }));
+    MESSAGES.forEach((m) => wrap.appendChild(messageCard(m)));
+    return wrap;
+  }
+
+  function autoFill(text, c) {
+    const st = c ? camp(c.id) : null;
+    const map = {
+      SEATS: st ? String(st.seats) : "", GOAL: c && c.goal != null ? String(c.goal) : "",
+      DEADLINE: c && c.deadline ? new Date(c.deadline + "T12:00").toLocaleDateString("en-GB", { day: "numeric", month: "long" }) : "",
+      DAYS_LEFT: c ? String(daysTo(c.deadline, c.tz)) : "", PAGE: c ? c.page : "", PARTNER: c ? c.partner : "",
+    };
+    return text.replace(/\{(SEATS|GOAL|DEADLINE|DAYS_LEFT|PAGE|PARTNER)\}/g, (_, k) => map[k] || "{" + k + "}");
+  }
+
+  function messageCard(m) {
+    const c = CAMPAIGNS.find((x) => x.id === m.campaign) || null;
+    const card = el("div", { class: "panel", style: "padding:14px 16px; margin-bottom:12px;" });
+    const head = el("div", { style: "display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:6px;" });
+    head.appendChild(el("span", { class: "tag", text: m.kind }));
+    head.appendChild(el("span", { style: "font-size:14px; color:var(--paper); font-weight:600;", text: m.label }));
+    card.appendChild(head);
+    if (m.when) card.appendChild(el("div", { class: "font-mono", style: "font-size:10.5px; color:var(--ember); letter-spacing:.06em; margin-bottom:8px;", text: m.when }));
+
+    const inputs = {};
+    (m.fields || []).forEach((f) => {
+      const wrap = el("div", { style: "margin-bottom:6px;" });
+      const i = el("input", { class: "fld", placeholder: f.toLowerCase(), style: "width:200px; font-size:13px;" });
+      inputs[f] = i;
+      wrap.appendChild(i);
+      card.appendChild(wrap);
+    });
+
+    const pre = el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13px; line-height:1.55; color:var(--muted); margin:6px 0 10px; background:rgba(255,255,255,.02); padding:10px 12px; border-radius:8px;" });
+    const build = () => {
+      let t = autoFill(m.subject ? "Subject: " + m.subject + "\n\n" + m.text : m.text, c);
+      (m.fields || []).forEach((f) => { const val = (inputs[f].value || "").trim(); if (val) t = t.split("{" + f + "}").join(val); });
+      return t;
+    };
+    const refresh = () => { pre.textContent = build(); };
+    (m.fields || []).forEach((f) => inputs[f].addEventListener("input", refresh));
+    refresh();
+    card.appendChild(pre);
+
+    const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap;" });
+    const doCopy = () => {
+      const t = build();
+      if (/\{[A-Z_]+\}/.test(t)) { toast("Fill the blanks first — no half-written messages, no fake counts."); return; }
+      copy(t);
+    };
+    acts.appendChild(el("button", { class: "btn-primary", style: "padding:7px 14px; border-radius:9px; font-size:12.5px;", onclick: doCopy }, "Copy"));
+    if (m.kind === "whatsapp" || m.kind === "story") {
+      acts.appendChild(el("button", { class: "btn-ghost", style: "padding:7px 13px; border-radius:9px; font-size:12.5px;", onclick: () => { const t = build(); if (/\{[A-Z_]+\}/.test(t)) { toast("Fill the blanks first."); return; } window.open("https://wa.me/?text=" + encodeURIComponent(t), "_blank"); } }, "Open WhatsApp ↗"));
+    }
+    if (m.note) acts.appendChild(el("span", { style: "font-size:11.5px; color:var(--faint); align-self:center;", text: m.note }));
+    card.appendChild(acts);
+    return card;
+  }
+
+  function pathPanel() {
+    const wrap = el("div", { style: "margin-top:10px; border-top:1px solid var(--line); padding-top:20px;" });
+    wrap.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:6px;", text: "The whole path — how EducatedTraveler gets built" }));
+    if (PATH.north) wrap.appendChild(el("p", { style: "color:var(--muted); font-size:13px; line-height:1.6; margin:0 0 16px; max-width:760px;", text: PATH.north }));
+    (PATH.stages || []).forEach((s) => {
+      const row = el("div", { style: "display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line);" });
+      row.appendChild(el("div", { class: "metric-num font-mono", style: "font-size:20px; color:var(--ember); flex:none; width:26px; text-align:center;", text: String(s.n) }));
+      const body = el("div", { style: "flex:1;" });
+      body.appendChild(el("div", { style: "font-size:14.5px; color:var(--paper); font-weight:600; margin-bottom:2px;", text: s.title }));
+      body.appendChild(el("div", { style: "font-size:12.5px; color:var(--muted); line-height:1.55; margin-bottom:4px;", text: s.what }));
+      body.appendChild(el("span", { class: "tag", text: "→ " + s.where }));
+      row.appendChild(body);
+      wrap.appendChild(row);
+    });
+    if (PATH.refuse && PATH.refuse.length) {
+      wrap.appendChild(el("div", { class: "eyebrow", style: "margin:18px 0 8px;", text: "What we refuse (each one protects the trust)" }));
+      const ul = el("ul", { style: "margin:0; padding-left:18px; color:var(--muted); font-size:12.5px; line-height:1.7;" });
+      PATH.refuse.forEach((r) => ul.appendChild(el("li", { text: r })));
+      wrap.appendChild(ul);
+    }
+    return wrap;
   }
 
   // ================= LAUNCH (ordered playbook) =================

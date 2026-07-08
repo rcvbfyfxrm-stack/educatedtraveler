@@ -30,6 +30,17 @@ window.ET_LAUNCH = {
       ],
     },
     {
+      id: "labweek02",
+      title: "Lab Week 02 — Tokyo (groundwork only, gated on Barcelona)",
+      sub: "Do NOT sell this until Lab Week 01 has delivered real alumni proof. Groundwork starts now only because closing a master takes ~3 months — that was the Lippo lesson. No dates, no price, no announcement until Barcelona is done.",
+      steps: [
+        { id: "lw2-1", when: "Now (quiet)", do: "Re-verify the April pipeline: is the Tokyo master still findable, teaching, reachable? Confirm the venue, credentials and English capability before any contact.", where: "Private cohort-02 pipeline file", why: "The April record is stale. The experience bar needs a named master with citable proof — verify before you invest a single hour." },
+        { id: "lw2-2", when: "After Barcelona confirms", do: "Send one gift-first, no-ask warming note (Messages → 'Warm a future master'). Relationship first; never a proposal.", where: "Campaign → Messages", why: "Supply is built ahead of demand. A master who already knows you says yes far faster when the time comes." },
+        { id: "lw2-3", when: "After Barcelona delivers proof", do: "Adapt the Lippo term sheet to Tokyo (dates, price to the local corridor, same refund + certificate + parity structure) and open the conversation.", where: "Private cohort-02 pipeline file", why: "Barcelona's case study is your credibility — you now arrive with proof, not a pitch." },
+        { id: "lw2-4", when: "When terms are signed", do: "Flip the campaign to live: fill goal, deadline, dates. Announce to the Circle first — the founding cohort gets 72 hours before anyone else.", where: "studio-campaigns.js labweek02", why: "The map is media; the beachhead is the business. Widen only after the first door is proven, and reward the people who backed edition one." },
+      ],
+    },
+    {
       id: "launch",
       title: "Launch week — introduce EducatedTraveler",
       sub: "Post once, in this order. One flagship a day, the Letter on day one. Reply to every comment.",

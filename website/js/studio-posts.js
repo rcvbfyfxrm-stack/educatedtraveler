@@ -21,7 +21,7 @@ window.ET_POSTS = [
     imageNote: "1080×1350 branded card (the Vakuum lab through the glass). Invite Martin as collaborator — he only taps accept; the post lives on both profiles.",
     slides: [],
     caption:
-"Twelve chefs, one lab, five days.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: spherification, liquid nitrogen, foams, textures, sous-vide. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't: his open sessions run in Spanish, and the real thing was always a door too far. This door is open.\n\nIt confirms the moment ten chefs are in. If we don't get there by 15 September, every euro goes back — the honest terms, the day-by-day and the live seat count are all on the page.\n\nTake a seat: educatedtraveler.app/barcelona",
+"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: spherification, liquid nitrogen, foams, textures, sous-vide. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't: his open sessions run in Spanish, and the real thing was always a door too far. This door is open.\n\nIt confirms the moment ten chefs are in, capped at fifteen. If we don't get there by 15 September, every euro goes back — the honest terms, the day-by-day and the live seat count are all on the page.\n\nTake a seat: educatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-founder", format: "Feed post · documentary arc #1 · HOLD until Martin's written yes", core: "",
@@ -32,6 +32,36 @@ window.ET_POSTS = [
     slides: [],
     caption:
 "Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in yard period — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nI'm not selling a dream week. It confirms at ten paid or everyone gets refunded, the terms are public, and you can check every claim — his lab, his sessions, his prices — on his own site.\n\nThe page has all of it: educatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-calendar", format: "Feed post · documentary arc · SHIP AT ≥3 PAID · only once the week is live on martinlippo.com", core: "",
+    title: "It's on his calendar now (the proof)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
+    images: ["/images/posts/lab-week/announce.jpg"],
+    imageNote: "A screenshot of his martinlippo.com October listing is the strongest possible image here — use it once it's live.",
+    slides: [],
+    caption:
+"It's real now — his own calendar says so.\n\nWhen you tell chefs you've arranged a week with Martin Lippo, the fair question is: says who? So here's the proof that costs me nothing to give you — the week is now listed on his own site, on his schedule. 22-26 October, five days, English.\n\nFor months this was a conversation and a handshake. Now there's a signed page: the dates, the refund terms, the certificate, what happens if we don't reach ten. All agreed and written down before a single chef was asked to pay. Slow is the honest speed.\n\nIt confirms the moment ten chefs are in, or everyone's refunded. Everything's checkable at the source: educatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-firstseats", format: "Feed post · documentary arc · SHIP AT ≥3 PAID · count-agnostic (stays true as it climbs)", core: "",
+    title: "The first seats are taken",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
+    images: ["/images/posts/lab-week/announce.jpg"],
+    imageNote: "A lab shot or a real behind-the-scenes frame. Never a fabricated count graphic.",
+    slides: [],
+    caption:
+"The first seats are taken.\n\nWorking chefs — winter programs, charter calendars, real constraints — read the terms and paid. The count on the page is real; it only ever shows paid seats, and it moved this week.\n\nWhat convinced them wasn't me. It was that every claim is checkable — his lab, his published rates, the refund line — and that the week sits in yard period, when the boat is in the shed and the season finally exhales.\n\nThe rest of the room fills person by person: a message, a call, a held seat. No autopilot, no pressure — the terms do the talking.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-confirmed", format: "Feed post · INVITE MARTIN AS COLLABORATOR · SHIP ONLY on the confirmed-decision day (Phase 5)", core: "",
+    title: "CONFIRMED — Barcelona is on",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
+    images: ["/images/posts/lab-week/announce.jpg"],
+    imageNote: "The announce card works, or a licensed lab shot. GUARD: only publish after the decision is made jointly with Martin against the written ledger.",
+    slides: [],
+    caption:
+"CONFIRMED. Barcelona is on.\n\n[N] chefs have paid — the threshold was ten, and today, against the written ledger, Martin and I called it together: Lab Week 01 runs. 22-26 October, Vakuum, Barcelona. Thirty-five hours, in English, hands in.\n\nWe said we'd call it honestly whichever way it went — ten paid by the deadline, or every euro refunded. That was the deal, and it held.\n\nTo the chefs who took a seat on a promise: you're the founding cohort. Buy your flights — the table opens this week.\n\nThe room is capped at fifteen, so a few seats stay open until 8 October. If you were waiting for it to be real: it's real.\n\neducatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-count", format: "Story template · repeat at every real milestone", core: "",
