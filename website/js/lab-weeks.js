@@ -20,6 +20,7 @@ window.LAB_WEEKS = [
     teaser: 'Five days in a working laboratory where the modern techniques — sous-vide, textures, spheres, foams, liquid nitrogen — are taught openly by the chef who runs it. Built for working chefs off boats first.',
     when: 'Autumn 2026',
     note: 'The master is named — and the door opens — the day the terms are signed. First word goes to the Circle.',
+    extras: 'Around the five days, optional add-ons are taking shape — an open-fire day (paella over flame, socarrat, arròs negre) and a Barcelona source day through the city’s markets and cellars — announced once confirmed, nothing sold until it’s booked and real. And we’ll be looking for a shared cohort apartment, optional and at cost: the room is half the point, and the conversations shouldn’t stop when the bench closes.',
     // -- filled at flip (status: 'open') --
     master: null,            // 'Martin Lippo'
     dates: null,             // '22–26 October 2026'
@@ -61,7 +62,10 @@ window.LAB_WEEKS = [
     var foot = open && w.url
       ? '<a href="' + w.url + '" class="btn-primary inline-block px-7 py-3 rounded-full text-sm">See the week →</a>'
       : '<p class="text-paper-faint text-xs">' + w.note + '</p>';
-    return '<div class="panel p-7 md:p-9 text-left reveal in">' + head + title + body + foot + '</div>';
+    var extras = w.extras
+      ? '<p class="text-paper-faint text-xs mt-4 pt-4" style="border-top:1px solid rgba(243,237,226,0.09)">' + w.extras + '</p>'
+      : '';
+    return '<div class="panel p-7 md:p-9 text-left reveal in">' + head + title + body + foot + extras + '</div>';
   }
   function render() {
     document.querySelectorAll('[data-lab-weeks]').forEach(function (el) {
