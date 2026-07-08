@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Weeks — the Atlas come true | EducatedTraveler</title>
+
+    <meta name="description" content="A Lab Week is one week, at the source, in a master's own workshop — open enrolment, honest numbers, and the people chasing the same craft. The Atlas is the map; Lab Weeks are the map come true.">
+    <link rel="canonical" href="https://educatedtraveler.app/lab-weeks">
+    <meta property="og:title" content="Lab Weeks — the Atlas come true">
+    <meta property="og:description" content="One week, at the source, in a master's own workshop — open enrolment, honest numbers, your people.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.app/lab-weeks">
+    <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <meta property="og:site_name" content="EducatedTraveler">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sea:   { soft: '#7fa8a5', mid: '#5b8a89', deep: '#38595b' },
+                        ember: { soft: '#e0a877', mid: '#d28a52', deep: '#b06a36' },
+                        paper: { DEFAULT: '#f3ede2', muted: 'rgba(243,237,226,0.56)', faint: 'rgba(243,237,226,0.34)' },
+                        ink:   { DEFAULT: '#0d0b09', 2: '#14110d', 3: '#1c1813' },
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        sans:  ['Inter', 'system-ui', 'sans-serif'],
+                        mono:  ['IBM Plex Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --ink: #0d0b09; --ink-2: #14110d; --paper: #f3ede2;
+            --sea: #7fa8a5; --ember: #d28a52; --line: rgba(243,237,226,0.09);
+        }
+        * { -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--ink); color: var(--paper); overflow-x: hidden; }
+        ::selection { background: rgba(210,138,82,0.30); }
+        .font-serif { font-family: 'Fraunces', Georgia, serif; }
+        .font-mono  { font-family: 'IBM Plex Mono', monospace; }
+        body::before {
+            content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            background:
+                radial-gradient(900px 600px at 18% -5%, rgba(127,168,165,0.10), transparent 60%),
+                radial-gradient(800px 600px at 92% 8%, rgba(210,138,82,0.08), transparent 55%);
+        }
+        .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--sea); }
+        .rule-top { border-top: 1px solid var(--line); }
+        .panel { background: rgba(243,237,226,0.022); border: 1px solid var(--line); border-radius: 14px;
+            transition: border-color .35s ease, background .35s ease; }
+        .panel:hover { border-color: rgba(127,168,165,0.28); background: rgba(243,237,226,0.035); }
+        .btn-primary { background: linear-gradient(135deg, var(--sea) 0%, var(--ember) 130%); color: #14110d; font-weight: 500;
+            transition: transform .3s ease, box-shadow .3s ease, filter .3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(127,168,165,0.22); filter: brightness(1.04); }
+        .btn-ghost { border: 1px solid rgba(243,237,226,0.18); color: var(--paper); transition: background .3s ease, border-color .3s ease; }
+        .btn-ghost:hover { background: rgba(243,237,226,0.05); border-color: rgba(243,237,226,0.32); }
+        .link-quiet { color: var(--paper); opacity: .56; transition: opacity .25s ease, color .25s ease; }
+        .link-quiet:hover { opacity: 1; color: var(--sea); }
+        .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        .intent input { background: rgba(243,237,226,0.04); border: 1px solid rgba(243,237,226,0.16); color: var(--paper); }
+        .intent input:focus { outline: none; border-color: rgba(127,168,165,0.5); }
+        .intent-msg.ok { color: var(--sea); }
+        .intent-msg.err { color: var(--ember); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(13,11,9,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <span class="font-serif tracking-[0.16em] text-sm">EDUCATED<span class="text-sea-soft">TRAVELER</span></span>
+            </a>
+            <div class="hidden md:flex items-center gap-7">
+                <a href="/browse" class="text-sm link-quiet">The Atlas</a>
+                <a href="/lab-weeks" class="text-sm" style="color:var(--sea)">Lab Weeks</a>
+                <a href="/journal/" class="text-sm link-quiet">Journal</a>
+                <a href="/about" class="text-sm link-quiet">The Story</a>
+            </div>
+            <button id="menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.6" d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden" style="border-top: 1px solid var(--line);">
+            <div class="px-6 py-2">
+                <a href="/browse" class="block py-3 link-quiet">The Atlas</a>
+                <a href="/lab-weeks" class="block py-3" style="color:var(--sea)">Lab Weeks</a>
+                <a href="/journal/" class="block py-3 link-quiet">Journal</a>
+                <a href="/about" class="block py-3 link-quiet">The Story</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="px-6 pt-36 pb-16">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="eyebrow mb-6 reveal in">The Atlas is the map</p>
+            <h1 class="font-serif font-light text-4xl md:text-6xl leading-[1.06] tracking-tight mb-7 reveal in">
+                Lab Weeks are the map <span class="italic text-paper-muted">come true.</span>
+            </h1>
+            <p class="text-lg text-paper-muted leading-relaxed max-w-2xl mx-auto reveal in">
+                A few times a year, we take one place on the Atlas and open the door for real: one week, at the source, in a master's own workshop, with a small cohort of people chasing the same craft. You heard about one from a friend? This is the page they meant.
+            </p>
+        </div>
+    </section>
+
+    <!-- HOW A LAB WEEK WORKS -->
+    <section class="py-20 px-6 rule-top">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <p class="eyebrow mb-4">The standard</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">Every Lab Week clears the same bar.</h2>
+                <p class="text-paper-muted max-w-2xl mx-auto">All four, or it doesn't run:</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5 mb-12">
+                <div class="panel p-7 reveal">
+                    <div class="mb-4" style="width:34px;height:2px;background:var(--sea);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">A named master</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">A real person with a record you can check yourself — who actually teaches the week, every day, in person.</p>
+                </div>
+                <div class="panel p-7 reveal">
+                    <div class="mb-4" style="width:34px;height:2px;background:var(--ember);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">Their own workshop</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">The master's own lab, bench or kitchen — a room built for teaching, not a rented corner of somewhere else.</p>
+                </div>
+                <div class="panel p-7 reveal">
+                    <div class="mb-4" style="width:34px;height:2px;background:var(--ember);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">Open enrolment</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">Anyone serious can take a chair. Nothing to win, no one you need to know. The opposite of the gatekept stage.</p>
+                </div>
+                <div class="panel p-7 reveal">
+                    <div class="mb-4" style="width:34px;height:2px;background:var(--sea);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">At the source</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">In the place where the craft is most alive — because who you meet there matters as much as what you learn.</p>
+                </div>
+            </div>
+            <div class="max-w-2xl mx-auto text-center reveal">
+                <p class="text-paper-muted leading-relaxed mb-3">And one rule about the numbers: <span class="text-paper">they're published from day one.</span> Every Lab Week states its minimum out loud. If enough people take a chair, it runs; if not, it doesn't — and everyone is repaid in full. No countdown timers, no "almost gone". The honest count is the only urgency we use.</p>
+                <p class="text-paper-faint text-sm">You leave with the work in your hands, a certificate that says exactly what it should — attendance and the work you presented, verified if anyone ever asks us — and the cohort itself: people worth knowing, met at the bench.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE LAB WEEKS -->
+    <section id="weeks" class="py-20 px-6 rule-top">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10 reveal">
+                <p class="eyebrow mb-4">The weeks</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight">Where the door opens next.</h2>
+            </div>
+            <div class="grid gap-6" data-lab-weeks></div>
+        </div>
+    </section>
+
+    <!-- TELL US WHAT PULLS YOU -->
+    <section id="interest" class="py-20 px-6 rule-top">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="reveal">
+                <p class="eyebrow mb-4">Shape the next one</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">What would you cross an ocean to learn?</h2>
+                <p class="text-paper-muted mb-9 leading-relaxed">Lab Weeks are chosen by the Circle, not by a calendar. Name the craft — the one you'd actually take a week for — and you'll be the first we write to when a master opens that door. That's the whole deal: no funnel, no noise, first word.</p>
+            </div>
+            <form class="intent panel p-6 md:p-8 reveal" data-source="lab-weeks">
+                <div class="intent-row flex flex-col sm:flex-row gap-3">
+                    <input type="text" name="craft" placeholder="The craft — e.g. sushi, freediving, natural wine…" required
+                        class="w-full sm:flex-1 px-4 py-3 rounded-lg text-sm min-h-[44px]">
+                    <input type="email" name="email" placeholder="your@email.com" required
+                        class="w-full sm:w-56 px-4 py-3 rounded-lg text-sm min-h-[44px]">
+                    <button type="submit" class="intent-go btn-primary px-7 py-3 rounded-full text-sm whitespace-nowrap min-h-[44px]">First word</button>
+                </div>
+                <p class="intent-fine text-xs text-paper-faint mt-4">One email when it's real — never a drip. The Atlas already maps 99 crafts; yours is probably <a href="/browse" class="underline" style="color:var(--sea)">on it</a>.</p>
+                <p class="intent-msg text-sm mt-4" hidden></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-14 rule-top">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-serif tracking-[0.16em] mb-1">EDUCATED<span class="text-sea-soft">TRAVELER</span></p>
+                    <p class="text-paper-muted text-sm">A place, a person, your people.</p>
+                    <p class="text-paper-faint text-[11px] font-mono tracking-[0.25em] mt-2">EARNED, NOT BOUGHT</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="/browse" class="link-quiet text-sm">The Atlas</a>
+                    <a href="/lab-weeks" class="link-quiet text-sm">Lab Weeks</a>
+                    <a href="/about" class="link-quiet text-sm">The Story</a>
+                    <a href="/journal/" class="link-quiet text-sm">Journal</a>
+                    <a href="mailto:arnaudcallier@pm.me" class="link-quiet text-sm">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mb = document.getElementById('menu-btn'), mm = document.getElementById('mobile-menu');
+        if (mb && mm) mb.addEventListener('click', () => {
+            const open = !mm.classList.contains('hidden');
+            mm.classList.toggle('hidden');
+            mb.setAttribute('aria-expanded', String(!open));
+        });
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/lab-weeks.js"></script>
+    <script defer src="/js/intent-capture.js"></script>
+</body>
+</html>

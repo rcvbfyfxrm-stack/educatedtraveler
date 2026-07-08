@@ -154,6 +154,7 @@
             </a>
             <div class="hidden md:flex items-center gap-9">
                 <a href="/browse" class="text-sm link-quiet">The Atlas</a>
+                <a href="/lab-weeks" class="text-sm link-quiet">Lab Weeks</a>
                 <a href="about.html" class="text-sm link-quiet">The Story</a>
                 <a href="/journal/" class="text-sm link-quiet">Journal</a>
                 <a href="#circle" class="text-sm px-4 py-2 rounded-full btn-ghost">Join the Circle</a>
@@ -165,6 +166,7 @@
         <div id="mobile-menu" class="hidden md:hidden" style="border-top: 1px solid var(--line);">
             <div class="px-6 py-4 space-y-1">
                 <a href="/browse" class="block py-3 link-quiet">The Atlas</a>
+                <a href="/lab-weeks" class="block py-3 link-quiet">Lab Weeks</a>
                 <a href="about.html" class="block py-3 link-quiet">The Story</a>
                 <a href="/journal/" class="block py-3 link-quiet">Journal</a>
                 <a href="#circle" class="block py-3 text-sea-soft">Join the Circle</a>
@@ -186,15 +188,30 @@
                 We don't sell the journey. We introduce you to it.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center reveal in">
-                <a href="/browse" class="btn-primary px-8 py-4 rounded-full inline-flex items-center justify-center gap-2">
-                    <span>Browse the worlds</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                <a href="#lab-weeks" class="btn-primary px-8 py-4 rounded-full inline-flex items-center justify-center gap-2">
+                    <span>The next Lab Week</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
                 </a>
-                <a href="#circle" class="btn-ghost px-8 py-4 rounded-full">Join the Circle</a>
+                <a href="/browse" class="btn-ghost px-8 py-4 rounded-full">Browse the Atlas</a>
             </div>
         </div>
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-paper-faint animate-pulse">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
+    </section>
+
+    <!-- ───────────────────────── LAB WEEKS ───────────────────────── -->
+    <section id="lab-weeks" class="py-24 px-6 rule-top">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10 reveal">
+                <p class="eyebrow mb-4">Lab Weeks</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">The Atlas is the map. This is the map come true.</h2>
+                <p class="text-paper-muted max-w-2xl mx-auto leading-relaxed">A few times a year, one place on the Atlas opens for real: one week, at the source, in a master's own workshop, with a small cohort chasing the same craft. The numbers are honest and published from day one — if the week doesn't confirm, everyone is repaid in full.</p>
+            </div>
+            <div class="grid gap-6 mb-9" data-lab-weeks="1"></div>
+            <div class="text-center reveal">
+                <a href="/lab-weeks" class="btn-ghost inline-block px-8 py-3.5 rounded-full">How Lab Weeks work — and what's next →</a>
+            </div>
         </div>
     </section>
 
@@ -405,6 +422,7 @@
                 </div>
                 <div class="flex items-center gap-6">
                     <a href="/browse" class="link-quiet text-sm">The Atlas</a>
+                    <a href="/lab-weeks" class="link-quiet text-sm">Lab Weeks</a>
                     <a href="about.html" class="link-quiet text-sm">The Story</a>
                     <a href="/journal/" class="link-quiet text-sm">Journal</a>
                     <a href="mailto:arnaudcallier@pm.me" class="link-quiet text-sm">Contact</a>
@@ -471,7 +489,11 @@
          Explains what ET is while learning who you are (interests · experience ·
          the skills you'd love to learn), saves you to the Circle, then sends you
          into the Atlas. Real Atlas data via repertoire.js. Gated to open once. -->
-    <script>window.ET_CIRCLE_AUTOOPEN = true;</script>
+    <script>
+        // Word-of-mouth arrivals deep-linked to a Lab Week get the page, not the modal.
+        window.ET_CIRCLE_AUTOOPEN = location.hash !== '#lab-weeks';
+    </script>
+    <script src="/js/lab-weeks.js"></script>
     <script src="/js/repertoire.js"></script>
     <script defer src="/js/circle-onboarding.js"></script>
 
