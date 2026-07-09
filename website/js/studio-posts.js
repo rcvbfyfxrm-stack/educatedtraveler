@@ -123,13 +123,23 @@ window.ET_POSTS = [
   },
   {
     id: "founder", format: "Reel / carousel / text", core: "",
-    title: "Why I built this (founder)",
+    title: "The story — they knew the way for me (founder)",
     link: "https://educatedtraveler.app/about", linkLabel: "The Story",
     images: ["/images/posts/founder/cover.png"],
-    imageNote: "Branded quote card (1080×1350) — use as the reel cover or the single text post.",
+    imageNote: "Reel cover / carousel slide 1 (1080×1350): the real red-jacket sailing shot of Arnaud at sea — it embodies the hook (stars, ocean, the last hundred metres). Overlay the slide-1 line in the ET serif on warm-dark. Slides 2-6: plain warm-dark type cards; if a photo is wanted mid-deck, use the cenote freedive shot. No staged stock.",
+    slides: [
+      "The stars carry you across an ocean. They can't walk you the last hundred metres. A person does that.",
+      "I left school at eighteen and spent fifteen years cooking at sea. Every map I trusted ran out.",
+      "Kitchens with no shared language. Trails past their edge. Potters decades into one glaze.",
+      "I never found my teachers. They found me. I just kept following what pulled me.",
+      "At the end of every pull, someone already stood there who knew the way. Already teaching.",
+      "EducatedTraveler is the introduction I never had. Find your teacher in the Atlas — link in bio.",
+    ],
     caption:
-"I left school at eighteen and went out into the world instead of staying in a classroom.\n\nAlmost everything I know, I learned from someone who was good at something real and happy to share it. Cooking. Sailing. Freediving. Wine. The slow morning breath on a mat. Never off a screen — from people who actually did it, where they did it.\n\nSo I built EducatedTraveler: a map of where a craft is still alive, and a circle that introduces you to the people keeping it warm.\n\nA place, a person, your people.\nThe story: https://educatedtraveler.app/about",
-    hashtags: "#learnbydoing #atthesource #educatedtraveler #craftsmanship #yourpeople",
+"The stars will carry you across an ocean. They can't walk you the last hundred metres. A person does that.\n\nI left school at eighteen to learn from the world, not a classroom, and spent fifteen years cooking at sea. Stars and swells taught me to navigate — but every map I trusted eventually ran out.\n\nIt ran out in kitchens where nobody spoke my language. It ran out where the trail did, and hikers on the Annapurna circuit knew every medicinal plant. It ran out in front of potters in Vietnam, decades deep in a single glaze.\n\nI never found those teachers. They found me. I followed what pulled me — cooking, sailing, freediving, breath — and at the end of every pull, someone was already standing there who knew the way.\n\nIn India, over meals in ashrams, the idea took root: you shouldn't need fifteen years at sea to meet that person.\n\nSo I built the introduction I never had. The Atlas maps where a craft is still alive — verified by hand, never by who paid. The Circle brings you to the people keeping it warm. We sell nothing.\n\nFollow your pull. Someone is already standing at the end of it.\n\nThe story: https://educatedtraveler.app/about",
+    hashtags: "#EducatedTraveler #LearnFromTheSource #LearnFromAMaster #SlowTravel #CraftsmanshipAlive",
+    strategy:
+"THE founder-credibility spine of the whole account — this replaces the older 'I left school at eighteen' founder post as the definitive story. WHEN — post 24-48h after the pinned 'This is EducatedTraveler' carousel, Tue or Thu 6-8pm when reach peaks; it's the deeper second touch for anyone who tapped the profile. SHAPE — 6-slide carousel (slide 1 = the scroll-stopper on the sailing shot; slide 6 names ET + pulls to the Atlas). Reply to every comment the first few hours — carousels get re-served for days. WATCH — profile visits, /about clicks, Circle sign-ups. SAFE — fully signature-safe: names no course, place, or date. Do NOT run any Lab Week post until Martin's written yes.",
   },
   {
     id: "circle", format: "Carousel", core: "",
