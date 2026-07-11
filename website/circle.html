@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Circle — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Tell us the craft you'd give a week of your life to learn. We find the master, the place, and your people — and open the door to the Circle first.">
+    <link rel="canonical" href="https://educatedtraveler.app/circle">
+    <meta property="og:title" content="Join the Circle — EDUCATEDTRAVELER">
+    <meta property="og:description" content="Tell us what you'd love to master. We go build it — the master, the place, your people.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.app/circle">
+    <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <meta property="og:site_name" content="EducatedTraveler">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/images/favicon-32.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── Warm-Dark Editorial (2026-06-11 relook lock) ── */
+        :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
+               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+        *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
+        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
+              min-height:100vh; line-height:1.55; }
+        ::selection{ background:rgba(210,138,82,0.30); }
+        .serif{ font-family:'Fraunces',Georgia,serif; font-weight:300; letter-spacing:-0.01em; }
+        .mono{ font-family:'IBM Plex Mono',ui-monospace,monospace; }
+        body::before{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+            background:
+                radial-gradient(900px 600px at 15% -8%, rgba(127,168,165,0.10), transparent 60%),
+                radial-gradient(800px 620px at 92% 6%, rgba(210,138,82,0.09), transparent 55%); }
+
+        .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.30em;
+                  text-transform:uppercase; color:var(--sea); }
+
+        /* nav */
+        nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(13,11,9,0.72);
+             backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+        .nav-in{ max-width:1100px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; }
+        .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:0.16em; font-size:15px; color:var(--paper); text-decoration:none; }
+        .brand span{ color:var(--sea); }
+        .nav-links{ display:flex; gap:26px; align-items:center; }
+        .nav-links a{ color:var(--paper); opacity:.56; text-decoration:none; font-size:13.5px; transition:opacity .25s,color .25s; }
+        .nav-links a:hover{ opacity:1; color:var(--sea); }
+        @media(max-width:720px){ .nav-links{ display:none; } }
+
+        /* shell */
+        .wrap{ max-width:600px; margin:0 auto; padding:120px 22px 80px; }
+        .card{ position:relative; }
+
+        /* progress rail */
+        .rail{ display:flex; gap:7px; margin-bottom:34px; }
+        .rail i{ height:2px; flex:1; background:rgba(243,237,226,0.12); border-radius:2px; transition:background .5s ease; }
+        .rail i.on{ background:var(--sea); }
+        .rail i.done{ background:var(--ember); }
+
+        /* beats */
+        .beat{ display:none; }
+        .beat.show{ display:block; animation:fadeUp .6s ease-out both; }
+        @keyframes fadeUp{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+        h1.hook{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9rem,5.2vw,2.7rem);
+                 line-height:1.16; letter-spacing:-0.02em; margin-bottom:18px; }
+        h2.q{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.5rem,4.4vw,2.05rem);
+              line-height:1.2; letter-spacing:-0.015em; margin-bottom:10px; }
+        .sub{ color:var(--muted); font-size:15px; margin-bottom:26px; }
+        .sub-tight{ color:var(--muted); font-size:14.5px; margin-bottom:20px; }
+        .signoff{ color:var(--faint); font-size:13px; margin-top:6px; }
+
+        label.fld{ display:block; }
+        .lbl{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase;
+              color:var(--faint); margin-bottom:9px; }
+        input[type=text], input[type=email], textarea{
+            width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16);
+            border-radius:14px; color:var(--paper); font-family:inherit; font-size:15px; padding:14px 16px;
+            outline:none; transition:border-color .25s, box-shadow .25s; }
+        textarea{ resize:vertical; min-height:118px; line-height:1.6; }
+        input::placeholder, textarea::placeholder{ color:rgba(243,237,226,0.30); }
+        input:focus, textarea:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+        .help{ color:var(--faint); font-size:12.5px; margin-top:8px; line-height:1.5; }
+        .field{ margin-bottom:20px; }
+
+        /* chips */
+        .chips{ display:flex; flex-wrap:wrap; gap:9px; }
+        .chip{ font-family:inherit; font-size:13.5px; color:var(--muted); background:rgba(243,237,226,0.03);
+               border:1px solid rgba(243,237,226,0.15); border-radius:11px; padding:10px 14px; cursor:pointer;
+               transition:all .18s ease; text-align:left; }
+        .chip:hover{ border-color:rgba(243,237,226,0.34); color:var(--paper); }
+        .chip[aria-pressed="true"], .chip.sel{ border-color:var(--sea); background:rgba(127,168,165,0.13); color:var(--paper); }
+        .chip small{ display:block; font-size:11px; color:var(--faint); margin-top:3px; letter-spacing:0; }
+        .chip[aria-pressed="true"] small{ color:var(--muted); }
+
+        .worldwrap{ margin-top:22px; }
+        .disc-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:11px; }
+        .disc-head .lbl{ margin-bottom:0; }
+        .count{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--faint); }
+
+        /* buttons */
+        .cta{ font-family:inherit; font-size:15px; font-weight:500; color:#14110d; border:none; cursor:pointer;
+              background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); border-radius:999px;
+              padding:14px 26px; transition:transform .25s, box-shadow .25s, filter .25s; }
+        .cta:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(127,168,165,0.24); filter:brightness(1.04); }
+        .cta:disabled{ opacity:.5; cursor:not-allowed; transform:none; box-shadow:none; }
+        .row{ display:flex; align-items:center; gap:18px; margin-top:26px; flex-wrap:wrap; }
+        .quiet{ background:none; border:none; color:var(--faint); font-family:inherit; font-size:13px; cursor:pointer;
+                text-decoration:none; transition:color .25s; padding:6px 0; }
+        .quiet:hover{ color:var(--sea); }
+        .back{ background:none; border:none; color:var(--faint); font-family:'IBM Plex Mono',monospace; font-size:11px;
+               letter-spacing:0.12em; cursor:pointer; margin-bottom:20px; transition:color .25s; }
+        .back:hover{ color:var(--paper); }
+        .err{ color:#f0a58a; font-size:13px; margin-top:12px; display:none; }
+
+        /* promise panel */
+        .promise{ border:1px solid var(--line); border-left:2px solid var(--sea); background:rgba(243,237,226,0.022);
+                  border-radius:14px; padding:22px 22px 20px; margin:26px 0 8px; }
+        .promise p{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:17px; line-height:1.5; color:var(--paper); }
+        .promise .proof{ font-family:'Inter',sans-serif; font-size:13.5px; color:var(--muted); margin-top:14px;
+                         padding-top:14px; border-top:1px solid var(--line); }
+        .promise .proof b{ color:var(--ember); font-weight:500; }
+
+        /* success */
+        .done-state{ display:none; text-align:center; padding:40px 0; animation:fadeUp .7s ease-out both; }
+        .done-state.show{ display:block; }
+        .done-state h2{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9rem,5vw,2.5rem);
+                        margin:14px 0 18px; letter-spacing:-0.02em; }
+        .done-state p{ color:var(--muted); font-size:15.5px; max-width:34rem; margin:0 auto 14px; line-height:1.65; }
+        .done-state .ps{ color:var(--sea); font-size:14.5px; }
+        .done-state .go{ display:inline-block; margin-top:22px; color:var(--paper); opacity:.7; text-decoration:none;
+                         font-size:14px; border-bottom:1px solid var(--line); padding-bottom:2px; }
+        .done-state .go:hover{ opacity:1; color:var(--sea); }
+        .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+    </style>
+    <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-in">
+            <a href="/" class="brand">EDUCATED<span>TRAVELER</span></a>
+            <div class="nav-links">
+                <a href="/browse">The Atlas</a>
+                <a href="/lab-weeks">Lab Weeks</a>
+                <a href="/about">The Story</a>
+                <a href="/journal/">Journal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="wrap">
+        <div class="card" id="card">
+
+            <div class="rail" aria-hidden="true">
+                <i id="r0" class="on"></i><i id="r1"></i><i id="r2"></i><i id="r3"></i><i id="r4"></i>
+            </div>
+
+            <!-- BEAT 1 — the door -->
+            <section class="beat show" id="beat0" aria-label="Step 1: your name">
+                <p class="eyebrow" style="margin-bottom:20px;">The Circle</p>
+                <h1 class="hook">Tell me the craft you'd give a week of your life to learn.<br>Then I go build it for you.</h1>
+                <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley — the master, the place, the people who'd
+                    rather do a thing than watch it. The Circle is the small group I plan every week around, and I open new
+                    ones to them first. Leave your name and I'll keep you close to the fire.</p>
+
+                <div class="field">
+                    <label class="fld"><span class="lbl">Your name</span>
+                        <input type="text" id="f_name" placeholder="What should I call you?" autocomplete="given-name" required>
+                    </label>
+                </div>
+                <div class="field">
+                    <label class="fld"><span class="lbl">Where I reach you</span>
+                        <input type="email" id="f_email" placeholder="you@wherever.com" autocomplete="email" required>
+                    </label>
+                    <p class="help">No noise. I write when there's a real week to tell you about — nothing else.</p>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go0">Keep me close &rarr;</button>
+                </div>
+                <p class="err" id="err0"></p>
+            </section>
+
+            <!-- BEAT 2 — worlds → craft -->
+            <section class="beat" id="beat1" aria-label="Step 2: the craft">
+                <button class="back" data-back="0">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">What pulls at you</p>
+                <h2 class="q">Which world pulls hardest?</h2>
+                <p class="sub-tight">Pick one to start — then choose the craft you'd actually want in your hands.</p>
+
+                <div class="chips" id="worlds"></div>
+
+                <div class="worldwrap" id="discwrap" style="display:none;">
+                    <div class="disc-head">
+                        <span class="lbl" id="disc-lbl">The craft</span>
+                        <span class="count" id="disc-count">pick up to 3</span>
+                    </div>
+                    <div class="chips" id="discs"></div>
+                    <div class="field" style="margin-top:16px;">
+                        <label class="fld"><span class="lbl">Not on the wall?</span>
+                            <input type="text" id="f_open" placeholder="Name the craft in your own words">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go1" disabled>Next &rarr;</button>
+                </div>
+                <p class="err" id="err1"></p>
+            </section>
+
+            <!-- BEAT 3 — how ready -->
+            <section class="beat" id="beat2" aria-label="Step 3: how ready are you">
+                <button class="back" data-back="1">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">How ready are you</p>
+                <h2 class="q">Be honest — it just helps me plan.</h2>
+                <p class="sub-tight">There's no wrong answer, and you can skip the whole thing.</p>
+
+                <div class="field">
+                    <span class="lbl">When could you go?</span>
+                    <div class="chips" data-single="timing" id="g_timing"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">How long could you give it?</span>
+                    <div class="chips" data-single="length" id="g_length"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">Where are you with it?</span>
+                    <div class="chips" data-single="depth" id="g_depth"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">How far would you travel?</span>
+                    <div class="chips" data-single="reach" id="g_reach"></div>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go2">Next &rarr;</button>
+                    <button class="quiet" data-skip="3">Skip this &rarr;</button>
+                </div>
+            </section>
+
+            <!-- BEAT 4 — the dream -->
+            <section class="beat" id="beat3" aria-label="Step 4: your dream">
+                <button class="back" data-back="2">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">In your own words</p>
+                <h2 class="q">If I could build one week just for you — what would it be?</h2>
+                <p class="sub-tight">Name the craft, the place, even the person, if you know it. Tell me why it pulls at you.</p>
+
+                <div class="field">
+                    <label class="fld"><span class="sr">Your dream week</span>
+                        <textarea id="f_dream" placeholder="e.g. &ldquo;A week of modernist technique in Barcelona — I've watched the work for years and I want to actually do it, not just read about it.&rdquo; Or just a feeling. Whatever's true."></textarea>
+                    </label>
+                    <p class="help">One sentence or ten. I read every one myself.</p>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go3">Next &rarr;</button>
+                    <button class="quiet" data-skip="4">I'll tell you later &rarr;</button>
+                </div>
+            </section>
+
+            <!-- BEAT 5 — where + promise + submit -->
+            <section class="beat" id="beat4" aria-label="Step 5: last thing">
+                <button class="back" data-back="3">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">Last thing</p>
+                <h2 class="q">Where in the world are you?</h2>
+                <p class="sub-tight">City or country is plenty — so when something opens near you, you're the first to know.</p>
+
+                <div class="field">
+                    <label class="fld"><span class="sr">Your location</span>
+                        <input type="text" id="f_region" placeholder="e.g. Lisbon, or just Portugal" autocomplete="country-name">
+                    </label>
+                </div>
+
+                <div class="promise">
+                    <p>Here's my promise. You've told me what you'd give a week of your life to. Now that's my job: I go find
+                        the master who really teaches it, the place where it actually lives, and the handful of others chasing
+                        the same fire — and when it's real, you hear from me first. I don't sell you a week. I build it, then
+                        I open the door.</p>
+                    <p class="proof">The first one is already taking shape — <b>a modernist cooking week in Barcelona, this
+                        autumn</b>. Yours could be next.</p>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="submit">I'm in the Circle &rarr;</button>
+                </div>
+                <p class="signoff">Free. No account, no password. Leave whenever you like.</p>
+                <p class="err" id="err4"></p>
+            </section>
+
+            <!-- SUCCESS -->
+            <section class="done-state" id="done" aria-live="polite">
+                <p class="eyebrow">You're in</p>
+                <h2 id="done-h">Welcome to the Circle.</h2>
+                <p>That's it — you're on the inside now. I've got what you told me, and I'll take it from here: finding the
+                    master, the place, and your people. When there's a real week to tell you about — starting with Barcelona
+                    this autumn — you'll be among the first to hear it. Watch for a note from me, Arnaud. Not a newsletter. A letter.</p>
+                <p class="ps" id="done-ps" style="display:none;">And that thing you asked for? It's on my list. I mean that.</p>
+                <a class="go" href="/browse">Wander the Atlas while you wait &rarr;</a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Supabase: the Circle writes to launch_waitlist (an audience we own, not a sales list) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+
+    <script>
+    (function(){
+        'use strict';
+
+        // ── Real Atlas worlds → real disciplines (trust lock: every name is a live Atlas craft) ──
+        var WORLDS = [
+            { key:'The Wild',          teaser:'freediving on one breath · sailing a yacht · climbing real rock',
+              discs:['Freediving','Scuba Diving','Spearfishing','Sailing & Yachtmaster','Surfing','Kitesurfing',
+                     'Rock Climbing','Alpinism & Mountaineering','Ski-touring & Splitboard','Paragliding','Whitewater Kayaking'] },
+            { key:'Kitchen & Cellar',  teaser:'modernist technique in Barcelona · sushi in Japan · bread in a French boulangerie',
+              discs:['Modernist Spanish Cuisine','New Basque Cuisine','Classical French Cuisine','French Pastry & Patisserie',
+                     'Bread & Boulangerie','Sushi & Washoku','Italian Cuisine & Pasta','Thai Cuisine','Oaxacan & Mexican Cuisine',
+                     'Peruvian Cuisine','Wine & Sommellerie','Coffee & Barista'] },
+            { key:'Craft & Art',       teaser:'forging a blade · throwing pottery · the perfumer’s organ',
+              discs:['Pottery & Ceramics','Woodworking & Joinery','Blacksmithing & Bladesmithing','Glassblowing',
+                     'Photography','Filmmaking','Textiles & Weaving','Natural Dyeing','Leatherwork','Jewelry & Goldsmithing',
+                     'Perfumery','Lutherie & Instrument-making'] },
+            { key:'Movement',          teaser:'Argentine tango · flamenco in Jerez · capoeira',
+              discs:['Argentine Tango','Flamenco & Dance','Capoeira','Salsa','Ecstatic Dance & Movement','Bharatanatyam Indian Classical Dance'] },
+            { key:'Body & Spirit',     teaser:'Ashtanga in Mysore · breathwork · Vipassana silence',
+              discs:['Hatha & Vinyasa Yoga','Ashtanga Yoga','Iyengar Yoga','Kundalini Yoga','Pranayama & Breathwork',
+                     'Vipassana & Meditation','Ayurveda','Thai Massage','Sound Healing','Tai Chi & Qigong','Cold Exposure (Wim Hof Method)'] }
+        ];
+        var GRADIENTS = {
+            timing: [['ready-now',"I'm ready now"],['this-year','This year'],['next-year','Next year'],['someday','Someday — I’m dreaming']],
+            length: [['weekend','A weekend'],['most-week','Most of a week'],['full-week','A full week or more'],['open','As long as it takes']],
+            depth:  [['beginner','Total beginner'],['dabbled','I’ve dabbled'],['deeper','I practice — want to go deeper'],['mastery','Serious — chasing mastery']],
+            reach:  [['close','Close to home'],['region','My region / a short hop'],['world','Across the world for the right one']]
+        };
+
+        // ── state ──
+        var state = { name:'', email:'', world:null, discs:[], open:'', timing:null, length:null, depth:null, reach:null, dream:'', region:'' };
+        var MAX_DISCS = 3;
+        var current = 0;
+
+        function $(id){ return document.getElementById(id); }
+        function rails(){ for(var i=0;i<5;i++){ var el=$('r'+i); el.className = i<current?'done':(i===current?'on':''); } }
+        function show(n){
+            var beats=document.querySelectorAll('.beat');
+            beats.forEach(function(b){ b.classList.remove('show'); });
+            $('beat'+n).classList.add('show');
+            current=n; rails();
+            $('card').scrollIntoView({behavior:'smooth', block:'start'});
+            var f=$('beat'+n).querySelector('input,textarea'); if(f) setTimeout(function(){ f.focus(); }, 350);
+        }
+
+        // ── beat 1 ──
+        function validEmail(e){ return /.+@.+\..+/.test(e); }
+        $('go0').addEventListener('click', function(){
+            var name=$('f_name').value.trim(), email=$('f_email').value.trim();
+            var err=$('err0');
+            if(!name){ err.textContent='Just your first name is enough.'; err.style.display='block'; $('f_name').focus(); return; }
+            if(!validEmail(email)){ err.textContent='I need a real email to reach you.'; err.style.display='block'; $('f_email').focus(); return; }
+            err.style.display='none'; state.name=name; state.email=email; show(1);
+        });
+
+        // ── beat 2: worlds + disciplines ──
+        var worldsEl=$('worlds');
+        WORLDS.forEach(function(w){
+            var b=document.createElement('button');
+            b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false');
+            b.innerHTML=w.key+'<small>'+w.teaser+'</small>';
+            b.addEventListener('click', function(){ pickWorld(w, b); });
+            worldsEl.appendChild(b);
+        });
+        function pickWorld(w, btn){
+            Array.prototype.forEach.call(worldsEl.children, function(c){ c.setAttribute('aria-pressed','false'); });
+            btn.setAttribute('aria-pressed','true');
+            if(state.world!==w.key){ state.discs=[]; }
+            state.world=w.key;
+            $('disc-lbl').textContent='The craft — in ' + w.key;
+            var wrap=$('discwrap'); wrap.style.display='block';
+            var box=$('discs'); box.innerHTML='';
+            w.discs.forEach(function(d){
+                var c=document.createElement('button');
+                c.className='chip'; c.type='button'; c.setAttribute('aria-pressed', state.discs.indexOf(d)>=0?'true':'false');
+                c.textContent=d;
+                c.addEventListener('click', function(){ toggleDisc(d, c); });
+                box.appendChild(c);
+            });
+            updateGo1();
+        }
+        function toggleDisc(d, c){
+            var i=state.discs.indexOf(d);
+            if(i>=0){ state.discs.splice(i,1); c.setAttribute('aria-pressed','false'); }
+            else{
+                if(state.discs.length>=MAX_DISCS){ return; }
+                state.discs.push(d); c.setAttribute('aria-pressed','true');
+            }
+            $('disc-count').textContent = state.discs.length ? (state.discs.length+' of '+MAX_DISCS+' chosen') : 'pick up to 3';
+            updateGo1();
+        }
+        $('f_open').addEventListener('input', function(){ state.open=this.value.trim(); updateGo1(); });
+        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open); }
+        $('go1').addEventListener('click', function(){
+            if($('go1').disabled) return; show(2);
+        });
+
+        // ── beat 3: gradients ──
+        Object.keys(GRADIENTS).forEach(function(k){
+            var box=$('g_'+k);
+            GRADIENTS[k].forEach(function(pair){
+                var b=document.createElement('button');
+                b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false'); b.textContent=pair[1];
+                b.addEventListener('click', function(){
+                    var chosen = state[k]===pair[0];
+                    Array.prototype.forEach.call(box.children, function(c){ c.setAttribute('aria-pressed','false'); });
+                    if(chosen){ state[k]=null; }
+                    else{ b.setAttribute('aria-pressed','true'); state[k]=pair[0]; }
+                });
+                box.appendChild(b);
+            });
+        });
+        $('go2').addEventListener('click', function(){ show(3); });
+
+        // ── beat 4 ──
+        $('go3').addEventListener('click', function(){ state.dream=$('f_dream').value.trim(); show(4); });
+
+        // skip + back
+        document.querySelectorAll('[data-skip]').forEach(function(b){
+            b.addEventListener('click', function(){
+                if(current===3){ state.dream=$('f_dream').value.trim(); }
+                show(parseInt(b.getAttribute('data-skip'),10));
+            });
+        });
+        document.querySelectorAll('[data-back]').forEach(function(b){
+            b.addEventListener('click', function(){ show(parseInt(b.getAttribute('data-back'),10)); });
+        });
+
+        // ── build the JSONB payload ──
+        function buildInterests(){
+            var arr=[{ kind:'profile', name:state.name, region:state.region||null }];
+            state.discs.forEach(function(d){ arr.push({ kind:'discipline', world:state.world, discipline:d }); });
+            if(state.open){ arr.push({ kind:'discipline', world:state.world, discipline:null, open:state.open }); }
+            if(state.timing||state.length||state.depth||state.reach){
+                arr.push({ kind:'intent', timing:state.timing, length:state.length, depth:state.depth, reach:state.reach });
+            }
+            if(state.dream){ arr.push({ kind:'dream', text:state.dream }); }
+            return arr;
+        }
+
+        // ── submit (single clean insert; anon INSERT is allowed, SELECT is admin-only) ──
+        $('submit').addEventListener('click', async function(){
+            state.region=$('f_region').value.trim();
+            state.dream = state.dream || $('f_dream').value.trim();
+            var btn=this, err=$('err4');
+            err.style.display='none'; btn.disabled=true; btn.textContent='One moment…';
+            var payload={ email:state.email, interests:buildInterests(), source:'circle-questionnaire' };
+
+            try{
+                var sb = window.supabaseClient;
+                if(sb){
+                    var res = await sb.from('launch_waitlist').insert(payload);
+                    if(res && res.error) throw res.error;
+                }else{
+                    // Preview / offline: no client — simulate so the flow is fully visible.
+                    console.log('[Circle] preview payload →', JSON.stringify(payload, null, 2));
+                    await new Promise(function(r){ setTimeout(r, 500); });
+                }
+                if(window.plausible) window.plausible('CircleJoin', { props:{ source:'circle-questionnaire', crafts:state.discs.length } });
+                finish();
+            }catch(e){
+                console.error('[Circle] insert failed:', e);
+                btn.disabled=false; btn.textContent="I'm in the Circle →";
+                err.innerHTML='Couldn’t save that just now — try again, or email <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
+                err.style.display='block';
+            }
+        });
+
+        function finish(){
+            $('done-h').textContent='Welcome to the Circle, ' + state.name + '.';
+            if(state.dream){ $('done-ps').style.display='block'; }
+            document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });
+            $('card').querySelector('.rail').style.display='none';
+            $('done').classList.add('show');
+            current=4; rails();
+            $('card').scrollIntoView({behavior:'smooth', block:'start'});
+            if(window.plausible) window.plausible('CircleJoinComplete');
+        }
+    })();
+    </script>
+</body>
+</html>
