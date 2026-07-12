@@ -231,7 +231,21 @@
             <!-- BEAT 0 — the door: who you are -->
             <section class="beat show" id="beat0" aria-label="Step 1: your name">
                 <p class="eyebrow" style="margin-bottom:20px;">Your place in the Circle</p>
-                <h1 class="hook">Go where the craft is<br>still alive — and find<br>your people there.</h1>
+                <h1 class="hook" id="hero-hook">Go where the craft is<br>still alive — and find<br>your people there.</h1>
+                <script>
+                (function(){
+                    var h=document.getElementById('hero-hook'); if(!h) return;
+                    try{ if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return; }catch(e){}
+                    var B=h.innerHTML;
+                    var A="Tell me the craft you'd give a week of your life to learn.<br>Then I go build it for you.";
+                    h.style.transition="opacity .5s ease";
+                    h.innerHTML=A;            // open on the promise…
+                    setTimeout(function(){   // …then become the place
+                        h.style.opacity="0";
+                        setTimeout(function(){ h.innerHTML=B; h.style.opacity="1"; }, 520);
+                    }, 2600);
+                })();
+                </script>
                 <p class="sub">I'm Arnaud. Tell me what you'd love to learn, and I'll take you to the place where it's
                     genuinely alive: a real master who teaches it, and the handful of others chasing the same fire. This
                     isn't a form — it's how I find the door that's <em>yours</em>. Take your time. I read every word myself.</p>
