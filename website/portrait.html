@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your place in the Circle — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Take your place in the Circle. Tell me who you are, the craft you'd give a week of your life to learn, and write me the letter — I read every one, and I build from them.">
+    <link rel="canonical" href="https://educatedtraveler.app/portrait">
+    <meta property="og:title" content="Your place in the Circle — EDUCATEDTRAVELER">
+    <meta property="og:description" content="Tell me who you are and write me the letter. I read every one — and I build from them.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.app/portrait">
+    <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <meta property="og:site_name" content="EducatedTraveler">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/images/favicon-32.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── Warm-Dark Editorial (ET relook lock) ── */
+        :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
+               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
+               /* the letter's real paper */
+               --sheet:#efe6d3; --sheet-edge:#e2d6bd; --sheet-ink:#2c231a; --sheet-faint:#6f6350; }
+        *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
+        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
+              min-height:100vh; line-height:1.55; }
+        ::selection{ background:rgba(210,138,82,0.30); }
+        .serif{ font-family:'Fraunces',Georgia,serif; font-weight:300; letter-spacing:-0.01em; }
+        .mono{ font-family:'IBM Plex Mono',ui-monospace,monospace; }
+        body::before{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+            background:
+                radial-gradient(900px 600px at 15% -8%, rgba(127,168,165,0.10), transparent 60%),
+                radial-gradient(800px 620px at 92% 6%, rgba(210,138,82,0.09), transparent 55%); }
+
+        .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.30em;
+                  text-transform:uppercase; color:var(--sea); }
+
+        /* nav */
+        nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(13,11,9,0.72);
+             backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+        .nav-in{ max-width:1100px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; }
+        .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:0.16em; font-size:15px; color:var(--paper); text-decoration:none; }
+        .brand span{ color:var(--sea); }
+        .nav-links{ display:flex; gap:26px; align-items:center; }
+        .nav-links a{ color:var(--paper); opacity:.56; text-decoration:none; font-size:13.5px; transition:opacity .25s,color .25s; }
+        .nav-links a:hover{ opacity:1; color:var(--sea); }
+        @media(max-width:720px){ .nav-links{ display:none; } }
+
+        /* shell */
+        .wrap{ max-width:600px; margin:0 auto; padding:118px 22px 90px; }
+        .card{ position:relative; }
+
+        /* progress rail */
+        .rail{ display:flex; gap:7px; margin-bottom:34px; }
+        .rail i{ height:2px; flex:1; background:rgba(243,237,226,0.12); border-radius:2px; transition:background .5s ease; }
+        .rail i.on{ background:var(--sea); }
+        .rail i.done{ background:var(--ember); }
+
+        /* beats */
+        .beat{ display:none; }
+        .beat.show{ display:block; animation:fadeUp .6s ease-out both; }
+        @keyframes fadeUp{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+        @media(prefers-reduced-motion:reduce){ .beat.show{ animation:none; } }
+        h1.hook{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9rem,5.2vw,2.7rem);
+                 line-height:1.16; letter-spacing:-0.02em; margin-bottom:18px; text-wrap:balance; }
+        h2.q{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.5rem,4.4vw,2.05rem);
+              line-height:1.2; letter-spacing:-0.015em; margin-bottom:10px; text-wrap:balance; }
+        .sub{ color:var(--muted); font-size:15px; margin-bottom:26px; }
+        .sub-tight{ color:var(--muted); font-size:14.5px; margin-bottom:20px; }
+        .signoff{ color:var(--faint); font-size:13px; margin-top:10px; }
+
+        label.fld{ display:block; }
+        .lbl{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase;
+              color:var(--faint); margin-bottom:9px; display:block; }
+        input[type=text], input[type=email], textarea{
+            width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16);
+            border-radius:14px; color:var(--paper); font-family:inherit; font-size:15px; padding:14px 16px;
+            outline:none; transition:border-color .25s, box-shadow .25s; }
+        textarea{ resize:vertical; min-height:118px; line-height:1.6; }
+        input::placeholder, textarea::placeholder{ color:rgba(243,237,226,0.30); }
+        input:focus, textarea:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+        .help{ color:var(--faint); font-size:12.5px; margin-top:8px; line-height:1.5; }
+        .field{ margin-bottom:20px; }
+
+        /* chips */
+        .chips{ display:flex; flex-wrap:wrap; gap:9px; }
+        .chip{ font-family:inherit; font-size:13.5px; color:var(--muted); background:rgba(243,237,226,0.03);
+               border:1px solid rgba(243,237,226,0.15); border-radius:11px; padding:10px 14px; cursor:pointer;
+               transition:all .18s ease; text-align:left; }
+        .chip:hover{ border-color:rgba(243,237,226,0.34); color:var(--paper); }
+        .chip[aria-pressed="true"], .chip.sel{ border-color:var(--sea); background:rgba(127,168,165,0.13); color:var(--paper); }
+        .chip:focus-visible{ outline:2px solid var(--sea); outline-offset:2px; }
+        .chip small{ display:block; font-size:11px; color:var(--faint); margin-top:3px; letter-spacing:0; }
+        .chip[aria-pressed="true"] small{ color:var(--muted); }
+        .chip .badge{ display:inline-block; margin-left:8px; font-family:'IBM Plex Mono',monospace; font-size:10px;
+                      color:#14110d; background:var(--sea); border-radius:8px; padding:1px 6px; vertical-align:1px; }
+        /* the running "your crafts" tray — chosen across every world */
+        .chosen-wrap{ margin-top:22px; }
+        .chip.chosen{ border-color:var(--sea); background:rgba(127,168,165,0.13); color:var(--paper); padding-right:11px; }
+        .chip.chosen .x{ margin-left:9px; color:var(--faint); font-family:'IBM Plex Mono',monospace; }
+        .chip.chosen:hover .x{ color:var(--ember); }
+        /* "…or in your own words" — a quiet write line under any chip question (perception first) */
+        .own{ margin-top:12px; }
+        .own input[type=text]{ background:transparent; border:none; border-bottom:1px solid rgba(243,237,226,0.14);
+              border-radius:0; padding:8px 2px; font-size:14.5px; box-shadow:none; }
+        .own input[type=text]:focus{ border-color:transparent; border-bottom-color:rgba(127,168,165,0.7); box-shadow:none; }
+        .own input[type=text]::placeholder{ color:rgba(243,237,226,0.26); font-style:italic; }
+
+        .worldwrap{ margin-top:22px; }
+        .disc-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:11px; }
+        .disc-head .lbl{ margin-bottom:0; }
+        .count{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--faint); }
+
+        /* buttons */
+        .cta{ font-family:inherit; font-size:15px; font-weight:500; color:#14110d; border:none; cursor:pointer;
+              background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); border-radius:999px;
+              padding:14px 26px; transition:transform .25s, box-shadow .25s, filter .25s; }
+        .cta:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(127,168,165,0.24); filter:brightness(1.04); }
+        .cta:focus-visible{ outline:2px solid var(--paper); outline-offset:3px; }
+        .cta:disabled{ opacity:.5; cursor:not-allowed; transform:none; box-shadow:none; }
+        .row{ display:flex; align-items:center; gap:18px; margin-top:26px; flex-wrap:wrap; }
+        .quiet{ background:none; border:none; color:var(--faint); font-family:inherit; font-size:13px; cursor:pointer;
+                text-decoration:none; transition:color .25s; padding:6px 0; }
+        .quiet:hover{ color:var(--sea); }
+        .back{ background:none; border:none; color:var(--faint); font-family:'IBM Plex Mono',monospace; font-size:11px;
+               letter-spacing:0.12em; cursor:pointer; margin-bottom:20px; transition:color .25s; }
+        .back:hover{ color:var(--paper); }
+        .err{ color:#f0a58a; font-size:13px; margin-top:12px; display:none; }
+
+        /* ── THE LETTER — a real sheet of paper on the dark page ── */
+        .sheet-wrap{ margin:6px 0 4px; perspective:1400px; }
+        .sheet{ position:relative; background:linear-gradient(180deg,var(--sheet) 0%, #ece1cc 100%);
+                border-radius:5px; padding:30px 30px 26px; color:var(--sheet-ink);
+                box-shadow:0 1px 0 rgba(255,255,255,0.35) inset, 0 30px 60px -24px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.35);
+                border:1px solid var(--sheet-edge); }
+        .sheet::after{ /* a soft torn/top-bound feel */ content:""; position:absolute; left:14px; right:14px; top:0; height:1px;
+                       background:linear-gradient(90deg,transparent,rgba(0,0,0,0.10),transparent); }
+        .sheet .to{ font-family:'Fraunces',Georgia,serif; font-size:19px; color:var(--sheet-ink); margin-bottom:2px; }
+        .sheet .date{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
+                      color:var(--sheet-faint); margin-bottom:16px; }
+        .sheet textarea.paper{
+            width:100%; min-height:210px; background:transparent; border:none; outline:none; resize:vertical;
+            color:var(--sheet-ink); font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:17px; line-height:34px;
+            /* ruled lines that follow the writing */
+            background-image:repeating-linear-gradient(transparent, transparent 33px, rgba(44,35,26,0.14) 33px, rgba(44,35,26,0.14) 34px);
+            padding:0; }
+        .sheet textarea.paper::placeholder{ color:rgba(44,35,26,0.34); font-style:italic; }
+        .sheet .sign{ margin-top:18px; text-align:right; }
+        .sheet .sign .yours{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:15px; color:var(--sheet-faint); }
+        .sheet .sign .name{ font-family:'Caveat','Fraunces',cursive; font-size:30px; line-height:1; color:#3a2c1e; margin-top:2px; }
+        .prompts{ display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 4px; }
+        .prompts button{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
+                         color:var(--faint); background:rgba(243,237,226,0.03); border:1px dashed rgba(243,237,226,0.20);
+                         border-radius:20px; padding:7px 12px; cursor:pointer; transition:all .2s; }
+        .prompts button:hover{ color:var(--sea); border-color:var(--sea); }
+        .letter-note{ color:var(--faint); font-size:12.5px; margin-top:14px; line-height:1.55; }
+        .letter-note b{ color:var(--ember); font-weight:500; }
+
+        /* ── PORTRAIT recap (you, the actor) ── */
+        .portrait{ border:1px solid var(--line); border-radius:16px; background:rgba(243,237,226,0.022);
+                   padding:24px 24px 20px; margin:20px 0 6px; }
+        .portrait .pline{ display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+        .portrait .pline:last-child{ border-bottom:none; }
+        .portrait .pk{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
+                       color:var(--faint); flex:0 0 116px; }
+        .portrait .pv{ color:var(--paper); font-size:15px; }
+        .portrait .pv.serif{ font-family:'Fraunces',Georgia,serif; }
+        .portrait .pv .tag{ display:inline-block; margin:0 6px 6px 0; padding:4px 10px; border:1px solid var(--sea);
+                            background:rgba(127,168,165,0.12); border-radius:10px; font-size:13px; }
+        .portrait .pv.letterprev{ color:var(--muted); font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:14.5px;
+                                  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+        /* auth / status pill */
+        .who{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+              letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); margin-bottom:18px; }
+        .who .dot{ width:6px; height:6px; border-radius:50%; background:var(--sea); box-shadow:0 0 10px var(--sea); }
+
+        /* success */
+        .done-state{ display:none; text-align:center; padding:26px 0 40px; animation:fadeUp .7s ease-out both; }
+        .done-state.show{ display:block; }
+        .done-state h2{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9rem,5vw,2.5rem);
+                        margin:14px 0 18px; letter-spacing:-0.02em; text-wrap:balance; }
+        .done-state p{ color:var(--muted); font-size:15.5px; max-width:34rem; margin:0 auto 14px; line-height:1.65; }
+        .done-state .ps{ color:var(--sea); font-size:14.5px; }
+        .done-state .go{ display:inline-block; margin-top:22px; color:var(--paper); opacity:.7; text-decoration:none;
+                         font-size:14px; border-bottom:1px solid var(--line); padding-bottom:2px; }
+        .done-state .go:hover{ opacity:1; color:var(--sea); }
+        .seal{ width:58px; height:58px; margin:0 auto; border-radius:50%; display:grid; place-items:center;
+               background:radial-gradient(circle at 35% 30%, #e49a5f, #c0632f 70%); color:#2c1608;
+               font-family:'Fraunces',serif; font-size:22px; box-shadow:0 10px 30px -10px rgba(192,99,47,0.7); }
+
+        .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+        .center{ text-align:center; }
+        .spin{ display:inline-block; width:16px; height:16px; border:2px solid rgba(243,237,226,0.25);
+               border-top-color:var(--sea); border-radius:50%; animation:sp .7s linear infinite; vertical-align:-3px; }
+        @keyframes sp{ to{ transform:rotate(360deg); } }
+    </style>
+    <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-in">
+            <a href="/" class="brand">EDUCATED<span>TRAVELER</span></a>
+            <div class="nav-links">
+                <a href="/browse">The Atlas</a>
+                <a href="/lab-weeks">Lab Weeks</a>
+                <a href="/about">The Story</a>
+                <a href="/journal/">Journal</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="wrap">
+        <div class="card" id="card">
+
+            <div class="rail" aria-hidden="true">
+                <i id="r0" class="on"></i><i id="r1"></i><i id="r2"></i><i id="r3"></i><i id="r4"></i><i id="r5"></i>
+            </div>
+
+            <!-- BEAT 0 — the door: who you are -->
+            <section class="beat show" id="beat0" aria-label="Step 1: your name">
+                <p class="eyebrow" style="margin-bottom:20px;">Your place in the Circle</p>
+                <h1 class="hook">Go where the craft is<br>still alive — and find<br>your people there.</h1>
+                <p class="sub">I'm Arnaud. Tell me what you'd love to learn, and I'll take you to the place where it's
+                    genuinely alive: a real master who teaches it, and the handful of others chasing the same fire. This
+                    isn't a form — it's how I find the door that's <em>yours</em>. Take your time. I read every word myself.</p>
+
+                <div class="field">
+                    <label class="fld"><span class="lbl">What should I call you</span>
+                        <input type="text" id="f_name" placeholder="Your first name" autocomplete="given-name" required>
+                    </label>
+                </div>
+                <div class="field" id="emailField">
+                    <label class="fld"><span class="lbl">Where I reach you</span>
+                        <input type="email" id="f_email" placeholder="you@wherever.com" autocomplete="email" required>
+                    </label>
+                    <p class="help">This is the address your Circle account lives at. One click from my email signs you
+                        straight in — no password to remember.</p>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go0">Begin my portrait &rarr;</button>
+                </div>
+                <p class="err" id="err0"></p>
+            </section>
+
+            <!-- BEAT 1 — you -->
+            <section class="beat" id="beat1" aria-label="Step 2: about you">
+                <button class="back" data-back="0">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">You, right now</p>
+                <h2 class="q">Where are you standing as you read this?</h2>
+                <p class="sub-tight">A quick sketch of you. None of it's required — but the more I know, the better I aim.</p>
+
+                <div class="field">
+                    <label class="fld"><span class="lbl">What you do with your days</span>
+                        <input type="text" id="f_prof" placeholder="e.g. nurse, sailor, still figuring it out" autocomplete="organization-title">
+                    </label>
+                </div>
+                <div class="field">
+                    <span class="lbl">What brought you to the door</span>
+                    <div class="chips" data-single="lifestage" id="g_lifestage"></div>
+                    <div class="own"><input type="text" id="f_lifestage_own" placeholder="…or say it in your own words"></div>
+                </div>
+                <div class="field">
+                    <label class="fld"><span class="lbl">Where in the world you are</span>
+                        <input type="text" id="f_region" placeholder="e.g. Lisbon, or just Portugal" autocomplete="country-name">
+                    </label>
+                    <p class="help">So when a week opens near you, you're the first to know.</p>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go1">Next &rarr;</button>
+                    <button class="quiet" data-skip="2">Skip this &rarr;</button>
+                </div>
+            </section>
+
+            <!-- BEAT 2 — the craft -->
+            <section class="beat" id="beat2" aria-label="Step 3: the craft">
+                <button class="back" data-back="1">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">What keeps calling you</p>
+                <h2 class="q">The crafts you'd give a week of your life to learn.</h2>
+                <p class="sub-tight">Open any world and pick freely — as many as you like, from as many worlds as you like.
+                    Your choices stay put when you move between them.</p>
+
+                <div class="chips" id="worlds"></div>
+
+                <div class="worldwrap" id="discwrap" style="display:none;">
+                    <div class="disc-head">
+                        <span class="lbl" id="disc-lbl">The craft</span>
+                        <span class="count" id="disc-count">pick as many as you like</span>
+                    </div>
+                    <div class="chips" id="discs"></div>
+                    <div class="field" style="margin-top:16px;">
+                        <label class="fld"><span class="lbl">Not on the wall?</span>
+                            <input type="text" id="f_open" placeholder="Name the craft in your own words">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="chosen-wrap" id="chosenWrap" style="display:none;">
+                    <div class="disc-head">
+                        <span class="lbl">Your crafts</span>
+                        <span class="count" id="chosen-count"></span>
+                    </div>
+                    <div class="chips" id="chosen"></div>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go2" disabled>Next &rarr;</button>
+                </div>
+                <p class="err" id="err2"></p>
+            </section>
+
+            <!-- BEAT 3 — where you're starting from -->
+            <section class="beat" id="beat3" aria-label="Step 4: where you're starting from">
+                <button class="back" data-back="2">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">Where you're starting from</p>
+                <h2 class="q">Be honest — it just helps me plan.</h2>
+                <p class="sub-tight">There's no wrong answer, and you can skip the whole thing.</p>
+
+                <div class="field">
+                    <span class="lbl">Where are you with it?</span>
+                    <div class="chips" data-single="depth" id="g_depth"></div>
+                    <div class="own"><input type="text" id="f_depth_own" placeholder="…or in your own words"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">When could you go?</span>
+                    <div class="chips" data-single="timing" id="g_timing"></div>
+                    <div class="own"><input type="text" id="f_timing_own" placeholder="…or in your own words"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">How long could you give it?</span>
+                    <div class="chips" data-single="length" id="g_length"></div>
+                    <div class="own"><input type="text" id="f_length_own" placeholder="…or in your own words"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">How far would you travel?</span>
+                    <div class="chips" data-single="reach" id="g_reach"></div>
+                    <div class="own"><input type="text" id="f_reach_own" placeholder="…or in your own words"></div>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go3">Next &rarr;</button>
+                    <button class="quiet" data-skip="4">Skip this &rarr;</button>
+                </div>
+            </section>
+
+            <!-- BEAT 4 — THE LETTER -->
+            <section class="beat" id="beat4" aria-label="Step 5: your letter">
+                <button class="back" data-back="3">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">The letter — for me alone</p>
+                <h2 class="q">Now write to me.</h2>
+                <p class="sub-tight">Not to a form — to a person. Tell me the week you'd love to have, and the people you'd
+                    love to be in the room with. What you'd give anything to learn, and why it pulls at you. This is the part
+                    I build from.</p>
+
+                <div class="sheet-wrap">
+                    <div class="sheet">
+                        <div class="to" id="letter-to">Arnaud,</div>
+                        <div class="date" id="letter-date"></div>
+                        <label class="sr" for="f_letter">Your letter to Arnaud</label>
+                        <textarea class="paper" id="f_letter" placeholder="Write freely. The craft I can't stop thinking about is… The people I'd love to be around are… If you could build one week for me, it would…"></textarea>
+                        <div class="sign">
+                            <div class="yours">Speak soon,</div>
+                            <div class="name" id="letter-sign">—</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prompts" aria-label="Need a way in? Tap a prompt.">
+                    <button type="button" data-ins="The craft I can't stop thinking about is ">The craft I can't stop thinking about…</button>
+                    <button type="button" data-ins="The kind of people I'd love to be around are ">The people I'd love to meet…</button>
+                    <button type="button" data-ins="If you built one week just for me, it would ">The one week I'd build…</button>
+                    <button type="button" data-ins="What's really going on for me is ">What's really going on for me…</button>
+                </div>
+
+                <p class="letter-note">This letter is <b>private — it comes straight to me</b>, and to no one else. One
+                    sentence or two pages. There's no right length; there's only what's true.</p>
+
+                <div class="row">
+                    <button class="cta" id="go4">Seal the letter &rarr;</button>
+                    <button class="quiet" data-skip="5">I'll write it later &rarr;</button>
+                </div>
+            </section>
+
+            <!-- BEAT 5 — your portrait + save -->
+            <section class="beat" id="beat5" aria-label="Step 6: your portrait">
+                <button class="back" data-back="4">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">Your portrait</p>
+                <h2 class="q">Here's you, in your own words.</h2>
+                <p class="sub-tight">This is what lands on your Circle profile. Change anything by stepping back — or seal it,
+                    and it's mine to build from.</p>
+
+                <div class="portrait" id="portrait"></div>
+
+                <div class="row">
+                    <button class="cta" id="submit">Seal my place in the Circle &rarr;</button>
+                </div>
+                <p class="signoff" id="save-note">Saved to your account. You can come back and add to it any time.</p>
+                <p class="err" id="err5"></p>
+            </section>
+
+            <!-- MAGIC-LINK SENT (only when not signed in at save) -->
+            <section class="done-state" id="sent" aria-live="polite">
+                <div class="seal">✉</div>
+                <p class="eyebrow" style="margin-top:16px;">Check your email</p>
+                <h2>One click and your portrait saves itself.</h2>
+                <p>I've sent a link to <b id="sent-email"></b>. Open it and you'll land right back here, signed in — and
+                    everything you just wrote saves to your Circle profile automatically. The link is yours alone.</p>
+                <p class="ps">Didn't arrive in a minute? Check spam, or write me directly at
+                    <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
+            </section>
+
+            <!-- SUCCESS -->
+            <section class="done-state" id="done" aria-live="polite">
+                <div class="seal">✓</div>
+                <p class="eyebrow" style="margin-top:16px;">Sealed</p>
+                <h2 id="done-h">You have your place, now.</h2>
+                <p>That's it — you're on the inside. I've got your portrait and your letter, and I'll take it from here:
+                    finding the master, the place, and your people. When there's a real week to tell you about — starting
+                    with Barcelona this autumn — you'll be among the first to hear it. Not a newsletter. A letter back.</p>
+                <p class="ps" id="done-ps" style="display:none;">And that week you wrote me about? It's on my list now. I mean that.</p>
+                <a class="go" href="/browse">Wander the Atlas while you wait &rarr;</a>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+
+    <script>
+    (function(){
+        'use strict';
+
+        // ── Real Atlas worlds → real disciplines (trust lock: every name is a live Atlas craft) ──
+        var WORLDS = [
+            { key:'The Wild',          teaser:'freediving on one breath · sailing a yacht · climbing real rock',
+              discs:['Freediving','Scuba Diving','Spearfishing','Sailing & Yachtmaster','Surfing','Kitesurfing',
+                     'Rock Climbing','Alpinism & Mountaineering','Ski-touring & Splitboard','Paragliding','Whitewater Kayaking'] },
+            { key:'Kitchen & Cellar',  teaser:'modernist technique in Barcelona · sushi in Japan · bread in a French boulangerie',
+              discs:['Modernist Spanish Cuisine','New Basque Cuisine','Classical French Cuisine','French Pastry & Patisserie',
+                     'Bread & Boulangerie','Sushi & Washoku','Italian Cuisine & Pasta','Thai Cuisine','Oaxacan & Mexican Cuisine',
+                     'Peruvian Cuisine','Wine & Sommellerie','Coffee & Barista'] },
+            { key:'Craft & Art',       teaser:'forging a blade · throwing pottery · the perfumer’s organ',
+              discs:['Pottery & Ceramics','Woodworking & Joinery','Blacksmithing & Bladesmithing','Glassblowing',
+                     'Photography','Filmmaking','Textiles & Weaving','Natural Dyeing','Leatherwork','Jewelry & Goldsmithing',
+                     'Perfumery','Lutherie & Instrument-making'] },
+            { key:'Movement',          teaser:'Argentine tango · flamenco in Jerez · capoeira',
+              discs:['Argentine Tango','Flamenco & Dance','Capoeira','Salsa','Ecstatic Dance & Movement','Bharatanatyam Indian Classical Dance'] },
+            { key:'Body & Spirit',     teaser:'Ashtanga in Mysore · breathwork · Vipassana silence',
+              discs:['Hatha & Vinyasa Yoga','Ashtanga Yoga','Iyengar Yoga','Kundalini Yoga','Pranayama & Breathwork',
+                     'Vipassana & Meditation','Ayurveda','Thai Massage','Sound Healing','Tai Chi & Qigong','Cold Exposure (Wim Hof Method)'] }
+        ];
+        var LIFESTAGE = [
+            ['a-turn',"I'm at a turn — ready for something new"],
+            ['outgrew',"I outgrew the thing I chose too early"],
+            ['just-learn',"I just love to learn, and always will"],
+            ['burnt',"I need to step out and come back myself"],
+            ['deep',"I'm deep in a craft and want a true master"],
+            ['gift',"I want to give someone (or myself) this"]
+        ];
+        var GRADIENTS = {
+            depth:  [['beginner','Total beginner'],['dabbled','I’ve dabbled'],['deeper','I practice — want to go deeper'],['mastery','Serious — chasing mastery']],
+            timing: [['ready-now',"I'm ready now"],['this-year','This year'],['next-year','Next year'],['someday','Someday — I’m dreaming']],
+            length: [['weekend','A weekend'],['most-week','Most of a week'],['full-week','A full week or more'],['open','As long as it takes']],
+            reach:  [['close','Close to home'],['region','My region / a short hop'],['world','Across the world for the right one']]
+        };
+        function labelOf(group, key){
+            var src = group==='lifestage'?LIFESTAGE:GRADIENTS[group];
+            for(var i=0;i<src.length;i++){ if(src[i][0]===key) return src[i][1]; }
+            return null;
+        }
+
+        var DRAFT_KEY = 'et_portrait_draft_v1';
+
+        // ── state ──
+        var state = { name:'', email:'', prof:'', lifestage:null, lifestage_own:'', region:'',
+                      world:null, discs:[], open:'',
+                      depth:null, depth_own:'', timing:null, timing_own:'', length:null, length_own:'', reach:null, reach_own:'',
+                      letter:'' };
+        // a chip question's final answer — their own words win over the chip (perception first)
+        function answer(group){
+            var own = (state[group+'_own']||'').trim();
+            if(own) return own;
+            var key = state[group];
+            return key ? labelOf(group, key) : null;
+        }
+        var current = 0;
+        var session = null;   // supabase session if signed in
+        var userId = null;
+
+        function $(id){ return document.getElementById(id); }
+        function rails(){ for(var i=0;i<6;i++){ var el=$('r'+i); if(el) el.className = i<current?'done':(i===current?'on':''); } }
+        function show(n){
+            document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });
+            var b=$('beat'+n); if(b) b.classList.add('show');
+            current=n; rails();
+            if(n===2){ renderChosen(); renderWorldBadges(); }
+            if(n===4) syncSignature();
+            if(n===5) renderPortrait();
+            $('card').scrollIntoView({behavior:'smooth', block:'start'});
+            var f=b && b.querySelector('input,textarea'); if(f) setTimeout(function(){ try{ f.focus(); }catch(e){} }, 350);
+        }
+
+        // ── the letter: date + live signature ──
+        (function(){
+            try{
+                var d=new Date();
+                var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+                $('letter-date').textContent = months[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
+            }catch(e){ $('letter-date').textContent=''; }
+        })();
+        function syncSignature(){ $('letter-sign').textContent = state.name ? state.name : '—'; }
+
+        // ── beat 0 ──
+        function validEmail(e){ return /.+@.+\..+/.test(e); }
+        $('go0').addEventListener('click', function(){
+            var name=$('f_name').value.trim();
+            var email = session ? state.email : $('f_email').value.trim();
+            var err=$('err0');
+            if(!name){ err.textContent='Just your first name is enough.'; err.style.display='block'; $('f_name').focus(); return; }
+            if(!session && !validEmail(email)){ err.textContent='I need a real email to reach you — it’s where your account lives.'; err.style.display='block'; $('f_email').focus(); return; }
+            err.style.display='none'; state.name=name; state.email=email; syncSignature(); saveDraft(); show(1);
+        });
+
+        // ── beat 1: lifestage + profession + region ──
+        buildSingle('lifestage', $('g_lifestage'), LIFESTAGE);
+        $('go1').addEventListener('click', function(){ collectBeat1(); show(2); });
+        function collectBeat1(){ state.prof=$('f_prof').value.trim(); state.region=$('f_region').value.trim(); saveDraft(); }
+
+        // ── beat 2: worlds + disciplines (pick freely across EVERY world, no cap) ──
+        var worldsEl=$('worlds');
+        var worldBtns={};
+        var WORLD_OF={}; WORLDS.forEach(function(w){ w.discs.forEach(function(d){ WORLD_OF[d]=w.key; }); });
+        WORLDS.forEach(function(w){
+            var b=document.createElement('button');
+            b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false');
+            b.innerHTML='<span class="wlabel">'+w.key+'</span><small>'+w.teaser+'</small>';
+            b.addEventListener('click', function(){ pickWorld(w, b); });
+            worldsEl.appendChild(b); worldBtns[w.key]=b;
+        });
+        // world → crew-card interest category (colors + creature on the profile)
+        var WORLD_CAT = { 'The Wild':'adventure', 'Kitchen & Cellar':'culinary', 'Craft & Art':'creative', 'Movement':'creative', 'Body & Spirit':'wellness' };
+        var OCEAN_CRAFTS = { 'Freediving':1,'Scuba Diving':1,'Spearfishing':1,'Sailing & Yachtmaster':1,'Surfing':1,'Kitesurfing':1,'Whitewater Kayaking':1 };
+        function catOf(disc){ if(OCEAN_CRAFTS[disc]) return 'ocean'; return WORLD_CAT[WORLD_OF[disc]] || 'creative'; }
+        function countInWorld(key){ var n=0; state.discs.forEach(function(d){ if(WORLD_OF[d]===key) n++; }); return n; }
+        function renderWorldBadges(){
+            WORLDS.forEach(function(w){
+                var b=worldBtns[w.key], lbl=b.querySelector('.wlabel'); if(!lbl) return;
+                var ex=lbl.querySelector('.badge'); if(ex) ex.remove();
+                var n=countInWorld(w.key);
+                if(n>0){ var s=document.createElement('span'); s.className='badge'; s.textContent=n; lbl.appendChild(s); }
+            });
+        }
+        function pickWorld(w, btn){
+            // expand THIS world; every choice made in any world stays selected
+            Array.prototype.forEach.call(worldsEl.children, function(c){ c.setAttribute('aria-pressed','false'); });
+            btn.setAttribute('aria-pressed','true');
+            state.world=w.key;
+            $('disc-lbl').textContent='In ' + w.key;
+            $('discwrap').style.display='block';
+            var box=$('discs'); box.innerHTML='';
+            w.discs.forEach(function(d){
+                var c=document.createElement('button');
+                c.className='chip'; c.type='button'; c.setAttribute('aria-pressed', state.discs.indexOf(d)>=0?'true':'false');
+                c.textContent=d;
+                c.addEventListener('click', function(){ toggleDisc(d, c); });
+                box.appendChild(c);
+            });
+            updateGo2();
+        }
+        function toggleDisc(d, c){
+            var i=state.discs.indexOf(d);
+            if(i>=0){ state.discs.splice(i,1); if(c) c.setAttribute('aria-pressed','false'); }
+            else{ state.discs.push(d); if(c) c.setAttribute('aria-pressed','true'); }
+            afterCraftChange();
+        }
+        function afterCraftChange(){
+            $('disc-count').textContent = state.discs.length ? (state.discs.length+' chosen — keep going') : 'pick as many as you like';
+            renderChosen(); renderWorldBadges(); updateGo2(); saveDraft();
+        }
+        function renderChosen(){
+            var wrap=$('chosenWrap'), box=$('chosen'); box.innerHTML='';
+            if(!state.discs.length){ wrap.style.display='none'; return; }
+            wrap.style.display='block';
+            $('chosen-count').textContent = state.discs.length + (state.discs.length===1?' craft':' crafts');
+            state.discs.forEach(function(d){
+                var c=document.createElement('button'); c.className='chip chosen'; c.type='button';
+                c.setAttribute('aria-label','Remove '+d);
+                c.innerHTML=esc(d)+'<span class="x">×</span>';
+                c.addEventListener('click', function(){ removeDisc(d); });
+                box.appendChild(c);
+            });
+        }
+        function removeDisc(d){
+            var i=state.discs.indexOf(d); if(i>=0) state.discs.splice(i,1);
+            var box=$('discs'); if(box){ Array.prototype.forEach.call(box.children, function(c){ if(c.textContent===d) c.setAttribute('aria-pressed','false'); }); }
+            afterCraftChange();
+        }
+        $('f_open').addEventListener('input', function(){ state.open=this.value.trim(); updateGo2(); saveDraft(); });
+        function updateGo2(){ $('go2').disabled = !(state.discs.length>0 || state.open); }
+        $('go2').addEventListener('click', function(){ if(!$('go2').disabled){ saveDraft(); show(3); } });
+
+        // ── beat 3: gradients ──
+        buildSingle('depth', $('g_depth'), GRADIENTS.depth);
+        buildSingle('timing', $('g_timing'), GRADIENTS.timing);
+        buildSingle('length', $('g_length'), GRADIENTS.length);
+        buildSingle('reach', $('g_reach'), GRADIENTS.reach);
+        // "…in your own words" inputs — one under every chip question
+        ['lifestage','depth','timing','length','reach'].forEach(function(g){
+            var el=$('f_'+g+'_own'); if(!el) return;
+            el.addEventListener('input', function(){ state[g+'_own']=this.value; saveDraft(); });
+        });
+        $('go3').addEventListener('click', function(){ saveDraft(); show(4); });
+
+        function buildSingle(key, box, pairs){
+            pairs.forEach(function(pair){
+                var b=document.createElement('button');
+                b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false'); b.textContent=pair[1];
+                b.addEventListener('click', function(){
+                    var chosen = state[key]===pair[0];
+                    Array.prototype.forEach.call(box.children, function(c){ c.setAttribute('aria-pressed','false'); });
+                    if(chosen){ state[key]=null; } else { b.setAttribute('aria-pressed','true'); state[key]=pair[0]; }
+                    saveDraft();
+                });
+                box.appendChild(b);
+            });
+        }
+
+        // ── beat 4: the letter ──
+        var letterEl=$('f_letter');
+        letterEl.addEventListener('input', function(){ state.letter=this.value; saveDraft(); });
+        document.querySelectorAll('.prompts button').forEach(function(b){
+            b.addEventListener('click', function(){
+                var ins=b.getAttribute('data-ins');
+                var cur=letterEl.value;
+                if(cur && !/\n\s*$/.test(cur)) cur += '\n';
+                letterEl.value = cur + ins;
+                state.letter=letterEl.value; letterEl.focus(); saveDraft();
+            });
+        });
+        $('go4').addEventListener('click', function(){ state.letter=letterEl.value.trim(); saveDraft(); show(5); });
+
+        // skip + back
+        document.querySelectorAll('[data-skip]').forEach(function(b){
+            b.addEventListener('click', function(){
+                if(current===1) collectBeat1();
+                if(current===4){ state.letter=letterEl.value.trim(); saveDraft(); }
+                show(parseInt(b.getAttribute('data-skip'),10));
+            });
+        });
+        document.querySelectorAll('[data-back]').forEach(function(b){
+            b.addEventListener('click', function(){ show(parseInt(b.getAttribute('data-back'),10)); });
+        });
+
+        // ── the portrait (you, the actor of your own life) ──
+        function craftList(){
+            var out = state.discs.slice();
+            if(state.open) out.push(state.open);
+            return out;
+        }
+        function renderPortrait(){
+            var p=$('portrait'); p.innerHTML='';
+            function line(k, vHtml, extraClass){
+                if(!vHtml) return;
+                var row=document.createElement('div'); row.className='pline';
+                row.innerHTML='<div class="pk">'+k+'</div><div class="pv'+(extraClass?' '+extraClass:'')+'">'+vHtml+'</div>';
+                p.appendChild(row);
+            }
+            line('You', esc(state.name)+(state.prof?' · '+esc(state.prof):'')+(state.region?' · '+esc(state.region):''), 'serif');
+            if(answer('lifestage')) line('At the door', esc(answer('lifestage')));
+            var crafts=craftList();
+            if(crafts.length) line('The craft', crafts.map(function(c){ return '<span class="tag">'+esc(c)+'</span>'; }).join(''));
+            var sf=[];
+            ['depth','timing','length','reach'].forEach(function(g){ var a=answer(g); if(a) sf.push(esc(a)); });
+            if(sf.length) line('Starting from', sf.join(' &nbsp;·&nbsp; '));
+            if(state.letter) line('Your letter', esc(state.letter), 'letterprev');
+            if(!p.children.length){
+                p.innerHTML='<div class="pline"><div class="pv" style="color:var(--muted)">You kept it brief — that’s allowed. Even just your name and email seals your place. Step back any time to add more.</div></div>';
+            }
+        }
+        function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+        // interests → JSONB object keyed by crew-card category (matches profiles.interests on prod)
+        function interestsObject(){
+            var obj={};
+            state.discs.forEach(function(d){ var c=catOf(d); (obj[c]=obj[c]||[]).push(d); });
+            if(state.open){ var oc = state.world ? (WORLD_CAT[state.world]||'creative') : 'creative'; (obj[oc]=obj[oc]||[]).push(state.open); }
+            return obj;
+        }
+
+        // ── build the profile row we write to `profiles` ──
+        function profileRow(){
+            var row = {
+                first_name: state.name || null,
+                profession: state.prof || null,
+                location: state.region || null,
+                status: answer('lifestage'),
+                interests: interestsObject(),
+                previous_experience: answer('depth'),
+                availability: answer('timing'),
+                preferred_duration: answer('length'),
+                reach: answer('reach'),
+                dream_letter: state.letter || null,
+                profile_complete: true,
+                portrait_complete: true,
+                portrait_completed_at: new Date().toISOString()
+            };
+            return row;
+        }
+
+        // ── draft persistence (survives the magic-link round-trip) ──
+        function saveDraft(){ try{ localStorage.setItem(DRAFT_KEY, JSON.stringify(state)); }catch(e){} }
+        function loadDraft(){ try{ var s=localStorage.getItem(DRAFT_KEY); if(s){ var d=JSON.parse(s); Object.keys(d).forEach(function(k){ if(k in state) state[k]=d[k]; }); return true; } }catch(e){} return false; }
+        function clearDraft(){ try{ localStorage.removeItem(DRAFT_KEY); }catch(e){} }
+
+        // ── save to profiles (signed in) ──
+        async function saveProfile(){
+            var sb=window.supabaseClient;
+            if(!sb || !userId) throw new Error('not-authed');
+            var row = profileRow(); row.id = userId;
+            var res = await sb.from('profiles').upsert(row, { onConflict:'id' });
+            if(res && res.error) throw res.error;
+            // Tell Arnaud a portrait was sealed. The function re-reads this user's own
+            // profile server-side (it doesn't trust anything we send). Fire-and-forget:
+            // a mail hiccup must never block the member's "sealed" screen.
+            try{ await sb.functions.invoke('notify-portrait'); }
+            catch(e){ console.warn('[Portrait] notify-portrait failed (non-fatal):', e); }
+        }
+
+        // ── submit ──
+        $('submit').addEventListener('click', async function(){
+            state.letter = state.letter || letterEl.value.trim();
+            var btn=this, err=$('err5'); err.style.display='none';
+            btn.disabled=true; btn.innerHTML='Sealing <span class="spin"></span>';
+            saveDraft();
+            try{
+                if(session && userId){
+                    await saveProfile();
+                    clearDraft();
+                    if(window.plausible) window.plausible('PortraitComplete', { props:{ crafts:craftList().length, letter:state.letter?1:0 } });
+                    finish();
+                } else {
+                    // Not signed in → send the magic link; the draft is kept and auto-saves on return.
+                    await sendMagicLink(state.email);
+                    if(window.plausible) window.plausible('PortraitMagicLinkSent');
+                    $('sent-email').textContent = state.email;
+                    showDone('sent');
+                }
+            }catch(e){
+                console.error('[Portrait] save failed:', e);
+                btn.disabled=false; btn.innerHTML='Seal my place in the Circle &rarr;';
+                err.innerHTML='Couldn’t seal that just now — try again, or write me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
+                err.style.display='block';
+            }
+        });
+
+        async function sendMagicLink(email){
+            var sb=window.supabaseClient;
+            if(!sb){ // preview / offline
+                console.log('[Portrait] (preview) would send magic link to', email, 'with row', profileRow());
+                await new Promise(function(r){ setTimeout(r,500); }); return;
+            }
+            var res = await sb.auth.signInWithOtp({
+                email: email,
+                options: { emailRedirectTo: window.location.origin + '/portrait', shouldCreateUser: true }
+            });
+            if(res && res.error) throw res.error;
+        }
+
+        function showDone(which){
+            document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });
+            var rail=$('card').querySelector('.rail'); if(rail) rail.style.display='none';
+            $(which).classList.add('show');
+            $('card').scrollIntoView({behavior:'smooth', block:'start'});
+        }
+        function finish(){
+            $('done-h').textContent = state.name ? ('You have your place now, '+state.name+'.') : 'You have your place, now.';
+            if(state.letter){ $('done-ps').style.display='block'; }
+            showDone('done');
+            if(window.plausible) window.plausible('PortraitSealed');
+        }
+
+        // ── boot: detect session, restore draft, auto-save after magic-link return ──
+        async function boot(){
+            var sb=window.supabaseClient;
+            var hadDraft=false;
+            // Wait briefly for supabase-config to init the client.
+            for(var i=0;i<40 && !window.supabaseReady && !window.supabaseError; i++){ await new Promise(function(r){ setTimeout(r,50); }); sb=window.supabaseClient; }
+            sb=window.supabaseClient;
+            if(sb && sb.auth){
+                try{
+                    var s = await sb.auth.getSession();
+                    session = s && s.data && s.data.session ? s.data.session : null;
+                }catch(e){ session=null; }
+            }
+            if(session){
+                userId = session.user.id;
+                state.email = session.user.email || '';
+                // hide the email field — we already know it
+                var ef=$('emailField'); if(ef) ef.style.display='none';
+                markWho('Signed in as '+state.email);
+                // Pull any existing profile to prefill name.
+                try{
+                    var pr = await sb.from('profiles').select('first_name,profession,location').eq('id', userId).single();
+                    if(pr && pr.data){
+                        if(pr.data.first_name && !$('f_name').value) $('f_name').value=pr.data.first_name;
+                        if(pr.data.profession) $('f_prof').value=pr.data.profession;
+                        if(pr.data.location) $('f_region').value=pr.data.location;
+                    }
+                }catch(e){}
+                // If they came back from a magic link with a saved draft → restore + auto-seal.
+                hadDraft = loadDraft();
+                if(hadDraft && (state.letter || craftList().length || state.lifestage)){
+                    // restore inputs so the portrait renders, then auto-save
+                    restoreInputs();
+                    state.name = state.name || $('f_name').value.trim();
+                    try{
+                        await saveProfile(); clearDraft();
+                        if(window.plausible) window.plausible('PortraitCompleteAfterLink');
+                        finish(); return;
+                    }catch(e){ /* fall through to let them press seal */ show(5); return; }
+                }
+            } else {
+                markWho('Not signed in — one click from my email fixes that');
+                if(loadDraft()) restoreInputs();
+            }
+            syncSignature();
+            // restore text fields if any draft
+            restoreInputs();
+        }
+        function markWho(txt){
+            var beat0=$('beat0');
+            var pill=document.createElement('div'); pill.className='who';
+            pill.innerHTML='<span class="dot"></span>'+esc(txt);
+            beat0.insertBefore(pill, beat0.firstChild.nextSibling);
+        }
+        function restoreInputs(){
+            if(state.name) $('f_name').value=state.name;
+            if(state.prof) $('f_prof').value=state.prof;
+            if(state.region) $('f_region').value=state.region;
+            if(state.open) $('f_open').value=state.open;
+            ['lifestage','depth','timing','length','reach'].forEach(function(g){
+                var el=$('f_'+g+'_own'); if(el && state[g+'_own']) el.value=state[g+'_own'];
+            });
+            if(state.letter) letterEl.value=state.letter;
+            syncSignature();
+            renderChosen(); renderWorldBadges();
+        }
+
+        boot();
+    })();
+    </script>
+</body>
+</html>
