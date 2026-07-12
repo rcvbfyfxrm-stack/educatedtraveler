@@ -197,6 +197,11 @@
         .mdot { position:relative; width:8px; height:8px; padding:0; border:0; border-radius:999px; background:rgba(243,237,226,.22); cursor:pointer; transition:width .3s,background .3s; }
         .mdot::before { content:""; position:absolute; inset:-12px; }
         .mdot.on { width:22px; background:var(--sea); }
+        /* visible "who's behind this" founder section */
+        .story-teaser { display:grid; grid-template-columns:0.82fr 1.18fr; gap:40px; align-items:center; }
+        @media (max-width:720px){ .story-teaser { grid-template-columns:1fr; gap:24px; } }
+        .story-cover { border-radius:16px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/5; box-shadow:0 30px 70px -48px rgba(0,0,0,.9); }
+        .story-cover img { width:100%; height:100%; object-fit:cover; object-position:center 28%; }
 
         ::-webkit-scrollbar { width: 7px; }
         ::-webkit-scrollbar-track { background: var(--ink); }
@@ -261,6 +266,25 @@
             <p class="text-center text-paper-faint text-xs mt-5 reveal">The numbers are honest and published from day one. If a week doesn't confirm, everyone is repaid in full.</p>
             <div class="text-center mt-8 reveal">
                 <a href="/lab-weeks" class="link-quiet text-sm" style="color:var(--sea)">How Lab Weeks work — and what's next →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ───────────────────────── WHO'S BEHIND THIS ───────────────────────── -->
+    <section id="story" class="py-24 px-6 rule-top">
+        <div class="max-w-4xl mx-auto">
+            <div class="story-teaser reveal">
+                <div class="story-cover"><img src="/images/story/founder/galley.jpg" alt="Arnaud plating a dish in the galley" loading="lazy"></div>
+                <div>
+                    <p class="eyebrow mb-4">Who's behind this</p>
+                    <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">I left school at 18 to see what the world was really about.</h2>
+                    <p class="text-paper-muted leading-relaxed mb-3">I'm Arnaud. I've been crossing it by sea and by land ever since — fifteen years cooking for a living, most of them at sea, learning from the masters I met along the way.</p>
+                    <p class="text-paper-faint text-sm mb-6">Everything I can really do, I learned at the source, from someone's hands. That's the whole idea behind the doors I open.</p>
+                    <button type="button" onclick="openFounder()" class="btn-primary px-7 py-3.5 rounded-full text-sm inline-flex items-center gap-2">
+                        <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 10l4.55-2.28A1 1 0 0121 8.62v6.76a1 1 0 01-1.45.9L15 14M4 6h9a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>
+                        See my story — six photos
+                    </button>
+                </div>
             </div>
         </div>
     </section>
