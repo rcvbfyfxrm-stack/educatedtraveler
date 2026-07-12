@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUCATEDTRAVELER — A place, a person, your people. Skill at the source.</title>
+
+    <meta name="description" content="EducatedTraveler isn't a shop. It's a bridge — connecting people who want to learn something real, by hand, at the source, to the masters who teach it and the people chasing the same fire.">
+    <link rel="canonical" href="https://educatedtraveler.app/">
+    <meta property="og:title" content="EDUCATEDTRAVELER — A place, a person, your people.">
+    <meta property="og:description" content="Not another screen. A bridge to real skill, real masters, and the people learning alongside you — at the source.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.app/">
+    <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <meta property="og:site_name" content="EducatedTraveler">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EDUCATEDTRAVELER — A place, a person, your people.">
+    <meta name="twitter:description" content="Not another screen. A bridge to real skill, real masters, and the people chasing the same fire.">
+    <meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/images/favicon-32.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sea:   { soft: '#7fa8a5', mid: '#5b8a89', deep: '#38595b' },
+                        ember: { soft: '#e0a877', mid: '#d28a52', deep: '#b06a36' },
+                        paper: { DEFAULT: '#f3ede2', muted: 'rgba(243,237,226,0.56)', faint: 'rgba(243,237,226,0.34)' },
+                        ink:   { DEFAULT: '#0d0b09', 2: '#14110d', 3: '#1c1813' },
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        sans:  ['Inter', 'system-ui', 'sans-serif'],
+                        mono:  ['IBM Plex Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --ink: #0d0b09;
+            --ink-2: #14110d;
+            --paper: #f3ede2;
+            --muted: rgba(243,237,226,0.56);
+            --faint: rgba(243,237,226,0.34);
+            --sea: #7fa8a5;
+            --ember: #d28a52;
+            --line: rgba(243,237,226,0.09);
+        }
+        * { -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--ink);
+            color: var(--paper);
+            overflow-x: hidden;
+        }
+        ::selection { background: rgba(210,138,82,0.30); }
+
+        .font-serif { font-family: 'Fraunces', Georgia, serif; }
+        .font-mono  { font-family: 'IBM Plex Mono', monospace; }
+
+        /* Warm grain — a faint, hand-made texture instead of glassy gloss */
+        body::before {
+            content: "";
+            position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            background:
+                radial-gradient(900px 600px at 18% -5%, rgba(127,168,165,0.10), transparent 60%),
+                radial-gradient(800px 600px at 92% 8%, rgba(210,138,82,0.08), transparent 55%);
+        }
+
+        .eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase;
+            color: var(--sea);
+        }
+        .rule-top { border-top: 1px solid var(--line); }
+
+        .panel {
+            background: rgba(243,237,226,0.022);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            transition: border-color .35s ease, background .35s ease, transform .35s ease;
+        }
+        .panel:hover {
+            border-color: rgba(127,168,165,0.28);
+            background: rgba(243,237,226,0.035);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--sea) 0%, var(--ember) 130%);
+            color: #14110d; font-weight: 500;
+            transition: transform .3s ease, box-shadow .3s ease, filter .3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 36px rgba(127,168,165,0.22);
+            filter: brightness(1.04);
+        }
+        .btn-ghost {
+            border: 1px solid rgba(243,237,226,0.18);
+            color: var(--paper);
+            transition: background .3s ease, border-color .3s ease;
+        }
+        .btn-ghost:hover { background: rgba(243,237,226,0.05); border-color: rgba(243,237,226,0.32); }
+
+        .link-quiet { color: var(--paper); opacity: .56; transition: opacity .25s ease, color .25s ease; }
+        .link-quiet:hover { opacity: 1; color: var(--sea); }
+
+        /* Reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+        /* ══════════ Home v2 — the wheel · the week · join · founder ══════════ */
+        .hero2 { min-height: 100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:118px 22px 56px; }
+        .hero2 h1 { font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(2.2rem,6vw,4rem); line-height:1.08; letter-spacing:-0.025em; max-width:16ch; }
+        @supports (text-wrap:balance) { .hero2 h1 { text-wrap:balance; } }
+
+        /* the craft wheel */
+        .wheel-stage { position:relative; width:min(86vw,440px); aspect-ratio:1; margin:34px auto 8px; }
+        .ring { position:absolute; inset:0; animation:spin 110s linear infinite; }
+        .wheel-stage:hover .ring, .wheel-stage:hover .upr { animation-play-state:paused; }
+        .witem { position:absolute; transform:translate(-50%,-50%); }
+        .upr { animation:spinrev 110s linear infinite; display:inline-block; }
+        .craft { font-family:inherit; font-size:clamp(11px,2.5vw,13.5px); color:var(--muted); background:rgba(243,237,226,0.03);
+                 border:1px solid rgba(243,237,226,0.12); border-radius:999px; padding:6px 12px; white-space:nowrap; cursor:pointer;
+                 display:inline-flex; align-items:center; gap:7px; transition:all .2s ease; }
+        .craft:hover { color:var(--paper); border-color:var(--sea); background:rgba(127,168,165,0.12); transform:scale(1.05); }
+        .craft.on { color:#14110d; background:linear-gradient(135deg,var(--sea),var(--ember)); border-color:transparent; font-weight:500; }
+        .craft .dot { width:6px; height:6px; border-radius:50%; flex:0 0 auto; }
+        .craft.on .dot { background:#14110d !important; }
+        .wheel-core { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; pointer-events:none; }
+        .wheel-core .r2 { position:absolute; width:58%; aspect-ratio:1; border:1px solid var(--line); border-radius:50%; }
+        .wheel-core .r3 { position:absolute; width:82%; aspect-ratio:1; border:1px dashed rgba(243,237,226,0.06); border-radius:50%; }
+        .wheel-core .kick { font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.28em; text-transform:uppercase; color:var(--ember); margin-bottom:8px; }
+        .wheel-core .cq { font-family:'Fraunces',Georgia,serif; font-weight:300; font-style:italic; font-size:clamp(0.95rem,2.6vw,1.2rem); color:var(--paper); max-width:8.5em; line-height:1.25; }
+        .wheel-core .pk { font-size:11px; color:var(--faint); margin-top:10px; max-width:11em; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        @keyframes spinrev { to { transform:rotate(-360deg); } }
+        @media (prefers-reduced-motion: reduce) { .ring, .upr { animation:none !important; } }
+
+        /* join */
+        .picks { min-height:26px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin:14px 0 20px; }
+        .pill { font-size:12.5px; color:#14110d; background:linear-gradient(135deg,var(--sea),var(--ember)); border-radius:999px; padding:5px 12px; display:inline-flex; align-items:center; gap:6px; }
+        .pill button { background:none; border:none; color:#14110d; cursor:pointer; font-size:14px; line-height:1; opacity:.7; }
+        .pill button:hover { opacity:1; }
+        .join-input { flex:1 1 240px; min-width:0; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:999px; color:var(--paper); font-family:inherit; font-size:15px; padding:13px 18px; outline:none; transition:border-color .25s,box-shadow .25s; }
+        .join-input:focus { border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+        .join-input::placeholder { color:rgba(243,237,226,0.3); }
+
+        /* explore (demoted Atlas + Story) */
+        .xgrid { display:grid; grid-template-columns:1fr 1fr; gap:16px; max-width:720px; margin:0 auto; }
+        @media (max-width:600px) { .xgrid { grid-template-columns:1fr; } }
+        .xcard { display:block; padding:24px; border:1px solid var(--line); border-radius:16px; background:rgba(243,237,226,0.018); transition:border-color .25s,background .25s,transform .25s; }
+        .xcard:hover { border-color:rgba(127,168,165,0.4); background:rgba(127,168,165,0.05); transform:translateY(-2px); }
+
+        /* founder modal */
+        .ov { position:fixed; inset:0; z-index:100; display:none; align-items:center; justify-content:center; padding:20px; }
+        .ov.show { display:flex; }
+        .ov-bg { position:absolute; inset:0; background:rgba(6,5,4,0.8); backdrop-filter:blur(8px); }
+        .modal { position:relative; width:100%; max-width:560px; max-height:90vh; overflow-y:auto; background:#100d0a; border:1px solid var(--line); border-radius:20px; padding:34px; }
+        .modal .close { position:absolute; top:16px; right:16px; background:none; border:none; color:var(--faint); cursor:pointer; font-size:22px; line-height:1; padding:6px; }
+        .modal .close:hover { color:var(--paper); }
+        .ava { width:64px; height:64px; border-radius:50%; flex:0 0 auto; background:linear-gradient(135deg,var(--sea),var(--ember)); display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:26px; color:#14110d; }
+        .cred { list-style:none; display:flex; flex-direction:column; gap:12px; margin:0 0 20px; padding:0; }
+        .cred li { display:flex; gap:12px; font-size:14px; color:var(--muted); line-height:1.5; }
+        .cred li b { color:var(--paper); font-weight:500; }
+        .cred .ic { color:var(--sea); flex:0 0 auto; }
+        /* founder story diaporama (inside the modal — opens only on "Meet Arnaud") */
+        .mfilm { position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; margin:0 0 16px; background:#0d0b09; }
+        .mslide { position:absolute; inset:0; opacity:0; transition:opacity .5s ease; pointer-events:none; }
+        .mslide.on { opacity:1; pointer-events:auto; }
+        .mslide img { width:100%; height:100%; object-fit:cover; }
+        .mslide::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,.08),rgba(13,11,9,.34) 45%,rgba(13,11,9,.95)); }
+        .mcap { position:absolute; left:0; right:0; bottom:0; z-index:2; padding:18px 20px; }
+        .mcap .mch { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--sea); margin:0 0 7px; }
+        .mcap h4 { font-family:'Fraunces',serif; font-weight:400; font-size:1.25rem; margin:0 0 6px; letter-spacing:-.01em; color:var(--paper); }
+        .mcap p { color:rgba(243,237,226,.82); font-size:13px; line-height:1.5; margin:0; }
+        .mnav { position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(13,11,9,.5); border:1px solid var(--line); color:var(--paper); cursor:pointer; font-size:20px; line-height:1; padding:0; }
+        .mnav:hover { background:rgba(13,11,9,.85); }
+        .mnav.p { left:12px; } .mnav.n { right:12px; }
+        .mcount { position:absolute; top:14px; left:14px; z-index:4; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--paper); background:rgba(13,11,9,.5); border:1px solid var(--line); padding:4px 10px; border-radius:999px; }
+        .mdots { display:flex; justify-content:center; gap:8px; margin:0 0 20px; }
+        .mdot { position:relative; width:8px; height:8px; padding:0; border:0; border-radius:999px; background:rgba(243,237,226,.22); cursor:pointer; transition:width .3s,background .3s; }
+        .mdot::before { content:""; position:absolute; inset:-12px; }
+        .mdot.on { width:22px; background:var(--sea); }
+        /* visible "who's behind this" founder section */
+        .story-teaser { display:grid; grid-template-columns:0.82fr 1.18fr; gap:40px; align-items:center; }
+        @media (max-width:720px){ .story-teaser { grid-template-columns:1fr; gap:24px; } }
+        .story-cover { border-radius:16px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/5; box-shadow:0 30px 70px -48px rgba(0,0,0,.9); }
+        .story-cover img { width:100%; height:100%; object-fit:cover; object-position:center 28%; }
+
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--ink); }
+        ::-webkit-scrollbar-thumb { background: rgba(127,168,165,0.28); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(127,168,165,0.5); }
+    </style>
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+    <!-- ───────────────────────── NAV ───────────────────────── -->
+    <nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(13,11,9,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#top" class="text-base font-serif tracking-[0.18em]">EDUCATED<span class="text-sea-soft">TRAVELER</span></a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#week" class="text-sm link-quiet">The next week</a>
+                <a href="/browse" class="text-sm link-quiet">The Atlas</a>
+                <button onclick="openFounder()" class="text-sm link-quiet" style="background:none;border:none;cursor:pointer;font-family:inherit;">Meet Arnaud</button>
+                <a href="#join" class="btn-primary text-sm px-5 py-2 rounded-full">Join the Circle</a>
+            </div>
+            <a href="#join" class="md:hidden btn-primary text-sm px-4 py-2 rounded-full">Join</a>
+        </div>
+    </nav>
+
+    <!-- ───────────────────────── HERO: the craft wheel + the next week ───────────────────────── -->
+    <header id="top" class="hero2">
+        <p class="eyebrow mb-4" id="hero-eyebrow">Lab Week 01 · Barcelona</p>
+        <h1>The first door<br>is about to open.</h1>
+        <p style="color:var(--muted);font-size:clamp(1rem,2.4vw,1.15rem);max-width:40rem;margin:20px auto 0;line-height:1.6;">A real skill lives somewhere true, in a master's hands, among people chasing the same fire. A few times a year we open one — for real. Here's the wheel of what you could learn; the first turn is set.</p>
+
+        <div class="wheel-stage" id="wheel" aria-hidden="true">
+            <div class="ring" id="ring"></div>
+            <div class="wheel-core">
+                <div class="r3"></div><div class="r2"></div>
+                <p class="kick">What pulls you?</p>
+                <p class="cq" id="core-q">Pick the craft you'd cross an ocean for.</p>
+                <p class="pk" id="core-pick">Tap any craft on the wheel.</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-7">
+            <a href="#join" class="btn-primary px-8 py-4 rounded-full">Join the Circle</a>
+            <a href="#week" class="btn-ghost px-8 py-4 rounded-full inline-flex items-center justify-center gap-2">See the next week →</a>
+        </div>
+        <div class="mt-5">
+            <button onclick="openFounder()" style="background:none;border:none;color:var(--faint);font-family:inherit;font-size:13px;cursor:pointer;border-bottom:1px solid var(--line);padding:2px 0;">Who's behind this? Meet Arnaud →</button>
+        </div>
+        <div class="mt-10 animate-pulse" style="color:var(--faint)" aria-hidden="true">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </div>
+    </header>
+
+    <!-- ───────────────────────── THE NEXT WEEK (central) ───────────────────────── -->
+    <section id="week" class="py-24 px-6 rule-top">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-9 reveal">
+                <p class="eyebrow mb-4">The next week</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight">The Atlas is the map.<br>This is the map come true.</h2>
+            </div>
+            <!-- Rendered from window.LAB_WEEKS by /js/lab-weeks.js — one card, always in sync -->
+            <div class="grid gap-6 reveal" data-lab-weeks="1"></div>
+            <p class="text-center text-paper-faint text-xs mt-5 reveal">The numbers are honest and published from day one. If a week doesn't confirm, everyone is repaid in full.</p>
+            <div class="text-center mt-8 reveal">
+                <a href="/lab-weeks" class="link-quiet text-sm" style="color:var(--sea)">How Lab Weeks work — and what's next →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ───────────────────────── WHO'S BEHIND THIS ───────────────────────── -->
+    <section id="story" class="py-24 px-6 rule-top">
+        <div class="max-w-4xl mx-auto">
+            <div class="story-teaser reveal">
+                <div class="story-cover"><img src="/images/story/founder/galley.jpg" alt="Arnaud plating a dish in the galley" loading="lazy"></div>
+                <div>
+                    <p class="eyebrow mb-4">Who's behind this</p>
+                    <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">I left school at 18 to see what the world was really about.</h2>
+                    <p class="text-paper-muted leading-relaxed mb-3">I'm Arnaud. I've been crossing it by sea and by land ever since — fifteen years cooking for a living, most of them at sea, learning from the masters I met along the way.</p>
+                    <p class="text-paper-faint text-sm mb-6">Everything I can really do, I learned at the source, from someone's hands. That's the whole idea behind the doors I open.</p>
+                    <button type="button" onclick="openFounder()" class="btn-primary px-7 py-3.5 rounded-full text-sm inline-flex items-center gap-2">
+                        <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 10l4.55-2.28A1 1 0 0121 8.62v6.76a1 1 0 01-1.45.9L15 14M4 6h9a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>
+                        See my story — six photos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ───────────────────────── JOIN THE CIRCLE ───────────────────────── -->
+    <section id="join" class="py-24 px-6 rule-top" style="background:rgba(243,237,226,0.015);">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="reveal">
+                <p class="eyebrow mb-4">The Circle</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">Tell me what you'd cross an ocean to learn.</h2>
+                <p class="text-paper-muted mb-9 leading-relaxed">The Circle is who this is for: people who'd rather do a thing than watch it. No funnel, no noise — you get first word when a door opens, and the craft the most of you name is the one we go build next.</p>
+            </div>
+
+            <div class="panel p-6 md:p-8 reveal" style="background: rgba(243,237,226,0.025);">
+                <div id="join-form">
+                    <p class="font-mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--faint);">Your crafts — picked from the wheel</p>
+                    <div class="picks" id="picks"><span style="color:var(--faint);font-size:13px;">Tap crafts on the wheel above, or just leave your email.</span></div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" id="join-email" class="join-input" placeholder="you@wherever.com" autocomplete="email">
+                        <button id="join-btn" class="btn-primary px-8 py-3 rounded-full text-sm whitespace-nowrap min-h-[44px]" onclick="joinCircle()">Keep me close →</button>
+                    </div>
+                    <p class="mt-4 text-sm" style="color:var(--faint)">Want me to build you the exact week? <a href="/circle" style="color:var(--sea);border-bottom:1px solid var(--line)">Answer a few questions →</a></p>
+                    <p id="join-err" style="display:none;color:#f0a58a;font-size:13px;margin-top:12px;"></p>
+                </div>
+                <div id="join-ok" class="hidden py-4">
+                    <p class="font-serif text-2xl text-paper mb-2">You're in the Circle.</p>
+                    <p class="text-sm text-paper-muted">No funnel, no noise — a note from me, Arnaud, when there's a real week to tell you about. Starting with Barcelona this October.</p>
+                    <p class="text-sm mt-5"><a href="/circle" style="color:var(--sea)">Tell me more about what you want →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ───────────────────────── EXPLORE (demoted Atlas + Story) ───────────────────────── -->
+    <section id="explore" class="py-20 px-6 rule-top">
+        <div class="max-w-3xl mx-auto">
+            <p class="eyebrow text-center mb-8 reveal">While you're here</p>
+            <div class="xgrid reveal">
+                <a href="/browse" class="xcard">
+                    <span class="font-mono" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sea)">The Atlas</span>
+                    <h4 class="font-serif font-light text-xl" style="margin:8px 0 6px">The full map of crafts &amp; places</h4>
+                    <p class="text-paper-muted text-sm leading-relaxed">Five worlds, ninety-nine crafts, hundreds of places — ranked by the community that gathers there, not by who pays. Never a place I haven't trusted with my own hands.</p>
+                    <span class="text-sm" style="color:var(--sea);margin-top:12px;display:inline-block">Wander the Atlas →</span>
+                </a>
+                <a href="/about" class="xcard">
+                    <span class="font-mono" style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sea)">The Story</span>
+                    <h4 class="font-serif font-light text-xl" style="margin:8px 0 6px">How this began</h4>
+                    <p class="text-paper-muted text-sm leading-relaxed">I left school at 18 to find out what the world was really about — by sea and by land, learning from the masters I met along the way.</p>
+                    <span class="text-sm" style="color:var(--sea);margin-top:12px;display:inline-block">Read the story →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ───────────────────────── FOOTER ───────────────────────── -->
+    <footer class="py-14 rule-top">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-serif tracking-[0.16em] mb-1">EDUCATED<span class="text-sea-soft">TRAVELER</span></p>
+                    <p class="text-paper-muted text-sm">A place, a person, your people.</p>
+                    <p class="text-paper-faint text-[11px] font-mono tracking-[0.25em] mt-2">EARNED, NOT BOUGHT</p>
+                </div>
+                <div class="flex items-center flex-wrap justify-center gap-x-6 gap-y-2">
+                    <a href="#week" class="link-quiet text-sm">The next week</a>
+                    <a href="/browse" class="link-quiet text-sm">The Atlas</a>
+                    <a href="/lab-weeks" class="link-quiet text-sm">Lab Weeks</a>
+                    <button onclick="openFounder()" class="link-quiet text-sm" style="background:none;border:none;cursor:pointer;font-family:inherit;">Meet Arnaud</button>
+                    <a href="/journal/" class="link-quiet text-sm">Journal</a>
+                    <a href="mailto:arnaudcallier@pm.me" class="link-quiet text-sm">Contact</a>
+                    <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener" class="link-quiet">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <p class="text-paper-faint text-[11px] text-center md:text-left mt-8">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</p>
+        </div>
+    </footer>
+
+    <!-- ───────────────────────── FOUNDER MODAL ───────────────────────── -->
+    <div class="ov" id="founder" role="dialog" aria-modal="true" aria-labelledby="founder-h">
+        <div class="ov-bg" onclick="closeFounder()"></div>
+        <div class="modal">
+            <button class="close" onclick="closeFounder()" aria-label="Close">&times;</button>
+            <div class="flex items-center gap-4" style="margin-bottom:20px;">
+                <div class="ava">A</div>
+                <div>
+                    <h3 id="founder-h" class="font-serif font-light" style="font-size:1.7rem;letter-spacing:-0.015em;">Arnaud</h3>
+                    <p class="font-mono" style="color:var(--faint);font-size:12px;letter-spacing:0.06em;">FOUNDER · I CHECK EVERY PLACE MYSELF</p>
+                </div>
+            </div>
+            <p style="color:var(--muted);font-size:15px;margin-bottom:18px;line-height:1.6;">I left school at 18 to find out what the world was really about, and I've been crossing it by sea and by land ever since — cooking for a living, and learning from the masters I met along the way. So I know the difference between a real school and a good-looking website.</p>
+            <div class="mfilm" id="mfilm" aria-roledescription="carousel" aria-label="Arnaud's story, in six photos">
+                <div class="mslide on" data-m="0"><img src="/images/story/founder/beginning.jpg" alt="Arnaud walking into an alpine valley" loading="lazy"><div class="mcap"><p class="mch">I · The beginning</p><h4>So I went.</h4><p>At 18, everyone expected university and a career. I wanted to learn by doing — not watch the world on a screen. So I left.</p></div></div>
+                <div class="mslide" data-m="1"><img src="/images/story/founder/galley.jpg" alt="Arnaud plating a dish in the galley" loading="lazy"><div class="mcap"><p class="mch">II · The kitchens</p><h4>Every kitchen a classroom.</h4><p>Michelin kitchens in France, street stalls in Bangkok — fifteen years cooking for a living, most of them at sea.</p></div></div>
+                <div class="mslide" data-m="2"><img src="/images/story/founder/sea.jpg" alt="Arnaud on the boat with the day's catch" loading="lazy"><div class="mcap"><p class="mch">III · The sea</p><h4>Fifty thousand nautical miles.</h4><p>Learned to sail the Siam sea, raced off Sydney, crossed oceans. The sea cares about judgment, not a résumé.</p></div></div>
+                <div class="mslide" data-m="3"><img src="/images/story/founder/depths.jpg" alt="Arnaud freediving in a cenote" loading="lazy"><div class="mcap"><p class="mch">IV · The depths</p><h4>The deeper I went, the quieter it got.</h4><p>Freediving Mexican cenotes and the open blue, sharks in the Galápagos. Fear turned into respect.</p></div></div>
+                <div class="mslide" data-m="4"><img src="/images/story/founder/heights.jpg" alt="Arnaud on a Himalayan summit" loading="lazy"><div class="mcap"><p class="mch">V · The heights</p><h4>Strangers turned into crew.</h4><p>Annapurna at 4,130 m, passes across the Himalaya. The people on the trail taught me more than any classroom.</p></div></div>
+                <div class="mslide" data-m="5"><img src="/images/story/founder/stillness.jpg" alt="Arnaud on a mountain ridge at dawn" loading="lazy"><div class="mcap"><p class="mch">VI · The stillness</p><h4>Handed, at the source.</h4><p>Breathwork in Bali, Ayurveda in India — and in the Thar desert of Rajasthan, the idea for all of this took shape.</p></div></div>
+                <span class="mcount" id="mcount">I / VI</span>
+                <button class="mnav p" id="mprev" type="button" aria-label="Previous photo">&lsaquo;</button>
+                <button class="mnav n" id="mnext" type="button" aria-label="Next photo">&rsaquo;</button>
+            </div>
+            <div class="mdots" id="mdots"></div>
+            <p style="color:var(--muted);font-size:15px;margin-bottom:6px;line-height:1.6;">Nobody pays to be on the Atlas — no commission, no selling the trip. The order is the strength of the community, never the size of the wallet. And if I wouldn't send a friend, it isn't on the map.</p>
+            <details style="border-top:1px solid var(--line);padding-top:16px;margin-top:14px;">
+                <summary class="font-mono" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--sea);cursor:pointer;">Before you trust any school — mine or anyone's — the five questions I ask</summary>
+                <ol style="margin:12px 0 0 18px;color:var(--muted);font-size:13.5px;line-height:1.7;">
+                    <li>Who actually teaches it — by name, with a track record you can check?</li>
+                    <li>Is the craft alive in that place, or is the school the only thing there?</li>
+                    <li>What do you walk away with — a recognised qualification, or a certificate they printed themselves?</li>
+                    <li>Can you speak to someone who actually did it — not a testimonial on their own page?</li>
+                    <li>What happens on a bad day — weather, injury, a teacher who doesn't show?</li>
+                </ol>
+            </details>
+            <div class="flex gap-3 flex-wrap" style="margin-top:22px;">
+                <a href="#join" class="btn-primary px-7 py-3 rounded-full text-sm" onclick="closeFounder()">Join the Circle</a>
+                <a href="/about" class="btn-ghost px-7 py-3 rounded-full text-sm">The fuller story →</a>
+            </div>
+            <p class="font-serif" style="color:var(--faint);font-size:12.5px;margin-top:14px;font-style:italic;">We connect, we don't sell. Earned, not bought.</p>
+        </div>
+    </div>
+
+    <!-- ───────────────────────── DATA + SDK ───────────────────────── -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <!-- The wheel is the first look now, so the conversational orb no longer auto-opens here.
+         It stays loaded so its launcher is available; repertoire.js feeds its craft data. -->
+    <script>window.ET_CIRCLE_AUTOOPEN = false;</script>
+    <script src="/js/lab-weeks.js"></script>
+    <script src="/js/repertoire.js"></script>
+    <script defer src="/js/circle-onboarding.js"></script>
+
+    <!-- ───────────────────────── PAGE SCRIPT ───────────────────────── -->
+    <script>
+    (function(){
+        'use strict';
+
+        // Hero eyebrow, in sync with the real Lab Week data (never over-discloses).
+        (function(){
+            var w = (window.LAB_WEEKS || [])[0]; if (!w) return;
+            var eb = document.getElementById('hero-eyebrow'); if (!eb) return;
+            var open = w.status === 'open' || w.status === 'confirmed';
+            var when = open && w.dates ? w.dates : w.when;
+            eb.textContent = 'Lab Week ' + w.number + (w.place ? ' · ' + w.place : '') + (when ? ' · ' + when : '');
+        })();
+
+        // ── The craft wheel (real Atlas disciplines — trust lock) ──
+        var COL = { wild:'#7fa8a5', kitchen:'#d0a24a', craft:'#cf8f6e', move:'#c58893', body:'#94ad86' };
+        var CRAFTS = [
+            ['Freediving','wild'],['Modernist Cuisine','kitchen'],['Blacksmithing','craft'],['Argentine Tango','move'],
+            ['Ashtanga Yoga','body'],['Sailing & Yachtmaster','wild'],['Bread & Boulangerie','kitchen'],['Pottery','craft'],
+            ['Flamenco','move'],['Breathwork','body'],['Alpinism','wild'],['Sushi & Washoku','kitchen'],
+            ['Perfumery','craft'],['Surfing','wild']
+        ];
+        var picked = [];
+        var ring = document.getElementById('ring');
+        var R = 42;
+        CRAFTS.forEach(function(c,i){
+            var ang = (i/CRAFTS.length)*2*Math.PI - Math.PI/2;
+            var x = 50 + R*Math.cos(ang), y = 50 + R*Math.sin(ang);
+            var item = document.createElement('div'); item.className='witem'; item.style.left=x+'%'; item.style.top=y+'%';
+            var upr = document.createElement('div'); upr.className='upr';
+            var b = document.createElement('button'); b.className='craft'; b.type='button';
+            b.innerHTML = '<span class="dot" style="background:'+COL[c[1]]+'"></span>'+c[0];
+            b.addEventListener('click', function(){ toggle(c[0], b); });
+            upr.appendChild(b); item.appendChild(upr); ring.appendChild(item);
+        });
+        function toggle(name, btn){
+            var i = picked.indexOf(name);
+            if (i>=0){ picked.splice(i,1); btn.classList.remove('on'); }
+            else { picked.push(name); btn.classList.add('on'); }
+            renderPicks();
+            var core = document.getElementById('core-q'), pick = document.getElementById('core-pick');
+            if (picked.length){ core.textContent = picked.length===1 ? 'Beautiful choice.' : 'A few fires, then.'; pick.textContent = 'Now leave your email below.'; }
+            else { core.textContent = 'Pick the craft you’d cross an ocean for.'; pick.textContent = 'Tap any craft on the wheel.'; }
+        }
+        function renderPicks(){
+            var el = document.getElementById('picks');
+            if (!picked.length){ el.innerHTML = '<span style="color:var(--faint);font-size:13px;">Tap crafts on the wheel above, or just leave your email.</span>'; return; }
+            el.innerHTML = '';
+            picked.forEach(function(n){
+                var p = document.createElement('span'); p.className='pill';
+                p.innerHTML = n + ' <button aria-label="remove" title="remove">&times;</button>';
+                p.querySelector('button').addEventListener('click', function(){
+                    var idx = picked.indexOf(n); if (idx>=0) picked.splice(idx,1);
+                    document.querySelectorAll('.craft').forEach(function(c){ if (c.textContent.trim()===n) c.classList.remove('on'); });
+                    renderPicks();
+                });
+                el.appendChild(p);
+            });
+        }
+
+        // ── Join the Circle → launch_waitlist (single anon insert; email is enough) ──
+        window.joinCircle = async function(){
+            var email = document.getElementById('join-email').value.trim();
+            var err = document.getElementById('join-err'), btn = document.getElementById('join-btn');
+            if (!/.+@.+\..+/.test(email)){ err.textContent = 'I need a real email to reach you.'; err.style.display='block'; return; }
+            err.style.display='none'; btn.disabled = true; btn.textContent = 'Joining…';
+            try {
+                if (!window.supabaseClient) throw new Error('Supabase not ready');
+                var res = await window.supabaseClient.from('launch_waitlist').insert({ email: email, interests: picked, source: 'homepage' });
+                if (res && res.error) throw res.error;
+                try { sessionStorage.setItem('et_circle', JSON.stringify({ email: email, interests: picked })); } catch(e){}
+                if (window.plausible) window.plausible('CircleJoin', { props: { source: 'homepage', crafts: picked.length } });
+                document.getElementById('join-form').style.display = 'none';
+                document.getElementById('join-ok').classList.remove('hidden');
+            } catch(e){
+                console.error('Circle signup failed:', e);
+                btn.disabled = false; btn.textContent = 'Try again — or email arnaudcallier@pm.me';
+            }
+        };
+
+        // ── Founder modal (focus trap + Escape + restore) ──
+        var ov = document.getElementById('founder'), lastFocus = null;
+        window.openFounder = function(){ lastFocus = document.activeElement; ov.classList.add('show'); document.documentElement.style.overflow='hidden'; ov.querySelector('.close').focus(); document.addEventListener('keydown', esc); };
+        window.closeFounder = function(){ ov.classList.remove('show'); document.documentElement.style.overflow=''; document.removeEventListener('keydown', esc); if (lastFocus && lastFocus.focus) lastFocus.focus(); };
+        function esc(e){
+            if (e.key === 'Escape'){ closeFounder(); return; }
+            if (e.key === 'Tab'){
+                var f = ov.querySelectorAll('button,a,summary,input,[tabindex]:not([tabindex="-1"])'); if (!f.length) return;
+                var first = f[0], last = f[f.length-1];
+                if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+            }
+        }
+
+        // ── Founder story diaporama (manual only — lives inside the gated modal) ──
+        (function(){
+            var ROMAN = ['I','II','III','IV','V','VI'];
+            var mslides = [].slice.call(document.querySelectorAll('.mslide'));
+            var mdotsWrap = document.getElementById('mdots'), mcount = document.getElementById('mcount');
+            if (!mslides.length || !mdotsWrap) return;
+            var mcur = 0, MN = mslides.length;
+            mslides.forEach(function(_, i){
+                var b = document.createElement('button');
+                b.className = 'mdot' + (i===0?' on':''); b.type='button'; b.setAttribute('aria-label','Photo '+(i+1)+' of '+MN);
+                b.addEventListener('click', function(){ mgo(i); });
+                mdotsWrap.appendChild(b);
+            });
+            var mdots = [].slice.call(mdotsWrap.children);
+            function mgo(i){
+                mcur = (i+MN)%MN;
+                mslides.forEach(function(s,k){ s.classList.toggle('on', k===mcur); });
+                mdots.forEach(function(d,k){ d.classList.toggle('on', k===mcur); });
+                if (mcount) mcount.textContent = ROMAN[mcur] + ' / ' + ROMAN[MN-1];
+            }
+            document.getElementById('mnext').addEventListener('click', function(){ mgo(mcur+1); });
+            document.getElementById('mprev').addEventListener('click', function(){ mgo(mcur-1); });
+            var mfilm = document.getElementById('mfilm'), mx0 = null;
+            mfilm.addEventListener('touchstart', function(e){ mx0 = e.touches[0].clientX; }, {passive:true});
+            mfilm.addEventListener('touchend', function(e){ if (mx0===null) return; var dx = e.changedTouches[0].clientX - mx0; if (Math.abs(dx)>40){ mgo(mcur + (dx<0?1:-1)); } mx0=null; }, {passive:true});
+        })();
+
+        // ── Reveal on scroll ──
+        var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+    })();
+    </script>
+</body>
+</html>
