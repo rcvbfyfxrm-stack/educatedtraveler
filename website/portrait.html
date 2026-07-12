@@ -243,12 +243,12 @@
                     try{ if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return; }catch(e){}
                     var B=h.innerHTML;
                     var A="Tell me the craft you'd give a week of your life to learn.<br>Then I go build it for you.";
-                    h.style.transition="opacity .5s ease";
-                    h.innerHTML=A;            // open on the promise…
+                    h.style.transition="opacity .9s ease";
+                    h.innerHTML=A;            // open on the promise… (linger so it reads)
                     setTimeout(function(){   // …then become the place
                         h.style.opacity="0";
-                        setTimeout(function(){ h.innerHTML=B; h.style.opacity="1"; }, 520);
-                    }, 2600);
+                        setTimeout(function(){ h.innerHTML=B; h.style.opacity="1"; }, 950);
+                    }, 4200);
                 })();
                 </script>
                 <p class="sub">I'm Arnaud. Tell me what you'd love to learn, and I'll take you to the place where it's
