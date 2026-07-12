@@ -179,6 +179,24 @@
         .cred li { display:flex; gap:12px; font-size:14px; color:var(--muted); line-height:1.5; }
         .cred li b { color:var(--paper); font-weight:500; }
         .cred .ic { color:var(--sea); flex:0 0 auto; }
+        /* founder story diaporama (inside the modal — opens only on "Meet Arnaud") */
+        .mfilm { position:relative; border-radius:14px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3; margin:0 0 16px; background:#0d0b09; }
+        .mslide { position:absolute; inset:0; opacity:0; transition:opacity .5s ease; pointer-events:none; }
+        .mslide.on { opacity:1; pointer-events:auto; }
+        .mslide img { width:100%; height:100%; object-fit:cover; }
+        .mslide::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,.08),rgba(13,11,9,.34) 45%,rgba(13,11,9,.95)); }
+        .mcap { position:absolute; left:0; right:0; bottom:0; z-index:2; padding:18px 20px; }
+        .mcap .mch { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.28em; text-transform:uppercase; color:var(--sea); margin:0 0 7px; }
+        .mcap h4 { font-family:'Fraunces',serif; font-weight:400; font-size:1.25rem; margin:0 0 6px; letter-spacing:-.01em; color:var(--paper); }
+        .mcap p { color:rgba(243,237,226,.82); font-size:13px; line-height:1.5; margin:0; }
+        .mnav { position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(13,11,9,.5); border:1px solid var(--line); color:var(--paper); cursor:pointer; font-size:20px; line-height:1; padding:0; }
+        .mnav:hover { background:rgba(13,11,9,.85); }
+        .mnav.p { left:12px; } .mnav.n { right:12px; }
+        .mcount { position:absolute; top:14px; left:14px; z-index:4; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.18em; color:var(--paper); background:rgba(13,11,9,.5); border:1px solid var(--line); padding:4px 10px; border-radius:999px; }
+        .mdots { display:flex; justify-content:center; gap:8px; margin:0 0 20px; }
+        .mdot { position:relative; width:8px; height:8px; padding:0; border:0; border-radius:999px; background:rgba(243,237,226,.22); cursor:pointer; transition:width .3s,background .3s; }
+        .mdot::before { content:""; position:absolute; inset:-12px; }
+        .mdot.on { width:22px; background:var(--sea); }
 
         ::-webkit-scrollbar { width: 7px; }
         ::-webkit-scrollbar-track { background: var(--ink); }
@@ -335,12 +353,18 @@
                 </div>
             </div>
             <p style="color:var(--muted);font-size:15px;margin-bottom:18px;line-height:1.6;">I left school at 18 to find out what the world was really about, and I've been crossing it by sea and by land ever since — cooking for a living, and learning from the masters I met along the way. So I know the difference between a real school and a good-looking website.</p>
-            <ul class="cred">
-                <li><span class="ic">▪</span><span><b>Kitchens.</b> Michelin kitchens in France, street vendors in Bangkok, wine learned from the growers in French vineyards — and private chef on some of the world's finest yachts.</span></li>
-                <li><span class="ic">▪</span><span><b>50,000 nautical miles.</b> Learned to sail in Thailand, raced in Sydney, blue-water crossings across every ocean. The sea cares about judgment, not a résumé.</span></li>
-                <li><span class="ic">▪</span><span><b>Depths &amp; heights.</b> Freediving in Mexico, shark diving in the Galápagos, Annapurna Base Camp at 4,130 m.</span></li>
-                <li><span class="ic">▪</span><span><b>Stillness.</b> Breathwork in Bali, Ayurveda in India — presence, learned from masters who gave their lives to it.</span></li>
-            </ul>
+            <div class="mfilm" id="mfilm" aria-roledescription="carousel" aria-label="Arnaud's story, in six photos">
+                <div class="mslide on" data-m="0"><img src="/images/story/founder/beginning.jpg" alt="Arnaud walking into an alpine valley" loading="lazy"><div class="mcap"><p class="mch">I · The beginning</p><h4>So I went.</h4><p>At 18, everyone expected university and a career. I wanted to learn by doing — not watch the world on a screen. So I left.</p></div></div>
+                <div class="mslide" data-m="1"><img src="/images/story/founder/galley.jpg" alt="Arnaud plating a dish in the galley" loading="lazy"><div class="mcap"><p class="mch">II · The kitchens</p><h4>Every kitchen a classroom.</h4><p>Michelin kitchens in France, street stalls in Bangkok — fifteen years cooking for a living, most of them at sea.</p></div></div>
+                <div class="mslide" data-m="2"><img src="/images/story/founder/sea.jpg" alt="Arnaud on the boat with the day's catch" loading="lazy"><div class="mcap"><p class="mch">III · The sea</p><h4>Fifty thousand nautical miles.</h4><p>Learned to sail the Siam sea, raced off Sydney, crossed oceans. The sea cares about judgment, not a résumé.</p></div></div>
+                <div class="mslide" data-m="3"><img src="/images/story/founder/depths.jpg" alt="Arnaud freediving in a cenote" loading="lazy"><div class="mcap"><p class="mch">IV · The depths</p><h4>The deeper I went, the quieter it got.</h4><p>Freediving Mexican cenotes and the open blue, sharks in the Galápagos. Fear turned into respect.</p></div></div>
+                <div class="mslide" data-m="4"><img src="/images/story/founder/heights.jpg" alt="Arnaud on a Himalayan summit" loading="lazy"><div class="mcap"><p class="mch">V · The heights</p><h4>Strangers turned into crew.</h4><p>Annapurna at 4,130 m, passes across the Himalaya. The people on the trail taught me more than any classroom.</p></div></div>
+                <div class="mslide" data-m="5"><img src="/images/story/founder/stillness.jpg" alt="Arnaud on a mountain ridge at dawn" loading="lazy"><div class="mcap"><p class="mch">VI · The stillness</p><h4>Handed, at the source.</h4><p>Breathwork in Bali, Ayurveda in India — and in the Thar desert of Rajasthan, the idea for all of this took shape.</p></div></div>
+                <span class="mcount" id="mcount">I / VI</span>
+                <button class="mnav p" id="mprev" type="button" aria-label="Previous photo">&lsaquo;</button>
+                <button class="mnav n" id="mnext" type="button" aria-label="Next photo">&rsaquo;</button>
+            </div>
+            <div class="mdots" id="mdots"></div>
             <p style="color:var(--muted);font-size:15px;margin-bottom:6px;line-height:1.6;">Nobody pays to be on the Atlas — no commission, no selling the trip. The order is the strength of the community, never the size of the wallet. And if I wouldn't send a friend, it isn't on the map.</p>
             <details style="border-top:1px solid var(--line);padding-top:16px;margin-top:14px;">
                 <summary class="font-mono" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--sea);cursor:pointer;">Before you trust any school — mine or anyone's — the five questions I ask</summary>
@@ -463,6 +487,33 @@
                 else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
             }
         }
+
+        // ── Founder story diaporama (manual only — lives inside the gated modal) ──
+        (function(){
+            var ROMAN = ['I','II','III','IV','V','VI'];
+            var mslides = [].slice.call(document.querySelectorAll('.mslide'));
+            var mdotsWrap = document.getElementById('mdots'), mcount = document.getElementById('mcount');
+            if (!mslides.length || !mdotsWrap) return;
+            var mcur = 0, MN = mslides.length;
+            mslides.forEach(function(_, i){
+                var b = document.createElement('button');
+                b.className = 'mdot' + (i===0?' on':''); b.type='button'; b.setAttribute('aria-label','Photo '+(i+1)+' of '+MN);
+                b.addEventListener('click', function(){ mgo(i); });
+                mdotsWrap.appendChild(b);
+            });
+            var mdots = [].slice.call(mdotsWrap.children);
+            function mgo(i){
+                mcur = (i+MN)%MN;
+                mslides.forEach(function(s,k){ s.classList.toggle('on', k===mcur); });
+                mdots.forEach(function(d,k){ d.classList.toggle('on', k===mcur); });
+                if (mcount) mcount.textContent = ROMAN[mcur] + ' / ' + ROMAN[MN-1];
+            }
+            document.getElementById('mnext').addEventListener('click', function(){ mgo(mcur+1); });
+            document.getElementById('mprev').addEventListener('click', function(){ mgo(mcur-1); });
+            var mfilm = document.getElementById('mfilm'), mx0 = null;
+            mfilm.addEventListener('touchstart', function(e){ mx0 = e.touches[0].clientX; }, {passive:true});
+            mfilm.addEventListener('touchend', function(e){ if (mx0===null) return; var dx = e.changedTouches[0].clientX - mx0; if (Math.abs(dx)>40){ mgo(mcur + (dx<0?1:-1)); } mx0=null; }, {passive:true});
+        })();
 
         // ── Reveal on scroll ──
         var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
