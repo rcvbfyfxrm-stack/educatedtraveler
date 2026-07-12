@@ -15,16 +15,16 @@ window.LAB_WEEKS = [
     craft: 'The Avant-Garde Kitchen',
     place: 'Barcelona',
     world: 'Kitchen & Cellar',
-    status: 'open',
+    status: 'teaser',
     // -- teaser copy (safe before signature) --
     teaser: 'Five days in a working laboratory where the modern techniques — sous-vide, textures, spheres, foams, liquid nitrogen — are taught openly by the chef who runs it. Built for working chefs off boats first.',
     when: 'Autumn 2026',
     note: 'The master is named — and the door opens — the day the terms are signed. First word goes to the Circle.',
     extras: 'Around the five days, optional add-ons are taking shape — an open-fire day (paella over flame, socarrat, arròs negre) and a Barcelona source day through the city’s markets and cellars — announced once confirmed, nothing sold until it’s booked and real. And we’ll be looking for a shared cohort apartment, optional and at cost: the room is half the point, and the conversations shouldn’t stop when the bench closes.',
-    // -- filled at flip (status: 'open') --
-    master: 'Martin Lippo',
-    dates: '22–26 October 2026',
-    url: '/barcelona'
+    // -- filled at flip (status: 'open') — held incognito until the terms are signed --
+    master: null,
+    dates: null,
+    url: null
   },
   {
     id: 'lab-week-02',
