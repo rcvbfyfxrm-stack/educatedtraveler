@@ -530,7 +530,7 @@
             document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });
             var b=$('beat'+n); if(b) b.classList.add('show');
             current=n; rails();
-            if(n===2){ renderChosen(); renderWorldBadges(); }
+            if(n===2){ renderChosen(); renderWorldBadges(); updateGo2(); }
             if(n===4) syncSignature();
             if(n===5) renderPortrait();
             $('card').scrollIntoView({behavior:'smooth', block:'start'});
@@ -725,22 +725,40 @@
         }
 
         // ── build the profile row we write to `profiles` ──
+        // Only send what they actually gave — an unanswered question must never
+        // blank a value the member already had on their profile.
+        var existingInterests = null; // loaded at boot for signed-in members
+        function mergeInterests(cur, add){
+            var out = {};
+            [cur, add].forEach(function(src){
+                if(!src || typeof src !== 'object' || Array.isArray(src)) return;
+                Object.keys(src).forEach(function(k){
+                    var list = Array.isArray(src[k]) ? src[k] : [];
+                    out[k] = out[k] || [];
+                    list.forEach(function(v){ if(v && out[k].indexOf(v)<0) out[k].push(v); });
+                });
+            });
+            return out;
+        }
         function profileRow(){
             var row = {
-                first_name: state.name || null,
-                profession: state.prof || null,
-                location: state.region || null,
-                status: answer('lifestage'),
-                interests: interestsObject(),
-                previous_experience: answer('depth'),
-                availability: answer('timing'),
-                preferred_duration: answer('length'),
-                reach: answer('reach'),
-                dream_letter: state.letter || null,
                 profile_complete: true,
                 portrait_complete: true,
                 portrait_completed_at: new Date().toISOString()
             };
+            if(state.name) row.first_name = state.name;
+            if(state.email) row.email = state.email;
+            if(state.prof) row.profession = state.prof;
+            if(state.region) row.location = state.region;
+            var a;
+            if((a=answer('lifestage'))) row.status = a;
+            if((a=answer('depth'))) row.previous_experience = a;
+            if((a=answer('timing'))) row.availability = a;
+            if((a=answer('length'))) row.preferred_duration = a;
+            if((a=answer('reach'))) row.reach = a;
+            if(state.letter) row.dream_letter = state.letter;
+            var ints = interestsObject();
+            if(Object.keys(ints).length) row.interests = mergeInterests(existingInterests, ints);
             return row;
         }
 
@@ -754,6 +772,9 @@
             var sb=window.supabaseClient;
             if(!sb || !userId) throw new Error('not-authed');
             var row = profileRow(); row.id = userId;
+            // profiles.email is NOT NULL: keep it in the row (identical to the
+            // auth email) so a missing-row INSERT path can't fail on it.
+            if(!row.email && session && session.user && session.user.email) row.email = session.user.email;
             var res = await sb.from('profiles').upsert(row, { onConflict:'id' });
             if(res && res.error) throw res.error;
             // Tell Arnaud a portrait was sealed. The function re-reads this user's own
@@ -792,10 +813,9 @@
 
         async function sendMagicLink(email){
             var sb=window.supabaseClient;
-            if(!sb){ // preview / offline
-                console.log('[Portrait] (preview) would send magic link to', email, 'with row', profileRow());
-                await new Promise(function(r){ setTimeout(r,500); }); return;
-            }
+            // No client = no email was requested. Fail honestly (the catch shows
+            // the write-me-directly path) instead of faking the "sent" screen.
+            if(!sb) throw new Error('connection unavailable');
             var res = await sb.auth.signInWithOtp({
                 email: email,
                 options: { emailRedirectTo: window.location.origin + '/portrait', shouldCreateUser: true }
@@ -808,6 +828,9 @@
             var rail=$('card').querySelector('.rail'); if(rail) rail.style.display='none';
             $(which).classList.add('show');
             $('card').scrollIntoView({behavior:'smooth', block:'start'});
+            // announce the outcome to screen readers (display:none -> visible is not announced)
+            var h=$(which).querySelector('h2');
+            if(h){ h.setAttribute('tabindex','-1'); setTimeout(function(){ try{ h.focus(); }catch(e){} }, 400); }
         }
         function finish(){
             $('done-h').textContent = state.name ? ('You have your place now, '+state.name+'.') : 'You have your place, now.';
@@ -837,16 +860,17 @@
                 markWho('Signed in as '+state.email);
                 // Pull any existing profile to prefill name.
                 try{
-                    var pr = await sb.from('profiles').select('first_name,profession,location').eq('id', userId).single();
+                    var pr = await sb.from('profiles').select('first_name,profession,location,interests').eq('id', userId).single();
                     if(pr && pr.data){
                         if(pr.data.first_name && !$('f_name').value) $('f_name').value=pr.data.first_name;
                         if(pr.data.profession) $('f_prof').value=pr.data.profession;
                         if(pr.data.location) $('f_region').value=pr.data.location;
+                        existingInterests = pr.data.interests || null;
                     }
                 }catch(e){}
                 // If they came back from a magic link with a saved draft → restore + auto-seal.
                 hadDraft = loadDraft();
-                if(hadDraft && (state.letter || craftList().length || state.lifestage)){
+                if(hadDraft && (state.name || state.letter || craftList().length || state.lifestage)){
                     // restore inputs so the portrait renders, then auto-save
                     restoreInputs();
                     state.name = state.name || $('f_name').value.trim();
@@ -872,15 +896,26 @@
         }
         function restoreInputs(){
             if(state.name) $('f_name').value=state.name;
+            if(state.email && !session) $('f_email').value=state.email;
             if(state.prof) $('f_prof').value=state.prof;
             if(state.region) $('f_region').value=state.region;
             if(state.open) $('f_open').value=state.open;
             ['lifestage','depth','timing','length','reach'].forEach(function(g){
                 var el=$('f_'+g+'_own'); if(el && state[g+'_own']) el.value=state[g+'_own'];
             });
+            // re-press the restored single-choice chips so the draft is visible
+            // (and so tapping your earlier choice doesn't silently erase it)
+            ['lifestage','depth','timing','length','reach'].forEach(function(g){
+                if(!state[g]) return;
+                var box=$('g_'+g); if(!box) return;
+                var want=labelOf(g, state[g]);
+                Array.prototype.forEach.call(box.children, function(c){
+                    c.setAttribute('aria-pressed', c.textContent===want ? 'true' : 'false');
+                });
+            });
             if(state.letter) letterEl.value=state.letter;
             syncSignature();
-            renderChosen(); renderWorldBadges();
+            renderChosen(); renderWorldBadges(); updateGo2();
         }
 
         boot();

@@ -1,0 +1,17 @@
+# Remote auth config (pushed via `supabase config push`).
+# Keep this file MINIMAL: only keys listed here are pushed; do not add keys
+# you don't intend to overwrite on prod.
+project_id = "exaehwaqwcledemwpluw"
+
+[auth]
+# Where auth emails land when no (or a non-allow-listed) redirect is given.
+site_url = "https://educatedtraveler.app"
+# Redirect allow-list for magic links / recovery (portrait, auth-callback, …).
+additional_redirect_urls = [
+  "https://educatedtraveler.app",
+  "https://educatedtraveler.app/portrait",
+  "https://educatedtraveler.app/auth-callback.html",
+  "https://educatedtraveler.app/auth-callback.html?return=*",
+  "https://educatedtraveler.app/auth-callback.html?type=recovery",
+  "https://educatedtraveler.app/**",
+]
