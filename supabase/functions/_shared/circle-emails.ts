@@ -158,8 +158,23 @@ function foundingHtml(unsub: string): string {
 </body></html>`;
 }
 
+// Portrait invite — sent once to the people who subscribed before /portrait
+// existed. Asks them to take their place: tell Arnaud, in their own words, the
+// craft they'd give a week to, and write him the letter. CTA -> /portrait
+// (the page handles sign-in itself via magic link, so no per-recipient token).
+function portraitInviteHtml(unsub: string): string {
+  const body = `
+      <p style="${P}margin:0 0 18px 0;">You joined the Circle a while ago &mdash; and I haven't forgotten it. I've been building quietly since, and there's now something I made for the people who were here first. You're one of them.</p>
+      <p style="${P}margin:0 0 18px 0;">It's a single page. On it, you tell me &mdash; in your own words &mdash; the one craft you'd give a real week of your life to learn. And if you want, you write me a letter. Not a form with a letter-shaped box: a real letter. It opens <em style="color:rgba(243,237,226,0.85);">&ldquo;Arnaud,&rdquo;</em> and mine is the only pair of eyes that will ever read it.</p>
+      <p style="${P}margin:0 0 18px 0;">Here's why it matters. I don't sell you a week. I take what you tell me and go find the real thing &mdash; the master still teaching by hand, the place where the craft is genuinely alive, the handful of people you'd want beside you. Then I open the door. The clearer you are with me, the better I aim. The first one is already taking shape around a modernist kitchen in Barcelona, this autumn.</p>
+      <div style="text-align:center;margin:30px 0;"><a href="https://educatedtraveler.app/portrait" style="${BTN}">Take your place &rarr;</a></div>
+      <p style="${P}margin:22px 0 0 0;">Five minutes, if you're quick. Twenty, if the letter gets away from you. Both are exactly right.</p>`;
+  return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; a door with your name on it", heading: "Now tell me what you'd give a week of your life to learn.", body, unsub });
+}
+
 export const ISSUES: Record<string, { subject: string; html: (unsub: string) => string }> = {
   "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomeHtml },
+  "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml },
   "issue-01": { subject: "The Circle, Letter Nº 1 — where the divers go to find the deep", html: issue01Html },
   "issue-02": { subject: "The Circle, Letter Nº 2 — the snack named after a movie star", html: issue02Html },
   "issue-03": { subject: "The Circle, Letter Nº 3 — the rarest thing in a kitchen isn't talent", html: issue03Html },

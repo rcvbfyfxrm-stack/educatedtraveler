@@ -23,12 +23,35 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
     <style>
         /* ── Warm-Dark Editorial (2026-06-11 relook lock) ── */
         :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
-               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
+               /* the letter's real paper (matches /portrait) */
+               --sheet:#efe6d3; --sheet-edge:#e2d6bd; --sheet-ink:#2c231a; --sheet-faint:#6f6350; }
+
+        /* ── THE LETTER — a real sheet of paper on the dark page (mirror of /portrait) ── */
+        .sheet-wrap{ margin:6px 0 4px; perspective:1400px; }
+        .sheet{ position:relative; background:linear-gradient(180deg,var(--sheet) 0%, #ece1cc 100%);
+                border-radius:5px; padding:30px 30px 26px; color:var(--sheet-ink);
+                box-shadow:0 1px 0 rgba(255,255,255,0.35) inset, 0 30px 60px -24px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.35);
+                border:1px solid var(--sheet-edge); }
+        .sheet::after{ content:""; position:absolute; left:14px; right:14px; top:0; height:1px;
+                       background:linear-gradient(90deg,transparent,rgba(0,0,0,0.10),transparent); }
+        .sheet .to{ font-family:'Fraunces',Georgia,serif; font-size:19px; color:var(--sheet-ink); margin-bottom:2px; }
+        .sheet .date{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
+                      color:var(--sheet-faint); margin-bottom:16px; }
+        .sheet textarea.paper{
+            width:100%; min-height:200px; background:transparent; border:none; outline:none; resize:vertical;
+            color:var(--sheet-ink); font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:17px; line-height:34px;
+            background-image:repeating-linear-gradient(transparent, transparent 33px, rgba(44,35,26,0.14) 33px, rgba(44,35,26,0.14) 34px);
+            padding:0; }
+        .sheet textarea.paper::placeholder{ color:rgba(44,35,26,0.34); font-style:italic; }
+        .sheet .sign{ margin-top:18px; text-align:right; }
+        .sheet .sign .yours{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:15px; color:var(--sheet-faint); }
+        .sheet .sign .name{ font-family:'Caveat','Fraunces',cursive; font-size:30px; line-height:1; color:#3a2c1e; margin-top:2px; }
         *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
         body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
               min-height:100vh; line-height:1.55; }
@@ -253,12 +276,19 @@
                 <h2 class="q">If I could build one week just for you — what would it be?</h2>
                 <p class="sub-tight">Name the craft, the place, even the person, if you know it. Tell me why it pulls at you.</p>
 
-                <div class="field">
-                    <label class="fld"><span class="sr">Your dream week</span>
-                        <textarea id="f_dream" placeholder="e.g. &ldquo;A week of modernist technique in Barcelona — I've watched the work for years and I want to actually do it, not just read about it.&rdquo; Or just a feeling. Whatever's true."></textarea>
-                    </label>
-                    <p class="help">One sentence or ten. I read every one myself.</p>
+                <div class="sheet-wrap">
+                    <div class="sheet">
+                        <div class="to">Arnaud,</div>
+                        <div class="date" id="dream-date"></div>
+                        <label class="sr" for="f_dream">Your dream week — a letter to Arnaud</label>
+                        <textarea class="paper" id="f_dream" placeholder="The week I keep imagining is… Name the craft, the place, even the person, if you know it. Tell me why it pulls at you."></textarea>
+                        <div class="sign">
+                            <div class="yours">Speak soon,</div>
+                            <div class="name" id="dream-sign">—</div>
+                        </div>
+                    </div>
                 </div>
+                <p class="help" style="margin-top:12px;">One sentence or ten. I read every one myself.</p>
 
                 <div class="row">
                     <button class="cta" id="go3">Next &rarr;</button>
@@ -355,9 +385,20 @@
             beats.forEach(function(b){ b.classList.remove('show'); });
             $('beat'+n).classList.add('show');
             current=n; rails();
+            if(n===3) syncDream();
             $('card').scrollIntoView({behavior:'smooth', block:'start'});
             var f=$('beat'+n).querySelector('input,textarea'); if(f) setTimeout(function(){ f.focus(); }, 350);
         }
+
+        // ── the dream letter: date + live signature (in the joiner's own hand) ──
+        (function(){
+            try{
+                var d=new Date();
+                var m=['January','February','March','April','May','June','July','August','September','October','November','December'];
+                var el=document.getElementById('dream-date'); if(el) el.textContent=m[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
+            }catch(e){}
+        })();
+        function syncDream(){ var s=document.getElementById('dream-sign'); if(s) s.textContent = state.name ? state.name : '—'; }
 
         // ── beat 1 ──
         function validEmail(e){ return /.+@.+\..+/.test(e); }
