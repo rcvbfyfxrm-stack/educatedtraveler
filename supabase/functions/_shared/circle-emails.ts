@@ -7,6 +7,12 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const FROM = "Arnaud · EducatedTraveler <founder@educatedtraveler.app>";
 const REPLY_TO = "founder@educatedtraveler.app";
 
+function esc(s: unknown) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;").replaceAll("'", "&#39;");
+}
+
 function shell(opts: {
   eyebrow: string; heading: string; body: string; unsub: string;
 }): string {
@@ -172,13 +178,61 @@ function portraitInviteHtml(unsub: string): string {
   return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; a door with your name on it", heading: "Now tell me what you'd give a week of your life to learn.", body, unsub });
 }
 
-export const ISSUES: Record<string, { subject: string; html: (unsub: string) => string }> = {
+// Chef invite — a 1:1 personal note to chefs Arnaud has spoken with about the
+// modernist week. Name-aware, no bulk unsubscribe footer (this is a personal
+// email, not a broadcast). CTA -> /portrait to join the Circle for the details.
+function chefInviteHtml(_unsub: string, name?: string): string {
+  const hi = name && name.trim() ? esc(name.trim()) : "chef";
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#0d0b09;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="text-align:center;margin-bottom:34px;">
+      <span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#f3ede2;">EDUCATED</span><span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#7fa8a5;">TRAVELER</span>
+    </div>
+    <div style="background:rgba(243,237,226,0.03);border:1px solid rgba(243,237,226,0.08);border-radius:16px;padding:36px 28px;">
+      <p style="color:#f3ede2;font-family:Georgia,'Times New Roman',serif;font-size:19px;margin:0 0 20px 0;">Hey ${hi} &mdash;</p>
+      <p style="${P}margin:0 0 18px 0;">Good to talk shop with you about the modernist week. It's moving from an idea toward the real thing now &mdash; a week in Barcelona, this autumn, built around modernist and low-temperature technique at the source: a proper master, a small room, and the kind of hands-on days we don't get once we're cooking for a living.</p>
+      <p style="${P}margin:0 0 18px 0;">I'm keeping the details close while the dates and the master's side lock in &mdash; but I want you near it as it firms up, ahead of anyone else.</p>
+      <p style="${P}margin:0 0 22px 0;">Simplest way to do that: I built a page where you tell me, in your own words, what you'd want out of a week like this &mdash; the technique, the people, the reason it pulls at you. Do that and you're in the Circle, which just means I write you first when the week is real, with everything you'd need to decide.</p>
+      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/portrait" style="${BTN}">Tell me what you'd want &rarr;</a></div>
+      <p style="${P}margin:20px 0 0 0;">Five minutes, tops. And either way &mdash; let's keep talking. You know where I am.</p>
+    </div>
+    <div style="margin-top:30px;padding:0 4px;">
+      <p style="color:rgba(243,237,226,0.55);font-family:Georgia,'Times New Roman',serif;font-size:16px;margin:0;">&mdash; Arnaud</p>
+      <p style="color:rgba(243,237,226,0.25);font-size:12px;margin:4px 0 0 0;">EducatedTraveler</p>
+    </div>
+    <div style="margin-top:34px;padding-top:22px;border-top:1px solid rgba(243,237,226,0.06);text-align:center;">
+      <p style="color:rgba(243,237,226,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="margin:12px 0 0 0;"><a href="https://educatedtraveler.app" style="color:rgba(127,168,165,0.5);font-size:11px;text-decoration:none;">educatedtraveler.app</a></p>
+    </div>
+  </div>
+</body></html>`;
+}
+
+export const ISSUES: Record<string, { subject: string; html: (unsub: string, name?: string) => string }> = {
   "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomeHtml },
   "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml },
+  "chef-invite": { subject: "That modernist cooking week — I want you close to it", html: chefInviteHtml },
   "issue-01": { subject: "The Circle, Letter Nº 1 — where the divers go to find the deep", html: issue01Html },
   "issue-02": { subject: "The Circle, Letter Nº 2 — the snack named after a movie star", html: issue02Html },
   "issue-03": { subject: "The Circle, Letter Nº 3 — the rarest thing in a kitchen isn't talent", html: issue03Html },
 };
+
+// 1:1 personal send — no List-Unsubscribe (not a bulk mailing).
+export async function sendPersonalEmail(
+  to: string, subject: string, html: string,
+): Promise<{ ok: boolean; id?: string; error?: unknown }> {
+  if (!RESEND_API_KEY) return { ok: false, error: "RESEND_API_KEY not set" };
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
+    body: JSON.stringify({ from: FROM, to: [to], reply_to: REPLY_TO, subject, html }),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) return { ok: false, error: data };
+  return { ok: true, id: data.id };
+}
 
 export async function sendCircleEmail(
   to: string, subject: string, html: string, unsubUrl: string,

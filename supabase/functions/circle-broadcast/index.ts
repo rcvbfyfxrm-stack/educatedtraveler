@@ -8,7 +8,7 @@
 //   { "issue": "issue-01" }                   -> sends to every active subscriber
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { ISSUES, sendCircleEmail } from "../_shared/circle-emails.ts";
+import { ISSUES, sendCircleEmail, sendPersonalEmail } from "../_shared/circle-emails.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -42,6 +42,19 @@ serve(async (req) => {
       const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=preview`;
       const r = await sendCircleEmail(body.test, issue.subject, issue.html(unsub), unsub);
       return json({ ok: r.ok, mode: "test", to: body.test, subject: issue.subject, id: r.id, error: r.error });
+    }
+
+    // personal mode: explicit [{email,name}] list, sent 1:1 (no bulk unsub header).
+    // Body: { "issue":"chef-invite", "personal":[{"email":"x","name":"Mario"}] }
+    if (Array.isArray(body.personal)) {
+      const results: Array<{ email: string; ok: boolean; id?: string; error?: unknown }> = [];
+      for (const r of body.personal) {
+        if (!r || !r.email) continue;
+        const res = await sendPersonalEmail(r.email, issue.subject, issue.html("", r.name));
+        results.push({ email: r.email, ok: res.ok, id: res.id, error: res.error });
+        await new Promise((s) => setTimeout(s, 600));
+      }
+      return json({ ok: results.every((x) => x.ok), mode: "personal", issue: issueKey, subject: issue.subject, results });
     }
 
     const { data: subs, error } = await admin
