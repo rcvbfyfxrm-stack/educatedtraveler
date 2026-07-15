@@ -268,6 +268,17 @@ footer{border-top:1px solid var(--line);padding:46px 0 56px}
 <script>
 (function(){
   "use strict";
+  // Read-only membership probe (mirrors circle.html); fails OPEN so a slow/unavailable
+  // check never blocks a real join.
+  function emailHasAccount(email){
+    var sb=window.supabaseClient;
+    if(!sb||!sb.functions)return Promise.resolve(false);
+    var probe=sb.functions.invoke('check-email',{body:{email:email}})
+      .then(function(res){return !!(res&&!res.error&&res.data&&res.data.member);})
+      .catch(function(){return false;});
+    var timeout=new Promise(function(resolve){setTimeout(function(){resolve(false);},4500);});
+    return Promise.race([probe,timeout]);
+  }
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
   var cd=document.getElementById('countdown');
@@ -280,12 +291,21 @@ footer{border-top:1px solid var(--line);padding:46px 0 56px}
     e.preventDefault();
     var picked=ints.filter(function(l){return l.querySelector('input').checked;});
     if(!picked.length){sub.textContent='Pick at least one';setTimeout(function(){sub.textContent=LABEL;},1400);return;}
-    sub.disabled=true;sub.textContent='Joining…';
+    sub.disabled=true;sub.textContent='One moment…';
     var email=document.getElementById('cemail').value.trim();
     var interests=picked.map(function(l){return l.querySelector('input').value;});
     (async function(){
       try{
         if(!window.supabaseClient) throw new Error('supabase not ready');
+        // Already a member? Send them to sign in instead of making a second lead.
+        if(await emailHasAccount(email)){
+          form.style.display='none';
+          var sx=document.getElementById('csuccess');
+          sx.innerHTML='<h3 class="serif">You\'re already in the Circle.</h3><p>This email already has an account — no need to sign up again. <a href="/join?tab=signin&email='+encodeURIComponent(email)+'" style="color:var(--sea)">Sign in to your account &rarr;</a></p>';
+          sx.style.display='block';
+          return;
+        }
+        sub.textContent='Joining…';
         var res=await window.supabaseClient.from('launch_waitlist').insert({email:email,interests:interests,source:'barcelona-teaser'});
         if(res&&res.error) throw res.error;
         try{sessionStorage.setItem('et_circle',JSON.stringify({email:email,interests:interests}));}catch(_){}

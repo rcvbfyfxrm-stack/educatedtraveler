@@ -363,9 +363,29 @@
       profile.fname=(els.acct.querySelector(".etc-fn").value||"friend").trim();
       var em=(els.acct.querySelector(".etc-em").value||"").trim();
       if(!em||em.indexOf("@")<1){var ei=els.acct.querySelector(".etc-em");ei.focus();ei.style.borderColor="#d28a52";return;}
-      profile.email=em;var btn=els.acct.querySelector(".etc-finish");btn.textContent="Saving…";btn.classList.add("etc-dim");
-      saveProfile().then(renderDone);
+      profile.email=em;var btn=els.acct.querySelector(".etc-finish");btn.textContent="One moment…";btn.classList.add("etc-dim");
+      emailHasAccount(em).then(function(member){
+        if(member){renderExisting(em);return;}
+        btn.textContent="Saving…";
+        saveProfile().then(renderDone);
+      });
     };
+  }
+  /* Already a member? Send them to sign in instead of making a second lead. */
+  function emailHasAccount(email){
+    var sb=window.supabaseClient;
+    if(!sb||!sb.functions)return Promise.resolve(false);
+    var probe=sb.functions.invoke("check-email",{body:{email:email}})
+      .then(function(res){return !!(res&&!res.error&&res.data&&res.data.member);})
+      .catch(function(){return false;});
+    var timeout=new Promise(function(resolve){setTimeout(function(){resolve(false);},4500);});
+    return Promise.race([probe,timeout]); // fails OPEN — never blocks a real join
+  }
+  function renderExisting(email){
+    var url="/join?tab=signin&email="+encodeURIComponent(email);
+    els.panel.innerHTML='<div class="etc-done"><div class="etc-orb" aria-hidden="true"></div><h2>You\'re already in the Circle.</h2><p>This email already has an account — no need to sign up again. Step back into yours and pick up where you left off.</p><a class="etc-cta etc-explore" href="'+url+'" style="text-decoration:none;display:inline-block">Sign in to your account →</a></div>';
+    setTimeout(function(){var e=els.panel.querySelector(".etc-explore");if(e)e.focus();},30);
+    if(window.plausible)window.plausible("CircleSignupExistingMember",{props:{source:CONFIG.saveSource}});
   }
   function byId(id){return CRAFTS.filter(function(x){return x.id===id;})[0];}
   function recap(){var w=(profile.worlds||[]).map(function(x){return WORLD_LABEL[x];}).join(", ");var parts=[({lost:"ready for a change",spent:"outgrew the last thing",learn:"here to learn"}[profile.turn]||{new:"after a new craft",deeper:"going deeper",people:"here for the people",change:"after a change"}[profile.motivation]||""),({beginner:"starting fresh",some:"some grounding",seasoned:"seasoned hand"}[profile.experience]||""),({region:"close to home",europe:"open to Europe",world:"goes anywhere"}[profile.reach]||""),({soon:"ready soon",year:"this year",dreaming:"dreaming"}[profile.timing]||"")].filter(Boolean);return'Saved: <b>'+esc(w)+'</b><br>'+parts.join(' · ');}

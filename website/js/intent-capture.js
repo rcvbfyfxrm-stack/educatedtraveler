@@ -7,6 +7,20 @@
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
   }
+
+  // Ask the server (read-only, service role) whether this email already has an
+  // account, so we send returning members to sign in instead of making a second
+  // lead. Mirrors circle.html; fails OPEN — a slow/unavailable probe never blocks
+  // a real join (4.5s timeout race).
+  function emailHasAccount(email) {
+    var sb = window.supabaseClient;
+    if (!sb || !sb.functions) return Promise.resolve(false);
+    var probe = sb.functions.invoke('check-email', { body: { email: email } })
+      .then(function (res) { return !!(res && !res.error && res.data && res.data.member); })
+      .catch(function () { return false; });
+    var timeout = new Promise(function (resolve) { setTimeout(function () { resolve(false); }, 4500); });
+    return Promise.race([probe, timeout]);
+  }
   ready(function () {
     var forms = document.querySelectorAll('form.intent');
     if (!forms.length) return;
@@ -29,6 +43,21 @@
         btn.disabled = true;
         msg.hidden = true;
         msg.className = 'intent-msg';
+
+        // Already a member? Don't create a duplicate lead — send them to sign in.
+        var already = false;
+        try { already = await emailHasAccount(email); } catch (e) { already = false; }
+        if (already) {
+          btn.disabled = false;
+          msg.innerHTML = "You're already in the Circle with this email — no need to sign up again. " +
+            '<a href="/join?tab=signin&email=' + encodeURIComponent(email) +
+            '" style="color:var(--sea)">Sign in to your account &rarr;</a>';
+          msg.className = 'intent-msg ok';
+          msg.hidden = false;
+          if (window.plausible) window.plausible('IntentExistingMember', { props: { source: source } });
+          return;
+        }
+
         try {
           var sb = window.supabaseClient;
           if (!sb) throw new Error('offline');
