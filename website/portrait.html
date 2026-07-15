@@ -243,13 +243,27 @@
                     try{ if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return; }catch(e){}
                     var B=h.innerHTML;   // first text: "Go where the craft is still alive…"
                     var A="Tell me the craft you'd give a week of your life to learn.<br>Then I go build it for you.";
-                    // Breathe, slowly: hold the first line long enough to read, cross gently
-                    // to the promise, then return to the first line even more slowly — and settle there.
-                    h.style.transition="opacity 1.4s ease";
-                    setTimeout(function(){ h.style.opacity="0"; }, 5200);                       // long read of B
-                    setTimeout(function(){ h.innerHTML=A; h.style.opacity="1"; }, 6600);        // → cross to A (slow)
-                    setTimeout(function(){ h.style.transition="opacity 2.4s ease"; h.style.opacity="0"; }, 12200); // hold A
-                    setTimeout(function(){ h.innerHTML=B; h.style.opacity="1"; }, 14600);       // → back to B (even slower)
+                    // Breathe, slowly, forever: hold the first line long enough to read,
+                    // cross gently to the promise, then return to the first line even more
+                    // slowly — and keep looping so it never looks frozen.
+                    var READ_B=5200, READ_A=5000, FADE_TO_A=1400, FADE_TO_B=2400;
+                    function toA(){
+                        h.style.transition="opacity "+(FADE_TO_A/1000)+"s ease";
+                        h.style.opacity="0";
+                        setTimeout(function(){                     // swap while invisible, then fade in
+                            h.innerHTML=A; h.style.opacity="1";
+                            setTimeout(toB, FADE_TO_A + READ_A);
+                        }, FADE_TO_A);
+                    }
+                    function toB(){
+                        h.style.transition="opacity "+(FADE_TO_B/1000)+"s ease";  // slower return to the first line
+                        h.style.opacity="0";
+                        setTimeout(function(){
+                            h.innerHTML=B; h.style.opacity="1";
+                            setTimeout(toA, FADE_TO_B + READ_B);
+                        }, FADE_TO_B);
+                    }
+                    setTimeout(toA, READ_B);   // B is already on screen — read it, then begin the cycle
                 })();
                 </script>
                 <p class="sub">I'm Arnaud. Tell me what you'd love to learn, and I'll take you to the place where it's
