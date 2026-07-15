@@ -143,24 +143,26 @@ window.ET_POSTS = [
   },
   {
     id: "circle", format: "Carousel", core: "",
-    title: "What the Circle is",
-    link: "https://educatedtraveler.app/#circle", linkLabel: "Join the Circle",
+    title: "What the Circle is — the letter",
+    link: "https://educatedtraveler.app/portrait", linkLabel: "Take your place",
     images: [
       "/images/posts/circle/slide-01.png", "/images/posts/circle/slide-02.png",
       "/images/posts/circle/slide-03.png", "/images/posts/circle/slide-04.png",
       "/images/posts/circle/slide-05.png",
     ],
-    imageNote: "Branded slides (1080×1350). One per carousel card, in order.",
+    imageNote: "Branded slides (1080×1350), one per card. NOTE: slides 3-5 copy changed to the letter framing — re-render those PNGs to match (the old ones read 'the Circle introduces you' / 'join the Circle').",
     slides: [
-      "There's a place where your craft is still truly alive.",
-      "And people already there — the master, the school, the others chasing the same thing.",
-      "The Atlas maps where. The Circle introduces you.",
-      "We connect. We sell nothing.",
-      "Tell us what pulls you. → join the Circle",
+      "There's a place where the craft you love is still truly alive.",
+      "A real master still teaching it — and the few others chasing the same fire.",
+      "The Atlas maps where it lives. The Circle is how you get in — you write me a letter.",
+      "You tell me, in your own words, the craft you'd give a week of your life to. I read every one myself.",
+      "I don't sell you a week. I find the master, the place, your people — then I open the door.",
     ],
     caption:
-"We don't sell trips. We point you to where a craft is genuinely alive — and introduce you to the people keeping it warm.\n\nThat's the Circle. Tell us what pulls you, and we'll bridge you to a place, a person, and your people.\n\nJoin (it's free): https://educatedtraveler.app/#circle",
-    hashtags: "#educatedtraveler #learnatthesource #community #craft #yourpeople",
+"The Circle isn't a newsletter you sign up for. It's a letter you write me.\n\nYou tell me — in your own words — the one craft you'd give a week of your life to learn, and why it pulls at you. I read every letter myself. Then I go find the real thing: the master still teaching by hand, the place where the craft is genuinely alive, and the handful of others chasing the same fire. When it's real, I write you back and open the door.\n\nI don't sell you a week. I build it, then I open the door. We connect. We sell nothing.\n\nTake your place: https://educatedtraveler.app/portrait",
+    hashtags: "#educatedtraveler #thecircle #learnatthesource #craft #yourpeople",
+    strategy:
+"PURPOSE — explain the ONE thing that makes ET different now: the Circle is a letter, not a list. It surfaces warm leads who name their own craft. WHEN — run monthly, and any time after the founder story lands. SHAPE — 5-slide carousel; slide 4 (the letter) is the heart — linger there. Reply to every comment; carousels get re-served for days. LINK — /portrait (the letter; one-tap magic-link, no password). If you'd rather point cold IG traffic somewhere with no login, use /circle (the quick no-account version) instead. WATCH — /portrait visits, portraits sealed, replies. SAFE — signature-safe: names no master, place, or date.",
   },
   {
     id: "source-sim", format: "Carousel", core: "",
