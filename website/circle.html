@@ -142,6 +142,16 @@
         .back:hover{ color:var(--paper); }
         .err{ color:#f0a58a; font-size:13px; margin-top:12px; display:none; }
 
+        /* "you already have an account" notice */
+        .member-note{ display:none; margin-top:18px; padding:18px 20px; border:1px solid var(--line);
+                      border-left:2px solid var(--sea); background:rgba(127,168,165,0.06); border-radius:14px; }
+        .member-note p{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:16px; line-height:1.55;
+                        color:var(--paper); margin:0 0 14px; }
+        .member-note .cta-sm{ display:inline-block; font-size:14px; padding:11px 22px; }
+        .member-note .quiet-alt{ display:block; margin-top:12px; font-size:12.5px; color:var(--faint); }
+        .member-note .quiet-alt a{ color:var(--muted); text-decoration:underline; }
+        .member-note .quiet-alt a:hover{ color:var(--sea); }
+
         /* promise panel */
         .promise{ border:1px solid var(--line); border-left:2px solid var(--sea); background:rgba(243,237,226,0.022);
                   border-radius:14px; padding:22px 22px 20px; margin:26px 0 8px; }
@@ -209,6 +219,14 @@
                     <button class="cta" id="go0">Keep me close &rarr;</button>
                 </div>
                 <p class="err" id="err0"></p>
+
+                <!-- Shown only when the email already belongs to an account: don't
+                     make a second lead — send them back to their own door. -->
+                <div class="member-note" id="member-note" role="status" aria-live="polite">
+                    <p id="member-note-msg">You're already in the Circle with this email — no need to sign up again.</p>
+                    <a class="cta cta-sm" id="member-signin" href="/join?tab=signin">Sign in to your account &rarr;</a>
+                    <span class="quiet-alt">Not you? <a href="#" id="member-continue">Join with a different email &rarr;</a></span>
+                </div>
             </section>
 
             <!-- BEAT 2 — worlds → craft -->
@@ -402,12 +420,55 @@
 
         // ── beat 1 ──
         function validEmail(e){ return /.+@.+\..+/.test(e); }
-        $('go0').addEventListener('click', function(){
+
+        // Ask the server (service role, read-only) whether this email already has an
+        // account. Fails OPEN on any hiccup — a slow or unavailable probe must never
+        // block a genuine join. Races a 4.5s timeout so the button can't hang.
+        function emailHasAccount(email){
+            var sb = window.supabaseClient;
+            if(!sb || !sb.functions) return Promise.resolve(false);
+            var probe = sb.functions.invoke('check-email', { body:{ email:email } })
+                .then(function(res){ return !!(res && !res.error && res.data && res.data.member); })
+                .catch(function(){ return false; });
+            var timeout = new Promise(function(resolve){ setTimeout(function(){ resolve(false); }, 4500); });
+            return Promise.race([probe, timeout]);
+        }
+
+        var bypassMemberCheck = false; // set when they choose "join with a different email"
+        $('member-continue').addEventListener('click', function(ev){
+            ev.preventDefault();
+            bypassMemberCheck = true;
+            $('member-note').style.display='none';
+            $('f_email').value=''; $('f_email').focus();
+        });
+
+        $('go0').addEventListener('click', async function(){
             var name=$('f_name').value.trim(), email=$('f_email').value.trim();
-            var err=$('err0');
+            var err=$('err0'), note=$('member-note');
+            note.style.display='none';
             if(!name){ err.textContent='Just your first name is enough.'; err.style.display='block'; $('f_name').focus(); return; }
             if(!validEmail(email)){ err.textContent='I need a real email to reach you.'; err.style.display='block'; $('f_email').focus(); return; }
-            err.style.display='none'; state.name=name; state.email=email; show(1);
+            err.style.display='none';
+
+            // Already a member? Don't create a duplicate lead — point them at their account.
+            if(!bypassMemberCheck){
+                var btn=this, label=btn.innerHTML;
+                btn.disabled=true; btn.textContent='One moment…';
+                var already=false;
+                try{ already = await emailHasAccount(email); }catch(e){ already=false; }
+                btn.disabled=false; btn.innerHTML=label;
+                if(already){
+                    $('member-note-msg').textContent =
+                        "You're already in the Circle with this email, " + name + " — no need to sign up again. Step back into your account:";
+                    $('member-signin').href = '/join?tab=signin&email=' + encodeURIComponent(email);
+                    note.style.display='block';
+                    note.scrollIntoView({behavior:'smooth', block:'center'});
+                    if(window.plausible) window.plausible('CircleJoinExistingMember');
+                    return;
+                }
+            }
+
+            state.name=name; state.email=email; show(1);
         });
 
         // ── beat 2: worlds + disciplines ──

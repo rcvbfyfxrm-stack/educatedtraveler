@@ -885,6 +885,14 @@
             if (params.get('tab') === 'signin') {
                 tabSignin.click();
             }
+            // Prefill the email (e.g. arriving from /circle after "you already have an account").
+            const prefillEmail = params.get('email');
+            if (prefillEmail) {
+                const siEmail = signinForm.querySelector('input[name="email"]');
+                if (siEmail) siEmail.value = prefillEmail;
+                const suEmail = signupForm.querySelector('input[name="email"]');
+                if (suEmail) suEmail.value = prefillEmail;
+            }
         });
     </script>
 </body>
