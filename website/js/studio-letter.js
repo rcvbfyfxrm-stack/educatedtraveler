@@ -31,25 +31,29 @@ window.ET_LETTER = {
   issues: [
     {
       id: "issue-03-launch",
-      title: "Issue 03 — He didn't take the flight (THE LAUNCH LETTER — send on launch day)",
-      kind: "Launch reveal · the week is real · Martin's calling story + what you walk out with · no boat names, ever",
+      title: "Issue 03 — The door to the avant-garde is open (THE LAUNCH LETTER — send on launch day)",
+      kind: "Launch reveal · builds on Issue 02's avant-garde story · why Barcelona + why Martin · Atlantic beat kept short · no boat names, ever",
       portrait: "/images/lippo/martin-teaching.png",
-      subject: "He didn't take the flight",
-      preview: "At 26, Martin Lippo had to get to Europe. He crossed the ocean under sail instead. In October, his lab opens for us.",
+      subject: "The door to the avant-garde is open",
+      preview: "Barcelona, October: five days in Martin Lippo's lab — the open door to the techniques that changed cooking.",
       body:
-`At twenty-six, Martin Lippo had to get to Europe. Everyone he knew did it the obvious way: you buy a ticket, you fly. He crossed the Atlantic under sail instead — a racing yacht, eighteen days at sea, Antigua to Spain by way of the Azores, the last stretch rerouted by a storm.
+`In the last letter I wrote to you about a cove on the Catalan coast — Cala Montjoi, where the most influential restaurant of our lifetime became a museum — and about the man in Barcelona who kept its language teachable. I ended with a promise: I was building something with Martin Lippo, and when it was real, you'd hear it here first.
 
-He told me this on the phone this week, and it explained everything. Because that choice makes no sense — unless you understand that the flight was never the point. Something in him wanted the ocean, and he let it navigate. That crossing marked his life and opened doors no itinerary could have drawn. Decades later, the same instinct built Vakuum: while the great kitchens of his generation put velvet ropes on their knowledge, Martin built a laboratory in Barcelona whose entire purpose is handing technique over.
+It's real.
 
-Your callings know the way. Follow them.
+But hold the why for a second, because it's the whole point. The avant-garde kitchen changed what cooking is: spheres that burst on the tongue, textures that hold at heat, foams that arrive alive, sous-vide run with a thermometer's honesty instead of a prayer. If you cook professionally, you already speak pieces of that language. The techniques were never the problem. The problem is where the knowledge lives — behind restaurant pass doors, months-long unpaid stages most people never finish, and Spanish-language calendars. The kitchens that invented it mostly won't take you.
 
-I recognise the shape of that story because it's mine too — I left school at eighteen and let the sea do the navigating. People who follow their callings end up recognising each other. Which is how I can finally write the sentence this letter has been circling for a month:
+Martin Lippo went the other way. Argentine, in Barcelona since 2000 — right through the city's avant-garde supernova — he built a laboratory instead of a restaurant: Vakuum, a room whose entire purpose is putting technique into other people's hands. He founded the Nitro School there; Les Vergers Boiron, the French fruit house, built a sixty-video technique library around him; the people who write about him place his cooking between Adrià's modernism and Escoffier's classicism — one foot in the canon, one on the frontier. His reviews are signed with names and ranks: a three-star pastry chef, a working superyacht chef. And Martin will tell you chefs from World's 50 Best kitchens have taken his courses and left with more than they came for.
 
-THE WEEK IS REAL
+This is the source, and he is the man at the bench. I looked for an alternative — honestly, so I could tell you about it. As of this July I could not find another week like it anywhere in the world: open enrolment, in English, fully hands-on, the complete modernist fundamentals, taught in person by a named master in his own lab.
 
-Lab Week 01: five days in Martin Lippo's lab. Vakuum, Barcelona, 22–26 October, taught in English — ten to fifteen professional cooks at one bench. His complete programme, run as one consecutive week: textures, spherification — all of it — liquid nitrogen, foams and siphons, and sous-vide done properly. Thirty-five hours. Your hands, not a demonstration.
+(One more thing, because it explained everything to me: at twenty-six, needing to get to Europe, Martin didn't take the flight — he crossed the Atlantic under sail. Eighteen days. People who follow their callings recognise each other. If you cook at sea, he already knows your world.)
 
-And here is what you walk out with, because that's the part that matters:
+So here it is.
+
+LAB WEEK 01 — five days in Martin Lippo's lab. Vakuum, Barcelona, 22–26 October, taught in English — ten to fifteen professional cooks at one bench. His complete programme, run as one consecutive week: textures, spherification — all of it — liquid nitrogen, foams and siphons, and sous-vide done properly. Thirty-five hours. Your hands, not a demonstration.
+
+What you walk out with, because that's the part that matters:
 
 — The techniques, in your hands — chosen for real working kitchens: fast, prepared ahead, stable at sea.
 — A certificate in English, signed — on paper and as a PDF. A line on your CV that a captain or a recruiter can check.
@@ -61,9 +65,9 @@ The honest terms, as always: the week confirms the moment ten chefs have paid �
 
 educatedtraveler.app/barcelona
 
-The Circle reads this first — that was the promise. If October is yours, don't wait for the counter.
+The Circle reads this first — that was the promise, kept. If October is yours, don't wait for the counter.
 
-One question, and I read every reply: what's the calling you keep booking flights around?
+One question, and I read every reply: which of the five days would change your cooking most?
 
 And if you know one chef who should be at that bench, forward this letter. That's how the room fills — one cook telling another.
 
