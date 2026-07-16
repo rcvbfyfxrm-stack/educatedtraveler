@@ -378,8 +378,8 @@
     var probe=sb.functions.invoke("check-email",{body:{email:email}})
       .then(function(res){return !!(res&&!res.error&&res.data&&res.data.member);})
       .catch(function(){return false;});
-    var timeout=new Promise(function(resolve){setTimeout(function(){resolve(false);},4500);});
-    return Promise.race([probe,timeout]); // fails OPEN — never blocks a real join
+    var timeout=new Promise(function(resolve){setTimeout(function(){resolve(false);},8000);});
+    return Promise.race([probe,timeout]); // fails OPEN — never blocks a real join (8s covers cold starts)
   }
   function renderExisting(email){
     var url="/join?tab=signin&email="+encodeURIComponent(email);

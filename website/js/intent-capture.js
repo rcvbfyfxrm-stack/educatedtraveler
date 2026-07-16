@@ -11,14 +11,14 @@
   // Ask the server (read-only, service role) whether this email already has an
   // account, so we send returning members to sign in instead of making a second
   // lead. Mirrors circle.html; fails OPEN — a slow/unavailable probe never blocks
-  // a real join (4.5s timeout race).
+  // a real join (8s timeout race, wide enough for edge-function cold starts).
   function emailHasAccount(email) {
     var sb = window.supabaseClient;
     if (!sb || !sb.functions) return Promise.resolve(false);
     var probe = sb.functions.invoke('check-email', { body: { email: email } })
       .then(function (res) { return !!(res && !res.error && res.data && res.data.member); })
       .catch(function () { return false; });
-    var timeout = new Promise(function (resolve) { setTimeout(function () { resolve(false); }, 4500); });
+    var timeout = new Promise(function (resolve) { setTimeout(function () { resolve(false); }, 8000); });
     return Promise.race([probe, timeout]);
   }
   ready(function () {

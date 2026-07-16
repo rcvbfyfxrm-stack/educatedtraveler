@@ -423,14 +423,15 @@
 
         // Ask the server (service role, read-only) whether this email already has an
         // account. Fails OPEN on any hiccup — a slow or unavailable probe must never
-        // block a genuine join. Races a 4.5s timeout so the button can't hang.
+        // block a genuine join. Races an 8s timeout (covers edge-function cold starts,
+        // which the first visitor after a quiet period will hit) so the button can't hang.
         function emailHasAccount(email){
             var sb = window.supabaseClient;
             if(!sb || !sb.functions) return Promise.resolve(false);
             var probe = sb.functions.invoke('check-email', { body:{ email:email } })
                 .then(function(res){ return !!(res && !res.error && res.data && res.data.member); })
                 .catch(function(){ return false; });
-            var timeout = new Promise(function(resolve){ setTimeout(function(){ resolve(false); }, 4500); });
+            var timeout = new Promise(function(resolve){ setTimeout(function(){ resolve(false); }, 8000); });
             return Promise.race([probe, timeout]);
         }
 

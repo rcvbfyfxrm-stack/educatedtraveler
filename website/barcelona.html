@@ -276,7 +276,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 56px}
     var probe=sb.functions.invoke('check-email',{body:{email:email}})
       .then(function(res){return !!(res&&!res.error&&res.data&&res.data.member);})
       .catch(function(){return false;});
-    var timeout=new Promise(function(resolve){setTimeout(function(){resolve(false);},4500);});
+    var timeout=new Promise(function(resolve){setTimeout(function(){resolve(false);},8000);}); // 8s covers cold starts
     return Promise.race([probe,timeout]);
   }
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
