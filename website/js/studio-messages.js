@@ -65,8 +65,8 @@ window.ET_MESSAGES = [
     when: "Right after the 15-minute call, before the payment link.",
     fields: ["FIRSTNAME"],
     text:
-"Good to talk, {FIRSTNAME}. I'll hold your seat 48 hours while the payment link is live — the hold's just so a held seat doesn't block another chef. Vakuum takes the payment directly (I never touch your money). Any question before you go ahead, ask me here. {PAGE}",
-    note: "Payment goes to Vakuum directly — say so; it's a trust feature.",
+"Good to talk, {FIRSTNAME}. I'll hold your seat 48 hours while the payment link is live — the hold's just so a held seat doesn't block another chef. You pay EducatedTraveler and I handle everything from there — payment, paperwork, certificate, logistics; Martin just teaches. Any question before you go ahead, ask me here. {PAGE}",
+    note: "You pay ET, ET handles all formalities — say so plainly; if we're not at 10 by 15 Sept, every euro back.",
   },
   {
     id: "wa-milestone", campaign: "labweek01", kind: "story",

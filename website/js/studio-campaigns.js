@@ -25,7 +25,7 @@ window.ET_CAMPAIGNS = [
       { label: "Seat-count story", tab: "posts" },
       { label: "The letter", tab: "letter" },
     ],
-    note: "The private playbook (agreement points, gate branches, the levers) lives in the local LAUNCH-CHECKLIST — never in this repo.",
+    note: "Martin said yes on the phone 16 July — send the WhatsApp recap (step lb-1) for the written trace. Chefs pay EducatedTraveler; ET handles all formalities and settles with Vakuum after. Certificate = English, paper + PDF. His team shoots during the week (portfolio for every chef). The private playbook (agreement points, gate branches, the levers) lives in the local LAUNCH-CHECKLIST — never in this repo.",
   },
   {
     id: "labweek02",

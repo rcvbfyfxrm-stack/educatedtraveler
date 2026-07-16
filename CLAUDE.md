@@ -2,6 +2,13 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Standing rules (current — 2026-07, override anything below that conflicts)
+
+1. **Trust at all levels, always** (the first rule). Never fabricate a review, count, credential, or claim; every public line must be checkable. Attribute verbal claims to their speaker ("Martin will tell you…").
+2. **The future-use rule.** Every EducatedTraveler skill/course surface must answer, concretely: *"How will you use this skill in your future?"* — a required section on every commercial page, framed around career-specific situations, never promised outcomes.
+3. **Positioning = THE OPEN DOOR** — serious, not shiny. Banned words in public copy: exclusive, elite, club, premium, luxury, transformation, life-changing, easy. No price justification on sales pages: state the price once, plainly, and sell what the buyer walks out with.
+4. **Nothing is sold until it's real.** Add-ons and future weeks are "in development" until booked; counts show real paid seats only.
+
 ## What We're Building
 
 **EducatedTraveler** offers certified skill immersions at premium destinations worldwide. Learn diving in Thailand, sailing in Greece, yoga in Bali—and leave with real credentials (PADI, RYA, Yoga Alliance, WSET).

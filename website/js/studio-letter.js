@@ -30,6 +30,49 @@ window.ET_LETTER = {
 
   issues: [
     {
+      id: "issue-03-launch",
+      title: "Issue 03 — He didn't take the flight (THE LAUNCH LETTER — send on launch day)",
+      kind: "Launch reveal · the week is real · Martin's calling story + what you walk out with · no boat names, ever",
+      portrait: "/images/lippo/martin-teaching.png",
+      subject: "He didn't take the flight",
+      preview: "At 26, Martin Lippo had to get to Europe. He crossed the ocean under sail instead. In October, his lab opens for us.",
+      body:
+`At twenty-six, Martin Lippo had to get to Europe. Everyone he knew did it the obvious way: you buy a ticket, you fly. He crossed the Atlantic under sail instead — a racing yacht, eighteen days at sea, Antigua to Spain by way of the Azores, the last stretch rerouted by a storm.
+
+He told me this on the phone this week, and it explained everything. Because that choice makes no sense — unless you understand that the flight was never the point. Something in him wanted the ocean, and he let it navigate. That crossing marked his life and opened doors no itinerary could have drawn. Decades later, the same instinct built Vakuum: while the great kitchens of his generation put velvet ropes on their knowledge, Martin built a laboratory in Barcelona whose entire purpose is handing technique over.
+
+Your callings know the way. Follow them.
+
+I recognise the shape of that story because it's mine too — I left school at eighteen and let the sea do the navigating. People who follow their callings end up recognising each other. Which is how I can finally write the sentence this letter has been circling for a month:
+
+THE WEEK IS REAL
+
+Lab Week 01: five days in Martin Lippo's lab. Vakuum, Barcelona, 22–26 October, taught in English — ten to fifteen professional cooks at one bench. His complete programme, run as one consecutive week: textures, spherification — all of it — liquid nitrogen, foams and siphons, and sous-vide done properly. Thirty-five hours. Your hands, not a demonstration.
+
+And here is what you walk out with, because that's the part that matters:
+
+— The techniques, in your hands — chosen for real working kitchens: fast, prepared ahead, stable at sea.
+— A certificate in English, signed — on paper and as a PDF. A line on your CV that a captain or a recruiter can check.
+— Photographs of your own work, shot in the lab by Martin's team. A portfolio, not souvenirs.
+— His full recipe and theory dossiers, to go deep long after the week.
+— And the room itself: the working cooks beside you. In this trade, the room is never a small thing.
+
+The honest terms, as always: the week confirms the moment ten chefs have paid — and if we're not there by 15 September, every euro is refunded in full. The live count, the day-by-day, and everything else:
+
+educatedtraveler.app/barcelona
+
+The Circle reads this first — that was the promise. If October is yours, don't wait for the counter.
+
+One question, and I read every reply: what's the calling you keep booking flights around?
+
+And if you know one chef who should be at that bench, forward this letter. That's how the room fills — one cook telling another.
+
+A place, a person, your people.
+
+Arnaud`,
+      ps: "P.S. Film from the lab is coming — Martin presenting the week himself. The Circle sees it first, too.",
+    },
+    {
       id: "issue-02-avantgarde",
       title: "Issue 02 — The movement and the master (ready to send)",
       kind: "Evergreen editorial · avant-garde cuisine + Martin Lippo · safe before the signature (teaser names no dates or terms)",

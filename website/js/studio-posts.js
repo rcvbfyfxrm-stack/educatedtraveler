@@ -14,17 +14,55 @@
  * Every post carries branded ET-design images (images[] + imageNote). */
 window.ET_POSTS = [
   {
-    id: "lab-week-announce", format: "Feed post · INVITE MARTIN AS COLLABORATOR · HOLD until his written yes", core: "",
+    id: "lab-week-announce", format: "POST 1 · Feed · INVITE MARTIN AS COLLABORATOR · GO after the WhatsApp recap (step lb-1)", core: "",
     title: "Lab Week 01 — the announcement (collab with @vakuum_by_martin_lippo)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "Take a seat",
     images: ["/images/posts/lab-week/announce.jpg"],
     imageNote: "1080×1350 branded card (the Vakuum lab through the glass). Invite Martin as collaborator — he only taps accept; the post lives on both profiles.",
     slides: [],
     caption:
-"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: spherification, liquid nitrogen, foams, textures, sous-vide. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't: his open sessions run in Spanish, and the real thing was always a door too far. This door is open.\n\nIt confirms the moment ten chefs are in, capped at fifteen. If we don't get there by 15 September, every euro goes back — the honest terms, the day-by-day and the live seat count are all on the page.\n\nTake a seat: educatedtraveler.app/barcelona",
+"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: textures, spherification, liquid nitrogen, foams and siphons, sous-vide done properly. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nAnd you leave with more than the techniques: a certificate in English signed by Martin — on paper and as a PDF — a portfolio of your own work shot in the lab by his team, his complete recipe and theory dossiers, and a bench of working cooks who do what you do. The things a career is actually built from.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't. This door is open.\n\nIt confirms the moment ten chefs are in, capped at fifteen. If we're not there by 15 September, every euro goes back — the day-by-day, the honest terms and the live count are on the page.\n\nTake a seat: educatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-founder", format: "Feed post · documentary arc #1 · HOLD until Martin's written yes", core: "",
+    id: "lab-week-roi", format: "POST 3 · Carousel · the career-assets post", core: "",
+    title: "What you walk out with (career assets)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
+    images: ["/images/posts/lab-week/announce.jpg"],
+    imageNote: "7 warm-dark type slides (1080×1350); slide 3 can carry a real archive lab shot. Never a fabricated testimonial.",
+    slides: [
+      "What does a week in a master's lab actually pay?",
+      "A certificate in English — paper and PDF, signed by Martin Lippo. A line on your CV a captain or recruiter can check.",
+      "A portfolio of YOUR work, shot in the lab by his team. You know what hiring runs on in this industry: photographs of your food.",
+      "His complete recipe and theory dossiers — so the week keeps compounding for years.",
+      "Ten to fifteen working cooks at one bench. In this trade, the room is the network.",
+      "Five techniques chosen for the galley: fast, prepped ahead, stable at sea, sous-vide as the backbone.",
+      "22–26 October · Vakuum, Barcelona · confirmed at 10 paid · educatedtraveler.app/barcelona",
+    ],
+    caption:
+"Serious chefs don't need a course explained as a good deal. The only question that matters: what do you walk out with?\n\nHere's the honest inventory. The techniques, in your hands — thirty-five hours of them. A certificate in English, on paper and PDF, signed by Martin Lippo — checkable, not decorative. A portfolio of your own plates shot by his team during the week — and every chef in this industry knows what food photographs do in a hiring conversation. The full recipe and theory dossiers. And the bench itself: the working cooks beside you, the calls and referrals that come out of a room like that.\n\nThat's what the week is. The rest — dates, terms, the live count — is on the page.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-galley", format: "POST 4 · Feed / carousel · the galley-fit post", core: "",
+    title: "Built for the galley (why these five techniques)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
+    images: ["/images/posts/lab-week/announce.jpg"],
+    imageNote: "Technique close-ups from the licensed archive work best here (spheres, nitro fog, siphon). No sea-story content — Martin's yacht background stays out of social, per agreement.",
+    slides: [],
+    caption:
+"These five days weren't assembled at random. Every technique in the week had to pass a galley test: does it work at sea?\n\nFast — because service on a boat doesn't wait. Built for mise en place — prepared days ahead, finished in minutes. Kind to shelf-stable ingredients — because the market isn't coming to you mid-charter. And sous-vide as the backbone — cook once in the yard, regenerate perfectly for twelve covers.\n\nTextures, spherification, liquid nitrogen, foams, sous-vide: the modernist repertoire, chosen and taught for the kitchen you actually cook in.\n\nFive days, 22–26 October, in English, at Vakuum in Barcelona. Confirmed at ten paid — every euro back if we don't get there.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-video", format: "POST 5 · Reel · INVITE MARTIN AS COLLABORATOR · HOLD until the film lands", core: "",
+    title: "Martin presents the week (the film)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "Take a seat",
+    images: [],
+    imageNote: "The 60–90s presentation video from Martin's team (pitch already delivered — see private MARTIN-VIDEO-PITCH.md). Post as collab; drip the 3 teaser cuts between milestones afterwards.",
+    slides: [],
+    caption:
+"Don't take my word for it — hear it from the man at the bench.\n\nMartin Lippo, on the week he's opening for working chefs this October: five days in his Barcelona lab, in English, thirty-five hours hands-in. What you learn, what you leave with, and why he built it with a yacht chef.\n\nConfirmed at ten paid by 15 September — every euro back if we don't get there. The rest is on the page.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-founder", format: "POST 2 · Feed · documentary arc #1 · GO after the announce", core: "",
     title: "Why I built the Barcelona week (founder)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
     images: ["/images/posts/lab-week/announce.jpg"],
@@ -34,7 +72,7 @@ window.ET_POSTS = [
 "Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in yard period — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nI'm not selling a dream week. It confirms at ten paid or everyone gets refunded, the terms are public, and you can check every claim — his lab, his sessions, his prices — on his own site.\n\nThe page has all of it: educatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-calendar", format: "Feed post · documentary arc · SHIP AT ≥3 PAID · only once the week is live on martinlippo.com", core: "",
+    id: "lab-week-calendar", format: "POST 6 · Feed · SHIP once the week is live on martinlippo.com (his web developer is on it — will take time)", core: "",
     title: "It's on his calendar now (the proof)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
     images: ["/images/posts/lab-week/announce.jpg"],
@@ -44,7 +82,7 @@ window.ET_POSTS = [
 "It's real now — his own calendar says so.\n\nWhen you tell chefs you've arranged a week with Martin Lippo, the fair question is: says who? So here's the proof that costs me nothing to give you — the week is now listed on his own site, on his schedule. 22-26 October, five days, English.\n\nFor months this was a conversation and a handshake. Now there's a signed page: the dates, the refund terms, the certificate, what happens if we don't reach ten. All agreed and written down before a single chef was asked to pay. Slow is the honest speed.\n\nIt confirms the moment ten chefs are in, or everyone's refunded. Everything's checkable at the source: educatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-firstseats", format: "Feed post · documentary arc · SHIP AT ≥3 PAID · count-agnostic (stays true as it climbs)", core: "",
+    id: "lab-week-firstseats", format: "Feed · documentary arc · SHIP AT ≥3 PAID · count-agnostic (stays true as it climbs)", core: "",
     title: "The first seats are taken",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
     images: ["/images/posts/lab-week/announce.jpg"],

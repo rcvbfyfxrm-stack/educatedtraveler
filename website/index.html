@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EducatedTraveler — Lab Week 01, Barcelona</title>
-<meta name="description" content="Learn a real craft at the source, from a master, with your people. The first EducatedTraveler Lab Week opens this October in Barcelona — five days of modernist technique, hands-on, for working chefs. Join the Circle for the name and dates first.">
+<title>EducatedTraveler — Five days in Martin Lippo's lab, Barcelona</title>
+<meta name="description" content="Learn a real craft at the source, from a master, with your people. Lab Week 01: five days of modernist technique in Martin Lippo's Barcelona lab, 22–26 October, in English, built for working chefs. Confirmed at 10 paid or everyone refunded.">
 <link rel="canonical" href="https://educatedtraveler.app/">
-<meta property="og:title" content="EducatedTraveler — Lab Week 01, Barcelona">
-<meta property="og:description" content="Learn a real craft at the source, from a master, with your people. The first Lab Week opens this October in Barcelona. Join the Circle for the name and dates first.">
+<meta property="og:title" content="EducatedTraveler — Five days in Martin Lippo's lab, Barcelona">
+<meta property="og:description" content="Lab Week 01: modernist technique in Martin Lippo's Barcelona lab, 22–26 October, in English. Leave with a signed certificate, a portfolio shot in the lab, and techniques chosen for the galley.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/">
 <meta property="og:image" content="https://educatedtraveler.app/images/labweek/og.jpg">
@@ -15,8 +15,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="EducatedTraveler">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="EducatedTraveler — Lab Week 01, Barcelona">
-<meta name="twitter:description" content="Learn a real craft at the source. The first Lab Week opens this October in Barcelona. Join the Circle first.">
+<meta name="twitter:title" content="EducatedTraveler — Five days in Martin Lippo's lab, Barcelona">
+<meta name="twitter:description" content="Lab Week 01: modernist technique at the source, 22–26 October, in English. Confirmed at 10 paid or everyone refunded.">
 <meta name="twitter:image" content="https://educatedtraveler.app/images/labweek/og.jpg">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -118,6 +118,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(13,11,9,.66);
 .stat .l{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
 .terms p{color:var(--muted);font-size:.9rem;line-height:1.6}
 .countdown{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ember-soft);margin-top:14px}
+/* red neon countdown */
+.neon{background:#120b0a;border:1px solid rgba(255,59,48,.3);border-radius:10px;padding:16px 20px 13px;margin-top:18px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;box-shadow:inset 0 0 42px rgba(255,59,48,.06)}
+.neon .nd{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:clamp(2.2rem,6vw,3rem);line-height:1;color:#ff3b30;text-shadow:0 0 6px rgba(255,59,48,.95),0 0 20px rgba(255,59,48,.6),0 0 48px rgba(255,59,48,.35);animation:neonpulse 2.8s ease-in-out infinite}
+.neon .nl{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#ff8a80;text-shadow:0 0 12px rgba(255,59,48,.4)}
+.neon .nsub{flex-basis:100%;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;color:var(--faint);margin-top:2px}
+@keyframes neonpulse{0%,100%{opacity:1}50%{opacity:.8}}
+@media (prefers-reduced-motion:reduce){.neon .nd{animation:none}}
 .week-cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 
 /* WHAT THIS IS */
@@ -214,14 +221,14 @@ footer{border-top:1px solid var(--line);padding:48px 0 58px}
   <div class="hero-bg"><img src="/images/labweek/hero.jpg" alt="Hands working over open flame in a professional kitchen"></div>
   <div class="hero-in">
     <div class="wrap">
-      <p class="eyebrow reveal in">Lab Week 01 · Barcelona · this October</p>
-      <h1 class="reveal in">Five days in a<br>master's <em>lab</em>.</h1>
-      <p class="lede reveal in">EducatedTraveler is how you learn a real craft — at the source, from a master, beside the people chasing the same fire. No screens, no simulations. This October, the first door opens in Barcelona.</p>
+      <p class="eyebrow reveal in">Lab Week 01 · Vakuum, Barcelona · 22–26 October 2026</p>
+      <h1 class="reveal in">Five days in<br>Martin Lippo's <em>lab</em>.</h1>
+      <p class="lede reveal in">EducatedTraveler is how you learn a real craft — at the source, from a master, beside the people chasing the same fire. This October the first door opens: thirty-five hours of modernist technique in Martin Lippo's Barcelona laboratory, in English, built for working chefs.</p>
       <div class="cta-row reveal in">
-        <button type="button" class="btn btn-primary" onclick="goCircle()">Join the Circle
+        <a href="/barcelona" class="btn btn-primary">See the week
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </button>
-        <a href="#week" class="btn btn-ghost">See the week</a>
+        </a>
+        <button type="button" class="btn btn-ghost" onclick="goCircle()">Join the Circle</button>
       </div>
       <div class="who reveal in"><button type="button" class="tlink" onclick="openFounder()">Who's behind this? Meet Arnaud →</button></div>
     </div>
@@ -238,15 +245,12 @@ footer{border-top:1px solid var(--line);padding:48px 0 58px}
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow">The first door</p>
-        <h2>Everything but the name — which the Circle gets first.</h2>
-        <p>A modernist-technique intensive — thirty-five hours, hand to hand, in English, built for working chefs. Not a demo. Not a screen. Your hands, a real lab, and a room of professional cooks.</p>
+        <h2>Martin Lippo. His lab. One week, in English.</h2>
+        <p>A modernist-technique intensive — thirty-five hours, hand to hand, built for working chefs. Not a demo. Not a screen. Your hands, a real lab, and a room of professional cooks — most of them from the galley.</p>
       </div>
       <div class="week-grid">
         <div class="reveal">
-          <p class="week-lede">Textures and texturizers, spherification, liquid nitrogen, foams and siphons, sous-vide done properly — five days on the bench in a master's own laboratory.</p>
-          <div class="incognito">
-            The master is someone whose craft I trust and would send a friend to — a record you'll be able to check yourself the day the door opens. <b>The name, the lab and the exact dates go to the Circle first.</b>
-          </div>
+          <p class="week-lede">Textures and texturizers, spherification, liquid nitrogen, foams and siphons, sous-vide done properly — Martin Lippo's complete programme, run as one consecutive week at Vakuum, his Barcelona laboratory. And you leave with things you keep: a signed certificate in English, a portfolio of your work shot by his team, the full recipe dossiers, and the room itself.</p>
           <div class="terms">
             <div class="row">
               <div class="stat"><span class="v">10</span><span class="l">seats to confirm</span></div>
@@ -254,13 +258,17 @@ footer{border-top:1px solid var(--line);padding:48px 0 58px}
               <div class="stat"><span class="v">35h</span><span class="l">over five days</span></div>
               <div class="stat"><span class="v">€1,500</span><span class="l">VAT included</span></div>
             </div>
-            <p>Ten cooks commit and it's confirmed; fifteen is the room's ceiling. Everyone decides by mid-September — and if the room doesn't fill, <b style="color:var(--paper);font-weight:400">every euro comes back</b>. The €1,500 is the price of the week — I add nothing on top of it. Nobody pays to be on my map, and nothing here is sold until it's real.</p>
-            <p class="countdown" id="countdown"></p>
+            <p>Ten cooks paid and it's confirmed; fifteen is the room's ceiling. If we're not there by 15 September, <b style="color:var(--paper);font-weight:400">every euro comes back</b>. Nobody pays to be on my map, and nothing here is sold until it's real.</p>
+            <div class="neon" role="status">
+              <span class="nd" id="neon-days">—</span>
+              <span class="nl">days to confirm the room</span>
+              <span class="nsub">10 paid by 15 September — or the week doesn't run and everyone is refunded.</span>
+            </div>
           </div>
           <div class="week-cta">
-            <button type="button" class="btn btn-primary" onclick="goCircle()">Get the name first — join the Circle
+            <a href="/barcelona" class="btn btn-primary">The week, the terms, the seat
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-            </button>
+            </a>
           </div>
         </div>
         <div class="reveal" style="transition-delay:.1s">
@@ -346,10 +354,10 @@ footer{border-top:1px solid var(--line);padding:48px 0 58px}
   // "Join the Circle" opens the questionnaire (5 quick questions) at /circle
   window.goCircle=function(){ window.location.href='/circle'; };
 
-  // countdown (honest)
-  var cd=document.getElementById('countdown');
-  var days=Math.ceil((new Date('2026-09-15T23:59:59')-new Date())/864e5);
-  if(cd){ cd.textContent = days>0 ? ('◷  '+days+' days left to decide · confirmed at 10 paid') : 'Decision window open · confirmed at 10 paid'; }
+  // red neon countdown (honest) — days to the 15 September decision
+  var nd=document.getElementById('neon-days');
+  var days=Math.ceil((new Date('2026-09-15T23:59:59+02:00')-new Date())/864e5);
+  if(nd){ if(days>0){ nd.textContent=days; } else { nd.closest('.neon').style.display='none'; } }
 
   // founder pop-up (focus trap + Escape)
   var ov=document.getElementById('founder'), lastFocus=null;
