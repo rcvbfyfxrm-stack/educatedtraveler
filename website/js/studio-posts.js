@@ -32,14 +32,14 @@ window.ET_POSTS = [
     slides: [
       "What does a week in a master's lab actually pay?",
       "A certificate in English — paper and PDF, signed by Martin Lippo. A line on your CV a captain or recruiter can check.",
-      "A portfolio of YOUR work, shot in the lab by his team. You know what hiring runs on in this industry: photographs of your food.",
+      "A portfolio of YOUR work, shot in the lab by his team — real photographs for your file, not phone snapshots.",
       "His complete recipe and theory dossiers — so the week keeps compounding for years.",
       "Ten to fifteen working cooks at one bench. In this trade, the room is the network.",
       "Five techniques chosen for the galley: fast, prepped ahead, stable at sea, sous-vide as the backbone.",
       "22–26 October · Vakuum, Barcelona · confirmed at 10 paid · educatedtraveler.app/barcelona",
     ],
     caption:
-"Serious chefs don't need a course explained as a good deal. The only question that matters: what do you walk out with?\n\nHere's the honest inventory. The techniques, in your hands — thirty-five hours of them. A certificate in English, on paper and PDF, signed by Martin Lippo — checkable, not decorative. A portfolio of your own plates shot by his team during the week — and every chef in this industry knows what food photographs do in a hiring conversation. The full recipe and theory dossiers. And the bench itself: the working cooks beside you, the calls and referrals that come out of a room like that.\n\nThat's what the week is. The rest — dates, terms, the live count — is on the page.\n\neducatedtraveler.app/barcelona",
+"Serious chefs don't need a course explained as a good deal. The only question that matters: what do you walk out with?\n\nHere's the honest inventory. The techniques, in your hands — thirty-five hours of them, chosen to work at sea. A certificate in English, on paper and PDF, signed by Martin Lippo — checkable, not decorative. A portfolio of your own plates, shot by his team during the week. The full recipe and theory dossiers. And the bench itself: the working cooks beside you, the calls and referrals that come out of a room like that.\n\nThat's what the week is. The rest — dates, terms, the live count — is on the page.\n\neducatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-galley", format: "POST 4 · Feed / carousel · the galley-fit post", core: "",

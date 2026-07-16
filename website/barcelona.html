@@ -38,7 +38,6 @@
   ::selection{background:var(--ember);color:var(--ink)}
   a{color:var(--sea)}
   .wrap{max-width:860px;margin:0 auto;padding:0 1.4rem}
-  /* top micro-nav */
   .topbar{border-bottom:1px solid var(--line);background:var(--ink-2)}
   .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.7rem;padding-bottom:.7rem}
   .wordmark{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--paper);text-decoration:none}
@@ -83,21 +82,20 @@
   .day h3{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin:0 0 .4rem;color:var(--paper)}
   .day p{font-size:.88rem;margin:0 0 .4rem;color:var(--softer)}
   .day .galley{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--sea);margin:0}
-  /* the assets grid — what you walk out with */
+  /* the assets grid — what you walk out with, each with its future use */
   .assets{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.4rem 0}
-  .asset{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--ember);border-radius:6px;padding:1.1rem 1.2rem}
+  .asset{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--ember);border-radius:6px;padding:1.1rem 1.2rem;display:flex;flex-direction:column}
   .asset .d{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ember);margin:0 0 .4rem}
   .asset h3{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin:0 0 .4rem;color:var(--paper)}
   .asset p{font-size:.88rem;margin:0;color:var(--softer)}
+  .asset .use{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;line-height:1.6;color:var(--sea);margin-top:auto;padding-top:.7rem}
+  .quotebox{border-left:3px solid var(--ember);padding:.4rem 0 .4rem 1.2rem;margin:1.4rem 0;font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--paper);max-width:56ch}
+  .cite{display:block;font-family:var(--mono);font-style:normal;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);margin-top:.5rem}
   .terms{list-style:none;padding:0;max-width:none}
   .terms li{border-left:3px solid var(--ember);background:var(--ink-2);border-radius:0 6px 6px 0;padding:.9rem 1.2rem;margin:.8rem 0;font-size:.95rem;color:var(--soft)}
-  .future{list-style:none;padding:0;max-width:none}
-  .future li{border-left:3px solid var(--sea);background:var(--ink-2);border-radius:0 6px 6px 0;padding:.9rem 1.2rem;margin:.8rem 0;font-size:.95rem;color:var(--soft)}
-  .quotebox{border-left:3px solid var(--ember);padding:.4rem 0 .4rem 1.2rem;margin:1.4rem 0;font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--paper);max-width:56ch}
   .master-photo{margin:1.4rem 0;max-width:560px}
   .master-photo img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line);filter:saturate(.85)}
   .master-photo figcaption{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);margin-top:.5rem}
-  .cite{display:block;font-family:var(--mono);font-style:normal;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);margin-top:.5rem}
   .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0}
   .btn{display:inline-block;font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.95rem 1.5rem}
   .btn-primary{background:linear-gradient(100deg,var(--sea),var(--ember));color:var(--ink);font-weight:500}
@@ -110,19 +108,16 @@
   dd{margin:.4rem 0 0;color:var(--soft);font-size:.94rem;border-left:2px solid var(--sea);padding-left:.95rem}
   .circle-door{background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:1.1rem 1.3rem;margin:2.2rem 0 0}
   .circle-door p{font-size:.9rem;margin:.3rem 0}
-  /* film slot */
   .film-slot{border:1px dashed rgba(243,237,226,.22);border-radius:8px;padding:2rem 1.4rem;margin:1.4rem 0;text-align:center;background:var(--ink-2)}
   .film-slot .fs-k{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin:0 0 .5rem}
   .film-slot p{max-width:none;margin:.3rem 0;font-size:.92rem;color:var(--softer)}
   footer{padding:2.6rem 0 3.2rem}
   footer .sig{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--paper);margin:0 0 .6rem}
   footer p{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--softer);max-width:none}
-  /* sticky mobile apply bar */
   .stickybar{position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--ink-2);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.6rem 1rem}
   .stickybar .st-count{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.72rem;letter-spacing:.08em;color:var(--softer)}
   .stickybar .st-count b{color:var(--ember)}
   .stickybar a{flex:0 0 auto;font-size:.72rem;padding:.7rem 1.1rem}
-  /* invite-style photography */
   .room-banner{position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--line);margin:1.4rem 0 0}
   .room-banner img{width:100%;height:min(46vw,340px);object-fit:cover;object-position:center 35%;display:block;filter:saturate(.85)}
   .room-banner .rb-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,11,9,.92),rgba(13,11,9,.25) 55%,rgba(13,11,9,.15))}
@@ -178,9 +173,8 @@
   <div class="wrap">
     <p class="eyebrow">Why this week</p>
     <h2>The guests have eaten everywhere.</h2>
-    <p>Every yacht chef knows it: the difference between a good week and a legendary one is three plates they've never seen — and those plates come out of this toolkit. For five straight days, Martin Lippo opens his Barcelona laboratory. Not a demo, not a screen: <strong>your hands, 35 hours, a vetted room of professional cooks — built for chefs off boats first.</strong></p>
-    <p>And here is the honest shape of the trade you're climbing. A captain can receive two hundred CVs for one galley — a named recruiter's number, not ours. Crew agents ask for <em>"a sample menu or two, and a decent portfolio of your food photos"</em> before they'll represent you — their wording, not ours. And Quay Crew's 2024 survey of a hundred-plus head chefs found most already carry Michelin experience: <strong>pedigree gets you shortlisted; pay follows the food guests remember.</strong> This week was built against exactly that.</p>
-    <p>The published route to these techniques is a months-long unpaid stage most people never finish. Martin built the other kind of room — a laboratory whose entire purpose is teaching. <strong>As of July 2026, we could not find another week like this anywhere in the world: open enrolment, in English, fully hands-on, the complete modernist fundamentals, taught in person by a named master in his own lab. We kept the list of everywhere we checked — ask, and we'll show you.</strong></p>
+    <p>The difference between a good week and a legendary one is three plates they've never seen — and those plates come out of this toolkit. For five straight days, Martin Lippo opens his Barcelona laboratory. Not a demo, not a screen: <strong>your hands, 35 hours, a vetted room of professional cooks — built for chefs off boats first.</strong></p>
+    <p>The usual route to these techniques is a months-long unpaid stage most people never finish. Martin built the other kind of room — a laboratory whose whole purpose is teaching. <strong>As of July 2026, we could not find another week like this anywhere in the world: open enrolment, in English, fully hands-on, the complete modernist fundamentals, taught in person by a named master in his own lab.</strong> We kept the list of everywhere we checked — ask, and we'll show you.</p>
     <figure class="room-banner">
       <img src="/images/lippo/class-room.jpg" alt="Martin Lippo teaching a full room of professional cooks at Vakuum, Barcelona" loading="lazy" onerror="this.closest('figure').style.display='none'">
       <div class="rb-ov"></div>
@@ -196,33 +190,16 @@
   <div class="wrap">
     <p class="eyebrow">What you walk out with</p>
     <h2>The week pays in things you keep.</h2>
-    <p>Serious chefs don't need a course explained as a good deal. The only question worth a page: <strong>what do you have when it's over?</strong> Here is the honest inventory.</p>
+    <p>Serious chefs don't need a course explained as a good deal. One question matters: <strong>what do you have when it's over — and what does it do next?</strong></p>
     <div class="assets">
-      <div class="asset"><p class="d">The record</p><h3>A certificate that checks out</h3><p>In English, signed at Vakuum — on paper and as a PDF. 35 documented hours with a named master. Not a maritime qualification, and we won't pretend it is: a checkable fact, on a CV full of claims a captain has to take on faith.</p></div>
-      <div class="asset"><p class="d">The proof</p><h3>A portfolio, shot in the lab</h3><p>Martin's team photographs the course as it runs — including your work at the bench. You know what hiring runs on in this industry: photographs of your food. You leave with real ones.</p></div>
-      <div class="asset"><p class="d">The library</p><h3>The full dossiers &amp; recipes</h3><p>Vakuum's complete recipe and theory dossiers, plus the course recipes sent to you after the week — so what you learned keeps compounding for years.</p></div>
-      <div class="asset"><p class="d">The people</p><h3>The room itself</h3><p>Ten to fifteen working cooks at one bench for five days. Careers in this trade move on word of mouth between crews — the room is the network.</p></div>
-      <div class="asset"><p class="d">The craft</p><h3>Techniques chosen for the galley</h3><p>Every module passed a test before it made the week: fast, built for mise en place, kind to shelf-stable ingredients, sous-vide as the backbone. It works at sea, not just in a lab.</p></div>
-      <div class="asset"><p class="d">The standing</p><h3>Founding-cohort status</h3><p>First refusal — 72 hours' early access — on every future EducatedTraveler week, starting with this one's add-ons.</p></div>
+      <div class="asset"><p class="d">The craft</p><h3>Techniques built for the galley</h3><p>Textures, spherification, nitrogen, foams, sous-vide — every module passed one test before it made the week: fast, built for mise en place, kind to shelf-stable ingredients.</p><p class="use">In your future → preference sheets you can say yes to, solo — and the course guests film.</p></div>
+      <div class="asset"><p class="d">The record</p><h3>A certificate that checks out</h3><p>In English, signed at Vakuum — on paper and as a PDF. 35 documented hours. Not a maritime qualification, and we won't pretend it is.</p><p class="use">In your future → one line on your CV anyone can verify in thirty seconds.</p></div>
+      <div class="asset"><p class="d">The proof</p><h3>A portfolio, shot in the lab</h3><p>Martin's team photographs the week as it runs — your plates included. Real photographs of your work, not phone snapshots.</p><p class="use">In your future → one more piece of a stronger file: photos, menus, references.</p></div>
+      <div class="asset"><p class="d">The library</p><h3>The full dossiers &amp; recipes</h3><p>Vakuum's complete recipe and theory dossiers, plus the course recipes sent to you after the week.</p><p class="use">In your future → the manual you'll train your own second from.</p></div>
+      <div class="asset"><p class="d">The people</p><h3>The room itself</h3><p>Ten to fifteen working cooks at one bench for five days — and the conversations that don't stop when it closes.</p><p class="use">In your future → this trade moves on word of mouth between crews. The room keeps working.</p></div>
+      <div class="asset"><p class="d">The standing</p><h3>Founding-cohort status</h3><p>First refusal — 72 hours early — on every future EducatedTraveler week.</p><p class="use">In your future → starting with this week's add-ons, announced to the cohort first.</p></div>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <p class="eyebrow">The rule of every EducatedTraveler week</p>
-    <h2>How you'll use this in your future</h2>
-    <p>Before any week runs under this name, it has to answer one question: <strong>what will you do with this afterwards?</strong> This week's answer, plainly:</p>
-    <ul class="future">
-      <li><strong>The preference sheet you can now say yes to.</strong> Vegan, dairy-free, gluten-free, allergies — for a twelve-guest week, solo. Texturizers and gels are how one pair of hands covers all of it at guest standard.</li>
-      <li><strong>The course guests film.</strong> A sphere that bursts at the table, a foam that arrives alive. Guest compliments and repeat charters are exactly the receipts the industry's own pay-rise advice tells you to collect — this is how they get generated.</li>
-      <li><strong>Your next hiring round.</strong> The professional photographs of your own plates go straight into the portfolio and public feed crew agents ask for before they'll represent you — replacing phone snapshots taken mid-service. The certificate verifies in thirty seconds.</li>
-      <li><strong>The trial meal for a bigger boat.</strong> One modern course executed calmly, alone, in an unfamiliar galley, working from your own dossier — the self-sufficiency that decides trials when two hundred CVs chase one galley.</li>
-      <li><strong>Your yard periods and crossings.</strong> Sous-vide done properly turns the yard into your prep kitchen — cook once, hold safely, regenerate for twelve covers — and shelf-stable technique ingredients keep the repertoire intact three days from the nearest market.</li>
-      <li><strong>The nitrogen day, banked.</strong> Rarely practical aboard — we say it plainly. Dockside parties, owner events ashore, estate and event work: the show only you can bring, saved for where it earns.</li>
-      <li><strong>The longer game.</strong> Head-chef galleys where the dossiers become the manual you train your second from; freelance day-rate work where every gig is an audition; private estates and your own thing after boats. The toolkit — and the portfolio proving it — crosses the gangway with you.</li>
-    </ul>
-    <p class="apply-note">No honest person promises you a job or a number. What this page promises is the inventory above — and that every line of it is checkable.</p>
+    <p class="apply-note">House rule: a week doesn't run under this name unless it can answer, plainly, how you'll use it in your future — that's what the arrows are. And nobody here promises you a job: every line above is checkable instead.</p>
   </div>
 </section>
 
@@ -230,26 +207,24 @@
   <div class="wrap">
     <p class="eyebrow">The five days · 10:00–14:00 + 15:00–18:00</p>
     <h2>What your hands will learn</h2>
-    <p>Martin's complete programme — the same five modules he sells separately on his own calendar — run as one consecutive week, in English.</p>
+    <p>Martin's complete programme — the same five modules he sells separately — run as one consecutive week, in English. Application-vetted: everyone in the room does this for a living.</p>
     <div class="photo-strip">
       <figure><img src="/images/lippo/tile-nitro.jpg" alt="Nitro sorbet spheres in martini glasses, nitrogen fog" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Nitro spheres</figcaption></figure>
       <figure><img src="/images/lippo/tile-frozen.jpg" alt="Frozen dessert textures shaped like pebbles" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Frozen textures</figcaption></figure>
       <figure><img src="/images/lippo/tile-spherified.jpg" alt="Spherified fruit on a sablé base" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Spherified fruit</figcaption></figure>
     </div>
     <div class="days">
-      <div class="day"><p class="d">Day one</p><h3>Textures &amp; texturizing agents</h3><p>Crisps and puffed work, meringues, vegan creams and ice cream, gelatine sponges, broken gels, agar pearls and veils, gel moulding, bake-stable fillings, airs and cocktail bubbles.</p><p class="galley">At sea: garnishes that hold on a moving boat, made days ahead.</p></div>
+      <div class="day"><p class="d">Day one</p><h3>Textures &amp; texturizing agents</h3><p>Crisps and puffed work, meringues, vegan creams and ice cream, gelatine sponges, broken gels, agar pearls and veils, bake-stable fillings, airs.</p><p class="galley">At sea: garnishes that hold on a moving boat, made days ahead.</p></div>
       <div class="day"><p class="d">Day two</p><h3>Spherification — all of it</h3><p>Theory, direct, reverse, multi, moulded, dehydrated, filled, frozen. Caviar technique and spherical gnocchi.</p><p class="galley">At sea: the amuse-bouche that makes a charter — from a small fridge.</p></div>
-      <div class="day"><p class="d">Day three</p><h3>Liquid nitrogen</h3><p>Safety and storage first. Then nitro sorbets and shots, snows and powders, cryo-stamping, nitro spheres and wafers, teppan work — sweet and savoury.</p><p class="galley">Honestly: nitrogen is rarely practical aboard. Bank this day — for dockside events, estate work, and the years after boats.</p></div>
-      <div class="day"><p class="d">Day four</p><h3>Foams &amp; siphon techniques</h3><p>How foams stabilise; hot, cold, fat-based, egg-white and starch foams; microwave sponges; foams for frying; carbonated foams; the Souflair.</p><p class="galley">At sea: a siphon earns its locker space on any boat.</p></div>
-      <div class="day"><p class="d">Day five</p><h3>Sous-vide, properly</h3><p>Pasteurisation theory, core temperatures, direct and double cooking, flavour-transfer liquids, long cooks, brining and seasoning control, conservation and regeneration.</p><p class="galley">At sea: cook once in the yard, regenerate perfectly for 12 covers.</p></div>
-      <div class="day"><p class="d">Every day</p><h3>The room itself</h3><p>Professional cooks around one bench, one master, five consecutive days. Lunch break is yours — Barcelona will take care of you.</p><p class="galley">Application-vetted: everyone in the room does this for a living.</p></div>
-      <div class="day" style="border-style:dashed"><p class="d">Coming · optional add-ons</p><h3>Around the five days</h3><p>Being arranged now, announced to the cohort first: <strong>a table at a three-Michelin-star house — private table, and eyes in the kitchen with the chefs</strong> — plus an open-fire day and a Barcelona source day through the markets and cellars. Priced separately, capped small.</p><p class="galley">Nothing sold until it's booked and real — that's the house rule.</p></div>
-      <div class="day" style="border-style:dashed"><p class="d">The stay · two ways</p><h3>Where you sleep</h3><p><strong>A shared cohort apartment near the lab — your own private room, at cost</strong> — because the conversations shouldn't stop when the bench closes. Or arrange your own; your call at application.</p><p class="galley">55 minutes' flight from Palma, 1h25 from Nice.</p></div>
+      <div class="day"><p class="d">Day three</p><h3>Liquid nitrogen</h3><p>Safety and storage first. Then nitro sorbets and shots, snows and powders, cryo-stamping, spheres and wafers, teppan work.</p><p class="galley">Honestly: rarely practical aboard. Bank this day — for dockside events, estate work, the years after boats.</p></div>
+      <div class="day"><p class="d">Day four</p><h3>Foams &amp; siphon techniques</h3><p>How foams stabilise; hot, cold, fat-based, egg-white and starch foams; microwave sponges; foams for frying; the Souflair.</p><p class="galley">At sea: a siphon earns its locker space on any boat.</p></div>
+      <div class="day"><p class="d">Day five</p><h3>Sous-vide, properly</h3><p>Pasteurisation theory, core temperatures, direct and double cooking, long cooks, brining, conservation and regeneration.</p><p class="galley">At sea: cook once in the yard, regenerate perfectly for 12 covers.</p></div>
+      <div class="day" style="border-style:dashed"><p class="d">Coming · optional add-ons</p><h3>Around the five days</h3><p>Being arranged now, cohort hears first: <strong>a table at a three-Michelin-star house — private table, eyes in the kitchen</strong> — plus an open-fire day and a Barcelona source day. Priced separately, capped small.</p><p class="galley">Nothing sold until it's booked and real — that's the house rule.</p></div>
+      <div class="day" style="border-style:dashed"><p class="d">The stay · two ways</p><h3>Where you sleep</h3><p><strong>A shared cohort apartment near the lab — your own private room, at cost</strong> — or arrange your own. Your call at application.</p><p class="galley">55 minutes' flight from Palma, 1h25 from Nice.</p></div>
     </div>
     <div class="film-slot" id="film-slot">
       <p class="fs-k">Film from the lab — coming soon</p>
-      <p>Martin presenting the week himself, from the bench — plus teasers as the room fills.</p>
-      <p>The Circle sees it first.</p>
+      <p>Martin presenting the week himself, from the bench. The Circle sees it first.</p>
     </div>
   </div>
 </section>
@@ -259,12 +234,12 @@
     <p class="eyebrow">The honest terms</p>
     <h2>Straight, like a good galley</h2>
     <ul class="terms">
-      <li><strong>€1,500, VAT included — the whole number.</strong> No materials fees, nothing added later. Ingredients, tools, texturizers, nitrogen, the dossiers — all provided. You bring a chef jacket.</li>
-      <li><strong>You pay EducatedTraveler, and EducatedTraveler handles everything.</strong> The seat, the paperwork, the certificate, the group, the refund if it comes to that — one door to knock on, one person answering. Martin brings the knowledge, the lab and the teaching. EducatedTraveler is paid out of that price by agreement with Martin — nothing is added on top.</li>
-      <li><strong>Confirmed the moment 10 chefs have paid.</strong> If we are not at 10 by Tuesday 15 September, the week cancels and every euro is refunded in full — and I'll say so publicly. <strong>Don't buy flights until we announce CONFIRMED</strong> (that's also why travel insurance is smart).</li>
-      <li><strong>After confirmation, seats are transferable, not refundable.</strong> Can't come? Send a chef of comparable professional calibre in your place, up to 7 days before the week (a reasonable right of refusal applies). If the week itself had to cancel after confirmation, you're refunded in full.</li>
-      <li><strong>Your boat may fund it.</strong> Quay Crew's 2024 survey found 65% of yachts hold a crew training budget — averaging €2,567 per crew member per year, with most reimbursing after a length of service. EducatedTraveler can invoice the boat directly; ask your captain, and consider bringing your second — one galley that levels up together.</li>
-      <li><strong>Travel is yours; the stay has a ready option.</strong> The lab is at Passatge de Centelles, Barcelona. Take the shared cohort apartment (private room, at cost) or book your own — say which when you apply.</li>
+      <li><strong>€1,500, VAT included — the whole number.</strong> Ingredients, tools, nitrogen, dossiers: all provided. You bring a chef jacket.</li>
+      <li><strong>You pay EducatedTraveler, and EducatedTraveler handles everything</strong> — the seat, the paperwork, the certificate, the refund if it comes to that. Martin brings the knowledge, the lab and the teaching. We're paid out of that price; nothing is added on top.</li>
+      <li><strong>Confirmed the moment 10 chefs have paid.</strong> Not there by Tuesday 15 September → the week cancels and every euro is refunded in full, said publicly. <strong>Don't buy flights until we announce CONFIRMED.</strong></li>
+      <li><strong>After confirmation, seats are transferable, not refundable.</strong> Can't come? Send a chef of comparable calibre in your place, up to 7 days before the week.</li>
+      <li><strong>Your boat may fund it.</strong> 65% of yachts hold a crew training budget — averaging €2,567 per crew member per year (Quay Crew, 2024). We can invoice the boat; ask your captain.</li>
+      <li><strong>The lab is at Passatge de Centelles, Barcelona.</strong> 55 minutes' flight from Palma, 1h25 from Nice.</li>
     </ul>
   </div>
 </section>
@@ -277,11 +252,11 @@
       <img src="/images/lippo/martin-teaching.png" alt="Martin Lippo teaching at the bench at Vakuum — students leaning in over a nitrogen preparation" loading="lazy" onerror="this.closest('figure').style.display='none'">
       <figcaption>Martin Lippo at the bench — Vakuum, Barcelona</figcaption>
     </figure>
-    <p>Argentine, in Barcelona since 2000. Founder of <a href="https://martinlippo.com/en/" rel="noopener">Vakuum</a> — laboratory, training space and culinary venue — and of the Nitro School: liquid nitrogen is his signature terrain. Les Vergers Boiron, the French fruit house, built a <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">technique video library</a> around him; his work appears in <a href="https://www.sogoodmagazine.com/pastry-chefs/martin-lippo/" rel="noopener">so good.. magazine</a>; he works between Adrià's modernism and Escoffier's classicism. Martin will tell you chefs from World's 50 Best kitchens have taken his courses and left overwhelmed — that's his account. Weigh it against the reviews on his own site, which are signed with names and ranks: a three-star pastry chef among them, and a working superyacht chef.</p>
-    <blockquote class="quotebox">"Being able to practice the wide range of modern techniques on site made the whole difference."<span class="cite">Raoni Cavaco, superyacht chef — on a past Vakuum course, <a href="https://martinlippo.com/en/services/" rel="noopener" style="color:inherit">martinlippo.com</a></span></blockquote>
-    <p><strong>He knows your world, too.</strong> At twenty-six he crossed the Atlantic under sail — eighteen days at sea — and he has stood in the galley of a 70-metre superyacht. The week was built with that world in mind: everything taught has to work on a boat.</p>
-    <p><strong>Check him yourself:</strong> <a href="https://martinlippo.com/en/" rel="noopener">martinlippo.com</a> — his lab, sessions and prices, all public · <a href="https://www.instagram.com/vakuum_by_martin_lippo/" rel="noopener">@vakuum_by_martin_lippo</a> on Instagram · his <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">Les Vergers Boiron</a> profile.</p>
-    <p class="apply-note">You can go to him directly any day — the free Atlas links you there. What his calendar doesn't offer is this week: consecutive, in English, in a vetted room of peers, with everything around it handled.</p>
+    <p>Argentine, in Barcelona since 2000. Instead of a restaurant, he built <a href="https://martinlippo.com/en/" rel="noopener">Vakuum</a> — a laboratory whose whole purpose is teaching — and the Nitro School: liquid nitrogen is his signature terrain. Les Vergers Boiron built a <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">technique video library</a> around him; <a href="https://www.sogoodmagazine.com/pastry-chefs/martin-lippo/" rel="noopener">so good.. magazine</a> features his work; he stands between Adrià's modernism and Escoffier's classicism.</p>
+    <p>Martin will tell you chefs from World's 50 Best kitchens have taken his courses — and left with more than they came for. Weigh his word against the signed reviews on his own site, names and ranks attached — a working superyacht chef among them:</p>
+    <blockquote class="quotebox">"Being able to practice the wide range of modern techniques on site made the whole difference."<span class="cite"><a href="https://martinlippo.com/en/services/" rel="noopener" style="color:inherit">Raoni Cavaco, superyacht chef — read the review at martinlippo.com →</a></span></blockquote>
+    <p><strong>He knows your world.</strong> At twenty-six he crossed the Atlantic under sail — eighteen days at sea — and he has stood in the galley of a 70-metre superyacht. Everything taught in this week has to work on a boat.</p>
+    <p class="apply-note">Check him yourself: <a href="https://martinlippo.com/en/" rel="noopener">martinlippo.com</a> — his lab, sessions and prices, all public · <a href="https://www.instagram.com/vakuum_by_martin_lippo/" rel="noopener">@vakuum_by_martin_lippo</a> · <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">Les Vergers Boiron</a>.</p>
   </div>
 </section>
 
@@ -293,8 +268,8 @@
       <img src="/images/arnaud-portrait.jpg" alt="Arnaud Callier, superyacht chef" loading="lazy" onerror="this.closest('figure').style.display='none'">
       <figcaption>Arnaud Callier — working superyacht chef</figcaption>
     </figure>
-    <p>I'm <strong>Arnaud Callier</strong> — a working superyacht chef. Everything I can really do, I learned at the source, from someone's hands. I built this week because I wanted it to exist and it didn't. I also keep the map at <a href="https://educatedtraveler.app/browse">EducatedTraveler</a> — about a hundred crafts, free, where nobody can pay for a listing — and I write the food-science publication <a href="https://littoralicious.com" rel="noopener">Littoralicious</a>. This week is the first thing I've put my own name on. Find me on Instagram: <a href="https://www.instagram.com/arnaudcallier/" rel="noopener">@arnaudcallier</a>.</p>
-    <p><strong>Who it's for:</strong> chefs on Med-wintering boats in yard period, rotational and freelance chefs between seasons, and serious professional cooks who want the modernist toolkit from the source. <strong>This is not a get-into-yachting course</strong> — it assumes you already cook for a living.</p>
+    <p>I'm <strong>Arnaud Callier</strong> — a working superyacht chef. Everything I can really do, I learned at the source, from someone's hands. I built this week because I wanted it to exist and it didn't. I also keep the free map at <a href="https://educatedtraveler.app/browse">EducatedTraveler</a> — about a hundred crafts, where nobody can pay for a listing. This week is the first thing I've put my own name on. Find me on Instagram: <a href="https://www.instagram.com/arnaudcallier/" rel="noopener">@arnaudcallier</a>.</p>
+    <p><strong>Who it's for:</strong> chefs in yard period, rotational and freelance chefs between seasons, and serious professional cooks. <strong>Not a get-into-yachting course</strong> — it assumes you already cook for a living.</p>
   </div>
 </section>
 
@@ -302,8 +277,8 @@
   <div class="wrap">
     <p class="eyebrow">Take a seat</p>
     <h2>Apply — two minutes, then a call</h2>
-    <p>Send me five things on WhatsApp: your name · boat or freelance · role · if a chef sent you, who (vouched applications are fast-tracked — but plenty of good seats come cold) · one line on what you want to walk out able to do.</p>
-    <p>Then 15 minutes on the phone — for your questions, and for me to check the week fits you; I've talked people out of seats. After the call your seat is held 48 hours while the payment link is live — the hold exists so a held seat doesn't block another chef. Mid-charter and can't talk? Voice notes work; tell me your watch and I'll work around it.</p>
+    <p>Send me five things on WhatsApp: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
+    <p>Then 15 minutes on the phone — your questions, and me checking the week fits you; I've talked people out of seats. After the call your seat holds 48 hours while the payment link is live. Mid-charter? Voice notes work — tell me your watch.</p>
     <div class="cta-row">
       <a class="btn btn-primary cta-wa" href="#">Apply on WhatsApp</a>
       <a class="btn btn-ghost" id="cta-mail" href="#">Or by email</a>
@@ -318,24 +293,22 @@
     <h2>Asked straight, answered straight</h2>
     <dl>
       <dt>"Why not just do his sessions directly?"</dt>
-      <dd>You can — his calendar is public and the Atlas links you there free. What it doesn't offer is this: the five modules consecutively, in English, timed for yard period, in a vetted room of peers — with the certificate, the portfolio shoot, and one person handling everything around it.</dd>
+      <dd>You can — his calendar is public and the free Atlas links you there. What it doesn't offer: the five modules consecutively, in English, in yard period, in a vetted room of peers — with everything around it handled.</dd>
       <dt>"Five topics in five days — how deep does it go?"</dt>
-      <dd>Honest answer: it's Vakuum's full programme — the same modules he sells separately, run consecutively. You won't spend 21 hours on texturizers like his dedicated session; you'll leave with every technique started in your own hands and the dossiers to go deep afterwards. If you want one topic exhaustively, his single-module sessions are the better buy — I'll tell you so on the call.</dd>
+      <dd>It's Vakuum's full programme — the same modules he sells separately, run consecutively. You leave with every technique started in your own hands and the dossiers to go deep after. Want one topic exhaustively? His single-module sessions are the better buy — I'll say so on the call.</dd>
       <dt>"Will this actually move my career?"</dt>
-      <dd>No honest person promises you a job. Here's the context, from the industry's own guides: Northrop &amp; Johnson's 2026 salary guide runs from about $5,000–6,000 a month for a sole chef under 30 metres to $15,000+ for a head chef past 80; Quay Crew's 2024 survey of a hundred-plus head chefs runs €5,000 to €16,000 — and finds that most head chefs already carry Michelin experience, so pay follows the food guests remember, not the pedigree on paper. Nobody can promise you a rung. What can be said plainly: hiring runs on photographs of your food, credentials that check out, and word of mouth between crews — and the week leaves all three stronger. What you build on that is yours.</dd>
+      <dd>No honest person promises you a job. For context, from the industry's own guides: Northrop &amp; Johnson's 2026 salary guide runs from about $5,000–6,000 a month for a sole chef under 30 metres to $15,000+ past 80 — and Quay Crew's survey of a hundred-plus head chefs found most already carry Michelin experience: pay follows the food guests remember. Hiring runs on your cooking, checkable training, and word of mouth; the week leaves all of it stronger. The rest is yours.</dd>
       <dt>"What if it doesn't fill?"</dt>
-      <dd>Then EducatedTraveler refunds every euro and I'll say so publicly. Confirmed at 10, or refunded after 15 September. Don't buy flights before we call it.</dd>
+      <dd>EducatedTraveler refunds every euro and I'll say so publicly. Confirmed at 10, or refunded after 15 September. Don't buy flights before we call it.</dd>
       <dt>"I can't confirm my October yet."</dt>
-      <dd>Take the seat when you can. If your programme changes after we confirm, you send a chef of your calibre in your place, up to 7 days out — the seat is transferable. After confirmation there are no cash refunds; I'd rather tell you here than in the small print.</dd>
-      <dt>"Where do I stay?"</dt>
-      <dd>Two ways: the shared cohort apartment near the lab — your own private room, at cost, with the room's conversations running all week — or book your own. Say which when you apply.</dd>
+      <dd>Take the seat when you can. If your programme changes after we confirm, send a chef of your calibre in your place — up to 7 days out. After confirmation there are no cash refunds; better said here than in the small print.</dd>
       <dt>"How do I know it's legit?"</dt>
       <dd>Check it: his lab, his sessions and his prices are on his own site, linked above. The map I keep is free and always will be. And you get me on the phone before you pay a euro.</dd>
     </dl>
 
     <div class="circle-door">
-      <p><strong>Barcelona is Lab Week 01 — the first of them.</strong> The free map holds about a hundred crafts across three hundred places, and a few times a year we'll open one door like this: a named master, at the source, a vetted room. Cooking first; other crafts as the map proves them — for yacht crews and for anyone serious about learning a real thing with their hands.</p>
-      <p>Every week is announced to <a href="/community">the Circle</a> first — the founding cohort gets 72 hours' head start. Not sure about October? Join anyway: one letter when something real happens. Nothing else, ever.</p>
+      <p><strong>Barcelona is Lab Week 01 — the first of them.</strong> A few times a year we open one door like this: a named master, at the source, a vetted room. Every week goes to <a href="/community">the Circle</a> first — 72 hours before anyone else.</p>
+      <p>Not sure about October? Join anyway: one letter when something real happens. Nothing else, ever.</p>
     </div>
   </div>
 </section>
