@@ -210,10 +210,42 @@ function chefInviteHtml(_unsub: string, name?: string): string {
 </body></html>`;
 }
 
+// Friend invite — a 1:1 personal note to a friend who's been on the list since
+// the start (no modernist-week claim, no bulk footer). Name-aware, CTA -> /portrait.
+function friendInviteHtml(_unsub: string, name?: string): string {
+  const hi = name && name.trim() ? esc(name.trim()) : "you";
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#0d0b09;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
+    <div style="text-align:center;margin-bottom:34px;">
+      <span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#f3ede2;">EDUCATED</span><span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#7fa8a5;">TRAVELER</span>
+    </div>
+    <div style="background:rgba(243,237,226,0.03);border:1px solid rgba(243,237,226,0.08);border-radius:16px;padding:36px 28px;">
+      <p style="color:#f3ede2;font-family:Georgia,'Times New Roman',serif;font-size:19px;margin:0 0 20px 0;">Hey ${hi} &mdash;</p>
+      <p style="${P}margin:0 0 18px 0;">It's Arnaud. You were one of the first people I told about EducatedTraveler &mdash; you've been on the list since the very start &mdash; and I've quietly been building the thing I kept going on about.</p>
+      <p style="${P}margin:0 0 18px 0;">It's finally real enough to show you properly. I made a page where you tell me, in your own words, the one craft you'd give a week of your life to learn &mdash; and, if you feel like it, write me a letter. It opens <em style="color:rgba(243,237,226,0.85);">&ldquo;Arnaud,&rdquo;</em> and I read every one myself.</p>
+      <p style="${P}margin:0 0 22px 0;">I don't sell you a week. I take what you tell me and go find the real thing &mdash; the master still teaching by hand, the place where the craft is alive, and your people &mdash; then I open the door.</p>
+      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/portrait" style="${BTN}">Take your place &rarr;</a></div>
+      <p style="${P}margin:20px 0 0 0;">Would mean a lot to have you properly in. And either way &mdash; good to have you here from the start. Let's catch up soon.</p>
+    </div>
+    <div style="margin-top:30px;padding:0 4px;">
+      <p style="color:rgba(243,237,226,0.55);font-family:Georgia,'Times New Roman',serif;font-size:16px;margin:0;">&mdash; Arnaud</p>
+      <p style="color:rgba(243,237,226,0.25);font-size:12px;margin:4px 0 0 0;">EducatedTraveler</p>
+    </div>
+    <div style="margin-top:34px;padding-top:22px;border-top:1px solid rgba(243,237,226,0.06);text-align:center;">
+      <p style="color:rgba(243,237,226,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="margin:12px 0 0 0;"><a href="https://educatedtraveler.app" style="color:rgba(127,168,165,0.5);font-size:11px;text-decoration:none;">educatedtraveler.app</a></p>
+    </div>
+  </div>
+</body></html>`;
+}
+
 export const ISSUES: Record<string, { subject: string; html: (unsub: string, name?: string) => string }> = {
   "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomeHtml },
   "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml },
   "chef-invite": { subject: "That modernist cooking week — I want you close to it", html: chefInviteHtml },
+  "friend-invite": { subject: "The thing I kept going on about — it's real now", html: friendInviteHtml },
   "issue-01": { subject: "The Circle, Letter Nº 1 — where the divers go to find the deep", html: issue01Html },
   "issue-02": { subject: "The Circle, Letter Nº 2 — the snack named after a movie star", html: issue02Html },
   "issue-03": { subject: "The Circle, Letter Nº 3 — the rarest thing in a kitchen isn't talent", html: issue03Html },
