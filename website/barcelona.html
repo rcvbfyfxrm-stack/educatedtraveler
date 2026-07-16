@@ -277,13 +277,13 @@
   <div class="wrap">
     <p class="eyebrow">Take a seat</p>
     <h2>Apply — two minutes, then a call</h2>
-    <p>Send me five things on WhatsApp: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
+    <p>Send me five things — on WhatsApp, or by email if that's easier: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
     <p>Then 15 minutes on the phone — your questions, and me checking the week fits you; I've talked people out of seats. After the call your seat holds 48 hours while the payment link is live. Mid-charter? Voice notes work — tell me your watch.</p>
     <div class="cta-row">
       <a class="btn btn-primary cta-wa" href="#">Apply on WhatsApp</a>
-      <a class="btn btn-ghost" id="cta-mail" href="#">Or by email</a>
+      <a class="btn btn-ghost" id="cta-mail" href="#">No WhatsApp? Apply by email</a>
     </div>
-    <p class="apply-note">No account, no sign-up, no card details on this page. Application first, conversation second, payment last — to EducatedTraveler, who handles everything from there.</p>
+    <p class="apply-note">No account, no sign-up, no card details on this page. Application first, conversation second, payment last — to EducatedTraveler, who handles everything from there. Email works exactly the same: <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>.</p>
   </div>
 </section>
 
@@ -322,7 +322,10 @@
 
 <div class="stickybar" id="stickybar">
   <span class="st-count" id="st-count">Confirmed at 10 paid · 15 Sept</span>
-  <a class="btn btn-primary cta-wa" href="#">Apply on WhatsApp</a>
+  <span style="display:flex;gap:.5rem;flex:0 0 auto">
+    <a class="btn btn-ghost" id="st-mail" href="#" style="padding:.7rem .9rem">Email</a>
+    <a class="btn btn-primary cta-wa" href="#">Apply on WhatsApp</a>
+  </span>
 </div>
 
 <script>
@@ -382,6 +385,7 @@
     });
   });
   document.getElementById("cta-mail").href = mailHref;
+  document.getElementById("st-mail").href = mailHref;
 </script>
 </body>
 </html>
