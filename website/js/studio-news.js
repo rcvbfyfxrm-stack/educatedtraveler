@@ -75,6 +75,20 @@
       '<h2 class="font-serif" style="font-size:' + (isFront ? 34 : 24) + 'px; line-height:1.15; margin:0 0 14px; color:var(--paper);">' + esc(item.title) + "</h2>" +
       (item.digest ? '<p style="font-size:' + (isFront ? 16.5 : 14.5) + 'px; line-height:1.75; color:var(--muted); margin:0 0 18px; max-width:70ch;">' + esc(item.digest) + "</p>" : "");
     var body = item.body_md ? '<div style="border-top:1px solid var(--line); padding-top:18px; max-width:70ch;">' + md(item.body_md) + "</div>" : "";
+    var ideas = "";
+    var ide = Array.isArray(item.ideas) ? item.ideas.filter(function (i) { return i && i.title; }) : [];
+    if (ide.length) {
+      ideas =
+        '<div class="font-mono" style="font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--faint); margin:30px 0 14px;">Fresh ideas — new this week</div>' +
+        '<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px;">' +
+        ide.map(function (i) {
+          return '<div style="border:1px solid var(--line); border-radius:12px; padding:18px 20px; background:var(--ink-3);">' +
+            '<h4 class="font-serif" style="font-size:17px; margin:0 0 8px; color:var(--paper);">' + esc(i.title) + "</h4>" +
+            '<p style="margin:0; font-size:13px; line-height:1.7; color:var(--muted);">' + esc(i.pitch) + "</p>" +
+            (i.first_test ? '<p class="font-mono" style="margin:10px 0 0; font-size:11px; color:var(--ember);">First test → ' + esc(i.first_test) + "</p>" : "") +
+            "</div>";
+        }).join("") + "</div>";
+    }
     var masters = "";
     var ins = Array.isArray(item.instructors) ? item.instructors.filter(function (m) { return m && m.name; }) : [];
     if (ins.length) {
@@ -82,7 +96,7 @@
         '<div class="font-mono" style="font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--faint); margin:30px 0 14px;">This week’s masters</div>' +
         '<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px;">' + ins.map(letterCard).join("") + "</div>";
     }
-    return head + body + masters;
+    return head + body + ideas + masters;
   }
 
   function note(v, text, extraHtml) {
