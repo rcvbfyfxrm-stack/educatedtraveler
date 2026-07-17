@@ -201,7 +201,8 @@
     <!-- Tabs -->
     <div style="max-width:1180px; margin:0 auto; padding: 0 20px;">
       <nav style="display:flex; gap:26px; overflow-x:auto;">
-        <button class="tab active" data-tab="campaign">Campaign</button>
+        <button class="tab active" data-tab="news">News</button>
+        <button class="tab" data-tab="campaign">Campaign</button>
         <button class="tab" data-tab="launch">Launch</button>
         <button class="tab" data-tab="letter">Letter</button>
         <button class="tab" data-tab="posts">Posts</button>
@@ -229,6 +230,9 @@
 
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script src="/js/studio-news.js"></script>
 <script src="/js/studio-campaigns.js"></script>
 <script src="/js/studio-messages.js"></script>
 <script src="/js/studio-calendar.js"></script>

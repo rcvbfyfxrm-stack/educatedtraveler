@@ -93,7 +93,7 @@
   }
 
   // ---------- boot ----------
-  let activeTab = CAMPAIGNS.length ? "campaign" : "launch";
+  let activeTab = "news";
   function boot() {
     $("#today-line").textContent = todayISO();
     setFocusLine();
@@ -137,7 +137,7 @@
 
   function render() {
     const v = $("#view"); v.innerHTML = "";
-    ({ campaign: renderCampaign, launch: renderLaunch, letter: renderLetter, plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderCampaign)(v);
+    ({ news: (n) => (window.ET_RENDER_NEWS || renderCampaign)(n), campaign: renderCampaign, launch: renderLaunch, letter: renderLetter, plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderCampaign)(v);
   }
 
   // ================= CAMPAIGN (the cockpit — home) =================
