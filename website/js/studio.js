@@ -137,7 +137,7 @@
 
   function render() {
     const v = $("#view"); v.innerHTML = "";
-    ({ news: (n) => (window.ET_RENDER_NEWS || renderCampaign)(n), campaign: renderCampaign, launch: renderLaunch, letter: renderLetter, plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderCampaign)(v);
+    ({ news: (n) => (window.ET_RENDER_NEWS || renderCampaign)(n), people: (n) => (window.ET_RENDER_PEOPLE || renderCampaign)(n), campaign: renderCampaign, launch: renderLaunch, letter: renderLetter, plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderCampaign)(v);
   }
 
   // ================= CAMPAIGN (the cockpit — home) =================
