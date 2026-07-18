@@ -72,10 +72,6 @@
         .nav-in{ max-width:1100px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; }
         .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:0.16em; font-size:15px; color:var(--paper); text-decoration:none; }
         .brand span{ color:var(--sea); }
-        .nav-links{ display:flex; gap:26px; align-items:center; }
-        .nav-links a{ color:var(--paper); opacity:.56; text-decoration:none; font-size:13.5px; transition:opacity .25s,color .25s; }
-        .nav-links a:hover{ opacity:1; color:var(--sea); }
-        @media(max-width:720px){ .nav-links{ display:none; } }
 
         /* shell */
         .wrap{ max-width:600px; margin:0 auto; padding:120px 22px 80px; }
@@ -127,6 +123,19 @@
         .disc-head .lbl{ margin-bottom:0; }
         .count{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--faint); }
 
+        /* already-master-a-craft block (optional) */
+        .masterblock{ margin-top:24px; padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:rgba(243,237,226,0.02); }
+        .optbox{ display:flex; align-items:flex-start; gap:12px; margin-top:14px; cursor:pointer; user-select:none; }
+        .optbox input{ position:absolute; opacity:0; width:1px; height:1px; }
+        .optbox .box{ width:22px; height:22px; flex:0 0 auto; border-radius:6px; border:1px solid rgba(243,237,226,0.30);
+                      background:rgba(243,237,226,0.04); display:flex; align-items:center; justify-content:center; transition:all .2s; margin-top:1px; }
+        .optbox input:checked + .box{ background:var(--sea); border-color:var(--sea); }
+        .optbox .box svg{ width:13px; height:13px; opacity:0; transition:opacity .2s; }
+        .optbox input:checked + .box svg{ opacity:1; }
+        .optbox input:focus-visible + .box{ outline:2px solid var(--sea); outline-offset:2px; }
+        .optbox .txt{ font-size:14px; color:var(--muted); line-height:1.5; }
+        .optbox:hover .txt{ color:var(--paper); }
+
         /* buttons */
         .cta{ font-family:inherit; font-size:15px; font-weight:500; color:#14110d; border:none; cursor:pointer;
               background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); border-radius:999px;
@@ -171,6 +180,53 @@
                          font-size:14px; border-bottom:1px solid var(--line); padding-bottom:2px; }
         .done-state .go:hover{ opacity:1; color:var(--sea); }
         .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+
+        /* ── the discreet trigger at the foot of the questionnaire ── */
+        .circle-foot{ text-align:center; padding:0 22px 48px; }
+        .founder-link{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
+                       color:var(--faint); background:none; border:0; cursor:pointer; padding:10px 8px; transition:color .25s; }
+        .founder-link:hover{ color:var(--sea); }
+
+        /* ── FOUNDER POP-UP — a light window; the questionnaire stays faintly visible behind ── */
+        .ov{ position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center; padding:20px; }
+        .ov.show{ display:flex; }
+        .ov-bg{ position:absolute; inset:0; background:rgba(13,11,9,0.42); backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px); }
+        .modal{ position:relative; width:100%; max-width:560px; max-height:88vh; overflow-y:auto; text-align:left;
+                background:rgba(16,13,10,0.90); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+                border:1px solid rgba(243,237,226,0.16); border-radius:20px; padding:30px;
+                box-shadow:0 40px 120px -30px rgba(0,0,0,0.8); }
+        .modal .close{ position:absolute; top:14px; right:14px; background:rgba(13,11,9,0.5); border:1px solid rgba(243,237,226,0.16);
+                color:var(--paper); cursor:pointer; font-size:16px; line-height:1; width:34px; height:34px; border-radius:999px; }
+        .modal .close:hover{ background:rgba(13,11,9,0.85); }
+        .mhead{ display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+        .ava{ width:56px; height:56px; border-radius:50%; flex:0 0 auto; background:linear-gradient(135deg,var(--sea),var(--ember));
+              display:flex; align-items:center; justify-content:center; font-family:'Fraunces',Georgia,serif; font-size:22px; color:#14110d; }
+        .mhead h3{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:1.4rem; }
+        .mhead .r{ font-family:'IBM Plex Mono',monospace; color:var(--faint); font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; margin-top:3px; }
+        .film{ position:relative; aspect-ratio:4/3; border-radius:12px; overflow:hidden; border:1px solid var(--line); margin:14px 0; background:#0d0b09; }
+        .slide{ position:absolute; inset:0; opacity:0; transition:opacity .5s; pointer-events:none; }
+        .slide.on{ opacity:1; pointer-events:auto; }
+        .slide img{ width:100%; height:100%; object-fit:cover; }
+        .slide::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(13,11,9,0.08),rgba(13,11,9,0.34) 44%,rgba(13,11,9,0.95)); }
+        .cap{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:16px 18px; }
+        .cap .ch{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.26em; text-transform:uppercase; color:var(--sea); margin-bottom:6px; }
+        .cap h4{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:1.15rem; margin-bottom:5px; color:var(--paper); }
+        .cap p{ color:rgba(243,237,226,0.82); font-size:12.5px; line-height:1.5; }
+        .fnav{ position:absolute; top:50%; transform:translateY(-50%); z-index:4; width:38px; height:38px; display:flex; align-items:center; justify-content:center;
+               border-radius:50%; background:rgba(13,11,9,0.5); border:1px solid rgba(243,237,226,0.16); color:var(--paper); cursor:pointer; font-size:19px; padding:0; }
+        .fnav:hover{ background:rgba(13,11,9,0.85); } .fnav.p{ left:11px; } .fnav.n{ right:11px; }
+        .fcount{ position:absolute; top:13px; left:13px; z-index:4; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; color:var(--paper);
+                 background:rgba(13,11,9,0.5); border:1px solid rgba(243,237,226,0.16); padding:4px 9px; border-radius:999px; }
+        .fdots{ display:flex; justify-content:center; gap:8px; margin:2px 0 16px; }
+        .fdot{ position:relative; width:8px; height:8px; padding:0; border:0; border-radius:999px; background:rgba(243,237,226,0.30); cursor:pointer; transition:width .3s,background .3s; }
+        .fdot::before{ content:""; position:absolute; inset:-12px; } .fdot.on{ width:22px; background:var(--sea); }
+        .mbody p{ color:var(--muted); font-size:14px; line-height:1.6; margin-bottom:12px; }
+        .mbody p b{ color:var(--paper); font-weight:400; }
+        .mfoot{ margin-top:16px; padding-top:16px; border-top:1px solid var(--line); display:flex; justify-content:flex-end; }
+        .mfoot .ret{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; color:var(--paper); opacity:.82;
+                     background:none; border:0; border-bottom:1px solid var(--line); padding:0 0 4px; cursor:pointer; transition:color .25s,opacity .25s,border-color .25s; }
+        .mfoot .ret:hover{ opacity:1; color:var(--sea); border-color:var(--sea); }
+        @media (prefers-reduced-motion:reduce){ .slide{ transition:none; } }
     </style>
     <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -179,12 +235,6 @@
     <nav>
         <div class="nav-in">
             <a href="/" class="brand">EDUCATED<span>TRAVELER</span></a>
-            <div class="nav-links">
-                <a href="/browse">The Atlas</a>
-                <a href="/lab-weeks">Lab Weeks</a>
-                <a href="/about">The Story</a>
-                <a href="/journal/">Journal</a>
-            </div>
         </div>
     </nav>
 
@@ -249,6 +299,17 @@
                             <input type="text" id="f_open" placeholder="Name the craft in your own words">
                         </label>
                     </div>
+                </div>
+
+                <div class="masterblock">
+                    <label class="fld"><span class="lbl">Already master a craft?</span>
+                        <input type="text" id="f_mastery" placeholder="The one already in your hands — sushi, freediving, tango…">
+                    </label>
+                    <label class="optbox">
+                        <input type="checkbox" id="f_perfect">
+                        <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14110d" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                        <span class="txt">If a week came up that could take it closer to perfection, I'd want to hear about it.</span>
+                    </label>
                 </div>
 
                 <div class="row">
@@ -357,6 +418,78 @@
         </div>
     </main>
 
+    <!-- discreet: who's behind this -->
+    <footer class="circle-foot">
+        <button type="button" class="founder-link" onclick="openFounder()">Meet the founder</button>
+    </footer>
+
+    <!-- ===================== FOUNDER / STORY POP-UP (light window) ===================== -->
+    <div class="ov" id="founder" role="dialog" aria-modal="true" aria-labelledby="founder-h">
+        <div class="ov-bg" onclick="closeFounder()"></div>
+        <div class="modal">
+            <button class="close" onclick="closeFounder()" aria-label="Back to the questionnaire">&times;</button>
+            <div class="mhead">
+                <div class="ava">A</div>
+                <div><h3 id="founder-h" class="serif">Arnaud</h3><p class="r">Founder · I check every place myself</p></div>
+            </div>
+            <p class="mbody" style="color:var(--muted);font-size:14px;line-height:1.6">I left school at 18 to find out what the world was really about, and I've been crossing it by sea and by land ever since — fifteen years cooking for a living, most of them at sea, learning from the masters I met along the way. Here is some of it.</p>
+
+            <div class="film" id="film" tabindex="-1" aria-roledescription="carousel" aria-label="Arnaud's story, in six photos">
+                <div class="slide on" data-i="0"><img src="/images/story/founder/beginning.jpg" alt="Arnaud walking into an alpine valley" loading="lazy"><div class="cap"><p class="ch">I · The beginning</p><h4>So I went.</h4><p>Everyone expected university and a career. I wanted to learn by doing — not watch the world on a screen. So I left.</p></div></div>
+                <div class="slide" data-i="1"><img src="/images/story/founder/galley.jpg" alt="Arnaud plating a dish in the galley" loading="lazy"><div class="cap"><p class="ch">II · The kitchens</p><h4>Every kitchen a classroom.</h4><p>Michelin kitchens in France, street stalls in Bangkok — most of my years cooking were at sea. Every chef a teacher.</p></div></div>
+                <div class="slide" data-i="2"><img src="/images/story/founder/sea.jpg" alt="Arnaud on the boat with the day's catch" loading="lazy"><div class="cap"><p class="ch">III · The sea</p><h4>Fifty thousand nautical miles.</h4><p>Learned to sail the Siam sea, raced off Sydney, crossed oceans. The sea cares about judgment, not a résumé.</p></div></div>
+                <div class="slide" data-i="3"><img src="/images/story/founder/depths.jpg" alt="Arnaud freediving in a cenote" loading="lazy"><div class="cap"><p class="ch">IV · The depths</p><h4>The deeper I went, the quieter it got.</h4><p>Freediving Mexican cenotes and the open blue, sharks in the Galápagos. Fear turned into respect.</p></div></div>
+                <div class="slide" data-i="4"><img src="/images/story/founder/heights.jpg" alt="Arnaud on a Himalayan summit" loading="lazy"><div class="cap"><p class="ch">V · The heights</p><h4>Strangers turned into crew.</h4><p>Annapurna at 4,130 m, passes across the Himalaya. The people on the trail taught me more than any classroom.</p></div></div>
+                <div class="slide" data-i="5"><img src="/images/story/founder/stillness.jpg" alt="Arnaud on a mountain ridge at dawn" loading="lazy"><div class="cap"><p class="ch">VI · The stillness</p><h4>Handed, at the source.</h4><p>Breathwork in Bali, Ayurveda in India — and in the Thar desert, the idea for all of this took shape.</p></div></div>
+                <span class="fcount" id="fcount">I / VI</span>
+                <button class="fnav p" id="fprev" type="button" aria-label="Previous photo">&lsaquo;</button>
+                <button class="fnav n" id="fnext" type="button" aria-label="Next photo">&rsaquo;</button>
+            </div>
+            <div class="fdots" id="fdots"></div>
+
+            <div class="mbody">
+                <p style="font-family:'Fraunces',Georgia,serif;color:var(--paper);font-size:1.05rem;margin-bottom:6px">What EducatedTraveler is: a place, a person, your people.</p>
+                <p>Every real skill is learned the same three ways — where it's alive, from a master who'll hand it over, beside the handful chasing the same thing. <b>We connect — we don't sell. Earned, not bought.</b></p>
+                <p><b>“I never found my teachers. They found me.”</b> Now I'm building the way in — the map I wish I'd had, and the doors it opens. The letter you're writing is where it starts.</p>
+            </div>
+            <div class="mfoot">
+                <button type="button" class="ret" onclick="closeFounder()">Return to the questionnaire &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        "use strict";
+        var ov=document.getElementById('founder'), lastFocus=null;
+        window.openFounder=function(){ lastFocus=document.activeElement; ov.classList.add('show'); document.documentElement.style.overflow='hidden'; go(0); ov.querySelector('.close').focus(); document.addEventListener('keydown',key); };
+        window.closeFounder=function(){ ov.classList.remove('show'); document.documentElement.style.overflow=''; document.removeEventListener('keydown',key); if(lastFocus&&lastFocus.focus) lastFocus.focus(); };
+        function key(e){
+            if(e.key==='Escape'){ closeFounder(); return; }
+            if(e.key==='ArrowRight'){ go(cur+1); return; }
+            if(e.key==='ArrowLeft'){ go(cur-1); return; }
+            if(e.key==='Tab'){
+                var f=ov.querySelectorAll('button,a,[tabindex]:not([tabindex="-1"])'); if(!f.length) return;
+                var first=f[0], last=f[f.length-1];
+                if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
+                else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
+            }
+        }
+        var ROMAN=['I','II','III','IV','V','VI'];
+        var slides=[].slice.call(document.querySelectorAll('.slide')),
+            dotsWrap=document.getElementById('fdots'), fcount=document.getElementById('fcount'),
+            film=document.getElementById('film'), cur=0, N=slides.length;
+        slides.forEach(function(_,i){ var b=document.createElement('button'); b.className='fdot'+(i===0?' on':''); b.type='button'; b.setAttribute('aria-label','Photo '+(i+1)+' of '+N); b.addEventListener('click',function(){go(i);}); dotsWrap.appendChild(b); });
+        var dots=[].slice.call(dotsWrap.children);
+        function go(i){ cur=(i+N)%N; slides.forEach(function(s,k){s.classList.toggle('on',k===cur);}); dots.forEach(function(d,k){d.classList.toggle('on',k===cur);}); if(fcount) fcount.textContent=ROMAN[cur]+' / '+ROMAN[N-1]; }
+        document.getElementById('fnext').addEventListener('click',function(){go(cur+1);});
+        document.getElementById('fprev').addEventListener('click',function(){go(cur-1);});
+        var x0=null;
+        film.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+        film.addEventListener('touchend',function(e){ if(x0===null)return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40){ go(cur+(dx<0?1:-1)); } x0=null; },{passive:true});
+    })();
+    </script>
+
     <!-- Supabase: the Circle writes to launch_waitlist (an audience we own, not a sales list) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
@@ -392,7 +525,7 @@
         };
 
         // ── state ──
-        var state = { name:'', email:'', world:null, discs:[], open:'', timing:null, length:null, depth:null, reach:null, dream:'', region:'' };
+        var state = { name:'', email:'', world:null, discs:[], open:'', mastery:'', perfect:false, timing:null, length:null, depth:null, reach:null, dream:'', region:'' };
         var MAX_DISCS = 3;
         var current = 0;
 
@@ -509,7 +642,9 @@
             updateGo1();
         }
         $('f_open').addEventListener('input', function(){ state.open=this.value.trim(); updateGo1(); });
-        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open); }
+        $('f_mastery').addEventListener('input', function(){ state.mastery=this.value.trim(); updateGo1(); });
+        $('f_perfect').addEventListener('change', function(){ state.perfect=this.checked; updateGo1(); });
+        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open || state.mastery || state.perfect); }
         $('go1').addEventListener('click', function(){
             if($('go1').disabled) return; show(2);
         });
@@ -550,6 +685,7 @@
             var arr=[{ kind:'profile', name:state.name, region:state.region||null }];
             state.discs.forEach(function(d){ arr.push({ kind:'discipline', world:state.world, discipline:d }); });
             if(state.open){ arr.push({ kind:'discipline', world:state.world, discipline:null, open:state.open }); }
+            if(state.mastery || state.perfect){ arr.push({ kind:'mastery', skill:state.mastery||null, perfect:!!state.perfect }); }
             if(state.timing||state.length||state.depth||state.reach){
                 arr.push({ kind:'intent', timing:state.timing, length:state.length, depth:state.depth, reach:state.reach });
             }
