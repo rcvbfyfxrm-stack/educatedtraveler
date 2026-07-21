@@ -37,6 +37,7 @@
       if (!people.has(key)) people.set(key, {
         email: key, name: "", region: "", profession: "", member: false, portrait: false,
         unsubscribed: false, crafts: [], writings: [], sources: [], intent: [], masters: [], first: null, last: null,
+        onList: false, welcomedAt: null, lastIssue: "",
       });
       return people.get(key);
     };
@@ -60,6 +61,10 @@
       if (!p) return;
       seen(p, row.created_at);
       if (row.unsubscribed) p.unsubscribed = true;
+      p.onList = true;
+      if (row.welcomed_at && (!p.welcomedAt || row.welcomed_at > p.welcomedAt)) p.welcomedAt = row.welcomed_at;
+      // rows arrive newest-first; keep the most recent real issue ("welcome" is covered by welcomedAt)
+      if (row.last_issue && row.last_issue !== "welcome" && !p.lastIssue) p.lastIssue = row.last_issue;
       const src = SOURCE_LABEL[row.source] || row.source;
       if (src && !p.sources.includes(src)) p.sources.push(src);
       let items = Array.isArray(row.interests) ? row.interests
@@ -155,6 +160,13 @@
       (p.unsubscribed ? ' <span class="pill none">unsubscribed</span>' : "");
     const meta = [p.region, p.profession].filter(Boolean).map(esc).join(" · ");
     const via = [p.sources.length ? "via " + esc(p.sources.join(", ")) : "", p.first ? "since " + esc(fmtDate(p.first)) : ""].filter(Boolean).join(" · ");
+    // what the mail system has actually done for this person (welcomed_at + last_issue stamps)
+    const letters = p.onList
+      ? (p.welcomedAt
+          ? 'welcomed ' + esc(fmtDate(p.welcomedAt))
+          : '<span style="color:var(--ember);">never welcomed ⚠</span>') +
+        (p.lastIssue ? ' &nbsp;·&nbsp; last letter: <span style="color:var(--muted);">' + esc(p.lastIssue) + "</span>" : "")
+      : '<span style="font-style:italic;">not on the letter list</span>';
     const crafts = p.crafts.length
       ? '<div style="margin:12px 0 0;">' + p.crafts.map((c) =>
           '<span style="display:inline-block; margin:0 6px 6px 0; padding:3px 10px; border:1px solid ' + (c.own ? "rgba(210,138,82,.45)" : "rgba(127,168,165,.35)") + '; border-radius:9px; font-size:12px; color:var(--paper);">' + esc(c.label) + (c.own ? ' <span style="color:var(--ember); font-size:10px; font-style:italic;">their words</span>' : "") + "</span>").join("") + "</div>"
@@ -176,6 +188,7 @@
       '<a class="link-quiet" style="margin-left:auto; font-size:12px; color:var(--sea); text-decoration:none;" href="mailto:' + esc(p.email) + '">Write back →</a></div>' +
       '<div class="font-mono" style="font-size:11.5px; color:var(--sea); margin:6px 0 0;"><a class="link-quiet" style="color:var(--sea); text-decoration:none;" href="mailto:' + esc(p.email) + '">' + esc(p.email) + "</a>" + (meta ? ' &nbsp;·&nbsp; <span style="color:var(--muted);">' + meta + "</span>" : "") + "</div>" +
       (via ? '<div class="font-mono" style="font-size:10.5px; color:var(--faint); margin:4px 0 0;">' + via + "</div>" : "") +
+      '<div class="font-mono" style="font-size:10.5px; color:var(--faint); margin:4px 0 0;">Letters: ' + letters + "</div>" +
       crafts + masters + intent + writings + "</div>";
   }
 
@@ -241,7 +254,7 @@
             '<p style="margin:12px 0 0;"><a class="link-quiet" style="color:var(--sea); font-size:13px;" href="/join">Sign in →</a></p>');
         }
         Promise.all([
-          client.from("launch_waitlist").select("email,interests,source,created_at,unsubscribed").order("created_at", { ascending: false }).limit(500),
+          client.from("launch_waitlist").select("email,interests,source,created_at,unsubscribed,welcomed_at,last_issue").order("created_at", { ascending: false }).limit(500),
           client.from("profiles").select("email,name,first_name,location,profession,about,interests,what_matters,dream_letter,availability,preferred_duration,reach,portrait_complete,portrait_completed_at,created_at").order("created_at", { ascending: false }).limit(500),
         ]).then(([w, pr]) => {
           if (w.error && pr.error) return note(body, "The room answered with an error: " + esc(w.error.message));
