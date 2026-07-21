@@ -76,8 +76,13 @@
             }
         } catch (e) { /* fall through to redirect */ }
 
-        var ret = encodeURIComponent(window.location.pathname);
-        window.location.href = '/community.html?interest=' + encodeURIComponent(exp) + '&aid=' + encodeURIComponent(adventureId) + '&return=' + ret;
+        // Not signed in: stash the interest and send them to the easy account.
+        // auth.js:migratePendingInterest writes it the moment they land signed in,
+        // and /dashboard shows it under "Classes I'm interested in".
+        try {
+            localStorage.setItem('et_pending_interest', JSON.stringify({ adventureId: adventureId, adventureName: exp }));
+        } catch (e) {}
+        window.location.href = '/join?return=' + encodeURIComponent('/dashboard');
     }
 
     function buildPayPalUrl(opts) {

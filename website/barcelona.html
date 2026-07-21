@@ -103,6 +103,11 @@
   .btn-ghost{border:1px solid var(--line);color:var(--paper)}
   .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
   .apply-note{font-size:.85rem;color:var(--softer)}
+  .follow-line{margin:.55rem 0 0;font-size:.9rem;color:var(--softer);line-height:1.5}
+  .follow-btn{font-family:inherit;font-size:.9rem;color:var(--ember);background:none;border:0;border-bottom:1px solid rgba(210,138,82,.45);padding:0 0 2px;cursor:pointer;transition:border-color .2s,opacity .2s}
+  .follow-btn:hover{border-color:var(--ember)}
+  .follow-btn[disabled]{color:var(--softer);border-color:transparent;cursor:default;opacity:.8}
+  .follow-sub{color:var(--softer);opacity:.82;font-size:.82rem}
   dl{max-width:66ch}
   dt{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--paper);margin-top:1.3rem}
   dd{margin:.4rem 0 0;color:var(--soft);font-size:.94rem;border-left:2px solid var(--sea);padding-left:.95rem}
@@ -166,6 +171,7 @@
       <a class="btn btn-primary cta-wa" href="#apply">Take a seat — apply in 2 minutes</a>
       <a class="btn btn-ghost" href="#leave-with">What you leave with</a>
     </div>
+    <p class="follow-line">Not ready to apply? <button type="button" class="follow-btn" data-et-interested data-experience="Lab Week 01 — The Avant-Garde Kitchen, Barcelona" data-adventure-id="lab-week-01-barcelona">Follow this week &rarr;</button> <span class="follow-sub">first word on seats, dates &amp; add-ons — saved to your account. Free, no obligation.</span></p>
   </div>
 </header>
 
@@ -387,5 +393,12 @@
   document.getElementById("cta-mail").href = mailHref;
   document.getElementById("st-mail").href = mailHref;
 </script>
+
+<!-- Account stack — powers the optional "Follow this week" (additive; the WhatsApp/email apply stays account-free) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/database.js"></script>
+<script src="/js/experience-actions.js"></script>
 </body>
 </html>
