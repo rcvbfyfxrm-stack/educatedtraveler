@@ -63,12 +63,13 @@ const INTENT_LABEL: Record<string, string> = {
 //              {kind:'intent',timing,length,depth,reach},{kind:'dream',text}]
 //   homepage/orb/intent forms → ["Craft name", ...]   old profiles → {category:[...]}
 // Parse defensively; anything unrecognized still shows up raw in the sheet.
+type Mastery = { skill: string; relation: string; advanced: string };
 type Parsed = {
   name: string; region: string; crafts: string[];
-  intent: Array<[string, string]>; dream: string; leftovers: unknown[];
+  intent: Array<[string, string]>; dream: string; mastery: Mastery | null; leftovers: unknown[];
 };
 function parseInterests(iv: unknown): Parsed {
-  const out: Parsed = { name: "", region: "", crafts: [], intent: [], dream: "", leftovers: [] };
+  const out: Parsed = { name: "", region: "", crafts: [], intent: [], dream: "", mastery: null, leftovers: [] };
   let items: unknown[] = [];
   if (Array.isArray(iv)) items = iv;
   else if (iv && typeof iv === "object") items = Object.values(iv as Record<string, unknown>).flat();
@@ -97,6 +98,14 @@ function parseInterests(iv: unknown): Parsed {
       case "dream":
         out.dream = String(o.text ?? "").trim() || out.dream;
         break;
+      case "mastery": {
+        const skill = String(o.skill ?? "").trim();
+        const relation = String(o.relation ?? "").trim();
+        // advanced is the richer field; legacy rows carried a boolean `perfect` — map it.
+        const advanced = String(o.advanced ?? "").trim() || (o.perfect === true ? "yes" : "");
+        if (skill || relation || advanced) out.mastery = { skill, relation, advanced };
+        break;
+      }
       default:
         out.leftovers.push(o);
     }
@@ -159,6 +168,18 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
        </div>`
     : `<p style="color:rgba(243,237,226,0.4);font-size:14px;font-style:italic;margin:20px 0 0 0;">No dream written — they skipped that step.</p>`;
 
+  const RELATION_LABEL: Record<string, string> = { work: "It's their work", passion: "A lifelong passion" };
+  const ADVANCED_LABEL: Record<string, string> = { yes: "Yes — they'd go deeper", curious: "Curious", no: "Not for them" };
+  const masteryBlock = p.mastery && (p.mastery.skill || p.mastery.relation || p.mastery.advanced)
+    ? `<p style="margin:18px 0 8px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">What they already master</p>
+       <div style="border:1px solid rgba(127,168,165,0.35);border-left:2px solid #7fa8a5;border-radius:12px;padding:14px 16px;">
+         ${p.mastery.skill ? `<p style="color:#f3ede2;font-family:Georgia,serif;font-size:17px;margin:0 0 6px 0;">${esc(p.mastery.skill)}</p>` : ""}
+         <p style="color:rgba(243,237,226,0.6);font-size:13px;margin:0;">
+           ${p.mastery.relation ? esc(RELATION_LABEL[p.mastery.relation] ?? p.mastery.relation) : ""}${p.mastery.relation && p.mastery.advanced ? " &middot; " : ""}${p.mastery.advanced ? "Advanced week with an expert: <strong style=\"color:#d28a52;\">" + esc(ADVANCED_LABEL[p.mastery.advanced] ?? p.mastery.advanced) + "</strong>" : ""}
+         </p>
+       </div>`
+    : "";
+
   const leftoverBlock = p.leftovers.length
     ? `<p style="margin:18px 0 6px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Also on the sheet</p>
        <pre style="color:rgba(243,237,226,0.7);font-size:12px;line-height:1.6;white-space:pre-wrap;margin:0;font-family:'Courier New',monospace;">${esc(JSON.stringify(p.leftovers, null, 2))}</pre>`
@@ -188,6 +209,7 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
       ${intentRows ? `<p style="margin:18px 0 4px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Where they're starting from</p>
       <table style="width:100%;border-collapse:collapse;">${intentRows}</table>` : ""}
 
+      ${masteryBlock}
       ${dreamBlock}
       ${leftoverBlock}
     </div>
@@ -210,6 +232,7 @@ serve(async (req) => {
           { kind: "discipline", world: "Body & Spirit", discipline: "Sound Healing" },
           { kind: "intent", timing: "This year", depth: "I’ve dabbled" },
           { kind: "dream", text: "A quiet week learning from a real master." },
+          { kind: "mastery", skill: "Sourdough baking", relation: "passion", advanced: "yes" },
         ],
       };
       const html = sheetHtml(sample, parseInterests(sample.interests));
@@ -230,7 +253,8 @@ serve(async (req) => {
     const who = p.name || String(row.email);
     const extra = p.crafts.length > 1 ? ` +${p.crafts.length - 1}` : "";
     const craftBit = p.crafts.length ? ` — ${p.crafts[0]}${extra}` : "";
-    const subject = `New Circle signup: ${who}${craftBit}${p.dream ? " · with a dream" : ""}`;
+    const masterBit = p.mastery?.skill ? ` · masters ${p.mastery.skill}${p.mastery.advanced === "yes" ? " (wants to go deeper)" : ""}` : "";
+    const subject = `New Circle signup: ${who}${craftBit}${p.dream ? " · with a dream" : ""}${masterBit}`;
 
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",

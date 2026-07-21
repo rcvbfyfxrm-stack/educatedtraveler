@@ -1,0 +1,43 @@
+name: Publish approved concierge Atlas pages
+
+# Turns concierge rows Arnaud APPROVED in the Studio into live /atlas pages, then
+# stamps them published. Gated by Arnaud's approval — this never touches a draft.
+#
+# Security: runs ONLY on schedule/manual dispatch (never on pull_request), so the
+# service-role secret is never exposed to fork PRs. Guarded to the canonical repo.
+#
+# ONE-TIME SETUP (Arnaud's call — it places the master DB key in this public repo):
+#   gh secret set SUPABASE_SERVICE_ROLE_KEY --repo rcvbfyfxrm-stack/educatedtraveler
+# Until that secret exists the job no-ops. The message-send half needs no secret here.
+on:
+  schedule:
+    - cron: '42 3 * * *'   # nightly, after the concierge routine has drafted/approvals settle
+  workflow_dispatch:
+
+jobs:
+  publish:
+    if: github.repository == 'rcvbfyfxrm-stack/educatedtraveler'
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+
+      - name: Generate pages for approved rows + stamp published
+        env:
+          SUPABASE_URL: https://exaehwaqwcledemwpluw.supabase.co
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "SUPABASE_SERVICE_ROLE_KEY not set — nothing to publish. See workflow header for one-time setup."; exit 0
+          fi
+          node scripts/concierge-publish.mjs
+
+      - name: Commit any new pages
+        run: |
+          git config user.name  "et-concierge"
+          git config user.email "concierge@educatedtraveler.app"
+          git add website/atlas/*.html 2>/dev/null || true
+          git commit -m "concierge: publish approved Atlas page(s)" || { echo "nothing to publish"; exit 0; }
+          git push

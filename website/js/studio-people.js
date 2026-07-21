@@ -36,7 +36,7 @@
       if (!key) return null;
       if (!people.has(key)) people.set(key, {
         email: key, name: "", region: "", profession: "", member: false, portrait: false,
-        unsubscribed: false, crafts: [], writings: [], sources: [], intent: [], first: null, last: null,
+        unsubscribed: false, crafts: [], writings: [], sources: [], intent: [], masters: [], first: null, last: null,
       });
       return people.get(key);
     };
@@ -80,6 +80,14 @@
           });
         } else if (it.kind === "dream") {
           addWriting(p, "Their dream week", it.text);
+        } else if (it.kind === "mastery") {
+          const skill = String(it.skill || "").trim();
+          const advanced = it.advanced || (it.perfect === true ? "yes" : "");
+          if (skill || it.relation || advanced) {
+            const rel = { work: "their work", passion: "a lifelong passion" }[it.relation] || it.relation || "";
+            const adv = { yes: "wants to go deeper", curious: "curious about going deeper", no: "" }[advanced] || "";
+            p.masters.push({ skill: skill || "(unnamed)", rel, adv });
+          }
         }
       });
     });
@@ -154,6 +162,13 @@
     const intent = p.intent.length
       ? '<div class="font-mono" style="font-size:11px; color:var(--faint); margin:10px 0 0;">' + p.intent.map(([k, v]) => esc(k) + ": <span style=\"color:var(--muted);\">" + esc(v) + "</span>").join(" &nbsp;·&nbsp; ") + "</div>"
       : "";
+    const masters = p.masters.length
+      ? '<div style="margin:12px 0 0;">' + p.masters.map((m) =>
+          '<div style="display:inline-block; margin:0 8px 6px 0; padding:6px 12px; border:1px solid rgba(127,168,165,.4); border-left:2px solid var(--sea); border-radius:10px; font-size:12.5px; color:var(--paper);">' +
+          '<span style="color:var(--sea); font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase;">Masters</span> ' + esc(m.skill) +
+          (m.rel ? ' <span style="color:var(--faint);">— ' + esc(m.rel) + '</span>' : '') +
+          (m.adv ? ' <span style="color:var(--ember); font-style:italic;">· ' + esc(m.adv) + '</span>' : '') + '</div>').join("") + "</div>"
+      : "";
     const writings = p.writings.map((w) => paper(w, p.name)).join("");
     return '<div class="panel" style="padding:22px 24px;">' +
       '<div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">' +
@@ -161,7 +176,7 @@
       '<a class="link-quiet" style="margin-left:auto; font-size:12px; color:var(--sea); text-decoration:none;" href="mailto:' + esc(p.email) + '">Write back →</a></div>' +
       '<div class="font-mono" style="font-size:11.5px; color:var(--sea); margin:6px 0 0;"><a class="link-quiet" style="color:var(--sea); text-decoration:none;" href="mailto:' + esc(p.email) + '">' + esc(p.email) + "</a>" + (meta ? ' &nbsp;·&nbsp; <span style="color:var(--muted);">' + meta + "</span>" : "") + "</div>" +
       (via ? '<div class="font-mono" style="font-size:10.5px; color:var(--faint); margin:4px 0 0;">' + via + "</div>" : "") +
-      crafts + intent + writings + "</div>";
+      crafts + masters + intent + writings + "</div>";
   }
 
   function renderBody(body, people) {

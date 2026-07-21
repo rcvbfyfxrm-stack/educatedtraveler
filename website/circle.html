@@ -305,10 +305,14 @@
                     <label class="fld"><span class="lbl">Already master a craft?</span>
                         <input type="text" id="f_mastery" placeholder="The one already in your hands — sushi, freediving, tango…">
                     </label>
+                    <div class="chips" id="m_relation" data-single="relation" style="margin-top:12px;">
+                        <button class="chip" type="button" data-val="work">It's my work</button>
+                        <button class="chip" type="button" data-val="passion">A lifelong passion</button>
+                    </div>
                     <label class="optbox">
                         <input type="checkbox" id="f_perfect">
                         <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14110d" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                        <span class="txt">If a week came up that could take it closer to perfection, I'd want to hear about it.</span>
+                        <span class="txt">And I'd love a rare, advanced week with a true expert in it — pushed further than I've gone.</span>
                     </label>
                 </div>
 
@@ -525,7 +529,7 @@
         };
 
         // ── state ──
-        var state = { name:'', email:'', world:null, discs:[], open:'', mastery:'', perfect:false, timing:null, length:null, depth:null, reach:null, dream:'', region:'' };
+        var state = { name:'', email:'', world:null, discs:[], open:'', mastery:'', relation:null, perfect:false, advanced:null, timing:null, length:null, depth:null, reach:null, dream:'', region:'' };
         var MAX_DISCS = 3;
         var current = 0;
 
@@ -643,8 +647,20 @@
         }
         $('f_open').addEventListener('input', function(){ state.open=this.value.trim(); updateGo1(); });
         $('f_mastery').addEventListener('input', function(){ state.mastery=this.value.trim(); updateGo1(); });
-        $('f_perfect').addEventListener('change', function(){ state.perfect=this.checked; updateGo1(); });
-        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open || state.mastery || state.perfect); }
+        $('f_perfect').addEventListener('change', function(){ state.perfect=this.checked; state.advanced=this.checked?'yes':null; updateGo1(); });
+        (function(){
+            var box=$('m_relation'); if(!box) return;
+            Array.prototype.forEach.call(box.children, function(b){
+                b.addEventListener('click', function(){
+                    var val=b.getAttribute('data-val'), chosen=state.relation===val;
+                    Array.prototype.forEach.call(box.children, function(c){ c.setAttribute('aria-pressed','false'); c.classList.remove('sel'); });
+                    if(chosen){ state.relation=null; }
+                    else{ b.setAttribute('aria-pressed','true'); b.classList.add('sel'); state.relation=val; }
+                    updateGo1();
+                });
+            });
+        })();
+        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open || state.mastery || state.perfect || state.relation); }
         $('go1').addEventListener('click', function(){
             if($('go1').disabled) return; show(2);
         });
@@ -685,7 +701,7 @@
             var arr=[{ kind:'profile', name:state.name, region:state.region||null }];
             state.discs.forEach(function(d){ arr.push({ kind:'discipline', world:state.world, discipline:d }); });
             if(state.open){ arr.push({ kind:'discipline', world:state.world, discipline:null, open:state.open }); }
-            if(state.mastery || state.perfect){ arr.push({ kind:'mastery', skill:state.mastery||null, perfect:!!state.perfect }); }
+            if(state.mastery || state.perfect || state.relation){ arr.push({ kind:'mastery', skill:state.mastery||null, relation:state.relation, advanced:state.advanced, perfect:!!state.perfect }); }
             if(state.timing||state.length||state.depth||state.reach){
                 arr.push({ kind:'intent', timing:state.timing, length:state.length, depth:state.depth, reach:state.reach });
             }
