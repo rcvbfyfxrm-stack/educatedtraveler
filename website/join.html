@@ -485,26 +485,32 @@
                             autocomplete="email"
                             class="form-input"
                         />
+                        <!-- Password is opt-in: magic-link is the easy, default path -->
                         <input
                             type="password"
                             name="password"
-                            required
                             minlength="8"
-                            placeholder="Password (min 8 characters)"
+                            placeholder="Set a password (min 8 characters)"
                             autocomplete="new-password"
-                            class="form-input"
+                            class="form-input hidden"
+                            id="signup-password"
                         />
 
                         <div style="padding-top:0.25rem;">
                             <button type="submit" id="signup-btn" class="btn-primary">
-                                Begin your adventure
+                                Email me a link to begin
                             </button>
                         </div>
 
+                        <p style="text-align:center;padding-top:0.1rem;">
+                            <button type="button" id="signup-pw-toggle" style="background:none;border:none;color:rgba(243,237,226,0.5);font-size:0.72rem;cursor:pointer;font-family:'Inter',sans-serif;padding:0.15rem;transition:color 0.3s;" onmouseover="this.style.color='#7fa8a5'" onmouseout="this.style.color='rgba(243,237,226,0.5)'">Prefer to set a password instead?</button>
+                        </p>
+
                         <p id="signup-error" class="hidden" style="color:#f87171;font-size:0.7rem;text-align:center;"></p>
+                        <p id="signup-notice" class="hidden" style="color:#7fa8a5;font-size:0.72rem;text-align:center;line-height:1.55;"></p>
 
                         <p style="color:rgba(255,255,255,0.15);font-size:0.65rem;text-align:center;line-height:1.6;margin-top:0.25rem;" class="tagline">
-                            Earned, not bought &middot; A place, a person, your people
+                            No password to remember &middot; Earned, not bought
                         </p>
                     </form>
 
@@ -694,19 +700,78 @@
                 window.location.reload();
             });
 
-            // SIGN UP
+            // Toggle: reveal the optional password field / go back to the emailed link
+            document.getElementById('signup-pw-toggle').addEventListener('click', function () {
+                const pwEl = document.getElementById('signup-password');
+                const btn = document.getElementById('signup-btn');
+                if (pwEl.classList.contains('hidden')) {
+                    pwEl.classList.remove('hidden');
+                    pwEl.focus();
+                    btn.textContent = 'Create account';
+                    this.textContent = 'Actually, just email me a link';
+                } else {
+                    pwEl.classList.add('hidden');
+                    pwEl.value = '';
+                    btn.textContent = 'Email me a link to begin';
+                    this.textContent = 'Prefer to set a password instead?';
+                }
+            });
+
+            // SIGN UP — magic-link by default (no password); password is opt-in
             signupForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const name = signupForm.querySelector('input[name="name"]').value.trim();
                 const email = signupForm.querySelector('input[name="email"]').value.trim();
-                const password = signupForm.querySelector('input[name="password"]').value;
+                const pwEl = document.getElementById('signup-password');
+                const passwordMode = !pwEl.classList.contains('hidden');
+                const password = pwEl.value;
                 const btn = document.getElementById('signup-btn');
                 const errorEl = document.getElementById('signup-error');
+                const noticeEl = document.getElementById('signup-notice');
 
                 errorEl.classList.add('hidden');
-                btn.disabled = true;
-                btn.textContent = 'Creating account...';
+                if (noticeEl) noticeEl.classList.add('hidden');
 
+                // ── Passwordless (default): email a link that creates the account ──
+                if (!passwordMode) {
+                    btn.disabled = true;
+                    btn.textContent = 'Sending your link…';
+                    try {
+                        const { error } = await supabase.auth.signInWithOtp({
+                            email,
+                            options: {
+                                emailRedirectTo: window.location.origin + '/auth-callback.html',
+                                shouldCreateUser: true,
+                                data: { name }
+                            }
+                        });
+                        if (error) throw error;
+                        sendToEmailService({ email, name, source: 'join-page-magic' });
+                        showEmailSentPanel(
+                            'Check your inbox',
+                            email,
+                            "Tap the link and you're in — no password to remember. Sent to"
+                        );
+                    } catch (err) {
+                        errorEl.textContent = isRateLimit(err)
+                            ? 'Too many attempts just now. Give it a minute, then try again.'
+                            : friendlySignInError(err);
+                        errorEl.classList.remove('hidden');
+                        btn.disabled = false;
+                        btn.textContent = 'Email me a link to begin';
+                    }
+                    return;
+                }
+
+                // ── Password (opt-in) ──
+                if (password.length < 8) {
+                    errorEl.textContent = 'A password needs at least 8 characters — or switch back to the emailed link.';
+                    errorEl.classList.remove('hidden');
+                    pwEl.focus();
+                    return;
+                }
+                btn.disabled = true;
+                btn.textContent = 'Creating account…';
                 try {
                     const { data, error } = await supabase.auth.signUp({
                         email,
@@ -725,7 +790,7 @@
                         tabSignin.click();
                         signinForm.querySelector('input[name="email"]').value = email;
                         btn.disabled = false;
-                        btn.textContent = 'Begin your adventure';
+                        btn.textContent = 'Create account';
                         return;
                     }
 
@@ -752,7 +817,7 @@
                     errorEl.textContent = friendlySignInError(err);
                     errorEl.classList.remove('hidden');
                     btn.disabled = false;
-                    btn.textContent = 'Begin your adventure';
+                    btn.textContent = 'Create account';
                 }
             });
 
