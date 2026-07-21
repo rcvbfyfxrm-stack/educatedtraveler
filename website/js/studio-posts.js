@@ -3,13 +3,14 @@
  *
  * THE CORE (every post must carry it):
  *  - Spine:  a place, a person, your people.
- *  - Wedge:  we connect / introduce — never sell, book, or enroll.
+ *  - Wedge:  our judgment isn't for sale — verified by hand, never by who paid.
+ *            Introduce before you ask; we may sell the immersion, never the vouch.
  *  - At the source, not the simulation · earned, not bought.
  *  - Trust at all levels (the first rule): lead with the real craft + credential,
  *    only places/masters we vouch for; never fabricate proof.
  *  - The two surfaces: the Atlas (map of where a craft is alive) + the Circle (the letter).
  *
- * Voice-locked: connect / introduce, never sell / book / enroll. No banned words
+ * Voice-locked: introduce before you ask; sell only what's real and checkable. No banned words
  * (transformation, life-changing, vacation, luxury, easy), no prices, no emoji.
  * Every post carries branded ET-design images (images[] + imageNote). */
 window.ET_POSTS = [
