@@ -23,6 +23,17 @@ serve(async (req) => {
       return json({ ok: true, dryRun: true, subject: ISSUES["welcome"].subject, htmlLength: html.length });
     }
 
+    // Inbox test: POST {"test":true} sends the current welcome to Arnaud only
+    // (fixed recipient — no user input reaches content or destination) and
+    // touches no rows. Mirrors concierge-send's test:true pattern.
+    if (body?.test) {
+      const TEST_TO = Deno.env.get("LEAD_NOTIFY_TO") ?? "arnaudcallier@pm.me";
+      const unsub = "https://educatedtraveler.app/unsub-preview";
+      const { subject, html, text } = ISSUES["welcome"];
+      const r = await sendCircleEmail(TEST_TO, "[TEST] " + subject, html(unsub), unsub, text?.(unsub));
+      return json(r.ok ? { ok: true, test: true, id: r.id, to: TEST_TO } : { error: r.error }, r.ok ? 200 : 500);
+    }
+
     const rec = body?.record;
     if (body?.table !== "launch_waitlist" || !rec?.id) return json({ message: "ignored" });
 
@@ -36,8 +47,8 @@ serve(async (req) => {
     if (row.unsubscribed || row.welcomed_at) return json({ message: "skip (already welcomed or unsubscribed)" });
 
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
-    const { subject, html } = ISSUES["welcome"];
-    const r = await sendCircleEmail(row.email, subject, html(unsub), unsub);
+    const { subject, html, text } = ISSUES["welcome"];
+    const r = await sendCircleEmail(row.email, subject, html(unsub), unsub, text?.(unsub));
     if (!r.ok) {
       console.error("welcome send failed:", r.error);
       return json({ error: r.error }, 500);

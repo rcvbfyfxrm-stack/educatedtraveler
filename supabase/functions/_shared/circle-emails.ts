@@ -241,8 +241,68 @@ function friendInviteHtml(_unsub: string, name?: string): string {
 </body></html>`;
 }
 
-export const ISSUES: Record<string, { subject: string; html: (unsub: string, name?: string) => string }> = {
-  "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomeHtml },
+// Letter-style shell: no forced background, no wordmark header, no buttons — the
+// structure of personal correspondence, which is also what keeps the Circle out of
+// the Promotions tab. Used by the welcome; other templates migrate on approval.
+function plainShell(opts: { body: string; unsub: string }): string {
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;">
+  <div style="max-width:600px;margin:0 auto;padding:28px 20px;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.75;color:#222222;">
+${opts.body}
+    <p style="margin:40px 0 0 0;font-size:12px;color:#8a8a8a;">EducatedTraveler · <a href="https://educatedtraveler.app" style="color:#5f8582;">educatedtraveler.app</a> · <a href="${opts.unsub}" style="color:#9a9a9a;">Leave the Circle</a></p>
+  </div>
+</body></html>`;
+}
+
+const LP = 'style="margin:0 0 18px 0;"';
+
+function welcomePlainHtml(unsub: string): string {
+  const body = `
+    <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A place, a person, your people.</p>
+    <p ${LP}>You're in. Before anything else, here's the reason the Circle exists — one place worth knowing.</p>
+    <p ${LP}>In <strong>Mashiko</strong>, a quiet town a couple of hours north of Tokyo, the climbing kilns have breathed for a hundred years. A potter named Shoji Hamada settled there in 1924 and gave his life to a simple idea: that plain, useful, handmade things are worth devoting yourself to. The families who learned beside him never left, and people still come from across the world to put their hands in that clay. Mashiko isn't the prettiest town in Japan. It's something rarer — a place where a craft is genuinely alive, and the right people are gathered around it.</p>
+    <p ${LP}>That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.</p>
+    <p ${LP}>I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.</p>
+    <p ${LP}>How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.</p>
+    <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/repertoire" style="color:#5f8582;">educatedtraveler.app/repertoire</a></p>
+    <p ${LP}>And one thing I'd genuinely like to know — just hit reply:</p>
+    <p style="margin:0 0 18px 0;"><strong>What is the one skill you'd give a real week of your life to learn at the source?</strong></p>
+    <p ${LP}>I read every reply.</p>
+    <p style="margin:28px 0 0 0;">— Arnaud</p>`;
+  return plainShell({ body, unsub });
+}
+
+function welcomeText(unsub: string): string {
+  return `A place, a person, your people.
+
+You're in. Before anything else, here's the reason the Circle exists — one place worth knowing.
+
+In Mashiko, a quiet town a couple of hours north of Tokyo, the climbing kilns have breathed for a hundred years. A potter named Shoji Hamada settled there in 1924 and gave his life to a simple idea: that plain, useful, handmade things are worth devoting yourself to. The families who learned beside him never left, and people still come from across the world to put their hands in that clay. Mashiko isn't the prettiest town in Japan. It's something rarer — a place where a craft is genuinely alive, and the right people are gathered around it.
+
+That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.
+
+I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.
+
+How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.
+
+The Atlas is here: https://educatedtraveler.app/repertoire
+
+And one thing I'd genuinely like to know — just hit reply:
+
+What is the one skill you'd give a real week of your life to learn at the source?
+
+I read every reply.
+
+— Arnaud
+
+--
+EducatedTraveler · educatedtraveler.app
+Leave the Circle: ${unsub}`;
+}
+
+export const ISSUES: Record<string, { subject: string; html: (unsub: string, name?: string) => string; text?: (unsub: string) => string }> = {
+  "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomePlainHtml, text: welcomeText },
   "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml },
   "chef-invite": { subject: "That modernist cooking week — I want you close to it", html: chefInviteHtml },
   "friend-invite": { subject: "The thing I kept going on about — it's real now", html: friendInviteHtml },
@@ -267,7 +327,7 @@ export async function sendPersonalEmail(
 }
 
 export async function sendCircleEmail(
-  to: string, subject: string, html: string, unsubUrl: string,
+  to: string, subject: string, html: string, unsubUrl: string, text?: string,
 ): Promise<{ ok: boolean; id?: string; error?: unknown }> {
   if (!RESEND_API_KEY) return { ok: false, error: "RESEND_API_KEY not set" };
   const res = await fetch("https://api.resend.com/emails", {
@@ -275,6 +335,7 @@ export async function sendCircleEmail(
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
     body: JSON.stringify({
       from: FROM, to: [to], reply_to: REPLY_TO, subject, html,
+      ...(text ? { text } : {}),
       headers: {
         "List-Unsubscribe": `<${unsubUrl}>`,
         "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
