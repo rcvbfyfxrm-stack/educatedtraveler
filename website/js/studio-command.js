@@ -120,6 +120,11 @@
     const isOpen = r.status === "draft" || r.status === "changes_requested";
     const isApproved = r.status === "approved";
     const isPublished = r.status === "published";
+    const preview = (canPublish && r.page_html)
+      ? '<button class="q-preview" style="margin:12px 8px 0 0; padding:8px 14px; border-radius:10px; font-size:12.5px; font-family:\'IBM Plex Mono\',monospace; color:#14110d; border:none; cursor:pointer; background:linear-gradient(135deg,var(--sea),var(--ember) 130%);">Preview the finished page →</button>'
+      : (canPublish
+        ? '<div style="margin:12px 0 0; font-size:11.5px; color:var(--faint); font-style:italic;">The finished page builds on tonight’s run — a preview button appears here once it’s ready.</div>'
+        : "");
     const sheet = r.skill_sheet_md
       ? '<details style="margin:12px 0 0;"><summary style="cursor:pointer; color:var(--sea); font-size:12.5px; font-family:\'IBM Plex Mono\',monospace;">The drafted Atlas skill sheet (' + esc((r.skill_sheet_md.length / 1000).toFixed(1)) + 'k) →</summary>' +
         '<div style="max-height:340px; overflow:auto; background:rgba(243,237,226,.02); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-top:8px; font-size:12.5px; line-height:1.7; color:var(--muted);">' + mdLite(r.skill_sheet_md) + '</div></details>'
@@ -162,7 +167,7 @@
         '<a class="link-quiet" style="margin-left:auto; font-size:12px; color:var(--sea); text-decoration:none;" href="mailto:' + esc(r.lead_email) + '">' + esc(r.lead_email) + '</a>' +
       '</div>' +
       '<div style="font-size:13.5px; color:var(--muted); margin:6px 0 0;">Wants <strong style="color:var(--paper);">' + esc(r.skill_title || r.skill_raw) + '</strong>' + (r.skill_raw && r.skill_raw !== r.skill_title ? ' <span style="color:var(--faint);">— “' + esc(r.skill_raw) + '”</span>' : '') + '</div>' +
-      fact + notes + sheet +
+      fact + notes + preview + sheet +
       '<div style="margin:14px 0 0;"><div class="font-mono" style="font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:6px;">The message to send (edit freely — this exact text is what goes out)</div>' +
         '<textarea class="q-msg" style="width:100%; min-height:150px; background:#efe6d3; color:#2c231a; font-family:Georgia,serif; font-size:14px; line-height:1.7; border:1px solid #e2d6bd; border-radius:8px; padding:14px 16px; resize:vertical;">' + esc(r.message_md || "") + '</textarea></div>' +
       '<div style="margin:12px 0 0;"><div class="font-mono" style="font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin-bottom:6px;">Your notes (saved on this card; the next redraft reads them)</div>' +
@@ -236,6 +241,11 @@
         if (await update("concierge_queue", id, patch)) { Object.assign(r, patch); toast("Saved"); reload(body); }
       };
       const btn = (sel, fn) => { const b = card.querySelector(sel); if (b) b.addEventListener("click", fn); };
+      btn(".q-preview", () => {
+        if (!r.page_html) return toast("No built page yet");
+        const blob = new Blob([r.page_html], { type: "text/html" });
+        window.open(URL.createObjectURL(blob), "_blank", "noopener");
+      });
       btn(".q-approve", () => setStatus("approved", { approved_at: new Date().toISOString() }));
       btn(".q-changes", () => setStatus("changes_requested"));
       btn(".q-park", () => setStatus("parked"));
