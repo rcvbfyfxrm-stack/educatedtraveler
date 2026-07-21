@@ -68,6 +68,17 @@
         .interest-tag.culinary { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: #d28a52; }
         .interest-tag.wellness { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.3); color: #e0a877; }
         .interest-tag.creative { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.3); color: #c08a6a; }
+        .class-tag {
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(127,168,165,0.28);
+            background: rgba(127,168,165,0.10);
+            color: #9cc0bd;
+        }
+        .class-tag em { font-style: normal; color: rgba(243,237,226,0.45); font-size: 0.72rem; }
+        .class-tag.joined { border-color: rgba(210,138,82,0.35); background: rgba(210,138,82,0.12); color: #e0a877; }
+        .class-tag.joined em { color: rgba(243,237,226,0.5); }
 
         .creature-badge {
             width: 64px; height: 64px;
@@ -182,6 +193,12 @@
             <div id="card-interests-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-1">
                 <p class="section-label">Drawn to</p>
                 <div id="card-interests" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Classes (following / joined) — common ground; via get_profile_classes RPC -->
+            <div id="card-classes-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-1">
+                <p class="section-label">Classes</p>
+                <div id="card-classes" class="flex flex-wrap gap-2"></div>
             </div>
 
             <!-- Credentials -->
@@ -360,6 +377,14 @@
                         .order('created_at', { ascending: false });
                     renderPriorOnProfile(prior || []);
                 } catch (e) { /* non-fatal */ }
+
+                // Classes on the card (following / joined) — visibility-respecting RPC.
+                // Non-fatal: if the RPC isn't applied yet, the section just stays hidden.
+                try {
+                    const { data: classes } = await window.supabaseClient
+                        .rpc('get_profile_classes', { p_profile_id: userId });
+                    renderClassesOnProfile(classes || []);
+                } catch (e) { /* non-fatal */ }
             } catch (err) {
                 console.error(err);
                 document.getElementById('loading-state').classList.add('hidden');
@@ -392,6 +417,26 @@
                         ${bits ? '<p class="text-[11px] text-white/40 mt-0.5">' + bits + '</p>' : ''}
                         ${notes}
                     </div>`;
+            }).join('');
+            section.classList.remove('hidden');
+        }
+
+        function renderClassesOnProfile(list) {
+            const section = document.getElementById('card-classes-section');
+            const container = document.getElementById('card-classes');
+            if (!section || !container || !list || !list.length) return;
+            // one tag per class; prefer 'joined' over 'interested' for the same class
+            const byAdv = {};
+            list.forEach(c => {
+                const k = c.adventure_id || c.adventure_name;
+                if (!byAdv[k] || c.kind === 'joined') byAdv[k] = c;
+            });
+            const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+            container.innerHTML = Object.values(byAdv).map(c => {
+                const joined = c.kind === 'joined';
+                return '<span class="class-tag' + (joined ? ' joined' : '') + '">' +
+                    esc(c.adventure_name || c.adventure_id) +
+                    ' <em>· ' + (joined ? 'Joined' : 'Following') + '</em></span>';
             }).join('');
             section.classList.remove('hidden');
         }
