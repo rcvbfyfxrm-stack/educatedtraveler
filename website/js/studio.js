@@ -50,6 +50,7 @@
   const ARTICLE_SEED = (window.ET_ARTICLES_SEED || []).slice();
   const IDEAS = window.ET_IDEAS || { shotList: [], hooks: [], series: [], saveTriggers: [], neverPost: [] };
   const POSTS = (window.ET_POSTS || []).slice();
+  const AGENDA = window.ET_POST_AGENDA || null;
   const LAUNCH = window.ET_LAUNCH || { intro: "", surfaces: [], phases: [] };
   const LETTER = window.ET_LETTER || { masthead: "The Circle", structure: [], scienceVault: [], issues: [], sendChecklist: [] };
   const CAMPAIGNS = (window.ET_CAMPAIGNS || []).slice();
@@ -816,11 +817,67 @@
 
     if (!POSTS.length) { v.appendChild(el("p", { style: "color:var(--faint); font-size:13px;", text: "No posts loaded (studio-posts.js missing)." })); return; }
 
-    const top = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;" });
+    const ag = agendaPanel(); if (ag) v.appendChild(ag);
+
+    const top = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin:0 0 12px;" });
     top.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => download("et-posts-" + todayISO() + ".md", allPostsText()) }, "Download all posts (.md)"));
     v.appendChild(top);
+    v.appendChild(el("div", { class: "eyebrow", style: "margin:8px 0 12px;", text: "All posts" }));
 
-    POSTS.forEach((p) => v.appendChild(postCard(p)));
+    POSTS.forEach((p) => { const c = postCard(p); c.id = "post-" + p.id; v.appendChild(c); });
+  }
+
+  // The posting agenda — ordered "what next / when", ticks saved to S.posted.
+  function agendaPanel() {
+    if (!AGENDA || !AGENDA.phases) return null;
+    if (!S.posted) { S.posted = { "this-is-et": 1, "founder": 1, "circle": 1 }; save(); }
+    const byId = {}; POSTS.forEach((p) => (byId[p.id] = p));
+    let nextId = null;
+    AGENDA.phases.forEach((ph) => ph.items.forEach((it) => { if (!nextId && !S.posted[it.id]) nextId = it.id; }));
+    const total = AGENDA.phases.reduce((n, ph) => n + ph.items.length, 0);
+    const done = AGENDA.phases.reduce((n, ph) => n + ph.items.filter((it) => S.posted[it.id]).length, 0);
+
+    const wrap = el("div", { class: "panel", style: "padding:20px 22px; margin-bottom:20px; border-left:3px solid var(--ember);" });
+    wrap.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:5px;", text: "Your posting agenda" }));
+    wrap.appendChild(el("div", { class: "font-mono", style: "font-size:12px; color:var(--faint); margin-bottom:16px;", text: done + " of " + total + " posted · tap a title to jump to the post below" }));
+
+    AGENDA.phases.forEach((ph) => {
+      const block = el("div", { style: "margin-bottom:15px;" });
+      block.appendChild(el("div", { class: "font-serif", style: "font-size:15px; margin-bottom:1px;", text: ph.title }));
+      if (ph.sub) block.appendChild(el("div", { style: "color:var(--muted); font-size:12.5px; margin-bottom:6px; line-height:1.5;", text: ph.sub }));
+      ph.items.forEach((it) => {
+        const p = byId[it.id];
+        const isDone = !!S.posted[it.id];
+        const isNext = it.id === nextId;
+        const row = el("div", { class: "chk" + (isDone ? " done" : "") });
+        const cb = el("input", { type: "checkbox" }); cb.checked = isDone;
+        cb.addEventListener("change", () => { if (cb.checked) S.posted[it.id] = 1; else delete S.posted[it.id]; save(); render(); });
+        row.appendChild(cb);
+        const body = el("div", { style: "flex:1;" });
+        const line = el("div", { style: "display:flex; gap:8px; align-items:baseline; flex-wrap:wrap;" });
+        line.appendChild(el("button", { class: "chk-text", style: "background:none; border:none; padding:0; font:inherit; font-size:14px; color:var(--paper); text-align:left; cursor:pointer; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px;", onclick: () => { const c = document.getElementById("post-" + it.id); if (c) c.scrollIntoView({ behavior: "smooth", block: "start" }); }, text: p ? p.title : it.id }));
+        if (isNext) line.appendChild(el("span", { class: "font-mono", style: "font-size:10px; color:var(--ember); letter-spacing:.12em;", text: "← NEXT" }));
+        body.appendChild(line);
+        body.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--sea); margin-top:3px;", text: it.when }));
+        row.appendChild(body);
+        block.appendChild(row);
+      });
+      wrap.appendChild(block);
+    });
+
+    if (AGENDA.rhythm) {
+      const r = el("div", { style: "margin-top:8px; padding-top:12px; border-top:1px solid var(--line);" });
+      r.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:4px;", text: "Rhythm" }));
+      r.appendChild(el("div", { style: "color:var(--muted); font-size:13px;", text: AGENDA.rhythm }));
+      wrap.appendChild(r);
+    }
+    if (AGENDA.gate) {
+      const g = el("div", { style: "margin-top:12px; padding:11px 14px; border-left:3px solid var(--sea); background:rgba(127,168,165,.06);" });
+      g.appendChild(el("div", { class: "font-mono", style: "font-size:10px; color:var(--sea); letter-spacing:.12em; margin-bottom:4px;", text: "BEFORE LAB WEEK" }));
+      g.appendChild(el("div", { style: "color:var(--muted); font-size:12.5px; line-height:1.6;", text: AGENDA.gate }));
+      wrap.appendChild(g);
+    }
+    return wrap;
   }
 
   function postCard(p) {

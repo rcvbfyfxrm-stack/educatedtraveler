@@ -316,3 +316,65 @@ window.ET_POSTS = [
     hashtags: "#sailing #learnbydoing #atthesource #educatedtraveler #skills",
   },
 ];
+
+/* The posting agenda — the simple "what to post next, and when" schedule.
+ * Ordered; rendered at the top of the Posts tab. Ticking a row marks that post
+ * published (saved to this browser). Every id maps to a post in ET_POSTS above. */
+window.ET_POST_AGENDA = {
+  rhythm: "2 feed posts a week — Tuesday + Thursday, 6–8pm. Stories any day between.",
+  gate: "Start the Lab Week run once Martin's yes is in writing (he's accepted the collaborator tag on the announce post). Not there yet? Keep posting the evergreen ones to stay active, and begin Lab Week the day his yes lands.",
+  phases: [
+    {
+      title: "Foundation — the front door",
+      sub: "What ET is → who you are → how to get in. (You've posted these.)",
+      items: [
+        { id: "this-is-et", when: "Pinned · Tue or Thu, 6–8pm" },
+        { id: "founder", when: "24–48h after the pin" },
+        { id: "circle", when: "after the story lands" },
+      ],
+    },
+    {
+      title: "This week",
+      sub: "Cheapest reach, and your best lead engine — people type what they want to learn, you DM them.",
+      items: [
+        { id: "story-what-would-you-learn", when: "now · post as a Story" },
+      ],
+    },
+    {
+      title: "Lab Week 01 — the priority",
+      sub: "Fill 10 seats by 15 Sept. Two posts a week, Tue + Thu. (Gated — see the note below.)",
+      items: [
+        { id: "lab-week-announce", when: "Week 1 · Tue — tag Martin as collaborator" },
+        { id: "lab-week-founder", when: "Week 1 · Thu" },
+        { id: "lab-week-roi", when: "Week 2 · Tue" },
+        { id: "lab-week-galley", when: "Week 2 · Thu" },
+        { id: "lab-week-video", when: "when Martin's film lands" },
+        { id: "lab-week-calendar", when: "when the week is live on martinlippo.com" },
+      ],
+    },
+    {
+      title: "Driven by real seats — not the calendar",
+      sub: "Only ever the real count. Post these when the thing actually happens.",
+      items: [
+        { id: "lab-week-count", when: "each new seat · a Story" },
+        { id: "lab-week-firstseats", when: "once 3 have paid" },
+        { id: "lab-week-confirmed", when: "the day you reach 10" },
+      ],
+    },
+    {
+      title: "Between beats — keep the feed warm",
+      sub: "Any spare Tue/Thu you're not posting Lab Week. Rotate through these.",
+      items: [
+        { id: "source-sim", when: "any open slot" },
+        { id: "become", when: "any open slot" },
+        { id: "freediving", when: "any open slot · Reel" },
+        { id: "sailing", when: "any open slot · Reel" },
+        { id: "pastry", when: "any open slot · Reel" },
+        { id: "asado", when: "any open slot · Reel" },
+        { id: "pranayama", when: "any open slot · Reel" },
+        { id: "letter", when: "any open slot · Story" },
+        { id: "rolltack", when: "any open slot · Story" },
+      ],
+    },
+  ],
+};
