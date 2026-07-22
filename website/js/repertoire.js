@@ -22249,6 +22249,73 @@ window.ET_ATLAS = {
           "englishBasis": "native-English country"
         }
       ]
+    },
+    {
+      "discipline": "Lymphatic Drainage",
+      "category": "wellness",
+      "certBody": "Dr. Vodder Academy / Wittlinger",
+      "goldCredential": "Manual Lymph Drainage / CDT certificate (state-recognised where it counts)",
+      "blurb": "The clinical, featherlight touch that treats lymphoedema — a credential a health system reimburses, not a spa detox.",
+      "destinations": [
+        {
+          "place": "Walchsee",
+          "country": "Austria",
+          "region": "Europe",
+          "role": "source",
+          "communityRank": 5,
+          "communityLabel": "The source",
+          "schools": [
+            "Dr. Vodder Akademie",
+            "Wittlinger Therapiezentrum"
+          ],
+          "masters": [
+            "Dr. Emil Vodder (Wittlinger lineage)"
+          ],
+          "badges": [
+            "source",
+            "lineage",
+            "school",
+            "english"
+          ],
+          "why": "The Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and the final training week treats real patients, not classmates. A dedicated English-language course runs at the source.",
+          "bestSeason": "Year-round",
+          "level": "Licensed professionals",
+          "id": "lymphatic-drainage--walchsee",
+          "schoolsInfo": [
+            {
+              "name": "Dr. Vodder Akademie & Wittlinger Therapiezentrum",
+              "url": "https://www.vodderakademie.com/",
+              "course": "Manual Lymph Drainage (Dr. Vodder Method), 180 hrs — incl. a dedicated English-language course",
+              "blurb": "Two 2-week blocks; the final week treats real clinic patients. Certificate: Dr. Vodder Academy/School International.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2×2 weeks",
+          "instructionLanguage": "German + English course",
+          "englishTaught": true,
+          "englishBasis": "Dedicated English-language course at Walchsee (official course language English); online theory in several languages."
+        }
+      ],
+      "id": "lymphatic-drainage",
+      "certShort": "Dr. Vodder",
+      "featured": {
+        "id": "lymphatic-drainage--walchsee",
+        "place": "Walchsee",
+        "country": "Austria",
+        "school": "Dr. Vodder Akademie & Wittlinger Therapiezentrum",
+        "url": "https://www.vodderakademie.com/",
+        "course": "Manual Lymph Drainage (Dr. Vodder Method) — Basic + Therapy",
+        "description": "The academy that has carried Vodder's method since the early 1970s, on a Tyrolean lake beside its own lymphoedema clinic — where the final week is spent treating real patients. A dedicated English-language course runs at the source.",
+        "duration": "180 hours (two 2-week blocks)",
+        "format": "In-person at the source; theory online in several languages",
+        "certification": "Dr. Vodder Academy/School International certificate",
+        "fitsBecause": "Source, a living clinical scene, and patients in the curriculum — and English-accessible, so you never trade the real thing for a language you speak.",
+        "sessions": [],
+        "priceNote": "from €895 per block (a verified starting point, not a checkout)",
+        "confidence": "high"
+      }
     }
   ],
   "enrichedAt": "2026-06-11",
