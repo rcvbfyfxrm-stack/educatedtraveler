@@ -181,6 +181,31 @@
         .done-state .go:hover{ opacity:1; color:var(--sea); }
         .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
 
+        /* ── the portrait continuation (mirrors /portrait) ── */
+        .own{ margin-top:12px; }
+        .own input[type=text]{ background:transparent; border:none; border-bottom:1px solid rgba(243,237,226,0.14);
+              border-radius:0; padding:8px 2px; font-size:14.5px; box-shadow:none; }
+        .own input[type=text]:focus{ border-color:transparent; border-bottom-color:rgba(127,168,165,0.7); box-shadow:none; }
+        .own input[type=text]::placeholder{ color:rgba(243,237,226,0.26); font-style:italic; }
+        .portrait{ border:1px solid var(--line); border-radius:16px; background:rgba(243,237,226,0.022);
+                   padding:24px 24px 20px; margin:20px 0 6px; }
+        .portrait .pline{ display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+        .portrait .pline:last-child{ border-bottom:none; }
+        .portrait .pk{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
+                       color:var(--faint); flex:0 0 116px; }
+        .portrait .pv{ color:var(--paper); font-size:15px; }
+        .portrait .pv.serif{ font-family:'Fraunces',Georgia,serif; }
+        .portrait .pv .tag{ display:inline-block; margin:0 6px 6px 0; padding:4px 10px; border:1px solid var(--sea);
+                            background:rgba(127,168,165,0.12); border-radius:10px; font-size:13px; }
+        .portrait .pv.letterprev{ color:var(--muted); font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:14.5px;
+                                  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+        .seal{ width:58px; height:58px; margin:0 auto; border-radius:50%; display:grid; place-items:center;
+               background:radial-gradient(circle at 35% 30%, #e49a5f, #c0632f 70%); color:#2c1608;
+               font-family:'Fraunces',serif; font-size:22px; box-shadow:0 10px 30px -10px rgba(192,99,47,0.7); }
+        .spin{ display:inline-block; width:16px; height:16px; border:2px solid rgba(243,237,226,0.25);
+               border-top-color:var(--sea); border-radius:50%; animation:sp .7s linear infinite; vertical-align:-3px; }
+        @keyframes sp{ to{ transform:rotate(360deg); } }
+
         /* ── the discreet trigger at the foot of the questionnaire ── */
         .circle-foot{ text-align:center; padding:0 22px 48px; }
         .founder-link{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;
@@ -416,7 +441,57 @@
                     master, the place, and your people. When there's a real week to tell you about — starting with Barcelona
                     this autumn — you'll be among the first to hear it. Watch for a note from me, Arnaud. Not a newsletter. A letter.</p>
                 <p class="ps" id="done-ps" style="display:none;">And that thing you asked for? It's on my list. I mean that.</p>
-                <a class="go" href="/browse">Wander the Atlas while you wait &rarr;</a>
+
+                <!-- the handoff: everything they just told me becomes their portrait -->
+                <div class="promise" style="text-align:left; margin-top:30px;">
+                    <p>One more minute, and you keep the pen. Everything you just told me is a portrait — yours. Let me hang
+                        it in your own place in the Circle: a page with your name on it, where your crafts and your letter
+                        live, and where you can come back and add to them any time. No password — one click from my email
+                        signs you in.</p>
+                </div>
+                <div class="row" style="justify-content:center;">
+                    <button class="cta" id="continue-portrait">Seal my portrait &rarr;</button>
+                    <a class="quiet" href="/browse">Maybe later — wander the Atlas &rarr;</a>
+                </div>
+            </section>
+
+            <!-- PORTRAIT CONTINUATION — only the two questions the Circle didn't ask -->
+            <section class="beat" id="portraitstep" aria-label="Your portrait: two last brushstrokes">
+                <button class="back" id="portrait-back">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">Your portrait</p>
+                <h2 class="q">Two last brushstrokes.</h2>
+                <p class="sub-tight">None of it's required — but the more I know, the better I aim.</p>
+
+                <div class="field">
+                    <label class="fld"><span class="lbl">What you do with your days</span>
+                        <input type="text" id="f_prof" placeholder="e.g. nurse, sailor, still figuring it out" autocomplete="organization-title">
+                    </label>
+                </div>
+                <div class="field">
+                    <span class="lbl">What brought you to the door</span>
+                    <div class="chips" data-single="lifestage" id="g_lifestage"></div>
+                    <div class="own"><input type="text" id="f_lifestage_own" placeholder="…or say it in your own words"></div>
+                </div>
+
+                <div class="disc-head" style="margin-top:26px;"><span class="lbl">Here's you, in your own words</span></div>
+                <div class="portrait" id="portrait"></div>
+
+                <div class="row">
+                    <button class="cta" id="seal-btn">Seal my portrait &rarr;</button>
+                </div>
+                <p class="signoff">One click from my email and it saves to your own page — no password, ever.</p>
+                <p class="err" id="err5"></p>
+            </section>
+
+            <!-- MAGIC-LINK SENT (the portrait saves itself when they click) -->
+            <section class="done-state" id="sent" aria-live="polite">
+                <div class="seal">✉</div>
+                <p class="eyebrow" style="margin-top:16px;">Check your email</p>
+                <h2>One click and your portrait saves itself.</h2>
+                <p>I've sent a link to <b id="sent-email"></b>. Open it and you'll land on your portrait, signed in — and
+                    everything you just told me saves to your place in the Circle automatically. The link is yours alone.</p>
+                <p class="ps">Didn't arrive in a minute? Check spam, or write me directly at
+                    <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
             </section>
 
         </div>
@@ -529,7 +604,8 @@
         };
 
         // ── state ──
-        var state = { name:'', email:'', world:null, discs:[], open:'', mastery:'', relation:null, perfect:false, advanced:null, timing:null, length:null, depth:null, reach:null, dream:'', region:'' };
+        var state = { name:'', email:'', world:null, discs:[], open:'', mastery:'', relation:null, perfect:false, advanced:null, timing:null, length:null, depth:null, reach:null, dream:'', region:'',
+                      prof:'', lifestage:null, lifestage_own:'' };
         var MAX_DISCS = 3;
         var current = 0;
 
@@ -747,6 +823,169 @@
             $('card').scrollIntoView({behavior:'smooth', block:'start'});
             if(window.plausible) window.plausible('CircleJoinComplete');
         }
+
+        // ═══ THE PORTRAIT CONTINUATION ═══
+        // The lead is already safe in launch_waitlist. From here on we only
+        // deepen: the two questions the Circle didn't ask, then a magic link.
+        // Everything is handed to /portrait as its own draft — that page
+        // restores it after the link, saves it to the profile, and clears it.
+        var LIFESTAGE = [
+            ['a-turn',"I'm at a turn — ready for something new"],
+            ['outgrew',"I outgrew the thing I chose too early"],
+            ['just-learn',"I just love to learn, and always will"],
+            ['burnt',"I need to step out and come back myself"],
+            ['deep',"I'm deep in a craft and want a true master"],
+            ['gift',"I want to give someone (or myself) this"]
+        ];
+        function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+        function labelOf(group, key){
+            var src = group==='lifestage'?LIFESTAGE:GRADIENTS[group];
+            for(var i=0;i<src.length;i++){ if(src[i][0]===key) return src[i][1]; }
+            return null;
+        }
+        function lifestageAnswer(){
+            var own=(state.lifestage_own||'').trim();
+            if(own) return own;
+            return state.lifestage ? labelOf('lifestage', state.lifestage) : null;
+        }
+
+        (function(){
+            var box=$('g_lifestage');
+            LIFESTAGE.forEach(function(pair){
+                var b=document.createElement('button');
+                b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false'); b.textContent=pair[1];
+                b.addEventListener('click', function(){
+                    var chosen = state.lifestage===pair[0];
+                    Array.prototype.forEach.call(box.children, function(c){ c.setAttribute('aria-pressed','false'); });
+                    if(chosen){ state.lifestage=null; } else { b.setAttribute('aria-pressed','true'); state.lifestage=pair[0]; }
+                    renderRecap();
+                });
+                box.appendChild(b);
+            });
+            $('f_lifestage_own').addEventListener('input', function(){ state.lifestage_own=this.value; renderRecap(); });
+            $('f_prof').addEventListener('input', function(){ state.prof=this.value.trim(); renderRecap(); });
+        })();
+
+        function renderRecap(){
+            var p=$('portrait'); p.innerHTML='';
+            function line(k, vHtml, extraClass){
+                if(!vHtml) return;
+                var row=document.createElement('div'); row.className='pline';
+                row.innerHTML='<div class="pk">'+k+'</div><div class="pv'+(extraClass?' '+extraClass:'')+'">'+vHtml+'</div>';
+                p.appendChild(row);
+            }
+            line('You', esc(state.name)+(state.prof?' · '+esc(state.prof):'')+(state.region?' · '+esc(state.region):''), 'serif');
+            if(lifestageAnswer()) line('At the door', esc(lifestageAnswer()));
+            var crafts=state.discs.slice(); if(state.open) crafts.push(state.open);
+            if(crafts.length) line('The craft', crafts.map(function(c){ return '<span class="tag">'+esc(c)+'</span>'; }).join(''));
+            var sf=[];
+            ['depth','timing','length','reach'].forEach(function(g){ if(state[g]) sf.push(esc(labelOf(g, state[g]))); });
+            if(sf.length) line('Starting from', sf.join(' &nbsp;·&nbsp; '));
+            if(state.dream) line('Your letter', esc(state.dream), 'letterprev');
+        }
+
+        function showPanel(id){
+            $('done').classList.remove('show');
+            $('portraitstep').classList.remove('show');
+            $('sent').classList.remove('show');
+            $(id).classList.add('show');
+            $('card').scrollIntoView({behavior:'smooth', block:'start'});
+        }
+        $('continue-portrait').addEventListener('click', function(){
+            if(window.plausible) window.plausible('CirclePortraitContinue');
+            renderRecap();
+            showPanel('portraitstep');
+        });
+        $('portrait-back').addEventListener('click', function(){ showPanel('done'); });
+
+        // The two continuation answers must not live only in this browser's
+        // draft — the magic link often opens in a different one (in-app email
+        // webviews). A durable copy rides the waitlist: source
+        // 'portrait-continuation' (the notify/welcome triggers skip it, so
+        // no second sheet and no second welcome) and unsubscribed:true (a
+        // data carrier, never an audience row — the original signup row keeps
+        // sole control of the letters). /portrait claims it into the profile
+        // whenever they arrive signed in.
+        var extrasSavedKey = null;   // content-keyed: a retry after edits re-saves
+        async function saveExtrasRow(sb){
+            var la = lifestageAnswer();
+            if(!state.prof && !la) return;
+            var key = (state.prof||'')+'|'+(la||'');
+            if(extrasSavedKey === key) return;
+            var res = await sb.from('launch_waitlist').insert({
+                email: state.email,
+                interests: [{ kind:'portrait-extras', prof: state.prof||null, lifestage: la||null }],
+                source: 'portrait-continuation',
+                unsubscribed: true
+            });
+            if(res && res.error) throw res.error;
+            extrasSavedKey = key;
+        }
+        // Arm the draft for auto-seal ONLY once a link is truly on its way (or the
+        // seal is being consumed right now). Armed-but-unsent drafts must not exist:
+        // /portrait honors the stamp for 24h and would seal stale answers later.
+        function stampDraft(){
+            try{
+                var s=localStorage.getItem('et_portrait_draft_v1');
+                if(s){ var d=JSON.parse(s); d.sealOnReturn=true; d.sealArmedAt=Date.now();
+                       localStorage.setItem('et_portrait_draft_v1', JSON.stringify(d)); }
+            }catch(e){}
+        }
+
+        $('seal-btn').addEventListener('click', async function(){
+            var btn=this, err=$('err5'); err.style.display='none';
+            btn.disabled=true; btn.innerHTML='Sealing <span class="spin"></span>';
+            state.prof=$('f_prof').value.trim();
+            state.lifestage_own=$('f_lifestage_own').value.trim();
+            // Hand everything to /portrait in its own draft format (keys must
+            // match that page's state exactly). origin:'circle' = this draft was
+            // built BLIND to any existing profile, so /portrait unions crafts
+            // instead of replacing them. It is armed for auto-seal only below,
+            // once a link is actually on its way.
+            var draft = { name:state.name, email:state.email, prof:state.prof,
+                          lifestage:state.lifestage, lifestage_own:state.lifestage_own, region:state.region,
+                          world:state.world, discs:state.discs, open:state.open,
+                          depth:state.depth, depth_own:'', timing:state.timing, timing_own:'',
+                          length:state.length, length_own:'', reach:state.reach, reach_own:'',
+                          letter:state.dream, origin:'circle' };
+            var draftSaved=false;
+            try{ localStorage.setItem('et_portrait_draft_v1', JSON.stringify(draft)); draftSaved=true; }catch(e){}
+            try{
+                var sb=window.supabaseClient;
+                if(!sb) throw new Error('connection unavailable');
+                var s=null;
+                try{ var g=await sb.auth.getSession(); s=g&&g.data&&g.data.session?g.data.session:null; }catch(e){ s=null; }
+                if(s && s.user && s.user.email && s.user.email.toLowerCase()===state.email.toLowerCase()){
+                    // already signed in — /portrait restores the draft (or claims the
+                    // extras row) and seals on arrival. Save the durable copy BEFORE
+                    // navigating, or the request dies with the page; if NEITHER copy
+                    // exists, fail honestly instead of navigating into silence.
+                    try{ await saveExtrasRow(sb); }
+                    catch(e){ if(!draftSaved) throw e; }
+                    stampDraft();
+                    if(window.plausible) window.plausible('CirclePortraitDirectSeal');
+                    window.location.href='/portrait';
+                    return;
+                }
+                // Awaited: the durable copy must exist before we promise "it saves
+                // automatically". If the draft is also safe locally, a failure here
+                // is tolerable; if NEITHER copy exists, fail honestly instead.
+                try{ await saveExtrasRow(sb); }
+                catch(e){ if(!draftSaved) throw e; }
+                var res = await sb.auth.signInWithOtp({ email: state.email,
+                    options:{ emailRedirectTo: window.location.origin + '/portrait', shouldCreateUser: true } });
+                if(res && res.error) throw res.error;
+                stampDraft();   // the link is on its way — NOW the draft may auto-seal
+                if(window.plausible) window.plausible('CirclePortraitMagicLinkSent');
+                $('sent-email').textContent=state.email;
+                showPanel('sent');
+            }catch(e){
+                console.error('[Circle] portrait seal failed:', e);
+                btn.disabled=false; btn.innerHTML='Seal my portrait &rarr;';
+                err.innerHTML='Couldn’t send the link just now — try again in a minute, or write me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
+                err.style.display='block';
+            }
+        });
     })();
     </script>
 </body>

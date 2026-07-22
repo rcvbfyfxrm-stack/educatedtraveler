@@ -778,7 +778,15 @@
         }
 
         // ── draft persistence (survives the magic-link round-trip) ──
-        function saveDraft(){ try{ localStorage.setItem(DRAFT_KEY, JSON.stringify(state)); }catch(e){} }
+        // sighted: the draft was written while signed in on this prefilled page,
+        // so a craft absent from it was REMOVED on purpose. A blind draft
+        // (/circle, or signed-out here) never saw the profile — boot unions its
+        // crafts with the profile's instead of replacing them.
+        function saveDraft(){ try{ var d=JSON.parse(JSON.stringify(state)); d.origin='portrait'; d.sighted=!!(session&&userId); localStorage.setItem(DRAFT_KEY, JSON.stringify(d)); return true; }catch(e){ return false; } }
+        // Stamp the pending draft "seal me on return" — set ONLY when a magic
+        // link was actually sent by a seal click, and honored for 24h: an
+        // abandoned or ancient draft can never auto-seal (and notify) later.
+        function markDraftSealOnReturn(){ try{ var s=localStorage.getItem(DRAFT_KEY); if(s){ var d=JSON.parse(s); d.sealOnReturn=true; d.sealArmedAt=Date.now(); localStorage.setItem(DRAFT_KEY, JSON.stringify(d)); } }catch(e){} }
         function loadDraft(){ try{ var s=localStorage.getItem(DRAFT_KEY); if(s){ var d=JSON.parse(s); Object.keys(d).forEach(function(k){ if(k in state) state[k]=d[k]; }); return true; } }catch(e){} return false; }
         function clearDraft(){ try{ localStorage.removeItem(DRAFT_KEY); }catch(e){} }
 
@@ -804,7 +812,7 @@
             state.letter = state.letter || letterEl.value.trim();
             var btn=this, err=$('err5'); err.style.display='none';
             btn.disabled=true; btn.innerHTML='Sealing <span class="spin"></span>';
-            saveDraft();
+            var draftOk = saveDraft();
             try{
                 if(session && userId){
                     await saveProfile();
@@ -812,8 +820,14 @@
                     if(window.plausible) window.plausible('PortraitComplete', { props:{ crafts:craftList().length, letter:state.letter?1:0 } });
                     finish();
                 } else {
-                    // Not signed in → send the magic link; the draft is kept and auto-saves on return.
+                    // Not signed in → durable carrier first (the link often opens in a
+                    // different browser and the draft can't follow), then the magic
+                    // link; the draft is kept and auto-saves on return. If NEITHER
+                    // copy exists, fail honestly instead of promising "it saves".
+                    try{ await saveCarrierRow(); }
+                    catch(e){ if(!draftOk) throw e; }
                     await sendMagicLink(state.email);
+                    markDraftSealOnReturn();
                     if(window.plausible) window.plausible('PortraitMagicLinkSent');
                     $('sent-email').textContent = state.email;
                     showDone('sent');
@@ -825,6 +839,35 @@
                 err.style.display='block';
             }
         });
+
+        // A silent waitlist row carrying the whole portrait, so nothing typed here
+        // can be lost when the magic link opens elsewhere. source
+        // 'portrait-questionnaire' is skipped by the notify/welcome triggers (no
+        // unapproved email fires) and unsubscribed:true keeps it out of the
+        // letters audience — it is a data carrier the sign-in claims, not a lead
+        // row. Intent values go as their final answer() text; the claim stores
+        // unknown values verbatim, so own-words round-trip unchanged.
+        var carrierSavedKey = null;   // content-keyed: a retry only re-inserts if something changed
+        async function saveCarrierRow(){
+            var sb=window.supabaseClient;
+            if(!sb || !state.email) return;
+            var ints=[{ kind:'profile', name:state.name||null, region:state.region||null }];
+            state.discs.forEach(function(dd){ ints.push({ kind:'discipline', world:WORLD_OF[dd]||null, discipline:dd }); });
+            if(state.open) ints.push({ kind:'discipline', world:state.world||null, discipline:null, open:state.open });
+            var it={ kind:'intent', timing:answer('timing'), length:answer('length'), depth:answer('depth'), reach:answer('reach') };
+            if(it.timing||it.length||it.depth||it.reach) ints.push(it);
+            if(state.letter) ints.push({ kind:'dream', text:state.letter });
+            var la=answer('lifestage');
+            if(state.prof || la) ints.push({ kind:'portrait-extras', prof:state.prof||null, lifestage:la||null });
+            var key = JSON.stringify([state.email, ints]);
+            if(carrierSavedKey === key) return;
+            var res = await sb.from('launch_waitlist').insert({
+                email: state.email, interests: ints,
+                source: 'portrait-questionnaire', unsubscribed: true
+            });
+            if(res && res.error) throw res.error;
+            carrierSavedKey = key;
+        }
 
         async function sendMagicLink(email){
             var sb=window.supabaseClient;
@@ -873,20 +916,81 @@
                 // hide the email field — we already know it
                 var ef=$('emailField'); if(ef) ef.style.display='none';
                 markWho('Signed in as '+state.email);
-                // Pull any existing profile to prefill name.
+                // Claim any waitlist answers (the /circle questionnaire, the
+                // continuation's extras row) into this profile server-side —
+                // fill-gaps only, self-claiming only. This is what makes "it
+                // saves automatically" true even when the magic link opened in
+                // a different browser, and it works for accounts that existed
+                // long before the Circle did.
+                try{ await sb.rpc('claim_waitlist_answers'); }catch(e){}
+                // Pull the existing profile and open the portrait already filled —
+                // a member (or a Circle joiner whose answers were carried over)
+                // must never be asked the same question twice. A draft loaded
+                // below still wins over all of this: it is the newer intent.
+                var portraitComplete = false;
                 try{
-                    var pr = await sb.from('profiles').select('first_name,profession,location,interests').eq('id', userId).single();
+                    var pr = await sb.from('profiles').select('first_name,profession,location,interests,status,previous_experience,availability,preferred_duration,reach,dream_letter,portrait_complete').eq('id', userId).single();
                     if(pr && pr.data){
-                        if(pr.data.first_name && !$('f_name').value) $('f_name').value=pr.data.first_name;
-                        if(pr.data.profession) $('f_prof').value=pr.data.profession;
-                        if(pr.data.location) $('f_region').value=pr.data.location;
-                        existingInterests = pr.data.interests || null;
+                        var d = pr.data;
+                        portraitComplete = !!d.portrait_complete;
+                        if(d.first_name) state.name = d.first_name;
+                        if(d.profession) state.prof = d.profession;
+                        if(d.location) state.region = d.location;
+                        if(d.dream_letter) state.letter = d.dream_letter;
+                        prefillChoice('lifestage', d.status);
+                        prefillChoice('depth', d.previous_experience);
+                        prefillChoice('timing', d.availability);
+                        prefillChoice('length', d.preferred_duration);
+                        prefillChoice('reach', d.reach);
+                        if(d.interests && typeof d.interests==='object'){
+                            // Known Atlas crafts become live chips (catOf re-categorizes
+                            // them at seal, so a craft can never sit under two
+                            // categories); anything else keeps its stored category.
+                            // A legacy ARRAY of names is normalized the same way, so
+                            // re-sealing can never silently drop it.
+                            var keepInts={};
+                            var srcInts = Array.isArray(d.interests) ? { creative:d.interests } : d.interests;
+                            Object.keys(srcInts).forEach(function(k){
+                                var arr=Array.isArray(srcInts[k])?srcInts[k]:[], keep=[];
+                                arr.forEach(function(c){
+                                    if(typeof c!=='string' || !c) return;
+                                    if(WORLD_OF[c]){ if(state.discs.indexOf(c)<0) state.discs.push(c); }
+                                    else keep.push(c);
+                                });
+                                if(keep.length) keepInts[k]=keep;
+                            });
+                            existingInterests = Object.keys(keepInts).length ? keepInts : null;
+                        } else {
+                            existingInterests = d.interests || null;
+                        }
                     }
                 }catch(e){}
-                // If they came back from a magic link with a saved draft → restore + auto-seal.
-                hadDraft = loadDraft();
-                if(hadDraft && (state.name || state.letter || craftList().length || state.lifestage)){
-                    // restore inputs so the portrait renders, then auto-save
+                var rawDraft=null; try{ rawDraft=JSON.parse(localStorage.getItem(DRAFT_KEY)||'null'); }catch(e){}
+                // A draft written for a DIFFERENT email must never seal onto this
+                // account (shared computer: person A's circle draft, person B signs
+                // in). Their answers are safe server-side — discard the stray draft.
+                if(rawDraft && rawDraft.email && session.user.email
+                   && String(rawDraft.email).toLowerCase() !== session.user.email.toLowerCase()){
+                    clearDraft(); rawDraft=null;
+                }
+                // The profile's crafts, as prefilled above. A BLIND draft (built on
+                // /circle or signed-out — it never saw the profile) unions with
+                // them; only a sighted draft may drop one (a deliberate removal).
+                var prefillDiscs = state.discs.slice();
+                function unionPrefillCrafts(){
+                    if(rawDraft && rawDraft.sighted) return;
+                    prefillDiscs.forEach(function(c){ if(state.discs.indexOf(c)<0) state.discs.push(c); });
+                }
+                var draftHasContent = rawDraft && (rawDraft.name || rawDraft.letter || (rawDraft.discs&&rawDraft.discs.length) || rawDraft.open || rawDraft.lifestage);
+                // the stamp is honored for 24h only — an ancient armed draft must
+                // never overwrite what the member wrote since
+                var stampFresh = rawDraft && rawDraft.sealOnReturn && rawDraft.sealArmedAt
+                                 && (Date.now() - rawDraft.sealArmedAt) < 24*60*60*1000;
+                if(draftHasContent && stampFresh){
+                    // Back from a magic link that a seal click requested — the click
+                    // WAS the consent. Restore, render, save.
+                    hadDraft = loadDraft();
+                    unionPrefillCrafts();
                     restoreInputs();
                     state.name = state.name || $('f_name').value.trim();
                     try{
@@ -894,6 +998,20 @@
                         if(window.plausible) window.plausible('PortraitCompleteAfterLink');
                         finish(); return;
                     }catch(e){ /* fall through to let them press seal */ show(5); return; }
+                } else if(draftHasContent){
+                    // a mid-edit (or expired) draft: restore it — it wins over the
+                    // profile on screen — but never auto-seal; no one asked for that.
+                    hadDraft = loadDraft();
+                    unionPrefillCrafts();
+                } else if(rawDraft){ clearDraft(); }
+                if(!hadDraft && !portraitComplete
+                   && (craftList().length || state.letter || state.prof || state.region
+                       || answer('lifestage') || answer('depth') || answer('timing') || answer('length') || answer('reach'))){
+                    // Signed in, the profile carries answers, no local draft — the
+                    // magic-link-opened-elsewhere case. Everything is already here;
+                    // go straight to the recap, sealing is one click.
+                    restoreInputs();
+                    show(5); return;
                 }
             } else {
                 markWho('Not signed in — one click from my email fixes that');
@@ -902,6 +1020,15 @@
             syncSignature();
             // restore text fields if any draft
             restoreInputs();
+        }
+        // A stored profile value back into the questionnaire: press the chip
+        // whose label matches; anything else (their own words) goes to the
+        // "…or in your own words" line — answer() round-trips it unchanged.
+        function prefillChoice(group, stored){
+            if(!stored || state[group] || state[group+'_own']) return;
+            var src = group==='lifestage'?LIFESTAGE:GRADIENTS[group];
+            for(var i=0;i<src.length;i++){ if(src[i][1]===stored){ state[group]=src[i][0]; return; } }
+            state[group+'_own']=stored;
         }
         function markWho(txt){
             var beat0=$('beat0');
