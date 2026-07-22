@@ -22,7 +22,7 @@ window.ET_POSTS = [
     imageNote: "1080×1350 branded card (the Vakuum lab through the glass). Invite Martin as collaborator — he only taps accept; the post lives on both profiles.",
     slides: [],
     caption:
-"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: textures, spherification, liquid nitrogen, foams and siphons, sous-vide done properly. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nAnd you leave with more than the techniques: a certificate in English signed by Martin — on paper and as a PDF — a portfolio of your own work shot in the lab by his team, his complete recipe and theory dossiers, and a bench of working cooks who do what you do. The things a career is actually built from.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't. This door is open.\n\nIt confirms the moment ten chefs are in, capped at fifteen. If we're not there by 15 September, every euro goes back — the day-by-day, the honest terms and the live count are on the page.\n\nTake a seat: educatedtraveler.app/barcelona",
+"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: textures, spherification, liquid nitrogen, foams and siphons, sous-vide done properly. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nAnd you leave with more than the techniques: a certificate in English signed by Martin — on paper and as a PDF — a portfolio of your own work shot in the lab by his team, his complete recipe and theory dossiers, and a bench of working cooks who do what you do. The things a career is actually built from.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't. This door is open.\n\nA place, a person, your people — this is what that looks like.\n\nIt confirms the moment ten chefs are in, capped at fifteen. If we're not there by 15 September, every euro goes back — the day-by-day, the honest terms and the live count are on the page.\n\nTake a seat: educatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-roi", format: "POST 3 · Carousel · the career-assets post", core: "",
@@ -70,7 +70,7 @@ window.ET_POSTS = [
     imageNote: "Swap in a founder photo or a licensed lab shot once the shoot happens; the announce card works as fallback.",
     slides: [],
     caption:
-"Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in yard period — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nI'm not selling a dream week. It confirms at ten paid or everyone gets refunded, the terms are public, and you can check every claim — his lab, his sessions, his prices — on his own site.\n\nThe page has all of it: educatedtraveler.app/barcelona",
+"Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in yard period — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nA place, a person, your people — this is what that looks like.\n\nI'm not selling a dream week. It confirms at ten paid or everyone gets refunded, the terms are public, and you can check every claim — his lab, his sessions, his prices — on his own site.\n\nThe page has all of it: educatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-calendar", format: "POST 6 · Feed · SHIP once the week is live on martinlippo.com (his web developer is on it — will take time)", core: "",
@@ -252,7 +252,7 @@ window.ET_POSTS = [
     images: ["/images/posts/letter/cover.png"],
     imageNote: "Branded quote card (1080×1350) — feed post or story background.",
     caption:
-"Every couple of weeks I write one letter: a single place where a craft is genuinely alive, the people who keep it, and how to go.\n\nNo selling. Just a door, and an introduction.\n\nGet the letter: https://educatedtraveler.app/#circle",
+"Now and then I write one letter: a single place where a craft is genuinely alive, the people who keep it, and how to go.\n\nNot a list. A door, and an introduction.\n\nGet the letter: https://educatedtraveler.app/#circle",
     hashtags: "#educatedtraveler #newsletter #learnatthesource #craft #yourpeople",
   },
   {
@@ -262,7 +262,7 @@ window.ET_POSTS = [
     images: ["/images/posts/freediving/cover.png"],
     imageNote: "Branded reel cover (1080×1920) — pair with your own dive footage.",
     caption:
-"The strongest freediving community on earth gathers around Dahab's Blue Hole.\n\nFlat, deep and warm all year — it's where the world's freedivers go to find depth, and find their cohort.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/freediving--dahab-red-sea",
+"One of the strongest freediving communities on earth gathers around Dahab's Blue Hole.\n\nFlat, deep and warm all year — it's where the world's freedivers go to find depth, and find their cohort.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/freediving--dahab-red-sea",
     hashtags: "#freediving #dahab #bluehole #learnbydoing #atthesource",
   },
   {
