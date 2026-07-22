@@ -320,15 +320,19 @@ export const ISSUES: Record<string, {
   "issue-03": { subject: "The Circle, Letter Nº 3 — the rarest thing in a kitchen isn't talent", html: issue03Html },
 };
 
-// 1:1 personal send — no List-Unsubscribe (not a bulk mailing).
+// 1:1 personal send — no List-Unsubscribe (not a bulk mailing). Those headers
+// are Gmail's loudest Promotions-tab signal, so the per-signup welcome letter
+// must go through here, not sendCircleEmail; its in-body "Leave the Circle"
+// link keeps the exit honest. A text part (when given) completes the
+// personal-letter shape: multipart/alternative, not marketing HTML.
 export async function sendPersonalEmail(
-  to: string, subject: string, html: string,
+  to: string, subject: string, html: string, text?: string,
 ): Promise<{ ok: boolean; id?: string; error?: unknown }> {
   if (!RESEND_API_KEY) return { ok: false, error: "RESEND_API_KEY not set" };
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
-    body: JSON.stringify({ from: FROM, to: [to], reply_to: REPLY_TO, subject, html }),
+    body: JSON.stringify({ from: FROM, to: [to], reply_to: REPLY_TO, subject, html, ...(text ? { text } : {}) }),
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok) return { ok: false, error: data };

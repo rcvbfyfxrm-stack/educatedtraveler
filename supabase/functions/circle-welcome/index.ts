@@ -4,7 +4,7 @@
 // Deploy with --no-verify-jwt (called by the DB webhook).
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-import { ISSUES, sendCircleEmail } from "../_shared/circle-emails.ts";
+import { ISSUES, sendPersonalEmail } from "../_shared/circle-emails.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -30,7 +30,7 @@ serve(async (req) => {
       const TEST_TO = Deno.env.get("LEAD_NOTIFY_TO") ?? "arnaudcallier@pm.me";
       const unsub = "https://educatedtraveler.app/unsub-preview";
       const { subject, html, text } = ISSUES["welcome"];
-      const r = await sendCircleEmail(TEST_TO, "[TEST] " + subject, html(unsub), unsub, text?.(unsub));
+      const r = await sendPersonalEmail(TEST_TO, "[TEST] " + subject, html(unsub), text?.(unsub));
       return json(r.ok ? { ok: true, test: true, id: r.id, to: TEST_TO } : { error: r.error }, r.ok ? 200 : 500);
     }
 
@@ -48,7 +48,7 @@ serve(async (req) => {
 
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
     const { subject, html, text } = ISSUES["welcome"];
-    const r = await sendCircleEmail(row.email, subject, html(unsub), unsub, text?.(unsub));
+    const r = await sendPersonalEmail(row.email, subject, html(unsub), text?.(unsub));
     if (!r.ok) {
       console.error("welcome send failed:", r.error);
       return json({ error: r.error }, 500);
