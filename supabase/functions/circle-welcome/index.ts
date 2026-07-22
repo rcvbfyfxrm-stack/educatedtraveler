@@ -31,7 +31,7 @@ serve(async (req) => {
       const unsub = "https://educatedtraveler.app/unsub-preview";
       const { subject, html, text } = ISSUES["welcome"];
       const r = await sendPersonalEmail(TEST_TO, "[TEST] " + subject, html(unsub), text?.(unsub));
-      return json(r.ok ? { ok: true, test: true, id: r.id, to: TEST_TO } : { error: r.error }, r.ok ? 200 : 500);
+      return json(r.ok ? { ok: true, test: true, id: r.id, to: TEST_TO, textChars: text ? text(unsub).length : 0 } : { error: r.error }, r.ok ? 200 : 500);
     }
 
     const rec = body?.record;
