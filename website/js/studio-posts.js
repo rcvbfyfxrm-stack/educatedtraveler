@@ -183,7 +183,7 @@ window.ET_POSTS = [
   {
     id: "circle", format: "Carousel", core: "",
     title: "What the Circle is — the letter",
-    link: "https://educatedtraveler.app/portrait", linkLabel: "Take your place",
+    link: "https://educatedtraveler.app/circle", linkLabel: "Take your place",
     images: [
       "/images/posts/circle/slide-01.png", "/images/posts/circle/slide-02.png",
       "/images/posts/circle/slide-03.png", "/images/posts/circle/slide-04.png",
@@ -198,10 +198,10 @@ window.ET_POSTS = [
       "Tell us what pulls you.",
     ],
     caption:
-"The Circle isn't a newsletter you sign up for. It's a letter you write me.\n\nYou tell me — in your own words — the one craft you'd give a week of your life to learn, and why it pulls at you. I read every letter myself. Then I go find the real thing: the master still teaching by hand, the place where the craft is genuinely alive, and the handful of others chasing the same fire. When it's real, I write you back and open the door.\n\nA place, a person, your people.\n\nTake your place: https://educatedtraveler.app/portrait",
+"The Circle isn't a newsletter you sign up for. It's a letter you write me.\n\nYou tell me — in your own words — the one craft you'd give a week of your life to learn, and why it pulls at you. I read every letter myself. Then I go find the real thing: the master still teaching by hand, the place where the craft is genuinely alive, and the handful of others chasing the same fire. When it's real, I write you back and open the door.\n\nA place, a person, your people.\n\nTake your place: https://educatedtraveler.app/circle",
     hashtags: "#educatedtraveler #thecircle #learnatthesource #craft #yourpeople",
     strategy:
-"PURPOSE — explain the ONE thing that makes ET different now: the Circle is a letter, not a list. It surfaces warm leads who name their own craft. WHEN — run monthly, and any time after the founder story lands. SHAPE — 5-slide carousel; slide 4 (the letter) is the heart — linger there. Reply to every comment; carousels get re-served for days. LINK — /portrait (the letter; one-tap magic-link, no password). If you'd rather point cold IG traffic somewhere with no login, use /circle (the quick no-account version) instead. WATCH — /portrait visits, portraits sealed, replies. SAFE — signature-safe: names no master, place, or date.",
+"PURPOSE — explain the ONE thing that makes ET different now: the Circle is a letter, not a list. It surfaces warm leads who name their own craft. WHEN — run monthly, and any time after the founder story lands. SHAPE — 5-slide carousel; slide 4 (the letter) is the heart — linger there. Reply to every comment; carousels get re-served for days. LINK — /circle (the one link: the questionnaire, the letter, and one-tap magic-link signup all live there; /portrait is only where you land after signing up to access your portrait). WATCH — /circle visits, portraits sealed, replies. SAFE — signature-safe: names no master, place, or date.",
   },
   {
     id: "source-sim", format: "Carousel", core: "",

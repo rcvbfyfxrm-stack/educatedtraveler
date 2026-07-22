@@ -169,21 +169,21 @@ function foundingHtml(unsub: string): string {
 
 // Portrait invite — sent once to the people who subscribed before /portrait
 // existed. Asks them to take their place: tell Arnaud, in their own words, the
-// craft they'd give a week to, and write him the letter. CTA -> /portrait
+// craft they'd give a week to, and write him the letter. CTA -> /circle
 // (the page handles sign-in itself via magic link, so no per-recipient token).
 function portraitInviteHtml(unsub: string): string {
   const body = `
       <p style="${P}margin:0 0 18px 0;">You joined the Circle a while ago &mdash; and I haven't forgotten it. I've been building quietly since, and there's now something I made for the people who were here first. You're one of them.</p>
       <p style="${P}margin:0 0 18px 0;">It's a single page. On it, you tell me &mdash; in your own words &mdash; the one craft you'd give a real week of your life to learn. And if you want, you write me a letter. Not a form with a letter-shaped box: a real letter. It opens <em style="color:rgba(243,237,226,0.85);">&ldquo;Arnaud,&rdquo;</em> and mine is the only pair of eyes that will ever read it.</p>
       <p style="${P}margin:0 0 18px 0;">Here's why it matters. I don't sell you a week. I take what you tell me and go find the real thing &mdash; the master still teaching by hand, the place where the craft is genuinely alive, the handful of people you'd want beside you. Then I open the door. The clearer you are with me, the better I aim. The first one is already taking shape around a modernist kitchen in Barcelona, this autumn.</p>
-      <div style="text-align:center;margin:30px 0;"><a href="https://educatedtraveler.app/portrait" style="${BTN}">Take your place &rarr;</a></div>
+      <div style="text-align:center;margin:30px 0;"><a href="https://educatedtraveler.app/circle" style="${BTN}">Take your place &rarr;</a></div>
       <p style="${P}margin:22px 0 0 0;">Five minutes, if you're quick. Twenty, if the letter gets away from you. Both are exactly right.</p>`;
   return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; a door with your name on it", heading: "Now tell me what you'd give a week of your life to learn.", body, unsub });
 }
 
 // Chef invite — a 1:1 personal note to chefs Arnaud has spoken with about the
 // modernist week. Name-aware, no bulk unsubscribe footer (this is a personal
-// email, not a broadcast). CTA -> /portrait to join the Circle for the details.
+// email, not a broadcast). CTA -> /circle to join the Circle for the details.
 function chefInviteHtml(_unsub: string, name?: string): string {
   const hi = name && name.trim() ? esc(name.trim()) : "chef";
   return `<!DOCTYPE html>
@@ -198,7 +198,7 @@ function chefInviteHtml(_unsub: string, name?: string): string {
       <p style="${P}margin:0 0 18px 0;">Good to talk shop with you about the modernist week. It's moving from an idea toward the real thing now &mdash; a week in Barcelona, this autumn, built around modernist and low-temperature technique at the source: a proper master, a small room, and the kind of hands-on days we don't get once we're cooking for a living.</p>
       <p style="${P}margin:0 0 18px 0;">I'm keeping the details close while the dates and the master's side lock in &mdash; but I want you near it as it firms up, ahead of anyone else.</p>
       <p style="${P}margin:0 0 22px 0;">Simplest way to do that: I built a page where you tell me, in your own words, what you'd want out of a week like this &mdash; the technique, the people, the reason it pulls at you. Do that and you're in the Circle, which just means I write you first when the week is real, with everything you'd need to decide.</p>
-      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/portrait" style="${BTN}">Tell me what you'd want &rarr;</a></div>
+      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/circle" style="${BTN}">Tell me what you'd want &rarr;</a></div>
       <p style="${P}margin:20px 0 0 0;">Five minutes, tops. And either way &mdash; let's keep talking. You know where I am.</p>
     </div>
     <div style="margin-top:30px;padding:0 4px;">
@@ -214,7 +214,7 @@ function chefInviteHtml(_unsub: string, name?: string): string {
 }
 
 // Friend invite — a 1:1 personal note to a friend who's been on the list since
-// the start (no modernist-week claim, no bulk footer). Name-aware, CTA -> /portrait.
+// the start (no modernist-week claim, no bulk footer). Name-aware, CTA -> /circle.
 function friendInviteHtml(_unsub: string, name?: string): string {
   const hi = name && name.trim() ? esc(name.trim()) : "you";
   return `<!DOCTYPE html>
@@ -229,7 +229,7 @@ function friendInviteHtml(_unsub: string, name?: string): string {
       <p style="${P}margin:0 0 18px 0;">It's Arnaud. You were one of the first people I told about EducatedTraveler &mdash; you've been on the list since the very start &mdash; and I've quietly been building the thing I kept going on about.</p>
       <p style="${P}margin:0 0 18px 0;">It's finally real enough to show you properly. I made a page where you tell me, in your own words, the one craft you'd give a week of your life to learn &mdash; and, if you feel like it, write me a letter. It opens <em style="color:rgba(243,237,226,0.85);">&ldquo;Arnaud,&rdquo;</em> and I read every one myself.</p>
       <p style="${P}margin:0 0 22px 0;">I don't sell you a week. I take what you tell me and go find the real thing &mdash; the master still teaching by hand, the place where the craft is alive, and your people &mdash; then I open the door.</p>
-      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/portrait" style="${BTN}">Take your place &rarr;</a></div>
+      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/circle" style="${BTN}">Take your place &rarr;</a></div>
       <p style="${P}margin:20px 0 0 0;">Would mean a lot to have you properly in. And either way &mdash; good to have you here from the start. Let's catch up soon.</p>
     </div>
     <div style="margin-top:30px;padding:0 4px;">
