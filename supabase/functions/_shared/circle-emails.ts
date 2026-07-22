@@ -58,7 +58,7 @@ function welcomeHtml(unsub: string): string {
       <p style="${P}margin:0 0 16px 0;">That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.</p>
       <p style="${P}margin:0 0 16px 0;">I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.</p>
       <p style="${P}margin:0 0 28px 0;">How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.</p>
-      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/repertoire" style="${BTN}">Open the Atlas</a></div>
+      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/browse" style="${BTN}">Open the Atlas</a></div>
       <p style="${P}margin:24px 0 0 0;">And one thing I'd genuinely like to know — just hit reply:</p>
       <p style="${QSER}">What is the one skill you'd give a real week of your life to learn at the source?</p>
       <p style="color:rgba(243,237,226,0.5);font-size:14px;line-height:1.7;margin:14px 0 0 0;">I read every reply.</p>`;
@@ -268,7 +268,7 @@ function welcomePlainHtml(unsub: string): string {
     <p ${LP}>That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.</p>
     <p ${LP}>I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.</p>
     <p ${LP}>How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.</p>
-    <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/repertoire" style="color:#5f8582;">educatedtraveler.app/repertoire</a></p>
+    <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/browse" style="color:#5f8582;">educatedtraveler.app/browse</a></p>
     <p ${LP}>And one thing I'd genuinely like to know — just hit reply:</p>
     <p style="margin:0 0 18px 0;"><strong>What is the one skill you'd give a real week of your life to learn at the source?</strong></p>
     <p ${LP}>I read every reply.</p>
@@ -289,7 +289,7 @@ I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — s
 
 How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.
 
-The Atlas is here: https://educatedtraveler.app/repertoire
+The Atlas is here: https://educatedtraveler.app/browse
 
 And one thing I'd genuinely like to know — just hit reply:
 
