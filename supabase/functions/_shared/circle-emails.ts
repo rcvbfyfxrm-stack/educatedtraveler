@@ -5,7 +5,10 @@
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const FROM = "Arnaud · EducatedTraveler <founder@educatedtraveler.app>";
-const REPLY_TO = "founder@educatedtraveler.app";
+// Replies go straight to Arnaud's Proton inbox (his order, 2026-07-22).
+// FROM stays on the domain — that's what DKIM/DMARC align on; Reply-To
+// doesn't affect authentication.
+const REPLY_TO = "arnaudcallier@pm.me";
 
 function esc(s: unknown) {
   return String(s ?? "")
