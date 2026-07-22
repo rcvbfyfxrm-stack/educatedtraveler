@@ -1,265 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EducatedTraveler — Learn a real craft, at the source</title>
-<meta name="description" content="EducatedTraveler is how you learn a real craft — at the source, from a master, beside the people chasing the same fire. This October the first door opens: thirty-five hours of modernist technique in Martin Lippo's Barcelona laboratory, in English, built for working chefs, and especially for yacht chefs.">
-<link rel="canonical" href="https://educatedtraveler.app/">
-<meta property="og:title" content="EducatedTraveler — Learn a real craft, at the source">
-<meta property="og:description" content="At the source, from a master, beside the people chasing the same fire. This October the first door opens: thirty-five hours of modernist technique in Martin Lippo's Barcelona laboratory, in English.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Circle — EducatedTraveler</title>
+<meta name="description" content="Tell me the craft you'd give a week of your life to learn. I find the master, the place, and your people — then I open the door. Join the Circle.">
+<link rel="canonical" href="https://educatedtraveler.app/circle">
+<meta property="og:title" content="Join the Circle — EducatedTraveler">
+<meta property="og:description" content="Tell me the craft you'd give a week of your life to learn. Then I go build it for you.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://educatedtraveler.app/">
+<meta property="og:url" content="https://educatedtraveler.app/circle">
 <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="EducatedTraveler">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="EducatedTraveler — Learn a real craft, at the source">
-<meta name="twitter:description" content="At the source, from a master, beside the people chasing the same fire. The first door opens this October, in Martin Lippo's Barcelona laboratory.">
-<meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="/images/labweek/hero.jpg" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<!-- The landing page has one purpose: joining the Circle (which is your portrait).
+     The root goes straight to the questionnaire; nothing else stands in the way.
+     The Atlas and the Story are discreet links at the foot of that page. -->
+<meta http-equiv="refresh" content="0; url=/circle">
+<script>location.replace('/circle' + (location.search || '') + (location.hash || ''));</script>
+<style>
+  html,body{margin:0;height:100%;background:#0d0b09;color:#f3ede2;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
+  .c{display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px;}
+  .brand{font-family:Georgia,serif;letter-spacing:.18em;font-size:15px;}
+  .brand b{color:#7fa8a5;font-weight:400;}
+  p{color:rgba(243,237,226,.6);font-size:14px;margin-top:14px;}
+  a{color:#7fa8a5;text-decoration:none;}
+</style>
 </head>
 <body>
-<style>
-
-:root{
-  --ink:#0d0b09; --ink-2:#14110d;
-  --paper:#f3ede2; --muted:rgba(243,237,226,.62);
-  --sea:#7fa8a5; --ember:#d28a52; --ember-soft:#e0a877;
-  --line:rgba(243,237,226,.09); --line-2:rgba(243,237,226,.15);
-  --f-display:'Fraunces',Georgia,'Times New Roman',serif;
-  --f-body:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
-  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
-  --maxw:1080px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--f-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow:hidden}
-::selection{background:rgba(210,138,82,.30)}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-h1{font-family:var(--f-display);font-weight:300;letter-spacing:-.018em;margin:0}
-p{margin:0}
-.eyebrow{font-family:var(--f-mono);font-size:clamp(9.5px,1.1vw,11px);letter-spacing:.3em;text-transform:uppercase;color:var(--sea)}
-.serif{font-family:var(--f-display)}
-:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
-
-/* one button system — ink on paper, printed, not a pill */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;min-height:52px;padding:14px 38px;border-radius:2px;font-size:clamp(15px,1.5vw,16px);cursor:pointer;border:1px solid transparent;font-family:inherit;transition:background .3s,color .3s,transform .3s,box-shadow .3s;white-space:nowrap}
-.btn-primary{background:var(--paper);color:var(--ink);font-weight:500;box-shadow:0 18px 50px -24px rgba(0,0,0,.9)}
-.btn-primary:hover{background:var(--ember-soft);transform:translateY(-1px)}
-.btn-ghost{background:none;border-color:var(--line-2);color:var(--paper)}
-.btn-ghost:hover{background:rgba(243,237,226,.05);border-color:rgba(243,237,226,.32)}
-.btn svg{width:16px;height:16px}
-.link-quiet{color:var(--muted);transition:color .25s;background:none;border:0;font-family:inherit;font-size:inherit;cursor:pointer;padding:0}
-.link-quiet:hover{color:var(--sea)}
-
-/* NAV — the wordmark and the one door */
-nav{position:fixed;top:0;left:0;right:0;z-index:60}
-.nav-in{max-width:var(--maxw);margin:0 auto;padding:clamp(14px,2.4vh,20px) clamp(18px,4vw,26px);display:flex;align-items:center;justify-content:space-between;gap:16px}
-.wordmark{font-family:var(--f-display);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em}.wordmark b{font-weight:300;color:var(--sea)}
-.nav-cta{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border:1px solid rgba(243,237,226,.28);border-radius:2px;font-size:13px;color:var(--paper);background:rgba(13,11,9,.25);backdrop-filter:blur(6px);font-family:inherit;cursor:pointer;transition:background .3s,border-color .3s;white-space:nowrap}
-.nav-cta:hover{background:rgba(243,237,226,.08);border-color:rgba(243,237,226,.45)}
-
-/* ============ THE STAGE — one screen, the fire, the manifesto ============ */
-.stage{position:relative;height:100svh;display:flex;flex-direction:column;overflow:hidden}
-.stage-bg{position:absolute;inset:0;z-index:0}
-.stage-bg img{width:100%;height:100%;object-fit:cover;object-position:center 46%;animation:kb 34s ease-in-out infinite alternate;transform-origin:58% 44%}
-@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.11)}}
-.stage-bg::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(13,11,9,.74) 0%,rgba(13,11,9,.5) 34%,rgba(13,11,9,.58) 68%,rgba(13,11,9,.92) 100%),
-  radial-gradient(115% 82% at 50% 47%,rgba(13,11,9,.5),transparent 66%)}
-
-/* the centre — everything lives here, dead-centred */
-.center{position:relative;z-index:2;flex:1 1 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-  padding:clamp(74px,10vh,104px) clamp(20px,5vw,40px) 8px}
-.eyebrow.top{margin-bottom:clamp(16px,2.6vh,26px)}
-.lead{font-size:clamp(1.7rem,4.6vw,3.5rem);line-height:1.09;letter-spacing:-.02em;max-width:19ch;text-wrap:balance;overflow-wrap:break-word}
-.lead em{font-style:italic;color:var(--ember-soft)}
-.standfirst{font-family:var(--f-display);font-weight:300;font-size:clamp(1rem,1.55vw,1.32rem);line-height:1.5;
-  color:rgba(243,237,226,.9);margin-top:clamp(16px,2.6vh,26px);max-width:52ch;text-wrap:pretty}
-.door{margin-top:clamp(22px,3.4vh,38px);display:flex;flex-direction:column;align-items:center;gap:12px}
-.kicker{font-family:var(--f-mono);font-size:clamp(9.5px,1.05vw,11px);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.kicker b{color:rgba(243,237,226,.9);font-weight:500}
-
-/* the base — quiet, under the door; the Circle stays the focus */
-.base{position:relative;z-index:2;flex:0 0 auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 26px;
-  padding:0 clamp(20px,5vw,40px) clamp(22px,4vh,38px)}
-.base .q{position:relative;font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
-  background:none;border:0;padding:8px 2px;cursor:pointer;transition:color .25s;font-weight:400}
-.base .q:hover{color:var(--sea)}
-.base .sep{width:4px;height:4px;border-radius:50%;background:var(--line-2);flex:0 0 auto}
-.base .q.wk:hover{color:var(--ember-soft)}
-
-/* MODAL (founder / story — pop-up) */
-.ov{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
-.ov.show{display:flex}
-.ov-bg{position:absolute;inset:0;background:rgba(6,5,4,.82);backdrop-filter:blur(8px)}
-.modal{position:relative;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;background:#100d0a;border:1px solid var(--line-2);border-radius:20px;padding:32px;text-align:left}
-.modal .close{position:absolute;top:15px;right:15px;background:rgba(13,11,9,.5);border:1px solid var(--line-2);color:var(--paper);cursor:pointer;font-size:16px;line-height:1;width:36px;height:36px;border-radius:999px}
-.modal .close:hover{background:rgba(13,11,9,.85)}
-.mhead{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.ava{width:60px;height:60px;border-radius:50%;flex:0 0 auto;background:linear-gradient(135deg,var(--sea),var(--ember));display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:24px;color:#14110d}
-.mhead h3{font-family:var(--f-display);font-weight:300;font-size:1.5rem;margin:0}.mhead .r{font-family:var(--f-mono);color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
-/* modal diaporama */
-.film{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid var(--line);margin:16px 0;background:#0d0b09}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity .5s;pointer-events:none}
-.slide.on{opacity:1;pointer-events:auto}
-.slide img{width:100%;height:100%;object-fit:cover}
-.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,9,.08),rgba(13,11,9,.34) 44%,rgba(13,11,9,.95))}
-.cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px 20px}
-.cap .ch{font-family:var(--f-mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--sea);margin-bottom:7px}
-.cap h4{font-family:var(--f-display);font-weight:300;font-size:1.2rem;margin:0 0 6px;color:var(--paper)}
-.cap p{color:rgba(243,237,226,.82);font-size:13px;line-height:1.5}
-.fnav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(13,11,9,.5);border:1px solid var(--line-2);color:var(--paper);cursor:pointer;font-size:20px;padding:0}
-.fnav:hover{background:rgba(13,11,9,.85)}.fnav.p{left:12px}.fnav.n{right:12px}
-.fcount{position:absolute;top:14px;left:14px;z-index:4;font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;color:var(--paper);background:rgba(13,11,9,.5);border:1px solid var(--line-2);padding:4px 10px;border-radius:999px}
-.fdots{display:flex;justify-content:center;gap:8px;margin:2px 0 18px}
-.fdot{position:relative;width:8px;height:8px;padding:0;border:0;border-radius:999px;background:rgba(243,237,226,.34);cursor:pointer;transition:width .3s,background .3s}
-.fdot::before{content:"";position:absolute;inset:-12px}.fdot.on{width:22px;background:var(--sea)}
-.mbody p{color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:14px}
-.mbody p b{color:var(--paper);font-weight:400}
-.mcta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
-
-@media (max-width:820px){
-  .lead{font-size:clamp(1.6rem,7.6vw,2.5rem);max-width:15ch}
-  .standfirst{font-size:1.02rem;max-width:34ch}
-  .door .btn{width:min(100%,340px)}
-  .base{gap:6px 16px}
-  .base .q{font-size:10px}
-}
-@media (max-height:640px){
-  .lead{font-size:clamp(1.4rem,4vw,2.2rem)}
-  .standfirst{margin-top:12px}
-  .door{margin-top:16px}
-}
-/* very short / landscape phones: never clip — let it scroll instead */
-@media (max-height:560px){
-  body{overflow:auto}
-  .stage{height:auto;min-height:100svh}
-}
-@media (prefers-reduced-motion:reduce){
-  .stage-bg img{animation:none}
-}
-</style>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-in">
-    <a href="/" class="wordmark">EDUCATED<b>TRAVELER</b></a>
-    <button type="button" class="nav-cta" onclick="goCircle()">Join the Circle</button>
-  </div>
-</nav>
-
-<!-- ===================== THE STAGE — one screen ===================== -->
-<header class="stage">
-  <div class="stage-bg"><img src="/images/labweek/hero.jpg" width="736" height="1600" fetchpriority="high" alt="A cook behind a black pan as flame erupts from it in a professional kitchen"></div>
-
-  <div class="center">
-    <p class="eyebrow top">A place · a person · your people</p>
-    <h1 class="lead">EducatedTraveler is how you learn a <em>real craft</em> — at the source, from a master, beside the people chasing the same fire.</h1>
-    <p class="standfirst">This October the first door opens: thirty-five hours of modernist technique in Martin Lippo's Barcelona laboratory, in English, built for working chefs. And especially for yacht chefs.</p>
-    <div class="door">
-      <button type="button" class="btn btn-primary" onclick="goCircle()">Join the Circle
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </button>
-      <p class="kicker">The Circle <b>hears first</b> — and chooses what comes next</p>
+  <div class="c">
+    <div>
+      <div class="brand">EDUCATED<b>TRAVELER</b></div>
+      <p>Taking you to the Circle… <a href="/circle">continue&nbsp;&rarr;</a></p>
     </div>
   </div>
-
-  <div class="base">
-    <button type="button" class="q" onclick="openFounder()">Meet the founder</button>
-    <span class="sep" aria-hidden="true"></span>
-    <a class="q wk" href="/barcelona">The first week · Barcelona, this October →</a>
-  </div>
-</header>
-
-<!-- ===================== FOUNDER / STORY POP-UP ===================== -->
-<div class="ov" id="founder" role="dialog" aria-modal="true" aria-labelledby="founder-h">
-  <div class="ov-bg" onclick="closeFounder()"></div>
-  <div class="modal">
-    <button class="close" onclick="closeFounder()" aria-label="Close">&times;</button>
-    <div class="mhead">
-      <div class="ava">A</div>
-      <div><h3 id="founder-h" class="serif">Arnaud</h3><p class="r">Founder · I check every place myself</p></div>
-    </div>
-    <p class="mbody" style="color:var(--muted);font-size:14.5px;line-height:1.6">I left school at 18 to find out what the world was really about, and I've been crossing it by sea and by land ever since — fifteen years cooking for a living, most of them at sea, learning from the masters I met along the way. Here is some of it.</p>
-
-    <div class="film" id="film" tabindex="-1" aria-roledescription="carousel" aria-label="Arnaud's story, in six photos">
-      <div class="slide on" data-i="0"><img src="/images/story/founder/beginning.jpg" alt="Arnaud walking into an alpine valley" loading="lazy"><div class="cap"><p class="ch">I · The beginning</p><h4>So I went.</h4><p>Everyone expected university and a career. I wanted to learn by doing — not watch the world on a screen. So I left.</p></div></div>
-      <div class="slide" data-i="1"><img src="/images/story/founder/galley.jpg" alt="Arnaud plating a dish in the galley" loading="lazy"><div class="cap"><p class="ch">II · The kitchens</p><h4>Every kitchen a classroom.</h4><p>Michelin kitchens in France, street stalls in Bangkok — most of my years cooking were at sea. Every chef a teacher.</p></div></div>
-      <div class="slide" data-i="2"><img src="/images/story/founder/sea.jpg" alt="Arnaud on the boat with the day's catch" loading="lazy"><div class="cap"><p class="ch">III · The sea</p><h4>Fifty thousand nautical miles.</h4><p>Learned to sail the Siam sea, raced off Sydney, crossed oceans. The sea cares about judgment, not a résumé.</p></div></div>
-      <div class="slide" data-i="3"><img src="/images/story/founder/depths.jpg" alt="Arnaud freediving in a cenote" loading="lazy"><div class="cap"><p class="ch">IV · The depths</p><h4>The deeper I went, the quieter it got.</h4><p>Freediving Mexican cenotes and the open blue, sharks in the Galápagos. Fear turned into respect.</p></div></div>
-      <div class="slide" data-i="4"><img src="/images/story/founder/heights.jpg" alt="Arnaud on a Himalayan summit" loading="lazy"><div class="cap"><p class="ch">V · The heights</p><h4>Strangers turned into crew.</h4><p>Annapurna at 4,130 m, passes across the Himalaya. The people on the trail taught me more than any classroom.</p></div></div>
-      <div class="slide" data-i="5"><img src="/images/story/founder/stillness.jpg" alt="Arnaud on a mountain ridge at dawn" loading="lazy"><div class="cap"><p class="ch">VI · The stillness</p><h4>Handed, at the source.</h4><p>Breathwork in Bali, Ayurveda in India — and in the Thar desert, the idea for all of this took shape.</p></div></div>
-      <span class="fcount" id="fcount">I / VI</span>
-      <button class="fnav p" id="fprev" type="button" aria-label="Previous photo">&lsaquo;</button>
-      <button class="fnav n" id="fnext" type="button" aria-label="Next photo">&rsaquo;</button>
-    </div>
-    <div class="fdots" id="fdots"></div>
-
-    <div class="mbody">
-      <p style="font-family:var(--f-display);color:var(--paper);font-size:1.1rem;margin-bottom:6px">What EducatedTraveler is: a place, a person, your people.</p>
-      <p>Every real skill is learned the same three ways — where it's alive, from a master who'll hand it over, beside the handful chasing the same thing. <b>We connect — we don't sell. Earned, not bought.</b></p>
-      <p><b>“I never found my teachers. They found me.”</b> Now I'm building the way in — the map I wish I'd had, and the doors it opens.</p>
-      <p>Between the weeks I keep <b>the Atlas</b> — a living map of where crafts are most alive, ranked by community, not by who pays. Nobody buys a place on it. And if I wouldn't send a friend, it isn't on the map.</p>
-    </div>
-    <div class="mcta">
-      <button type="button" class="btn btn-primary" style="padding:12px 24px;min-height:auto" onclick="closeFounder();goCircle();">Join the Circle →</button>
-    </div>
-  </div>
-</div>
-
-<script>
-(function(){
-  "use strict";
-
-  // "Join the Circle" opens the questionnaire (5 questions) at /circle
-  window.goCircle=function(){ window.location.href='/circle'; };
-
-  // founder pop-up (focus trap + Escape)
-  var ov=document.getElementById('founder'), lastFocus=null;
-  window.openFounder=function(){ lastFocus=document.activeElement; ov.classList.add('show'); document.documentElement.style.overflow='hidden'; go(0); ov.querySelector('.close').focus(); document.addEventListener('keydown',key); };
-  window.closeFounder=function(){ ov.classList.remove('show'); document.documentElement.style.overflow=''; document.removeEventListener('keydown',key); if(lastFocus&&lastFocus.focus) lastFocus.focus(); };
-  function key(e){
-    if(e.key==='Escape'){ closeFounder(); return; }
-    if(e.key==='ArrowRight'){ go(cur+1); return; }
-    if(e.key==='ArrowLeft'){ go(cur-1); return; }
-    if(e.key==='Tab'){
-      var f=ov.querySelectorAll('button,a,[tabindex]:not([tabindex="-1"])'); if(!f.length) return;
-      var first=f[0], last=f[f.length-1];
-      if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
-      else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
-    }
-  }
-
-  // modal diaporama — manual only (it lives inside the pop-up, so it never runs without a click)
-  var ROMAN=['I','II','III','IV','V','VI'];
-  var slides=[].slice.call(document.querySelectorAll('.slide')),
-      dotsWrap=document.getElementById('fdots'), fcount=document.getElementById('fcount'),
-      film=document.getElementById('film'), cur=0, N=slides.length;
-  slides.forEach(function(_,i){ var b=document.createElement('button'); b.className='fdot'+(i===0?' on':''); b.type='button'; b.setAttribute('aria-label','Photo '+(i+1)+' of '+N); b.addEventListener('click',function(){go(i);}); dotsWrap.appendChild(b); });
-  var dots=[].slice.call(dotsWrap.children);
-  function go(i){ cur=(i+N)%N; slides.forEach(function(s,k){s.classList.toggle('on',k===cur);}); dots.forEach(function(d,k){d.classList.toggle('on',k===cur);}); if(fcount) fcount.textContent=ROMAN[cur]+' / '+ROMAN[N-1]; }
-  document.getElementById('fnext').addEventListener('click',function(){go(cur+1);});
-  document.getElementById('fprev').addEventListener('click',function(){go(cur-1);});
-  var x0=null;
-  film.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
-  film.addEventListener('touchend',function(e){ if(x0===null)return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40){ go(cur+(dx<0?1:-1)); } x0=null; },{passive:true});
-})();
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/js/supabase-config.js"></script>
-<script src="/js/member-nav.js" defer></script>
 </body>
 </html>
