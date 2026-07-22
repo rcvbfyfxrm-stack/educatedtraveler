@@ -181,6 +181,18 @@ window.ET_POSTS = [
 "THE founder-credibility spine of the whole account — this replaces the older 'I left school at eighteen' founder post as the definitive story. WHEN — post 24-48h after the pinned 'This is EducatedTraveler' carousel, Tue or Thu 6-8pm when reach peaks; it's the deeper second touch for anyone who tapped the profile. SHAPE — 6-slide carousel (slide 1 = the scroll-stopper on the sailing shot; slide 6 names ET + pulls to the Atlas). Reply to every comment the first few hours — carousels get re-served for days. WATCH — profile visits, /about clicks, Circle sign-ups. SAFE — fully signature-safe: names no course, place, or date. Do NOT run any Lab Week post until Martin's written yes.",
   },
   {
+    id: "founder-trained-eye", format: "Reel · founder film", core: "",
+    title: "Trained eye — a decade at the top (founder)",
+    link: "https://educatedtraveler.app/#circle", linkLabel: "Join the Circle",
+    images: ["/images/posts/founder-trained-eye/cover.png"],
+    imageNote: "Reel cover (1080×1920) — a frame from the founder film. The reel itself is the 21s trained-eye cut (in repo at website/video/educatedtraveler-founder-vertical.mp4): real yacht-chef footage (plating, Arnaud basting at the stove, service, hero plates), muted, on-brand Fraunces beats.",
+    caption:
+"I am not the master. I never was.\n\nThe top doesn't teach you to cook. It teaches you to see. Ten years cooking on those boats, for people who'd already had the best there is — that's what it left me with. Not their craft. An eye. I can tell the real from the word for it. You can smell the shortcut. And you can feel a true master in the room before anyone says a name — in the calm, the standard, the nothing-to-prove.\n\nExcellence isn't a word you can spend your way into. You feel it or you don't. It's earned, never bought. A true master is whoever holds the standard when no one is watching.\n\nI can't teach you their craft. That's theirs, given at the source. What I can do is tell you where it's real. That's all the Atlas is — a small map, checked by hand, of true masters and the places they work. Real master, real standard, or it doesn't make the map.\n\nIf you want to be there when the next door opens, join the Circle. That's the only ask.\n\n— Arnaud",
+    hashtags: "#EducatedTraveler #AtTheSource #LearnFromAMaster #RealMastery #CraftsmanshipAlive",
+    strategy:
+"THE excellence-credential angle — an alternative to the 'stars / Thar desert' founder story: a decade cooking at the highest level trained the eye that now curates the Atlas, so the credential becomes the reason ET's picks can be trusted. WHEN — Tue/Thu ~7-9pm; pair the caption with the 21s founder film (website/video/educatedtraveler-founder-vertical.mp4). ONE ask — join the Circle. SAFE — names no course, place, or date; nothing fabricated. WATCH — profile visits, Circle sign-ups, saves. RECONCILE — 'ten years' here vs 'fifteen years at sea' in the story post (a decade on yachts vs the fuller sea career).",
+  },
+  {
     id: "circle", format: "Carousel", core: "",
     title: "What the Circle is — the letter",
     link: "https://educatedtraveler.app/circle", linkLabel: "Take your place",
