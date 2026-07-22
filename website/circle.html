@@ -121,6 +121,24 @@
         .worldwrap{ margin-top:22px; }
         .disc-head{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:11px; }
         .disc-head .lbl{ margin-bottom:0; }
+        /* the running "your crafts" tray — chosen across every world */
+        .chosen-wrap{ margin-top:22px; }
+        .chip.chosen{ border-color:var(--sea); background:rgba(127,168,165,0.13); color:var(--paper); padding-right:11px; }
+        .chip.chosen .x{ margin-left:9px; color:var(--faint); font-family:'IBM Plex Mono',monospace; }
+        .chip.chosen:hover .x{ color:var(--ember); }
+        .chip .wlabel{ position:relative; }
+        .chip .wlabel .badge{ display:inline-block; margin-left:8px; min-width:16px; height:16px; line-height:16px; text-align:center;
+                              font-family:'IBM Plex Mono',monospace; font-size:10px; color:#14110d; background:var(--sea); border-radius:8px; padding:0 4px; }
+        .own{ margin-top:10px; }
+        .own input{ width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:12px;
+                    color:var(--paper); font-family:inherit; font-size:14px; padding:11px 14px; outline:none; }
+        .own input:focus{ border-color:rgba(127,168,165,0.6); }
+        .own input::placeholder{ color:rgba(243,237,226,0.30); }
+        /* the letter's quick-start prompts */
+        .prompts{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+        .prompts button{ font-family:inherit; font-size:12.5px; color:var(--muted); background:rgba(243,237,226,0.03);
+                         border:1px solid rgba(243,237,226,0.15); border-radius:11px; padding:8px 12px; cursor:pointer; transition:all .18s ease; }
+        .prompts button:hover{ border-color:rgba(127,168,165,0.5); color:var(--paper); }
         .count{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--faint); }
 
         /* already-master-a-craft block (optional) */
@@ -308,15 +326,15 @@
             <section class="beat" id="beat1" aria-label="Step 2: the craft">
                 <button class="back" data-back="0">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">What pulls at you</p>
-                <h2 class="q">Which world pulls hardest?</h2>
-                <p class="sub-tight">Pick one to start — then choose the craft you'd actually want in your hands.</p>
+                <h2 class="q">Which worlds pull at you?</h2>
+                <p class="sub-tight">Open any world and pick freely — as many crafts as you like, from as many worlds as you like. Your choices stay put when you move between them.</p>
 
                 <div class="chips" id="worlds"></div>
 
                 <div class="worldwrap" id="discwrap" style="display:none;">
                     <div class="disc-head">
                         <span class="lbl" id="disc-lbl">The craft</span>
-                        <span class="count" id="disc-count">pick up to 3</span>
+                        <span class="count" id="disc-count">pick as many as you like</span>
                     </div>
                     <div class="chips" id="discs"></div>
                     <div class="field" style="margin-top:16px;">
@@ -324,6 +342,14 @@
                             <input type="text" id="f_open" placeholder="Name the craft in your own words">
                         </label>
                     </div>
+                </div>
+
+                <div class="chosen-wrap" id="chosenWrap" style="display:none;">
+                    <div class="disc-head">
+                        <span class="lbl">Your crafts</span>
+                        <span class="count" id="chosen-count"></span>
+                    </div>
+                    <div class="chips" id="chosen"></div>
                 </div>
 
                 <div class="masterblock">
@@ -357,18 +383,22 @@
                 <div class="field">
                     <span class="lbl">When could you go?</span>
                     <div class="chips" data-single="timing" id="g_timing"></div>
+                    <div class="own"><input type="text" id="f_timing_own" placeholder="…or in your own words"></div>
                 </div>
                 <div class="field">
                     <span class="lbl">How long could you give it?</span>
                     <div class="chips" data-single="length" id="g_length"></div>
+                    <div class="own"><input type="text" id="f_length_own" placeholder="…or in your own words"></div>
                 </div>
                 <div class="field">
                     <span class="lbl">Where are you with it?</span>
                     <div class="chips" data-single="depth" id="g_depth"></div>
+                    <div class="own"><input type="text" id="f_depth_own" placeholder="…or in your own words"></div>
                 </div>
                 <div class="field">
                     <span class="lbl">How far would you travel?</span>
                     <div class="chips" data-single="reach" id="g_reach"></div>
+                    <div class="own"><input type="text" id="f_reach_own" placeholder="…or in your own words"></div>
                 </div>
 
                 <div class="row">
@@ -395,6 +425,12 @@
                             <div class="name" id="dream-sign">—</div>
                         </div>
                     </div>
+                </div>
+                <div class="prompts" id="dream-prompts">
+                    <button type="button" data-ins="The craft I can't stop thinking about is ">The craft I can't stop thinking about…</button>
+                    <button type="button" data-ins="The kind of people I'd love to be around are ">The people I'd love to meet…</button>
+                    <button type="button" data-ins="If you built one week just for me, it would ">The one week I'd build…</button>
+                    <button type="button" data-ins="What's really going on for me is ">What's really going on for me…</button>
                 </div>
                 <p class="help" style="margin-top:12px;">One sentence or ten. I read every one myself.</p>
 
@@ -604,7 +640,8 @@
         };
 
         // ── state ──
-        var state = { name:'', email:'', world:null, discs:[], open:'', mastery:'', relation:null, perfect:false, advanced:null, timing:null, length:null, depth:null, reach:null, dream:'', region:'',
+        var state = { name:'', email:'', world:null, discs:[], open:'', mastery:'', relation:null, perfect:false, advanced:null,
+                      timing:null, timing_own:'', length:null, length_own:'', depth:null, depth_own:'', reach:null, reach_own:'', dream:'', region:'',
                       prof:'', lifestage:null, lifestage_own:'' };
         var MAX_DISCS = 3;
         var current = 0;
@@ -685,22 +722,33 @@
             state.name=name; state.email=email; show(1);
         });
 
-        // ── beat 2: worlds + disciplines ──
+        // ── beat 2: worlds + disciplines (pick freely across EVERY world, no cap) ──
         var worldsEl=$('worlds');
+        var worldBtns={};
+        var WORLD_OF={}; WORLDS.forEach(function(w){ w.discs.forEach(function(d){ WORLD_OF[d]=w.key; }); });
         WORLDS.forEach(function(w){
             var b=document.createElement('button');
             b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false');
-            b.innerHTML=w.key+'<small>'+w.teaser+'</small>';
+            b.innerHTML='<span class="wlabel">'+w.key+'</span><small>'+w.teaser+'</small>';
             b.addEventListener('click', function(){ pickWorld(w, b); });
-            worldsEl.appendChild(b);
+            worldsEl.appendChild(b); worldBtns[w.key]=b;
         });
+        function countInWorld(key){ var n=0; state.discs.forEach(function(d){ if(WORLD_OF[d]===key) n++; }); return n; }
+        function renderWorldBadges(){
+            WORLDS.forEach(function(w){
+                var lbl=worldBtns[w.key].querySelector('.wlabel'); if(!lbl) return;
+                var ex=lbl.querySelector('.badge'); if(ex) ex.remove();
+                var n=countInWorld(w.key);
+                if(n>0){ var s=document.createElement('span'); s.className='badge'; s.textContent=n; lbl.appendChild(s); }
+            });
+        }
         function pickWorld(w, btn){
+            // expand THIS world; every choice made in any world stays selected
             Array.prototype.forEach.call(worldsEl.children, function(c){ c.setAttribute('aria-pressed','false'); });
             btn.setAttribute('aria-pressed','true');
-            if(state.world!==w.key){ state.discs=[]; }
             state.world=w.key;
-            $('disc-lbl').textContent='The craft — in ' + w.key;
-            var wrap=$('discwrap'); wrap.style.display='block';
+            $('disc-lbl').textContent='In ' + w.key;
+            $('discwrap').style.display='block';
             var box=$('discs'); box.innerHTML='';
             w.discs.forEach(function(d){
                 var c=document.createElement('button');
@@ -713,13 +761,31 @@
         }
         function toggleDisc(d, c){
             var i=state.discs.indexOf(d);
-            if(i>=0){ state.discs.splice(i,1); c.setAttribute('aria-pressed','false'); }
-            else{
-                if(state.discs.length>=MAX_DISCS){ return; }
-                state.discs.push(d); c.setAttribute('aria-pressed','true');
-            }
-            $('disc-count').textContent = state.discs.length ? (state.discs.length+' of '+MAX_DISCS+' chosen') : 'pick up to 3';
-            updateGo1();
+            if(i>=0){ state.discs.splice(i,1); if(c) c.setAttribute('aria-pressed','false'); }
+            else{ state.discs.push(d); if(c) c.setAttribute('aria-pressed','true'); }
+            afterCraftChange();
+        }
+        function afterCraftChange(){
+            $('disc-count').textContent = state.discs.length ? (state.discs.length+' chosen — keep going') : 'pick as many as you like';
+            renderChosen(); renderWorldBadges(); updateGo1();
+        }
+        function renderChosen(){
+            var wrap=$('chosenWrap'), box=$('chosen'); box.innerHTML='';
+            if(!state.discs.length){ wrap.style.display='none'; return; }
+            wrap.style.display='block';
+            $('chosen-count').textContent = state.discs.length + (state.discs.length===1?' craft':' crafts');
+            state.discs.forEach(function(d){
+                var c=document.createElement('button'); c.className='chip chosen'; c.type='button';
+                c.setAttribute('aria-label','Remove '+d);
+                c.innerHTML=esc(d)+'<span class="x">×</span>';
+                c.addEventListener('click', function(){ removeDisc(d); });
+                box.appendChild(c);
+            });
+        }
+        function removeDisc(d){
+            var i=state.discs.indexOf(d); if(i>=0) state.discs.splice(i,1);
+            var box=$('discs'); if(box){ Array.prototype.forEach.call(box.children, function(c){ if(c.textContent===d) c.setAttribute('aria-pressed','false'); }); }
+            afterCraftChange();
         }
         $('f_open').addEventListener('input', function(){ state.open=this.value.trim(); updateGo1(); });
         $('f_mastery').addEventListener('input', function(){ state.mastery=this.value.trim(); updateGo1(); });
@@ -756,9 +822,26 @@
                 box.appendChild(b);
             });
         });
+        // "…in your own words" under each gradient
+        ['timing','length','depth','reach'].forEach(function(g){
+            var el=$('f_'+g+'_own'); if(!el) return;
+            el.addEventListener('input', function(){ state[g+'_own']=this.value; });
+        });
+        // an answer is the chip label OR their own words
+        function gradAnswer(g){ var own=(state[g+'_own']||'').trim(); if(own) return own; return state[g]||null; }
         $('go2').addEventListener('click', function(){ show(3); });
 
-        // ── beat 4 ──
+        // ── beat 4: the letter + quick-start prompts ──
+        (function(){
+            var el=$('f_dream'), box=$('dream-prompts'); if(!box) return;
+            Array.prototype.forEach.call(box.children, function(b){
+                b.addEventListener('click', function(){
+                    var ins=b.getAttribute('data-ins');
+                    var v=el.value; if(v && !/\s$/.test(v)) v+='\n';
+                    el.value=v+ins; state.dream=el.value; el.focus();
+                });
+            });
+        })();
         $('go3').addEventListener('click', function(){ state.dream=$('f_dream').value.trim(); show(4); });
 
         // skip + back
@@ -775,12 +858,11 @@
         // ── build the JSONB payload ──
         function buildInterests(){
             var arr=[{ kind:'profile', name:state.name, region:state.region||null }];
-            state.discs.forEach(function(d){ arr.push({ kind:'discipline', world:state.world, discipline:d }); });
+            state.discs.forEach(function(d){ arr.push({ kind:'discipline', world:WORLD_OF[d]||state.world, discipline:d }); });
             if(state.open){ arr.push({ kind:'discipline', world:state.world, discipline:null, open:state.open }); }
             if(state.mastery || state.perfect || state.relation){ arr.push({ kind:'mastery', skill:state.mastery||null, relation:state.relation, advanced:state.advanced, perfect:!!state.perfect }); }
-            if(state.timing||state.length||state.depth||state.reach){
-                arr.push({ kind:'intent', timing:state.timing, length:state.length, depth:state.depth, reach:state.reach });
-            }
+            var it={ kind:'intent', timing:gradAnswer('timing'), length:gradAnswer('length'), depth:gradAnswer('depth'), reach:gradAnswer('reach') };
+            if(it.timing||it.length||it.depth||it.reach){ arr.push(it); }
             if(state.dream){ arr.push({ kind:'dream', text:state.dream }); }
             return arr;
         }
@@ -879,7 +961,7 @@
             var crafts=state.discs.slice(); if(state.open) crafts.push(state.open);
             if(crafts.length) line('The craft', crafts.map(function(c){ return '<span class="tag">'+esc(c)+'</span>'; }).join(''));
             var sf=[];
-            ['depth','timing','length','reach'].forEach(function(g){ if(state[g]) sf.push(esc(labelOf(g, state[g]))); });
+            ['depth','timing','length','reach'].forEach(function(g){ var a=gradAnswer(g); if(a) sf.push(esc(labelOf(g,a)||a)); });
             if(sf.length) line('Starting from', sf.join(' &nbsp;·&nbsp; '));
             if(state.dream) line('Your letter', esc(state.dream), 'letterprev');
         }
@@ -945,8 +1027,8 @@
             var draft = { name:state.name, email:state.email, prof:state.prof,
                           lifestage:state.lifestage, lifestage_own:state.lifestage_own, region:state.region,
                           world:state.world, discs:state.discs, open:state.open,
-                          depth:state.depth, depth_own:'', timing:state.timing, timing_own:'',
-                          length:state.length, length_own:'', reach:state.reach, reach_own:'',
+                          depth:state.depth, depth_own:state.depth_own, timing:state.timing, timing_own:state.timing_own,
+                          length:state.length, length_own:state.length_own, reach:state.reach, reach_own:state.reach_own,
                           letter:state.dream, origin:'circle' };
             var draftSaved=false;
             try{ localStorage.setItem('et_portrait_draft_v1', JSON.stringify(draft)); draftSaved=true; }catch(e){}
