@@ -438,6 +438,20 @@
 
                 <div class="portrait" id="portrait"></div>
 
+                <!-- who sees your card — private by default; opt in to your people -->
+                <div class="field" id="visField" style="margin-top:30px;">
+                    <span class="lbl">Who gets to see your card</span>
+                    <div class="chips" data-single="visibility" id="g_visibility"></div>
+                    <p class="help">This is only your card — your letter always stays private, between you and me. Start
+                        wherever feels right; you can change it any time from your account.</p>
+                </div>
+                <div class="field" id="connectField" style="display:none;">
+                    <label class="fld"><span class="lbl">A line for the people who'll see it</span>
+                        <input type="text" id="f_connect" placeholder="Who are you hoping to find in the room? e.g. others chasing the same craft, a first real teacher…">
+                    </label>
+                    <p class="help">Shown on your card, so the right people know why to come say hello.</p>
+                </div>
+
                 <div class="row">
                     <button class="cta" id="submit">Seal my place in the Circle &rarr;</button>
                 </div>
@@ -515,6 +529,12 @@
             length: [['weekend','A weekend'],['most-week','Most of a week'],['full-week','A full week or more'],['open','As long as it takes']],
             reach:  [['close','Close to home'],['region','My region / a short hop'],['world','Across the world for the right one']]
         };
+        // who can see your crew card — mirrors profiles.visibility ('private'|'cohort'|'public'); default private
+        var VISIBILITY = [
+            ['private', 'Just me',                'Your card stays private — only you see it.'],
+            ['cohort',  'The people in my labs',  "Your classmates see it, once you're in a room together."],
+            ['public',  'Everyone',               'Your card joins the public Atlas.']
+        ];
         function labelOf(group, key){
             var src = group==='lifestage'?LIFESTAGE:GRADIENTS[group];
             for(var i=0;i<src.length;i++){ if(src[i][0]===key) return src[i][1]; }
@@ -527,7 +547,7 @@
         var state = { name:'', email:'', prof:'', lifestage:null, lifestage_own:'', region:'',
                       world:null, discs:[], open:'',
                       depth:null, depth_own:'', timing:null, timing_own:'', length:null, length_own:'', reach:null, reach_own:'',
-                      letter:'' };
+                      letter:'', visibility:null, connect:'' };
         // a chip question's final answer — their own words win over the chip (perception first)
         function answer(group){
             var own = (state[group+'_own']||'').trim();
@@ -547,7 +567,7 @@
             current=n; rails();
             if(n===2){ renderChosen(); renderWorldBadges(); updateGo2(); }
             if(n===4) syncSignature();
-            if(n===5) renderPortrait();
+            if(n===5){ renderPortrait(); reflectVisibility(); }
             $('card').scrollIntoView({behavior:'smooth', block:'start'});
             var f=b && b.querySelector('input,textarea'); if(f) setTimeout(function(){ try{ f.focus(); }catch(e){} }, 350);
         }
@@ -663,6 +683,10 @@
         });
         $('go3').addEventListener('click', function(){ saveDraft(); show(4); });
 
+        // ── beat 5: who sees your card (visibility opt-in) + a connect line ──
+        buildVisibility();
+        $('f_connect').addEventListener('input', function(){ state.connect=this.value.trim(); saveDraft(); });
+
         function buildSingle(key, box, pairs){
             pairs.forEach(function(pair){
                 var b=document.createElement('button');
@@ -673,6 +697,32 @@
                     if(chosen){ state[key]=null; } else { b.setAttribute('aria-pressed','true'); state[key]=pair[0]; }
                     saveDraft();
                 });
+                box.appendChild(b);
+            });
+        }
+
+        // ── visibility selector (single-choice, never null: card defaults to private) ──
+        // Read-only against state so a display refresh can never mutate the member's
+        // real choice — only boot (loading the DB value) or an explicit tap sets it.
+        function reflectVisibility(){
+            var box=$('g_visibility');
+            if(box){
+                var want = state.visibility || 'private';
+                Array.prototype.forEach.call(box.children, function(c){
+                    c.setAttribute('aria-pressed', c.getAttribute('data-vis')===want ? 'true':'false');
+                });
+                var cf=$('connectField'); if(cf) cf.style.display = (want!=='private') ? 'block' : 'none';
+            }
+            var ci=$('f_connect'); if(ci && state.connect) ci.value=state.connect;
+        }
+        function buildVisibility(){
+            var box=$('g_visibility'); if(!box) return;
+            VISIBILITY.forEach(function(v){
+                var b=document.createElement('button');
+                b.className='chip'; b.type='button'; b.setAttribute('data-vis', v[0]);
+                b.setAttribute('aria-pressed', (state.visibility||'private')===v[0] ? 'true':'false');
+                b.innerHTML='<span>'+esc(v[1])+'</span><small>'+esc(v[2])+'</small>';
+                b.addEventListener('click', function(){ state.visibility=v[0]; reflectVisibility(); saveDraft(); });
                 box.appendChild(b);
             });
         }
@@ -772,6 +822,11 @@
             if((a=answer('length'))) row.preferred_duration = a;
             if((a=answer('reach'))) row.reach = a;
             if(state.letter) row.dream_letter = state.letter;
+            // visibility opt-in — write only when set (loaded from DB or tapped), so a
+            // re-seal can never silently downgrade a member who chose 'public' elsewhere.
+            // Keep the legacy `visible` bool in lockstep, exactly as the dashboard editor does.
+            if(state.visibility){ row.visibility = state.visibility; row.visible = (state.visibility==='cohort' || state.visibility==='public'); }
+            if(state.connect) row.what_matters = state.connect;
             var ints = interestsObject();
             if(Object.keys(ints).length) row.interests = mergeInterests(existingInterests, ints);
             return row;
@@ -929,7 +984,7 @@
                 // below still wins over all of this: it is the newer intent.
                 var portraitComplete = false;
                 try{
-                    var pr = await sb.from('profiles').select('first_name,profession,location,interests,status,previous_experience,availability,preferred_duration,reach,dream_letter,portrait_complete').eq('id', userId).single();
+                    var pr = await sb.from('profiles').select('first_name,profession,location,interests,status,previous_experience,availability,preferred_duration,reach,dream_letter,visibility,what_matters,portrait_complete').eq('id', userId).single();
                     if(pr && pr.data){
                         var d = pr.data;
                         portraitComplete = !!d.portrait_complete;
@@ -937,6 +992,10 @@
                         if(d.profession) state.prof = d.profession;
                         if(d.location) state.region = d.location;
                         if(d.dream_letter) state.letter = d.dream_letter;
+                        // load their real card visibility + connect line so the recap
+                        // reflects (and re-seal preserves) what they already chose.
+                        if(d.visibility) state.visibility = d.visibility;
+                        if(d.what_matters) state.connect = d.what_matters;
                         prefillChoice('lifestage', d.status);
                         prefillChoice('depth', d.previous_experience);
                         prefillChoice('timing', d.availability);
@@ -1056,6 +1115,8 @@
                 });
             });
             if(state.letter) letterEl.value=state.letter;
+            if(state.connect) $('f_connect').value=state.connect;
+            reflectVisibility();
             syncSignature();
             renderChosen(); renderWorldBadges(); updateGo2();
         }
