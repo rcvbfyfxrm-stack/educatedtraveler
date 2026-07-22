@@ -65,15 +65,32 @@ serve(async (req) => {
 
     // de-dupe by lowercased email
     const seen = new Set<string>();
-    const recipients = (subs || []).filter((s) => {
+    let recipients = (subs || []).filter((s) => {
       const k = (s.email || "").toLowerCase();
       if (!k || seen.has(k)) return false;
       seen.add(k);
       return true;
     });
 
+    // Invite/conversion issues ("join", "take your place") must NEVER go to
+    // someone who already has a member account — otherwise a member is told to
+    // join the thing they're already in. The founding-list import seeded the
+    // waitlist with people who are already members, so we filter every time.
+    // Override with { "includeMembers": true } only if you really mean to.
+    let skippedMembers = 0;
+    if (issue.audience === "leads" && body.includeMembers !== true) {
+      const { data: members, error: mErr } = await admin.from("profiles").select("email");
+      if (mErr) return json({ error: `member lookup failed: ${mErr.message}` }, 500);
+      const memberSet = new Set(
+        (members || []).map((m) => (m.email || "").toLowerCase()).filter(Boolean),
+      );
+      const before = recipients.length;
+      recipients = recipients.filter((s) => !memberSet.has((s.email || "").toLowerCase()));
+      skippedMembers = before - recipients.length;
+    }
+
     if (body.dryRun) {
-      return json({ ok: true, mode: "dryRun", issue: issueKey, subject: issue.subject, recipients: recipients.length });
+      return json({ ok: true, mode: "dryRun", issue: issueKey, subject: issue.subject, audience: issue.audience ?? "all", recipients: recipients.length, skippedMembers });
     }
 
     // real send — sequential with a small delay (under Resend's ~2/s)
@@ -90,7 +107,7 @@ serve(async (req) => {
       }
       await new Promise((res) => setTimeout(res, 600));
     }
-    return json({ ok: true, mode: "send", issue: issueKey, sent, failed: errors.length, errors: errors.slice(0, 5) });
+    return json({ ok: true, mode: "send", issue: issueKey, sent, failed: errors.length, skippedMembers, errors: errors.slice(0, 5) });
   } catch (e) {
     console.error(e);
     return json({ error: String(e) }, 500);

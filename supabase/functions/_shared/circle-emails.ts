@@ -301,11 +301,20 @@ EducatedTraveler · educatedtraveler.app
 Leave the Circle: ${unsub}`;
 }
 
-export const ISSUES: Record<string, { subject: string; html: (unsub: string, name?: string) => string; text?: (unsub: string) => string }> = {
-  "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomePlainHtml, text: welcomeText },
-  "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml },
-  "chef-invite": { subject: "That modernist cooking week — I want you close to it", html: chefInviteHtml },
-  "friend-invite": { subject: "The thing I kept going on about — it's real now", html: friendInviteHtml },
+export const ISSUES: Record<string, {
+  subject: string;
+  html: (unsub: string, name?: string) => string;
+  text?: (unsub: string) => string;
+  // audience "leads" = an invite/conversion email ("join", "take your place"):
+  //   broadcast MUST skip anyone who already has a member account, or a member
+  //   gets told to join the thing they're already in (bug: Jeremie et al., Jul 2026).
+  // undefined / "all" = a Circle letter everyone in the Circle should get.
+  audience?: "leads" | "all";
+}> = {
+  "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomePlainHtml, text: welcomeText, audience: "leads" },
+  "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml, audience: "leads" },
+  "chef-invite": { subject: "That modernist cooking week — I want you close to it", html: chefInviteHtml, audience: "leads" },
+  "friend-invite": { subject: "The thing I kept going on about — it's real now", html: friendInviteHtml, audience: "leads" },
   "issue-01": { subject: "The Circle, Letter Nº 1 — where the divers go to find the deep", html: issue01Html },
   "issue-02": { subject: "The Circle, Letter Nº 2 — the snack named after a movie star", html: issue02Html },
   "issue-03": { subject: "The Circle, Letter Nº 3 — the rarest thing in a kitchen isn't talent", html: issue03Html },
