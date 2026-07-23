@@ -166,6 +166,48 @@
   const OWN = "In their own words";      // crafts a person typed themselves — real, just off-menu
   const UNPLACED = "Not yet placed";     // raised a hand, hasn't named a craft yet
 
+  // ---- Atlas coverage: is a named skill already a live discipline page? ----
+  // Ground truth = the discipline pages that actually exist under /atlas.
+  // Regenerate on Atlas growth:
+  //   ls website/atlas/*.html | xargs -n1 basename | grep -v -- '--' \
+  //     | grep -vx index.html | sed 's/\.html$//'
+  // slugify() reproduces the atlas filename rule (verified: all 52 /circle
+  // crafts resolve to a live page). A named skill not in this set is one
+  // Arnaud must add to the Atlas before he can write the person properly.
+  const ATLAS_SLUGS = new Set([
+    "adventure-and-off-road-motorcycling","alpinism-and-mountaineering","argentine-tango","asado-and-open-fire-cooking","ashtanga-yoga","avant-garde-and-modernist-technique",
+    "ayurveda","bharatanatyam-indian-classical-dance","blacksmithing-and-bladesmithing","bookbinding-and-letterpress","brazilian-jiu-jitsu","bread-and-boulangerie",
+    "bush-and-floatplane-flying","calligraphy-and-lettering","canyoning","capoeira","cave-and-technical-diving","caving-and-speleology",
+    "cheese-and-fermentation","chocolate-and-confectionery","cigar-rolling","classical-french-cuisine","coffee-and-barista","cold-exposure-wim-hof-method",
+    "dog-sledding-and-mushing","ecstatic-dance-and-movement","expedition-sea-kayaking","falconry","filmmaking","flamenco-and-dance",
+    "fly-fishing","freediving","french-pastry-and-patisserie","glassblowing","guitar-and-music-performance","hatha-and-vinyasa-yoga",
+    "horsemanship","ice-and-mixed-climbing","italian-cuisine-and-pasta","iyengar-yoga","jewelry-and-goldsmithing","karate",
+    "kintsugi-japanese-gold-repair","kitesurfing","korean-cuisine-hansik","kundalini-yoga","kung-fu","kyudo-japanese-archery",
+    "leatherwork","lutherie-and-instrument-making","lymphatic-drainage","marble-sculpture-and-stone-carving","mixology-and-bartending","modernist-spanish-cuisine",
+    "motorsport-and-race-driving","mountain-biking","mountain-leadership-and-trekking","muay-thai","natural-dyeing","new-basque-cuisine",
+    "north-indian-cuisine","oaxacan-and-mexican-cuisine","outdoor-leadership-and-wilderness-expeditions","painting-and-fine-art","paragliding","perfumery",
+    "peruvian-cuisine","photography","pilates","pottery-and-ceramics","pranayama-and-breathwork","printmaking",
+    "reflexology-and-shiatsu","reiki-and-energy-healing","rock-climbing","safari-and-wildlife-guiding","sailing-and-yachtmaster","sake-and-sommellerie-of-sake",
+    "salsa","scuba-diving","sichuan-and-chinese-cuisine","ski-and-snowboard-mountain-guiding","ski-touring-and-splitboard","skydiving",
+    "sound-healing","spearfishing","surfing","sushi-and-washoku","tai-chi-and-qigong","tantra-and-conscious-intimacy",
+    "tattooing","tea-and-tea-ceremony","textiles-and-weaving","thai-cuisine","thai-massage","traditional-spa-and-hydrotherapy",
+    "trail-and-ultra-running","viennoiserie","vietnamese-cuisine","vipassana-and-meditation","watchmaking","whisky-and-distilling",
+    "whitewater-kayaking","whitewater-rafting","wilderness-survival-and-bushcraft","windsurfing-and-wing-foil","wine-and-sommellerie","wooden-boatbuilding",
+    "woodworking-and-joinery",
+  ]);
+  const slugify = (s) => String(s || "").toLowerCase().replace(/&/g, " and ")
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  const atlasSlug = (label) => { const g = slugify(label); return ATLAS_SLUGS.has(g) ? g : null; };
+  const inAtlas = (label) => atlasSlug(label) !== null;
+
+  // A newcomer is anyone who joined the Circle but hasn't had a welcome
+  // letter yet — precisely the welcome queue.
+  const isNewcomer = (p) => p.onList && !p.welcomedAt;
+  // Named skills this person wants that the Atlas doesn't cover yet — the
+  // ones to build before writing them. (No named skill ⇒ nothing to add.)
+  const atlasGaps = (p) => p.crafts.filter((c) => !inAtlas(c.label)).map((c) => c.label);
+
   const norm = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "");
   const CRAFT_WORLD = (function () {
     const m = new Map();
@@ -199,8 +241,12 @@
     return order.map((g) => [g, counts.get(g)]).filter((e) => e[1] > 0);
   }
 
+  // welcome-queue triage sections
+  const READY = "Ready to write";           // every named skill is already in the Atlas
+  const ADD_FIRST = "Add to the Atlas first"; // a named skill you must build before writing
+
   // ---- render ----
-  const state = { craft: null, world: null, lettersOnly: false };
+  const state = { craft: null, world: null, lettersOnly: false, newOnly: false };
 
   function chip(label, n, active, own) {
     const border = active ? "var(--ember)" : own ? "rgba(210,138,82,.4)" : "var(--line)";
@@ -236,6 +282,7 @@
   function personCard(p) {
     const pills =
       '<span class="pill ' + (p.member ? "confirmed" : "in") + '">' + (p.member ? "member" : "lead") + "</span>" +
+      (isNewcomer(p) ? ' <span class="pill ready">new · to welcome</span>' : "") +
       (p.portrait ? ' <span class="pill posted">portrait ✓</span>' : "") +
       (p.unsubscribed ? ' <span class="pill none">unsubscribed</span>' : "");
     const meta = [p.region, p.profession].filter(Boolean).map(esc).join(" · ");
@@ -247,9 +294,19 @@
           : '<span style="color:var(--ember);">never welcomed ⚠</span>') +
         (p.lastIssue ? ' &nbsp;·&nbsp; last letter: <span style="color:var(--muted);">' + esc(p.lastIssue) + "</span>" : "")
       : '<span style="font-style:italic;">not on the letter list</span>';
+    // each craft is tagged with its Atlas status: a live discipline page
+    // (click through to the place you'll point them at) or ⚠ one to build first.
+    const craftChip = (c) => {
+      const slug = atlasSlug(c.label);
+      const border = slug ? "rgba(127,168,165,.35)" : "rgba(210,138,82,.55)";
+      const inner = slug
+        ? '<a href="/atlas/' + slug + '" target="_blank" rel="noopener" style="color:var(--paper); text-decoration:none;">' + esc(c.label) + ' <span style="color:var(--sea); font-size:10px;">✓ Atlas</span></a>'
+        : esc(c.label) + ' <span style="color:var(--ember); font-size:10px; font-style:italic;">⚠ add to Atlas</span>';
+      const own = c.own ? ' <span style="color:var(--faint); font-size:10px; font-style:italic;">· their words</span>' : "";
+      return '<span style="display:inline-block; margin:0 6px 6px 0; padding:3px 10px; border:1px solid ' + border + '; border-radius:9px; font-size:12px; color:var(--paper);">' + inner + own + "</span>";
+    };
     const crafts = p.crafts.length
-      ? '<div style="margin:12px 0 0;">' + p.crafts.map((c) =>
-          '<span style="display:inline-block; margin:0 6px 6px 0; padding:3px 10px; border:1px solid ' + (c.own ? "rgba(210,138,82,.45)" : "rgba(127,168,165,.35)") + '; border-radius:9px; font-size:12px; color:var(--paper);">' + esc(c.label) + (c.own ? ' <span style="color:var(--ember); font-size:10px; font-style:italic;">their words</span>' : "") + "</span>").join("") + "</div>"
+      ? '<div style="margin:12px 0 0;">' + p.crafts.map(craftChip).join("") + "</div>"
       : '<p style="color:var(--faint); font-size:13px; font-style:italic; margin:12px 0 0;">No crafts named yet.</p>';
     const intent = p.intent.length
       ? '<div class="font-mono" style="font-size:11px; color:var(--faint); margin:10px 0 0;">' + p.intent.map(([k, v]) => esc(k) + ": <span style=\"color:var(--muted);\">" + esc(v) + "</span>").join(" &nbsp;·&nbsp; ") + "</div>"
@@ -272,58 +329,86 @@
       crafts + masters + intent + writings + "</div>";
   }
 
+  // triage section header (welcome queue): accent = sea (ready) or ember (build first)
+  function queueHeader(title, n, sub, accent) {
+    return '<div style="margin:24px 0 4px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:8px;">' +
+      '<h2 class="font-serif" style="font-size:18px; margin:0; color:' + accent + ';">' + esc(title) + "</h2>" +
+      '<span class="font-mono" style="font-size:11px; color:var(--faint);">' + n + " " + (n === 1 ? "person" : "people") + "</span>" +
+      (sub ? '<span class="font-mono" style="font-size:11px; color:var(--faint); font-style:italic; margin-left:auto;">' + esc(sub) + "</span>" : "") +
+      "</div>";
+  }
+
   function renderBody(body, people) {
     const emptyMsg = '<p style="color:var(--faint); font-size:14px; font-style:italic; margin:14px 0 0;">No one here under that filter.</p>';
     const grid = (list) => '<div style="display:grid; gap:14px; margin:14px 0 6px;">' + list.map(personCard).join("") + "</div>";
 
     const wrote = people.filter((p) => p.writings.length).length;
-    const worlds = worldCounts(people);
-    const realWorlds = worlds.filter((e) => WORLD_ORDER.indexOf(e[0]) !== -1).length;
+    const newcomers = people.filter(isNewcomer).length;
+    const realWorlds = worldCounts(people).filter((e) => WORLD_ORDER.indexOf(e[0]) !== -1).length;
 
-    // "Wrote to me" narrows the whole catalogue; grouping still applies underneath.
-    const base = state.lettersOnly ? people.filter((p) => p.writings.length) : people;
+    // filters stack: "Wrote to me" and "New — to welcome" each narrow the set.
+    let base = people;
+    if (state.lettersOnly) base = base.filter((p) => p.writings.length);
+    if (state.newOnly) base = base.filter(isNewcomer);
 
-    // craft cloud, narrowed to the crafts that live in the selected world
-    const cloud = craftCounts(base).filter((e) => {
-      if (!state.world) return true;
-      if (state.world === OWN) return worldOf(e[0]) === null;
-      if (state.world === UNPLACED) return false;
-      return worldOf(e[0]) === state.world;
-    });
+    const clean = !state.world && !state.craft && !state.lettersOnly && !state.newOnly;
 
     let html =
       '<div class="font-mono" style="font-size:11px; color:var(--faint); margin:0 0 16px;">' +
-        people.length + " people &nbsp;·&nbsp; " + wrote + " wrote you something &nbsp;·&nbsp; sorted into " + realWorlds + " skill worlds</div>" +
-      '<div style="margin:0 0 12px;">' +
-        chip("Everyone", people.length, !state.world && !state.craft && !state.lettersOnly) +
-        chip("Wrote to me", wrote, state.lettersOnly) +
-      "</div>" +
-      '<div class="font-mono" style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin:0 0 8px;">By category of skill</div>' +
+        people.length + " people &nbsp;·&nbsp; " +
+        '<span style="color:var(--ember);">' + newcomers + " to welcome</span> &nbsp;·&nbsp; " +
+        wrote + " wrote you something &nbsp;·&nbsp; sorted into " + realWorlds + " skill worlds</div>" +
       '<div style="margin:0 0 14px;">' +
-        worlds.map((e) => worldChip(e[0], e[1], state.world === e[0])).join("") +
+        chip("Everyone", people.length, clean) +
+        chip("New — to welcome", newcomers, state.newOnly) +
+        chip("Wrote to me", wrote, state.lettersOnly) +
       "</div>";
 
-    if (cloud.length) {
-      html += '<div style="margin:0 0 8px; border-bottom:1px solid var(--line); padding-bottom:14px;">' +
-        (state.world ? '<div class="font-mono" style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin:0 0 8px;">Crafts in ' + esc(state.world) + "</div>" : "") +
-        cloud.map((e) => chip(e[0], e[1], state.craft === e[0])).join("") + "</div>";
-    }
-
-    if (state.craft) {
-      // one craft, flat — the finest filter wins over grouping
-      const shown = base.filter((p) => p.crafts.some((c) => c.label === state.craft));
-      html += shown.length ? grid(shown) : emptyMsg;
-    } else if (state.world) {
-      // a single category section
-      const shown = peopleInGroup(base, state.world);
-      html += worldHeader(state.world, shown.length) + (shown.length ? grid(shown) : emptyMsg);
+    if (state.newOnly) {
+      // ── the welcome queue, sorted by Atlas readiness ──
+      const ready = base.filter((p) => atlasGaps(p).length === 0);
+      const add = base.filter((p) => atlasGaps(p).length > 0);
+      html += '<p class="font-mono" style="font-size:11px; color:var(--faint); margin:2px 0 4px; line-height:1.7;">Everyone who just joined and still needs a welcome letter — split by whether you can write them now or must add their skill to the Atlas first.</p>';
+      if (!base.length) {
+        html += '<p style="color:var(--faint); font-size:14px; font-style:italic; margin:14px 0 0;">No one waiting — every joiner has been welcomed. ✓</p>';
+      } else {
+        html +=
+          queueHeader(READY, ready.length, "skill already in the Atlas — point them at the place and write", "var(--sea)") +
+          (ready.length ? grid(ready) : '<p style="color:var(--faint); font-size:13px; font-style:italic; margin:8px 0 0;">No one waiting here.</p>') +
+          queueHeader(ADD_FIRST, add.length, "named a skill the Atlas doesn’t cover yet — build it, then write", "var(--ember)") +
+          (add.length ? grid(add) : '<p style="color:var(--faint); font-size:13px; font-style:italic; margin:8px 0 0;">Nothing to add — every newcomer’s skill is already covered.</p>');
+      }
     } else {
-      // the full catalogue, section by section
-      const sections = worldCounts(base).map((e) => {
-        const shown = peopleInGroup(base, e[0]);
-        return worldHeader(e[0], shown.length) + grid(shown);
-      }).join("");
-      html += sections || emptyMsg;
+      // ── the catalogue, sorted by category of skill ──
+      const cloud = craftCounts(base).filter((e) => {
+        if (!state.world) return true;
+        if (state.world === OWN) return worldOf(e[0]) === null;
+        if (state.world === UNPLACED) return false;
+        return worldOf(e[0]) === state.world;
+      });
+      html +=
+        '<div class="font-mono" style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin:0 0 8px;">By category of skill</div>' +
+        '<div style="margin:0 0 14px;">' +
+          worldCounts(base).map((e) => worldChip(e[0], e[1], state.world === e[0])).join("") +
+        "</div>";
+      if (cloud.length) {
+        html += '<div style="margin:0 0 8px; border-bottom:1px solid var(--line); padding-bottom:14px;">' +
+          (state.world ? '<div class="font-mono" style="font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin:0 0 8px;">Crafts in ' + esc(state.world) + "</div>" : "") +
+          cloud.map((e) => chip(e[0], e[1], state.craft === e[0])).join("") + "</div>";
+      }
+      if (state.craft) {
+        const shown = base.filter((p) => p.crafts.some((c) => c.label === state.craft));
+        html += shown.length ? grid(shown) : emptyMsg;
+      } else if (state.world) {
+        const shown = peopleInGroup(base, state.world);
+        html += worldHeader(state.world, shown.length) + (shown.length ? grid(shown) : emptyMsg);
+      } else {
+        const sections = worldCounts(base).map((e) => {
+          const shown = peopleInGroup(base, e[0]);
+          return worldHeader(e[0], shown.length) + grid(shown);
+        }).join("");
+        html += sections || emptyMsg;
+      }
     }
 
     body.innerHTML = html;
@@ -336,8 +421,9 @@
     }));
     body.querySelectorAll(".ppl-chip").forEach((b) => b.addEventListener("click", () => {
       const c = b.getAttribute("data-craft");
-      if (c === "Everyone") { state.craft = null; state.world = null; state.lettersOnly = false; }
+      if (c === "Everyone") { state.craft = null; state.world = null; state.lettersOnly = false; state.newOnly = false; }
       else if (c === "Wrote to me") { state.lettersOnly = !state.lettersOnly; }
+      else if (c === "New — to welcome") { state.newOnly = !state.newOnly; state.world = null; state.craft = null; }
       else state.craft = state.craft === c ? null : c;
       renderBody(body, people);
     }));
@@ -396,5 +482,5 @@
   };
 
   // test hook (node): pure builders, no DOM
-  window.ET_PEOPLE_TEST = { build, craftCounts, worldOf, personWorlds, placement, worldCounts };
+  window.ET_PEOPLE_TEST = { build, craftCounts, worldOf, personWorlds, placement, worldCounts, slugify, inAtlas, atlasSlug, isNewcomer, atlasGaps };
 })();
