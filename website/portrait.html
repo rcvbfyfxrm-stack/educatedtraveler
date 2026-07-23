@@ -477,9 +477,71 @@
                     <img class="done-photo" src="/images/arnaud-portrait.jpg" alt="Arnaud" width="66" height="66" loading="lazy">
                     <span class="done-name">Arnaud</span>
                 </div>
+                <div id="class-match" style="margin:6px 0 18px;"></div>
                 <button type="button" class="go" id="edit-portrait" style="background:none;border:none;cursor:pointer;font:inherit;margin-right:22px;">Add to your portrait &rarr;</button>
                 <a class="go" href="/browse">Wander the Atlas while you wait &rarr;</a>
             </section>
+
+            <!-- ADD TO YOUR PORTRAIT — the deeper options + a photo (isolated module) -->
+            <section id="enrich" aria-label="Add to your portrait">
+                <button class="back" id="enrich-back" type="button">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">Your portrait, deeper</p>
+                <h2 class="q">The more I know, the better the week I build you.</h2>
+                <p class="sub-tight">All optional — add what you like, now or whenever. It only makes your week fit you better.</p>
+
+                <div class="field">
+                    <span class="lbl">A face to the name</span>
+                    <div class="avatar-row">
+                        <div class="avatar" id="avatar-preview"><span id="avatar-initial"></span></div>
+                        <div>
+                            <label class="avatar-btn" for="avatar-input">Add a photo</label>
+                            <input type="file" id="avatar-input" accept="image/*" hidden>
+                            <p class="help" id="avatar-status">A photo makes this portrait yours.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <span class="lbl">What you'd give for the right week</span>
+                    <div class="chips" data-single="budget" id="e_budget"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">The room you'd want</span>
+                    <div class="chips" data-single="group" id="e_group"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">How hard you'd push</span>
+                    <div class="chips" data-single="intensity" id="e_intensity"></div>
+                </div>
+                <div class="field">
+                    <span class="lbl">What you're really after</span>
+                    <div class="chips" data-single="want" id="e_want"></div>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="enrich-save">Save to my portrait &rarr;</button>
+                    <span class="e-saved" id="enrich-saved" style="display:none; color:#94ad86; font-size:13.5px;">Saved — your portrait is richer.</span>
+                </div>
+                <p class="err" id="enrich-err" style="display:none;"></p>
+            </section>
+            <style>
+                #enrich{ display:none; }
+                #enrich.show{ display:block; animation:fadeUp .5s ease-out both; }
+                .avatar-row{ display:flex; align-items:center; gap:18px; margin-top:8px; }
+                .avatar{ width:72px; height:72px; flex:0 0 auto; border-radius:50%; border:1px solid var(--line);
+                         background:rgba(243,237,226,0.05); display:flex; align-items:center; justify-content:center;
+                         font-family:'Fraunces',Georgia,serif; font-size:28px; color:var(--sea); overflow:hidden; }
+                .avatar-btn{ display:inline-block; font-family:inherit; font-size:14px; color:#14110d; cursor:pointer;
+                             background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); border-radius:999px; padding:9px 18px; }
+                .avatar-btn:hover{ filter:brightness(1.04); }
+                #class-match .cm{ text-align:left; border:1px solid var(--line); border-left:2px solid var(--ember);
+                                  border-radius:14px; padding:16px 18px; background:rgba(210,138,82,0.05); }
+                #class-match .cm .k{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em;
+                                     text-transform:uppercase; color:var(--ember); margin-bottom:6px; }
+                #class-match .cm .t{ font-family:'Fraunces',Georgia,serif; font-size:18px; color:var(--paper); }
+                #class-match .cm .s{ color:var(--muted); font-size:13.5px; margin-top:4px; }
+                #class-match .cm a{ color:var(--sea); font-size:13px; text-decoration:none; display:inline-block; margin-top:8px; }
+            </style>
 
         </div>
     </main>
@@ -948,7 +1010,7 @@
         }
         // From the done state a member can still open their portrait to add to it —
         // the questionnaire is a choice they make, never something the link forces.
-        (function(){ var e=$('edit-portrait'); if(e) e.addEventListener('click', function(){ show(1); }); })();
+        (function(){ var e=$('edit-portrait'); if(e) e.addEventListener('click', function(){ if(window.openEnrich){ window.openEnrich(); } else { show(1); } }); })();
 
         // ── boot: detect session, restore draft, auto-save after magic-link return ──
         async function boot(){
@@ -1131,6 +1193,127 @@
         boot();
     })();
     </script>
+<!-- Add-to-your-portrait engine — isolated; uses the signed-in session only,
+     never touches the seal/boot logic above. -->
+<script>
+(function(){
+  "use strict";
+  function $(id){ return document.getElementById(id); }
+  var OPTS = {
+    budget: [['under-1k','Under €1,000'],['1-2k','€1,000–2,000'],['2-3.5k','€2,000–3,500'],['3.5k-plus','€3,500+'],['right-one','Whatever the right one costs']],
+    group:  [['intimate','Small & intimate'],['cohort','A proper cohort'],['either','No preference']],
+    intensity: [['gentle','Gentle & deep'],['balanced','Balanced'],['all-in','All-in, intensive']],
+    want:   [['craft','The craft itself'],['people','The people around it'],['place','The place it lives'],['change','To come back changed']]
+  };
+  var st = { budget:null, group:null, intensity:null, want:null, avatar_url:null };
+  var client=null, uid=null, name='';
+
+  Object.keys(OPTS).forEach(function(k){
+    var box=$('e_'+k); if(!box) return;
+    OPTS[k].forEach(function(pair){
+      var b=document.createElement('button'); b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false'); b.textContent=pair[1];
+      b.addEventListener('click', function(){
+        var chosen=st[k]===pair[0];
+        Array.prototype.forEach.call(box.children,function(c){ c.setAttribute('aria-pressed','false'); });
+        if(chosen){ st[k]=null; } else { b.setAttribute('aria-pressed','true'); st[k]=pair[0]; }
+      });
+      box.appendChild(b);
+    });
+  });
+  function setChip(k,val){ if(!val) return; var box=$('e_'+k); if(!box) return;
+    Array.prototype.forEach.call(box.children,function(c,i){ if(OPTS[k][i] && OPTS[k][i][0]===val){ c.setAttribute('aria-pressed','true'); st[k]=val; } }); }
+
+  function renderAvatar(){
+    var p=$('avatar-preview'), ini=$('avatar-initial'); if(!p) return;
+    if(st.avatar_url){ p.style.backgroundImage='url("'+st.avatar_url+'")'; p.style.backgroundSize='cover'; p.style.backgroundPosition='center'; if(ini) ini.textContent=''; }
+    else { p.style.backgroundImage='none'; if(ini) ini.textContent=(name||'').trim().charAt(0).toUpperCase()||'+'; }
+  }
+
+  var input=$('avatar-input');
+  if(input) input.addEventListener('change', async function(){
+    var f=input.files && input.files[0]; if(!f) return;
+    if(!client || !uid){ $('avatar-status').textContent='Sign in first.'; return; }
+    if(f.size > 6*1024*1024){ $('avatar-status').textContent='That image is large — try one under 6 MB.'; return; }
+    $('avatar-status').textContent='Uploading…';
+    try{
+      var ext=((f.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,''))||'jpg';
+      var path=uid+'/avatar-'+Date.now()+'.'+ext;
+      var up=await client.storage.from('avatars').upload(path, f, { upsert:true, contentType:f.type||'image/jpeg' });
+      if(up.error) throw up.error;
+      st.avatar_url=client.storage.from('avatars').getPublicUrl(path).data.publicUrl;
+      renderAvatar();
+      $('avatar-status').textContent='Looking good.';
+    }catch(e){ console.error(e); $('avatar-status').textContent='Couldn’t upload that — try another image.'; }
+  });
+
+  var saveBtn=$('enrich-save');
+  if(saveBtn) saveBtn.addEventListener('click', async function(){
+    if(!client || !uid){ $('enrich-err').textContent='Sign in first — one click from my email.'; $('enrich-err').style.display='block'; return; }
+    saveBtn.disabled=true; saveBtn.textContent='Saving…'; $('enrich-err').style.display='none';
+    var patch={ preferences:{ group:st.group, intensity:st.intensity, want:st.want }, budget:st.budget };
+    if(st.avatar_url) patch.avatar_url=st.avatar_url;
+    try{
+      var res=await client.from('profiles').update(patch).eq('id', uid);
+      if(res.error) throw res.error;
+      $('enrich-saved').style.display='inline';
+      if(window.plausible) window.plausible('PortraitEnriched');
+      setTimeout(function(){ showEnrich(false); }, 900);
+    }catch(e){ $('enrich-err').textContent='Couldn’t save just now — try again.'; $('enrich-err').style.display='block'; }
+    saveBtn.disabled=false; saveBtn.textContent='Save to my portrait →';
+  });
+
+  var back=$('enrich-back'); if(back) back.addEventListener('click', function(){ showEnrich(false); });
+
+  function showEnrich(on){
+    var e=$('enrich'), d=$('done');
+    if(on){ if(d) d.classList.remove('show'); if(e) e.classList.add('show'); }
+    else { if(e) e.classList.remove('show'); if(d) d.classList.add('show'); }
+    var card=$('card'); if(card) card.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  window.openEnrich=function(){ showEnrich(true); };
+
+  // Light class-match: if their crafts touch the kitchen, surface the coming week.
+  function renderClassMatch(interests){
+    var slot=$('class-match'); if(!slot) return;
+    var blob=''; try{ blob=JSON.stringify(interests||'').toLowerCase(); }catch(e){}
+    var culinary=/cuisine|cooking|culinary|pastry|patisserie|chef|kitchen|sushi|bread|boulangerie|wine|coffee|barista|modernist|basque/.test(blob);
+    if(culinary){
+      slot.innerHTML='<div class="cm"><div class="k">A week that fits you is coming</div>'+
+        '<div class="t">The Avant-Garde Kitchen — Martin Lippo, Barcelona</div>'+
+        '<div class="s">Five days in his laboratory this October — sous-vide, spheres, foams, liquid nitrogen. Built for working chefs first. The Circle hears first.</div>'+
+        '<a href="/barcelona">See the week &rarr;</a></div>';
+    } else {
+      slot.innerHTML='<div class="cm"><div class="k">The next week is being chosen</div>'+
+        '<div class="t">Lab Week 02 — chosen by the Circle</div>'+
+        '<div class="s">The craft the most of you name is the door we knock on next. Yours is on the list.</div>'+
+        '<a href="/lab-weeks">See what’s coming &rarr;</a></div>';
+    }
+  }
+
+  async function prefill(){
+    if(!client || !uid) return;
+    try{
+      var r=await client.from('profiles').select('avatar_url,budget,preferences,first_name,interests').eq('id',uid).single();
+      if(r && r.data){ var d=r.data;
+        name=d.first_name||'';
+        st.avatar_url=d.avatar_url||null; renderAvatar();
+        if(d.budget) setChip('budget', d.budget);
+        if(d.preferences){ setChip('group',d.preferences.group); setChip('intensity',d.preferences.intensity); setChip('want',d.preferences.want); }
+        renderClassMatch(d.interests);
+      }
+    }catch(e){}
+  }
+
+  function boot(){
+    var sb=window.supabaseClient; if(!sb || !sb.auth) return;
+    sb.auth.getSession().then(function(res){
+      var s=res && res.data ? res.data.session : null;
+      if(!s) return; client=sb; uid=s.user.id; prefill();
+    }).catch(function(){});
+  }
+  var tries=0; (function w(){ if(window.supabaseClient) return boot(); if(window.supabaseError || tries>80) return; tries++; setTimeout(w,50); })();
+})();
+</script>
 <footer style="text-align:center;padding:42px 22px 48px;border-top:1px solid rgba(243,237,226,0.08);position:relative;z-index:1;">
   <a href="/browse" class="et-foot-link">The Atlas</a>
   <a href="/lab-weeks" class="et-foot-link">Lab Weeks</a>
