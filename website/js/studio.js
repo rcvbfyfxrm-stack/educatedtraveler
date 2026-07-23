@@ -94,7 +94,7 @@
   }
 
   // ---------- boot ----------
-  let activeTab = "command";
+  let activeTab = "hot";
   function boot() {
     $("#today-line").textContent = todayISO();
     setFocusLine();
@@ -138,7 +138,131 @@
 
   function render() {
     const v = $("#view"); v.innerHTML = "";
-    ({ command: (n) => (window.ET_RENDER_COMMAND || renderCampaign)(n), news: (n) => (window.ET_RENDER_NEWS || renderCampaign)(n), people: (n) => (window.ET_RENDER_PEOPLE || renderCampaign)(n), campaign: renderCampaign, launch: renderLaunch, letter: renderLetter, plan: renderPlan, drop: renderDrop, ideas: renderIdeas, posts: renderPosts, outreach: renderOutreach, articles: renderArticles, metrics: renderMetrics }[activeTab] || renderCampaign)(v);
+    ({
+      hot: renderHot,
+      campaign: renderCampaign,
+      calendar: renderCalendar,
+      plan: (n) => { renderPlan(n); n.appendChild(el("hr", { class: "grain-divider", style: "margin:44px 0 32px;" })); renderIdeas(n); },
+      people: (n) => (window.ET_RENDER_PEOPLE || renderCampaign)(n),
+      letter: renderLetter,
+    }[activeTab] || renderHot)(v);
+  }
+
+  // ================= WHAT'S HOT (do-next headline + command + news) =================
+  function renderHot(v) {
+    // the single most important next action — always present, even before the nightly brief
+    const banner = el("div", { class: "panel", style: "padding:18px 22px; margin-bottom:22px; border-left:3px solid var(--ember);" });
+    banner.appendChild(el("div", { class: "eyebrow", style: "color:var(--ember); margin-bottom:8px;", text: "Do next" }));
+    let nextTxt = "", nextWhere = "";
+    const live = CAMPAIGNS.find((c) => c.status === "live");
+    if (live) { const n = campaignNextStep(live); if (n) { nextTxt = n.do; nextWhere = "Campaign"; } }
+    if (!nextTxt) {
+      const wk = (PLAN.horizons || []).find((h) => h.id === "week");
+      const items = wk ? wk.groups.flatMap((g) => g.items) : [];
+      const n = items.find((it) => !S.plan[it.id]);
+      if (n) { nextTxt = n.t; nextWhere = "Plan · this week"; }
+    }
+    banner.appendChild(el("div", { class: "font-serif", style: "font-size:20px; line-height:1.4; color:var(--paper);", text: nextTxt || "This week is clear — keep the daily clip running and the letter shipping." }));
+    if (nextWhere) banner.appendChild(el("span", { class: "tag", style: "margin-top:10px; display:inline-block;", text: "→ " + nextWhere }));
+    v.appendChild(banner);
+
+    // command center — today's brief, ranked to-dos, hands raised (Supabase-backed)
+    const cmd = el("div", {});
+    v.appendChild(cmd);
+    (window.ET_RENDER_COMMAND || function (n) { n.appendChild(el("p", { style: "color:var(--faint); font-size:13px;", text: "Command module not loaded." })); })(cmd);
+
+    // news — the growth-loop feed
+    const news = el("div", { style: "margin-top:34px; border-top:1px solid var(--line); padding-top:26px;" });
+    v.appendChild(news);
+    (window.ET_RENDER_NEWS || function (n) { n.appendChild(el("p", { style: "color:var(--faint); font-size:13px;", text: "News module not loaded." })); })(news);
+  }
+
+  // ================= CALENDAR (month grid: daily clip + posts + launch) =================
+  let calMonth = null, calSelected = null;
+  function calStart() { if (!S.calStart) S.calStart = todayISO(); return S.calStart; }
+  function dropDateFor(day) { const b = new Date(calStart() + "T12:00"); b.setDate(b.getDate() + (day - 1)); return b; }
+  function isoOf(y, m, d) { return y + "-" + String(m + 1).padStart(2, "0") + "-" + String(d).padStart(2, "0"); }
+
+  function renderCalendar(v) {
+    v.appendChild(sectionHead("Calendar", "Your month at a glance — the daily craft clip on each day, with the posts library and the launch checklist below. Set when Day 1 begins and the 30-clip rotation lays out from there."));
+
+    // start-date anchor
+    const anchor = el("div", { class: "panel", style: "padding:13px 18px; margin-bottom:16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;" });
+    anchor.appendChild(el("label", { class: "fld", style: "margin:0;", text: "Day 1 starts" }));
+    const dIn = el("input", { type: "date", value: calStart(), style: "width:auto;" });
+    dIn.addEventListener("change", () => { S.calStart = dIn.value || todayISO(); save(); calMonth = null; render(); });
+    anchor.appendChild(dIn);
+    anchor.appendChild(el("span", { style: "font-size:12px; color:var(--faint);", text: "one clip per day, in order, from here" }));
+    v.appendChild(anchor);
+
+    if (!calMonth) { const b = new Date(calStart() + "T12:00"); calMonth = { y: b.getFullYear(), m: b.getMonth() }; }
+
+    // month nav
+    const nav = el("div", { style: "display:flex; align-items:center; gap:12px; margin-bottom:14px;" });
+    nav.appendChild(el("button", { class: "btn-ghost", style: "padding:5px 13px; border-radius:8px; font-size:15px;", onclick: () => { calMonth.m--; if (calMonth.m < 0) { calMonth.m = 11; calMonth.y--; } render(); } }, "‹"));
+    nav.appendChild(el("div", { class: "font-serif", style: "font-size:20px; min-width:190px; text-align:center;", text: new Date(calMonth.y, calMonth.m, 1).toLocaleDateString("en-GB", { month: "long", year: "numeric" }) }));
+    nav.appendChild(el("button", { class: "btn-ghost", style: "padding:5px 13px; border-radius:8px; font-size:15px;", onclick: () => { calMonth.m++; if (calMonth.m > 11) { calMonth.m = 0; calMonth.y++; } render(); } }, "›"));
+    nav.appendChild(el("button", { class: "link-quiet", style: "font-size:12px; margin-left:4px;", onclick: () => { const b = new Date(calStart() + "T12:00"); calMonth = { y: b.getFullYear(), m: b.getMonth() }; render(); } }, "Jump to Day 1"));
+    v.appendChild(nav);
+
+    // map days -> drop items for the visible month
+    const dayItems = {};
+    DROP.forEach((d) => { const dt = dropDateFor(d.day); if (dt.getFullYear() === calMonth.y && dt.getMonth() === calMonth.m) dayItems[dt.getDate()] = d; });
+
+    // grid
+    const grid = el("div", { style: "display:grid; grid-template-columns:repeat(7,1fr); gap:6px;" });
+    ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].forEach((w) => grid.appendChild(el("div", { class: "font-mono", style: "font-size:10px; letter-spacing:.1em; color:var(--faint); text-align:center; padding:2px 0;", text: w })));
+    const first = new Date(calMonth.y, calMonth.m, 1);
+    const startDow = (first.getDay() + 6) % 7;
+    const daysInMonth = new Date(calMonth.y, calMonth.m + 1, 0).getDate();
+    for (let i = 0; i < startDow; i++) grid.appendChild(el("div", {}));
+    const todayStr = todayISO();
+    for (let dm = 1; dm <= daysInMonth; dm++) {
+      const isToday = isoOf(calMonth.y, calMonth.m, dm) === todayStr;
+      const it = dayItems[dm];
+      const cell = el("div", { class: "panel", style: "min-height:76px; padding:6px 7px; display:flex; flex-direction:column; gap:3px;" + (it ? " cursor:pointer;" : "") + (isToday ? " border-color:rgba(210,138,82,.6);" : "") + (calSelected && it && it.day === calSelected ? " background:rgba(210,138,82,.07);" : "") });
+      cell.appendChild(el("div", { class: "font-mono", style: "font-size:10px; color:" + (isToday ? "var(--ember)" : "var(--faint)") + ";", text: String(dm) }));
+      if (it) {
+        const st = dropState(it.day);
+        cell.appendChild(el("div", { style: "display:flex; gap:5px; align-items:flex-start; line-height:1.2;" }, [
+          el("span", { class: "core-dot core-" + it.core, style: "margin-top:3px; flex:none;" }),
+          el("span", { style: "font-size:11px; color:var(--paper);", text: it.discipline }),
+        ]));
+        cell.appendChild(el("span", { class: "pill " + st.status, style: "font-size:8px; padding:1px 6px; align-self:flex-start;", text: DROP_LABELS[st.status] }));
+        cell.addEventListener("click", () => { calSelected = it.day; render(); setTimeout(() => { const t = document.getElementById("cal-detail"); if (t) t.scrollIntoView({ behavior: "smooth", block: "center" }); }, 40); });
+      }
+      grid.appendChild(cell);
+    }
+    v.appendChild(grid);
+
+    // selected-day detail (reuses the full drop card)
+    if (calSelected != null) {
+      const it = DROP.find((d) => d.day === calSelected);
+      if (it) {
+        const wrap = el("div", { id: "cal-detail", style: "margin-top:22px;" });
+        wrap.appendChild(el("div", { class: "eyebrow", style: "margin-bottom:10px;", text: "Day " + it.day + " · " + dropDateFor(it.day).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" }) }));
+        wrap.appendChild(dropCard(it, true));
+        v.appendChild(wrap);
+      }
+    }
+
+    // launch checklist (collapsible)
+    const allSteps = (LAUNCH.phases || []).flatMap((p) => p.steps);
+    const doneSteps = allSteps.filter((s) => S.seq[s.id]).length;
+    const launchDet = el("details", { class: "panel", style: "padding:14px 18px; margin-top:24px;" });
+    launchDet.appendChild(el("summary", { class: "font-serif", style: "font-size:16px; cursor:pointer;", html: "Launch — the campaign playbook <span style='color:var(--faint); font-size:12px; font-family:\"IBM Plex Mono\",monospace;'>· " + doneSteps + "/" + allSteps.length + " steps</span>" }));
+    const ld = el("div", { style: "margin-top:16px;" });
+    renderLaunch(ld, true);
+    launchDet.appendChild(ld);
+    v.appendChild(launchDet);
+
+    // posts library (collapsible)
+    const postsDet = el("details", { class: "panel", style: "padding:14px 18px; margin-top:14px;" });
+    postsDet.appendChild(el("summary", { class: "font-serif", style: "font-size:16px; cursor:pointer;", html: "Posts library <span style='color:var(--faint); font-size:12px; font-family:\"IBM Plex Mono\",monospace;'>· " + POSTS.length + " ready</span>" }));
+    const pd = el("div", { style: "margin-top:16px;" });
+    renderPosts(pd, true);
+    postsDet.appendChild(pd);
+    v.appendChild(postsDet);
   }
 
   // ================= CAMPAIGN (the cockpit — home) =================
@@ -348,8 +472,8 @@
   }
 
   // ================= LAUNCH (ordered playbook) =================
-  function renderLaunch(v) {
-    v.appendChild(sectionHead("Launch", LAUNCH.intro || ""));
+  function renderLaunch(v, skipHead) {
+    if (!skipHead) v.appendChild(sectionHead("Launch", LAUNCH.intro || ""));
 
     // surfaces legend — clears up Daily Drop vs Posts vs Letter
     const leg = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:18px;" });
@@ -736,7 +860,6 @@
     const a = (label, cls, fn) => el("button", { class: cls, style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: fn }, label);
     acts.appendChild(a("Share / post", "btn-primary", () => shareOrCopy(ta.value, d.discipline + " — " + d.place)));
     acts.appendChild(a("Copy caption", "btn-ghost", () => copy(ta.value)));
-    acts.appendChild(a("Request footage", "btn-ghost", () => openOutreachFor(d)));
     acts.appendChild(linkBtn("Instagram", "https://www.instagram.com/"));
     acts.appendChild(linkBtn("TikTok", "https://www.tiktok.com/upload"));
     acts.appendChild(linkBtn("Shorts", "https://www.youtube.com/upload"));
@@ -812,8 +935,8 @@
   }
 
   // ================= POSTS =================
-  function renderPosts(v) {
-    v.appendChild(sectionHead("Posts", "Ready-to-publish posts. Copy the caption or download it as a text file — each routes to ONE Atlas page or the Circle. Voice-locked: connect, never sell. The Circle (the letter) is the hero; video is a feeder."));
+  function renderPosts(v, skipHead) {
+    if (!skipHead) v.appendChild(sectionHead("Posts", "Ready-to-publish posts. Copy the caption or download it as a text file — each routes to ONE Atlas page or the Circle. Voice-locked: connect, never sell. The Circle (the letter) is the hero; video is a feeder."));
 
     if (!POSTS.length) { v.appendChild(el("p", { style: "color:var(--faint); font-size:13px;", text: "No posts loaded (studio-posts.js missing)." })); return; }
 
