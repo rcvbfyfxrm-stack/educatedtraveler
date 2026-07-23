@@ -483,6 +483,7 @@
                     <img class="done-photo" src="/images/arnaud-portrait.jpg" alt="Arnaud" width="66" height="66" loading="lazy">
                     <span class="done-name">Arnaud</span>
                 </div>
+                <button type="button" class="go" id="edit-portrait" style="background:none;border:none;cursor:pointer;font:inherit;margin-right:22px;">Add to your portrait &rarr;</button>
                 <a class="go" href="/browse">Wander the Atlas while you wait &rarr;</a>
             </section>
 
@@ -951,6 +952,9 @@
             showDone('done');
             if(window.plausible) window.plausible('PortraitSealed');
         }
+        // From the done state a member can still open their portrait to add to it —
+        // the questionnaire is a choice they make, never something the link forces.
+        (function(){ var e=$('edit-portrait'); if(e) e.addEventListener('click', function(){ show(1); }); })();
 
         // ── boot: detect session, restore draft, auto-save after magic-link return ──
         async function boot(){
@@ -1066,11 +1070,20 @@
                 if(!hadDraft && !portraitComplete
                    && (craftList().length || state.letter || state.prof || state.region
                        || answer('lifestage') || answer('depth') || answer('timing') || answer('length') || answer('reach'))){
-                    // Signed in, the profile carries answers, no local draft — the
-                    // magic-link-opened-elsewhere case. Everything is already here;
-                    // go straight to the recap, sealing is one click.
+                    // Magic-link return: the account was founded when they joined the
+                    // Circle. Save the claimed answers and CONFIRM — the link signs
+                    // them in, it never asks them to fill the questionnaire again.
                     restoreInputs();
-                    show(5); return;
+                    try{ await saveProfile(); }catch(e){}
+                    finish(); return;
+                }
+                // Any other signed-in arrival (a complete member, or a restored
+                // mid-edit draft): this is a SIGN-IN. Show their portrait as done —
+                // the magic link connects to the account, never re-opens the form.
+                restoreInputs();
+                if(portraitComplete || hadDraft || craftList().length || state.letter || state.prof
+                   || answer('lifestage') || answer('depth') || answer('timing') || answer('length') || answer('reach')){
+                    finish(); return;
                 }
             } else {
                 markWho('Not signed in — one click from my email fixes that');
