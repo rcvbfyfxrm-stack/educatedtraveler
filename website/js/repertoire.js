@@ -22316,6 +22316,72 @@ window.ET_ATLAS = {
         "priceNote": "from €895 per block (a verified starting point, not a checkout)",
         "confidence": "high"
       }
+    },
+    {
+      "discipline": "Lifestyle Medicine",
+      "category": "wellness",
+      "certBody": "American Board of Lifestyle Medicine (ABLM)",
+      "goldCredential": "Diplomate, American Board of Lifestyle Medicine",
+      "blurb": "The evidence-based, board-certified version of 'treat the root cause' — six pillars, real trials, no supplement shelf.",
+      "destinations": [
+        {
+          "place": "United States",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "A growing movement",
+          "schools": [
+            "American College of Lifestyle Medicine",
+            "American Board of Lifestyle Medicine"
+          ],
+          "masters": [
+            "Dean Ornish (lifestyle-medicine movement)"
+          ],
+          "badges": [
+            "evidence-based",
+            "board-recognised",
+            "movement"
+          ],
+          "why": "The evidence-based, board-recognised home of root-cause care — a fast-growing community of clinicians who treat causes over symptoms. A clinician's credential, built on a real medical board.",
+          "bestSeason": "Year-round",
+          "level": "Clinicians (or a health Master's/Doctorate)",
+          "id": "lifestyle-medicine--united-states",
+          "schoolsInfo": [
+            {
+              "name": "American College of Lifestyle Medicine (ACLM) & the ABLM board",
+              "url": "https://lifestylemedicine.org/",
+              "course": "Lifestyle Medicine training + ABLM Diplomate certification",
+              "blurb": "Evidence-based six-pillar training; board certification built on an existing medical board cert. Not open to the public.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Certification",
+          "tripLength": "CME + exam",
+          "instructionLanguage": "English",
+          "englishTaught": true,
+          "englishBasis": "English (US body); some approved CME in Spanish."
+        }
+      ],
+      "id": "lifestyle-medicine",
+      "certShort": "ABLM board",
+      "featured": {
+        "id": "lifestyle-medicine--united-states",
+        "place": "United States",
+        "country": "United States",
+        "school": "American College of Lifestyle Medicine (ACLM) & the ABLM board",
+        "url": "https://lifestylemedicine.org/",
+        "course": "Lifestyle Medicine training + Diplomate board certification (ABLM)",
+        "description": "The professional home and the board credential for evidence-based, six-pillar root-cause care — built on top of an existing medical board certification, not a supplement catalogue.",
+        "duration": "CME + board exam (clinicians)",
+        "format": "Online CME + board certification; ACLM annual-conference community",
+        "certification": "Diplomate of the American Board of Lifestyle Medicine",
+        "fitsBecause": "The one route in the field that sits on a real medical board certification and carries accredited, evidence-based training — the honest version of functional medicine.",
+        "sessions": [],
+        "priceNote": "CME + exam fees (clinicians)",
+        "confidence": "high"
+      }
     }
   ],
   "enrichedAt": "2026-06-11",
