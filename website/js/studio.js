@@ -162,7 +162,7 @@
       const n = items.find((it) => !S.plan[it.id]);
       if (n) { nextTxt = n.t; nextWhere = "Plan · this week"; }
     }
-    banner.appendChild(el("div", { class: "font-serif", style: "font-size:20px; line-height:1.4; color:var(--paper);", text: nextTxt || "This week is clear — keep the daily clip running and the letter shipping." }));
+    banner.appendChild(el("div", { class: "font-serif", style: "font-size:20px; line-height:1.4; color:var(--paper);", text: nextTxt || "This week is clear — line up the schools' promo content and keep the letter shipping." }));
     if (nextWhere) banner.appendChild(el("span", { class: "tag", style: "margin-top:10px; display:inline-block;", text: "→ " + nextWhere }));
     v.appendChild(banner);
 
@@ -182,20 +182,33 @@
   function calStart() { if (!S.calStart) S.calStart = todayISO(); return S.calStart; }
   function dropDateFor(day) { const b = new Date(calStart() + "T12:00"); b.setDate(b.getDate() + (day - 1)); return b; }
   function isoOf(y, m, d) { return y + "-" + String(m + 1).padStart(2, "0") + "-" + String(d).padStart(2, "0"); }
+  function calItems() { if (!S.calItems) S.calItems = {}; return S.calItems; }
 
   function renderCalendar(v) {
-    v.appendChild(sectionHead("Calendar", "Your month at a glance — the daily craft clip on each day, with the posts library and the launch checklist below. Set when Day 1 begins and the 30-clip rotation lays out from there."));
+    v.appendChild(sectionHead("Calendar", "Your month at a glance. Daily auto-posting is paused — you're gathering promo content from the instructors and schools instead. Click any day to schedule what they send; the launch checklist and posts library are below."));
 
-    // start-date anchor
-    const anchor = el("div", { class: "panel", style: "padding:13px 18px; margin-bottom:16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;" });
-    anchor.appendChild(el("label", { class: "fld", style: "margin:0;", text: "Day 1 starts" }));
-    const dIn = el("input", { type: "date", value: calStart(), style: "width:auto;" });
-    dIn.addEventListener("change", () => { S.calStart = dIn.value || todayISO(); save(); calMonth = null; render(); });
-    anchor.appendChild(dIn);
-    anchor.appendChild(el("span", { style: "font-size:12px; color:var(--faint);", text: "one clip per day, in order, from here" }));
-    v.appendChild(anchor);
+    // paused-mode note + optional re-enable of the founder daily-drop rotation
+    const note = el("div", { class: "panel", style: "padding:13px 18px; margin-bottom:16px; border-left:3px solid var(--sea);" });
+    note.appendChild(el("div", { style: "font-size:13.5px; line-height:1.55; color:var(--paper);", html: "<strong>Daily founder-clip posting is paused.</strong> Promo content now comes from the instructors &amp; schools running free promotion of their own courses. Click any day to schedule what they send you." }));
+    const drOn = !!S.dailyDrop;
+    const tog = el("div", { style: "margin-top:10px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;" });
+    tog.appendChild(el("span", { class: "font-mono", style: "font-size:11px; color:var(--faint);", text: "Founder daily-drop rotation" }));
+    tog.appendChild(el("button", { class: drOn ? "btn-primary" : "btn-ghost", style: "padding:5px 12px; border-radius:8px; font-size:11.5px;", onclick: () => { S.dailyDrop = !S.dailyDrop; save(); calMonth = null; render(); } }, drOn ? "on — hide it" : "off — bring it back"));
+    note.appendChild(tog);
+    v.appendChild(note);
 
-    if (!calMonth) { const b = new Date(calStart() + "T12:00"); calMonth = { y: b.getFullYear(), m: b.getMonth() }; }
+    // start-date anchor (only when the founder rotation is on)
+    if (S.dailyDrop) {
+      const anchor = el("div", { class: "panel", style: "padding:13px 18px; margin-bottom:16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;" });
+      anchor.appendChild(el("label", { class: "fld", style: "margin:0;", text: "Day 1 starts" }));
+      const dIn = el("input", { type: "date", value: calStart(), style: "width:auto;" });
+      dIn.addEventListener("change", () => { S.calStart = dIn.value || todayISO(); save(); calMonth = null; render(); });
+      anchor.appendChild(dIn);
+      anchor.appendChild(el("span", { style: "font-size:12px; color:var(--faint);", text: "one clip per day, in order, from here" }));
+      v.appendChild(anchor);
+    }
+
+    if (!calMonth) { const b = new Date((S.dailyDrop ? calStart() : todayISO()) + "T12:00"); calMonth = { y: b.getFullYear(), m: b.getMonth() }; }
 
     // month nav
     const nav = el("div", { style: "display:flex; align-items:center; gap:12px; margin-bottom:14px;" });
@@ -205,9 +218,9 @@
     nav.appendChild(el("button", { class: "link-quiet", style: "font-size:12px; margin-left:4px;", onclick: () => { const b = new Date(calStart() + "T12:00"); calMonth = { y: b.getFullYear(), m: b.getMonth() }; render(); } }, "Jump to Day 1"));
     v.appendChild(nav);
 
-    // map days -> drop items for the visible month
+    // map days -> founder drop items (only when the rotation is on)
     const dayItems = {};
-    DROP.forEach((d) => { const dt = dropDateFor(d.day); if (dt.getFullYear() === calMonth.y && dt.getMonth() === calMonth.m) dayItems[dt.getDate()] = d; });
+    if (S.dailyDrop) DROP.forEach((d) => { const dt = dropDateFor(d.day); if (dt.getFullYear() === calMonth.y && dt.getMonth() === calMonth.m) dayItems[dt.getDate()] = d; });
 
     // grid
     const grid = el("div", { style: "display:grid; grid-template-columns:repeat(7,1fr); gap:6px;" });
@@ -218,19 +231,36 @@
     for (let i = 0; i < startDow; i++) grid.appendChild(el("div", {}));
     const todayStr = todayISO();
     for (let dm = 1; dm <= daysInMonth; dm++) {
-      const isToday = isoOf(calMonth.y, calMonth.m, dm) === todayStr;
+      const iso = isoOf(calMonth.y, calMonth.m, dm);
+      const isToday = iso === todayStr;
       const it = dayItems[dm];
-      const cell = el("div", { class: "panel", style: "min-height:76px; padding:6px 7px; display:flex; flex-direction:column; gap:3px;" + (it ? " cursor:pointer;" : "") + (isToday ? " border-color:rgba(210,138,82,.6);" : "") + (calSelected && it && it.day === calSelected ? " background:rgba(210,138,82,.07);" : "") });
+      const mine = calItems()[iso] || [];
+      const cell = el("div", { class: "panel", title: "Click to schedule a post", style: "min-height:78px; padding:6px 7px; display:flex; flex-direction:column; gap:3px; cursor:pointer;" + (isToday ? " border-color:rgba(210,138,82,.6);" : "") + (calSelected && it && it.day === calSelected ? " background:rgba(210,138,82,.07);" : "") });
       cell.appendChild(el("div", { class: "font-mono", style: "font-size:10px; color:" + (isToday ? "var(--ember)" : "var(--faint)") + ";", text: String(dm) }));
+      // content you scheduled (from the schools / instructors)
+      mine.forEach((m) => {
+        const chip = el("div", { title: "Click to remove", style: "line-height:1.2; background:rgba(127,168,165,.12); border-radius:6px; padding:2px 6px;" }, [
+          el("span", { style: "font-size:11px; color:var(--paper);", text: m.text }),
+        ]);
+        chip.addEventListener("click", (e) => { e.stopPropagation(); if (confirm("Remove “" + m.text + "”?")) { calItems()[iso] = mine.filter((x) => x.id !== m.id); if (!calItems()[iso].length) delete calItems()[iso]; save(); render(); } });
+        cell.appendChild(chip);
+      });
+      // the founder drop item, only when the rotation is on
       if (it) {
         const st = dropState(it.day);
-        cell.appendChild(el("div", { style: "display:flex; gap:5px; align-items:flex-start; line-height:1.2;" }, [
+        const drop = el("div", { title: "Founder daily-drop — click for the brief", style: "display:flex; gap:5px; align-items:flex-start; line-height:1.2;" }, [
           el("span", { class: "core-dot core-" + it.core, style: "margin-top:3px; flex:none;" }),
           el("span", { style: "font-size:11px; color:var(--paper);", text: it.discipline }),
-        ]));
+        ]);
+        drop.addEventListener("click", (e) => { e.stopPropagation(); calSelected = it.day; render(); setTimeout(() => { const t = document.getElementById("cal-detail"); if (t) t.scrollIntoView({ behavior: "smooth", block: "center" }); }, 40); });
+        cell.appendChild(drop);
         cell.appendChild(el("span", { class: "pill " + st.status, style: "font-size:8px; padding:1px 6px; align-self:flex-start;", text: DROP_LABELS[st.status] }));
-        cell.addEventListener("click", () => { calSelected = it.day; render(); setTimeout(() => { const t = document.getElementById("cal-detail"); if (t) t.scrollIntoView({ behavior: "smooth", block: "center" }); }, 40); });
       }
+      // click the empty area -> schedule a post for that day
+      cell.addEventListener("click", () => {
+        const t = (window.prompt("Schedule a post on " + iso + " — what goes out? (e.g. a school's promo clip, a reel)") || "").trim();
+        if (t) { calItems()[iso] = (calItems()[iso] || []).concat([{ id: uid(), text: t }]); save(); render(); }
+      });
       grid.appendChild(cell);
     }
     v.appendChild(grid);
