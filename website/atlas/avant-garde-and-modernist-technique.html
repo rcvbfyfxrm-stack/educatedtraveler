@@ -127,15 +127,51 @@ details .body li b{color:var(--paper);font-weight:500}
 .circle-btn{display:inline-block;padding:13px 28px;border-radius:99px;font-size:14px;font-weight:500;color:#14110d;text-decoration:none;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);transition:transform .2s,filter .2s}
 .circle-btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
 footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(--sea)}
+
+/* — reading progress — */
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--sea),var(--accent));z-index:60;transition:width .12s ease-out}
+/* — hero photo behind the words — */
+header.hero .heroimg{position:absolute;inset:0;z-index:0;overflow:hidden}
+header.hero .heroimg img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;opacity:.42;border:0;border-radius:0}
+header.hero .heroimg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,9,.55),rgba(13,11,9,.8) 62%,var(--ink)),linear-gradient(96deg,rgba(13,11,9,.72),transparent 74%)}
+header.hero .wrap{position:relative;z-index:2}
+/* — drop cap for the opening line — */
+.dropcap:first-letter{float:left;font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:3.5em;line-height:.78;padding:8px 14px 0 0;color:var(--accent)}
+/* — a full-width photograph between sections — */
+.band{margin:0;width:100%;max-width:none;border-bottom:1px solid var(--line)}
+.band img{width:100%;height:min(50vh,430px);object-fit:cover;display:block;border:0;border-radius:0}
+.band figcaption{max-width:760px;margin:12px auto 26px;padding:0 26px;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:var(--faint);line-height:1.6}
+.band figcaption a{color:var(--faint);border-bottom:1px solid var(--line)}
+/* — Martin Lippo × EducatedTraveler — the week — */
+.etweek-sec{background:linear-gradient(180deg,rgba(210,138,82,.05),transparent 60%)}
+.lockup{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 16px;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(20px,3vw,27px);line-height:1.1}
+.lockup i{font-style:normal;color:var(--ember);font-size:.8em;opacity:.9}
+.lockup .et{color:var(--sea)}
+.etweek{border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;background:var(--ink2)}
+.etweek .lede{font-size:16.5px;color:rgba(243,237,226,.9);max-width:60ch}
+.etweek .facts{display:flex;flex-wrap:wrap;gap:8px 10px;margin:18px 0 4px}
+.etweek .facts span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}
+.etweek .facts b{color:var(--paper);font-weight:500}
+.filmposter{position:relative;display:block;margin:20px 0 6px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
+.filmposter img{width:100%;height:auto;display:block;opacity:.78;border:0;border-radius:0;transition:opacity .3s,transform 3s ease-out}
+.filmposter:hover img{opacity:.92;transform:scale(1.03)}
+.filmposter .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;background:rgba(13,11,9,.5);border:1px solid rgba(243,237,226,.6);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px)}
+.filmposter .play:after{content:"";margin-left:4px;border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent var(--paper)}
+.filmposter .fp-note{position:absolute;left:0;right:0;bottom:0;margin:0;padding:26px 18px 14px;max-width:none;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:rgba(243,237,226,.86);background:linear-gradient(180deg,transparent,rgba(13,11,9,.9))}
+.etweek-btn{display:inline-block;margin-top:16px;padding:13px 26px;border-radius:99px;font-size:14px;font-weight:500;color:#14110d;text-decoration:none;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);transition:transform .2s,filter .2s}
+.etweek-btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
 </style>
 </head>
 <body>
+<div class="progress" id="progress"></div>
 <nav class="top"><div class="row">
   <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
   <div class="nl"><a href="/browse">The Atlas</a><a href="/about">The Story</a><a href="/journal/">Journal</a><a href="/circle">Join the Circle</a></div>
 </div></nav>
 
-<header class="hero"><div class="wrap">
+<header class="hero">
+  <div class="heroimg"><img src="/images/spherification-dish.jpg" alt="A spherified modernist 'caviar', elBulli style" fetchpriority="high"></div>
+  <div class="wrap">
   <div class="mono bc"><a href="/browse">Atlas</a> / Kitchen &amp; Cellar</div>
   <h1>Avant-Garde &amp; Modernist Technique</h1>
   <p class="spine">The movement whose own masters <em>buried its most famous name</em> — while its technique quietly took over the best kitchens on earth.</p>
@@ -146,7 +182,7 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 <section><div class="wrap">
   <div class="eyebrow">What it actually is</div>
   <h2 class="serif">Rigour that got mistaken for theatre</h2>
-  <p>Strip away the smoke. Underneath is a body of <span class="k">technique</span> — precise temperature, the chemistry of gels and foams, vacuum and pressure — worked out in a handful of restaurants and then absorbed into fine dining so completely that most of it is now just how good kitchens cook. Sous-vide is standard equipment. Hydrocolloids sit on every serious pastry shelf.</p>
+  <p class="dropcap">Strip away the smoke. Underneath is a body of <span class="k">technique</span> — precise temperature, the chemistry of gels and foams, vacuum and pressure — worked out in a handful of restaurants and then absorbed into fine dining so completely that most of it is now just how good kitchens cook. Sous-vide is standard equipment. Hydrocolloids sit on every serious pastry shelf.</p>
   <p>What it is <em>not</em> is the cliché — the spherified everything, the dry-ice fog, the foam on the foam. That version is a caricature the founders themselves warned against, and the honest read of this craft is learning to tell the two apart: <span class="k">the technique that lasted from the spectacle that dated.</span></p>
   <figure class="narrow">
     <img src="/images/spherification-dish.jpg" alt="A spherified modernist dish" loading="lazy">
@@ -197,6 +233,11 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
   <p>So the map points where the living scene is: <span class="k">Barcelona</span>, where the diaspora still cooks, teaches and experiments — and where you can actually book a bench and learn the technique, rather than buy a museum ticket to look at where it used to happen.</p>
 </div></section>
 
+<figure class="band">
+  <img src="/images/lippo/class-room.jpg" alt="A full room of professional cooks working at Martin Lippo's Vakuum laboratory in Barcelona" loading="lazy">
+  <figcaption>The scene is still alive — a room of working cooks at Martin Lippo's Vakuum lab, Barcelona. Photo: Vakuum by Martin Lippo.</figcaption>
+</figure>
+
 <!-- §4 true vs sold -->
 <section><div class="wrap">
   <div class="eyebrow">The honest read</div>
@@ -240,6 +281,30 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
       <li><b>In-person, Barcelona:</b> booked from the catalogue or by arranging a private topic; prices on enquiry; Spanish (English/French privately).</li>
     </ul></div></details>
     <p class="alts"><b>Also real, if not the pick:</b> the <a class="lk" href="https://www.bculinary.com/en/home" target="_blank" rel="noopener">Basque Culinary Center</a> in San Sebastián — an institutional heavyweight with avant-garde and "Molecular Cooking" courses (some in English) and open-enrolment short courses. <a class="lk" href="https://www.sousvideaustralia.com/" target="_blank" rel="noopener">The Upper Room / Sous Vide Australia</a> in Melbourne teaches in English, but leans sous-vide rather than the full modernist range. <b>Not schools, honestly:</b> <b>elBulli1846</b> is a museum you visit, not a place you study; and El Celler de Can Roca's "stage" is a selective, gatekept placement — they pick you from a CV and a photo — not a course you can book.</p>
+  </div>
+</div></section>
+
+<!-- Martin Lippo × EducatedTraveler — the week -->
+<section class="etweek-sec"><div class="wrap">
+  <div class="eyebrow" style="color:var(--ember)">Once a year, we run the whole thing</div>
+  <p class="lockup"><span>Martin Lippo</span><i>&times;</i><span class="et">EducatedTraveler</span></p>
+  <div class="etweek">
+    <h2 class="serif" style="font-size:clamp(23px,3vw,30px);margin:0 0 14px">The first Lab Week — five days at his bench</h2>
+    <p class="lede">Everything above is the open door: buy Martin's modules, learn them at your own pace, no gatekeeper. Once a year we also put the whole toolkit into a single week in his Barcelona lab — thirty-five hours, in English, ten to fifteen working cooks at one bench. The first one runs this October, and it's built for chefs coming off boats.</p>
+    <div class="facts">
+      <span><b>Barcelona</b> · Vakuum</span>
+      <span><b>22–26 Oct 2026</b></span>
+      <span><b>35 hours</b> · in English</span>
+      <span>Signed <b>certificate</b></span>
+      <span>Room capped at <b>15</b></span>
+    </div>
+    <!-- FILM SLOT — poster for now; when the film is cut, swap this <a> for the player. -->
+    <a class="filmposter" href="/barcelona">
+      <img src="/images/lippo/martin-teaching.png" alt="Martin Lippo teaching modernist technique at his Vakuum lab in Barcelona" loading="lazy">
+      <span class="play" aria-hidden="true"></span>
+      <p class="fp-note">Film coming — Martin, from the bench, shot in his lab this October. The Circle sees it first.</p>
+    </a>
+    <a class="etweek-btn" href="/barcelona">See the week — Barcelona, this October &rarr;</a>
   </div>
 </div></section>
 
@@ -295,6 +360,9 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 
 <footer><div class="wrap">EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/circle">Join the Circle</a>.<br><span style="opacity:.75">Privacy-light, cookieless analytics.</span></div></footer>
 
+<script>
+(function(){var b=document.getElementById('progress');if(!b)return;var t;function u(){var h=document.documentElement,m=(h.scrollHeight-h.clientHeight)||1;b.style.width=(Math.min(1,h.scrollTop/m)*100)+'%';}addEventListener('scroll',function(){t||(t=requestAnimationFrame(function(){u();t=0;}));},{passive:true});u();})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
 <script src="/js/intent-capture.js" defer></script>
