@@ -634,6 +634,33 @@
             }
         }
 
+        // Where to land after auth. Honour ?return= (same-origin path ONLY — no
+        // open-redirect), else the dashboard. Booking flows (checkout.js,
+        // paypal-checkout, cohort-chat, experience-actions) route unauthenticated
+        // users here as /join?return=<path> so they finish what they started
+        // instead of being dumped on the dashboard.
+        function returnDest() {
+            try {
+                var raw = new URLSearchParams(window.location.search).get('return');
+                if (!raw) return '/dashboard';
+                var dec = decodeURIComponent(raw);
+                if (/^\/(?!\/)/.test(dec)) return dec;   // root-relative path only
+            } catch (e) {}
+            return '/dashboard';
+        }
+        // For magic links: carry ?return= through to auth-callback so it survives the
+        // email round-trip (the query string is the only cross-device carrier).
+        function authCallbackUrl() {
+            var base = window.location.origin + '/auth-callback.html';
+            try {
+                var raw = new URLSearchParams(window.location.search).get('return');
+                if (!raw) return base;
+                var dec = decodeURIComponent(raw);
+                if (/^\/(?!\/)/.test(dec)) return base + '?return=' + encodeURIComponent(dec);
+            } catch (e) {}
+            return base;
+        }
+
         waitForSupabase(() => {
             const supabase = window.supabaseClient;
 
@@ -740,7 +767,7 @@
                         const { error } = await supabase.auth.signInWithOtp({
                             email,
                             options: {
-                                emailRedirectTo: window.location.origin + '/auth-callback.html',
+                                emailRedirectTo: authCallbackUrl(),
                                 shouldCreateUser: true,
                                 data: { name }
                             }
@@ -778,7 +805,7 @@
                         password,
                         options: {
                             data: { name },
-                            emailRedirectTo: window.location.origin + '/auth-callback.html'
+                            emailRedirectTo: authCallbackUrl()
                         }
                     });
                     if (error) throw error;
@@ -804,7 +831,7 @@
                                 id: data.user.id, email: email, name: name, xp: 100, level: 1
                             });
                         } catch (dbErr) { console.warn('profile upsert:', dbErr); }
-                        window.location.href = '/dashboard';
+                        window.location.href = returnDest();
                     } else {
                         // Confirmation is ON: no session yet. Do NOT redirect into the gated dashboard.
                         showEmailSentPanel(
@@ -839,7 +866,7 @@
                     const { error } = await supabase.auth.signInWithPassword({ email, password });
                     if (error) throw error;
 
-                    window.location.href = '/dashboard';
+                    window.location.href = returnDest();
                 } catch (err) {
                     errorEl.textContent = friendlySignInError(err);
                     errorEl.classList.remove('hidden');
@@ -949,6 +976,13 @@
             const params = new URLSearchParams(window.location.search);
             if (params.get('tab') === 'signin') {
                 tabSignin.click();
+            }
+            // If already signed in and a ?return= was supplied, point the primary
+            // button at that destination (relabelled) instead of the dashboard.
+            const dest = returnDest();
+            if (dest !== '/dashboard') {
+                const contBtn = document.querySelector('#state-signed-in a.btn-primary');
+                if (contBtn) { contBtn.href = dest; contBtn.textContent = 'Continue →'; }
             }
             // Prefill the email (e.g. arriving from /circle after "you already have an account").
             const prefillEmail = params.get('email');

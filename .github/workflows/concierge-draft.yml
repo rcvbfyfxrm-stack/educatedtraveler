@@ -1,0 +1,39 @@
+name: Draft concierge rows from hands raised
+
+# Scans launch_waitlist and drops ONE status='draft' concierge_queue row per
+# (person × craft) — the missing INSERT half of the Circle Concierge. It is
+# deterministic, writes ONLY to the DB (never anything public), and NEVER
+# approves / publishes / sends. The bespoke, source-verified content (the fact,
+# Arnaud's reply, and any new Atlas sheet) is written onto these rows afterwards
+# by the Concierge Drafting routine — see os/playbooks/Playbook - Circle
+# Concierge Drafting.md. Everything then waits for Arnaud in the Studio.
+#
+# Security: schedule / manual dispatch only (never pull_request), guarded to the
+# canonical repo, so the service-role secret is never exposed to fork PRs.
+#
+# ONE-TIME SETUP (Arnaud's call — same secret the publish workflow uses):
+#   gh secret set SUPABASE_SERVICE_ROLE_KEY --repo rcvbfyfxrm-stack/educatedtraveler
+# Until that secret exists the job no-ops.
+on:
+  schedule:
+    - cron: '12 3 * * *'   # nightly, BEFORE concierge-publish (03:42) and after the day's leads settle
+  workflow_dispatch:
+
+jobs:
+  draft:
+    if: github.repository == 'rcvbfyfxrm-stack/educatedtraveler'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+
+      - name: Scan leads -> draft concierge rows
+        env:
+          SUPABASE_URL: https://exaehwaqwcledemwpluw.supabase.co
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "SUPABASE_SERVICE_ROLE_KEY not set — nothing to draft. See workflow header for one-time setup."; exit 0
+          fi
+          node scripts/concierge-draft.mjs

@@ -768,8 +768,8 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="/browse" class="text-sm text-white/60 hover:text-white transition-colors">The Atlas</a>
                 <a href="about.html" class="text-sm text-white/60 hover:text-white transition-colors">About</a>
-                <a href="community.html" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
-                    Join Waitlist
+                <a href="/circle" class="text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors">
+                    The Circle
                 </a>
                 <a href="dashboard.html" class="text-sm px-4 py-2 rounded-full border border-[#7fa8a5]/50 text-[#7fa8a5]">
                     My Dashboard
@@ -785,7 +785,7 @@
             <div class="px-6 py-4 space-y-3">
                 <a href="/browse" class="block py-3 text-white/70 hover:text-white transition-colors">The Atlas</a>
                 <a href="about.html" class="block py-3 text-white/70 hover:text-white transition-colors">About</a>
-                <a href="community.html" class="block py-3 text-white/70 hover:text-white transition-colors">Join Waitlist</a>
+                <a href="/circle" class="block py-3 text-white/70 hover:text-white transition-colors">The Circle</a>
                 <a href="dashboard.html" class="block py-3 text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">My Dashboard</a>
             </div>
         </div>
@@ -2045,12 +2045,24 @@
                 if (data.languages) document.getElementById('p-languages').value = data.languages;
 
                 if (data.interests) {
-                    Object.entries(data.interests).forEach(([cat, values]) => {
-                        values.forEach(val => {
-                            const chip = document.querySelector('#profile-overlay .chip[data-category="' + cat + '"][data-value="' + val + '"]');
+                    // interests can be an OBJECT {category:[...]} (portrait/dashboard) OR a bare
+                    // ARRAY [...] (legacy migration 011 rows + community.html signups). The old code
+                    // did Object.entries(...).forEach(([,values]) => values.forEach(...)), which on an
+                    // array yields string `values` and throws on .forEach — aborting every field loaded
+                    // after this point (avatar, visibility, prefs) and re-nagging the member each visit.
+                    if (Array.isArray(data.interests)) {
+                        data.interests.forEach(val => {
+                            const chip = document.querySelector('#profile-overlay .chip[data-value="' + val + '"]');
                             if (chip) chip.classList.add('selected');
                         });
-                    });
+                    } else {
+                        Object.entries(data.interests).forEach(([cat, values]) => {
+                            (Array.isArray(values) ? values : [values]).forEach(val => {
+                                const chip = document.querySelector('#profile-overlay .chip[data-category="' + cat + '"][data-value="' + val + '"]');
+                                if (chip) chip.classList.add('selected');
+                            });
+                        });
+                    }
                 }
 
                 if (data.credentials) {
