@@ -2045,12 +2045,24 @@
                 if (data.languages) document.getElementById('p-languages').value = data.languages;
 
                 if (data.interests) {
-                    Object.entries(data.interests).forEach(([cat, values]) => {
-                        values.forEach(val => {
-                            const chip = document.querySelector('#profile-overlay .chip[data-category="' + cat + '"][data-value="' + val + '"]');
+                    // interests can be an OBJECT {category:[...]} (portrait/dashboard) OR a bare
+                    // ARRAY [...] (legacy migration 011 rows + community.html signups). The old code
+                    // did Object.entries(...).forEach(([,values]) => values.forEach(...)), which on an
+                    // array yields string `values` and throws on .forEach — aborting every field loaded
+                    // after this point (avatar, visibility, prefs) and re-nagging the member each visit.
+                    if (Array.isArray(data.interests)) {
+                        data.interests.forEach(val => {
+                            const chip = document.querySelector('#profile-overlay .chip[data-value="' + val + '"]');
                             if (chip) chip.classList.add('selected');
                         });
-                    });
+                    } else {
+                        Object.entries(data.interests).forEach(([cat, values]) => {
+                            (Array.isArray(values) ? values : [values]).forEach(val => {
+                                const chip = document.querySelector('#profile-overlay .chip[data-category="' + cat + '"][data-value="' + val + '"]');
+                                if (chip) chip.classList.add('selected');
+                            });
+                        });
+                    }
                 }
 
                 if (data.credentials) {

@@ -78,10 +78,29 @@ function parseInterests(iv: unknown): Parsed {
     if (!it || typeof it !== "object") continue;
     const o = it as Record<string, unknown>;
     switch (o.kind) {
-      case "profile":
+      case "profile": {
         out.name = String(o.name ?? "").trim() || out.name;
         out.region = String(o.region ?? "").trim() || out.region;
+        // The /browse orb (circle-onboarding.js) packs its intent answers INTO this
+        // profile item as slugs, not as a separate kind:'intent'. Surface them so
+        // Arnaud's sheet shows how far / when / what level every orb joiner answered
+        // instead of dropping them silently.
+        const ORB_EXP: Record<string, string> = { beginner: "Total beginner", some: "Some grounding", seasoned: "Seasoned hand" };
+        const ORB_REACH: Record<string, string> = { region: "Close to home", europe: "Open to Europe", world: "Across the world for the right one" };
+        const ORB_TIMING: Record<string, string> = { soon: "Ready now", year: "This year", dreaming: "Someday — dreaming" };
+        const ORB_MOT: Record<string, string> = { new: "After a new craft", deeper: "Going deeper", people: "Here for the people", change: "After a change" };
+        const ORB_TURN: Record<string, string> = { lost: "Ready for a change", spent: "Outgrew the last thing", learn: "Here to learn" };
+        const pushIntent = (label: string, v: string) => {
+          const s = v.trim();
+          if (s && !out.intent.some(([k]) => k === label)) out.intent.push([label, s]);
+        };
+        if (o.experience) pushIntent(INTENT_LABEL.depth, ORB_EXP[String(o.experience)] ?? String(o.experience));
+        if (o.timing) pushIntent(INTENT_LABEL.timing, ORB_TIMING[String(o.timing)] ?? String(o.timing));
+        if (o.reach) pushIntent(INTENT_LABEL.reach, ORB_REACH[String(o.reach)] ?? String(o.reach));
+        const why = ORB_MOT[String(o.motivation ?? "")] ?? ORB_TURN[String(o.turn ?? "")] ?? "";
+        if (why) pushIntent("Why now", why);
         break;
+      }
       case "discipline": {
         const d = String(o.discipline ?? "").trim();
         const open = String(o.open ?? "").trim();

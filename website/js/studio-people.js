@@ -75,6 +75,18 @@
         if (it.kind === "profile") {
           if (it.name && !p.name) p.name = String(it.name).trim();
           if (it.region && !p.region) p.region = String(it.region).trim();
+          // /browse orb packs intent slugs into the profile item — surface them in the roster
+          const OEXP = { beginner: "Total beginner", some: "Some grounding", seasoned: "Seasoned hand" };
+          const OREACH = { region: "Close to home", europe: "Open to Europe", world: "Across the world" };
+          const OTIM = { soon: "Ready now", year: "This year", dreaming: "Someday" };
+          const OMOT = { new: "After a new craft", deeper: "Going deeper", people: "Here for the people", change: "After a change" };
+          const OTURN = { lost: "Ready for a change", spent: "Outgrew the last thing", learn: "Here to learn" };
+          const addI = (label, v) => { const s = String(v || "").trim(); if (s && !p.intent.some((x) => x[0] === label)) p.intent.push([label, s]); };
+          if (it.experience) addI(INTENT_LABEL.depth, OEXP[it.experience] || it.experience);
+          if (it.timing) addI(INTENT_LABEL.timing, OTIM[it.timing] || it.timing);
+          if (it.reach) addI(INTENT_LABEL.reach, OREACH[it.reach] || it.reach);
+          const why = OMOT[it.motivation] || OTURN[it.turn] || "";
+          if (why) addI("Why", why);
         } else if (it.kind === "discipline") {
           if (it.discipline) addCraft(p, it.discipline, false);
           if (it.open) addCraft(p, it.open, true);

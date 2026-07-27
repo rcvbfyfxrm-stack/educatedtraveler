@@ -396,22 +396,46 @@
     var pref={kind:"profile",turn:profile.turn||null,worlds:profile.worlds||[],motivation:profile.motivation||null,experience:profile.experience||null,reach:profile.reach||null,timing:profile.timing||null,name:profile.fname||null};
     return[pref].concat(crafts);
   }
+  var PENDING_KEY="et_circle_pending";
+  function stashPending(payload){try{localStorage.setItem(PENDING_KEY,JSON.stringify(payload));}catch(e){}}
+  function clearPending(){try{localStorage.removeItem(PENDING_KEY);}catch(e){}}
   function saveProfile(){
     var payload={email:profile.email,interests:buildInterests(),source:CONFIG.saveSource};
     var sb=window.supabaseClient;
-    if(!sb){console.log("[Circle] offline →",payload);return Promise.resolve(false);}
+    // On ANY failure we stash the exact payload locally so the flow can retry it
+    // and so telling the joiner "your answers are safe on this device" is TRUE.
+    if(!sb){console.log("[Circle] offline →",payload);stashPending(payload);return Promise.resolve(false);}
     return sb.from(CONFIG.waitlistTable).insert(payload).then(function(res){
-      if(res.error){console.warn("[Circle] insert failed:",res.error);return false;}
+      if(res.error){console.warn("[Circle] insert failed:",res.error);stashPending(payload);return false;}
+      clearPending();
       if(window.plausible)window.plausible("CircleSignup",{props:{source:CONFIG.saveSource,crafts:chosen.length}});
       return true;
-    }).catch(function(e){console.warn("[Circle] insert threw:",e);return false;});
+    }).catch(function(e){console.warn("[Circle] insert threw:",e);stashPending(payload);return false;});
+  }
+  // If a previous visit failed to save, quietly retry once the client is up — so a
+  // network blip at the finish line never silently drops the lead.
+  function flushPending(){
+    var sb=window.supabaseClient;if(!sb)return;
+    var raw;try{raw=localStorage.getItem(PENDING_KEY);}catch(e){return;}
+    if(!raw)return;
+    var payload;try{payload=JSON.parse(raw);}catch(e){clearPending();return;}
+    if(!payload||!payload.email){clearPending();return;}
+    sb.from(CONFIG.waitlistTable).insert(payload).then(function(res){
+      if(!res.error){clearPending();if(window.plausible)window.plausible("CircleSignupRecovered",{props:{source:payload.source||CONFIG.saveSource}});}
+    }).catch(function(){});
   }
   function renderDone(saved){
-    setCap({completed:true});
-    var line=saved===false?"We couldn't reach the server just now — your picks are noted on this device. Try again and we'll keep them properly.":"Your skills are saved. We'll only ever write when there's a real master worth your time.";
-    els.panel.innerHTML='<div class="etc-done"><div class="etc-orb" aria-hidden="true"></div><h2>Welcome to the Circle, '+esc(profile.fname)+'.</h2><p>'+esc(line)+'</p><div class="etc-recap">'+recap().replace(/<b>|<\/b>/g,"")+'</div><button class="etc-cta etc-explore" type="button">See your Atlas →</button><a class="etc-story" href="'+CONFIG.storyUrl+'">First, the story of why I built this →</a></div>';
-    els.panel.querySelector(".etc-explore").onclick=goAtlas;
-    setTimeout(function(){var e=els.panel.querySelector(".etc-explore");if(e)e.focus();},30);
+    var ok=saved!==false;
+    if(ok)setCap({completed:true});            // only lock the flow (suppress nudge/auto-open) once it TRULY saved
+    var head=ok?"Welcome to the Circle, "+esc(profile.fname)+".":"Almost there, "+esc(profile.fname)+".";
+    var line=ok?"Your skills are saved. We'll only ever write when there's a real master worth your time."
+               :"We couldn't save that just now — your answers are safe on this screen. Tap to try again.";
+    var cta=ok?'<button class="etc-cta etc-explore" type="button">See your Atlas →</button>'
+              :'<button class="etc-cta etc-retry" type="button">Try saving again →</button>';
+    els.panel.innerHTML='<div class="etc-done"><div class="etc-orb" aria-hidden="true"></div><h2>'+head+'</h2><p>'+esc(line)+'</p><div class="etc-recap">'+recap().replace(/<b>|<\/b>/g,"")+'</div>'+cta+'<a class="etc-story" href="'+CONFIG.storyUrl+'">First, the story of why I built this →</a></div>';
+    var ex=els.panel.querySelector(".etc-explore");if(ex)ex.onclick=goAtlas;
+    var rt=els.panel.querySelector(".etc-retry");if(rt)rt.onclick=function(){rt.textContent="Saving…";rt.classList.add("etc-dim");saveProfile().then(renderDone);};
+    setTimeout(function(){var e=els.panel.querySelector(".etc-explore")||els.panel.querySelector(".etc-retry");if(e)e.focus();},30);
     console.log("[Circle] profile →",JSON.parse(JSON.stringify(profile)),"saved:",saved);
   }
 
@@ -441,6 +465,8 @@
   function ready(fn){if(document.readyState!=="loading")fn();else document.addEventListener("DOMContentLoaded",fn);}
   ready(function(){
     buildUI();
+    flushPending();                 // recover any save that failed on a previous visit
+    setTimeout(flushPending,2500);  // ...again once a cold-starting client has connected
     document.querySelectorAll('.join,a[href="/#circle"],a[href="#circle"],[data-circle]').forEach(function(el){
       el.addEventListener("click",function(e){var seed=el.getAttribute("data-circle-world");e.preventDefault();open(seed||null);});
     });
