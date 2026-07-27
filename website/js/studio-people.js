@@ -334,7 +334,10 @@
     return '<div class="panel" style="padding:22px 24px;">' +
       '<div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;">' +
       '<h3 class="font-serif" style="font-size:21px; margin:0; color:var(--paper);">' + esc(p.name) + "</h3>" + pills +
-      '<a class="link-quiet" style="margin-left:auto; font-size:12px; color:var(--sea); text-decoration:none;" href="mailto:' + esc(p.email) + '">Write back →</a></div>' +
+      '<span style="margin-left:auto; display:inline-flex; gap:12px; align-items:baseline;">' +
+        '<button class="ppl-reply" data-email="' + esc(p.email) + '" data-name="' + esc(p.name || "") + '" style="background:none; border:none; padding:0; font-family:inherit; font-size:12px; color:var(--sea); cursor:pointer;">Reply here →</button>' +
+        '<a class="link-quiet" style="font-size:11px; color:var(--faint); text-decoration:none;" href="mailto:' + esc(p.email) + '">email app</a>' +
+      '</span></div>' +
       '<div class="font-mono" style="font-size:11.5px; color:var(--sea); margin:6px 0 0;"><a class="link-quiet" style="color:var(--sea); text-decoration:none;" href="mailto:' + esc(p.email) + '">' + esc(p.email) + "</a>" + (meta ? ' &nbsp;·&nbsp; <span style="color:var(--muted);">' + meta + "</span>" : "") + "</div>" +
       (via ? '<div class="font-mono" style="font-size:10.5px; color:var(--faint); margin:4px 0 0;">' + via + "</div>" : "") +
       '<div class="font-mono" style="font-size:10.5px; color:var(--faint); margin:4px 0 0;">Letters: ' + letters + "</div>" +
@@ -439,6 +442,71 @@
       else state.craft = state.craft === c ? null : c;
       renderBody(body, people);
     }));
+    body.querySelectorAll(".ppl-reply").forEach((b) => b.addEventListener("click", () => toggleReply(b)));
+  }
+
+  // ---- In-Studio reply: answer any lead/member without leaving the room ----
+  // Opens an inline composer under the card; Send goes through the admin-gated
+  // concierge-send (direct mode). Arnaud writes every word and confirms each send.
+  function replyInner(email, name) {
+    const greet = name ? name + ",\n\n" : "";
+    return '<div class="font-mono" style="font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--sea); margin:0 0 10px;">Reply to ' + esc(email) + "</div>" +
+      '<input class="rb-subject" type="text" placeholder="Subject (optional)" style="width:100%; margin-bottom:10px;">' +
+      '<textarea class="rb-body" rows="7" placeholder="Write your reply…" style="width:100%; line-height:1.6;">' + esc(greet) + "</textarea>" +
+      '<div style="display:flex; gap:10px; align-items:center; margin-top:12px; flex-wrap:wrap;">' +
+        '<button class="rb-send btn-primary" style="padding:8px 16px; border-radius:10px; font-size:13px;">Send to ' + esc(name || email) + "</button>" +
+        '<button class="rb-test btn-ghost" style="padding:8px 14px; border-radius:10px; font-size:12.5px;">Send a test to me</button>' +
+        '<button class="rb-cancel" style="background:none; border:none; color:var(--faint); font-size:12px; cursor:pointer; font-family:inherit;">Cancel</button>' +
+        '<span class="rb-status font-mono" style="font-size:11px; color:var(--faint); margin-left:auto;"></span>' +
+      "</div>" +
+      '<p class="font-mono" style="font-size:10px; color:var(--faint); margin:10px 0 0;">From founder@educatedtraveler.app · their reply comes back to you.</p>';
+  }
+
+  function toggleReply(btn) {
+    const card = btn.closest(".panel");
+    if (!card) return;
+    const next = card.nextElementSibling;
+    if (next && next.classList.contains("ppl-replybox")) { next.remove(); return; } // toggle closed
+    document.querySelectorAll(".ppl-replybox").forEach((el) => el.remove());          // one open at a time
+    const email = btn.getAttribute("data-email");
+    const name = btn.getAttribute("data-name") || "";
+    const box = document.createElement("div");
+    box.className = "ppl-replybox panel";
+    box.style.cssText = "padding:18px 22px; margin-top:-6px; border-color:rgba(127,168,165,.35);";
+    box.innerHTML = replyInner(email, name);
+    card.insertAdjacentElement("afterend", box);
+    wireReplyBox(box, email, name);
+    const ta = box.querySelector(".rb-body"); if (ta) ta.focus();
+  }
+
+  function wireReplyBox(box, email) {
+    const subjEl = box.querySelector(".rb-subject");
+    const bodyEl = box.querySelector(".rb-body");
+    const statusEl = box.querySelector(".rb-status");
+    const sendBtn = box.querySelector(".rb-send");
+    const testBtn = box.querySelector(".rb-test");
+    const cancel = box.querySelector(".rb-cancel");
+    if (cancel) cancel.addEventListener("click", () => box.remove());
+    const setBusy = (b) => { if (sendBtn) sendBtn.disabled = b; if (testBtn) testBtn.disabled = b; };
+    const doSend = async (test) => {
+      const msg = (bodyEl.value || "").trim();
+      if (!msg) { statusEl.textContent = "Write something first."; bodyEl.focus(); return; }
+      if (!test && !confirm("Send this to " + email + "? This emails them for real.")) return;
+      const sb = window.supabaseClient;
+      if (!sb || !sb.functions) { statusEl.textContent = "No connection."; return; }
+      setBusy(true); statusEl.textContent = test ? "Sending test…" : "Sending…";
+      try {
+        const { data, error } = await sb.functions.invoke("concierge-send", {
+          body: { direct: true, to: email, subject: (subjEl.value || "").trim(), body: msg, test: !!test },
+        });
+        const err = error ? error.message : (data && data.error ? (data.error.message || JSON.stringify(data.error)) : null);
+        if (err) { statusEl.textContent = "Failed: " + err; setBusy(false); return; }
+        statusEl.textContent = test ? "Test sent to you ✓" : "Sent ✓";
+        if (test) setBusy(false); else setTimeout(() => box.remove(), 1400);
+      } catch (e) { statusEl.textContent = "Failed: " + e; setBusy(false); }
+    };
+    if (sendBtn) sendBtn.addEventListener("click", () => doSend(false));
+    if (testBtn) testBtn.addEventListener("click", () => doSend(true));
   }
 
   function note(v, text, extraHtml) {
