@@ -52,8 +52,12 @@ window.LAB_WEEKS = [
            w.status === 'done' ? 'Delivered' : w.when) +
         '</p>' +
       '</div>';
+    var lock = (open && w.master)
+      ? '<p class="font-serif text-lg md:text-xl mb-2" style="color:var(--paper)">' + w.master +
+        ' <span style="color:var(--ember)">&times;</span> <span style="color:var(--sea)">EducatedTraveler</span></p>'
+      : '';
     var title = '<h3 class="font-serif font-light text-2xl md:text-3xl tracking-tight mb-3">' +
-      w.craft + (open && w.master ? '<span class="text-paper-muted"> — with ' + w.master + '</span>' : '') +
+      w.craft +
       '</h3>';
     var body = '<p class="text-paper-muted text-sm leading-relaxed mb-4">' +
       (open && w.dates ? w.teaser + ' <span class="text-paper">' + w.dates + '.</span>' : w.teaser) + '</p>';
@@ -64,10 +68,10 @@ window.LAB_WEEKS = [
       // whole card is the link
       var cta = '<span class="btn-primary inline-block px-7 py-3 rounded-full text-sm">See the week →</span>';
       return '<a href="' + w.url + '" class="panel p-7 md:p-9 text-left reveal in block" style="text-decoration:none;color:inherit;cursor:pointer">' +
-        head + title + body + cta + extras + '</a>';
+        head + lock + title + body + cta + extras + '</a>';
     }
     var foot = '<p class="text-paper-faint text-xs">' + w.note + '</p>';
-    return '<div class="panel p-7 md:p-9 text-left reveal in">' + head + title + body + foot + extras + '</div>';
+    return '<div class="panel p-7 md:p-9 text-left reveal in">' + head + lock + title + body + foot + extras + '</div>';
   }
   function render() {
     document.querySelectorAll('[data-lab-weeks]').forEach(function (el) {
