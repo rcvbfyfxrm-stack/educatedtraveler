@@ -34,6 +34,68 @@ window.ET_POSTS = [
     caption:
 "Most people announce a course as though it's already happening. Here's mine, with the failure condition attached.\n\nLab Week 01 runs if ten chefs have paid by Tuesday 15 September. Right now, none have. If we don't reach ten, the week cancels and every euro goes back — I've said that publicly, on the page, before asking anyone for money.\n\nI'm telling you that for a plain reason: you can't check my track record, because I don't have one yet. This is the first week EducatedTraveler has ever run. So the only thing I can offer instead is that every claim is checkable at the source — Martin's lab, his own site, his published sessions, the terms in writing — and that I tell you the count as it really is rather than as I'd like it to be.\n\nNo waitlist theatre. No seats-going-fast. Ten chefs, or nobody goes.\n\nThe terms, in full: educatedtraveler.app/barcelona",
   },
+
+  /* ---- THE BUILD-UP LAYER. The rule that makes this legitimate: mystique is
+   *      an ethics of OMISSION, fraud is an ethics of ASSERTION. You may decline
+   *      to say what it is. You may never imply demand that doesn't exist.
+   *      Nothing below claims interest, momentum, or a filling room. ---- */
+  {
+    id: "lab-week-teaser", format: "PRE-ANNOUNCE · Story, 3 frames · run the day before the announce", core: "",
+    title: "Teaser — three frames before the announce",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "(no link yet — that's the point)",
+    images: [
+      "/images/posts/lab-week/teaser-01.png",
+      "/images/posts/lab-week/teaser-02.png",
+      "/images/posts/lab-week/teaser-03.png",
+    ],
+    imageNote: "1080×1920 story frames, in order. NO link sticker on these — the whole device is that there's nowhere to go yet. Frame 3 names the day you'll tell them, so you have to actually post on that day.",
+    story: [
+      "Frame 1 — \"Five days. One lab.\" Eyebrow: OCTOBER. Hold ~2s.",
+      "Frame 2 — \"A room of chefs who do your job.\" Hold ~2s.",
+      "Frame 3 — \"I'll tell you the whole thing on Thursday.\" + a QUESTION sticker labelled \"guess\" if you want replies to answer.",
+    ],
+    slides: [],
+    caption:
+"(Stories only — no caption needed. If you want one line in the DMs to anyone who replies: \"Thursday. It's the week I went looking for and couldn't find, so I went and built it.\")\n\nWhat this is allowed to do: withhold. What it is never allowed to do: suggest that people are already asking, that anything is filling, or that a decision is urgent. Nothing has happened yet and the frames say nothing that implies otherwise.",
+    strategy:
+"PURPOSE — stop the announce from landing cold on a small account. Three frames, no link, no name, one promised day. WHY IT WORKS — an unanswered question outlives a scroll; a promised date creates a reason to look for you rather than a reason to feel pressured. HONESTY — this is omission, not assertion: you are declining to say what it is, not inventing demand for it. WHEN — the day before the announce, all three frames in one sitting. AFTER — every reply is a warm DM; answer each one personally with the page link once the announce is up. DO NOT — extend this past one day, or repeat it. A tease that repeats becomes a tell that you have nothing.",
+  },
+  {
+    id: "lab-week-master", format: "WEEK 2 · TUE · Feed · answers the only question the announce leaves open", core: "",
+    title: "Who Martin Lippo actually is (says who?)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The master",
+    images: ["/images/posts/lab-week/master.png"],
+    imageNote: "Type card, or lead with /images/lippo/martin-teaching.png and use this as slide 2. HARD GUARD: his sea background — the Atlantic crossing, the 70-metre galley — is bio and 1:1 letters ONLY. It never goes on social, in any form, however well it would land with this audience.",
+    slides: [],
+    caption:
+"When you tell a chef you've arranged a week with Martin Lippo, the fair question comes straight back: says who?\n\nSo here's the man, and every line is checkable in about a minute.\n\nArgentine, in Barcelona since 2000. He didn't open a restaurant — he built Vakuum, a laboratory whose entire purpose is teaching, and the Nitro School alongside it. Liquid nitrogen is his signature terrain. Les Vergers Boiron built a technique video library around him. He works in the space between Adria's modernism and Escoffier's classicism, which is a harder place to stand than either end of it.\n\nAnd on his own site, under his own name, there are signed reviews with names and ranks attached — including a working superyacht chef: \"Being able to practice the wide range of modern techniques on site made the whole difference.\" Raoni Cavaco.\n\nI'm not asking you to take my word for any of it. His lab, his sessions and his rates are all public. Go and look: martinlippo.com\n\nThe week he's opening for us: educatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-addons", format: "WEEK 7 · TUE · Feed · the last real pull before the gate", core: "",
+    title: "What's being arranged around the week (cohort hears first)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
+    images: ["/images/posts/lab-week/addons.png"],
+    imageNote: "Type card. GUARD: if an add-on is not booked by the time you post this, it stays in the future tense and unnamed. Naming a restaurant that hasn't confirmed is the exact failure this whole campaign is built to avoid.",
+    slides: [],
+    caption:
+"Something I can tell you about, and can't yet sell you.\n\nAround the five days I'm arranging a few things: a table at a three-Michelin-star house — a private table, with eyes into the kitchen — an open-fire day, and a Barcelona source day. Priced separately, capped small.\n\nNone of it is on sale, because none of it is booked. That's the house rule and I'm not bending it for a deadline: nothing gets sold here until it's real. When each one lands, the chefs who already have a seat hear first — not as a perk I invented to make you hurry, but because they're the ones I have to build the schedule around.\n\nThat's also what founding-cohort standing is. First refusal, 72 hours early, on this and on every EducatedTraveler week after it.\n\nThe week itself runs at ten paid by Tuesday 15 September. Everything else is extra, and everything else is honest about what it is.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-clock", format: "Story template · ONE a week, never more · the honest clock", core: "",
+    title: "Days-remaining story (the honest clock)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "Link sticker → the page",
+    images: ["/images/posts/lab-week/clock.png"],
+    imageNote: "1080×1920 template. Fill [N] and [X] by hand each time — both are real numbers, the deadline and the paid count. Never run this in the same week as lab-week-count; one clock, one signal.",
+    story: [
+      "One frame. [N] days until 15 September. [X] of 10 paid. Link sticker to the page.",
+      "If [X] is still 0, post it anyway with 0. The zero is the credibility.",
+    ],
+    slides: [],
+    caption:
+"[N] days until the week either runs or refunds.\n[X] of 10 paid. Real count.\n(Link sticker → educatedtraveler.app/barcelona)",
+    strategy:
+"PURPOSE — the only urgency in this campaign that is actually true. The deadline is real, externally fixed, and published; the count is whatever it is. WHY IT BUILDS — a real clock gets more powerful every week without you touching the language, and it costs nothing to be honest about. RULE — one a week, maximum. Posting a countdown daily converts a real deadline into pressure theatre, and this audience can smell it. IF THE NUMBER IS EMBARRASSING — post it anyway. A founder who shows 0 of 10 with six weeks left is the same founder who'll refund you, and chefs read it that way.",
+  },
   {
     id: "lab-week-roi", format: "WEEK 4 · TUE · Carousel (7 slides) · the career-assets post", core: "",
     title: "What you walk out with (career assets)",
@@ -424,7 +486,7 @@ window.ET_POSTS = [
  * published (saved to this browser). Every id maps to a post in ET_POSTS above. */
 window.ET_POST_AGENDA = {
   rhythm: "2 feed posts a week — Tuesday + Thursday, 6–8pm. Stories any day between.",
-  gate: "RUNNING. Martin confirmed the week by phone on 16 July; the recap and the draft agreement are with him and the page is live, so the Lab Week sequence is open. Two standing rules for every post below. (1) THE COUNT IS THE REAL COUNT — only ever paid seats, never the Circle list, never 'interest'. Until someone pays, the honest line is 'nobody has paid yet — you'd be first'. (2) NEVER put the Circle size next to the seat count: both halves are true and the juxtaposition is a lie. Instagram is not the channel that fills this week — your WhatsApp is. IG's job is to survive the check afterwards. If a post costs you an hour you could have spent phoning a chef, the phone wins.",
+  gate: "RUNNING. Martin confirmed the week by phone on 16 July; the recap and the draft agreement are with him and the page is live, so the Lab Week sequence is open. The build-up is legitimate for one reason worth keeping in front of you: mystique is an ethics of OMISSION, fraud is an ethics of ASSERTION. You may decline to say what a thing is. You may never imply demand that doesn't exist. Two standing rules for every post below. (1) THE COUNT IS THE REAL COUNT — only ever paid seats, never the Circle list, never 'interest'. Until someone pays, the honest line is 'nobody has paid yet — you'd be first'. (2) NEVER put the Circle size next to the seat count: both halves are true and the juxtaposition is a lie. Instagram is not the channel that fills this week — your WhatsApp is. IG's job is to survive the check afterwards. If a post costs you an hour you could have spent phoning a chef, the phone wins.",
   collab: "ONE Collab invite, on the announce post — his co-signature stays on your grid, which is what a chef checks after your message. Ask for all three at once so he taps rather than gets asked three times: the announce now, the film when it lands, CONFIRMED on the day. He said he wouldn't be involved in promotion, so frame it as one tap and no obligation — and every caption stands alone if he declines.",
   phases: [
     {
@@ -445,20 +507,24 @@ window.ET_POST_AGENDA = {
     },
     {
       title: "Lab Week 01 — the priority",
-      sub: "Seven Tue/Thu pairs between 28 July and the 15 September gate. Twelve posts fill W1–W6; W7 (8 + 10 Sep) is deliberately left open — re-run the gate post with the real count, and put whatever actually happened in the other slot. Days 1, 2 and 4 also work as a three-frame Story set. Post the pair each week and stop; the rest of the week belongs to the phone.",
+      sub: "Fourteen Tue/Thu slots between now and the 15 September gate, and exactly fourteen posts to fill them. The arc: tease, announce, establish the master, state the terms, say why, show the craft, show the payoff, turn the weakness over, remove the money objection, then the last pull. Post the pair each week and stop — the rest of the week belongs to the phone. Run lab-week-clock as one Story a week alongside, never more.",
       items: [
-        { id: "lab-week-announce", when: "W1 · Tue 28 Jul — THE Collab invite to Martin" },
-        { id: "lab-week-gate", when: "W1 · Thu 30 Jul — the failure condition, said out loud" },
-        { id: "lab-week-founder", when: "W2 · Tue 4 Aug — why you built it" },
-        { id: "lab-week-galley", when: "W2 · Thu 6 Aug — why these five techniques" },
-        { id: "lab-week-day5", when: "W3 · Tue 11 Aug — sous-vide (strongest of the five)" },
-        { id: "lab-week-day3", when: "W3 · Thu 13 Aug — nitrogen, the concession post" },
-        { id: "lab-week-roi", when: "W4 · Tue 18 Aug — the 7-slide career-assets carousel" },
-        { id: "lab-week-day2", when: "W4 · Thu 20 Aug — spherification" },
-        { id: "lab-week-firsttime", when: "W5 · Tue 25 Aug — no testimonials; you'd write them" },
-        { id: "lab-week-boatbudget", when: "W5 · Thu 27 Aug — ask your captain" },
-        { id: "lab-week-day1", when: "W6 · Tue 1 Sep — textures" },
-        { id: "lab-week-day4", when: "W6 · Thu 3 Sep — foams and siphon" },
+        { id: "lab-week-teaser", when: "Wed 29 Jul — Stories only, no link. The build-up." },
+        { id: "lab-week-announce", when: "W1 · Thu 30 Jul — THE Collab invite to Martin" },
+        { id: "lab-week-master", when: "W2 · Tue 4 Aug — says who? Answer it early." },
+        { id: "lab-week-gate", when: "W2 · Thu 6 Aug — the failure condition, said out loud" },
+        { id: "lab-week-founder", when: "W3 · Tue 11 Aug — why you built it" },
+        { id: "lab-week-galley", when: "W3 · Thu 13 Aug — why these five techniques" },
+        { id: "lab-week-day5", when: "W4 · Tue 18 Aug — sous-vide (strongest of the five)" },
+        { id: "lab-week-day3", when: "W4 · Thu 20 Aug — nitrogen, the concession post" },
+        { id: "lab-week-roi", when: "W5 · Tue 25 Aug — the 7-slide career-assets carousel" },
+        { id: "lab-week-day2", when: "W5 · Thu 27 Aug — spherification" },
+        { id: "lab-week-firsttime", when: "W6 · Tue 1 Sep — no testimonials; you'd write them" },
+        { id: "lab-week-boatbudget", when: "W6 · Thu 3 Sep — ask your captain" },
+        { id: "lab-week-addons", when: "W7 · Tue 8 Sep — what's being arranged; cohort first" },
+        { id: "lab-week-day1", when: "W7 · Thu 10 Sep — textures (swap for day4, or re-run the gate with the real count)" },
+        { id: "lab-week-clock", when: "one Story a week, all the way through — the only true urgency you have" },
+        { id: "lab-week-day4", when: "spare · foams and siphon — the swap card for any slot" },
       ],
     },
     {
