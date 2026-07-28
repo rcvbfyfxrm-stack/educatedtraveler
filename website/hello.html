@@ -30,7 +30,9 @@
     <style>
         /* ── Warm-Dark Editorial (2026-06-11 relook lock) — same tokens as /circle ── */
         :root{ --ink:#0d0b09; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
-               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
+               /* the collab lockup below is lifted from /barcelona and references these */
+               --serif:'Fraunces',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace; }
 
         *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
         body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
@@ -108,6 +110,23 @@
                    line-height:1.18; letter-spacing:-0.02em; margin-bottom:12px; }
         .mins{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em;
                text-transform:uppercase; color:var(--faint); margin-top:14px; text-align:center; }
+
+
+        /* ── the collab: the one thing actually happening, rendered from LAB_WEEKS ── */
+        .collab{ display:none; margin-top:30px; padding:20px 18px 18px; border:1px solid rgba(210,138,82,0.28);
+                 border-radius:18px; background:linear-gradient(180deg, rgba(210,138,82,0.07), rgba(210,138,82,0.02));
+                 text-decoration:none; color:inherit; transition:border-color .22s, transform .18s; }
+        .collab.show{ display:block; }
+        .collab:hover{ border-color:rgba(210,138,82,0.55); transform:translateY(-1px); }
+        .collab .ce{ font-family:var(--mono); font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+                     color:var(--ember); margin-bottom:14px; }
+        .collab .lock{ margin:0 0 14px; }
+        .collab .lock svg{ width:100%; height:auto; display:block; }
+        .collab .cd{ font-size:13.5px; color:var(--muted); line-height:1.5; }
+        .collab .cd b{ color:var(--paper); font-weight:500; }
+        .collab .cgo{ display:inline-block; margin-top:12px; font-family:var(--mono); font-size:11px;
+                      letter-spacing:0.14em; text-transform:uppercase; color:var(--ember);
+                      border-bottom:1px solid rgba(210,138,82,0.4); padding-bottom:2px; }
 
         /* ── the quiet row: everything else lives one tap away ── */
         .quiet{ margin-top:36px; padding-top:8px; border-top:1px solid var(--line); }
@@ -207,6 +226,25 @@
             <p class="mins">Two minutes · no account needed</p>
         </div>
 
+
+        <!-- ═══ THE COLLAB — Lab Week 01, drawn from window.LAB_WEEKS so it can't go stale ═══ -->
+        <a class="collab" id="collab" href="/barcelona">
+            <p class="ce" id="collab-eyebrow">The first door</p>
+            <div class="lock" role="img" aria-label="Martin Lippo × EducatedTraveler — Vakuum, Barcelona">
+            <svg viewBox="36 18 720 122" aria-hidden="true" focusable="false">
+      <defs><clipPath id="h-lkL"><rect x="556.2" y="82.5" width="23.8" height="57.0"/></clipPath><clipPath id="h-lkR"><rect x="580" y="82.5" width="23.8" height="57.0"/></clipPath><path id="h-lk-arc" d="M 424 96 A 312 312 0 0 1 736 96" fill="none"/></defs>
+      <text x="205" y="46" text-anchor="middle" font-family="var(--mono)" font-size="10" letter-spacing="4" fill="var(--paper)" opacity=".5">VAKUUM · BARCELONA</text>
+      <g transform="translate(55 60) scale(0.8089)" fill="var(--paper)" stroke="var(--paper)" stroke-miterlimit="10"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path  d="M.5,46.87H11.86V11.67H12l9.75,35.2H31l9.74-35.2h.13v35.2H52.19V.5H34.4l-8,30.91h-.13L18.29.5H.5V46.87Zm64.94-9.68c0-2.66,2.08-3.7,4.54-4.29s5.26-.84,6.82-1.81C77.06,38,75.31,41,70.05,41c-2.47,0-4.61-1.1-4.61-3.83Zm.65-13.64c.52-2.85,2.46-4.22,5.52-4.22,2.27,0,5.32,1,5.32,3.51,0,2.08-1,2.73-2.92,3.12-7.66,1.55-19.61.71-19.61,11.68,0,7,5.06,10.2,11.49,10.2,4,0,8.25-1.17,11.11-4.16a13.2,13.2,0,0,0,.65,3.19h11.1c-1.3-2.67-1.3-5.78-1.3-8.64V23.49c0-9.55-7.73-11.3-15.71-11.3A22.25,22.25,0,0,0,61,14.53a10.36,10.36,0,0,0-5.26,9ZM91.22,46.87h11V30.18c0-4.22,2.85-8,8.31-8a15.47,15.47,0,0,1,4.22.65V12.77a12,12,0,0,0-2.6-.26c-4.74,0-8.5,2.28-10.13,6.56h-.13V13.16H91.22V46.87Zm48.89-33.71H133.3V3h-11V13.16h-5.59v7.15h5.59v15c0,9.15,2.4,11.88,11.82,11.88,2,0,4-.26,6-.32V38.75c-1,0-1.94.13-2.85.13-2.41,0-4-.59-4-3.25V20.31h6.81V13.16Zm2.73,33.71h11V13.16h-11V46.87ZM153.88.5h-11V8.94h11V.5Zm3.9,46.37h11V28.49c0-3.7,1.81-7.21,6-7.21,6,0,5.52,4.68,5.52,9.29v16.3h11V25.24c0-4.87-.91-13-12.15-13-4,0-8.57,2.14-10.58,5.58h-.13V13.16H157.78V46.87Zm54,0h33.71V36.48H223.88V.5H211.8V46.87Zm35.72,0h11V13.16h-11V46.87ZM258.56.5h-11V8.94h11V.5Zm20,20.13c4.87,0,6.56,4.74,6.56,9,0,4.61-1.69,9.74-6.63,9.74s-6.69-3.83-6.69-9.74c0-6.95,3.77-9,6.76-9ZM261.15,61.44h11V43.23h.13a11.3,11.3,0,0,0,9.61,4.61c9.55,0,14.23-8.31,14.23-17.08,0-9.48-4.49-18.57-15.07-18.57a10.79,10.79,0,0,0-9.29,4.87h-.13v-3.9H261.15V61.44Zm54.42-40.81c4.87,0,6.56,4.74,6.56,9,0,4.61-1.69,9.74-6.62,9.74s-6.69-3.83-6.69-9.74c0-6.95,3.76-9,6.75-9Zm-17.4,40.81h11V43.23h.13A11.28,11.28,0,0,0,319,47.84c9.54,0,14.22-8.31,14.22-17.08,0-9.48-4.48-18.57-15.07-18.57a10.77,10.77,0,0,0-9.28,4.87h-.13v-3.9H298.17V61.44ZM345.9,30.05c0-4.29,1.55-9.42,6.68-9.42s6.76,5.13,6.76,9.42-1.62,9.35-6.76,9.35-6.68-5.07-6.68-9.35Zm-11,0c0,10.13,7.27,17.79,17.72,17.79s17.8-7.66,17.8-17.79S363,12.19,352.58,12.19s-17.72,7.73-17.72,17.86Z"/><path  d="M.51,56.94H257.45m18.14,0h19.27m18.14,0h55.56"/></g></g></g>
+      <text x="385" y="96" text-anchor="middle" font-family="var(--serif)" font-size="34" fill="var(--ember)">×</text>
+      <text font-family="var(--serif)" font-size="27" font-weight="600" letter-spacing=".6"><textPath href="#h-lk-arc" startOffset="48.8%" text-anchor="middle"><tspan fill="var(--paper)">educated</tspan><tspan fill="var(--sea)">traveler</tspan></textPath></text>
+      <path d="M 461.2 99.4 A 292 292 0 0 1 698.8 99.4" fill="none" stroke="var(--sea)" stroke-width="2.1" stroke-linecap="round"/>
+      <circle cx="589.04" cy="108.06" r="9.5" fill="none" stroke="var(--paper)" stroke-width="2.5"/><circle cx="585.58" cy="118.69" r="9.5" fill="none" stroke="var(--paper)" stroke-width="2.5"/><circle cx="574.42" cy="118.69" r="9.5" fill="none" stroke="var(--sea)" stroke-width="2.5"/><circle cx="570.96" cy="108.06" r="9.5" fill="none" stroke="var(--sea)" stroke-width="2.5"/><g clip-path="url(#h-lkL)"><circle cx="580.00" cy="101.50" r="9.5" fill="none" stroke="var(--sea)" stroke-width="2.5"/></g><g clip-path="url(#h-lkR)"><circle cx="580.00" cy="101.50" r="9.5" fill="none" stroke="var(--paper)" stroke-width="2.5"/></g>
+    </svg>
+            </div>
+            <p class="cd" id="collab-line"></p>
+            <span class="cgo">See the week &rarr;</span>
+        </a>
+
         <!-- ═══════════ EVERYTHING ELSE, ONE TAP AWAY ═══════════ -->
         <div class="quiet">
             <button type="button" class="q" id="open-what">
@@ -267,11 +305,27 @@
     <!-- Supabase: this writes to launch_waitlist, the same audience as /circle -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
+    <script src="/js/lab-weeks.js"></script>
     <script>
     (function(){
         "use strict";
         function $(id){ return document.getElementById(id); }
         var state = { name:'', email:'', where:'' };
+
+        // ── the collab card ──
+        // Rendered from window.LAB_WEEKS (the single source of truth for launches), never
+        // hard-coded: flip LW01's status/dates there and this follows. Shows ONLY for a week
+        // that is actually open — a teaser has no master and no real dates, and a missing
+        // script leaves the card hidden rather than showing something untrue.
+        (function(){
+            var w = (window.LAB_WEEKS || [])[0];
+            if(!w || (w.status !== 'open' && w.status !== 'confirmed') || !w.master || !w.dates) return;
+            var el = $('collab');
+            el.href = w.url || '/barcelona';
+            $('collab-eyebrow').textContent = 'The first door' + (w.when ? ' · ' + w.when : '');
+            $('collab-line').innerHTML = '<b>' + w.craft + '</b> — ' + w.dates + '.';
+            el.classList.add('show');
+        })();
 
         // ── the pop-up ──
         var ov = $('what'), lastFocus = null;
