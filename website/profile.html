@@ -201,6 +201,12 @@
                 <div id="card-classes" class="flex flex-wrap gap-2"></div>
             </div>
 
+            <!-- Saved skills — from the Atlas; owner-only (saved_adventures, id "skill:*") -->
+            <div id="card-savedskills-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-1">
+                <p class="section-label">Saved skills</p>
+                <div id="card-savedskills" class="flex flex-wrap gap-2"></div>
+            </div>
+
             <!-- Credentials -->
             <div id="card-creds-section" class="hidden glass-strong rounded-2xl p-8 mb-6 fade-up delay-2">
                 <p class="section-label">Credentials</p>
@@ -385,6 +391,17 @@
                         .rpc('get_profile_classes', { p_profile_id: userId });
                     renderClassesOnProfile(classes || []);
                 } catch (e) { /* non-fatal */ }
+
+                // Saved skills — owner-only via RLS (returns rows only on your own profile)
+                try {
+                    const { data: saved } = await window.supabaseClient
+                        .from('saved_adventures')
+                        .select('adventure_id, adventure_name, saved_at')
+                        .eq('user_id', userId)
+                        .like('adventure_id', 'skill:%')
+                        .order('saved_at', { ascending: false });
+                    renderSavedSkillsOnProfile(saved || []);
+                } catch (e) { /* non-fatal */ }
             } catch (err) {
                 console.error(err);
                 document.getElementById('loading-state').classList.add('hidden');
@@ -417,6 +434,19 @@
                         ${bits ? '<p class="text-[11px] text-white/40 mt-0.5">' + bits + '</p>' : ''}
                         ${notes}
                     </div>`;
+            }).join('');
+            section.classList.remove('hidden');
+        }
+
+        function renderSavedSkillsOnProfile(list) {
+            const section = document.getElementById('card-savedskills-section');
+            const container = document.getElementById('card-savedskills');
+            if (!section || !container || !list || !list.length) return;
+            const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+            container.innerHTML = list.map(s => {
+                const id = String(s.adventure_id || '').replace(/^skill:/, '');
+                const name = s.adventure_name || id;
+                return '<a class="class-tag" href="/atlas/' + encodeURIComponent(id) + '">' + esc(name) + '</a>';
             }).join('');
             section.classList.remove('hidden');
         }

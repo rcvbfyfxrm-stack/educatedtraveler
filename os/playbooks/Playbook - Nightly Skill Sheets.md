@@ -51,6 +51,8 @@ Default batch = **2** (max 3) fully-verified sheets per run. Quality over count 
 
 Also include: the reading-progress bar (`<div class="progress" id="progress">` + its script), and a media-ready comment where a licensed photo can drop in later. Do **not** invent or hotlink images — leave the slot until a real, openly-licensed, hosted, attributed image exists.
 
+**Save-this-skill wiring (every sheet):** load the account stack so the "Save this skill" button works — after `<script src="/js/supabase-config.js">` add `/js/auth.js` and `/js/database.js`, and after `/js/intent-capture.js` add `/js/skill-save.js` (defer). `skill-save.js` auto-injects the button above the intent form from its `data-discipline`/`data-label`, so no extra markup is needed. Copying `freediving.html` verbatim already gives you all of this.
+
 **Voice:** plain, concrete, first-person where it fits, specific numbers, short sentences. It must **not read as AI-generated** — no "elevate/unlock/dive in/in a world where," no hype, no hedging filler. Match the existing sheets.
 
 ### 4. Keep the URL working
