@@ -652,6 +652,24 @@
         var current = 0;
 
         function $(id){ return document.getElementById(id); }
+
+        // ── arriving from /hello (the QR card handed over in person) ──
+        // They already left a name + email there, so that row IS the audience row and
+        // the welcome letter has already gone out. Prefill beat 1 so they never retype,
+        // and mark the row this page writes as a silent DEPTH row: distinct source +
+        // unsubscribed:true, which circle-welcome skips (notify-lead still fires, so
+        // Arnaud gets the full craft sheet). One person, one welcome.
+        var FROM_HELLO = false;
+        (function(){
+            try{
+                var q = new URLSearchParams(window.location.search);
+                if(q.get('from') !== 'hello') return;
+                FROM_HELLO = true;
+                var n = (q.get('name')||'').trim(), e = (q.get('email')||'').trim();
+                if(n) $('f_name').value = n.slice(0,80);
+                if(e) $('f_email').value = e.slice(0,160);
+            }catch(err){ FROM_HELLO = false; }
+        })();
         function rails(){ for(var i=0;i<5;i++){ var el=$('r'+i); el.className = i<current?'done':(i===current?'on':''); } }
         function show(n){
             var beats=document.querySelectorAll('.beat');
@@ -878,7 +896,9 @@
             state.dream = state.dream || $('f_dream').value.trim();
             var btn=this, err=$('err4');
             err.style.display='none'; btn.disabled=true; btn.textContent='One moment…';
-            var payload={ email:state.email, interests:buildInterests(), source:'circle-questionnaire' };
+            var payload={ email:state.email, interests:buildInterests(),
+                          source: FROM_HELLO ? 'qr-hello-depth' : 'circle-questionnaire' };
+            if(FROM_HELLO){ payload.unsubscribed = true; } // depth row, not a second audience row
 
             try{
                 var sb = window.supabaseClient;
@@ -890,7 +910,7 @@
                     console.log('[Circle] preview payload →', JSON.stringify(payload, null, 2));
                     await new Promise(function(r){ setTimeout(r, 500); });
                 }
-                if(window.plausible) window.plausible('CircleJoin', { props:{ source:'circle-questionnaire', crafts:state.discs.length } });
+                if(window.plausible) window.plausible('CircleJoin', { props:{ source:payload.source, crafts:state.discs.length } });
                 finish();
             }catch(e){
                 console.error('[Circle] insert failed:', e);
