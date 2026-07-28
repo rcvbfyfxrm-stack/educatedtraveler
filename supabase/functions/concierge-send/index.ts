@@ -1,7 +1,10 @@
 // Edge Function: concierge-send
-// The ONE gated act: send a concierge message to a Circle joiner. Called from the
-// Studio Command tab with Arnaud's signed-in session (verify_jwt ON). Nothing here
-// can send on its own — it is only ever the result of Arnaud clicking "Send".
+// The gated act of replying to a Circle joiner. Two modes, both admin-only, both
+// only ever the result of Arnaud clicking "Send" — nothing sends on its own:
+//   • ROW mode ({id}): send the drafted message on a concierge_queue row (What's Hot).
+//   • DIRECT mode ({direct:true,to,subject,body}): free-text reply to any lead/member
+//     straight from the People tab, no queue row required.
+// Called from the Studio with Arnaud's signed-in session (verify_jwt ON).
 //
 // Guardrails (all must hold or it refuses):
 //  1. The caller must be an admin — verified via is_admin() RPC bound to the CALLER's
@@ -79,27 +82,55 @@ serve(async (req) => {
       return json({ ok: true, dryRun: true, htmlLength: html.length });
     }
 
-    const id = body?.id;
-    if (!id) return json({ error: "missing id" }, 400);
-
-    // 1) Admin check — bind a client to the CALLER's JWT and ask is_admin().
+    // Admin check FIRST — required for every real action (direct reply + row send).
+    // Bind a client to the CALLER's JWT and ask is_admin(); the service key is never
+    // used to authorize, only to read/write once the caller is proven an admin.
     const authHeader = req.headers.get("Authorization") ?? "";
     const caller = createClient(SUPABASE_URL, ANON_KEY, { global: { headers: { Authorization: authHeader } } });
     const { data: isAdmin, error: adminErr } = await caller.rpc("is_admin");
     if (adminErr) return json({ error: "admin check failed", detail: adminErr.message }, 401);
     if (isAdmin !== true) return json({ error: "not authorized" }, 403);
 
-    // 2) Re-fetch the row with the service role — content comes from the row, never the client.
+    // ── DIRECT reply mode: answer ANY lead/member from the Studio People tab.
+    //    Free text, no queue row, no publish ordering, no stamping. Still admin-gated,
+    //    and Arnaud writes every word and clicks Send himself. test:true -> to Arnaud. ──
+    if (body?.direct === true) {
+      const rawTo = String(body.to ?? "").trim();
+      const msg = String(body.body ?? "").trim();
+      if (!rawTo || rawTo.indexOf("@") < 1) return json({ error: "invalid recipient" }, 400);
+      if (!msg) return json({ error: "message is empty" }, 400);
+      const isTest = body?.test === true;
+      const to = isTest ? TEST_TO : rawTo;
+      const subject = (isTest ? "[TEST] " : "") + (String(body.subject ?? "").trim() || "A note from EducatedTraveler");
+      const r = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ from: FROM, to: [to], reply_to: REPLY_TO, subject, html: bodyHtml(msg) }),
+      });
+      const rj = await r.json().catch(() => ({}));
+      if (!r.ok) { console.error("concierge-send direct failed:", rj); return json({ error: rj }, 500); }
+      return json({ ok: true, direct: true, test: isTest, sentTo: to, emailId: rj.id });
+    }
+
+    // ── ROW mode: send the drafted message on a concierge_queue row. ──
+    const id = body?.id;
+    if (!id) return json({ error: "missing id" }, 400);
+
+    // Re-fetch the row with the service role — content comes from the row, never the client.
     const { data: row } = await admin
       .from("concierge_queue")
-      .select("id,lead_email,person_name,status,message_subject,message_md,atlas_url,skill_title")
+      .select("id,lead_email,person_name,status,atlas_action,message_subject,message_md,atlas_url,skill_title")
       .eq("id", id)
       .maybeSingle();
     if (!row) return json({ error: "no such row" }, 404);
 
-    // 3) Ordering guard: the Atlas page the message points to must be live.
-    if (row.status !== "published") {
-      return json({ error: `status is '${row.status}', expected 'published' — publish the Atlas page before sending` }, 409);
+    // Ordering guard: a row that CREATES an Atlas page must be published first (its
+    // message links to that live page). A row that needs no new page — skill already
+    // in the Atlas, an existing week, or a pure reply — is sendable once approved.
+    const needsPage = row.atlas_action === "create";
+    const sendable = row.status === "published" || (row.status === "approved" && !needsPage);
+    if (!sendable) {
+      return json({ error: `status is '${row.status}'${needsPage ? " — publish the Atlas page before sending" : " — approve it first"}` }, 409);
     }
     if (!row.message_md || !String(row.message_md).trim()) {
       return json({ error: "message is empty" }, 400);
@@ -117,7 +148,7 @@ serve(async (req) => {
     const rj = await r.json().catch(() => ({}));
     if (!r.ok) { console.error("concierge-send failed:", rj); return json({ error: rj }, 500); }
 
-    // 4) Stamp only on a real send.
+    // Stamp only on a real send.
     if (!isTest) {
       await admin.from("concierge_queue")
         .update({ status: "sent", sent_at: new Date().toISOString(), sent_to: to })

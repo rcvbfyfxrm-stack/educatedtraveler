@@ -26,6 +26,17 @@
         return (email || '??').slice(0, 2).toUpperCase();
     }
 
+    // Escape ALL member-controlled profile fields before they touch innerHTML.
+    // name / location / profession / about / avatar_url are free-text the member
+    // sets, and public/cohort rows are readable by anon RLS — so an unescaped
+    // value here is stored XSS on community.html AND dashboard.html. Mirror of
+    // avatar.js escHtml / studio-people.js esc.
+    function escHtml(s) {
+        return String(s == null ? '' : s)
+            .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
     function timeAgo(iso) {
         const diff = Date.now() - new Date(iso).getTime();
         const mins = Math.floor(diff / 60000);
@@ -165,8 +176,8 @@
                     ${profiles.slice(0, 6).map((p, i) => {
                         const [c1, c2] = getGradient(p.id);
                         const initials = getInitials(p.name || p.first_name, '');
-                        return `<div class="cs-avatar" style="background:linear-gradient(135deg,${c1},${c2});margin-left:${i > 0 ? '-8px' : '0'};border:2px solid #0a0a0a;z-index:${10-i};" title="${p.name || 'Adventurer'}">${
-                            p.avatar_url ? `<img src="${p.avatar_url}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` : initials
+                        return `<div class="cs-avatar" style="background:linear-gradient(135deg,${c1},${c2});margin-left:${i > 0 ? '-8px' : '0'};border:2px solid #0a0a0a;z-index:${10-i};" title="${escHtml(p.name || 'Adventurer')}">${
+                            p.avatar_url ? `<img src="${escHtml(p.avatar_url)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` : escHtml(initials)
                         }</div>`;
                     }).join('')}
                     ${totalCount > 6 ? `<div class="cs-avatar" style="background:rgba(255,255,255,0.05);margin-left:-8px;border:2px solid #0a0a0a;font-size:9px;color:rgba(255,255,255,0.4);">+${totalCount - 6}</div>` : ''}
@@ -185,13 +196,13 @@
                         const displayName = p.name || p.first_name || 'Adventurer';
                         const isYou = currentUser && p.id === currentUser.id;
                         return `
-                        <div class="cs-member" data-profile-id="${p.id}">
+                        <div class="cs-member" data-profile-id="${escHtml(p.id)}">
                             <div class="cs-avatar" style="background:linear-gradient(135deg,${c1},${c2});width:32px;height:32px;font-size:10px;">${
-                                p.avatar_url ? `<img src="${p.avatar_url}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` : initials
+                                p.avatar_url ? `<img src="${escHtml(p.avatar_url)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` : escHtml(initials)
                             }</div>
                             <div style="flex:1;min-width:0;">
-                                <p style="font-size:12px;color:rgba(255,255,255,0.8);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${displayName}${isYou ? ' <span style="color:#3B8DD4;font-size:9px;">you</span>' : ''}</p>
-                                <p style="font-size:10px;color:rgba(255,255,255,0.25);margin:1px 0 0 0;">${p.location || timeAgo(p.created_at)}</p>
+                                <p style="font-size:12px;color:rgba(255,255,255,0.8);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${escHtml(displayName)}${isYou ? ' <span style="color:#3B8DD4;font-size:9px;">you</span>' : ''}</p>
+                                <p style="font-size:10px;color:rgba(255,255,255,0.25);margin:1px 0 0 0;">${escHtml(p.location || timeAgo(p.created_at))}</p>
                             </div>
                         </div>`;
                     }).join('')}
@@ -273,22 +284,26 @@
         card.innerHTML = `
             <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
                 <div class="cs-avatar" style="background:linear-gradient(135deg,${c1},${c2});width:48px;height:48px;font-size:16px;cursor:default;">${
-                    profile.avatar_url ? `<img src="${profile.avatar_url}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` : initials
+                    profile.avatar_url ? `<img src="${escHtml(profile.avatar_url)}" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">` : escHtml(initials)
                 }</div>
                 <div>
-                    <p style="font-size:15px;color:#ffffff;margin:0;font-weight:500;">${displayName}</p>
-                    ${profile.profession ? `<p style="font-size:11px;color:rgba(255,255,255,0.4);margin:2px 0 0 0;">${profile.profession}</p>` : ''}
-                    ${profile.location ? `<p style="font-size:11px;color:rgba(255,255,255,0.3);margin:2px 0 0 0;">${profile.location}</p>` : ''}
+                    <p style="font-size:15px;color:#ffffff;margin:0;font-weight:500;">${escHtml(displayName)}</p>
+                    ${profile.profession ? `<p style="font-size:11px;color:rgba(255,255,255,0.4);margin:2px 0 0 0;">${escHtml(profile.profession)}</p>` : ''}
+                    ${profile.location ? `<p style="font-size:11px;color:rgba(255,255,255,0.3);margin:2px 0 0 0;">${escHtml(profile.location)}</p>` : ''}
                 </div>
             </div>
 
-            ${profile.about ? `<p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;margin:0 0 12px 0;">${profile.about}</p>` : ''}
+            ${profile.about ? `<p style="font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;margin:0 0 12px 0;">${escHtml(profile.about)}</p>` : ''}
 
             ${userBadges.length > 0 ? `
                 <div style="margin-top:8px;">
                     ${userBadges.map(b => {
-                        const [label, color] = badgeLabels[b] || [b, '#666'];
-                        return `<span class="cs-badge" style="background:${color}15;color:${color};border:1px solid ${color}30;">${label}</span>`;
+                        // Only trust known badge keys for the color (used raw in a style attr);
+                        // unknown keys fall back to a safe color and an escaped label.
+                        const known = badgeLabels[b];
+                        const label = known ? known[0] : b;
+                        const color = known ? known[1] : '#666';
+                        return `<span class="cs-badge" style="background:${color}15;color:${color};border:1px solid ${color}30;">${escHtml(label)}</span>`;
                     }).join('')}
                 </div>
             ` : ''}

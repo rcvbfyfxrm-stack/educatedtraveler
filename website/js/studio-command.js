@@ -146,9 +146,19 @@
         '<button class="q-changes btn-ghost" style="padding:9px 14px; border-radius:10px; font-size:12.5px;">Request changes</button>' +
         '<button class="q-park btn-ghost" style="padding:9px 14px; border-radius:10px; font-size:12.5px;">Park</button>' +
         '</div>';
-    } else if (isApproved) {
+    } else if (isApproved && canPublish) {
+      // needs a new Atlas page: publish it before the message (which links to it) can go.
       actions = '<div style="margin-top:14px; font-size:12.5px; color:var(--muted);">Approved. ' +
-        (canPublish ? 'The Atlas page publishes on the next build (or trigger the <span class="font-mono" style="color:var(--sea);">concierge-publish</span> action now). The <strong>Send</strong> button appears once the page is live.' : 'Ready to send.') +
+        'The Atlas page publishes on the next build (or trigger the <span class="font-mono" style="color:var(--sea);">concierge-publish</span> action now). The <strong>Send</strong> button appears once the page is live.' +
+        '<div style="margin-top:10px; display:flex; gap:8px;"><button class="q-park btn-ghost" style="padding:8px 13px; border-radius:9px; font-size:12px;">Park instead</button></div></div>';
+    } else if (isApproved) {
+      // no new page needed (skill already in the Atlas / a week / a pure reply) -> sendable now.
+      actions = '<div style="margin-top:14px;">' +
+        (r.atlas_url ? '<a href="' + esc(r.atlas_url) + '" target="_blank" rel="noopener" class="font-mono" style="color:var(--sea); font-size:12px; text-decoration:none;">points at → ' + esc(r.atlas_url) + '</a>' : '') +
+        '<div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;">' +
+          '<button class="q-send btn-primary" style="padding:9px 16px; border-radius:10px; font-size:13px;">Send to ' + esc(r.person_name || r.lead_email) + '</button>' +
+          '<button class="q-test btn-ghost" style="padding:9px 14px; border-radius:10px; font-size:12.5px;">Send a test to me first</button>' +
+        '</div><div style="font-size:11px; color:var(--faint); margin-top:8px;">This is the one gated act — it emails ' + esc(r.lead_email) + ' the message below. Nothing sends until you press it.</div>' +
         '<div style="margin-top:10px; display:flex; gap:8px;"><button class="q-park btn-ghost" style="padding:8px 13px; border-radius:9px; font-size:12px;">Park instead</button></div></div>';
     } else if (isPublished) {
       actions = '<div style="margin-top:14px;">' +

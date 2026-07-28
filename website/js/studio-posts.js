@@ -15,45 +15,135 @@
  * Every post carries branded ET-design images (images[] + imageNote). */
 window.ET_POSTS = [
   {
-    id: "lab-week-announce", format: "POST 1 · Feed · INVITE MARTIN AS COLLABORATOR · GO after the WhatsApp recap (step lb-1)", core: "",
+    id: "lab-week-announce", format: "WEEK 1 · TUE · Feed · THE ONE COLLAB — invite @vakuum_by_martin_lippo · GO (Martin confirmed by phone 16 Jul; recap + draft agreement sent)", core: "",
     title: "Lab Week 01 — the announcement (collab with @vakuum_by_martin_lippo)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "Take a seat",
     images: ["/images/posts/lab-week/announce.jpg"],
-    imageNote: "1080×1350 branded card (the Vakuum lab through the glass). Invite Martin as collaborator — he only taps accept; the post lives on both profiles.",
+    imageNote: "1080×1350 branded card (the Vakuum lab through the glass). THIS is the post to spend the Collab invite on — his co-signature lands permanently on your grid, which is what every chef checks after your WhatsApp. He only taps accept. Caption stands alone if he declines.",
     slides: [],
     caption:
-"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: textures, spherification, liquid nitrogen, foams and siphons, sous-vide done properly. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nAnd you leave with more than the techniques: a certificate in English signed by Martin — on paper and as a PDF — a portfolio of your own work shot in the lab by his team, his complete recipe and theory dossiers, and a bench of working cooks who do what you do. The things a career is actually built from.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't. This door is open.\n\nA place, a person, your people — this is what that looks like.\n\nIt confirms the moment ten chefs are in, capped at fifteen. If we're not there by 15 September, every euro goes back — the day-by-day, the honest terms and the live count are on the page.\n\nTake a seat: educatedtraveler.app/barcelona",
+"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for yacht chefs: textures, spherification, liquid nitrogen, foams and siphons, sous-vide done properly. Thirty-five hours, hands in — timed for yard period, when the boat is in the shed and the season is finally quiet.\n\nAnd you leave with more than the techniques: a certificate in English signed at Vakuum — on paper and as a PDF, 35 documented hours — a portfolio of your own work shot in the lab by his team, his complete recipe and theory dossiers, and a bench of working cooks who do what you do. The things a career is actually built from.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't. This door is open.\n\nA place, a person, your people — this is what that looks like.\n\nHere are the honest terms. It runs the moment ten chefs have paid, and it caps at fifteen. Nobody has paid yet — you'd be first. If we're not at ten by Tuesday 15 September, the week cancels and every euro is refunded in full. Don't buy a flight until we announce CONFIRMED.\n\nThe day-by-day, the terms and the real count: educatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-roi", format: "POST 3 · Carousel · the career-assets post", core: "",
+    id: "lab-week-gate", format: "WEEK 1 · THU · Feed · the credibility post · GO", core: "",
+    title: "The honest gate (it runs at ten — none yet)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The terms",
+    images: ["/images/posts/lab-week/gate.png"],
+    imageNote: "Warm-dark type card. Do NOT pair this with a lab photo — the bareness is the point. No Collab tag: this is ET's own statement, not Martin's.",
+    slides: [],
+    caption:
+"Most people announce a course as though it's already happening. Here's mine, with the failure condition attached.\n\nLab Week 01 runs if ten chefs have paid by Tuesday 15 September. Right now, none have. If we don't reach ten, the week cancels and every euro goes back — I've said that publicly, on the page, before asking anyone for money.\n\nI'm telling you that for a plain reason: you can't check my track record, because I don't have one yet. This is the first week EducatedTraveler has ever run. So the only thing I can offer instead is that every claim is checkable at the source — Martin's lab, his own site, his published sessions, the terms in writing — and that I tell you the count as it really is rather than as I'd like it to be.\n\nNo waitlist theatre. No seats-going-fast. Ten chefs, or nobody goes.\n\nThe terms, in full: educatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-roi", format: "WEEK 4 · TUE · Carousel (7 slides) · the career-assets post", core: "",
     title: "What you walk out with (career assets)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
-    images: ["/images/posts/lab-week/announce.jpg"],
-    imageNote: "7 warm-dark type slides (1080×1350); slide 3 can carry a real archive lab shot. Never a fabricated testimonial.",
+    images: [
+      "/images/posts/lab-week/roi-01.png", "/images/posts/lab-week/roi-02.png",
+      "/images/posts/lab-week/roi-03.png", "/images/posts/lab-week/roi-04.png",
+      "/images/posts/lab-week/roi-05.png", "/images/posts/lab-week/roi-06.png",
+      "/images/posts/lab-week/roi-07.png",
+    ],
+    imageNote: "7 warm-dark type slides (1080×1350), rendered — post in order. You can swap /images/lippo/martin-teaching.png in as an eighth slide. Never a fabricated testimonial.",
     slides: [
       "What does a week in a master's lab actually pay?",
-      "A certificate in English — paper and PDF, signed by Martin Lippo. A line on your CV a captain or recruiter can check.",
-      "A portfolio of YOUR work, shot in the lab by his team — real photographs for your file, not phone snapshots.",
-      "His complete recipe and theory dossiers — so the week keeps compounding for years.",
-      "Ten to fifteen working cooks at one bench. In this trade, the room is the network.",
-      "Five techniques chosen for the galley: fast, prepped ahead, stable at sea, sous-vide as the backbone.",
-      "22–26 October · Vakuum, Barcelona · confirmed at 10 paid · educatedtraveler.app/barcelona",
+      "A certificate in English — paper and PDF, signed at Vakuum. 35 documented hours. One line on your CV anyone can verify in thirty seconds.",
+      "A portfolio of YOUR work, shot in the lab by Martin's team — real photographs for your file, not phone snapshots.",
+      "Vakuum's complete recipe and theory dossiers — the manual you'll train your own second from.",
+      "Ten to fifteen working cooks at one bench for five days. In this trade, the room is the network.",
+      "Five techniques chosen for the galley: fast, prepped ahead, kind to shelf-stable ingredients, sous-vide as the backbone.",
+      "22–26 October · Vakuum, Barcelona · it runs at 10 paid · educatedtraveler.app/barcelona",
     ],
     caption:
-"Serious chefs don't need a course explained as a good deal. The only question that matters: what do you walk out with?\n\nHere's the honest inventory. The techniques, in your hands — thirty-five hours of them, chosen to work at sea. A certificate in English, on paper and PDF, signed by Martin Lippo — checkable, not decorative. A portfolio of your own plates, shot by his team during the week. The full recipe and theory dossiers. And the bench itself: the working cooks beside you, the calls and referrals that come out of a room like that.\n\nThat's what the week is. The rest — dates, terms, the live count — is on the page.\n\neducatedtraveler.app/barcelona",
+"Serious chefs don't need a course explained as a good deal. The only question that matters: what do you walk out with?\n\nHere's the honest inventory. The techniques, in your hands — thirty-five documented hours of them, chosen to work at sea. A certificate in English, on paper and PDF, signed at Vakuum: checkable in thirty seconds, and not a maritime qualification — I won't pretend it is. A portfolio of your own plates, shot by his team during the week. The full recipe and theory dossiers. And the bench itself: ten to fifteen working cooks beside you, and the calls and referrals that come out of a room like that.\n\nNobody here promises you a job. Every line above is checkable instead.\n\nThe rest — dates, terms, the real count — is on the page.\n\neducatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-galley", format: "POST 4 · Feed / carousel · the galley-fit post", core: "",
+    id: "lab-week-galley", format: "WEEK 2 · THU · Feed · the galley-fit umbrella post (the five day-posts below unpack it)", core: "",
     title: "Built for the galley (why these five techniques)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
     images: ["/images/posts/lab-week/announce.jpg"],
     imageNote: "Technique close-ups from the licensed archive work best here (spheres, nitro fog, siphon). No sea-story content — Martin's yacht background stays out of social, per agreement.",
     slides: [],
     caption:
-"These five days weren't assembled at random. Every technique in the week had to pass a galley test: does it work at sea?\n\nFast — because service on a boat doesn't wait. Built for mise en place — prepared days ahead, finished in minutes. Kind to shelf-stable ingredients — because the market isn't coming to you mid-charter. And sous-vide as the backbone — cook once in the yard, regenerate perfectly for twelve covers.\n\nTextures, spherification, liquid nitrogen, foams, sous-vide: the modernist repertoire, chosen and taught for the kitchen you actually cook in.\n\nFive days, 22–26 October, in English, at Vakuum in Barcelona. Confirmed at ten paid — every euro back if we don't get there.\n\neducatedtraveler.app/barcelona",
+"These five days weren't assembled at random. Every technique in the week had to pass a galley test: does it work at sea?\n\nFast — because service on a boat doesn't wait. Built for mise en place — prepared days ahead, finished in minutes. Kind to shelf-stable ingredients — because the market isn't coming to you mid-charter. And sous-vide as the backbone — cook once in the yard, regenerate perfectly for twelve covers.\n\nTextures, spherification, liquid nitrogen, foams, sous-vide: the modernist repertoire, chosen and taught for the kitchen you actually cook in.\n\nOne of the five is honestly not a galley technique at all. I'll tell you which, and why it's still in the week — that's the next post.\n\nFive days, 22–26 October, in English, at Vakuum in Barcelona. It runs at ten paid — every euro back if we don't get there.\n\neducatedtraveler.app/barcelona",
+  },
+
+  /* ---- The five days. One per module, straight off the live page's day blocks.
+   *      Run them as a set: Stories or the mid-week slot, in order. Each one names
+   *      what it does AT SEA — the future-use rule, on every surface. ---- */
+  {
+    id: "lab-week-day1", format: "WEEK 6 · TUE · the five days (1/5) · Feed, or a Story with days 2 and 4", core: "",
+    title: "Day one — textures (garnishes that hold on a moving boat)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The five days",
+    images: ["/images/posts/lab-week/day-01-textures.png"],
+    imageNote: "Warm-dark type card. Pair with /images/lippo/textures-grid.png as slide 2 if you want a carousel.",
+    slides: [],
+    caption:
+"Day one: textures and texturizing agents.\n\nCrisps and puffed work, meringues, vegan creams and ice cream, gelatine sponges, broken gels, agar pearls and veils, bake-stable fillings, airs.\n\nAt sea: garnishes that hold on a moving boat, made days ahead. That's the whole test. A garnish that collapses in a beam sea is a garnish you'll never plate twice, and a chef who can build three days of finishing elements on a Tuesday morning has bought back their entire Saturday.\n\nFive days, 22–26 October, at Vakuum in Barcelona, in English. It runs at ten paid — nobody has paid yet.\n\neducatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-video", format: "POST 5 · Reel · INVITE MARTIN AS COLLABORATOR · HOLD until the film lands", core: "",
+    id: "lab-week-day2", format: "WEEK 4 · THU · the five days (2/5) · Feed, or a Story with days 1 and 4", core: "",
+    title: "Day two — spherification (the amuse from a small fridge)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The five days",
+    images: ["/images/posts/lab-week/day-02-spherification.png"],
+    imageNote: "Warm-dark type card. /images/lippo/tile-spherified.jpg is the real archive shot if you want a second slide.",
+    slides: [],
+    caption:
+"Day two: spherification — all of it.\n\nTheory, then direct, reverse, multi, moulded, dehydrated, filled and frozen. Caviar technique and spherical gnocchi.\n\nAt sea: the amuse-bouche that makes a charter, out of a small fridge. This is the technique with the best ratio in the whole repertoire — almost no storage, almost no equipment, and it reads as three-star cooking to a guest who has eaten everywhere. It's the one that gets you asked how you did it.\n\nFive days at his bench, in English, 22–26 October. It runs at ten paid.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-day3", format: "WEEK 3 · THU · the five days (3/5) · Feed — the concession post, run it PROUDLY", core: "",
+    title: "Day three — liquid nitrogen (honestly: rarely practical aboard)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The five days",
+    images: ["/images/posts/lab-week/day-03-nitrogen.png"],
+    imageNote: "Warm-dark type card; /images/lippo/tile-nitro.jpg as slide 2. GUARD: never imply LN2 is workable aboard. The concession IS the post — it is the single most persuasive thing in the whole campaign.",
+    slides: [],
+    caption:
+"Day three: liquid nitrogen. And I'll be straight with you — it's rarely practical aboard.\n\nSafety and storage first. Then nitro sorbets and shots, snows and powders, cryo-stamping, spheres and wafers, teppan work. Nitrogen is Martin's signature terrain; he built a whole Nitro School around it.\n\nBut a dewar on a moving boat is not a realistic piece of kit for most galleys, and I'm not going to sell you a day pretending otherwise.\n\nSo bank it. Dockside events, villa and estate work, the private-chef years after boats — that's where this day pays. Almost nobody in this trade has hands-on nitrogen training from the person who wrote the technique library. When you stop doing seasons, it's the day you'll be glad is on the certificate.\n\nThe honest version of all five days is on the page. It runs at ten paid — nobody has paid yet.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-day4", format: "WEEK 6 · THU · the five days (4/5) · Feed, or a Story with days 1 and 2", core: "",
+    title: "Day four — foams and siphon (locker space earned)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The five days",
+    images: ["/images/posts/lab-week/day-04-foams.png"],
+    imageNote: "Warm-dark type card.",
+    slides: [],
+    caption:
+"Day four: foams and siphon techniques.\n\nHow foams actually stabilise — then hot, cold, fat-based, egg-white and starch foams, microwave sponges, foams for frying, and the Souflair.\n\nAt sea: a siphon earns its locker space on any boat. It's one of the few pieces of kit that pays for the volume it takes — sauces, garnishes, a hot foam, a sponge, a dessert element, all from the same canister. Most of us own one and use it for one thing. This is the day that fixes that.\n\n22–26 October, Vakuum, Barcelona, in English. It runs at ten paid.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-day5", format: "WEEK 3 · TUE · the five days (5/5) · Feed — the strongest of the five for yacht chefs", core: "",
+    title: "Day five — sous-vide, properly (cook once, regenerate for twelve)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The five days",
+    images: ["/images/posts/lab-week/day-05-sousvide.png"],
+    imageNote: "Warm-dark type card. This is the highest-converting of the five day-posts — put it in the feed, not a Story.",
+    slides: [],
+    caption:
+"Day five: sous-vide, properly.\n\nNot the water-bath-and-hope version. Pasteurisation theory, core temperatures, direct and double cooking, long cooks, brining, conservation and regeneration.\n\nAt sea: cook once in the yard, regenerate perfectly for twelve covers. Every yacht chef already runs sous-vide. Very few of us were ever taught the pasteurisation tables that decide whether what we're doing is safe to hold for a week — and holding safely is the entire difference between a technique and a system.\n\nThis is the day that quietly changes how your whole season runs.\n\nFive days, 35 documented hours, in English, at his lab. It runs at ten paid by 15 September — nobody has paid yet.\n\neducatedtraveler.app/barcelona",
+  },
+
+  {
+    id: "lab-week-firsttime", format: "WEEK 5 · TUE · Feed · the reversal — ET's real scarcity", core: "",
+    title: "A first time only happens once (cohort one)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
+    images: ["/images/posts/lab-week/first-time.png"],
+    imageNote: "Warm-dark type card. No photo — the line carries it.",
+    slides: [],
+    caption:
+"There are no reviews of this week. There are no testimonials, no photos of last year's cohort, no chef you can message to ask if it was worth it.\n\nYou'd be the one writing them.\n\nI could hide that. Instead I'll say what it actually means: cohort one is the only cohort nobody can ever join later. Whatever this becomes, there's exactly one room of chefs who were in it before there was any proof — and founding-cohort standing is the one thing the week can never issue again. It comes with first refusal, 72 hours early, on every EducatedTraveler week after this one.\n\nWhat you can check instead of reviews: Martin's lab, his own site, his published sessions, the terms in writing, and a refund line I put in public before asking anyone for money.\n\nFive days, 22–26 October, Barcelona. It runs at ten paid — nobody has paid yet.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-boatbudget", format: "WEEK 5 · THU · Feed or Story · removes the money objection without discussing price", core: "",
+    title: "Your boat may already fund this (ask your captain)",
+    link: "https://educatedtraveler.app/barcelona", linkLabel: "The terms",
+    images: ["/images/posts/lab-week/boat-budget.png"],
+    imageNote: "Warm-dark type card, source cited on the frame (Quay Crew, 2024). Keep the citation — an uncited statistic is exactly the kind of claim this account doesn't make.",
+    slides: [],
+    caption:
+"Before you decide you can't afford a course, check whether your boat already pays for it.\n\n65% of yachts hold a crew training budget — averaging €2,567 per crew member per year (Quay Crew, 2024). Most of it goes unclaimed, usually because nobody asks, and because it gets thought of as deck and engineering money.\n\nIt isn't. A chef who comes back with five new techniques, a documented certificate and a portfolio is a better boat for the owner and a better charter for the broker. That is an easy conversation to have with a captain, and a much easier one in yard period than in August.\n\nWe can invoice the boat directly. Ask.\n\n22–26 October, Vakuum, Barcelona, in English. It runs at ten paid by 15 September.\n\neducatedtraveler.app/barcelona",
+  },
+  {
+    id: "lab-week-video", format: "EVENT-GATED · Reel · COLLAB #2 · HOLD until the film lands", core: "",
     title: "Martin presents the week (the film)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "Take a seat",
     images: [],
@@ -63,17 +153,17 @@ window.ET_POSTS = [
 "Don't take my word for it — hear it from the man at the bench.\n\nMartin Lippo, on the week he's opening for working chefs this October: five days in his Barcelona lab, in English, thirty-five hours hands-in. What you learn, what you leave with, and why he built it with a yacht chef.\n\nConfirmed at ten paid by 15 September — every euro back if we don't get there. The rest is on the page.\n\neducatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-founder", format: "POST 2 · Feed · documentary arc #1 · GO after the announce", core: "",
+    id: "lab-week-founder", format: "WEEK 2 · TUE · Feed · documentary arc #1", core: "",
     title: "Why I built the Barcelona week (founder)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
     images: ["/images/posts/lab-week/announce.jpg"],
     imageNote: "Swap in a founder photo or a licensed lab shot once the shoot happens; the announce card works as fallback.",
     slides: [],
     caption:
-"Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in yard period — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nA place, a person, your people — this is what that looks like.\n\nI'm not selling a dream week. It confirms at ten paid or everyone gets refunded, the terms are public, and you can check every claim — his lab, his sessions, his prices — on his own site.\n\nThe page has all of it: educatedtraveler.app/barcelona",
+"Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in yard period — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nA place, a person, your people — this is what that looks like.\n\nI'm not selling a dream week. It runs at ten paid — nobody has paid yet — or everyone gets refunded. The terms are public, and you can check every claim on his own site: his lab, his sessions, his rates.\n\nThe page has all of it: educatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-calendar", format: "POST 6 · Feed · SHIP once the week is live on martinlippo.com (his web developer is on it — will take time)", core: "",
+    id: "lab-week-calendar", format: "EVENT-GATED · Feed · SHIP once the week is live on martinlippo.com (his web developer is on it — will take time)", core: "",
     title: "It's on his calendar now (the proof)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
     images: ["/images/posts/lab-week/announce.jpg"],
@@ -93,14 +183,14 @@ window.ET_POSTS = [
 "The first seats are taken.\n\nWorking chefs — winter programs, charter calendars, real constraints — read the terms and paid. The count on the page is real; it only ever shows paid seats, and it moved this week.\n\nWhat convinced them wasn't me. It was that every claim is checkable — his lab, his published rates, the refund line — and that the week sits in yard period, when the boat is in the shed and the season finally exhales.\n\nThe rest of the room fills person by person: a message, a call, a held seat. No autopilot, no pressure — the terms do the talking.\n\neducatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-confirmed", format: "Feed post · INVITE MARTIN AS COLLABORATOR · SHIP ONLY on the confirmed-decision day (Phase 5)", core: "",
+    id: "lab-week-confirmed", format: "EVENT-GATED · Feed · COLLAB #3 · SHIP ONLY on the confirmed-decision day (Phase 5)", core: "",
     title: "CONFIRMED — Barcelona is on",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
     images: ["/images/posts/lab-week/announce.jpg"],
     imageNote: "The announce card works, or a licensed lab shot. GUARD: only publish after the decision is made jointly with Martin against the written ledger.",
     slides: [],
     caption:
-"CONFIRMED. Barcelona is on.\n\n[N] chefs have paid — the threshold was ten, and today, against the written ledger, Martin and I called it together: Lab Week 01 runs. 22-26 October, Vakuum, Barcelona. Thirty-five hours, in English, hands in.\n\nWe said we'd call it honestly whichever way it went — ten paid by the deadline, or every euro refunded. That was the deal, and it held.\n\nTo the chefs who took a seat on a promise: you're the founding cohort. Buy your flights — the table opens this week.\n\nThe room is capped at fifteen, so a few seats stay open until 8 October. If you were waiting for it to be real: it's real.\n\neducatedtraveler.app/barcelona",
+"CONFIRMED. Barcelona is on.\n\n[N] chefs have paid — the threshold was ten, and today, against the written ledger, Martin and I called it together: Lab Week 01 runs. 22-26 October, Vakuum, Barcelona. Thirty-five hours, in English, hands in.\n\nWe said we'd call it honestly whichever way it went — ten paid by the deadline, or every euro refunded. That was the deal, and it held.\n\nTo the chefs who took a seat on a promise: you're the founding cohort. Buy your flights — the table opens this week.\n\nThe room caps at fifteen, so [15 minus N] seats are still open. If you were waiting for it to be real: it's real.\n\neducatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-count", format: "Story template · repeat at every real milestone", core: "",
@@ -178,7 +268,7 @@ window.ET_POSTS = [
 "The stars will carry you across an ocean. They can't walk you the last hundred metres. A person does that.\n\nI left school at eighteen to learn from the world, not a classroom, and spent fifteen years cooking at sea. Stars and swells taught me to navigate — but every map I trusted eventually ran out.\n\nIt ran out in kitchens where nobody spoke my language. It ran out where the trail did, and hikers on the Annapurna circuit knew every medicinal plant. It ran out in front of potters in Vietnam, decades deep in a single glaze.\n\nI never found those teachers. They found me. I followed what pulled me — cooking, sailing, freediving, breath — and at the end of every pull, someone was already standing there who knew the way.\n\nIn the Thar desert, in Rajasthan, the idea took root: you shouldn't need fifteen years at sea to meet that person.\n\nSo I built the introduction I never had. The Atlas maps where a craft is still alive — verified by hand, never by who paid. The Circle brings you to the people keeping it warm.\n\nFollow your pull. Someone is already standing at the end of it.\n\nThe story: https://educatedtraveler.app/about",
     hashtags: "#EducatedTraveler #LearnFromTheSource #LearnFromAMaster #SlowTravel #CraftsmanshipAlive",
     strategy:
-"THE founder-credibility spine of the whole account — this replaces the older 'I left school at eighteen' founder post as the definitive story. WHEN — post 24-48h after the pinned 'This is EducatedTraveler' carousel, Tue or Thu 6-8pm when reach peaks; it's the deeper second touch for anyone who tapped the profile. SHAPE — 6-slide carousel (slide 1 = the scroll-stopper on the sailing shot; slide 6 names ET + pulls to the Atlas). Reply to every comment the first few hours — carousels get re-served for days. WATCH — profile visits, /about clicks, Circle sign-ups. SAFE — fully signature-safe: names no course, place, or date. Do NOT run any Lab Week post until Martin's written yes.",
+"THE founder-credibility spine of the whole account — this replaces the older 'I left school at eighteen' founder post as the definitive story. WHEN — post 24-48h after the pinned 'This is EducatedTraveler' carousel, Tue or Thu 6-8pm when reach peaks; it's the deeper second touch for anyone who tapped the profile. SHAPE — 6-slide carousel (slide 1 = the scroll-stopper on the sailing shot; slide 6 names ET + pulls to the Atlas). Reply to every comment the first few hours — carousels get re-served for days. WATCH — profile visits, /about clicks, Circle sign-ups. SAFE — fully signature-safe: names no course, place, or date, so it runs in any week you need a spare slot.",
   },
   {
     id: "founder-trained-eye", format: "Reel · founder film", core: "",
@@ -334,7 +424,8 @@ window.ET_POSTS = [
  * published (saved to this browser). Every id maps to a post in ET_POSTS above. */
 window.ET_POST_AGENDA = {
   rhythm: "2 feed posts a week — Tuesday + Thursday, 6–8pm. Stories any day between.",
-  gate: "Start the Lab Week run once Martin's yes is in writing (he's accepted the collaborator tag on the announce post). Not there yet? Keep posting the evergreen ones to stay active, and begin Lab Week the day his yes lands.",
+  gate: "RUNNING. Martin confirmed the week by phone on 16 July; the recap and the draft agreement are with him and the page is live, so the Lab Week sequence is open. Two standing rules for every post below. (1) THE COUNT IS THE REAL COUNT — only ever paid seats, never the Circle list, never 'interest'. Until someone pays, the honest line is 'nobody has paid yet — you'd be first'. (2) NEVER put the Circle size next to the seat count: both halves are true and the juxtaposition is a lie. Instagram is not the channel that fills this week — your WhatsApp is. IG's job is to survive the check afterwards. If a post costs you an hour you could have spent phoning a chef, the phone wins.",
+  collab: "ONE Collab invite, on the announce post — his co-signature stays on your grid, which is what a chef checks after your message. Ask for all three at once so he taps rather than gets asked three times: the announce now, the film when it lands, CONFIRMED on the day. He said he wouldn't be involved in promotion, so frame it as one tap and no obligation — and every caption stands alone if he declines.",
   phases: [
     {
       title: "Foundation — the front door",
@@ -354,23 +445,31 @@ window.ET_POST_AGENDA = {
     },
     {
       title: "Lab Week 01 — the priority",
-      sub: "Fill 10 seats by 15 Sept. Two posts a week, Tue + Thu. (Gated — see the note below.)",
+      sub: "Seven Tue/Thu pairs between 28 July and the 15 September gate. Twelve posts fill W1–W6; W7 (8 + 10 Sep) is deliberately left open — re-run the gate post with the real count, and put whatever actually happened in the other slot. Days 1, 2 and 4 also work as a three-frame Story set. Post the pair each week and stop; the rest of the week belongs to the phone.",
       items: [
-        { id: "lab-week-announce", when: "Week 1 · Tue — tag Martin as collaborator" },
-        { id: "lab-week-founder", when: "Week 1 · Thu" },
-        { id: "lab-week-roi", when: "Week 2 · Tue" },
-        { id: "lab-week-galley", when: "Week 2 · Thu" },
-        { id: "lab-week-video", when: "when Martin's film lands" },
-        { id: "lab-week-calendar", when: "when the week is live on martinlippo.com" },
+        { id: "lab-week-announce", when: "W1 · Tue 28 Jul — THE Collab invite to Martin" },
+        { id: "lab-week-gate", when: "W1 · Thu 30 Jul — the failure condition, said out loud" },
+        { id: "lab-week-founder", when: "W2 · Tue 4 Aug — why you built it" },
+        { id: "lab-week-galley", when: "W2 · Thu 6 Aug — why these five techniques" },
+        { id: "lab-week-day5", when: "W3 · Tue 11 Aug — sous-vide (strongest of the five)" },
+        { id: "lab-week-day3", when: "W3 · Thu 13 Aug — nitrogen, the concession post" },
+        { id: "lab-week-roi", when: "W4 · Tue 18 Aug — the 7-slide career-assets carousel" },
+        { id: "lab-week-day2", when: "W4 · Thu 20 Aug — spherification" },
+        { id: "lab-week-firsttime", when: "W5 · Tue 25 Aug — no testimonials; you'd write them" },
+        { id: "lab-week-boatbudget", when: "W5 · Thu 27 Aug — ask your captain" },
+        { id: "lab-week-day1", when: "W6 · Tue 1 Sep — textures" },
+        { id: "lab-week-day4", when: "W6 · Thu 3 Sep — foams and siphon" },
       ],
     },
     {
-      title: "Driven by real seats — not the calendar",
-      sub: "Only ever the real count. Post these when the thing actually happens.",
+      title: "The moment they exist — never before",
+      sub: "These are gated on a real event, not a date. Publishing one early is the only way to lose this.",
       items: [
-        { id: "lab-week-count", when: "each new seat · a Story" },
+        { id: "lab-week-video", when: "when Martin's film lands — Collab #2" },
+        { id: "lab-week-calendar", when: "when the week is listed on martinlippo.com" },
+        { id: "lab-week-count", when: "each new paid seat · a Story" },
         { id: "lab-week-firstseats", when: "once 3 have paid" },
-        { id: "lab-week-confirmed", when: "the day you reach 10" },
+        { id: "lab-week-confirmed", when: "the day you reach 10 — Collab #3" },
       ],
     },
     {

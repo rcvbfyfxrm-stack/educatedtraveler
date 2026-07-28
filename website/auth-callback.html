@@ -141,10 +141,28 @@
                 show(resetState);
             }
 
+            // Honour ?return= (same-origin path only — no open-redirect), threaded
+            // from /join so a magic-link sign-in mid-booking lands back on the
+            // checkout/course/cohort page instead of always the dashboard.
+            function safeReturn() {
+                try {
+                    var raw = new URLSearchParams(window.location.search).get('return');
+                    if (!raw) return '/dashboard.html';
+                    var dec = decodeURIComponent(raw);
+                    if (/^\/(?!\/)/.test(dec)) return dec;
+                } catch (e) {}
+                return '/dashboard.html';
+            }
+
             function showSuccessRedirect() {
                 if (handled) return; handled = true;
                 show(successState);
-                setTimeout(function () { window.location.href = '/dashboard.html'; }, 1500);
+                var dest = safeReturn();
+                if (dest !== '/dashboard.html') {
+                    var p = successState.querySelector('p');
+                    if (p) p.textContent = "You're signed in. Taking you back...";
+                }
+                setTimeout(function () { window.location.href = dest; }, 1500);
             }
 
             function showError(msg) {
