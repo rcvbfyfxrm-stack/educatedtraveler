@@ -106,6 +106,12 @@
   .btn-primary:hover,.btn-primary:focus-visible{background:var(--ember-soft);outline:none}
   .btn-ghost{border:1px solid var(--line);color:var(--paper)}
   .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
+  /* peer to .btn-primary — a real second choice, not a fallback */
+  .btn-peer{border:1px solid var(--sea);color:var(--sea);background:transparent}
+  .btn-peer:hover,.btn-peer:focus-visible{background:var(--sea);color:var(--ink);outline:none}
+  .cta-pick{align-items:center;gap:.9rem}
+  .cta-or{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--softer)}
+  .pick-line{font-size:.9rem;color:var(--softer);margin:1.4rem 0 0}
   .apply-note{font-size:.85rem;color:var(--softer)}
   .follow-line{margin:.55rem 0 0;font-size:.9rem;color:var(--softer);line-height:1.5}
   .follow-btn{font-family:inherit;font-size:.9rem;color:var(--ember);background:none;border:0;border-bottom:1px solid rgba(210,138,82,.45);padding:0 0 2px;cursor:pointer;transition:border-color .2s,opacity .2s}
@@ -183,7 +189,7 @@
       <div class="updated" id="updated-line"></div>
     </div>
     <div class="cta-row">
-      <a class="btn btn-primary cta-wa" href="#apply">Take a seat — apply in 2 minutes</a>
+      <a class="btn btn-primary cta-jump" href="#apply">Take a seat — apply in 2 minutes</a>
       <a class="btn btn-ghost" href="#leave-with">What you leave with</a>
     </div>
     <p class="follow-line">Not ready to apply? <button type="button" class="follow-btn" data-et-interested data-experience="Lab Week 01 — The Avant-Garde Kitchen, Barcelona" data-adventure-id="lab-week-01-barcelona">Follow this week &rarr;</button> <span class="follow-sub">first word on seats, dates &amp; add-ons — saved to your account. Free, no obligation.</span></p>
@@ -298,11 +304,13 @@
   <div class="wrap">
     <p class="eyebrow">Take a seat</p>
     <h2>Apply — two minutes, then a call</h2>
-    <p>Send me five things — on WhatsApp, or by email if that's easier: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
+    <p>Send me five things: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
     <p>Then 15 minutes on the phone — your questions, and me checking the week fits you; I've talked people out of seats. After the call your seat holds 48 hours while the payment link is live. Mid-charter? Voice notes work — tell me your watch.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary cta-wa" href="#">Apply on WhatsApp</a>
-      <a class="btn btn-ghost" id="cta-mail" href="#">No WhatsApp? Apply by email</a>
+    <p class="pick-line">Pick whichever suits you — both land with me directly, both arrive with the five questions already written out.</p>
+    <div class="cta-row cta-pick">
+      <a class="btn btn-primary cta-wa" href="#">WhatsApp me</a>
+      <span class="cta-or">or</span>
+      <a class="btn btn-peer" id="cta-mail" href="#">Email me</a>
     </div>
     <p class="apply-note">No account, no sign-up, no card details on this page. Application first, conversation second, payment last — to EducatedTraveler, who handles everything from there. Email works exactly the same: <a href="mailto:founder@educatedtraveler.app,arnaudcallier@pm.me">founder@educatedtraveler.app</a>.</p>
   </div>
@@ -344,8 +352,8 @@
 <div class="stickybar" id="stickybar">
   <span class="st-count" id="st-count">Confirmed at 10 paid · 15 Sept</span>
   <span style="display:flex;gap:.5rem;flex:0 0 auto">
-    <a class="btn btn-ghost" id="st-mail" href="#" style="padding:.7rem .9rem">Email</a>
-    <a class="btn btn-primary cta-wa" href="#">Apply on WhatsApp</a>
+    <a class="btn btn-peer" id="st-mail" href="#" style="padding:.7rem .9rem">Email</a>
+    <a class="btn btn-primary cta-wa" href="#">WhatsApp</a>
   </span>
 </div>
 
@@ -408,6 +416,13 @@
   });
   document.getElementById("cta-mail").href = mailHref;
   document.getElementById("st-mail").href = mailHref;
+
+  // hero CTA only scrolls to #apply — the channel choice lives down there
+  document.querySelectorAll(".cta-jump").forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (window.plausible) plausible("Apply Scroll", { props: { src: src || "direct" } });
+    });
+  });
 </script>
 
 <!-- Account stack — powers the optional "Follow this week" (additive; the WhatsApp/email apply stays account-free) -->
