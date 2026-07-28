@@ -29,7 +29,7 @@ Build the skills **people are asking for**, highest demand first.
 - **Demand signal:** the `launch_waitlist` table in Supabase. Every "Raise your hand" form and the Circle onboarding write rows whose `interests` array holds `{kind:'discipline', discipline, …}`. Aggregate `interests[].discipline` across all rows and rank by count. That ranking is the build order.
 - Read it with a **service-role key from the environment** (`SUPABASE_SERVICE_KEY`), server-side only. The anon key cannot read this table (RLS) and must not be used to try. If no service key is available this run, fall back to the **priority list** below.
 - **Skip skills that already have a deep sheet.** A sheet is "deep" if it has the standard's spine + multiple `<section>` blocks (rule of thumb: file has `class="spine"` and ≥ 6 `<section>`; the thin template has 1–2 sections and a `class="card"` ranked list). Deep already (do not rebuild): `avant-garde-and-modernist-technique`, `lymphatic-drainage`, `lifestyle-medicine`, `freediving`.
-- **Fallback priority list** (crew-relevant, already partly researched), used only when the demand query is unavailable: `sailing-and-yachtmaster`, `windsurfing-and-wing-foil`, `spearfishing`, `scuba-diving`, `wine-and-sommellerie`, `sushi-and-washoku`, then by Atlas community-rank.
+- **Fallback order** (used whenever the demand query is unavailable): follow `os/playbooks/skill-sheet-priority.md` top-down — a "most interesting × most trendy × crew-relevant" ranking — skipping anything already deep. Then continue by Atlas community-rank.
 
 ### 3. Build 1–3 sheets to the standard
 Default batch = **2** (max 3) fully-verified sheets per run. Quality over count — a run that ships one true sheet beats one that ships three shaky ones.
