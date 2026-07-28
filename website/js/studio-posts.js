@@ -44,21 +44,22 @@ window.ET_POSTS = [
     title: "Teaser — three frames before the announce",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "(no link yet — that's the point)",
     images: [
-      "/images/posts/lab-week/teaser-01.png",
-      "/images/posts/lab-week/teaser-02.png",
-      "/images/posts/lab-week/teaser-03.png",
+      "/video/lab-week/teaser-01.mp4",
+      "/video/lab-week/teaser-02.mp4",
+      "/video/lab-week/teaser-03.mp4",
     ],
-    imageNote: "1080×1920 story frames, in order. NO link sticker on these — the whole device is that there's nowhere to go yet. Frame 3 names the day you'll tell them, so you have to actually post on that day.",
+    imageNote: "MOVING stories, 1080×1920 mp4, 6–7s each — post in order. A full-bleed band of the real Vakuum photographs drifts across warm-dark while the type holds still; on frame 3 the drift eases to a stop on the line. Structural device borrowed from toormix.com/en/projects/ — the edge-to-edge moving image band, type reduced to a minimum — but none of its palette. Still-frame versions remain at /images/posts/lab-week/teaser-0N.png if you ever need a static fallback. NO link sticker on these: the whole device is that there's nowhere to go yet.",
     story: [
-      "Frame 1 — \"Five days. One lab.\" Eyebrow: OCTOBER. Hold ~2s.",
-      "Frame 2 — \"A room of chefs who do your job.\" Hold ~2s.",
-      "Frame 3 — \"I'll tell you the whole thing on Thursday.\" + a QUESTION sticker labelled \"guess\" if you want replies to answer.",
+      "Frame 1 — the band drifts left across the lab. \"Five days. One lab.\" (6s)",
+      "Frame 2 — the band keeps moving through the bench and the room. \"A room of chefs who do your job.\" (6s)",
+      "Frame 3 — the drift eases to a stop. \"I'll tell you the whole thing on Thursday.\" (7s) Add a QUESTION sticker labelled \"guess\" if you want replies to answer.",
+      "Rebuild any time with scratchpad/et_teaser_motion.py — it writes a review contact sheet so the result gets looked at, not assumed.",
     ],
     slides: [],
     caption:
 "(Stories only — no caption needed. If you want one line in the DMs to anyone who replies: \"Thursday. It's the week I went looking for and couldn't find, so I went and built it.\")\n\nWhat this is allowed to do: withhold. What it is never allowed to do: suggest that people are already asking, that anything is filling, or that a decision is urgent. Nothing has happened yet and the frames say nothing that implies otherwise.",
     strategy:
-"PURPOSE — stop the announce from landing cold on a small account. Three frames, no link, no name, one promised day. WHY IT WORKS — an unanswered question outlives a scroll; a promised date creates a reason to look for you rather than a reason to feel pressured. HONESTY — this is omission, not assertion: you are declining to say what it is, not inventing demand for it. WHEN — the day before the announce, all three frames in one sitting. AFTER — every reply is a warm DM; answer each one personally with the page link once the announce is up. DO NOT — extend this past one day, or repeat it. A tease that repeats becomes a tell that you have nothing.",
+"PURPOSE — stop the announce from landing cold on a small account. Three moving frames, no link, no name, one promised day. WHY MOTION — a drifting photograph holds a thumb for the two seconds a static card doesn't, and it costs nothing: it's the lab photos you already have, moving. It also means the teaser doesn't depend on Martin's film, which hasn't landed. WHY IT WORKS — an unanswered question outlives a scroll; a promised date creates a reason to look for you rather than a reason to feel pressured. HONESTY — this is omission, not assertion: you are declining to say what it is, not inventing demand for it. WHEN — the day before the announce, all three frames in one sitting. AFTER — every reply is a warm DM; answer each one personally with the page link once the announce is up. DO NOT — extend this past one day, or repeat it. A tease that repeats becomes a tell that you have nothing.",
   },
   {
     id: "lab-week-master", format: "WEEK 2 · TUE · Feed · answers the only question the announce leaves open", core: "",

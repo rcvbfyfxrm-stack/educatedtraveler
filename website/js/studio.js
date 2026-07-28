@@ -1055,7 +1055,15 @@
       const strip = el("div", { style: "display:flex; gap:10px; overflow-x:auto; padding-bottom:6px;" });
       p.images.forEach((src, i) => {
         const cell = el("a", { href: src, download: imgName(p, i), title: "Download " + imgName(p, i), style: "flex:none; display:block; text-decoration:none;" });
-        cell.appendChild(el("img", { src: src, loading: "lazy", style: "display:block; height:150px; width:auto; border-radius:8px; border:1px solid var(--line);" }));
+        const box = "display:block; height:150px; width:auto; border-radius:8px; border:1px solid var(--line);";
+        if (/\.(mp4|mov|webm)$/i.test(src)) {
+          // Moving assets (the Lab Week teaser) preview in place, muted and looping.
+          const v = el("video", { src: src, style: box, preload: "metadata", playsinline: "" });
+          v.muted = true; v.loop = true; v.autoplay = true; v.setAttribute("muted", "");
+          cell.appendChild(v);
+        } else {
+          cell.appendChild(el("img", { src: src, loading: "lazy", style: box }));
+        }
         cell.appendChild(el("div", { class: "font-mono", style: "font-size:10px; color:var(--faint); text-align:center; margin-top:5px;", text: (i + 1) + " ↓" }));
         strip.appendChild(cell);
       });
@@ -1092,7 +1100,11 @@
     return card;
   }
 
-  function imgName(p, i) { return "et-" + (p.id || "x") + "-" + String(i + 1).padStart(2, "0") + ".png"; }
+  function imgName(p, i) {
+    const src = (p.images || [])[i] || "";
+    const m = src.match(/\.([a-z0-9]+)$/i);
+    return "et-" + (p.id || "x") + "-" + String(i + 1).padStart(2, "0") + "." + (m ? m[1].toLowerCase() : "png");
+  }
   function downloadImages(p) {
     (p.images || []).forEach((src, i) => {
       const a = el("a", { href: src, download: imgName(p, i) });
