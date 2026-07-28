@@ -47,6 +47,7 @@
   .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--sea);margin:0 0 1.4rem}
   .hero-lock{font-family:var(--serif);font-weight:400;font-size:clamp(1.15rem,2.6vw,1.6rem);line-height:1.1;color:var(--paper);margin:0 0 1.1rem}
   .hero-lock i{font-style:normal;color:var(--ember);padding:0 .4em}
+  .hero-lock svg{width:min(560px,100%);height:auto;display:block;margin-left:-14px}
   .hero-lock .et{color:var(--sea)}
   h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.03;margin:0 0 1.2rem;letter-spacing:-.01em;text-wrap:balance}
   h1 em{font-style:italic;color:var(--ember)}
@@ -150,7 +151,17 @@
 
 <header>
   <div class="wrap">
-    <p class="hero-lock">Martin Lippo <i>&times;</i> <span class="et">EducatedTraveler</span></p>
+    <div class="hero-lock" role="img" aria-label="Martin Lippo × EducatedTraveler — Vakuum, Barcelona">
+    <svg viewBox="75 18 590 100" aria-hidden="true" focusable="false">
+      <defs><clipPath id="lkL"><rect x="541.25" y="73.5" width="18.75" height="45.0"/></clipPath><clipPath id="lkR"><rect x="560" y="73.5" width="18.75" height="45.0"/></clipPath><path id="lk-arc" d="M 465 84 A 120 120 0 0 1 655 84" fill="none"/></defs>
+      <text x="232" y="62" text-anchor="middle" font-family="var(--mono)" font-size="10.5" letter-spacing="4" fill="var(--paper)" opacity=".55">VAKUUM · BARCELONA</text>
+      <text x="232" y="96" text-anchor="middle" font-family="var(--sans)" font-size="30" font-weight="600" letter-spacing="4.5" fill="var(--paper)">MARTIN LIPPO</text>
+      <text x="412" y="94" text-anchor="middle" font-family="var(--serif)" font-size="30" fill="var(--ember)">×</text>
+      <text font-family="var(--serif)" font-size="18.5" font-weight="600" letter-spacing=".4"><textPath href="#lk-arc" startOffset="48.8%" text-anchor="middle"><tspan fill="var(--paper)">educated</tspan><tspan fill="var(--sea)">traveler</tspan></textPath></text>
+      <path d="M 498.9 73.2 A 104 104 0 0 1 621.1 73.2" fill="none" stroke="var(--sea)" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="567.13" cy="93.68" r="7.5" fill="none" stroke="var(--paper)" stroke-width="1.9"/><circle cx="564.41" cy="102.07" r="7.5" fill="none" stroke="var(--paper)" stroke-width="1.9"/><circle cx="555.59" cy="102.07" r="7.5" fill="none" stroke="var(--sea)" stroke-width="1.9"/><circle cx="552.87" cy="93.68" r="7.5" fill="none" stroke="var(--sea)" stroke-width="1.9"/><g clip-path="url(#lkL)"><circle cx="560.00" cy="88.50" r="7.5" fill="none" stroke="var(--sea)" stroke-width="1.9"/></g><g clip-path="url(#lkR)"><circle cx="560.00" cy="88.50" r="7.5" fill="none" stroke="var(--paper)" stroke-width="1.9"/></g>
+    </svg>
+  </div>
     <p class="kicker">Lab Week 01 · Vakuum, Barcelona · Thursday 22 – Monday 26 October 2026</p>
     <h1>Five days in <em>Martin Lippo's</em> lab.</h1>
     <p class="sub">Modernist technique for working chefs — thirty-five hours, taught in English, timed for yard period. What you carry out is the point: the techniques, the certificate, the portfolio, the room.</p>
