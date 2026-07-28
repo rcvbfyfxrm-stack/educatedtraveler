@@ -187,7 +187,7 @@
   // crafts resolve to a live page). A named skill not in this set is one
   // Arnaud must add to the Atlas before he can write the person properly.
   const ATLAS_SLUGS = new Set([
-    "adventure-and-off-road-motorcycling","alpinism-and-mountaineering","argentine-tango","asado-and-open-fire-cooking","ashtanga-yoga","avant-garde-and-modernist-technique",
+    "adventure-and-off-road-motorcycling","alpinism-and-mountaineering","argentine-tango","asado-and-open-fire-cooking","ashtanga-yoga","modern-new-technique-cuisine",
     "ayurveda","bharatanatyam-indian-classical-dance","blacksmithing-and-bladesmithing","bookbinding-and-letterpress","brazilian-jiu-jitsu","bread-and-boulangerie",
     "bush-and-floatplane-flying","calligraphy-and-lettering","canyoning","capoeira","cave-and-technical-diving","caving-and-speleology",
     "cheese-and-fermentation","chocolate-and-confectionery","cigar-rolling","classical-french-cuisine","coffee-and-barista","cold-exposure-wim-hof-method",

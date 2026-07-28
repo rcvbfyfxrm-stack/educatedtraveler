@@ -12,7 +12,7 @@ window.LAB_WEEKS = [
   {
     id: 'lab-week-01',
     number: '01',
-    craft: 'The Avant-Garde Kitchen',
+    craft: 'Modern, new-technique cuisine',
     place: 'Barcelona',
     world: 'Kitchen & Cellar',
     status: 'open',

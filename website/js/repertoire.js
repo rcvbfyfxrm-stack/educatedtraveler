@@ -22099,15 +22099,15 @@ window.ET_ATLAS = {
       }
     },
     {
-      "discipline": "Avant-Garde & Modernist Technique",
+      "discipline": "Modern, new-technique cuisine",
       "category": "culinary",
-      "id": "avant-garde-and-modernist-technique",
+      "id": "modern-new-technique-cuisine",
       "certShort": "Master-led technique lab",
       "certBody": "No single formal body — master-led technique labs / certificates of attendance",
       "goldCredential": "A completed hands-on course at a master-led avant-garde technique lab",
       "blurb": "The teachable toolkit of modernist cuisine — sous-vide and low temperature, spherification, foams, hydrocolloids, liquid nitrogen — taught hands-on at dedicated labs run by named masters. The rare places where the avant-garde is a course you can actually enrol in, not a restaurant you can only eat at.",
       "featured": {
-        "id": "avant-garde-and-modernist-technique--barcelona",
+        "id": "modern-new-technique-cuisine--barcelona",
         "place": "Barcelona",
         "country": "Spain",
         "school": "Vakuum by Martin Lippo",
@@ -22148,7 +22148,7 @@ window.ET_ATLAS = {
           "why": "Catalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can actually enrol with a master, at Martin Lippo's Vakuum lab and Jordi Butron's Espai Sucre.",
           "bestSeason": "Year-round",
           "level": "Enthusiast -> Professional",
-          "id": "avant-garde-and-modernist-technique--barcelona",
+          "id": "modern-new-technique-cuisine--barcelona",
           "schoolsInfo": [
             {
               "name": "Vakuum by Martin Lippo",
@@ -22193,7 +22193,7 @@ window.ET_ATLAS = {
           "why": "The closest thing in the Americas to a European modernist lab — Miguel Angel Cepeda has taught techno-emotional cuisine since 2009 and runs a dedicated academy you can actually enrol in.",
           "bestSeason": "Year-round",
           "level": "Beginner -> Professional",
-          "id": "avant-garde-and-modernist-technique--puebla-mexico-city",
+          "id": "modern-new-technique-cuisine--puebla-mexico-city",
           "schoolsInfo": [
             {
               "name": "Molecular Cuisine Academy (MCS)",
@@ -22232,7 +22232,7 @@ window.ET_ATLAS = {
           "why": "The clearest Southern-Hemisphere match — chef Dale Prentice runs a dedicated sous-vide and low-temperature teaching lab, the same vacuum-cooking archetype as Vakuum.",
           "bestSeason": "Year-round",
           "level": "Enthusiast -> Professional",
-          "id": "avant-garde-and-modernist-technique--melbourne-lilydale",
+          "id": "modern-new-technique-cuisine--melbourne-lilydale",
           "schoolsInfo": [
             {
               "name": "Sous Vide Australia (The Upper Room)",
