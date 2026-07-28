@@ -293,7 +293,7 @@
       <a class="btn btn-primary cta-wa" href="#">Apply on WhatsApp</a>
       <a class="btn btn-ghost" id="cta-mail" href="#">No WhatsApp? Apply by email</a>
     </div>
-    <p class="apply-note">No account, no sign-up, no card details on this page. Application first, conversation second, payment last — to EducatedTraveler, who handles everything from there. Email works exactly the same: <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>.</p>
+    <p class="apply-note">No account, no sign-up, no card details on this page. Application first, conversation second, payment last — to EducatedTraveler, who handles everything from there. Email works exactly the same: <a href="mailto:founder@educatedtraveler.app,arnaudcallier@pm.me">founder@educatedtraveler.app</a>.</p>
   </div>
 </section>
 
@@ -345,6 +345,7 @@
   var CONFIRMED   = false;
   var UPDATED     = "2026-07-16";      /* change every time the count changes    */
   var WHATSAPP    = "33695903520";     /* Arnaud — intl format, no + */
+  var MAIL_TO     = ["founder@educatedtraveler.app", "arnaudcallier@pm.me"];
   /* ================================================================ */
   var THRESHOLD = 10, CAP = 15, SHOW_COUNT_FROM = 3;
 
@@ -384,7 +385,7 @@
     "Name: \nBoat / freelance: \nRole: \nIf a chef sent me, who: \n" +
     "Stay: cohort apartment / my own: \n" +
     "I want to walk out able to: " + (src ? "\n(Saw it via: " + src + ")" : ""));
-  var mailHref = "mailto:arnaudcallier@pm.me?subject=" + encodeURIComponent("Seat — Lippo week 22-26 Oct") + "&body=" + msg;
+  var mailHref = "mailto:" + MAIL_TO.join(",") + "?subject=" + encodeURIComponent("Seat — Lippo week 22-26 Oct") + "&body=" + msg;
   var waReady = WHATSAPP.indexOf("X") === -1;
   var wa = waReady ? "https://wa.me/" + WHATSAPP + "?text=" + msg : mailHref;
   document.querySelectorAll(".cta-wa").forEach(function (a) {
