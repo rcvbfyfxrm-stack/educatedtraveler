@@ -68,6 +68,21 @@ Read them with the service key; write them back with the service key (bypasses R
 - English-forward, plain, no marketing gloss. "If I wouldn't send a friend, it isn't here."
 - One draft per (person × craft); the scanner's `ext_id` already dedupes.
 
+## How the loop actually runs (Claude-in-the-loop — chosen 2026-07-28)
+Enrichment is NOT an unsupervised cron (a cloud agent can't safely hold the service
+key, and source-claims shouldn't be written unwatched). Instead:
+1. Nightly, the scanner (`concierge-draft.mjs`, GitHub Action, needs the
+   `SUPABASE_SERVICE_ROLE_KEY` repo secret) drops skeleton rows at `status='draft'`.
+2. Arnaud pings Claude ("draft the concierge queue"). Claude pulls the skeletons:
+   `node scripts/concierge-queue.mjs --pending > /tmp/pending.json`
+3. Claude researches each craft and writes the verified content — fact + `fact_source`,
+   the reply, and (for a `create`) the skill sheet — into an enriched JSON, following
+   the rules above. Arnaud sees the sources before it is even a draft.
+4. Apply it back (page_html is rendered for `create` rows automatically):
+   `node scripts/concierge-queue.mjs --apply /tmp/enriched.json`  (rows stay `draft`)
+5. Arnaud judges each in the Studio and approves — publish/send follow, both gated.
+Both scripts need `SUPABASE_SERVICE_ROLE_KEY` in env and touch ONLY draft/changes_requested rows.
+
 ## Downstream (already built — do not rebuild)
 - Arnaud reviews every draft in the Studio "What's Hot" tab: edits the message/sheet,
   requests changes, parks, or **Approves**.
