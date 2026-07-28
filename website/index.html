@@ -100,6 +100,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
 .base .sep{width:4px;height:4px;border-radius:50%;background:var(--line-2);flex:0 0 auto}
 .base .q.wk:hover{color:var(--ember-soft)}
 
+/* inline Lippo × ET lockup in the standfirst */
+.mlx{font-style:normal;color:var(--paper)}.mlx i{font-style:normal;color:var(--ember);padding:0 3px}.mlx .et{color:var(--sea)}
+
+/* the first week — a named, branded badge in the base */
+.base{flex-direction:column;gap:15px}
+.weekbadge{display:inline-flex;flex-direction:column;align-items:center;gap:5px;padding:12px 24px;border:1px solid rgba(210,138,82,.42);border-radius:12px;background:rgba(13,11,9,.42);backdrop-filter:blur(6px);transition:border-color .3s,transform .3s,background .3s;max-width:min(92vw,470px);text-align:center}
+.weekbadge:hover{border-color:rgba(210,138,82,.85);transform:translateY(-2px);background:rgba(13,11,9,.58)}
+.weekbadge .wb-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ember-soft)}
+.weekbadge .wb-lock{font-family:var(--f-display);font-weight:300;font-size:clamp(16px,2.3vw,20px);line-height:1.15;color:var(--paper)}
+.weekbadge .wb-lock i{font-style:normal;color:var(--ember);padding:0 5px}
+.weekbadge .wb-lock .et{color:var(--sea)}
+.weekbadge .wb-meta{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;color:var(--muted)}
+.base-q{display:flex;align-items:center;justify-content:center}
+
 /* MODAL (founder / story — pop-up) */
 .ov{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
 .ov.show{display:flex}
@@ -167,7 +181,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
   <div class="center">
     <p class="eyebrow top">A place · a person · your people</p>
     <h1 class="lead">EducatedTraveler is how you learn a <em>real craft</em> — at the source, from a master, beside the people chasing the same fire.</h1>
-    <p class="standfirst">This October the first door opens: thirty-five hours of modernist technique in Martin Lippo's Barcelona laboratory, in English, built for working chefs. And especially for yacht chefs.</p>
+    <p class="standfirst">This October the first door opens — <span class="mlx">Martin Lippo <i>×</i> <span class="et">EducatedTraveler</span></span>: thirty-five hours of modernist technique in his Barcelona laboratory, in English, built for working chefs. And especially for yacht chefs.</p>
     <div class="door">
       <button type="button" class="btn btn-primary" onclick="goCircle()">Join the Circle
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -177,9 +191,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
   </div>
 
   <div class="base">
-    <button type="button" class="q" onclick="openFounder()">Meet the founder</button>
-    <span class="sep" aria-hidden="true"></span>
-    <a class="q wk" href="/barcelona">The first week · Barcelona, this October →</a>
+    <a class="weekbadge" href="/barcelona">
+      <span class="wb-k">The first week · this October</span>
+      <span class="wb-lock">Martin Lippo <i>×</i> <span class="et">EducatedTraveler</span></span>
+      <span class="wb-meta">Barcelona · 22–26 Oct · 35 hours in his lab →</span>
+    </a>
+    <div class="base-q">
+      <button type="button" class="q" onclick="openFounder()">Meet the founder</button>
+    </div>
   </div>
 </header>
 
