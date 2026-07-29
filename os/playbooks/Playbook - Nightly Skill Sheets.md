@@ -23,13 +23,27 @@ Every fact, link, image licence and media item on a sheet must be **crosschecked
 ### 1. Fresh clone
 Clone `main` fresh into a scratch dir (never work from a stale or dehydrated checkout). Branch `auto/skill-sheets` off `main` (or fast-forward it to `main` first so each night starts from what's live).
 
-### 2. Pick what to build — Circle demand first
-Build the skills **people are asking for**, highest demand first.
+### 2. Pick what to build — the letters, then the Circle, then the trends
+**`os/playbooks/skill-sheet-priority.md` is the build order.** Read it every run — it is the authority, and
+Arnaud edits it. It runs in four tiers, worked top-down, finishing a tier before starting the next:
 
-- **Demand signal:** the `launch_waitlist` table in Supabase. Every "Raise your hand" form and the Circle onboarding write rows whose `interests` array holds `{kind:'discipline', discipline, …}`. Aggregate `interests[].discipline` across all rows and rank by count. That ranking is the build order.
-- Read it with a **service-role key from the environment** (`SUPABASE_SERVICE_KEY`), server-side only. The anon key cannot read this table (RLS) and must not be used to try. If no service key is available this run, fall back to the **priority list** below.
-- **Skip skills that already have a deep sheet.** A sheet is "deep" if it has the standard's spine + multiple `<section>` blocks (rule of thumb: file has `class="spine"` and ≥ 6 `<section>`; the thin template has 1–2 sections and a `class="card"` ranked list). Deep already (do not rebuild): `avant-garde-and-modernist-technique`, `lymphatic-drainage`, `lifestyle-medicine`, `freediving`.
-- **Fallback order** (used whenever the demand query is unavailable): follow `os/playbooks/skill-sheet-priority.md` top-down — a "most interesting × most trendy × crew-relevant" ranking — skipping anything already deep. Then continue by Atlas community-rank.
+1. **The letters** — the skills already featured in the Circle letters (`marketing/circle/`). Those readers
+   were sent to that exact Atlas URL, so they are the warmest traffic we have. Before building one, **read
+   its letter** and make the sheet agree with it: every fact the letter stated must hold on the sheet, and
+   the letter's place is the pick unless research overturns it (in which case say so, in the open).
+2. **Live Circle demand** — the `launch_waitlist` table in Supabase. The Circle onboarding, `/circle`,
+   `/portrait` and every "raise your hand" form write rows whose `interests` array holds
+   `{kind:'discipline', discipline, …}`. Aggregate `interests[].discipline` across all rows and rank by
+   count; **a named member with a specific dream outranks a raw count** — build that sheet for them and name
+   them in the PR body so Arnaud can write to them. Read the table with a **service-role key from the
+   environment** (`SUPABASE_SERVICE_KEY`), server-side only — the anon key cannot read it (RLS) and must not
+   be tried. No key this run: log that tier 2 was skipped for lack of credentials and fall through. Never
+   guess at demand.
+3. **Most trendy worldwide** — the ranked list in the priority file.
+4. **Most trendy for yacht people** — the crew list in the priority file. This is the audience Arnaud
+   actually stands next to.
+
+- **Skip skills that already have a deep sheet.** A sheet is "deep" if it has the standard's spine + multiple `<section>` blocks (rule of thumb: file has `class="spine"` and ≥ 6 `<section>`; the thin template has 1–2 sections and a `class="card"` ranked list). Check `main` rather than trusting the skip-list — it goes stale as PRs merge.
 
 ### 3. Build 1–3 sheets to the standard
 Default batch = **2** (max 3) fully-verified sheets per run. Quality over count — a run that ships one true sheet beats one that ships three shaky ones.
