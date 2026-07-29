@@ -12,7 +12,7 @@ window.LAB_WEEKS = [
   {
     id: 'lab-week-01',
     number: '01',
-    craft: 'Modern, new-technique cuisine',
+    craft: 'New culinary techniques & technologies',
     place: 'Barcelona',
     world: 'Kitchen & Cellar',
     status: 'open',

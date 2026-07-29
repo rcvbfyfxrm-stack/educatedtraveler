@@ -22099,7 +22099,7 @@ window.ET_ATLAS = {
       }
     },
     {
-      "discipline": "Modern, new-technique cuisine",
+      "discipline": "New culinary techniques & technologies",
       "category": "culinary",
       "id": "modern-new-technique-cuisine",
       "certShort": "Master-led technique lab",
