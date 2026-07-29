@@ -1,17 +1,18 @@
 // skill-save.js — "Save this skill" on Atlas skill pages.
 //
-// Signed-in Circle members save the skill to their profile. Visitors who aren't
-// in the Circle yet are sent to join it; the skill is remembered and saved the
-// moment they're in (auth.js -> migratePendingSavedSkill).
+// Saving is a Circle member's benefit. "Circle member" is narrow on purpose:
+// signed in AND their portrait is complete (profiles.portrait_complete === true) —
+// i.e. they actually went through the Circle → portrait. A bare account (an
+// instructor, a half-finished signup) is NOT a member here.
 //
-// Storage reuses the existing `saved_adventures` table (no migration): a saved
-// skill is a row with adventure_id = "skill:<discipline-id>". The profile reads
-// those back under its owner-only RLS, so saves stay private to the member.
+//   • member:     click toggles save/un-save in their profile.
+//   • not a member (visitor OR signed-in-but-no-portrait): the skill is
+//     remembered and they're sent to /circle to join/finish. It lands in their
+//     profile the moment they seal their portrait (portrait.html flushes it),
+//     and again as a fallback next time they open a skill page as a member.
 //
-// Wiring: any page that loads this script picks up either an explicit
-//   <button data-save-skill data-skill-id="freediving" data-skill-name="Freediving">
-// or, failing that, the page's <form class="intent" data-discipline data-label>,
-// and injects the button just above it. Needs auth.js + database.js on the page.
+// Storage reuses `saved_adventures` (id "skill:<discipline>") — no migration;
+// owner-only RLS keeps saves private. Needs auth.js + database.js on the page.
 
 (function () {
   'use strict';
@@ -21,6 +22,33 @@
   function ready(fn) {
     if (document.readyState !== 'loading') fn();
     else document.addEventListener('DOMContentLoaded', fn);
+  }
+  function sb() { return window.supabaseClient; }
+  function signedIn() { return !!(window.auth && window.auth.isSignedIn && window.auth.isSignedIn()); }
+  function currentUser() { return window.auth && window.auth.getCurrentUser ? window.auth.getCurrentUser() : null; }
+
+  // Signed in AND portrait complete === a Circle member.
+  async function isMember(uid) {
+    try {
+      if (!sb() || !uid) return false;
+      var res = await sb().from('profiles').select('portrait_complete').eq('id', uid).maybeSingle();
+      return !!(res && res.data && res.data.portrait_complete);
+    } catch (e) { return false; }
+  }
+
+  // Complete a save the visitor asked for before they were a member.
+  async function flushPending(uid) {
+    var raw;
+    try { raw = localStorage.getItem(PENDING_KEY); } catch (e) { raw = null; }
+    if (!raw) return null;
+    try {
+      var s = JSON.parse(raw);
+      if (s && s.id && window.db && window.db.saveAdventure) {
+        await window.db.saveAdventure(uid, { id: 'skill:' + s.id, name: s.name || s.id });
+      }
+      localStorage.removeItem(PENDING_KEY);
+      return s && s.id ? s.id : null;
+    } catch (e) { return null; }
   }
 
   function injectCss() {
@@ -51,9 +79,6 @@
     return { id: id, name: name || id };
   }
 
-  function signedIn() { return !!(window.auth && window.auth.isSignedIn && window.auth.isSignedIn()); }
-  function currentUser() { return window.auth && window.auth.getCurrentUser ? window.auth.getCurrentUser() : null; }
-
   ready(function () {
     var btn = document.querySelector('[data-save-skill]');
     var info = skillInfo(btn);
@@ -61,7 +86,6 @@
 
     injectCss();
 
-    // Auto-inject the button above the intent form if the page didn't place one.
     if (!btn) {
       var form = document.querySelector('form.intent[data-discipline]');
       if (!form) return;
@@ -79,6 +103,8 @@
 
     var savedId = 'skill:' + info.id;
     var isSaved = false;
+    var member = false;
+    var resolved = false;
 
     function paint() {
       btn.innerHTML = isSaved
@@ -89,38 +115,52 @@
     }
     paint();
 
-    async function refresh() {
+    async function refreshSaved(uid) {
       try {
-        var u = currentUser();
-        if (!u || !window.db || !window.db.getSavedAdventures) return;
-        var rows = await window.db.getSavedAdventures(u.id);
+        if (!window.db || !window.db.getSavedAdventures) return;
+        var rows = await window.db.getSavedAdventures(uid);
         isSaved = !!(rows || []).some(function (r) { return r.adventure_id === savedId; });
         paint();
-      } catch (e) { /* stay in default (unsaved) state */ }
+      } catch (e) { /* keep default */ }
     }
 
-    // Reflect the true state once auth resolves, and on any auth change.
-    if (window.auth && window.auth.onAuthStateChange) window.auth.onAuthStateChange(function () { refresh(); });
-    setTimeout(refresh, 700);
+    // Work out membership, and for members: complete any pending save + reflect state.
+    async function resolveMember() {
+      resolved = false;
+      var u = signedIn() ? currentUser() : null;
+      member = u ? await isMember(u.id) : false;
+      resolved = true;
+      if (member && u) {
+        await flushPending(u.id);   // fallback completion for a returning member
+        await refreshSaved(u.id);
+      }
+    }
+
+    if (window.auth && window.auth.onAuthStateChange) {
+      window.auth.onAuthStateChange(function () { resolveMember(); });
+    }
+    setTimeout(resolveMember, 700);
 
     btn.addEventListener('click', async function () {
-      if (!signedIn()) {
-        // Remember the intent, then send them to join the Circle. Once they're
-        // in (and signed in), auth.js saves it automatically.
+      btn.disabled = true;
+      if (!resolved) await resolveMember();
+
+      if (!member) {
+        // Not a Circle member (or not signed in) → remember it, go join/finish.
         try { localStorage.setItem(PENDING_KEY, JSON.stringify({ id: info.id, name: info.name })); } catch (e) {}
         window.location.href = '/circle?save=' + encodeURIComponent(info.id);
-        return;
+        return; // leave disabled during navigation
       }
+
       var u = currentUser();
-      if (!u || !window.db) return;
-      btn.disabled = true;
+      if (!u || !window.db) { btn.disabled = false; return; }
       var wanted = !isSaved;
       try {
         if (wanted) await window.db.saveAdventure(u.id, { id: savedId, name: info.name });
         else await window.db.removeAdventure(u.id, savedId);
         isSaved = wanted;
         paint();
-      } catch (e) { /* leave state as-is on error */ }
+      } catch (e) { /* leave state as-is */ }
       btn.disabled = false;
     });
   });

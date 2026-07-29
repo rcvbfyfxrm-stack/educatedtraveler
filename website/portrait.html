@@ -912,6 +912,20 @@
             if(!row.email && session && session.user && session.user.email) row.email = session.user.email;
             var res = await sb.from('profiles').upsert(row, { onConflict:'id' });
             if(res && res.error) throw res.error;
+            // If they came here to save a skill ("Save this skill" → join the Circle),
+            // complete it now — this is the moment they become a member.
+            try{
+                var _ps = localStorage.getItem('et_pending_saved_skill');
+                if(_ps){
+                    var _sk = JSON.parse(_ps);
+                    if(_sk && _sk.id){
+                        await sb.from('saved_adventures').upsert(
+                            { user_id: userId, adventure_id: 'skill:' + _sk.id, adventure_name: _sk.name || _sk.id },
+                            { onConflict: 'user_id,adventure_id' });
+                    }
+                    localStorage.removeItem('et_pending_saved_skill');
+                }
+            }catch(e){ console.warn('[Portrait] pending skill save failed (non-fatal):', e); }
             // Tell Arnaud a portrait was sealed. The function re-reads this user's own
             // profile server-side (it doesn't trust anything we send). Fire-and-forget:
             // a mail hiccup must never block the member's "sealed" screen.
