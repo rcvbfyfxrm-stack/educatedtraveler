@@ -174,9 +174,6 @@
 
         // Record any pre-signup "I'm interested" click from a flagship page
         await migratePendingInterest(user.id);
-
-        // Save any skill they tried to save before joining the Circle
-        await migratePendingSavedSkill(user.id);
     }
 
     function handleSignOut() {
@@ -293,27 +290,6 @@
             localStorage.removeItem('et_pending_interest');
         } catch (e) {
             console.error('Error migrating pending interest:', e);
-        }
-    }
-
-    // A visitor clicked "Save this skill" before joining the Circle. Now that
-    // they're in, drop it into their profile (saved_adventures, id "skill:<id>").
-    async function migratePendingSavedSkill(userId) {
-        const pending = localStorage.getItem('et_pending_saved_skill');
-        if (!pending) return;
-
-        try {
-            const { id, name } = JSON.parse(pending);
-            if (id) {
-                await supabase.from('saved_adventures').upsert({
-                    user_id: userId,
-                    adventure_id: 'skill:' + id,
-                    adventure_name: name || id
-                }, { onConflict: 'user_id,adventure_id' });
-            }
-            localStorage.removeItem('et_pending_saved_skill');
-        } catch (e) {
-            console.error('Error migrating pending saved skill:', e);
         }
     }
 
