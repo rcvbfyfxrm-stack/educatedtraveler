@@ -18,9 +18,11 @@ check `main` before you rebuild them)*.
 warmest traffic the Atlas gets — they were told a real story and then clicked to see more. Right now most of
 them land on the thin template, which makes the letter look better than the site. Close that gap first.
 
+**⚠ IN FLIGHT — do not rebuild:** a sheet sitting in an open PR is NOT on `main`, so the "is it already deep?" check will say no and you will duplicate someone's work. Before building anything in this tier, run `gh pr list --state open` and skip any skill whose sheet is already in an open PR. Currently in flight: **`pottery-and-ceramics` — PR #9**. Build the next unclaimed row instead.
+
 | # | Skill | Letter | What the letter already told them |
 |---|-------|--------|-----------------------------------|
-| 1 | `pottery-and-ceramics` | Welcome (Nº 0) | Mashiko; Shōji Hamada settled 1924; plain useful handmade things; the climbing kilns; the families who never left. **Pick must be Mashiko** — the letter names it. |
+| 1 | `pottery-and-ceramics` | Welcome (Nº 0) | ⚠ **BUILT — in PR #9, skip.** Mashiko; Shōji Hamada settled 1924; plain useful handmade things; the climbing kilns; the families who never left. **Pick must be Mashiko** — the letter names it. |
 | 2 | `new-basque-cuisine` | Nº 2 | San Sebastián; the Gilda at Casa Vallés (mid-1940s, named for the Rita Hayworth film); *pintxo* ← *pincho*; the txikiteo; txakoli poured from height; the **txokos**; most Michelin stars per capita; Arzak + Subijana and Nueva Cocina Vasca; the Basque Culinary Center. |
 | 3 | `italian-cuisine-and-pasta` | Nº 3 | Bologna; **Alessandra Spisni**, *sfoglina*, metre-long rolling pin; her school since 1993 — the one school in the world training sfogline; single day or full professional course. |
 | 4 | `chocolate-and-confectionery` | Nº 3 | Caracas; **María Fernanda Di Giacobbe**; Venezuelan *criollo* cacao at the source; first-ever Basque Culinary World Prize (2016); Cacao de Origen trains makers where the bean grows. |
