@@ -102,6 +102,9 @@
   .master-photo{margin:1.4rem 0;max-width:560px}
   .master-photo img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line);filter:saturate(.85)}
   .master-photo figcaption{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);margin-top:.5rem}
+  .master-video{margin:1.6rem 0;max-width:720px}
+  .master-video video{width:100%;height:auto;display:block;border-radius:6px;border:1px solid var(--line);background:#000}
+  .master-video figcaption{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);margin-top:.5rem}
   .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0}
   .btn{display:inline-block;font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.95rem 1.5rem}
   .btn-primary{background:linear-gradient(100deg,var(--sea),var(--ember));color:var(--ink);font-weight:500}
@@ -277,9 +280,12 @@
   <div class="wrap">
     <p class="eyebrow">The master</p>
     <h2>Martin Lippo, Vakuum</h2>
-    <figure class="master-photo">
-      <img src="/images/lippo/martin-teaching.png" alt="Martin Lippo teaching at the bench at Vakuum — students leaning in over a nitrogen preparation" loading="lazy" onerror="this.closest('figure').style.display='none'">
-      <figcaption>Martin Lippo at the bench — Vakuum, Barcelona</figcaption>
+    <figure class="master-video">
+      <video controls preload="none" playsinline poster="/video/lippo/poster-techniques.jpg" width="1280" height="720">
+        <source src="/video/lippo/lippo-techniques-web.mp4" type="video/mp4">
+        Your browser can't play this video. <a href="/video/lippo/lippo-techniques-web.mp4">Download it instead</a>.
+      </video>
+      <figcaption>The techniques, in his hands — filmed at Vakuum, Barcelona</figcaption>
     </figure>
     <p>Argentine, in Barcelona since 2000. Instead of a restaurant, he built <a href="https://martinlippo.com/en/" rel="noopener">Vakuum</a> — a laboratory whose whole purpose is teaching — and the Nitro School: liquid nitrogen is his signature terrain. Les Vergers Boiron built a <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">technique video library</a> around him; <a href="https://www.sogoodmagazine.com/pastry-chefs/martin-lippo/" rel="noopener">so good.. magazine</a> features his work; he stands between Adrià's modernism and Escoffier's classicism.</p>
     <p>Martin will tell you chefs from World's 50 Best kitchens have taken his courses — and left with more than they came for. Weigh his word against the signed reviews on his own site, names and ranks attached — a working superyacht chef among them:</p>
