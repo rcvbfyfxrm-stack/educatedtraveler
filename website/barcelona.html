@@ -131,6 +131,10 @@
   .film-slot{border:1px dashed rgba(243,237,226,.22);border-radius:8px;padding:2rem 1.4rem;margin:1.4rem 0;text-align:center;background:var(--ink-2)}
   .film-slot .fs-k{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin:0 0 .5rem}
   .film-slot p{max-width:none;margin:.3rem 0;font-size:.92rem;color:var(--softer)}
+  .module-film{margin:1.8rem 0;text-align:center}
+  .module-film .fs-k{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin:0 0 .7rem}
+  .module-film video{width:100%;max-width:340px;height:auto;display:block;margin:0 auto;border-radius:8px;border:1px solid var(--line);background:#000}
+  .module-film figcaption{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--softer);margin-top:.7rem}
   footer{padding:2.6rem 0 3.2rem}
   footer .sig{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--paper);margin:0 0 .6rem}
   footer p{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--softer);max-width:none}
@@ -254,10 +258,14 @@
       <div class="day" style="border-style:dashed"><p class="d">Coming · optional add-ons</p><h3>Around the five days</h3><p>Being arranged now, cohort hears first: <strong>a table at a three-Michelin-star house — private table, eyes in the kitchen</strong> — plus an open-fire day and a Barcelona source day. Priced separately, capped small.</p><p class="galley">Nothing sold until it's booked and real — that's the house rule.</p></div>
       <div class="day" style="border-style:dashed"><p class="d">The stay · two ways</p><h3>Where you sleep</h3><p><strong>A shared cohort apartment near the lab — your own private room, at cost</strong> — or arrange your own. Your call at application.</p><p class="galley">55 minutes' flight from Palma, 1h25 from Nice.</p></div>
     </div>
-    <div class="film-slot" id="film-slot">
-      <p class="fs-k">Film from the lab — coming soon</p>
-      <p>Martin presenting the week himself, from the bench. The Circle sees it first.</p>
-    </div>
+    <figure class="module-film" id="film-slot">
+      <p class="fs-k">Film from the lab</p>
+      <video controls preload="none" playsinline poster="/video/lippo/poster-modules.jpg" width="720" height="1280">
+        <source src="/video/lippo/lippo-modules-web.mp4" type="video/mp4">
+        Your browser can't play this video. <a href="/video/lippo/lippo-modules-web.mp4">Download it instead</a>.
+      </video>
+      <figcaption>Martin walks the five modules himself — filmed at Vakuum by his team.</figcaption>
+    </figure>
   </div>
 </section>
 
