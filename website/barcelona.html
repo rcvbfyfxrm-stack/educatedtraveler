@@ -44,8 +44,14 @@
   .wordmark b{font-weight:300;color:var(--sea)}
   .topbar a.atlas{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);text-decoration:none}
   .topbar a.atlas:hover{color:var(--sea)}
-  header{padding:5.2rem 0 2.6rem;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(13,11,9,.80) 0%,rgba(13,11,9,.90) 55%,var(--ink) 96%),url('/images/lippo/lab-glass.jpg') center 45%/cover no-repeat}
+  /* Light scrim on purpose: the lab has to read through it — you should be able
+     to see the Vakuum glass. Everything sitting on top carries its own shadow. */
+  header{padding:5.2rem 0 2.6rem;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(13,11,9,.42) 0%,rgba(13,11,9,.66) 50%,rgba(13,11,9,.90) 85%,var(--ink) 100%),url('/images/lippo/lab-glass.jpg') center 45%/cover no-repeat}
+  header h1,header .sub{text-shadow:0 1px 3px rgba(13,11,9,.75),0 2px 18px rgba(13,11,9,.9)}
+  .hero-lock svg{filter:drop-shadow(0 2px 12px rgba(13,11,9,.9))}
   .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--sea);margin:0 0 1.4rem}
+  /* the kicker lands on the brightest band of the photo — it needs its own lift */
+  header .kicker{color:#b4d6d3;text-shadow:0 1px 2px rgba(13,11,9,.98),0 0 12px rgba(13,11,9,.95),0 0 26px rgba(13,11,9,.8)}
   .hero-lock{font-family:var(--serif);font-weight:400;font-size:clamp(1.15rem,2.6vw,1.6rem);line-height:1.1;color:var(--paper);margin:0 0 2.2rem}
   .hero-lock i{font-style:normal;color:var(--ember);padding:0 .4em}
   .hero-lock svg{width:min(640px,100%);height:auto;display:block;margin:0 auto;transform:translateX(0)}
