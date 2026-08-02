@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your seat is taken — Lab Week 01, Barcelona — EducatedTraveler</title>
+<meta name="description" content="Seat confirmation for Lab Week 01 — five days with Martin Lippo at Vakuum, Barcelona, 22–26 October 2026.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://educatedtraveler.app/booked">
+<link rel="icon" href="/favicon.svg">
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Warm-Dark Editorial lock — same tokens as /barcelona and /pay. */
+  :root{
+    --ink:#0d0b09; --ink-2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --ember-soft:#e0a877;
+    --line:rgba(243,237,226,0.09); --soft:rgba(243,237,226,0.72); --softer:rgba(243,237,226,0.5);
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16.5px;line-height:1.65}
+  ::selection{background:var(--ember);color:var(--ink)}
+  a{color:var(--sea)}
+  .wrap{max-width:680px;margin:0 auto;padding:0 1.4rem}
+  .topbar{border-bottom:1px solid var(--line);background:var(--ink-2)}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.7rem;padding-bottom:.7rem}
+  .wordmark{font-family:var(--serif);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em;color:var(--paper);text-decoration:none}
+  .wordmark b{font-weight:300;color:var(--sea)}
+  .topbar a.back{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);text-decoration:none}
+  .topbar a.back:hover{color:var(--sea)}
+
+  header{padding:3.6rem 0 2.2rem;border-bottom:1px solid var(--line)}
+  .seal{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--sea);border-radius:100px;padding:.45rem 1rem;margin:0 0 1.4rem}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,6vw,3.1rem);line-height:1.05;margin:0 0 1rem;letter-spacing:-.01em;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--ember)}
+  .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.02rem,2.4vw,1.22rem);color:var(--soft);max-width:34em;margin:0}
+
+  .card{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--ember);border-radius:6px;padding:1.4rem 1.5rem;margin:2rem 0 0}
+  .card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.55rem 1.4rem}
+  .card dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);align-self:baseline}
+  .card dd{margin:0;color:var(--paper);font-size:.95rem}
+  .card dd b{color:var(--ember);font-weight:500;font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  section{padding:2.4rem 0 .4rem;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin:0 0 .6rem}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,3.4vw,1.7rem);line-height:1.15;margin:0 0 1rem;text-wrap:balance}
+  p{margin:.85rem 0;max-width:62ch;color:var(--soft)}
+  p strong{color:var(--paper)}
+
+  /* what happens next — numbered, because the order matters */
+  .steps{list-style:none;counter-reset:s;padding:0;margin:1.3rem 0}
+  .steps li{counter-increment:s;position:relative;padding:0 0 0 2.6rem;margin:0 0 1.2rem;color:var(--soft);font-size:.95rem}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:.05rem;width:1.7rem;height:1.7rem;border-radius:50%;border:1px solid var(--ember);color:var(--ember);font-family:var(--mono);font-size:.75rem;display:flex;align-items:center;justify-content:center}
+  .steps li strong{color:var(--paper);display:block}
+
+  .flagbox{border-left:3px solid var(--ember);background:var(--ink-2);border-radius:0 6px 6px 0;padding:1rem 1.2rem;margin:1.3rem 0;font-size:.95rem;color:var(--soft)}
+  .flagbox strong{color:var(--ember-soft)}
+
+  .btn{display:inline-block;font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.9rem 1.4rem}
+  .btn-ghost{border:1px solid var(--line);color:var(--paper)}
+  .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
+  .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.4rem 0 .4rem}
+
+  footer{padding:2.4rem 0 3rem}
+  footer .sig{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--soft);margin:0 0 .8rem}
+  footer p{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;line-height:2;color:var(--softer);max-width:none}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="/">EDUCATED<b>TRAVELER</b></a>
+    <a class="back" href="/barcelona">The week in full &rarr;</a>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <p class="seal">✓ Seat taken</p>
+    <h1 id="head">You've booked your seat for <em>Martin week</em>.</h1>
+    <p class="sub">Thursday 22 – Monday 26 October 2026, at Vakuum in Barcelona. Five days, hands in, in English.</p>
+
+    <div class="card">
+      <dl>
+        <dt>Week</dt><dd>Lab Week 01 — Modernist technique with Martin Lippo</dd>
+        <dt>Where</dt><dd>Vakuum · Passatge de Centelles 10–20, 08013 Barcelona</dd>
+        <dt>When</dt><dd>Thu 22 – Mon 26 October 2026 · 35 hours</dd>
+        <dt>Paid</dt><dd><b>€1,500</b> · VAT included</dd>
+        <dt>Seat</dt><dd id="seat-name">Held in your name</dd>
+      </dl>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">What happens now</p>
+    <h2>Three things, in this order.</h2>
+    <ol class="steps">
+      <li><strong>I check the ledger by hand.</strong> Revolut has your payment. I reconcile every evening and write to you personally — with your receipt and your name on the room list. If you haven't heard from me within 24 hours, chase me; it means something went wrong on my side, not yours.</li>
+      <li><strong>Your seat counts toward the 10.</strong> The week runs the moment 10 chefs have paid. You'll be the first to know the day we hit it — that's the email that says CONFIRMED.</li>
+      <li><strong>Then we talk logistics.</strong> Where to stay, how to get to Passatge de Centelles, what the days actually look like, and the optional add-ons around the week. Cohort hears first, always.</li>
+    </ol>
+
+    <div class="flagbox">
+      <strong>Still don't buy flights yet.</strong> Not until I announce CONFIRMED. If we're not at 10 paid by Tuesday 15 September, the week cancels and every euro comes back to you in full — that promise is public and it hasn't changed now that you've paid.
+    </div>
+
+    <p>After we confirm, your seat is transferable but not refundable: if your programme turns, send a chef of your calibre in your place, up to 7 days before the week.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">One thing to do today</p>
+    <h2>Put the dates in your diary.</h2>
+    <p>Block 22–26 October now, before the next charter lands on it. And if your boat holds a crew training budget — most do — tell your captain: I can invoice the boat directly.</p>
+    <div class="cta-row">
+      <a class="btn btn-ghost" id="ics" href="#" download="lab-week-01-barcelona.ics">Add to calendar</a>
+      <a class="btn btn-ghost" href="/barcelona">Re-read the week</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Me, directly</p>
+    <h2>Anything at all.</h2>
+    <p>I'm on <a href="mailto:arnaud@educatedtraveler.app?subject=Lab%20Week%2001%20—%20my%20seat">arnaud@educatedtraveler.app</a>, and I answer myself. Mid-charter? Voice notes work — tell me your watch and I'll fit around it.</p>
+    <p>See you in Barcelona.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="sig">A place, a person, your people.</p>
+    <p>EDUCATEDTRAVELER · LAB WEEK 01 · ORGANISED AND SOLD BY EDUCATEDTRAVELER · TAUGHT BY MARTIN LIPPO AT VAKUUM, BARCELONA</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Greet them by name if they came through /pay on this device. Purely cosmetic —
+  // the page reads correctly for someone landing here cold from Revolut.
+  try {
+    var seat = JSON.parse(localStorage.getItem('et_seat_lippo') || '{}');
+    if (seat.name) {
+      var first = seat.name.trim().split(/\s+/)[0];
+      document.getElementById('head').innerHTML =
+        first.replace(/[<>&]/g, '') + ", you've booked your seat for <em>Martin week</em>.";
+      document.getElementById('seat-name').textContent = seat.name;
+    }
+  } catch (e) { /* no name, no problem */ }
+
+  if (window.plausible) window.plausible('SeatBooked', { props: { week: 'lab-week-01' } });
+
+  // Calendar file, built in the browser — no dependency, no tracking.
+  var ics = [
+    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//EducatedTraveler//Lab Week 01//EN',
+    'BEGIN:VEVENT',
+    'UID:lab-week-01-barcelona@educatedtraveler.app',
+    'DTSTAMP:20260802T090000Z',
+    'DTSTART;VALUE=DATE:20261022',
+    'DTEND;VALUE=DATE:20261027',
+    'SUMMARY:Lab Week 01 — Martin Lippo, Barcelona',
+    'LOCATION:Vakuum\\, Passatge de Centelles 10-20\\, 08013 Barcelona\\, Spain',
+    'DESCRIPTION:Five days of modernist technique with Martin Lippo. Do not book flights until EducatedTraveler announces CONFIRMED.',
+    'END:VEVENT', 'END:VCALENDAR'
+  ].join('\r\n');
+  document.getElementById('ics').href =
+    'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+})();
+</script>
+
+</body>
+</html>
