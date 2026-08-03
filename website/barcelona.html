@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Five days in Martin Lippo's lab — EducatedTraveler</title>
-<meta name="description" content="Modernist technique for yacht chefs — 35 hours in Martin Lippo's Barcelona lab, 22–26 October 2026, in English. Leave with a signed certificate, a portfolio shot by his team, and techniques chosen for the galley. Confirmed at 10 paid or everyone refunded in full.">
+<meta name="description" content="Modernist technique for yacht chefs — 35 hours in Martin Lippo's Barcelona lab, 22–26 October 2026, in English. Leave with a signed certificate, a portfolio shot by his team, and techniques chosen for the galley. Confirmed at 10 seats taken or everyone refunded in full.">
 <link rel="canonical" href="https://educatedtraveler.app/barcelona">
 <meta property="og:title" content="Five days in Martin Lippo's lab — Barcelona, 22–26 October">
-<meta property="og:description" content="Modernist technique for working chefs — 35 hours hands-in, in English. Leave with a signed certificate, a portfolio shot in the lab, and the techniques your next job will notice. Confirmed at 10 paid or everyone refunded.">
+<meta property="og:description" content="Modernist technique for working chefs — 35 hours hands-in, in English. Leave with a signed certificate, a portfolio shot in the lab, and the techniques your next job will notice. Confirmed at 10 seats taken or everyone refunded.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/barcelona">
 <meta property="og:image" content="https://educatedtraveler.app/images/og-barcelona-collab.jpg">
@@ -208,16 +208,16 @@
     <div class="neon" id="neon" role="status">
       <span class="nd" id="neon-days">—</span>
       <span class="nl">days to confirm the room</span>
-      <span class="nsub">10 chefs paid by Tuesday 15 September — or the week doesn't run and every euro is refunded in full.</span>
+      <span class="nsub">10 seats taken by Tuesday 15 September — or the week doesn't run and every euro is refunded in full.</span>
     </div>
     <div class="seatbar">
       <div class="seatbar-top">
         <div id="count-block">
-          <div class="n"><b id="seats-taken">0</b> <span id="count-unit">paid seats</span></div>
+          <div class="n"><b id="seats-taken">0</b> <span id="count-unit">seats taken</span></div>
           <div class="lbl" id="count-lbl">of the 10 that confirm the week</div>
         </div>
         <div class="pips" id="pips" aria-hidden="true"></div>
-        <div class="deadline">Confirmed at <b>10 paid</b> · €1,500, VAT included · room capped at <b>15</b></div>
+        <div class="deadline">Confirmed at <b>10 seats</b> · €1,500, VAT included · a <b>€350</b> deposit takes one · room capped at <b>15</b></div>
       </div>
       <div class="updated" id="updated-line"></div>
     </div>
@@ -310,8 +310,9 @@
     <h2>Straight, like a good galley</h2>
     <ul class="terms">
       <li><strong>€1,500, VAT included — the whole number.</strong> Ingredients, tools, nitrogen, dossiers: all provided. You bring a chef jacket.</li>
+      <li><strong>A €350 deposit takes your seat.</strong> The balance is only asked for once the week is confirmed — never before. Seats go in the order they're taken, deposit or in full; pay in full and you get first refusal on the add-ons.</li>
       <li><strong>You pay EducatedTraveler, and EducatedTraveler handles everything</strong> — the seat, the paperwork, the certificate, the refund if it comes to that. Martin brings the knowledge, the lab and the teaching. We're paid out of that price; nothing is added on top.</li>
-      <li><strong>Confirmed the moment 10 chefs have paid.</strong> Not there by Tuesday 15 September → the week cancels and every euro is refunded in full, said publicly. <strong>Don't buy flights until we announce CONFIRMED.</strong></li>
+      <li><strong>Confirmed the moment 10 seats are taken.</strong> Not there by Tuesday 15 September → the week cancels and every euro is refunded in full — deposits included, said publicly. <strong>Don't buy flights until we announce CONFIRMED.</strong></li>
       <li><strong>After confirmation, seats are transferable, not refundable.</strong> Can't come? Send a chef of comparable calibre in your place, up to 7 days before the week.</li>
       <li><strong>Your boat may fund it.</strong> 65% of yachts hold a crew training budget — averaging €2,567 per crew member per year (Quay Crew, 2024). We can invoice the boat; ask your captain.</li>
       <li><strong>The lab is at Passatge de Centelles, Barcelona.</strong> 55 minutes' flight from Palma, 1h25 from Nice.</li>
@@ -353,7 +354,7 @@
     <p class="eyebrow">Take a seat</p>
     <h2>Apply — two minutes, then a call</h2>
     <p>Send me five things: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
-    <p>Then 15 minutes on the phone — your questions, and me checking the week fits you. After the call your seat holds 48 hours while the payment link is live. Mid-charter? Voice notes work — tell me your watch.</p>
+    <p>Then 15 minutes on the phone — your questions, and me checking the week fits you. After the call I send you the payment link, and your seat holds 48 hours while it's live — €350 takes it. Mid-charter? Voice notes work — tell me your watch.</p>
     <p class="pick-line">Both arrive with the five questions already written out.</p>
     <div class="cta-row cta-pick">
       <a class="btn btn-primary cta-wa" href="#">WhatsApp me</a>
@@ -398,7 +399,7 @@
 </footer>
 
 <div class="stickybar" id="stickybar">
-  <span class="st-count" id="st-count">Confirmed at 10 paid · 15 Sept</span>
+  <span class="st-count" id="st-count">Confirmed at 10 seats · 15 Sept</span>
   <span style="display:flex;gap:.5rem;flex:0 0 auto">
     <a class="btn btn-peer" id="st-mail" href="#" style="padding:.7rem .9rem">Email</a>
     <a class="btn btn-primary cta-wa" href="#">WhatsApp</a>
@@ -407,7 +408,8 @@
 
 <script>
   /* ============ UPDATE HERE — the only lines to touch ============
-     Counts are REAL PAID SEATS on the joint ledger. Never inflate.   */
+     Counts are REAL SEATS TAKEN on the joint ledger — a €350 deposit is a
+     seat, same as paid in full. Never inflate.                       */
   var SEATS_TAKEN = 0;
   var CONFIRMED   = false;
   var UPDATED     = "2026-07-16";      /* change every time the count changes    */
@@ -429,12 +431,12 @@
       s.className = "pip" + (i < Math.min(SEATS_TAKEN, THRESHOLD) ? " on" : "");
       pips.appendChild(s);
     }
-    document.getElementById("updated-line").textContent = "count updated " + UPDATED + " — real paid seats only";
-    document.getElementById("st-count").innerHTML = "<b>" + SEATS_TAKEN + "</b> paid · confirms at 10";
+    document.getElementById("updated-line").textContent = "count updated " + UPDATED + " — real seats taken only";
+    document.getElementById("st-count").innerHTML = "<b>" + SEATS_TAKEN + "</b> taken · confirms at 10";
   } else if (SEATS_TAKEN > 0) {
     document.getElementById("seats-taken").textContent = "";
     document.getElementById("count-unit").textContent = "The first seats are taken.";
-    document.getElementById("count-lbl").textContent = "confirmed at 10 paid";
+    document.getElementById("count-lbl").textContent = "confirmed at 10 seats";
     document.getElementById("updated-line").textContent = "count updated " + UPDATED;
   } else {
     cb.querySelector(".n").textContent = "Applications open";
