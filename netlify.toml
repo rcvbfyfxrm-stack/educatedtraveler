@@ -111,3 +111,14 @@
   from = "/vision"
   to = "/vision.html"
   status = 200
+
+# Seat payment for Lab Week 01 — sent one-to-one after the call, not linked publicly
+[[redirects]]
+  from = "/pay"
+  to = "/pay.html"
+  status = 200
+
+[[redirects]]
+  from = "/booked"
+  to = "/booked.html"
+  status = 200
