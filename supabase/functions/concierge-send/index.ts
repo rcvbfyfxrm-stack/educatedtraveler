@@ -50,22 +50,22 @@ function bodyHtml(messageMd: string): string {
   const paras = String(messageMd || "").trim().split(/\n{2,}/).map((p) => {
     const withLinks = esc(p.trim()).replace(
       /(https?:\/\/[^\s]+|\/atlas\/[a-z0-9-]+)/g,
-      (u) => `<a href="${u.startsWith("/") ? "https://educatedtraveler.app" + u : u}" style="color:#7fa8a5;">${u}</a>`,
+      (u) => `<a href="${u.startsWith("/") ? "https://educatedtraveler.app" + u : u}" style="color:#3f6b67;">${u}</a>`,
     );
-    return `<p style="color:rgba(243,237,226,0.82);font-size:15px;line-height:1.75;margin:0 0 16px 0;white-space:pre-wrap;">${withLinks}</p>`;
+    return `<p style="color:#2b2621;font-size:15px;line-height:1.75;margin:0 0 16px 0;white-space:pre-wrap;">${withLinks}</p>`;
   }).join("");
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<body style="margin:0;padding:0;background:#0d0b09;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
     <div style="text-align:center;margin-bottom:36px;">
-      <span style="font-family:Georgia,serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#f3ede2;">EDUCATED</span><span style="font-family:Georgia,serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#7fa8a5;">TRAVELER</span>
+      <span style="font-family:Georgia,serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#2b2621;">EDUCATED</span><span style="font-family:Georgia,serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#3f6b67;">TRAVELER</span>
     </div>
-    <div style="background:rgba(243,237,226,0.03);border:1px solid rgba(243,237,226,0.08);border-radius:16px;padding:34px 28px;">
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:34px 28px;">
       ${paras}
     </div>
-    <div style="margin-top:36px;padding-top:20px;border-top:1px solid rgba(243,237,226,0.06);text-align:center;">
-      <p style="color:rgba(243,237,226,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
-      <p style="margin:10px 0 0 0;"><a href="https://educatedtraveler.app" style="color:rgba(127,168,165,0.5);font-size:11px;text-decoration:none;">educatedtraveler.app</a></p>
+    <div style="margin-top:36px;padding-top:20px;border-top:1px solid #e6ded1;text-align:center;">
+      <p style="color:#7a726a;font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="margin:10px 0 0 0;"><a href="https://educatedtraveler.app" style="color:#3f6b67;font-size:11px;text-decoration:none;">educatedtraveler.app</a></p>
     </div>
   </div>
 </body></html>`;

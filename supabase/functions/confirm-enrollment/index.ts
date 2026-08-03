@@ -60,6 +60,7 @@ function json(body: unknown, status = 200) {
 function htmlPage(opts: { eyebrow: string; heading: string; body: string; tone: "ok" | "error" | "neutral" }): Response {
   const accent = opts.tone === "ok" ? "#10b981" : opts.tone === "error" ? "#f87171" : "#3B8DD4";
   return new Response(
+    /* EMAIL-CHECK: SKIP — browser page, not an email (dark by design) */
     `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(opts.heading)} — EducatedTraveler</title>
@@ -92,6 +93,7 @@ function htmlInterstitial(enr: Record<string, any>): Response {
     : `Paid in full ${fmtMoney(enr.amount_paid_cents, enr.currency)}`;
 
   return new Response(
+    /* EMAIL-CHECK: SKIP — browser page, not an email (dark by design) */
     `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Confirm booking — EducatedTraveler</title>
@@ -149,21 +151,21 @@ async function sendStudentConfirmedEmail(enr: Record<string, any>) {
     ? `<p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">Your deposit is in and your seat is locked. The remaining balance of <strong>${fmtMoney(enr.balance_cents, enr.currency)}</strong> is due by <strong>${fmtDate(enr.balance_due_date)}</strong> — we'll email you a payment link closer to the date.</p>`
     : "";
 
-  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
-    <div style="text-align:center;margin-bottom:36px;"><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#fff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span></div>
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;color:rgba(255,255,255,0.85);">
-      <p style="color:#10b981;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 16px 0;font-family:'Courier New',monospace;">Seat confirmed</p>
-      <h2 style="color:#fff;font-size:20px;font-weight:400;margin:0 0 6px 0;">You're in, ${esc(firstName)}.</h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 0 24px 0;">${esc(title)}${dates ? " · " + esc(dates) : ""}</p>
+    <div style="text-align:center;margin-bottom:36px;"><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#1f6ba8;">TRAVELER</span></div>
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;color:#2b2621;">
+      <p style="color:#0b7a58;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 16px 0;font-family:'Courier New',monospace;">Seat confirmed</p>
+      <h2 style="color:#2b2621;font-size:20px;font-weight:400;margin:0 0 6px 0;">You're in, ${esc(firstName)}.</h2>
+      <p style="color:#4a423b;font-size:14px;margin:0 0 24px 0;">${esc(title)}${dates ? " · " + esc(dates) : ""}</p>
       <p style="font-size:15px;line-height:1.7;margin:0 0 16px 0;">${esc(cohort.instructors?.name || "Your instructor")} just confirmed your spot. You're officially enrolled.</p>
       ${balanceLine}
       <div style="text-align:center;margin:24px 0 4px 0;">
-        <a href="${APP_URL}/dashboard" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-size:13px;font-weight:500;">View your cohort</a>
+        <a href="${APP_URL}/dashboard" style="display:inline-block;background-color:#0066B1;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#ffffff;text-decoration:none;padding:12px 28px;border-radius:50px;font-size:13px;font-weight:500;">View your cohort</a>
       </div>
     </div>
-    <p style="color:rgba(255,255,255,0.25);font-size:11px;text-align:center;margin-top:24px;">EducatedTraveler · Skills last, tans fade</p>
+    <p style="color:#7a726a;font-size:11px;text-align:center;margin-top:24px;">EducatedTraveler · Skills last, tans fade</p>
   </div>
 </body></html>`;
 

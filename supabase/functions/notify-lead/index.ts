@@ -164,18 +164,18 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
   const grouped = groupCrafts(p.crafts);
 
   const kv = (k: string, v: string) => v
-    ? `<tr><td style="padding:7px 14px 7px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;vertical-align:top;white-space:nowrap;">${esc(k)}</td><td style="padding:7px 0;color:#f3ede2;font-size:15px;line-height:1.6;">${v}</td></tr>`
+    ? `<tr><td style="padding:7px 14px 7px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;vertical-align:top;white-space:nowrap;">${esc(k)}</td><td style="padding:7px 0;color:#2b2621;font-size:15px;line-height:1.6;">${v}</td></tr>`
     : "";
 
   const craftBlock = grouped.length
     ? grouped.map(([world, list]) =>
         `<div style="margin:0 0 10px 0;">
-           <p style="margin:0 0 6px 0;color:rgba(243,237,226,0.45);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">${esc(world)}</p>
+           <p style="margin:0 0 6px 0;color:#6b625a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">${esc(world)}</p>
            <div>${list.map((c) =>
-             `<span style="display:inline-block;margin:0 6px 6px 0;padding:4px 11px;border:1px solid ${world === "In their own words" ? "#d28a52" : "#7fa8a5"};border-radius:9px;font-size:13px;color:#f3ede2;">${esc(c)}</span>`
+             `<span style="display:inline-block;margin:0 6px 6px 0;padding:4px 11px;border:1px solid ${world === "In their own words" ? "#d28a52" : "#7fa8a5"};border-radius:9px;font-size:13px;color:#2b2621;">${esc(c)}</span>`
            ).join("")}</div>
          </div>`).join("")
-    : `<p style="color:rgba(243,237,226,0.4);font-size:14px;font-style:italic;margin:0;">No crafts picked.</p>`;
+    : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:0;">No crafts picked.</p>`;
 
   const intentRows = p.intent.map(([k, v]) => kv(k, esc(v))).join("");
 
@@ -185,54 +185,54 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
          <p style="color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;margin:0;white-space:pre-wrap;">${esc(p.dream)}</p>
          <p style="color:#3a2c1e;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:16px 0 0 0;text-align:right;">— ${esc(name)}</p>
        </div>`
-    : `<p style="color:rgba(243,237,226,0.4);font-size:14px;font-style:italic;margin:20px 0 0 0;">No dream written — they skipped that step.</p>`;
+    : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:20px 0 0 0;">No dream written — they skipped that step.</p>`;
 
   const RELATION_LABEL: Record<string, string> = { work: "It's their work", passion: "A lifelong passion" };
   const ADVANCED_LABEL: Record<string, string> = { yes: "Yes — they'd go deeper", curious: "Curious", no: "Not for them" };
   const masteryBlock = p.mastery && (p.mastery.skill || p.mastery.relation || p.mastery.advanced)
-    ? `<p style="margin:18px 0 8px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">What they already master</p>
+    ? `<p style="margin:18px 0 8px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">What they already master</p>
        <div style="border:1px solid rgba(127,168,165,0.35);border-left:2px solid #7fa8a5;border-radius:12px;padding:14px 16px;">
-         ${p.mastery.skill ? `<p style="color:#f3ede2;font-family:Georgia,serif;font-size:17px;margin:0 0 6px 0;">${esc(p.mastery.skill)}</p>` : ""}
-         <p style="color:rgba(243,237,226,0.6);font-size:13px;margin:0;">
-           ${p.mastery.relation ? esc(RELATION_LABEL[p.mastery.relation] ?? p.mastery.relation) : ""}${p.mastery.relation && p.mastery.advanced ? " &middot; " : ""}${p.mastery.advanced ? "Advanced week with an expert: <strong style=\"color:#d28a52;\">" + esc(ADVANCED_LABEL[p.mastery.advanced] ?? p.mastery.advanced) + "</strong>" : ""}
+         ${p.mastery.skill ? `<p style="color:#2b2621;font-family:Georgia,serif;font-size:17px;margin:0 0 6px 0;">${esc(p.mastery.skill)}</p>` : ""}
+         <p style="color:#6b625a;font-size:13px;margin:0;">
+           ${p.mastery.relation ? esc(RELATION_LABEL[p.mastery.relation] ?? p.mastery.relation) : ""}${p.mastery.relation && p.mastery.advanced ? " &middot; " : ""}${p.mastery.advanced ? "Advanced week with an expert: <strong style=\"color:#8f5820;\">" + esc(ADVANCED_LABEL[p.mastery.advanced] ?? p.mastery.advanced) + "</strong>" : ""}
          </p>
        </div>`
     : "";
 
   const leftoverBlock = p.leftovers.length
-    ? `<p style="margin:18px 0 6px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Also on the sheet</p>
-       <pre style="color:rgba(243,237,226,0.7);font-size:12px;line-height:1.6;white-space:pre-wrap;margin:0;font-family:'Courier New',monospace;">${esc(JSON.stringify(p.leftovers, null, 2))}</pre>`
+    ? `<p style="margin:18px 0 6px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Also on the sheet</p>
+       <pre style="color:#3d3630;font-size:12px;line-height:1.6;white-space:pre-wrap;margin:0;font-family:'Courier New',monospace;">${esc(JSON.stringify(p.leftovers, null, 2))}</pre>`
     : "";
 
   return `<!DOCTYPE html>
-<html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#0d0b09;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<html><head><meta charset="utf-8"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:620px;margin:0 auto;padding:40px 24px;">
     <div style="text-align:center;margin-bottom:30px;">
-      <span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#f3ede2;">EDUCATED</span><span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#7fa8a5;">TRAVELER</span>
+      <span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#2b2621;">EDUCATED</span><span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#3f6b67;">TRAVELER</span>
     </div>
-    <div style="background:rgba(243,237,226,0.03);border:1px solid rgba(243,237,226,0.08);border-radius:16px;padding:34px 28px;">
-      <p style="color:#d28a52;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 10px 0;font-family:'Courier New',monospace;">New Circle signup${when ? " · " + esc(when) : ""}</p>
-      <p style="color:#f3ede2;font-family:Georgia,serif;font-size:23px;line-height:1.4;margin:0 0 22px 0;">${esc(name)} just raised a hand to join the Circle.</p>
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:34px 28px;">
+      <p style="color:#8f5820;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 10px 0;font-family:'Courier New',monospace;">New Circle signup${when ? " · " + esc(when) : ""}</p>
+      <p style="color:#2b2621;font-family:Georgia,serif;font-size:23px;line-height:1.4;margin:0 0 22px 0;">${esc(name)} just raised a hand to join the Circle.</p>
 
       <table style="width:100%;border-collapse:collapse;margin-bottom:6px;">
         ${kv("Name", esc(name))}
-        ${kv("Email", email ? `<a href="mailto:${esc(email)}" style="color:#7fa8a5;">${esc(email)}</a>` : "")}
+        ${kv("Email", email ? `<a href="mailto:${esc(email)}" style="color:#3f6b67;">${esc(email)}</a>` : "")}
         ${kv("Where they live", p.region ? esc(p.region) : "")}
         ${kv("Came in through", src ? esc(src) : "")}
       </table>
 
-      <p style="margin:18px 0 10px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">The crafts — ${p.crafts.length}</p>
+      <p style="margin:18px 0 10px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">The crafts — ${p.crafts.length}</p>
       ${craftBlock}
 
-      ${intentRows ? `<p style="margin:18px 0 4px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Where they're starting from</p>
+      ${intentRows ? `<p style="margin:18px 0 4px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Where they're starting from</p>
       <table style="width:100%;border-collapse:collapse;">${intentRows}</table>` : ""}
 
       ${masteryBlock}
       ${dreamBlock}
       ${leftoverBlock}
     </div>
-    <p style="color:rgba(243,237,226,0.25);font-size:12px;text-align:center;margin:22px 0 0 0;">Reply goes straight to ${esc(name)}. They're a lead, not yet a member — the door is yours to open.</p>
+    <p style="color:#7a726a;font-size:12px;text-align:center;margin:22px 0 0 0;">Reply goes straight to ${esc(name)}. They're a lead, not yet a member — the door is yours to open.</p>
   </div>
 </body></html>`;
 }

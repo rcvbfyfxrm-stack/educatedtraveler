@@ -107,38 +107,38 @@ serve(async (req) => {
 
     const html = `
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<html><head><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
     <div style="text-align:center;margin-bottom:36px;">
-      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#fff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span>
+      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#1f6ba8;">TRAVELER</span>
     </div>
 
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;">
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;">
 
-      <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 20px 0;font-family:'Courier New',monospace;">You're In</p>
+      <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 20px 0;font-family:'Courier New',monospace;">You're In</p>
 
-      <p style="color:#fff;font-size:18px;line-height:1.5;margin:0 0 12px 0;">Hey ${firstName},</p>
+      <p style="color:#2b2621;font-size:18px;line-height:1.5;margin:0 0 12px 0;">Hey ${firstName},</p>
 
-      <p style="color:rgba(255,255,255,0.75);font-size:15px;line-height:1.7;margin:0 0 16px 0;">Your instructor dashboard is set up and waiting. From there you can confirm your bio, propose new cohort dates, see who's signed up, and connect Stripe to receive payouts directly.</p>
+      <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 16px 0;">Your instructor dashboard is set up and waiting. From there you can confirm your bio, propose new cohort dates, see who's signed up, and connect Stripe to receive payouts directly.</p>
 
-      <p style="color:rgba(255,255,255,0.75);font-size:15px;line-height:1.7;margin:0 0 28px 0;">Click below to land directly in your dashboard — no password to remember.</p>
+      <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 28px 0;">Click below to land directly in your dashboard — no password to remember.</p>
 
       <div style="text-align:center;margin:28px 0;">
-        <a href="${magicLinkUrl}" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#fff;text-decoration:none;padding:14px 36px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">Open My Dashboard</a>
+        <a href="${magicLinkUrl}" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#2b2621;text-decoration:none;padding:14px 36px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">Open My Dashboard</a>
       </div>
 
-      <p style="color:rgba(255,255,255,0.35);font-size:12px;line-height:1.6;margin:24px 0 0 0;">Anything off? Reply to this email and I'll fix it. New dates, price changes, page edits — all of it goes through me until everything looks the way you want.</p>
+      <p style="color:#6b625a;font-size:12px;line-height:1.6;margin:24px 0 0 0;">Anything off? Reply to this email and I'll fix it. New dates, price changes, page edits — all of it goes through me until everything looks the way you want.</p>
 
     </div>
 
     <div style="margin-top:32px;padding:0 4px;">
-      <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
-      <p style="color:rgba(255,255,255,0.25);font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
+      <p style="color:#6b625a;font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
+      <p style="color:#7a726a;font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
     </div>
 
     <div style="margin-top:36px;text-align:center;">
-      <p style="color:rgba(255,255,255,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="color:#7a726a;font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
     </div>
   </div>
 </body></html>`;

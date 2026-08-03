@@ -116,67 +116,67 @@ serve(async (req) => {
 
     const amountLabel = isBalance ? "Balance paid" : isDeposit ? "Deposit paid" : "Amount";
     const receiptExtraRow = isDeposit
-      ? `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Balance due</td><td style="color:#fbbf24;font-size:13px;padding:4px 0;text-align:right;">${balanceStr}${balanceDue ? ` by ${balanceDue}` : ""}</td></tr>`
+      ? `<tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Balance due</td><td style="color:#8a5a00;font-size:13px;padding:4px 0;text-align:right;">${balanceStr}${balanceDue ? ` by ${balanceDue}` : ""}</td></tr>`
       : "";
 
     const html = `
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<head><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
 
     <div style="text-align:center;margin-bottom:40px;">
-      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#ffffff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span>
+      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#1f6ba8;">TRAVELER</span>
     </div>
 
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;">
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;">
 
-      <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">${eyebrow}</p>
+      <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">${eyebrow}</p>
 
-      <p style="color:#ffffff;font-size:18px;line-height:1.6;margin:0 0 8px 0;font-weight:500;">${cohortTitle}</p>
-      ${dateRange ? `<p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 0 4px 0;">${dateRange}</p>` : ""}
-      ${cohortLocation ? `<p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 0 24px 0;">${cohortLocation}</p>` : ""}
+      <p style="color:#2b2621;font-size:18px;line-height:1.6;margin:0 0 8px 0;font-weight:500;">${cohortTitle}</p>
+      ${dateRange ? `<p style="color:#4a423b;font-size:14px;margin:0 0 4px 0;">${dateRange}</p>` : ""}
+      ${cohortLocation ? `<p style="color:#4a423b;font-size:14px;margin:0 0 24px 0;">${cohortLocation}</p>` : ""}
 
-      <p style="color:#ffffff;font-size:16px;line-height:1.7;margin:24px 0 16px 0;">Hey ${firstName},</p>
+      <p style="color:#2b2621;font-size:16px;line-height:1.7;margin:24px 0 16px 0;">Hey ${firstName},</p>
 
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">${leadParagraph}</p>
+      <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 16px 0;">${leadParagraph}</p>
 
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 24px 0;">${confirmParagraph}</p>
+      <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 24px 0;">${confirmParagraph}</p>
 
       <!-- Receipt block -->
-      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:20px;margin:24px 0;">
-        <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px 0;font-family:'Courier New',monospace;">Receipt</p>
+      <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:10px;padding:20px;margin:24px 0;">
+        <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px 0;font-family:'Courier New',monospace;">Receipt</p>
         <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">${amountLabel}</td><td style="color:#ffffff;font-size:13px;padding:4px 0;text-align:right;">${amountStr}</td></tr>
+          <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">${amountLabel}</td><td style="color:#2b2621;font-size:13px;padding:4px 0;text-align:right;">${amountStr}</td></tr>
           ${receiptExtraRow}
-          ${paidDate ? `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Paid on</td><td style="color:#ffffff;font-size:13px;padding:4px 0;text-align:right;">${paidDate}</td></tr>` : ""}
-          <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Reference</td><td style="color:rgba(255,255,255,0.7);font-size:11px;padding:4px 0;text-align:right;font-family:'Courier New',monospace;">${receiptId}</td></tr>
+          ${paidDate ? `<tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Paid on</td><td style="color:#2b2621;font-size:13px;padding:4px 0;text-align:right;">${paidDate}</td></tr>` : ""}
+          <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Reference</td><td style="color:#3d3630;font-size:11px;padding:4px 0;text-align:right;font-family:'Courier New',monospace;">${receiptId}</td></tr>
         </table>
       </div>
 
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 8px 0;font-weight:500;">Before we begin</p>
-      <ul style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.7;margin:0 0 28px 0;padding-left:20px;">
+      <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 8px 0;font-weight:500;">Before we begin</p>
+      <ul style="color:#3d3630;font-size:14px;line-height:1.7;margin:0 0 28px 0;padding-left:20px;">
         <li>Watch your inbox — your instructor confirms your seat, then the welcome packet follows.</li>
         <li>Book your travel only after the packet confirms exact start time and meeting point.</li>
         <li>Reply to this email if you have dietary, mobility, or visa questions.</li>
       </ul>
 
       <div style="text-align:center;margin:28px 0;">
-        <a href="${APP_URL}/dashboard" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">View Your Cohort</a>
+        <a href="${APP_URL}/dashboard" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#2b2621;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">View Your Cohort</a>
       </div>
 
     </div>
 
     <div style="margin-top:32px;padding:0 4px;">
-      <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
-      <p style="color:rgba(255,255,255,0.25);font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
+      <p style="color:#6b625a;font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
+      <p style="color:#7a726a;font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
     </div>
 
-    <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;">
-      <p style="color:rgba(255,255,255,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid #e6ded1;text-align:center;">
+      <p style="color:#7a726a;font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
       <p style="margin:12px 0 0 0;">
-        <a href="${APP_URL}" style="color:rgba(59,141,212,0.5);font-size:11px;text-decoration:none;">educatedtraveler.app</a>
+        <a href="${APP_URL}" style="color:#1f6ba8;font-size:11px;text-decoration:none;">educatedtraveler.app</a>
       </p>
     </div>
 
