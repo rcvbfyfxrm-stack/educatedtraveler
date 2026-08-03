@@ -88,7 +88,8 @@
         <dt>Week</dt><dd>Lab Week 01 — Modernist technique with Martin Lippo</dd>
         <dt>Where</dt><dd>Vakuum · Passatge de Centelles 10–20, 08013 Barcelona</dd>
         <dt>When</dt><dd>Thu 22 – Mon 26 October 2026 · 35 hours</dd>
-        <dt>Paid</dt><dd><b>€1,500</b> · VAT included</dd>
+        <dt>Sent</dt><dd id="seat-paid"><b>€350</b> · deposit</dd>
+        <dt>Balance</dt><dd id="seat-bal"><b>€1,150</b> · once the week is confirmed</dd>
         <dt>Seat</dt><dd id="seat-name">Held in your name</dd>
       </dl>
     </div>
@@ -101,12 +102,12 @@
     <h2>Three things, in this order.</h2>
     <ol class="steps">
       <li><strong>I check the ledger by hand.</strong> Revolut has your payment. I reconcile every evening and write to you personally — with your receipt and your name on the room list. If you haven't heard from me within 24 hours, chase me; it means something went wrong on my side, not yours.</li>
-      <li><strong>Your seat counts toward the 10.</strong> The week runs the moment 10 chefs have paid. You'll be the first to know the day we hit it — that's the email that says CONFIRMED.</li>
-      <li><strong>Then we talk logistics.</strong> Where to stay, how to get to Passatge de Centelles, what the days actually look like, and the optional add-ons around the week. Cohort hears first, always.</li>
+      <li><strong>Your seat counts toward the 10.</strong> The week runs the moment 10 seats are taken. You'll be the first to know the day we hit it — that's the email that says CONFIRMED.</li>
+      <li><strong id="bal-head">Then the balance, and the logistics.</strong> <span id="bal-line">The €1,150 comes after we confirm, never before — I'll send the link with the CONFIRMED email.</span> Then: where to stay, how to get to Passatge de Centelles, what the days actually look like, and the optional add-ons around the week. Cohort hears first, always.</li>
     </ol>
 
     <div class="flagbox">
-      <strong>Still don't buy flights yet.</strong> Not until I announce CONFIRMED. If we're not at 10 paid by Tuesday 15 September, the week cancels and every euro comes back to you in full — that promise is public and it hasn't changed now that you've paid.
+      <strong>Still don't buy flights yet.</strong> Not until I announce CONFIRMED. If we're not at 10 seats by Tuesday 15 September, the week cancels and every euro comes back to you in full — that promise is public, and it covers a deposit exactly as it covers the whole sum.
     </div>
 
     <p>After we confirm, your seat is transferable but not refundable: if your programme turns, send a chef of your calibre in your place, up to 7 days before the week.</p>
@@ -152,6 +153,14 @@
       document.getElementById('head').innerHTML =
         first.replace(/[<>&]/g, '') + ", you've booked your seat for <em>Martin week</em>.";
       document.getElementById('seat-name').textContent = seat.name;
+    }
+    // Paid in full? Then there's no balance to talk about — say so instead of
+    // leaving a €1,150 line sitting there contradicting what they just sent.
+    if (Number(seat.amount) === 1500) {
+      document.getElementById('seat-paid').innerHTML = '<b>€1,500</b> · in full, VAT included';
+      document.getElementById('seat-bal').innerHTML = '<b>Nothing</b> · the week is paid';
+      document.getElementById('bal-head').textContent = 'Then the logistics.';
+      document.getElementById('bal-line').textContent = '';
     }
   } catch (e) { /* no name, no problem */ }
 
