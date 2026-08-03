@@ -159,8 +159,10 @@
     if (Number(seat.amount) === 1500) {
       document.getElementById('seat-paid').innerHTML = '<b>€1,500</b> · in full, VAT included';
       document.getElementById('seat-bal').innerHTML = '<b>Nothing</b> · the week is paid';
-      document.getElementById('bal-head').textContent = 'Then the logistics.';
-      document.getElementById('bal-line').textContent = '';
+      document.getElementById('bal-head').textContent = 'Then the add-ons, and the logistics.';
+      document.getElementById('bal-line').textContent =
+        'You paid in full, so you get first refusal on the add-ons around the week — ' +
+        'asked before anyone else, once each one is booked and real.';
     }
   } catch (e) { /* no name, no problem */ }
 
