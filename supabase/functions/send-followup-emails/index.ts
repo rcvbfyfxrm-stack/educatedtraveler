@@ -4,6 +4,18 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
+// `catch (e)` binds `unknown`. Reading `.message` off it was a type error and a
+// real one: a thrown string, or a Supabase error object, reported `undefined` as
+// the reason — so the failure was logged with no cause attached.
+function errMessage(e: unknown): string {
+  if (e instanceof Error) return e.message;
+  if (typeof e === "object" && e !== null && "message" in e) {
+    return String((e as { message: unknown }).message);
+  }
+  return String(e);
+}
+
+
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -162,7 +174,7 @@ serve(async (req) => {
           .eq("id", user.id);
         results.day3.push(user.email);
       } catch (e) {
-        results.errors.push({ type: "day3_send", email: user.email, error: e.message });
+        results.errors.push({ type: "day3_send", email: user.email, error: errMessage(e) });
       }
     }
 
@@ -195,7 +207,7 @@ serve(async (req) => {
           .eq("id", user.id);
         results.day7.push(user.email);
       } catch (e) {
-        results.errors.push({ type: "day7_send", email: user.email, error: e.message });
+        results.errors.push({ type: "day7_send", email: user.email, error: errMessage(e) });
       }
     }
 
@@ -204,6 +216,6 @@ serve(async (req) => {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: errMessage(error) }), { status: 500 });
   }
 });

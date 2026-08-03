@@ -3,6 +3,18 @@
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
+// `catch (e)` binds `unknown`. Reading `.message` off it was a type error and a
+// real one: a thrown string, or a Supabase error object, reported `undefined` as
+// the reason — so the failure was logged with no cause attached.
+function errMessage(e: unknown): string {
+  if (e instanceof Error) return e.message;
+  if (typeof e === "object" && e !== null && "message" in e) {
+    return String((e as { message: unknown }).message);
+  }
+  return String(e);
+}
+
+
 const WHATSAPP_TOKEN = Deno.env.get("WHATSAPP_TOKEN");
 const WHATSAPP_PHONE_ID = Deno.env.get("WHATSAPP_PHONE_ID");
 const GRAPH_API_VERSION = "v21.0";
@@ -103,7 +115,7 @@ serve(async (req) => {
     );
   } catch (error) {
     console.error("Error:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: errMessage(error) }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });

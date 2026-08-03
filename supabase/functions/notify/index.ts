@@ -267,7 +267,16 @@ serve(async (req) => {
         .eq("id", cohort_id)
         .single();
       if (!cohort) return json({ error: "Cohort not found" }, 404);
-      const inst = cohort.instructors as { id: string; name: string; email: string };
+      // cohorts.instructor_id is a many-to-one FK, so PostgREST embeds a single
+      // object — but the inferred type says array, and the old cast just silenced
+      // that. It also assumed an instructor is always there: the FK is ON DELETE
+      // SET NULL, so a removed instructor left this throwing on inst.id.
+      const embedded = cohort.instructors as unknown;
+      const inst = (Array.isArray(embedded) ? embedded[0] : embedded) as
+        | { id: string; name: string; email: string }
+        | null
+        | undefined;
+      if (!inst?.email) return json({ error: "Cohort has no instructor" }, 409);
 
       const newStatus = kind === "cohort_approved" ? "published" : "draft";
       await admin
