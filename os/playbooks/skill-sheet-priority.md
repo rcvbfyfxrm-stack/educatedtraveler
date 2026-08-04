@@ -18,7 +18,10 @@ check `main` before you rebuild them)*.
 warmest traffic the Atlas gets — they were told a real story and then clicked to see more. Right now most of
 them land on the thin template, which makes the letter look better than the site. Close that gap first.
 
-**⚠ IN FLIGHT — do not rebuild:** a sheet sitting in an open PR is NOT on `main`, so the "is it already deep?" check will say no and you will duplicate someone's work. Before building anything in this tier, run `gh pr list --state open` and skip any skill whose sheet is already in an open PR. Currently in flight: **`pottery-and-ceramics` — PR #9**. Build the next unclaimed row instead.
+**⚠ IN FLIGHT — do not rebuild:** a sheet sitting in an open PR is NOT on `main`, so the "is it already deep?" check will say no and you will duplicate someone's work. Before building anything, run `gh pr list --state open` and skip any skill whose sheet is already in an open PR.
+
+**✅ TIER 1 IS COMPLETE — all four are built and waiting on Arnaud's merge, none are on `main` yet.**
+`pottery-and-ceramics` → **PR #9**. `new-basque-cuisine`, `italian-cuisine-and-pasta`, `chocolate-and-confectionery` → **PR #7**. Do not rebuild any of them. Until those PRs merge, every one of them will keep *looking* thin on `main` — that is the whole reason this block exists.
 
 | # | Skill | Letter | What the letter already told them |
 |---|-------|--------|-----------------------------------|
@@ -51,8 +54,24 @@ Already deep, nothing owed: **freediving** (Letter Nº 1, Dahab) and **modern ne
   the top of the tier and the sheet gets built *for them* — that is how `self-sufficiency` (Joana),
   `japanese-knife-making` (Cam) and `sailing-and-yachtmaster` (Kate) were built. Note the member in the PR body
   so Arnaud can write to them.
-- If the service key isn't in the environment this run, log that tier 2 was skipped for lack of credentials
-  and fall through to tier 3. Do **not** guess at demand.
+- If the service key isn't in the environment this run, fall through to tier 3 — but **do not let the skip be
+  quiet.** Do not guess at demand either.
+
+**⚠ AS OF 2026-08-04 THIS TIER HAS NEVER ONCE RUN.** Every night since the tier order was set, the log reads
+*"tier 2 launch_waitlist skipped for lack of credentials"* — `SUPABASE_SERVICE_KEY` is not in the nightly
+routine's environment. Tier 1 (the letters) is now complete, so the builder is spending every night on tier 3
+guesses about strangers while the tier of **real people who actually asked** is stepped straight over. That is
+backwards, and it went unnoticed for a week because the skip was buried in a log file.
+
+**So: when you cannot read demand, make it impossible to miss.**
+- Prefix the PR **title** with `[TIER 2 SKIPPED]`.
+- Make the **first line of the PR body**: `⚠ Circle demand was NOT consulted this run — no SUPABASE_SERVICE_KEY in the environment. These sheets are tier-3/4 editorial guesses, not what members asked for.`
+- Keep logging it as well.
+
+**The fix, for whoever reads this:** add `SUPABASE_SERVICE_KEY` (the service-role key, from the ET project
+`.env` / the Supabase dashboard → Project Settings → API) to the nightly routine's environment
+`env_0195TdEf1NoVLSgHqnpogAnW`. It's a server-side secret: it belongs in the environment, never in this file,
+never in the repo, never in a commit.
 
 ## TIER 3 — MOST TRENDY WORLDWIDE
 
