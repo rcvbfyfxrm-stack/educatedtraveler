@@ -46,6 +46,23 @@ serve(async (req) => {
     if (!row) return json({ message: "no such row" });
     if (row.unsubscribed || row.welcomed_at) return json({ message: "skip (already welcomed or unsubscribed)" });
 
+    // welcomed_at is per ROW, but a person is an EMAIL. Since /browse's letter
+    // added a second way into the Circle, the same person can easily land here
+    // twice — and being welcomed twice reads as a mailing list, not a letter.
+    // Welcome the person once.
+    const { data: prior } = await admin
+      .from("launch_waitlist")
+      .select("id")
+      .ilike("email", row.email)
+      .not("welcomed_at", "is", null)
+      .limit(1);
+    if (prior && prior.length) {
+      await admin.from("launch_waitlist")
+        .update({ welcomed_at: new Date().toISOString(), last_issue: "welcome-skipped-duplicate" })
+        .eq("id", row.id);
+      return json({ message: "skip (this person was already welcomed)" });
+    }
+
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
     const { subject, html, text } = ISSUES["welcome"];
     const r = await sendPersonalEmail(row.email, subject, html(unsub), text?.(unsub));
