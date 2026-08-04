@@ -48,7 +48,7 @@ Arnaud edits it. It runs in four tiers, worked top-down, finishing a tier before
 ### 3. Build 1–3 sheets to the standard
 Default batch = **2** (max 3) fully-verified sheets per run. Quality over count — a run that ships one true sheet beats one that ships three shaky ones.
 
-**Reference implementations (copy their CSS/structure verbatim):** `website/atlas/avant-garde-and-modernist-technique.html`, `website/atlas/freediving.html`, `website/atlas/lymphatic-drainage.html`. Match one of these exactly, then swap content. Change only the per-world `--accent`.
+**Reference implementations (copy their CSS/structure verbatim):** `website/atlas/modern-new-technique-cuisine.html`, `website/atlas/freediving.html`, `website/atlas/lymphatic-drainage.html`. Match one of these exactly, then swap content. Change only the per-world `--accent`.
 
 **Sections, in order:**
 1. **Hero** — breadcrumb (Atlas / World), skill name, the **spine** in one line (the craft's single ownable truth), an honest sub-line. Open on a hook, never a definition.
