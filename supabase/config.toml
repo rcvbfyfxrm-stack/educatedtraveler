@@ -15,3 +15,32 @@ additional_redirect_urls = [
   "https://educatedtraveler.app/auth-callback.html?type=recovery",
   "https://educatedtraveler.app/**",
 ]
+
+# The four auth emails Supabase sends itself. These are NOT edge functions, so
+# `functions deploy` never touched them — they lived only in the dashboard, which
+# is why they stayed broken (pale text on a dark background Gmail strips) after
+# every other template was fixed. Declaring them here makes them version-
+# controlled, so `scripts/check-email-contrast.mjs` and CI now cover them too.
+# Subjects are the ones already live — repeated so a push cannot blank them.
+[auth.email.template.magic_link]
+subject = "Your sign-in link for EducatedTraveler"
+content_path = "docs/email-templates/auth-magic-link.html"
+
+[auth.email.template.confirmation]
+subject = "Confirm your EducatedTraveler account"
+content_path = "docs/email-templates/auth-confirm-signup.html"
+
+[auth.email.template.recovery]
+subject = "Reset your EducatedTraveler password"
+content_path = "docs/email-templates/auth-reset-password.html"
+
+[auth.email.template.email_change]
+subject = "Confirm your new email — EducatedTraveler"
+content_path = "docs/email-templates/auth-change-email.html"
+
+# The CLI sends storage defaults too, whether or not you list them. Its default
+# flips vector.enabled on, which 402s on this tier and aborts the push AFTER the
+# auth block has already applied — an error that looks like nothing happened.
+# Pinned to the remote value so `config push` finishes clean.
+[storage.vector]
+enabled = false

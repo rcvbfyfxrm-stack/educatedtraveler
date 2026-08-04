@@ -59,9 +59,24 @@ Replace the four templates that Supabase actually sends:
 
 Each template uses Supabase variables: `{{ .ConfirmationURL }}`, `{{ .Email }}`, `{{ .Token }}`.
 
-> **These are pasted by hand, so CI cannot protect them.** Editing the files in
-> `docs/email-templates/` changes nothing until you paste them into the dashboard
-> again.
+> **No longer pasted by hand.** As of 2026-08-04 the four templates are declared
+> in `supabase/config.toml` (`[auth.email.template.*]`, pointing at the files in
+> `docs/email-templates/`). Edit the file, then ship it with:
+>
+> ```
+> supabase config push --project-ref exaehwaqwcledemwpluw
+> ```
+>
+> That makes them version-controlled, so the contrast check and CI cover them
+> like everything else. Subjects are pinned in `config.toml` too — a push would
+> otherwise blank them.
+>
+> Two traps worth knowing. `content_path` resolves from the **project root**, not
+> from `supabase/`. And the CLI pushes storage defaults whether or not you list
+> them: its default turns `vector.enabled` on, which 402s on this tier and aborts
+> the run *after* the auth block has already applied — so the push looks failed
+> when auth in fact went through. `[storage.vector] enabled = false` is pinned to
+> the remote value to keep the command clean.
 
 ### The one rule for anything we email
 
