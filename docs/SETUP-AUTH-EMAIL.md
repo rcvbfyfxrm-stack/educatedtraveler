@@ -59,6 +59,24 @@ Replace the four templates that Supabase actually sends:
 
 Each template uses Supabase variables: `{{ .ConfirmationURL }}`, `{{ .Email }}`, `{{ .Token }}`.
 
+> **These are pasted by hand, so CI cannot protect them.** Editing the files in
+> `docs/email-templates/` changes nothing until you paste them into the dashboard
+> again.
+
+### The one rule for anything we email
+
+**An email must be readable on a white page.** Gmail throws away `<body>`
+styling and renders on its own white background. Our letters used to be
+near-white text over `background:#0d0b09` on `<body>` — so they arrived as pale
+text on white, effectively blank. Warm-Dark belongs on the website, which is a
+browser and strips nothing; email gets the light letter palette instead.
+
+In practice: dark text, solid hex colours only (Outlook ignores `rgba()`), and
+never let legibility depend on a background surviving the trip.
+
+Run `node scripts/check-email-contrast.mjs` before pasting anything. It fails on
+all three mistakes, and CI runs it on every push.
+
 Drop in the HTML from `docs/email-templates/`:
 
 - `auth-confirm-signup.html`

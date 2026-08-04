@@ -115,25 +115,25 @@ serve(async (req) => {
     const notes = (enrollment.student_notes as string | null) ?? "";
 
     const paymentRow = isDeposit
-      ? `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Deposit paid</td><td style="color:#10b981;font-size:13px;padding:4px 0;text-align:right;font-weight:500;">${escapeHtml(paidStr)} <span style="color:rgba(255,255,255,0.4);">of ${escapeHtml(totalStr)}</span></td></tr>
-         <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Balance due</td><td style="color:#fbbf24;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(balanceStr)}${balanceDue ? ` by ${escapeHtml(balanceDue)}` : ""}</td></tr>`
-      : `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Paid in full</td><td style="color:#10b981;font-size:13px;padding:4px 0;text-align:right;font-weight:500;">${escapeHtml(paidStr)}</td></tr>`;
+      ? `<tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Deposit paid</td><td style="color:#0b7a58;font-size:13px;padding:4px 0;text-align:right;font-weight:500;">${escapeHtml(paidStr)} <span style="color:#6b625a;">of ${escapeHtml(totalStr)}</span></td></tr>
+         <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Balance due</td><td style="color:#8a5a00;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(balanceStr)}${balanceDue ? ` by ${escapeHtml(balanceDue)}` : ""}</td></tr>`
+      : `<tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Paid in full</td><td style="color:#0b7a58;font-size:13px;padding:4px 0;text-align:right;font-weight:500;">${escapeHtml(paidStr)}</td></tr>`;
 
     const html = `<!DOCTYPE html>
-<html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<html><head><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
 
     <div style="text-align:center;margin-bottom:36px;">
-      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#fff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span>
+      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#1f6ba8;">TRAVELER</span>
     </div>
 
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;color:rgba(255,255,255,0.85);">
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;color:#2b2621;">
 
-      <p style="color:#fbbf24;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 16px 0;font-family:'Courier New',monospace;">Booking — needs your confirmation</p>
+      <p style="color:#8a5a00;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 16px 0;font-family:'Courier New',monospace;">Booking — needs your confirmation</p>
 
-      <h2 style="color:#fff;font-size:20px;font-weight:400;margin:0 0 6px 0;">${escapeHtml(studentName)} wants to join</h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0 0 24px 0;">${escapeHtml(cohortTitle)}</p>
+      <h2 style="color:#2b2621;font-size:20px;font-weight:400;margin:0 0 6px 0;">${escapeHtml(studentName)} wants to join</h2>
+      <p style="color:#4a423b;font-size:14px;margin:0 0 24px 0;">${escapeHtml(cohortTitle)}</p>
 
       <p style="font-size:15px;line-height:1.7;margin:0 0 16px 0;">Hey ${escapeHtml(firstName)},</p>
 
@@ -141,46 +141,46 @@ serve(async (req) => {
 
       <!-- Confirm / Decline -->
       <div style="text-align:center;margin:8px 0 22px 0;">
-        <a href="${confirmUrl}" style="display:inline-block;background:linear-gradient(135deg,#059669 0%,#10b981 100%);color:#fff;text-decoration:none;padding:14px 36px;border-radius:50px;font-size:14px;font-weight:600;">Confirm this booking</a>
-        <p style="margin:12px 0 0 0;"><a href="${declineUrl}" style="color:rgba(255,255,255,0.4);font-size:12px;text-decoration:underline;">Can't take this student — decline</a></p>
+        <a href="${confirmUrl}" style="display:inline-block;background:linear-gradient(135deg,#059669 0%,#10b981 100%);color:#2b2621;text-decoration:none;padding:14px 36px;border-radius:50px;font-size:14px;font-weight:600;">Confirm this booking</a>
+        <p style="margin:12px 0 0 0;"><a href="${declineUrl}" style="color:#6b625a;font-size:12px;text-decoration:underline;">Can't take this student — decline</a></p>
       </div>
 
       <!-- Student card -->
-      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;margin:16px 0;">
-        <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px 0;font-family:'Courier New',monospace;">Student</p>
+      <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:10px;padding:18px;margin:16px 0;">
+        <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px 0;font-family:'Courier New',monospace;">Student</p>
         <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Name</td><td style="color:#fff;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(studentName)}</td></tr>
-          <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Email</td><td style="color:#fff;font-size:13px;padding:4px 0;text-align:right;"><a href="mailto:${escapeHtml(studentEmail)}" style="color:#3B8DD4;text-decoration:none;">${escapeHtml(studentEmail)}</a></td></tr>
-          ${studentPhone ? `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Phone</td><td style="color:#fff;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(studentPhone)}</td></tr>` : ""}
+          <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Name</td><td style="color:#2b2621;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(studentName)}</td></tr>
+          <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Email</td><td style="color:#2b2621;font-size:13px;padding:4px 0;text-align:right;"><a href="mailto:${escapeHtml(studentEmail)}" style="color:#1f6ba8;text-decoration:none;">${escapeHtml(studentEmail)}</a></td></tr>
+          ${studentPhone ? `<tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Phone</td><td style="color:#2b2621;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(studentPhone)}</td></tr>` : ""}
           ${paymentRow}
         </table>
       </div>
 
       <!-- Cohort card -->
-      <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:18px;margin:16px 0;">
-        <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px 0;font-family:'Courier New',monospace;">Cohort</p>
+      <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:10px;padding:18px;margin:16px 0;">
+        <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 12px 0;font-family:'Courier New',monospace;">Cohort</p>
         <table style="width:100%;border-collapse:collapse;">
-          ${dateRange ? `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Dates</td><td style="color:#fff;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(dateRange)}</td></tr>` : ""}
-          ${cohortLocation ? `<tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Location</td><td style="color:#fff;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(cohortLocation)}</td></tr>` : ""}
-          <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Confirmed seats</td><td style="color:#fff;font-size:13px;padding:4px 0;text-align:right;">${enrolledCount ?? 0} of ${capacity} ${remaining === 0 ? "<span style=\"color:#fbbf24;\">— FULL</span>" : `<span style=\"color:rgba(255,255,255,0.4);\">(${remaining} left)</span>`}</td></tr>
+          ${dateRange ? `<tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Dates</td><td style="color:#2b2621;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(dateRange)}</td></tr>` : ""}
+          ${cohortLocation ? `<tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Location</td><td style="color:#2b2621;font-size:13px;padding:4px 0;text-align:right;">${escapeHtml(cohortLocation)}</td></tr>` : ""}
+          <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Confirmed seats</td><td style="color:#2b2621;font-size:13px;padding:4px 0;text-align:right;">${enrolledCount ?? 0} of ${capacity} ${remaining === 0 ? "<span style=\"color:#8a5a00;\">— FULL</span>" : `<span style=\"color:#6b625a;\">(${remaining} left)</span>`}</td></tr>
         </table>
       </div>
 
-      ${notes ? `<div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:16px;margin:16px 0;">
-        <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 8px 0;font-family:'Courier New',monospace;">Notes from the student</p>
-        <p style="color:#fff;font-size:13px;line-height:1.6;margin:0;white-space:pre-wrap;">${escapeHtml(notes)}</p>
+      ${notes ? `<div style="background:#ffffff;border:1px solid #e6ded1;border-radius:10px;padding:16px;margin:16px 0;">
+        <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 8px 0;font-family:'Courier New',monospace;">Notes from the student</p>
+        <p style="color:#2b2621;font-size:13px;line-height:1.6;margin:0;white-space:pre-wrap;">${escapeHtml(notes)}</p>
       </div>` : ""}
 
-      ${addons.length ? `<div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:16px;margin:16px 0;">
-        <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 8px 0;font-family:'Courier New',monospace;">Add-ons of interest</p>
-        <ul style="margin:0;padding-left:18px;">${addons.map((a) => `<li style="color:rgba(255,255,255,0.8);font-size:13px;line-height:1.6;">${escapeHtml(a)}</li>`).join("")}</ul>
+      ${addons.length ? `<div style="background:#ffffff;border:1px solid #e6ded1;border-radius:10px;padding:16px;margin:16px 0;">
+        <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:2px;margin:0 0 8px 0;font-family:'Courier New',monospace;">Add-ons of interest</p>
+        <ul style="margin:0;padding-left:18px;">${addons.map((a) => `<li style="color:#2b2621;font-size:13px;line-height:1.6;">${escapeHtml(a)}</li>`).join("")}</ul>
       </div>` : ""}
 
-      <p style="font-size:13px;line-height:1.7;margin:20px 0 4px 0;color:rgba(255,255,255,0.6);">Prefer to manage it in one place? You can also confirm from your <a href="${APP_URL}/instructor-dashboard" style="color:#3B8DD4;text-decoration:none;">dashboard</a>.</p>
+      <p style="font-size:13px;line-height:1.7;margin:20px 0 4px 0;color:#4a423b;">Prefer to manage it in one place? You can also confirm from your <a href="${APP_URL}/instructor-dashboard" style="color:#1f6ba8;text-decoration:none;">dashboard</a>.</p>
 
     </div>
 
-    <p style="color:rgba(255,255,255,0.25);font-size:11px;text-align:center;margin-top:24px;">EducatedTraveler · Payment received via PayPal.<br>Reply to this email to reach ${escapeHtml(studentName)}.</p>
+    <p style="color:#7a726a;font-size:11px;text-align:center;margin-top:24px;">EducatedTraveler · Payment received via PayPal.<br>Reply to this email to reach ${escapeHtml(studentName)}.</p>
   </div>
 </body></html>`;
 

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Take your seat — Lab Week 01, Barcelona — EducatedTraveler</title>
+<meta name="description" content="Payment page for Lab Week 01 — five days with Martin Lippo at Vakuum, Barcelona, 22–26 October 2026. €350 deposit holds your seat; €1,500 in total.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://educatedtraveler.app/pay">
+<link rel="icon" href="/favicon.svg">
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Warm-Dark Editorial lock — same tokens as /barcelona. This page is
+     transactional: it comes AFTER the call, so it sells nothing. It states the
+     number, states the conditions, and takes the payment. */
+  :root{
+    --ink:#0d0b09; --ink-2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --ember-soft:#e0a877;
+    --line:rgba(243,237,226,0.09); --soft:rgba(243,237,226,0.72); --softer:rgba(243,237,226,0.5);
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16.5px;line-height:1.65}
+  ::selection{background:var(--ember);color:var(--ink)}
+  a{color:var(--sea)}
+  .wrap{max-width:680px;margin:0 auto;padding:0 1.4rem}
+  .topbar{border-bottom:1px solid var(--line);background:var(--ink-2)}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.7rem;padding-bottom:.7rem}
+  .wordmark{font-family:var(--serif);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em;color:var(--paper);text-decoration:none}
+  .wordmark b{font-weight:300;color:var(--sea)}
+  .topbar a.back{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);text-decoration:none}
+  .topbar a.back:hover{color:var(--sea)}
+
+  header{padding:3.4rem 0 2rem;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sea);margin:0 0 1.1rem;line-height:1.9}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,6vw,3.1rem);line-height:1.05;margin:0 0 1rem;letter-spacing:-.01em;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--ember)}
+  .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.02rem,2.4vw,1.22rem);color:var(--soft);max-width:34em;margin:0}
+
+  /* the number — the whole reason this page exists */
+  .price{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--ember);border-radius:6px;padding:1.4rem 1.5rem;margin:2rem 0 0}
+  .price .amt{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:clamp(2.4rem,7vw,3.2rem);line-height:1;color:var(--paper)}
+  .price .amt b{color:var(--ember);font-weight:500}
+  .price .vat{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin:.6rem 0 0}
+  .ledger{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.2rem;margin:1.2rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line)}
+  .ledger dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer)}
+  .ledger dd{margin:0;font-size:.9rem;color:var(--soft)}
+  .ledger dd b{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--paper);font-weight:500}
+  .price .what{font-size:.9rem;color:var(--softer);margin:1.1rem 0 0;max-width:52ch}
+
+  section{padding:2.4rem 0 .4rem;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ember);margin:0 0 .6rem}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,3.4vw,1.7rem);line-height:1.15;margin:0 0 1rem;text-wrap:balance}
+  p{margin:.85rem 0;max-width:62ch;color:var(--soft)}
+  p strong{color:var(--paper)}
+
+  /* the conditions — these are on /barcelona in public, so they travel with
+     the payment. Nobody pays without having seen the refund line. */
+  .terms{list-style:none;padding:0;margin:1.2rem 0}
+  .terms li{border-left:3px solid var(--ember);background:var(--ink-2);border-radius:0 6px 6px 0;padding:.9rem 1.2rem;margin:.8rem 0;font-size:.95rem;color:var(--soft)}
+  .terms li strong{color:var(--paper)}
+  .terms .flag{color:var(--ember-soft)}
+
+  /* form */
+  form{margin:1.4rem 0 .4rem}
+  .field{margin:0 0 1rem}
+  label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);margin:0 0 .4rem}
+  label .opt{text-transform:none;letter-spacing:.02em;color:var(--softer);opacity:.7}
+  input[type=text],input[type=email]{width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;color:var(--paper);font-family:var(--sans);font-size:1rem;padding:.85rem 1rem}
+  input[type=text]:focus,input[type=email]:focus{outline:none;border-color:var(--sea)}
+  input::placeholder{color:rgba(243,237,226,0.28)}
+
+  /* choose deposit or the whole thing */
+  .choice{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem;margin:.5rem 0 0}
+  .opt-card{display:block;position:relative;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem;cursor:pointer;font-family:var(--sans);text-transform:none;letter-spacing:normal;margin:0}
+  .opt-card:has(input:checked){border-color:var(--ember);background:rgba(210,138,82,.07)}
+  .opt-card input{position:absolute;opacity:0;pointer-events:none}
+  .opt-card .on{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin:0 0 .45rem}
+  .opt-card:has(input:checked) .on{color:var(--ember)}
+  .opt-card .num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.7rem;font-weight:500;color:var(--paper);line-height:1}
+  .opt-card .fine{font-size:.82rem;color:var(--softer);margin:.45rem 0 0;line-height:1.5}
+
+  .check{display:flex;gap:.75rem;align-items:flex-start;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:.95rem 1.1rem;margin:1.2rem 0;cursor:pointer}
+  .check input{margin-top:.25rem;width:17px;height:17px;accent-color:var(--ember);flex:0 0 auto;cursor:pointer}
+  /* .check is itself a <label>, so it inherits the mono/uppercase field style — undo it */
+  .check span{font-family:var(--sans);font-size:.9rem;letter-spacing:normal;text-transform:none;color:var(--soft);line-height:1.55}
+  .check strong{color:var(--paper)}
+
+  .btn{display:block;width:100%;text-align:center;font-family:var(--mono);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:0;border-radius:6px;padding:1.15rem 1.5rem;cursor:pointer}
+  .btn-primary{background:linear-gradient(100deg,var(--sea),var(--ember));color:var(--ink);font-weight:500}
+  .btn-primary:hover:not(:disabled),.btn-primary:focus-visible:not(:disabled){background:var(--ember-soft);outline:none}
+  .btn-primary:disabled{background:var(--ink-2);color:var(--softer);border:1px solid var(--line);cursor:not-allowed}
+  .btn-ghost{border:1px solid var(--line);color:var(--paper);background:none}
+  .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
+  .paynote{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;line-height:1.9;color:var(--softer);text-align:center;margin:.9rem 0 0}
+  /* .btn is full-width on this page (it's a form button); the contact pair sits inline */
+  .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.3rem 0 .4rem}
+  .cta-row .btn{display:inline-block;width:auto;padding:.9rem 1.4rem;font-size:.78rem}
+  .msg{font-size:.9rem;border-radius:6px;padding:.8rem 1rem;margin:1rem 0 0}
+  .msg.err{background:rgba(210,138,82,.09);border:1px solid rgba(210,138,82,.35);color:var(--ember-soft)}
+
+  /* the hand-off panel — Revolut can't send anyone back here, so this stands in */
+  #handoff{display:none;margin:1.4rem 0 0}
+  #handoff.on{display:block}
+  .hand-steps{list-style:none;counter-reset:h;padding:0;margin:1.2rem 0}
+  .hand-steps li{counter-increment:h;position:relative;padding:0 0 0 2.5rem;margin:0 0 1rem;color:var(--soft);font-size:.95rem}
+  .hand-steps li::before{content:counter(h);position:absolute;left:0;top:.05rem;width:1.6rem;height:1.6rem;border-radius:50%;border:1px solid var(--ember);color:var(--ember);font-family:var(--mono);font-size:.72rem;display:flex;align-items:center;justify-content:center}
+  .hand-steps li strong{color:var(--paper)}
+  .copyrow{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.5rem 0 0}
+  .copyval{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.25rem;color:var(--ember);background:var(--ink-2);border:1px dashed rgba(210,138,82,.4);border-radius:5px;padding:.35rem .8rem}
+  .copybtn{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);background:none;border:1px solid var(--line);border-radius:5px;padding:.4rem .7rem;cursor:pointer}
+  .copybtn:hover{border-color:var(--sea);color:var(--paper)}
+
+  footer{padding:2.4rem 0 3rem}
+  footer .sig{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--soft);margin:0 0 .8rem}
+  footer p{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;line-height:2;color:var(--softer);max-width:none}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="/">EDUCATED<b>TRAVELER</b></a>
+    <a class="back" href="/barcelona">The week in full &rarr;</a>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">Lab Week 01 · Vakuum, Barcelona<br>Thursday 22 – Monday 26 October 2026</p>
+    <h1>Take your <em>seat</em>.</h1>
+    <p class="sub">We've spoken. This is the last step — the number, the conditions, and the payment. Two minutes.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="price">
+    <div class="amt">€<b>350</b></div>
+    <p class="vat">Deposit · holds your seat today</p>
+    <dl class="ledger">
+      <dt>The week</dt><dd><b>€1,500</b> in total, VAT included — the whole number</dd>
+      <dt>Today</dt><dd><b>€350</b> minimum to book · pay it all now if you'd rather</dd>
+      <dt>Balance</dt><dd><b>€1,150</b>, once the week is confirmed — I send the link with the CONFIRMED email</dd>
+    </dl>
+    <p class="what">35 hours in the lab with Martin Lippo, in English. Ingredients, tools, nitrogen and dossiers provided. A signed certificate and a portfolio shot by his team. You bring a chef jacket.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Read before you pay</p>
+    <h2>The conditions. Same ones as the public page.</h2>
+    <ul class="terms">
+      <li><strong>Your deposit holds your seat and counts toward the 10.</strong> Seats go in the order they're taken — deposit or in full, first 15 in the room. The week runs the moment 10 seats are taken, and nobody is asked for the balance before that.</li>
+      <li><strong>Paid in full? You're asked first on the add-ons.</strong> The three-Michelin-star table is capped small. When the add-ons around the week are booked and real, chefs who paid in full get first refusal — nothing is sold before it's real, that's the house rule.</li>
+      <li><strong>Not there by Tuesday 15 September?</strong> The week cancels and <strong>every euro of your deposit comes back in full</strong> — said publicly, and it applies to €350 exactly as it applies to €1,500.</li>
+      <li><strong class="flag">Don't buy flights until we announce CONFIRMED.</strong> I'll write to you the day it happens. Until then, book nothing.</li>
+      <li><strong>After confirmation, your seat is transferable, not refundable.</strong> Can't come? Send a chef of comparable calibre in your place, up to 7 days before the week. There are no cash refunds once we confirm — better said here than in small print.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div id="seat-intro">
+      <p class="eyebrow">Your seat</p>
+      <h2>Who's taking it?</h2>
+      <p>So I can put the right name on the ledger, the certificate and the room list — and so I can find your payment when it lands.</p>
+    </div>
+
+    <form id="payform" novalidate>
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input type="text" id="f-name" name="name" autocomplete="name" placeholder="As it should read on the certificate" required>
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" name="email" autocomplete="email" placeholder="Where I write to you about the week" required>
+      </div>
+      <div class="field">
+        <label for="f-boat">Boat or kitchen <span class="opt">— optional</span></label>
+        <input type="text" id="f-boat" name="boat" placeholder="M/Y name, or where you cook">
+      </div>
+
+      <div class="field">
+        <label>How much today</label>
+        <div class="choice">
+          <label class="opt-card" for="amt-350">
+            <input type="radio" name="amount" id="amt-350" value="350" checked>
+            <p class="on">Deposit</p>
+            <div class="num">€350</div>
+            <p class="fine">Holds your seat. €1,150 later, once we confirm.</p>
+          </label>
+          <label class="opt-card" for="amt-1500">
+            <input type="radio" name="amount" id="amt-1500" value="1500">
+            <p class="on">In full</p>
+            <div class="num">€1,500</div>
+            <p class="fine">Nothing more to pay — and first refusal on the add-ons.</p>
+          </label>
+        </div>
+      </div>
+
+      <label class="check" for="f-agree">
+        <input type="checkbox" id="f-agree" name="agree">
+        <span>I've read the conditions above — <strong>10 seats by 15 September or my deposit comes back in full</strong>, no flights until CONFIRMED, and <strong>transferable but not refundable</strong> once the week is confirmed.</span>
+      </label>
+
+      <button type="submit" class="btn btn-primary" id="f-go" disabled>Pay the €350 deposit</button>
+      <p class="paynote">Payment is taken by Revolut — card and Apple Pay work, no Revolut account needed.<br>This site never sees your card.</p>
+      <div class="msg err" id="f-msg" hidden></div>
+    </form>
+
+    <!-- Revolut opens in its own tab and cannot send anyone back here, so the
+         hand-off lives on this page instead of pretending to be a redirect. -->
+    <div id="handoff">
+      <h2 style="margin-top:1.6rem">Revolut is open in the other tab.</h2>
+      <p>It opens on a page that says <strong>Arnaud C</strong> — that's me, and it's the right one. Two things it asks you for:</p>
+      <ol class="hand-steps">
+        <li><strong>Type the amount.</strong> Revolut opens at €0 — the number is yours to enter.
+          <div class="copyrow"><span class="copyval" id="hand-amt">350</span><button type="button" class="copybtn" data-copy="hand-amt">Copy</button><span style="font-family:var(--mono);font-size:.66rem;color:var(--softer)">EUR</span></div>
+        </li>
+        <li><strong>Put your name in the Note.</strong> It's how I match the payment to your seat.
+          <div class="copyrow"><span class="copyval" id="hand-note" style="font-size:1rem"></span><button type="button" class="copybtn" data-copy="hand-note">Copy</button></div>
+        </li>
+        <li><strong>Send it</strong> — by Revolut, card or Apple Pay — then come back to this tab.</li>
+      </ol>
+      <button type="button" class="btn btn-primary" id="hand-done">I've sent it</button>
+      <p class="paynote">Tab closed itself? <a href="#" id="hand-reopen">Open Revolut again</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Questions</p>
+    <h2>Anything at all, before you pay.</h2>
+    <p>Ask me directly — it's me answering, not a desk. Mid-charter? Voice notes work; tell me your watch and I'll fit around it.</p>
+    <div class="cta-row">
+      <a class="btn btn-ghost" id="q-wa" href="#">WhatsApp me</a>
+      <a class="btn btn-ghost" id="q-mail" href="#">Email me</a>
+    </div>
+    <p>Everything about the week, in full, stays public at <a href="/barcelona">educatedtraveler.app/barcelona</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="sig">A place, a person, your people.</p>
+    <p>EDUCATEDTRAVELER · LAB WEEK 01 · ORGANISED AND SOLD BY EDUCATEDTRAVELER · TAUGHT BY MARTIN LIPPO AT VAKUUM, BARCELONA</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script>
+(function () {
+  /* ================= UPDATE HERE — the only lines to touch =================
+     Arnaud's personal Revolut.Me link. Verified 2 Aug 2026: it opens on
+     "Arnaud C", at €0, with a Note field — the payer types the amount, so the
+     hand-off panel above spells it out and offers copy buttons.
+
+     If you find that revolut.me/arnaudcallier/350eur prefills the amount
+     (worth 30 seconds on your phone), put the amount-suffixed versions here
+     instead and the typing step disappears. */
+  var REVOLUT_LINK = "https://revolut.me/arnaudcallier";
+  var REVOLUT_LINK_350  = REVOLUT_LINK;   /* e.g. REVOLUT_LINK + "/350eur"  */
+  var REVOLUT_LINK_1500 = REVOLUT_LINK;   /* e.g. REVOLUT_LINK + "/1500eur" */
+
+  /* Contact. NOTE: the mail domain is .app, not .com — educatedtraveler.com has
+     no MX record, so anything sent there bounces. Matches /barcelona. */
+  var MAIL_TO  = "founder@educatedtraveler.app";
+  var WHATSAPP = "33695903520";           /* Arnaud — intl format, no + */
+  /* ====================================================================== */
+
+  var form  = document.getElementById('payform');
+  var go    = document.getElementById('f-go');
+  var agree = document.getElementById('f-agree');
+  var msg   = document.getElementById('f-msg');
+  var nameEl = document.getElementById('f-name');
+  var mailEl = document.getElementById('f-email');
+  var boatEl = document.getElementById('f-boat');
+  var hand  = document.getElementById('handoff');
+
+  function amount() {
+    var el = document.querySelector('input[name="amount"]:checked');
+    return el ? parseInt(el.value, 10) : 350;
+  }
+  function linkFor(amt) { return amt === 1500 ? REVOLUT_LINK_1500 : REVOLUT_LINK_350; }
+  function fail(html) { msg.innerHTML = html; msg.hidden = false; }
+
+  // Contact buttons — WhatsApp first, because mid-charter that's the one that
+  // gets answered. Both carry the week so I know what they're asking about.
+  var qBody = encodeURIComponent(
+    "Hi Arnaud — a question about the Lippo week (22-26 Oct, Barcelona) before I take my seat.\n\n");
+  var mailHref = "mailto:" + MAIL_TO + "?subject=" +
+    encodeURIComponent("Lippo week — before I pay") + "&body=" + qBody;
+  document.getElementById('q-mail').href = mailHref;
+  var qwa = document.getElementById('q-wa');
+  if (WHATSAPP) qwa.href = "https://wa.me/" + WHATSAPP + "?text=" + qBody;
+  else qwa.style.display = 'none';
+
+  // Button label tracks the chosen amount, so nobody clicks "deposit" and pays 1500.
+  function syncLabel() {
+    var amt = amount();
+    go.textContent = amt === 1500 ? 'Pay €1,500 in full' : 'Pay the €350 deposit';
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="amount"]'), function (r) {
+    r.addEventListener('change', syncLabel);
+  });
+
+  // The button only lights up once the conditions are ticked. Nobody reaches
+  // Revolut without having seen the refund line.
+  function sync() { go.disabled = !agree.checked; }
+  agree.addEventListener('change', sync);
+  sync(); syncLabel();
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.copybtn');
+    if (!b) return;
+    var txt = document.getElementById(b.dataset.copy).textContent;
+    navigator.clipboard.writeText(txt).then(function () {
+      var was = b.textContent; b.textContent = 'Copied';
+      setTimeout(function () { b.textContent = was; }, 1400);
+    }).catch(function () { /* clipboard blocked — the value is on screen anyway */ });
+  });
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    msg.hidden = true;
+
+    var name = nameEl.value.trim();
+    var email = mailEl.value.trim();
+    var boat = boatEl.value.trim();
+    var amt = amount();
+
+    if (!name) { fail('I need a name for the ledger and the certificate.'); nameEl.focus(); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { fail('That email doesn’t look right — it’s how I reach you about the week.'); mailEl.focus(); return; }
+    if (!agree.checked) { fail('Please tick the conditions first.'); return; }
+
+    go.disabled = true;
+    go.textContent = 'Opening Revolut…';
+
+    // /booked greets them by name and shows what's still owed.
+    try {
+      localStorage.setItem('et_seat_lippo', JSON.stringify({
+        name: name, email: email, boat: boat, amount: amt
+      }));
+    } catch (err) { /* private browsing — the payment still works */ }
+
+    // Record the seat-taker on the existing launch_waitlist path (anon insert,
+    // migration 019). Best-effort ONLY: a database hiccup must never stand
+    // between a chef and paying. 4s cap, then we go regardless.
+    try {
+      var sb = window.supabaseClient;
+      if (sb) {
+        var insert = sb.from('launch_waitlist').insert({
+          email: email,
+          source: 'pay:lab-week-01-barcelona',
+          interests: [{
+            kind: 'seat-payment',
+            label: 'Lab Week 01 — Martin Lippo, Barcelona, 22–26 Oct 2026',
+            name: name,
+            boat: boat || null,
+            amount_eur: amt,
+            balance_eur: 1500 - amt,
+            stage: 'sent-to-revolut'
+          }]
+        });
+        await Promise.race([insert, new Promise(function (r) { setTimeout(r, 4000); })]);
+      }
+    } catch (err) { /* never block the payment */ }
+
+    if (window.plausible) window.plausible('SeatPayStart', { props: { week: 'lab-week-01', amount: String(amt) } });
+
+    // New tab, not a redirect: Revolut has no way to send them back to us, and
+    // losing this page mid-payment loses the instructions with it.
+    window.open(linkFor(amt), '_blank', 'noopener');
+
+    document.getElementById('hand-amt').textContent = String(amt);
+    document.getElementById('hand-note').textContent = name;
+    document.getElementById('hand-reopen').href = linkFor(amt);
+    form.style.display = 'none';
+    document.getElementById('seat-intro').style.display = 'none';
+    hand.classList.add('on');
+    hand.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  document.getElementById('hand-done').addEventListener('click', function () {
+    window.location.href = '/booked';
+  });
+})();
+</script>
+
+</body>
+</html>

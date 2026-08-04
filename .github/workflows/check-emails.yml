@@ -1,0 +1,21 @@
+name: Email legibility
+
+# Emails must be readable on a white page. Gmail drops <body> styling, so any
+# template whose text only works over a dark background arrives invisible.
+# This ran red on every template in the repo before August 2026 — keep it green.
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  contrast:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/check-email-contrast.mjs

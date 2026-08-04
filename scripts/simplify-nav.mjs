@@ -3,7 +3,7 @@
 // the end where they make sense. For every Atlas page + Journal page:
 //   1. strip the top-nav link list -> wordmark only (a magazine masthead)
 //   2. add, at the foot: a warm contextual "where this leads" line + a compact
-//      nav row (Atlas · Journal · Lab Weeks · Story · The Circle)
+//      nav row (Atlas · Journal · Lab Weeks · Meet the founder · The Circle)
 // Idempotent: skips a file already carrying the marker. Surgical (never regenerates)
 // so all page content — ratings, sources, everything — is preserved verbatim.
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
@@ -19,7 +19,7 @@ const footNav = () =>
   `<a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas</a>` +
   `<a href="/journal/" style="color:var(--sea);text-decoration:none;">Journal</a>` +
   `<a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a>` +
-  `<a href="/about" style="color:var(--sea);text-decoration:none;">Story</a>` +
+  `<a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a>` +
   `<a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>`;
 
 const contextAtlas =

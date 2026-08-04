@@ -8,6 +8,18 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
+// `catch (e)` binds `unknown`. Reading `.message` off it was a type error and a
+// real one: a thrown string, or a Supabase error object, reported `undefined` as
+// the reason — so the failure was logged with no cause attached.
+function errMessage(e: unknown): string {
+  if (e instanceof Error) return e.message;
+  if (typeof e === "object" && e !== null && "message" in e) {
+    return String((e as { message: unknown }).message);
+  }
+  return String(e);
+}
+
+
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
@@ -34,7 +46,7 @@ function isEmpty(v: unknown): boolean {
 }
 
 const kvRow = (k: string, v: string) =>
-  `<tr><td style="padding:6px 0;color:#888;width:120px;vertical-align:top;">${esc(k)}</td><td>${v}</td></tr>`;
+  `<tr><td style="padding:6px 0;color:#6b625a;width:120px;vertical-align:top;">${esc(k)}</td><td>${v}</td></tr>`;
 
 // profiles.interests arrives in several shapes depending on the surface that
 // wrote it (category-objects from the profile page, kind-objects from /circle,
@@ -126,20 +138,20 @@ async function buildInterestHtml(userId: string, email: string, isUpdate = false
     const rows: string[] = [...profileRows];
     if (prefs) {
       rows.push(
-        `<tr><td style="padding:6px 0;color:#888;width:120px;">Elements</td><td>${fmtList(prefs.elements)}</td></tr>`,
-        `<tr><td style="padding:6px 0;color:#888;">Desires</td><td>${fmtList(prefs.desires)}</td></tr>`,
-        `<tr><td style="padding:6px 0;color:#888;">Time</td><td>${prefs.time_preference || "—"}</td></tr>`,
-        `<tr><td style="padding:6px 0;color:#888;">Intensity</td><td>${prefs.intensity ?? "—"}</td></tr>`,
+        `<tr><td style="padding:6px 0;color:#6b625a;width:120px;">Elements</td><td>${fmtList(prefs.elements)}</td></tr>`,
+        `<tr><td style="padding:6px 0;color:#6b625a;">Desires</td><td>${fmtList(prefs.desires)}</td></tr>`,
+        `<tr><td style="padding:6px 0;color:#6b625a;">Time</td><td>${prefs.time_preference || "—"}</td></tr>`,
+        `<tr><td style="padding:6px 0;color:#6b625a;">Intensity</td><td>${prefs.intensity ?? "—"}</td></tr>`,
       );
     }
     if (saved.length) {
       rows.push(
-        `<tr><td style="padding:6px 0;color:#888;">Saved</td><td>${saved.map((s) => s.adventure_id).join(", ")}</td></tr>`,
+        `<tr><td style="padding:6px 0;color:#6b625a;">Saved</td><td>${saved.map((s) => s.adventure_id).join(", ")}</td></tr>`,
       );
     }
     if (interests.length) {
       rows.push(
-        `<tr><td style="padding:6px 0;color:#888;">Interests</td><td>${interests.map((i) => i.experience_id).join(", ")}</td></tr>`,
+        `<tr><td style="padding:6px 0;color:#6b625a;">Interests</td><td>${interests.map((i) => i.experience_id).join(", ")}</td></tr>`,
       );
     }
 
@@ -202,9 +214,9 @@ serve(async (req) => {
     <p style="margin:0 0 8px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#666;">${isUpdate ? "Told you what they want" : "New signup"}</p>
     <h2 style="margin:0 0 20px 0;font-size:20px;font-weight:500;color:#111;">${firstName}</h2>
     <table style="width:100%;border-collapse:collapse;font-size:14px;color:#333;">
-      <tr><td style="padding:6px 0;color:#888;width:120px;">Email</td><td><a href="mailto:${email}" style="color:#0066B1;text-decoration:none;">${email}</a></td></tr>
-      <tr><td style="padding:6px 0;color:#888;">Profile ID</td><td style="font-family:monospace;font-size:12px;color:#555;">${id}</td></tr>
-      <tr><td style="padding:6px 0;color:#888;">Joined</td><td>${created_at}</td></tr>
+      <tr><td style="padding:6px 0;color:#6b625a;width:120px;">Email</td><td><a href="mailto:${email}" style="color:#0066B1;text-decoration:none;">${email}</a></td></tr>
+      <tr><td style="padding:6px 0;color:#6b625a;">Profile ID</td><td style="font-family:monospace;font-size:12px;color:#555;">${id}</td></tr>
+      <tr><td style="padding:6px 0;color:#6b625a;">Joined</td><td>${created_at}</td></tr>
     </table>
     ${interestHtml}
     <p style="margin:24px 0 0 0;">
@@ -229,6 +241,6 @@ serve(async (req) => {
     });
   } catch (error) {
     console.error("Error:", error);
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: errMessage(error) }), { status: 500 });
   }
 });

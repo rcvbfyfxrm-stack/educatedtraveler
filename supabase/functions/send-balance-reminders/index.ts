@@ -32,15 +32,15 @@ function fmtDate(d: string | null): string {
 }
 
 function emailShell(title: string, body: string): string {
-  return `<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  return `<!DOCTYPE html><html><head><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
-    <div style="text-align:center;margin-bottom:40px;"><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#fff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span></div>
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;">
-      <p style="color:#fbbf24;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">${title}</p>
+    <div style="text-align:center;margin-bottom:40px;"><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#1f6ba8;">TRAVELER</span></div>
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;">
+      <p style="color:#8a5a00;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">${title}</p>
       ${body}
     </div>
-    <div style="margin-top:32px;padding:0 4px;"><p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;margin:0;">— Arnaud</p><p style="color:rgba(255,255,255,0.25);font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p></div>
+    <div style="margin-top:32px;padding:0 4px;"><p style="color:#6b625a;font-size:14px;line-height:1.6;margin:0;">— Arnaud</p><p style="color:#7a726a;font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p></div>
   </div>
 </body></html>`;
 }
@@ -119,13 +119,13 @@ serve(async (_req) => {
       const payUrl = `${APP_URL}/paypal-checkout.html?enrollment=${enr.id}&balance=1`;
 
       const html = emailShell("Balance due soon", `
-        <p style="color:#ffffff;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hey ${esc(firstName)},</p>
-        <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">Your spot in <strong>${esc(title)}</strong> is reserved. The remaining balance of <strong>${esc(balanceStr)}</strong> is due by <strong>${esc(dueStr)}</strong>.</p>
-        <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 24px 0;">Settle it now in a couple of clicks — same PayPal checkout as your deposit.</p>
+        <p style="color:#2b2621;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hey ${esc(firstName)},</p>
+        <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 16px 0;">Your spot in <strong>${esc(title)}</strong> is reserved. The remaining balance of <strong>${esc(balanceStr)}</strong> is due by <strong>${esc(dueStr)}</strong>.</p>
+        <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 24px 0;">Settle it now in a couple of clicks — same PayPal checkout as your deposit.</p>
         <div style="text-align:center;margin:28px 0;">
-          <a href="${payUrl}" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#fff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;">Pay your balance</a>
+          <a href="${payUrl}" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#2b2621;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;">Pay your balance</a>
         </div>
-        <p style="color:rgba(255,255,255,0.4);font-size:12px;line-height:1.6;margin:0;">Questions? Just reply to this email.</p>
+        <p style="color:#6b625a;font-size:12px;line-height:1.6;margin:0;">Questions? Just reply to this email.</p>
       `);
 
       const ok = await sendEmail(email, `Balance due for ${title} — ${balanceStr}`, html);

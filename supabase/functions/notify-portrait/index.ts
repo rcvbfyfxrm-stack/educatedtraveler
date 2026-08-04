@@ -87,7 +87,7 @@ function groupCrafts(crafts: string[]): Array<[string, string[]]> {
 function ownWordsMark(v: string | null | undefined): string {
   if (!v) return "";
   return CHIP_LABELS.has(v.trim()) ? "" :
-    ` <span style="color:#d28a52;font-size:11px;font-style:italic;font-family:Georgia,serif;">— their own words</span>`;
+    ` <span style="color:#8f5820;font-size:11px;font-style:italic;font-family:Georgia,serif;">— their own words</span>`;
 }
 function sealedAt(ts: string | null | undefined): string {
   try {
@@ -107,18 +107,18 @@ function fullSheetHtml(rec: Record<string, unknown>, email: string): string {
   const letter = String(rec.dream_letter || "").trim();
 
   const row = (k: string, v: string) => v
-    ? `<tr><td style="padding:7px 14px 7px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;vertical-align:top;white-space:nowrap;">${esc(k)}</td><td style="padding:7px 0;color:#f3ede2;font-size:15px;line-height:1.6;">${v}</td></tr>`
+    ? `<tr><td style="padding:7px 14px 7px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;vertical-align:top;white-space:nowrap;">${esc(k)}</td><td style="padding:7px 0;color:#2b2621;font-size:15px;line-height:1.6;">${v}</td></tr>`
     : "";
 
   const craftBlock = grouped.length
     ? grouped.map(([world, list]) =>
         `<div style="margin:0 0 10px 0;">
-           <p style="margin:0 0 6px 0;color:rgba(243,237,226,0.45);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">${esc(world)}</p>
+           <p style="margin:0 0 6px 0;color:#6b625a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">${esc(world)}</p>
            <div>${list.map((c) =>
-             `<span style="display:inline-block;margin:0 6px 6px 0;padding:4px 11px;border:1px solid ${world === "In their own words" ? "#d28a52" : "#7fa8a5"};border-radius:9px;font-size:13px;color:#f3ede2;">${esc(c)}</span>`
+             `<span style="display:inline-block;margin:0 6px 6px 0;padding:4px 11px;border:1px solid ${world === "In their own words" ? "#d28a52" : "#7fa8a5"};border-radius:9px;font-size:13px;color:#2b2621;">${esc(c)}</span>`
            ).join("")}</div>
          </div>`).join("")
-    : `<p style="color:rgba(243,237,226,0.4);font-size:14px;font-style:italic;margin:0;">No crafts picked.</p>`;
+    : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:0;">No crafts picked.</p>`;
 
   const startRows = [
     ["Where they are with it", rec.previous_experience],
@@ -136,43 +136,43 @@ function fullSheetHtml(rec: Record<string, unknown>, email: string): string {
          <p style="color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;margin:0;white-space:pre-wrap;">${esc(letter)}</p>
          <p style="color:#3a2c1e;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:16px 0 0 0;text-align:right;">— ${esc(name)}</p>
        </div>`
-    : `<p style="color:rgba(243,237,226,0.4);font-size:14px;font-style:italic;margin:20px 0 0 0;">No letter yet — they said they'd write it later.</p>`;
+    : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:20px 0 0 0;">No letter yet — they said they'd write it later.</p>`;
 
   const status = rec.status ? String(rec.status) : "";
   const when = sealedAt(rec.portrait_completed_at as string);
 
   return `<!DOCTYPE html>
 <html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#0d0b09;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:620px;margin:0 auto;padding:40px 24px;">
     <div style="text-align:center;margin-bottom:30px;">
-      <span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#f3ede2;">EDUCATED</span><span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#7fa8a5;">TRAVELER</span>
+      <span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#2b2621;">EDUCATED</span><span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#3f6b67;">TRAVELER</span>
     </div>
-    <div style="background:rgba(243,237,226,0.03);border:1px solid rgba(243,237,226,0.08);border-radius:16px;padding:34px 28px;">
-      <p style="color:#d28a52;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 10px 0;font-family:'Courier New',monospace;">Portrait sealed${when ? " · " + esc(when) : ""}</p>
-      <p style="color:#f3ede2;font-family:Georgia,serif;font-size:23px;line-height:1.4;margin:0 0 22px 0;">${esc(name)} just took a place in the Circle.</p>
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:34px 28px;">
+      <p style="color:#8f5820;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 10px 0;font-family:'Courier New',monospace;">Portrait sealed${when ? " · " + esc(when) : ""}</p>
+      <p style="color:#2b2621;font-family:Georgia,serif;font-size:23px;line-height:1.4;margin:0 0 22px 0;">${esc(name)} just took a place in the Circle.</p>
 
       <table style="width:100%;border-collapse:collapse;margin-bottom:6px;">
         ${row("Name", esc(name))}
-        ${row("Email", email ? `<a href="mailto:${esc(email)}" style="color:#7fa8a5;">${esc(email)}</a>` : "")}
+        ${row("Email", email ? `<a href="mailto:${esc(email)}" style="color:#3f6b67;">${esc(email)}</a>` : "")}
         ${row("What they do", rec.profession ? esc(rec.profession) : "")}
         ${row("Where they live", rec.location ? esc(rec.location) : "")}
         ${row("At the door", status ? esc(status) + ownWordsMark(status) : "")}
       </table>
 
-      <p style="margin:18px 0 10px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">The crafts — ${crafts.length}</p>
+      <p style="margin:18px 0 10px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">The crafts — ${crafts.length}</p>
       ${craftBlock}
 
-      ${startRows ? `<p style="margin:18px 0 4px 0;color:rgba(243,237,226,0.4);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Where they're starting from</p>
+      ${startRows ? `<p style="margin:18px 0 4px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Where they're starting from</p>
       <table style="width:100%;border-collapse:collapse;">${startRows}</table>` : ""}
 
       ${letterBlock}
 
       <div style="text-align:center;margin:28px 0 0 0;">
-        <a href="${APP_URL}/admin" style="display:inline-block;background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);color:#14110d;text-decoration:none;padding:12px 28px;border-radius:50px;font-size:14px;font-weight:500;">Open the Circle roster</a>
+        <a href="${APP_URL}/admin" style="display:inline-block;background-color:#3f6b67;background:linear-gradient(135deg,#3f6b67 0%,#8f5820 100%);color:#ffffff;text-decoration:none;padding:12px 28px;border-radius:50px;font-size:14px;font-weight:500;">Open the Circle roster</a>
       </div>
     </div>
-    <p style="color:rgba(243,237,226,0.25);font-size:12px;text-align:center;margin:22px 0 0 0;">Reply goes straight to ${esc(name)}. You read every letter — this one's waiting.</p>
+    <p style="color:#7a726a;font-size:12px;text-align:center;margin:22px 0 0 0;">Reply goes straight to ${esc(name)}. You read every letter — this one's waiting.</p>
   </div>
 </body></html>`;
 }
@@ -206,13 +206,13 @@ function memberWelcome(rec: Record<string, unknown>, _email: string): { subject:
 
   const P = `color:#2c231a;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.8;margin:0 0 18px 0;`;
   const html = `<!DOCTYPE html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<body style="margin:0;padding:0;background:#0d0b09;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
     <div style="text-align:center;margin-bottom:30px;">
-      <span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#f3ede2;">EDUCATED</span><span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#7fa8a5;">TRAVELER</span>
+      <span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#2b2621;">EDUCATED</span><span style="font-family:Georgia,'Times New Roman',serif;font-size:15px;font-weight:600;letter-spacing:2px;color:#3f6b67;">TRAVELER</span>
     </div>
-    <p style="color:rgba(243,237,226,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 16px 0;font-family:'Courier New',monospace;text-align:center;">The Circle &middot; your place is sealed</p>
+    <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 16px 0;font-family:'Courier New',monospace;text-align:center;">The Circle &middot; your place is sealed</p>
     <div style="background:#efe6d3;border:1px solid #e2d6bd;border-radius:6px;padding:34px 32px 28px;box-shadow:0 30px 60px -24px rgba(0,0,0,0.6);">
       <p style="color:#2c231a;font-family:Georgia,'Times New Roman',serif;font-size:19px;margin:0 0 18px 0;">${esc(name) || "Hello"},</p>
       <p style="${P}">${openerHtml}</p>
@@ -222,9 +222,9 @@ function memberWelcome(rec: Record<string, unknown>, _email: string): { subject:
       <p style="color:#6f6350;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:15px;margin:0;">Speak soon,</p>
       <p style="color:#3a2c1e;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:22px;margin:2px 0 0 0;">Arnaud</p>
     </div>
-    <div style="margin-top:36px;padding-top:22px;border-top:1px solid rgba(243,237,226,0.06);text-align:center;">
-      <p style="color:rgba(243,237,226,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
-      <p style="margin:12px 0 0 0;"><a href="${APP_URL}/browse" style="color:rgba(127,168,165,0.5);font-size:11px;text-decoration:none;">Wander the Atlas while you wait</a></p>
+    <div style="margin-top:36px;padding-top:22px;border-top:1px solid #e6ded1;text-align:center;">
+      <p style="color:#7a726a;font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="margin:12px 0 0 0;"><a href="${APP_URL}/browse" style="color:#3f6b67;font-size:11px;text-decoration:none;">Wander the Atlas while you wait</a></p>
     </div>
   </div>
 </body></html>`;

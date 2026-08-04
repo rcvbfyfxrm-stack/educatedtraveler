@@ -4,6 +4,18 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
+// `catch (e)` binds `unknown`. Reading `.message` off it was a type error and a
+// real one: a thrown string, or a Supabase error object, reported `undefined` as
+// the reason — so the failure was logged with no cause attached.
+function errMessage(e: unknown): string {
+  if (e instanceof Error) return e.message;
+  if (typeof e === "object" && e !== null && "message" in e) {
+    return String((e as { message: unknown }).message);
+  }
+  return String(e);
+}
+
+
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -39,7 +51,7 @@ async function sendEmail(to: string, subject: string, html: string) {
 }
 
 function emailTemplate(content: string): string {
-  return `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">${content}<p style="font-size: 12px; color: #999; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">Skills last, tans fade.</p></div>`;
+  return `<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; color: #333;">${content}<p style="font-size: 12px; color: #6b625a; margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">Skills last, tans fade.</p></div>`;
 }
 
 // === SUBSCRIBE: student expresses interest ===
@@ -108,7 +120,7 @@ async function handleSubscribe(req: Request) {
       <p>Interest ID: ${interest.id}</p>
       <p>Token: ${interest.token}</p>
       <p style="margin-top: 20px;">
-        <a href="${SITE_URL}/offerings" style="color: #06b6d4;">View offerings \u2192</a>
+        <a href="${SITE_URL}/offerings" style="color: #0d7490;">View offerings \u2192</a>
       </p>
     `)
   );
@@ -183,7 +195,7 @@ async function handleDecline(token: string) {
         <p>Hey ${student.name || "there"},</p>
         <p>Thanks for your interest in <strong>${interest.adventure_name}</strong>.</p>
         <p>This cohort isn't available right now, but we'll keep you on the list and reach out when the next one opens.</p>
-        <p><a href="${SITE_URL}/offerings" style="color: #06b6d4;">Explore other experiences \u2192</a></p>
+        <p><a href="${SITE_URL}/offerings" style="color: #0d7490;">Explore other experiences \u2192</a></p>
         <p style="margin-top: 30px;">\u2014 Arnaud<br><span style="color: #666;">EducatedTraveler</span></p>
       `)
     );
@@ -195,6 +207,7 @@ async function handleDecline(token: string) {
 function htmlResponse(message: string, success: boolean): Response {
   const color = success ? "#059669" : "#ef4444";
   return new Response(
+    /* EMAIL-CHECK: SKIP — browser page, not an email (dark by design) */
     `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EducatedTraveler</title></head>
     <body style="font-family:-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;background:#0a0a0a;color:white;margin:0;">
     <div style="text-align:center;max-width:400px;padding:40px;">
@@ -232,6 +245,6 @@ serve(async (req) => {
     return new Response(JSON.stringify({ error: "Unknown action" }), { status: 400, headers: corsHeaders });
   } catch (err) {
     console.error("Error:", err);
-    return new Response(JSON.stringify({ error: err.message }), { status: 500, headers: corsHeaders });
+    return new Response(JSON.stringify({ error: errMessage(err) }), { status: 500, headers: corsHeaders });
   }
 });

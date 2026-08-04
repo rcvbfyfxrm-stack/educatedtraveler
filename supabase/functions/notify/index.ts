@@ -56,22 +56,22 @@ function emailShell(opts: {
   ctaUrl?: string;
 }) {
   return `<!DOCTYPE html>
-<html><head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<html><head><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
     <div style="text-align:center;margin-bottom:36px;">
-      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#fff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span>
+      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#1f6ba8;">TRAVELER</span>
     </div>
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;color:rgba(255,255,255,0.85);">
-      <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 16px 0;font-family:'Courier New',monospace;">${escapeHtml(opts.eyebrow)}</p>
-      <h2 style="color:#fff;font-size:20px;font-weight:400;margin:0 0 16px 0;">${escapeHtml(opts.heading)}</h2>
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;color:#2b2621;">
+      <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 16px 0;font-family:'Courier New',monospace;">${escapeHtml(opts.eyebrow)}</p>
+      <h2 style="color:#2b2621;font-size:20px;font-weight:400;margin:0 0 16px 0;">${escapeHtml(opts.heading)}</h2>
       <div style="font-size:15px;line-height:1.7;margin:0 0 24px 0;">${opts.body}</div>
       ${opts.ctaLabel && opts.ctaUrl ? `
       <div style="text-align:center;margin:28px 0 0 0;">
-        <a href="${opts.ctaUrl}" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-size:13px;font-weight:500;">${escapeHtml(opts.ctaLabel)}</a>
+        <a href="${opts.ctaUrl}" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#2b2621;text-decoration:none;padding:12px 28px;border-radius:50px;font-size:13px;font-weight:500;">${escapeHtml(opts.ctaLabel)}</a>
       </div>` : ""}
     </div>
-    <p style="color:rgba(255,255,255,0.25);font-size:11px;text-align:center;margin-top:24px;">EducatedTraveler · ${ET_EMAIL}</p>
+    <p style="color:#7a726a;font-size:11px;text-align:center;margin-top:24px;">EducatedTraveler · ${ET_EMAIL}</p>
   </div>
 </body></html>`;
 }
@@ -160,7 +160,7 @@ serve(async (req) => {
           .select("title")
           .eq("id", cohort_id)
           .maybeSingle();
-        if (c) cohortLine = `<p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 12px 0;">Cohort: <strong>${escapeHtml(c.title)}</strong></p>`;
+        if (c) cohortLine = `<p style="color:#6b625a;font-size:13px;margin:0 0 12px 0;">Cohort: <strong>${escapeHtml(c.title)}</strong></p>`;
       }
 
       const topicLabel = TOPIC_LABEL[topic] || topic;
@@ -171,10 +171,10 @@ serve(async (req) => {
         eyebrow: "Instructor change request",
         heading: `${instructor.name}: ${subject || topicLabel}`,
         body: `
-          <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 4px 0;">From: <strong>${escapeHtml(instructor.name)}</strong> &lt;${escapeHtml(instructor.email)}&gt;</p>
-          <p style="color:rgba(255,255,255,0.5);font-size:13px;margin:0 0 12px 0;">Topic: <strong>${escapeHtml(topicLabel)}</strong></p>
+          <p style="color:#6b625a;font-size:13px;margin:0 0 4px 0;">From: <strong>${escapeHtml(instructor.name)}</strong> &lt;${escapeHtml(instructor.email)}&gt;</p>
+          <p style="color:#6b625a;font-size:13px;margin:0 0 12px 0;">Topic: <strong>${escapeHtml(topicLabel)}</strong></p>
           ${cohortLine}
-          <div style="background:rgba(255,255,255,0.04);border-left:2px solid #3B8DD4;padding:14px 16px;border-radius:6px;color:#fff;font-size:14px;line-height:1.6;">${safeBody}</div>`,
+          <div style="background:#ffffff;border-left:2px solid #3B8DD4;padding:14px 16px;border-radius:6px;color:#2b2621;font-size:14px;line-height:1.6;">${safeBody}</div>`,
         ctaLabel: "Open Admin",
         ctaUrl: `${APP_URL}/admin?tab=messages`,
       });
@@ -187,7 +187,7 @@ serve(async (req) => {
         body: `
           <p style="margin:0 0 12px 0;">Your note about <strong>${escapeHtml(topicLabel)}</strong> was logged. Arnaud will get back to you shortly.</p>
           ${cohortLine}
-          <div style="background:rgba(255,255,255,0.04);border-left:2px solid rgba(255,255,255,0.2);padding:14px 16px;border-radius:6px;color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;">${safeBody}</div>`,
+          <div style="background:#ffffff;border-left:2px solid #e6ded1;padding:14px 16px;border-radius:6px;color:#3d3630;font-size:14px;line-height:1.6;">${safeBody}</div>`,
         ctaLabel: "Open Dashboard",
         ctaUrl: `${APP_URL}/instructor-dashboard`,
       });
@@ -240,12 +240,12 @@ serve(async (req) => {
         body: `
           <p style="margin:0 0 8px 0;">A new cohort is waiting for review.</p>
           <table style="width:100%;border-collapse:collapse;margin:12px 0;">
-            <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Dates</td><td style="color:#fff;font-size:13px;text-align:right;padding:4px 0;">${escapeHtml(datesStr)}</td></tr>
-            <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Location</td><td style="color:#fff;font-size:13px;text-align:right;padding:4px 0;">${escapeHtml(cohort.location ?? "—")}</td></tr>
-            <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Price</td><td style="color:#fff;font-size:13px;text-align:right;padding:4px 0;">${escapeHtml(priceStr)}</td></tr>
-            <tr><td style="color:rgba(255,255,255,0.5);font-size:13px;padding:4px 0;">Capacity</td><td style="color:#fff;font-size:13px;text-align:right;padding:4px 0;">${cohort.capacity ?? "—"}</td></tr>
+            <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Dates</td><td style="color:#2b2621;font-size:13px;text-align:right;padding:4px 0;">${escapeHtml(datesStr)}</td></tr>
+            <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Location</td><td style="color:#2b2621;font-size:13px;text-align:right;padding:4px 0;">${escapeHtml(cohort.location ?? "—")}</td></tr>
+            <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Price</td><td style="color:#2b2621;font-size:13px;text-align:right;padding:4px 0;">${escapeHtml(priceStr)}</td></tr>
+            <tr><td style="color:#6b625a;font-size:13px;padding:4px 0;">Capacity</td><td style="color:#2b2621;font-size:13px;text-align:right;padding:4px 0;">${cohort.capacity ?? "—"}</td></tr>
           </table>
-          ${note ? `<div style="background:rgba(255,255,255,0.04);border-left:2px solid #3B8DD4;padding:14px 16px;border-radius:6px;color:#fff;font-size:14px;line-height:1.6;margin-top:12px;">${escapeHtml(note).replace(/\n/g, "<br>")}</div>` : ""}`,
+          ${note ? `<div style="background:#ffffff;border-left:2px solid #3B8DD4;padding:14px 16px;border-radius:6px;color:#2b2621;font-size:14px;line-height:1.6;margin-top:12px;">${escapeHtml(note).replace(/\n/g, "<br>")}</div>` : ""}`,
         ctaLabel: "Review in Admin",
         ctaUrl: `${APP_URL}/admin?tab=cohorts`,
       });
@@ -267,7 +267,16 @@ serve(async (req) => {
         .eq("id", cohort_id)
         .single();
       if (!cohort) return json({ error: "Cohort not found" }, 404);
-      const inst = cohort.instructors as { id: string; name: string; email: string };
+      // cohorts.instructor_id is a many-to-one FK, so PostgREST embeds a single
+      // object — but the inferred type says array, and the old cast just silenced
+      // that. It also assumed an instructor is always there: the FK is ON DELETE
+      // SET NULL, so a removed instructor left this throwing on inst.id.
+      const embedded = cohort.instructors as unknown;
+      const inst = (Array.isArray(embedded) ? embedded[0] : embedded) as
+        | { id: string; name: string; email: string }
+        | null
+        | undefined;
+      if (!inst?.email) return json({ error: "Cohort has no instructor" }, 409);
 
       const newStatus = kind === "cohort_approved" ? "published" : "draft";
       await admin
@@ -295,7 +304,7 @@ serve(async (req) => {
           body: `
             <p style="margin:0 0 12px 0;">Hey ${escapeHtml(inst.name.split(" ")[0])},</p>
             <p style="margin:0 0 12px 0;">Your cohort is now live on the site and open for enrollments. Students can apply and pay through Stripe — payouts route directly to your connected account.</p>
-            ${note ? `<div style="background:rgba(255,255,255,0.04);border-left:2px solid #10b981;padding:14px 16px;border-radius:6px;color:#fff;font-size:14px;line-height:1.6;margin:16px 0;">${escapeHtml(note).replace(/\n/g, "<br>")}</div>` : ""}
+            ${note ? `<div style="background:#ffffff;border-left:2px solid #10b981;padding:14px 16px;border-radius:6px;color:#2b2621;font-size:14px;line-height:1.6;margin:16px 0;">${escapeHtml(note).replace(/\n/g, "<br>")}</div>` : ""}
             <p style="margin:0;">— Arnaud</p>`,
           ctaLabel: "Open Dashboard",
           ctaUrl: `${APP_URL}/instructor-dashboard`,
@@ -308,7 +317,7 @@ serve(async (req) => {
           body: `
             <p style="margin:0 0 12px 0;">Hey ${escapeHtml(inst.name.split(" ")[0])},</p>
             <p style="margin:0 0 12px 0;">Before we publish, a couple of things to update on this cohort:</p>
-            <div style="background:rgba(255,255,255,0.04);border-left:2px solid #fbbf24;padding:14px 16px;border-radius:6px;color:#fff;font-size:14px;line-height:1.6;margin:16px 0;">${escapeHtml(note || "(no notes)").replace(/\n/g, "<br>")}</div>
+            <div style="background:#ffffff;border-left:2px solid #fbbf24;padding:14px 16px;border-radius:6px;color:#2b2621;font-size:14px;line-height:1.6;margin:16px 0;">${escapeHtml(note || "(no notes)").replace(/\n/g, "<br>")}</div>
             <p style="margin:0;">Edit the cohort and click <em>Submit for review</em> again — I'll approve the moment it lands.</p>
             <p style="margin:12px 0 0 0;">— Arnaud</p>`,
           ctaLabel: "Edit Cohort",

@@ -87,7 +87,7 @@ serve(async (req) => {
 <html><body style="margin:0;padding:0;background:#f5f5f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:640px;margin:0 auto;padding:32px 16px;">
     <div style="background:#fff;border-radius:12px;padding:32px;border:1px solid #e5e5e5;">
-      <p style="color:#999;font-size:11px;text-transform:uppercase;letter-spacing:3px;margin:0 0 8px 0;">EducatedTraveler · Instructor Application</p>
+      <p style="color:#6b625a;font-size:11px;text-transform:uppercase;letter-spacing:3px;margin:0 0 8px 0;">EducatedTraveler · Instructor Application</p>
       <h1 style="font-size:22px;color:#111;margin:0 0 4px 0;">${escape(app.name)}</h1>
       <p style="color:#666;font-size:14px;margin:0 0 24px 0;">
         <a href="mailto:${escape(app.email)}" style="color:#0066B1;text-decoration:none;">${escape(app.email)}</a>
@@ -110,35 +110,35 @@ serve(async (req) => {
         <a href="mailto:${escape(app.email)}?subject=Re:%20your%20EducatedTraveler%20instructor%20application" style="display:inline-block;background:#0066B1;color:#fff;text-decoration:none;padding:10px 20px;border-radius:6px;font-size:14px;">Reply to ${escape(app.name)}</a>
       </div>
     </div>
-    <p style="color:#999;font-size:11px;text-align:center;margin-top:16px;">Sent from educatedtraveler.app · ${new Date().toISOString()}</p>
+    <p style="color:#6b625a;font-size:11px;text-align:center;margin-top:16px;">Sent from educatedtraveler.app · ${new Date().toISOString()}</p>
   </div>
 </body></html>`;
 
   const firstName = (app.name || "").split(/\s+/)[0] || "there";
   const applicantHtml = `<!DOCTYPE html>
-<html><body style="margin:0;padding:0;background:#0a0a0a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+<html><body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
     <div style="text-align:center;margin-bottom:40px;">
-      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#ffffff;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3B8DD4;">TRAVELER</span>
+      <span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#1f6ba8;">TRAVELER</span>
     </div>
-    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 28px;">
-      <p style="color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">Application Received</p>
-      <p style="color:#ffffff;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hi ${escape(firstName)},</p>
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">Thank you for reaching out about teaching with EducatedTraveler. Your application is in front of me and I read every one personally.</p>
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 16px 0;">If your craft and approach feel like a fit, I'll come back to you within a week to schedule a 15-minute call.</p>
-      <p style="color:rgba(255,255,255,0.7);font-size:15px;line-height:1.7;margin:0 0 28px 0;">Want to skip the wait? Reach me directly:</p>
+    <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;">
+      <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">Application Received</p>
+      <p style="color:#2b2621;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hi ${escape(firstName)},</p>
+      <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 16px 0;">Thank you for reaching out about teaching with EducatedTraveler. Your application is in front of me and I read every one personally.</p>
+      <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 16px 0;">If your craft and approach feel like a fit, I'll come back to you within a week to schedule a 15-minute call.</p>
+      <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 28px 0;">Want to skip the wait? Reach me directly:</p>
       <div style="text-align:center;margin:28px 0;">
-        <a href="https://wa.me/33695903520?text=Hi%20Arnaud%2C%20I%20just%20applied%20to%20teach%20with%20EducatedTraveler" style="display:inline-block;background:#25D366;color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">WhatsApp +33 6 95 90 35 20</a>
+        <a href="https://wa.me/33695903520?text=Hi%20Arnaud%2C%20I%20just%20applied%20to%20teach%20with%20EducatedTraveler" style="display:inline-block;background:#178040;color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;">WhatsApp +33 6 95 90 35 20</a>
       </div>
-      <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;margin:16px 0 0 0;text-align:center;">Or reply to this email — it goes straight to my inbox.</p>
+      <p style="color:#6b625a;font-size:13px;line-height:1.6;margin:16px 0 0 0;text-align:center;">Or reply to this email — it goes straight to my inbox.</p>
     </div>
     <div style="margin-top:32px;padding:0 4px;">
-      <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
-      <p style="color:rgba(255,255,255,0.25);font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
+      <p style="color:#6b625a;font-size:14px;line-height:1.6;margin:0;">— Arnaud</p>
+      <p style="color:#7a726a;font-size:12px;margin:4px 0 0 0;">Founder, EducatedTraveler</p>
     </div>
-    <div style="margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;">
-      <p style="color:rgba(255,255,255,0.15);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
-      <p style="margin:12px 0 0 0;"><a href="https://educatedtraveler.app" style="color:rgba(59,141,212,0.5);font-size:11px;text-decoration:none;">educatedtraveler.app</a></p>
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid #e6ded1;text-align:center;">
+      <p style="color:#7a726a;font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
+      <p style="margin:12px 0 0 0;"><a href="https://educatedtraveler.app" style="color:#1f6ba8;font-size:11px;text-decoration:none;">educatedtraveler.app</a></p>
     </div>
   </div>
 </body></html>`;
