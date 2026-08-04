@@ -130,7 +130,11 @@
   <div class="wrap">
     <p class="eyebrow">Me, directly</p>
     <h2>Anything at all.</h2>
-    <p>I'm on <a href="mailto:arnaud@educatedtraveler.app?subject=Lab%20Week%2001%20—%20my%20seat">arnaud@educatedtraveler.app</a>, and I answer myself. Mid-charter? Voice notes work — tell me your watch and I'll fit around it.</p>
+    <p>It's me answering, not a desk. Mid-charter? Voice notes work — tell me your watch and I'll fit around it.</p>
+    <div class="cta-row">
+      <a class="btn btn-ghost" id="q-wa" href="#">WhatsApp me</a>
+      <a class="btn btn-ghost" id="q-mail" href="#">Email me</a>
+    </div>
     <p>See you in Barcelona.</p>
   </div>
 </section>
@@ -167,6 +171,21 @@
   } catch (e) { /* no name, no problem */ }
 
   if (window.plausible) window.plausible('SeatBooked', { props: { week: 'lab-week-01' } });
+
+  // Contact. The mail domain is .app, not .com — educatedtraveler.com has no MX
+  // record, so anything sent there bounces. Matches /barcelona and /pay.
+  // The message carries their name when we have it, so I know whose seat it is.
+  var MAIL_TO = "founder@educatedtraveler.app", WHATSAPP = "33695903520";
+  var who = '';
+  try { who = (JSON.parse(localStorage.getItem('et_seat_lippo') || '{}').name || ''); } catch (e) {}
+  var body = encodeURIComponent(
+    "Hi Arnaud — about my seat on the Lippo week (22-26 Oct, Barcelona)." +
+    (who ? "\nName: " + who : "") + "\n\n");
+  document.getElementById('q-mail').href =
+    "mailto:" + MAIL_TO + "?subject=" + encodeURIComponent("Lippo week — my seat") + "&body=" + body;
+  var wa = document.getElementById('q-wa');
+  if (WHATSAPP) wa.href = "https://wa.me/" + WHATSAPP + "?text=" + body;
+  else wa.style.display = 'none';
 
   // Calendar file, built in the browser — no dependency, no tracking.
   var ics = [

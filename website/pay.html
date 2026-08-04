@@ -95,6 +95,9 @@
   .btn-ghost{border:1px solid var(--line);color:var(--paper);background:none}
   .btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--sea);outline:none}
   .paynote{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;line-height:1.9;color:var(--softer);text-align:center;margin:.9rem 0 0}
+  /* .btn is full-width on this page (it's a form button); the contact pair sits inline */
+  .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.3rem 0 .4rem}
+  .cta-row .btn{display:inline-block;width:auto;padding:.9rem 1.4rem;font-size:.78rem}
   .msg{font-size:.9rem;border-radius:6px;padding:.8rem 1rem;margin:1rem 0 0}
   .msg.err{background:rgba(210,138,82,.09);border:1px solid rgba(210,138,82,.35);color:var(--ember-soft)}
 
@@ -233,7 +236,11 @@
   <div class="wrap">
     <p class="eyebrow">Questions</p>
     <h2>Anything at all, before you pay.</h2>
-    <p>Write to me directly at <a href="mailto:arnaud@educatedtraveler.app?subject=Lab%20Week%2001%20—%20before%20I%20pay">arnaud@educatedtraveler.app</a>. Mid-charter? Voice notes work — tell me your watch and I'll fit around it.</p>
+    <p>Ask me directly — it's me answering, not a desk. Mid-charter? Voice notes work; tell me your watch and I'll fit around it.</p>
+    <div class="cta-row">
+      <a class="btn btn-ghost" id="q-wa" href="#">WhatsApp me</a>
+      <a class="btn btn-ghost" id="q-mail" href="#">Email me</a>
+    </div>
     <p>Everything about the week, in full, stays public at <a href="/barcelona">educatedtraveler.app/barcelona</a>.</p>
   </div>
 </section>
@@ -260,6 +267,11 @@
   var REVOLUT_LINK = "https://revolut.me/arnaudcallier";
   var REVOLUT_LINK_350  = REVOLUT_LINK;   /* e.g. REVOLUT_LINK + "/350eur"  */
   var REVOLUT_LINK_1500 = REVOLUT_LINK;   /* e.g. REVOLUT_LINK + "/1500eur" */
+
+  /* Contact. NOTE: the mail domain is .app, not .com — educatedtraveler.com has
+     no MX record, so anything sent there bounces. Matches /barcelona. */
+  var MAIL_TO  = "founder@educatedtraveler.app";
+  var WHATSAPP = "33695903520";           /* Arnaud — intl format, no + */
   /* ====================================================================== */
 
   var form  = document.getElementById('payform');
@@ -277,6 +289,17 @@
   }
   function linkFor(amt) { return amt === 1500 ? REVOLUT_LINK_1500 : REVOLUT_LINK_350; }
   function fail(html) { msg.innerHTML = html; msg.hidden = false; }
+
+  // Contact buttons — WhatsApp first, because mid-charter that's the one that
+  // gets answered. Both carry the week so I know what they're asking about.
+  var qBody = encodeURIComponent(
+    "Hi Arnaud — a question about the Lippo week (22-26 Oct, Barcelona) before I take my seat.\n\n");
+  var mailHref = "mailto:" + MAIL_TO + "?subject=" +
+    encodeURIComponent("Lippo week — before I pay") + "&body=" + qBody;
+  document.getElementById('q-mail').href = mailHref;
+  var qwa = document.getElementById('q-wa');
+  if (WHATSAPP) qwa.href = "https://wa.me/" + WHATSAPP + "?text=" + qBody;
+  else qwa.style.display = 'none';
 
   // Button label tracks the chosen amount, so nobody clicks "deposit" and pays 1500.
   function syncLabel() {
