@@ -2,8 +2,13 @@
    Atlas × Circle — "who from the Circle wants this craft".
 
    Reads the public, privacy-capped RPC public.atlas_interest() (migration
-   033): craft → how many people raised a hand, plus up to three FIRST names.
-   Never an email, never a surname, never a letter.
+   033): craft → how many people raised a hand. Nothing else.
+
+   ANONYMOUS BY DECISION (Arnaud, 2026-08-05). The Circle is a count here,
+   never a roster. Names are switched OFF at the source (SHOW_NAMES in the
+   migration), and this file never renders one even if a stale deploy of the
+   function still returns them — a member's name must not reach the page by
+   accident. Don't "improve" this by putting names back.
 
    TRUST LOCK: this line is only ever drawn from real rows. No craft is
    seeded, rounded up, or invented — a craft nobody has asked for shows
@@ -37,21 +42,14 @@
     });
   }
 
-  /* The sentence. Every shape of it has to be literally true of the count. */
+  /* The sentence. A count and nothing more — it has to be literally true of
+     the rows, and it must never identify anybody. */
   function sentence(rec) {
-    var n = rec.n, names = (rec.names || []).filter(Boolean);
+    var n = rec.n;
     if (!n) return "";
-    var who;
-    if (!names.length) {
-      who = n === 1 ? "One person in the Circle" : n + " people in the Circle";
-      return who + (n === 1 ? " is" : " are") + " already after this one";
-    }
-    var parts = names.slice(0, 3);
-    var rest = n - parts.length;
-    if (rest > 0) parts.push(rest + " more");
-    who = parts.length === 1 ? parts[0]
-        : parts.slice(0, -1).join(", ") + " and " + parts[parts.length - 1];
-    return who + (parts.length > 1 ? " are" : " is") + " in the Circle for this";
+    return n === 1
+      ? "One member of the Circle wants this one"
+      : n + " members of the Circle want this one";
   }
 
   function paint(root) {

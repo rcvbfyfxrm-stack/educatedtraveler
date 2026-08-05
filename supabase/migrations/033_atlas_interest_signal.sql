@@ -1,6 +1,12 @@
 -- =====================================================
 -- 033: ATLAS INTEREST SIGNAL — "who from the Circle wants this craft"
 -- =====================================================
+-- ⚠ SUPERSEDED 2026-08-05 by 034_atlas_interest_anonymous.sql. DO NOT RE-RUN
+-- THIS FILE: it publishes members' first names, which Arnaud has since ruled
+-- out. 034 replaces the same function with an anonymous, count-only version
+-- that also counts every craft a member named, not just the letter's craft.
+-- Kept only so the history of the function is readable.
+-- =====================================================
 -- /browse shows, on every skill card, how many people in the Circle have
 -- already raised a hand for that craft — and their first names.
 --
