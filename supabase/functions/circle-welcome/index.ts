@@ -55,7 +55,8 @@ serve(async (req) => {
     // A letter written from an Atlas craft page gets its own reply — an answer about
     // that craft and a request to say who they are — INSTEAD of the Mashiko welcome.
     // Nobody should get two first letters from the same person on the same day.
-    const isLetter = String(row.source ?? "").startsWith("atlas-letter:");
+    // Both shapes: the hub letter writes "atlas-letter", a craft sheet "atlas-letter:<slug>".
+    const isLetter = String(row.source ?? "").startsWith("atlas-letter");
 
     // welcomed_at is per ROW, but a person is an EMAIL: launch_waitlist has no unique
     // constraint on it, and one person legitimately signs up more than once. Checking
@@ -73,8 +74,14 @@ serve(async (req) => {
     const alreadyWelcomed = Array.isArray(prior) && prior.length > 0;
 
     // A second letter is still worth an acknowledgement — it's a reply about a
-    // specific craft, not an introduction. A second plain signup is not.
-    if (alreadyWelcomed && !isLetter) return json({ message: "skip (this person is already welcomed)" });
+    // specific craft, not an introduction. A second plain signup is not: stamp the
+    // row so it can't come round again, and say why in last_issue.
+    if (alreadyWelcomed && !isLetter) {
+      await admin.from("launch_waitlist")
+        .update({ welcomed_at: new Date().toISOString(), last_issue: "welcome-skipped-duplicate" })
+        .eq("id", row.id);
+      return json({ message: "skip (this person was already welcomed)" });
+    }
 
     // What they wrote about, for the subject line and the opening — from the row we
     // just re-read, never from the webhook payload.
@@ -87,6 +94,7 @@ serve(async (req) => {
     if (!craft) craft = "that craft";
 
     const key = isLetter ? "atlas-letter" : "welcome";
+
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
     const { subject, html, text } = ISSUES[key];
     const subj = subject.replace("{CRAFT}", craft);

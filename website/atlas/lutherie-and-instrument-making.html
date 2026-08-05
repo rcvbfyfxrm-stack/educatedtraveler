@@ -15,26 +15,65 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Atlas", "item": "https://educatedtraveler.app/atlas/"}, {"@type": "ListItem", "position": 2, "name": "Lutherie & Instrument-making", "item": "https://educatedtraveler.app/atlas/lutherie-and-instrument-making"}]}</script>
-<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
-<style>
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script><style>
+:root{--sheet:#f6efe0;--sheet-ink:#2c231a;--sheet-edge:#d9cdb4;--sheet-faint:rgba(44,35,26,.5)}
+.letter{margin:52px 0 18px;scroll-margin-top:74px}
+.letter .lhead{text-align:center;max-width:60ch;margin:0 auto 24px}
+.letter h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(25px,3.8vw,38px);line-height:1.1;margin:12px 0 14px;letter-spacing:-.01em}
+.letter .lsub{color:var(--muted);font-size:15px;line-height:1.65}
+.letter .lsub b{color:var(--paper);font-weight:400}
+.lbox{max-width:660px;margin:0 auto}
+.lfield{margin-bottom:16px}
+.lfield label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin-bottom:7px}
+.lfield input{width:100%;background:rgba(243,237,226,.04);border:1px solid rgba(243,237,226,.16);border-radius:12px;color:var(--paper);font-family:inherit;font-size:14.5px;padding:12px 14px;outline:none;transition:border-color .2s}
+.lfield input:focus{border-color:rgba(127,168,165,.6)}
+.lfield input::placeholder{color:rgba(243,237,226,.3)}
+.sheet{position:relative;background:linear-gradient(180deg,var(--sheet) 0%,#ece1cc 100%);border-radius:5px;padding:30px 30px 26px;color:var(--sheet-ink);border:1px solid var(--sheet-edge);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 30px 60px -24px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.35)}
+.sheet::after{content:"";position:absolute;left:14px;right:14px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.1),transparent)}
+.sheet .to{font-family:'Fraunces',Georgia,serif;font-size:19px;margin-bottom:2px}
+.sheet .date{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sheet-faint);margin-bottom:16px}
+.sheet textarea{width:100%;min-height:210px;background:transparent;border:none;outline:none;resize:vertical;color:var(--sheet-ink);font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:17px;line-height:34px;background-image:repeating-linear-gradient(transparent,transparent 33px,rgba(44,35,26,.14) 33px,rgba(44,35,26,.14) 34px);padding:0}
+.sheet textarea::placeholder{color:rgba(44,35,26,.34);font-style:italic}
+.sheet .sign{margin-top:18px;text-align:right}
+.sheet .sign .yours{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15px;color:var(--sheet-faint)}
+.sheet .sign .name{font-family:'Caveat','Fraunces',cursive;font-size:30px;line-height:1;color:#3a2c1e;margin-top:2px;min-height:30px}
+.prompts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.prompts button{font-family:inherit;font-size:12.5px;color:var(--muted);background:rgba(243,237,226,.03);border:1px solid rgba(243,237,226,.15);border-radius:11px;padding:8px 12px;transition:all .18s}
+.prompts button:hover{border-color:rgba(127,168,165,.5);color:var(--paper)}
+.lrow{display:flex;align-items:center;gap:18px;margin-top:22px;flex-wrap:wrap}
+.lcount{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--faint)}
+.sign-off{display:none;margin-top:22px;padding:22px 22px 20px;border:1px solid var(--line);border-left:2px solid var(--sea);border-radius:14px;background:rgba(127,168,165,.05)}
+.sign-off.on{display:block;animation:lrise .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes lrise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sign-off .sh{font-family:'Fraunces',Georgia,serif;font-size:19px;margin-bottom:6px}
+.sign-off .sp{color:var(--muted);font-size:13.5px;line-height:1.6;margin-bottom:16px}
+.sotwo{display:grid;grid-template-columns:1fr 1.35fr;gap:10px}
+@media(max-width:560px){.sotwo{grid-template-columns:1fr}}
+.lerr{display:none;color:#f0a58a;font-size:13px;margin-top:14px;line-height:1.55}
+.lerr a{color:var(--sea);text-decoration:underline}
+.lfine{font-size:11.5px;color:var(--faint);margin-top:12px;line-height:1.6}
+.ldone{display:none;text-align:center;padding:34px 24px 30px;border:1px solid var(--line);border-radius:18px;background:rgba(243,237,226,.02)}
+.ldone.on{display:block;animation:lrise .5s cubic-bezier(.2,.8,.2,1) both}
+.ldone h3{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3.2vw,31px);margin:12px 0 12px}
+.ldone p{color:var(--muted);max-width:48ch;margin:0 auto 10px;font-size:14.5px;line-height:1.65}
+.ldone .lpoem{color:var(--sea);font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15.5px;margin-top:18px}
+.ldone .lback{display:inline-block;margin-top:20px;font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.ldone .lback:hover{color:var(--sea)}
+/* who from the Circle already wants this craft — drawn only from real rows */
+.cint{font-size:11.5px;color:var(--sea);margin-top:9px;padding-top:9px;border-top:1px solid var(--line);line-height:1.45}
+.cint:empty{display:none}
+.cint .cint-dot{font-size:7px;vertical-align:2px;margin-right:6px;opacity:.85}
+
 .notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
 .alive { font-size:15px; opacity:.82; margin-top:14px; }
 .alive b { font-weight:500; opacity:1; }
-.et-letter { border:1px solid var(--line); border-radius:14px; padding:24px; background:rgba(243,237,226,0.02); margin-top:8px; }
-.letter-q { font-size:15px; opacity:.78; margin-bottom:14px; }
-.letter-note { width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:12px; padding:14px 16px; color:var(--paper); font-family:inherit; font-size:15px; line-height:1.6; resize:vertical; }
-.letter-note:focus { outline:none; border-color:var(--sea); }
-.letter-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
-.letter-fld { flex:1 1 220px; display:block; }
-.letter-fld span { display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; opacity:.5; margin-bottom:6px; }
-.letter-fld input { width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-family:inherit; font-size:14px; }
-.letter-fld input:focus { outline:none; border-color:var(--sea); }
-.letter-go { margin-top:16px; border:none; border-radius:99px; padding:13px 26px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
-.letter-go:hover { filter:brightness(1.05); } .letter-go:disabled { opacity:.5; cursor:default; }
-.letter-msg { font-size:14.5px; margin-top:14px; line-height:1.6; } .letter-msg.ok { color:var(--sea); } .letter-msg.err { color:#e0915f; }
-.letter-fine { font-size:12.5px; opacity:.55; margin-top:12px; max-width:60ch; line-height:1.6; }
+.btn { display:inline-block; padding:13px 26px; border-radius:99px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; border:none; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); transition:filter .2s,transform .2s; }
+.btn:hover { filter:brightness(1.05); transform:translateY(-1px); }
+.btn:disabled { opacity:.5; cursor:default; transform:none; }
+.eyebrow { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--sea); }
+.serif { font-family:'Fraunces',Georgia,serif; }
 </style>
 <style>
 :root { --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
@@ -85,7 +124,7 @@ footer a { color:var(--sea); }
 @media(max-width:560px) { .cur-toggle .lab { display:none; } .cur-toggle { right:10px; bottom:10px; } }
 </style>
 </head>
-<body>
+<body data-craft-slug="lutherie-and-instrument-making">
 <nav class="top"><div class="wrap">
 <a class="brand" href="/">EDUCATEDTRAVELER</a>
 <div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" style="margin:0;padding:8px 18px;font-size:13px;">Join the Circle</a><a href="/profile" id="et-nav-profile" class="cta" style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your Profile</a></div>
@@ -102,7 +141,46 @@ footer a { color:var(--sea); }
 <p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it, and not before.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking 112 things badly.</p>
 </div></section>
-<section><div class="wrap" style="max-width:720px"><form class="et-letter" data-slug="lutherie-and-instrument-making" data-craft="Lutherie &amp; Instrument-making"><h2 style="margin-bottom:6px">Write me a letter about Lutherie &amp; Instrument-making.</h2><p class="letter-q">Tell me why this one pulls at you. One sentence is enough.</p><textarea class="letter-note" name="letter" rows="5" required placeholder="I keep coming back to Lutherie &amp; Instrument-making because&hellip;"></textarea><div class="letter-row"><label class="letter-fld"><span>Your name</span><input type="text" name="name" autocomplete="given-name" required></label><label class="letter-fld"><span>Where I reach you</span><input type="email" name="email" autocomplete="email" required></label></div><button type="submit" class="letter-go">Send the letter &rarr;</button><p class="letter-msg" hidden></p><p class="letter-fine">It comes straight to me, and to nobody else — I read every one myself. Sending it puts you in the Circle, so you'll get a note back from me by email. Nothing is for sale here. I introduce; you decide.</p></form><noscript><p class="letter-fine">Letters need JavaScript. <a href="/circle" style="color:var(--sea)">Tell me here instead</a>.</p></noscript></div></section>
+<div class="wrap"><section class="letter reveal" id="letter" aria-labelledby="letter-h">
+  <div class="lhead">
+    <div class="eyebrow">Write to me</div>
+    <h2 class="serif" id="letter-h">Write me a letter about Lutherie &amp; Instrument-making.</h2>
+    <p class="lsub">Not a form — a letter, and I read every one myself. Tell me why this one pulls at you, how you'd want to learn it, and who you'd want to be in it a year from now. A letter about a craft is what opens it.</p>
+  </div>
+  <div class="lbox" id="lbox">
+    <input type="hidden" id="l_skill" value="Lutherie &amp; Instrument-making">
+    <div class="sheet">
+      <div class="to">Dear Arnaud,</div>
+      <div class="date" id="l_date"></div>
+      <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your letter</label>
+      <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
+      <div class="sign"><div class="yours">Yours,</div><div class="name" id="l_sign"></div></div>
+    </div>
+    <div class="prompts" id="l_prompts"></div>
+    <div class="lrow">
+      <button class="btn" id="l_send" type="button">Send this letter &rarr;</button>
+      <span class="lcount" id="l_count">0 words</span>
+    </div>
+    <div class="sign-off" id="l_signoff">
+      <div class="sh serif">Sign it, so I know who I'm writing back to.</div>
+      <p class="sp">Your letter goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. No selling, ever. Unsubscribe in one click.</p>
+      <div class="sotwo">
+        <div class="lfield" style="margin:0"><label for="l_name">First name</label><input id="l_name" placeholder="Marie" autocomplete="given-name"></div>
+        <div class="lfield" style="margin:0"><label for="l_email">Email</label><input id="l_email" type="email" placeholder="you@example.com" autocomplete="email"></div>
+      </div>
+      <div class="lrow"><button class="btn" id="l_confirm" type="button">Send it to Arnaud &rarr;</button></div>
+      <div class="lerr" id="l_err"></div>
+      <div class="lfine">I'm the only one who reads it.</div>
+    </div>
+  </div>
+  <div class="ldone" id="l_done">
+    <div class="eyebrow">Sent</div>
+    <h3 class="serif" id="l_donehead">Your letter is with me.</h3>
+    <p id="l_donebody">I read every one myself, and I answer. You're in the Circle now — I'll write when I find the master, the place and the moment that fit what you just told me.</p>
+    <p class="lpoem">Every craft on this map started with somebody saying it out loud.</p>
+    <a class="lback" href="/about">The story of why I built this &rarr;</a>
+  </div>
+</section></div>
 <section style="border-top:1px solid var(--line);background:var(--ink2)">
 <div class="wrap" style="max-width:720px">
 <div class="mono">Why you can trust this map</div>
@@ -151,7 +229,134 @@ footer a { color:var(--sea); }
 })();
 </script>
 <script src="/js/intent-capture.js" defer></script>
-<script src="/js/atlas-letter.js" defer></script>
+<script defer src="/js/atlas-circle-interest.js"></script><script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var skillIn=$("l_skill"),body=$("l_body"),nameIn=$("l_name"),emailIn=$("l_email");
+  if(!skillIn||!body) return;
+  var SLUG=(document.body.getAttribute("data-craft-slug")||"");
+
+  var dl=$("l_skills");
+  if(dl&&window.ET_ATLAS_INDEX){
+    (window.ET_ATLAS_INDEX.crafts||[]).map(function(c){return c.name;})
+      .sort(function(a,b){return a.localeCompare(b);})
+      .forEach(function(n){var o=document.createElement("option");o.value=n;dl.appendChild(o);});
+  }
+
+  var MN=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var now=new Date();$("l_date").textContent=MN[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear();
+
+  function words(){var t=body.value.trim();return t?t.split(/\s+/).length:0;}
+  function syncCount(){var n=words();$("l_count").textContent=n+" word"+(n===1?"":"s");}
+  function syncSign(){$("l_sign").textContent=(nameIn&&nameIn.value.trim())||"";}
+  body.addEventListener("input",syncCount);
+  if(nameIn)nameIn.addEventListener("input",syncSign);
+  syncCount();
+
+  // openers, not scripts — they put the cursor where the honest answer goes
+  var PROMPTS=[
+    ["The craft","The skill I keep coming back to is "],
+    ["Why it pulls","What pulls me to it is "],
+    ["How I'd learn it","I'd want to learn it by "],
+    ["A year from now","A year from now I'd want to be able to "],
+    ["What stops me","What stops me right now is "]
+  ];
+  var pbox=$("l_prompts");
+  PROMPTS.forEach(function(p){
+    var b=document.createElement("button");b.type="button";b.textContent=p[0];
+    b.onclick=function(){
+      var v=body.value, pad=(v && !/\n\s*$/.test(v))?"\n\n":"";
+      body.value=v+pad+p[1];body.focus();
+      try{body.selectionStart=body.selectionEnd=body.value.length;}catch(e){}
+      syncCount();
+    };
+    pbox.appendChild(b);
+  });
+
+  // arriving from a card's ✎ Write, or from an /atlas/?skill=… link
+  function openLetter(craft){
+    if(craft&&skillIn)skillIn.value=craft;
+    var sec=$("letter");
+    if(sec)sec.scrollIntoView({behavior:"smooth",block:"start"});
+    setTimeout(function(){try{body.focus();}catch(e){}},520);
+  }
+  document.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".writebtn"):null;
+    if(!b||e.defaultPrevented)return;
+    e.preventDefault();e.stopPropagation();
+    openLetter(b.getAttribute("data-write-craft"));
+  });
+  try{
+    var qp=new URLSearchParams(location.search).get("skill");
+    if(qp)setTimeout(function(){openLetter(qp);},300);
+  }catch(e){}
+
+  $("l_send").onclick=function(){
+    // backgroundColor, not the background shorthand — the shorthand would wipe
+    // the ruled-paper background-image and never bring it back
+    if(words()<3){body.focus();body.style.backgroundColor="rgba(210,138,82,.12)";
+      setTimeout(function(){body.style.backgroundColor="";},900);return;}
+    var so=$("l_signoff");so.classList.add("on");
+    setTimeout(function(){try{nameIn.focus();}catch(e){}so.scrollIntoView({behavior:"smooth",block:"nearest"});},120);
+  };
+
+  function flag(el){el.focus();el.style.borderColor="#d28a52";setTimeout(function(){el.style.borderColor="";},1600);}
+
+  // A letter lost to a network blip is a letter Arnaud never sees, so a failed
+  // send is stashed and retried — and never reported as sent.
+  var PK="et_letter_pending";
+  function stash(p){try{localStorage.setItem(PK,JSON.stringify(p));}catch(e){}}
+  function unstash(){try{localStorage.removeItem(PK);}catch(e){}}
+  var flushing=false;
+  function flush(){
+    var sb=window.supabaseClient;if(!sb||flushing)return;
+    var raw;try{raw=localStorage.getItem(PK);}catch(e){return;}
+    if(!raw)return;
+    var p;try{p=JSON.parse(raw);}catch(e){unstash();return;}
+    if(!p||!p.email){unstash();return;}
+    flushing=true;
+    sb.from("launch_waitlist").insert(p).then(function(res){
+      flushing=false;
+      if(!res.error){unstash();if(window.plausible)window.plausible("AtlasLetterRecovered",{props:{source:p.source}});}
+    }).catch(function(){flushing=false;});
+  }
+  flush();setTimeout(flush,2500);
+
+  $("l_confirm").onclick=async function(){
+    var btn=this,err=$("l_err");err.style.display="none";
+    var nm=(nameIn.value||"").trim(), em=(emailIn.value||"").trim(), txt=body.value.trim(), sk=(skillIn.value||"").trim();
+    if(!nm)return flag(nameIn);
+    if(!em||em.indexOf("@")<1||em.indexOf(".")<0)return flag(emailIn);
+
+    btn.disabled=true;btn.textContent="Sending…";
+    var interests=[{kind:"profile",name:nm}];
+    // slug when we know it (a craft sheet), so refresh-unlocked never has to guess
+    if(sk)interests.push(SLUG?{kind:"discipline",discipline:sk,slug:SLUG,label:sk}
+                             :{kind:"discipline",discipline:sk});
+    interests.push({kind:"dream",text:txt});
+    var payload={email:em,interests:interests,source:SLUG?("atlas-letter:"+SLUG):"atlas-letter"};
+
+    try{
+      var sb=window.supabaseClient;
+      if(!sb)throw new Error("offline");
+      var res=await sb.from("launch_waitlist").insert(payload);
+      if(res&&res.error)throw res.error;
+      unstash();
+      if(window.plausible)window.plausible("AtlasLetter",{props:{skill:sk||"unnamed"}});
+      $("l_donehead").textContent="Your letter is with me, "+nm+".";
+      $("lbox").style.display="none";
+      $("l_done").classList.add("on");
+      $("letter").scrollIntoView({behavior:"smooth",block:"start"});
+    }catch(e){
+      console.error("[Letter] insert failed:",e);
+      stash(payload);
+      btn.disabled=false;btn.textContent="Send it to Arnaud →";
+      err.innerHTML='That didn’t go through just now — your letter is safe on this screen. Try once more, or send it straight to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>, which reaches the same inbox.';
+      err.style.display="block";
+    }
+  };
+})();
+</script>
 <footer><div class="wrap"><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the longer stories in the <a href="/journal/" style="color:var(--sea);">Journal</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas</a><a href="/journal/" style="color:var(--sea);text-decoration:none;">Journal</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 <div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — converted at live ECB rates; the original is the source of truth">
 <span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>

@@ -254,7 +254,7 @@ SKILL_SAVE = '<script src="/js/skill-save.js" defer></script>'
 
 
 def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
-         saveable=True, extra_head="", extra_scripts=""):
+         saveable=True, extra_head="", extra_scripts="", body_attrs=""):
     crumbs = ""
     if breadcrumbs:
         items = [{"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u} for i, (n, u) in enumerate(breadcrumbs)]
@@ -272,6 +272,8 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
     if extra_scripts:
         tail.append(extra_scripts)
     tail_scripts = "\n".join(tail)
+    fonts = (atlas_hub.LETTER_FONTS if extra_head else
+             "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap")
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -289,7 +291,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="{fonts}" rel="stylesheet">
 {crumbs}{extra}
 {ANALYTICS}{extra_head}
 <style>
@@ -341,7 +343,7 @@ footer a {{ color:var(--sea); }}
 @media(max-width:560px) {{ .cur-toggle .lab {{ display:none; }} .cur-toggle {{ right:10px; bottom:10px; }} }}
 </style>
 </head>
-<body>
+<body{body_attrs}>
 <nav class="top"><div class="wrap">
 <a class="brand" href="/">EDUCATEDTRAVELER</a>
 {NAV_AUTH}
@@ -373,55 +375,21 @@ def intent_form(prompt, source, discipline=None, place=None, label=None):
             '</form>'
             '<noscript><a class="cta" href="/#circle">Join the Circle</a></noscript>')
 
-def letter_box(d):
-    """The one thing you can do on a short sheet: write to Arnaud.
-
-    Deliberately form.et-letter, not form.intent — intent-capture.js and
-    skill-save.js both hook form.intent, and neither belongs on this page.
-    """
-    return (
-        f'<form class="et-letter" data-slug="{e(d["id"])}" data-craft="{e(d["discipline"])}">'
-        f'<h2 style="margin-bottom:6px">Write me a letter about {e(d["discipline"])}.</h2>'
-        '<p class="letter-q">Tell me why this one pulls at you. One sentence is enough.</p>'
-        f'<textarea class="letter-note" name="letter" rows="5" required '
-        f'placeholder="I keep coming back to {e(d["discipline"])} because&hellip;"></textarea>'
-        '<div class="letter-row">'
-        '<label class="letter-fld"><span>Your name</span>'
-        '<input type="text" name="name" autocomplete="given-name" required></label>'
-        '<label class="letter-fld"><span>Where I reach you</span>'
-        '<input type="email" name="email" autocomplete="email" required></label>'
-        '</div>'
-        '<button type="submit" class="letter-go">Send the letter &rarr;</button>'
-        '<p class="letter-msg" hidden></p>'
-        '<p class="letter-fine">It comes straight to me, and to nobody else — I read every one myself. '
-        'Sending it puts you in the Circle, so you\'ll get a note back from me by email. '
-        'Nothing is for sale here. I introduce; you decide.</p>'
-        '</form>'
-        '<noscript><p class="letter-fine">Letters need JavaScript. '
-        '<a href="/circle" style="color:var(--sea)">Tell me here instead</a>.</p></noscript>')
 
 
-# Styles only the short sheet needs. Kept out of the shared block so an open sheet
-# stays byte-for-byte what it was.
-LETTER_CSS = """
-<style>
+# The few rules a short sheet needs that the shared Atlas stylesheet doesn't carry:
+# the state badge, the "most alive" line, and the letter's button (the hub calls it
+# .btn; these pages only define .cta).
+SHORT_CSS = """
 .notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
 .alive { font-size:15px; opacity:.82; margin-top:14px; }
 .alive b { font-weight:500; opacity:1; }
-.et-letter { border:1px solid var(--line); border-radius:14px; padding:24px; background:rgba(243,237,226,0.02); margin-top:8px; }
-.letter-q { font-size:15px; opacity:.78; margin-bottom:14px; }
-.letter-note { width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:12px; padding:14px 16px; color:var(--paper); font-family:inherit; font-size:15px; line-height:1.6; resize:vertical; }
-.letter-note:focus { outline:none; border-color:var(--sea); }
-.letter-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
-.letter-fld { flex:1 1 220px; display:block; }
-.letter-fld span { display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; opacity:.5; margin-bottom:6px; }
-.letter-fld input { width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-family:inherit; font-size:14px; }
-.letter-fld input:focus { outline:none; border-color:var(--sea); }
-.letter-go { margin-top:16px; border:none; border-radius:99px; padding:13px 26px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
-.letter-go:hover { filter:brightness(1.05); } .letter-go:disabled { opacity:.5; cursor:default; }
-.letter-msg { font-size:14.5px; margin-top:14px; line-height:1.6; } .letter-msg.ok { color:var(--sea); } .letter-msg.err { color:#e0915f; }
-.letter-fine { font-size:12.5px; opacity:.55; margin-top:12px; max-width:60ch; line-height:1.6; }
-</style>"""
+.btn { display:inline-block; padding:13px 26px; border-radius:99px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; border:none; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); transition:filter .2s,transform .2s; }
+.btn:hover { filter:brightness(1.05); transform:translateY(-1px); }
+.btn:disabled { opacity:.5; cursor:default; transform:none; }
+.eyebrow { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--sea); }
+.serif { font-family:'Fraunces',Georgia,serif; }
+"""
 
 
 def short_sheet(d, total):
@@ -445,7 +413,12 @@ def short_sheet(d, total):
 <p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it, and not before.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking {total} things badly.</p>
 </div></section>
-<section><div class="wrap" style="max-width:720px">{letter_box(d)}</div></section>"""
+{atlas_hub.letter_section(
+    "Write me a letter about " + e(d["discipline"]) + ".",
+    "Not a form — a letter, and I read every one myself. Tell me why this one pulls at you, "
+    "how you\'d want to learn it, and who you\'d want to be in it a year from now. "
+    "A letter about a craft is what opens it.",
+    skill_field=False, prefill=d["discipline"])}"""
 
 
 # Lets the next build recognise its own place stubs. Without it the preserve sweep
@@ -811,8 +784,10 @@ for d in DISC:
             f'{d["discipline"]} — what it is, and where it\'s most alive',
             desc, path, short_sheet(d, N_CRAFTS),
             breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)],
-            saveable=False, extra_head=LETTER_CSS,
-            extra_scripts='<script src="/js/atlas-letter.js" defer></script>'))
+            saveable=False, extra_head="<style>" + atlas_hub.LETTER_CSS + SHORT_CSS + "</style>",
+            extra_scripts='<script defer src="/js/atlas-circle-interest.js"></script>'
+                          '<script>' + atlas_hub.LETTER_JS + '</script>',
+            body_attrs=f' data-craft-slug="{e(d["id"])}"'))
         continue
 
     title = f'{d["discipline"]} — where to learn it at the source ({len(d["destinations"])} destinations)'
