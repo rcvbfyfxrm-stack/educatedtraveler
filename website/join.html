@@ -345,25 +345,28 @@
         <!-- ═══════════════ LEFT: VISUAL ═══════════════ -->
         <div class="split-visual">
 
-            <!-- Scenes (images + overlays) -->
+            <!-- Scenes (images + overlays)
+                 Arnaud's own photographs only — the same six-chapter founder set used
+                 on the landing page and /circle. No stock imagery on this page: the
+                 person you are signing up to reach is the person in the frame. -->
             <div class="scene active" data-scene="0">
-                <img src="/images/story/freedive-line.jpg" alt="Deep ocean diving">
+                <img style="object-position: 62% 50%" src="/images/story/founder/galley.jpg" alt="Arnaud plating a dish in the galley">
                 <div class="scene-overlay"></div>
             </div>
             <div class="scene" data-scene="1">
-                <img src="/images/story/mountain-climb.jpg" alt="Mountain summit at dawn">
+                <img style="object-position: 40% 50%" src="/images/story/founder/sea.jpg" alt="Arnaud on the boat with the day's catch">
                 <div class="scene-overlay"></div>
             </div>
             <div class="scene" data-scene="2">
-                <img src="/images/story/sailing-freedom.jpg" alt="Sailing open water">
+                <img style="object-position: 50% 45%" src="/images/story/founder/depths.jpg" alt="Arnaud freediving in a cenote">
                 <div class="scene-overlay"></div>
             </div>
             <div class="scene" data-scene="3">
-                <img src="/images/story/wellness.jpg" alt="Sunrise over the Himalaya">
+                <img style="object-position: 64% 50%" src="/images/story/founder/heights.jpg" alt="Arnaud on a mountain summit">
                 <div class="scene-overlay"></div>
             </div>
             <div class="scene" data-scene="4">
-                <img src="/images/story/chef-plating.jpg" alt="Culinary mastery">
+                <img style="object-position: 34% 50%" src="/images/story/founder/stillness.jpg" alt="Arnaud on a ridge at dawn">
                 <div class="scene-overlay"></div>
             </div>
 
@@ -372,25 +375,28 @@
 
             <!-- Rotating story phrases -->
             <div class="story-text">
+                <!-- Sub-lines are the founder story's own chapter lines, matched to the
+                     photograph above them. The old ones named crafts and places that were
+                     not in the picture and were not ours to claim. -->
                 <div class="story-phrase active" data-phrase="0">
                     <h2>What skill have you always wanted to master?</h2>
-                    <p>Freediving &middot; Bali, Indonesia</p>
+                    <p>The kitchens &middot; Every kitchen a classroom</p>
                 </div>
                 <div class="story-phrase" data-phrase="1">
                     <h2>Where will you be one year from now?</h2>
-                    <p>Alpine Mountaineering &middot; Chamonix, France</p>
+                    <p>The sea &middot; Fifty thousand nautical miles</p>
                 </div>
                 <div class="story-phrase" data-phrase="2">
                     <h2>The skill that changes everything.</h2>
-                    <p>RYA Yachtmaster &middot; Gibraltar</p>
+                    <p>The depths &middot; Fear turned into respect</p>
                 </div>
                 <div class="story-phrase" data-phrase="3">
                     <h2>What would you do if time wasn't the obstacle?</h2>
-                    <p>Yoga Alliance RYT-500 &middot; Rishikesh, India</p>
+                    <p>The heights &middot; Strangers turned into crew</p>
                 </div>
                 <div class="story-phrase" data-phrase="4">
                     <h2>Your next chapter starts with one decision.</h2>
-                    <p>Culinary Arts &middot; Tokyo, Japan</p>
+                    <p>The stillness &middot; Handed, at the source</p>
                 </div>
             </div>
 
@@ -515,7 +521,12 @@
                     </form>
 
                     <!-- SIGN IN FORM -->
-                    <form id="signin-form" class="hidden" style="display:flex;flex-direction:column;gap:0.875rem;">
+                    <!-- display:none, not just class="hidden": an inline style beats
+                         Tailwind's .hidden rule, so the old inline display:flex left BOTH
+                         forms stacked on first paint until a tab was clicked. The tab
+                         handlers set style.display themselves, so this only fixes the
+                         initial state. -->
+                    <form id="signin-form" class="hidden" style="display:none;flex-direction:column;gap:0.875rem;">
                         <input
                             type="email"
                             name="email"
