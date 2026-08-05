@@ -224,7 +224,7 @@ function memberWelcome(rec: Record<string, unknown>, _email: string): { subject:
     </div>
     <div style="margin-top:36px;padding-top:22px;border-top:1px solid #e6ded1;text-align:center;">
       <p style="color:#7a726a;font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0;">Skills last, tans fade</p>
-      <p style="margin:12px 0 0 0;"><a href="${APP_URL}/browse" style="color:#3f6b67;font-size:11px;text-decoration:none;">Wander the Atlas while you wait</a></p>
+      <p style="margin:12px 0 0 0;"><a href="${APP_URL}/atlas/" style="color:#3f6b67;font-size:11px;text-decoration:none;">Wander the Atlas while you wait</a></p>
     </div>
   </div>
 </body></html>`;
@@ -244,7 +244,7 @@ Arnaud
 
 —
 Skills last, tans fade
-Wander the Atlas while you wait: ${APP_URL}/browse`;
+Wander the Atlas while you wait: ${APP_URL}/atlas/`;
 
   return { subject: "Your portrait is on my desk", html, text };
 }

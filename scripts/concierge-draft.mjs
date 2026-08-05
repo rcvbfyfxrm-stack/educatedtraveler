@@ -19,10 +19,10 @@
 //   --dry                 parse + decide, print, write nothing
 //   --limit <n>           cap leads scanned (default 200, newest first)
 //   --fixture <file.json> read leads from a JSON array instead of the DB (for testing)
-//   --atlas-dir <path>    where the Atlas .html live (default ./website/atlas)
+//   (coverage comes from data/atlas-unlocked.json — no --atlas-dir any more)
 //
 //   node scripts/concierge-draft.mjs --dry
-import { readdirSync, existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const URL = process.env.SUPABASE_URL || "https://exaehwaqwcledemwpluw.supabase.co";
@@ -31,7 +31,7 @@ const DRY = process.argv.includes("--dry");
 const argVal = (f, d) => (process.argv.includes(f) ? process.argv[process.argv.indexOf(f) + 1] : d);
 const LIMIT = parseInt(argVal("--limit", "200"), 10) || 200;
 const FIXTURE = argVal("--fixture", null);
-const ATLAS_DIR = argVal("--atlas-dir", "website/atlas");
+// (--atlas-dir retired: coverage now comes from the open set, not from filenames)
 const H = { apikey: KEY, Authorization: "Bearer " + KEY, "Content-Type": "application/json" };
 
 // ── the site's canonical slug (mirror of website/js/studio-people.js slugify) ──
@@ -41,18 +41,34 @@ const slugify = (s) => String(s || "").toLowerCase().replace(/&/g, " and ")
 const titleCase = (s) => String(s || "").trim().replace(/\s+/g, " ")
   .replace(/\b\w/g, (m) => m.toUpperCase());
 
-// The set of disciplines the Atlas already covers = every hub page (no "--place" suffix).
-function existingHubSlugs(dir) {
+// The crafts the Atlas actually COVERS — meaning a full sheet, not a short one.
+//
+// This used to read the filenames in website/atlas/. That stopped working the day
+// every craft got a page: readdir made every slug look covered, atlas_action was
+// always "exists", concierge-publish (which only matches atlas_action='create')
+// found nothing, and the nightly pipeline went quiet without erroring. The open
+// set is the real answer to "is there a sheet behind this?".
+function openSlugs() {
   const set = new Set();
-  if (!existsSync(dir)) return set;
-  for (const f of readdirSync(dir)) {
-    if (!f.endsWith(".html")) continue;
-    const slug = f.slice(0, -5);
-    if (slug === "index" || slug.includes("--")) continue; // skip index + per-destination pages
-    set.add(slug);
-  }
+  const read = (p) => { try { return JSON.parse(readFileSync(p, "utf8")); } catch { return null; } };
+  const unlocked = read("data/atlas-unlocked.json");
+  for (const s of Object.keys((unlocked && unlocked.open) || {})) set.add(s);
+  const manifest = read("data/atlas-extra-sheets.json");
+  for (const s of (manifest && manifest.pinnedOpen) || []) set.add(s);
   return set;
 }
+
+// World words are not crafts. "healing", "wild" and "ocean" sit in concierge_queue
+// as junk rows because someone picked a world and it was slugified as a skill.
+const BUCKETS = new Set(["healing", "wild", "ocean", "kitchen", "craft", "body", "movement",
+  "wellness", "adventure", "creative", "culinary"]);
+
+// Named by hand, shared with scripts/refresh-unlocked.mjs.
+const ALIAS = {
+  "lymphatic-drainage-massage": "lymphatic-drainage",
+  "self-sufficient-agriculture-farming-and-food-preservation": "self-sufficiency",
+  "avant-garde-and-modernist-technique": "modern-new-technique-cuisine",
+};
 
 // launch_waitlist.interests comes in several shapes (see notify-lead). Pull the person's
 // name and the list of crafts they named (label + whether it was their own words).
@@ -87,8 +103,9 @@ async function getJson(url) {
 async function main() {
   if (!FIXTURE && !KEY) { console.error("missing SUPABASE_SERVICE_ROLE_KEY (or pass --fixture)"); process.exit(1); }
 
-  const atlas = existingHubSlugs(ATLAS_DIR);
-  console.log(`Atlas hubs known: ${atlas.size} (from ${ATLAS_DIR})`);
+  const atlas = openSlugs();
+  console.log(`Crafts with a full sheet: ${atlas.size} (from data/atlas-unlocked.json + data/atlas-extra-sheets.json)`);
+  if (!atlas.size) { console.error("no open crafts — run scripts/refresh-unlocked.mjs first"); process.exit(1); }
 
   // leads
   const leads = FIXTURE
@@ -110,12 +127,13 @@ async function main() {
     if (!email) continue;
     const { name, crafts } = parseLead(lead);
     for (const c of crafts) {
-      const slug = slugify(c.label);
-      if (!slug) continue;
+      let slug = slugify(c.label);
+      if (!slug || BUCKETS.has(slug)) continue;   // a world is not a craft
+      slug = ALIAS[slug] || slug;
       const ext_id = `${email}::${slug}`;
       if (existing.has(ext_id) || seenExt.has(ext_id)) continue;
       seenExt.add(ext_id);
-      const inAtlas = atlas.has(slug);
+      const inAtlas = atlas.has(slug);            // has a FULL sheet, not just a page
       toInsert.push({
         ext_id,
         lead_email: email,

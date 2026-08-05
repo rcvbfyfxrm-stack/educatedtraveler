@@ -9,9 +9,24 @@
 // goes live). If page_html is missing, fall back to rendering from the sheet.
 //
 //   node scripts/concierge-publish.mjs [--dry] [--row <id>]
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { renderAtlasPage } from "./atlas-page.mjs";
+
+// A page published here is hand-written research that lives in no data file. Record it
+// in the manifest, or the next `python3 scripts/build-atlas-pages.py` overwrites it with
+// a generated short sheet — and would print "not open yet" over a full sheet.
+const MANIFEST = "data/atlas-extra-sheets.json";
+function protect(slug) {
+  let m;
+  try { m = JSON.parse(readFileSync(MANIFEST, "utf8")); } catch { return false; }
+  const file = slug + ".html";
+  let touched = false;
+  if (!m.preserve.includes(file)) { m.preserve.push(file); touched = true; }
+  if (!m.pinnedOpen.includes(slug)) { m.pinnedOpen.push(slug); touched = true; }
+  if (touched) writeFileSync(MANIFEST, JSON.stringify(m, null, 2) + "\n");
+  return touched;
+}
 
 const URL = process.env.SUPABASE_URL || "https://exaehwaqwcledemwpluw.supabase.co";
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_KEY;
@@ -32,8 +47,9 @@ async function main() {
     // prefer the page built + previewed overnight; render only as a fallback
     const html = (row.page_html && String(row.page_html).trim()) ? row.page_html : renderAtlasPage(row);
     const built = (row.page_html && String(row.page_html).trim()) ? "stored" : "rendered";
-    if (DRY) { console.log(`[dry] would write ${file} (${html.length} bytes, ${built}) and stamp published`); continue; }
+    if (DRY) { console.log(`[dry] would write ${file} (${html.length} bytes, ${built}), protect it in ${MANIFEST}, and stamp published`); continue; }
     writeFileSync(file, html);
+    if (protect(row.skill_slug)) console.log(`  protected ${row.skill_slug} in ${MANIFEST}`);
     const url = `https://educatedtraveler.app/atlas/${row.skill_slug}`;
     await fetch(`${URL}/rest/v1/concierge_queue?id=eq.${row.id}`, {
       method: "PATCH", headers: { ...H, Prefer: "return=minimal" },

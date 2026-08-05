@@ -268,7 +268,7 @@ window.ET_POSTS = [
   {
     id: "this-is-et", format: "Carousel · pinned launch post", core: "",
     title: "This is EducatedTraveler",
-    link: "https://educatedtraveler.app/browse", linkLabel: "Open the Atlas",
+    link: "https://educatedtraveler.app/atlas/", linkLabel: "Open the Atlas",
     images: [
       "/images/posts/this-is-et/slide-01.png", "/images/posts/this-is-et/slide-02.png",
       "/images/posts/this-is-et/slide-03.png", "/images/posts/this-is-et/slide-04.png",
@@ -284,7 +284,7 @@ window.ET_POSTS = [
       "A place, a person, your people.",
     ],
     caption:
-"I left school at eighteen to learn from the world instead of a classroom. Almost everything I know came from someone who was good at something real and happy to share it — at the bench, on the water, over the fire. Never off a screen.\n\nSo I built EducatedTraveler: a living map of where a craft is still alive, and a circle that introduces you to the people keeping it warm.\n\nIf you've ever wanted to learn something with your hands, at the source — this one's for you. Pin it.\n\nOpen the Atlas: https://educatedtraveler.app/browse",
+"I left school at eighteen to learn from the world instead of a classroom. Almost everything I know came from someone who was good at something real and happy to share it — at the bench, on the water, over the fire. Never off a screen.\n\nSo I built EducatedTraveler: a living map of where a craft is still alive, and a circle that introduces you to the people keeping it warm.\n\nIf you've ever wanted to learn something with your hands, at the source — this one's for you. Pin it.\n\nOpen the Atlas: https://educatedtraveler.app/atlas/",
     hashtags: "#educatedtraveler #learnatthesource #learnbydoing #craftsmanship #yourpeople",
     strategy:
 "PURPOSE — the pinned front door to the whole project: the first thing a new follower meets. WHEN — pin to the top of the profile; post fresh Tue or Thu, 6-8pm, when reach peaks. SHAPE — 6-slide carousel: slide 1 is the scroll-stopper, the last slide is the line + soft pull to the Atlas. Carousels get re-served for days, so reply to every comment to keep it breathing. NEXT — 24-48h later, run the Story below so anyone who visits the profile gets a second, interactive touch. WATCH — profile visits, Atlas clicks, Circle sign-ups.",
@@ -392,7 +392,7 @@ window.ET_POSTS = [
   {
     id: "become", format: "Carousel", core: "",
     title: "What do you want to become?",
-    link: "https://educatedtraveler.app/browse", linkLabel: "Open the Atlas",
+    link: "https://educatedtraveler.app/atlas/", linkLabel: "Open the Atlas",
     images: [
       "/images/posts/become/slide-01.png", "/images/posts/become/slide-02.png",
       "/images/posts/become/slide-03.png", "/images/posts/become/slide-04.png",
@@ -407,7 +407,7 @@ window.ET_POSTS = [
       "Open the Atlas →",
     ],
     caption:
-"We don't ask 'what class?' We ask: what do you want to become?\n\nFour worlds — adventure, creative, wellness, kitchen and cellar — mapped to the real places they're alive, and the people already there.\n\nOpen the Atlas: https://educatedtraveler.app/browse",
+"We don't ask 'what class?' We ask: what do you want to become?\n\nFour worlds — adventure, creative, wellness, kitchen and cellar — mapped to the real places they're alive, and the people already there.\n\nOpen the Atlas: https://educatedtraveler.app/atlas/",
     hashtags: "#educatedtraveler #learnatthesource #adventure #craft #wellness",
   },
   {

@@ -97,7 +97,7 @@ footer{padding:40px 0 60px;font-size:13px;opacity:.5;} footer a{color:var(--sea)
 <main class="article"><div class="wrap">
 ${body}
 <div class="intent" style="margin-top:34px;"><p class="intent-q">${esc(title)} pulls you? Leave an email — I'll introduce you to the right place and the right people as the map grows.</p>
-<form data-discipline="${esc(slug)}" data-label="${esc(title)}" data-source="atlas:${esc(slug)}"><div class="intent-row"><input type="email" name="email" required placeholder="you@email.com" class="intent-input"><button type="submit" class="intent-go">Raise your hand</button></div><p class="intent-msg" hidden></p></form></div>
+<form class="intent" data-discipline="${esc(slug)}" data-label="${esc(title)}" data-source="atlas:${esc(slug)}"><div class="intent-row"><input type="email" name="email" required placeholder="you@email.com" class="intent-input"><button type="submit" class="intent-go">Raise your hand</button></div><p class="intent-msg" hidden></p></form></div>
 </div></main>
 <section class="trust"><div class="wrap">
 <div class="mono">Why you can trust this map</div>

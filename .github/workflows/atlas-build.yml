@@ -1,0 +1,59 @@
+name: Rebuild the Atlas
+
+# Ask the database which crafts the Circle has asked for, then rebuild /atlas around
+# the answer: full sheets for the open ones, short sheets and a letter box for the
+# rest. One commit, so `git log data/atlas-unlocked.json` reads as the record of when
+# each craft opened and off how many hands.
+#
+# Runs after concierge-draft (03:12) and concierge-publish (03:42) so the day's rows
+# are in before we count them.
+#
+# Safety, in the scripts rather than here:
+#   refresh-unlocked.mjs writes NOTHING on a failed, empty, or shrinking fetch, so a
+#   red run leaves the site exactly as it was and every open craft stays open.
+#   build-atlas-pages.py refuses to run at all without a non-empty unlock file, so it
+#   can never quietly decide the answer is "nothing is open" and close the Atlas.
+#
+# Security: schedule / manual dispatch only (never pull_request), guarded to the
+# canonical repo, so the service-role secret is never exposed to fork PRs.
+on:
+  schedule:
+    - cron: '5 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    if: github.repository == 'rcvbfyfxrm-stack/educatedtraveler'
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+
+      - name: Ask the DB which crafts have been asked for
+        env:
+          SUPABASE_URL: https://exaehwaqwcledemwpluw.supabase.co
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "SUPABASE_SERVICE_ROLE_KEY not set — keeping the committed unlock file as-is."
+          else
+            node scripts/refresh-unlocked.mjs
+          fi
+
+      - name: Rebuild the Atlas
+        run: |
+          python3 scripts/build-atlas-pages.py
+          python3 scripts/build-daily-drop.py
+
+      - name: Commit
+        run: |
+          git config user.name  "et-atlas"
+          git config user.email "atlas@educatedtraveler.app"
+          git add data/atlas-unlocked.json website/atlas website/js/atlas-index.js \
+                  website/sitemap.xml website/robots.txt marketing website/js/studio-calendar.js 2>/dev/null || true
+          git commit -m "atlas: rebuild — open crafts follow the letters" || { echo "nothing changed"; exit 0; }
+          git push

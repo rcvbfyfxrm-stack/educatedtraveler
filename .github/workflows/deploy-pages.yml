@@ -3,6 +3,15 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+  # A push made by a workflow using GITHUB_TOKEN does NOT raise a `push` event —
+  # GitHub suppresses it to stop workflows triggering themselves. Without this,
+  # the nightly Atlas rebuild and the concierge publish would commit, go green,
+  # and never reach the live site: a craft would open in the repo and keep saying
+  # "Not open yet" to visitors until a human happened to push something.
+  workflow_run:
+    workflows: ["Rebuild the Atlas", "Publish approved concierge Atlas pages"]
+    types: [completed]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -16,6 +25,8 @@ concurrency:
 
 jobs:
   deploy:
+    # A workflow_run fires even when the upstream job failed; don't ship on a red build.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
