@@ -29,7 +29,6 @@ const FILES = [
   "supabase/functions/confirm-enrollment/index.ts",
   "supabase/functions/invite-instructor/index.ts",
   "supabase/functions/handle-interest/index.ts",
-  "supabase/functions/send-reservation-email/index.ts",
   "docs/email-templates/auth-magic-link.html",
   "docs/email-templates/auth-confirm-signup.html",
   "docs/email-templates/auth-reset-password.html",
