@@ -1,9 +1,13 @@
 # Skill-sheet build order
 
-The order the nightly builder works through. **Four tiers, worked top-down.** Finish a tier before
-starting the next one; inside a tier, work the list in order. Skip anything that already has a deep sheet.
+The order the nightly builder works through. **Tiers, worked top-down — except Tier 2 and Tier 3 run
+alongside each other, not one after the other (see below).** Inside a tier, work the list in order. Skip
+anything that already has a deep sheet.
 
 Set by Arnaud, 2026-07-29 — replacing the old single "most interesting × most trendy" list.
+**Reprioritized 2026-08-04:** everything built from here on is for the Circle, full stop. Tier 2 (Arnaud's
+own — sailing, windsurf, freediving, every culinary discipline) is new and sits right under the letters.
+Trend tiers 4 and 5 are ON HOLD — see the note at the bottom of this file before touching either.
 
 **Already deep — skip:** `modern-new-technique-cuisine` (and its old alias `avant-garde-and-modernist-technique`) ·
 `lymphatic-drainage` · `lifestyle-medicine` · `freediving` · `self-sufficiency` · `japanese-knife-making` ·
@@ -41,9 +45,57 @@ Already deep, nothing owed: **freediving** (Letter Nº 1, Dahab) and **modern ne
   to Mashiko, San Sebastián, Bologna, Caracas. If research genuinely overturns one, say so on the sheet and
   flag it in the PR — don't quietly send readers somewhere else.
 
-## TIER 2 — LIVE CIRCLE DEMAND
+## TIER 2 — ARNAUD'S OWN
 
-**Then build what Circle members actually asked for**, highest count first.
+**Sailing, windsurfing, freediving, and the whole of the culinary world.** Not because a Circle member
+named them — because Arnaud can write every one of these in his own voice, first-hand, without waiting on
+outside verification for the parts he already knows cold: fifteen years on the water, and cooking for a
+living. This is still building for the Circle — it's the founder half of "everything I build is for the
+Circle," same as the letters are the promise-keeping half.
+
+**Already deep, nothing owed:** `sailing-and-yachtmaster` (Kate's letter/ask, see Tier 3 note below) and
+`freediving` (Letter Nº 1, Dahab — see Tier 1). `modern-new-technique-cuisine`, `new-basque-cuisine`,
+`italian-cuisine-and-pasta`, `chocolate-and-confectionery` are the four culinary letters, already built —
+see Tier 1.
+
+**To build — one sheet a night, quality over count, same standard as tier 1:**
+1. `windsurfing-and-wing-foil` — the wing-foil boom; Arnaud's own water-toy world
+2. `classical-french-cuisine` — the foundation his whole training sits on
+3. `french-pastry-and-patisserie`
+4. `bread-and-boulangerie`
+5. `cheese-and-fermentation`
+6. `asado-and-open-fire-cooking`
+7. `viennoiserie`
+8. `coffee-and-barista`
+9. `mixology-and-bartending`
+10. `wine-and-sommellerie`
+11. `whisky-and-distilling`
+12. `sake-and-sommellerie-of-sake`
+13. `sushi-and-washoku`
+14. `modernist-spanish-cuisine`
+15. `korean-cuisine-hansik`
+16. `sichuan-and-chinese-cuisine`
+17. `thai-cuisine`
+18. `vietnamese-cuisine`
+19. `north-indian-cuisine`
+20. `oaxacan-and-mexican-cuisine`
+21. `peruvian-cuisine`
+22. `tea-and-tea-ceremony`
+
+That's all 25 culinary disciplines plus windsurfing (the 4 letters + 2 already-deep are done; 22 left).
+Order above is a starting guess (closest to Arnaud's own training first) — reorder freely, it isn't sacred
+the way the letters' order is.
+
+**One hard rule, same as tier 1: never fabricate.** "Arnaud's own" means he can write the voice and the
+technique honestly — it does NOT mean skip verifying the schools, named teachers, and credentials on the
+sheet. Every claim still needs a real, checkable source. If a fact can't be verified, say so on the sheet
+rather than asserting it because it "sounds right" for the craft.
+
+## TIER 3 — LIVE CIRCLE DEMAND — RUNS ALONGSIDE TIER 2, NEVER BEHIND IT
+
+**Build what Circle members actually asked for**, highest count first. This tier does not wait for Tier 2
+to finish — a real person's ask jumps in front of a founder-pick sheet the very next run. If Tier 2 and
+Tier 3 both have something ready, build the Tier 3 (real person) sheet first.
 
 - Signal: the `launch_waitlist` table in Supabase. The Circle onboarding, `/circle`, `/portrait` and every
   "raise your hand" form write rows whose `interests` array holds `{kind:'discipline', discipline, …}`.
@@ -54,18 +106,21 @@ Already deep, nothing owed: **freediving** (Letter Nº 1, Dahab) and **modern ne
   the top of the tier and the sheet gets built *for them* — that is how `self-sufficiency` (Joana),
   `japanese-knife-making` (Cam) and `sailing-and-yachtmaster` (Kate) were built. Note the member in the PR body
   so Arnaud can write to them.
-- If the service key isn't in the environment this run, fall through to tier 3 — but **do not let the skip be
-  quiet.** Do not guess at demand either.
+- If the service key isn't in the environment this run, fall through to tier 2 (Arnaud's own) — but
+  **do not let the skip be quiet.** Do not guess at demand either.
 
 **⚠ AS OF 2026-08-04 THIS TIER HAS NEVER ONCE RUN.** Every night since the tier order was set, the log reads
-*"tier 2 launch_waitlist skipped for lack of credentials"* — `SUPABASE_SERVICE_KEY` is not in the nightly
-routine's environment. Tier 1 (the letters) is now complete, so the builder is spending every night on tier 3
-guesses about strangers while the tier of **real people who actually asked** is stepped straight over. That is
-backwards, and it went unnoticed for a week because the skip was buried in a log file.
+*"tier 2 launch_waitlist skipped for lack of credentials"* (that log line predates this file's 2026-08-04
+renumbering — it means this tier, live Circle demand) — `SUPABASE_SERVICE_KEY` is not in the nightly
+routine's environment. Arnaud has been given the exact fix (add it to environment `env_0195TdEf1NoVLSgHqnpogAnW`
+via https://claude.ai/code); check whether it's landed before assuming this warning still applies. If it's
+still missing, the builder has been spending every night on guesses about strangers while the tier of
+**real people who actually asked** is stepped straight over. That is backwards, and it went unnoticed for a
+week because the skip was buried in a log file.
 
 **So: when you cannot read demand, make it impossible to miss.**
-- Prefix the PR **title** with `[TIER 2 SKIPPED]`.
-- Make the **first line of the PR body**: `⚠ Circle demand was NOT consulted this run — no SUPABASE_SERVICE_KEY in the environment. These sheets are tier-3/4 editorial guesses, not what members asked for.`
+- Prefix the PR **title** with `[TIER 3 SKIPPED]`.
+- Make the **first line of the PR body**: `⚠ Circle demand was NOT consulted this run — no SUPABASE_SERVICE_KEY in the environment. These sheets are tier-2 founder picks, not what members asked for.`
 - Keep logging it as well.
 
 **The fix, for whoever reads this:** add `SUPABASE_SERVICE_KEY` (the service-role key, from the ET project
@@ -73,7 +128,12 @@ backwards, and it went unnoticed for a week because the skip was buried in a log
 `env_0195TdEf1NoVLSgHqnpogAnW`. It's a server-side secret: it belongs in the environment, never in this file,
 never in the repo, never in a commit.
 
-## TIER 3 — MOST TRENDY WORLDWIDE
+## TIER 4 — MOST TRENDY WORLDWIDE — ON HOLD
+
+**Do not build from this tier.** These are educated guesses about strangers, not the Circle — the opposite
+of "everything I build is for the Circle." Only come back to this list once Tier 2 (Arnaud's own) and
+Tier 3 (live Circle demand) are both genuinely exhausted, i.e. Tier 3 is running (the service key is fixed)
+and has caught up, and Tier 2's 22 sheets are built. Left in place as a record of the research, not a queue.
 
 What the wider world is actually booking right now. Anchored in the 2026 "skillcation" reporting — workshop
 bookings up 58% year on year, 76% of travellers saying a skill is more appealing than ever, nearly a third of
@@ -103,7 +163,10 @@ crafts, Italian cooking, pottery, mixology and dance
 19. `woodworking-and-joinery` — the hand-tool revival
 20. `traditional-spa-and-hydrotherapy` — the Nordic sauna and bathing trend
 
-## TIER 4 — MOST TRENDY FOR YACHT PEOPLE
+## TIER 5 — MOST TRENDY FOR YACHT PEOPLE — ON HOLD
+
+**Do not build from this tier** — same hold as tier 4, same reason. Left in place as a record of the
+research, not a queue.
 
 The audience Arnaud actually stands next to. Ranked by what the 2026 crew market pays for and what charter
 guests ask for. Grounded in what the crew academies themselves teach and what the salary guides list as
@@ -140,8 +203,12 @@ discipline**. Worth adding to `repertoire.js` rather than faking a sheet for it.
 
 ## Then
 
-Everything else on the Atlas, in descending community-strength rank (the `★ Best place to go` /
-"Legendary living community" signal already on each thin sheet).
+Everything else on the Atlas stays exactly as it is: visible in the catalogue, marked as not yet unlocked,
+and ranked by community strength (the `★ Best place to go` / "Legendary living community" signal already on
+each thin sheet) for whenever a Circle member does ask. Nothing gets hidden or removed from `/atlas/` for
+being thin — the map stays whole, it just tells the truth about what's been asked for.
 
-*Editable. Reorder freely — but keep the tier order: the letters are a promise already made, Circle demand is
-a real person waiting, and the two trend tiers are educated guesses about strangers. Promises first.*
+*Editable. Reorder freely within tiers 2 and 3 — but keep the shape: the letters are a promise already made,
+Arnaud's own is the founder half of building for the Circle, live Circle demand is a real person waiting and
+runs alongside it rather than behind it, and tiers 4/5 are educated guesses about strangers — on hold until
+both real-Circle tiers are exhausted.*
