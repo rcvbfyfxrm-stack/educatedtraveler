@@ -1,6 +1,20 @@
 -- =====================================================
 -- 034: ATLAS INTEREST — anonymous, and counting every craft a member named
 -- =====================================================
+-- ⚠ SUPERSEDED by 035_atlas_interest_drop_category_slugs.sql. DO NOT RE-RUN.
+--
+-- 033, 034 and 035 all `create or replace` the SAME function, so running an
+-- older file silently REVERTS production to that older behaviour — there is no
+-- error and nothing to notice. Re-running this one puts the invented crafts
+-- "ocean", "healing" and "wild" back into the public API. (It happened once,
+-- 2026-08-05.) Re-running 033 is worse: it republishes members' first names.
+--
+-- ✅ THE CURRENT DEFINITION IS 035. To reapply the function, run 035.
+-- Verify with:
+--   curl -s -X POST "$SUPABASE_URL/rest/v1/rpc/atlas_interest" \
+--        -H "apikey: <anon key>" -H "Content-Type: application/json" -d '{}'
+--   → every `names` must be null, and no lowercase one-word "craft" may appear.
+-- =====================================================
 -- Replaces public.atlas_interest() from migration 033. Two changes, both
 -- asked for by Arnaud on 2026-08-05:
 --
