@@ -1,9 +1,9 @@
 /* ════════════════════════════════════════════════════════════════════
-   Atlas × Circle — "who from the Circle wants this craft".
+   Atlas × Circle — how many members of the Circle are interested in a craft.
 
    Reads the public, privacy-capped RPC public.atlas_interest() (migration
-   033): craft → how many people raised a hand, plus up to three FIRST names.
-   Never an email, never a surname, never a letter.
+   033): craft → how many people raised a hand. Nothing else. No name, no
+   email, no surname, no letter — the count is the whole payload.
 
    TRUST LOCK: this line is only ever drawn from real rows. No craft is
    seeded, rounded up, or invented — a craft nobody has asked for shows
@@ -21,7 +21,7 @@
   "use strict";
   if (window.ETInterest) return;
 
-  var MAP = null;      // normalised craft name → {n:Number, names:[String]}
+  var MAP = null;      // normalised craft name → {n:Number}
   var LOADED = false;  // the fetch has settled (either way)
 
   function norm(s) {
@@ -37,21 +37,17 @@
     });
   }
 
-  /* The sentence. Every shape of it has to be literally true of the count. */
+  /* The sentence. Every shape of it has to be literally true of the count.
+     Anonymous by design: the RPC returns no names (migration 033, SHOW_NAMES
+     off), and nothing here would print one if it did. With one person per craft
+     a first name isn't a crowd — it's a public statement about somebody who
+     only ever joined a mailing list. The number says the true thing on its own. */
   function sentence(rec) {
-    var n = rec.n, names = (rec.names || []).filter(Boolean);
+    var n = rec.n;
     if (!n) return "";
-    var who;
-    if (!names.length) {
-      who = n === 1 ? "One person in the Circle" : n + " people in the Circle";
-      return who + (n === 1 ? " is" : " are") + " already after this one";
-    }
-    var parts = names.slice(0, 3);
-    var rest = n - parts.length;
-    if (rest > 0) parts.push(rest + " more");
-    who = parts.length === 1 ? parts[0]
-        : parts.slice(0, -1).join(", ") + " and " + parts[parts.length - 1];
-    return who + (parts.length > 1 ? " are" : " is") + " in the Circle for this";
+    return n === 1
+      ? "1 member of the Circle is interested in this skill"
+      : n + " members of the Circle are interested in this skill";
   }
 
   function paint(root) {
@@ -65,7 +61,7 @@
       var txt = sentence(rec);
       if (!txt) continue;
       el.innerHTML = '<span class="cint-dot" aria-hidden="true">●</span>' + esc(txt);
-      el.setAttribute("title", "Real people who joined the Circle and named this craft");
+      el.setAttribute("title", "Members of the Circle who named this craft when they joined — counted, never named");
     }
   }
 
@@ -83,8 +79,8 @@
         if (!k) return;
         var n = Number(r.learners) || 0;
         if (!n) return;
-        if (MAP[k]) { MAP[k].n += n; MAP[k].names = MAP[k].names.concat(r.names || []); }
-        else MAP[k] = { n: n, names: (r.names || []).slice() };
+        if (MAP[k]) MAP[k].n += n;
+        else MAP[k] = { n: n };
       });
       return true;
     }).catch(function (e) {
