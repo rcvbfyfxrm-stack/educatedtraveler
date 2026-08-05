@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Atlas — a catalogue of skills, each at its source — EducatedTraveler</title>
-<meta name="description" content="The EducatedTraveler Atlas: all 112 crafts across five worlds. 22 are open, with the school and the teacher we'd send you to. The rest show what the craft is and where it's most alive — write a letter and I open it.">
-<link rel="canonical" href="https://educatedtraveler.app/atlas/">
+<meta name="description" content="The EducatedTraveler Atlas: browse every skill across five worlds. Each opens a sheet explaining the craft and the one school or teacher we recommend at the source — hand-verified, nobody pays to be listed.">
+<link rel="canonical" href="https://educatedtraveler.app/browse">
 <meta property="og:title" content="The Atlas — certified skills at the source">
-<meta property="og:description" content="112 crafts, five worlds. 22 are open — the full sheet, every place, the schools — because a member asked for them. Write me a letter and that is what opens the rest.">
+<meta property="og:description" content="Five worlds, 99 certified crafts. Filter to the place where your skill is most alive.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://educatedtraveler.app/atlas/">
+<meta property="og:url" content="https://educatedtraveler.app/browse">
 <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
 <meta property="og:site_name" content="EducatedTraveler">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -218,27 +218,9 @@ select.fin option{background:var(--ink2)}
 .ldone .lback{display:inline-block;margin-top:20px;font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 .ldone .lback:hover{color:var(--sea)}
 footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color:var(--faint)}footer a{color:var(--sea)}.frow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-
-/* a craft nobody has asked for yet — same card, quieter */
-.dcard.shut,.gcard.shut{background:rgba(20,17,13,.55)}
-.dcard.shut::before,.gcard.shut::before{opacity:.24}
-.dcard.shut .cred-eyebrow,.gcard.shut .cred-eyebrow{color:var(--ember);opacity:.9}
-.dcard.shut .craftname,.gcard.shut .craftname{opacity:.9}
-.askline{color:var(--sea)!important;letter-spacing:.06em}
-
-/* the ticker: a circle under the rings, echoing them, not a box beneath them */
-.cam-tick{width:min(56vw,204px);height:min(56vw,204px);margin:2px auto 0;padding:20px 22px;
-  border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;background:radial-gradient(circle at 50% 34%,rgba(20,17,13,.96),rgba(13,11,9,.96) 72%);
-  border:1px solid var(--line);box-shadow:0 14px 38px rgba(0,0,0,.5),inset 0 0 34px rgba(127,168,165,.05)}
-.cam-tick:hover{border-color:var(--sea);background:radial-gradient(circle at 50% 34%,rgba(28,24,19,.98),rgba(13,11,9,.98) 72%)}
-.cam-tick .lab{margin-bottom:8px;max-width:16ch;line-height:1.5}
-.cam-tick .craft{font-size:clamp(14px,1.9vw,17px);line-height:1.18}
-.cam-tick .place{margin-top:5px;font-size:10.5px}
 </style>
 </head>
 <body>
-<!-- built 2026-08-05 · 22 of 112 crafts open · states from data/atlas-unlocked.json -->
 <nav class="top"><div class="row">
   <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
   <div class="links"><a class="join" href="/circle">Join the Circle</a></div>
@@ -323,12 +305,12 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 </div></div>
 
 <footer><div class="wrap frow">
-  <span>EducatedTraveler — a place, a person, your people. <a href="/circle">Join the Circle</a> · <a href="/about">The Story</a> · <a href="/lab-weeks">Lab Weeks</a> · <a href="/journal/">Journal</a> · <a href="/atlas/">Atlas index</a></span>
+  <span>EducatedTraveler — a place, a person, your people. <a href="/circle">Join the Circle</a> · <a href="/about">The Story</a> · <a href="/lab-weeks">Lab Weeks</a> · <a href="/journal/">Journal</a> · <a href="/browse">Atlas index</a></span>
   <span style="opacity:.7">Privacy-light, cookieless analytics.</span>
 </div></footer>
 
-<script src="/js/atlas-index.js"></script>
-<script src="/js/atlas-index-shim.js"></script>
+<script src="/js/repertoire.js"></script>
+<script src="/js/atlas-ratings.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
 <script src="/js/member-nav.js" defer></script>
@@ -600,7 +582,7 @@ function enableDrag(rail){var down=false,sx=0,sl=0,mv=0;
   rail.addEventListener("click",function(e){if(mv>6)e.preventDefault();},true);}
 var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.1});
 document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
-if(!A.length){results.innerHTML='<div class="empty">The Atlas didn’t load — <a href="/atlas/" style="color:var(--sea)">open it directly</a>.</div>';}
+if(!A.length){results.innerHTML='<div class="empty">The Atlas didn’t load — <a href="/browse" style="color:var(--sea)">open it directly</a>.</div>';}
 else{renderSide();render();}
 
 /* ══════════════════════════════════════════════════════════════════
@@ -651,7 +633,7 @@ else{renderSide();render();}
     pbox.appendChild(b);
   });
 
-  // arriving from a card's ✎ Write, or from a /atlas/?skill=… link
+  // arriving from a card's ✎ Write, or from a /browse?skill=… link
   function openLetter(craft){
     if(craft)skillIn.value=craft;
     var sec=$("letter");

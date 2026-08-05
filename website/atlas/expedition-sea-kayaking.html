@@ -61,7 +61,6 @@
 .ldone .lpoem{color:var(--sea);font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15.5px;margin-top:18px}
 .ldone .lback{display:inline-block;margin-top:20px;font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 .ldone .lback:hover{color:var(--sea)}
-/* who from the Circle already wants this craft — drawn only from real rows */
 .cint{font-size:11.5px;color:var(--sea);margin-top:9px;padding-top:9px;border-top:1px solid var(--line);line-height:1.45}
 .cint:empty{display:none}
 .cint .cint-dot{font-size:7px;vertical-align:2px;margin-right:6px;opacity:.85}
@@ -253,7 +252,6 @@ footer a { color:var(--sea); }
   if(nameIn)nameIn.addEventListener("input",syncSign);
   syncCount();
 
-  // openers, not scripts — they put the cursor where the honest answer goes
   var PROMPTS=[
     ["The craft","The skill I keep coming back to is "],
     ["Why it pulls","What pulls me to it is "],
@@ -273,27 +271,7 @@ footer a { color:var(--sea); }
     pbox.appendChild(b);
   });
 
-  // arriving from a card's ✎ Write, or from an /atlas/?skill=… link
-  function openLetter(craft){
-    if(craft&&skillIn)skillIn.value=craft;
-    var sec=$("letter");
-    if(sec)sec.scrollIntoView({behavior:"smooth",block:"start"});
-    setTimeout(function(){try{body.focus();}catch(e){}},520);
-  }
-  document.addEventListener("click",function(e){
-    var b=e.target.closest?e.target.closest(".writebtn"):null;
-    if(!b||e.defaultPrevented)return;
-    e.preventDefault();e.stopPropagation();
-    openLetter(b.getAttribute("data-write-craft"));
-  });
-  try{
-    var qp=new URLSearchParams(location.search).get("skill");
-    if(qp)setTimeout(function(){openLetter(qp);},300);
-  }catch(e){}
-
   $("l_send").onclick=function(){
-    // backgroundColor, not the background shorthand — the shorthand would wipe
-    // the ruled-paper background-image and never bring it back
     if(words()<3){body.focus();body.style.backgroundColor="rgba(210,138,82,.12)";
       setTimeout(function(){body.style.backgroundColor="";},900);return;}
     var so=$("l_signoff");so.classList.add("on");
@@ -302,8 +280,6 @@ footer a { color:var(--sea); }
 
   function flag(el){el.focus();el.style.borderColor="#d28a52";setTimeout(function(){el.style.borderColor="";},1600);}
 
-  // A letter lost to a network blip is a letter Arnaud never sees, so a failed
-  // send is stashed and retried — and never reported as sent.
   var PK="et_letter_pending";
   function stash(p){try{localStorage.setItem(PK,JSON.stringify(p));}catch(e){}}
   function unstash(){try{localStorage.removeItem(PK);}catch(e){}}
@@ -330,7 +306,6 @@ footer a { color:var(--sea); }
 
     btn.disabled=true;btn.textContent="Sending…";
     var interests=[{kind:"profile",name:nm}];
-    // slug when we know it (a craft sheet), so refresh-unlocked never has to guess
     if(sk)interests.push(SLUG?{kind:"discipline",discipline:sk,slug:SLUG,label:sk}
                              :{kind:"discipline",discipline:sk});
     interests.push({kind:"dream",text:txt});

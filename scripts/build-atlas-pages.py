@@ -839,20 +839,38 @@ def index_card(d):
             "rank": best.get("communityRank", 0), "rankLabel": best.get("communityLabel", ""),
             "nDest": len(d["destinations"]), "open": 1 if is_open(d["id"]) else 0}
 
-    # Places. An open craft lists all of them — they're on its page anyway. A craft
-    # nobody has asked for lists only the one its page names, so the data and the
-    # page say exactly the same thing.
-    def place_of(x):
-        return {"place": x["place"], "country": x["country"], "region": x.get("region", ""),
-                "rank": x.get("communityRank", 0), "season": x.get("bestSeason", "")}
-    card["dests"] = [place_of(x) for x in d["destinations"]] if card["open"] else (
-        [place_of(best)] if best else [])
-    if not card["open"]:
+    # Places. An OPEN craft ships every place with everything its card shows — the
+    # same page already publishes all of it. A craft nobody has asked for ships ONE
+    # place, name and country only: exactly what its short sheet says, and no more.
+    # Its place id is the craft id, so a card click lands on the craft, not a stub.
+    if card["open"]:
+        card["dests"] = [{
+            "id": x["id"], "place": x["place"], "country": x["country"],
+            "region": x.get("region", ""), "rank": x.get("communityRank", 0),
+            "rankLabel": x.get("communityLabel", ""), "season": x.get("bestSeason", ""),
+            "role": x.get("role", ""), "level": x.get("level", ""),
+            "tripTier": x.get("tripTier", 0), "tripType": x.get("tripType", ""),
+            "tripLength": x.get("tripLength", ""), "english": x.get("englishTaught") is True,
+            "lang": x.get("instructionLanguage", ""), "badges": x.get("badges", []),
+            "master": (x.get("masters") or [""])[0], "why": x.get("why", ""),
+            "school": ((x.get("schoolsInfo") or [{}])[0]).get("name", ""),
+            "nSchools": len(x.get("schoolsInfo") or x.get("schools") or []),
+        } for x in d["destinations"]]
+    else:
+        card["dests"] = ([{"id": d["id"], "place": best.get("place", ""),
+                           "country": best.get("country", ""), "region": "",
+                           "rank": best.get("communityRank", 0), "rankLabel": "",
+                           "season": "", "role": "", "level": "", "tripTier": 0,
+                           "tripType": "", "tripLength": "", "english": False, "lang": "",
+                           "badges": [], "master": "", "why": "", "school": "", "nSchools": 0}]
+                        if best else [])
         return card
+
     r = RATINGS.get(d["id"])
     card.update({
         "destId": best.get("id", ""),
         "cred": d.get("goldCredential") or d.get("certBody") or "",
+        "certShort": d.get("certShort", ""),
         "role": best.get("role", ""), "level": best.get("level", ""),
         "season": best.get("bestSeason", ""),
         "why": best.get("why", ""),
@@ -863,7 +881,8 @@ def index_card(d):
         "badges": best.get("badges", []),
     })
     if r and r.get("destId") == best.get("id") and r.get("stars"):
-        card["star"] = {"v": r["stars"], "n": r.get("count"), "src": r.get("source", "")}
+        card["star"] = {"v": r["stars"], "n": r.get("count"), "src": r.get("source", ""),
+                        "school": r.get("school", ""), "whyPick": r.get("whyPick", "")}
     return card
 
 
@@ -875,8 +894,13 @@ for hc in HUB_CARDS:                       # crafts that live only as a hand-wri
                   "country": hc.get("country", ""), "rank": hc.get("communityRank", 0),
                   "rankLabel": hc.get("communityLabel", ""), "nDest": hc.get("nDest", 1),
                   "open": 1 if is_open(hc["id"]) else 0,
-                  "dests": [{"place": hc.get("place", ""), "country": hc.get("country", ""),
-                             "region": "", "rank": hc.get("communityRank", 0), "season": ""}]})
+                  "dests": [{"id": hc["id"], "place": hc.get("place", ""),
+                             "country": hc.get("country", ""), "region": "",
+                             "rank": hc.get("communityRank", 0),
+                             "rankLabel": hc.get("communityLabel", ""), "season": "",
+                             "role": "", "level": "", "tripTier": 0, "tripType": "",
+                             "tripLength": "", "english": False, "lang": "", "badges": [],
+                             "master": "", "why": "", "school": "", "nSchools": 0}]})
 CARDS.sort(key=lambda c: c["name"].lower())
 N_OPEN = sum(1 for c in CARDS if c["open"])
 
@@ -892,8 +916,8 @@ N_OPEN = sum(1 for c in CARDS if c["open"])
 # /atlas/ is where you browse now. It used to be a flat list of links while the real
 # browsing lived at /browse; that page has moved here and /browse redirects to it.
 (OUT / "index.html").write_text(atlas_hub.build(
-    nav_auth=NAV_AUTH, nav_auth_toggle=NAV_AUTH_TOGGLE, analytics=ANALYTICS,
-    site=SITE, total=len(CARDS), n_open=N_OPEN, generated_at=UNLOCK_DATE))
+    analytics=ANALYTICS, site=SITE, total=len(CARDS), n_open=N_OPEN,
+    generated_at=UNLOCK_DATE))
 
 # ---------- sitemap + robots ----------
 # Hand-added statics used to be wiped by every rebuild — they live here now.
