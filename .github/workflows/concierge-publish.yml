@@ -38,6 +38,6 @@ jobs:
         run: |
           git config user.name  "et-concierge"
           git config user.email "concierge@educatedtraveler.app"
-          git add website/atlas/*.html 2>/dev/null || true
+          git add website/atlas/*.html data/atlas-extra-sheets.json 2>/dev/null || true
           git commit -m "concierge: publish approved Atlas page(s)" || { echo "nothing to publish"; exit 0; }
           git push

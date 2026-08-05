@@ -58,7 +58,7 @@ function welcomeHtml(unsub: string): string {
       <p style="${P}margin:0 0 16px 0;">That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.</p>
       <p style="${P}margin:0 0 16px 0;">I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.</p>
       <p style="${P}margin:0 0 28px 0;">How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.</p>
-      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/browse" style="${BTN}">Open the Atlas</a></div>
+      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/atlas/" style="${BTN}">Open the Atlas</a></div>
       <p style="${P}margin:24px 0 0 0;">And one thing I'd genuinely like to know — just hit reply:</p>
       <p style="${QSER}">What is the one skill you'd give a real week of your life to learn at the source?</p>
       <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">I read every reply.</p>`;
@@ -115,7 +115,7 @@ function issue03Html(unsub: string): string {
       <p style="${P}margin:0 0 16px 0;"><strong style="color:#2b2621;">In Caracas — María Fernanda Di Giacobbe.</strong> At the source of Venezuela's legendary <em style="color:#4a423b;">criollo</em> cacao, she won the first-ever Basque Culinary World Prize — the cooking world's closest thing to a Nobel — for one idea: teach people to make chocolate <em style="color:#4a423b;">from the seed</em>. Her lab trains chocolate-makers where the bean actually grows.</p>
       <p style="${P}margin:0 0 16px 0;">What links them isn't fame. It's that they teach — at the source, with their own hands on the work beside yours. That is the rarest and most valuable thing in any craft, and almost nobody is mapping it.</p>
       <p style="${P}margin:0 0 28px 0;">So I've started to. On the Atlas, the places where a real master will actually take you on now carry a single mark — <strong style="color:#2b2621;">Enrol with the master.</strong> It's the opposite of a listicle ranked by who paid, and the opposite of a screen you watch alone. It's a door, with a name on it.</p>
-      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/atlas" style="${BTN}">Find a master who teaches</a></div>
+      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/atlas/" style="${BTN}">Find a master who teaches</a></div>
       <p style="color:#6b625a;font-size:13px;line-height:1.6;margin:0;text-align:center;">The masters above, and the rest, are on the Atlas.</p>
       <p style="${P}margin:28px 0 0 0;">And a question — just hit reply:</p>
       <p style="${QSER}">Which craft would you cross an ocean to learn, if someone who'd actually teach you were waiting?</p>
@@ -268,7 +268,7 @@ function welcomePlainHtml(unsub: string): string {
     <p ${LP}>That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.</p>
     <p ${LP}>I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.</p>
     <p ${LP}>How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.</p>
-    <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/browse" style="color:#3f6b67;">educatedtraveler.app/browse</a></p>
+    <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a></p>
     <p ${LP}>And one thing I'd genuinely like to know — just hit reply:</p>
     <p style="margin:0 0 18px 0;"><strong>What is the one skill you'd give a real week of your life to learn at the source?</strong></p>
     <p ${LP}>I read every reply.</p>
@@ -289,7 +289,7 @@ I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — s
 
 How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.
 
-The Atlas is here: https://educatedtraveler.app/browse
+The Atlas is here: https://educatedtraveler.app/atlas/
 
 And one thing I'd genuinely like to know — just hit reply:
 
@@ -304,10 +304,56 @@ EducatedTraveler · educatedtraveler.app
 Leave the Circle: ${unsub}`;
 }
 
+// ── the reply to a letter written from an Atlas craft page ───────────────────
+// This REPLACES the Mashiko welcome for that person; circle-welcome branches on
+// source starting with "atlas-letter:". They asked about one specific craft, so
+// the useful thing is to answer that and ask who they are — not to open with a
+// story about a different craft. Same letter shell: no banner, no buttons.
+function atlasLetterHtml(unsub: string, name?: string, craft?: string): string {
+  const who = esc(name || "").trim();
+  const c = esc(craft || "that craft").trim();
+  const body = `
+    <p ${LP}>${who ? who + "," : "Hello,"}</p>
+    <p ${LP}>Your letter about <strong>${c}</strong> reached me. Thank you for writing it — I read every one myself, and letters like yours are how the Atlas decides which craft to open next.</p>
+    <p ${LP}>Now the part that would help me most: tell me a bit about you.</p>
+    <p ${LP}><a href="https://educatedtraveler.app/circle" style="color:#3f6b67;">educatedtraveler.app/circle</a></p>
+    <p ${LP}>It asks which crafts pull at you, how ready you are, where in the world you are, and what week you'd build if you could build one. About five minutes. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people.</p>
+    <p ${LP}>At the end you can seal it, and that founds your account: one click from an email, no password, ever. It just means your answers are saved to you, and you can come back and add to them. If it tells you that you already have an account, sign in instead and go to <a href="https://educatedtraveler.app/portrait" style="color:#3f6b67;">educatedtraveler.app/portrait</a> — same questions, already with your name on them.</p>
+    <p ${LP}>I don't sell anything. When there's a real week worth telling you about, I tell you, and you decide.</p>
+    <p style="margin:28px 0 0 0;">Speak soon,</p>
+    <p style="margin:0;">— Arnaud</p>`;
+  return plainShell({ body, unsub });
+}
+
+function atlasLetterText(unsub: string, name?: string, craft?: string): string {
+  const who = (name || "").trim();
+  const c = (craft || "that craft").trim();
+  return `${who ? who + "," : "Hello,"}
+
+Your letter about ${c} reached me. Thank you for writing it — I read every one myself, and letters like yours are how the Atlas decides which craft to open next.
+
+Now the part that would help me most: tell me a bit about you.
+
+https://educatedtraveler.app/circle
+
+It asks which crafts pull at you, how ready you are, where in the world you are, and what week you'd build if you could build one. About five minutes. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people.
+
+At the end you can seal it, and that founds your account: one click from an email, no password, ever. It just means your answers are saved to you, and you can come back and add to them. If it tells you that you already have an account, sign in instead and go to https://educatedtraveler.app/portrait — same questions, already with your name on them.
+
+I don't sell anything. When there's a real week worth telling you about, I tell you, and you decide.
+
+Speak soon,
+— Arnaud
+
+--
+EducatedTraveler · educatedtraveler.app
+Leave the Circle: ${unsub}`;
+}
+
 export const ISSUES: Record<string, {
   subject: string;
-  html: (unsub: string, name?: string) => string;
-  text?: (unsub: string) => string;
+  html: (unsub: string, name?: string, craft?: string) => string;
+  text?: (unsub: string, name?: string, craft?: string) => string;
   // audience "leads" = an invite/conversion email ("join", "take your place"):
   //   broadcast MUST skip anyone who already has a member account, or a member
   //   gets told to join the thing they're already in (bug: Jeremie et al., Jul 2026).
@@ -315,6 +361,8 @@ export const ISSUES: Record<string, {
   audience?: "leads" | "all";
 }> = {
   "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomePlainHtml, text: welcomeText, audience: "leads" },
+  // Subject carries the craft name; circle-welcome substitutes {CRAFT}.
+  "atlas-letter": { subject: "Got your letter about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
   "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml, audience: "leads" },
   "chef-invite": { subject: "That modernist cooking week — I want you close to it", html: chefInviteHtml, audience: "leads" },
   "friend-invite": { subject: "The thing I kept going on about — it's real now", html: friendInviteHtml, audience: "leads" },

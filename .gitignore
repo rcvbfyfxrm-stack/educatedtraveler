@@ -1,3 +1,6 @@
 .DS_Store
 .obsidian/
 node_modules/
+
+# build artefacts
+scripts/__pycache__/

@@ -27,7 +27,7 @@
     timedNudge:true, nudgeAfterMs:20000, nudgeAfterScrollPct:35,
     capKey:"et_circle_state", showPrices:false,
     waitlistTable:"launch_waitlist", saveSource:"circle-onboarding",
-    autoOpen:false, autoOpenDelayMs:1100, atlasUrl:"/browse", storyUrl:"/about"
+    autoOpen:false, autoOpenDelayMs:1100, atlasUrl:"/atlas/", storyUrl:"/about"
   };
   var isMobile=matchMedia("(max-width:600px)").matches;
   function capState(){try{return JSON.parse(localStorage.getItem(CONFIG.capKey))||{};}catch(e){return{};}}
@@ -40,28 +40,37 @@
   var MOVEMENT_RE=/(dance|tango|flamenco|capoeira|salsa|ballet|samba|kizomba|bachata|rhythm|drum)/i;
   var EU_REGIONS=/(europe|mediterran|balkan|iberia|scandinav|nordic|alps|aegean)/i;
 
-  /* ── data adapter: ET_ATLAS → scoreable crafts (keeps all destinations) ── */
-  function worldOfDisc(d){if(MOVEMENT_RE.test(d.discipline))return"movement";return CAT_WORLD[d.category]||"craft";}
+  /* ── data adapter: ET_ATLAS_INDEX → scoreable crafts ──
+     Reads website/js/atlas-index.js, the thin card data the Atlas build emits — NOT
+     repertoire.js, which holds the full research and is no longer served to anyone.
+     Crafts that aren't open yet are still offered here on purpose: picking one IS
+     the hand that opens it. Their card says so rather than claiming a school.     */
+  // The Atlas index speaks in categories (adventure/culinary/creative/movement/wellness);
+  // this panel has always spoken in worlds (wild/kitchen/craft/movement/body). Translate,
+  // or four of the five answers to "What pulls you?" match no craft at all and every card
+  // takes the mismatch penalty.
+  var IDX_WORLD={adventure:"wild",culinary:"kitchen",creative:"craft",movement:"movement",wellness:"body"};
+  function worldOfDisc(d){if(MOVEMENT_RE.test(d.craft||d.name||""))return"movement";return CAT_WORLD[d.cat]||"craft";}
   function destOf(x){
     return {
       place:x.place+(x.country?", "+x.country:""),
       cont:EU_REGIONS.test(x.region||"")?"europe":"far",
-      season:(x.bestSeason||"").toLowerCase().indexOf("year")>=0?"year-round":(x.bestSeason||"seasonal"),
-      rank:x.communityRank||0, rankLabel:x.communityLabel||"", role:x.role||"",
-      certified:(x.badges||[]).indexOf("gold-cred")>=0,
-      hasSchool:!!((x.schoolsInfo||x.schools||[]).length)
+      season:(x.season||"").toLowerCase().indexOf("year")>=0?"year-round":(x.season||"seasonal"),
+      rank:x.rank||0, rankLabel:"", role:"",
+      certified:false, hasSchool:false
     };
   }
-  function adaptAtlas(atlas){
+  function adaptAtlas(idx){
     var out=[];
-    (atlas.disciplines||[]).forEach(function(d){
-      var dests=(d.destinations||[]).map(destOf);
+    (idx.crafts||[]).forEach(function(c){
+      var dests=(c.dests||[]).map(destOf);
       if(!dests.length)return;
-      var topId=null,topRank=-1;(d.destinations||[]).forEach(function(x){if((x.communityRank||0)>topRank){topRank=(x.communityRank||0);topId=x.id;}});
+      dests.forEach(function(dd,i){var src=(c.dests||[])[i]||{};dd.rankLabel=c.rankLabel||"";dd.role=c.role||"";
+        dd.certified=(c.badges||[]).indexOf("gold-cred")>=0;dd.hasSchool=!!c.school;});
       out.push({
-        id:topId||(d.discipline).toLowerCase().replace(/[^a-z0-9]+/g,"-"),
-        world:worldOfDisc(d), craft:d.discipline, discipline:d.discipline,
-        cred:d.goldCredential||d.certBody||"Hand-verified",
+        id:c.id, world:IDX_WORLD[c.world]||worldOfDisc(c), craft:c.name, discipline:c.name,
+        open:!!c.open,
+        cred:c.open?(c.cred||"Hand-verified"):"Not open yet — ask me to open it",
         dests:dests
       });
     });
@@ -83,8 +92,9 @@
    {id:"ceramics",world:"craft",craft:"Wheel-thrown Ceramics",discipline:"Wheel-thrown Ceramics",cred:"Studio-led",place:"Sintra, Portugal",cont:"europe",season:"year-round",rank:3,rankLabel:"Growing",role:"scene",hasSchool:true},
    {id:"freedive",world:"wild",craft:"Freediving",discipline:"Freediving",cred:"AIDA / PADI",place:"Dahab, Egypt",cont:"far",season:"year-round",rank:4,rankLabel:"Thriving",role:"source",hasSchool:true,certified:true}
   ];
-  var PROD=!!(window.ET_ATLAS&&window.ET_ATLAS.disciplines&&window.ET_ATLAS.disciplines.length);
-  var CRAFTS=PROD?adaptAtlas(window.ET_ATLAS):SAMPLE.map(sampleToCraft);
+  var PROD=!!(window.ET_ATLAS_INDEX&&window.ET_ATLAS_INDEX.crafts&&window.ET_ATLAS_INDEX.crafts.length);
+  var CRAFTS=PROD?adaptAtlas(window.ET_ATLAS_INDEX):SAMPLE.map(sampleToCraft);
+  var N_OPEN=PROD?(window.ET_ATLAS_INDEX.open||0):CRAFTS.length;
 
   /* ── scoring: world + reach + timing + community strength ──
      pickDest honours reach (closest strong venue), then community rank.   */
@@ -157,7 +167,7 @@
       intro={type:"cta",say:"That's exactly what this is for. EducatedTraveler isn't a shop — it's a <em>bridge</em>: to a real skill, the master who teaches it, and the people learning beside you.",reflect:"A few taps about you, then the crafts that are yours. About a minute.",cta:"Show me →"};
       qs=[Q.experience,Q.reach,Q.timing];
     }else{
-      intro={type:"cta",say:"That's exactly what this is for. EducatedTraveler isn't a shop — it's a <em>bridge</em>: to a real skill, the master who teaches it, and the people learning beside you.",reflect:"Tell me a little more and I'll lay out the crafts that are yours — from "+CRAFTS.length+" we've vetted by hand. About a minute.",cta:"Show me →"};
+      intro={type:"cta",say:"That's exactly what this is for. EducatedTraveler isn't a shop — it's a <em>bridge</em>: to a real skill, the master who teaches it, and the people learning beside you.",reflect:"Tell me a little more and I'll lay out the crafts that are yours — from "+CRAFTS.length+" on the map, "+N_OPEN+" of them open. About a minute.",cta:"Show me →"};
       qs=[Q.worlds,Q.experience,Q.reach,Q.timing];
     }
     var flow=[Q.turn,intro].concat(qs,[Q.shelf,Q.acct]);
@@ -307,8 +317,14 @@
   function rankWhy(dst){var a=[];if(dst.rank>=5)a.push("legendary scene");else if(dst.rank>=4)a.push("thriving scene");return a;}
   function shelfCard(c,dst,w,sel,whys,d){
     var roleTag=dst.role?'<span class="etc-tag">'+({source:"at the source",scene:"a strong scene",both:"source & scene"}[dst.role]||"")+'</span>':'';
-    var proof=dst.rankLabel?dst.rankLabel+" community":"Hand-verified";
-    proof+=dst.certified?" · certified credential":(dst.hasSchool?" · school listed":"");
+    // A craft nobody has asked for has no school listed and no credential checked —
+    // saying "hand-verified" on its card would be a claim we haven't earned yet.
+    var proof;
+    if(!c.open){ proof="Not open yet — picking it asks me to open it"; }
+    else{
+      proof=dst.rankLabel?dst.rankLabel+" community":"Hand-verified";
+      proof+=dst.certified?" · certified credential":(dst.hasSchool?" · school listed":"");
+    }
     var whyHtml=(whys||[]).slice(0,2).map(function(t){return'<span class="etc-tag etc-why">'+esc(t)+'</span>';}).join("");
     return '<div class="etc-card'+(sel?' etc-sel':'')+'" role="button" tabindex="0" aria-pressed="'+(sel?"true":"false")+'" data-id="'+esc(c.id)+'" style="--sc:'+WORLD_COLOR[w]+';animation-delay:'+(d*55)+'ms"><div class="etc-ctop"><div style="flex:1"><div class="etc-cred">◆ '+esc(c.cred)+'</div><div class="etc-ctitle">'+esc(c.craft)+'</div><div class="etc-cplace">'+esc(dst.place)+'</div><div class="etc-meta">'+whyHtml+roleTag+'</div><div class="etc-verified">✓ '+esc(proof)+'</div></div><div class="etc-heart" aria-hidden="true">♥</div></div></div>';
   }
@@ -341,7 +357,7 @@
       html+='<div class="etc-grp etc-grp-wide"><span aria-hidden="true">✦</span> A wider world — worth starting too<span class="etc-ln"></span></div>';
       wider.forEach(function(p){html+=shelfCard(p.c,p.d,p.c.world,false,rankWhy(p.d),d);d++;});
     }
-    html+='<div class="etc-more">Not enough here? This is only a handful — the full Atlas holds <b>'+CRAFTS.length+'</b> crafts, and there\'s more waiting for whatever pulls you. You\'ll see it all next.</div>';
+    html+='<div class="etc-more">Not enough here? This is only a handful — the full Atlas holds <b>'+CRAFTS.length+'</b> crafts, <b>'+N_OPEN+'</b> of them open so far. Anything not open, you can ask me to open. You\'ll see it all next.</div>';
     els.shelf.innerHTML=html;
     els.shelf.querySelectorAll(".etc-card").forEach(function(card){
       function toggle(){var id=card.dataset.id,x=chosen.indexOf(id);if(x>=0){chosen.splice(x,1);card.classList.remove("etc-sel");card.setAttribute("aria-pressed","false");}else{chosen.push(id);card.classList.add("etc-sel");card.setAttribute("aria-pressed","true");}selCount();}
@@ -392,7 +408,10 @@
 
   /* ── persist (reuses launch_waitlist) ── */
   function buildInterests(){
-    var crafts=chosen.map(function(id){var c=byId(id);if(!c)return null;var place=(c._dest&&c._dest.place)||(c.dests&&c.dests[0]&&c.dests[0].place)||null;return{kind:"discipline",discipline:c.discipline||c.craft,place:place,label:c.craft};}).filter(Boolean);
+    // `slug` is what scripts/refresh-unlocked.mjs matches on. Without it the
+    // refresher has to slugify the display name and guess — this way a craft picked
+    // here opens the exact sheet it meant.
+    var crafts=chosen.map(function(id){var c=byId(id);if(!c)return null;var place=(c._dest&&c._dest.place)||(c.dests&&c.dests[0]&&c.dests[0].place)||null;return{kind:"discipline",discipline:c.discipline||c.craft,slug:c.id,place:place,label:c.craft};}).filter(Boolean);
     var pref={kind:"profile",turn:profile.turn||null,worlds:profile.worlds||[],motivation:profile.motivation||null,experience:profile.experience||null,reach:profile.reach||null,timing:profile.timing||null,name:profile.fname||null};
     return[pref].concat(crafts);
   }
@@ -459,7 +478,9 @@
     try{(lastFocus&&lastFocus.focus)?lastFocus.focus():els.launcher.focus();}catch(e){}
   }
   // The Atlas IS the destination — already there → reveal it; elsewhere → go to it.
-  function goAtlas(){var p=location.pathname||"";if(/\/browse|browse\.html/.test(p)){close();}else{try{location.href=CONFIG.atlasUrl;}catch(e){close();}}}
+  // This test and CONFIG.atlasUrl move together: if one says /atlas/ and the other
+  // says /browse, finishing the orb reloads the page you're already standing on.
+  function goAtlas(){var p=location.pathname||"";if(/^\/atlas\/?$/.test(p)||/atlas\/index\.html$/.test(p)){close();}else{try{location.href=CONFIG.atlasUrl;}catch(e){close();}}}
 
   /* ── wire triggers + nudge ── */
   function ready(fn){if(document.readyState!=="loading")fn();else document.addEventListener("DOMContentLoaded",fn);}

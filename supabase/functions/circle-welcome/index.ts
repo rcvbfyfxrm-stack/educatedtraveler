@@ -39,24 +39,66 @@ serve(async (req) => {
 
     const { data: row } = await admin
       .from("launch_waitlist")
-      .select("id,email,unsubscribe_token,unsubscribed,welcomed_at")
+      .select("id,email,source,interests,unsubscribe_token,unsubscribed,welcomed_at")
       .eq("id", rec.id)
       .maybeSingle();
 
     if (!row) return json({ message: "no such row" });
-    if (row.unsubscribed || row.welcomed_at) return json({ message: "skip (already welcomed or unsubscribed)" });
+    if (row.unsubscribed) return json({ message: "skip (unsubscribed)" });
 
+    // Per-ROW idempotency. This endpoint is deployed --no-verify-jwt, so anyone who
+    // guesses a row id can POST it again; without this, one letter can be turned into
+    // unlimited identical emails to that person. Every path checks it, including
+    // letters. It also covers a webhook retry.
+    if (row.welcomed_at) return json({ message: "skip (this row already answered)" });
+
+    // A letter written from an Atlas craft page gets its own reply — an answer about
+    // that craft and a request to say who they are — INSTEAD of the Mashiko welcome.
+    // Nobody should get two first letters from the same person on the same day.
+    const isLetter = String(row.source ?? "").startsWith("atlas-letter:");
+
+    // welcomed_at is per ROW, but a person is an EMAIL: launch_waitlist has no unique
+    // constraint on it, and one person legitimately signs up more than once. Checking
+    // the row alone re-sent the welcome to somebody already welcomed.
+    // The match stays case-insensitive (rows are stored as typed), but the pattern is
+    // escaped first: PostgREST treats _ and % in an ilike PATTERN as wildcards, so a
+    // raw mary_j@x.com would match mary.j@x.com and swallow her genuine first welcome.
+    const pattern = String(row.email).replace(/([\\%_])/g, "\\$1");
+    const { data: prior } = await admin
+      .from("launch_waitlist")
+      .select("id")
+      .ilike("email", pattern)
+      .not("welcomed_at", "is", null)
+      .limit(1);
+    const alreadyWelcomed = Array.isArray(prior) && prior.length > 0;
+
+    // A second letter is still worth an acknowledgement — it's a reply about a
+    // specific craft, not an introduction. A second plain signup is not.
+    if (alreadyWelcomed && !isLetter) return json({ message: "skip (this person is already welcomed)" });
+
+    // What they wrote about, for the subject line and the opening — from the row we
+    // just re-read, never from the webhook payload.
+    let craft = "", name = "";
+    for (const it of Array.isArray(row.interests) ? row.interests : []) {
+      if (!it || typeof it !== "object") continue;
+      if (it.kind === "discipline" && !craft) craft = String(it.discipline ?? it.label ?? "").trim();
+      if (it.kind === "profile" && !name) name = String(it.name ?? "").trim();
+    }
+    if (!craft) craft = "that craft";
+
+    const key = isLetter ? "atlas-letter" : "welcome";
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
-    const { subject, html, text } = ISSUES["welcome"];
-    const r = await sendPersonalEmail(row.email, subject, html(unsub), text?.(unsub));
+    const { subject, html, text } = ISSUES[key];
+    const subj = subject.replace("{CRAFT}", craft);
+    const r = await sendPersonalEmail(row.email, subj, html(unsub, name, craft), text?.(unsub, name, craft));
     if (!r.ok) {
-      console.error("welcome send failed:", r.error);
+      console.error(key + " send failed:", r.error);
       return json({ error: r.error }, 500);
     }
     await admin.from("launch_waitlist")
-      .update({ welcomed_at: new Date().toISOString(), last_issue: "welcome" })
+      .update({ welcomed_at: new Date().toISOString(), last_issue: key })
       .eq("id", row.id);
-    return json({ success: true, id: r.id, to: row.email });
+    return json({ success: true, issue: key, id: r.id, to: row.email });
   } catch (e) {
     console.error(e);
     return json({ error: String(e) }, 500);

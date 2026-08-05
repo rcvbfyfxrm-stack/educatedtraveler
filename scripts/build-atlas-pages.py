@@ -1,37 +1,97 @@
 #!/usr/bin/env python3
-"""Build static, indexable Atlas pages from website/js/repertoire.js.
+"""Build the Atlas — every craft listed, the asked-for ones open, the rest short.
+
+/atlas/ is the one place you browse. Every craft has a page. A craft is OPEN when
+somebody in the Circle asked for it (data/atlas-unlocked.json, written by
+scripts/refresh-unlocked.mjs): the full sheet, every place, every school. A craft
+nobody has asked for yet gets a SHORT sheet — what the craft is, where it is most
+alive, and a box to write Arnaud a letter. The research is not on that page and
+not in the page source: the branch happens here, at build time, so the short sheet
+is genuinely short rather than a full page with something hidden over it.
 
 Emits:
-  website/atlas/index.html                    — hub (all disciplines by core)
-  website/atlas/<discipline-id>.html          — one per discipline (99)
-  website/atlas/<destination-id>.html         — one per discipline x destination (324)
+  website/atlas/index.html            — the browse home (all crafts, open + short)
+  website/atlas/<craft>.html          — one per craft: full sheet, or short sheet
+  website/atlas/<craft>--<place>.html — one per place of an OPEN craft;
+                                        a short craft's places become noindex
+                                        stubs back to the craft, so no URL breaks
+  website/js/atlas-index.js           — the thin card data the browse home reads
   website/sitemap.xml, website/robots.txt
 
-Prices (2026-06-19 owner override): the Atlas now shows a verified, cited price-START for the
-best course + cheaper/shorter "Other ways in" alternatives. Still no on-site booking; every CTA
--> the Circle (/#circle). Prices are research-verified or "price on request" — never fabricated.
-Re-run after regenerating repertoire.js. Idempotent: wipes website/atlas/ first.
+Reads data/repertoire.js and data/atlas-ratings.js. Those live OUTSIDE website/ on
+purpose: repertoire.js is 1.2 MB of every school, master, price and URL we hold, and
+a locked page means nothing if anyone can fetch the research directly.
+
+Prices (2026-06-19 owner override): an open sheet shows a verified, cited price-START
+for the best course + cheaper/shorter "Other ways in". Still no on-site booking; every
+CTA -> the Circle. Prices are research-verified or "price on request" — never fabricated.
+
+Files listed in data/atlas-extra-sheets.json are NEVER deleted or overwritten — the
+hand-written sheets and the redirect stubs that keep already-shared URLs alive.
+
+  python3 scripts/build-atlas-pages.py [--assume-all-open]
+
+--assume-all-open builds every craft full, ignoring the unlock file. It exists so a
+regen can be diffed against the live site to prove the fold-in is faithful; never
+commit its output.
 """
-import json, html, re, shutil
+import json, html, re, sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import atlas_hub
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://educatedtraveler.app"
 OUT = ROOT / "website" / "atlas"
+ASSUME_ALL_OPEN = "--assume-all-open" in sys.argv
 
 # Privacy-light, cookieless analytics (no consent banner needed). Keep in sync with the
 # hand-built pages — see scripts/add-analytics.py.
 ANALYTICS = '<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>'
 
-src = (ROOT / "website/js/repertoire.js").read_text()
+src = (ROOT / "data/repertoire.js").read_text()
 DATA = json.loads(src[src.index("{", src.index("window.ET_ATLAS")):src.rindex("}") + 1])
 DISC = DATA["disciplines"]
+
+# ---------- which crafts are open ----------
+# The build must never quietly decide that nothing is open. That would publish 112
+# short sheets — a site that looks finished and is empty — and delete the real
+# research from the working tree in a single commit. Missing or empty file = stop.
+MANIFEST = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())
+PRESERVE = set(MANIFEST["preserve"])
+PINNED_OPEN = set(MANIFEST.get("pinnedOpen", []))
+HUB_CARDS = MANIFEST.get("hubCards", [])
+
+UNLOCK_PATH = ROOT / "data/atlas-unlocked.json"
+if not UNLOCK_PATH.exists():
+    raise SystemExit("build-atlas-pages: data/atlas-unlocked.json is missing.\n"
+                     "  Run `node scripts/refresh-unlocked.mjs` first. Refusing to build:\n"
+                     "  assuming nothing is open would close every craft on the site.")
+_unlock = json.loads(UNLOCK_PATH.read_text())
+HANDS = _unlock.get("open") or {}
+if not HANDS:
+    raise SystemExit("build-atlas-pages: data/atlas-unlocked.json has no open crafts.\n"
+                     "  That is a bad refresh, not an answer. Refusing to build.")
+
+# A hand-written sheet is pinned open: it already carries the full research, so
+# printing "not open yet" on it would be a lie on the page itself.
+OPEN = set(HANDS) | PINNED_OPEN
+UNLOCK_DATE = _unlock.get("generated_at", "")
+# The hand-written sheets that are crafts in their own right (not redirect stubs),
+# so the craft count includes them.
+PRESERVE_SHEET_SLUGS = {s for s in PINNED_OPEN if f"{s}.html" in PRESERVE
+                        and not any(d["id"] == s for d in DISC)}
+
+
+def is_open(disc_id):
+    return True if ASSUME_ALL_OPEN else disc_id in OPEN
 
 # Real, cited public ratings (window.ET_RATINGS) — the trust layer. Keyed by discipline id;
 # each entry names the matched school + destId. We show a star NUMBER only for clean
 # first-party sources with a working link; self-flagged aggregated/indirect sources render
 # as the qualitative reason only. Never fabricated; always linked so readers can verify.
-RSRC = ROOT / "website/js/atlas-ratings.js"
+RSRC = ROOT / "data/atlas-ratings.js"
 RATINGS = {}
 if RSRC.exists():
     _rt = RSRC.read_text()
@@ -158,13 +218,60 @@ CUR_TOGGLE = """<div class="cur-toggle" id="cur-toggle" hidden title="Show price
 })();
 </script>"""
 
-def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None):
+# ---------- markup every live page carries ----------
+# These four blocks were added to the 480 built pages by hand after a build, so every
+# regeneration silently stripped the sign-in state and the save button off the whole
+# Atlas. They live here now: the generator owns the page again.
+NAV_AUTH = ('<div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" '
+            'style="margin:0;padding:8px 18px;font-size:13px;">Join the Circle</a>'
+            '<a href="/profile" id="et-nav-profile" class="cta" '
+            'style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your Profile</a></div>')
+
+NAV_AUTH_TOGGLE = """<!-- et-nav-auth-toggle -->
+<script>
+(function(){
+  function reflect(session){
+    var j=document.getElementById('et-nav-join'), p=document.getElementById('et-nav-profile');
+    if(!j||!p) return;
+    if(session){ j.style.display='none'; p.style.display='inline-block'; }
+    else { j.style.display='inline-block'; p.style.display='none'; }
+  }
+  function wait(n){
+    if(window.supabaseClient){
+      window.supabaseClient.auth.getSession().then(function(r){reflect(r.data.session);});
+      window.supabaseClient.auth.onAuthStateChange(function(_e,s){reflect(s);});
+    } else if(n<120){ setTimeout(function(){wait(n+1);},50); }
+  }
+  wait(0);
+})();
+</script>"""
+
+# skill-save.js needs auth.js + database.js, and hooks form.intent[data-discipline].
+# Only an open craft page has one — a short sheet must not grow a "save this skill"
+# button for a craft that has no sheet behind it yet.
+AUTH_SCRIPTS = '<script src="/js/auth.js"></script>\n<script src="/js/database.js"></script>'
+SKILL_SAVE = '<script src="/js/skill-save.js" defer></script>'
+
+
+def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
+         saveable=True, extra_head="", extra_scripts=""):
     crumbs = ""
     if breadcrumbs:
         items = [{"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u} for i, (n, u) in enumerate(breadcrumbs)]
         crumbs = '<script type="application/ld+json">%s</script>' % json.dumps(
             {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items})
     extra = '<script type="application/ld+json">%s</script>' % json.dumps(jsonld) if jsonld else ""
+    tail = ['<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>',
+            '<script src="/js/supabase-config.js"></script>',
+            NAV_AUTH_TOGGLE]
+    if saveable:
+        tail.append(AUTH_SCRIPTS)
+    tail.append('<script src="/js/intent-capture.js" defer></script>')
+    if saveable:
+        tail.append(SKILL_SAVE)
+    if extra_scripts:
+        tail.append(extra_scripts)
+    tail_scripts = "\n".join(tail)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -184,7 +291,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 {crumbs}{extra}
-{ANALYTICS}
+{ANALYTICS}{extra_head}
 <style>
 :root {{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
@@ -237,12 +344,11 @@ footer a {{ color:var(--sea); }}
 <body>
 <nav class="top"><div class="wrap">
 <a class="brand" href="/">EDUCATEDTRAVELER</a>
+{NAV_AUTH}
 </div></nav>
 {body}
 {TRUST_HTML}
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="/js/supabase-config.js"></script>
-<script src="/js/intent-capture.js" defer></script>
+{tail_scripts}
 <footer><div class="wrap"><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the longer stories in the <a href="/journal/" style="color:var(--sea);">Journal</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas</a><a href="/journal/" style="color:var(--sea);text-decoration:none;">Journal</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 {CUR_TOGGLE}
 </body>
@@ -266,6 +372,114 @@ def intent_form(prompt, source, discipline=None, place=None, label=None):
             '<p class="intent-fine">Prices are a verified starting point — no checkout, no hard sell. We introduce; you decide.</p>'
             '</form>'
             '<noscript><a class="cta" href="/#circle">Join the Circle</a></noscript>')
+
+def letter_box(d):
+    """The one thing you can do on a short sheet: write to Arnaud.
+
+    Deliberately form.et-letter, not form.intent — intent-capture.js and
+    skill-save.js both hook form.intent, and neither belongs on this page.
+    """
+    return (
+        f'<form class="et-letter" data-slug="{e(d["id"])}" data-craft="{e(d["discipline"])}">'
+        f'<h2 style="margin-bottom:6px">Write me a letter about {e(d["discipline"])}.</h2>'
+        '<p class="letter-q">Tell me why this one pulls at you. One sentence is enough.</p>'
+        f'<textarea class="letter-note" name="letter" rows="5" required '
+        f'placeholder="I keep coming back to {e(d["discipline"])} because&hellip;"></textarea>'
+        '<div class="letter-row">'
+        '<label class="letter-fld"><span>Your name</span>'
+        '<input type="text" name="name" autocomplete="given-name" required></label>'
+        '<label class="letter-fld"><span>Where I reach you</span>'
+        '<input type="email" name="email" autocomplete="email" required></label>'
+        '</div>'
+        '<button type="submit" class="letter-go">Send the letter &rarr;</button>'
+        '<p class="letter-msg" hidden></p>'
+        '<p class="letter-fine">It comes straight to me, and to nobody else — I read every one myself. '
+        'Sending it puts you in the Circle, so you\'ll get a note back from me by email. '
+        'Nothing is for sale here. I introduce; you decide.</p>'
+        '</form>'
+        '<noscript><p class="letter-fine">Letters need JavaScript. '
+        '<a href="/circle" style="color:var(--sea)">Tell me here instead</a>.</p></noscript>')
+
+
+# Styles only the short sheet needs. Kept out of the shared block so an open sheet
+# stays byte-for-byte what it was.
+LETTER_CSS = """
+<style>
+.notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
+.alive { font-size:15px; opacity:.82; margin-top:14px; }
+.alive b { font-weight:500; opacity:1; }
+.et-letter { border:1px solid var(--line); border-radius:14px; padding:24px; background:rgba(243,237,226,0.02); margin-top:8px; }
+.letter-q { font-size:15px; opacity:.78; margin-bottom:14px; }
+.letter-note { width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:12px; padding:14px 16px; color:var(--paper); font-family:inherit; font-size:15px; line-height:1.6; resize:vertical; }
+.letter-note:focus { outline:none; border-color:var(--sea); }
+.letter-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+.letter-fld { flex:1 1 220px; display:block; }
+.letter-fld span { display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; opacity:.5; margin-bottom:6px; }
+.letter-fld input { width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-family:inherit; font-size:14px; }
+.letter-fld input:focus { outline:none; border-color:var(--sea); }
+.letter-go { margin-top:16px; border:none; border-radius:99px; padding:13px 26px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.letter-go:hover { filter:brightness(1.05); } .letter-go:disabled { opacity:.5; cursor:default; }
+.letter-msg { font-size:14.5px; margin-top:14px; line-height:1.6; } .letter-msg.ok { color:var(--sea); } .letter-msg.err { color:#e0915f; }
+.letter-fine { font-size:12.5px; opacity:.55; margin-top:12px; max-width:60ch; line-height:1.6; }
+</style>"""
+
+
+def short_sheet(d, total):
+    """A craft nobody has asked for yet: what it is, where it's most alive, and the letter box.
+
+    Everything else — the places, the schools, the teachers, the credential, the
+    prices — is deliberately absent from this page and from its source.
+    """
+    top = max(d["destinations"], key=lambda x: x["communityRank"], default=None)
+    alive = (f'<p class="alive">Where the community around it is strongest: '
+             f'<b>{e(top["place"])}, {e(top["country"])}</b>.</p>') if top else ""
+    return f"""<header class="hero"><div class="wrap">
+<div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / {e(CORES[d['category']][0])}</div>
+<p style="margin:16px 0 0"><span class="notyet">Not open yet</span></p>
+<h1>{e(d['discipline'])}</h1>
+<p class="lead">{e(d['blurb'])}</p>{alive}
+</div></header>
+<section><div class="wrap" style="max-width:720px">
+<div class="mono">Why there's nothing more on this page</div>
+<h2 style="margin:6px 0 14px">The map grows where someone is actually going</h2>
+<p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it, and not before.</p>
+<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking {total} things badly.</p>
+</div></section>
+<section><div class="wrap" style="max-width:720px">{letter_box(d)}</div></section>"""
+
+
+# Lets the next build recognise its own place stubs. Without it the preserve sweep
+# treats all 310 of them as pages somebody else wrote, and the one warning that
+# matters — a real hand-written sheet missing from the manifest — is buried.
+STUB_MARK = "<!-- et:place-stub -->"
+
+
+def dest_stub(dest_id, parent_id, parent_name, place, country):
+    """A place page for a craft that isn't open yet.
+
+    It carries no research — just a way back to the craft. It exists so that the
+    375 place URLs already in inboxes, captions and search results keep landing
+    somewhere true instead of 404ing.
+    """
+    url = f"/atlas/{parent_id}"
+    return f"""<!DOCTYPE html>
+<html lang="en">
+{STUB_MARK}
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{e(parent_name)} in {e(place)} — EducatedTraveler</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="{SITE}{url}">
+<meta http-equiv="refresh" content="0; url={url}">
+<script>window.location.replace({json.dumps(url)});</script>
+</head>
+<body style="background:#0d0b09;color:#f3ede2;font-family:system-ui,sans-serif;padding:40px">
+<p>{e(parent_name)} isn't open on the Atlas yet, so there's no sheet for {e(place)}, {e(country)} — but you can ask me to open it.</p>
+<p><a href="{url}" style="color:#7fa8a5">Go to {e(parent_name)} &rarr;</a></p>
+</body>
+</html>"""
+
 
 def ceiling_line(x, d=None):
     c = x.get("ceiling") or (d.get("ceiling") if d else None)
@@ -449,13 +663,57 @@ def featured_block(d, x):
             f'<div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px">{price_html}{link}</div>'
             f'{note}{alts_block(f)}</div></section>')
 
-shutil.rmtree(OUT, ignore_errors=True)
-OUT.mkdir(parents=True)
+# ---------- clear the pages we own, keep the ones we don't ----------
+# This used to be shutil.rmtree(OUT). It isn't any more: seven Atlas sheets in here
+# were written by hand and exist in no data file, and nine small stubs keep URLs that
+# have already been shared alive. A rebuild used to delete all sixteen.
+OUT.mkdir(parents=True, exist_ok=True)
+# The filenames this script is responsible for: one per craft, one per place.
+OWNED = ({f'{d["id"]}.html' for d in DISC}
+         | {f'{x["id"]}.html' for d in DISC for x in d["destinations"]}
+         | {"index.html"})
+_kept, _unknown = 0, []
+for f in sorted(OUT.glob("*.html")):
+    if f.name in PRESERVE:
+        _kept += 1
+        continue
+    txt = f.read_text(errors="ignore")
+    # Our own place stub, from this run's marker or simply by sitting at a slug we own.
+    if STUB_MARK in txt or ('http-equiv="refresh"' in txt and 'class="spine"' not in txt
+                            and f.name in OWNED):
+        f.unlink()
+        continue
+    if 'class="spine"' in txt or 'http-equiv="refresh"' in txt:
+        # Hand-written, or a redirect somebody added deliberately, and nobody recorded
+        # it in the manifest — most likely a sheet merged from a skill-sheet PR or
+        # published by the nightly concierge. Keep it, AND refuse to overwrite it below.
+        _unknown.append(f.name)
+        _kept += 1
+        continue
+    f.unlink()
+# Anything we decided to keep is also off-limits to the generators further down. Keeping
+# a hand-written sheet and then regenerating over it a hundred lines later would stamp
+# "Not open yet" across a page that IS the research.
+KEEP = PRESERVE | set(_unknown)
+if _unknown:
+    print("! kept " + str(len(_unknown)) + " hand-written page(s) missing from data/atlas-extra-sheets.json.")
+    print("  They were NOT regenerated. Add them to the manifest so it stays deliberate:")
+    for n in _unknown:
+        print("    " + n)
+
 urls = ["/atlas/"]
 
 # ---------- destination pages ----------
 for d in DISC:
     for x in d["destinations"]:
+        if f'{x["id"]}.html' in KEEP:
+            continue
+        # A craft nobody has asked for keeps its place URLs alive as stubs, and out
+        # of the sitemap. The research on those pages is the whole point of the gate.
+        if not is_open(d["id"]):
+            (OUT / f'{x["id"]}.html').write_text(
+                dest_stub(x["id"], d["id"], d["discipline"], x["place"], x["country"]))
+            continue
         title = f'Learn {d["discipline"]} in {x["place"]}, {x["country"]} — schools, masters & the community'
         desc = (x["why"][:155] + "…") if len(x["why"]) > 156 else x["why"]
         path = f'/atlas/{x["id"]}'
@@ -526,15 +784,39 @@ for d in DISC:
 {credential_section(d)}
 <section><div class="wrap">{intent}</div></section>
 {sib_html}"""
+        # saveable=False: skill-save.js hooks form.intent[data-discipline], which only
+        # a craft page carries. A place page has never had the save button.
         (OUT / f'{x["id"]}.html').write_text(page(title, desc, path, body,
-            breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], f'/atlas/{d["id"]}'), (x["place"], path)], jsonld=jsonld))
+            breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], f'/atlas/{d["id"]}'), (x["place"], path)],
+            jsonld=jsonld, saveable=False))
 
 # ---------- discipline pages ----------
+# Every craft gets a page and a place in the sitemap — a short sheet is a real page,
+# not a holding screen. Only the depth behind it is gated.
+# Every craft page on disk: the generated ones plus the hand-written sheets that
+# have no data record. The hand-written ones are already live and already indexed.
+N_CRAFTS = len(DISC) + len(PRESERVE_SHEET_SLUGS)
+for _s in sorted(PRESERVE_SHEET_SLUGS):
+    urls.append(f"/atlas/{_s}")
+
 for d in DISC:
-    title = f'{d["discipline"]} — where to learn it at the source ({len(d["destinations"])} destinations)'
-    desc = (d["blurb"][:155] + "…") if len(d["blurb"]) > 156 else d["blurb"]
     path = f'/atlas/{d["id"]}'
     urls.append(path)
+    if f'{d["id"]}.html' in KEEP:
+        continue
+
+    if not is_open(d["id"]):
+        desc = (d["blurb"][:155] + "…") if len(d["blurb"]) > 156 else d["blurb"]
+        (OUT / f'{d["id"]}.html').write_text(page(
+            f'{d["discipline"]} — what it is, and where it\'s most alive',
+            desc, path, short_sheet(d, N_CRAFTS),
+            breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)],
+            saveable=False, extra_head=LETTER_CSS,
+            extra_scripts='<script src="/js/atlas-letter.js" defer></script>'))
+        continue
+
+    title = f'{d["discipline"]} — where to learn it at the source ({len(d["destinations"])} destinations)'
+    desc = (d["blurb"][:155] + "…") if len(d["blurb"]) > 156 else d["blurb"]
     _bid = best_dest_id(d)
     cards = "".join(dest_card(d, x, is_best=(x["id"] == _bid)) for x in sorted(d["destinations"], key=lambda x: -x["communityRank"]))
     cred = f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">{e(d.get("goldCredential",""))}</strong>{" · " + e(d["certBody"]) if d.get("certBody") else ""}</p>' if d.get("goldCredential") else ""
@@ -547,32 +829,119 @@ for d in DISC:
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
         breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)]))
 
-# ---------- hub ----------
-sections = ""
-for core, (label, tag) in CORES.items():
-    ds = sorted([d for d in DISC if d["category"] == core], key=lambda d: d["discipline"])
-    links = "".join(f'<div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/{d["id"]}">{e(d["discipline"])}</a><div class="meta">{len(d["destinations"])} destinations</div></div>' for d in ds)
-    sections += f'<section><div class="wrap"><div class="mono">{e(label)} — {e(tag)}</div><div class="grid" style="margin-top:16px">{links}</div></div></section>'
-n_dest = sum(len(d["destinations"]) for d in DISC)
-hub_body = f"""<header class="hero"><div class="wrap">
-<div class="mono">The Atlas</div>
-<h1>{len(DISC)} disciplines. {n_dest} places where they are truly alive.</h1>
-<p class="lead">A living map of real skills and the destinations whose communities carry them — ranked by the strength of the community that gathers there, never by who pays. Hand-verified schools, named lineages, no prices, no checkout.</p>
-</div></header>{sections}
-<section><div class="wrap">{circle_cta("The Atlas grows every month. Join the Circle and we will tell you when your discipline or destination lands.")}</div></section>"""
-(OUT / "index.html").write_text(page(
-    f"The Atlas — {len(DISC)} disciplines x {n_dest} destinations to learn at the source | EducatedTraveler",
-    "A community-ranked atlas of real skills and the places where they live: verified schools, masters and lineages across the world. No prices, no checkout — a map.",
-    "/atlas/", hub_body, breadcrumbs=[("Atlas", "/atlas/")]))
+# ---------- the card data the browse home reads ----------
+# Thin on purpose. A short craft contributes what its own page shows and nothing
+# more: name, what it is, where it's most alive, how strong that community is. No
+# schools, no teachers, no courses, no prices — those ship only for an open craft.
+# This is what replaced serving the 1.2 MB repertoire.js to every visitor.
+MOVEMENT_RE = re.compile(r"(dance|tango|flamenco|capoeira|salsa|bharatanatyam)", re.I)
+# Named one by one, exactly as /browse did: the fighting arts read as Movement to a
+# person choosing, whatever category the data files them under. Drop this and Karate
+# and Brazilian Jiu-Jitsu turn up under "The Wild — mountains, sea, open".
+MOVEMENT_IDS = {"muay-thai", "brazilian-jiu-jitsu", "karate", "kung-fu", "capoeira",
+                "flamenco-and-dance", "argentine-tango", "salsa",
+                "bharatanatyam-indian-classical-dance", "ecstatic-dance-and-movement"}
+WORLD_OF = {"wellness": "wellness", "adventure": "adventure", "creative": "creative", "culinary": "culinary"}
+
+
+def world_of(name, category, disc_id=""):
+    if disc_id in MOVEMENT_IDS or MOVEMENT_RE.search(name or ""):
+        return "movement"
+    return WORLD_OF.get(category, "creative")
+
+
+def index_card(d):
+    top = max(d["destinations"], key=lambda x: x["communityRank"], default=None) or {}
+    bid = best_dest_id(d)
+    # An OPEN craft's card names our pick, because its page leads with "Best place to
+    # go". A SHORT craft's card must name the same place its page does — the strongest
+    # community — or the card says Paris and the page you land on says New York.
+    best = next((x for x in d["destinations"] if x["id"] == bid), top) if is_open(d["id"]) else top
+    card = {"id": d["id"], "name": d["discipline"], "cat": d["category"],
+            "world": world_of(d["discipline"], d["category"], d["id"]),
+            "blurb": d.get("blurb", ""),
+            "place": best.get("place", ""), "country": best.get("country", ""),
+            "rank": best.get("communityRank", 0), "rankLabel": best.get("communityLabel", ""),
+            "nDest": len(d["destinations"]), "open": 1 if is_open(d["id"]) else 0}
+
+    # Places. An open craft lists all of them — they're on its page anyway. A craft
+    # nobody has asked for lists only the one its page names, so the data and the
+    # page say exactly the same thing.
+    def place_of(x):
+        return {"place": x["place"], "country": x["country"], "region": x.get("region", ""),
+                "rank": x.get("communityRank", 0), "season": x.get("bestSeason", "")}
+    card["dests"] = [place_of(x) for x in d["destinations"]] if card["open"] else (
+        [place_of(best)] if best else [])
+    if not card["open"]:
+        return card
+    r = RATINGS.get(d["id"])
+    card.update({
+        "destId": best.get("id", ""),
+        "cred": d.get("goldCredential") or d.get("certBody") or "",
+        "role": best.get("role", ""), "level": best.get("level", ""),
+        "season": best.get("bestSeason", ""),
+        "why": best.get("why", ""),
+        "master": (best.get("masters") or [""])[0],
+        "school": ((best.get("schoolsInfo") or [{}])[0]).get("name", ""),
+        "tripType": best.get("tripType", ""), "tripLength": best.get("tripLength", ""),
+        "lang": best.get("instructionLanguage", ""), "english": best.get("englishTaught") is True,
+        "badges": best.get("badges", []),
+    })
+    if r and r.get("destId") == best.get("id") and r.get("stars"):
+        card["star"] = {"v": r["stars"], "n": r.get("count"), "src": r.get("source", "")}
+    return card
+
+
+CARDS = [index_card(d) for d in DISC]
+for hc in HUB_CARDS:                       # crafts that live only as a hand-written sheet
+    CARDS.append({"id": hc["id"], "name": hc["discipline"], "cat": hc["category"],
+                  "world": world_of(hc["discipline"], hc["category"], hc["id"]),
+                  "blurb": hc.get("blurb", ""), "place": hc.get("place", ""),
+                  "country": hc.get("country", ""), "rank": hc.get("communityRank", 0),
+                  "rankLabel": hc.get("communityLabel", ""), "nDest": hc.get("nDest", 1),
+                  "open": 1 if is_open(hc["id"]) else 0,
+                  "dests": [{"place": hc.get("place", ""), "country": hc.get("country", ""),
+                             "region": "", "rank": hc.get("communityRank", 0), "season": ""}]})
+CARDS.sort(key=lambda c: c["name"].lower())
+N_OPEN = sum(1 for c in CARDS if c["open"])
+
+(ROOT / "website/js/atlas-index.js").write_text(
+    "// EducatedTraveler — the Atlas browse index. GENERATED by scripts/build-atlas-pages.py.\n"
+    "// Deliberately thin: a craft nobody has asked for yet contributes only what its own\n"
+    "// page shows. The full research lives in data/repertoire.js, which is NOT served.\n"
+    "window.ET_ATLAS_INDEX = " + json.dumps(
+        {"generatedAt": UNLOCK_DATE, "total": len(CARDS), "open": N_OPEN, "crafts": CARDS},
+        ensure_ascii=False, separators=(",", ":")) + ";\n")
+
+# ---------- the browse home ----------
+# /atlas/ is where you browse now. It used to be a flat list of links while the real
+# browsing lived at /browse; that page has moved here and /browse redirects to it.
+(OUT / "index.html").write_text(atlas_hub.build(
+    nav_auth=NAV_AUTH, nav_auth_toggle=NAV_AUTH_TOGGLE, analytics=ANALYTICS,
+    site=SITE, total=len(CARDS), n_open=N_OPEN, generated_at=UNLOCK_DATE))
 
 # ---------- sitemap + robots ----------
-static_urls = ["/", "/about", "/community"]
+# Hand-added statics used to be wiped by every rebuild — they live here now.
+# /browse is deliberately absent: it is a redirect, and a redirect has no business
+# in a sitemap. The place stubs of a craft that isn't open are absent for the same
+# reason; they carry noindex and exist only so shared URLs still land somewhere true.
+static_urls = ["/", "/about", "/community", "/lab-weeks", "/circle", "/barcelona", "/instructors"]
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+seen_url = set()
 for u in static_urls + urls:
+    if u in seen_url:
+        continue
+    seen_url.add(u)
     sm.append(f"<url><loc>{SITE}{u}</loc></url>")
 sm.append("</urlset>")
 (ROOT / "website/sitemap.xml").write_text("\n".join(sm))
 (ROOT / "website/robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /cmd\nSitemap: {SITE}/sitemap.xml\n")
 
-print(f"Built {len(DISC)} discipline pages + {n_dest} destination pages + hub -> {OUT}")
-print(f"sitemap.xml: {len(static_urls) + len(urls)} URLs · robots.txt written")
+n_short = len(CARDS) - N_OPEN
+n_dest_full = sum(len(d["destinations"]) for d in DISC if is_open(d["id"]) and f'{d["id"]}.html' not in PRESERVE)
+n_dest_stub = sum(len(d["destinations"]) for d in DISC if not is_open(d["id"]))
+print(f"{len(CARDS)} crafts — {N_OPEN} open, {n_short} short (unlock file dated {UNLOCK_DATE or 'unknown'})")
+print(f"  {n_dest_full} place pages · {n_dest_stub} place stubs · {_kept} pages preserved · browse home rebuilt")
+print(f"  website/js/atlas-index.js written · sitemap.xml: {len(seen_url)} URLs · robots.txt written")
+if ASSUME_ALL_OPEN:
+    print("  !! --assume-all-open: this output is for diffing only. Do not commit it.")

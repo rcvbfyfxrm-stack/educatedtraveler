@@ -1,0 +1,65 @@
+{
+  "_comment": [
+    "The files under website/atlas/ that scripts/build-atlas-pages.py must NEVER delete or overwrite.",
+    "Two kinds: hand-written 'spine' sheets (class=\"spine\") that exist nowhere in data/repertoire.js,",
+    "and small meta-refresh stubs kept so URLs already shared keep working.",
+    "Detect drift with:  grep -l 'class=\"spine\"' website/atlas/*.html   and   grep -l 'http-equiv=\"refresh\"' website/atlas/*.html",
+    "A hand-written sheet MUST also be pinned open — otherwise the build would print 'Not open yet' on a page that already carries the full research, which is a lie on the page itself."
+  ],
+
+  "preserve": [
+    "freediving.html",
+    "japanese-knife-making.html",
+    "lifestyle-medicine.html",
+    "lymphatic-drainage.html",
+    "modern-new-technique-cuisine.html",
+    "sailing-and-yachtmaster.html",
+    "self-sufficiency.html",
+
+    "avant-garde-and-modernist-technique.html",
+    "avant-garde-and-modernist-technique--barcelona.html",
+    "avant-garde-and-modernist-technique--melbourne-lilydale.html",
+    "avant-garde-and-modernist-technique--puebla-mexico-city.html",
+    "japanese-knife-making--kurogane-shimanto.html",
+    "lifestyle-medicine--united-states.html",
+    "lymphatic-drainage--walchsee.html",
+    "sailing-and-yachtmaster--uksa-cowes.html",
+    "self-sufficiency--sunseed-almeria.html"
+  ],
+
+  "pinnedOpen": [
+    "freediving",
+    "japanese-knife-making",
+    "lifestyle-medicine",
+    "lymphatic-drainage",
+    "modern-new-technique-cuisine",
+    "sailing-and-yachtmaster",
+    "self-sufficiency"
+  ],
+
+  "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
+  "hubCards": [
+    {
+      "id": "japanese-knife-making",
+      "discipline": "Japanese Knife-Making",
+      "category": "creative",
+      "blurb": "The blade that lost its war in 1876 and moved to the kitchen — and the one souvenir you're meant to use until it wears out. In a day at a real fire you hammer the guided steps while a master keeps the dangerous ones, and you carry home a single-bevel knife you helped forge.",
+      "place": "Shimanto",
+      "country": "Japan",
+      "communityRank": 4,
+      "communityLabel": "Thriving",
+      "nDest": 1
+    },
+    {
+      "id": "self-sufficiency",
+      "discipline": "Self-Sufficiency & Food Preservation",
+      "category": "creative",
+      "blurb": "The one craft here sold as walking away from everyone — whose own founder said its whole point was to end up needing them. Growing your own food, and keeping it through the winter, is real skill: soil, water, seed, and a preservation craft where a mistake can genuinely poison you.",
+      "place": "Almería",
+      "country": "Spain",
+      "communityRank": 3,
+      "communityLabel": "Growing",
+      "nDest": 1
+    }
+  ]
+}
