@@ -366,6 +366,14 @@
                         <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14110d" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
                         <span class="txt">And I'd love a rare, advanced week with a true expert in it — pushed further than I've gone.</span>
                     </label>
+                    <!-- Naming the craft says what it is, never how far in you are. Without
+                         this the answer arrives as a ticket ("Yachtmaster, freediving and
+                         spearfishing") and the level has to be chased by email. Free text on
+                         purpose: a ladder of levels we invented would only fit the crafts we
+                         happened to think of. -->
+                    <label class="fld" style="margin-top:12px;"><span class="lbl">Where are you with it?</span>
+                        <textarea id="f_level" rows="3" placeholder="In your own words — what you can already do, and what you'd want to be able to do."></textarea>
+                    </label>
                 </div>
 
                 <div class="row">
@@ -812,6 +820,7 @@
         }
         $('f_open').addEventListener('input', function(){ state.open=this.value.trim(); updateGo1(); });
         $('f_mastery').addEventListener('input', function(){ state.mastery=this.value.trim(); updateGo1(); });
+        $('f_level').addEventListener('input', function(){ state.level=this.value.trim(); updateGo1(); });
         $('f_perfect').addEventListener('change', function(){ state.perfect=this.checked; state.advanced=this.checked?'yes':null; updateGo1(); });
         (function(){
             var box=$('m_relation'); if(!box) return;
@@ -825,7 +834,7 @@
                 });
             });
         })();
-        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open || state.mastery || state.perfect || state.relation); }
+        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open || state.mastery || state.level || state.perfect || state.relation); }
         $('go1').addEventListener('click', function(){
             if($('go1').disabled) return; show(2);
         });
@@ -883,7 +892,7 @@
             var arr=[{ kind:'profile', name:state.name, region:state.region||null }];
             state.discs.forEach(function(d){ arr.push({ kind:'discipline', world:WORLD_OF[d]||state.world, discipline:d }); });
             if(state.open){ arr.push({ kind:'discipline', world:state.world, discipline:null, open:state.open }); }
-            if(state.mastery || state.perfect || state.relation){ arr.push({ kind:'mastery', skill:state.mastery||null, relation:state.relation, advanced:state.advanced, perfect:!!state.perfect }); }
+            if(state.mastery || state.level || state.perfect || state.relation){ arr.push({ kind:'mastery', skill:state.mastery||null, level:state.level||null, relation:state.relation, advanced:state.advanced, perfect:!!state.perfect }); }
             var it={ kind:'intent', timing:gradAnswer('timing'), length:gradAnswer('length'), depth:gradAnswer('depth'), reach:gradAnswer('reach') };
             if(it.timing||it.length||it.depth||it.reach){ arr.push(it); }
             if(state.dream){ arr.push({ kind:'dream', text:state.dream }); }

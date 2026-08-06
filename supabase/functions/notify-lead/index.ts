@@ -63,7 +63,7 @@ const INTENT_LABEL: Record<string, string> = {
 //              {kind:'intent',timing,length,depth,reach},{kind:'dream',text}]
 //   homepage/orb/intent forms → ["Craft name", ...]   old profiles → {category:[...]}
 // Parse defensively; anything unrecognized still shows up raw in the sheet.
-type Mastery = { skill: string; relation: string; advanced: string };
+type Mastery = { skill: string; level: string; relation: string; advanced: string };
 type Parsed = {
   name: string; region: string; crafts: string[];
   intent: Array<[string, string]>; dream: string; mastery: Mastery | null; leftovers: unknown[];
@@ -122,7 +122,10 @@ function parseInterests(iv: unknown): Parsed {
         const relation = String(o.relation ?? "").trim();
         // advanced is the richer field; legacy rows carried a boolean `perfect` — map it.
         const advanced = String(o.advanced ?? "").trim() || (o.perfect === true ? "yes" : "");
-        if (skill || relation || advanced) out.mastery = { skill, relation, advanced };
+        // Their own words about how far in they are. Rows written before this
+        // field existed simply carry "".
+        const level = String(o.level ?? "").trim();
+        if (skill || level || relation || advanced) out.mastery = { skill, level, relation, advanced };
         break;
       }
       default:
@@ -189,10 +192,11 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
 
   const RELATION_LABEL: Record<string, string> = { work: "It's their work", passion: "A lifelong passion" };
   const ADVANCED_LABEL: Record<string, string> = { yes: "Yes — they'd go deeper", curious: "Curious", no: "Not for them" };
-  const masteryBlock = p.mastery && (p.mastery.skill || p.mastery.relation || p.mastery.advanced)
+  const masteryBlock = p.mastery && (p.mastery.skill || p.mastery.level || p.mastery.relation || p.mastery.advanced)
     ? `<p style="margin:18px 0 8px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">What they already master</p>
        <div style="border:1px solid rgba(127,168,165,0.35);border-left:2px solid #7fa8a5;border-radius:12px;padding:14px 16px;">
          ${p.mastery.skill ? `<p style="color:#2b2621;font-family:Georgia,serif;font-size:17px;margin:0 0 6px 0;">${esc(p.mastery.skill)}</p>` : ""}
+         ${p.mastery.level ? `<p style="color:#2b2621;font-size:14px;line-height:1.6;margin:0 0 8px 0;white-space:pre-wrap;">${esc(p.mastery.level)}</p>` : ""}
          <p style="color:#6b625a;font-size:13px;margin:0;">
            ${p.mastery.relation ? esc(RELATION_LABEL[p.mastery.relation] ?? p.mastery.relation) : ""}${p.mastery.relation && p.mastery.advanced ? " &middot; " : ""}${p.mastery.advanced ? "Advanced week with an expert: <strong style=\"color:#8f5820;\">" + esc(ADVANCED_LABEL[p.mastery.advanced] ?? p.mastery.advanced) + "</strong>" : ""}
          </p>
