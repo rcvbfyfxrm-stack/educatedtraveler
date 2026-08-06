@@ -261,8 +261,13 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
         crumbs = '<script type="application/ld+json">%s</script>' % json.dumps(
             {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items})
     extra = '<script type="application/ld+json">%s</script>' % json.dumps(jsonld) if jsonld else ""
+    # NAV_AUTH_TOGGLE only swaps the HEADER pair. Every open craft sheet also closes
+    # on a "Join the Circle" button, and a member reading it was still being asked to
+    # join something they are already in — member-nav.js turns that one into "Your
+    # portrait". It touches nothing else and no-ops for a visitor.
     tail = ['<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>',
             '<script src="/js/supabase-config.js"></script>',
+            '<script src="/js/member-nav.js" defer></script>',
             NAV_AUTH_TOGGLE]
     if saveable:
         tail.append(AUTH_SCRIPTS)
