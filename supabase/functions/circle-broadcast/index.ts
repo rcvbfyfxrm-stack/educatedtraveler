@@ -59,7 +59,7 @@ serve(async (req) => {
 
     const { data: subs, error } = await admin
       .from("launch_waitlist")
-      .select("id,email,unsubscribe_token,unsubscribed,source");
+      .select("id,email,unsubscribe_token,unsubscribed,is_carrier");
     if (error) return json({ error: error.message }, 500);
 
     // unsubscribed:true means two different things in this table, and confusing
@@ -68,9 +68,9 @@ serve(async (req) => {
     // On these sources it is not an opt-out at all — they are trigger-silent
     // DATA carriers (/portrait continuations, the /hello depth row), flagged so
     // they never become a second audience row while the real signup row keeps
-    // sole control of the letters. Migration 032 names them.
-    const CARRIER = new Set(["portrait-questionnaire", "portrait-continuation", "qr-hello-depth"]);
-    const isCarrier = (s: { source?: string | null }) => CARRIER.has(String(s.source ?? ""));
+    // sole control of the letters. Migration 036 gave that its own column, so the
+    // opt-out flag now means exactly one thing.
+    const isCarrier = (s: { is_carrier?: boolean | null }) => s.is_carrier === true;
 
     // A real opt-out is a flagged row that is NOT a carrier — and it belongs to
     // the PERSON, not the row. Filtering rows on unsubscribed=false let a

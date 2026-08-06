@@ -941,7 +941,7 @@
             err.style.display='none'; btn.disabled=true; btn.textContent='One moment…';
             var payload={ email:state.email, interests:buildInterests(),
                           source: FROM_HELLO ? 'qr-hello-depth' : 'circle-questionnaire' };
-            if(FROM_HELLO){ payload.unsubscribed = true; } // depth row, not a second audience row
+            if(FROM_HELLO){ payload.is_carrier = true; } // depth row, not a second audience row
 
             try{
                 var sb = window.supabaseClient;
@@ -1052,7 +1052,7 @@
         // draft — the magic link often opens in a different one (in-app email
         // webviews). A durable copy rides the waitlist: source
         // 'portrait-continuation' (the notify/welcome triggers skip it, so
-        // no second sheet and no second welcome) and unsubscribed:true (a
+        // no second sheet and no second welcome) and is_carrier:true (a
         // data carrier, never an audience row — the original signup row keeps
         // sole control of the letters). /portrait claims it into the profile
         // whenever they arrive signed in.
@@ -1066,7 +1066,7 @@
                 email: state.email,
                 interests: [{ kind:'portrait-extras', prof: state.prof||null, lifestage: la||null }],
                 source: 'portrait-continuation',
-                unsubscribed: true
+                is_carrier: true
             });
             if(res && res.error) throw res.error;
             extrasSavedKey = key;

@@ -970,7 +970,7 @@
         // A silent waitlist row carrying the whole portrait, so nothing typed here
         // can be lost when the magic link opens elsewhere. source
         // 'portrait-questionnaire' is skipped by the notify/welcome triggers (no
-        // unapproved email fires) and unsubscribed:true keeps it out of the
+        // unapproved email fires) and is_carrier:true keeps it out of the
         // letters audience — it is a data carrier the sign-in claims, not a lead
         // row. Intent values go as their final answer() text; the claim stores
         // unknown values verbatim, so own-words round-trip unchanged.
@@ -990,7 +990,7 @@
             if(carrierSavedKey === key) return;
             var res = await sb.from('launch_waitlist').insert({
                 email: state.email, interests: ints,
-                source: 'portrait-questionnaire', unsubscribed: true
+                source: 'portrait-questionnaire', is_carrier: true
             });
             if(res && res.error) throw res.error;
             carrierSavedKey = key;
