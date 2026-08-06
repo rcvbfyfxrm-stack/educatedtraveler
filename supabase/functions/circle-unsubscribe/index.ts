@@ -28,15 +28,18 @@ serve(async (req) => {
 
     const { data: row } = await admin
       .from("launch_waitlist")
-      .select("id,unsubscribed")
+      .select("id,email,unsubscribed")
       .eq("unsubscribe_token", token)
       .maybeSingle();
 
     if (!row) return page("This link is no longer valid. If you'd like to leave, just reply to any letter.");
 
-    if (!row.unsubscribed) {
-      await admin.from("launch_waitlist").update({ unsubscribed: true }).eq("id", row.id);
-    }
+    // Leaving belongs to the PERSON, not the row they happened to click from.
+    // The same address can sit in this table several times (founding import,
+    // then /circle, then /pay), and flagging one id left the twins subscribed —
+    // so the next broadcast still reached them, right after this page promised
+    // it would not. Flag every row for the address.
+    await admin.from("launch_waitlist").update({ unsubscribed: true }).eq("email", row.email);
 
     // One-click POST (RFC 8058) just needs a 200.
     if (req.method === "POST") {

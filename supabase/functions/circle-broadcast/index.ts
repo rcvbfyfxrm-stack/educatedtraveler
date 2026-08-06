@@ -59,15 +59,24 @@ serve(async (req) => {
 
     const { data: subs, error } = await admin
       .from("launch_waitlist")
-      .select("id,email,unsubscribe_token")
-      .eq("unsubscribed", false);
+      .select("id,email,unsubscribe_token,unsubscribed");
     if (error) return json({ error: error.message }, 500);
+
+    // An unsubscribe belongs to the PERSON. Filtering rows on unsubscribed=false
+    // let a duplicate defeat an opt-out: the opted-out row was dropped by the
+    // query, its still-subscribed twin survived the de-dupe, and the letter went
+    // out anyway. So collect the opted-out ADDRESSES first, then exclude them —
+    // one "no" anywhere in the table is a no for that person.
+    const optedOut = new Set<string>();
+    for (const s of subs || []) {
+      if (s.unsubscribed) optedOut.add((s.email || "").toLowerCase());
+    }
 
     // de-dupe by lowercased email
     const seen = new Set<string>();
     let recipients = (subs || []).filter((s) => {
       const k = (s.email || "").toLowerCase();
-      if (!k || seen.has(k)) return false;
+      if (!k || optedOut.has(k) || seen.has(k)) return false;
       seen.add(k);
       return true;
     });
