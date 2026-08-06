@@ -264,7 +264,7 @@
                     genuinely alive: a real master who teaches it, and the handful of others chasing the same fire. This
                     isn't a form — it's how I find the door that's <em>yours</em>. Take your time. I read every word myself.</p>
 
-                <div class="field">
+                <div class="field" id="nameField">
                     <label class="fld"><span class="lbl">What should I call you</span>
                         <input type="text" id="f_name" placeholder="Your first name" autocomplete="given-name" required>
                     </label>
@@ -1162,6 +1162,18 @@
             syncSignature();
             // restore text fields if any draft
             restoreInputs();
+
+            // If we already know who they are — they signed a letter, or they are
+            // a returning member — do not ask for it again. Hide what we hold, and
+            // when we hold both, open on the first question they have not answered.
+            if(session){
+                if(state.name){
+                    var nf=$('nameField'); if(nf) nf.style.display='none';
+                    var pill=document.querySelector('#beat0 .who');
+                    if(pill) pill.innerHTML='<span class="dot"></span>'+esc(state.name)+' · '+esc(state.email);
+                    if(current===0) show(1);
+                }
+            }
         }
         // A stored profile value back into the questionnaire: press the chip
         // whose label matches; anything else (their own words) goes to the
