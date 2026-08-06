@@ -724,6 +724,35 @@
             $('f_email').value=''; $('f_email').focus();
         });
 
+        // Already signed in on this browser? Then this page is about to ask a member
+        // to do the one thing they have already done. The check-email probe catches
+        // them, but only at beat 1 after they have typed their name and address —
+        // say it at the door instead, and send them to their portrait rather than to
+        // a sign-in they do not need. Same note, same dismiss ("Not you?").
+        // Fail-quiet: any hiccup leaves the questionnaire exactly as it is.
+        (function(){
+            var tries = 0;
+            (function poll(){
+                if(window.supabaseClient && window.supabaseClient.auth){
+                    window.supabaseClient.auth.getSession().then(function(res){
+                        var s = res && res.data ? res.data.session : null;
+                        if(!s || !s.user || bypassMemberCheck) return;
+                        var email = s.user.email || '';
+                        $('member-note-msg').textContent =
+                            "You're already in the Circle" + (email ? ', ' + email : '') +
+                            " — you don't have to answer any of this again.";
+                        var link = $('member-signin');
+                        link.href = '/portrait';
+                        link.innerHTML = 'Open your portrait &rarr;';
+                        $('member-note').style.display = 'block';
+                    }).catch(function(){});
+                    return;
+                }
+                if(window.supabaseError || tries++ > 100) return;
+                setTimeout(poll, 50);
+            })();
+        })();
+
         $('go0').addEventListener('click', async function(){
             var name=$('f_name').value.trim(), email=$('f_email').value.trim();
             var err=$('err0'), note=$('member-note');

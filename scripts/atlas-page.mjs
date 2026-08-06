@@ -107,6 +107,9 @@ ${body}
 </div></section>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
+<!-- The toggle below only swaps the header pair; this turns the sheet's own closing
+     "Join the Circle" into "Your portrait" for someone already in. No-op for a visitor. -->
+<script src="/js/member-nav.js" defer></script>
 <!-- et-nav-auth-toggle -->
 <script>
 (function(){

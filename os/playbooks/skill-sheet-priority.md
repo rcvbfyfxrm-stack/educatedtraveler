@@ -93,32 +93,40 @@ technique honestly — it does NOT mean skip verifying the schools, named teache
 sheet. Every claim still needs a real, checkable source. If a fact can't be verified, say so on the sheet
 rather than asserting it because it "sounds right" for the craft.
 
-### ⭐ VOICE — decided by Arnaud, 2026-08-06: DRAFT TIER-2 SHEETS IN HIS VOICE
+### ⭐⭐ VOICE — SET BY ARNAUD, 2026-08-06. THE ATLAS NEVER TALKS ABOUT ARNAUD.
 
-Tier 2 exists *because* these are the crafts he knows first-hand, so the sheets should read that way from
-the first draft — he edits, rather than rewrites. Write them **in first person, as Arnaud**: plain,
-concrete, short sentences, the same French-English register as his letters. Not polished-AI, not
-brochure. See the letters in `marketing/circle/` for the cadence.
+His words: *"claim nothing about me — the skills are for the Circle. I would always talk about me in the
+letters, not in the Atlas, nor skill sheets."*
 
-**The guardrail, and it is absolute — voice is NOT a licence to invent experience.** The never-fabricate
-rule governs biography exactly as hard as it governs schools and dates:
+**This supersedes the older "Trust — first person, Arnaud's voice" line in the locked standard, and it
+applies to EVERY sheet, every tier.** A skill sheet exists to serve the reader deciding where to go. The
+founder's story is the *letters'* job. Keeping them separate is the point: the letters earn trust by being
+personal, the Atlas earns it by being checkable.
 
-- ✅ **Allowed** — the general, already-public facts of who he is: fifteen years on the water; sailing,
-  freediving, windsurfing; cooking for a living in the French tradition; yacht galleys; that pottery or
-  wine is *not* his craft and he says so.
-- ❌ **Forbidden** — any *specific* memory, and this is where a well-meaning draft goes wrong: a named
-  teacher he studied under, a restaurant or boat he worked on, a town he trained in, a conversation, a
-  meal, a date, a first-time-I story. **If you did not read it in this repo, he did not tell you it
-  happened.** Inventing a plausible anecdote in his mouth is worse than a wrong date — it is a fabricated
-  trust signal about the founder himself, on a brand whose first rule is never to fabricate.
-- 🟡 **When a section really needs a specific story to land**, do not improvise one. Leave a clearly
-  marked stub — `<!-- ARNAUD: a specific memory would land here — the first time you ___ -->` — and say
-  in the PR body that you left it. An honest gap he can fill in two minutes beats a fiction he has to
-  hunt for and delete.
+**Two different things, do not confuse them:**
 
-Where he is genuinely the outsider (pottery, kintsugi, tattooing), first person is still right — but the
-honest version is the one already used on the pottery sheet: *"Clay isn't my craft — I cook — and that's
-exactly why I check harder here."* Own the distance rather than faking closeness.
+- **Register — KEEP.** Plain, concrete, short sentences; direct address to "you"; no hype, no
+  AI-polish, no brochure. The cadence of the letters in `marketing/circle/` is still the model. That is
+  what "his voice" means here.
+- **Biography — REMOVE ENTIRELY.** No "I'm Arnaud." No credentials, no years on the water, no "I cook for
+  a living," no "this isn't my craft," no first-person experience of any kind. **Not even the true ones.**
+
+**Write the sheet as EducatedTraveler — "we".** "We check." "We'd send you." "We introduce; you decide."
+Already the house voice everywhere else on the site.
+
+**The Trust section stays** — it is one of the most valuable blocks on the page — it just stops being a
+bio. Rewrite its heading to **"What we check before we send you anywhere"** and its intro to the standard
+being applied, not the person applying it. Example of the target:
+
+> Every place on this Atlas is checked by hand before it goes on the map. Here's the bar it has to clear —
+> and what we'll tell you straight when it doesn't.
+
+Keep every existing bullet, converted to "we". **"Nobody pays to be here"** stays exactly as it is: that is
+a fact about EducatedTraveler, not a claim about a person.
+
+**And the old fabrication guardrail now has nothing to bite on, which is the point:** with no first-person
+experience on the page there is no biography to invent. If a draft ever seems to *need* a personal story to
+land, that is a signal the material belongs in a letter — say so in the PR rather than writing it in.
 
 ## TIER 3 — LIVE CIRCLE DEMAND — RUNS ALONGSIDE TIER 2, NEVER BEHIND IT
 
