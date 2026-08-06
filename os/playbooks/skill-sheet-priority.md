@@ -24,6 +24,8 @@ them land on the thin template, which makes the letter look better than the site
 
 **⚠ IN FLIGHT — do not rebuild:** a sheet sitting in an open PR is NOT on `main`, so the "is it already deep?" check will say no and you will duplicate someone's work. Before building anything, run `gh pr list --state open` and skip any skill whose sheet is already in an open PR.
 
+**Currently in flight, in addition to the Tier 1 four below:** `wine-and-sommellerie` (Tier 2 #10) and `french-pastry-and-patisserie` (Tier 2 #3) → **PR #10**. Tier 2 rows already built and on PR #7: `windsurfing-and-wing-foil` (#1), `classical-french-cuisine` (#2). **So the next unbuilt Tier 2 row is #4 `bread-and-boulangerie`.**
+
 **✅ TIER 1 IS COMPLETE — all four are built and waiting on Arnaud's merge, none are on `main` yet.**
 `pottery-and-ceramics` → **PR #9**. `new-basque-cuisine`, `italian-cuisine-and-pasta`, `chocolate-and-confectionery` → **PR #7**. Do not rebuild any of them. Until those PRs merge, every one of them will keep *looking* thin on `main` — that is the whole reason this block exists.
 
