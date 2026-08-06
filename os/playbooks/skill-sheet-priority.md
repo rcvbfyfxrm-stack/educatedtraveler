@@ -93,6 +93,33 @@ technique honestly — it does NOT mean skip verifying the schools, named teache
 sheet. Every claim still needs a real, checkable source. If a fact can't be verified, say so on the sheet
 rather than asserting it because it "sounds right" for the craft.
 
+### ⭐ VOICE — decided by Arnaud, 2026-08-06: DRAFT TIER-2 SHEETS IN HIS VOICE
+
+Tier 2 exists *because* these are the crafts he knows first-hand, so the sheets should read that way from
+the first draft — he edits, rather than rewrites. Write them **in first person, as Arnaud**: plain,
+concrete, short sentences, the same French-English register as his letters. Not polished-AI, not
+brochure. See the letters in `marketing/circle/` for the cadence.
+
+**The guardrail, and it is absolute — voice is NOT a licence to invent experience.** The never-fabricate
+rule governs biography exactly as hard as it governs schools and dates:
+
+- ✅ **Allowed** — the general, already-public facts of who he is: fifteen years on the water; sailing,
+  freediving, windsurfing; cooking for a living in the French tradition; yacht galleys; that pottery or
+  wine is *not* his craft and he says so.
+- ❌ **Forbidden** — any *specific* memory, and this is where a well-meaning draft goes wrong: a named
+  teacher he studied under, a restaurant or boat he worked on, a town he trained in, a conversation, a
+  meal, a date, a first-time-I story. **If you did not read it in this repo, he did not tell you it
+  happened.** Inventing a plausible anecdote in his mouth is worse than a wrong date — it is a fabricated
+  trust signal about the founder himself, on a brand whose first rule is never to fabricate.
+- 🟡 **When a section really needs a specific story to land**, do not improvise one. Leave a clearly
+  marked stub — `<!-- ARNAUD: a specific memory would land here — the first time you ___ -->` — and say
+  in the PR body that you left it. An honest gap he can fill in two minutes beats a fiction he has to
+  hunt for and delete.
+
+Where he is genuinely the outsider (pottery, kintsugi, tattooing), first person is still right — but the
+honest version is the one already used on the pottery sheet: *"Clay isn't my craft — I cook — and that's
+exactly why I check harder here."* Own the distance rather than faking closeness.
+
 ## TIER 3 — LIVE CIRCLE DEMAND — RUNS ALONGSIDE TIER 2, NEVER BEHIND IT
 
 **Build what Circle members actually asked for**, highest count first. This tier does not wait for Tier 2
