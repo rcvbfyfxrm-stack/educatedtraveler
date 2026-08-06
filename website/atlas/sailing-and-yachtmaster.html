@@ -301,6 +301,9 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
+<!-- Someone already in the Circle should not be invited to join it: this turns
+     the closing call-to-action into "Your portrait". No-op for a visitor. -->
+<script src="/js/member-nav.js" defer></script>
 <!-- et-nav-auth-toggle -->
 <script>
 (function(){
