@@ -259,13 +259,13 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 <!-- trust -->
 <section class="trust"><div class="wrap">
   <div class="eyebrow">Why you can trust this page</div>
-  <h2 class="serif" style="font-size:22px">What I check before I send you anywhere</h2>
-  <p style="font-size:15px">I'm Arnaud. I built the Atlas because I got tired of good-looking websites that turn out to be nothing — and in health, that gap can cost you real money and worse. Here's the bar, and what I'll tell you straight when a place doesn't clear it.</p>
+  <h2 class="serif" style="font-size:22px">What we check before we send you anywhere</h2>
+  <p style="font-size:15px">This Atlas exists because too many good-looking websites turn out to be nothing — and in health, that gap can cost you real money and worse. Here's the bar, and what we'll tell you straight when a place doesn't clear it.</p>
   <ul>
     <li><b>The evidence is real</b> — a board-recognised, peer-reviewed craft, not a rebranding of alternative medicine with a lab bill attached.</li>
-    <li><b>I say which kind it is</b> — the version with trials behind it, or the version that sells you a test panel and a supplement shelf.</li>
-    <li><b>I'm honest about the door</b> — this one is a clinician's credential; the open route is coaching, and coaching is not medicine.</li>
-    <li><b>Nobody pays to be here.</b> If I wouldn't send a friend, it isn't on the map.</li>
+    <li><b>We say which kind it is</b> — the version with trials behind it, or the version that sells you a test panel and a supplement shelf.</li>
+    <li><b>We're honest about the door</b> — this one is a clinician's credential; the open route is coaching, and coaching is not medicine.</li>
+    <li><b>Nobody pays to be here.</b> If we wouldn't send a friend, it isn't on the map.</li>
   </ul>
 </div></section>
 
@@ -286,6 +286,9 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
+<!-- Someone already in the Circle should not be invited to join it: this turns
+     the closing call-to-action into "Your portrait". No-op for a visitor. -->
+<script src="/js/member-nav.js" defer></script>
 <!-- et-nav-auth-toggle -->
 <script>
 (function(){

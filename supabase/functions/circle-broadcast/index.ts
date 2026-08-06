@@ -59,15 +59,33 @@ serve(async (req) => {
 
     const { data: subs, error } = await admin
       .from("launch_waitlist")
-      .select("id,email,unsubscribe_token")
-      .eq("unsubscribed", false);
+      .select("id,email,unsubscribe_token,unsubscribed,source");
     if (error) return json({ error: error.message }, 500);
 
-    // de-dupe by lowercased email
+    // unsubscribed:true means two different things in this table, and confusing
+    // them breaks the letters in opposite directions.
+    //
+    // On these sources it is not an opt-out at all — they are trigger-silent
+    // DATA carriers (/portrait continuations, the /hello depth row), flagged so
+    // they never become a second audience row while the real signup row keeps
+    // sole control of the letters. Migration 032 names them.
+    const CARRIER = new Set(["portrait-questionnaire", "portrait-continuation", "qr-hello-depth"]);
+    const isCarrier = (s: { source?: string | null }) => CARRIER.has(String(s.source ?? ""));
+
+    // A real opt-out is a flagged row that is NOT a carrier — and it belongs to
+    // the PERSON, not the row. Filtering rows on unsubscribed=false let a
+    // duplicate defeat an opt-out: the opted-out row was dropped by the query,
+    // its still-subscribed twin survived the de-dupe, and the letter went anyway.
+    const optedOut = new Set<string>();
+    for (const s of subs || []) {
+      if (s.unsubscribed && !isCarrier(s)) optedOut.add((s.email || "").toLowerCase());
+    }
+
+    // de-dupe by lowercased email; carriers are never recipients themselves
     const seen = new Set<string>();
     let recipients = (subs || []).filter((s) => {
       const k = (s.email || "").toLowerCase();
-      if (!k || seen.has(k)) return false;
+      if (!k || isCarrier(s) || s.unsubscribed || optedOut.has(k) || seen.has(k)) return false;
       seen.add(k);
       return true;
     });
