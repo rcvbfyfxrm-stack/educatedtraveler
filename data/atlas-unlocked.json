@@ -1,16 +1,20 @@
 {
-  "generated_at": "2026-08-05",
+  "generated_at": "2026-08-06",
   "open": {
     "ashtanga-yoga": 1,
     "cold-exposure-wim-hof-method": 1,
     "freediving": 1,
     "french-pastry-and-patisserie": 1,
+    "hatha-and-vinyasa-yoga": 1,
     "italian-cuisine-and-pasta": 1,
-    "jewelry-and-goldsmithing": 1,
+    "jewelry-and-goldsmithing": 2,
     "kitesurfing": 1,
     "lymphatic-drainage": 1,
     "modernist-spanish-cuisine": 1,
     "new-basque-cuisine": 1,
+    "perfumery": 1,
+    "photography": 1,
+    "pottery-and-ceramics": 1,
     "rock-climbing": 1,
     "sailing-and-yachtmaster": 1,
     "self-sufficiency": 1,
@@ -19,6 +23,9 @@
     "spearfishing": 1,
     "surfing": 1,
     "sushi-and-washoku": 1,
-    "thai-massage": 1
+    "thai-massage": 1,
+    "vipassana-and-meditation": 1,
+    "windsurfing-and-wing-foil": 1,
+    "wine-and-sommellerie": 1
   }
 }
