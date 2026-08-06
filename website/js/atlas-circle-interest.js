@@ -21,6 +21,12 @@
    MARKUP   the page renders an empty <div class="cint" data-craft="…"></div>
             inside each card and fires document→'et:atlas-render' after every
             re-render. This file fills those slots.
+   SIGNAL   when the counts settle — loaded, empty, or unreachable — this file
+            fires document→'et:atlas-interest' once, with detail.crafts = how
+            many crafts came back. /atlas listens for it to float the crafts
+            the Circle asked for to the top of every list. It fires even on
+            failure, so a listener is never left waiting on a promise that
+            already broke.
 ═══════════════════════════════════════════════════════════════════════ */
 (function () {
   "use strict";
@@ -91,15 +97,30 @@
     });
   }
 
+  /* Fired exactly once, whatever happened. Ordering on /atlas depends on it,
+     so "the RPC is gone" has to be as loud as "here are the counts" — silence
+     would leave the page waiting forever for a re-sort that never comes. */
+  var SETTLED = false;
+  function settle() {
+    if (SETTLED) return;
+    SETTLED = true;
+    LOADED = true;
+    try {
+      document.dispatchEvent(new CustomEvent("et:atlas-interest", {
+        detail: { crafts: MAP ? Object.keys(MAP).length : 0 }
+      }));
+    } catch (e) {}
+  }
+
   /* Supabase boots asynchronously (supabase-config.js polls for the SDK), so
      retry briefly rather than giving up on the first tick. */
   function boot(attempt) {
     attempt = attempt || 0;
     if (window.supabaseClient) {
-      load().then(function (ok) { LOADED = true; if (ok) paint(document); });
+      load().then(function (ok) { if (ok) paint(document); settle(); });
       return;
     }
-    if (attempt > 60) { LOADED = true; return; }   // ~6s, then stop asking
+    if (attempt > 60) { settle(); return; }   // ~6s, then stop asking
     setTimeout(function () { boot(attempt + 1); }, 100);
   }
 

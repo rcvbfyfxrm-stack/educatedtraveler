@@ -614,7 +614,7 @@ function catCard(o,c){var d=o.d,t=o.top,r=ratingDisc(d.id);
 }
 function renderCatalogue(w){var m=WORLDS[w],list=craftsInOrder(w);VIEW.cat=w;
   var nw=countWanted(list,function(o){return o.d.discipline;});
-  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub"><b style="color:var(--paper);font-weight:500">'+list.length+' certified crafts</b> — every skill in this world, each with the place where its community is most alive.'+(nw?' The '+(nw===1?'one somebody in the Circle has asked for comes':nw+' somebody in the Circle has asked for come')+' first.':'')+'</p></div>';
+  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub"><b style="color:var(--paper);font-weight:500">'+list.length+' certified crafts</b> — every skill in this world, each with the place where its community is most alive.'+(nw?' The crafts a member of the Circle has asked for come first.':'')+'</p></div>';
   h+='<div class="gridwrap">'+list.map(function(o){return catCard(o,m.color);}).join("")+'</div>';
   results.innerHTML=h;signalRender();
   document.getElementById("backcat").onclick=function(){renderRails();document.getElementById("studio").scrollIntoView({behavior:"smooth"});};
