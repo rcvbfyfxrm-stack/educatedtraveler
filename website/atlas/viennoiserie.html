@@ -153,7 +153,7 @@ footer a { color:var(--sea); }
       <div class="date" id="l_date"></div>
       <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your letter</label>
       <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
-      <div class="sign"><div class="yours">Yours,</div><div class="name" id="l_sign"></div></div>
+      <div class="sign"><div class="yours">Talk soon,</div><div class="name" id="l_sign"></div></div>
     </div>
     <div class="prompts" id="l_prompts"></div>
     <div class="lrow">
@@ -318,7 +318,25 @@ footer a { color:var(--sea); }
       if(res&&res.error)throw res.error;
       unstash();
       if(window.plausible)window.plausible("AtlasLetter",{props:{skill:sk||"unnamed"}});
+
+      // The letter is already on its way to Arnaud — the insert fires notify-lead.
+      // Now found their account, the same way /circle's seal does: a magic link,
+      // no password, ever. This is deliberately AFTER the insert and its failure
+      // is not fatal — a letter that reached him is worth more than an account,
+      // and we must never lose the letter because auth had a bad minute.
+      var acct=false;
+      try{
+        var otp=await sb.auth.signInWithOtp({email:em,
+          options:{emailRedirectTo:window.location.origin+"/portrait",shouldCreateUser:true}});
+        acct=!(otp&&otp.error);
+        if(!acct)console.warn("[Letter] account link failed:",otp&&otp.error);
+        if(acct&&window.plausible)window.plausible("AtlasLetterAccountLink");
+      }catch(ae){console.warn("[Letter] account link threw:",ae);}
+
       $("l_donehead").textContent="Your letter is with me, "+nm+".";
+      $("l_donebody").textContent=acct
+        ? "I read every one myself, and I answer. You're in the Circle now — and I've sent a sign-in link to "+em+". One click and this letter, and the crafts you pick from here, live on a page that's yours. No password, ever."
+        : "I read every one myself, and I answer. You're in the Circle now — I'll write when I find the master, the place and the moment that fit what you just told me.";
       $("lbox").style.display="none";
       $("l_done").classList.add("on");
       $("letter").scrollIntoView({behavior:"smooth",block:"start"});

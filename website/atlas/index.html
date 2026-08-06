@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Atlas — a catalogue of skills, each at its source — EducatedTraveler</title>
-<meta name="description" content="The EducatedTraveler Atlas: all 112 crafts across five worlds. 22 are open, with the school and the teacher we'd send you to. The rest show what the craft is and where it's most alive — write a letter and I open it.">
+<meta name="description" content="The EducatedTraveler Atlas: all 112 crafts across five worlds. 29 are open, with the school and the teacher we'd send you to. The rest show what the craft is and where it's most alive — write a letter and I open it.">
 <link rel="canonical" href="https://educatedtraveler.app/atlas/">
 <meta property="og:title" content="The Atlas — certified skills at the source">
-<meta property="og:description" content="112 crafts, five worlds. 22 are open — the full sheet, every place, the schools — because a member asked for them. Write me a letter and that is what opens the rest.">
+<meta property="og:description" content="112 crafts, five worlds. 29 are open — the full sheet, every place, the schools — because a member asked for them. Write me a letter and that is what opens the rest.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/atlas/">
 <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
@@ -238,7 +238,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 </style>
 </head>
 <body>
-<!-- built 2026-08-05 · 22 of 112 crafts open · states from data/atlas-unlocked.json -->
+<!-- built 2026-08-06 · 29 of 112 crafts open · states from data/atlas-unlocked.json -->
 <nav class="top"><div class="row">
   <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
   <div class="links"><a class="join" href="/circle">Join the Circle</a></div>
@@ -286,7 +286,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
       <div class="date" id="l_date"></div>
       <label class="sr-only" for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your letter</label>
       <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
-      <div class="sign"><div class="yours">Yours,</div><div class="name" id="l_sign"></div></div>
+      <div class="sign"><div class="yours">Talk soon,</div><div class="name" id="l_sign"></div></div>
     </div>
 
     <div class="prompts" id="l_prompts"></div>
@@ -384,6 +384,24 @@ A.forEach(function(d){var w=worldOf(d);
 var byWorldDisc={};ORDER.forEach(function(w){byWorldDisc[w]=[];});
 A.forEach(function(d){var w=worldOf(d),t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});byWorldDisc[w].push({d:d,top:t||{}});});
 ORDER.forEach(function(w){byWorldDisc[w].sort(function(a,b){return (b.top.communityRank||0)-(a.top.communityRank||0);});});
+/* ── the Circle first ─────────────────────────────────────────────────────
+   A craft somebody in the Circle has actually asked for is shown before a
+   craft nobody has named yet — in the rails, in a world's catalogue, in the
+   filtered results. Community strength still orders everything after that,
+   and inside the asked-for group too: this REORDERS the list, it does not
+   rewrite the ranking, and the card says nothing new.
+
+   The counts come from atlas-circle-interest.js — the public, anonymous RPC,
+   a headcount per craft and never a name. They arrive after first paint, so
+   the page draws in community order and re-sorts itself once they land. If
+   they never land (RPC gone, Supabase down, nobody has asked for anything),
+   every list keeps exactly the order it has always had. Nothing here can
+   invent a want: a craft floats up only because a real person named it.
+   byWorldDisc keeps its own order untouched — we sort copies. */
+function wanted(craft){var r=(window.ETInterest&&window.ETInterest.get)?window.ETInterest.get(craft):null;return (r&&r.n)||0;}
+function craftsInOrder(w){return byWorldDisc[w].slice().sort(function(a,b){
+  return (wanted(b.d.discipline)-wanted(a.d.discipline))||((b.top.communityRank||0)-(a.top.communityRank||0));});}
+function countWanted(list,key){var n=0;list.forEach(function(x){if(wanted(key(x)))n++;});return n;}
 // the single "best place to go" per craft — featured place if set, else strongest community
 var BEST={};A.forEach(function(d){var f=d.featured||{},bid=null;
   if(f.id){(d.destinations||[]).forEach(function(x){if(x.id===f.id)bid=x.id;});}
@@ -515,12 +533,17 @@ function matchDest(x){
 }
 // ── render ──
 var results=document.getElementById("results");
+// what's on screen right now — so the re-sort that follows the Circle counts
+// redraws the view you're actually looking at, not the one you started on
+var VIEW={cat:null};
 // every re-render tells the page's add-ons (the Circle-interest lines) to repaint
 function signalRender(){try{document.dispatchEvent(new CustomEvent("et:atlas-render"));}catch(e){}}
 function render(){
+  VIEW.cat=null;
   if(!anyFilter()){renderRails();return;}
-  var list=DESTS.filter(matchDest).sort(function(a,b){return (b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
-  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> certified place'+(list.length===1?"":"s")+'</div><div class="sortby">ranked by community strength</div></div>';
+  var list=DESTS.filter(matchDest).sort(function(a,b){return (wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
+  var nw=countWanted(list,function(x){return x.discipline;});
+  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> certified place'+(list.length===1?"":"s")+'</div><div class="sortby">'+(nw?"asked-for crafts first, then community strength":"ranked by community strength")+'</div></div>';
   if(!list.length){results.innerHTML='<div class="empty">No place matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>';document.getElementById("clr").onclick=function(){F={worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:"",trip:0,english:false};renderSide();render();syncWorld();};return;}
   h+='<div class="gridwrap">'+list.slice(0,120).map(gcard).join("")+'</div>';
   if(list.length>120)h+='<p style="color:var(--faint);text-align:center;margin-top:22px;font-size:13px">Showing the 120 strongest — narrow the filters to see the rest.</p>';
@@ -559,9 +582,11 @@ function gcard(x){var r=ratingDest(x);
   return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.id,x.discipline,o);
 }
 function renderRails(){
-  var h='<div class="rhead"><div class="count">Browse <b>five worlds</b> of certified craft</div><div class="sortby">pick a ring, or search →</div></div>';
+  VIEW.cat=null;
+  var nw=0;ORDER.forEach(function(w){nw+=countWanted(byWorldDisc[w],function(o){return o.d.discipline;});});
+  var h='<div class="rhead"><div class="count">Browse <b>five worlds</b> of certified craft</div><div class="sortby">'+(nw?"asked-for crafts first · pick a ring, or search →":"pick a ring, or search →")+'</div></div>';
   results.innerHTML=h;
-  ORDER.forEach(function(w){var m=WORLDS[w],list=byWorldDisc[w];if(!list.length)return;
+  ORDER.forEach(function(w){var m=WORLDS[w],list=craftsInOrder(w);if(!list.length)return;
     var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
     sec.innerHTML='<div class="shelf-h" role="button" tabindex="0" aria-label="Open the '+esc(m.label)+' catalogue"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="n">'+list.length+' crafts</span><span class="more">See all '+list.length+' crafts →</span></div>';
     var rw=document.createElement("div");rw.className="railwrap";var rail=document.createElement("div");rail.className="rail";
@@ -587,8 +612,9 @@ function catCard(o,c){var d=o.d,t=o.top,r=ratingDisc(d.id);
   if(r&&r.destId){var rd=(d.destinations||[]).find(function(z){return z.id===r.destId;});if(rd)t=rd;}
   return cardShell("gcard",c,"/atlas/"+d.id,d.discipline,cardData(worldOf(d),d,t,r));
 }
-function renderCatalogue(w){var m=WORLDS[w],list=byWorldDisc[w];
-  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub"><b style="color:var(--paper);font-weight:500">'+list.length+' certified crafts</b> — every skill in this world, each with the place where its community is most alive.</p></div>';
+function renderCatalogue(w){var m=WORLDS[w],list=craftsInOrder(w);VIEW.cat=w;
+  var nw=countWanted(list,function(o){return o.d.discipline;});
+  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub"><b style="color:var(--paper);font-weight:500">'+list.length+' certified crafts</b> — every skill in this world, each with the place where its community is most alive.'+(nw?' The '+(nw===1?'one somebody in the Circle has asked for comes':nw+' somebody in the Circle has asked for come')+' first.':'')+'</p></div>';
   h+='<div class="gridwrap">'+list.map(function(o){return catCard(o,m.color);}).join("")+'</div>';
   results.innerHTML=h;signalRender();
   document.getElementById("backcat").onclick=function(){renderRails();document.getElementById("studio").scrollIntoView({behavior:"smooth"});};
@@ -602,6 +628,14 @@ var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isInt
 document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
 if(!A.length){results.innerHTML='<div class="empty">The Atlas didn’t load — <a href="/atlas/" style="color:var(--sea)">open it directly</a>.</div>';}
 else{renderSide();render();}
+
+/* The Circle counts land a moment after first paint. Re-draw whatever is on
+   screen so the crafts somebody asked for rise to the top of it. Fires once,
+   and only when there is something to float up — no counts, no redraw. */
+document.addEventListener("et:atlas-interest",function(e){
+  if(!A.length||!(e&&e.detail&&e.detail.crafts))return;
+  if(VIEW.cat)renderCatalogue(VIEW.cat);else render();
+});
 
 /* ══════════════════════════════════════════════════════════════════
    THE LETTER — write to Arnaud about the skill you're circling.
@@ -703,7 +737,26 @@ else{renderSide();render();}
         await new Promise(function(r){setTimeout(r,500);});
       }
       if(window.plausible)window.plausible("AtlasLetter",{props:{skill:sk||"unnamed"}});
+
+      // The letter is already on its way to Arnaud — the insert fires notify-lead.
+      // Now found their account, the same way /circle's seal does: a magic link,
+      // no password, ever. This is deliberately AFTER the insert and its failure
+      // is not fatal — a letter that reached him is worth more than an account,
+      // and we must never lose the letter because auth had a bad minute.
+      var acct=false;
+      try{
+        if(!sb)throw new Error("offline");
+        var otp=await sb.auth.signInWithOtp({email:em,
+          options:{emailRedirectTo:window.location.origin+"/portrait",shouldCreateUser:true}});
+        acct=!(otp&&otp.error);
+        if(!acct)console.warn("[Letter] account link failed:",otp&&otp.error);
+        if(acct&&window.plausible)window.plausible("AtlasLetterAccountLink");
+      }catch(ae){console.warn("[Letter] account link threw:",ae);}
+
       $("l_donehead").textContent="Your letter is with me, "+nm+".";
+      $("l_donebody").textContent=acct
+        ? "I read every one myself, and I answer. You're in the Circle now — and I've sent a sign-in link to "+em+". One click and this letter, and the crafts you pick from here, live on a page that's yours. No password, ever."
+        : "I read every one myself, and I answer. You're in the Circle now — I'll write when I find the master, the place and the moment that fit what you just told me.";
       $("lbox").style.display="none";
       $("l_done").classList.add("on");
       $("letter").scrollIntoView({behavior:"smooth",block:"start"});
