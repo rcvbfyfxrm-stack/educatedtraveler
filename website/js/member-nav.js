@@ -11,10 +11,21 @@
  * has an account" here means "has signed in on this browser and the refresh token
  * is still good" — that is the only thing a static site can honestly know.
  *
- *   signed in  → every "Join the Circle" call-to-action becomes "Your portrait",
- *                pointing at /portrait, and the "already have an account" line is
- *                removed (they are signed in; it is noise).
+ *   signed in  → every "Join the Circle" call-to-action points at /you, their own
+ *                place, and the "already have an account" line is removed (they
+ *                are signed in; it is noise).
  *   signed out → nothing is touched.
+ *
+ * The label depends on where the call-to-action sits. In the header it becomes
+ * their first name: that slot is the one place the site can recognise them by
+ * name, and a name is warmer than a label. Everywhere else — the hero door, the
+ * Atlas cues — it reads "Your place", because a first name alone on a big button
+ * says nothing about where it goes. If we have no name, "Your place" is used in
+ * the header too: a generic greeting is worse than none.
+ *
+ * (Was: "Your portrait" → /portrait. Repointed when /you was built — /portrait is
+ * the questionnaire, /you is where the crafts, the saved skills and the classes
+ * they follow actually live. /you links on to the portrait for anyone adding to it.)
  *
  * Deliberately fail-quiet and fail-visitor: the markup ships correct for a visitor,
  * so a blocked CDN, a dead SDK or a thrown error leaves the page in its honest
@@ -23,8 +34,8 @@
 (function () {
   'use strict';
 
-  var MEMBER_LABEL = 'Your portrait';
-  var MEMBER_HREF = '/portrait';
+  var MEMBER_LABEL = 'Your place';
+  var MEMBER_HREF = '/you';
   var POLL_MS = 50;
   var MAX_TRIES = 100; // ~5s, same budget supabase-config gives the SDK
 
@@ -63,9 +74,23 @@
     if (!replaced) el.textContent = label;
   }
 
-  function asMember(els) {
+  // Their first name, for the header slot only. Failure is not interesting here:
+  // every caller falls back to MEMBER_LABEL, which is always a correct label.
+  function firstName(sb, session) {
+    return sb.from('profiles').select('first_name,name').eq('id', session.user.id).maybeSingle()
+      .then(function (r) {
+        var n = r && r.data ? (r.data.first_name || r.data.name || '') : '';
+        n = String(n).trim();
+        return n ? n.charAt(0).toUpperCase() + n.slice(1) : '';
+      })
+      .catch(function () { return ''; });
+  }
+
+  function asMember(els, name) {
     els.forEach(function (el) {
-      relabel(el, MEMBER_LABEL);
+      // in the header they are greeted by name; elsewhere the button says where it goes
+      var inNav = !!(el.closest && el.closest('nav'));
+      relabel(el, (inNav && name) ? name : MEMBER_LABEL);
       if (el.tagName === 'A') {
         el.setAttribute('href', MEMBER_HREF);
       } else {
@@ -88,7 +113,10 @@
     if (!els.length && !document.querySelector('[data-visitor-only]')) return;
     sb.auth.getSession().then(function (res) {
       var session = res && res.data ? res.data.session : null;
-      if (session && session.user) asMember(els);
+      if (!session || !session.user) return;
+      // The name is a nicety; the repointing is the point. Never let a slow or
+      // failed profile read leave a member staring at "Join the Circle".
+      return firstName(sb, session).then(function (name) { asMember(els, name); });
     }).catch(function () { /* stay a visitor */ });
   });
 })();

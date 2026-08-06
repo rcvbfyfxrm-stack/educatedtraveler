@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your place — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Your place in the Circle — the crafts you named, the skills you saved, and the classes you follow.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://educatedtraveler.app/you">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/images/favicon-32.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+
+    <style>
+        /* ── Warm-Dark Editorial (ET relook lock) — same tokens as /portrait ── */
+        :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
+               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+        *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
+        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
+              min-height:100vh; line-height:1.55; }
+        ::selection{ background:rgba(210,138,82,0.30); }
+        .serif{ font-family:'Fraunces',Georgia,serif; font-weight:300; letter-spacing:-0.01em; }
+        body::before{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+            background:
+                radial-gradient(900px 600px at 15% -8%, rgba(127,168,165,0.10), transparent 60%),
+                radial-gradient(800px 620px at 92% 6%, rgba(210,138,82,0.09), transparent 55%); }
+
+        .eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.30em;
+                  text-transform:uppercase; color:var(--sea); }
+
+        /* nav — same chrome as the rest of the site */
+        nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(13,11,9,0.72);
+             backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+        .nav-in{ max-width:1100px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; }
+        .brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:0.16em; font-size:15px; color:var(--paper); text-decoration:none; }
+        .brand b{ font-weight:300; color:var(--sea); }
+        .signout{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+                  color:var(--faint); background:none; border:none; cursor:pointer; padding:8px 2px; transition:color .2s; }
+        .signout:hover{ color:var(--ember); }
+
+        /* min-height keeps the footer at the bottom on the short signed-out view */
+        .wrap{ max-width:640px; margin:0 auto; padding:110px 22px 80px; min-height:calc(100vh - 150px); }
+
+        /* header block — who you are */
+        .who{ display:flex; align-items:center; gap:20px; margin-bottom:14px; }
+        .ava{ width:74px; height:74px; flex:0 0 auto; border-radius:50%; border:1px solid var(--line);
+              background:rgba(243,237,226,0.05); display:flex; align-items:center; justify-content:center;
+              font-family:'Fraunces',Georgia,serif; font-size:30px; color:var(--sea); overflow:hidden;
+              background-size:cover; background-position:center; }
+        h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.8rem,5vw,2.5rem);
+            line-height:1.14; letter-spacing:-0.02em; text-wrap:balance; }
+        .meta{ color:var(--muted); font-size:14px; margin-top:5px; }
+        .since{ color:var(--faint); font-size:12.5px; font-family:'IBM Plex Mono',monospace; letter-spacing:0.04em; margin-top:3px; }
+        .standfirst{ color:var(--muted); font-size:15px; margin:20px 0 6px; }
+
+        /* sections */
+        section.blk{ margin-top:38px; padding-top:26px; border-top:1px solid var(--line); }
+        section.blk:first-of-type{ border-top:none; }
+        .lbl{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.18em; text-transform:uppercase;
+              color:var(--faint); margin-bottom:12px; display:block; }
+        .blk h2{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:1.28rem; letter-spacing:-0.01em; margin-bottom:6px; }
+        .note{ color:var(--muted); font-size:14px; line-height:1.6; }
+        .note.empty{ color:var(--faint); font-style:italic; }
+        .note a{ color:var(--sea); text-decoration:none; }
+        .note a:hover{ text-decoration:underline; }
+
+        /* craft / skill chips */
+        .tags{ display:flex; flex-wrap:wrap; gap:9px; margin-top:12px; }
+        .tag{ display:inline-flex; align-items:center; gap:8px; font-size:13.5px; color:var(--paper);
+              background:rgba(127,168,165,0.10); border:1px solid rgba(127,168,165,0.34); border-radius:11px;
+              padding:9px 13px; text-decoration:none; transition:border-color .18s, background .18s, transform .18s; }
+        .tag:hover{ border-color:var(--sea); background:rgba(127,168,165,0.17); transform:translateY(-1px); }
+        .tag .open{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase;
+                    color:#14110d; background:var(--sea); border-radius:7px; padding:2px 6px; }
+        .tag .soon{ font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase;
+                    color:var(--faint); }
+        .tag.plain{ background:rgba(243,237,226,0.03); border-color:rgba(243,237,226,0.15); color:var(--muted); cursor:default; }
+        .tag.plain:hover{ transform:none; border-color:rgba(243,237,226,0.15); background:rgba(243,237,226,0.03); }
+        .tag.ember{ background:rgba(210,138,82,0.11); border-color:rgba(210,138,82,0.36); }
+        .tag.ember:hover{ border-color:var(--ember); background:rgba(210,138,82,0.18); }
+        .tag .x{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--faint);
+                 background:none; border:none; cursor:pointer; padding:0 0 0 2px; line-height:1; }
+        .tag .x:hover{ color:var(--ember); }
+
+        /* past classes */
+        .past{ border:1px solid rgba(243,237,226,0.06); background:rgba(243,237,226,0.015);
+               border-radius:12px; padding:13px 15px; margin-top:10px; }
+        .past .t{ font-size:14.5px; color:var(--paper); }
+        .past .s{ font-size:12px; color:var(--faint); margin-top:2px; }
+        .past .n{ font-size:12.5px; color:var(--muted); font-style:italic; margin-top:7px; line-height:1.55; }
+        .verified{ font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:0.1em;
+                   text-transform:uppercase; color:var(--sea); margin-left:6px; }
+
+        /* the letter — acknowledged, never shown back */
+        .letter-note{ border-left:2px solid var(--ember); background:rgba(210,138,82,0.05);
+                      border-radius:0 12px 12px 0; padding:14px 17px; }
+
+        /* actions */
+        .go{ display:inline-block; color:var(--sea); font-size:14px; text-decoration:none; margin:0 24px 10px 0; transition:color .2s; }
+        .go:hover{ color:var(--ember); }
+        .actions{ margin-top:40px; padding-top:26px; border-top:1px solid var(--line); }
+
+        /* signed-out + loading */
+        .center{ text-align:center; padding-top:40px; }
+        .center h1{ margin-bottom:14px; }
+        .cta{ display:inline-block; font-family:inherit; font-size:15px; color:#14110d; text-decoration:none;
+              background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); border:none; border-radius:999px;
+              padding:13px 26px; cursor:pointer; margin-top:8px; }
+        .cta:hover{ filter:brightness(1.05); }
+        input[type=email]{ width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16);
+            border-radius:14px; color:var(--paper); font-family:inherit; font-size:15px; padding:14px 16px;
+            outline:none; transition:border-color .25s, box-shadow .25s; margin-top:8px; }
+        input[type=email]:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+        .err{ color:#d98b7a; font-size:13.5px; margin-top:12px; }
+        .spin{ display:inline-block; width:12px; height:12px; border:2px solid rgba(20,17,13,0.3);
+               border-top-color:#14110d; border-radius:50%; animation:sp .7s linear infinite; vertical-align:-1px; margin-left:6px; }
+        @keyframes sp{ to{ transform:rotate(360deg); } }
+
+        .view{ display:none; }
+        .view.show{ display:block; animation:fadeUp .55s ease-out both; }
+        @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+        @media(prefers-reduced-motion:reduce){ .view.show{ animation:none; } }
+
+        footer{ text-align:center; padding:42px 22px 48px; border-top:1px solid var(--line); position:relative; z-index:1; }
+        .et-foot-link{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+                       color:rgba(243,237,226,0.34); text-decoration:none; margin:0 11px; transition:color .2s;
+                       white-space:nowrap; line-height:2.2; }
+        .et-foot-link:hover{ color:var(--sea); }
+    </style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+    <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
+    <button type="button" class="signout" id="signout" style="display:none">Sign out</button>
+</div></nav>
+
+<main class="wrap">
+
+    <!-- LOADING -->
+    <div class="view show" id="v-loading">
+        <p class="eyebrow">Your place</p>
+        <p class="note" style="margin-top:14px;">Opening it&hellip;</p>
+    </div>
+
+    <!-- SIGNED OUT -->
+    <div class="view center" id="v-out">
+        <p class="eyebrow">Your place in the Circle</p>
+        <h1 class="serif" style="margin-top:16px;">This page is yours &mdash; once you're in it.</h1>
+        <p class="note" style="max-width:420px;margin:0 auto;">If you've already joined, put your email in and I'll send a link that
+            signs you in. No password, ever.</p>
+        <div style="max-width:340px;margin:22px auto 0;text-align:left;">
+            <input type="email" id="f_email" placeholder="you@email.com" autocomplete="email" inputmode="email">
+            <div style="text-align:center;"><button class="cta" id="send-link">Send me the link &rarr;</button></div>
+            <p class="err" id="out-err" style="display:none;"></p>
+            <p class="note" id="out-sent" style="display:none;margin-top:14px;text-align:center;"></p>
+        </div>
+        <p class="note" style="margin-top:26px;">Not in the Circle yet? <a href="/circle">Take your place &rarr;</a></p>
+    </div>
+
+    <!-- THE MEMBER'S PLACE -->
+    <div class="view" id="v-in">
+
+        <p class="eyebrow">Your place in the Circle</p>
+
+        <div class="who" style="margin-top:18px;">
+            <div class="ava" id="ava"><span id="ava-i"></span></div>
+            <div>
+                <h1 class="serif" id="name">You</h1>
+                <p class="meta" id="meta"></p>
+                <p class="since" id="since"></p>
+            </div>
+        </div>
+
+        <p class="standfirst" id="standfirst"></p>
+
+        <!-- THE CRAFTS THEY NAMED (profiles.interests, from the Circle) -->
+        <section class="blk" id="s-crafts">
+            <span class="lbl">The crafts you named</span>
+            <h2 class="serif">What you told me you'd give a week to.</h2>
+            <div class="tags" id="crafts"></div>
+            <p class="note empty" id="crafts-empty" style="display:none;">You haven't named one yet.
+                <a href="/portrait">Add it to your portrait &rarr;</a></p>
+        </section>
+
+        <!-- SAVED FROM THE ATLAS (saved_adventures, "skill:*") -->
+        <section class="blk" id="s-saved">
+            <span class="lbl">Skills you've saved</span>
+            <h2 class="serif">Kept from the Atlas.</h2>
+            <div class="tags" id="saved"></div>
+            <p class="note empty" id="saved-empty" style="display:none;">Nothing saved yet &mdash; every skill sheet in the Atlas
+                has a <em>Save this skill</em> button, and what you save lands here.
+                <a href="/atlas/">Go wander &rarr;</a></p>
+        </section>
+
+        <!-- CLASSES FOLLOWED (experience_interests) -->
+        <section class="blk" id="s-follow" style="display:none;">
+            <span class="lbl">Classes you follow</span>
+            <h2 class="serif">You'll hear about these first.</h2>
+            <div class="tags" id="follow"></div>
+        </section>
+
+        <!-- PAST CLASSES (prior_experiences) -->
+        <section class="blk" id="s-past" style="display:none;">
+            <span class="lbl">What you've already done</span>
+            <h2 class="serif">Where you're starting from.</h2>
+            <div id="past"></div>
+        </section>
+
+        <!-- THE LETTER — acknowledged only. It stays between them and Arnaud. -->
+        <section class="blk" id="s-letter" style="display:none;">
+            <span class="lbl">Your letter</span>
+            <div class="letter-note">
+                <p class="note" id="letter-note"></p>
+            </div>
+        </section>
+
+        <div class="actions">
+            <a class="go" href="/portrait">Add to your portrait &rarr;</a>
+            <a class="go" href="/atlas/">Wander the Atlas &rarr;</a>
+            <a class="go" id="crew-link" href="#" style="display:none;">See your crew card &rarr;</a>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <a href="/atlas/" class="et-foot-link">The Atlas</a>
+    <a href="/lab-weeks" class="et-foot-link">Lab Weeks</a>
+    <a href="/about" class="et-foot-link">The Story</a>
+    <a href="/journal/" class="et-foot-link">Journal</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<!-- The Atlas catalogue (generated by build-atlas-pages.py) is the ONLY source of
+     truth for which crafts have a sheet and which are open. A craft the member
+     named in their own words has neither, and must never become a dead link. -->
+<script src="/js/atlas-index.js"></script>
+<script>
+(function(){
+    "use strict";
+    function $(id){ return document.getElementById(id); }
+    function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function show(which){
+        ['v-loading','v-out','v-in'].forEach(function(v){ $(v).classList.remove('show'); });
+        $(which).classList.add('show');
+    }
+
+    // ── the Atlas catalogue: name -> sheet ───────────────────────────────
+    // A craft the member chose from the Circle's list has a sheet. A craft they
+    // typed in their own words (portrait.html:846 puts it in the same field) does
+    // NOT — it renders as plain text, never as a link into a 404.
+    var BY_NAME = {}, BY_ID = {};
+    (function(){
+        var ix = window.ET_ATLAS_INDEX;
+        if(!ix || !ix.crafts) return;
+        ix.crafts.forEach(function(c){
+            var e = { id:c.id, name:c.name, open:!!c.open };
+            BY_ID[c.id] = e;
+            BY_NAME[String(c.name||'').toLowerCase()] = e;
+        });
+    })();
+    function sheetFor(label){
+        if(!label) return null;
+        var hit = BY_NAME[String(label).toLowerCase()];
+        if(hit) return hit;
+        // tolerate a stored label that drifted from the catalogue's spelling
+        var slug = String(label).toLowerCase().replace(/&/g,' and ')
+            .replace(/['’']/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+        return BY_ID[slug] || null;
+    }
+
+    var sb=null, uid=null;
+
+    // ── the member's place ───────────────────────────────────────────────
+    async function render(session){
+        uid = session.user.id;
+        $('signout').style.display='inline-block';
+
+        var p = null;
+        try{
+            var r = await sb.from('profiles').select(
+                'first_name,name,avatar_url,location,profession,interests,dream_letter,visibility,portrait_complete,portrait_completed_at,created_at'
+            ).eq('id', uid).maybeSingle();
+            p = r && r.data ? r.data : null;
+        }catch(e){}
+        p = p || {};
+
+        var first = p.first_name || p.name || '';
+        $('name').textContent = first ? ('This is your place, '+first+'.') : 'This is your place.';
+        $('ava-i').textContent = (first||session.user.email||'').trim().charAt(0).toUpperCase();
+        if(p.avatar_url){ $('ava').style.backgroundImage='url("'+p.avatar_url+'")'; $('ava-i').textContent=''; }
+
+        var bits=[];
+        if(p.profession) bits.push(p.profession);
+        if(p.location) bits.push(p.location);
+        $('meta').textContent = bits.join(' · ');
+
+        var since = p.portrait_completed_at || p.created_at;
+        if(since){
+            try{
+                $('since').textContent = 'In the Circle since ' + new Date(since).toLocaleDateString('en-GB',
+                    { day:'numeric', month:'long', year:'numeric' });
+            }catch(e){}
+        }
+
+        $('standfirst').textContent = 'Everything you’ve told me and everything you’ve saved lives here. '
+            + 'Come back and add to it whenever you like — the more I know, the better the week I build you.';
+
+        // Crafts they named in the Circle
+        var crafts = [];
+        if(p.interests && typeof p.interests === 'object'){
+            var src = Array.isArray(p.interests) ? { all:p.interests } : p.interests;
+            Object.keys(src).forEach(function(k){
+                (Array.isArray(src[k]) ? src[k] : []).forEach(function(c){
+                    if(typeof c==='string' && c && crafts.indexOf(c)<0) crafts.push(c);
+                });
+            });
+        }
+        var craftBox = $('crafts');
+        if(crafts.length){
+            craftBox.innerHTML = crafts.map(function(c){
+                var sheet = sheetFor(c);
+                // their own words: no sheet exists, so no link — just their craft, kept
+                if(!sheet) return '<span class="tag plain">'+esc(c)+'<span class="soon">Yours</span></span>';
+                return '<a class="tag" href="/atlas/'+encodeURIComponent(sheet.id)+'">'+esc(c)
+                    + (sheet.open ? '<span class="open">Open</span>' : '<span class="soon">Knocking</span>') + '</a>';
+            }).join('');
+        } else {
+            $('crafts-empty').style.display='block';
+        }
+
+        // Skills saved from the Atlas — owner-only by RLS
+        try{
+            var sv = await sb.from('saved_adventures')
+                .select('adventure_id,adventure_name,saved_at')
+                .eq('user_id', uid).like('adventure_id','skill:%')
+                .order('saved_at',{ascending:false});
+            renderSaved((sv && sv.data) || []);
+        }catch(e){ renderSaved([]); }
+
+        // Classes they follow
+        try{
+            var fi = await sb.from('experience_interests')
+                .select('adventure_id,adventure_name,status')
+                .eq('user_id', uid).eq('status','interested');
+            renderFollow((fi && fi.data) || []);
+        }catch(e){}
+
+        // What they've already done
+        try{
+            var pr = await sb.from('prior_experiences').select('*').eq('user_id', uid)
+                .order('year_completed',{ascending:false, nullsFirst:false});
+            renderPast((pr && pr.data) || []);
+        }catch(e){}
+
+        // The letter: acknowledged, never shown back. It stays between them and Arnaud.
+        if(p.dream_letter){
+            var when = p.portrait_completed_at;
+            var day = '';
+            try{ if(when) day = ' on ' + new Date(when).toLocaleDateString('en-GB',{day:'numeric',month:'long'}); }catch(e){}
+            $('letter-note').innerHTML = 'Your letter reached Arnaud' + esc(day)
+                + '. He reads every one himself — it stays between the two of you.';
+            $('s-letter').style.display='block';
+        }
+
+        // Their public crew card, if they chose to be seen
+        if(p.visibility === 'public'){
+            var cl = $('crew-link');
+            cl.href = '/profile?id=' + encodeURIComponent(uid);
+            cl.style.display='inline-block';
+        }
+
+        show('v-in');
+    }
+
+    function renderSaved(list){
+        var box = $('saved');
+        if(!list.length){ $('saved-empty').style.display='block'; return; }
+        box.innerHTML = list.map(function(s){
+            var slug = String(s.adventure_id||'').replace(/^skill:/,'');
+            var sheet = BY_ID[slug] || null;
+            var name = s.adventure_name || (sheet && sheet.name) || slug;
+            return '<span class="tag ember" data-id="'+esc(s.adventure_id)+'">'
+                + '<a href="/atlas/'+encodeURIComponent(slug)+'" style="color:inherit;text-decoration:none;">'+esc(name)+'</a>'
+                // same vocabulary as the crafts above: a door is Open, or we're Knocking
+                + (sheet && sheet.open ? '<span class="open">Open</span>' : '<span class="soon">Knocking</span>')
+                + '<button class="x" type="button" title="Remove from your place" aria-label="Remove '+esc(name)+'">&times;</button>'
+                + '</span>';
+        }).join('');
+        box.querySelectorAll('.x').forEach(function(btn){
+            btn.addEventListener('click', async function(){
+                var chip = btn.closest('.tag'), id = chip.getAttribute('data-id');
+                btn.disabled = true;
+                try{
+                    var res = await sb.from('saved_adventures').delete().eq('user_id', uid).eq('adventure_id', id);
+                    if(res && res.error) throw res.error;
+                    chip.remove();
+                    if(!box.children.length) $('saved-empty').style.display='block';
+                }catch(e){ btn.disabled = false; }
+            });
+        });
+    }
+
+    function renderFollow(list){
+        if(!list.length) return;
+        $('follow').innerHTML = list.map(function(c){
+            return '<span class="tag plain">'+esc(c.adventure_name || c.adventure_id)+'</span>';
+        }).join('');
+        $('s-follow').style.display='block';
+    }
+
+    function renderPast(list){
+        if(!list.length) return;
+        $('past').innerHTML = list.map(function(x){
+            var bits = [ x.instructor_name ? 'with '+x.instructor_name : null, x.year_completed || null, x.location || null ]
+                .filter(Boolean).map(esc).join(' · ');
+            return '<div class="past"><p class="t">'+esc(x.experience_name)
+                + (x.verified ? '<span class="verified">✓ Verified</span>' : '') + '</p>'
+                + (bits ? '<p class="s">'+bits+'</p>' : '')
+                + (x.notes ? '<p class="n">'+esc(x.notes)+'</p>' : '') + '</div>';
+        }).join('');
+        $('s-past').style.display='block';
+    }
+
+    // ── signed out: a magic link back in ─────────────────────────────────
+    $('send-link').addEventListener('click', async function(){
+        var btn=this, email=$('f_email').value.trim(), err=$('out-err');
+        err.style.display='none';
+        if(!email || email.indexOf('@')<1){ err.textContent='I need an email address to send the link to.'; err.style.display='block'; return; }
+        if(!sb){ err.textContent='Couldn’t connect just now — try again in a minute.'; err.style.display='block'; return; }
+        btn.disabled=true; btn.innerHTML='Sending <span class="spin"></span>';
+        try{
+            // shouldCreateUser:false — this link signs an existing member in. Joining
+            // happens in the Circle, where the questions are asked.
+            var res = await sb.auth.signInWithOtp({ email: email,
+                options:{ emailRedirectTo: window.location.origin + '/you', shouldCreateUser: false } });
+            if(res && res.error) throw res.error;
+            $('out-sent').textContent = 'Sent. Open the link in that email and you’re in.';
+            $('out-sent').style.display='block';
+            btn.style.display='none';
+        }catch(e){
+            btn.disabled=false; btn.innerHTML='Send me the link →';
+            err.innerHTML='I couldn’t find that address in the Circle — <a href="/circle" style="color:var(--sea)">take your place first</a>, '
+                + 'or write me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
+            err.style.display='block';
+        }
+    });
+
+    $('signout').addEventListener('click', async function(){
+        try{ if(sb) await sb.auth.signOut(); }catch(e){}
+        window.location.href='/';
+    });
+
+    // ── boot ─────────────────────────────────────────────────────────────
+    (async function boot(){
+        for(var i=0;i<40 && !window.supabaseReady && !window.supabaseError; i++){
+            await new Promise(function(r){ setTimeout(r,50); });
+        }
+        sb = window.supabaseClient;
+        if(!sb || !sb.auth){ show('v-out'); return; }
+        var session=null;
+        try{ var g=await sb.auth.getSession(); session = g && g.data ? g.data.session : null; }catch(e){}
+        if(!session){ show('v-out'); return; }
+        try{ await render(session); }
+        catch(e){ console.error('[you] render failed:', e); show('v-out'); }
+    })();
+})();
+</script>
+</body>
+</html>

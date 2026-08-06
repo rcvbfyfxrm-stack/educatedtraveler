@@ -31,6 +31,12 @@
   to = "/profile.html"
   status = 200
 
+# A member's own place — their crafts, their saved skills, what they follow
+[[redirects]]
+  from = "/you"
+  to = "/you.html"
+  status = 200
+
 [[redirects]]
   from = "/join"
   to = "/join.html"
