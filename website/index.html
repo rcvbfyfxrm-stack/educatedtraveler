@@ -90,6 +90,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
 .door{margin-top:clamp(22px,3.4vh,38px);display:flex;flex-direction:column;align-items:center;gap:12px}
 .kicker{font-family:var(--f-mono);font-size:clamp(9.5px,1.05vw,11px);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .kicker b{color:rgba(243,237,226,.9);font-weight:500}
+.signin-line{font-family:var(--f-mono);font-size:clamp(9.5px,1.05vw,11px);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.signin-line a{color:rgba(243,237,226,.72);text-decoration:none;border-bottom:1px solid rgba(243,237,226,.22);padding-bottom:1px;transition:color .25s,border-color .25s}
+.signin-line a:hover{color:var(--paper);border-color:rgba(243,237,226,.55)}
 
 /* the base — quiet, under the door; the Circle stays the focus */
 .base{position:relative;z-index:2;flex:0 0 auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px 26px;
@@ -187,6 +190,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </button>
       <p class="kicker">The Circle <b>hears first</b> — and chooses what comes next</p>
+      <!-- The only door back in. Static, so it is there even if the SDK never loads;
+           member-nav.js hides it once a session is found. Without it a member on a
+           new phone had no way into their own account from the landing page. -->
+      <p class="signin-line" data-visitor-only>Already in? <a href="/join?tab=signin">Sign in</a></p>
     </div>
   </div>
 
