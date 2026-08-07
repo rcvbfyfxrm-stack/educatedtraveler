@@ -21,7 +21,11 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  # Newest wins. With `false`, a deployment that wedges in `deployment_queued`
+  # takes every run behind it down with it — that happened on 2026-08-06: three
+  # consecutive deploys sat queued for 10-17 minutes and timed out, and the site
+  # served an hour-old build while every push looked like it had worked.
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -35,14 +39,46 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # The nightly jobs finish green whether or not they committed anything, and
+      # workflow_run can't tell the difference. Deploying regardless burns Pages
+      # build quota on identical content and is what queued the backlog above.
+      # If this commit is already the one deployed, stop here.
+      - name: Skip if this commit is already live
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -u
+          live=""
+          # newest first; stop at the first one that actually reached "success"
+          gh api "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=15" \
+            --jq '.[] | "\(.id) \(.sha)"' > /tmp/deps.txt 2>/dev/null || true
+          while read -r id sha; do
+            [ -n "${id:-}" ] || continue
+            state=$(gh api "repos/${{ github.repository }}/deployments/$id/statuses" \
+                      --jq '.[0].state' 2>/dev/null || echo "")
+            if [ "$state" = "success" ]; then live="$sha"; break; fi
+          done < /tmp/deps.txt
+          echo "last successful deployment: ${live:-none}"
+          echo "this commit:                $GITHUB_SHA"
+          if [ -n "$live" ] && [ "$live" = "$GITHUB_SHA" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Already live — nothing to deploy."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Setup Pages
+        if: steps.gate.outputs.skip != 'true'
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
+        if: steps.gate.outputs.skip != 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: './website'
 
       - name: Deploy to GitHub Pages
+        if: steps.gate.outputs.skip != 'true'
         id: deployment
         uses: actions/deploy-pages@v4

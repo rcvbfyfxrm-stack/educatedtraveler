@@ -263,33 +263,40 @@ const LP = 'style="margin:0 0 18px 0;"';
 function welcomePlainHtml(unsub: string): string {
   const body = `
     <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A place, a person, your people.</p>
-    <p ${LP}>You're in. Before anything else, here's the reason the Circle exists — one place worth knowing.</p>
-    <p ${LP}>In <strong>Mashiko</strong>, a quiet town a couple of hours north of Tokyo, the climbing kilns have breathed for a hundred years. A potter named Shoji Hamada settled there in 1924 and gave his life to a simple idea: that plain, useful, handmade things are worth devoting yourself to. The families who learned beside him never left, and people still come from across the world to put their hands in that clay. Mashiko isn't the prettiest town in Japan. It's something rarer — a place where a craft is genuinely alive, and the right people are gathered around it.</p>
-    <p ${LP}>That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.</p>
-    <p ${LP}>I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.</p>
-    <p ${LP}>How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.</p>
+    <p ${LP}>You're in. Before anything else, one place worth knowing — and the man who changed what I think a life's work is for.</p>
+    <p ${LP}>In 1924 a young potter named <strong>Shoji Hamada</strong> could have set up anywhere. He had trained in England, he was already good, and Tokyo was an hour away. He chose <strong>Mashiko</strong> — a small country town two hours north, picked, in his own reasoning, because it was far from the patrons, the connoisseurs and the galleries. He wanted to be out of reach of the people who tell you whether your work is any good.</p>
+    <p ${LP}>He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, using the clay and the ash and the iron glaze of that valley — and then he did the thing I still can't get out of my head. <strong>He refused to sign them.</strong> No signature, no seal, nothing stamped in the foot. A pot should stand on what it is, he thought, not on whose name is under it. If it's good you'll know by holding it, and if it isn't, a name won't save it.</p>
+    <p ${LP}>Japan made him a Living National Treasure in 1955, in the very first year they gave the title. His pots sell for more than most people's cars. They are still unsigned.</p>
+    <p ${LP}>Here is what that does to you, and why I'm telling you and not someone else. Almost everything now is built to be seen — the course with the certificate, the trip with the photographs, the skill you can put on a profile. Hamada spent his life on the opposite bet: get close to the real thing, do the work until it's genuinely good, and let it go out into the world without your name on it. The families who learned beside him never left. People still travel from every continent to put their hands in that clay.</p>
+    <p ${LP}>That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked by the strength of the community you'd find when you arrived — never by who pays me.</p>
+    <p ${LP}>I'm Arnaud. I cook for a living and I've spent fifteen years on the water. Pottery isn't my craft, and that's exactly the point: this was never meant to be about me. It's about the real version of whatever pulls at you, and the people already chasing it.</p>
     <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a></p>
     <p ${LP}>And one thing I'd genuinely like to know — just hit reply:</p>
     <p style="margin:0 0 18px 0;"><strong>What is the one skill you'd give a real week of your life to learn at the source?</strong></p>
     <p ${LP}>I read every reply.</p>
-    <p style="margin:28px 0 0 0;">— Arnaud</p>`;
+    <p style="margin:28px 0 0 0;">Talk soon,</p>
+    <p style="margin:0;">— Arnaud</p>`;
   return plainShell({ body, unsub });
 }
 
 function welcomeText(unsub: string): string {
   return `A place, a person, your people.
 
-You're in. Before anything else, here's the reason the Circle exists — one place worth knowing.
+You're in. Before anything else, one place worth knowing — and the man who changed what I think a life's work is for.
 
-In Mashiko, a quiet town a couple of hours north of Tokyo, the climbing kilns have breathed for a hundred years. A potter named Shoji Hamada settled there in 1924 and gave his life to a simple idea: that plain, useful, handmade things are worth devoting yourself to. The families who learned beside him never left, and people still come from across the world to put their hands in that clay. Mashiko isn't the prettiest town in Japan. It's something rarer — a place where a craft is genuinely alive, and the right people are gathered around it.
+In 1924 a young potter named Shoji Hamada could have set up anywhere. He had trained in England, he was already good, and Tokyo was an hour away. He chose Mashiko — a small country town two hours north, picked, in his own reasoning, because it was far from the patrons, the connoisseurs and the galleries. He wanted to be out of reach of the people who tell you whether your work is any good.
 
-That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.
+He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, using the clay and the ash and the iron glaze of that valley — and then he did the thing I still can't get out of my head. He refused to sign them. No signature, no seal, nothing stamped in the foot. A pot should stand on what it is, he thought, not on whose name is under it. If it's good you'll know by holding it, and if it isn't, a name won't save it.
 
-I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.
+Japan made him a Living National Treasure in 1955, in the very first year they gave the title. His pots sell for more than most people's cars. They are still unsigned.
 
-How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.
+Here is what that does to you, and why I'm telling you and not someone else. Almost everything now is built to be seen — the course with the certificate, the trip with the photographs, the skill you can put on a profile. Hamada spent his life on the opposite bet: get close to the real thing, do the work until it's genuinely good, and let it go out into the world without your name on it. The families who learned beside him never left. People still travel from every continent to put their hands in that clay.
 
-The Atlas is here: https://educatedtraveler.app/atlas/
+That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked by the strength of the community you'd find when you arrived — never by who pays me.
+
+I'm Arnaud. I cook for a living and I've spent fifteen years on the water. Pottery isn't my craft, and that's exactly the point: this was never meant to be about me. It's about the real version of whatever pulls at you, and the people already chasing it.
+
+The Atlas is here: https://educatedtraveler.app/atlas
 
 And one thing I'd genuinely like to know — just hit reply:
 
@@ -297,6 +304,7 @@ What is the one skill you'd give a real week of your life to learn at the source
 
 I read every reply.
 
+Talk soon,
 — Arnaud
 
 --
@@ -314,13 +322,13 @@ function atlasLetterHtml(unsub: string, name?: string, craft?: string): string {
   const c = esc(craft || "that craft").trim();
   const body = `
     <p ${LP}>${who ? who + "," : "Hello,"}</p>
-    <p ${LP}>Your letter about <strong>${c}</strong> reached me. Thank you for writing it — I read every one myself, and letters like yours are how the Atlas decides which craft to open next.</p>
-    <p ${LP}>Now the part that would help me most: tell me a bit about you.</p>
-    <p ${LP}><a href="https://educatedtraveler.app/circle" style="color:#3f6b67;">educatedtraveler.app/circle</a></p>
-    <p ${LP}>It asks which crafts pull at you, how ready you are, where in the world you are, and what week you'd build if you could build one. About five minutes. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people.</p>
-    <p ${LP}>At the end you can seal it, and that founds your account: one click from an email, no password, ever. It just means your answers are saved to you, and you can come back and add to them. If it tells you that you already have an account, sign in instead and go to <a href="https://educatedtraveler.app/portrait" style="color:#3f6b67;">educatedtraveler.app/portrait</a> — same questions, already with your name on them.</p>
-    <p ${LP}>I don't sell anything. When there's a real week worth telling you about, I tell you, and you decide.</p>
-    <p style="margin:28px 0 0 0;">Speak soon,</p>
+    <p ${LP}>Your letter about <strong>${c}</strong> reached me. Thank you for writing it — I read every one myself, and letters like yours decide which craft I open next.</p>
+    <p ${LP}>There's a sign-in link in your inbox from a moment ago. One click and you're on your own page — no password, ever.</p>
+    <p ${LP}>When you're there, fill in the rest. It asks where you're starting from with ${c}, when you could actually go, how long you could give it, how far you'd travel, and where in the world you are.</p>
+    <p ${LP}><a href="https://educatedtraveler.app/portrait" style="color:#3f6b67;">educatedtraveler.app/portrait</a></p>
+    <p ${LP}>Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better the week I can build you.</p>
+    <p ${LP}>When there's a real week worth telling you about, I tell you, and you decide.</p>
+    <p style="margin:28px 0 0 0;">Talk soon,</p>
     <p style="margin:0;">— Arnaud</p>`;
   return plainShell({ body, unsub });
 }
@@ -330,19 +338,19 @@ function atlasLetterText(unsub: string, name?: string, craft?: string): string {
   const c = (craft || "that craft").trim();
   return `${who ? who + "," : "Hello,"}
 
-Your letter about ${c} reached me. Thank you for writing it — I read every one myself, and letters like yours are how the Atlas decides which craft to open next.
+Your letter about ${c} reached me. Thank you for writing it — I read every one myself, and letters like yours decide which craft I open next.
 
-Now the part that would help me most: tell me a bit about you.
+There's a sign-in link in your inbox from a moment ago. One click and you're on your own page — no password, ever.
 
-https://educatedtraveler.app/circle
+When you're there, fill in the rest. It asks where you're starting from with ${c}, when you could actually go, how long you could give it, how far you'd travel, and where in the world you are.
 
-It asks which crafts pull at you, how ready you are, where in the world you are, and what week you'd build if you could build one. About five minutes. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people.
+https://educatedtraveler.app/portrait
 
-At the end you can seal it, and that founds your account: one click from an email, no password, ever. It just means your answers are saved to you, and you can come back and add to them. If it tells you that you already have an account, sign in instead and go to https://educatedtraveler.app/portrait — same questions, already with your name on them.
+Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better the week I can build you.
 
-I don't sell anything. When there's a real week worth telling you about, I tell you, and you decide.
+When there's a real week worth telling you about, I tell you, and you decide.
 
-Speak soon,
+Talk soon,
 — Arnaud
 
 --

@@ -284,13 +284,13 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 <!-- §5 trust -->
 <section class="trust"><div class="wrap">
   <div class="eyebrow">Why you can trust this page</div>
-  <h2 class="serif" style="font-size:22px">What I check before I send you anywhere</h2>
-  <p style="font-size:15px">I'm Arnaud. I built the Atlas because I got tired of good-looking websites that turn out to be nothing. Here is the bar a place has to clear — and what I'll tell you straight when it doesn't.</p>
+  <h2 class="serif" style="font-size:22px">What we check before we send you anywhere</h2>
+  <p style="font-size:15px">This Atlas exists because too many good-looking websites turn out to be nothing. Here's the bar a place has to clear — and what we'll tell you straight when it doesn't.</p>
   <ul>
     <li><b>The craft is actually alive there</b> — a working scene with a real clinical population, not a demo for visitors.</li>
-    <li><b>There's a real teacher and a real credential</b> — and I say which kind: a certificate a school prints itself, or one a state stands behind.</li>
-    <li><b>I tell you how sure I am</b>, and I don't hide the catch — here, that you can't just enrol.</li>
-    <li><b>Nobody pays to be here.</b> If I wouldn't send a friend, it isn't on the map.</li>
+    <li><b>There's a real teacher and a real credential</b> — and we say which kind: a certificate a school prints itself, or one a state stands behind.</li>
+    <li><b>We tell you how sure we are</b>, and we don't hide the catch — here, that you can't just enrol.</li>
+    <li><b>Nobody pays to be here.</b> If we wouldn't send a friend, it isn't on the map.</li>
   </ul>
 </div></section>
 
@@ -311,6 +311,9 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
+<!-- Someone already in the Circle should not be invited to join it: this turns
+     the closing call-to-action into "Your portrait". No-op for a visitor. -->
+<script src="/js/member-nav.js" defer></script>
 <!-- et-nav-auth-toggle -->
 <script>
 (function(){

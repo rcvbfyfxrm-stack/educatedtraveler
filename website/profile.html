@@ -331,7 +331,10 @@
             const userId = params.get('id');
 
             if (!userId) {
-                // No ID — route a signed-in user to their dashboard; otherwise show not found.
+                // No ID — route a signed-in member to THEIR place (/you), otherwise show not
+                // found. This is the destination of the Atlas nav's "Your Profile" link on all
+                // 489 skill sheets; it used to land on the old adventure dashboard, which shows
+                // badges and "available adventures" instead of their crafts and saved skills.
                 // getCurrentUser() is null until auth.js's async getSession() resolves, so wait
                 // for auth and check the REAL session (avoids a false "profile not found").
                 let waited = 0;
@@ -340,7 +343,7 @@
                 try { session = window.auth ? await window.auth.getSession() : null; } catch (e) {}
                 document.getElementById('loading-state').classList.add('hidden');
                 if (session && session.user) {
-                    window.location.href = '/dashboard';
+                    window.location.href = '/you';
                 } else {
                     document.getElementById('not-found-state').classList.remove('hidden');
                 }

@@ -24,6 +24,8 @@ them land on the thin template, which makes the letter look better than the site
 
 **⚠ IN FLIGHT — do not rebuild:** a sheet sitting in an open PR is NOT on `main`, so the "is it already deep?" check will say no and you will duplicate someone's work. Before building anything, run `gh pr list --state open` and skip any skill whose sheet is already in an open PR.
 
+**Currently in flight, in addition to the Tier 1 four below:** `wine-and-sommellerie` (Tier 2 #10) and `french-pastry-and-patisserie` (Tier 2 #3) → **PR #10**. Tier 2 rows already built and on PR #7: `windsurfing-and-wing-foil` (#1), `classical-french-cuisine` (#2). **So the next unbuilt Tier 2 row is #4 `bread-and-boulangerie`.**
+
 **✅ TIER 1 IS COMPLETE — all four are built and waiting on Arnaud's merge, none are on `main` yet.**
 `pottery-and-ceramics` → **PR #9**. `new-basque-cuisine`, `italian-cuisine-and-pasta`, `chocolate-and-confectionery` → **PR #7**. Do not rebuild any of them. Until those PRs merge, every one of them will keep *looking* thin on `main` — that is the whole reason this block exists.
 
@@ -90,6 +92,41 @@ the way the letters' order is.
 technique honestly — it does NOT mean skip verifying the schools, named teachers, and credentials on the
 sheet. Every claim still needs a real, checkable source. If a fact can't be verified, say so on the sheet
 rather than asserting it because it "sounds right" for the craft.
+
+### ⭐⭐ VOICE — SET BY ARNAUD, 2026-08-06. THE ATLAS NEVER TALKS ABOUT ARNAUD.
+
+His words: *"claim nothing about me — the skills are for the Circle. I would always talk about me in the
+letters, not in the Atlas, nor skill sheets."*
+
+**This supersedes the older "Trust — first person, Arnaud's voice" line in the locked standard, and it
+applies to EVERY sheet, every tier.** A skill sheet exists to serve the reader deciding where to go. The
+founder's story is the *letters'* job. Keeping them separate is the point: the letters earn trust by being
+personal, the Atlas earns it by being checkable.
+
+**Two different things, do not confuse them:**
+
+- **Register — KEEP.** Plain, concrete, short sentences; direct address to "you"; no hype, no
+  AI-polish, no brochure. The cadence of the letters in `marketing/circle/` is still the model. That is
+  what "his voice" means here.
+- **Biography — REMOVE ENTIRELY.** No "I'm Arnaud." No credentials, no years on the water, no "I cook for
+  a living," no "this isn't my craft," no first-person experience of any kind. **Not even the true ones.**
+
+**Write the sheet as EducatedTraveler — "we".** "We check." "We'd send you." "We introduce; you decide."
+Already the house voice everywhere else on the site.
+
+**The Trust section stays** — it is one of the most valuable blocks on the page — it just stops being a
+bio. Rewrite its heading to **"What we check before we send you anywhere"** and its intro to the standard
+being applied, not the person applying it. Example of the target:
+
+> Every place on this Atlas is checked by hand before it goes on the map. Here's the bar it has to clear —
+> and what we'll tell you straight when it doesn't.
+
+Keep every existing bullet, converted to "we". **"Nobody pays to be here"** stays exactly as it is: that is
+a fact about EducatedTraveler, not a claim about a person.
+
+**And the old fabrication guardrail now has nothing to bite on, which is the point:** with no first-person
+experience on the page there is no biography to invent. If a draft ever seems to *need* a personal story to
+land, that is a signal the material belongs in a letter — say so in the PR rather than writing it in.
 
 ## TIER 3 — LIVE CIRCLE DEMAND — RUNS ALONGSIDE TIER 2, NEVER BEHIND IT
 

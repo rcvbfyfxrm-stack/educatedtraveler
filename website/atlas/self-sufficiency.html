@@ -239,7 +239,7 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
     <div class="gate">
       <div class="h">⚠ The catch, said three ways</div>
       <p><b>It's immersion, not a certificate.</b> You pay a modest daily contribution that covers your food and lodging, you give your hands to the work, and you leave with skill — not a diploma.</p>
-      <p><b>There is no single named master.</b> Sunseed is a collective, taught by rotating coordinators. On any other sheet I'd call that a miss against our bar. Here it's the point: the teacher for <em>this</em> craft is a functioning community — the exact thing Seymour said you were aiming for.</p>
+      <p><b>There is no single named master.</b> Sunseed is a collective, taught by rotating coordinators. On any other sheet that would be a miss against our bar. Here it's the point: the teacher for <em>this</em> craft is a functioning community — the exact thing Seymour said you were aiming for.</p>
       <p><b>It's in Almería, not yet Catalonia.</b> A real haul from where you might one day plant roots. Think of it as the training ground before the home.</p>
     </div>
     <p class="future"><b>In your future</b>You walk away knowing soil, water, growing, and safe preserving in your hands — and, just as much, how a self-sustaining community actually runs day to day. No one hands you a farm or a living; but this is the ground you'd build one on, or join one with.</p>
@@ -298,13 +298,13 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 <!-- §5 trust -->
 <section class="trust"><div class="wrap">
   <div class="eyebrow">Why you can trust this page</div>
-  <h2 class="serif" style="font-size:22px">What I check before I send you anywhere</h2>
-  <p style="font-size:15px">I'm Arnaud. I built the Atlas because I got tired of good-looking websites that turn out to be nothing. Here's the bar a place has to clear — and what I'll tell you straight when it doesn't.</p>
+  <h2 class="serif" style="font-size:22px">What we check before we send you anywhere</h2>
+  <p style="font-size:15px">This Atlas exists because too many good-looking websites turn out to be nothing. Here's the bar a place has to clear — and what we'll tell you straight when it doesn't.</p>
   <ul>
     <li><b>The craft is actually alive there</b> — a working scene doing the real thing daily, not a demo for visitors.</li>
-    <li><b>There's a real teacher and an honest credential</b> — and I say which kind. Here, plainly: you leave with skill, not a diploma, and the "teacher" is a whole community.</li>
-    <li><b>I tell you how sure I am</b>, and I don't hide the catch — here, that one route hands you skill but no certificate, the other a certificate but not in Spain.</li>
-    <li><b>Nobody pays to be here.</b> If I wouldn't send a friend, it isn't on the map.</li>
+    <li><b>There's a real teacher and an honest credential</b> — and we say which kind. Here, plainly: you leave with skill, not a diploma, and the "teacher" is a whole community.</li>
+    <li><b>We tell you how sure we are</b>, and we don't hide the catch — here, that one route hands you skill but no certificate, the other a certificate but not in Spain.</li>
+    <li><b>Nobody pays to be here.</b> If we wouldn't send a friend, it isn't on the map.</li>
   </ul>
 </div></section>
 
@@ -324,6 +324,9 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="/js/supabase-config.js"></script>
+<!-- Someone already in the Circle should not be invited to join it: this turns
+     the closing call-to-action into "Your portrait". No-op for a visitor. -->
+<script src="/js/member-nav.js" defer></script>
 <!-- et-nav-auth-toggle -->
 <script>
 (function(){
