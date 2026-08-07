@@ -1299,6 +1299,21 @@
   }
   window.openEnrich=function(){ showEnrich(true); };
 
+  // Arriving on "#add" (from /you's "Add to your portrait") must land ON the deeper
+  // questions, not on the sealed screen with them one more click away. boot() decides
+  // which panel shows and runs async, so wait for the done state to actually appear
+  // before overriding it — otherwise finish() would close what we just opened.
+  (function(){
+    if(!/(^|[#?&])add\b/.test(location.hash) && location.search.indexOf('add=1')<0) return;
+    var tries=0;
+    (function w(){
+      var d=$('done');
+      if(d && d.classList.contains('show')){ showEnrich(true); return; }
+      if(tries++>100) return;          // ~5s: they are not a sealed member, leave the flow alone
+      setTimeout(w,50);
+    })();
+  })();
+
   // Light class-match: if their crafts touch the kitchen, surface the coming week.
   function renderClassMatch(interests){
     var slot=$('class-match'); if(!slot) return;

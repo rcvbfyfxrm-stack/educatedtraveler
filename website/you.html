@@ -91,6 +91,44 @@
                  background:none; border:none; cursor:pointer; padding:0 0 0 2px; line-height:1; }
         .tag .x:hover{ color:var(--ember); }
 
+        /* recommendations — a row you can act on, not a wall of chips */
+        .rec{ display:flex; align-items:center; gap:14px; padding:13px 15px; margin-top:10px;
+              border:1px solid rgba(243,237,226,0.07); border-radius:12px; background:rgba(243,237,226,0.015);
+              transition:border-color .2s, background .2s; }
+        .rec:hover{ border-color:rgba(127,168,165,0.32); background:rgba(127,168,165,0.05); }
+        .rec .body{ flex:1; min-width:0; }
+        .rec .t{ font-size:14.5px; color:var(--paper); text-decoration:none; }
+        .rec .t:hover{ color:var(--sea); }
+        .rec .why{ font-size:11.5px; color:var(--faint); margin-top:3px; font-family:'IBM Plex Mono',monospace;
+                   letter-spacing:0.04em; }
+        .rec .add{ flex:0 0 auto; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.12em;
+                   text-transform:uppercase; color:var(--sea); background:rgba(127,168,165,0.10);
+                   border:1px solid rgba(127,168,165,0.34); border-radius:99px; padding:8px 14px; cursor:pointer;
+                   transition:all .18s; }
+        .rec .add:hover{ background:rgba(127,168,165,0.2); color:var(--paper); }
+        .rec .add[disabled]{ opacity:.5; cursor:default; }
+        .rec .add.done{ border-color:rgba(210,138,82,0.4); background:rgba(210,138,82,0.13); color:var(--ember); }
+
+        /* what they're after — a plain two-column read-back */
+        .want{ display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+        .want:last-child{ border-bottom:none; }
+        .want .k{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
+                  color:var(--faint); flex:0 0 40%; }
+        .want .v{ color:var(--paper); font-size:14.5px; }
+
+        /* the portrait's completeness — an invitation, never a scold */
+        .meter{ height:3px; background:rgba(243,237,226,0.09); border-radius:3px; overflow:hidden; margin-bottom:12px; }
+        .meter i{ display:block; height:100%; width:0;
+                  background:linear-gradient(90deg,var(--sea),var(--ember)); transition:width 1.1s cubic-bezier(.2,.7,.3,1); }
+        .gap{ display:flex; align-items:center; gap:12px; padding:11px 14px; margin-top:8px; text-decoration:none;
+              border:1px solid rgba(243,237,226,0.07); border-radius:12px; background:rgba(243,237,226,0.015);
+              transition:border-color .2s, background .2s; }
+        .gap:hover{ border-color:rgba(127,168,165,0.32); background:rgba(127,168,165,0.05); }
+        .gap .d{ flex:0 0 auto; width:6px; height:6px; border-radius:50%; background:rgba(243,237,226,0.22); }
+        .gap .g{ flex:1; font-size:14px; color:var(--muted); }
+        .gap:hover .g{ color:var(--paper); }
+        .gap .arrow{ color:var(--sea); font-size:13px; }
+
         /* past classes */
         .past{ border:1px solid rgba(243,237,226,0.06); background:rgba(243,237,226,0.015);
                border-radius:12px; padding:13px 15px; margin-top:10px; }
@@ -202,11 +240,26 @@
                 <a href="/atlas/">Go wander &rarr;</a></p>
         </section>
 
+        <!-- WHAT YOU MIGHT LIKE — drawn from the crafts above, never from thin air -->
+        <section class="blk" id="s-recs" style="display:none;">
+            <span class="lbl">What you might like</span>
+            <h2 class="serif">Near what you've already named.</h2>
+            <p class="note" style="margin-bottom:4px;">Save one and it joins your place &mdash; and what I suggest next moves with it.</p>
+            <div id="recs"></div>
+        </section>
+
         <!-- CLASSES FOLLOWED (experience_interests) -->
         <section class="blk" id="s-follow" style="display:none;">
             <span class="lbl">Classes you follow</span>
             <h2 class="serif">You'll hear about these first.</h2>
             <div class="tags" id="follow"></div>
+        </section>
+
+        <!-- WHAT THEY WANT — the deeper answers from /portrait's "add to your portrait" -->
+        <section class="blk" id="s-wants" style="display:none;">
+            <span class="lbl">What you're after</span>
+            <h2 class="serif">How the week should fit you.</h2>
+            <div id="wants"></div>
         </section>
 
         <!-- PAST CLASSES (prior_experiences) -->
@@ -224,8 +277,16 @@
             </div>
         </section>
 
+        <!-- WHAT'S STILL BLANK — the portrait is a thing you develop, not a form you filed -->
+        <section class="blk" id="s-more" style="display:none;">
+            <span class="lbl">Your portrait, so far</span>
+            <div class="meter"><i id="meter-fill"></i></div>
+            <p class="note" id="meter-note" style="margin-bottom:14px;"></p>
+            <div id="gaps"></div>
+        </section>
+
         <div class="actions">
-            <a class="go" href="/portrait">Add to your portrait &rarr;</a>
+            <a class="go" href="/portrait#add">Add to your portrait &rarr;</a>
             <a class="go" href="/atlas/">Wander the Atlas &rarr;</a>
             <a class="go" id="crew-link" href="#" style="display:none;">See your crew card &rarr;</a>
         </div>
@@ -267,7 +328,7 @@
         var ix = window.ET_ATLAS_INDEX;
         if(!ix || !ix.crafts) return;
         ix.crafts.forEach(function(c){
-            var e = { id:c.id, name:c.name, open:!!c.open };
+            var e = { id:c.id, name:c.name, open:!!c.open, world:c.world, rank:c.rank, rankLabel:c.rankLabel };
             BY_ID[c.id] = e;
             BY_NAME[String(c.name||'').toLowerCase()] = e;
         });
@@ -283,6 +344,27 @@
     }
 
     var sb=null, uid=null;
+    var CRAFT_IDS = [];   // catalogue ids of the crafts they named in the Circle
+    var SAVED_IDS = [];   // catalogue ids of the skills they saved from the Atlas
+
+    // Saved skills and the suggestions are one loop: what they keep feeds what comes
+    // next. Re-read rather than patch in place, so the page always shows the truth
+    // in the table even if a write half-failed.
+    async function refreshSavedAndRecs(){
+        var rows = [];
+        try{
+            var sv = await sb.from('saved_adventures')
+                .select('adventure_id,adventure_name,saved_at')
+                .eq('user_id', uid).like('adventure_id','skill:%')
+                .order('saved_at',{ascending:false});
+            rows = (sv && sv.data) || [];
+        }catch(e){ rows = []; }
+        SAVED_IDS = rows.map(function(r){ return String(r.adventure_id||'').replace(/^skill:/,''); });
+        renderSaved(rows);
+        // seed on everything they have shown a preference for; exclude what they already have
+        var seeds = CRAFT_IDS.concat(SAVED_IDS).filter(function(v,i,a){ return a.indexOf(v)===i; });
+        renderRecs(seeds, seeds);
+    }
 
     // ── the member's place ───────────────────────────────────────────────
     async function render(session){
@@ -292,7 +374,8 @@
         var p = null;
         try{
             var r = await sb.from('profiles').select(
-                'first_name,name,avatar_url,location,profession,interests,dream_letter,visibility,portrait_complete,portrait_completed_at,created_at'
+                'first_name,name,avatar_url,location,profession,interests,dream_letter,visibility,portrait_complete,'
+                + 'portrait_completed_at,created_at,budget,preferences,reach,what_matters,availability,preferred_duration'
             ).eq('id', uid).maybeSingle();
             p = r && r.data ? r.data : null;
         }catch(e){}
@@ -342,14 +425,11 @@
             $('crafts-empty').style.display='block';
         }
 
+        // the crafts they named, as catalogue ids — the seed for everything below
+        CRAFT_IDS = crafts.map(sheetFor).filter(Boolean).map(function(s){ return s.id; });
+
         // Skills saved from the Atlas — owner-only by RLS
-        try{
-            var sv = await sb.from('saved_adventures')
-                .select('adventure_id,adventure_name,saved_at')
-                .eq('user_id', uid).like('adventure_id','skill:%')
-                .order('saved_at',{ascending:false});
-            renderSaved((sv && sv.data) || []);
-        }catch(e){ renderSaved([]); }
+        await refreshSavedAndRecs();
 
         // Classes they follow
         try{
@@ -376,6 +456,10 @@
             $('s-letter').style.display='block';
         }
 
+        // The deeper answers, read back, and what is still blank
+        renderWants(p);
+        renderProgress(p, SAVED_IDS.length);
+
         // Their public crew card, if they chose to be seen
         if(p.visibility === 'public'){
             var cl = $('crew-link');
@@ -388,7 +472,10 @@
 
     function renderSaved(list){
         var box = $('saved');
-        if(!list.length){ $('saved-empty').style.display='block'; return; }
+        // re-rendered every time a save lands, so both states must be reset, not just set
+        $('saved-empty').style.display = list.length ? 'none' : 'block';
+        box.innerHTML = '';
+        if(!list.length) return;
         box.innerHTML = list.map(function(s){
             var slug = String(s.adventure_id||'').replace(/^skill:/,'');
             var sheet = BY_ID[slug] || null;
@@ -407,11 +494,40 @@
                 try{
                     var res = await sb.from('saved_adventures').delete().eq('user_id', uid).eq('adventure_id', id);
                     if(res && res.error) throw res.error;
-                    chip.remove();
-                    if(!box.children.length) $('saved-empty').style.display='block';
+                    // dropping one is a preference too — let the suggestions follow it
+                    await refreshSavedAndRecs();
                 }catch(e){ btn.disabled = false; }
             });
         });
+    }
+
+    // The deeper answers, in the same words the questions offered — a member who
+    // filled them in on /portrait must SEE them here, or the page has quietly lost
+    // their work. Labels mirror portrait.html's OPTS / GRADIENTS exactly.
+    var WANT_LABELS = {
+        budget: { 'under-1k':'Under €1,000', '1-2k':'€1,000–2,000', '2-3.5k':'€2,000–3,500',
+                  '3.5k-plus':'€3,500+', 'right-one':'Whatever the right one costs' },
+        group:  { 'intimate':'Small & intimate', 'cohort':'A proper cohort', 'either':'No preference' },
+        intensity: { 'gentle':'Gentle & deep', 'balanced':'Balanced', 'all-in':'All-in, intensive' },
+        want:   { 'craft':'The craft itself', 'people':'The people around it',
+                  'place':'The place it lives', 'change':'To come back changed' }
+    };
+    function renderWants(p){
+        var pref = (p.preferences && typeof p.preferences==='object') ? p.preferences : {};
+        var rows = [
+            ['What you\'d give',   WANT_LABELS.budget[p.budget] || p.budget],
+            ['The room you\'d want', WANT_LABELS.group[pref.group] || pref.group],
+            ['How hard you\'d push', WANT_LABELS.intensity[pref.intensity] || pref.intensity],
+            ['What you\'re really after', WANT_LABELS.want[pref.want] || pref.want],
+            ['How far you\'d travel', p.reach],
+            ['When you could go', p.availability],
+            ['How long', p.preferred_duration]
+        ].filter(function(r){ return r[1]; });
+        if(!rows.length) return;
+        $('wants').innerHTML = rows.map(function(r){
+            return '<div class="want"><span class="k">'+esc(r[0])+'</span><span class="v">'+esc(r[1])+'</span></div>';
+        }).join('');
+        $('s-wants').style.display='block';
     }
 
     function renderFollow(list){
@@ -435,25 +551,176 @@
         $('s-past').style.display='block';
     }
 
-    // ── signed out: a magic link back in ─────────────────────────────────
+    // ── what you might like ──────────────────────────────────────────────
+    // Honest by construction: every suggestion is scored against crafts THEY named
+    // or saved, and each one shows which craft it came from. No taste model, no
+    // invented affinity — the words are the Atlas's own, so a suggestion can always
+    // be explained in one line. Saving one re-runs the scoring, so the list moves
+    // with them; that is the whole "algorithm".
+    var STOP = 'the a an and or of to in on at for with from you your is are be it this that its as by not but who what where how learn learns learning week weeks day days here'.split(' ');
+    var STOPSET = {}; STOP.forEach(function(w){ STOPSET[w]=1; });
+    var TOKENS = null, DF = null;
+    function buildCorpus(){
+        if(TOKENS) return;
+        TOKENS = {}; DF = {};
+        var ix = window.ET_ATLAS_INDEX;
+        if(!ix || !ix.crafts) { TOKENS = {}; return; }
+        ix.crafts.forEach(function(c){
+            var words = String((c.blurb||'')+' '+(c.name||'')).toLowerCase().match(/[a-z]{4,}/g) || [];
+            var set = {};
+            words.forEach(function(w){ if(!STOPSET[w]) set[w]=1; });
+            TOKENS[c.id] = set;
+            Object.keys(set).forEach(function(w){ DF[w] = (DF[w]||0)+1; });
+        });
+    }
+    // rarer shared words say more: "spearfishing" beats "school"
+    function similarity(aId, bId){
+        var A = TOKENS[aId], B = TOKENS[bId];
+        if(!A || !B) return 0;
+        var total = (window.ET_ATLAS_INDEX.crafts||[]).length || 1, s = 0;
+        Object.keys(A).forEach(function(w){ if(B[w]) s += Math.log(total/(1+(DF[w]||0))); });
+        return s;
+    }
+    function recommend(seedIds, excludeIds, n){
+        buildCorpus();
+        var ix = window.ET_ATLAS_INDEX;
+        if(!ix || !ix.crafts || !seedIds.length) return [];
+        var seedWorlds = {};
+        seedIds.forEach(function(id){ var e=BY_ID[id]; if(e && e.world) seedWorlds[e.world]=1; });
+        var out = ix.crafts.filter(function(c){ return excludeIds.indexOf(c.id)<0; }).map(function(c){
+            // Score against every seed, but attribute only to a seed in the SAME world.
+            // Otherwise a stray word shared between two blurbs produces "Perfumery,
+            // near Freediving" — a suggestion we cannot honestly explain. Same-world
+            // seeds win attribution even when a cross-world seed scores higher on text.
+            var best = 0, via = null, bestSame = 0, viaSame = null;
+            seedIds.forEach(function(s){
+                var v = similarity(s, c.id);
+                if(v > best){ best = v; via = s; }
+                var e = BY_ID[s];
+                if(e && e.world === c.world && v >= bestSame){ bestSame = v; viaSame = s; }
+            });
+            return { craft:c, via: viaSame || via, sameWorld: !!viaSame,
+                     score: best + (seedWorlds[c.world] ? 6 : 0) + (c.open ? 5 : 0) + (c.rank||0) };
+        }).sort(function(a,b){ return b.score - a.score; });
+        // never let one interest fill the whole list — two per seed, at most
+        var perSeed = {}, picked = [];
+        out.forEach(function(r){
+            if(picked.length >= n) return;
+            var k = r.via || '_';
+            if((perSeed[k]||0) >= 2) return;
+            perSeed[k] = (perSeed[k]||0)+1;
+            picked.push(r);
+        });
+        return picked;
+    }
+    function renderRecs(seedIds, excludeIds){
+        var picks = recommend(seedIds, excludeIds, 4);
+        if(!picks.length) return;
+        $('recs').innerHTML = picks.map(function(r){
+            var c = r.craft, viaName = r.via && BY_ID[r.via] ? BY_ID[r.via].name : null;
+            // only claim nearness when it is true; otherwise say the plain thing
+            var why = [ (viaName && r.sameWorld) ? 'Near ' + viaName : null,
+                        c.open ? 'Open now' : null, c.rankLabel || null ].filter(Boolean).join('  ·  ');
+            return '<div class="rec" data-id="'+esc(c.id)+'" data-name="'+esc(c.name)+'">'
+                + '<div class="body"><a class="t" href="/atlas/'+encodeURIComponent(c.id)+'">'+esc(c.name)+'</a>'
+                + '<div class="why">'+esc(why)+'</div></div>'
+                + '<button class="add" type="button">Save</button></div>';
+        }).join('');
+        $('s-recs').style.display='block';
+        $('recs').querySelectorAll('.add').forEach(function(btn){
+            btn.addEventListener('click', async function(){
+                var row = btn.closest('.rec'), id = row.getAttribute('data-id'), name = row.getAttribute('data-name');
+                btn.disabled = true; btn.textContent = 'Saving';
+                try{
+                    var res = await sb.from('saved_adventures').upsert(
+                        { user_id: uid, adventure_id: 'skill:'+id, adventure_name: name },
+                        { onConflict: 'user_id,adventure_id' });
+                    if(res && res.error) throw res.error;
+                    btn.textContent = 'Saved'; btn.classList.add('done');
+                    // it is theirs now: show it above, and let it shape what comes next
+                    await refreshSavedAndRecs();
+                }catch(e){ btn.disabled = false; btn.textContent = 'Save'; }
+            });
+        });
+    }
+
+    // ── how far along the portrait is ────────────────────────────────────
+    // A portrait is something you develop, so name what is still blank and make each
+    // blank a door. Never a scold: the copy stays an invitation.
+    function renderProgress(p, nSaved){
+        var pref = (p.preferences && typeof p.preferences==='object') ? p.preferences : {};
+        var items = [
+            { has: !!p.avatar_url,   label:'Put a face to the name',            href:'/portrait#add' },
+            { has: !!(p.interests && Object.keys(p.interests).length), label:'Name a craft you\'d give a week to', href:'/portrait' },
+            { has: nSaved > 0,       label:'Save a skill from the Atlas',       href:'/atlas/' },
+            { has: !!p.budget,       label:'Say what the right week is worth',  href:'/portrait#add' },
+            { has: !!pref.group,     label:'Choose the room you\'d want',       href:'/portrait#add' },
+            { has: !!pref.intensity, label:'Say how hard you\'d push',          href:'/portrait#add' },
+            { has: !!pref.want,      label:'Say what you\'re really after',     href:'/portrait#add' },
+            { has: !!p.dream_letter, label:'Write me the letter',               href:'/portrait' }
+        ];
+        var done = items.filter(function(i){ return i.has; }).length;
+        var pct = Math.round(done / items.length * 100);
+        var gaps = items.filter(function(i){ return !i.has; });
+        $('meter-note').textContent = gaps.length
+            ? 'Drawn in ' + done + ' of ' + items.length + ' strokes. The rest whenever you like — each one makes the week fit better.'
+            : 'Every stroke drawn. When the right week appears, I already know it is yours.';
+        $('gaps').innerHTML = gaps.map(function(g){
+            return '<a class="gap" href="'+g.href+'"><span class="d"></span><span class="g">'+esc(g.label)+'</span>'
+                 + '<span class="arrow">&rarr;</span></a>';
+        }).join('');
+        $('s-more').style.display='block';
+        // paint after the section is visible so the bar animates rather than jumps
+        setTimeout(function(){ $('meter-fill').style.width = pct + '%'; }, 60);
+    }
+
+    // ── signed out: say whether they're already in, THEN act ─────────────
+    // check-email is the read-only membership probe /circle already uses. Asking it
+    // first means we can tell someone "you already have an account" instead of
+    // silently mailing a link and leaving them to guess which of the two they are.
+    async function isMember(email){
+        try{
+            var r = await sb.functions.invoke('check-email', { body:{ email: email } });
+            if(r && r.data && typeof r.data.member === 'boolean') return r.data.member;
+        }catch(e){}
+        return null;   // unknown — never guess "no account" at someone who has one
+    }
+
     $('send-link').addEventListener('click', async function(){
         var btn=this, email=$('f_email').value.trim(), err=$('out-err');
         err.style.display='none';
         if(!email || email.indexOf('@')<1){ err.textContent='I need an email address to send the link to.'; err.style.display='block'; return; }
         if(!sb){ err.textContent='Couldn’t connect just now — try again in a minute.'; err.style.display='block'; return; }
-        btn.disabled=true; btn.innerHTML='Sending <span class="spin"></span>';
+        btn.disabled=true; btn.innerHTML='Checking <span class="spin"></span>';
+
+        var member = await isMember(email);
+        if(member === false){
+            // No account under that address. Sending a link would be a dead end —
+            // shouldCreateUser:false means it would never arrive.
+            btn.disabled=false; btn.innerHTML='Send me the link →';
+            err.innerHTML='No account under that address yet. '
+                + '<a href="/circle" style="color:var(--sea)">Take your place in the Circle</a> and it founds one — '
+                + 'or write me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
+            err.style.display='block';
+            return;
+        }
+
+        btn.innerHTML='Sending <span class="spin"></span>';
         try{
             // shouldCreateUser:false — this link signs an existing member in. Joining
             // happens in the Circle, where the questions are asked.
             var res = await sb.auth.signInWithOtp({ email: email,
                 options:{ emailRedirectTo: window.location.origin + '/you', shouldCreateUser: false } });
             if(res && res.error) throw res.error;
-            $('out-sent').textContent = 'Sent. Open the link in that email and you’re in.';
+            $('out-sent').innerHTML = member
+                ? '<b>You already have an account.</b> I’ve sent a link to that address — one click and you’re '
+                  + 'straight into your place. No password, ever, so the link is the only door on a new browser.'
+                : 'Sent. Open the link in that email and you’re in.';
             $('out-sent').style.display='block';
             btn.style.display='none';
         }catch(e){
             btn.disabled=false; btn.innerHTML='Send me the link →';
-            err.innerHTML='I couldn’t find that address in the Circle — <a href="/circle" style="color:var(--sea)">take your place first</a>, '
+            err.innerHTML='Couldn’t send that just now — try again in a minute, '
                 + 'or write me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
             err.style.display='block';
         }
