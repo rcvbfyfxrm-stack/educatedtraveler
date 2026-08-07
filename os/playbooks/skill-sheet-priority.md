@@ -124,6 +124,24 @@ being applied, not the person applying it. Example of the target:
 Keep every existing bullet, converted to "we". **"Nobody pays to be here"** stays exactly as it is: that is
 a fact about EducatedTraveler, not a claim about a person.
 
+### ⚠ ONE CARVE-OUT — THE LETTER BLOCK ON LOCKED PAGES IS NOT SWEPT
+
+Locked catalogue pages (the ones that haven't been unlocked yet) carry a first-person block that is
+**deliberately Arnaud's and must stay exactly as written**:
+
+> *"I open a craft on the Atlas when a member writes to me about it, and not before. … Write me a letter
+> about X. Not a form — a letter, and I read every one myself. … I'm the only one who reads it."*
+
+That is **not a claim about him — it is an invitation to write to him**, and it is the mechanism that turns
+a locked page into a Circle relationship. "I read every one myself" is a promise; converting it to "we read
+every one" would break the promise and the page's whole purpose. **The letters are his channel — this block
+IS a letter.**
+
+**So the line is:** the *trust / credibility* block stops vouching with his biography (no "I cook for a
+living", no "fifteen years on the water"), because that is the Atlas claiming authority through a person.
+The *letter invitation* stays untouched, first person and all. When in doubt: **is it a credential, or is
+it an invitation?** Credentials go. Invitations stay.
+
 **And the old fabrication guardrail now has nothing to bite on, which is the point:** with no first-person
 experience on the page there is no biography to invent. If a draft ever seems to *need* a personal story to
 land, that is a signal the material belongs in a letter — say so in the PR rather than writing it in.
