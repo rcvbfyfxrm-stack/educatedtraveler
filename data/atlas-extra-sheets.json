@@ -48,7 +48,13 @@
       "country": "Japan",
       "communityRank": 4,
       "communityLabel": "Thriving",
-      "nDest": 1
+      "nDest": 1,
+      "school": "Workshop Kurogane — Nobuya Hayashi",
+      "master": "Mitsunori Okada",
+      "why": "A working forge on the Shimanto river in Tosa blade country, where you forge, grind and harden your own blade in the quench — the part most places keep for themselves.",
+      "english": true,
+      "tripType": "Workshop",
+      "tripLength": "a day to six days"
     },
     {
       "id": "self-sufficiency",
@@ -59,7 +65,12 @@
       "country": "Spain",
       "communityRank": 3,
       "communityLabel": "Growing",
-      "nDest": 1
+      "nDest": 1,
+      "school": "Sunseed Desert Technology",
+      "why": "Sunseed isn't a course you attend; it's a small off-grid community you move into — and the living scene is the lesson, not a demonstration of one.",
+      "english": true,
+      "tripType": "Immersion",
+      "tripLength": "a fortnight to years"
     }
   ]
 }

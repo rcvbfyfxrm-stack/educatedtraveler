@@ -153,15 +153,15 @@ e = html.escape
 TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(--ink2)">
 <div class="wrap" style="max-width:720px">
 <div class="mono">Why you can trust this map</div>
-<h2 style="font-size:20px;margin:8px 0 14px">What I check before I send you anywhere</h2>
-<p style="opacity:.82;font-size:15px;margin-bottom:16px">I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — so I know the difference between a real school and a good-looking website. I built the Atlas because I got tired of the second kind. Here is what a place has to clear before it goes on here, and what I'll tell you straight when it doesn't.</p>
+<h2 style="font-size:20px;margin:8px 0 14px">What we check before we send you anywhere</h2>
+<p style="opacity:.82;font-size:15px;margin-bottom:16px">This Atlas exists because there is a real difference between a school that teaches you and a good-looking website — and too much of the internet is the second kind. Here is what a place has to clear before it goes on here, and what we'll tell you straight when it doesn't.</p>
 <ul class="clean" style="font-size:14.5px">
 <li><strong style="font-weight:500">The craft is actually alive there.</strong> A working scene, with people who do this every day — not a demo put on for visitors.</li>
 <li><strong style="font-weight:500">There's a real teacher behind it.</strong> Named, still practising, and certified where the craft has certificates.</li>
-<li><strong style="font-weight:500">The credential is what it claims to be.</strong> A state diploma and a certificate a school prints itself are not the same thing. I check which, and I say which.</li>
-<li><strong style="font-weight:500">I tell you how sure I am.</strong> Most pages here are verified by hand. A few say "still checking" — I'd rather admit that than pretend.</li>
+<li><strong style="font-weight:500">The credential is what it claims to be.</strong> A state diploma and a certificate a school prints itself are not the same thing. We check which, and we say which.</li>
+<li><strong style="font-weight:500">We tell you how sure we are.</strong> Most pages here are verified by hand. A few say "still checking" — we'd rather admit that than pretend.</li>
 <li><strong style="font-weight:500">Nobody pays to be here.</strong> No commission, no selling the trip. The order on this map is the strength of the community, never the size of the wallet.</li>
-<li><strong style="font-weight:500">If I wouldn't send a friend, it isn't on the map.</strong></li>
+<li><strong style="font-weight:500">If we wouldn't send a friend, it isn't on the map.</strong></li>
 </ul>
 <details style="margin-top:18px">
 <summary style="cursor:pointer;color:var(--sea);font-size:14px">Before you trust any school — mine or anyone else's — ask these five things</summary>
@@ -899,13 +899,23 @@ for hc in HUB_CARDS:                       # crafts that live only as a hand-wri
                   "country": hc.get("country", ""), "rank": hc.get("communityRank", 0),
                   "rankLabel": hc.get("communityLabel", ""), "nDest": hc.get("nDest", 1),
                   "open": 1 if is_open(hc["id"]) else 0,
+                  # A hand-written sheet IS open, so its card prints the open layout —
+                  # "Our pick for this craft", the reason to go, the school. Those fields
+                  # have no repertoire.js row to come from, so they are transcribed into
+                  # the manifest from the sheet itself and carried through here. Before
+                  # this they were hard-coded empty, and the card claimed a pick while
+                  # showing neither a reason nor a place to go.
                   "dests": [{"id": hc["id"], "place": hc.get("place", ""),
                              "country": hc.get("country", ""), "region": "",
                              "rank": hc.get("communityRank", 0),
                              "rankLabel": hc.get("communityLabel", ""), "season": "",
-                             "role": "", "level": "", "tripTier": 0, "tripType": "",
-                             "tripLength": "", "english": False, "lang": "", "badges": [],
-                             "master": "", "why": "", "school": "", "nSchools": 0}]})
+                             "role": "", "level": hc.get("level", ""), "tripTier": 0,
+                             "tripType": hc.get("tripType", ""),
+                             "tripLength": hc.get("tripLength", ""),
+                             "english": bool(hc.get("english")), "lang": hc.get("lang", ""),
+                             "badges": [], "master": hc.get("master", ""),
+                             "why": hc.get("why", ""), "school": hc.get("school", ""),
+                             "nSchools": 1 if hc.get("school") else 0}]})
 CARDS.sort(key=lambda c: c["name"].lower())
 N_OPEN = sum(1 for c in CARDS if c["open"])
 
