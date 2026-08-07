@@ -1023,6 +1023,16 @@
             showDone('done');
             if(window.plausible) window.plausible('PortraitSealed');
         }
+        // A member who answered everything but never wrote the letter arrives here from
+        // /you straight onto the paper. Only the letter and the recap that seals it —
+        // re-asking the questions they already answered is the thing to avoid.
+        window.openLetter=function(){
+            var rail=$('card').querySelector('.rail'); if(rail) rail.style.display='none';
+            $('done').classList.remove('show');
+            var e=$('enrich'); if(e) e.classList.remove('show');
+            show(4);
+        };
+
         // From the done state a member can still open their portrait to add to it —
         // the questionnaire is a choice they make, never something the link forces.
         (function(){ var e=$('edit-portrait'); if(e) e.addEventListener('click', function(){ if(window.openEnrich){ window.openEnrich(); } else { show(1); } }); })();
@@ -1299,16 +1309,29 @@
   }
   window.openEnrich=function(){ showEnrich(true); };
 
-  // Arriving on "#add" (from /you's "Add to your portrait") must land ON the deeper
-  // questions, not on the sealed screen with them one more click away. boot() decides
-  // which panel shows and runs async, so wait for the done state to actually appear
-  // before overriding it — otherwise finish() would close what we just opened.
+  // Deep links from /you, so a member who has already answered lands on the ONE thing
+  // they came to do instead of walking the questionnaire again:
+  //   #add    → the deeper questions
+  //   #letter → the letter itself, the sheet of paper, nothing else
+  // boot() decides which panel shows and runs async, so wait for the done state to
+  // appear before overriding it — otherwise finish() would close what we just opened.
   (function(){
-    if(!/(^|[#?&])add\b/.test(location.hash) && location.search.indexOf('add=1')<0) return;
+    var wantAdd    = /(^|[#?&])add\b/.test(location.hash)    || location.search.indexOf('add=1')>=0;
+    var wantLetter = /(^|[#?&])letter\b/.test(location.hash) || location.search.indexOf('letter=1')>=0;
+    if(!wantAdd && !wantLetter) return;
     var tries=0;
     (function w(){
       var d=$('done');
-      if(d && d.classList.contains('show')){ showEnrich(true); return; }
+      if(d && d.classList.contains('show')){
+        if(wantLetter){
+          // openLetter is defined in the main script — it restores the beat flow so
+          // "Seal the letter" carries on to the recap and saves as it always does.
+          if(window.openLetter) window.openLetter();
+        } else {
+          showEnrich(true);
+        }
+        return;
+      }
       if(tries++>100) return;          // ~5s: they are not a sealed member, leave the flow alone
       setTimeout(w,50);
     })();
