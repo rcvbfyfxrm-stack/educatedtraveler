@@ -145,6 +145,31 @@
         .ecancel:hover{ color:var(--paper); }
         .estat{ font-size:12px; color:var(--faint); }
 
+        /* the coming week — one card, the facts owned by lab-weeks.js */
+        .week{ border:1px solid rgba(210,138,82,0.26); border-left:2px solid var(--ember); border-radius:0 14px 14px 0;
+               background:rgba(210,138,82,0.05); padding:18px 20px; }
+        .week .k{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
+                  color:var(--ember); margin-bottom:7px; }
+        .week .t{ font-family:'Fraunces',Georgia,serif; font-size:1.25rem; color:var(--paper); line-height:1.25; }
+        .week .m{ color:var(--muted); font-size:13.5px; margin-top:5px; }
+        .week .s{ color:var(--muted); font-size:14px; margin-top:10px; line-height:1.6; }
+        .week .n{ color:var(--faint); font-size:12.5px; margin-top:10px; line-height:1.55; font-style:italic; }
+        .week .go{ margin-top:12px; }
+        .week.yours{ border-color:rgba(127,168,165,0.4); border-left-color:var(--sea); background:rgba(127,168,165,0.06); }
+        .week.yours .k{ color:var(--sea); }
+
+        /* the composer */
+        .composer{ margin-top:16px; }
+        .clbl{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
+               color:var(--faint); display:block; margin:14px 0 7px; }
+        .composer input[type=text], .composer textarea{
+            width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16);
+            border-radius:12px; color:var(--paper); font-family:inherit; font-size:14.5px; padding:12px 14px;
+            outline:none; transition:border-color .25s, box-shadow .25s; }
+        .composer textarea{ resize:vertical; line-height:1.6; }
+        .composer input::placeholder, .composer textarea::placeholder{ color:rgba(243,237,226,0.28); }
+        .composer input:focus, .composer textarea:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+
         /* the letter, when it hasn't been written */
         .letter-ask{ border-left:2px solid var(--ember); background:rgba(210,138,82,0.05);
                      border-radius:0 12px 12px 0; padding:18px 20px; }
@@ -256,6 +281,13 @@
 
         <p class="standfirst" id="standfirst"></p>
 
+        <!-- THE WEEK THAT'S COMING — read from js/lab-weeks.js, the single source the
+             homepage and /lab-weeks already use. Never a second copy of the facts. -->
+        <section class="blk" id="s-week" style="display:none;">
+            <span class="lbl">The week that's coming</span>
+            <div id="week"></div>
+        </section>
+
         <!-- THE CRAFTS THEY NAMED (profiles.interests, from the Circle) -->
         <section class="blk" id="s-crafts">
             <span class="lbl">The crafts you named</span>
@@ -326,6 +358,35 @@
             </div>
         </section>
 
+        <!-- WRITE TO ARNAUD ABOUT ANY CRAFT — the craft-sheet letter, brought here, with
+             everything we already know about them filled in. Same table, same source, same
+             notification: writing from your own page must reach him exactly as it does
+             from a sheet in the Atlas. -->
+        <section class="blk" id="s-write">
+            <span class="lbl">Write to me</span>
+            <h2 class="serif">About any craft &mdash; open or not.</h2>
+            <p class="note">Name it and tell me what you'd want from it. If it's a craft the Atlas hasn't opened,
+                that's exactly the letter worth writing &mdash; it's how the next door gets chosen. Goes straight to me.</p>
+
+            <div class="composer" id="composer">
+                <label class="clbl" for="w_craft">The craft</label>
+                <input type="text" id="w_craft" list="w_crafts" placeholder="Freediving, or something the Atlas has never heard of" autocomplete="off">
+                <datalist id="w_crafts"></datalist>
+
+                <label class="clbl" for="w_body">What you'd want from it</label>
+                <textarea id="w_body" rows="5" placeholder="A few lines is plenty. Where you're at with it, and what a week of it would need to give you."></textarea>
+
+                <div class="erow">
+                    <button class="esave" type="button" id="w_send">Send it to Arnaud &rarr;</button>
+                    <span class="estat" id="w_stat"></span>
+                </div>
+                <p class="err" id="w_err" style="display:none;"></p>
+            </div>
+            <div class="letter-note" id="w_done" style="display:none;">
+                <p class="note" id="w_done_t"></p>
+            </div>
+        </section>
+
         <!-- WHAT'S STILL BLANK — the portrait is a thing you develop, not a form you filed -->
         <section class="blk" id="s-more" style="display:none;">
             <span class="lbl">Your portrait, so far</span>
@@ -357,6 +418,8 @@
      truth for which crafts have a sheet and which are open. A craft the member
      named in their own words has neither, and must never become a dead link. -->
 <script src="/js/atlas-index.js"></script>
+<!-- The Lab Weeks, owned by the homepage and /lab-weeks. This page reads, never restates. -->
+<script src="/js/lab-weeks.js"></script>
 <script>
 (function(){
     "use strict";
@@ -392,7 +455,7 @@
         return BY_ID[slug] || null;
     }
 
-    var sb=null, uid=null;
+    var sb=null, uid=null, SESSION_EMAIL='';
     var CRAFT_IDS = [];   // catalogue ids of the crafts they named in the Circle
     var SAVED_IDS = [];   // catalogue ids of the skills they saved from the Atlas
 
@@ -418,6 +481,7 @@
     // ── the member's place ───────────────────────────────────────────────
     async function render(session){
         uid = session.user.id;
+        SESSION_EMAIL = session.user.email || '';
         $('signout').style.display='inline-block';
 
         var p = null;
@@ -513,6 +577,11 @@
         PROFILE = p;
         renderWants();
         renderProgress(p, SAVED_IDS.length);
+
+        // The coming week, and the letter they can write about anything
+        renderWeek(crafts);
+        fillCraftList();
+        $('w_send').addEventListener('click', sendCraftLetter);
 
         // Their public crew card, if they chose to be seen
         if(p.visibility === 'public'){
@@ -812,6 +881,89 @@
                 }catch(e){ btn.disabled = false; btn.textContent = 'Save'; }
             });
         });
+    }
+
+    // ── the week that's coming ───────────────────────────────────────────
+    // Every fact here belongs to js/lab-weeks.js, which the homepage and /lab-weeks
+    // already read. Restating any of it in this file is how two pages start telling
+    // a member different things about the same week.
+    function renderWeek(crafts){
+        var weeks = window.LAB_WEEKS;
+        if(!Array.isArray(weeks) || !weeks.length) return;
+        var open = weeks.filter(function(w){ return w.status==='open' || w.status==='confirmed'; })[0];
+        var w = open || weeks.filter(function(w){ return w.status==='teaser'; })[0];
+        if(!w) return;
+
+        // Does it answer something they actually named? Only claim it when it is true.
+        var blob = (crafts||[]).join(' ').toLowerCase();
+        var mine = !!(open && w.world && blob && (
+            (w.world.toLowerCase().indexOf('kitchen')>=0 &&
+             /cuisine|cooking|culinary|pastry|patisserie|chef|sushi|bread|wine|coffee|fermentation|kitchen/.test(blob))
+        ));
+
+        var bits = [w.master, w.dates || w.when, w.place].filter(Boolean).map(esc).join('  ·  ');
+        $('week').innerHTML =
+            '<div class="week'+(mine?' yours':'')+'">'
+          + '<div class="k">'+(open ? (mine ? 'This one is near what you named' : 'Enrolment open') : 'Being chosen now')+'</div>'
+          + '<div class="t">'+esc(w.craft)+'</div>'
+          + (bits ? '<div class="m">'+bits+'</div>' : '')
+          + '<div class="s">'+esc(w.teaser||'')+'</div>'
+          + (w.note ? '<div class="n">'+esc(w.note)+'</div>' : '')
+          + (w.url ? '<a class="go" href="'+esc(w.url)+'">See the week &rarr;</a>'
+                   : '<a class="go" href="/lab-weeks">See what\'s coming &rarr;</a>')
+          + '</div>';
+        $('s-week').style.display='block';
+    }
+
+    // ── write to Arnaud about any craft ──────────────────────────────────
+    // Deliberately the SAME row shape and source as the letter on a craft sheet
+    // (launch_waitlist, "atlas-letter:<slug>"), so it reaches him through the
+    // notify-lead trigger that already exists and is acknowledged by the path
+    // circle-welcome already treats as a letter rather than a fresh signup.
+    // Nothing new is wired; the surface moved to where the member already is.
+    function fillCraftList(){
+        var ix = window.ET_ATLAS_INDEX, dl = $('w_crafts');
+        if(!ix || !ix.crafts || !dl) return;
+        dl.innerHTML = ix.crafts.map(function(c){ return '<option value="'+esc(c.name)+'">'; }).join('');
+    }
+
+    async function sendCraftLetter(){
+        var btn = $('w_send'), err = $('w_err'), stat = $('w_stat');
+        var craft = $('w_craft').value.trim(), body = $('w_body').value.trim();
+        err.style.display='none';
+        if(!craft && !body){ err.textContent='Tell me the craft, or just write — either is enough to start.'; err.style.display='block'; return; }
+        var email = (SESSION_EMAIL||'').trim();
+        if(!email){ err.textContent='I can’t tell who you are just now — reload and try again.'; err.style.display='block'; return; }
+
+        btn.disabled = true; stat.textContent = 'Sending…';
+        // known Atlas craft → carry its slug, exactly as a craft sheet does
+        var sheet = sheetFor(craft);
+        var interests = [{ kind:'profile', name: (PROFILE.first_name || PROFILE.name || '') }];
+        if(craft){
+            interests.push(sheet ? { kind:'discipline', discipline:craft, slug:sheet.id, label:craft }
+                                 : { kind:'discipline', discipline:craft });
+        }
+        interests.push({ kind:'dream', text: body });
+
+        try{
+            var res = await sb.from('launch_waitlist').insert({
+                email: email,
+                interests: interests,
+                source: sheet ? ('atlas-letter:'+sheet.id) : 'atlas-letter'
+            });
+            if(res && res.error) throw res.error;
+            if(window.plausible) window.plausible('MemberLetter', { props:{ skill: craft || 'unnamed' } });
+            $('composer').style.display='none';
+            $('w_done_t').textContent = craft
+                ? 'Your letter about ' + craft + ' is with me. I read every one myself, and I answer.'
+                : 'Your letter is with me. I read every one myself, and I answer.';
+            $('w_done').style.display='block';
+        }catch(e){
+            btn.disabled=false; stat.textContent='';
+            err.innerHTML='Couldn’t send that just now — try again in a minute, or write me at '
+                + '<a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
+            err.style.display='block';
+        }
     }
 
     // ── how far along the portrait is ────────────────────────────────────

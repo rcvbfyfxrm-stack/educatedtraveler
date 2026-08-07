@@ -549,6 +549,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
+    <!-- the Lab Weeks, for the class-match card below — read, never restated -->
+    <script src="/js/lab-weeks.js"></script>
 
     <script>
     (function(){
@@ -1338,21 +1340,37 @@
   })();
 
   // Light class-match: if their crafts touch the kitchen, surface the coming week.
+  //
+  // The facts — craft, master, dates, the refund promise — belong to js/lab-weeks.js,
+  // the source the homepage, /lab-weeks and /you all read. This block used to restate
+  // them inline, which is how a member could be told two different things about the
+  // same week depending on which page they were standing on. It now reads that source
+  // and falls back to a link, never to a remembered fact.
   function renderClassMatch(interests){
     var slot=$('class-match'); if(!slot) return;
     var blob=''; try{ blob=JSON.stringify(interests||'').toLowerCase(); }catch(e){}
     var culinary=/cuisine|cooking|culinary|pastry|patisserie|chef|kitchen|sushi|bread|boulangerie|wine|coffee|barista|modernist|basque/.test(blob);
-    if(culinary){
-      slot.innerHTML='<div class="cm"><div class="k">A week that fits you is coming</div>'+
-        '<div class="t">New culinary techniques & technologies — Martin Lippo, Barcelona</div>'+
-        '<div class="s">Five days in his laboratory this October — sous-vide, spheres, foams, liquid nitrogen. Built for working chefs first. The Circle hears first.</div>'+
-        '<a href="/barcelona">See the week &rarr;</a></div>';
-    } else {
+    var weeks = window.LAB_WEEKS || [];
+    var open = weeks.filter(function(w){ return w.status==='open' || w.status==='confirmed'; })[0];
+    var next = weeks.filter(function(w){ return w.status==='teaser'; })[0];
+    var esc2 = function(s){ return String(s==null?'':s).replace(/[&<>"]/g, function(c){
+        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+
+    var w = (culinary && open) ? open : (next || open);
+    if(!w){
       slot.innerHTML='<div class="cm"><div class="k">The next week is being chosen</div>'+
-        '<div class="t">Lab Week 02 — chosen by the Circle</div>'+
-        '<div class="s">The craft the most of you name is the door we knock on next. Yours is on the list.</div>'+
-        '<a href="/lab-weeks">See what’s coming &rarr;</a></div>';
+        '<div class="t">Lab Weeks</div><a href="/lab-weeks">See what’s coming &rarr;</a></div>';
+      return;
     }
+    var head = (w===open)
+      ? (culinary ? 'A week that fits you is coming' : 'Enrolment open')
+      : 'The next week is being chosen';
+    var line = [w.master, w.dates || w.when, w.place].filter(Boolean).map(esc2).join(' · ');
+    slot.innerHTML='<div class="cm"><div class="k">'+head+'</div>'+
+      '<div class="t">'+esc2(w.craft)+'</div>'+
+      (line ? '<div class="s" style="margin-top:2px">'+line+'</div>' : '')+
+      '<div class="s">'+esc2(w.teaser||'')+'</div>'+
+      '<a href="'+esc2(w.url||'/lab-weeks')+'">'+(w.url?'See the week':'See what’s coming')+' &rarr;</a></div>';
   }
 
   async function prefill(){
