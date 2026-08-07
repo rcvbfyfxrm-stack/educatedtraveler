@@ -1,0 +1,63 @@
+-- 037 — Stop the anon key handing out member email, phone and the letter (2026-08-07)
+--
+-- FOUND, empirically, against the live API — not inferred from the migration list:
+--
+--   GET /rest/v1/profiles?select=*   with the PUBLIC anon key   ->  200, 3 rows, 46 columns
+--
+-- and those columns include `email` (3 of 3 rows populated), `phone` (1 of 3) and
+-- `dream_letter` (1 of 3). The anon key ships in website/js/supabase-config.js by
+-- design, so this is readable by anyone who opens the site's JavaScript.
+--
+-- RLS is NOT broken here, which is why 027 did not close it and why reading the
+-- migration list is not evidence: the SELECT policy correctly limits anon to rows
+-- with visibility = 'public'. The bug is that "public" was taken to mean the whole
+-- ROW. A member choosing to be visible in the Circle is agreeing to show a crew
+-- card — a name, a face, the crafts they want. They are not agreeing to publish
+-- their email address, their phone number, or the private letter they wrote to
+-- Arnaud. That letter is documented as "private to Arnaud, no member-facing
+-- sharing" (PORTRAIT-HANDOFF) and /you deliberately never renders it back to its
+-- own author — a promise the API currently contradicts.
+--
+-- RLS cannot express this: policies filter ROWS, not COLUMNS. Column privileges
+-- can, so that is what this does.
+--
+-- ORDER MATTERS. Once a column is revoked, `select=*` FAILS for that role with
+-- "permission denied for column" — it does not silently omit it. Every anon-facing
+-- reader must therefore ask for named columns BEFORE this runs. website/profile.html
+-- (the public crew card) was the only one selecting '*' as anon and now names its
+-- twenty columns; community-sidebar.js and atlas-circle-interest.js already did.
+-- Deploy that site change first, or the crew card breaks the moment this applies.
+--
+-- SCOPE — deliberately anon only, and NOT the full fix:
+--   • It closes the open-internet hole: the public key stops returning contact
+--     details and letters. That is the part that scales with every new join.
+--   • It does NOT stop one signed-in member reading another public member's email
+--     or letter, because column privileges are role-wide and `authenticated` must
+--     keep reading its OWN row: /you and /portrait both select dream_letter for the
+--     author's own profile, and revoking it there would break them.
+--     Closing that second gap means moving self-reads of the sensitive columns to a
+--     SECURITY DEFINER RPC keyed on auth.uid() and then revoking from authenticated
+--     too. Worth doing; it is a bigger change and touches the Studio/admin surfaces
+--     (cmd.html and admin.html read email, and select '*'), so it is deliberately
+--     not bundled here.
+--   • `service_role` is untouched — every edge function keeps working. Verified
+--     separately: launch_waitlist already returns [] to anon, so the letters table
+--     itself is not exposed; this is only the copy that lands on profiles.
+
+revoke select (email, phone, dream_letter) on public.profiles from anon;
+
+-- Belt and braces: PostgREST reads privileges through the authenticator role, and a
+-- future GRANT SELECT on the whole table would silently re-open these three columns.
+-- Nothing here grants them back; if a later migration does, it must say why.
+
+-- ── PROVE IT, don't assume it ────────────────────────────────────────────────
+-- After applying, from a shell (the anon key is public, so this is safe to run):
+--
+--   K=<anon key from website/js/supabase-config.js>
+--   U=https://exaehwaqwcledemwpluw.supabase.co
+--   curl -s "$U/rest/v1/profiles?select=email" -H "apikey: $K" -H "Authorization: Bearer $K"
+--     expected: {"code":"42501", ... "permission denied for column email"}
+--   curl -s "$U/rest/v1/profiles?select=id,first_name,interests" -H "apikey: $K" -H "Authorization: Bearer $K"
+--     expected: 200 with rows — the crew card still works
+--   curl -s "https://educatedtraveler.app/profile?id=<a public member id>"
+--     expected: the card still renders (it names its columns)

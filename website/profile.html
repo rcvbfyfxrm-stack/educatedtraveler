@@ -362,9 +362,17 @@
             }
 
             try {
+                // Named columns, never '*'. Two reasons, and the second is the important one:
+                // a crew card has no business fetching a member's email, phone or the letter
+                // they wrote to Arnaud, and once the sensitive columns are revoked from the
+                // anon role a 'select=*' from this page would fail outright with "permission
+                // denied for column". Asking for exactly what is rendered keeps this page
+                // working through that change instead of breaking on it.
                 const { data, error } = await window.supabaseClient
                     .from('profiles')
-                    .select('*')
+                    .select('id,first_name,name,avatar_url,age,location,about,profession,'
+                          + 'adventure_years,previous_experience,skills,interests,credentials,'
+                          + 'existing_certs,fitness,comfort_zone,what_matters,languages,visible,visibility')
                     .eq('id', userId)
                     .single();
 

@@ -238,7 +238,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 </style>
 </head>
 <body>
-<!-- built 2026-08-06 · 29 of 112 crafts open · states from data/atlas-unlocked.json -->
+<!-- built 2026-08-07 · 29 of 112 crafts open · states from data/atlas-unlocked.json -->
 <nav class="top"><div class="row">
   <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
   <div class="links"><a class="join" href="/circle">Join the Circle</a></div>
@@ -554,8 +554,13 @@ var GLYPH={adventure:"△",culinary:"◇",creative:"□",movement:"▽",wellness
 var NAMED_PLATFORM=/google|tripadvisor|yelp|trustpilot|facebook/i;
 function gatedStar(r){if(r&&r.destId&&r.stars&&r.count&&Number(r.count)>=30&&NAMED_PLATFORM.test(r.source||""))return '<span class="goldstar">'+esc(String(r.stars))+'★ · '+Number(r.count).toLocaleString()+' · '+esc(r.source)+'</span>';return "";}
 function traditionTag(m){if(!m)return "";var t=/^lineage of\s+/i.test(m)?("in the lineage of "+m.replace(/^lineage of\s+/i,"")):("in the tradition of "+m);return '<div class="tradition">'+esc(t)+'</div>';}
-function fitCue(level){return levelBucket(level)==="beginner"?"Open to beginners":"For practitioners";}
-function cardFoot(o){var b=[fitCue(o.level)];if(o.tripType)b.push('~'+esc(o.tripType)+' · '+esc(o.tripLength)+' · est.');if(o.lang)b.push('Taught in '+esc(o.lang));return '<div class="cfoot">'+b.join(' · ')+'</div>';}
+// No level recorded is not the same as "Beginner" — levelBucket() defaults to
+// beginner, so an empty level used to print "Open to beginners", a fitness claim
+// nobody had checked. Say nothing instead. The .cfoot element itself always
+// ships, even empty: atlas-index-shim.js rewrites it to the "Ask me to open this
+// one →" line on unopened crafts, and every one of those has an empty level.
+function fitCue(level){return !level?"":levelBucket(level)==="beginner"?"Open to beginners":"For practitioners";}
+function cardFoot(o){var b=[],fc=fitCue(o.level);if(fc)b.push(fc);if(o.tripType)b.push('~'+esc(o.tripType)+' · '+esc(o.tripLength)+' · est.');if(o.lang)b.push('Taught in '+esc(o.lang));return '<div class="cfoot">'+b.join(' · ')+'</div>';}
 function hoverReveal(r){if(!r||!r.whyPick)return "";return '<div class="reveal-extra"><div class="dw-in"><div class="dw-why">“'+esc(r.whyPick)+'”</div>'+((r.stars&&r.source)?'<div class="prov">as cited on '+esc(r.source)+'</div>':'')+'</div></div>';}
 function cardData(world,disc,t,r){return {world:world,craft:disc.discipline,cred:credLabel(disc),master:(t.masters||[])[0]||"",why:t.why||"",school:(t.schoolsInfo&&t.schoolsInfo[0]&&t.schoolsInfo[0].name)||"",place:t.place||"",country:t.country||"",rank:t.communityRank||0,level:t.level||"",tripType:t.tripType||"",tripLength:t.tripLength||"",lang:t.instructionLanguage||"",isBest:BEST[disc.id]===t.id,r:(r&&r.destId===t.id)?r:null};}
 function cardInner(o){var g=GLYPH[o.world]||"○",star=gatedStar(o.r);
