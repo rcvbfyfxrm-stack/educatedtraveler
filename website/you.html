@@ -486,10 +486,11 @@
 
         var p = null;
         try{
-            var r = await sb.from('profiles').select(
-                'first_name,name,avatar_url,location,profession,interests,dream_letter,visibility,portrait_complete,'
-                + 'portrait_completed_at,created_at,budget,preferences,reach,what_matters,availability,preferred_duration'
-            ).eq('id', uid).maybeSingle();
+            // Their own row through get_my_profile(): dream_letter is no longer readable
+            // through the table (it is a private letter to Arnaud, and the anon key used
+            // to hand it out), and this page needs to know whether one exists in order to
+            // ask for it. Argument-free and keyed on auth.uid() — it can only be theirs.
+            var r = await sb.rpc('get_my_profile');
             p = r && r.data ? r.data : null;
         }catch(e){}
         p = p || {};

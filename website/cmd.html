@@ -1692,7 +1692,8 @@ CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
 
         let prof;
         try {
-            const res = await window.supabaseClient.from('profiles').select('is_admin, email').eq('id', user.id).single();
+            // own row, incl. email, via the RPC — email is no longer table-readable
+            const res = await window.supabaseClient.rpc('get_my_profile');
             prof = res.data;
         } catch (err) {
             return showDenied('Profile lookup failed. Refresh and try again.');
@@ -1726,7 +1727,11 @@ CTA        12 seats. September 21 — October 30. Apply at the link.</pre>
     async function loadLiveData() {
         const sb = window.supabaseClient;
         const queries = await Promise.all([
-            sb.from('profiles').select('id, email, first_name, name, age, location, profession, interests, created_at, xp, level, is_admin').order('created_at', { ascending: false }).limit(100),
+            // Every member's email: through admin_all_profiles(), which checks is_admin()
+            // inside the function. Reading it off the table relied on a SELECT grant that
+            // every signed-in member shared — which is what let one member read another's
+            // address and letter. Same data here, but the gate is real.
+            sb.rpc('admin_all_profiles'),
             sb.from('user_preferences').select('user_id, elements, desires, time_preference, intensity, updated_at'),
             sb.from('saved_adventures').select('user_id, adventure_id, adventure_name, saved_at').order('saved_at', { ascending: false }),
             sb.from('experience_interests').select('user_id, adventure_id, adventure_name, status, created_at').order('created_at', { ascending: false }),

@@ -1071,7 +1071,10 @@
                 // below still wins over all of this: it is the newer intent.
                 var portraitComplete = false;
                 try{
-                    var pr = await sb.from('profiles').select('first_name,profession,location,interests,status,previous_experience,availability,preferred_duration,reach,dream_letter,visibility,what_matters,portrait_complete').eq('id', userId).single();
+                    // Own row via the RPC — dream_letter is not readable through the table
+                    // any more (see migration 038), and prefilling the letter they already
+                    // wrote is the whole point of this read.
+                    var pr = await sb.rpc('get_my_profile');
                     if(pr && pr.data){
                         var d = pr.data;
                         portraitComplete = !!d.portrait_complete;
