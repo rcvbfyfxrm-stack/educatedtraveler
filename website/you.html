@@ -259,7 +259,7 @@
         <div style="max-width:340px;margin:22px auto 0;text-align:left;">
             <input type="email" id="f_email" placeholder="you@email.com" autocomplete="email" inputmode="email">
             <div style="text-align:center;"><button class="cta" id="send-link">Send me the link &rarr;</button></div>
-            <p class="err" id="out-err" style="display:none;"></p>
+            <p class="err" role="alert" aria-live="assertive" id="out-err" style="display:none;"></p>
             <p class="note" id="out-sent" style="display:none;margin-top:14px;text-align:center;"></p>
         </div>
         <p class="note" style="margin-top:26px;">Not in the Circle yet? <a href="/circle">Take your place &rarr;</a></p>
@@ -380,7 +380,7 @@
                     <button class="esave" type="button" id="w_send">Send it to Arnaud &rarr;</button>
                     <span class="estat" id="w_stat"></span>
                 </div>
-                <p class="err" id="w_err" style="display:none;"></p>
+                <p class="err" role="alert" aria-live="assertive" id="w_err" style="display:none;"></p>
             </div>
             <div class="letter-note" id="w_done" style="display:none;">
                 <p class="note" id="w_done_t"></p>

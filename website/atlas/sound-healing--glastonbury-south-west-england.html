@@ -19,7 +19,8 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Atlas", "item": "https://educatedtraveler.app/atlas/"}, {"@type": "ListItem", "position": 2, "name": "Sound Healing", "item": "https://educatedtraveler.app/atlas/sound-healing"}, {"@type": "ListItem", "position": 3, "name": "Glastonbury / South West England", "item": "https://educatedtraveler.app/atlas/sound-healing--glastonbury-south-west-england"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Place", "name": "Glastonbury / South West England, UK", "description": "Britain's recognized diploma route, where long-running training bodies anchor a serious practitioner community across the country's most spiritual landscapes.", "url": "https://educatedtraveler.app/atlas/sound-healing--glastonbury-south-west-england", "containedInPlace": {"@type": "Country", "name": "UK"}}</script>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <style>
-:root { --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+:root { --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
+         --muted:rgba(243,237,226,0.56); --faint:rgba(243,237,226,0.34); }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }
 .serif { font-family:'Fraunces',Georgia,serif; }
@@ -43,7 +44,7 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
 ul.clean { list-style:none; } ul.clean li { padding:10px 0; border-bottom:1px solid var(--line); }
 ul.clean li:last-child { border-bottom:none; }
 .school-url { font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; } .school-url:hover { text-decoration:underline; }
-.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--paper); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .cta:hover { opacity:.92; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
 .intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }
@@ -55,7 +56,7 @@ ul.clean li:last-child { border-bottom:none; }
 .intent-go:hover { filter:brightness(1.05); } .intent-go:disabled { opacity:.5; cursor:default; }
 .intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#e0915f; }
 .intent-fine { font-size:12px; opacity:.5; margin-top:8px; }
-footer { padding:40px 0 60px; font-size:13px; opacity:.5; }
+footer { padding:40px 0 60px; font-size:13px; color:rgba(243,237,226,.62); }
 footer a { color:var(--sea); }
 .cur-toggle { position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
   background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }

@@ -84,7 +84,7 @@
               color:var(--faint); margin-bottom:9px; display:block; }
         input[type=text], input[type=email], textarea{
             width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16);
-            border-radius:14px; color:var(--paper); font-family:inherit; font-size:15px; padding:14px 16px;
+            border-radius:14px; color:var(--paper); font-family:inherit; font-size:16px; padding:14px 16px;
             outline:none; transition:border-color .25s, box-shadow .25s; }
         textarea{ resize:vertical; min-height:118px; line-height:1.6; }
         input::placeholder, textarea::placeholder{ color:rgba(243,237,226,0.30); }
@@ -112,7 +112,7 @@
         /* "…or in your own words" — a quiet write line under any chip question (perception first) */
         .own{ margin-top:12px; }
         .own input[type=text]{ background:transparent; border:none; border-bottom:1px solid rgba(243,237,226,0.14);
-              border-radius:0; padding:8px 2px; font-size:14.5px; box-shadow:none; }
+              border-radius:0; padding:8px 2px; font-size:16px; box-shadow:none; }
         .own input[type=text]:focus{ border-color:transparent; border-bottom-color:rgba(127,168,165,0.7); box-shadow:none; }
         .own input[type=text]::placeholder{ color:rgba(243,237,226,0.26); font-style:italic; }
 
@@ -280,7 +280,7 @@
                 <div class="row">
                     <button class="cta" id="go0">Begin my portrait &rarr;</button>
                 </div>
-                <p class="err" id="err0"></p>
+                <p class="err" role="alert" aria-live="assertive" id="err0"></p>
             </section>
 
             <!-- BEAT 1 — you -->
@@ -347,7 +347,7 @@
                 <div class="row">
                     <button class="cta" id="go2" disabled>Next &rarr;</button>
                 </div>
-                <p class="err" id="err2"></p>
+                <p class="err" role="alert" aria-live="assertive" id="err2"></p>
             </section>
 
             <!-- BEAT 3 — where you're starting from -->
@@ -449,8 +449,8 @@
                 <div class="row">
                     <button class="cta" id="submit">Seal my place in the Circle &rarr;</button>
                 </div>
-                <p class="signoff" id="save-note">Saved to your account. You can come back and add to it any time.</p>
-                <p class="err" id="err5"></p>
+                <p class="signoff" id="save-note">Sealing saves this to your account — come back and add to it any time.</p>
+                <p class="err" role="alert" aria-live="assertive" id="err5"></p>
             </section>
 
             <!-- MAGIC-LINK SENT (only when not signed in at save) -->
@@ -523,7 +523,7 @@
                     <button class="cta" id="enrich-save">Save to my portrait &rarr;</button>
                     <span class="e-saved" id="enrich-saved" style="display:none; color:#94ad86; font-size:13.5px;">Saved — your portrait is richer.</span>
                 </div>
-                <p class="err" id="enrich-err" style="display:none;"></p>
+                <p class="err" role="alert" aria-live="assertive" id="enrich-err" style="display:none;"></p>
             </section>
             <style>
                 #enrich{ display:none; }

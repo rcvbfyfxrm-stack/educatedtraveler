@@ -307,11 +307,12 @@
             'gentle': 'Stretch me gently', 'push': 'Push me', 'break': 'Break my limits'
         };
 
+        // Escapes quotes too — esc() output lands inside HTML attributes (src=, alt=),
+        // and a textContent/innerHTML round-trip leaves " and ' untouched.
         function esc(str) {
-            if (!str) return '';
-            const d = document.createElement('div');
-            d.textContent = str;
-            return d.innerHTML;
+            return String(str == null ? '' : str)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
 
         function getCreatureType(interests, hasManyCreds) {
