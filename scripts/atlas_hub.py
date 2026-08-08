@@ -39,7 +39,7 @@ LETTER_CSS = """
 .lbox{max-width:660px;margin:0 auto}
 .lfield{margin-bottom:16px}
 .lfield label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin-bottom:7px}
-.lfield input{width:100%;background:rgba(243,237,226,.04);border:1px solid rgba(243,237,226,.16);border-radius:12px;color:var(--paper);font-family:inherit;font-size:14.5px;padding:12px 14px;outline:none;transition:border-color .2s}
+.lfield input{width:100%;background:rgba(243,237,226,.04);border:1px solid rgba(243,237,226,.16);border-radius:12px;color:var(--paper);font-family:inherit;font-size:16px;padding:12px 14px;outline:none;transition:border-color .2s}
 .lfield input:focus{border-color:rgba(127,168,165,.6)}
 .lfield input::placeholder{color:rgba(243,237,226,.3)}
 .sheet{position:relative;background:linear-gradient(180deg,var(--sheet) 0%,#ece1cc 100%);border-radius:5px;padding:30px 30px 26px;color:var(--sheet-ink);border:1px solid var(--sheet-edge);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 30px 60px -24px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.35)}

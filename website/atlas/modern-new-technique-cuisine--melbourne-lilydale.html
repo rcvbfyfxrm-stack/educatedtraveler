@@ -27,6 +27,10 @@ body { font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:va
 .mono { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }
 a { color:inherit; }
 .wrap { max-width:880px; margin:0 auto; padding:0 24px; }
+/* Prose sections keep the page's one spine (880px) and cap the READING MEASURE
+   instead of the container — same 62ch as .lead. Narrowing the container is what
+   used to jog the left edge 80px mid-scroll. */
+.wrap.prose > * { max-width:62ch; }
 nav.top { position:sticky; top:0; background:rgba(13,11,9,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }
 nav.top .wrap { display:flex; justify-content:space-between; align-items:center; height:60px; }
 nav.top a { text-decoration:none; opacity:.7; font-size:14px; } nav.top a:hover { opacity:1; color:var(--sea); }
@@ -50,7 +54,7 @@ ul.clean li:last-child { border-bottom:none; }
 .intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }
 .intent-q { font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }
 .intent-row { display:flex; gap:8px; flex-wrap:wrap; }
-.intent-input { flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:14px; }
+.intent-input { flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:16px; }
 .intent-input:focus { outline:none; border-color:var(--sea); }
 .intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .intent-go:hover { filter:brightness(1.05); } .intent-go:disabled { opacity:.5; cursor:default; }
@@ -83,11 +87,11 @@ footer a { color:var(--sea); }
 <section><div class="wrap"><div class="mono">The lineage</div><h2>Masters & lineage</h2><ul class="clean"><li>Dale Prentice</li></ul></div></section>
 <section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in Melbourne (Lilydale)</h2><p class="meta" style="margin-bottom:12px">Checked by hand against each school's own course pages. No school paid to be listed.</p><ul class="clean"><li><strong style="font-weight:500">Sous Vide Australia (The Upper Room)</strong><div class="meta">Public sous-vide and low-temperature workshops (e.g. &#x27;101 Sous Vide Workshop for the Chef&#x27;)</div><div style="font-size:14px;opacity:.75;margin-top:4px">A dedicated recipe-development and teaching space near Melbourne run by chef Dale Prentice (22+ years; ex-exec chef Stones of the Yarra Valley), with public workshops for chefs, apprentices and home cooks. Sous-vide / low-temperature focused rather than the full modernist spectrum.</div><div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="https://www.sousvideaustralia.com/">https://www.sousvideaustralia.com/</a></div></li></ul></div></section>
 
-<section><div class="wrap" style="max-width:720px"><div class="mono">What you walk away with</div><h2>The credential</h2><p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">A completed hands-on course at a master-led avant-garde technique lab</strong> · Certifying body: No single formal body — master-led technique labs / certificates of attendance</p><p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p></div></section>
+<section><div class="wrap prose"><div class="mono">What you walk away with</div><h2>The credential</h2><p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">A completed hands-on course at a master-led avant-garde technique lab</strong> · Certifying body: No single formal body — master-led technique labs / certificates of attendance</p><p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p></div></section>
 <section><div class="wrap"><form class="intent" data-discipline="modern-new-technique-cuisine" data-place="modern-new-technique-cuisine--melbourne-lilydale" data-label="New culinary techniques &amp; technologies · Melbourne (Lilydale)" data-source="atlas:modern-new-technique-cuisine--melbourne-lilydale"><p class="intent-q">Melbourne (Lilydale) pulls you? Leave an email — we&#x27;ll introduce you to the school and the people going as the map grows toward it.</p><div class="intent-row"><input type="email" name="email" required placeholder="you@email.com" class="intent-input"><button type="submit" class="intent-go">Raise your hand</button></div><p class="intent-msg" hidden></p><p class="intent-fine">Prices are a verified starting point — no checkout, no hard sell. We introduce; you decide.</p></form><noscript><a class="cta" href="/#circle">Join the Circle</a></noscript></div></section>
 <section><div class="wrap"><div class="mono">Same discipline, other sources</div><h2>Also for New culinary techniques &amp; technologies</h2><div class="grid"><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/modern-new-technique-cuisine--barcelona">Barcelona, Spain</a><div class="meta"><span class="dots">●●●●●</span> Legendary</div></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/modern-new-technique-cuisine--puebla-mexico-city">Puebla &amp; Mexico City, Mexico</a><div class="meta"><span class="dots">●●●○○</span> Strong</div></div></div></div></section>
 <section style="border-top:1px solid var(--line);background:var(--ink2)">
-<div class="wrap" style="max-width:720px">
+<div class="wrap prose">
 <div class="mono">Why you can trust this map</div>
 <h2 style="font-size:20px;margin:8px 0 14px">What we check before we send you anywhere</h2>
 <p style="opacity:.82;font-size:15px;margin-bottom:16px">This Atlas exists because there is a real difference between a school that teaches you and a good-looking website — and too much of the internet is the second kind. Here is what a place has to clear before it goes on here, and what we'll tell you straight when it doesn't.</p>
