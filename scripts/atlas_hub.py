@@ -308,6 +308,16 @@ def build(analytics, site, total, n_open, generated_at):
                f'you to. The rest show what the craft is and where it\'s most alive — write a '
                f'letter and I open it.">', t, count=1)
 
+    # 2b. the hero sub — the ONE surface that still described every sheet as if it
+    #     carried a school. The card pills and the short sheets always said "not open
+    #     yet"; the hero didn't, so the unlock read as a letdown on first click instead
+    #     of as the point. Counted here for the same reason as above: never typed.
+    t = re.sub(r'<p class="sub">[^<]*</p>',
+               f'<p class="sub">Five rings, five worlds — tap one, or search the list. '
+               f'Every skill has a sheet: what the craft really is, and where it\'s most '
+               f'alive. {n_open} are open, with the school we\'d send you to and why. '
+               f'I open the rest when someone writes to me about one.</p>', t, count=1)
+
     # 3. the data source. repertoire.js (1.2 MB of research) and atlas-ratings.js
     #    are not served any more; the shim rebuilds what the page reads.
     t = t.replace('<script src="/js/repertoire.js"></script>\n<script src="/js/atlas-ratings.js"></script>',
