@@ -18,19 +18,27 @@
     // PROFILE OPERATIONS
     // ========================================
 
+    // Own profile, whole row, sensitive columns included — through the RPC rather than
+    // a table read. `select('*')` cannot survive the column grants on profiles (email,
+    // phone and dream_letter are no longer readable through the table), and expanding
+    // '*' makes the whole request fail rather than quietly dropping them.
+    // get_my_profile() is argument-free and keyed on auth.uid(), so it can only ever
+    // return the caller's own row; the userId argument is honoured only as a guard.
     async function getProfile(userId) {
-        const { data, error } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', userId)
-            .single();
+        const { data: session } = await supabase.auth.getSession();
+        const me = session && session.session ? session.session.user.id : null;
 
-        if (error && error.code !== 'PGRST116') {
-            console.error('Error fetching profile:', error);
-            throw error;
+        if (me && (!userId || userId === me)) {
+            const { data, error } = await supabase.rpc('get_my_profile');
+            if (error) {
+                console.error('Error fetching profile:', error);
+                throw error;
+            }
+            return data || null;
         }
 
-        return data;
+        // Someone else's profile: only what is public about them, by name.
+        return await getPublicProfile(userId);
     }
 
     async function updateProfile(userId, updates) {
@@ -38,7 +46,10 @@
             .from('profiles')
             .update({ ...updates, updated_at: new Date().toISOString() })
             .eq('id', userId)
-            .select()
+            // .select() with no argument returns EVERY column, which now includes ones
+            // this role may not read — the update would succeed and then fail on the way
+            // back. The id is all any caller uses to confirm the write landed.
+            .select('id')
             .single();
 
         if (error) {

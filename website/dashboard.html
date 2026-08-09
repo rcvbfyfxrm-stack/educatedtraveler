@@ -2008,7 +2008,10 @@
         // ═══════════════════════════════════════
         async function loadProfileIntoOverlay(userId) {
             try {
-                const { data } = await window.supabaseClient.from('profiles').select('*').eq('id', userId).single();
+                // Own row via get_my_profile(): 'select(*)' expands to columns this role
+                // can no longer read (migration 038), which fails the whole request
+                // rather than omitting them.
+                const { data } = await window.supabaseClient.rpc('get_my_profile');
                 if (!data) return false;
 
                 if (data.first_name) document.getElementById('p-first-name').value = data.first_name;
