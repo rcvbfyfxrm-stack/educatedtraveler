@@ -127,7 +127,7 @@ def rating_block(d, x):
     if not (line or why):
         return ""
     head = "Why this school — real and cited, not my opinion dressed up"
-    return (f'<section><div class="wrap" style="max-width:720px"><div class="mono">{head}</div>'
+    return (f'<section><div class="wrap prose"><div class="mono">{head}</div>'
             f'<h2 style="margin:6px 0 10px">Why {e(school)}</h2>{line}'
             f'<p style="opacity:.82">{e(why)}</p></div></section>')
 
@@ -151,7 +151,7 @@ e = html.escape
 # Voice: Arnaud, first person, plain, no hype. No fabricated ratings — only what
 # we can stand behind. The reader's 5 questions sit in <details> to stay compact.
 TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(--ink2)">
-<div class="wrap" style="max-width:720px">
+<div class="wrap prose">
 <div class="mono">Why you can trust this map</div>
 <h2 style="font-size:20px;margin:8px 0 14px">What we check before we send you anywhere</h2>
 <p style="opacity:.82;font-size:15px;margin-bottom:16px">This Atlas exists because there is a real difference between a school that teaches you and a good-looking website — and too much of the internet is the second kind. Here is what a place has to clear before it goes on here, and what we'll tell you straight when it doesn't.</p>
@@ -300,13 +300,18 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
 {crumbs}{extra}
 {ANALYTICS}{extra_head}
 <style>
-:root {{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }}
+:root {{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
+         --muted:rgba(243,237,226,0.56); --faint:rgba(243,237,226,0.34); }}
 * {{ margin:0; padding:0; box-sizing:border-box; }}
 body {{ font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }}
 .serif {{ font-family:'Fraunces',Georgia,serif; }}
 .mono {{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }}
 a {{ color:inherit; }}
 .wrap {{ max-width:880px; margin:0 auto; padding:0 24px; }}
+/* Prose sections keep the page's one spine (880px) and cap the READING MEASURE
+   instead of the container — same 62ch as .lead. Narrowing the container is what
+   used to jog the left edge 80px mid-scroll. */
+.wrap.prose > * {{ max-width:62ch; }}
 nav.top {{ position:sticky; top:0; background:rgba(13,11,9,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }}
 nav.top .wrap {{ display:flex; justify-content:space-between; align-items:center; height:60px; }}
 nav.top a {{ text-decoration:none; opacity:.7; font-size:14px; }} nav.top a:hover {{ opacity:1; color:var(--sea); }}
@@ -324,19 +329,19 @@ section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
 ul.clean {{ list-style:none; }} ul.clean li {{ padding:10px 0; border-bottom:1px solid var(--line); }}
 ul.clean li:last-child {{ border-bottom:none; }}
 .school-url {{ font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; }} .school-url:hover {{ text-decoration:underline; }}
-.cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--paper); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
+.cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .cta:hover {{ opacity:.92; }}
 .grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }}
 .intent {{ border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }}
 .intent-q {{ font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }}
 .intent-row {{ display:flex; gap:8px; flex-wrap:wrap; }}
-.intent-input {{ flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:14px; }}
+.intent-input {{ flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:16px; }}
 .intent-input:focus {{ outline:none; border-color:var(--sea); }}
 .intent-go {{ border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .intent-go:hover {{ filter:brightness(1.05); }} .intent-go:disabled {{ opacity:.5; cursor:default; }}
 .intent-msg {{ font-size:13.5px; margin-top:10px; }} .intent-msg.ok {{ color:var(--sea); }} .intent-msg.err {{ color:#e0915f; }}
 .intent-fine {{ font-size:12px; opacity:.5; margin-top:8px; }}
-footer {{ padding:40px 0 60px; font-size:13px; opacity:.5; }}
+footer {{ padding:40px 0 60px; font-size:13px; color:rgba(243,237,226,.62); }}
 footer a {{ color:var(--sea); }}
 .cur-toggle {{ position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
   background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }}
@@ -412,7 +417,7 @@ def short_sheet(d, total):
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{alive}
 </div></header>
-<section><div class="wrap" style="max-width:720px">
+<section><div class="wrap prose">
 <div class="mono">Why there's nothing more on this page</div>
 <h2 style="margin:6px 0 14px">The map grows where someone is actually going</h2>
 <p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it, and not before.</p>
@@ -486,7 +491,7 @@ def credential_section(d):
     body = (f'<p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">{e(d["goldCredential"])}</strong>'
             + (f' · Certifying body: {e(d["certBody"])}' if d.get("certBody") else "") + '</p>'
             '<p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p>')
-    return f'<section><div class="wrap" style="max-width:720px"><div class="mono">What you walk away with</div><h2>The credential</h2>{body}</div></section>'
+    return f'<section><div class="wrap prose"><div class="mono">What you walk away with</div><h2>The credential</h2>{body}</div></section>'
 
 COMMUNITY_TIER = {
     "Legendary":  ("#f0c27a", "Legendary living community"),

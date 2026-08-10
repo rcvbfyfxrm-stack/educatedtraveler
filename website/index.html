@@ -43,7 +43,7 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--f-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow:hidden}
+body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--f-body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
 ::selection{background:rgba(210,138,82,.30)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -71,7 +71,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
 .nav-cta:hover{background:rgba(243,237,226,.08);border-color:rgba(243,237,226,.45)}
 
 /* ============ THE STAGE — one screen, the fire, the manifesto ============ */
-.stage{position:relative;height:100svh;display:flex;flex-direction:column;overflow:hidden}
+.stage{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
 .stage-bg{position:absolute;inset:0;z-index:0}
 .stage-bg img{width:100%;height:100%;object-fit:cover;object-position:center 46%;animation:kb 34s ease-in-out infinite alternate;transform-origin:58% 44%}
 @keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.11)}}

@@ -215,7 +215,7 @@
                 <input type="text" id="f_where" placeholder="Barcelona, at the market" autocomplete="off" enterkeyhint="go">
             </div>
 
-            <p class="err" id="err"></p>
+            <p class="err" role="alert" aria-live="assertive" id="err"></p>
             <button class="btn" id="go" type="button">That's me &rarr;</button>
             <p class="help">It comes straight to me — I read every one myself.</p>
         </div>
@@ -429,13 +429,9 @@
 
             try{
                 var sb = window.supabaseClient;
-                if(sb){
-                    var res = await sb.from('launch_waitlist').insert(payload);
-                    if(res && res.error) throw res.error;
-                }else{
-                    console.log('[Hello] preview payload →', JSON.stringify(payload, null, 2));
-                    await new Promise(function(r){ setTimeout(r, 400); });
-                }
+                if(!sb) throw new Error('connection unavailable');
+                var res = await sb.from('launch_waitlist').insert(payload);
+                if(res && res.error) throw res.error;
                 if(window.plausible) window.plausible('HelloCapture', { props:{ where: where ? 'given' : 'none' } });
                 finish();
             }catch(e){

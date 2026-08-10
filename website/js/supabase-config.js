@@ -33,7 +33,8 @@ function initSupabase(attempt) {
 function handleSupabaseUnavailable() {
     window.supabaseError = true;
     // Show a non-intrusive banner on auth-dependent pages
-    var authPages = ['/dashboard', '/profile', '/instructor-dashboard', '/join', '/community', '/admin'];
+    var authPages = ['/dashboard', '/profile', '/instructor-dashboard', '/join', '/community', '/admin',
+                     '/circle', '/hello', '/portrait', '/you'];
     var path = window.location.pathname.replace('.html', '').replace(/\/$/, '');
     var isAuthPage = authPages.some(function(p) { return path.endsWith(p); });
 

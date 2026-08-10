@@ -19,13 +19,18 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Atlas", "item": "https://educatedtraveler.app/atlas/"}, {"@type": "ListItem", "position": 2, "name": "Pottery & Ceramics", "item": "https://educatedtraveler.app/atlas/pottery-and-ceramics"}, {"@type": "ListItem", "position": 3, "name": "St Ives, Cornwall", "item": "https://educatedtraveler.app/atlas/pottery-and-ceramics--st-ives-cornwall"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Place", "name": "St Ives, Cornwall, United Kingdom", "description": "Bernard Leach and Shoji Hamada married East and West here in 1920, founding the studio-pottery tradition the whole English-speaking world descends from.", "url": "https://educatedtraveler.app/atlas/pottery-and-ceramics--st-ives-cornwall", "containedInPlace": {"@type": "Country", "name": "United Kingdom"}}</script>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <style>
-:root { --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09); }
+:root { --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
+         --muted:rgba(243,237,226,0.56); --faint:rgba(243,237,226,0.34); }
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:var(--paper); font-weight:300; line-height:1.65; -webkit-font-smoothing:antialiased; }
 .serif { font-family:'Fraunces',Georgia,serif; }
 .mono { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }
 a { color:inherit; }
 .wrap { max-width:880px; margin:0 auto; padding:0 24px; }
+/* Prose sections keep the page's one spine (880px) and cap the READING MEASURE
+   instead of the container — same 62ch as .lead. Narrowing the container is what
+   used to jog the left edge 80px mid-scroll. */
+.wrap.prose > * { max-width:62ch; }
 nav.top { position:sticky; top:0; background:rgba(13,11,9,.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); z-index:50; }
 nav.top .wrap { display:flex; justify-content:space-between; align-items:center; height:60px; }
 nav.top a { text-decoration:none; opacity:.7; font-size:14px; } nav.top a:hover { opacity:1; color:var(--sea); }
@@ -43,19 +48,19 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
 ul.clean { list-style:none; } ul.clean li { padding:10px 0; border-bottom:1px solid var(--line); }
 ul.clean li:last-child { border-bottom:none; }
 .school-url { font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; } .school-url:hover { text-decoration:underline; }
-.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--paper); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
+.cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .cta:hover { opacity:.92; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
 .intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }
 .intent-q { font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }
 .intent-row { display:flex; gap:8px; flex-wrap:wrap; }
-.intent-input { flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:14px; }
+.intent-input { flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:16px; }
 .intent-input:focus { outline:none; border-color:var(--sea); }
 .intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .intent-go:hover { filter:brightness(1.05); } .intent-go:disabled { opacity:.5; cursor:default; }
 .intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#e0915f; }
 .intent-fine { font-size:12px; opacity:.5; margin-top:8px; }
-footer { padding:40px 0 60px; font-size:13px; opacity:.5; }
+footer { padding:40px 0 60px; font-size:13px; color:rgba(243,237,226,.62); }
 footer a { color:var(--sea); }
 .cur-toggle { position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
   background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }
@@ -82,11 +87,11 @@ footer a { color:var(--sea); }
 <section><div class="wrap"><div class="mono">The lineage</div><h2>Masters & lineage</h2><ul class="clean"><li>Bernard Leach (founder, Anglo-Oriental studio-pottery lineage)</li></ul></div></section>
 <section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in St Ives, Cornwall</h2><p class="meta" style="margin-bottom:12px">Checked by hand against each school's own course pages. No school paid to be listed.</p><ul class="clean"><li><strong style="font-weight:500">The Leach Pottery (Bernard Leach&#x27;s studio, courses &amp; residencies)</strong><div class="meta">The Leach Year (long course) and visiting-artist residencies</div><div style="font-size:14px;opacity:.75;margin-top:4px">Bernard Leach&#x27;s historic St Ives studio, now a working pottery and museum, running multi-day adult throwing courses, the year-long &#x27;Leach Year&#x27; programme and national/international residencies in the Leach-tradition (residencies resuming 2027 during building works).</div><div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="https://www.leachpottery.com/">https://www.leachpottery.com/</a></div></li></ul></div></section>
 <section><div class="wrap"><div class="mono">What the days are like</div><h2>The room</h2><ul class="clean" style="font-size:14.5px"><li><strong style="font-weight:500">Group</strong> — Typically intimate — a handful of students per potter, because the wheel is taught almost hand-over-hand.</li><li><strong style="font-weight:500">A normal day</strong> — Long stretches at the wheel with short demos; drying and trimming between sessions, firing on a fixed kiln schedule.</li><li><strong style="font-weight:500">Who comes</strong> — Mixed levels, often first-timers and hobbyists, a broad age range.</li></ul><p class="meta" style="margin-top:10px">Want the rest — a normal day, first hour to last? Ask the school; a serious one answers in two minutes.</p></div></section>
-<section><div class="wrap" style="max-width:720px"><div class="mono">What you walk away with</div><h2>The credential</h2><p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">Recognized studio apprenticeship completion or college diploma in ceramics (e.g. Leach/Mashiko lineage, MA Ceramics)</strong> · Certifying body: Apprenticeship / studio-residency lineage (no single global body)</p><p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p></div></section>
+<section><div class="wrap prose"><div class="mono">What you walk away with</div><h2>The credential</h2><p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">Recognized studio apprenticeship completion or college diploma in ceramics (e.g. Leach/Mashiko lineage, MA Ceramics)</strong> · Certifying body: Apprenticeship / studio-residency lineage (no single global body)</p><p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p></div></section>
 <section><div class="wrap"><form class="intent" data-discipline="pottery-and-ceramics" data-place="pottery-and-ceramics--st-ives-cornwall" data-label="Pottery &amp; Ceramics · St Ives, Cornwall" data-source="atlas:pottery-and-ceramics--st-ives-cornwall"><p class="intent-q">St Ives, Cornwall pulls you? Leave an email — we&#x27;ll introduce you to the school and the people going as the map grows toward it.</p><div class="intent-row"><input type="email" name="email" required placeholder="you@email.com" class="intent-input"><button type="submit" class="intent-go">Raise your hand</button></div><p class="intent-msg" hidden></p><p class="intent-fine">Prices are a verified starting point — no checkout, no hard sell. We introduce; you decide.</p></form><noscript><a class="cta" href="/#circle">Join the Circle</a></noscript></div></section>
 <section><div class="wrap"><div class="mono">Same discipline, other sources</div><h2>Also for Pottery &amp; Ceramics</h2><div class="grid"><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/pottery-and-ceramics--mashiko">Mashiko, Japan</a><div class="meta"><span class="dots">●●●●●</span> Legendary</div></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/pottery-and-ceramics--jingdezhen">Jingdezhen, China</a><div class="meta"><span class="dots">●●●●●</span> Legendary</div></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/pottery-and-ceramics--bizen-seto-tokoname-six-ancient-kilns">Bizen / Seto / Tokoname (Six Ancient Kilns), Japan</a><div class="meta"><span class="dots">●●●●○</span> Thriving</div></div></div></div></section>
 <section style="border-top:1px solid var(--line);background:var(--ink2)">
-<div class="wrap" style="max-width:720px">
+<div class="wrap prose">
 <div class="mono">Why you can trust this map</div>
 <h2 style="font-size:20px;margin:8px 0 14px">What we check before we send you anywhere</h2>
 <p style="opacity:.82;font-size:15px;margin-bottom:16px">This Atlas exists because there is a real difference between a school that teaches you and a good-looking website — and too much of the internet is the second kind. Here is what a place has to clear before it goes on here, and what we'll tell you straight when it doesn't.</p>

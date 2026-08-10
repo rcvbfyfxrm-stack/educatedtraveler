@@ -39,7 +39,7 @@ LETTER_CSS = """
 .lbox{max-width:660px;margin:0 auto}
 .lfield{margin-bottom:16px}
 .lfield label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin-bottom:7px}
-.lfield input{width:100%;background:rgba(243,237,226,.04);border:1px solid rgba(243,237,226,.16);border-radius:12px;color:var(--paper);font-family:inherit;font-size:14.5px;padding:12px 14px;outline:none;transition:border-color .2s}
+.lfield input{width:100%;background:rgba(243,237,226,.04);border:1px solid rgba(243,237,226,.16);border-radius:12px;color:var(--paper);font-family:inherit;font-size:16px;padding:12px 14px;outline:none;transition:border-color .2s}
 .lfield input:focus{border-color:rgba(127,168,165,.6)}
 .lfield input::placeholder{color:rgba(243,237,226,.3)}
 .sheet{position:relative;background:linear-gradient(180deg,var(--sheet) 0%,#ece1cc 100%);border-radius:5px;padding:30px 30px 26px;color:var(--sheet-ink);border:1px solid var(--sheet-edge);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 30px 60px -24px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.35)}
@@ -307,6 +307,16 @@ def build(analytics, site, total, n_open, generated_at):
                f'across five worlds. {n_open} are open, with the school and the teacher we\'d send '
                f'you to. The rest show what the craft is and where it\'s most alive — write a '
                f'letter and I open it.">', t, count=1)
+
+    # 2b. the hero sub — the ONE surface that still described every sheet as if it
+    #     carried a school. The card pills and the short sheets always said "not open
+    #     yet"; the hero didn't, so the unlock read as a letdown on first click instead
+    #     of as the point. Counted here for the same reason as above: never typed.
+    t = re.sub(r'<p class="sub">[^<]*</p>',
+               f'<p class="sub">Five rings, five worlds — tap one, or search the list. '
+               f'Every skill has a sheet: what the craft really is, and where it\'s most '
+               f'alive. {n_open} are open, with the school we\'d send you to and why. '
+               f'I open the rest when someone writes to me about one.</p>', t, count=1)
 
     # 3. the data source. repertoire.js (1.2 MB of research) and atlas-ratings.js
     #    are not served any more; the shim rebuilds what the page reads.
