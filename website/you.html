@@ -1017,48 +1017,32 @@
         setTimeout(function(){ $('meter-fill').style.width = pct + '%'; }, 60);
     }
 
-    // ── signed out: say whether they're already in, THEN act ─────────────
-    // check-email is the read-only membership probe /circle already uses. Asking it
-    // first means we can tell someone "you already have an account" instead of
-    // silently mailing a link and leaving them to guess which of the two they are.
-    async function isMember(email){
-        try{
-            var r = await sb.functions.invoke('check-email', { body:{ email: email } });
-            if(r && r.data && typeof r.data.member === 'boolean') return r.data.member;
-        }catch(e){}
-        return null;   // unknown — never guess "no account" at someone who has one
-    }
+    // ── signed out: send the link, and never claim more than we know ─────
+    // No membership probe here, deliberately. check-email fails OPEN — both of its
+    // error paths return {member:false} ("never block a real join"). That is right
+    // for /circle, where false means "let them in". On this page false meant
+    // "refuse to send the link", so one query blip told a real member "no account
+    // under that address yet" and left them with no way in. The wording below is
+    // true whether or not the address is known, and matches /join.
 
     $('send-link').addEventListener('click', async function(){
         var btn=this, email=$('f_email').value.trim(), err=$('out-err');
         err.style.display='none';
         if(!email || email.indexOf('@')<1){ err.textContent='I need an email address to send the link to.'; err.style.display='block'; return; }
         if(!sb){ err.textContent='Couldn’t connect just now — try again in a minute.'; err.style.display='block'; return; }
-        btn.disabled=true; btn.innerHTML='Checking <span class="spin"></span>';
+        btn.disabled=true; btn.innerHTML='Sending <span class="spin"></span>';
 
-        var member = await isMember(email);
-        if(member === false){
-            // No account under that address. Sending a link would be a dead end —
-            // shouldCreateUser:false means it would never arrive.
-            btn.disabled=false; btn.innerHTML='Send me the link →';
-            err.innerHTML='No account under that address yet. '
-                + '<a href="/circle" style="color:var(--sea)">Take your place in the Circle</a> and it founds one — '
-                + 'or write me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
-            err.style.display='block';
-            return;
-        }
-
-        btn.innerHTML='Sending <span class="spin"></span>';
         try{
             // shouldCreateUser:false — this link signs an existing member in. Joining
             // happens in the Circle, where the questions are asked.
             var res = await sb.auth.signInWithOtp({ email: email,
                 options:{ emailRedirectTo: window.location.origin + '/you', shouldCreateUser: false } });
             if(res && res.error) throw res.error;
-            $('out-sent').innerHTML = member
-                ? '<b>You already have an account.</b> I’ve sent a link to that address — one click and you’re '
-                  + 'straight into your place. No password, ever, so the link is the only door on a new browser.'
-                : 'Sent. Open the link in that email and you’re in.';
+            $('out-sent').innerHTML = 'If that email is in the Circle, a sign-in link is on its way — '
+                + 'check your inbox (and spam). One click and you’re straight into your place; there is no '
+                + 'password, so the link is the only door on a new browser.<br><br>'
+                + 'Nothing arrives? <a href="/circle" style="color:var(--sea)">Take your place in the Circle</a> '
+                + 'and it founds your account.';
             $('out-sent').style.display='block';
             btn.style.display='none';
         }catch(e){
