@@ -103,7 +103,7 @@ async function buildInterestHtml(userId: string, email: string, isUpdate = false
     // every profile-page signup notified Arnaud with an empty sheet.
     async function fetchProfile() {
       return admin!.from("profiles")
-        .select("interests, skills, what_matters, profession, location, completion_pct, profile_complete")
+        .select("interests, skills, what_matters, profession, location, completion_pct, profile_complete, dream_letter, previous_experience, availability, preferred_duration, reach, status")
         .eq("id", userId).maybeSingle();
     }
 
@@ -133,7 +133,19 @@ async function buildInterestHtml(userId: string, email: string, isUpdate = false
     if (!isEmpty(prof?.location))     profileRows.push(kvRow("Location", esc(String(prof!.location))));
     if (prof?.completion_pct != null) profileRows.push(kvRow("Profile", `${esc(prof.completion_pct)}% complete`));
 
-    if (profileRows.length === 0 && !prefs && saved.length === 0 && interests.length === 0) return "";
+    // The questionnaire answers themselves. Without these the notice said a
+    // profile had changed but never what the person actually answered.
+    if (!isEmpty(prof?.status))              profileRows.push(kvRow("Where they are", esc(String(prof!.status))));
+    if (!isEmpty(prof?.previous_experience)) profileRows.push(kvRow("How deep", esc(String(prof!.previous_experience))));
+    if (!isEmpty(prof?.availability))        profileRows.push(kvRow("When", esc(String(prof!.availability))));
+    if (!isEmpty(prof?.preferred_duration))  profileRows.push(kvRow("How long", esc(String(prof!.preferred_duration))));
+    if (!isEmpty(prof?.reach))               profileRows.push(kvRow("How far", esc(String(prof!.reach))));
+
+    // The letter is the whole point of the notification: it is the only place
+    // the person speaks in their own voice. It was never being read.
+    const dream = isEmpty(prof?.dream_letter) ? "" : String(prof!.dream_letter);
+
+    if (profileRows.length === 0 && !prefs && saved.length === 0 && interests.length === 0 && !dream) return "";
 
     const rows: string[] = [...profileRows];
     if (prefs) {
@@ -155,9 +167,21 @@ async function buildInterestHtml(userId: string, email: string, isUpdate = false
       );
     }
 
-    return `
+    const dreamHtml = dream
+      ? `
+    <p style="margin:24px 0 8px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#666;">Their dream week — in their words</p>
+    <div style="border-left:3px solid #c9a227;padding:2px 0 2px 14px;margin:0;">
+      <p style="margin:0;font-size:15px;line-height:1.65;color:#2b2b2b;font-style:italic;">${esc(dream).replace(/\n/g, "<br>")}</p>
+    </div>`
+      : "";
+
+    const tableHtml = rows.length
+      ? `
     <p style="margin:24px 0 8px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#666;">What they want</p>
-    <table style="width:100%;border-collapse:collapse;font-size:14px;color:#333;">${rows.join("")}</table>`;
+    <table style="width:100%;border-collapse:collapse;font-size:14px;color:#333;">${rows.join("")}</table>`
+      : "";
+
+    return `${tableHtml}${dreamHtml}`;
   } catch (e) {
     console.error("Interest lookup failed:", e);
     return "";
@@ -205,9 +229,12 @@ serve(async (req) => {
         from: "EducatedTraveler <founder@educatedtraveler.app>",
         to: [ADMIN_EMAIL],
         reply_to: email,
-        subject: isUpdate
+        // Flag the letter in the subject: a notice that reads like a row
+        // changing gets ignored, and the letter is the part worth opening.
+        subject: (isUpdate
           ? `Profile filled in: ${firstName} (${email})`
-          : `New adventurer: ${firstName} (${email})`,
+          : `New adventurer: ${firstName} (${email})`) +
+          (interestHtml.includes("Their dream week") ? " · with a letter" : ""),
         html: `
 <!DOCTYPE html><html><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;margin:0;padding:24px;">
   <div style="max-width:520px;margin:0 auto;background:#fff;border-radius:12px;padding:28px;">
