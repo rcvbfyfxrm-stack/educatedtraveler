@@ -62,67 +62,6 @@
         return data;
     }
 
-    // Send password reset email
-    async function resetPassword(email) {
-        const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: window.location.origin + '/auth-callback.html?type=recovery'
-        });
-
-        if (error) {
-            console.error('Reset password error:', error);
-            throw error;
-        }
-
-        return data;
-    }
-
-    // Update password (after reset link clicked)
-    async function updatePassword(newPassword) {
-        const { data, error } = await supabase.auth.updateUser({
-            password: newPassword
-        });
-
-        if (error) {
-            console.error('Update password error:', error);
-            throw error;
-        }
-
-        return data;
-    }
-
-    // Sign up with email + password
-    async function signUp(email, password, metadata = {}) {
-        const { data, error } = await supabase.auth.signUp({
-            email: email,
-            password: password,
-            options: {
-                data: metadata
-            }
-        });
-
-        if (error) {
-            console.error('Sign up error:', error);
-            throw error;
-        }
-
-        return data;
-    }
-
-    // Sign in with email + password
-    async function signInWithPassword(email, password) {
-        const { data, error } = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password
-        });
-
-        if (error) {
-            console.error('Sign in error:', error);
-            throw error;
-        }
-
-        return data;
-    }
-
     // Sign out
     async function signOut() {
         const { error } = await supabase.auth.signOut();
@@ -391,49 +330,10 @@
                     </svg>
                 </button>
 
-                <!-- PASSWORD SIGN IN (default) -->
-                <div id="auth-password-container">
-                    <h3 class="text-2xl font-light mb-2">Sign in</h3>
-                    <p class="text-white/50 text-sm mb-6">Enter your email and password.</p>
-
-                    <form id="auth-password-form" class="space-y-4" autocomplete="on">
-                        <input
-                            type="email"
-                            id="auth-email-input"
-                            name="email"
-                            autocomplete="username email"
-                            autocapitalize="none"
-                            spellcheck="false"
-                            placeholder="you@email.com"
-                            value="${prefillEmail}"
-                            required
-                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
-                        >
-                        <input
-                            type="password"
-                            id="auth-password-input"
-                            name="password"
-                            autocomplete="current-password"
-                            placeholder="Password"
-                            required
-                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
-                        >
-                        <button type="submit" id="auth-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);color:#14110d;">
-                            Sign In
-                        </button>
-                    </form>
-                    <p id="auth-error" class="text-red-400 text-xs mt-3 hidden"></p>
-
-                    <div class="flex justify-between items-center mt-4 pt-4 border-t border-white/5">
-                        <button id="auth-forgot-link" class="text-xs text-white/40 hover:text-white/70 transition-colors">Forgot password?</button>
-                        <button id="auth-magic-link" class="text-xs text-white/40 hover:text-white/70 transition-colors">Use magic link instead</button>
-                    </div>
-                </div>
-
                 <!-- MAGIC LINK FORM -->
-                <div id="auth-magiclink-container" class="hidden">
-                    <h3 class="text-2xl font-light mb-2">Magic link</h3>
-                    <p class="text-white/50 text-sm mb-6">We'll email you a sign-in link. No password needed.</p>
+                <div id="auth-magiclink-container">
+                    <h3 class="text-2xl font-light mb-2">Sign in</h3>
+                    <p class="text-white/50 text-sm mb-6">There is no password here — put your email in and I send you a link that signs you in.</p>
 
                     <form id="auth-email-form" class="space-y-4">
                         <input
@@ -449,43 +349,11 @@
                             class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
                         >
                         <button type="submit" id="auth-magic-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);color:#14110d;">
-                            Send Magic Link
+                            Email me a sign-in link
                         </button>
                     </form>
                     <p id="auth-magic-error" class="text-red-400 text-xs mt-3 hidden"></p>
 
-                    <div class="mt-4 pt-4 border-t border-white/5">
-                        <button id="auth-back-to-password" class="text-xs text-white/40 hover:text-white/70 transition-colors">Back to password sign in</button>
-                    </div>
-                </div>
-
-                <!-- FORGOT PASSWORD FORM -->
-                <div id="auth-forgot-container" class="hidden">
-                    <h3 class="text-2xl font-light mb-2">Reset password</h3>
-                    <p class="text-white/50 text-sm mb-6">Enter your email and we'll send you a reset link.</p>
-
-                    <form id="auth-forgot-form" class="space-y-4">
-                        <input
-                            type="email"
-                            id="auth-forgot-email-input"
-                            name="email"
-                            autocomplete="email"
-                            autocapitalize="none"
-                            spellcheck="false"
-                            placeholder="you@email.com"
-                            value="${prefillEmail}"
-                            required
-                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-sm"
-                        >
-                        <button type="submit" id="auth-forgot-submit-btn" class="w-full px-6 py-3 rounded-xl text-sm font-medium text-white" style="background:linear-gradient(135deg,#7fa8a5 0%,#d28a52 100%);color:#14110d;">
-                            Send Reset Link
-                        </button>
-                    </form>
-                    <p id="auth-forgot-error" class="text-red-400 text-xs mt-3 hidden"></p>
-
-                    <div class="mt-4 pt-4 border-t border-white/5">
-                        <button id="auth-back-from-forgot" class="text-xs text-white/40 hover:text-white/70 transition-colors">Back to sign in</button>
-                    </div>
                 </div>
 
                 <!-- SUCCESS MESSAGE -->
@@ -525,72 +393,15 @@
         };
 
         // Focus email input
-        const emailInput = document.getElementById('auth-email-input');
+        const emailInput = document.getElementById('auth-magic-email-input');
         if (emailInput) emailInput.focus();
-
-        // Map raw Supabase errors to honest, actionable guidance.
-        function friendlyAuthError(error) {
-            const m = ((error && error.message) || '').toLowerCase();
-            if (m.includes('invalid login'))
-                return 'We couldn’t sign you in. If you joined with a magic link, you may not have a password yet — try “Use magic link instead”, or “Forgot password?” below.';
-            if (m.includes('email not confirmed'))
-                return 'Please confirm your email first — use “Use magic link instead” below to get a fresh link.';
-            if (m.includes('rate') || m.includes('too many') || m.includes('only request'))
-                return 'Too many attempts just now. Give it a minute, then try again.';
-            return (error && error.message) ? error.message : 'Something went wrong. Please try again.';
-        }
 
         // View switching helpers
         function showView(viewId) {
-            ['auth-password-container', 'auth-magiclink-container', 'auth-forgot-container', 'auth-success-container']
+            ['auth-magiclink-container', 'auth-success-container']
                 .forEach(id => document.getElementById(id).classList.add('hidden'));
             document.getElementById(viewId).classList.remove('hidden');
         }
-
-        // Navigation between views
-        document.getElementById('auth-magic-link').addEventListener('click', () => {
-            showView('auth-magiclink-container');
-            document.getElementById('auth-magic-email-input').value = document.getElementById('auth-email-input').value;
-            document.getElementById('auth-magic-email-input').focus();
-        });
-
-        document.getElementById('auth-forgot-link').addEventListener('click', () => {
-            showView('auth-forgot-container');
-            document.getElementById('auth-forgot-email-input').value = document.getElementById('auth-email-input').value;
-            document.getElementById('auth-forgot-email-input').focus();
-        });
-
-        document.getElementById('auth-back-to-password').addEventListener('click', () => {
-            showView('auth-password-container');
-        });
-
-        document.getElementById('auth-back-from-forgot').addEventListener('click', () => {
-            showView('auth-password-container');
-        });
-
-        // PASSWORD FORM
-        document.getElementById('auth-password-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('auth-email-input').value.trim();
-            const password = document.getElementById('auth-password-input').value;
-            const submitBtn = document.getElementById('auth-submit-btn');
-            const errorEl = document.getElementById('auth-error');
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Signing in...';
-            errorEl.classList.add('hidden');
-
-            try {
-                await signInWithPassword(email, password);
-                window.closeAuthModal();
-                window.location.reload();
-            } catch (error) {
-                errorEl.textContent = friendlyAuthError(error);
-                errorEl.classList.remove('hidden');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Sign In';
-            }
-        });
 
         // MAGIC LINK FORM
         document.getElementById('auth-email-form').addEventListener('submit', async (e) => {
@@ -617,30 +428,6 @@
             }
         });
 
-        // FORGOT PASSWORD FORM
-        document.getElementById('auth-forgot-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('auth-forgot-email-input').value.trim();
-            const submitBtn = document.getElementById('auth-forgot-submit-btn');
-            const errorEl = document.getElementById('auth-forgot-error');
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            errorEl.classList.add('hidden');
-
-            try {
-                await resetPassword(email);
-                document.getElementById('auth-success-title').textContent = 'Reset link sent';
-                document.getElementById('auth-success-msg').textContent = 'We sent a password reset link to';
-                document.getElementById('auth-sent-email').textContent = email;
-                showView('auth-success-container');
-            } catch (error) {
-                errorEl.textContent = error.message || 'Something went wrong.';
-                errorEl.classList.remove('hidden');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Reset Link';
-            }
-        });
     }
 
     window.closeAuthModal = function() {
@@ -684,16 +471,12 @@
 
     window.auth = {
         signInWithEmail,
-        signUp,
-        signInWithPassword,
         signOut,
         getUser,
         getSession,
         isSignedIn,
         onAuthStateChange,
         showSignInModal,
-        resetPassword,
-        updatePassword,
         getCurrentUser: () => currentUser
     };
 

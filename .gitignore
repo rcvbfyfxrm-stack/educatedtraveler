@@ -4,3 +4,27 @@ node_modules/
 
 # build artefacts
 scripts/__pycache__/
+
+# --- Private, removed from tracking 2026-08-10 ---
+# Commercial and partner material that should never have been public. Copies live on
+# Proton Drive at FOUNDING-CANON/private-archive-2026-08-10/ (gitignored).
+# NOTE: these remain readable in git HISTORY. Removing them from history needs a
+# rewrite + force-push, or the repo going private (requires a paid plan for Pages).
+_archive/business/
+_archive/outreach/
+_archive/strategy/
+os/partners/
+os/products.md
+os/action-list.md
+os/core/partnership-filter.md
+os/core/who-we-serve-archetypes.md
+os/core/program-fit-checklist.md
+docs/partner-call-script.md
+docs/tokyo-instructor-call-prep.md
+docs/survey-report.md
+docs/referral-fee-worksheet.md
+docs/pitch.md
+logs/decision-log.md
+ideas.md
+EducatedTraveler-Playbook.pdf
+EducatedTraveler-Vision.pdf

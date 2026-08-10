@@ -60,12 +60,6 @@
         /* < 16px makes iOS Safari zoom the page on focus */
         input, select, textarea { font-size: 16px; }
         input::placeholder { color: rgba(243,237,226,0.32); }
-        .cm-photo-drop { width: 84px; height: 84px; border-radius: 50%; border: 1px dashed rgba(243,237,226,0.3); display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; transition: border-color .25s ease; background: rgba(243,237,226,0.03); }
-        .cm-photo-drop:hover { border-color: var(--sea); }
-        .cm-photo-ph { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(243,237,226,0.4); text-align: center; line-height: 1.4; }
-        .cm-int-chip { display: block; text-align: center; padding: 9px 8px; border-radius: 10px; border: 1px solid rgba(243,237,226,0.15); color: rgba(243,237,226,0.6); font-size: 13px; cursor: pointer; transition: all .2s ease; }
-        .cm-int input:checked + .cm-int-chip { border-color: var(--sea); background: rgba(127,168,165,0.12); color: var(--paper); }
-        .cm-int-chip:hover { border-color: rgba(243,237,226,0.3); }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .fade-up { animation: fadeUp 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; opacity: 0; }
@@ -108,137 +102,20 @@
             </h1>
             <p class="text-paper-muted mb-6 fade-up delay-2" style="color:rgba(243,237,226,0.56)">
                 The Circle is who this is for: people who'd rather do something real than watch it.
-                Create your account and you become visible to your people, save places from the Atlas, and pick up where the conversation is.
+                Take your place and you become visible to your people, save places from the Atlas, and pick up where the conversation is.
             </p>
-            <p id="circle-prefill-note" class="hidden text-sm mb-10 fade-up delay-2" style="color:var(--sea)">
-                You're already in the Circle — just set a password below to claim your profile.
-            </p>
-
-            <!-- Sign Up / Sign In form -->
-            <form id="community-form" class="space-y-4 max-w-md mx-auto fade-up delay-2">
-
-                <!-- Role selector -->
-                <div class="flex gap-3 justify-center mb-2">
-                    <label class="flex-1 cursor-pointer">
-                        <input type="radio" name="role" value="student" class="hidden peer" checked>
-                        <div class="peer-checked:border-[#7fa8a5] peer-checked:bg-[#7fa8a5]/10 peer-checked:text-white border border-white/15 text-white/50 rounded-full py-2.5 text-center text-sm transition-all hover:border-white/30">
-                            I want to learn
-                        </div>
-                    </label>
-                    <label class="flex-1 cursor-pointer">
-                        <input type="radio" name="role" value="instructor" class="hidden peer">
-                        <div class="peer-checked:border-[#d28a52] peer-checked:bg-[#d28a52]/10 peer-checked:text-white border border-white/15 text-white/50 rounded-full py-2.5 text-center text-sm transition-all hover:border-white/30">
-                            I want to teach
-                        </div>
-                    </label>
-                </div>
-
-                <!-- Profile photo (optional) -->
-                <div class="flex flex-col items-center gap-1.5 mb-1">
-                    <label for="cm-photo" class="cm-photo-drop" title="Add a profile photo">
-                        <input type="file" id="cm-photo" accept="image/*" class="hidden">
-                        <img id="cm-photo-preview" class="hidden w-full h-full object-cover" alt="">
-                        <span id="cm-photo-ph" class="cm-photo-ph">+<br>photo</span>
-                    </label>
-                    <span class="text-[11px]" style="color:rgba(243,237,226,0.34)">Add your face — optional</span>
-                </div>
-
-                <!-- Name -->
-                <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Your name"
-                    class="w-full rounded-full px-4 py-3 text-base text-white" style="background:rgba(243,237,226,0.04);border:1px solid rgba(243,237,226,0.16)"
-                />
-
-                <!-- Email -->
-                <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="you@email.com"
-                    class="w-full rounded-full px-4 py-3 text-base text-white" style="background:rgba(243,237,226,0.04);border:1px solid rgba(243,237,226,0.16)"
-                />
-
-                <!-- Password -->
-                <input
-                    type="password"
-                    name="password"
-                    required
-                    minlength="8"
-                    placeholder="Create a password (min 8 characters)"
-                    class="w-full rounded-full px-4 py-3 text-base text-white" style="background:rgba(243,237,226,0.04);border:1px solid rgba(243,237,226,0.16)"
-                />
-
-                <!-- What pulls you — auto-directs to those crafts after joining -->
-                <div class="pt-1 text-left" id="cm-interest-wrap">
-                    <p class="text-xs mb-2" style="color:rgba(243,237,226,0.56)">What pulls you? We'll take you straight to those crafts.</p>
-                    <div class="grid grid-cols-2 gap-2" id="cm-interest">
-                        <label class="cm-int"><input type="radio" name="cmcore" value="adventure" class="hidden peer"><span class="cm-int-chip">Adventure</span></label>
-                        <label class="cm-int"><input type="radio" name="cmcore" value="wellness" class="hidden peer"><span class="cm-int-chip">Healing</span></label>
-                        <label class="cm-int"><input type="radio" name="cmcore" value="culinary" class="hidden peer"><span class="cm-int-chip">Kitchen &amp; Cellar</span></label>
-                        <label class="cm-int"><input type="radio" name="cmcore" value="creative" class="hidden peer"><span class="cm-int-chip">Craft &amp; Art</span></label>
-                    </div>
-                </div>
-
-                <button
-                    type="submit"
-                    id="community-submit"
-                    class="cta-button w-full px-6 py-3 rounded-full text-sm font-medium"
-                >
-                    Join the Circle
-                </button>
-
-                <p id="community-error" class="hidden text-red-400 text-xs text-center"></p>
-
-                <p class="text-white/30 text-xs text-center">
-                    Already have an account?
-                    <button type="button" id="toggle-signin" class="hover:opacity-100 underline" style="color:var(--sea)">Sign in</button>
+            <!-- Two doors, no password. Joining happens in the Circle, where the
+                 questions actually get asked; signing in is a link, because there is
+                 no password here to remember or reset. -->
+            <div id="circle-doors" class="max-w-md mx-auto fade-up delay-2">
+                <a href="/circle" class="cta-button block w-full px-6 py-3 rounded-full text-sm font-medium text-center">
+                    Take your place in the Circle
+                </a>
+                <p class="text-xs text-center mt-4" style="color:rgba(243,237,226,0.45);line-height:1.7">
+                    Already in? <a href="/you" style="color:var(--sea)">Email me a sign-in link</a>.<br>
+                    There is no password here — I send you a link that signs you in.
                 </p>
-            </form>
-
-            <!-- Sign In form (hidden by default) -->
-            <form id="signin-form" class="hidden space-y-4 max-w-md mx-auto fade-up delay-2">
-                <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="you@email.com"
-                    class="w-full rounded-full px-4 py-3 text-base text-white" style="background:rgba(243,237,226,0.04);border:1px solid rgba(243,237,226,0.16)"
-                />
-                <input
-                    type="password"
-                    name="password"
-                    required
-                    placeholder="Your password"
-                    class="w-full rounded-full px-4 py-3 text-base text-white" style="background:rgba(243,237,226,0.04);border:1px solid rgba(243,237,226,0.16)"
-                />
-                <button
-                    type="submit"
-                    id="signin-submit"
-                    class="cta-button w-full px-6 py-3 rounded-full text-sm font-medium"
-                >
-                    Sign in
-                </button>
-
-                <div style="display:flex;justify-content:center;align-items:center;gap:0.75rem;flex-wrap:wrap;">
-                    <button type="button" id="magic-link-btn" class="text-xs" style="background:none;border:none;color:var(--sea);cursor:pointer;padding:2px;">Email me a sign-in link</button>
-                    <span class="text-xs" style="color:rgba(243,237,226,0.2)">&middot;</span>
-                    <button type="button" id="forgot-btn" class="text-xs" style="background:none;border:none;color:rgba(243,237,226,0.5);cursor:pointer;padding:2px;">Forgot your password?</button>
-                </div>
-
-                <p id="signin-error" class="hidden text-red-400 text-xs text-center"></p>
-                <p id="signin-notice" class="hidden text-xs text-center" style="color:var(--sea);line-height:1.55"></p>
-
-                <p class="text-white/30 text-xs text-center">
-                    Don't have an account?
-                    <button type="button" id="toggle-signup" class="hover:opacity-100 underline" style="color:var(--sea)">Join the Circle</button>
-                </p>
-            </form>
-
-            <!-- Success -->
-            <div id="community-success" class="hidden mt-8 text-center fade-up"></div>
+            </div>
 
             <!-- Already signed in -->
             <div id="already-signed-in" class="hidden mt-8 text-center fade-up">
@@ -297,281 +174,20 @@
     <script src="/js/database.js"></script>
 
     <script>
-        // Wait for everything to load
-        function waitForSupabase(callback) {
-            if (window.supabaseClient) {
-                callback();
-            } else {
-                setTimeout(() => waitForSupabase(callback), 100);
-            }
-        }
-
-        waitForSupabase(() => {
-        const supabase = window.supabaseClient;
-        const communityForm = document.getElementById('community-form');
-        const signinForm = document.getElementById('signin-form');
-        const successEl = document.getElementById('community-success');
-        const alreadySignedIn = document.getElementById('already-signed-in');
-
-        // Toggle between sign up and sign in
-        document.getElementById('toggle-signin')?.addEventListener('click', () => {
-            communityForm.classList.add('hidden');
-            signinForm.classList.remove('hidden');
-        });
-        document.getElementById('toggle-signup')?.addEventListener('click', () => {
-            signinForm.classList.add('hidden');
-            communityForm.classList.remove('hidden');
-        });
-
-        // Check if already signed in
-        (async () => {
-            try {
-                const { data: { user } } = await supabase.auth.getUser();
-                if (user) {
-                    communityForm.classList.add('hidden');
-                    alreadySignedIn.classList.remove('hidden');
-                }
-            } catch (e) {}
+        // The only auth this page does: if you are already signed in, swap the two
+        // doors for a welcome. Joining lives at /circle, signing in at /you.
+        (function waitForSupabase() {
+            if (!window.supabaseClient) return setTimeout(waitForSupabase, 100);
+            (async function () {
+                try {
+                    const { data: { user } } = await window.supabaseClient.auth.getUser();
+                    if (user) {
+                        document.getElementById('circle-doors')?.classList.add('hidden');
+                        document.getElementById('already-signed-in')?.classList.remove('hidden');
+                    }
+                } catch (e) { /* stay on the doors */ }
+            })();
         })();
-
-        // SIGN UP
-        communityForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const name = communityForm.querySelector('input[name="name"]').value.trim();
-            const email = communityForm.querySelector('input[name="email"]').value.trim();
-            const password = communityForm.querySelector('input[name="password"]').value;
-            const role = communityForm.querySelector('input[name="role"]:checked')?.value || 'student';
-            const chosenCore = communityForm.querySelector('input[name="cmcore"]:checked')?.value || null;
-            const photoFile = document.getElementById('cm-photo')?.files?.[0] || null;
-            const submitBtn = document.getElementById('community-submit');
-            const errorEl = document.getElementById('community-error');
-
-            errorEl.classList.add('hidden');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Creating account...';
-
-            try {
-                // Sign up directly via Supabase client
-                const { data, error } = await supabase.auth.signUp({
-                    email: email,
-                    password: password,
-                    options: {
-                        data: { name, role },
-                        emailRedirectTo: window.location.origin + '/auth-callback.html'
-                    }
-                });
-
-                if (error) throw error;
-
-                // Already registered? Supabase returns a user with empty identities.
-                if (data?.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
-                    errorEl.textContent = "That email is already registered. Choose “Sign in” below — or use “Email me a sign-in link” if you don’t have a password yet.";
-                    errorEl.classList.remove('hidden');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Join the Circle';
-                    communityForm.classList.add('hidden');
-                    signinForm.classList.remove('hidden');
-                    signinForm.querySelector('input[name="email"]').value = email;
-                    return;
-                }
-
-                const user = data?.user;
-                const hasSession = !!data?.session;
-                if (user && hasSession) {
-                    // Create profile in DB (only meaningful once a real session exists)
-                    try {
-                        var allInterests = [].concat(window.__etCircleInterests || [], chosenCore ? [chosenCore] : []);
-                        await supabase.from('profiles').upsert({
-                            id: user.id,
-                            email: email,
-                            name: name,
-                            interests: allInterests,
-                            xp: 100,
-                            level: 1
-                        });
-                        try { sessionStorage.removeItem('et_circle'); } catch (e) {}
-                        // upload profile photo (best-effort; requires a session)
-                        if (photoFile) {
-                            try {
-                                var ext = (photoFile.name.split('.').pop() || 'jpg').toLowerCase();
-                                var path = user.id + '/avatar.' + ext;
-                                var up = await supabase.storage.from('avatars').upload(path, photoFile, { upsert: true, contentType: photoFile.type });
-                                if (!up.error) {
-                                    var pub = supabase.storage.from('avatars').getPublicUrl(path);
-                                    var publicUrl = pub && pub.data && pub.data.publicUrl ? pub.data.publicUrl + '?t=' + Date.now() : null;
-                                    if (publicUrl) await supabase.from('profiles').update({ avatar_url: publicUrl }).eq('id', user.id);
-                                }
-                            } catch (pe) { console.warn('avatar upload:', pe); }
-                        }
-                    } catch (dbErr) {
-                        console.warn('Profile creation after signup:', dbErr);
-                    }
-                }
-
-                communityForm.classList.add('hidden');
-
-                if (!hasSession) {
-                    // Confirmation is ON: no session yet. Don't redirect into a gated page —
-                    // tell them to confirm by email first.
-                    successEl.innerHTML = `
-                        <p class="text-2xl text-white mb-2">Check your inbox.</p>
-                        <p class="text-white/70 mb-2">We sent a link to finish joining the Circle to</p>
-                        <p class="mb-6" style="color:var(--paper)"><span class="cm-email"></span></p>
-                        <p class="text-white/40 text-xs">Open it on this device to continue. You can close this tab.</p>
-                    `;
-                    successEl.querySelector('.cm-email').textContent = email;
-                    successEl.classList.remove('hidden');
-                    return;
-                }
-
-                if (role === 'instructor') {
-                    successEl.innerHTML = `
-                        <p class="text-2xl text-white mb-2">Welcome, ${name}.</p>
-                        <p class="text-white/70 mb-6">Your account is created. Complete your instructor profile to get started.</p>
-                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                            <a href="/instructors#connect" class="inline-block px-6 py-3 rounded-full text-sm transition-colors" style="background:rgba(210,138,82,0.16);color:#e0a877">
-                                Complete instructor profile
-                            </a>
-                            <a href="/dashboard" class="inline-block px-6 py-3 rounded-full bg-white/10 text-white/70 hover:bg-white/20 text-sm transition-colors">
-                                Go to dashboard
-                            </a>
-                        </div>
-                    `;
-                } else {
-                    var destUrl = '/atlas/' + (chosenCore ? ('?core=' + encodeURIComponent(chosenCore)) : '');
-                    successEl.innerHTML = `
-                        <p class="text-2xl text-white mb-2">Welcome, ${name}.</p>
-                        <p class="text-white/70 mb-5">Taking you to your crafts…</p>
-                        <a href="${destUrl}" class="inline-block px-6 py-3 rounded-full cta-button text-white text-sm font-medium">See your crafts now &rarr;</a>
-                    `;
-                    setTimeout(function () { window.location.href = destUrl; }, 1300);
-                }
-                successEl.classList.remove('hidden');
-
-            } catch (err) {
-                console.error('Sign up error:', err);
-                errorEl.textContent = err.message || 'Something went wrong. Please try again.';
-                errorEl.classList.remove('hidden');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Join the Circle';
-            }
-        });
-
-        // SIGN IN
-        signinForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const email = signinForm.querySelector('input[name="email"]').value.trim();
-            const password = signinForm.querySelector('input[name="password"]').value;
-            const submitBtn = document.getElementById('signin-submit');
-            const errorEl = document.getElementById('signin-error');
-            const noticeEl = document.getElementById('signin-notice');
-
-            errorEl.classList.add('hidden');
-            noticeEl.classList.add('hidden');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Signing in...';
-
-            try {
-                const { error } = await supabase.auth.signInWithPassword({
-                    email: email,
-                    password: password
-                });
-                if (error) throw error;
-
-                signinForm.classList.add('hidden');
-                successEl.innerHTML = `
-                    <p class="text-2xl text-white mb-2">Welcome back.</p>
-                    <p class="text-white/70 mb-6">You're signed in.</p>
-                    <a href="/dashboard" class="inline-block px-6 py-3 rounded-full cta-button text-white text-sm font-medium">
-                        Go to your dashboard
-                    </a>
-                `;
-                successEl.classList.remove('hidden');
-
-            } catch (err) {
-                console.error('Sign in error:', err);
-                errorEl.textContent = friendlySignInError(err);
-                errorEl.classList.remove('hidden');
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Sign in';
-            }
-        });
-
-        // ── Recovery: friendly errors + magic-link + password reset ──────────
-        // Legacy members who joined with a magic link have no password, so a
-        // failed password sign-in must point them to the escape hatches below.
-        function friendlySignInError(err) {
-            const m = ((err && err.message) || '').toLowerCase();
-            if (m.includes('invalid login'))
-                return "We couldn’t sign you in. If you first joined with a magic link, you may not have a password yet — try “Email me a sign-in link” just below.";
-            if (m.includes('email not confirmed'))
-                return "Almost there — please confirm your email first. Use “Email me a sign-in link” below to get a fresh one.";
-            if (m.includes('rate') || m.includes('too many') || m.includes('only request'))
-                return "Too many attempts just now. Give it a minute, then try again.";
-            return (err && err.message) ? err.message : 'Something went wrong. Please try again.';
-        }
-
-        function isRateLimit(err) {
-            const m = ((err && err.message) || '').toLowerCase();
-            return m.includes('rate') || m.includes('too many') || m.includes('only request');
-        }
-
-        async function sendRecovery(kind, sourceBtn) {
-            const email = signinForm.querySelector('input[name="email"]').value.trim();
-            const errorEl = document.getElementById('signin-error');
-            const noticeEl = document.getElementById('signin-notice');
-            errorEl.classList.add('hidden');
-            noticeEl.classList.add('hidden');
-
-            if (!email || email.indexOf('@') === -1) {
-                errorEl.textContent = 'Type your email in the box above first, then tap this.';
-                errorEl.classList.remove('hidden');
-                return;
-            }
-
-            const label = sourceBtn.textContent;
-            sourceBtn.disabled = true;
-            sourceBtn.textContent = 'Sending…';
-            try {
-                if (kind === 'magic') {
-                    await supabase.auth.signInWithOtp({
-                        email,
-                        options: { emailRedirectTo: window.location.origin + '/auth-callback.html', shouldCreateUser: false }
-                    });
-                } else {
-                    await supabase.auth.resetPasswordForEmail(email, {
-                        redirectTo: window.location.origin + '/auth-callback.html?type=recovery'
-                    });
-                }
-                noticeEl.textContent = (kind === 'magic')
-                    ? 'If that email is in the Circle, a sign-in link is on its way. Check your inbox (and spam).'
-                    : 'If that email is in the Circle, a password-reset link is on its way. Check your inbox (and spam).';
-                noticeEl.classList.remove('hidden');
-            } catch (err) {
-                if (isRateLimit(err)) {
-                    errorEl.textContent = 'Too many requests just now. Give it a minute, then try again.';
-                    errorEl.classList.remove('hidden');
-                } else {
-                    noticeEl.textContent = (kind === 'magic')
-                        ? 'If that email is in the Circle, a sign-in link is on its way. Check your inbox (and spam).'
-                        : 'If that email is in the Circle, a password-reset link is on its way. Check your inbox (and spam).';
-                    noticeEl.classList.remove('hidden');
-                }
-            } finally {
-                sourceBtn.disabled = false;
-                sourceBtn.textContent = label;
-            }
-        }
-
-        document.getElementById('magic-link-btn')?.addEventListener('click', function () {
-            sendRecovery('magic', this);
-        });
-        document.getElementById('forgot-btn')?.addEventListener('click', function () {
-            sendRecovery('reset', this);
-        });
-        }); // end waitForSupabase
     </script>
 
     <script>
@@ -620,43 +236,6 @@
                     }));
                 }
             } catch (e) { /* no-op */ }
-        })();
-    </script>
-    <script>
-        // Continuity from the homepage "Join the Circle" quick-signup:
-        // prefill the email, stash interests for the profile, and reassure the visitor.
-        (function () {
-            try {
-                var pre = JSON.parse(sessionStorage.getItem('et_circle') || 'null');
-                if (pre && pre.email) {
-                    document.querySelectorAll('#community-form input[name="email"], #signin-form input[name="email"]')
-                        .forEach(function (el) { el.value = pre.email; });
-                    window.__etCircleInterests = pre.interests || [];
-                    var note = document.getElementById('circle-prefill-note');
-                    if (note) note.classList.remove('hidden');
-                    var nameEl = document.querySelector('#community-form input[name="name"]');
-                    if (nameEl) setTimeout(function () { nameEl.focus(); }, 300);
-                    // pre-select "what pulls you" from their quick-join interest
-                    var map = { ocean: 'adventure', mountain: 'adventure', wild: 'adventure', kitchen: 'culinary', healing: 'wellness', creative: 'creative' };
-                    (pre.interests || []).some(function (it) {
-                        var c = map[it]; if (!c) return false;
-                        var r = document.querySelector('input[name="cmcore"][value="' + c + '"]');
-                        if (r) { r.checked = true; return true; }
-                        return false;
-                    });
-                }
-            } catch (e) { /* no-op */ }
-        })();
-        // Profile photo preview
-        (function () {
-            var inp = document.getElementById('cm-photo'), prev = document.getElementById('cm-photo-preview'), ph = document.getElementById('cm-photo-ph');
-            if (!inp) return;
-            inp.addEventListener('change', function () {
-                var f = inp.files && inp.files[0]; if (!f) return;
-                var rd = new FileReader();
-                rd.onload = function (e) { prev.src = e.target.result; prev.classList.remove('hidden'); if (ph) ph.classList.add('hidden'); };
-                rd.readAsDataURL(f);
-            });
         })();
     </script>
     <script src="/js/community-sidebar.js"></script>

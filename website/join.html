@@ -491,16 +491,6 @@
                             autocomplete="email"
                             class="form-input"
                         />
-                        <!-- Password is opt-in: magic-link is the easy, default path -->
-                        <input
-                            type="password"
-                            name="password"
-                            minlength="8"
-                            placeholder="Set a password (min 8 characters)"
-                            autocomplete="new-password"
-                            class="form-input hidden"
-                            id="signup-password"
-                        />
 
                         <div style="padding-top:0.25rem;">
                             <button type="submit" id="signup-btn" class="btn-primary">
@@ -508,9 +498,6 @@
                             </button>
                         </div>
 
-                        <p style="text-align:center;padding-top:0.1rem;">
-                            <button type="button" id="signup-pw-toggle" style="background:none;border:none;color:rgba(243,237,226,0.5);font-size:0.72rem;cursor:pointer;font-family:'Inter',sans-serif;padding:0.15rem;transition:color 0.3s;" onmouseover="this.style.color='#7fa8a5'" onmouseout="this.style.color='rgba(243,237,226,0.5)'">Prefer to set a password instead?</button>
-                        </p>
 
                         <p id="signup-error" class="hidden" style="color:#f87171;font-size:0.7rem;text-align:center;"></p>
                         <p id="signup-notice" class="hidden" style="color:#7fa8a5;font-size:0.72rem;text-align:center;line-height:1.55;"></p>
@@ -535,26 +522,14 @@
                             autocomplete="email"
                             class="form-input"
                         />
-                        <input
-                            type="password"
-                            name="password"
-                            required
-                            placeholder="Password"
-                            autocomplete="current-password"
-                            class="form-input"
-                        />
 
                         <div style="padding-top:0.25rem;">
                             <button type="submit" id="signin-btn" class="btn-primary">
-                                Sign in
+                                Email me a sign-in link
                             </button>
                         </div>
 
-                        <div style="display:flex;justify-content:center;align-items:center;gap:0.75rem;flex-wrap:wrap;padding-top:0.15rem;">
-                            <button type="button" id="magic-link-btn" style="background:none;border:none;color:#7fa8a5;font-size:0.72rem;cursor:pointer;font-family:'Inter',sans-serif;padding:0.15rem;transition:color 0.3s;" onmouseover="this.style.color='#d28a52'" onmouseout="this.style.color='#7fa8a5'">Email me a sign-in link</button>
-                            <span style="color:rgba(255,255,255,0.18);font-size:0.72rem;">&middot;</span>
-                            <button type="button" id="forgot-btn" style="background:none;border:none;color:rgba(243,237,226,0.5);font-size:0.72rem;cursor:pointer;font-family:'Inter',sans-serif;padding:0.15rem;transition:color 0.3s;" onmouseover="this.style.color='#7fa8a5'" onmouseout="this.style.color='rgba(243,237,226,0.5)'">Forgot your password?</button>
-                        </div>
+                        <p style="color:rgba(243,237,226,0.4);font-size:0.72rem;text-align:center;line-height:1.55;padding-top:0.15rem;">There is no password here — I send you a link that signs you in.</p>
 
                         <p id="signin-error" class="hidden" style="color:#f87171;font-size:0.7rem;text-align:center;line-height:1.55;"></p>
                         <p id="signin-notice" class="hidden" style="color:#7fa8a5;font-size:0.72rem;text-align:center;line-height:1.55;"></p>
@@ -738,31 +713,12 @@
                 window.location.reload();
             });
 
-            // Toggle: reveal the optional password field / go back to the emailed link
-            document.getElementById('signup-pw-toggle').addEventListener('click', function () {
-                const pwEl = document.getElementById('signup-password');
-                const btn = document.getElementById('signup-btn');
-                if (pwEl.classList.contains('hidden')) {
-                    pwEl.classList.remove('hidden');
-                    pwEl.focus();
-                    btn.textContent = 'Create account';
-                    this.textContent = 'Actually, just email me a link';
-                } else {
-                    pwEl.classList.add('hidden');
-                    pwEl.value = '';
-                    btn.textContent = 'Email me a link to begin';
-                    this.textContent = 'Prefer to set a password instead?';
-                }
-            });
 
             // SIGN UP — magic-link by default (no password); password is opt-in
             signupForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const name = signupForm.querySelector('input[name="name"]').value.trim();
                 const email = signupForm.querySelector('input[name="email"]').value.trim();
-                const pwEl = document.getElementById('signup-password');
-                const passwordMode = !pwEl.classList.contains('hidden');
-                const password = pwEl.value;
                 const btn = document.getElementById('signup-btn');
                 const errorEl = document.getElementById('signup-error');
                 const noticeEl = document.getElementById('signup-notice');
@@ -770,8 +726,7 @@
                 errorEl.classList.add('hidden');
                 if (noticeEl) noticeEl.classList.add('hidden');
 
-                // ── Passwordless (default): email a link that creates the account ──
-                if (!passwordMode) {
+                // Email a link that creates the account. The only path now.
                     btn.disabled = true;
                     btn.textContent = 'Sending your link…';
                     try {
@@ -798,92 +753,15 @@
                         btn.disabled = false;
                         btn.textContent = 'Email me a link to begin';
                     }
-                    return;
-                }
 
-                // ── Password (opt-in) ──
-                if (password.length < 8) {
-                    errorEl.textContent = 'A password needs at least 8 characters — or switch back to the emailed link.';
-                    errorEl.classList.remove('hidden');
-                    pwEl.focus();
-                    return;
-                }
-                btn.disabled = true;
-                btn.textContent = 'Creating account…';
-                try {
-                    const { data, error } = await supabase.auth.signUp({
-                        email,
-                        password,
-                        options: {
-                            data: { name },
-                            emailRedirectTo: authCallbackUrl()
-                        }
-                    });
-                    if (error) throw error;
-
-                    // Supabase returns a user with empty identities when the email is already registered.
-                    if (data?.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
-                        errorEl.textContent = "That email is already registered. Switch to Sign In — or use “Email me a sign-in link” if you don’t have a password yet.";
-                        errorEl.classList.remove('hidden');
-                        tabSignin.click();
-                        signinForm.querySelector('input[name="email"]').value = email;
-                        btn.disabled = false;
-                        btn.textContent = 'Create account';
-                        return;
-                    }
-
-                    // Send to email service (Loops.so / webhook)
-                    sendToEmailService({ email, name, source: 'join-page' });
-
-                    if (data?.session && data?.user) {
-                        // Confirmation is OFF: we have a real session now. Enrich the profile, then go.
-                        try {
-                            await supabase.from('profiles').upsert({
-                                id: data.user.id, email: email, name: name, xp: 100, level: 1
-                            });
-                        } catch (dbErr) { console.warn('profile upsert:', dbErr); }
-                        window.location.href = returnDest();
-                    } else {
-                        // Confirmation is ON: no session yet. Do NOT redirect into the gated dashboard.
-                        showEmailSentPanel(
-                            'Check your inbox',
-                            email,
-                            'We sent a link to finish joining the Circle to'
-                        );
-                    }
-                } catch (err) {
-                    errorEl.textContent = friendlySignInError(err);
-                    errorEl.classList.remove('hidden');
-                    btn.disabled = false;
-                    btn.textContent = 'Create account';
-                }
             });
 
             // SIGN IN
             signinForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const email = signinForm.querySelector('input[name="email"]').value.trim();
-                const password = signinForm.querySelector('input[name="password"]').value;
-                const btn = document.getElementById('signin-btn');
-                const errorEl = document.getElementById('signin-error');
-                const noticeEl = document.getElementById('signin-notice');
-
-                errorEl.classList.add('hidden');
-                noticeEl.classList.add('hidden');
-                btn.disabled = true;
-                btn.textContent = 'Signing in...';
-
-                try {
-                    const { error } = await supabase.auth.signInWithPassword({ email, password });
-                    if (error) throw error;
-
-                    window.location.href = returnDest();
-                } catch (err) {
-                    errorEl.textContent = friendlySignInError(err);
-                    errorEl.classList.remove('hidden');
-                    btn.disabled = false;
-                    btn.textContent = 'Sign in';
-                }
+                // One door. sendMagicLink owns the validation, the neutral wording and
+                // the button state, so Enter and the button take the same path.
+                await sendMagicLink(document.getElementById('signin-btn'));
             });
 
             // ── Recovery: friendly errors + magic-link + password reset ──────────
@@ -906,7 +784,10 @@
                 return m.includes('rate') || m.includes('too many') || m.includes('only request');
             }
 
-            async function sendRecovery(kind, sourceBtn) {
+            // The one sign-in path. Called by the Sign In form's submit handler, which
+            // passes its own button so the label can be restored — sourceBtn is written
+            // to, not just read, so it must never be omitted.
+            async function sendMagicLink(sourceBtn) {
                 const email = signinForm.querySelector('input[name="email"]').value.trim();
                 const errorEl = document.getElementById('signin-error');
                 const noticeEl = document.getElementById('signin-notice');
@@ -923,18 +804,11 @@
                 sourceBtn.disabled = true;
                 sourceBtn.textContent = 'Sending…';
                 try {
-                    if (kind === 'magic') {
-                        await supabase.auth.signInWithOtp({
-                            email,
-                            options: { emailRedirectTo: window.location.origin + '/auth-callback.html', shouldCreateUser: false }
-                        });
-                        noticeEl.textContent = 'If that email is in the Circle, a sign-in link is on its way. Check your inbox (and spam).';
-                    } else {
-                        await supabase.auth.resetPasswordForEmail(email, {
-                            redirectTo: window.location.origin + '/auth-callback.html?type=recovery'
-                        });
-                        noticeEl.textContent = 'If that email is in the Circle, a password-reset link is on its way. Check your inbox (and spam).';
-                    }
+                    await supabase.auth.signInWithOtp({
+                        email,
+                        options: { emailRedirectTo: window.location.origin + '/auth-callback.html', shouldCreateUser: false }
+                    });
+                    noticeEl.textContent = 'If that email is in the Circle, a sign-in link is on its way. Check your inbox (and spam).';
                     noticeEl.classList.remove('hidden');
                 } catch (err) {
                     if (isRateLimit(err)) {
@@ -942,9 +816,7 @@
                         errorEl.classList.remove('hidden');
                     } else {
                         // Neutral by design — never reveal whether an email exists.
-                        noticeEl.textContent = (kind === 'magic')
-                            ? 'If that email is in the Circle, a sign-in link is on its way. Check your inbox (and spam).'
-                            : 'If that email is in the Circle, a password-reset link is on its way. Check your inbox (and spam).';
+                        noticeEl.textContent = 'If that email is in the Circle, a sign-in link is on its way. Check your inbox (and spam).';
                         noticeEl.classList.remove('hidden');
                     }
                 } finally {
@@ -953,12 +825,6 @@
                 }
             }
 
-            document.getElementById('magic-link-btn').addEventListener('click', function () {
-                sendRecovery('magic', this);
-            });
-            document.getElementById('forgot-btn').addEventListener('click', function () {
-                sendRecovery('reset', this);
-            });
 
             // Swap the whole auth panel for a calm "check your email" confirmation.
             function showEmailSentPanel(title, email, sub) {
