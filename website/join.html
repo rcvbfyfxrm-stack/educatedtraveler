@@ -27,9 +27,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
     <style>
+        /* The only three Tailwind utilities this page used. Inlined so the 400KB
+           in-browser compiler no longer render-blocks the join funnel. */
+        .hidden { display: none; }
+        .text-center { text-align: center; }
+        .text-white { color: #fff; }
         h1,h2,h3 { font-family:'Fraunces',Georgia,serif; letter-spacing:-0.01em; font-weight:400; }
         .mono { font-family:'IBM Plex Mono',monospace; }
 
@@ -40,7 +43,10 @@
         }
 
         * { -webkit-font-smoothing: antialiased; margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); overflow-x: hidden; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); overflow-x: hidden; line-height: 1.5; }
+        /* Form controls do not inherit line-height by default; Tailwind's preflight
+           made them, and without it every button and tab rendered 4px shorter. */
+        button, input, select, textarea { line-height: inherit; }
         .font-serif { font-family: 'Fraunces', 'Georgia', serif; }
 
         /* ═══════════════════════════════════════════ */
