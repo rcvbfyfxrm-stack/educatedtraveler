@@ -241,13 +241,9 @@
                 '<form id="et-signin-form">' +
                     '<label style="display:block;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px;">Email</label>' +
                     '<input id="et-signin-email" type="email" required placeholder="you@example.com" ' + inputStyle() + '>' +
-                    '<label style="display:block;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin:14px 0 6px 0;">Password</label>' +
-                    '<input id="et-signin-password" type="password" placeholder="Your password" ' + inputStyle() + '>' +
-                    '<button id="et-signin-submit" type="submit" style="margin-top:18px;width:100%;background:linear-gradient(135deg,#0066B1,#3B8DD4);border:none;color:#fff;padding:14px 22px;border-radius:50px;font-size:14px;font-weight:500;cursor:pointer;">Sign in &amp; continue</button>' +
+                    '<button id="et-signin-submit" type="submit" style="margin-top:18px;width:100%;background:linear-gradient(135deg,#0066B1,#3B8DD4);border:none;color:#fff;padding:14px 22px;border-radius:50px;font-size:14px;font-weight:500;cursor:pointer;">Email me a sign-in link</button>' +
                 '</form>' +
-                '<div style="text-align:center;margin-top:14px;">' +
-                    '<button id="et-magic" style="background:none;border:none;color:#3B8DD4;font-size:12px;text-decoration:underline;cursor:pointer;">Email me a sign-in link instead</button>' +
-                '</div>' +
+                '<p style="font-size:12px;color:rgba(255,255,255,0.45);margin:12px 0 0 0;">There is no password here — I send you a link that signs you in.</p>' +
                 '<p id="et-signin-msg" style="font-size:12px;color:#ef4444;margin:10px 0 0 0;min-height:18px;"></p>' +
                 '<div style="display:flex;gap:14px;justify-content:space-between;margin-top:14px;">' +
                     '<button id="et-back" style="background:none;border:none;color:rgba(255,255,255,0.5);font-size:12px;cursor:pointer;">← Back</button>' +
@@ -258,58 +254,33 @@
         overlay.querySelector('#et-back').addEventListener('click', function () { renderAccountChoice(overlay, ctx, close); });
         overlay.querySelector('#et-guest').addEventListener('click', function () { renderGuestForm(overlay, ctx, close, false); });
 
+        // One door, one code path. The form owns the send, so Enter and the button
+        // do the same thing — there is no second control to drift out of sync.
         overlay.querySelector('#et-signin-form').addEventListener('submit', async function (e) {
             e.preventDefault();
             var email = overlay.querySelector('#et-signin-email').value.trim();
-            var pwd = overlay.querySelector('#et-signin-password').value;
             var msg = overlay.querySelector('#et-signin-msg');
             var sub = overlay.querySelector('#et-signin-submit');
-            if (!email || !pwd) { msg.textContent = 'Email and password required.'; return; }
-            sub.disabled = true; sub.textContent = 'Signing in…'; msg.textContent = '';
-            try {
-                var res = await window.auth.signInWithPassword(email, pwd);
-                if (res && res.error) throw res.error;
-                // Re-bootstrap modal with fresh user/profile data.
-                close();
-                openJoinModal(originBtnHack(ctx));
-            } catch (err) {
-                msg.textContent = (err && err.message) || 'Sign-in failed. Try the magic-link option below.';
-                sub.disabled = false; sub.textContent = 'Sign in & continue';
-            }
-        });
-
-        overlay.querySelector('#et-magic').addEventListener('click', async function () {
-            var email = overlay.querySelector('#et-signin-email').value.trim();
-            var msg = overlay.querySelector('#et-signin-msg');
-            if (!email) { msg.style.color = '#ef4444'; msg.textContent = 'Enter your email first.'; return; }
+            if (!email) { msg.style.color = '#ef4444'; msg.textContent = 'I need your email to send the link to.'; return; }
+            sub.disabled = true; sub.textContent = 'Sending…'; msg.textContent = '';
             try {
                 var sb = window.supabaseClient;
+                if (!sb) throw new Error('Connection unavailable — try again in a minute.');
                 var ret = encodeURIComponent(window.location.pathname + window.location.search);
-                var { error } = await sb.auth.signInWithOtp({
+                var res = await sb.auth.signInWithOtp({
                     email: email,
                     options: { emailRedirectTo: window.location.origin + '/auth-callback.html?return=' + ret }
                 });
-                if (error) throw error;
+                if (res && res.error) throw res.error;
                 msg.style.color = '#10B981';
-                msg.textContent = 'Check your email — open the link, then click "Join the course" again.';
+                msg.textContent = 'Check your email — open the link and you come straight back here to finish.';
+                sub.textContent = 'Link sent';
             } catch (err) {
                 msg.style.color = '#ef4444';
-                msg.textContent = (err && err.message) || 'Could not send link.';
+                msg.textContent = (err && err.message) || 'Could not send the link.';
+                sub.disabled = false; sub.textContent = 'Email me a sign-in link';
             }
         });
-    }
-
-    // Re-creates a synthetic button carrying the original data-* attributes
-    // so openJoinModal can re-enter after a successful sign-in.
-    function originBtnHack(ctx) {
-        var b = document.createElement('button');
-        b.dataset.experience = ctx.experience;
-        b.dataset.cohort = ctx.cohort;
-        if (ctx.cohortId) b.dataset.cohortId = ctx.cohortId;
-        b.dataset.priceUsd = ctx.amount;
-        b.dataset.instructorName = ctx.instructorName;
-        b.dataset.instructorEmail = ctx.instructorEmail;
-        return b;
     }
 
     function getAddons(btn) {
