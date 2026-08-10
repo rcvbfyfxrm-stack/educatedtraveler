@@ -292,7 +292,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   <div class="ldone" id="l_done">
     <div class="eyebrow">Sent</div>
     <h3 class="serif" id="l_donehead">Your letter is with me.</h3>
-    <p id="l_donebody">I read every one myself, and I answer. You're in the Circle now — I'll write when I find the master, the place and the moment that fit what you just told me.</p>
+    <p id="l_donebody">I read every one myself, and I answer.</p>
     <p class="lpoem">Every craft on this map started with somebody saying it out loud.</p>
     <a class="lback" href="/about">The story of why I built this →</a>
   </div>
@@ -741,7 +741,7 @@ document.addEventListener("et:atlas-interest",function(e){
       $("l_donehead").textContent="Your letter is with me, "+nm+".";
       $("l_donebody").textContent=acct
         ? "I read every one myself, and I answer. You're in the Circle now — and I've sent a sign-in link to "+em+". One click and this letter, and the crafts you pick from here, live on a page that's yours. No password, ever."
-        : "I read every one myself, and I answer. You're in the Circle now — I'll write when I find the master, the place and the moment that fit what you just told me.";
+        : "I read every one myself, and I answer. Your letter is safe with me — but the sign-in link didn't go out just now, so there's no account waiting yet. Ask for a fresh one at educatedtraveler.app/you, or just write to me at arnaudcallier@pm.me. Either way I'll write when I find the master, the place and the moment that fit what you just told me.";
       $("lbox").style.display="none";
       $("l_done").classList.add("on");
       $("letter").scrollIntoView({behavior:"smooth",block:"start"});
