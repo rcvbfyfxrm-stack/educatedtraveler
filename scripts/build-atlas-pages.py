@@ -935,9 +935,26 @@ N_OPEN = sum(1 for c in CARDS if c["open"])
 # ---------- the browse home ----------
 # /atlas/ is where you browse now. It used to be a flat list of links while the real
 # browsing lived at /browse; that page has moved here and /browse redirects to it.
+# The hub renders its results with JavaScript, so a crawler that does not run JS
+# sees /atlas/ and nothing beyond it — verified: the built page carried exactly one
+# /atlas/ href, its own. This is a real <a href> to every craft, always in the HTML.
+# A generated craft page already links its own place sheets, so craft links alone
+# complete the crawl graph. Kept in a <details> so it is a quiet index rather than
+# 112 links of visual noise; <details> content is in the DOM and is crawled.
+_nav_items = "".join(
+    '<li><a href="/atlas/{sl}">{nm}</a>{shut}</li>'.format(
+        sl=c["id"], nm=html.escape(c["name"]),
+        shut="" if c.get("open") else ' <span class="shut">· not open yet</span>')
+    for c in sorted(CARDS, key=lambda c: c["name"].lower()))
+CRAFT_NAV = (
+    '<div class="wrap"><details class="craftnav">'
+    '<summary>Every craft on the Atlas, A\u2013Z ({n})</summary>'
+    '<ul>{items}</ul></details></div>'
+).format(n=len(CARDS), items=_nav_items)
+
 (OUT / "index.html").write_text(atlas_hub.build(
     analytics=ANALYTICS, site=SITE, total=len(CARDS), n_open=N_OPEN,
-    generated_at=UNLOCK_DATE))
+    generated_at=UNLOCK_DATE, craft_nav=CRAFT_NAV))
 
 # ---------- sitemap + robots ----------
 # Hand-added statics used to be wiped by every rebuild — they live here now.

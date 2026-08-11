@@ -84,6 +84,15 @@ select.fin option{background:var(--ink2)}
 .chip:hover{color:var(--paper);border-color:rgba(243,237,226,.3)}.chip.on{color:#14110d;background:var(--cc,var(--sea));border-color:transparent;font-weight:500}
 .chip .wd{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cc);margin-right:6px;vertical-align:middle}.chip.on .wd{background:#14110d}
 .months{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+.craftnav{border-top:1px solid var(--line);padding:30px 0 10px}
+.craftnav>summary{list-style:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.craftnav>summary::-webkit-details-marker{display:none}
+.craftnav ul{list-style:none;columns:4;column-gap:26px;margin-top:18px}
+.craftnav li{break-inside:avoid;margin-bottom:7px;font-size:13px}
+.craftnav a{color:var(--muted);text-decoration:none}
+.craftnav a:hover{color:var(--sea)}
+.craftnav .shut{color:var(--faint)}
+@media(max-width:880px){.craftnav ul{columns:2}}
 .morefil>summary{list-style:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:16px 0 8px}
 .morefil>summary::-webkit-details-marker{display:none}
 .morefil>summary::after{content:' +';color:var(--faint)}
@@ -309,6 +318,8 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 <div class="wrap"><div class="circle-alt reveal">
   <p>Not in the mood to write? <a href="/circle">Join the Circle</a> instead — a minute of questions, same door.</p>
 </div></div>
+
+<!--ATLAS_CRAFT_NAV-->
 
 <footer><div class="wrap frow">
   <span>EducatedTraveler — a place, a person, your people. <a href="/circle">Join the Circle</a> · <a href="/about">The Story</a> · <a href="/lab-weeks">Lab Weeks</a> · <a href="/journal/">Journal</a> · <a href="/browse">Atlas index</a></span>
