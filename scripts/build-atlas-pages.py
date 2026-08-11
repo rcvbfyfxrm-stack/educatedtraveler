@@ -36,6 +36,7 @@ regen can be diffed against the live site to prove the fold-in is faithful; neve
 commit its output.
 """
 import json, html, re, sys
+from urllib.parse import quote as _q
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -255,6 +256,18 @@ SKILL_SAVE = '<script src="/js/skill-save.js" defer></script>'
 
 def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
          saveable=True, extra_head="", extra_scripts="", body_attrs=""):
+    # A quiet way to tell me a sheet has gone stale. The subject carries the page
+    # so a report is triaged before I open it — "something is wrong" with no URL
+    # is unusable. mailto, not a form: no table, no policy, no moderation queue,
+    # and it still works with JavaScript off.
+    _clean = title.split(" — ")[0].replace("Learn ", "", 1)
+    report_link = (
+        '<p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me'
+        '?subject=' + _q("Atlas — " + _clean) +
+        '&amp;body=' + _q("What looked wrong:\n\n\n(page: " + SITE + canonical_path + ")") +
+        '" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">'
+        'Something here out of date? Tell me &mdash; I check every sheet by hand.</a></p>'
+    )
     crumbs = ""
     if breadcrumbs:
         items = [{"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u} for i, (n, u) in enumerate(breadcrumbs)]
@@ -361,7 +374,7 @@ footer a {{ color:var(--sea); }}
 {body}
 {TRUST_HTML}
 {tail_scripts}
-<footer><div class="wrap"><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the longer stories in the <a href="/journal/" style="color:var(--sea);">Journal</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas</a><a href="/journal/" style="color:var(--sea);text-decoration:none;">Journal</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<footer><div class="wrap">{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the longer stories in the <a href="/journal/" style="color:var(--sea);">Journal</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas</a><a href="/journal/" style="color:var(--sea);text-decoration:none;">Journal</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — a bridge, not a shop. We connect you to the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 {CUR_TOGGLE}
 </body>
 </html>"""
@@ -971,7 +984,10 @@ for u in static_urls + urls:
     sm.append(f"<url><loc>{SITE}{u}</loc></url>")
 sm.append("</urlset>")
 (ROOT / "website/sitemap.xml").write_text("\n".join(sm))
-(ROOT / "website/robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /cmd\nSitemap: {SITE}/sitemap.xml\n")
+# This file is GENERATED, so a rule hand-added to website/robots.txt is silently
+# clobbered by the next rebuild — that is how /_archive/ nearly went back into
+# search. Add new rules HERE, never to the output.
+(ROOT / "website/robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /admin\nDisallow: /cmd\nDisallow: /_archive/\nSitemap: {SITE}/sitemap.xml\n")
 
 n_short = len(CARDS) - N_OPEN
 n_dest_full = sum(len(d["destinations"]) for d in DISC if is_open(d["id"]) and f'{d["id"]}.html' not in PRESERVE)
