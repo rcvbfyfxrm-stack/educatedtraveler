@@ -83,7 +83,24 @@ select.fin option{background:var(--ink2)}
 .chip{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.03em;padding:6px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);transition:all .2s;white-space:nowrap}
 .chip:hover{color:var(--paper);border-color:rgba(243,237,226,.3)}.chip.on{color:#14110d;background:var(--cc,var(--sea));border-color:transparent;font-weight:500}
 .chip .wd{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cc);margin-right:6px;vertical-align:middle}.chip.on .wd{background:#14110d}
-.months{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.months .chip{text-align:center;padding:6px 0;font-size:9.5px}
+.months{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+.craftnav{border-top:1px solid var(--line);padding:30px 0 10px}
+.craftnav>summary{list-style:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.craftnav>summary::-webkit-details-marker{display:none}
+.craftnav ul{list-style:none;columns:4;column-gap:26px;margin-top:18px}
+.craftnav li{break-inside:avoid;margin-bottom:7px;font-size:13px}
+.craftnav a{color:var(--muted);text-decoration:none}
+.craftnav a:hover{color:var(--sea)}
+.craftnav .shut{color:var(--faint)}
+@media(max-width:880px){.craftnav ul{columns:2}}
+.morefil>summary{list-style:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:16px 0 8px}
+.morefil>summary::-webkit-details-marker{display:none}
+.morefil>summary::after{content:' +';color:var(--faint)}
+.morefil[open]>summary::after{content:' \2212';color:var(--faint)}
+.morefil[open]>summary{margin-bottom:2px}
+.closedband{margin-top:26px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(243,237,226,.02)}
+.closedband p{color:var(--muted);font-size:13.5px;line-height:1.65;margin:0}
+.closedband a{color:var(--sea)}.months .chip{text-align:center;padding:6px 0;font-size:9.5px}
 .rankrow{display:flex;gap:6px}.rankrow .chip{flex:1;text-align:center}
 .lvlrow{display:flex;gap:6px}.lvlrow .chip{flex:1;text-align:center}
 .reset{width:100%;margin:14px 0 10px;padding:9px;border:1px solid var(--line);border-radius:10px;font-size:13px;color:var(--muted)}.reset:hover{border-color:var(--ember);color:var(--paper)}
@@ -237,7 +254,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 </style>
 </head>
 <body>
-<!-- built 2026-08-10 · 29 of 112 crafts open · states from data/atlas-unlocked.json -->
+<!-- built 2026-08-11 · 29 of 112 crafts open · states from data/atlas-unlocked.json -->
 <nav class="top"><div class="row">
   <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
   <div class="links"><a class="join" href="/circle">Join the Circle</a></div>
@@ -320,7 +337,10 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   <p>Not in the mood to write? <a href="/circle">Join the Circle</a> instead — a minute of questions, same door.</p>
 </div></div>
 
+<div class="wrap"><details class="craftnav"><summary>Every craft on the Atlas, A–Z (112)</summary><ul><li><a href="/atlas/adventure-and-off-road-motorcycling">Adventure &amp; Off-Road Motorcycling</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/alpinism-and-mountaineering">Alpinism &amp; Mountaineering</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/argentine-tango">Argentine Tango</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/asado-and-open-fire-cooking">Asado &amp; Open-Fire Cooking</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/ashtanga-yoga">Ashtanga Yoga</a></li><li><a href="/atlas/ayurveda">Ayurveda</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/bharatanatyam-indian-classical-dance">Bharatanatyam Indian Classical Dance</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/blacksmithing-and-bladesmithing">Blacksmithing &amp; Bladesmithing</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/bookbinding-and-letterpress">Bookbinding &amp; Letterpress</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/brazilian-jiu-jitsu">Brazilian Jiu-Jitsu</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/bread-and-boulangerie">Bread &amp; Boulangerie</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/bush-and-floatplane-flying">Bush &amp; Floatplane Flying</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/calligraphy-and-lettering">Calligraphy &amp; Lettering</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/canyoning">Canyoning</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/capoeira">Capoeira</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/cave-and-technical-diving">Cave &amp; Technical Diving</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/caving-and-speleology">Caving &amp; Speleology</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/cheese-and-fermentation">Cheese &amp; Fermentation</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/chocolate-and-confectionery">Chocolate &amp; Confectionery</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/cigar-rolling">Cigar Rolling</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/classical-french-cuisine">Classical French Cuisine</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/coffee-and-barista">Coffee &amp; Barista</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/cold-exposure-wim-hof-method">Cold Exposure (Wim Hof Method)</a></li><li><a href="/atlas/dog-sledding-and-mushing">Dog Sledding &amp; Mushing</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/ecstatic-dance-and-movement">Ecstatic Dance &amp; Movement</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/expedition-sea-kayaking">Expedition Sea Kayaking</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/falconry">Falconry</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/filmmaking">Filmmaking</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/flamenco-and-dance">Flamenco &amp; Dance</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/fly-fishing">Fly Fishing</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/freediving">Freediving</a></li><li><a href="/atlas/french-pastry-and-patisserie">French Pastry &amp; Patisserie</a></li><li><a href="/atlas/glassblowing">Glassblowing</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/guitar-and-music-performance">Guitar &amp; Music Performance</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/hatha-and-vinyasa-yoga">Hatha &amp; Vinyasa Yoga</a></li><li><a href="/atlas/horsemanship">Horsemanship</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/ice-and-mixed-climbing">Ice &amp; Mixed Climbing</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/mountain-leadership-and-trekking">International Mountain Leadership &amp; Trekking</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/italian-cuisine-and-pasta">Italian Cuisine &amp; Pasta</a></li><li><a href="/atlas/iyengar-yoga">Iyengar Yoga</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/japanese-knife-making">Japanese Knife-Making</a></li><li><a href="/atlas/jewelry-and-goldsmithing">Jewelry &amp; Goldsmithing</a></li><li><a href="/atlas/karate">Karate</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/kintsugi-japanese-gold-repair">Kintsugi (Japanese gold-repair)</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/kitesurfing">Kitesurfing</a></li><li><a href="/atlas/korean-cuisine-hansik">Korean Cuisine (Hansik)</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/kundalini-yoga">Kundalini Yoga</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/kung-fu">Kung Fu</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/kyudo-japanese-archery">Kyudo (Japanese Archery)</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/leatherwork">Leatherwork</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/lifestyle-medicine">Lifestyle Medicine</a></li><li><a href="/atlas/lutherie-and-instrument-making">Lutherie &amp; Instrument-making</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/lymphatic-drainage">Lymphatic Drainage</a></li><li><a href="/atlas/marble-sculpture-and-stone-carving">Marble Sculpture &amp; Stone Carving</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/mixology-and-bartending">Mixology &amp; Bartending</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/modernist-spanish-cuisine">Modernist Spanish Cuisine</a></li><li><a href="/atlas/motorsport-and-race-driving">Motorsport &amp; Race Driving</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/mountain-biking">Mountain Biking</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/muay-thai">Muay Thai</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/natural-dyeing">Natural Dyeing</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/new-basque-cuisine">New Basque Cuisine</a></li><li><a href="/atlas/modern-new-technique-cuisine">New culinary techniques &amp; technologies</a></li><li><a href="/atlas/north-indian-cuisine">North Indian Cuisine</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/oaxacan-and-mexican-cuisine">Oaxacan &amp; Mexican Cuisine</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/outdoor-leadership-and-wilderness-expeditions">Outdoor Leadership &amp; Wilderness Expeditions</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/painting-and-fine-art">Painting &amp; Fine Art</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/paragliding">Paragliding</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/perfumery">Perfumery</a></li><li><a href="/atlas/peruvian-cuisine">Peruvian Cuisine</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/photography">Photography</a></li><li><a href="/atlas/pilates">Pilates</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/pottery-and-ceramics">Pottery &amp; Ceramics</a></li><li><a href="/atlas/pranayama-and-breathwork">Pranayama &amp; Breathwork</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/printmaking">Printmaking</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/reflexology-and-shiatsu">Reflexology &amp; Shiatsu</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/reiki-and-energy-healing">Reiki &amp; Energy Healing</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/rock-climbing">Rock Climbing</a></li><li><a href="/atlas/safari-and-wildlife-guiding">Safari &amp; Wildlife Guiding</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/sailing-and-yachtmaster">Sailing &amp; Yachtmaster</a></li><li><a href="/atlas/sake-and-sommellerie-of-sake">Sake &amp; Sommellerie of Sake</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/salsa">Salsa</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/scuba-diving">Scuba Diving</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/self-sufficiency">Self-Sufficiency &amp; Food Preservation</a></li><li><a href="/atlas/sichuan-and-chinese-cuisine">Sichuan &amp; Chinese Cuisine</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/ski-and-snowboard-mountain-guiding">Ski &amp; Snowboard Mountain Guiding</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/ski-touring-and-splitboard">Ski-touring &amp; Splitboard</a></li><li><a href="/atlas/skydiving">Skydiving</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/sound-healing">Sound Healing</a></li><li><a href="/atlas/spearfishing">Spearfishing</a></li><li><a href="/atlas/surfing">Surfing</a></li><li><a href="/atlas/sushi-and-washoku">Sushi &amp; Washoku</a></li><li><a href="/atlas/tai-chi-and-qigong">Tai Chi &amp; Qigong</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/tantra-and-conscious-intimacy">Tantra &amp; Conscious Intimacy</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/tattooing">Tattooing</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/tea-and-tea-ceremony">Tea &amp; Tea Ceremony</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/textiles-and-weaving">Textiles &amp; Weaving</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/thai-cuisine">Thai Cuisine</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/thai-massage">Thai Massage</a></li><li><a href="/atlas/traditional-spa-and-hydrotherapy">Traditional Spa &amp; Hydrotherapy</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/trail-and-ultra-running">Trail &amp; Ultra Running</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/viennoiserie">Viennoiserie</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/vietnamese-cuisine">Vietnamese Cuisine</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/vipassana-and-meditation">Vipassana &amp; Meditation</a></li><li><a href="/atlas/watchmaking">Watchmaking</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/whisky-and-distilling">Whisky &amp; Distilling</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/whitewater-kayaking">Whitewater Kayaking</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/whitewater-rafting">Whitewater Rafting</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/wilderness-survival-and-bushcraft">Wilderness Survival &amp; Bushcraft</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/windsurfing-and-wing-foil">Windsurfing &amp; Wing-foil</a></li><li><a href="/atlas/wine-and-sommellerie">Wine &amp; Sommellerie</a></li><li><a href="/atlas/wooden-boatbuilding">Wooden Boatbuilding</a> <span class="shut">· not open yet</span></li><li><a href="/atlas/woodworking-and-joinery">Woodworking &amp; Joinery</a> <span class="shut">· not open yet</span></li></ul></details></div>
+
 <footer><div class="wrap frow">
+  <span><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20the%20Atlas&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/%29" style="color:var(--sea);text-decoration:none">Something wrong on this page? Tell me.</a></span>
   <span>EducatedTraveler — a place, a person, your people. <a href="/circle">Join the Circle</a> · <a href="/about">The Story</a> · <a href="/lab-weeks">Lab Weeks</a> · <a href="/journal/">Journal</a> · <a href="/atlas/">Atlas index</a></span>
   <span style="opacity:.7">Privacy-light, cookieless analytics.</span>
 </div></footer>
@@ -371,7 +391,7 @@ function levelBucket(lv){lv=(lv||"").toLowerCase();var e=lv.split("->")[0];
 var DESTS=[];
 A.forEach(function(d){var w=worldOf(d);
   (d.destinations||[]).forEach(function(x){
-    DESTS.push({world:w,discipline:d.discipline,did:d.id,cred:credLabel(d),gold:d.goldCredential||d.certBody||"",
+    DESTS.push({world:w,discipline:d.discipline,did:d.id,open:!!d.open,cred:credLabel(d),gold:d.goldCredential||d.certBody||"",
       place:x.place,country:x.country,region:x.region||"",role:x.role||"",rank:x.communityRank||0,
       rankLabel:x.communityLabel||"",season:x.bestSeason||"",level:x.level||"",lvl:levelBucket(x.level),
       tripTier:x.tripTier||0,tripType:x.tripType||"",tripLength:x.tripLength||"",english:x.englishTaught===true,lang:x.instructionLanguage||"",
@@ -493,7 +513,10 @@ var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%fea
 tick();setInterval(tick,2700);
 
 // ── filter state ──
-var F={worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:"",trip:0,english:false};
+// One factory, three call sites (init, Clear, "Loosen the filters") — they drifted
+// apart once already.
+function blankF(){return {worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:"",trip:0,english:false};}
+var F=blankF();
 function anyFilter(){return Object.keys(F.worlds).length||F.craft||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.q||F.trip||F.english;}
 function toggleWorld(w){if(F.worlds[w])delete F.worlds[w];else F.worlds[w]=1;F.craft="";renderSide();render();syncWorld();document.getElementById("studio").scrollIntoView({behavior:"smooth"});}
 
@@ -509,12 +532,60 @@ function renderSide(){
   h+='<h4>Search</h4><input class="fin" id="q" placeholder="skill, place, country…" value="'+esc(F.q)+'">';
   h+='<h4>World</h4><div class="chips">'+ORDER.map(function(w){return '<button class="chip world '+(F.worlds[w]?"on":"")+'" data-w="'+w+'" style="--cc:'+WORLDS[w].color+'"><span class="wd"></span>'+esc(WORLDS[w].short)+'</button>';}).join("")+'</div>';
   h+='<h4>Skill</h4><select class="fin" id="craft">'+craftOptions()+'</select>';
+
+  // ── Where you could actually go ────────────────────────────────────────
+  // These five only carry data for OPEN crafts — a craft nobody has asked for
+  // has no place yet, so no region, season, role or tier. render() therefore
+  // keeps the closed crafts visible in their own band rather than letting the
+  // map appear to shrink from 112 to 29.
+  h+='<details class="morefil"><summary>Where and when you could go</summary>';
+  h+='<h4>Where in the world</h4><select class="fin" id="region"><option value="">Anywhere</option>'
+     + REGIONS.map(function(r){var n=DESTS.filter(function(x){return x.region===r;}).length;
+         return '<option value="'+esc(r)+'"'+(F.regions[r]?" selected":"")+'>'+esc(r)+' ('+n+')</option>';}).join("")
+     + '</select>';
+
+  h+='<h4>When you could go</h4><div class="months">'
+     + MNAMES.map(function(m,i){var n=i+1;
+         return '<button class="chip mon'+(F.month===n?" on":"")+'" data-m="'+n+'">'+m+'</button>';}).join("")
+     + '</div>';
+
+  h+='<h4>How you would go</h4><div class="chips">'
+     + [[1,"A taster"],[2,"A weekend"],[3,"About a week"],[4,"An immersion"],[5,"A mastery track"]].map(function(t){
+         return '<button class="chip trip'+(F.trip===t[0]?" on":"")+'" data-t="'+t[0]+'">'+t[1]+'</button>';}).join("")
+     + '</div>';
+
+  h+='<h4>The place itself</h4><div class="chips">'
+     + [["source","At the source"],["scene","A living scene"],["both","Both"]].map(function(r){
+         return '<button class="chip role'+(F.role===r[0]?" on":"")+'" data-r="'+r[0]+'">'+r[1]+'</button>';}).join("")
+     + '</div><div class="chips" style="margin-top:6px">'
+     + '<button class="chip tgl-en'+(F.english?" on":"")+'">Taught in English</button>'
+     + '<button class="chip tgl-leg'+(F.minRank?" on":"")+'" style="color:'+(F.minRank?"#f0c27a":"var(--muted)")+'">Legendary only</button>'
+     + '</div>'
+     + '</details>';
+
   h+='<button class="reset" id="reset">Clear</button>';
   side.innerHTML=h;
+  // Under 880px the sidebar stacks above the results, so five more groups would
+  // push the first card off a phone. Collapsed there, open on desktop.
+  var mf=side.querySelector(".morefil"); if(mf) mf.open = window.innerWidth>880;
   side.querySelector("#q").oninput=function(){F.q=this.value;render();};
   side.querySelector("#craft").onchange=function(){F.craft=this.value;render();};
   side.querySelectorAll(".world").forEach(function(b){b.onclick=function(){toggleWorld(b.dataset.w);};});
-  side.querySelector("#reset").onclick=function(){F={worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:"",trip:0,english:false};renderSide();render();syncWorld();};
+  // None of the five feed craftOptions(), so they must NOT call renderSide() —
+  // that re-runs side.innerHTML and destroys the control mid-click.
+  side.querySelector("#region").onchange=function(){F.regions={};if(this.value)F.regions[this.value]=1;render();};
+  side.querySelectorAll(".mon").forEach(function(b){b.onclick=function(){
+    var n=+b.dataset.m;F.month=(F.month===n?0:n);
+    side.querySelectorAll(".mon").forEach(function(o){o.classList.toggle("on",+o.dataset.m===F.month);});render();};});
+  side.querySelectorAll(".chip.trip").forEach(function(b){b.onclick=function(){
+    var n=+b.dataset.t;F.trip=(F.trip===n?0:n);
+    side.querySelectorAll(".chip.trip").forEach(function(o){o.classList.toggle("on",+o.dataset.t===F.trip);});render();};});
+  side.querySelectorAll(".chip.role").forEach(function(b){b.onclick=function(){
+    var v=b.dataset.r;F.role=(F.role===v?"":v);
+    side.querySelectorAll(".chip.role").forEach(function(o){o.classList.toggle("on",o.dataset.r===F.role);});render();};});
+  var en=side.querySelector(".tgl-en");en.onclick=function(){F.english=!F.english;en.classList.toggle("on",F.english);render();};
+  var lg=side.querySelector(".tgl-leg");lg.onclick=function(){F.minRank=F.minRank?0:5;lg.classList.toggle("on",!!F.minRank);lg.style.color=F.minRank?"#f0c27a":"var(--muted)";render();};
+  side.querySelector("#reset").onclick=function(){F=blankF();renderSide();render();syncWorld();};
 }
 function matchDest(x){
   if(Object.keys(F.worlds).length&&!F.worlds[x.world])return false;
@@ -529,6 +600,16 @@ function matchDest(x){
   if(F.q){var q=F.q.toLowerCase();if((x.discipline+" "+x.place+" "+x.country).toLowerCase().indexOf(q)<0)return false;}
   return true;
 }
+function countOpen(){return A.filter(function(d){return d.open;}).length;}
+// Where and when only exist for a craft somebody has asked for. Rather than let
+// the map look like it shrank, the crafts without a place yet stay on screen in
+// their own band, saying exactly why they are not in the results.
+function closedBand(n){
+  if(!n)return "";
+  return '<div class="closedband"><p><b>'+n+'</b> more crafts have no place on the map yet — '
+    + 'I open one when a member writes to me about it, so there is nothing to filter by until then. '
+    + '<a href="#letter">Write me a letter</a> and I will open the one you want.</p></div>';
+}
 // ── render ──
 var results=document.getElementById("results");
 // what's on screen right now — so the re-sort that follows the Circle counts
@@ -541,9 +622,14 @@ function render(){
   if(!anyFilter()){renderRails();return;}
   var list=DESTS.filter(matchDest).sort(function(a,b){return (wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
   var nw=countWanted(list,function(x){return x.discipline;});
-  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> certified place'+(list.length===1?"":"s")+'</div><div class="sortby">'+(nw?"asked-for crafts first, then community strength":"ranked by community strength")+'</div></div>';
-  if(!list.length){results.innerHTML='<div class="empty">No place matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>';document.getElementById("clr").onclick=function(){F={worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:"",trip:0,english:false};renderSide();render();syncWorld();};return;}
+  var nClosed=A.filter(function(d){return !d.open;}).length;
+  // The five place-filters only have data for open crafts. Say so in the count
+  // rather than letting the Atlas look like it shrank from 112 crafts to 29.
+  var placeFiltered=Object.keys(F.regions).length||F.month||F.trip||F.role||F.english||F.minRank;
+  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> certified place'+(list.length===1?"":"s")+(placeFiltered?' <span style="color:var(--faint);font-weight:400">in the '+countOpen()+' open crafts</span>':'')+'</div><div class="sortby">'+(nw?"asked-for crafts first, then community strength":"ranked by community strength")+'</div></div>';
+  if(!list.length){results.innerHTML='<div class="empty">No open place matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>'+(placeFiltered?closedBand(nClosed):"");document.getElementById("clr").onclick=function(){F=blankF();renderSide();render();syncWorld();};return;}
   h+='<div class="gridwrap">'+list.slice(0,120).map(gcard).join("")+'</div>';
+  if(placeFiltered)h+=closedBand(nClosed);
   if(list.length>120)h+='<p style="color:var(--faint);text-align:center;margin-top:22px;font-size:13px">Showing the 120 strongest — narrow the filters to see the rest.</p>';
   results.innerHTML=h;signalRender();
 }

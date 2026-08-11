@@ -282,7 +282,7 @@ HUB_EXTRA_CSS = """
 """
 
 
-def build(analytics, site, total, n_open, generated_at):
+def build(analytics, site, total, n_open, generated_at, craft_nav=""):
     """Turn the live /browse file into /atlas/index.html.
 
     Everything that makes the page what it is comes from the template. Only the
@@ -330,4 +330,10 @@ def build(analytics, site, total, n_open, generated_at):
     # 5. built-on stamp, so staleness is visible in view-source
     t = t.replace("<body>", f"<body>\n<!-- built {e(generated_at)} · {n_open} of {total} crafts open "
                             f"· states from data/atlas-unlocked.json -->", 1)
+    # 6. the crawlable entrance. The results grid is filled by JS, so without this
+    #    a crawler (or anyone with JS off) sees /atlas/ and no way to any sheet.
+    #    Real <a href> to all 112 craft pages; each craft page already links its
+    #    own places statically, so this completes the graph.
+    t = t.replace("<!--ATLAS_CRAFT_NAV-->", craft_nav)
+
     return t
