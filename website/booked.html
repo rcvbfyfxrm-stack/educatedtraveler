@@ -175,7 +175,7 @@
   // Contact. The mail domain is .app, not .com — educatedtraveler.com has no MX
   // record, so anything sent there bounces. Matches /barcelona and /pay.
   // The message carries their name when we have it, so I know whose seat it is.
-  var MAIL_TO = "founder@educatedtraveler.app", WHATSAPP = "33695903520";
+  var MAIL_TO = "arnaudcallier@pm.me", WHATSAPP = "33695903520";
   var who = '';
   try { who = (JSON.parse(localStorage.getItem('et_seat_lippo') || '{}').name || ''); } catch (e) {}
   var body = encodeURIComponent(

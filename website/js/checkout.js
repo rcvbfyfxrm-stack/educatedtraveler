@@ -70,7 +70,7 @@
         } catch (err) {
             console.error('Checkout error:', err);
             alert('Could not open checkout: ' + err.message + '\n\nFalling back to email.');
-            window.location.href = 'mailto:founder@educatedtraveler.app?subject=Enrollment%20Issue';
+            window.location.href = 'mailto:arnaudcallier@pm.me?subject=Enrollment%20Issue';
             if (btn) {
                 btn.disabled = false;
                 btn.textContent = original;
