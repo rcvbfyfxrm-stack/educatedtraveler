@@ -375,6 +375,23 @@
                     <label class="fld" style="margin-top:12px;"><span class="lbl">Where are you with it?</span>
                         <textarea id="f_level" rows="3" placeholder="In your own words — what you can already do, and what you'd want to be able to do."></textarea>
                     </label>
+
+                    <!-- The other half of a craft already in your hands. Every week needs
+                         someone who can actually teach it, and the Circle is where the
+                         people who can are already standing. Asking here costs one line;
+                         the alternative is finding them one at a time, by luck. It is a
+                         signal, not a booking — nothing is agreed on a checkbox. -->
+                    <label class="optbox">
+                        <input type="checkbox" id="f_teach">
+                        <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#14110d" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                        <span class="txt">And I teach it — I could open a week the Circle would want.</span>
+                    </label>
+                    <div id="teachwrap" style="display:none;">
+                        <label class="fld" style="margin-top:12px;"><span class="lbl">What could you open?</span>
+                            <textarea id="f_offer" rows="3" placeholder="Where you'd teach it, who it's for, and what they'd leave able to do."></textarea>
+                        </label>
+                        <p class="sub-tight" style="margin-top:8px;">This tells me you exist — nothing more is agreed here. If it fits what the Circle is asking for, I'll write to you.</p>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -661,6 +678,7 @@
 
         // ── state ──
         var state = { name:'', email:'', world:null, discs:[], open:'', mastery:'', relation:null, perfect:false, advanced:null,
+                      teach:false, offer:'',
                       timing:null, timing_own:'', length:null, length_own:'', depth:null, depth_own:'', reach:null, reach_own:'', dream:'', region:'',
                       prof:'', lifestage:null, lifestage_own:'' };
         var MAX_DISCS = 3;
@@ -858,6 +876,14 @@
         $('f_mastery').addEventListener('input', function(){ state.mastery=this.value.trim(); updateGo1(); });
         $('f_level').addEventListener('input', function(){ state.level=this.value.trim(); updateGo1(); });
         $('f_perfect').addEventListener('change', function(){ state.perfect=this.checked; state.advanced=this.checked?'yes':null; updateGo1(); });
+        // Unticking hides the box but keeps what they wrote, so a mis-click doesn't
+        // delete a paragraph. The payload only carries the offer when the box is ticked.
+        $('f_teach').addEventListener('change', function(){
+            state.teach=this.checked;
+            $('teachwrap').style.display = this.checked ? 'block' : 'none';
+            updateGo1();
+        });
+        $('f_offer').addEventListener('input', function(){ state.offer=this.value.trim(); updateGo1(); });
         (function(){
             var box=$('m_relation'); if(!box) return;
             Array.prototype.forEach.call(box.children, function(b){
@@ -870,7 +896,7 @@
                 });
             });
         })();
-        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open || state.mastery || state.level || state.perfect || state.relation); }
+        function updateGo1(){ $('go1').disabled = !(state.discs.length>0 || state.open || state.mastery || state.level || state.perfect || state.relation || state.teach); }
         $('go1').addEventListener('click', function(){
             if($('go1').disabled) return; show(2);
         });
@@ -929,6 +955,9 @@
             state.discs.forEach(function(d){ arr.push({ kind:'discipline', world:WORLD_OF[d]||state.world, discipline:d }); });
             if(state.open){ arr.push({ kind:'discipline', world:state.world, discipline:null, open:state.open }); }
             if(state.mastery || state.level || state.perfect || state.relation){ arr.push({ kind:'mastery', skill:state.mastery||null, level:state.level||null, relation:state.relation, advanced:state.advanced, perfect:!!state.perfect }); }
+            // Its own kind, not a flag on the mastery row: these are the few rows worth
+            // reading first, and they should be findable without parsing every answer.
+            if(state.teach){ arr.push({ kind:'instructor', craft:state.mastery||null, offer:state.offer||null }); }
             var it={ kind:'intent', timing:gradAnswer('timing'), length:gradAnswer('length'), depth:gradAnswer('depth'), reach:gradAnswer('reach') };
             if(it.timing||it.length||it.depth||it.reach){ arr.push(it); }
             if(state.dream){ arr.push({ kind:'dream', text:state.dream }); }
