@@ -25,8 +25,8 @@
 | deciding anything strategic | `marketing/The-Base.pdf` (definition + decision rules) |
 | judging whether a place/master belongs | `marketing/The-Standard.pdf` (the ten rules) |
 | writing an Atlas skill sheet | `marketing/The-Skill-Sheet.pdf` |
-| writing copy, a letter, a post, an offer | summon the **`keel`** agent |
-| handling one live conversation with a chef | summon the **`hail`** agent |
+| writing copy, a letter, a post, an offer | **`keel`** — ALWAYS, automatic (Arnaud 2026-08-12) |
+| handling one live conversation with a chef | **`hail`** — ALWAYS, automatic (Arnaud 2026-08-12) |
 | working on the October week | `weeks/01-barcelona-lippo/LabWeek01-MartinLippo.pdf` |
 | working with a teacher | `instructors/<person>/` — one folder per person, plus `_standard/`, `_playbooks/`, `_pipeline/` |
 | working on a Lab Week | `weeks/01-barcelona-lippo/` (Martín, 22–26 Oct) · `weeks/_template/` for the next |
@@ -97,6 +97,8 @@ name third parties, carry commercial terms and hold unreleased media. Each has a
 ## Voice
 
 **Everything that goes out in ET's voice — any post, mail, letter, page, offer, marketing strategy — obeys the twelve laws of L'Essence** (private; compact copy in `marketing/MASTER-META-PROMPT.md` §1, canonical in `NEXUS/Knowledge/PDF ideas EducatedTraveler/`). Arnaud's ruling, 2026-08-12: a draft that violates one does not ship.
+
+**And nothing for the public or for outreach is produced bare-handed (Arnaud, 2026-08-12): anything public-facing goes through `keel`; any outreach or live conversation goes through `hail` — automatically, every time, not on request.**
 
 Warm, plain, founder-led. Short sentences. The verb is **introduce / connect / bridge** — never sell, book, enroll, checkout. First line says plainly what the thing is; at most one poetic line, at the end.
 
