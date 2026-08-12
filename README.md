@@ -1,77 +1,63 @@
 # EducatedTraveler
 
-**Certified skill immersions at the source.**
-Learn diving in Thailand, sailing in Greece, sushi in Tokyo — and leave with real credentials (PADI, RYA, Yoga Alliance, WSET, Le Cordon Bleu).
+**A free record of where crafts are still taught at the source — with a name and a date on every line — and an introduction to the teacher when you want to go.**
 
-> *"One week to get certified. Six months to change your life."*
+- **The Atlas** — what's alive, where, and the people keeping it alive. Free. Nobody can pay to be on it, or to be left off it.
+- **The Circle** — the people, and what they want to learn.
+- **The Lab Week** — the only paid thing. A week built for them.
 
-## The Tiers
+Live at **[educatedtraveler.app](https://educatedtraveler.app)**.
 
-| Tier | Duration | Price | Cohort |
-|------|----------|-------|--------|
-| **Foundation** | 7–21 days | $3,500–$6,500 | 8–12 |
-| **Mastery** | 30–60 days | $9,500–$12,000 | 8–12 |
-| **Saga** | 90–180 days | $25,000–$40,000 | 8–12 |
+---
 
-Always lead with shorter options. The 7-day certification is the gateway.
+## What this is not
 
-## Repo Layout
+Not a school, and not a certifier — EducatedTraveler teaches nothing and issues nothing. Where a craft has a qualification an outside body examines for, that body is named and linked; where a certificate is a school's own, the entry says so.
+
+Not a marketplace, and not first or only. The [Homo Faber Guide](https://www.homofaber.com/) has kept a larger free record for eight years. Every entry prints the way to reach the teacher directly, and what it costs, even when that is cheaper than us.
+
+And no promise about your hands. No study shows a week with a master beats the same hours practised alone, so we do not claim it. A week buys the room and the person.
+
+---
+
+## Where the map stands
+
+100 crafts · 335 places · 847 school entries · 56 countries.
+
+**118 places have a named teacher. 217 are blank, on purpose. 0 have been checked and dated.**
+
+The blanks are the point: nothing is filled with a plausible name, and a craft stays blank until someone asks about it and a real check is done. Every entry carries how it is known and when it was last looked at — or says plainly that it has not been.
+
+---
+
+## Repo layout
 
 ```
-website/              Production static site (Netlify → educatedtraveler.app)
-  ├─ *.html           Pages (see CLAUDE.md for full list)
-  ├─ js/              supabase-config, auth, database, whatsapp-widget
-  ├─ images/          Logo + page imagery
-  └─ supabase-schema.sql   Authoritative schema snapshot
-
+website/            Static site — GitHub Pages → educatedtraveler.app. No build step.
+  atlas/            436 generated pages (built by scripts/build-atlas-pages.py)
+  js/repertoire.js  The Atlas data — window.ET_ATLAS, plus standardMeta
+  js/               auth, database, supabase-config, atlas-ratings
 supabase/
-  ├─ functions/       Edge functions (Deno + Resend): welcome, follow-up, WhatsApp, interest, Stripe
-  └─ migrations/      Incremental SQL (run in order)
-
-src/trigger/          Trigger.dev jobs (granola-meeting, new-signup)
-live-experiences/     Real instructor cohort notes (hiroko-ishii, martin-lippo)
-os/                   Strategy, brand, product, playbooks — single source of truth
-docs/                 Ops docs: outreach, partner & influencer templates, roadmap
-setup/                CRM / Notion imports (HubSpot, Notion CSVs, workflows)
-marketing/            QR codes + IG asset HTML
-scripts/              Outreach + audit + lint automation (Python + mjs)
-photo/                Raw source photos (instructor / cohort) — staging, not site assets
-logs/                 Decision log, ideas, outreach drafts
-tests/                Playwright smoke tests
-_archive/             Legacy strategy/business docs (frozen 2026-02)
+  migrations/       The authoritative schema. Run in order.
+  functions/        Deno edge functions (welcome, follow-ups, broadcast)
+scripts/            Page builder, PDF builders, ops utilities
+docs/               Setup guides, flows, and HISTORY.md
+os/                 Product and brand operating documents
 ```
 
-**Key plans:**
-- `BUSINESS-STRATEGY.md` — 3-lever growth playbook (Pipeline · Cohort · Demand)
-- `IMPLEMENTATION-PLAN.md` — engineering priorities
+**Private and gitignored:** `marketing/`, `FOUNDING-CANON/`, `MASTERPLAN.md`, `VISION.md`, `PLAYBOOK.md`.
 
-## Quick Start
+## Working on it
 
-**Run the site locally:**
+Start with **`CLAUDE.md`** — it is the router, and it is short by design. Read the one row of its table your task needs, and nothing else.
+
 ```bash
-python3 -m http.server 8000 --directory website
+python3 -m http.server 8000 --directory website   # serve
+python3 scripts/build-atlas-pages.py              # rebuild the Atlas pages, sitemap, robots
 ```
 
-**Deploy:** Push to `main` — Netlify auto-deploys from `website/`.
+Pushing to `main` deploys. Deploy from a fresh clone, never from a synced folder.
 
-**Edge functions:**
-```bash
-supabase functions deploy send-welcome-email
-supabase functions deploy send-followup-emails
-```
+---
 
-**Database:** Apply `supabase/migrations/*.sql` in order, then the base `website/supabase-schema.sql` for reference.
-
-## Brand
-
-Apple glass meets Netflix minimal. Darkness as canvas, content glows.
-
-- **Sacred words:** Immersion · At the source · Cohort · Choose your depth · Earned, not bought · Certified
-- **Banned:** Transformation · Life-changing · Journey · Luxury · Easy
-
-See `os/` for the full product and brand system. See `CLAUDE.md` for AI-agent guidance.
-
-## Contact
-
-- **Web:** [educatedtraveler.app](https://educatedtraveler.app)
-- **Email:** hello@educatedtraveler.app
+*A place, a person, your people. Earned, not bought. At the source, not the simulation.*

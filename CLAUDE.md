@@ -1,139 +1,134 @@
-# CLAUDE.md
+# CLAUDE.md — EducatedTraveler
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+**Read this file, then read only what your task needs. Nothing else here is required reading.**
 
-## Standing rules (current — 2026-07, override anything below that conflicts)
+---
 
-1. **Trust at all levels, always** (the first rule). Never fabricate a review, count, credential, or claim; every public line must be checkable. Attribute verbal claims to their speaker ("Martin will tell you…").
-2. **The future-use rule.** Every EducatedTraveler skill/course surface must answer, concretely: *"How will you use this skill in your future?"* — a required section on every commercial page, framed around career-specific situations, never promised outcomes.
-3. **Positioning = THE OPEN DOOR** — serious, not shiny. Banned words in public copy: exclusive, elite, club, premium, luxury, transformation, life-changing, easy. No price justification on sales pages: state the price once, plainly, and sell what the buyer walks out with.
-4. **Nothing is sold until it's real.** Add-ons and future weeks are "in development" until booked; counts show real paid seats only.
+## What this is
 
-## What We're Building
+**A free record of where crafts are still taught at the source — with a name and a date on every line — and an introduction to the teacher when you want to go.**
 
-**EducatedTraveler** offers certified skill immersions at premium destinations worldwide. Learn diving in Thailand, sailing in Greece, yoga in Bali—and leave with real credentials (PADI, RYA, Yoga Alliance, WSET).
+- **The Atlas** — what's alive, where, and the people keeping it alive. Free. Nobody can pay to be on it or to be left off it, ever.
+- **The Circle** — the people, and *what they want to learn*. Free. **Not a mailing list** — it decides which week gets built and which Atlas entry gets checked next.
+- **The Lab Week** — the only paid thing. A week designed for the people of the Circle.
 
-*"One week to get certified. 6 months to change your life."*
+*A place, a person, your people. Earned, not bought. At the source, not the simulation. Skills last, tans fade.*
 
-**The spectrum:**
-- **7-21 days** ($3,500-$6,500) — Get certified. This is the entry point.
-- **1-3 months** ($9,500-$12,000) — Go deeper.
-- **6 months** ($25,000-$40,000) — Transform your life.
+---
 
-Always lead with shorter options. The 7-day certification is the gateway, not the 6-month commitment.
+## Where to look — read the row, not the shelf
+
+| If you are… | Read |
+|---|---|
+| new to this project | `marketing/EducatedTraveler.pdf` — one page, 60 seconds |
+| asking "where is this going, and what's next" | **`DIRECTION.md`** — the single current answer (12 Aug 2026). Replaces `roadmap.md`, `BUSINESS-STRATEGY.md`, `IMPLEMENTATION-PLAN.md`, which describe the retired certification thesis and must never be used again |
+| deciding anything strategic | `marketing/The-Base.pdf` (definition + decision rules) |
+| judging whether a place/master belongs | `marketing/The-Standard.pdf` (the ten rules) |
+| writing an Atlas skill sheet | `marketing/The-Skill-Sheet.pdf` |
+| writing copy, a letter, a post, an offer | summon the **`keel`** agent |
+| handling one live conversation with a chef | summon the **`hail`** agent |
+| working on the October week | `weeks/01-barcelona-lippo/LabWeek01-MartinLippo.pdf` |
+| working with a teacher | `instructors/<person>/` — one folder per person, plus `_standard/`, `_playbooks/`, `_pipeline/` |
+| working on a Lab Week | `weeks/01-barcelona-lippo/` (Martín, 22–26 Oct) · `weeks/_template/` for the next |
+| looking for video, photos, IG, QR | `media/` — **except site images, which stay in `website/images/`** |
+| writing anything public | `GUIDELINE.md` — the editorial law, esp. *The source ladder* |
+| citing a craft body or register | `NEXUS/Knowledge/Sources - Institutional Register…md` |
+| wondering why the site looks/works as it does | `docs/HISTORY.md` |
+
+**Private and gitignored — never commit, never quote publicly:** `FOUNDING-CANON/`, `marketing/`, `DIRECTION.md`, `MASTERPLAN.md`, `VISION.md`, `VISION-LOG.md`, `PLAYBOOK.md`, `ideas.md`.
+
+⚠ **`.gitignore` does not protect a file git already tracks.** Check `git ls-files <path>`, never the ignore list. `ideas.md` was tracked until 12 Aug 2026 despite everyone assuming otherwise.
+
+⚠ **The retired thesis left `main` on 2026-08-12** — `roadmap.md`, `BUSINESS-STRATEGY.md`, `IMPLEMENTATION-PLAN.md`, the old `WARP.md`, the pre-pivot `os/` stack and the retired pages now live in `_archive/2026-08-12-cleanup/` (manifest inside). They are superseded by `DIRECTION.md` — **never quote, revive or "update" them.**
+
+## The shape of the repo
+
+Filed by **the work**, not by artefact type. One instructor used to live in six directories.
+
+| | |
+|---|---|
+| `instructors/` | one folder per teacher · `_standard` the bar · `_playbooks` how to approach and onboard · `_pipeline` not-yet-people |
+| `weeks/` | one folder per Lab Week · `_template` for the next |
+| `media/` | video, photo, IG, QR, daily drop. **Site images stay in `website/images/`** |
+| `marketing/` | the doctrine — what the company is, and how it is said |
+| `website/` | the deployed site. Nothing else. |
+
+**All of `instructors/`, `weeks/`, `media/` and `live-experiences/` are private and gitignored** — they
+name third parties, carry commercial terms and hold unreleased media. Each has a README explaining itself.
+
+---
+
+## Current state — 10 August 2026
+
+- **Atlas:** 100 crafts · 335 places · **118 with a named teacher · 217 blank on purpose · 0 checked and dated · 0 stood in.** 847 school entries. 56 countries (the `63` figure counts label strings, not countries).
+- **Atlas standard v1.0 applied in data**, not deployed. Every destination carries `standard{check, enrolment, vitality, designations, directRoute, bar{10 rules}}`; counts live in `ET_ATLAS.standardMeta`.
+- **Lab Week 01:** Martín Lippo / Vakuum, Barcelona, 22–26 Oct 2026. Signed 29 July. €1,500/seat VAT incl., cap 15, confirms at 10, ET keeps 22%. **Full payment by 15 September.** Break-even is 8 paid strangers to cover the ~€11,700 owed; **9** once travel counts.
+- **Circle:** 32 rows in `launch_waitlist`. **Two letters sent** — 31 of 32 rows carry `last_issue = letter-02a` (verified against Supabase 11 Aug 2026; filenames are not a send log, the column is). **Zero paid seats. Zero alumni** — so nobody has yet learned anything together.
+- **Uncommitted on `feat/circle-onboarding`:** the Atlas standard, the Telluride/Ascona fix, the 56-country correction, the retired-URL redirect map.
+
+---
+
+## Non-negotiables
+
+**TRUST AT ALL LEVELS, ALWAYS — the first rule.** The moat and the honesty rule are the same object. Never fabricate a review, rating, master, credential, scarcity number, counter, alumnus or market size. Cite it or mark it *provisional, verifying*. Omission beats fabrication.
+
+**Never claim** that a week gives you the craft (deliberate practice explains under 1% of variance in professions; no study shows master-taught beats self-taught at equal hours) · that a master is a shortcut · that five days confers membership · that ET is the first or only unbought guide (Homo Faber has run a larger free one for eight years).
+
+**Never take** money from anyone ET judges, or anyone with an interest in the judgment — no listing fee, placement, commission, sponsorship or tourist-board budget, **on the map or on a week**.
+
+**ET sells no advertising — law, at any size.** Nothing on the record, in the letter or on any page is there because it was bought, including from a brand with no stake in the judgment. A bought box beside unbought lines makes a reader ask which of the others were paid for, and that question never stops. Every offer is dated and logged with the answer given.
+
+**ET does not buy reach — but that is standing policy, not law, and the reason is arithmetic.** ET keeps 22% of a €1,500 seat = **€330**; a cold stranger acquired by paid placement for a purchase that size costs a multiple of it, and a stranger who arrives by advert does not believe a judgment. Recompute if the numbers change; do not treat it as a vow. ⚠ *Deliberately not in the immutable canon — a company whose asset is a man who keeps his written rules cannot afford rules he will predictably want to break.* **One door, disclosed:** money may go behind a piece two named people actually made together, marked paid.
+
+**Collaboration is the growth channel — two asked for every month, logged whether they land.** Work done together and published together. Money may move for the work; never for a place on the record, a position on it, or a kind word, and **a collaborator already on the record gets no better line for collaborating**. If working together would change what the record says about them, it is a payment — refuse it and log it. *The count is the clause: without it, "we grow by collaboration" is what a quiet stall says while stalling.*
+
+**Built by the communities, for the communities — directed by them, for now built by one man.** What the Circle wants to learn decides which week gets built; what it asks about decides which line gets checked next. The record extends by **adding names** — a second checker signs the lines he checked, an alumnus says in public what a week actually was — and never by removing one. The gate opens **on evidence, not a date**: the first person who stood in a room ET sent them to can sign what they saw, under their own name, beside the date. ⚠ **"For the communities" never means ET holds them** — no members' area, no alumni product, nothing sold back. The link in a chain is a **shared interest**, not an acquaintance. **Zero alumni today, so this is intent — never say it as a record, never with counts.**
+
+**The implicature test.** The danger is no longer falsehood but two true things arranged into a false one. *"My list is 25 and the week has 10 seats"* — both provable, and together a lie. Audit juxtapositions, not just claims.
+
+**The checking sentence.** Write the line, then silently add *"…and here's how you could check that."* If it doesn't exist, cut the line.
+
+**Strategy lock.** Community/Atlas first. The old selling machinery — price tiers, Quest selector, XP/badges/confetti, Stripe/PayPal checkout, enrollment flows — is **dormant, not deleted**. Do not re-surface it. No open marketplace. No on-site checkout. **No more Atlas pages** — it is done at 436; the only permitted additions are fields the standard requires.
+
+**Cohorts 8–12.** Instructors 5+ years and certified. No sitting block over 90 minutes. One rest day a week minimum.
+
+---
+
+## Voice
+
+**Everything that goes out in ET's voice — any post, mail, letter, page, offer, marketing strategy — obeys the twelve laws of L'Essence** (private; compact copy in `marketing/MASTER-META-PROMPT.md` §1, canonical in `NEXUS/Knowledge/PDF ideas EducatedTraveler/`). Arnaud's ruling, 2026-08-12: a draft that violates one does not ship.
+
+Warm, plain, founder-led. Short sentences. The verb is **introduce / connect / bridge** — never sell, book, enroll, checkout. First line says plainly what the thing is; at most one poetic line, at the end.
+
+**Banned:** transformation, transformational, life-changing, vacation, holiday, luxury, easy, journey, curated, unlock, elevate, empower, immersive-as-filler, "seats are going", "there's real interest", present tense for what has never happened. No decorative emoji.
+
+**⚠ The Atlas never talks about Arnaud.** Sheets speak as *we*. Voice means register, not biography — no credentials, no years on the water, not even the true ones. **The one exception is the locked-catalogue letter invitation**, which stays first person and must never be swept: *"Write me a letter about X… I read every one myself."* **The test: credentials go, invitations stay.**
+
+---
 
 ## Commands
 
-**Website** (static HTML in `website/` — this is the live production site):
 ```bash
-python3 -m http.server 8000 --directory website
+python3 -m http.server 8000 --directory website   # serve the site
+python3 scripts/build-atlas-pages.py              # rebuild the 436 Atlas pages + sitemap + robots
+bash scripts/build-guideline-pdf.sh               # regenerate the Guideline PDF
+supabase functions deploy send-welcome-email      # edge functions
 ```
 
-**Supabase Edge Functions** (in `supabase/functions/`):
-```bash
-supabase functions serve    # Local dev
-supabase functions deploy send-welcome-email
-supabase functions deploy send-followup-emails
-```
+**Deploy:** push to `main` → GitHub Pages → `educatedtraveler.app`. **Push is the deploy.** Always deploy from a **fresh `gh` clone** in `/private/tmp`, never from this CloudStorage working tree.
 
-**Deployment**: Pushes to `main` auto-deploy via **GitHub Pages** → `educatedtraveler.app`. Workflow at `.github/workflows/deploy-pages.yml` publishes `website/` with no build step. CNAME is `website/CNAME`. (`netlify.toml` is dormant legacy config — GitHub Pages does not read it; pretty URLs work because GH Pages auto-resolves extensionless paths to their `.html` file.)
+---
 
-## Architecture
+## Architecture, in brief
 
-### Website (`website/`)
+**`website/`** — static, no build step. Tailwind via CDN, fonts via Google. Key pages: `index.html`, `repertoire.html` (The Atlas), `circle.html`, `portrait.html`, `barcelona.html`, `atlas/` (436 generated pages), `studio.html`, `join.html`, `dashboard.html`.
 
-Production static site. No build step — Tailwind loaded from CDN, Inter font via Google Fonts.
+**`website/js/`** — `repertoire.js` (`window.ET_ATLAS`, the Atlas data + `standardMeta`) · `atlas-ratings.js` (cited public ratings) · `supabase-config.js` · `auth.js` · `database.js`.
 
-**Pages** (active): `index.html` (homepage + Quest selector), `offerings.html` (adventures catalog), `about.html` (founder story), `community.html` (waitlist + conversion hub), `instructors.html` (partner applications), `dashboard.html` (auth-gated, profile setup lives here), `instructor-dashboard.html` (cohort management), `profile.html` (public profile view), `join.html` (auth entry), `admin.html` (admin console), `survey.html` (research survey), `auth-callback.html` (magic link handler), `sushi-mastery.html` + `modernist-barcelona.html` (flagship experience landing pages), `cohort-chat.html` (auth-gated, paid-member-only cohort group chat — opens via `?cohort=<id>` from the dashboard), `vision.html` (three-flagship hero — Sushi Mastery, Yoga Pilgrimage, Ocean Sailing — with personal photos at `/images/vision/`).
+**Supabase** — auth with RLS everywhere. Tables: `profiles`, `launch_waitlist` (the Circle), `user_preferences`, `saved_adventures`, `instructors`, `cohorts`, `enrollments`, `experience_interests`, `survey_responses`, `prior_experiences`, `cohort_messages`. **The ordered migrations in `supabase/migrations/` are the authoritative schema** — not any snapshot. Edge functions: `send-welcome-email`, `send-followup-emails`, `handle-interest`, `circle-broadcast`.
 
-**JS modules** (`website/js/`):
-- `supabase-config.js` — Loads the Supabase JS v2 CDN, initializes `window.supabaseClient`, shows a non-intrusive banner on auth pages if the SDK fails to load
-- `auth.js` — Email+password, magic link (`signInWithOtp`), password reset. Auto-claims pre-seeded instructor rows by email. Migrates `pendingQuest` sessionStorage and legacy localStorage profiles into Supabase on sign-in. Exposed as `window.auth`
-- `database.js` — All DB operations: profiles, preferences, saved adventures, badges, interests, cohorts, enrollments, instructor admin. Exposed as `window.db`
-- `community-sidebar.js` — Renders the community wall via the `get_community_for_adventure` RPC (migration 004)
-- `whatsapp-widget.js` — WhatsApp opt-in UX
+**Design lock — Warm-Dark Editorial.** Ink `#0d0b09` · surface `#14110d` · paper `#f3ede2` (never pure white) · sea `#7fa8a5` · ember `#d28a52`. Fraunces (display) + Inter (body) + IBM Plex Mono (labels). Cores: wellness `#94ad86` · adventure `#6fa3a0` · creative `#cf8f6e` · culinary `#c9a24a`. Copy the head tokens and `tailwind.config` verbatim from `index.html` for any new page. The cold blue/glass/gamified look is retired forever, and Littoralicious CSS is never borrowed.
 
-**Homepage (`index.html`)** is ~1,600 lines and contains the core product logic:
-- **Quest selector** — 4-question interactive tool scoring against 22 hardcoded experience objects
-- **Persona system** — 6 personas (Ocean Tactician, Blue Depth Seeker, Quiet Storm, Kitchen Alchemist, Edgewalker, Wild Guide)
-- **Gamification** — XP popups, confetti, achievement toasts, badge system
-- **Dual forms** — Netlify Forms (backup) + Supabase for signed-in users
+---
 
-### Supabase Backend
-
-Auth via email+password with passwordless magic links as fallback (and password-reset flow). RLS everywhere.
-
-Tables:
-- `profiles` — user data, XP, level, plus the full profile form (first_name, age, location, about, interests JSONB, profession, skills, credentials JSONB, fitness, comfort_zone, languages, visibility, etc.)
-- `user_preferences` — quest selections (elements, desires, time_preference, intensity)
-- `saved_adventures` — bookmarked experiences
-- `user_badges` — earned achievements
-- `instructors` — instructor profiles (status: pending/approved/rejected)
-- `cohorts` — class instances linked to an instructor and an `adventure_id` from `experiences.js`
-- `enrollments` — student-to-cohort links (enrolled/waitlisted/cancelled/completed); plus payment_status (unpaid/pending/paid/refunded/failed) from `006_stripe.sql`
-- `experience_interests` — pre-cohort interest signal with `token` for auth-less cancel links
-- `survey_responses` — anonymous survey (no auth, insert-only RLS)
-- `prior_experiences` — self-declared past classes with our instructors (from `013_cohort_community.sql`). Public read, owner write.
-- `cohort_messages` — group chat for paid cohort members (from `013_cohort_community.sql`). RLS gated by `is_cohort_member()` helper; realtime-enabled.
-
-Views & RPCs:
-- `user_enrollment_timeline` (view) — derived Planning / Doing / Completed status from enrollment + cohort dates. Used by `dashboard.html` and `db.getMyTimeline()`.
-- `get_cohort_members(cohort_id)` — roster for the cohort-chat sidebar; refuses to return rows unless the caller is a member.
-- `get_community_for_adventure(adventure_id)` — pre-cohort community wall.
-
-Edge Functions (Deno + Resend):
-- `send-welcome-email` — database-webhook on `profiles` INSERT
-- `send-followup-emails` — daily cron, Day 3 + Day 7 nurture
-- `send-whatsapp`, `send-followup-whatsapp` — WhatsApp equivalents
-- `handle-interest` — token-authenticated interest confirm/cancel
-
-Schema: authoritative snapshot in `website/supabase-schema.sql`. Incremental migrations in `supabase/migrations/` (001 → 005). Run migrations in order; `005_profile_extended_columns.sql` is the one that adds the extended profile columns that were previously ad-hoc in the dashboard.
-
-### Operating System (`os/`)
-
-Single source of truth for all strategy, brand, and product decisions. **Start here for any new work.**
-
-- `Daemon - EducatedTraveler.md` — Mission, principles, non-negotiables, 12 Commandments
-- `Agent - EducatedTraveler.md` — Full AI decision framework (500+ principles)
-- `products.md` — Product catalog with pricing (Foundation/Mastery/Saga tiers)
-- `brand/design-system.md` — Colors, typography, components, animations
-- `brand/brand-guardrails.md` — Voice and messaging rules
-- `core/` — Instructor manifesto, customer archetypes, partnership filter
-- `playbooks/` — Operational playbooks (partner onboarding, outreach, interviews)
-- `partners/` — 15 country guides, partner evaluations, outreach tracker
-
-## Non-Negotiables
-
-- Cohorts: 8-12 max
-- Instructors: 5+ years, certified
-- No sitting blocks over 90 minutes
-- Rest days: 1/week minimum
-
-## Brand Voice — The Three Pillars
-
-Everything must evoke **Freedom** (the open sea, the life you chose) + **Adventure** (real stakes, earned exhilaration) + **Immersion** (deep in craft, culture, cohort). The rhythm: *Surf in Hawaii. Sail the open sea. Cook in Tokyo.* No YouTube video at 2 AM. Real immersion.
-
-**Say:** "Freedom" · "Adventure" · "Immersion" · "The open sea" · "Earned" · "Skill adventures at the source" · "Choose your depth" · "Certified" · "Cohort"
-
-**Don't say:** "Transformation" (passive) · "Vacation" / "holiday" · "Life-changing" (overused) · "Journey" alone · "Luxury" · "Easy"
-
-## Design
-
-Apple glass meets Netflix minimal. Darkness as canvas, content glows.
-
-```
-Background:      #000000
-Glass:           rgba(255,255,255,0.03)
-Text:            #FFFFFF / rgba(255,255,255,0.60)
-Cyan (sailing):  #06B6D4
-Amber (culinary): #F59E0B
-Orange (wellness): #F97316
-```
-
-Font: Inter. Mobile-first. Netflix-style cards. Custom `.glass` and `.cta-button` classes in per-page `<style>` blocks.
-
-## Hosting & Pretty URLs
-
-Hosted on **GitHub Pages** (workflow: `.github/workflows/deploy-pages.yml`, publish dir: `website/`). GH Pages serves `/foo` by automatically resolving to `/foo.html`, so adding a new HTML file in `website/` gives you the pretty URL for free — no redirect config needed.
-
-`netlify.toml` exists in the repo as legacy config from when the site was Netlify-hosted; it is **not read by GitHub Pages**. Leave it alone unless we migrate back.
+*History, deploy archaeology and the email-config method: `docs/HISTORY.md`.*

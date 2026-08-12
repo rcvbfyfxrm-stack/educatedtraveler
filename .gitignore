@@ -48,3 +48,8 @@ docs/whatsapp-templates.md
 docs/referral-fee-worksheet.md
 docs/tokyo-instructor-call-prep.md
 docs/accommodation-checklist.md
+
+# CLI build state — never track
+supabase/.temp/
+# Partner/outreach material with personal data — never public (rescued to private tree 2026-08-12)
+setup/
