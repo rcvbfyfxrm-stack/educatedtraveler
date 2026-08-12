@@ -342,6 +342,14 @@
     go.disabled = true;
     go.textContent = 'Opening Revolut…';
 
+    // Open Revolut FIRST, synchronously in the click handler. Popup blockers
+    // (Safari especially) kill window.open() the moment it's on the far side
+    // of an await — even the fast Supabase insert below was enough to lose
+    // "user activation" and silently swallow the tab. New tab, not a
+    // redirect: Revolut has no way to send them back to us, and losing this
+    // page mid-payment loses the instructions with it.
+    window.open(linkFor(amt), '_blank', 'noopener');
+
     // /booked greets them by name and shows what's still owed.
     try {
       localStorage.setItem('et_seat_lippo', JSON.stringify({
@@ -373,10 +381,6 @@
     } catch (err) { /* never block the payment */ }
 
     if (window.plausible) window.plausible('SeatPayStart', { props: { week: 'lab-week-01', amount: String(amt) } });
-
-    // New tab, not a redirect: Revolut has no way to send them back to us, and
-    // losing this page mid-payment loses the instructions with it.
-    window.open(linkFor(amt), '_blank', 'noopener');
 
     document.getElementById('hand-amt').textContent = String(amt);
     document.getElementById('hand-note').textContent = name;
