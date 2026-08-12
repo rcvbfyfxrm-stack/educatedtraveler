@@ -49,22 +49,6 @@ const GIFT = "background:#f2f6f5;border-left:2px solid #b06f33;border-radius:8px
 const BTN = "display:inline-block;background-color:#3f6b67;background:linear-gradient(135deg,#3f6b67 0%,#8f5820 100%);color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;letter-spacing:0.5px;";
 const QSER = "color:#2b2621;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.6;margin:8px 0 0 0;";
 
-function welcomeHtml(unsub: string): string {
-  const body = `
-      <p style="${P}margin:0 0 22px 0;">You're in. Before anything else, here's the reason the Circle exists — one place worth knowing.</p>
-      <div style="${GIFT}">
-        <p style="color:#2b2621;font-size:15px;line-height:1.75;margin:0;">In <strong style="color:#2b2621;">Mashiko</strong>, a quiet town a couple of hours north of Tokyo, the climbing kilns have breathed for a hundred years. A potter named Shoji Hamada settled there in 1924 and gave his life to a simple idea: that plain, useful, handmade things are worth devoting yourself to. The families who learned beside him never left, and people still come from across the world to put their hands in that clay. Mashiko isn't the prettiest town in Japan. It's something rarer — a place where a craft is genuinely alive, and the right people are gathered around it.</p>
-      </div>
-      <p style="${P}margin:0 0 16px 0;">That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked not by who pays us, but by the strength of the community you'd find when you arrived.</p>
-      <p style="${P}margin:0 0 16px 0;">I'm Arnaud. I cook for a living, and I've spent fifteen years on the water — sailing, freediving, learning my own trade at the source. Pottery isn't my craft, and that is exactly the point: this was never meant to be about me. It's about helping you find the real version of whatever pulls at you, and the people already chasing it.</p>
-      <p style="${P}margin:0 0 28px 0;">How the Circle works is short. I don't sell anything. As the Atlas grows, I send you the places and the people worth knowing — and when the moment is right, I introduce you. That's all. Skills last; the rest fades.</p>
-      <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/atlas/" style="${BTN}">Open the Atlas</a></div>
-      <p style="${P}margin:24px 0 0 0;">And one thing I'd genuinely like to know — just hit reply:</p>
-      <p style="${QSER}">What is the one skill you'd give a real week of your life to learn at the source?</p>
-      <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">I read every reply.</p>`;
-  return shell({ eyebrow: "Welcome to the Circle", heading: "A place, a person, your people.", body, unsub });
-}
-
 function issue01Html(unsub: string): string {
   const body = `
       <p style="${P}margin:0 0 16px 0;">This is the first proper letter from the Circle. Here's how it will go: now and then, one place worth knowing — a single craft, the town where it's most alive, and the people you'd meet if you went. No selling. Just the map, and the occasional introduction.</p>
@@ -263,49 +247,62 @@ const LP = 'style="margin:0 0 18px 0;"';
 function welcomePlainHtml(unsub: string): string {
   const body = `
     <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A place, a person, your people.</p>
-    <p ${LP}>You're in. Before anything else, one place worth knowing — and the man who changed what I think a life's work is for.</p>
-    <p ${LP}>In 1924 a young potter named <strong>Shoji Hamada</strong> could have set up anywhere. He had trained in England, he was already good, and Tokyo was an hour away. He chose <strong>Mashiko</strong> — a small country town two hours north, picked, in his own reasoning, because it was far from the patrons, the connoisseurs and the galleries. He wanted to be out of reach of the people who tell you whether your work is any good.</p>
-    <p ${LP}>He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, using the clay and the ash and the iron glaze of that valley — and then he did the thing I still can't get out of my head. <strong>He refused to sign them.</strong> No signature, no seal, nothing stamped in the foot. A pot should stand on what it is, he thought, not on whose name is under it. If it's good you'll know by holding it, and if it isn't, a name won't save it.</p>
-    <p ${LP}>Japan made him a Living National Treasure in 1955, in the very first year they gave the title. His pots sell for more than most people's cars. They are still unsigned.</p>
-    <p ${LP}>Here is what that does to you, and why I'm telling you and not someone else. Almost everything now is built to be seen — the course with the certificate, the trip with the photographs, the skill you can put on a profile. Hamada spent his life on the opposite bet: get close to the real thing, do the work until it's genuinely good, and let it go out into the world without your name on it. The families who learned beside him never left. People still travel from every continent to put their hands in that clay.</p>
-    <p ${LP}>That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked by the strength of the community you'd find when you arrived — never by who pays me.</p>
-    <p ${LP}>I'm Arnaud. I cook for a living and I've spent fifteen years on the water. Pottery isn't my craft, and that's exactly the point: this was never meant to be about me. It's about the real version of whatever pulls at you, and the people already chasing it.</p>
+    <p ${LP}>You're in. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. The list is the part that does the work: what you tell me decides which craft I go and check next.</p>
+    <p ${LP}>So — the letter. One place.</p>
+    <p ${LP}>In 1924 a young potter named <strong>Shoji Hamada</strong> could have set up anywhere. He had spent three years in England building a pottery beside <strong>Bernard Leach</strong>, he was already good, and the capital was open to him. He chose <strong>Mashiko</strong> — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.</p>
+    <p ${LP}>He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, from the clay and the ash and the iron glaze of that valley. And for most of his life he sent them out unsigned — no seal, nothing stamped in the foot. He signed the wooden boxes they travelled in, telling Leach he could not escape the social obligation, but he never signed the pot. Asked why, he said: “If you cannot see who it is by, it is either because the pot is bad, or because you are blind.” Japan made him a Living National Treasure in 1955, the first year the title was given.</p>
+    <p ${LP}>The pots were unsigned. The man was never hard to find. He was in that town, at that wheel, and the potters who wanted to learn came and stayed.</p>
+    <p ${LP}>Almost everything now is built to be seen — the course with the certificate, the trip with the photographs, the skill that goes on a profile. Hamada spent his life on the opposite bet: get close to the real thing, do the work until it is genuinely good, and let the pot go without your name on it. Mashiko is still a pottery town.</p>
+    <p ${LP}>That is the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, judged by the strength of the people you'd find when you arrived.</p>
     <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a></p>
+    <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.</p>
     <p ${LP}>And one thing I'd genuinely like to know — just hit reply:</p>
-    <p style="margin:0 0 18px 0;"><strong>What is the one skill you'd give a real week of your life to learn at the source?</strong></p>
+    <p style="margin:0 0 18px 0;"><strong>What is the one craft you'd give a real week of your life to learn at the source?</strong></p>
+    <p ${LP}>And if you teach something — if there's a room you could open for a week — tell me that instead. I'm asking both questions now, because a week needs someone on each side of it.</p>
     <p ${LP}>I read every reply.</p>
+    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20joined%20the%20Circle.%20The%20craft%20I%27d%20give%20a%20week%20to%20is" style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
-    <p style="margin:0;">— Arnaud</p>`;
+    <p style="margin:0;">— Arnaud</p>
+    <p style="margin:28px 0 0 0;"><strong>P.S.</strong> What I'm doing this month: working through the crafts people have written to me about, one at a time, and finding out who actually teaches them. And if someone came to mind while you were reading — the friend who has been saying for years they'd learn to sail properly if they ever had the time — send them the Atlas page for it.</p>`;
   return plainShell({ body, unsub });
 }
 
 function welcomeText(unsub: string): string {
   return `A place, a person, your people.
 
-You're in. Before anything else, one place worth knowing — and the man who changed what I think a life's work is for.
+You're in. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. The list is the part that does the work: what you tell me decides which craft I go and check next.
 
-In 1924 a young potter named Shoji Hamada could have set up anywhere. He had trained in England, he was already good, and Tokyo was an hour away. He chose Mashiko — a small country town two hours north, picked, in his own reasoning, because it was far from the patrons, the connoisseurs and the galleries. He wanted to be out of reach of the people who tell you whether your work is any good.
+So — the letter. One place.
 
-He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, using the clay and the ash and the iron glaze of that valley — and then he did the thing I still can't get out of my head. He refused to sign them. No signature, no seal, nothing stamped in the foot. A pot should stand on what it is, he thought, not on whose name is under it. If it's good you'll know by holding it, and if it isn't, a name won't save it.
+In 1924 a young potter named Shoji Hamada could have set up anywhere. He had spent three years in England building a pottery beside Bernard Leach, he was already good, and the capital was open to him. He chose Mashiko — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.
 
-Japan made him a Living National Treasure in 1955, in the very first year they gave the title. His pots sell for more than most people's cars. They are still unsigned.
+He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, from the clay and the ash and the iron glaze of that valley. And for most of his life he sent them out unsigned — no seal, nothing stamped in the foot. He signed the wooden boxes they travelled in, telling Leach he could not escape the social obligation, but he never signed the pot. Asked why, he said: “If you cannot see who it is by, it is either because the pot is bad, or because you are blind.” Japan made him a Living National Treasure in 1955, the first year the title was given.
 
-Here is what that does to you, and why I'm telling you and not someone else. Almost everything now is built to be seen — the course with the certificate, the trip with the photographs, the skill you can put on a profile. Hamada spent his life on the opposite bet: get close to the real thing, do the work until it's genuinely good, and let it go out into the world without your name on it. The families who learned beside him never left. People still travel from every continent to put their hands in that clay.
+The pots were unsigned. The man was never hard to find. He was in that town, at that wheel, and the potters who wanted to learn came and stayed.
 
-That's the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, ranked by the strength of the community you'd find when you arrived — never by who pays me.
+Almost everything now is built to be seen — the course with the certificate, the trip with the photographs, the skill that goes on a profile. Hamada spent his life on the opposite bet: get close to the real thing, do the work until it is genuinely good, and let the pot go without your name on it. Mashiko is still a pottery town.
 
-I'm Arnaud. I cook for a living and I've spent fifteen years on the water. Pottery isn't my craft, and that's exactly the point: this was never meant to be about me. It's about the real version of whatever pulls at you, and the people already chasing it.
+That is the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, judged by the strength of the people you'd find when you arrived.
 
 The Atlas is here: https://educatedtraveler.app/atlas
 
+I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.
+
 And one thing I'd genuinely like to know — just hit reply:
 
-What is the one skill you'd give a real week of your life to learn at the source?
+What is the one craft you'd give a real week of your life to learn at the source?
+
+And if you teach something — if there's a room you could open for a week — tell me that instead. I'm asking both questions now, because a week needs someone on each side of it.
 
 I read every reply.
 
+Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
+https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20joined%20the%20Circle.%20The%20craft%20I%27d%20give%20a%20week%20to%20is
+
 Talk soon,
 — Arnaud
+
+P.S. What I'm doing this month: working through the crafts people have written to me about, one at a time, and finding out who actually teaches them. And if someone came to mind while you were reading — the friend who has been saying for years they'd learn to sail properly if they ever had the time — send them the Atlas page for it.
 
 --
 EducatedTraveler · educatedtraveler.app
@@ -368,7 +365,7 @@ export const ISSUES: Record<string, {
   // undefined / "all" = a Circle letter everyone in the Circle should get.
   audience?: "leads" | "all";
 }> = {
-  "welcome": { subject: "Welcome to the Circle — one place worth knowing", html: welcomePlainHtml, text: welcomeText, audience: "leads" },
+  "welcome": { subject: "Welcome to the Circle — the potter who signed the box, not the pot", html: welcomePlainHtml, text: welcomeText, audience: "leads" },
   // Subject carries the craft name; circle-welcome substitutes {CRAFT}.
   "atlas-letter": { subject: "Got your letter about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
   "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml, audience: "leads" },
