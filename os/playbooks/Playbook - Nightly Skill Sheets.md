@@ -16,6 +16,30 @@ This file is the spec a scheduled agent follows. It is public (no secrets here).
 
 Every fact, link, image licence and media item on a sheet must be **crosschecked at content depth** before it ships. A charming-but-false "fun fact" is a fabricated trust signal — the worst thing we can do. If a claim can't be verified, **drop it**; never soften it, never guess. Never embed a video or image you haven't confirmed resolves and is licensed/embeddable. Better a short, true sheet than a rich, wrong one. (See the freediving sheet's honest "we'd rather show two books we've checked than a film we haven't" note — that is the standard.)
 
+## RULE ZERO — a sheet is public-facing production, so it is not written bare-handed
+
+A skill sheet is a page in EducatedTraveler's voice. Everything below follows from that, and it is Arnaud's standing instruction (2026-08-12), not a preference.
+
+- **The twelve laws of L'Essence govern every line.** A draft that violates one does not ship — fix it, and say which law forced the change. The laws are private: compact copy in `marketing/MASTER-META-PROMPT.md` §1, canonical under `NEXUS/Knowledge/`. Point at them, never quote them into this file or into a sheet — this playbook and this repo are public.
+- **Route through `keel` when you can reach it.** Anything public-facing goes through the `keel` agent automatically, every time, not on request — it holds The Base (what the company is), The Standard (the ten rules to belong), and the register of what may never be claimed. It gates the draft from the start; drafting first and routing afterwards is how a false claim gets in. **The unattended nightly builder cannot do this** — keel lives outside this repo and the cloud run only has this checkout. So the rules keel would enforce are written out below, in full, and the builder applies them itself. If you are a session that *can* summon keel, summon it; the list below is the floor, not the ceiling.
+- **A sheet that touches a Lab Week is outreach, and the outreach gate applies.** Some sheets carry a week block naming a master (`modern-new-technique-cuisine` carries Martin Lippo's). That is `hail`'s territory: until a master has given his written yes on dates and terms, his name tied to the offer, the price, and the payment mechanics stay off anything recordable — and a public web page is the most recordable surface there is. **If a sheet you are building would add or change a week block, do not guess the gate state: leave the block exactly as you found it and say so in the PR body.**
+
+### What may never be claimed on a sheet
+
+Established by research, not opinion. Each one has been reached for before.
+
+- **No promise of skill.** "You come home able to do it" is banned, and so is "a master is a shortcut." Deliberate practice explains under 1% of performance variance in professions.
+- **No membership or mastery implied by a short stay.** A seven-day guest is a guest. Never "alumnus" for a week.
+- **Never first, never only.** Free, panel-curated, older and larger guides to craft already exist. "Nobody pays to be here" is a fact about us and stays; "the only honest map" is a claim about them and goes.
+- **No market-size figures.** The numbers in circulation contradict each other by roughly 70x.
+- **No invented anything** — review, rating, master, quote, scarcity number or credential. An honest blank outranks a good guess.
+- **Print the way around us.** Wherever a sheet names a school, it names how to go direct and what that costs, even when going direct is cheaper. That rule is the reason the pick can be trusted at all.
+
+### Two habits that catch what a fact-check misses
+
+- **The checking sentence.** After writing a factual line, silently add *"…and here's how you could check that."* If that sentence exists, put it in. If it doesn't exist, the line is smuggling — cut it.
+- **The implicature audit.** The dangerous sentences are the ones that are about 90% true. Two provable facts placed side by side can assemble a third thing that is false, and no per-claim check will catch it because every claim passes. Audit the juxtapositions, not only the claims.
+
 ---
 
 ## Each run, in order
@@ -59,7 +83,8 @@ Default batch = **2** (max 3) fully-verified sheets per run. Quality over count 
 6. **What's true vs what's sold** — the Real-vs-Sold ledger + "the con" beat; deep citations folded into `<details>`.
 7. **Where we'd send you** — one **source-first pick**; the **gate shown honestly**; the **English pathway** (put English-taught forward, but still name the best even if it's another language, labelled); **"What it opens"** (concrete doors — jobs, workplaces — honest, never a promised job); a `<details>` "how you'd start"; alternatives labelled by language.
 8. **Go deeper** — up to one embedded video + one book + one podcast, each the most reputable *and* genuinely good, **all verified to resolve/embed**. Ship fewer if you can't verify one. Books via OpenLibrary work keys are a reliable, checkable link.
-9. **Trust** — first-person "What I check before I send you anywhere" (Arnaud's voice).
+9. **Trust** — "What **we** check before we send you anywhere." The section stays; the person goes. Arnaud set this on 2026-08-06 and it **supersedes the older "first person, Arnaud's voice" instruction that used to sit on this line**: the Atlas never talks about Arnaud. No "I'm Arnaud," no credentials, no years on the water, no "this isn't my craft" — **not even the true ones.** Sheets speak as EducatedTraveler. "Nobody pays to be here" stays verbatim: that is a fact about the company, not a claim about a person. If a draft seems to need a personal story, that material belongs in a letter — say so in the PR, never write it into the sheet.
+   **The one carve-out:** a locked catalogue page's first-person **letter invitation** ("I open a craft on the Atlas when a member writes to me about it… I'm the only one who reads it") is never swept. The test is *credential or invitation?* — credentials go, invitations stay, and "we read every one" would break a promise that "I read every one myself" makes.
 10. **Close** — one memorable line.
 11. **CTA** — the intent form (`class="intent" data-discipline="<id>" data-label="<Label>" data-source="atlas:<id>"`) **AND** a "Join the Circle →" link to `/circle`.
 
@@ -67,7 +92,9 @@ Also include: the reading-progress bar (`<div class="progress" id="progress">` +
 
 **Save-this-skill wiring (every sheet):** load the account stack so the "Save this skill" button works — after `<script src="/js/supabase-config.js">` add `/js/auth.js` and `/js/database.js`, and after `/js/intent-capture.js` add `/js/skill-save.js` (defer). `skill-save.js` auto-injects the button above the intent form from its `data-discipline`/`data-label`, so no extra markup is needed. Copying `freediving.html` verbatim already gives you all of this.
 
-**Voice:** plain, concrete, first-person where it fits, specific numbers, short sentences. It must **not read as AI-generated** — no "elevate/unlock/dive in/in a world where," no hype, no hedging filler. Match the existing sheets.
+**Voice:** plain, concrete, specific numbers, short sentences — the register of Arnaud's letters, never his biography (see the Trust rule above: the Atlas speaks as "we"). The first line says plainly what the thing IS; at most one poetic line, and only at the end. A working chef should be able to repeat the spine correctly after reading it once.
+
+It must **not read as AI-generated.** Banned outright: elevate, unlock, dive in, "in a world where", transformation, transformational, life-changing, curated, empower, journey, luxury, immersive as filler, and any present tense for something that has never happened. No hype, no hedging filler, no decorative emoji. Match the existing sheets.
 
 ### 4. Keep the URL working
 Overwrite the existing thin `website/atlas/<id>.html` in place (same URL, same `data-discipline`, so intent-capture and the `--<destination>` redirect pages keep working). Don't rename.
@@ -81,8 +108,16 @@ Overwrite the existing thin `website/atlas/<id>.html` in place (same URL, same `
 ---
 
 ## Pre-ship checklist (every sheet)
+- [ ] routed through `keel` if this session can reach it; otherwise the rule-zero list applied by hand
+- [ ] no week block added or changed without the gate state confirmed (left as found, noted in the PR)
+- [ ] no line violates one of the twelve laws; if one was fixed, the PR body names the law
 - [ ] one spine, hook open, one-line close
 - [ ] every fact / link / media crosschecked at content depth; unverifiable dropped
+- [ ] every factual line has its checking sentence — nothing smuggled
+- [ ] juxtapositions audited: no two true things arranged into a false one
+- [ ] no promise of skill, no membership from a short stay, no first/only, no market-size figure
+- [ ] the Atlas speaks as "we" — no first-person claim about Arnaud anywhere on the sheet
+- [ ] the way to go direct is printed wherever a school is named, even when it is cheaper
 - [ ] English-forward (pick's language stated + English path; alts labelled)
 - [ ] source-first pick + gate shown honestly
 - [ ] living scene / why-here emphasised
