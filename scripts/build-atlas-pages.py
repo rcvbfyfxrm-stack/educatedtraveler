@@ -975,6 +975,21 @@ CRAFT_NAV = (
 # in a sitemap. The place stubs of a craft that isn't open are absent for the same
 # reason; they carry noindex and exist only so shared URLs still land somewhere true.
 static_urls = ["/", "/about", "/community", "/lab-weeks", "/circle", "/barcelona", "/instructors"]
+
+# The journal was written, published, and then invisible: no letter has ever been in
+# this sitemap. Discover them instead of listing slugs, so publishing the next one is
+# one file and no edit here. A letter still in review carries noindex — that is the
+# gate, and a page that asks not to be indexed does not go in the sitemap.
+journal_dir = ROOT / "website/journal"
+if journal_dir.is_dir():
+    static_urls.append("/journal/")
+    for f in sorted(journal_dir.glob("*.html")):
+        if f.name == "index.html":
+            continue
+        if re.search(r'name="robots"[^>]*noindex', f.read_text(encoding="utf-8")):
+            continue
+        static_urls.append(f"/journal/{f.stem}")
+
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 seen_url = set()
 for u in static_urls + urls:
