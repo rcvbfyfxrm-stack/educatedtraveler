@@ -80,7 +80,17 @@
   .opt-card .on{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin:0 0 .45rem}
   .opt-card:has(input:checked) .on{color:var(--ember)}
   .opt-card .num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.7rem;font-weight:500;color:var(--paper);line-height:1}
+  .opt-card .lbl{font-family:var(--serif);font-weight:600;font-size:1.06rem;color:var(--paper);line-height:1.2;margin:0}
   .opt-card .fine{font-size:.82rem;color:var(--softer);margin:.45rem 0 0;line-height:1.5}
+  /* Why card isn't on the list. Said out loud, because a payer who expected
+     Apple Pay will otherwise assume the page is broken. */
+  .whynot{font-size:.84rem;color:var(--softer);margin:.7rem 0 0;max-width:60ch;line-height:1.6}
+
+  /* bank details — same copy-row furniture as the Revolut hand-off */
+  .bank-rows{display:grid;gap:.9rem;margin:1.2rem 0}
+  .bank-rows .row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+  .bank-rows .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);flex:0 0 6.5rem}
+  .bank-rows .copyval{font-size:.98rem;letter-spacing:.02em}
 
   .check{display:flex;gap:.75rem;align-items:flex-start;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:.95rem 1.1rem;margin:1.2rem 0;cursor:pointer}
   .check input{margin-top:.25rem;width:17px;height:17px;accent-color:var(--ember);flex:0 0 auto;cursor:pointer}
@@ -202,32 +212,83 @@
         </div>
       </div>
 
+      <!-- Revolut caps CARD payments into a personal account (~€250/week,
+           ~€1,000/month, and the exact figure can't be raised). €350 is already
+           over it, so card is not a route to a seat and is not offered. Both
+           options below are uncapped. -->
+      <div class="field">
+        <label>How you'd like to send it</label>
+        <div class="choice">
+          <label class="opt-card" for="how-revolut">
+            <input type="radio" name="how" id="how-revolut" value="revolut" checked>
+            <p class="on">Fastest</p>
+            <p class="lbl">From your Revolut app</p>
+            <p class="fine">Opens my Revolut page. Send it the way you'd send a friend.</p>
+          </label>
+          <label class="opt-card" for="how-bank">
+            <input type="radio" name="how" id="how-bank" value="bank">
+            <p class="on">Works from any bank</p>
+            <p class="lbl">Bank transfer</p>
+            <p class="fine">An ordinary transfer. No account needed anywhere.</p>
+          </label>
+        </div>
+        <p class="whynot">Card and Apple&nbsp;Pay can't carry these amounts — Revolut caps card payments into my account below €350, and that cap can't be lifted. The two routes above have no cap.</p>
+      </div>
+
       <label class="check" for="f-agree">
         <input type="checkbox" id="f-agree" name="agree">
         <span>I've read the conditions above — <strong>10 seats by 15 September or my deposit comes back in full</strong>, no flights until CONFIRMED, and <strong>transferable but not refundable</strong> once the week is confirmed.</span>
       </label>
 
       <button type="submit" class="btn btn-primary" id="f-go" disabled>Pay the €350 deposit</button>
-      <p class="paynote">Payment is taken by Revolut — card and Apple Pay work, no Revolut account needed.<br>This site never sees your card.</p>
+      <p class="paynote">The money goes straight to me — there is no processor in between.<br>This site never sees your bank details.</p>
       <div class="msg err" id="f-msg" hidden></div>
     </form>
 
     <!-- Revolut opens in its own tab and cannot send anyone back here, so the
          hand-off lives on this page instead of pretending to be a redirect. -->
     <div id="handoff">
-      <h2 style="margin-top:1.6rem">Revolut is open in the other tab.</h2>
-      <p>It opens on a page that says <strong>Arnaud C</strong> — that's me, and it's the right one. Two things it asks you for:</p>
-      <ol class="hand-steps">
-        <li><strong>Type the amount.</strong> Revolut opens at €0 — the number is yours to enter.
-          <div class="copyrow"><span class="copyval" id="hand-amt">350</span><button type="button" class="copybtn" data-copy="hand-amt">Copy</button><span style="font-family:var(--mono);font-size:.66rem;color:var(--softer)">EUR</span></div>
-        </li>
-        <li><strong>Put your name in the Note.</strong> It's how I match the payment to your seat.
-          <div class="copyrow"><span class="copyval" id="hand-note" style="font-size:1rem"></span><button type="button" class="copybtn" data-copy="hand-note">Copy</button></div>
-        </li>
-        <li><strong>Send it</strong> — by Revolut, card or Apple Pay — then come back to this tab.</li>
-      </ol>
+
+      <div id="hand-revolut">
+        <h2 style="margin-top:1.6rem">Revolut is open in the other tab.</h2>
+        <p>It opens on a page that says <strong>Arnaud C</strong> — that's me, and it's the right one. Two things it asks you for:</p>
+        <ol class="hand-steps">
+          <li><strong>Type the amount.</strong> Revolut opens at €0 — the number is yours to enter.
+            <div class="copyrow"><span class="copyval" id="hand-amt">350</span><button type="button" class="copybtn" data-copy="hand-amt">Copy</button><span style="font-family:var(--mono);font-size:.66rem;color:var(--softer)">EUR</span></div>
+          </li>
+          <li><strong>Put your name in the Note.</strong> It's how I match the payment to your seat.
+            <div class="copyrow"><span class="copyval" id="hand-note" style="font-size:1rem"></span><button type="button" class="copybtn" data-copy="hand-note">Copy</button></div>
+          </li>
+          <li><strong>Pay from your Revolut balance</strong>, then come back to this tab. <strong class="flag">If it offers to take a card, don't</strong> — Revolut refuses card payments to me at this size. Top up first, or use the bank transfer below.</li>
+        </ol>
+        <p class="paynote">Tab closed itself? <a href="#" id="hand-reopen">Open Revolut again</a>.<br>
+          Card refused, or no Revolut account? <a href="#" id="hand-tobank">Send it by bank transfer instead</a>.</p>
+      </div>
+
+      <div id="hand-bank" style="display:none">
+        <h2 style="margin-top:1.6rem">The transfer details.</h2>
+        <p>An ordinary transfer from your own bank. No cap, and it usually lands the same day.</p>
+        <div class="bank-rows" id="bank-rows">
+          <div class="row" id="bank-row-name"><span class="k">Name</span><span class="copyval" id="bank-name"></span><button type="button" class="copybtn" data-copy="bank-name">Copy</button></div>
+          <div class="row" id="bank-row-iban"><span class="k">IBAN</span><span class="copyval" id="bank-iban"></span><button type="button" class="copybtn" data-copy="bank-iban">Copy</button></div>
+          <div class="row" id="bank-row-bic"><span class="k">BIC</span><span class="copyval" id="bank-bic"></span><button type="button" class="copybtn" data-copy="bank-bic">Copy</button></div>
+          <div class="row"><span class="k">Amount</span><span class="copyval" id="bank-amt"></span><button type="button" class="copybtn" data-copy="bank-amt">Copy</button><span style="font-family:var(--mono);font-size:.66rem;color:var(--softer)">EUR</span></div>
+          <div class="row"><span class="k">Reference</span><span class="copyval" id="bank-ref"></span><button type="button" class="copybtn" data-copy="bank-ref">Copy</button></div>
+        </div>
+        <p class="whynot" id="bank-ref-note">Put your name in the reference — it's how I match the payment to your seat.</p>
+        <!-- Shown instead of the rows when the account details aren't filled in
+             yet. Better a one-message delay than a wrong IBAN on a live page. -->
+        <div id="bank-ask" style="display:none">
+          <p>Message me and I'll send you the account details straight away — it's me answering, not a desk.</p>
+          <div class="cta-row">
+            <a class="btn btn-ghost" id="bank-wa" href="#">WhatsApp me</a>
+            <a class="btn btn-ghost" id="bank-mail" href="#">Email me</a>
+          </div>
+        </div>
+        <p class="paynote" id="bank-torev">Have Revolut after all? <a href="#" id="hand-torev">Send it from the app instead</a>.</p>
+      </div>
+
       <button type="button" class="btn btn-primary" id="hand-done">I've sent it</button>
-      <p class="paynote">Tab closed itself? <a href="#" id="hand-reopen">Open Revolut again</a>.</p>
     </div>
   </div>
 </section>
@@ -268,6 +329,19 @@
   var REVOLUT_LINK_350  = REVOLUT_LINK;   /* e.g. REVOLUT_LINK + "/350eur"  */
   var REVOLUT_LINK_1500 = REVOLUT_LINK;   /* e.g. REVOLUT_LINK + "/1500eur" */
 
+  /* Bank transfer — the rail that works for everyone, and the only one that
+     works for a payer without Revolut. A Revolut.Me link caps CARD payments
+     received at roughly €250/week and €1,000/month and the figure cannot be
+     raised, so card cannot even carry the €350 deposit. Revolut-to-Revolut
+     and ordinary transfers are uncapped.
+
+     LEAVE THESE EMPTY until the details are right. While BANK_IBAN is empty
+     the page shows "message me and I'll send the details" instead of a table
+     of blanks — slower, but it never sends money to a wrong number. */
+  var BANK_NAME = "";                     /* the name on the account          */
+  var BANK_IBAN = "";                     /* e.g. "LT00 3250 0000 0000 0000"  */
+  var BANK_BIC  = "";                     /* optional inside SEPA             */
+
   /* Contact. NOTE: the mail domain is .app, not .com — educatedtraveler.com has
      no MX record, so anything sent there bounces. Matches /barcelona. */
   var MAIL_TO  = "founder@educatedtraveler.app";
@@ -287,8 +361,19 @@
     var el = document.querySelector('input[name="amount"]:checked');
     return el ? parseInt(el.value, 10) : 350;
   }
+  function how() {
+    var el = document.querySelector('input[name="how"]:checked');
+    return el ? el.value : 'revolut';
+  }
   function linkFor(amt) { return amt === 1500 ? REVOLUT_LINK_1500 : REVOLUT_LINK_350; }
   function fail(html) { msg.innerHTML = html; msg.hidden = false; }
+
+  // Either hand-off can be shown, and a payer can move between them without
+  // starting over — a refused card is exactly when someone needs the other one.
+  function showPanel(which) {
+    document.getElementById('hand-revolut').style.display = which === 'revolut' ? '' : 'none';
+    document.getElementById('hand-bank').style.display    = which === 'bank'    ? '' : 'none';
+  }
 
   // Contact buttons — WhatsApp first, because mid-charter that's the one that
   // gets answered. Both carry the week so I know what they're asking about.
@@ -339,8 +424,9 @@
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { fail('That email doesn’t look right — it’s how I reach you about the week.'); mailEl.focus(); return; }
     if (!agree.checked) { fail('Please tick the conditions first.'); return; }
 
+    var method = how();
     go.disabled = true;
-    go.textContent = 'Opening Revolut…';
+    go.textContent = method === 'bank' ? 'One moment…' : 'Opening Revolut…';
 
     // Open Revolut FIRST, synchronously in the click handler. Popup blockers
     // (Safari especially) kill window.open() the moment it's on the far side
@@ -348,7 +434,7 @@
     // "user activation" and silently swallow the tab. New tab, not a
     // redirect: Revolut has no way to send them back to us, and losing this
     // page mid-payment loses the instructions with it.
-    window.open(linkFor(amt), '_blank', 'noopener');
+    if (method === 'revolut') window.open(linkFor(amt), '_blank', 'noopener');
 
     // /booked greets them by name and shows what's still owed.
     try {
@@ -373,22 +459,66 @@
             boat: boat || null,
             amount_eur: amt,
             balance_eur: 1500 - amt,
-            stage: 'sent-to-revolut'
+            method: method,
+            stage: method === 'bank' ? 'sent-to-bank-transfer' : 'sent-to-revolut'
           }]
         });
         await Promise.race([insert, new Promise(function (r) { setTimeout(r, 4000); })]);
       }
     } catch (err) { /* never block the payment */ }
 
-    if (window.plausible) window.plausible('SeatPayStart', { props: { week: 'lab-week-01', amount: String(amt) } });
+    if (window.plausible) window.plausible('SeatPayStart', { props: { week: 'lab-week-01', amount: String(amt), method: method } });
 
     document.getElementById('hand-amt').textContent = String(amt);
     document.getElementById('hand-note').textContent = name;
     document.getElementById('hand-reopen').href = linkFor(amt);
+
+    // Bank panel. Any detail left blank drops its own row rather than showing
+    // an empty box; with no IBAN at all the whole table gives way to the ask.
+    document.getElementById('bank-amt').textContent = String(amt);
+    document.getElementById('bank-ref').textContent = name;
+    var haveIban = !!BANK_IBAN;
+    [['bank-row-name', 'bank-name', BANK_NAME],
+     ['bank-row-iban', 'bank-iban', BANK_IBAN],
+     ['bank-row-bic',  'bank-bic',  BANK_BIC]].forEach(function (r) {
+      document.getElementById(r[1]).textContent = r[2];
+      document.getElementById(r[0]).style.display = r[2] ? '' : 'none';
+    });
+    document.getElementById('bank-rows').style.display    = haveIban ? '' : 'none';
+    document.getElementById('bank-ref-note').style.display = haveIban ? '' : 'none';
+    document.getElementById('bank-ask').style.display      = haveIban ? 'none' : '';
+    document.getElementById('bank-mail').href = "mailto:" + MAIL_TO + "?subject=" +
+      encodeURIComponent("Lippo week — transfer details please") + "&body=" +
+      encodeURIComponent("Hi Arnaud — " + name + " here. I'm taking a seat on the Lippo week " +
+        "(22-26 Oct, Barcelona) and sending €" + amt + " by bank transfer. Can you send me the account details?\n\n");
+    if (WHATSAPP) {
+      document.getElementById('bank-wa').href = "https://wa.me/" + WHATSAPP + "?text=" +
+        encodeURIComponent("Hi Arnaud — " + name + " here. Taking a seat on the Lippo week, sending €" +
+          amt + " by bank transfer. Can you send me the account details?");
+    } else {
+      document.getElementById('bank-wa').style.display = 'none';
+    }
+
+    showPanel(method);
     form.style.display = 'none';
     document.getElementById('seat-intro').style.display = 'none';
     hand.classList.add('on');
     hand.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // Crossing between the two rails mid-payment. This is the click that saves a
+  // seat when Revolut refuses the card, so it must not cost them the form.
+  document.getElementById('hand-tobank').addEventListener('click', function (e) {
+    e.preventDefault();
+    showPanel('bank');
+    if (window.plausible) window.plausible('SeatPaySwitch', { props: { to: 'bank' } });
+    document.getElementById('hand-bank').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  document.getElementById('hand-torev').addEventListener('click', function (e) {
+    e.preventDefault();
+    showPanel('revolut');
+    window.open(linkFor(amount()), '_blank', 'noopener');
+    document.getElementById('hand-revolut').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   document.getElementById('hand-done').addEventListener('click', function () {
