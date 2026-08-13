@@ -276,7 +276,7 @@
           <div class="row"><span class="k">Reference</span><span class="copyval" id="bank-ref"></span><button type="button" class="copybtn" data-copy="bank-ref">Copy</button></div>
         </div>
         <p class="whynot" id="bank-ref-note">Put your name in the reference — it's how I match the payment to your seat.<br>
-          <span id="bank-intl">Sending from outside the euro area? Your bank may ask for <strong id="bank-bankline"></strong>, and for the correspondent BIC <strong id="bank-corr"></strong>. Please have your bank's charges taken from your side, so the full amount arrives — otherwise the seat lands short and I have to come back to you for the difference.</span></p>
+          <span id="bank-intl"><strong>Paying from a dollar account?</strong> That's fine — tell your bank to send <strong>€<span id="bank-amt-eur"></span></strong> and they'll take the dollar equivalent from your side. Sending from outside the euro area, your bank may also want <strong id="bank-bankline"></strong> and the correspondent BIC <strong id="bank-corr"></strong>. Either way, ask for your bank's charges to come off your side — otherwise the seat lands short and I have to come back to you for the difference, which neither of us enjoys.</span></p>
         <!-- Shown instead of the rows when the account details aren't filled in
              yet. Better a one-message delay than a wrong IBAN on a live page. -->
         <div id="bank-ask" style="display:none">
@@ -491,6 +491,9 @@
       document.getElementById(r[1]).textContent = r[2];
       document.getElementById(r[0]).style.display = r[2] ? '' : 'none';
     });
+    // Spelled with the thousands separator, because "send 1500" and "send
+    // €1,500" get typed into a banking app differently.
+    document.getElementById('bank-amt-eur').textContent = amt.toLocaleString('en-GB');
     document.getElementById('bank-bankline').textContent = BANK_BANK;
     document.getElementById('bank-corr').textContent = BANK_CORR;
     document.getElementById('bank-intl').style.display = (BANK_BANK || BANK_CORR) ? '' : 'none';
