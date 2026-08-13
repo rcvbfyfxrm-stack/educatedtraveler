@@ -241,6 +241,68 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
 </body></html>`;
 }
 
+// ── Seat claims (/pay) ────────────────────────────────────────────────────
+// A row whose source starts with "pay:" is NOT a Circle signup and must never
+// be emailed as one. It is a chef saying he is ABOUT to send money, or — on
+// the second ping — saying he just has. Neither is proof: every rail settles
+// off-site, so only Revolut and PayPal know. The seat count for the 15
+// September gate depends on that line not being blurred, so the subject says
+// it out loud rather than leaving it to be inferred.
+type Seat = {
+  name?: string; boat?: string; amount?: number; balance?: number;
+  method?: string; stage?: string;
+};
+
+function parseSeat(iv: unknown): Seat | null {
+  const arr = Array.isArray(iv) ? iv : [];
+  const s = arr.find((x) =>
+    x && typeof x === "object" && (x as Record<string, unknown>).kind === "seat-payment"
+  ) as Record<string, unknown> | undefined;
+  if (!s) return null;
+  const num = (v: unknown) => (typeof v === "number" ? v : undefined);
+  const str = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
+  return {
+    name: str(s.name), boat: str(s.boat), method: str(s.method), stage: str(s.stage),
+    amount: num(s.amount_eur), balance: num(s.balance_eur),
+  };
+}
+
+const METHOD_LABEL: Record<string, string> = {
+  revolut: "from their Revolut app",
+  bank: "by bank transfer",
+  paypal: "by PayPal",
+};
+
+const eur = (n?: number) => (typeof n === "number" ? `€${n.toLocaleString("en-GB")}` : "—");
+
+function seatHtml(row: Record<string, unknown>, s: Seat, declaredSent: boolean): string {
+  const email = String(row.email ?? "");
+  const method = s.method ? (METHOD_LABEL[s.method] ?? s.method) : "route not recorded";
+  const line = (k: string, v: string) =>
+    `<tr><td style="padding:7px 14px 7px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;white-space:nowrap;vertical-align:top;">${esc(k)}</td><td style="padding:7px 0;color:#2b2621;font-size:15px;line-height:1.6;">${v}</td></tr>`;
+
+  const banner = declaredSent
+    ? `<p style="margin:0;color:#7a3f10;font-size:15px;line-height:1.6;"><strong>They pressed “I've sent it”.</strong> That is the chef's word, not a receipt — the money moves outside the site. Check ${esc(method.replace(/^(from their|by) /, ""))} before this counts toward the ten.</p>`
+    : `<p style="margin:0;color:#6b625a;font-size:15px;line-height:1.6;"><strong>They started the hand-off.</strong> Nothing has been sent yet, and plenty of people stop here. Worth a note if it goes quiet.</p>`;
+
+  return `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:26px;background:#faf7f2;">
+    <p style="margin:0 0 4px 0;color:#6b625a;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Lab Week 01 · Barcelona</p>
+    <h1 style="margin:0 0 16px 0;font-size:23px;font-weight:normal;color:#2b2621;">${declaredSent ? "Says they've sent it" : "Someone is taking a seat"}</h1>
+    <div style="border-left:3px solid ${declaredSent ? "#d28a52" : "#c9c1b6"};background:#f2ede4;padding:12px 16px;margin:0 0 18px 0;">${banner}</div>
+    <table style="border-collapse:collapse;width:100%;">
+      ${line("Chef", esc(s.name || "(no name given)"))}
+      ${line("Email", `<a href="mailto:${esc(email)}" style="color:#3f6b67;">${esc(email)}</a>`)}
+      ${s.boat ? line("Boat", esc(s.boat)) : ""}
+      ${line("Sending", `<strong>${esc(eur(s.amount))}</strong> ${esc(method)}`)}
+      ${typeof s.balance === "number" && s.balance > 0 ? line("Balance after", esc(eur(s.balance)) + " — due only once the week is confirmed") : ""}
+      ${line("Reference to look for", esc(s.name || email))}
+    </table>
+    <p style="margin:18px 0 0 0;color:#6b625a;font-size:13px;line-height:1.7;font-style:italic;">
+      Only a payment you can see in Revolut or PayPal counts toward the ten. Reply to this email and it goes straight to the chef.
+    </p>
+  </div>`;
+}
+
 serve(async (req) => {
   try {
     const body = await req.json().catch(() => ({}));
@@ -262,15 +324,70 @@ serve(async (req) => {
       return json({ ok: true, dryRun: true, htmlLength: html.length });
     }
 
-    const rec = body?.record;
-    if (body?.table !== "launch_waitlist" || !rec?.id) return json({ message: "ignored" });
+    // Two shapes reach here.
+    //
+    //   { table, record:{id} }                  → the DB trigger, on INSERT.
+    //   { event:'sent', seat_email:'…' }        → the "I've sent it" button on
+    //                                             /pay, which has no row id.
+    //
+    // The button shape looks up the chef's most recent seat row by email with
+    // the service role. It is deployed --no-verify-jwt like the trigger path,
+    // so it is forgeable — but only into re-sending Arnaud a sheet for a row
+    // that already exists, which is the same ceiling the id path already had.
+    // It can never create, alter or reveal anything.
+    let row: Record<string, unknown> | null = null;
 
-    const { data: row } = await admin
-      .from("launch_waitlist")
-      .select("id,email,interests,source,created_at")
-      .eq("id", rec.id)
-      .maybeSingle();
-    if (!row) return json({ message: "no such row" });
+    if (body?.event === "sent" && typeof body?.seat_email === "string") {
+      const { data } = await admin
+        .from("launch_waitlist")
+        .select("id,email,interests,source,created_at")
+        .ilike("email", body.seat_email.trim())
+        .like("source", "pay:%")
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      row = data as Record<string, unknown> | null;
+      if (!row) return json({ message: "no seat row for that email" });
+    } else {
+      const rec = body?.record;
+      if (body?.table !== "launch_waitlist" || !rec?.id) return json({ message: "ignored" });
+      const { data } = await admin
+        .from("launch_waitlist")
+        .select("id,email,interests,source,created_at")
+        .eq("id", rec.id)
+        .maybeSingle();
+      row = data as Record<string, unknown> | null;
+      if (!row) return json({ message: "no such row" });
+    }
+
+    // A seat claim from /pay gets its own sheet and its own subject line. The
+    // second ping (event:'sent') is fired by the "I've sent it" button; it is
+    // unauthenticated, so it may only change the wording — every fact below
+    // still comes from the row, re-fetched with the service role.
+    const seat = String(row.source ?? "").startsWith("pay:") ? parseSeat(row.interests) : null;
+    if (seat) {
+      const declaredSent = body?.event === "sent";
+      const seatWho = seat.name || String(row.email);
+      const via = seat.method ? ` ${METHOD_LABEL[seat.method] ?? seat.method}` : "";
+      const subject = declaredSent
+        ? `SAYS SENT · ${seatWho} · ${eur(seat.amount)}${via} — check the account`
+        : `Seat started · ${seatWho} · ${eur(seat.amount)}${via} — not paid yet`;
+
+      const sr = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: FROM, to: [NOTIFY_TO], reply_to: String(row.email),
+          subject, html: seatHtml(row as Record<string, unknown>, seat, declaredSent),
+        }),
+      });
+      const srj = await sr.json().catch(() => ({}));
+      if (!sr.ok) {
+        console.error("notify-lead seat send failed:", srj);
+        return json({ error: srj }, 500);
+      }
+      return json({ ok: true, kind: "seat", declaredSent, emailed: NOTIFY_TO, id: srj.id });
+    }
 
     const p = parseInterests(row.interests);
     const who = p.name || String(row.email);

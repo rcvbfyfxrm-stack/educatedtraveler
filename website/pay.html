@@ -590,6 +590,21 @@
   });
 
   document.getElementById('hand-done').addEventListener('click', function () {
+    // Tell Arnaud they say the money is gone, so he knows to go and look.
+    // keepalive, because a plain fetch is cancelled by the navigation on the
+    // next line and he'd never hear. Best-effort only: a chef reaching /booked
+    // must never wait on, or be blocked by, an email that failed to send.
+    try {
+      var em = (mailEl.value || '').trim();
+      if (em && window.SUPABASE_URL) {
+        fetch(window.SUPABASE_URL + '/functions/v1/notify-lead', {
+          method: 'POST',
+          keepalive: true,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ event: 'sent', seat_email: em })
+        }).catch(function () {});
+      }
+    } catch (err) { /* never block the receipt */ }
     window.location.href = '/booked';
   });
 })();

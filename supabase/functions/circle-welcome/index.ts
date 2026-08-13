@@ -46,6 +46,16 @@ serve(async (req) => {
     if (!row) return json({ message: "no such row" });
     if (row.unsubscribed) return json({ message: "skip (unsubscribed)" });
 
+    // /pay is not a Circle door. A chef who has just tried to send €350 for a
+    // seat should not receive "welcome to the Circle" ninety seconds later —
+    // it answers a question he did not ask and says nothing about his money.
+    // Verified 13 Aug 2026: two real chefs got exactly that. welcomed_at is
+    // deliberately left null, so if he later joins the Circle properly the
+    // letter still reaches him then.
+    if (String(row.source ?? "").startsWith("pay:")) {
+      return json({ message: "skip (seat payment, not a Circle signup)" });
+    }
+
     // Per-ROW idempotency. This endpoint is deployed --no-verify-jwt, so anyone who
     // guesses a row id can POST it again; without this, one letter can be turned into
     // unlimited identical emails to that person. Every path checks it, including
