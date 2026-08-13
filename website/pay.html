@@ -231,8 +231,14 @@
             <p class="lbl">Bank transfer</p>
             <p class="fine">An ordinary transfer. No account needed anywhere.</p>
           </label>
+          <label class="opt-card" for="how-paypal" id="card-paypal" style="display:none">
+            <input type="radio" name="how" id="how-paypal" value="paypal">
+            <p class="on">If you'd rather</p>
+            <p class="lbl">PayPal</p>
+            <p class="fine">Opens with the amount already filled in.</p>
+          </label>
         </div>
-        <p class="whynot">Card and Apple&nbsp;Pay can't carry these amounts — Revolut caps card payments into my account below €350, and that cap can't be lifted. The two routes above have no cap.</p>
+        <p class="whynot">Card and Apple&nbsp;Pay can't carry these amounts — Revolut caps card payments into my account below €350, and that cap can't be lifted. The routes above aren't affected by it.</p>
       </div>
 
       <label class="check" for="f-agree">
@@ -287,6 +293,20 @@
           </div>
         </div>
         <p class="paynote" id="bank-torev">Have Revolut after all? <a href="#" id="hand-torev">Send it from the app instead</a>.</p>
+      </div>
+
+      <div id="hand-paypal" style="display:none">
+        <h2 style="margin-top:1.6rem">PayPal is open in the other tab.</h2>
+        <p>It opens with the amount already filled in — <strong>€<span id="pp-amt"></span></strong>. Two things before you send:</p>
+        <ol class="hand-steps">
+          <li><strong>Choose "Goods and services"</strong>, not friends and family. It's the correct kind for a course, and it's the one that gives you PayPal's buyer protection. I pay the fee for that; you shouldn't be asked to give up your cover to save me €40.</li>
+          <li><strong>Put your name in the note.</strong> It's how I match the payment to your seat.
+            <div class="copyrow"><span class="copyval" id="pp-note" style="font-size:1rem"></span><button type="button" class="copybtn" data-copy="pp-note">Copy</button></div>
+          </li>
+          <li><strong>Send it</strong>, then come back to this tab.</li>
+        </ol>
+        <p class="paynote">Tab closed itself? <a href="#" id="pp-reopen">Open PayPal again</a>.<br>
+          Rather not use PayPal? <a href="#" id="pp-tobank">Send it by bank transfer instead</a>.</p>
       </div>
 
       <button type="button" class="btn btn-primary" id="hand-done">I've sent it</button>
@@ -349,6 +369,21 @@
   var BANK_BANK = "Revolut Bank UAB, 10 avenue Kléber, 75116 Paris, France";
   var BANK_CORR = "CHASGB2L";             /* correspondent bank BIC           */
 
+  /* PayPal.Me handle — just the handle, no slashes, no URL. The amount and
+     currency prefill from it (paypal.me/<handle>/1500EUR), which Revolut
+     can't do. EMPTY = the PayPal option is hidden entirely.
+
+     It costs the most of the three: 2.90% + €0.35 in France, +1.29% from the
+     UK, +1.99% from outside the EEA, +3% over the base rate on a conversion.
+     On a €1,500 seat that's €44 (EEA) to ~€119 (US, in dollars) off a €330
+     commission. It is here because some chefs will pay this way and no other,
+     not because it is cheap.
+
+     It must be paid as GOODS AND SERVICES. Friends & Family on a commercial
+     payment breaks PayPal's terms and leaves the chef no protection — never
+     ask for it, whatever it saves. */
+  var PAYPAL_ME = "";                     /* e.g. "arnaudcallier"             */
+
   /* Contact. NOTE: the mail domain is .app, not .com — educatedtraveler.com has
      no MX record, so anything sent there bounces. Matches /barcelona. */
   var MAIL_TO  = "founder@educatedtraveler.app";
@@ -380,7 +415,14 @@
   function showPanel(which) {
     document.getElementById('hand-revolut').style.display = which === 'revolut' ? '' : 'none';
     document.getElementById('hand-bank').style.display    = which === 'bank'    ? '' : 'none';
+    document.getElementById('hand-paypal').style.display  = which === 'paypal'  ? '' : 'none';
   }
+  // PayPal.Me prefills amount AND currency, which Revolut.Me can't do.
+  function paypalLink(amt) {
+    return "https://paypal.me/" + encodeURIComponent(PAYPAL_ME) + "/" + amt + "EUR";
+  }
+  // The option only exists once there's a handle to send anyone to.
+  if (PAYPAL_ME) document.getElementById('card-paypal').style.display = '';
 
   // Contact buttons — WhatsApp first, because mid-charter that's the one that
   // gets answered. Both carry the week so I know what they're asking about.
@@ -442,6 +484,7 @@
     // redirect: Revolut has no way to send them back to us, and losing this
     // page mid-payment loses the instructions with it.
     if (method === 'revolut') window.open(linkFor(amt), '_blank', 'noopener');
+    else if (method === 'paypal') window.open(paypalLink(amt), '_blank', 'noopener');
 
     // /booked greets them by name and shows what's still owed.
     try {
@@ -479,6 +522,9 @@
     document.getElementById('hand-amt').textContent = String(amt);
     document.getElementById('hand-note').textContent = name;
     document.getElementById('hand-reopen').href = linkFor(amt);
+    document.getElementById('pp-amt').textContent = amt.toLocaleString('en-GB');
+    document.getElementById('pp-note').textContent = name;
+    if (PAYPAL_ME) document.getElementById('pp-reopen').href = paypalLink(amt);
 
     // Bank panel. Any detail left blank drops its own row rather than showing
     // an empty box; with no IBAN at all the whole table gives way to the ask.
@@ -532,6 +578,13 @@
     showPanel('revolut');
     window.open(linkFor(amount()), '_blank', 'noopener');
     document.getElementById('hand-revolut').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  document.getElementById('pp-tobank').addEventListener('click', function (e) {
+    e.preventDefault();
+    showPanel('bank');
+    if (window.plausible) window.plausible('SeatPaySwitch', { props: { to: 'bank' } });
+    document.getElementById('hand-bank').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   document.getElementById('hand-done').addEventListener('click', function () {
