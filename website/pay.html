@@ -275,7 +275,8 @@
           <div class="row"><span class="k">Amount</span><span class="copyval" id="bank-amt"></span><button type="button" class="copybtn" data-copy="bank-amt">Copy</button><span style="font-family:var(--mono);font-size:.66rem;color:var(--softer)">EUR</span></div>
           <div class="row"><span class="k">Reference</span><span class="copyval" id="bank-ref"></span><button type="button" class="copybtn" data-copy="bank-ref">Copy</button></div>
         </div>
-        <p class="whynot" id="bank-ref-note">Put your name in the reference — it's how I match the payment to your seat.</p>
+        <p class="whynot" id="bank-ref-note">Put your name in the reference — it's how I match the payment to your seat.<br>
+          <span id="bank-intl">Sending from outside the euro area? Your bank may ask for <strong id="bank-bankline"></strong>, and for the correspondent BIC <strong id="bank-corr"></strong>. Please have your bank's charges taken from your side, so the full amount arrives — otherwise the seat lands short and I have to come back to you for the difference.</span></p>
         <!-- Shown instead of the rows when the account details aren't filled in
              yet. Better a one-message delay than a wrong IBAN on a live page. -->
         <div id="bank-ask" style="display:none">
@@ -337,10 +338,16 @@
 
      LEAVE THESE EMPTY until the details are right. While BANK_IBAN is empty
      the page shows "message me and I'll send the details" instead of a table
-     of blanks — slower, but it never sends money to a wrong number. */
-  var BANK_NAME = "";                     /* the name on the account          */
-  var BANK_IBAN = "";                     /* e.g. "LT00 3250 0000 0000 0000"  */
-  var BANK_BIC  = "";                     /* optional inside SEPA             */
+     of blanks — slower, but it never sends money to a wrong number.
+
+     IBAN checked 13 Aug 2026: 27 characters, mod-97 remainder 1, French RIB
+     key 73 correct. Re-check both if a single character of it ever changes. */
+  var BANK_NAME = "Arnaud Callier";
+  var BANK_IBAN = "FR76 2823 3000 0176 4201 0191 373";
+  var BANK_BIC  = "REVOFRP2";
+  /* Only for a payer whose bank asks — typically outside the euro area. */
+  var BANK_BANK = "Revolut Bank UAB, 10 avenue Kléber, 75116 Paris, France";
+  var BANK_CORR = "CHASGB2L";             /* correspondent bank BIC           */
 
   /* Contact. NOTE: the mail domain is .app, not .com — educatedtraveler.com has
      no MX record, so anything sent there bounces. Matches /barcelona. */
@@ -484,6 +491,9 @@
       document.getElementById(r[1]).textContent = r[2];
       document.getElementById(r[0]).style.display = r[2] ? '' : 'none';
     });
+    document.getElementById('bank-bankline').textContent = BANK_BANK;
+    document.getElementById('bank-corr').textContent = BANK_CORR;
+    document.getElementById('bank-intl').style.display = (BANK_BANK || BANK_CORR) ? '' : 'none';
     document.getElementById('bank-rows').style.display    = haveIban ? '' : 'none';
     document.getElementById('bank-ref-note').style.display = haveIban ? '' : 'none';
     document.getElementById('bank-ask').style.display      = haveIban ? 'none' : '';
