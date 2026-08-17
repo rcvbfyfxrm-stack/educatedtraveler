@@ -113,7 +113,7 @@ def letter_section(heading, sub, skill_field=True, prefill=""):
     </div>
     <div class="sign-off" id="l_signoff">
       <div class="sh serif">Sign it, so I know who I'm writing back to.</div>
-      <p class="sp">Your letter goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. No selling, ever. Unsubscribe in one click.</p>
+      <p class="sp">Your letter goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. If a week is ever worth paying for, I'll say so once. Unsubscribe in one click.</p>
       <div class="sotwo">
         <div class="lfield" style="margin:0"><label for="l_name">First name</label><input id="l_name" placeholder="Marie" autocomplete="given-name"></div>
         <div class="lfield" style="margin:0"><label for="l_email">Email</label><input id="l_email" type="email" placeholder="you@example.com" autocomplete="email"></div>
@@ -299,11 +299,11 @@ def build(analytics, site, total, n_open, generated_at, craft_nav=""):
 
     # 2. the counts — computed, never typed. The old ones had rotted to 99.
     t = re.sub(r'<meta property="og:description" content="[^"]*">',
-               f'<meta property="og:description" content="{total} crafts, five worlds. '
-               f'{n_open} are open — the full sheet, every place, the schools — because a member '
-               f'asked for them. Write me a letter and that is what opens the rest.">', t, count=1)
+               f'<meta property="og:description" content="Crafts across five worlds. '
+               f'{n_open} are open in full — the sheet, the places, the schools — because a member '
+               f'asked. Write me a letter and that is what opens the next one.">', t, count=1)
     t = re.sub(r'<meta name="description" content="[^"]*">',
-               f'<meta name="description" content="The EducatedTraveler Atlas: all {total} crafts '
+               f'<meta name="description" content="The EducatedTraveler Atlas: crafts '
                f'across five worlds. {n_open} are open, with the school and the teacher we\'d send '
                f'you to. The rest show what the craft is and where it\'s most alive — write a '
                f'letter and I open it.">', t, count=1)
@@ -328,7 +328,7 @@ def build(analytics, site, total, n_open, generated_at, craft_nav=""):
     t = t.replace("</style>\n</head>", HUB_EXTRA_CSS + "</style>\n</head>", 1)
 
     # 5. built-on stamp, so staleness is visible in view-source
-    t = t.replace("<body>", f"<body>\n<!-- built {e(generated_at)} · {n_open} of {total} crafts open "
+    t = t.replace("<body>", f"<body>\n<!-- built {e(generated_at)} "
                             f"· states from data/atlas-unlocked.json -->", 1)
     # 6. the crawlable entrance. The results grid is filled by JS, so without this
     #    a crawler (or anyone with JS off) sees /atlas/ and no way to any sheet.

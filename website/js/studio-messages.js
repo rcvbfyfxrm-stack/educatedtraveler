@@ -92,9 +92,9 @@ window.ET_MESSAGES = [
     label: "Warm a future master (general)",
     when: "Groundwork for any next Lab Week — relationship first, no ask.",
     fields: ["NAME", "CRAFT", "PLACE"],
-    subject: "You're on our map",
+    subject: "You're on the map I keep",
     text:
-"Hello {NAME} — I keep a hand-verified map of where a craft is still truly alive, and where {CRAFT} is concerned, {PLACE} and your name came up again and again. No bookings, no commissions, no prices on the map — I just point people to the masters worth learning from, and you're one of them.\n\nI run one or two immersive weeks a year with a master I'd stake my name on. I'm not proposing anything today — I'd just value staying in touch as this grows. If you're ever open to a conversation, I'm here.\n\nWith respect — Arnaud Callier, EducatedTraveler",
+"Hello {NAME} — I keep a map of where a craft is still truly alive of where a craft is still truly alive, and where {CRAFT} is concerned, {PLACE} and your name came up again and again. No bookings, no commissions, no prices on the map — I just point people to the masters worth learning from, and you're one of them.\n\nI'm building one or two immersive weeks a year with a master I'd stake my name on. The first runs this October with Martin Lippo in Barcelona &mdash; I'll tell you honestly how it went. I'm not proposing anything today — I'd just value staying in touch as this grows. If you're ever open to a conversation, I'm here.\n\nWith respect — Arnaud Callier, EducatedTraveler",
     note: "Gift-first. No terms, no dates. This is how supply gets built ahead of demand.",
   },
 ];

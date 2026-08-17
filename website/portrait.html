@@ -236,7 +236,7 @@
                     var h=document.getElementById('hero-hook'); if(!h) return;
                     try{ if(window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches) return; }catch(e){}
                     var B=h.innerHTML;   // first text: "Go where the craft is still alive…"
-                    var A="Tell me the craft you'd give a week of your life to learn.<br>Then I go build it for you.";
+                    var A="Tell me the craft you'd give a week of your life to learn.<br>Then I go looking.";
                     // Breathe, slowly, forever: hold the first line long enough to read,
                     // cross gently to the promise, then return to the first line even more
                     // slowly — and keep looping so it never looks frozen.
@@ -502,10 +502,7 @@
                     </div>
                 </div>
 
-                <div class="field">
-                    <span class="lbl">What you'd give for the right week</span>
-                    <div class="chips" data-single="budget" id="e_budget"></div>
-                </div>
+                
                 <div class="field">
                     <span class="lbl">The room you'd want</span>
                     <div class="chips" data-single="group" id="e_group"></div>
@@ -592,7 +589,7 @@
         // who can see your crew card — mirrors profiles.visibility ('private'|'cohort'|'public'); default private
         var VISIBILITY = [
             ['private', 'Just me',                'Your card stays private — only you see it.'],
-            ['cohort',  'The people in my labs',  "Your classmates see it, once you're in a room together."],
+            ['cohort',  'The people in my labs',  "The people in your week see it, once you're in a room together."],
             ['public',  'Everyone',               'Your card joins the public Atlas.']
         ];
         function labelOf(group, key){
@@ -1242,12 +1239,11 @@
   "use strict";
   function $(id){ return document.getElementById(id); }
   var OPTS = {
-    budget: [['under-1k','Under €1,000'],['1-2k','€1,000–2,000'],['2-3.5k','€2,000–3,500'],['3.5k-plus','€3,500+'],['right-one','Whatever the right one costs']],
     group:  [['intimate','Small & intimate'],['cohort','A proper cohort'],['either','No preference']],
     intensity: [['gentle','Gentle & deep'],['balanced','Balanced'],['all-in','All-in, intensive']],
     want:   [['craft','The craft itself'],['people','The people around it'],['place','The place it lives'],['change','To come back changed']]
   };
-  var st = { budget:null, group:null, intensity:null, want:null, avatar_url:null };
+  var st = { group:null, intensity:null, want:null, avatar_url:null };
   var client=null, uid=null, name='';
 
   Object.keys(OPTS).forEach(function(k){
@@ -1292,7 +1288,7 @@
   if(saveBtn) saveBtn.addEventListener('click', async function(){
     if(!client || !uid){ $('enrich-err').textContent='Sign in first — one click from my email.'; $('enrich-err').style.display='block'; return; }
     saveBtn.disabled=true; saveBtn.textContent='Saving…'; $('enrich-err').style.display='none';
-    var patch={ preferences:{ group:st.group, intensity:st.intensity, want:st.want }, budget:st.budget };
+    var patch={ preferences:{ group:st.group, intensity:st.intensity, want:st.want } };
     if(st.avatar_url) patch.avatar_url=st.avatar_url;
     try{
       var res=await client.from('profiles').update(patch).eq('id', uid);
@@ -1366,7 +1362,7 @@
       return;
     }
     var head = (w===open)
-      ? (culinary ? 'A week that fits you is coming' : 'Enrolment open')
+      ? (culinary ? 'A week that fits you is coming' : 'The door is open')
       : 'The next week is being chosen';
     var line = [w.master, w.dates || w.when, w.place].filter(Boolean).map(esc2).join(' · ');
     slot.innerHTML='<div class="cm"><div class="k">'+head+'</div>'+
@@ -1379,11 +1375,10 @@
   async function prefill(){
     if(!client || !uid) return;
     try{
-      var r=await client.from('profiles').select('avatar_url,budget,preferences,first_name,interests').eq('id',uid).single();
+      var r=await client.from('profiles').select('avatar_url,preferences,first_name,interests').eq('id',uid).single();
       if(r && r.data){ var d=r.data;
         name=d.first_name||'';
         st.avatar_url=d.avatar_url||null; renderAvatar();
-        if(d.budget) setChip('budget', d.budget);
         if(d.preferences){ setChip('group',d.preferences.group); setChip('intensity',d.preferences.intensity); setChip('want',d.preferences.want); }
         renderClassMatch(d.interests);
       }

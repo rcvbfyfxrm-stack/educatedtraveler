@@ -13088,7 +13088,7 @@ window.ET_ATLAS = {
             "lineage",
             "master-lab"
           ],
-          "why": "The world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.",
+          "why": "La Vecchia Scuola Bolognese, a school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.",
           "bestSeason": "Year-round",
           "level": "Beginner -> Sfoglina",
           "id": "italian-cuisine-and-pasta--bologna",
@@ -13097,7 +13097,7 @@ window.ET_ATLAS = {
               "name": "La Vecchia Scuola Bolognese (Alessandra Spisni)",
               "url": "https://www.vsb-bologna.it/en/",
               "course": "Sfoglia: Professional Course with Alessandra Spisni",
-              "blurb": "Run by founder and master sfoglina Alessandra Spisni at the only school dedicated to forming sfoglini, this professional course teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of B",
+              "blurb": "Run by founder and master sfoglina Alessandra Spisni at her school dedicated to forming sfoglini, this professional course teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of B",
               "confidence": "medium"
             },
             {

@@ -70,6 +70,7 @@ if not UNLOCK_PATH.exists():
                      "  Run `node scripts/refresh-unlocked.mjs` first. Refusing to build:\n"
                      "  assuming nothing is open would close every craft on the site.")
 _unlock = json.loads(UNLOCK_PATH.read_text())
+
 HANDS = _unlock.get("open") or {}
 if not HANDS:
     raise SystemExit("build-atlas-pages: data/atlas-unlocked.json has no open crafts.\n"
@@ -78,6 +79,8 @@ if not HANDS:
 # A hand-written sheet is pinned open: it already carries the full research, so
 # printing "not open yet" on it would be a lie on the page itself.
 OPEN = set(HANDS) | PINNED_OPEN
+# The honest open-count baked into the trust block (sweep 2026-08-17); must match N_OPEN below.
+_N_OPEN_EARLY = len(OPEN)
 UNLOCK_DATE = _unlock.get("generated_at", "")
 # The hand-written sheets that are crafts in their own right (not redirect stubs),
 # so the craft count includes them.
@@ -142,7 +145,7 @@ BADGE_LABELS = {
     "source": "Birthplace", "scene": "Living scene", "mecca": "Mecca",
     "master": "Named masters", "school": "Verified schools", "gold-cred": "Gold credential",
     "heritage": "Heritage", "record": "Record holder", "lineage": "Unbroken lineage",
-    "master-lab": "Enrol with the master",
+    "master-lab": "Takes students directly",
 }
 ROLE_LABELS = {"source": "Birthplace of the discipline", "scene": "Strong living community", "both": "Birthplace & living capital"}
 
@@ -154,15 +157,15 @@ e = html.escape
 TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(--ink2)">
 <div class="wrap prose">
 <div class="mono">Why you can trust this map</div>
-<h2 style="font-size:20px;margin:8px 0 14px">What we check before we send you anywhere</h2>
+<h2 style="font-size:20px;margin:8px 0 14px">What this map stands on</h2>
 <p style="opacity:.82;font-size:15px;margin-bottom:16px">This Atlas exists because there is a real difference between a school that teaches you and a good-looking website — and too much of the internet is the second kind. Here is what a place has to clear before it goes on here, and what we'll tell you straight when it doesn't.</p>
 <ul class="clean" style="font-size:14.5px">
 <li><strong style="font-weight:500">The craft is actually alive there.</strong> A working scene, with people who do this every day — not a demo put on for visitors.</li>
 <li><strong style="font-weight:500">There's a real teacher behind it.</strong> Named, still practising, and certified where the craft has certificates.</li>
 <li><strong style="font-weight:500">The credential is what it claims to be.</strong> A state diploma and a certificate a school prints itself are not the same thing. We check which, and we say which.</li>
-<li><strong style="font-weight:500">We tell you how sure we are.</strong> Most pages here are verified by hand. A few say "still checking" — we'd rather admit that than pretend.</li>
+<li><strong style="font-weight:500">We tell you how sure we are.</strong> {n_open} crafts are open in full — the sheet, the places, the schools. The rest say so plainly: catalogued, not checked yet. We'd rather admit that than pretend.</li>
 <li><strong style="font-weight:500">Nobody pays to be here.</strong> No commission, no selling the trip. The order on this map is the strength of the community, never the size of the wallet.</li>
-<li><strong style="font-weight:500">If we wouldn't send a friend, it isn't on the map.</strong></li>
+<li><strong style="font-weight:500">If we wouldn't send a friend, it doesn't go on an open sheet.</strong></li>
 </ul>
 <details style="margin-top:18px">
 <summary style="cursor:pointer;color:var(--sea);font-size:14px">Before you trust any school — mine or anyone else's — ask these five things</summary>
@@ -178,6 +181,7 @@ TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(
 </details>
 </div>
 </section>"""
+TRUST_HTML = TRUST_HTML.replace("{n_open}", str(_N_OPEN_EARLY))
 
 # Currency switcher (Original / EUR / USD principally) — converts every .price[data-amt]
 # span client-side at fixed approximate rates; the original price stays the source of truth.
@@ -266,7 +270,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
         '?subject=' + _q("Atlas — " + _clean) +
         '&amp;body=' + _q("What looked wrong:\n\n\n(page: " + SITE + canonical_path + ")") +
         '" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">'
-        'Something here out of date? Tell me &mdash; I check every sheet by hand.</a></p>'
+        'Something here out of date? Tell me &mdash; I read every report myself.</a></p>'
     )
     crumbs = ""
     if breadcrumbs:
@@ -743,7 +747,7 @@ for d in DISC:
             else:
                 vnote = ('<p class="meta" style="margin-bottom:12px">'
                          'Checked by hand against each school\'s own course pages. No school paid to be listed.</p>')
-            schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="clean">{"".join(rows)}</ul></div></section>'
+            schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — with the source links</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="clean">{"".join(rows)}</ul></div></section>'
 
         masters_html = ""
         if x["masters"]:

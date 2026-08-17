@@ -10,7 +10,7 @@ _Last reviewed: 2026-06-17_
 
 One page. If you only read this, you can still make the right thing.
 
-**The ligne directrice.** We map where real crafts are still alive, and we introduce people to the masters, the schools, and the peers already gathered there — so they can go learn something real, with their hands, with their people, at the source. We sell nothing. We are the bridge. Every line we publish has one job: pull a curious stranger to the next line, and finally toward the Circle.
+**The ligne directrice.** We map where real crafts are still alive, and we introduce people to the masters, the schools, and the peers already gathered there — so they can go learn something real, with their hands, with their people, at the source. The Atlas and the Circle are free — nobody pays to be on the map, and no money ever moves a line. One thing is paid: a Lab Week, built for the people of the Circle — and it never buys a place on the record. We are the bridge. Every line we publish has one job: pull a curious stranger to the next line, and finally toward the Circle.
 
 **The spine (say these).** "A place, a person, your people." · "Earned, not bought." · "At the source, not the simulation." · "Skills last, tans fade." · The Atlas (the map) · The Circle (the community). Evoke freedom, adventure, immersion. Fight the screen; honour the source; people first. The customer is the hero; we are the guide.
 
@@ -55,7 +55,7 @@ One number tells you if it worked: **engaged Circle subscribers** — people who
 
 ### (a) The ligne directrice — read this before you make anything
 
-> We map where real crafts are still alive, and we introduce people to the masters, the schools, and the peers already gathered there — so they can go learn something real, with their hands, with their people, at the source. We sell nothing. We are the bridge. Every line we publish has one job: pull a curious stranger to the next line, and finally toward the Circle. We open on the payoff, keep one idea per piece, honour the source, and fight the screen. If a thing is embodied, immersive, with-people, and leaves you able to do a real thing — it belongs here. If it's a screen-feeder, a brochure, or hype, it doesn't, no matter how quick the win. We are the guide. The reader is the hero. "A place, a person, your people. Earned, not bought. At the source, not the simulation."
+> We map where real crafts are still alive, and we introduce people to the masters, the schools, and the peers already gathered there — so they can go learn something real, with their hands, with their people, at the source. The Atlas and the Circle are free — nobody pays to be on the map, and no money ever moves a line. One thing is paid: a Lab Week, built for the people of the Circle — and it never buys a place on the record. We are the bridge. Every line we publish has one job: pull a curious stranger to the next line, and finally toward the Circle. We open on the payoff, keep one idea per piece, honour the source, and fight the screen. If a thing is embodied, immersive, with-people, and leaves you able to do a real thing — it belongs here. If it's a screen-feeder, a brochure, or hype, it doesn't, no matter how quick the win. We are the guide. The reader is the hero. "A place, a person, your people. Earned, not bought. At the source, not the simulation."
 
 That paragraph is the whole job. Everything that follows is how to do it.
 
