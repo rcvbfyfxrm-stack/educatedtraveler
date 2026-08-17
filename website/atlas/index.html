@@ -379,7 +379,7 @@ function tripBadge(tier,type,length){if(!type)return "";var c=TRIPCOL[tier]||"va
 function langBadge(en,lang){if(en)return '<span class="lang" title="Confirmed taught in English"><span class="en">EN</span> English-taught</span>';if(lang)return '<span class="lang lang-loc" title="Flagship course taught in '+esc(lang)+', not English">Taught in '+esc(lang)+'</span>';return "";}
 // The single most curiosity-driving signal on the card — pick the 1-2 most distinctive
 // badges (a teaser the page then pays off). Mundane badges (scene/school/gold-cred) skipped.
-var SIGBADGE=[["record","Record-setting"],["mecca","Mecca"],["lineage","Unbroken lineage"],["heritage","Heritage"],["source","Birthplace"],["master-lab","Enrol with the master"],["master","Named masters"]];
+var SIGBADGE=[["record","Record-setting"],["mecca","Mecca"],["lineage","Unbroken lineage"],["heritage","Heritage"],["source","Birthplace"],["master-lab","Takes students directly"],["master","Named masters"]];
 function sigChips(badges){if(!badges||!badges.length)return "";var set={};badges.forEach(function(b){set[b]=1;});var out=[];for(var i=0;i<SIGBADGE.length&&out.length<2;i++){if(set[SIGBADGE[i][0]])out.push(SIGBADGE[i][1]);}if(!out.length)return "";return '<div class="sig"><span class="dia">◆</span>'+out.map(esc).join(" · ")+'</div>';}
 function masterLine(m){if(!m)return "";var t=/^lineage of/i.test(m)?"in the "+m.charAt(0).toLowerCase()+m.slice(1):m;return '<div class="masterline" title="The person / lineage you study under">↳ '+esc(t)+'</div>';}
 function levelBucket(lv){lv=(lv||"").toLowerCase();var e=lv.split("->")[0];

@@ -360,7 +360,7 @@ Every angle here exists for one reason: to put a real person on the list who ope
 
 ## Part 3 — Instructors & Schools: the relationship program
 
-The Atlas already names 835 verified schools. This program is how a name becomes a relationship — and how a relationship, over many months, becomes a clip that travels, a school that reposts us, and (only at Phase 2) one or two partners ready to co-host. The whole thing runs on one promise we never break: **we introduce, we don't sell.** A school that gets a beautiful feature and a wave of warm strangers from us learns to trust us long before money is ever on the table. That trust is the asset. The metric it feeds is the only one that matters now — **engaged Circle subscribers** — because every school we feature is a school that shares our clip, and every share puts our "what we are" line and our one Atlas URL in front of exactly the people most likely to open and click.
+The Atlas already names 835 verified schools. This program is how a name becomes a relationship — and how a relationship, over many months, becomes a clip that travels, a school that reposts us, and (only at Phase 2) one or two partners ready to co-host. The whole thing runs on one promise we never break: **we introduce, and the vouch is never for sale.** A school that gets a beautiful feature and a wave of warm strangers from us learns to trust us long before money is ever on the table. That trust is the asset. The metric it feeds is the only one that matters now — **engaged Circle subscribers** — because every school we feature is a school that shares our clip, and every share puts our "what we are" line and our one Atlas URL in front of exactly the people most likely to open and click.
 
 One discipline at a time. Everything below passes the Focus Filter first: if a school isn't embodied, immersive, community-based, and real, it isn't on the Atlas, so it never enters this program.
 
@@ -1259,7 +1259,7 @@ These run in parallel because they are one loop: attention in, sign-ups out.
 
 - **The Daily Drop, every day, format locked** (Part 2). The wordless process clip earns the eyeball. It is the top of the funnel; nothing else works without it. Do not pivot the format pre-day-90.
 - **Every public surface routes to one Atlas URL or the Circle** (Parts 1, 2). One destination per piece. Caption carries the "what we are" line and a single link. *Maps to the metric:* every view that clicks through is a sign-up candidate.
-- **The relationship program, one discipline at a time** (Part 3). Feature schools, send them warm strangers, earn the repost. We introduce, we don't sell. *Maps to the metric:* every school share puts our line and our link in front of exactly the people most likely to open and click.
+- **The relationship program, one discipline at a time** (Part 3). Feature schools, send them warm strangers, earn the repost. We introduce; the vouch is never for sale. *Maps to the metric:* every school share puts our line and our link in front of exactly the people most likely to open and click.
 - **Studio Metrics is the scoreboard** (Parts 2, 7, 8). Read our own per-stream data weekly. Treat every external figure as a hypothesis to confirm here, never as a law. *Maps to the metric:* we steer the format toward what actually produces engaged subs.
 
 ### NEXT (start small while NOW is running — deepen retention, don't replace the funnel)
