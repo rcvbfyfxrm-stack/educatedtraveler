@@ -35,6 +35,22 @@ Established by research, not opinion. Each one has been reached for before.
 - **No invented anything** — review, rating, master, quote, scarcity number or credential. An honest blank outranks a good guess.
 - **Print the way around us.** Wherever a sheet names a school, it names how to go direct and what that costs, even when going direct is cheaper. That rule is the reason the pick can be trusted at all.
 
+### THE PICK — best by a distance, or no pick at all
+
+Arnaud's ruling, 2026-08-16: **trust is the anchor of EducatedTraveler.** Two things follow, and they bind harder than the urge to finish a sheet.
+
+**A pick is published only when one place is better than the alternatives by a clear distance.** Not "good". Not "the best we found in an evening". If the field is close, or the front-runner is merely fine, **the sheet ships with no pick** — a "Where we'd send you" section that says openly that nothing has cleared the bar yet, and invites a letter. A blank slot costs one sheet. A mediocre recommendation costs the reason anyone believes the next one.
+
+This is a **selection** bar, and it does not become page copy. Never write "the best school in the world" — that is an unverifiable superlative, and keel bans those for the same reason it bans every other claim nobody can check. **The page gives the reasons, not the ranking:** who stands in the room, whose room it is, what the guest's hands actually get to ruin, who else is at the bench, what it costs to go direct. A reader who can check each reason will reach "this is the best one" without us asserting it — and if they can't reach it, we did not earn the pick.
+
+**When there is no standout, say which way the field failed.** "Three schools teach this well and we cannot separate them" and "everything we found is a demonstration dressed as a workshop" are different facts, and both are more useful than silence.
+
+**A check has a date, and checks go stale.** Cross-checking is not a thing done once at build time — decay is the whole reason this Atlas exists rather than a panel's list. So:
+- Every pick carries the date it was last checked and, per the standard, a named checker.
+- Before a sheet is cited in a letter, re-shipped, or otherwise pushed at people, **re-verify it** — every outbound link resolves, the named teacher still stands in that room, the enrolment door still opens, the price is still the price.
+- Any check older than **six months** is stale: re-verify or mark it stale on the page. (Six months is the working default — Arnaud's to change.)
+- **If re-verification fails, the pick comes down.** It is never softened, hedged, or left up with a caveat. A place that closed is a blank, and the blank is the honest state.
+
 ### Two habits that catch what a fact-check misses
 
 - **The checking sentence.** After writing a factual line, silently add *"…and here's how you could check that."* If that sentence exists, put it in. If it doesn't exist, the line is smuggling — cut it.
@@ -81,7 +97,7 @@ Default batch = **2** (max 3) fully-verified sheets per run. Quality over count 
 4. **Origin / founder** — the human story, told honestly; debunk an inflated myth if there is one; a real, attributed pull-quote (never invent a quote).
 5. **Where it's alive now** — the living community; emphasise WHY THIS PLACE — the scene, "your people."
 6. **What's true vs what's sold** — the Real-vs-Sold ledger + "the con" beat; deep citations folded into `<details>`.
-7. **Where we'd send you** — one **source-first pick**; the **gate shown honestly**; the **English pathway** (put English-taught forward, but still name the best even if it's another language, labelled); **"What it opens"** (concrete doors — jobs, workplaces — honest, never a promised job); a `<details>` "how you'd start"; alternatives labelled by language.
+7. **Where we'd send you** — one **source-first pick**, and only if it clears the bar above by a clear distance; otherwise no pick, stated openly. The **gate shown honestly**; the **date it was last checked**; the **English pathway** (put English-taught forward, but still name the best even if it's another language, labelled); **"What it opens"** (concrete doors — jobs, workplaces — honest, never a promised job); a `<details>` "how you'd start"; alternatives labelled by language; and what it costs to go direct.
 8. **Go deeper** — up to one embedded video + one book + one podcast, each the most reputable *and* genuinely good, **all verified to resolve/embed**. Ship fewer if you can't verify one. Books via OpenLibrary work keys are a reliable, checkable link.
 9. **Trust** — "What **we** check before we send you anywhere." The section stays; the person goes. Arnaud set this on 2026-08-06 and it **supersedes the older "first person, Arnaud's voice" instruction that used to sit on this line**: the Atlas never talks about Arnaud. No "I'm Arnaud," no credentials, no years on the water, no "this isn't my craft" — **not even the true ones.** Sheets speak as EducatedTraveler. "Nobody pays to be here" stays verbatim: that is a fact about the company, not a claim about a person. If a draft seems to need a personal story, that material belongs in a letter — say so in the PR, never write it into the sheet.
    **The one carve-out:** a locked catalogue page's first-person **letter invitation** ("I open a craft on the Atlas when a member writes to me about it… I'm the only one who reads it") is never swept. The test is *credential or invitation?* — credentials go, invitations stay, and "we read every one" would break a promise that "I read every one myself" makes.
@@ -120,6 +136,9 @@ Overwrite the existing thin `website/atlas/<id>.html` in place (same URL, same `
 - [ ] the way to go direct is printed wherever a school is named, even when it is cheaper
 - [ ] English-forward (pick's language stated + English path; alts labelled)
 - [ ] source-first pick + gate shown honestly
+- [ ] the pick is better than the field by a clear distance — or there is no pick, and the sheet says why
+- [ ] the pick's reasons are on the page; the word "best" is not
+- [ ] every pick carries its checked-on date; nothing cited is older than six months unverified
 - [ ] living scene / why-here emphasised
 - [ ] "what it opens" beat (honest, no promised job)
 - [ ] no invented or hotlinked images; media-ready slot left for later
