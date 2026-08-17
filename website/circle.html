@@ -92,6 +92,9 @@
         h2.q{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.5rem,4.4vw,2.05rem);
               line-height:1.2; letter-spacing:-0.015em; margin-bottom:10px; }
         .sub{ color:var(--muted); font-size:15px; margin-bottom:26px; }
+        .gets{ display:grid; gap:10px; margin:-8px 0 28px; }
+        .gets p{ margin:0; color:var(--muted); font-size:14px; line-height:1.55; }
+        .gets .g-k{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--sea); margin-right:9px; white-space:nowrap; }
         .sub-tight{ color:var(--muted); font-size:14.5px; margin-bottom:20px; }
         .signoff{ color:var(--faint); font-size:13px; margin-top:6px; }
 
@@ -296,9 +299,15 @@
             <section class="beat show" id="beat0" aria-label="Step 1: your name">
                 <p class="eyebrow" style="margin-bottom:20px;">The Circle</p>
                 <h1 class="hook">Tell me the craft you'd give a week of your life to learn.<br>Then I go build it for you.</h1>
-                <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley — the master, the place, the people who'd
-                    rather do a thing than watch it. The Circle is the small group I plan every week around, and I open new
-                    ones to them first. Leave your name and I'll keep you close to the fire.</p>
+                <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley. The Circle is the people I write to
+                    when a week is real. Nobody has been anywhere yet — you'd be early. Free, no password.
+                    Here's exactly what it gets you:</p>
+
+                <div class="gets">
+                    <p><span class="g-k">First word</span>The next week goes to the Circle before it goes anywhere else. Barcelona did.</p>
+                    <p><span class="g-k">One letter</span>When something is real. Never a drip. One click to leave.</p>
+                    <p><span class="g-k">A say</span>What the Circle asks for is how I decide what to check and what to build next.</p>
+                </div>
 
                 <div class="field">
                     <label class="fld"><span class="lbl">Your name</span>
