@@ -62,8 +62,8 @@ function letterHtml(name: string, paid: number, balance: number, when: string): 
       ${balance > 0 ? row("Still to come", `${esc(eur(balance))}, and not before the week is confirmed`) : row("Paid", "in full &mdash; nothing further to send")}
       ${row("The week", "22&ndash;26 October 2026, at Vakuum in Barcelona")}
     </table>
-    <p style="${P}">Your seat counts toward the ten. The week runs when ten are paid. If ten aren't there by <strong>15 September</strong> it doesn't run, and every euro comes back to you &mdash; deposit or full payment, without conditions and without you having to ask.</p>
-    <p style="${P}">So <strong>don't book flights yet</strong>. I'll write to you the day we reach ten, and that's the mail that says CONFIRMED. Book nothing until it arrives.</p>
+    <p style="${P}">Your money is safe with me until the week is locked. If anything at all were to stop it running, every euro comes back to you &mdash; deposit or full payment, without conditions and without you having to ask for it.</p>
+    <p style="${P}">Hold off on flights for now. I'll write to you the moment the dates are locked for everyone, and that mail is your green light to book.</p>
     <p style="${P}">After that your seat is transferable but not refundable. If you can't come, send a chef of comparable calibre in your place, up to seven days before.</p>
     <p style="${P}">You'll hear from me before then anyway &mdash; where to stay, how to reach Passatge de Centelles, what the five days actually look like, and the add-ons around the week once they're booked and real. Nothing is sold here before it exists.</p>
     <p style="${P}">Anything at all, reply to this. It's me at the other end.</p>
