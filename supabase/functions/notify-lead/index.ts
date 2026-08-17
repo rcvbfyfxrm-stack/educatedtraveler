@@ -275,7 +275,10 @@ const METHOD_LABEL: Record<string, string> = {
 
 const eur = (n?: number) => (typeof n === "number" ? `€${n.toLocaleString("en-GB")}` : "—");
 
-function seatHtml(row: Record<string, unknown>, s: Seat, declaredSent: boolean): string {
+function seatHtml(
+  row: Record<string, unknown>, s: Seat, declaredSent: boolean,
+  confirmUrl: string, alreadyPaid: boolean,
+): string {
   const email = String(row.email ?? "");
   const method = s.method ? (METHOD_LABEL[s.method] ?? s.method) : "route not recorded";
   const line = (k: string, v: string) =>
@@ -297,8 +300,15 @@ function seatHtml(row: Record<string, unknown>, s: Seat, declaredSent: boolean):
       ${typeof s.balance === "number" && s.balance > 0 ? line("Balance after", esc(eur(s.balance)) + " — due only once the week is confirmed") : ""}
       ${line("Reference to look for", esc(s.name || email))}
     </table>
+    ${alreadyPaid
+      ? `<p style="margin:20px 0 0 0;color:#0b7a58;font-size:14px;">Already confirmed — the seat is counted and the letter has gone.</p>`
+      : `<div style="margin:22px 0 0 0;padding:16px 18px;background:#f2ede4;border-radius:8px;">
+           <p style="margin:0 0 12px 0;color:#3d3630;font-size:14px;line-height:1.6;">When you can see the money, press this. It counts the seat toward the ten and sends ${esc(s.name || "them")} the letter saying it's held.</p>
+           <a href="${esc(confirmUrl)}" style="display:inline-block;background:#3f6b67;color:#ffffff;text-decoration:none;padding:12px 26px;border-radius:50px;font-size:14px;font-family:Helvetica,Arial,sans-serif;">The money is here — hold their seat</a>
+           <p style="margin:12px 0 0 0;color:#6b625a;font-size:12px;">Opens a page and asks again before anything is sent. Nothing happens until you press the second button.</p>
+         </div>`}
     <p style="margin:18px 0 0 0;color:#6b625a;font-size:13px;line-height:1.7;font-style:italic;">
-      Only a payment you can see in Revolut or PayPal counts toward the ten. Reply to this email and it goes straight to the chef.
+      Only a payment you can see in Revolut, PayPal or the bank counts toward the ten. Reply to this email and it goes straight to the chef.
     </p>
   </div>`;
 }
@@ -340,7 +350,7 @@ serve(async (req) => {
     if (body?.event === "sent" && typeof body?.seat_email === "string") {
       const { data } = await admin
         .from("launch_waitlist")
-        .select("id,email,interests,source,created_at")
+        .select("id,email,interests,source,created_at,seat_token,seat_paid_at")
         .ilike("email", body.seat_email.trim())
         .like("source", "pay:%")
         .order("created_at", { ascending: false })
@@ -353,7 +363,7 @@ serve(async (req) => {
       if (body?.table !== "launch_waitlist" || !rec?.id) return json({ message: "ignored" });
       const { data } = await admin
         .from("launch_waitlist")
-        .select("id,email,interests,source,created_at")
+        .select("id,email,interests,source,created_at,seat_token,seat_paid_at")
         .eq("id", rec.id)
         .maybeSingle();
       row = data as Record<string, unknown> | null;
@@ -368,6 +378,17 @@ serve(async (req) => {
     if (seat) {
       const declaredSent = body?.event === "sent";
       const seatWho = seat.name || String(row.email);
+
+      // The one-click confirm link. The token is minted HERE, with the service
+      // role — never by the browser that wrote the row, or a chef could choose
+      // the string that confirms his own seat.
+      let token = typeof row.seat_token === "string" ? row.seat_token : "";
+      if (!token) {
+        token = crypto.randomUUID();
+        await admin.from("launch_waitlist").update({ seat_token: token }).eq("id", row.id);
+      }
+      const confirmUrl = `${SUPABASE_URL}/functions/v1/seat-confirm?token=${encodeURIComponent(token)}`;
+      const alreadyPaid = !!row.seat_paid_at;
       const via = seat.method ? ` ${METHOD_LABEL[seat.method] ?? seat.method}` : "";
       const subject = declaredSent
         ? `SAYS SENT · ${seatWho} · ${eur(seat.amount)}${via} — check the account`
@@ -378,7 +399,7 @@ serve(async (req) => {
         headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
         body: JSON.stringify({
           from: FROM, to: [NOTIFY_TO], reply_to: String(row.email),
-          subject, html: seatHtml(row as Record<string, unknown>, seat, declaredSent),
+          subject, html: seatHtml(row as Record<string, unknown>, seat, declaredSent, confirmUrl, alreadyPaid),
         }),
       });
       const srj = await sr.json().catch(() => ({}));
