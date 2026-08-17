@@ -159,7 +159,16 @@
                 <p class="eyebrow mb-4">The weeks</p>
                 <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight">Where the door opens next.</h2>
             </div>
-            <div class="grid gap-6" data-lab-weeks></div>
+            <!-- Static fallback: replaced by js/lab-weeks.js when it renders.
+                 Guarantees the open week and its link are visible even if JS never runs. -->
+            <div class="grid gap-6" data-lab-weeks>
+                <a href="/barcelona" class="panel p-7 md:p-9 text-left reveal in block" style="text-decoration:none;color:inherit">
+                    <p class="eyebrow mb-3" style="color:var(--ember)">Lab Week 01 · Barcelona · Doors open</p>
+                    <h3 class="font-serif font-light text-2xl md:text-3xl tracking-tight mb-3">Martin Lippo · Vakuum · 22–26 October 2026</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed mb-4">Five days of modernist technique in his own laboratory — 35 hours hands-in, in English, built for working chefs. The whole week — the five days, the honest terms, the price — is on one page.</p>
+                    <span class="btn-primary inline-block px-7 py-3 rounded-full text-sm">See the week →</span>
+                </a>
+            </div>
         </div>
     </section>
 

@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Atlas — a catalogue of skills, each at its source — EducatedTraveler</title>
-<meta name="description" content="The EducatedTraveler Atlas: all 112 crafts across five worlds. 29 are open, with the school and the teacher we'd send you to. The rest show what the craft is and where it's most alive — write a letter and I open it.">
+<meta name="description" content="The EducatedTraveler Atlas: crafts across five worlds. 29 are open in full, with the school and the teacher we'd send you to — the rest are catalogued, not checked. Write a letter and I open one.">
 <link rel="canonical" href="https://educatedtraveler.app/atlas/">
-<meta property="og:title" content="The Atlas — certified skills at the source">
+<meta property="og:title" content="The Atlas — what's still taught, where">
 <meta property="og:description" content="112 crafts, five worlds. 29 are open — the full sheet, every place, the schools — because a member asked for them. Write me a letter and that is what opens the rest.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/atlas/">
@@ -265,8 +265,8 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   <div class="wrap">
     <div class="hero-copy">
       <div class="eyebrow">The Atlas · a catalogue of skills</div>
-      <h1 class="serif">Certified skill,<br>at the <em>source</em>.</h1>
-      <p class="sub">Five rings, five worlds — tap one, or search the list. Every skill has a sheet: what the craft really is, and where it's most alive. 29 are open, with the school we'd send you to and why. I open the rest when someone writes to me about one.</p>
+      <h1 class="serif">What's still taught, where —<br>and what I <em>couldn't check</em>.</h1>
+      <p class="sub">Five rings, five worlds — tap one, or search the list. Every craft has a sheet: what it really is, and where it's taught at the source. 29 are open in full, with the school we'd send you to and why — the rest are catalogued, not checked. I open one when someone writes to me about it. Nobody pays to be on the Atlas, and nobody can pay to be left off it.</p>
       <div class="cues"><a class="btn" href="#studio">Browse every skill</a><a class="btn-ghost" href="/circle">Join the Circle</a></div>
     </div>
     <div class="cam-wrap">
@@ -626,7 +626,7 @@ function render(){
   // The five place-filters only have data for open crafts. Say so in the count
   // rather than letting the Atlas look like it shrank from 112 crafts to 29.
   var placeFiltered=Object.keys(F.regions).length||F.month||F.trip||F.role||F.english||F.minRank;
-  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> certified place'+(list.length===1?"":"s")+(placeFiltered?' <span style="color:var(--faint);font-weight:400">in the '+countOpen()+' open crafts</span>':'')+'</div><div class="sortby">'+(nw?"asked-for crafts first, then community strength":"ranked by community strength")+'</div></div>';
+  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> place'+(list.length===1?"":"s")+(placeFiltered?' <span style="color:var(--faint);font-weight:400">in the '+countOpen()+' open crafts</span>':'')+'</div><div class="sortby">'+(nw?"asked-for crafts first, then community strength":"ranked by community strength")+'</div></div>';
   if(!list.length){results.innerHTML='<div class="empty">No open place matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>'+(placeFiltered?closedBand(nClosed):"");document.getElementById("clr").onclick=function(){F=blankF();renderSide();render();syncWorld();};return;}
   h+='<div class="gridwrap">'+list.slice(0,120).map(gcard).join("")+'</div>';
   if(placeFiltered)h+=closedBand(nClosed);
@@ -673,7 +673,7 @@ function gcard(x){var r=ratingDest(x);
 function renderRails(){
   VIEW.cat=null;
   var nw=0;ORDER.forEach(function(w){nw+=countWanted(byWorldDisc[w],function(o){return o.d.discipline;});});
-  var h='<div class="rhead"><div class="count">Browse <b>five worlds</b> of certified craft</div><div class="sortby">'+(nw?"asked-for crafts first · pick a ring, or search →":"pick a ring, or search →")+'</div></div>';
+  var h='<div class="rhead"><div class="count">Browse <b>five worlds</b> of craft</div><div class="sortby">'+(nw?"asked-for crafts first · pick a ring, or search →":"pick a ring, or search →")+'</div></div>';
   results.innerHTML=h;
   ORDER.forEach(function(w){var m=WORLDS[w],list=craftsInOrder(w);if(!list.length)return;
     var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
@@ -703,7 +703,7 @@ function catCard(o,c){var d=o.d,t=o.top,r=ratingDisc(d.id);
 }
 function renderCatalogue(w){var m=WORLDS[w],list=craftsInOrder(w);VIEW.cat=w;
   var nw=countWanted(list,function(o){return o.d.discipline;});
-  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub"><b style="color:var(--paper);font-weight:500">'+list.length+' certified crafts</b> — every skill in this world, each with the place where its community is most alive.'+(nw?' The crafts a member of the Circle has asked for come first.':'')+'</p></div>';
+  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub"><b style="color:var(--paper);font-weight:500">'+list.length+' crafts</b> — every skill in this world, each with the place where its community is most alive.'+(nw?' The crafts a member of the Circle has asked for come first.':'')+'</p></div>';
   h+='<div class="gridwrap">'+list.map(function(o){return catCard(o,m.color);}).join("")+'</div>';
   results.innerHTML=h;signalRender();
   document.getElementById("backcat").onclick=function(){renderRails();document.getElementById("studio").scrollIntoView({behavior:"smooth"});};

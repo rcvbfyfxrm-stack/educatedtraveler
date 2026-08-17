@@ -69,6 +69,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
 .wordmark{font-family:var(--f-display);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em}.wordmark b{font-weight:300;color:var(--sea)}
 .nav-cta{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border:1px solid rgba(243,237,226,.28);border-radius:2px;font-size:13px;color:var(--paper);background:rgba(13,11,9,.25);backdrop-filter:blur(6px);font-family:inherit;cursor:pointer;transition:background .3s,border-color .3s;white-space:nowrap}
 .nav-cta:hover{background:rgba(243,237,226,.08);border-color:rgba(243,237,226,.45)}
+.nav-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
+.nav-links a{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,237,226,.55);transition:color .25s;white-space:nowrap}
+.nav-links a:hover{color:var(--sea)}
+@media (max-width:700px){.nav-links{display:none}}
 
 /* ============ THE STAGE — one screen, the fire, the manifesto ============ */
 .stage{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
@@ -173,6 +177,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
 <nav>
   <div class="nav-in">
     <a href="/" class="wordmark">EDUCATED<b>TRAVELER</b></a>
+    <div class="nav-links" aria-label="Site">
+      <a href="/atlas/">The Atlas</a>
+      <a href="/lab-weeks">Lab Weeks</a>
+      <a href="/about">The Story</a>
+      <a href="/barcelona">Barcelona</a>
+    </div>
     <button type="button" class="nav-cta" onclick="goCircle()">Join the Circle</button>
   </div>
 </nav>
@@ -182,14 +192,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
   <div class="stage-bg"><img src="/images/labweek/hero.jpg" width="736" height="1600" fetchpriority="high" alt="A cook behind a black pan as flame erupts from it in a professional kitchen"></div>
 
   <div class="center">
-    <p class="eyebrow top">A place · a person · your people</p>
     <h1 class="lead">EducatedTraveler is how you learn a <em>real craft</em> — at the source, from a master, beside the people chasing the same fire.</h1>
     <p class="standfirst">This October the first door opens — <span class="mlx">Martin Lippo <i>×</i> <span class="et">EducatedTraveler</span></span>: thirty-five hours of modernist technique in his Barcelona laboratory, in English, built for working chefs. And especially for yacht chefs.</p>
     <div class="door">
       <button type="button" class="btn btn-primary" onclick="goCircle()">Join the Circle
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </button>
-      <p class="kicker">The Circle <b>hears first</b> — and chooses what comes next</p>
+      <p class="kicker">The Circle <b>hears first</b> — and what it asks for is how I pick the next one</p>
       <!-- The only door back in. Static, so it is there even if the SDK never loads;
            member-nav.js hides it once a session is found. Without it a member on a
            new phone had no way into their own account from the landing page. -->
@@ -246,7 +255,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
       <p style="font-family:var(--f-display);color:var(--paper);font-size:1.1rem;margin-bottom:6px">What EducatedTraveler is: a place, a person, your people.</p>
       <p>Every real skill is learned the same three ways — where it's alive, from a master who'll hand it over, beside the handful chasing the same thing. <b>We connect — we don't sell. Earned, not bought.</b></p>
       <p><b>“I never found my teachers. They found me.”</b> Now I'm building the way in — the map I wish I'd had, and the doors it opens. The first one opens this October, in Martin Lippo's Barcelona laboratory.</p>
-      <p>Between the weeks I keep <b>the Atlas</b> — a living map of where crafts are most alive, ranked by community, not by who pays. Nobody buys a place on it: a craft opens when someone writes and asks for it. And if I wouldn't send a friend, it isn't on the map.</p>
+      <p>Between the weeks I keep <b>the Atlas</b> — a free record of where crafts are still taught at the source, ranked by community, not by who pays. Nobody buys a place on it: a craft opens when someone writes and asks for it.</p>
     </div>
     <div class="mcta">
       <button type="button" class="btn btn-primary" style="padding:12px 24px;min-height:auto" onclick="closeFounder();goCircle();">Join the Circle →</button>
@@ -297,6 +306,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
 <script src="/js/supabase-config.js"></script>
 <script src="/js/member-nav.js" defer></script>
 <footer style="text-align:center;padding:42px 22px 48px;border-top:1px solid rgba(243,237,226,0.08);position:relative;z-index:2;">
+    <p style="margin:0 0 14px;font-family:var(--f-display);font-weight:300;font-size:15px;color:rgba(243,237,226,.6)">A place, a person, your people.</p>
     <p style="margin:0 0 12px;font-size:13px"><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20the%20homepage&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/%29" style="color:var(--sea);text-decoration:none;opacity:.85">Something wrong on this page? Tell me.</a></p>
   <a href="/atlas/" class="et-foot-link">The Atlas</a>
   <a href="/lab-weeks" class="et-foot-link">Lab Weeks</a>

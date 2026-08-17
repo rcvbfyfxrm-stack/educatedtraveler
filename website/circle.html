@@ -106,6 +106,8 @@
         input::placeholder, textarea::placeholder{ color:rgba(243,237,226,0.30); }
         input:focus, textarea:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
         .help{ color:var(--faint); font-size:12.5px; margin-top:8px; line-height:1.5; }
+        .consent{ display:flex; align-items:flex-start; gap:10px; margin-top:14px; cursor:pointer; color:var(--muted); font-size:13.5px; line-height:1.5; }
+        .consent input{ margin-top:3px; width:16px; height:16px; flex:0 0 auto; accent-color:var(--sea); cursor:pointer; }
         .field{ margin-bottom:20px; }
 
         /* chips */
@@ -307,7 +309,9 @@
                     <label class="fld"><span class="lbl">Where I reach you</span>
                         <input type="email" id="f_email" placeholder="you@wherever.com" autocomplete="email" required>
                     </label>
-                    <p class="help">No noise. I write when there's a real week to tell you about — nothing else.</p>
+                    <label class="consent"><input type="checkbox" id="f_consent">
+                        <span>Yes — write to me when there's a real week to tell you about. One letter, never a drip. One click to leave, any time.</span></label>
+                    <p class="help">Your answers are stored so I can read them and write back. Nothing is sold or shared, ever.</p>
                 </div>
 
                 <div class="row">
@@ -483,8 +487,8 @@
                 <div class="promise">
                     <p>Here's my promise. You've told me what you'd give a week of your life to. Now that's my job: I go find
                         the master who really teaches it, the place where it actually lives, and the handful of others chasing
-                        the same fire — and when it's real, you hear from me first. I don't sell you a week. I build it, then
-                        I open the door.</p>
+                        the same fire — and when it's real, you hear from me first. I don't sell you a week. I'm building it, then
+                        I'll open the door.</p>
                     <p class="proof">The first one is already taking shape — <b>a modernist cooking week in Barcelona, this
                         autumn</b>. Yours could be next.</p>
                 </div>
@@ -784,6 +788,7 @@
             note.style.display='none';
             if(!name){ err.textContent='Just your first name is enough.'; err.style.display='block'; $('f_name').focus(); return; }
             if(!validEmail(email)){ err.textContent='I need a real email to reach you.'; err.style.display='block'; $('f_email').focus(); return; }
+            if(!$('f_consent').checked){ err.textContent='Tick the box so I’m allowed to write to you — that’s the whole point of the Circle.'; err.style.display='block'; $('f_consent').focus(); return; }
             err.style.display='none';
 
             // Already a member? Don't create a duplicate lead — point them at their account.

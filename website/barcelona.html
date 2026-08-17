@@ -124,6 +124,13 @@
   .cta-or{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--softer)}
   .pick-line{font-size:.9rem;color:var(--softer);margin:1.4rem 0 0}
   .apply-note{font-size:.85rem;color:var(--softer)}
+  .facts-strip{background:var(--ink-2,#14110d);border-top:1px solid rgba(243,237,226,.09);border-bottom:1px solid rgba(243,237,226,.09)}
+  .facts-strip .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.4rem 1.8rem;padding-top:1rem;padding-bottom:1rem}
+  .facts-strip .fs-k{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--softer)}
+  .facts-strip a{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;color:var(--sea);text-decoration:none;white-space:nowrap}
+  .facts-strip a:hover{color:var(--paper,#f3ede2)}
+  .apply-steps p{margin:0 0 .7rem}
+  .apply-steps b{color:var(--paper,#f3ede2);font-weight:500}
   .follow-line{margin:.55rem 0 0;font-size:.9rem;color:var(--softer);line-height:1.5}
   .follow-btn{font-family:inherit;font-size:.9rem;color:var(--ember);background:none;border:0;border-bottom:1px solid rgba(210,138,82,.45);padding:0 0 2px;cursor:pointer;transition:border-color .2s,opacity .2s}
   .follow-btn:hover{border-color:var(--ember)}
@@ -203,7 +210,7 @@
   </div>
     <p class="kicker">Lab Week 01 · Vakuum, Barcelona · Thursday 22 – Monday 26 October 2026</p>
     <h1>Five days in <em>Martin Lippo's</em> lab.</h1>
-    <p class="sub">Modernist technique for working chefs — thirty-five hours, taught in English, timed for yard period. What you carry out is the point: the techniques, the certificate, the portfolio, the room.</p>
+    <p class="sub">Modernist technique for working chefs — thirty-five hours, taught in English, timed for yard period, at <strong>Vakuum</strong> — his own teaching laboratory, not a restaurant. What you carry out is the point: the techniques, the certificate, the portfolio, the room.</p>
     <div class="confirmed-banner">Confirmed — the week is on. Buy your flights.</div>
     <div class="neon" id="neon" role="status">
       <span class="nd" id="neon-days">—</span>
@@ -228,6 +235,17 @@
     <p class="follow-line">Not ready to apply? <button type="button" class="follow-btn" data-et-interested data-experience="Lab Week 01 — New culinary techniques &amp; technologies, Barcelona" data-adventure-id="lab-week-01-barcelona">Follow this week &rarr;</button> <span class="follow-sub">first word on seats, dates &amp; add-ons — saved to your account. Free, no obligation.</span></p>
   </div>
 </header>
+
+<nav class="facts-strip" aria-label="The essentials">
+  <div class="wrap">
+    <span class="fs-k">Straight to it:</span>
+    <a href="#days">The five days →</a>
+    <a href="#stay">The stay →</a>
+    <a href="#terms">The terms &amp; price →</a>
+    <a href="#leave-with">What you leave with →</a>
+    <a href="#apply">Apply →</a>
+  </div>
+</nav>
 
 <section class="film-lead">
   <div class="wrap">
@@ -282,7 +300,7 @@
   </div>
 </section>
 
-<section>
+<section id="days">
   <div class="wrap">
     <p class="eyebrow">The five days · 10:00–14:00 + 15:00–18:00</p>
     <h2>What your hands will learn</h2>
@@ -299,7 +317,7 @@
       <div class="day"><p class="d">Day four</p><h3>Foams &amp; siphon techniques</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day4-foams.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day4-foams.mp4" type="video/mp4"></video></div><p>How foams stabilise; hot, cold, fat-based, egg-white and starch foams; microwave sponges; foams for frying; the Souflair.</p><p class="galley">At sea: a siphon earns its locker space on any boat.</p></div>
       <div class="day"><p class="d">Day five</p><h3>Sous-vide, properly</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day5-sousvide.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day5-sousvide.mp4" type="video/mp4"></video></div><p>Pasteurisation theory, core temperatures, direct and double cooking, long cooks, brining, conservation and regeneration.</p><p class="galley">At sea: cook once in the yard, regenerate perfectly for 12 covers.</p></div>
       <div class="day" style="border-style:dashed"><p class="d">Coming · optional add-ons</p><h3>Around the five days</h3><p>Being arranged now, cohort hears first: <strong>a table at a three-Michelin-star house — private table, eyes in the kitchen</strong> — plus an open-fire day and a Barcelona source day. Priced separately, capped small.</p><p class="galley">Nothing sold until it's booked and real — that's the house rule.</p></div>
-      <div class="day" style="border-style:dashed"><p class="d">The stay · two ways</p><h3>Where you sleep</h3><p><strong>A shared cohort apartment near the lab — your own private room, at cost</strong> — or arrange your own. Your call at application.</p></div>
+      <div class="day" id="stay" style="border-style:dashed"><p class="d">The stay · two ways</p><h3>Where you sleep</h3><p><strong>A shared cohort apartment near the lab — your own private room, at cost</strong> — or arrange your own. Your call at application.</p></div>
     </div>
   </div>
 </section>
@@ -353,8 +371,11 @@
   <div class="wrap">
     <p class="eyebrow">Take a seat</p>
     <h2>Apply — two minutes, then a call</h2>
-    <p>Send me five things: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
-    <p>Then 15 minutes on the phone — your questions, and me checking the week fits you. After the call I send you the payment link, and your seat holds 48 hours while it's live — €350 takes it. Mid-charter? Voice notes work — tell me your watch.</p>
+    <div class="apply-steps">
+      <p><b>1 · Apply — two minutes.</b> Send me five things: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
+      <p><b>2 · A 15-minute call.</b> Your questions, and me checking the week fits you. Mid-charter? Voice notes work — tell me your watch.</p>
+      <p><b>3 · The payment link.</b> €350 takes the seat, and the link holds it 48 hours while it's live.</p>
+    </div>
     <p class="pick-line">Both arrive with the five questions already written out.</p>
     <div class="cta-row cta-pick">
       <a class="btn btn-primary cta-wa" href="#">WhatsApp me</a>
@@ -411,6 +432,8 @@
      Counts are REAL SEATS TAKEN on the joint ledger — a €350 deposit is a
      seat, same as paid in full. Never inflate.                       */
   var SEATS_TAKEN = 0;
+  /* CONFIRMED flips to true ONLY when SEATS_TAKEN >= 10 verified on the joint
+     ledger — paid seats, never applications, never interest. */
   var CONFIRMED   = false;
   var UPDATED     = "2026-07-16";      /* change every time the count changes    */
   var WHATSAPP    = "33695903520";     /* Arnaud — intl format, no + */
