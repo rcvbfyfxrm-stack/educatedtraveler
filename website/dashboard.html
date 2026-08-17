@@ -546,8 +546,7 @@
                             <span class="text-xs font-medium uppercase tracking-wider" style="color:#7fa8a5">Why</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="certification">Get certified</button>
-                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="career">Career change</button>
+                                                        <button class="chip pref-chip" data-pref-group="desires" data-pref-value="career">Career change</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="stories">Earned stories</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="reset">Total reset</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="rare">Rare access</button>
@@ -663,9 +662,9 @@
                             <label class="section-label">Preferred duration</label>
                             <select class="profile-input profile-select" id="p-duration">
                                 <option value="" disabled selected>Select one</option>
-                                <option value="foundation">7-21 days (Foundation)</option>
-                                <option value="mastery">30-60 days (Mastery)</option>
-                                <option value="saga">90-180 days (Saga)</option>
+                                <option value="foundation">About a week or two</option>
+                                <option value="mastery">A month or two</option>
+                                <option value="saga">Longer</option>
                                 <option value="open">Open to anything</option>
                             </select>
                         </div>
@@ -946,13 +945,7 @@
                 </div>
             </section>
 
-            <!-- Available Cohorts -->
-            <section id="cohorts-section" class="hidden mb-12 fade-up delay-2">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-lg font-light">Available Adventures</h2>
-                </div>
-                <div id="available-cohorts-container" class="grid md:grid-cols-2 gap-4"></div>
-            </section>
+            <!-- Available-cohorts section removed 2026-08-17: dormant selling machinery never resurfaces (law 8) -->
 
             <!-- Preferences -->
             <section class="mb-12 fade-up delay-2">
@@ -997,7 +990,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
                     <p class="font-semibold tracking-wider mb-1">EDUCATED<span class="text-[#7fa8a5]">TRAVELER</span></p>
-                    <p class="text-white/40 text-sm">Earned, not bought. Certified at the source.</p>
+                    <p class="text-white/40 text-sm">Earned, not bought.</p>
                 </div>
                 <div class="flex items-center gap-6">
                     <a href="/" class="text-white/50 hover:text-white text-sm transition-colors">Home</a>
@@ -1013,8 +1006,7 @@
     <script src="/js/supabase-config.js"></script>
     <script src="/js/auth.js"></script>
     <script src="/js/database.js"></script>
-    <script src="/js/experiences.js"></script>
-
+    
     <script>
         // Badge definitions
         const skillBadges = {
@@ -1023,8 +1015,7 @@
             city: { name: 'Culinary Master', icon: '👨‍🍳', color: 'amber' },
             temple: { name: 'Inner Voyager', icon: '🧘', color: 'purple' },
             wild: { name: 'Wild Guide', icon: '🦁', color: 'orange' },
-            certification: { name: 'Certified Pro', icon: '📜', color: 'blue' },
-            career: { name: 'Career Changer', icon: '🚀', color: 'indigo' },
+                        career: { name: 'Career Changer', icon: '🚀', color: 'indigo' },
             stories: { name: 'Adventurer', icon: '🗺️', color: 'pink' },
             reset: { name: 'Zen Master', icon: '☯️', color: 'teal' },
             rare: { name: 'Edge Seeker', icon: '⚡', color: 'gold' }
@@ -1051,8 +1042,7 @@
         };
 
         const desireLabels = {
-            certification: 'Certification',
-            career: 'Career Change',
+                        career: 'Career Change',
             stories: 'Stories',
             reset: 'Deep Reset',
             rare: 'Rare Challenge'
@@ -1432,7 +1422,7 @@
                         const hasPaid = t.payment_status === 'paid' || t.payment_status === 'deposit_paid';
                         const chatAvailable = isConfirmed && hasPaid;
                         const chatLink = chatAvailable
-                            ? `<a href="cohort-chat.html?cohort=${t.cohort_id}" class="text-[11px] px-3 py-1.5 rounded-full bg-[#5b8a89]/15 text-[#9cc0bd] hover:bg-[#5b8a89]/25 transition-colors whitespace-nowrap">Open cohort chat →</a>`
+                            ? ''
                             : '';
 
                         // Outstanding balance on an installment booking → show a Pay balance button.
@@ -1441,7 +1431,7 @@
                             ? `<p class="text-[#e0a877]/80 text-xs mt-2">Deposit paid · balance ${fmtUSD(t.balance_cents)} due${t.balance_due_date ? ' by ' + fmtDueDate(t.balance_due_date) : ''}</p>`
                             : '';
                         const payBalanceBtn = owesBalance
-                            ? `<a href="paypal-checkout.html?enrollment=${t.enrollment_id}&balance=1" class="text-[11px] px-3 py-1.5 rounded-full bg-[#d28a52]/15 text-[#e0a877] hover:bg-[#d28a52]/25 transition-colors whitespace-nowrap">Pay balance →</a>`
+                            ? `<a href="/pay" class="text-[11px] px-3 py-1.5 rounded-full bg-[#d28a52]/15 text-[#e0a877] hover:bg-[#d28a52]/25 transition-colors whitespace-nowrap">Pay balance →</a>`
                             : '';
 
                         const footer = (chatLink || payBalanceBtn)
@@ -1468,46 +1458,7 @@
                 const allCohorts = await window.db.getPublishedCohorts();
                 const available = allCohorts.filter(c => !enrolledCohortIds.has(c.id));
 
-                if (available.length > 0) {
-                    const section = document.getElementById('cohorts-section');
-                    const container = document.getElementById('available-cohorts-container');
-                    section.classList.remove('hidden');
-
-                    // A seat is "taken" only by an active booking — not by abandoned
-                    // 'pending' or 'declined'/'cancelled' rows. Mirrors checkout.js.
-                    const seatTaken = (e) =>
-                        e.status === 'enrolled' ||
-                        e.status === 'awaiting_confirmation' ||
-                        e.payment_status === 'paid' ||
-                        e.payment_status === 'deposit_paid';
-
-                    container.innerHTML = available.map(c => {
-                        const enrolled = (c.enrollments || []).filter(seatTaken).length;
-                        const spotsLeft = c.capacity - enrolled;
-                        const instructor = c.instructors?.name || '';
-                        const startDate = c.start_date
-                            ? new Date(c.start_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-                            : 'TBD';
-
-                        return `
-                            <div class="adventure-card rounded-xl p-5">
-                                <h4 class="font-medium mb-1">${escapeHtml(c.title)}</h4>
-                                <p class="text-white/40 text-xs mb-3">${escapeHtml(c.location || '')} ${c.location ? '·' : ''} ${startDate} ${instructor ? '· with ' + escapeHtml(instructor) : ''}</p>
-                                ${c.description ? `<p class="text-white/50 text-sm mb-3">${escapeHtml(c.description)}</p>` : ''}
-                                <div class="flex items-center justify-between">
-                                    <span class="text-white/30 text-xs">${spotsLeft > 0 ? spotsLeft + ' spots left' : 'Full'}</span>
-                                    ${spotsLeft > 0 ? `
-                                        <a href="paypal-checkout.html?cohort=${c.id}" class="text-xs px-4 py-1.5 rounded-full bg-[#5b8a89]/20 text-[#7fa8a5] hover:bg-[#5b8a89]/30 transition-colors">
-                                            Book
-                                        </a>
-                                    ` : `
-                                        <span class="text-xs px-4 py-1.5 rounded-full bg-[#d28a52]/10 text-[#d28a52]">Full</span>
-                                    `}
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
-                }
+                // available-cohorts rendering removed 2026-08-17 (law 8: dormant selling machinery)
 
             } catch (err) {
                 console.error('Error loading cohorts:', err);

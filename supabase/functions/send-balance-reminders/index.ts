@@ -116,7 +116,7 @@ serve(async (_req) => {
       const title = cohort.title ?? "your cohort";
       const balanceStr = fmtMoney(enr.balance_cents as number, (enr.currency as string) ?? "usd");
       const dueStr = fmtDate(enr.balance_due_date as string | null);
-      const payUrl = `${APP_URL}/paypal-checkout.html?enrollment=${enr.id}&balance=1`;
+      const payUrl = `${APP_URL}/pay`;
 
       const html = emailShell("Balance due soon", `
         <p style="color:#2b2621;font-size:16px;line-height:1.7;margin:0 0 16px 0;">Hey ${esc(firstName)},</p>
