@@ -26,6 +26,14 @@ const REPLY_TO = "arnaudcallier@pm.me";
 
 const admin = createClient(SUPABASE_URL, SERVICE_KEY);
 
+// ── SEND LOCK ─────────────────────────────────────────────────────────────
+// Arnaud, 17 Aug: "don't send an email to anyone… but ask me first."
+// While this is false, confirming a seat records the money and NOTHING leaves
+// the building. Not an instruction anyone has to remember — the send is simply
+// not reachable. Flip to true only once he has approved the wording, and only
+// on his say-so.
+const SEND_LETTER = false;
+
 function esc(s: unknown) {
   return String(s ?? "").replace(/[&<>"']/g, (c) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!)
@@ -144,6 +152,16 @@ serve(async (req) => {
       .eq("id", row.id);
 
     const when = new Date(paidAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+    if (!SEND_LETTER) {
+      return html(page({
+        eyebrow: "Seat recorded", tone: "done",
+        heading: `${name} is counted as paid.`,
+        body: `<p>${esc(eur(amount))} recorded${balance > 0 ? `, ${esc(eur(balance))} still to come` : " in full"}. <strong>No email was sent</strong> &mdash; the letter is held until you've approved the wording.</p>
+               <p style="color:rgba(243,237,226,.5);font-size:13px;">${esc(name)} has not heard anything from this. Write to them yourself, or say the word and the letter switches on.</p>`,
+      }));
+    }
+
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
