@@ -50,6 +50,7 @@ This is a **selection** bar, and it does not become page copy. Never write "the 
 - Before a sheet is cited in a letter, re-shipped, or otherwise pushed at people, **re-verify it** — every outbound link resolves, the named teacher still stands in that room, the enrolment door still opens, the price is still the price.
 - Any check older than **six months** is stale: re-verify or mark it stale on the page. (Six months is the working default — Arnaud's to change.)
 - **If re-verification fails, the pick comes down.** It is never softened, hedged, or left up with a caveat. A place that closed is a blank, and the blank is the honest state.
+- **But prove the failure before you act on it.** A wrongly-declared death is its own dishonesty: it deletes something true and tells the reader we checked when we mis-checked. One bad response is not evidence. Before calling anything dead: retry two or three times with a gap (OpenLibrary returns 503 under load and 200 a minute later; UKSA answered 403 once and 200 on retry), and confirm the network itself is up — if a control request to a site you know is healthy also fails, the fault is yours, not theirs. Distinguish the three cases and write which one it is: **dead** (a real 404 — the claim comes down), **unreachable** (host refuses from here, DNS fine — say "unconfirmed" on the page and leave the claim standing), and **transient** (retry until it settles). Never record a check whose result you could not reproduce.
 
 ### Two habits that catch what a fact-check misses
 
