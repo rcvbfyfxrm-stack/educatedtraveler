@@ -402,12 +402,17 @@ function wanted(craft){var r=(window.ETInterest&&window.ETInterest.get)?window.E
 function craftsInOrder(w){return byWorldDisc[w].slice().sort(function(a,b){
   return (wanted(b.d.discipline)-wanted(a.d.discipline))||((b.top.communityRank||0)-(a.top.communityRank||0));});}
 function countWanted(list,key){var n=0;list.forEach(function(x){if(wanted(key(x)))n++;});return n;}
-// the single "best place to go" per craft — featured place if set, else strongest community
+// The single "best place to go" per craft — ONLY where a human actually chose one.
+// This drives the "Our pick for this craft" badge, which is a recommendation in our
+// name, so it may never be computed. It used to fall back to the strongest
+// communityRank when no `featured` was set: with no featured values in the data that
+// meant 25 crafts wore a pick badge nobody had judged — a blank filled by a sort.
+// Trust is the anchor (Arnaud, 2026-08-16): a pick is named only when it beats the
+// field by a clear distance, and if nothing has, the honest output is no badge.
 var BEST={};A.forEach(function(d){var f=d.featured||{},bid=null;
   if(f.id){(d.destinations||[]).forEach(function(x){if(x.id===f.id)bid=x.id;});}
   if(!bid&&f.place){(d.destinations||[]).forEach(function(x){if(x.place===f.place)bid=x.id;});}
-  if(!bid){var top=null;(d.destinations||[]).forEach(function(x){if(!top||(x.communityRank||0)>(top.communityRank||0))top=x;});if(top)bid=top.id;}
-  BEST[d.id]=bid;});
+  if(bid)BEST[d.id]=bid;});
 var REGIONS=Object.keys(DESTS.reduce(function(a,x){if(x.region)a[x.region]=1;return a;},{})).sort();
 var MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
 var MNAMES=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];

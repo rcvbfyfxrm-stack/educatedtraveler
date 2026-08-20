@@ -58,7 +58,16 @@
       goldCredential: c.open ? (c.cred || "") : "",
       certBody: "",
       blurb: c.blurb || "",
-      featured: c.destId ? { id: c.destId } : (dests[0] ? { id: dests[0].id } : {}),
+      // `featured` drives the card's "Our pick for this craft" badge, which is a
+      // recommendation in our name — so it may only ever come from a published pick
+      // (c.destId), never from list order. The old fallback took dests[0], which is
+      // harmless today because the only crafts without a destId have exactly one
+      // destination, but the moment such a craft gained a second one it would have
+      // started calling first-in-the-array our pick. Trust is the anchor (Arnaud,
+      // 2026-08-16): a pick is named only when it beats the field by a clear
+      // distance, so a craft with a real choice and no published pick gets no badge.
+      featured: c.destId ? { id: c.destId }
+              : (dests.length === 1 ? { id: dests[0].id } : {}),
       destinations: dests,
       // not read by the page; used by the locked-card stamp below
       _open: !!c.open
