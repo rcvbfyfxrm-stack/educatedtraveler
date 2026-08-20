@@ -4,7 +4,7 @@ _The single source of truth for our line and how we develop._
 
 This is the one document anyone reads before they make or build anything for EducatedTraveler — a caption, a clip, an Atlas note, an essay, a Circle issue, a feature, a script. The nine Parts that follow say *how* we do each thing; this front matter says *what we are and how to use the rest.* Start with The Line below, act from it, and only open the full Part when you need the detail behind a move.
 
-_Last reviewed: 2026-06-17_
+_Last reviewed: 2026-08-20_
 
 ## The Line (read this first)
 
