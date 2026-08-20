@@ -46,7 +46,7 @@ This is a **selection** bar, and it does not become page copy. Never write "the 
 **When there is no standout, say which way the field failed.** "Three schools teach this well and we cannot separate them" and "everything we found is a demonstration dressed as a workshop" are different facts, and both are more useful than silence.
 
 **A check has a date, and checks go stale.** Cross-checking is not a thing done once at build time — decay is the whole reason this Atlas exists rather than a panel's list. So:
-- Every pick carries the date it was last checked and, per the standard, a named checker.
+- Every pick carries the date it was last checked **and the name of who stands behind it** — the format is `Last checked · Arnaud Callier · 20 August 2026`. Rule 10 of the standard requires a name and a date on the check itself: no house voice, no anonymous panel, because a check nobody is answerable for is not a check. Arnaud is the publisher and the name on every check, whoever ran it.
 - Before a sheet is cited in a letter, re-shipped, or otherwise pushed at people, **re-verify it** — every outbound link resolves, the named teacher still stands in that room, the enrolment door still opens, the price is still the price.
 - Any check older than **six months** is stale: re-verify or mark it stale on the page. (Six months is the working default — Arnaud's to change.)
 - **If re-verification fails, the pick comes down.** It is never softened, hedged, or left up with a caveat. A place that closed is a blank, and the blank is the honest state.
@@ -139,7 +139,7 @@ Overwrite the existing thin `website/atlas/<id>.html` in place (same URL, same `
 - [ ] source-first pick + gate shown honestly
 - [ ] the pick is better than the field by a clear distance — or there is no pick, and the sheet says why
 - [ ] the pick's reasons are on the page; the word "best" is not
-- [ ] every pick carries its checked-on date; nothing cited is older than six months unverified
+- [ ] every pick carries its checked-on date **and the checker's name**; nothing cited is older than six months unverified
 - [ ] living scene / why-here emphasised
 - [ ] "what it opens" beat (honest, no promised job)
 - [ ] no invented or hotlinked images; media-ready slot left for later
