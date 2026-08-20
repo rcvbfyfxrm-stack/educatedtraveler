@@ -35,7 +35,7 @@ function emailShell(title: string, body: string): string {
   return `<!DOCTYPE html><html><head><meta name="color-scheme" content="light"><meta name="supported-color-schemes" content="light"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
 <body style="margin:0;padding:0;background:#faf8f4;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
   <div style="max-width:560px;margin:0 auto;padding:40px 24px;">
-    <div style="text-align:center;margin-bottom:40px;"><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#1f6ba8;">TRAVELER</span></div>
+    <div style="text-align:center;margin-bottom:40px;"><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#2b2621;">EDUCATED</span><span style="font-size:14px;font-weight:600;letter-spacing:3px;color:#3f6b67;">TRAVELER</span></div>
     <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;">
       <p style="color:#8a5a00;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 24px 0;font-family:'Courier New',monospace;">${title}</p>
       ${body}
@@ -123,7 +123,7 @@ serve(async (_req) => {
         <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 16px 0;">Your spot in <strong>${esc(title)}</strong> is reserved. The remaining balance of <strong>${esc(balanceStr)}</strong> is due by <strong>${esc(dueStr)}</strong>.</p>
         <p style="color:#3d3630;font-size:15px;line-height:1.7;margin:0 0 24px 0;">Settle it now in a couple of clicks — same PayPal checkout as your deposit.</p>
         <div style="text-align:center;margin:28px 0;">
-          <a href="${payUrl}" style="display:inline-block;background:linear-gradient(135deg,#0066B1 0%,#3B8DD4 100%);color:#2b2621;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;">Pay your balance</a>
+          <a href="${payUrl}" style="display:inline-block;background:linear-gradient(135deg,#3f6b67 0%,#8f5820 100%);color:#ffffff;text-decoration:none;padding:14px 32px;border-radius:50px;font-size:14px;font-weight:500;">Pay your balance</a>
         </div>
         <p style="color:#6b625a;font-size:12px;line-height:1.6;margin:0;">Questions? Just reply to this email.</p>
       `);

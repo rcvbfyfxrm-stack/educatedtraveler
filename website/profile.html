@@ -29,14 +29,12 @@
         .font-mono { font-family: 'IBM Plex Mono', monospace; }
 
         .glass {
-            background: rgba(243,237,226,0.025);
-            backdrop-filter: blur(20px);
+            background: #16120e;
             border: 1px solid rgba(243,237,226,0.09);
         }
         .glass-strong {
-            background: rgba(243,237,226,0.04);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: #1b1611;
+            border: 1px solid rgba(243,237,226,0.12);
         }
 
         .section-label {
@@ -130,8 +128,7 @@
     <!-- Not Found State -->
     <div id="not-found-state" class="hidden min-h-screen flex items-center justify-center px-6">
         <div class="text-center max-w-md">
-            <div class="text-5xl mb-6">&#x1F30A;</div>
-            <h1 class="text-2xl font-light mb-4">Profile not found</h1>
+            <h1 class="text-2xl font-light mb-4">Card not found</h1>
             <p class="text-white/50 text-sm mb-8">This crew card doesn't exist or is set to private.</p>
             <a href="/" class="text-[#7fa8a5] hover:text-[#9cc0bd] text-sm transition-colors">Back to home</a>
         </div>
@@ -153,7 +150,7 @@
 
                     <!-- Info -->
                     <div class="flex-1 text-center sm:text-left">
-                        <h1 id="card-name" class="text-2xl font-light mb-1">Explorer</h1>
+                        <h1 id="card-name" class="text-2xl font-light mb-1">A member</h1>
                         <p id="card-meta" class="text-white/40 text-sm mb-3"></p>
                         <p id="card-about" class="text-white/60 text-sm leading-relaxed"></p>
                     </div>
@@ -175,7 +172,7 @@
                         <p id="card-profession" class="text-white/70 text-sm"></p>
                     </div>
                     <div>
-                        <p class="text-white/30 text-xs">Adventure experience</p>
+                        <p class="text-white/30 text-xs">Time in the field</p>
                         <p id="card-adventure-years" class="text-white/70 text-sm"></p>
                     </div>
                 </div>
@@ -294,8 +291,8 @@
         };
 
         const ADVENTURE_LABELS = {
-            'none': 'Brand new', 'dabbled': 'A few trips', 'regular': 'Yearly adventurer',
-            'serious': 'Serious — multiple per year', 'professional': 'Professional'
+            'none': 'Brand new', 'dabbled': 'A few trips', 'regular': 'Once a year',
+            'serious': 'Several times a year', 'professional': 'Professional'
         };
 
         const FITNESS_LABELS = {

@@ -515,7 +515,7 @@
         }
 
         $('standfirst').textContent = 'Everything you’ve told me and everything you’ve saved lives here. '
-            + 'Come back and add to it whenever you like — the more I know, the better the week I build you.';
+            + 'Come back and add to it whenever you like — the more I know, the better I aim.';
 
         // Crafts they named in the Circle
         var crafts = [];
@@ -647,7 +647,7 @@
           opts:[['gentle','Gentle & deep'],['balanced','Balanced'],['all-in','All-in, intensive']] },
         { k:'want', pref:'want', kind:'code', q:'What you’re really after',
           opts:[['craft','The craft itself'],['people','The people around it'],
-                ['place','The place it lives'],['change','To come back changed']] },
+                ['place','The place it lives'],['change','To come home with something real']] },
         { k:'reach', col:'reach', kind:'label', q:'How far you’d travel',
           opts:[['close','Close to home'],['region','My region / a short hop'],
                 ['world','Across the world for the right one']] },
@@ -785,7 +785,7 @@
             var bits = [ x.instructor_name ? 'with '+x.instructor_name : null, x.year_completed || null, x.location || null ]
                 .filter(Boolean).map(esc).join(' · ');
             return '<div class="past"><p class="t">'+esc(x.experience_name)
-                + (x.verified ? '<span class="verified">✓ Verified</span>' : '') + '</p>'
+                + (x.verified ? '<span class="verified">✓ Instructor-verified</span>' : '') + '</p>'
                 + (bits ? '<p class="s">'+bits+'</p>' : '')
                 + (x.notes ? '<p class="n">'+esc(x.notes)+'</p>' : '') + '</div>';
         }).join('');

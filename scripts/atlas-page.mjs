@@ -101,8 +101,8 @@ ${body}
 </div></main>
 <section class="trust"><div class="wrap">
 <div class="mono">Why you can trust this map</div>
-<h2 class="serif" style="font-size:20px;margin:8px 0 12px;">What I check before I send you anywhere</h2>
-<p style="color:var(--muted);font-size:15px;">I'm Arnaud. Every school here has to clear the same bar: the craft is actually alive there, there's a named teacher, the credential is what it claims to be, and nobody paid to be listed. Where I'm still verifying something, I say so. If I wouldn't send a friend, it isn't here.</p>
+<h2 class="serif" style="font-size:20px;margin:8px 0 12px;">What we check before we send you anywhere</h2>
+<p style="color:var(--muted);font-size:15px;">Every school here has to clear the same bar: the craft is actually alive there, there's a named teacher, the credential is what it claims to be, and nobody paid to be listed. Where we're still verifying something, we say so.</p>
 <a class="cta" href="/circle" style="margin-top:18px;">Join the Circle</a>
 </div></section>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

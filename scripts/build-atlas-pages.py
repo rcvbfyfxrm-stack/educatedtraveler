@@ -121,6 +121,11 @@ def rating_block(d, x):
     for s in srcs:
         if not (s.get("stars") and s.get("url")):
             continue
+        if not _clean_source(s.get("source")):
+            # Aggregated/indirect source: link it, never print its star number as ours.
+            rows.append(f'<li><span class="dots">★</span> <strong style="font-weight:500">Publicly reviewed by students</strong> · see the reviews on '
+                        f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(s["url"])}">{e(s["source"])} ↗</a></li>')
+            continue
         cnt = f' · {s["count"]} reviews' if s.get("count") else ""
         rows.append(f'<li><span class="dots">★</span> <strong style="font-weight:500">{e(str(s["stars"]))}/5</strong>{e(cnt)} on '
                     f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(s["url"])}">{e(s["source"])} ↗</a></li>')

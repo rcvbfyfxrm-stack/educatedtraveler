@@ -63,7 +63,8 @@ function issue01Html(unsub: string): string {
       <p style="color:#6b625a;font-size:13px;line-height:1.6;margin:0;text-align:center;">The schools worth writing to are on the page — Freedive Dahab among them.</p>
       <p style="${P}margin:28px 0 0 0;">And the question, if you'll humour me — just hit reply:</p>
       <p style="${QSER}">Have you ever held your breath and gone down — even to the bottom of a pool? Tell me how it felt.</p>
-      <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">And if the whole idea frightens you a little, tell me that instead. Both are exactly the right reason to go.</p>`;
+      <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">And if the whole idea frightens you a little, tell me that instead. Both are exactly the right reason to go.</p>
+      <p style="${P}margin:14px 0 0 0;">Hit reply, or message me on <a href="https://wa.me/33695903520" style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me.</p>`;
   return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Letter N&ordm; 1", heading: "Where the divers go to find the deep", body, unsub });
 }
 
@@ -83,7 +84,8 @@ function issue02Html(unsub: string): string {
       <p style="color:#6b625a;font-size:13px;line-height:1.6;margin:0;text-align:center;">The Basque Culinary Center and the starred kitchens are on the page.</p>
       <p style="${P}margin:28px 0 0 0;">And the question — just hit reply:</p>
       <p style="${QSER}">Where have you eaten that made you feel part of something, even for an hour?</p>
-      <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">Tell me the place — and who you were standing next to.</p>`;
+      <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">Tell me the place — and who you were standing next to.</p>
+      <p style="${P}margin:14px 0 0 0;">Hit reply, or message me on <a href="https://wa.me/33695903520" style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me.</p>`;
   return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Letter N&ordm; 2", heading: "The snack named after a movie star", body, unsub });
 }
 
@@ -103,7 +105,8 @@ function issue03Html(unsub: string): string {
       <p style="color:#6b625a;font-size:13px;line-height:1.6;margin:0;text-align:center;">The masters above, and the rest, are on the Atlas.</p>
       <p style="${P}margin:28px 0 0 0;">And a question — just hit reply:</p>
       <p style="${QSER}">Which craft would you cross an ocean to learn, if someone who'd actually teach you were waiting?</p>
-      <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">Tell me the craft — and I'll tell you who I'd point you toward.</p>`;
+      <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">Tell me the craft — and I'll tell you who I'd point you toward.</p>
+      <p style="${P}margin:14px 0 0 0;">Hit reply, or message me on <a href="https://wa.me/33695903520" style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me.</p>`;
   return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Letter N&ordm; 3", heading: "The rarest thing in a kitchen isn't talent", body, unsub });
 }
 

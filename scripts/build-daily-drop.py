@@ -26,7 +26,7 @@ BANNED = re.compile(r"transformation|life-changing|vacation|luxur|\beasy\b", re.
 HOOKS = {
     "source": "This is where {disc} was born.",
     "both": "{place} is both the birthplace of {disc} and its living capital.",
-    "scene": "The strongest {disc} community on earth gathers in {place}.",
+    "scene": "{place} is where the {disc} community actually gathers.",
 }
 CORE_TAGS = {
     "wellness": "#breathwork #yogatok #learnbydoing",
