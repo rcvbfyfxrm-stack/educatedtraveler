@@ -127,6 +127,8 @@ supabase functions deploy send-welcome-email      # edge functions
 
 **`website/js/`** — `repertoire.js` (`window.ET_ATLAS`, the Atlas data + `standardMeta`) · `atlas-ratings.js` (cited public ratings) · `supabase-config.js` · `auth.js` · `database.js`.
 
+⚠ **Atlas pages have TWO generators and one data root.** `scripts/build-atlas-pages.py` (bulk, reads `data/repertoire.js` + `data/atlas-ratings.js`) and `scripts/atlas-page.mjs` (single-sheet) both emit page copy, and decorative strings also live in `data/repertoire.js` itself. Any wording change must land in **both generators AND the data file**, or the next rebuild silently reverts it — grep all three before calling a copy fix done (learned 2026-08-20: three retired-vocabulary blurbs kept resurrecting from the data).
+
 **Supabase** — auth with RLS everywhere. Tables: `profiles`, `launch_waitlist` (the Circle), `user_preferences`, `saved_adventures`, `instructors`, `cohorts`, `enrollments`, `experience_interests`, `survey_responses`, `prior_experiences`, `cohort_messages`. **The ordered migrations in `supabase/migrations/` are the authoritative schema** — not any snapshot. Edge functions: `send-welcome-email`, `send-followup-emails`, `handle-interest`, `circle-broadcast`.
 
 **Design lock — Warm-Dark Editorial.** Ink `#0d0b09` · surface `#14110d` · paper `#f3ede2` (never pure white) · sea `#7fa8a5` · ember `#d28a52`. Fraunces (display) + Inter (body) + IBM Plex Mono (labels). Cores: wellness `#94ad86` · adventure `#6fa3a0` · creative `#cf8f6e` · culinary `#c9a24a`. Copy the head tokens and `tailwind.config` verbatim from `index.html` for any new page. The cold blue/glass/gamified look is retired forever, and Littoralicious CSS is never borrowed.
