@@ -219,14 +219,8 @@
     </div>
     <div class="seatbar">
       <div class="seatbar-top">
-        <div id="count-block">
-          <div class="n"><b id="seats-taken">0</b> <span id="count-unit">seats taken</span></div>
-          <div class="lbl" id="count-lbl">of the 10 that confirm the week</div>
-        </div>
-        <div class="pips" id="pips" aria-hidden="true"></div>
         <div class="deadline">Confirmed at <b>10 seats</b> · €1,500, VAT included · a <b>€350</b> deposit takes one · room capped at <b>15</b></div>
       </div>
-      <div class="updated" id="updated-line"></div>
     </div>
     <div class="cta-row">
       <a class="btn btn-primary cta-jump" href="#apply">Take a seat — apply in 2 minutes</a>
@@ -329,6 +323,7 @@
     <ul class="terms">
       <li><strong>€1,500, VAT included — the whole number.</strong> Ingredients, tools, nitrogen, dossiers: all provided. You bring a chef jacket.</li>
       <li><strong>A €350 deposit takes your seat.</strong> The balance is only asked for once the week is confirmed — never before. Seats go in the order they're taken, deposit or in full; pay in full and you get first refusal on the add-ons.</li>
+      <li><strong>The deposit isn't refundable if you pull out.</strong> Holding a seat means turning someone else away. The one exception is the week itself not running — then every euro comes back, deposits included. And if your October changes, you can pass your seat to another chef.</li>
       <li><strong>You pay EducatedTraveler, and EducatedTraveler handles everything</strong> — the seat, the paperwork, the certificate, the refund if it comes to that. Martin brings the knowledge, the lab and the teaching. We're paid out of that price; nothing is added on top.</li>
       <li><strong>Confirmed the moment 10 seats are taken.</strong> Not there by Tuesday 15 September → the week cancels and every euro is refunded in full — deposits included, said publicly. <strong>Don't buy flights until we announce CONFIRMED.</strong></li>
       <li><strong>After confirmation, seats are transferable, not refundable.</strong> Can't come? Send a chef of comparable calibre in your place, up to 7 days before the week.</li>
@@ -429,42 +424,27 @@
 
 <script>
   /* ============ UPDATE HERE — the only lines to touch ============
-     Counts are REAL SEATS TAKEN on the joint ledger — a €350 deposit is a
-     seat, same as paid in full. Never inflate.                       */
-  var SEATS_TAKEN = 0;
-  /* CONFIRMED flips to true ONLY when SEATS_TAKEN >= 10 verified on the joint
-     ledger — paid seats, never applications, never interest. */
+     There is NO public seat counter. Do not add one back without deciding it
+     deliberately: a number on a page has to be re-verified against the ledger
+     every time money lands, and a stale one is a fabricated scarcity number. */
+  /* CONFIRMED flips to true ONLY when 10 seats are verified TAKEN on the
+     ledger — deposits or paid in full, never applications, never interest. */
   var CONFIRMED   = false;
-  var UPDATED     = "2026-07-16";      /* change every time the count changes    */
   var WHATSAPP    = "33695903520";     /* Arnaud — intl format, no + */
   var MAIL_TO     = ["founder@educatedtraveler.app", "arnaudcallier@pm.me"];
   /* ================================================================ */
-  var THRESHOLD = 10, CAP = 15, SHOW_COUNT_FROM = 3;
+  var CAP = 15;
 
   // red neon countdown — days to the 15 September decision (true urgency only)
   var days = Math.max(0, Math.ceil((new Date("2026-09-15T23:59:59+02:00") - new Date()) / 86400000));
   document.getElementById("neon-days").textContent = days;
   if (days <= 0) document.getElementById("neon").style.display = "none";
 
-  var cb = document.getElementById("count-block"), pips = document.getElementById("pips");
-  if (SEATS_TAKEN >= SHOW_COUNT_FROM) {
-    document.getElementById("seats-taken").textContent = SEATS_TAKEN;
-    for (var i = 0; i < THRESHOLD; i++) {
-      var s = document.createElement("span");
-      s.className = "pip" + (i < Math.min(SEATS_TAKEN, THRESHOLD) ? " on" : "");
-      pips.appendChild(s);
-    }
-    document.getElementById("updated-line").textContent = "count updated " + UPDATED + " — real seats taken only";
-    document.getElementById("st-count").innerHTML = "<b>" + SEATS_TAKEN + "</b> taken · confirms at 10";
-  } else if (SEATS_TAKEN > 0) {
-    document.getElementById("seats-taken").textContent = "";
-    document.getElementById("count-unit").textContent = "The first seats are taken.";
-    document.getElementById("count-lbl").textContent = "confirmed at 10 seats";
-    document.getElementById("updated-line").textContent = "count updated " + UPDATED;
-  } else {
-    cb.querySelector(".n").textContent = "Applications open";
-    document.getElementById("count-lbl").textContent = "first calls this week";
-  }
+  /* No public seat counter, by decision (2026-08-20). The count lives in the
+     private ledger only — the page states the mechanism (confirms at 10, capped
+     at 15) rather than a running number, so there is nothing here that can go
+     stale between two Tuesdays. Proof of who is coming comes from named chefs,
+     with their permission, not from a tally. */
   if (CONFIRMED) {
     document.body.classList.add("is-confirmed");
     document.getElementById("st-count").textContent = "Confirmed — seats to " + CAP + " while they last";
