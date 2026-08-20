@@ -36,7 +36,8 @@
     "modern-new-technique-cuisine",
     "pottery-and-ceramics",
     "sailing-and-yachtmaster",
-    "self-sufficiency"
+    "self-sufficiency",
+    "yacht-crew-and-stcw"
   ],
 
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",

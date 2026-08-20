@@ -22383,6 +22383,263 @@ window.ET_ATLAS = {
         "confidence": "high"
       }
     }
+  ,
+    {
+      "discipline": "Yacht Crew & STCW",
+      "category": "adventure",
+      "certBody": "MCA (Maritime & Coastguard Agency), under the IMO STCW Convention",
+      "goldCredential": "STCW Basic Safety Training — four modules, MCA-approved",
+      "blurb": "The tickets that get you through the passerelle — fire, sea survival, first aid and personal safety — taught to a standard a flag state will actually accept.",
+      "ceiling": "STCW Basic Safety Training is the legal minimum to work aboard, not a qualification to run anything. It gets you to an interview; it does not get you a job, and no school can honestly promise one. What comes after is sea time and a departmental ticket — an honest school says so before you pay.",
+      "room": {
+        "ratio": "Classroom and pool groups of roughly 10–20, in smaller teams for the fire ground and the liferaft.",
+        "day": "Four to five days: firefighting in a smoke house, sea survival in a pool with liferafts, elementary first aid, and personal safety and social responsibility.",
+        "who": "Mostly people going for their first boat — deck, interior and galley — across a wide age range, with no sea experience assumed."
+      },
+      "id": "yacht-crew-and-stcw",
+      "certShort": "STCW",
+      "destinations": [
+        {
+          "place": "Antibes",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "bluewater, Antibes",
+            "Seascope France, Antibes"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred"
+          ],
+          "why": "Antibes is where the Mediterranean's crew actually get hired — the schools, the agencies and the crew houses sit inside the same square kilometre, so the training and the dock are the same walk.",
+          "bestSeason": "Feb–May, before the Med season",
+          "level": "Entry → Officer",
+          "id": "yacht-crew-and-stcw--antibes",
+          "schoolsInfo": [
+            {
+              "name": "bluewater, Antibes",
+              "url": "https://www.bluewateryachting.com/crew-training",
+              "course": "STCW Basic Safety Training",
+              "confidence": "high",
+              "blurb": "Training running out of 7 Boulevard d'Aguillon since 1991, MCA and RYA approved, with named instructors published on its own site — John Wyborn as training director, Vincent Lévesque-Martel as RYA chief instructor."
+            },
+            {
+              "name": "Seascope France, Antibes",
+              "url": "https://www.yachtcrewtraining.com/",
+              "course": "STCW Basic Safety Training",
+              "confidence": "high",
+              "blurb": "At L'Hippocampe, 19 Avenue Thiers. MCA and RYA approved, and also IAMI/GUEST — so the interior route is taught to a real standard rather than treated as an afterthought."
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "school states English instruction"
+        },
+        {
+          "place": "Palma de Mallorca",
+          "country": "Spain",
+          "region": "Southern Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "bluewater, Palma"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "gold-cred"
+          ],
+          "why": "Palma runs the refit yards, so boats sit alongside for months and the crew who work them stay ashore — the one hub where training, winter work and an address overlap.",
+          "bestSeason": "Oct–Apr, the refit months",
+          "level": "Entry → Officer",
+          "id": "yacht-crew-and-stcw--palma-de-mallorca",
+          "schoolsInfo": [
+            {
+              "name": "bluewater, Palma",
+              "url": "https://www.bluewateryachting.com/crew-training",
+              "course": "STCW Basic Safety Training",
+              "confidence": "high",
+              "blurb": "Calle San Juan 4. The full MCA range in the Balearics, with a head of safety training named on its own site."
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "school states English instruction"
+        },
+        {
+          "place": "Cowes, Isle of Wight",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "UKSA (United Kingdom Sailing Academy), Cowes",
+            "Flying Fish, Cowes"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "gold-cred",
+            "heritage"
+          ],
+          "why": "Cowes teaches crew residentially — the bed, the food and the fire ground come through the same door — on the water the RYA built its schemes around.",
+          "bestSeason": "Mar–Oct",
+          "level": "Entry → Officer",
+          "id": "yacht-crew-and-stcw--cowes-isle-of-wight",
+          "schoolsInfo": [
+            {
+              "name": "UKSA (United Kingdom Sailing Academy), Cowes",
+              "url": "https://uksa.org/",
+              "course": "Superyacht Crew Training",
+              "confidence": "high",
+              "blurb": "A registered charity on a four-acre waterfront site at Arctic Road, where food and accommodation come as standard and the STCW modules sit inside a longer crew programme."
+            },
+            {
+              "name": "Flying Fish, Cowes",
+              "url": "https://www.flyingfishonline.com/stcw/",
+              "course": "STCW Basic Safety Training",
+              "confidence": "high",
+              "blurb": "At 124 High Street. MCA and RYA approved, running two-week deckhand and steward/ess routes with the STCW modules built in. Publishes no email address — the way in is the phone."
+            }
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a month+",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
+        },
+        {
+          "place": "Fort Lauderdale, Florida",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Maritime Professional Training (MPT), Fort Lauderdale"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "gold-cred"
+          ],
+          "why": "The American door in: USCG and MCA tickets under one roof, which is the whole question if you don't yet know which side of the Atlantic your working life happens on.",
+          "bestSeason": "Oct–Apr, the Caribbean season",
+          "level": "Entry → Officer",
+          "id": "yacht-crew-and-stcw--fort-lauderdale",
+          "schoolsInfo": [
+            {
+              "name": "Maritime Professional Training (MPT), Fort Lauderdale",
+              "url": "https://www.mptusa.com/",
+              "course": "STCW Basic Training",
+              "confidence": "high",
+              "blurb": "Running since 1983 at 1915 South Andrews Avenue, with over 175 deck and engine courses approved by the USCG, the MCA, DNV or the Nautical Institute."
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
+        },
+        {
+          "place": "Dover, Kent",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Maritime Skills Academy, Dover"
+          ],
+          "masters": [],
+          "badges": [
+            "school",
+            "gold-cred"
+          ],
+          "why": "The academy owns its fire ground, its survival pool and its lifeboat centre instead of hiring them by the day — and anyone who has done safety training in a borrowed pool knows what that changes.",
+          "bestSeason": "Year-round",
+          "level": "Entry → Officer",
+          "id": "yacht-crew-and-stcw--dover-kent",
+          "schoolsInfo": [
+            {
+              "name": "Maritime Skills Academy, Dover",
+              "url": "https://www.maritimeskillsacademy.com/",
+              "course": "STCW Basic Safety Training",
+              "confidence": "high",
+              "blurb": "Part of the Viking Maritime Group, at Menzies Road. Purpose-built survival pool, fire ground and lifeboat centre, with approvals from the MCA, the Bahamas Maritime Authority and the Nautical Institute."
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
+        },
+        {
+          "place": "Sydney",
+          "country": "Australia",
+          "region": "Oceania",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Superyacht Crew Academy, Sydney"
+          ],
+          "masters": [],
+          "badges": [
+            "school",
+            "gold-cred"
+          ],
+          "why": "Almost every record of this industry is written from Antibes and Fort Lauderdale. Sydney is the southern-hemisphere door, and someone starting here deserves to know what their tickets are worth before they buy a flight.",
+          "bestSeason": "Year-round",
+          "level": "Entry → Officer",
+          "id": "yacht-crew-and-stcw--sydney",
+          "schoolsInfo": [
+            {
+              "name": "Superyacht Crew Academy, Sydney",
+              "url": "https://www.superyacht-crew-academy.com/",
+              "course": "STCW Basic Safety Training",
+              "confidence": "high",
+              "blurb": "Trading as Club Sail Pty Ltd, RTO 91462, at Frenchs Forest. Recognised by AMSA as well as the MCA and IYT — a different regulator, which is the point of having it on the record."
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
+        }
+      ],
+      "featured": {
+        "id": "yacht-crew-and-stcw--antibes",
+        "place": "Antibes",
+        "country": "France",
+        "school": "bluewater, Antibes",
+        "url": "https://www.bluewateryachting.com/crew-training",
+        "course": "STCW Basic Safety Training",
+        "description": "The four MCA-approved modules — personal survival techniques, fire prevention and firefighting, elementary first aid, and personal safety and social responsibility — taught at bluewater's own centre on Boulevard d'Aguillon, where the training department has run since 1991.",
+        "duration": "About a week for the four modules",
+        "format": "In person at the Antibes centre, classroom with pool and fire-ground practicals",
+        "certification": "STCW Basic Safety Training, MCA-approved",
+        "fitsBecause": "Antibes is where the Mediterranean's crew are actually hired, so the ticket and the dock are the same walk — and bluewater publishes the names of the people who teach it, which most schools in this craft do not."
+      }
+    }
   ],
   "enrichedAt": "2026-06-11",
   "wave2At": "2026-06-11",
