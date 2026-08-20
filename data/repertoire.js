@@ -11040,7 +11040,7 @@ window.ET_ATLAS = {
             "gold-cred",
             "heritage"
           ],
-          "why": "Triana's tablaos and the Cristina Heeren Foundation put you inside the densest living cohort in flamenco, certified at the source.",
+          "why": "Triana's tablaos and the Cristina Heeren Foundation put you inside the densest living cohort in flamenco, at the source.",
           "bestSeason": "Sep-Jun (avoid Aug heat); Apr Feria",
           "level": "Beginner -> Professional",
           "id": "flamenco-and-dance--seville-triana",
@@ -16628,7 +16628,7 @@ window.ET_ATLAS = {
       "category": "creative",
       "certBody": "No single grading federation; competitive standard set by the Mundial de Tango (Tango BA World Championship) and conservatory diplomas from Buenos Aires academies",
       "goldCredential": "Mundial de Tango (Tango Dance World Championship) title in Tango de Pista or Escenario — or a completed professional diploma from a recognized Buenos Aires conservatory",
-      "blurb": "Born in the immigrant tenements and dance halls of the Río de la Plata, tango is an embrace you don't perform but feel — a conversation in walking, certified at the source where the world championship is won.",
+      "blurb": "Born in the immigrant tenements and dance halls of the Río de la Plata, tango is an embrace you don't perform but feel — a conversation in walking, proved at the source where the world championship is won.",
       "ceiling": "Immersing in Buenos Aires for a week or two — lessons by day, milongas by night — gets a beginner genuinely dancing socially, with a real embrace and walk. Musicality and improvisation deepen for years.",
       "room": {
         "ratio": "Group classes plus private lessons; partner rotation is the norm.",
@@ -17129,7 +17129,7 @@ window.ET_ATLAS = {
       "category": "creative",
       "certBody": "Sangeet Natak Akademi (recognizing body for Indian classical dance) and conservatory diplomas from Kalakshetra Foundation, an Institute of National Importance under India's Ministry of Culture",
       "goldCredential": "Kalakshetra Foundation 4-year Diploma in Bharatanatyam (or Post-Diploma) — and the traditional Arangetram solo debut marking a dancer's emergence",
-      "blurb": "Carved into the temple walls of Thanjavur and revived as a national treasure, Bharatanatyam is geometry made devotion — every gesture a word, certified through years of disciplined transmission at the source.",
+      "blurb": "Carved into the temple walls of Thanjavur and revived as a national treasure, Bharatanatyam is geometry made devotion — every gesture a word, handed down through years of disciplined transmission at the source.",
       "destinations": [
         {
           "place": "Chennai",

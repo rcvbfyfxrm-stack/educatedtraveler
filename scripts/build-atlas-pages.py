@@ -160,9 +160,9 @@ TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(
 <li><strong style="font-weight:500">The craft is actually alive there.</strong> A working scene, with people who do this every day — not a demo put on for visitors.</li>
 <li><strong style="font-weight:500">There's a real teacher behind it.</strong> Named, still practising, and certified where the craft has certificates.</li>
 <li><strong style="font-weight:500">The credential is what it claims to be.</strong> A state diploma and a certificate a school prints itself are not the same thing. We check which, and we say which.</li>
-<li><strong style="font-weight:500">We tell you how sure we are.</strong> Most pages here are verified by hand. A few say "still checking" — we'd rather admit that than pretend.</li>
+<li><strong style="font-weight:500">Nothing here has been stood in yet.</strong> An open sheet — one with a school named — means desk research, not a visit. No place here has been stood in and dated. When one is, the check will carry a name and a date. We'd rather say that than pretend.</li>
 <li><strong style="font-weight:500">Nobody pays to be here.</strong> No commission, no selling the trip. The order on this map is the strength of the community, never the size of the wallet.</li>
-<li><strong style="font-weight:500">If we wouldn't send a friend, it isn't on the map.</strong></li>
+__BLANK_LI__
 </ul>
 <details style="margin-top:18px">
 <summary style="cursor:pointer;color:var(--sea);font-size:14px">Before you trust any school — mine or anyone else's — ask these five things</summary>
@@ -266,7 +266,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
         '?subject=' + _q("Atlas — " + _clean) +
         '&amp;body=' + _q("What looked wrong:\n\n\n(page: " + SITE + canonical_path + ")") +
         '" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">'
-        'Something here out of date? Tell me &mdash; I check every sheet by hand.</a></p>'
+        'Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p>'
     )
     crumbs = ""
     if breadcrumbs:
@@ -292,7 +292,7 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
     tail_scripts = "\n".join(tail)
     fonts = (atlas_hub.LETTER_FONTS if extra_head else
              "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap")
-    return f"""<!DOCTYPE html>
+    _page_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -378,6 +378,10 @@ footer a {{ color:var(--sea); }}
 {CUR_TOGGLE}
 </body>
 </html>"""
+    # The blank-line credo belongs only where there IS a blank — the not-open sheets.
+    _blank = ('<li><strong style="font-weight:500">An honest blank outranks a plausible name.</strong></li>'
+              if 'class="notyet"' in body else '')
+    return _page_html.replace("__BLANK_LI__", _blank)
 
 def circle_cta(line):
     return (f'<p style="margin-top:8px;opacity:.78;max-width:60ch">{e(line)}</p>'
@@ -422,8 +426,8 @@ def short_sheet(d, total):
     prices — is deliberately absent from this page and from its source.
     """
     top = max(d["destinations"], key=lambda x: x["communityRank"], default=None)
-    alive = (f'<p class="alive">Where the community around it is strongest: '
-             f'<b>{e(top["place"])}, {e(top["country"])}</b>.</p>') if top else ""
+    alive = (f'<p class="alive">Strongest community around it, on public sources: '
+             f'<b>{e(top["place"])}, {e(top["country"])}</b> &mdash; researched, not checked.</p>') if top else ""
     return f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / {e(CORES[d['category']][0])}</div>
 <p style="margin:16px 0 0"><span class="notyet">Not open yet</span></p>
