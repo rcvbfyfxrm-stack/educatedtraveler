@@ -59,6 +59,10 @@
                                 outline:none; text-align:right; width:min(260px,70%); padding:0 2px 3px; }
         .sheet .sign .signline::placeholder{ color:rgba(44,35,26,0.30); font-size:22px; }
         .sheet .sign .signline:focus{ border-bottom-color:rgba(44,35,26,0.62); }
+        /* the boundary line, immediately above the sheet */
+        .scope{ margin:22px 0 10px; padding:12px 14px; border-left:2px solid var(--sea);
+                background:rgba(127,168,165,0.07); border-radius:0 4px 4px 0;
+                font-size:14px; line-height:1.6; color:rgba(243,237,226,0.80); }
         *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
         body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
               min-height:100vh; line-height:1.55; }
@@ -318,6 +322,14 @@
                     <p><span class="g-k">A say</span>What the Circle asks for is how I decide what to check and what to build next.</p>
                 </div>
 
+                <!-- Said BEFORE the sheet, not after: without it the letters arrive
+                     asking for trading and marketing, and the honest answer is always
+                     no. The Atlas only holds crafts with a bench, a room and a pair of
+                     hands, so the boundary belongs where the writing starts. -->
+                <p class="scope">One thing before you write: I only map crafts you learn
+                    with your hands, in a real place, standing beside someone who can already do it.
+                    Anything that lives on a screen &mdash; trading, code, marketing &mdash; is not what this is for.</p>
+
                 <div class="sheet-wrap">
                     <div class="sheet">
                         <div class="to">Arnaud,</div>
@@ -338,6 +350,25 @@
                     <button type="button" data-ins="What's really going on for me is ">What's really going on for me&hellip;</button>
                 </div>
                 <p class="help" style="margin-top:12px;">One sentence or ten. I read every one myself, and I answer.</p>
+
+                <!-- One optional line, and it does real work: `refresh-unlocked.mjs`
+                     only counts a hand for a craft from interests of kind 'discipline'
+                     (a free-text letter, kind:'dream', counts for nothing). Without
+                     this field a letter about pottery would never open the pottery
+                     page — which is precisely what the promise below offers. Unmatched
+                     text is ignored by the unlock index, so it can never open the
+                     wrong craft. -->
+                <div class="field" style="margin-top:18px;">
+                    <label class="fld"><span class="lbl">The craft, in a word or two <span style="opacity:.6;font-weight:400;">(optional)</span></span>
+                        <input type="text" id="f_craft" maxlength="80" placeholder="pottery, freediving, sourdough&hellip;">
+                    </label>
+                </div>
+
+                <p class="scope" style="border-left-color:var(--ember);background:rgba(210,138,82,0.07);">
+                    Most crafts in the Atlas aren't open yet &mdash; they show what the craft is and
+                    little else. If yours is one of them, your letter is what opens it: I go and find
+                    where it's most alive, and send you what I find, with its sources, and with
+                    whatever I couldn't confirm marked as exactly that.</p>
 
                 <div class="row">
                     <button class="cta" id="go0">Next &rarr;</button>
@@ -491,7 +522,7 @@
         // /portrait already holds that questionnaire; claim_waitlist_answers() carries
         // the name and the letter across, so nothing has to be retyped there.
 
-        var state = { name:'', email:'', letter:'' };
+        var state = { name:'', email:'', letter:'', craft:'' };
         var current = 0;
         function $(id){ return document.getElementById(id); }
 
@@ -548,6 +579,7 @@
             if(!name){ err.textContent='Sign it, so I know who I am answering.'; err.style.display='block'; $('f_name').focus(); return; }
             err.style.display='none';
             state.letter=letter; state.name=name;
+            state.craft=$('f_craft').value.trim();
             show(1);
         });
 
@@ -614,8 +646,13 @@
         // how the letter is already on the wall when they sign in. Renaming them silently
         // breaks both.
         function buildInterests(){
-            return [ { kind:'profile', name:state.name, region:null },
-                     { kind:'dream',   text:state.letter } ];
+            var arr = [ { kind:'profile', name:state.name, region:null },
+                        { kind:'dream',   text:state.letter } ];
+            // kind:'discipline' is the ONLY shape refresh-unlocked.mjs counts as a hand
+            // (see craftsIn()). It resolves the text against the real Atlas index and
+            // ignores anything that doesn't match, so a typo opens nothing.
+            if(state.craft){ arr.push({ kind:'discipline', discipline:state.craft }); }
+            return arr;
         }
 
         $('submit').addEventListener('click', async function(){

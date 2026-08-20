@@ -247,7 +247,8 @@ const LP = 'style="margin:0 0 18px 0;"';
 function welcomePlainHtml(unsub: string): string {
   const body = `
     <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A place, a person, your people.</p>
-    <p ${LP}>You're in. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. The list is the part that does the work: what you tell me decides which craft I go and check next.</p>
+    <p ${LP}>Your letter is here, and I have read it. A proper answer is coming — give me a few days. There is one of me, and I would rather send you something real than something quick.</p>
+    <p ${LP}>While you wait, here is what you have joined. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.</p>
     <p ${LP}>So — the letter. One place.</p>
     <p ${LP}>In 1924 a young potter named <strong>Shoji Hamada</strong> could have set up anywhere. He had spent three years in England building a pottery beside <strong>Bernard Leach</strong>, he was already good, and the capital was open to him. He chose <strong>Mashiko</strong> — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.</p>
     <p ${LP}>He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, from the clay and the ash and the iron glaze of that valley. And for most of his life he sent them out unsigned — no seal, nothing stamped in the foot. He signed the wooden boxes they travelled in, telling Leach he could not escape the social obligation, but he never signed the pot. Asked why, he said: “If you cannot see who it is by, it is either because the pot is bad, or because you are blind.” Japan made him a Living National Treasure in 1955, the first year the title was given.</p>
@@ -256,11 +257,11 @@ function welcomePlainHtml(unsub: string): string {
     <p ${LP}>That is the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, judged by the strength of the people you'd find when you arrived.</p>
     <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a></p>
     <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.</p>
-    <p ${LP}>And one thing I'd genuinely like to know — just hit reply:</p>
-    <p style="margin:0 0 18px 0;"><strong>What is the one craft you'd give a real week of your life to learn at the source?</strong></p>
-    <p ${LP}>And if you teach something — if there's a room you could open for a week — tell me that instead. I'm asking both questions now, because a week needs someone on each side of it.</p>
-    <p ${LP}>I read every reply.</p>
-    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20joined%20the%20Circle.%20The%20craft%20I%27d%20give%20a%20week%20to%20is" style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p ${LP}>You have already told me the craft — it is in your letter, and it is normally the question I have to ask. So there is only one left, and only if it applies to you:</p>
+    <p style="margin:0 0 18px 0;"><strong>Do you teach something? Is there a room you could open for a week?</strong></p>
+    <p ${LP}>I ask because a week needs someone on each side of it, and the people who can teach are often already standing in the Circle. Nothing is agreed by answering — it only tells me you exist.</p>
+    <p ${LP}>I read every letter myself, and I answer.</p>
+    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20letter." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
     <p style="margin:0;">— Arnaud</p>
     <p style="margin:28px 0 0 0;"><strong>P.S.</strong> What I'm doing this month: working through the crafts people have written to me about, one at a time, and finding out who actually teaches them. And if someone came to mind while you were reading — the friend who has been saying for years they'd learn to sail properly if they ever had the time — send them the Atlas page for it.</p>`;
@@ -270,7 +271,9 @@ function welcomePlainHtml(unsub: string): string {
 function welcomeText(unsub: string): string {
   return `A place, a person, your people.
 
-You're in. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. The list is the part that does the work: what you tell me decides which craft I go and check next.
+Your letter is here, and I have read it. A proper answer is coming — give me a few days. There is one of me, and I would rather send you something real than something quick.
+
+While you wait, here is what you have joined. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.
 
 So — the letter. One place.
 
@@ -288,16 +291,16 @@ The Atlas is here: https://educatedtraveler.app/atlas
 
 I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.
 
-And one thing I'd genuinely like to know — just hit reply:
+You have already told me the craft — it is in your letter, and it is normally the question I have to ask. So there is only one left, and only if it applies to you:
 
-What is the one craft you'd give a real week of your life to learn at the source?
+Do you teach something? Is there a room you could open for a week?
 
-And if you teach something — if there's a room you could open for a week — tell me that instead. I'm asking both questions now, because a week needs someone on each side of it.
+I ask because a week needs someone on each side of it, and the people who can teach are often already standing in the Circle. Nothing is agreed by answering — it only tells me you exist.
 
-I read every reply.
+I read every letter myself, and I answer.
 
 Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
-https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20joined%20the%20Circle.%20The%20craft%20I%27d%20give%20a%20week%20to%20is
+https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20letter.
 
 Talk soon,
 — Arnaud
