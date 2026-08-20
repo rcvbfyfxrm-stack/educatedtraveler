@@ -1039,6 +1039,18 @@
         // the questionnaire is a choice they make, never something the link forces.
         (function(){ var e=$('edit-portrait'); if(e) e.addEventListener('click', function(){ if(window.openEnrich){ window.openEnrich(); } else { show(1); } }); })();
 
+        // A letter alone is not a portrait. Since /circle became letter-first, every new
+        // member arrives holding exactly a name, an address and a letter — and if that
+        // counted as "done" they would land on a finished-looking page and never be asked
+        // the questions the letter doesn't answer. So neither the letter nor a bare region
+        // confirms anything here: substance is a craft, a profession, or a gradient.
+        function hasSubstance(){
+            return !!(craftList().length || state.prof
+                      || answer('lifestage') || answer('depth')
+                      || answer('timing') || answer('length') || answer('reach'));
+        }
+        var arrivedThin = false;
+
         // ── boot: detect session, restore draft, auto-save after magic-link return ──
         async function boot(){
             var sb=window.supabaseClient;
@@ -1153,9 +1165,7 @@
                     hadDraft = loadDraft();
                     unionPrefillCrafts();
                 } else if(rawDraft){ clearDraft(); }
-                if(!hadDraft && !portraitComplete
-                   && (craftList().length || state.letter || state.prof || state.region
-                       || answer('lifestage') || answer('depth') || answer('timing') || answer('length') || answer('reach'))){
+                if(!hadDraft && !portraitComplete && hasSubstance()){
                     // Magic-link return: the account was founded when they joined the
                     // Circle. Save the claimed answers and CONFIRM — the link signs
                     // them in, it never asks them to fill the questionnaire again.
@@ -1167,10 +1177,13 @@
                 // mid-edit draft): this is a SIGN-IN. Show their portrait as done —
                 // the magic link connects to the account, never re-opens the form.
                 restoreInputs();
-                if(portraitComplete || hadDraft || craftList().length || state.letter || state.prof
-                   || answer('lifestage') || answer('depth') || answer('timing') || answer('length') || answer('reach')){
+                if(portraitComplete || hadDraft || hasSubstance()){
                     finish(); return;
                 }
+                // Letter-only: they joined through the new /circle, so this is the
+                // first time the questions have been put to them. Say that, rather
+                // than showing a blank form to someone who has already written.
+                arrivedThin = true;
             } else {
                 markWho('Not signed in — one click from my email fixes that');
                 if(loadDraft()) restoreInputs();
@@ -1188,6 +1201,17 @@
                     var pill=document.querySelector('#beat0 .who');
                     if(pill) pill.innerHTML='<span class="dot"></span>'+esc(state.name)+' · '+esc(state.email);
                     if(current===0) show(1);
+                }
+                // They wrote the letter; these are the questions it didn't cover.
+                // Frame it that way, or a form after a letter reads as a re-ask.
+                if(arrivedThin){
+                    var eb=document.querySelector('#beat1 .eyebrow');
+                    if(eb) eb.textContent='Your letter is with me';
+                    var q=document.querySelector('#beat1 h2.q');
+                    if(q) q.textContent='Now the part a letter can’t hold.';
+                    var sub=document.querySelector('#beat1 .sub-tight');
+                    if(sub) sub.textContent='I’ve read what you sent. These fill in the rest of your portrait — '
+                        + 'none of it is required, and you can stop wherever you like.';
                 }
             }
         }
