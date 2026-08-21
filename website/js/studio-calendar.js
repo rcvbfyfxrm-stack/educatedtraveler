@@ -291,6 +291,17 @@ window.ET_DAILY_DROP = [
   {
     "day": 27,
     "core": "adventure",
+    "discipline": "Yacht Crew & STCW",
+    "place": "Antibes, France",
+    "atlasUrl": "https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes",
+    "clipBrief": "30-60s wordless process: hands + material of Yacht Crew & STCW, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "bluewater, Antibes",
+    "footageUrl": "https://www.bluewateryachting.com/crew-training",
+    "caption": "The strongest Yacht Crew & STCW community on earth gathers in Antibes.\n\nAntibes is where the Mediterranean's crew actually get hired — the schools, the agencies and the crew houses sit inside the same square kilometre, so the training and the dock are the same walk.\n\nCommunity strength: Legendary. Season: Feb–May, before the Med season.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #antibes #yachtcrewstcw"
+  },
+  {
+    "day": 28,
+    "core": "adventure",
     "discipline": "Spearfishing",
     "place": "Kona, Big Island, United States",
     "atlasUrl": "https://educatedtraveler.app/atlas/spearfishing--kona-big-island",

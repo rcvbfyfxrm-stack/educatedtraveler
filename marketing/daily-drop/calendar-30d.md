@@ -470,7 +470,25 @@ The full page: https://educatedtraveler.app/atlas/lifestyle-medicine
 #breathwork #yogatok #learnbydoing #unitedstates #lifestylemedicine
 ```
 
-## Day 27 — Spearfishing · Kona, Big Island, United States  `[adventure]`
+## Day 27 — Yacht Crew & STCW · Antibes, France  `[adventure]`
+- **Atlas page:** https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes
+- **Footage:** bluewater, Antibes — https://www.bluewateryachting.com/crew-training (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Yacht Crew & STCW, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+The strongest Yacht Crew & STCW community on earth gathers in Antibes.
+
+Antibes is where the Mediterranean's crew actually get hired — the schools, the agencies and the crew houses sit inside the same square kilometre, so the training and the dock are the same walk.
+
+Community strength: Legendary. Season: Feb–May, before the Med season.
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes
+
+#adventuretravel #skillsnotsouvenirs #learnbydoing #antibes #yachtcrewstcw
+```
+
+## Day 28 — Spearfishing · Kona, Big Island, United States  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/spearfishing--kona-big-island
 - **Footage:** Kona Freedivers — https://www.konafreedivers.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Spearfishing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
