@@ -18,9 +18,24 @@ serve(async (req) => {
     const body = await req.json().catch(() => ({}));
 
     // Safe self-test: POST {"dryRun":true} renders without sending or touching data.
+    // Optional {"issue":"teach-offer"} so a NEW template can be rendered and read
+    // before a real person is ever the one who receives it. Falls back to the
+    // welcome, and refuses an unknown key rather than throwing on undefined.
+    const pickIssue = (k: unknown) => {
+      const key = typeof k === "string" && k in ISSUES ? k : "welcome";
+      return { key, issue: ISSUES[key] };
+    };
+
     if (body?.dryRun) {
-      const html = ISSUES["welcome"].html("https://educatedtraveler.app/unsub-preview");
-      return json({ ok: true, dryRun: true, subject: ISSUES["welcome"].subject, htmlLength: html.length });
+      const { key, issue } = pickIssue(body?.issue);
+      if (typeof body?.issue === "string" && body.issue !== key) {
+        return json({ error: `unknown issue '${body.issue}'`, known: Object.keys(ISSUES) }, 400);
+      }
+      const unsub = "https://educatedtraveler.app/unsub-preview";
+      const html = issue.html(unsub, "Hiroko", "Pottery & Ceramics");
+      const text = issue.text?.(unsub, "Hiroko", "Pottery & Ceramics");
+      return json({ ok: true, dryRun: true, issue: key, subject: issue.subject,
+                    htmlLength: html.length, textChars: text ? text.length : 0, text: text ?? null });
     }
 
     // Inbox test: POST {"test":true} sends the current welcome to Arnaud only
@@ -29,9 +44,17 @@ serve(async (req) => {
     if (body?.test) {
       const TEST_TO = Deno.env.get("LEAD_NOTIFY_TO") ?? "arnaudcallier@pm.me";
       const unsub = "https://educatedtraveler.app/unsub-preview";
-      const { subject, html, text } = ISSUES["welcome"];
-      const r = await sendPersonalEmail(TEST_TO, "[TEST] " + subject, html(unsub), text?.(unsub));
-      return json(r.ok ? { ok: true, test: true, id: r.id, to: TEST_TO, textChars: text ? text(unsub).length : 0 } : { error: r.error }, r.ok ? 200 : 500);
+      const { key, issue } = pickIssue(body?.issue);
+      if (typeof body?.issue === "string" && body.issue !== key) {
+        return json({ error: `unknown issue '${body.issue}'`, known: Object.keys(ISSUES) }, 400);
+      }
+      const { subject, html, text } = issue;
+      const name = typeof body?.name === "string" ? body.name : "";
+      const craft = typeof body?.craft === "string" ? body.craft : "";
+      const subj = "[TEST] " + subject.replace("{CRAFT}", craft || "that craft");
+      const r = await sendPersonalEmail(TEST_TO, subj, html(unsub, name, craft), text?.(unsub, name, craft));
+      return json(r.ok ? { ok: true, test: true, issue: key, id: r.id, to: TEST_TO,
+                           textChars: text ? text(unsub, name, craft).length : 0 } : { error: r.error }, r.ok ? 200 : 500);
     }
 
     const rec = body?.record;
