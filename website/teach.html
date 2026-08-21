@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open a room — EDUCATEDTRAVELER</title>
 
-    <meta name="description" content="If you teach a craft with your hands and you have a room you could open for a week, tell me what you could open. Nothing is agreed here — it tells me you exist.">
+    <meta name="description" content="If you teach a craft with your hands and you have a room you could open for a week or more, tell me what you could open. Nothing is agreed here — it tells me you exist.">
     <link rel="canonical" href="https://educatedtraveler.app/teach">
     <meta property="og:title" content="Open a room — EDUCATEDTRAVELER">
     <meta property="og:description" content="The other side of a Lab Week: the people who could teach one.">
@@ -317,7 +317,7 @@
                 <h1 class="hook">You teach it.<br>Tell me what you could open.</h1>
                 <p class="sub">I'm Arnaud, and I am never the teacher &mdash; I find the people who are, and I bring
                     a handful of the right students to their room. If you teach a craft with your hands, and there's a
-                    bench, a kitchen, a workshop or a boat you could open for a week, this is where you say so.</p>
+                    bench, a kitchen, a workshop or a boat you could open for a week or more, this is where you say so.</p>
 
                 <p class="scope">Nothing is agreed here, and nothing is promised. This tells me you exist, in your own
                     words. If it fits what the Circle is asking for, I write to you and we talk properly &mdash; and I check
@@ -354,7 +354,7 @@
                 <button class="back" data-back="0">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">The room</p>
                 <h2 class="q">Where would it happen?</h2>
-                <p class="sub-tight">A week needs a real place with your tools in it. Tell me what the space is, and
+                <p class="sub-tight">It needs a real place with your tools in it. Tell me what the space is, and
                     whether it's yours to open.</p>
 
                 <div class="field">
@@ -377,15 +377,22 @@
             <!-- BEAT 3 — the only promise ET ever makes to a student: what they leave able to DO -->
             <section class="beat" id="beat2" aria-label="Step 3: the week">
                 <button class="back" data-back="1">&larr; back</button>
-                <p class="eyebrow" style="margin-bottom:14px;">The week</p>
+                <p class="eyebrow" style="margin-bottom:14px;">The teaching</p>
                 <h2 class="q">What would they leave able to do?</h2>
-                <p class="sub-tight">Not what the week covers &mdash; what's in their hands on Friday that wasn't there on
-                    Monday. That one sentence is the whole thing I sell, so it has to be yours, not mine.</p>
+                <p class="sub-tight">Not what it covers &mdash; what's in their hands at the end that wasn't there at the
+                    start. That one sentence is the whole thing I put my name to, so it has to be yours, not mine.</p>
 
                 <div class="field">
-                    <label class="fld"><span class="lbl">By Friday, they can&hellip;</span>
+                    <label class="fld"><span class="lbl">When they leave, they can&hellip;</span>
                         <textarea id="f_outcome" rows="4" placeholder="e.g. throw, trim and glaze a lidded pot, and load a wood kiln without being told what to do next."></textarea>
                     </label>
+                </div>
+                <div class="field">
+                    <span class="lbl">How long would it need?</span>
+                    <div class="chips" data-single="length" id="g_length"></div>
+                    <div class="own"><input type="text" id="f_length_own" maxlength="120" placeholder="&hellip;or say it in your own words"></div>
+                    <p class="help">A week is the shape I know how to fill. If your craft needs longer, say so &mdash; I'd
+                        rather build the real thing than cut it to fit.</p>
                 </div>
                 <div class="field">
                     <span class="lbl">Who it's for</span>
@@ -478,10 +485,19 @@
             ['beginners','Complete beginners'],
             ['some','People with some grounding'],
             ['serious','Serious practitioners only'],
-            ['any','Anyone — I adapt the week']
+            ['any','Anyone — I adapt it']
+        ];
+        // A week is the Lab Week shape, but a craft that genuinely needs a month
+        // should say a month rather than be trimmed to fit the format.
+        var LENGTHS = [
+            ['week','A week'],
+            ['two-weeks','Two weeks'],
+            ['month','A month'],
+            ['longer','Longer — it needs the time']
         ];
 
-        var state = { name:'', craft:'', record:'', where:'', room:'', outcome:'', level:null, level_own:'', email:'' };
+        var state = { name:'', craft:'', record:'', where:'', room:'', outcome:'',
+                      level:null, level_own:'', length:null, length_own:'', email:'' };
         var current = 0;
         function $(id){ return document.getElementById(id); }
 
@@ -497,10 +513,10 @@
             b.addEventListener('click', function(){ show(parseInt(b.getAttribute('data-back'),10)); });
         });
 
-        // ── the one set of chips on the page ──
-        (function(){
-            var box=$('g_level');
-            LEVELS.forEach(function(pair){
+        // ── single-choice chip groups: pressing the pressed one clears it ──
+        function buildChips(group, pairs){
+            var box=$('g_'+group);
+            pairs.forEach(function(pair){
                 var b=document.createElement('button');
                 b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false');
                 b.textContent=pair[1];
@@ -508,15 +524,18 @@
                     var on = b.getAttribute('aria-pressed')==='true';
                     Array.prototype.forEach.call(box.children, function(c){ c.setAttribute('aria-pressed','false'); });
                     b.setAttribute('aria-pressed', on?'false':'true');
-                    state.level = on ? null : pair[0];
+                    state[group] = on ? null : pair[0];
                 });
                 box.appendChild(b);
             });
-        })();
-        function levelAnswer(){
-            var own=$('f_level_own').value.trim();
+        }
+        buildChips('level', LEVELS);
+        buildChips('length', LENGTHS);
+        // their own words win over the chip — the chip is a shortcut, not the answer
+        function answerOf(group, pairs){
+            var own=$('f_'+group+'_own').value.trim();
             if(own) return own;
-            for(var i=0;i<LEVELS.length;i++){ if(LEVELS[i][0]===state.level) return LEVELS[i][1]; }
+            for(var i=0;i<pairs.length;i++){ if(pairs[i][0]===state[group]) return pairs[i][1]; }
             return '';
         }
 
@@ -540,6 +559,7 @@
         $('go2').addEventListener('click', function(){
             state.outcome=$('f_outcome').value.trim();
             state.level_own=$('f_level_own').value.trim();
+            state.length_own=$('f_length_own').value.trim();
             $('err2').style.display='none'; show(3);
         });
 
@@ -568,7 +588,8 @@
                 { kind:'profile', name:state.name, region:state.where||null },
                 { kind:'instructor', craft:state.craft, offer:state.outcome||null,
                   record:state.record||null, room:state.room||null,
-                  where:state.where||null, level:levelAnswer()||null }
+                  where:state.where||null, level:answerOf('level', LEVELS)||null,
+                  length:answerOf('length', LENGTHS)||null }
             ];
         }
 
