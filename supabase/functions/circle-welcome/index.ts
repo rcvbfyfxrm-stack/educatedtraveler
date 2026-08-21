@@ -68,6 +68,10 @@ serve(async (req) => {
     // Both shapes: the hub letter writes "atlas-letter", a craft sheet "atlas-letter:<slug>".
     const isLetter = String(row.source ?? "").startsWith("atlas-letter");
 
+    // Someone offering to open a room (/teach). They get the master's reply, never
+    // the Mashiko welcome — that one is written to a person deciding what to learn.
+    const isTeach = String(row.source ?? "") === "teach-offer";
+
     // welcomed_at is per ROW, but a person is an EMAIL: launch_waitlist has no unique
     // constraint on it, and one person legitimately signs up more than once. Checking
     // the row alone re-sent the welcome to somebody already welcomed.
@@ -86,7 +90,7 @@ serve(async (req) => {
     // A second letter is still worth an acknowledgement — it's a reply about a
     // specific craft, not an introduction. A second plain signup is not: stamp the
     // row so it can't come round again, and say why in last_issue.
-    if (alreadyWelcomed && !isLetter) {
+    if (alreadyWelcomed && !isLetter && !isTeach) {
       await admin.from("launch_waitlist")
         .update({ welcomed_at: new Date().toISOString(), last_issue: "welcome-skipped-duplicate" })
         .eq("id", row.id);
@@ -99,11 +103,12 @@ serve(async (req) => {
     for (const it of Array.isArray(row.interests) ? row.interests : []) {
       if (!it || typeof it !== "object") continue;
       if (it.kind === "discipline" && !craft) craft = String(it.discipline ?? it.label ?? "").trim();
+      if (it.kind === "instructor" && !craft) craft = String(it.craft ?? "").trim();
       if (it.kind === "profile" && !name) name = String(it.name ?? "").trim();
     }
     if (!craft) craft = "that craft";
 
-    const key = isLetter ? "atlas-letter" : "welcome";
+    const key = isTeach ? "teach-offer" : isLetter ? "atlas-letter" : "welcome";
 
     const unsub = `${SUPABASE_URL}/functions/v1/circle-unsubscribe?token=${row.unsubscribe_token}`;
     const { subject, html, text } = ISSUES[key];

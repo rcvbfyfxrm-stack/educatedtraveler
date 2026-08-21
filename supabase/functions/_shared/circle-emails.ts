@@ -257,9 +257,7 @@ function welcomePlainHtml(unsub: string): string {
     <p ${LP}>That is the whole idea of the Atlas: a map of places like Mashiko, one craft at a time, judged by the strength of the people you'd find when you arrived.</p>
     <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a></p>
     <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.</p>
-    <p ${LP}>You have already told me the craft — it is in your letter, and it is normally the question I have to ask. So there is only one left, and only if it applies to you:</p>
-    <p style="margin:0 0 18px 0;"><strong>Do you teach something? Is there a room you could open for a week?</strong></p>
-    <p ${LP}>I ask because a week needs someone on each side of it, and the people who can teach are often already standing in the Circle. Nothing is agreed by answering — it only tells me you exist.</p>
+    <p ${LP}>There is nothing you need to do now. You have told me the craft, which is normally the question I have to ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn there.</p>
     <p ${LP}>I read every letter myself, and I answer.</p>
     <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20letter." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
@@ -291,11 +289,7 @@ The Atlas is here: https://educatedtraveler.app/atlas
 
 I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.
 
-You have already told me the craft — it is in your letter, and it is normally the question I have to ask. So there is only one left, and only if it applies to you:
-
-Do you teach something? Is there a room you could open for a week?
-
-I ask because a week needs someone on each side of it, and the people who can teach are often already standing in the Circle. Nothing is agreed by answering — it only tells me you exist.
+There is nothing you need to do now. You have told me the craft, which is normally the question I have to ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn there.
 
 I read every letter myself, and I answer.
 
@@ -358,6 +352,57 @@ EducatedTraveler · educatedtraveler.app
 Leave the Circle: ${unsub}`;
 }
 
+// ── the reply to someone offering to open a room (source 'teach-offer') ──────
+// A master is not a lead, and the Mashiko welcome — written to someone deciding
+// what to learn — reads wrong to someone offering to teach. The hard rule here is
+// the LANGUAGE-KIT one: a list is not demand. This letter must never imply that
+// people are waiting for their week. Burning a master with manufactured interest
+// costs the one asset ET cannot replace.
+function teachOfferHtml(unsub: string, name?: string, craft?: string): string {
+  const hi = name ? `${name},` : "Hello,";
+  const c = craft && craft !== "that craft" ? craft : "your craft";
+  const body = `
+    <p ${LP}>${hi}</p>
+    <p ${LP}>Thank you — I have what you wrote about ${c}, and I read these myself.</p>
+    <p ${LP}>Here is where this honestly stands, because you should hear it from me rather than work it out later. EducatedTraveler is new. One week is signed — modernist technique in Barcelona, this October — and nobody has been anywhere yet. There are no alumni. The Circle is a list of people who have told me what they would give a week of their life to learn, and a list is not a queue: I will not tell you there is demand for your week until there is.</p>
+    <p ${LP}>What happens next is slow, and it is my work, not yours. I check what can be checked, and I put nothing on the Atlas until you have seen it and told me it is right. Then I write to you with real questions — what a week costs you to run, how many people you would actually want at the bench, what time of year is wrong. If it fits what people are asking me for, we talk about a date. If it does not fit yet, I will say so plainly and keep you on my list.</p>
+    <p ${LP}>Nothing is agreed by what you sent. It tells me you exist, which is the part I cannot find on my own.</p>
+    <p ${LP}>If you want to see the company you would be keeping, the Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a> — including the blanks, which are counted rather than hidden.</p>
+    <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. I am not the teacher anywhere on this map, and that is the point.</p>
+    <p ${LP}>Just hit reply if anything above is wrong, or if you would rather talk than type.</p>
+    <p style="margin:28px 0 0 0;">Talk soon,</p>
+    <p style="margin:0;">— Arnaud</p>`;
+  return plainShell({ body, unsub });
+}
+
+function teachOfferText(unsub: string, name?: string, craft?: string): string {
+  const hi = name ? `${name},` : "Hello,";
+  const c = craft && craft !== "that craft" ? craft : "your craft";
+  return `${hi}
+
+Thank you — I have what you wrote about ${c}, and I read these myself.
+
+Here is where this honestly stands, because you should hear it from me rather than work it out later. EducatedTraveler is new. One week is signed — modernist technique in Barcelona, this October — and nobody has been anywhere yet. There are no alumni. The Circle is a list of people who have told me what they would give a week of their life to learn, and a list is not a queue: I will not tell you there is demand for your week until there is.
+
+What happens next is slow, and it is my work, not yours. I check what can be checked, and I put nothing on the Atlas until you have seen it and told me it is right. Then I write to you with real questions — what a week costs you to run, how many people you would actually want at the bench, what time of year is wrong. If it fits what people are asking me for, we talk about a date. If it does not fit yet, I will say so plainly and keep you on my list.
+
+Nothing is agreed by what you sent. It tells me you exist, which is the part I cannot find on my own.
+
+If you want to see the company you would be keeping, the Atlas is here — including the blanks, which are counted rather than hidden:
+https://educatedtraveler.app/atlas
+
+I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. I am not the teacher anywhere on this map, and that is the point.
+
+Just hit reply if anything above is wrong, or if you would rather talk than type.
+
+Talk soon,
+— Arnaud
+
+--
+EducatedTraveler · educatedtraveler.app
+Leave the Circle: ${unsub}`;
+}
+
 export const ISSUES: Record<string, {
   subject: string;
   html: (unsub: string, name?: string, craft?: string) => string;
@@ -371,6 +416,8 @@ export const ISSUES: Record<string, {
   "welcome": { subject: "Welcome to the Circle — the potter who signed the box, not the pot", html: welcomePlainHtml, text: welcomeText, audience: "leads" },
   // Subject carries the craft name; circle-welcome substitutes {CRAFT}.
   "atlas-letter": { subject: "Got your letter about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
+  // A possible master, from /teach. Never broadcast — it answers one person's offer.
+  "teach-offer": { subject: "The week you could open in {CRAFT} — where this stands", html: teachOfferHtml, text: teachOfferText, audience: "leads" },
   "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml, audience: "leads" },
   "chef-invite": { subject: "That modernist cooking week — I want you close to it", html: chefInviteHtml, audience: "leads" },
   "friend-invite": { subject: "The thing I kept going on about — it's real now", html: friendInviteHtml, audience: "leads" },

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join the Circle — EDUCATEDTRAVELER</title>
+    <title>Open a room — EDUCATEDTRAVELER</title>
 
-    <meta name="description" content="Tell me the craft you'd give a week of your life to learn. That's how I pick what gets built next — and the Circle hears it first.">
-    <link rel="canonical" href="https://educatedtraveler.app/circle">
-    <meta property="og:title" content="Join the Circle — EDUCATEDTRAVELER">
-    <meta property="og:description" content="Tell me the craft you'd give a week of your life to learn. That's how I pick what gets built next — and the Circle hears it first.">
+    <meta name="description" content="If you teach a craft with your hands and you have a room you could open for a week, tell me what you could open. Nothing is agreed here — it tells me you exist.">
+    <link rel="canonical" href="https://educatedtraveler.app/teach">
+    <meta property="og:title" content="Open a room — EDUCATEDTRAVELER">
+    <meta property="og:description" content="The other side of a Lab Week: the people who could teach one.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://educatedtraveler.app/circle">
+    <meta property="og:url" content="https://educatedtraveler.app/teach">
     <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
     <meta property="og:site_name" content="EducatedTraveler">
     <meta name="twitter:card" content="summary_large_image">
@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
-    <style>
+<style>
         /* ── Warm-Dark Editorial (2026-06-11 relook lock) ── */
         :root{ --ink:#0d0b09; --ink2:#14110d; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
                --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52; --line:rgba(243,237,226,0.09);
@@ -308,218 +308,153 @@
         <div class="card" id="card">
 
             <div class="rail" aria-hidden="true">
-                <i id="r0" class="on"></i><i id="r1"></i>
+                <i id="r0" class="on"></i><i id="r1"></i><i id="r2"></i><i id="r3"></i>
             </div>
 
-            <!-- BEAT 1 — the letter. Nothing is asked before it: the letter IS the
-                 joining, and the signature is where the name comes from. -->
-            <section class="beat show" id="beat0" aria-label="Step 1: your letter">
-                <p class="eyebrow" style="margin-bottom:20px;">The Circle</p>
-                <h1 class="hook">Write me a letter.<br>That's how you join the Circle.</h1>
-                <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley. The Circle is the people I write to
-                    when a week is real — nobody has been anywhere yet, so you'd be early. Free, no password.
-                    There's no form to get through first. Just tell me, in your own words, what you'd give a week of
-                    your life to learn. Here's what joining gets you:</p>
+            <!-- BEAT 1 — who you are, and what is actually in your hands -->
+            <section class="beat show" id="beat0" aria-label="Step 1: the craft in your hands">
+                <p class="eyebrow" style="margin-bottom:20px;">The other side of the week</p>
+                <h1 class="hook">You teach it.<br>Tell me what you could open.</h1>
+                <p class="sub">I'm Arnaud, and I am never the teacher &mdash; I find the people who are, and I bring
+                    a handful of the right students to their room. If you teach a craft with your hands, and there's a
+                    bench, a kitchen, a workshop or a boat you could open for a week, this is where you say so.</p>
 
-                <div class="gets">
-                    <p><span class="g-k">First word</span>The next week goes to the Circle before it goes anywhere else. Barcelona did.</p>
-                    <p><span class="g-k">One letter</span>When something is real. Never a drip. One click to leave.</p>
-                    <p><span class="g-k">A say</span>What the Circle asks for is how I decide what to check and what to build next.</p>
-                </div>
+                <p class="scope">Nothing is agreed here, and nothing is promised. This tells me you exist, in your own
+                    words. If it fits what the Circle is asking for, I write to you and we talk properly &mdash; and I check
+                    everything before your name goes anywhere near the Atlas.</p>
 
-                <!-- Said BEFORE the sheet, not after: without it the letters arrive
-                     asking for trading and marketing, and the honest answer is always
-                     no. The Atlas only holds crafts with a bench, a room and a pair of
-                     hands, so the boundary belongs where the writing starts. -->
-                <p class="scope">One thing before you write: I only map crafts you learn
-                    with your hands, in a real place, standing beside someone who can already do it.
-                    Anything that lives on a screen &mdash; trading, code, marketing &mdash; is not what this is for.</p>
-
-                <div class="sheet-wrap">
-                    <div class="sheet">
-                        <div class="to">Arnaud,</div>
-                        <div class="date" id="letter-date"></div>
-                        <label class="sr" for="f_letter">Your letter to Arnaud</label>
-                        <textarea class="paper" id="f_letter" placeholder="The craft I keep coming back to is&hellip; Name it, and the place if you know it. Tell me why it pulls at you, and where you are with it today."></textarea>
-                        <div class="sign">
-                            <div class="yours">Talk soon,</div>
-                            <input type="text" class="signline" id="f_name" placeholder="sign your name"
-                                   autocomplete="given-name" maxlength="80" aria-label="Sign your name">
-                        </div>
-                    </div>
-                </div>
-                <div class="prompts" id="letter-prompts">
-                    <button type="button" data-ins="The craft I can't stop thinking about is ">The craft I can't stop thinking about&hellip;</button>
-                    <button type="button" data-ins="Where I am with it today is ">Where I am with it today&hellip;</button>
-                    <button type="button" data-ins="The week I'd cross the world for is ">The week I'd cross the world for&hellip;</button>
-                    <button type="button" data-ins="What's really going on for me is ">What's really going on for me&hellip;</button>
-                </div>
-                <p class="help" style="margin-top:12px;">One sentence or ten. I read every one myself, and I answer.</p>
-
-                <!-- One optional line, and it does real work: `refresh-unlocked.mjs`
-                     only counts a hand for a craft from interests of kind 'discipline'
-                     (a free-text letter, kind:'dream', counts for nothing). Without
-                     this field a letter about pottery would never open the pottery
-                     page — which is precisely what the promise below offers. Unmatched
-                     text is ignored by the unlock index, so it can never open the
-                     wrong craft. -->
-                <div class="field" style="margin-top:18px;">
-                    <label class="fld"><span class="lbl">The craft, in a word or two <span style="opacity:.6;font-weight:400;">(optional)</span></span>
-                        <input type="text" id="f_craft" maxlength="80" placeholder="pottery, freediving, sourdough&hellip;">
+                <div class="field">
+                    <label class="fld"><span class="lbl">Your name</span>
+                        <input type="text" id="f_name" maxlength="80" placeholder="What should I call you?" autocomplete="name">
                     </label>
                 </div>
-
-                <p class="scope" style="border-left-color:var(--ember);background:rgba(210,138,82,0.07);">
-                    Most crafts in the Atlas aren't open yet &mdash; they show what the craft is and
-                    little else. If yours is one of them, your letter is what opens it: I go and find
-                    where it's most alive, and send you what I find, with its sources, and with
-                    whatever I couldn't confirm marked as exactly that.</p>
+                <div class="field">
+                    <label class="fld"><span class="lbl">The craft you teach</span>
+                        <input type="text" id="f_craft" maxlength="90" placeholder="e.g. wood-fired ceramics, sourdough, freediving">
+                    </label>
+                </div>
+                <div class="field">
+                    <label class="fld"><span class="lbl">How long, and what you're known for</span>
+                        <textarea id="f_record" rows="4" placeholder="Where you trained, who with, what you've made or run. Plain facts are best — I check them, and checkable is what makes an entry worth having."></textarea>
+                    </label>
+                    <p class="help">I'd rather have three things I can verify than a paragraph I can't.</p>
+                </div>
 
                 <div class="row">
                     <button class="cta" id="go0">Next &rarr;</button>
                 </div>
                 <p class="err" role="alert" aria-live="assertive" id="err0"></p>
 
-                <!-- The other side of the week. A learner's letter and a master's offer
-                     are different things and must not share a form — this is a door,
-                     not a checkbox at the foot of someone else's questionnaire. -->
-                <p class="otherside">Or maybe you teach something &mdash; and there's a room you
-                    could open for a week? <a href="/teach">Tell me about it here &rarr;</a></p>
-
-                <!-- Already signed in on this browser: don't ask a member to join twice. -->
-                <div class="member-note" id="member-note" role="status" aria-live="polite">
-                    <p id="member-note-msg">You're already in the Circle with this email — no need to sign up again.</p>
-                    <a class="cta cta-sm" id="member-signin" href="/join?tab=signin">Sign in to your account &rarr;</a>
-                    <span class="quiet-alt">Not you? <a href="#" id="member-continue">Use a different email &rarr;</a></span>
-                </div>
+                <p class="otherside">Came here to learn, not to teach?
+                    <a href="/circle">Write me a letter instead &rarr;</a></p>
             </section>
 
-            <!-- BEAT 2 — the address. Asked last, and only to answer the letter. -->
-            <section class="beat" id="beat1" aria-label="Step 2: where I write back">
+            <!-- BEAT 2 — the room. A week happens somewhere real or it does not happen. -->
+            <section class="beat" id="beat1" aria-label="Step 2: the room">
                 <button class="back" data-back="0">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">The room</p>
+                <h2 class="q">Where would it happen?</h2>
+                <p class="sub-tight">A week needs a real place with your tools in it. Tell me what the space is, and
+                    whether it's yours to open.</p>
+
+                <div class="field">
+                    <label class="fld"><span class="lbl">Where in the world</span>
+                        <input type="text" id="f_where" maxlength="120" placeholder="e.g. Mashiko, Japan — or just the region">
+                    </label>
+                </div>
+                <div class="field">
+                    <label class="fld"><span class="lbl">The space itself</span>
+                        <textarea id="f_room" rows="4" placeholder="Your own workshop? A school you teach at? A kitchen you can borrow out of season? How many people fit at the bench at once?"></textarea>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go1">Next &rarr;</button>
+                </div>
+                <p class="err" role="alert" aria-live="assertive" id="err1"></p>
+            </section>
+
+            <!-- BEAT 3 — the only promise ET ever makes to a student: what they leave able to DO -->
+            <section class="beat" id="beat2" aria-label="Step 3: the week">
+                <button class="back" data-back="1">&larr; back</button>
+                <p class="eyebrow" style="margin-bottom:14px;">The week</p>
+                <h2 class="q">What would they leave able to do?</h2>
+                <p class="sub-tight">Not what the week covers &mdash; what's in their hands on Friday that wasn't there on
+                    Monday. That one sentence is the whole thing I sell, so it has to be yours, not mine.</p>
+
+                <div class="field">
+                    <label class="fld"><span class="lbl">By Friday, they can&hellip;</span>
+                        <textarea id="f_outcome" rows="4" placeholder="e.g. throw, trim and glaze a lidded pot, and load a wood kiln without being told what to do next."></textarea>
+                    </label>
+                </div>
+                <div class="field">
+                    <span class="lbl">Who it's for</span>
+                    <div class="chips" data-single="level" id="g_level"></div>
+                    <div class="own"><input type="text" id="f_level_own" maxlength="120" placeholder="&hellip;or say it in your own words"></div>
+                </div>
+
+                <div class="row">
+                    <button class="cta" id="go2">Next &rarr;</button>
+                </div>
+                <p class="err" role="alert" aria-live="assertive" id="err2"></p>
+            </section>
+
+            <!-- BEAT 4 — the address -->
+            <section class="beat" id="beat3" aria-label="Step 4: where I reach you">
+                <button class="back" data-back="2">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">Where I write back</p>
                 <h2 class="q">Where do I reach you?</h2>
-                <p class="sub-tight">Your letter's written. This is the address I answer it to &mdash; and the door to
-                    your own place in the Circle.</p>
+                <p class="sub-tight">This is the address I answer to, and the door to your own place in the Circle.</p>
 
                 <div class="field">
                     <label class="fld"><span class="lbl">Your email</span>
                         <input type="email" id="f_email" placeholder="you@wherever.com" autocomplete="email" required>
                     </label>
                     <label class="consent"><input type="checkbox" id="f_consent">
-                        <span>Yes &mdash; write to me when there's a real week to tell you about. One letter, never a drip. One click to leave, any time.</span></label>
-                    <p class="help">Your letter is stored so I can read it and write back. Nothing is sold or shared, ever.</p>
+                        <span>Yes &mdash; write to me about this. One letter, never a drip. One click to leave, any time.</span></label>
+                    <p class="help">What you've written is stored so I can read it and write back. Nothing is sold or shared, ever.</p>
                 </div>
 
                 <div class="row">
-                    <button class="cta" id="submit">Send my letter &rarr;</button>
+                    <button class="cta" id="submit">Send it to Arnaud &rarr;</button>
                 </div>
-                <p class="signoff">Free. No password, ever. Leave whenever you like.</p>
-                <p class="err" role="alert" aria-live="assertive" id="err1"></p>
+                <p class="signoff">Free. No password, ever. Nothing is agreed by sending this.</p>
+                <p class="err" role="alert" aria-live="assertive" id="err3"></p>
 
-                <div class="member-note" id="member-note2" role="status" aria-live="polite">
-                    <p id="member-note2-msg">You're already in the Circle with this email — no need to sign up again.</p>
-                    <a class="cta cta-sm" id="member-signin2" href="/join?tab=signin">Sign in to your account &rarr;</a>
-                    <span class="quiet-alt">Not you? <a href="#" id="member-continue2">Use a different email &rarr;</a></span>
+                <div class="member-note" id="member-note" role="status" aria-live="polite">
+                    <p id="member-note-msg">You're already in the Circle with this email.</p>
+                    <a class="cta cta-sm" id="member-signin" href="/join?tab=signin">Sign in to your account &rarr;</a>
+                    <span class="quiet-alt">Not you? <a href="#" id="member-continue">Use a different email &rarr;</a></span>
                 </div>
             </section>
 
-            <!-- SENT — the letter is with him, and the link founds their place -->
+            <!-- SENT -->
             <section class="done-state" id="sent" aria-live="polite">
                 <div class="seal">&#9993;</div>
                 <p class="eyebrow" style="margin-top:16px;">It's with me</p>
-                <h2 id="sent-h">Your letter's with me.</h2>
-                <p id="sent-line">I've sent a sign-in link to <b id="sent-email"></b>. Open it and you're in &mdash; your
-                    own place in the Circle, your letter already on the wall. No password, ever. There are a few more
-                    questions waiting there when you feel like it: the more I know, the better I aim.</p>
-                <p class="ps">I read every letter myself, so give me a day or two. Didn't the link arrive? Check spam, or
-                    write me directly at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
+                <h2 id="sent-h">Thank you &mdash; I have it.</h2>
+                <p id="sent-line">I've sent a sign-in link to <b id="sent-email"></b>, so you have your own place in the
+                    Circle and can add to this whenever you like. I read these myself. If what you could open matches what
+                    the Circle is asking for, you'll hear from me &mdash; and I'll come with questions before I come with a date.</p>
+                <p class="ps">Nothing is agreed by sending this, and nothing goes on the Atlas until I've checked it with
+                    you. Write me directly any time at
+                    <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
                 <div class="row" style="justify-content:center;">
-                    <a class="quiet" href="/atlas/">While you wait &mdash; wander the Atlas &rarr;</a>
+                    <a class="quiet" href="/atlas/">See what's already on the Atlas &rarr;</a>
                 </div>
             </section>
 
         </div>
     </main>
 
-    <!-- discreet: who's behind this -->
     <footer class="circle-foot">
-    <p style="margin:0 0 12px;font-size:13px"><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20joining%20the%20Circle&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/circle%29" style="color:var(--sea);text-decoration:none;opacity:.85">Something wrong on this page? Tell me.</a></p>
-        <button type="button" class="founder-link" onclick="openFounder()">Meet the founder</button>
-        <span class="foot-sep">·</span>
+        <a class="founder-link" href="/circle">The Circle</a>
+        <span class="foot-sep">&middot;</span>
         <a class="founder-link" href="/atlas/">The Atlas</a>
-        <span class="foot-sep">·</span>
+        <span class="foot-sep">&middot;</span>
         <a class="founder-link" href="/about">The Story</a>
     </footer>
 
-    <!-- ===================== FOUNDER / STORY POP-UP (light window) ===================== -->
-    <div class="ov" id="founder" role="dialog" aria-modal="true" aria-labelledby="founder-h">
-        <div class="ov-bg" onclick="closeFounder()"></div>
-        <div class="modal">
-            <button class="close" onclick="closeFounder()" aria-label="Back to the questionnaire">&times;</button>
-            <div class="mhead">
-                <div class="ava">A</div>
-                <div><h3 id="founder-h" class="serif">Arnaud</h3><p class="r">Founder · I check every place myself</p></div>
-            </div>
-            <p class="mbody" style="color:var(--muted);font-size:14px;line-height:1.6">I grew up in the Jura — about as far from the sea as you can get in France. I left school at 18 to find out what the world was really about, and I've been crossing it by sea and by land ever since — fifteen years of that, ten of them cooking on yachts, learning from the masters I met along the way. Here is some of it.</p>
-
-            <div class="film" id="film" tabindex="-1" aria-roledescription="carousel" aria-label="Arnaud's story, in six photos">
-                <div class="slide on" data-i="0"><img src="/images/story/founder/beginning.jpg" alt="Arnaud walking into an alpine valley" loading="lazy"><div class="cap"><p class="ch">I · The beginning</p><h4>So I went.</h4><p>Everyone expected university and a career. I finished a science baccalauréate, worked factory shifts until I had two thousand euros, and flew to Melbourne instead.</p></div></div>
-                <div class="slide" data-i="1"><img src="/images/story/founder/galley.jpg" alt="Arnaud plating a dish in the galley" loading="lazy"><div class="cap"><p class="ch">II · The kitchens</p><h4>Every kitchen a classroom.</h4><p>It started in a Darwin dishpit, the day the chef ran short-handed and put a knife in my hand. The Michelin star came years later. Every chef a teacher.</p></div></div>
-                <div class="slide" data-i="2"><img src="/images/story/founder/sea.jpg" alt="Arnaud on the boat with the day's catch" loading="lazy"><div class="cap"><p class="ch">III · The sea</p><h4>More than fifty thousand nautical miles behind me.</h4><p>First classes in Sydney Bay, a place on regatta crews by asking at the dock, then oceans. The sea cares about judgment, not a résumé.</p></div></div>
-                <div class="slide" data-i="3"><img src="/images/story/founder/depths.jpg" alt="Arnaud freediving in a cenote" loading="lazy"><div class="cap"><p class="ch">IV · The depths</p><h4>The deeper I went, the quieter it got.</h4><p>Freediving Mexican cenotes and the open blue, sharks in the Galápagos. Fear turned into respect.</p></div></div>
-                <div class="slide" data-i="4"><img src="/images/story/founder/heights.jpg" alt="Arnaud on a Himalayan summit" loading="lazy"><div class="cap"><p class="ch">V · The heights</p><h4>Strangers turned into crew.</h4><p>Annapurna at 4,130 m, passes across the Himalaya. The people on the trail taught me more than any classroom.</p></div></div>
-                <div class="slide" data-i="5"><img src="/images/story/founder/stillness.jpg" alt="Arnaud on a mountain ridge at dawn" loading="lazy"><div class="cap"><p class="ch">VI · The stillness</p><h4>Handed, at the source.</h4><p>Breathwork in Bali, Ayurveda in India — and in the Thar desert, the idea for all of this took shape.</p></div></div>
-                <span class="fcount" id="fcount">I / VI</span>
-                <button class="fnav p" id="fprev" type="button" aria-label="Previous photo">&lsaquo;</button>
-                <button class="fnav n" id="fnext" type="button" aria-label="Next photo">&rsaquo;</button>
-            </div>
-            <div class="fdots" id="fdots"></div>
-
-            <div class="mbody">
-                <p style="font-family:'Fraunces',Georgia,serif;color:var(--paper);font-size:1.05rem;margin-bottom:6px">What EducatedTraveler is: a place, a person, your people.</p>
-                <p>Every real skill is learned the same three ways — where it's alive, from a master who'll hand it over, beside the handful chasing the same thing. <b>We connect — we don't sell. Earned, not bought.</b></p>
-                <p><b>“I never found my teachers. They found me.”</b> Now I'm building the way in — the map I wish I'd had, and the doors it opens. The letter you're writing is where it starts.</p>
-            </div>
-            <div class="mfoot">
-                <button type="button" class="ret" onclick="closeFounder()">Return to the questionnaire &rarr;</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-    (function(){
-        "use strict";
-        var ov=document.getElementById('founder'), lastFocus=null;
-        window.openFounder=function(){ lastFocus=document.activeElement; ov.classList.add('show'); document.documentElement.style.overflow='hidden'; go(0); ov.querySelector('.close').focus(); document.addEventListener('keydown',key); };
-        window.closeFounder=function(){ ov.classList.remove('show'); document.documentElement.style.overflow=''; document.removeEventListener('keydown',key); if(lastFocus&&lastFocus.focus) lastFocus.focus(); };
-        function key(e){
-            if(e.key==='Escape'){ closeFounder(); return; }
-            if(e.key==='ArrowRight'){ go(cur+1); return; }
-            if(e.key==='ArrowLeft'){ go(cur-1); return; }
-            if(e.key==='Tab'){
-                var f=ov.querySelectorAll('button,a,[tabindex]:not([tabindex="-1"])'); if(!f.length) return;
-                var first=f[0], last=f[f.length-1];
-                if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
-                else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
-            }
-        }
-        var ROMAN=['I','II','III','IV','V','VI'];
-        var slides=[].slice.call(document.querySelectorAll('.slide')),
-            dotsWrap=document.getElementById('fdots'), fcount=document.getElementById('fcount'),
-            film=document.getElementById('film'), cur=0, N=slides.length;
-        slides.forEach(function(_,i){ var b=document.createElement('button'); b.className='fdot'+(i===0?' on':''); b.type='button'; b.setAttribute('aria-label','Photo '+(i+1)+' of '+N); b.addEventListener('click',function(){go(i);}); dotsWrap.appendChild(b); });
-        var dots=[].slice.call(dotsWrap.children);
-        function go(i){ cur=(i+N)%N; slides.forEach(function(s,k){s.classList.toggle('on',k===cur);}); dots.forEach(function(d,k){d.classList.toggle('on',k===cur);}); if(fcount) fcount.textContent=ROMAN[cur]+' / '+ROMAN[N-1]; }
-        document.getElementById('fnext').addEventListener('click',function(){go(cur+1);});
-        document.getElementById('fprev').addEventListener('click',function(){go(cur-1);});
-        var x0=null;
-        film.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
-        film.addEventListener('touchend',function(e){ if(x0===null)return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40){ go(cur+(dx<0?1:-1)); } x0=null; },{passive:true});
-    })();
-    </script>
-
-    <!-- Supabase: the Circle writes to launch_waitlist (an audience we own, not a sales list) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
 
@@ -527,33 +462,30 @@
     (function(){
         'use strict';
 
-        // The Circle used to open with a five-beat questionnaire. It now opens with a
-        // letter, because the letter is the direct connection — and every question the
-        // questionnaire asked still gets asked, in their account, once they are in.
-        // /portrait already holds that questionnaire; claim_waitlist_answers() carries
-        // the name and the letter across, so nothing has to be retyped there.
+        // The master's door. Deliberately NOT a branch of /circle's letter: a learner
+        // says what they want, a master states what they can open, and folding the two
+        // into one form produced the old checkbox-at-the-foot version nobody answered.
+        //
+        // It writes ONE launch_waitlist row, source 'teach-offer', carrying
+        // kind:'instructor' — the shape the Circle already uses for offers (the
+        // `instructors` table was deleted; interests IS the record).
+        //
+        // It deliberately does NOT emit kind:'discipline'. That is the shape
+        // refresh-unlocked.mjs counts as a hand, and an unverified self-claim must
+        // never open an Atlas craft page on its own.
 
-        var state = { name:'', email:'', letter:'', craft:'' };
+        var LEVELS = [
+            ['beginners','Complete beginners'],
+            ['some','People with some grounding'],
+            ['serious','Serious practitioners only'],
+            ['any','Anyone — I adapt the week']
+        ];
+
+        var state = { name:'', craft:'', record:'', where:'', room:'', outcome:'', level:null, level_own:'', email:'' };
         var current = 0;
         function $(id){ return document.getElementById(id); }
 
-        // ── arriving from /hello (the QR card handed over in person) ──
-        // They already left a name + email there, so that row IS the audience row and
-        // the welcome has gone. This page's row becomes a silent carrier: the letter is
-        // kept, no second welcome fires.
-        var FROM_HELLO = false;
-        (function(){
-            try{
-                var q = new URLSearchParams(window.location.search);
-                if(q.get('from') !== 'hello') return;
-                FROM_HELLO = true;
-                var n = (q.get('name')||'').trim(), e = (q.get('email')||'').trim();
-                if(n) $('f_name').value = n.slice(0,80);
-                if(e) $('f_email').value = e.slice(0,160);
-            }catch(err){ FROM_HELLO = false; }
-        })();
-
-        function rails(){ for(var i=0;i<2;i++){ var el=$('r'+i); if(el) el.className = i<current?'done':(i===current?'on':''); } }
+        function rails(){ for(var i=0;i<4;i++){ var el=$('r'+i); if(el) el.className = i<current?'done':(i===current?'on':''); } }
         function show(n){
             document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });
             $('beat'+n).classList.add('show');
@@ -565,41 +497,54 @@
             b.addEventListener('click', function(){ show(parseInt(b.getAttribute('data-back'),10)); });
         });
 
-        // ── the letter: today's date, and the prompt buttons ──
+        // ── the one set of chips on the page ──
         (function(){
-            try{
-                var d=new Date();
-                var m=['January','February','March','April','May','June','July','August','September','October','November','December'];
-                var el=$('letter-date'); if(el) el.textContent=m[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
-            }catch(e){}
-        })();
-        var letterEl = $('f_letter');
-        document.querySelectorAll('#letter-prompts button').forEach(function(b){
-            b.addEventListener('click', function(){
-                var ins=b.getAttribute('data-ins'), cur=letterEl.value;
-                letterEl.value = cur ? (cur.replace(/\s*$/,'') + '\n\n' + ins) : ins;
-                letterEl.focus();
-                letterEl.setSelectionRange(letterEl.value.length, letterEl.value.length);
+            var box=$('g_level');
+            LEVELS.forEach(function(pair){
+                var b=document.createElement('button');
+                b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false');
+                b.textContent=pair[1];
+                b.addEventListener('click', function(){
+                    var on = b.getAttribute('aria-pressed')==='true';
+                    Array.prototype.forEach.call(box.children, function(c){ c.setAttribute('aria-pressed','false'); });
+                    b.setAttribute('aria-pressed', on?'false':'true');
+                    state.level = on ? null : pair[0];
+                });
+                box.appendChild(b);
             });
-        });
+        })();
+        function levelAnswer(){
+            var own=$('f_level_own').value.trim();
+            if(own) return own;
+            for(var i=0;i<LEVELS.length;i++){ if(LEVELS[i][0]===state.level) return LEVELS[i][1]; }
+            return '';
+        }
 
-        // ── beat 1 → beat 2 ──
+        // ── the gates. Only what a reply genuinely needs is required. ──
         $('go0').addEventListener('click', function(){
-            var letter=letterEl.value.trim(), name=$('f_name').value.trim(), err=$('err0');
-            if(letter.length < 2){ err.textContent='Write me a line or two first — that is the joining.'; err.style.display='block'; letterEl.focus(); return; }
-            if(!name){ err.textContent='Sign it, so I know who I am answering.'; err.style.display='block'; $('f_name').focus(); return; }
-            err.style.display='none';
-            state.letter=letter; state.name=name;
+            var err=$('err0');
+            state.name=$('f_name').value.trim();
             state.craft=$('f_craft').value.trim();
-            show(1);
+            state.record=$('f_record').value.trim();
+            if(!state.name){ err.textContent='Your name, so I know who I am writing to.'; err.style.display='block'; $('f_name').focus(); return; }
+            if(!state.craft){ err.textContent='Name the craft — it is the one thing I cannot guess.'; err.style.display='block'; $('f_craft').focus(); return; }
+            err.style.display='none'; show(1);
+        });
+        $('go1').addEventListener('click', function(){
+            var err=$('err1');
+            state.where=$('f_where').value.trim();
+            state.room=$('f_room').value.trim();
+            if(!state.where){ err.textContent='Where in the world? A region is enough.'; err.style.display='block'; $('f_where').focus(); return; }
+            err.style.display='none'; show(2);
+        });
+        $('go2').addEventListener('click', function(){
+            state.outcome=$('f_outcome').value.trim();
+            state.level_own=$('f_level_own').value.trim();
+            $('err2').style.display='none'; show(3);
         });
 
-        // ── beat 2: the address ──
+        // ── the address ──
         function validEmail(e){ return /.+@.+\..+/.test(e); }
-
-        // Ask the server (service role, read-only) whether this email already has an
-        // account. Fails OPEN on any hiccup — a slow probe must never block a genuine
-        // join. Races an 8s timeout (covers edge-function cold starts).
         function emailHasAccount(email){
             var sb = window.supabaseClient;
             if(!sb || !sb.functions) return Promise.resolve(false);
@@ -609,94 +554,48 @@
             var timeout = new Promise(function(resolve){ setTimeout(function(){ resolve(false); }, 8000); });
             return Promise.race([probe, timeout]);
         }
-
-        var bypassMemberCheck = false;
-        ['member-continue','member-continue2'].forEach(function(id){
-            var el=$(id); if(!el) return;
-            el.addEventListener('click', function(ev){
-                ev.preventDefault();
-                bypassMemberCheck = true;
-                var n1=$('member-note'), n2=$('member-note2');
-                if(n1) n1.style.display='none';
-                if(n2) n2.style.display='none';
-                if(current===0) show(1);
-                $('f_email').value=''; $('f_email').focus();
-            });
+        var bypassMemberCheck=false;
+        $('member-continue').addEventListener('click', function(ev){
+            ev.preventDefault(); bypassMemberCheck=true;
+            $('member-note').style.display='none';
+            $('f_email').value=''; $('f_email').focus();
         });
 
-        // Already signed in on this browser? Say so at the door rather than after they
-        // have written. Their letter still counts — it saves as a carrier row and lands
-        // in their portrait — so this is a signpost, not a wall. Fail-quiet.
-        (function(){
-            var tries = 0;
-            (function poll(){
-                if(window.supabaseClient && window.supabaseClient.auth){
-                    window.supabaseClient.auth.getSession().then(function(res){
-                        var s = res && res.data ? res.data.session : null;
-                        if(!s || !s.user || bypassMemberCheck) return;
-                        var email = s.user.email || '';
-                        state.email = state.email || email;
-                        $('member-note-msg').textContent =
-                            "You're already in the Circle" + (email ? ', ' + email : '') +
-                            " — you don't have to join again. Write to me here whenever you like; it lands in your portrait.";
-                        var link = $('member-signin');
-                        link.href = '/portrait';
-                        link.innerHTML = 'Open your portrait &rarr;';
-                        $('member-note').style.display = 'block';
-                    }).catch(function(){});
-                    return;
-                }
-                if(window.supabaseError || tries++ > 100) return;
-                setTimeout(poll, 50);
-            })();
-        })();
-
-        // ── the payload ──
-        // These `kind` keys are a contract: notify-lead parses them, and migration 029's
-        // claim_waitlist_answers() maps kind:'dream' onto profiles.dream_letter — which is
-        // how the letter is already on the wall when they sign in. Renaming them silently
-        // breaks both.
         function buildInterests(){
-            var arr = [ { kind:'profile', name:state.name, region:null },
-                        { kind:'dream',   text:state.letter } ];
-            // kind:'discipline' is the ONLY shape refresh-unlocked.mjs counts as a hand
-            // (see craftsIn()). It resolves the text against the real Atlas index and
-            // ignores anything that doesn't match, so a typo opens nothing.
-            if(state.craft){ arr.push({ kind:'discipline', discipline:state.craft }); }
-            return arr;
+            // `offer` stays the human-readable heart of it so every existing reader of
+            // kind:'instructor' still shows something useful; the rest are extra keys.
+            return [
+                { kind:'profile', name:state.name, region:state.where||null },
+                { kind:'instructor', craft:state.craft, offer:state.outcome||null,
+                  record:state.record||null, room:state.room||null,
+                  where:state.where||null, level:levelAnswer()||null }
+            ];
         }
 
         $('submit').addEventListener('click', async function(){
-            var email=$('f_email').value.trim(), err=$('err1'), btn=this;
-            var note=$('member-note2'); if(note) note.style.display='none';
+            var email=$('f_email').value.trim(), err=$('err3'), btn=this;
+            $('member-note').style.display='none';
             if(!validEmail(email)){ err.textContent='I need a real address to write back to.'; err.style.display='block'; $('f_email').focus(); return; }
-            if(!$('f_consent').checked){ err.textContent='Tick the box so I am allowed to write back — that is the whole point of the Circle.'; err.style.display='block'; $('f_consent').focus(); return; }
-            err.style.display='none';
-            state.email=email;
+            if(!$('f_consent').checked){ err.textContent='Tick the box so I am allowed to write back about this.'; err.style.display='block'; $('f_consent').focus(); return; }
+            err.style.display='none'; state.email=email;
 
             var label=btn.innerHTML;
             btn.disabled=true; btn.textContent='One moment…';
 
-            // An existing member's letter is still worth keeping — save it as a
-            // trigger-silent carrier row (no second welcome) and send them to their
-            // own door instead of founding a second account.
             var already=false;
-            if(!bypassMemberCheck){
-                try{ already = await emailHasAccount(email); }catch(e){ already=false; }
-            }
+            if(!bypassMemberCheck){ try{ already = await emailHasAccount(email); }catch(e){ already=false; } }
 
-            var payload={ email:state.email, interests:buildInterests(),
-                          source: FROM_HELLO ? 'qr-hello-depth' : 'circle-questionnaire' };
-            if(FROM_HELLO || already){ payload.is_carrier = true; }
+            var payload={ email:state.email, interests:buildInterests(), source:'teach-offer' };
+            if(already){ payload.is_carrier = true; }
 
             try{
-                var sb = window.supabaseClient;
+                var sb=window.supabaseClient;
                 if(!sb) throw new Error('connection unavailable');
                 var res = await sb.from('launch_waitlist').insert(payload);
                 if(res && res.error) throw res.error;
-                if(window.plausible) window.plausible('CircleLetter', { props:{ source:payload.source, member:already?'yes':'no' } });
+                if(window.plausible) window.plausible('TeachOffer', { props:{ member: already?'yes':'no' } });
             }catch(e){
-                console.error('[Circle] letter insert failed:', e);
+                console.error('[Teach] insert failed:', e);
                 btn.disabled=false; btn.innerHTML=label;
                 err.innerHTML='Couldn’t save that just now — try again, or send it straight to <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
                 err.style.display='block';
@@ -705,43 +604,37 @@
 
             if(already){
                 btn.disabled=false; btn.innerHTML=label;
-                $('member-note2-msg').textContent =
-                    "You're already in the Circle with this email, " + state.name + " — I've kept your letter and it's waiting in your portrait. No need to join twice.";
-                $('member-signin2').href = '/join?tab=signin&email=' + encodeURIComponent(email);
-                if(note){ note.style.display='block'; note.scrollIntoView({behavior:'smooth', block:'center'}); }
-                if(window.plausible) window.plausible('CircleLetterExistingMember');
+                $('member-note-msg').textContent =
+                    "You're already in the Circle with this email, " + state.name + " — I've kept what you wrote, and it's on your sheet. No need to join twice.";
+                $('member-signin').href = '/join?tab=signin&email=' + encodeURIComponent(email);
+                $('member-note').style.display='block';
+                $('member-note').scrollIntoView({behavior:'smooth', block:'center'});
                 return;
             }
 
-            // The letter is safe. Now found their place: the link in their inbox is
-            // what carries them into the account, where the rest of the questions live.
             var linked=true;
             try{
-                var res2 = await window.supabaseClient.auth.signInWithOtp({ email: state.email,
+                var r2 = await window.supabaseClient.auth.signInWithOtp({ email: state.email,
                     options:{ emailRedirectTo: window.location.origin + '/portrait', shouldCreateUser: true } });
-                if(res2 && res2.error) throw res2.error;
-            }catch(e){
-                console.error('[Circle] sign-in link failed:', e);
-                linked=false;
-            }
+                if(r2 && r2.error) throw r2.error;
+            }catch(e){ console.error('[Teach] sign-in link failed:', e); linked=false; }
             finish(linked);
         });
 
         function finish(linked){
-            $('sent-h').textContent = 'Your letter\'s with me, ' + state.name + '.';
+            $('sent-h').textContent = 'Thank you, ' + state.name + ' — I have it.';
             $('sent-email').textContent = state.email;
             if(!linked){
-                $('sent-line').innerHTML =
-                    'I have it, and I read every one myself. I couldn\'t send your sign-in link just now — ' +
-                    '<a href="/join?tab=signin&email=' + encodeURIComponent(state.email) + '" style="color:var(--sea)">ask for it again here</a> ' +
-                    'whenever you like, and your letter will already be there.';
+                $('sent-line').innerHTML = 'I have what you wrote, and I read these myself. I couldn\'t send your sign-in link '
+                    + 'just now — <a href="/join?tab=signin&email=' + encodeURIComponent(state.email) + '" style="color:var(--sea)">ask for it again here</a> '
+                    + 'whenever you like.';
             }
             document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });
             var rail=$('card').querySelector('.rail'); if(rail) rail.style.display='none';
             $('sent').classList.add('show');
-            current=2; rails();
+            current=4; rails();
             $('card').scrollIntoView({behavior:'smooth', block:'start'});
-            if(window.plausible) window.plausible('CircleLetterSent');
+            if(window.plausible) window.plausible('TeachOfferSent');
         }
     })();
     </script>
