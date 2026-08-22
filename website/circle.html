@@ -43,6 +43,19 @@
         .sheet .to{ font-family:'Fraunces',Georgia,serif; font-size:19px; color:var(--sheet-ink); margin-bottom:2px; }
         .sheet .date{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
                       color:var(--sheet-faint); margin-bottom:16px; }
+        /* The subject line. A letter names what it is about — and this is also the
+           only shape refresh-unlocked.mjs counts as a hand for an Atlas craft
+           (kind:'discipline'; a free-text letter counts for nothing). On the paper
+           it reads as writing rather than as a field under someone's form. */
+        .sheet .subject{ display:flex; align-items:baseline; gap:9px; margin:-6px 0 16px; }
+        .sheet .subject .sk{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em;
+                             text-transform:uppercase; color:var(--sheet-faint); flex:0 0 auto; }
+        .sheet input.subline{ flex:1 1 auto; min-width:0; background:transparent; border:none;
+                              border-bottom:1px dotted rgba(44,35,26,0.32); border-radius:0; outline:none;
+                              font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:16px;
+                              color:var(--sheet-ink); padding:0 2px 4px; box-shadow:none; }
+        .sheet input.subline:focus{ border-bottom-color:rgba(44,35,26,0.62); border-bottom-style:solid; box-shadow:none; }
+        .sheet input.subline::placeholder{ color:rgba(44,35,26,0.32); font-style:italic; }
         .sheet textarea.paper{
             width:100%; min-height:200px; background:transparent; border:none; outline:none; resize:vertical;
             color:var(--sheet-ink); font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:17px; line-height:34px;
@@ -339,8 +352,14 @@
                     <div class="sheet">
                         <div class="to">Arnaud,</div>
                         <div class="date" id="letter-date"></div>
+                        <div class="subject">
+                            <span class="sk">About</span>
+                            <label class="sr" for="f_craft">The craft this letter is about</label>
+                            <input type="text" class="subline" id="f_craft" maxlength="80"
+                                   placeholder="the craft &mdash; pottery, freediving, sourdough&hellip;">
+                        </div>
                         <label class="sr" for="f_letter">Your letter to Arnaud</label>
-                        <textarea class="paper" id="f_letter" placeholder="The craft I keep coming back to is&hellip; Name it, and the place if you know it. Tell me why it pulls at you, and where you are with it today."></textarea>
+                        <textarea class="paper" id="f_letter" placeholder="Why it pulls at you, and where you are with it today. And how you'd want to learn it, if it were up to you &mdash; beside whom, where in the world, how long you could give it."></textarea>
                         <div class="sign">
                             <div class="yours">Talk soon,</div>
                             <input type="text" class="signline" id="f_name" placeholder="sign your name"
@@ -348,34 +367,20 @@
                         </div>
                     </div>
                 </div>
+                <!-- Sentence starters, not topics: the hard part of a blank page is the
+                     first six words, so each button writes them and leaves the cursor
+                     mid-thought. Tapping a second one adds a new paragraph rather than
+                     replacing what they wrote. -->
                 <div class="prompts" id="letter-prompts">
-                    <button type="button" data-ins="The craft I can't stop thinking about is ">The craft I can't stop thinking about&hellip;</button>
-                    <button type="button" data-ins="Where I am with it today is ">Where I am with it today&hellip;</button>
-                    <button type="button" data-ins="The week I'd cross the world for is ">The week I'd cross the world for&hellip;</button>
-                    <button type="button" data-ins="What's really going on for me is ">What's really going on for me&hellip;</button>
+                    <button type="button" data-ins="I've always wanted to learn ">I've always wanted to learn&hellip;</button>
+                    <button type="button" data-ins="There's a craft I want to get further in: ">There's a craft I want to get further in&hellip;</button>
+                    <button type="button" data-ins="Where I am with it today: ">Where I am with it today&hellip;</button>
+                    <button type="button" data-ins="If it were up to me, I'd learn it ">If it were up to me, I'd learn it&hellip;</button>
                 </div>
-                <p class="help" style="margin-top:12px;">One sentence or ten. I read every one myself, and I answer.</p>
+                <p class="help" style="margin-top:12px;">Tap one to start the sentence, or ignore them and write your own.
+                    One sentence or ten &mdash; I read every one myself, and I answer.</p>
 
-                <!-- One optional line, and it does real work: `refresh-unlocked.mjs`
-                     only counts a hand for a craft from interests of kind 'discipline'
-                     (a free-text letter, kind:'dream', counts for nothing). Without
-                     this field a letter about pottery would never open the pottery
-                     page — which is precisely what the promise below offers. Unmatched
-                     text is ignored by the unlock index, so it can never open the
-                     wrong craft. -->
-                <div class="field" style="margin-top:18px;">
-                    <label class="fld"><span class="lbl">The craft, in a word or two <span style="opacity:.6;font-weight:400;">(optional)</span></span>
-                        <input type="text" id="f_craft" maxlength="80" placeholder="pottery, freediving, sourdough&hellip;">
-                    </label>
-                </div>
-
-                <p class="scope" style="border-left-color:var(--ember);background:rgba(210,138,82,0.07);">
-                    Most crafts in the Atlas aren't open yet &mdash; they show what the craft is and
-                    little else. If yours is one of them, your letter is what opens it: I go and find
-                    where it's most alive, and send you what I find, with its sources, and with
-                    whatever I couldn't confirm marked as exactly that.</p>
-
-                <div class="row">
+                <div class="row" style="margin-top:22px;">
                     <button class="cta" id="go0">Next &rarr;</button>
                 </div>
                 <p class="err" role="alert" aria-live="assertive" id="err0"></p>

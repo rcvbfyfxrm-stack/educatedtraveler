@@ -43,6 +43,21 @@
         .sheet .to{ font-family:'Fraunces',Georgia,serif; font-size:19px; color:var(--sheet-ink); margin-bottom:2px; }
         .sheet .date{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
                       color:var(--sheet-faint); margin-bottom:16px; }
+        /* The subject lines. A letter names what it is about, and these two are the
+           only things the machinery genuinely needs in a field: the craft becomes the
+           subject of my reply, and the place is how I know which map it belongs to.
+           Everything else about the offer is in their own words, on the paper. */
+        .sheet .subject{ display:flex; align-items:baseline; gap:9px; margin:0 0 10px; }
+        .sheet .subject:first-of-type{ margin-top:-6px; }
+        .sheet .subject:last-of-type{ margin-bottom:16px; }
+        .sheet .subject .sk{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.14em;
+                             text-transform:uppercase; color:var(--sheet-faint); flex:0 0 46px; }
+        .sheet input.subline{ flex:1 1 auto; min-width:0; background:transparent; border:none;
+                              border-bottom:1px dotted rgba(44,35,26,0.32); border-radius:0; outline:none;
+                              font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:16px;
+                              color:var(--sheet-ink); padding:0 2px 4px; box-shadow:none; }
+        .sheet input.subline:focus{ border-bottom-color:rgba(44,35,26,0.62); border-bottom-style:solid; box-shadow:none; }
+        .sheet input.subline::placeholder{ color:rgba(44,35,26,0.32); font-style:italic; }
         .sheet textarea.paper{
             width:100%; min-height:200px; background:transparent; border:none; outline:none; resize:vertical;
             color:var(--sheet-ink); font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:17px; line-height:34px;
@@ -308,110 +323,79 @@
         <div class="card" id="card">
 
             <div class="rail" aria-hidden="true">
-                <i id="r0" class="on"></i><i id="r1"></i><i id="r2"></i><i id="r3"></i>
+                <i id="r0" class="on"></i><i id="r1"></i>
             </div>
 
-            <!-- BEAT 1 — who you are, and what is actually in your hands -->
-            <section class="beat show" id="beat0" aria-label="Step 1: the craft in your hands">
+            <!-- BEAT 1 — the letter. A master's offer used to be four screens of
+                 questions; it is now the same sheet of paper a learner writes on,
+                 because what I need from you is what you'd say if we were talking. -->
+            <section class="beat show" id="beat0" aria-label="Step 1: your letter">
                 <p class="eyebrow" style="margin-bottom:20px;">The other side of the week</p>
-                <h1 class="hook">You teach it.<br>Tell me what you could open.</h1>
+                <h1 class="hook">You teach it.<br>Write me a letter about it.</h1>
                 <p class="sub">I'm Arnaud, and I am never the teacher &mdash; I find the people who are, and I bring
                     a handful of the right students to their room. If you teach a craft with your hands, and there's a
-                    bench, a kitchen, a workshop or a boat you could open for a week or more, this is where you say so.</p>
+                    bench, a kitchen, a workshop or a boat you could open for a week or more, tell me about it here,
+                    in your own words. There's no form to get through first.</p>
 
-                <p class="scope">Nothing is agreed here, and nothing is promised. This tells me you exist, in your own
-                    words. If it fits what the Circle is asking for, I write to you and we talk properly &mdash; and I check
-                    everything before your name goes anywhere near the Atlas.</p>
+                <p class="scope">Nothing is agreed here, and nothing is promised. This tells me you exist, which is the
+                    part I can't find on my own. If it fits what the Circle is asking for, I write to you and we talk
+                    properly &mdash; and I check everything before your name goes anywhere near the Atlas.</p>
 
-                <div class="field">
-                    <label class="fld"><span class="lbl">Your name</span>
-                        <input type="text" id="f_name" maxlength="80" placeholder="What should I call you?" autocomplete="name">
-                    </label>
-                </div>
-                <div class="field">
-                    <label class="fld"><span class="lbl">The craft you teach</span>
-                        <input type="text" id="f_craft" maxlength="90" placeholder="e.g. wood-fired ceramics, sourdough, freediving">
-                    </label>
-                </div>
-                <div class="field">
-                    <label class="fld"><span class="lbl">How long, and what you're known for</span>
-                        <textarea id="f_record" rows="4" placeholder="Where you trained, who with, what you've made or run. Plain facts are best — I check them, and checkable is what makes an entry worth having."></textarea>
-                    </label>
-                    <p class="help">I'd rather have three things I can verify than a paragraph I can't.</p>
+                <div class="sheet-wrap">
+                    <div class="sheet">
+                        <div class="to">Arnaud,</div>
+                        <div class="date" id="letter-date"></div>
+                        <div class="subject">
+                            <span class="sk">About</span>
+                            <label class="sr" for="f_craft">The craft you teach</label>
+                            <input type="text" class="subline" id="f_craft" maxlength="90"
+                                   placeholder="the craft you teach &mdash; wood-fired ceramics, sourdough, freediving&hellip;">
+                        </div>
+                        <div class="subject">
+                            <span class="sk">Where</span>
+                            <label class="sr" for="f_where">Where in the world your room is</label>
+                            <input type="text" class="subline" id="f_where" maxlength="120"
+                                   placeholder="Mashiko, Japan &mdash; or just the region">
+                        </div>
+                        <label class="sr" for="f_letter">Your letter to Arnaud</label>
+                        <textarea class="paper" id="f_letter" placeholder="How long you've been at it, and what someone could check. The room itself, and whether it's yours to open. What someone would leave able to do that they couldn't on the Monday &mdash; and how long that really needs."></textarea>
+                        <div class="sign">
+                            <div class="yours">Talk soon,</div>
+                            <input type="text" class="signline" id="f_name" placeholder="sign your name"
+                                   autocomplete="name" maxlength="80" aria-label="Sign your name">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="row">
+                <!-- Sentence starters, not topics. The four beats this page used to ask
+                     as separate screens survive here as first lines: the record, the
+                     room, the outcome, the length. -->
+                <div class="prompts" id="letter-prompts">
+                    <button type="button" data-ins="I've been doing this ">I've been doing this&hellip;</button>
+                    <button type="button" data-ins="The room I could open is ">The room I could open is&hellip;</button>
+                    <button type="button" data-ins="By the end of it they'd be able to ">What they'd leave able to do&hellip;</button>
+                    <button type="button" data-ins="It would really need ">How long it would really need&hellip;</button>
+                </div>
+                <p class="help" style="margin-top:12px;">Three things I can check beat a paragraph I can't &mdash; where you
+                    trained, who with, what you've made or run. And a week is only the shape I know how to fill: if your
+                    craft needs longer, say so, and I'd rather build the real thing than cut it to fit.</p>
+
+                <div class="row" style="margin-top:22px;">
                     <button class="cta" id="go0">Next &rarr;</button>
                 </div>
                 <p class="err" role="alert" aria-live="assertive" id="err0"></p>
 
                 <p class="otherside">Came here to learn, not to teach?
-                    <a href="/circle">Write me a letter instead &rarr;</a></p>
+                    <a href="/circle">Write me that letter instead &rarr;</a></p>
             </section>
 
-            <!-- BEAT 2 — the room. A week happens somewhere real or it does not happen. -->
-            <section class="beat" id="beat1" aria-label="Step 2: the room">
+            <!-- BEAT 2 — the address -->
+            <section class="beat" id="beat1" aria-label="Step 2: where I reach you">
                 <button class="back" data-back="0">&larr; back</button>
-                <p class="eyebrow" style="margin-bottom:14px;">The room</p>
-                <h2 class="q">Where would it happen?</h2>
-                <p class="sub-tight">It needs a real place with your tools in it. Tell me what the space is, and
-                    whether it's yours to open.</p>
-
-                <div class="field">
-                    <label class="fld"><span class="lbl">Where in the world</span>
-                        <input type="text" id="f_where" maxlength="120" placeholder="e.g. Mashiko, Japan — or just the region">
-                    </label>
-                </div>
-                <div class="field">
-                    <label class="fld"><span class="lbl">The space itself</span>
-                        <textarea id="f_room" rows="4" placeholder="Your own workshop? A school you teach at? A kitchen you can borrow out of season? How many people fit at the bench at once?"></textarea>
-                    </label>
-                </div>
-
-                <div class="row">
-                    <button class="cta" id="go1">Next &rarr;</button>
-                </div>
-                <p class="err" role="alert" aria-live="assertive" id="err1"></p>
-            </section>
-
-            <!-- BEAT 3 — the only promise ET ever makes to a student: what they leave able to DO -->
-            <section class="beat" id="beat2" aria-label="Step 3: the week">
-                <button class="back" data-back="1">&larr; back</button>
-                <p class="eyebrow" style="margin-bottom:14px;">The teaching</p>
-                <h2 class="q">What would they leave able to do?</h2>
-                <p class="sub-tight">Not what it covers &mdash; what's in their hands at the end that wasn't there at the
-                    start. That one sentence is the whole thing I put my name to, so it has to be yours, not mine.</p>
-
-                <div class="field">
-                    <label class="fld"><span class="lbl">When they leave, they can&hellip;</span>
-                        <textarea id="f_outcome" rows="4" placeholder="e.g. throw, trim and glaze a lidded pot, and load a wood kiln without being told what to do next."></textarea>
-                    </label>
-                </div>
-                <div class="field">
-                    <span class="lbl">How long would it need?</span>
-                    <div class="chips" data-single="length" id="g_length"></div>
-                    <div class="own"><input type="text" id="f_length_own" maxlength="120" placeholder="&hellip;or say it in your own words"></div>
-                    <p class="help">A week is the shape I know how to fill. If your craft needs longer, say so &mdash; I'd
-                        rather build the real thing than cut it to fit.</p>
-                </div>
-                <div class="field">
-                    <span class="lbl">Who it's for</span>
-                    <div class="chips" data-single="level" id="g_level"></div>
-                    <div class="own"><input type="text" id="f_level_own" maxlength="120" placeholder="&hellip;or say it in your own words"></div>
-                </div>
-
-                <div class="row">
-                    <button class="cta" id="go2">Next &rarr;</button>
-                </div>
-                <p class="err" role="alert" aria-live="assertive" id="err2"></p>
-            </section>
-
-            <!-- BEAT 4 — the address -->
-            <section class="beat" id="beat3" aria-label="Step 4: where I reach you">
-                <button class="back" data-back="2">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">Where I write back</p>
                 <h2 class="q">Where do I reach you?</h2>
-                <p class="sub-tight">This is the address I answer to, and the door to your own place in the Circle.</p>
+                <p class="sub-tight">Your letter's written. This is the address I answer it to, and the door to your
+                    own place in the Circle.</p>
 
                 <div class="field">
                     <label class="fld"><span class="lbl">Your email</span>
@@ -426,7 +410,7 @@
                     <button class="cta" id="submit">Send it to Arnaud &rarr;</button>
                 </div>
                 <p class="signoff">Free. No password, ever. Nothing is agreed by sending this.</p>
-                <p class="err" role="alert" aria-live="assertive" id="err3"></p>
+                <p class="err" role="alert" aria-live="assertive" id="err1"></p>
 
                 <div class="member-note" id="member-note" role="status" aria-live="polite">
                     <p id="member-note-msg">You're already in the Circle with this email.</p>
@@ -439,7 +423,7 @@
             <section class="done-state" id="sent" aria-live="polite">
                 <div class="seal">&#9993;</div>
                 <p class="eyebrow" style="margin-top:16px;">It's with me</p>
-                <h2 id="sent-h">Thank you &mdash; I have it.</h2>
+                <h2 id="sent-h">Thank you &mdash; your letter's with me.</h2>
                 <p id="sent-line">I've sent a sign-in link to <b id="sent-email"></b>, so you have your own place in the
                     Circle and can add to this whenever you like. I read these myself. If what you could open matches what
                     the Circle is asking for, you'll hear from me &mdash; and I'll come with questions before I come with a date.</p>
@@ -472,36 +456,27 @@
         // The master's door. Deliberately NOT a branch of /circle's letter: a learner
         // says what they want, a master states what they can open, and folding the two
         // into one form produced the old checkbox-at-the-foot version nobody answered.
+        // It is now the same SHEET as /circle — one letter, not four screens of
+        // questions — because what a master would say out loud is worth more than what
+        // they can be made to type into labelled boxes.
         //
         // It writes ONE launch_waitlist row, source 'teach-offer', carrying
         // kind:'instructor' — the shape the Circle already uses for offers (the
-        // `instructors` table was deleted; interests IS the record).
+        // `instructors` table was deleted; interests IS the record). `craft` stays a
+        // field of its own because circle-welcome puts it in the subject line of the
+        // reply ("What you could open in {CRAFT}"), and `offer` now carries the letter
+        // itself, so every existing reader of kind:'instructor' still shows the
+        // substance rather than an empty key.
         //
         // It deliberately does NOT emit kind:'discipline'. That is the shape
         // refresh-unlocked.mjs counts as a hand, and an unverified self-claim must
         // never open an Atlas craft page on its own.
 
-        var LEVELS = [
-            ['beginners','Complete beginners'],
-            ['some','People with some grounding'],
-            ['serious','Serious practitioners only'],
-            ['any','Anyone — I adapt it']
-        ];
-        // A week is the Lab Week shape, but a craft that genuinely needs a month
-        // should say a month rather than be trimmed to fit the format.
-        var LENGTHS = [
-            ['week','A week'],
-            ['two-weeks','Two weeks'],
-            ['month','A month'],
-            ['longer','Longer — it needs the time']
-        ];
-
-        var state = { name:'', craft:'', record:'', where:'', room:'', outcome:'',
-                      level:null, level_own:'', length:null, length_own:'', email:'' };
+        var state = { name:'', craft:'', where:'', letter:'', email:'' };
         var current = 0;
         function $(id){ return document.getElementById(id); }
 
-        function rails(){ for(var i=0;i<4;i++){ var el=$('r'+i); if(el) el.className = i<current?'done':(i===current?'on':''); } }
+        function rails(){ for(var i=0;i<2;i++){ var el=$('r'+i); if(el) el.className = i<current?'done':(i===current?'on':''); } }
         function show(n){
             document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });
             $('beat'+n).classList.add('show');
@@ -513,54 +488,37 @@
             b.addEventListener('click', function(){ show(parseInt(b.getAttribute('data-back'),10)); });
         });
 
-        // ── single-choice chip groups: pressing the pressed one clears it ──
-        function buildChips(group, pairs){
-            var box=$('g_'+group);
-            pairs.forEach(function(pair){
-                var b=document.createElement('button');
-                b.className='chip'; b.type='button'; b.setAttribute('aria-pressed','false');
-                b.textContent=pair[1];
-                b.addEventListener('click', function(){
-                    var on = b.getAttribute('aria-pressed')==='true';
-                    Array.prototype.forEach.call(box.children, function(c){ c.setAttribute('aria-pressed','false'); });
-                    b.setAttribute('aria-pressed', on?'false':'true');
-                    state[group] = on ? null : pair[0];
-                });
-                box.appendChild(b);
+        // ── the letter: today's date, and the sentence starters ──
+        (function(){
+            try{
+                var d=new Date();
+                var m=['January','February','March','April','May','June','July','August','September','October','November','December'];
+                var el=$('letter-date'); if(el) el.textContent=m[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
+            }catch(e){}
+        })();
+        var letterEl = $('f_letter');
+        document.querySelectorAll('#letter-prompts button').forEach(function(b){
+            b.addEventListener('click', function(){
+                var ins=b.getAttribute('data-ins'), cur=letterEl.value;
+                letterEl.value = cur ? (cur.replace(/\s*$/,'') + '\n\n' + ins) : ins;
+                letterEl.focus();
+                letterEl.setSelectionRange(letterEl.value.length, letterEl.value.length);
             });
-        }
-        buildChips('level', LEVELS);
-        buildChips('length', LENGTHS);
-        // their own words win over the chip — the chip is a shortcut, not the answer
-        function answerOf(group, pairs){
-            var own=$('f_'+group+'_own').value.trim();
-            if(own) return own;
-            for(var i=0;i<pairs.length;i++){ if(pairs[i][0]===state[group]) return pairs[i][1]; }
-            return '';
-        }
+        });
 
-        // ── the gates. Only what a reply genuinely needs is required. ──
+        // ── the gate. Only what a reply genuinely needs is required: something
+        //    written, a name to answer, and the craft (it is the subject of my reply
+        //    and the one thing I cannot guess from prose). ──
         $('go0').addEventListener('click', function(){
             var err=$('err0');
+            state.letter=letterEl.value.trim();
             state.name=$('f_name').value.trim();
             state.craft=$('f_craft').value.trim();
-            state.record=$('f_record').value.trim();
-            if(!state.name){ err.textContent='Your name, so I know who I am writing to.'; err.style.display='block'; $('f_name').focus(); return; }
-            if(!state.craft){ err.textContent='Name the craft — it is the one thing I cannot guess.'; err.style.display='block'; $('f_craft').focus(); return; }
-            err.style.display='none'; show(1);
-        });
-        $('go1').addEventListener('click', function(){
-            var err=$('err1');
             state.where=$('f_where').value.trim();
-            state.room=$('f_room').value.trim();
-            if(!state.where){ err.textContent='Where in the world? A region is enough.'; err.style.display='block'; $('f_where').focus(); return; }
-            err.style.display='none'; show(2);
-        });
-        $('go2').addEventListener('click', function(){
-            state.outcome=$('f_outcome').value.trim();
-            state.level_own=$('f_level_own').value.trim();
-            state.length_own=$('f_length_own').value.trim();
-            $('err2').style.display='none'; show(3);
+            if(state.letter.length < 2){ err.textContent='Write me a line or two first — that is the whole of it.'; err.style.display='block'; letterEl.focus(); return; }
+            if(!state.craft){ err.textContent='Name the craft at the top — it is the one thing I cannot guess.'; err.style.display='block'; $('f_craft').focus(); return; }
+            if(!state.name){ err.textContent='Sign it, so I know who I am answering.'; err.style.display='block'; $('f_name').focus(); return; }
+            err.style.display='none'; show(1);
         });
 
         // ── the address ──
@@ -583,18 +541,20 @@
 
         function buildInterests(){
             // `offer` stays the human-readable heart of it so every existing reader of
-            // kind:'instructor' still shows something useful; the rest are extra keys.
+            // kind:'instructor' still shows something useful — it now holds the letter,
+            // which is where the record, the room, the outcome and the length all live.
+            // `letter` carries the same text under its own name so a future reader can
+            // tell prose from a one-line answer.
             return [
                 { kind:'profile', name:state.name, region:state.where||null },
-                { kind:'instructor', craft:state.craft, offer:state.outcome||null,
-                  record:state.record||null, room:state.room||null,
-                  where:state.where||null, level:answerOf('level', LEVELS)||null,
-                  length:answerOf('length', LENGTHS)||null }
+                { kind:'instructor', craft:state.craft, offer:state.letter||null,
+                  letter:state.letter||null, record:null, room:null,
+                  where:state.where||null, level:null, length:null }
             ];
         }
 
         $('submit').addEventListener('click', async function(){
-            var email=$('f_email').value.trim(), err=$('err3'), btn=this;
+            var email=$('f_email').value.trim(), err=$('err1'), btn=this;
             $('member-note').style.display='none';
             if(!validEmail(email)){ err.textContent='I need a real address to write back to.'; err.style.display='block'; $('f_email').focus(); return; }
             if(!$('f_consent').checked){ err.textContent='Tick the box so I am allowed to write back about this.'; err.style.display='block'; $('f_consent').focus(); return; }
@@ -643,7 +603,7 @@
         });
 
         function finish(linked){
-            $('sent-h').textContent = 'Thank you, ' + state.name + ' — I have it.';
+            $('sent-h').textContent = 'Thank you, ' + state.name + ' — your letter\'s with me.';
             $('sent-email').textContent = state.email;
             if(!linked){
                 $('sent-line').innerHTML = 'I have what you wrote, and I read these myself. I couldn\'t send your sign-in link '
@@ -653,7 +613,7 @@
             document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });
             var rail=$('card').querySelector('.rail'); if(rail) rail.style.display='none';
             $('sent').classList.add('show');
-            current=4; rails();
+            current=2; rails();
             $('card').scrollIntoView({behavior:'smooth', block:'start'});
             if(window.plausible) window.plausible('TeachOfferSent');
         }
