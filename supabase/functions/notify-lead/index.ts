@@ -49,6 +49,7 @@ const SOURCE_LABEL: Record<string, string> = {
   "homepage-circle": "the homepage joiner",
   "join-page": "the join page",
   "barcelona": "the /barcelona teaser",
+  "teach-offer": "the /teach letter — a master's door",
 };
 
 const INTENT_LABEL: Record<string, string> = {
@@ -64,12 +65,20 @@ const INTENT_LABEL: Record<string, string> = {
 //   homepage/orb/intent forms → ["Craft name", ...]   old profiles → {category:[...]}
 // Parse defensively; anything unrecognized still shows up raw in the sheet.
 type Mastery = { skill: string; level: string; relation: string; advanced: string };
+// /teach writes one of these. Since the page became a letter, `offer` holds the
+// letter itself rather than a one-line outcome — so it gets read as prose, on
+// paper, the same way a learner's letter is.
+type Instructor = {
+  craft: string; offer: string; record: string; room: string;
+  where: string; level: string; length: string;
+};
 type Parsed = {
   name: string; region: string; crafts: string[];
-  intent: Array<[string, string]>; dream: string; mastery: Mastery | null; leftovers: unknown[];
+  intent: Array<[string, string]>; dream: string; mastery: Mastery | null;
+  instructor: Instructor | null; leftovers: unknown[];
 };
 function parseInterests(iv: unknown): Parsed {
-  const out: Parsed = { name: "", region: "", crafts: [], intent: [], dream: "", mastery: null, leftovers: [] };
+  const out: Parsed = { name: "", region: "", crafts: [], intent: [], dream: "", mastery: null, instructor: null, leftovers: [] };
   let items: unknown[] = [];
   if (Array.isArray(iv)) items = iv;
   else if (iv && typeof iv === "object") items = Object.values(iv as Record<string, unknown>).flat();
@@ -117,6 +126,20 @@ function parseInterests(iv: unknown): Parsed {
       case "dream":
         out.dream = String(o.text ?? "").trim() || out.dream;
         break;
+      // An offer to teach, from /teach. Deliberately NOT pushed into out.crafts:
+      // a craft in that list reads as a craft someone wants to LEARN, and the two
+      // must never be counted as the same signal.
+      case "instructor": {
+        const str = (k: string) => String(o[k] ?? "").trim();
+        const inst: Instructor = {
+          craft: str("craft"),
+          offer: str("letter") || str("offer"),
+          record: str("record"), room: str("room"),
+          where: str("where"), level: str("level"), length: str("length"),
+        };
+        if (Object.values(inst).some((v) => v)) out.instructor = inst;
+        break;
+      }
       case "mastery": {
         const skill = String(o.skill ?? "").trim();
         const relation = String(o.relation ?? "").trim();
@@ -188,7 +211,28 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
          <p style="color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;margin:0;white-space:pre-wrap;">${esc(p.dream)}</p>
          <p style="color:#3a2c1e;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:16px 0 0 0;text-align:right;">— ${esc(name)}</p>
        </div>`
-    : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:20px 0 0 0;">No dream written — they skipped that step.</p>`;
+    : (p.instructor ? "" : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:20px 0 0 0;">No dream written — they skipped that step.</p>`);
+
+  // A master's letter, on the same paper as a learner's — it is the whole offer
+  // now, so it is read, not parsed. Nothing here is agreed by its arrival.
+  const inst = p.instructor;
+  const offerBlock = inst
+    ? `<table style="width:100%;border-collapse:collapse;margin:6px 0 0 0;">
+         ${kv("The craft", inst.craft ? esc(inst.craft) : "")}
+         ${kv("The room", inst.where ? esc(inst.where) : "")}
+         ${kv("How long", inst.length ? esc(inst.length) : "")}
+         ${kv("Who it's for", inst.level ? esc(inst.level) : "")}
+       </table>
+       ${inst.offer
+         ? `<div style="background:#efe6d3;border-radius:8px;padding:24px 26px;margin:18px 0 6px 0;box-shadow:0 10px 30px -18px rgba(0,0,0,0.8);">
+              <p style="color:#6f6350;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0 0 14px 0;">What they could open — in their words</p>
+              <p style="color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;margin:0;white-space:pre-wrap;">${esc(inst.offer)}</p>
+              <p style="color:#3a2c1e;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:16px 0 0 0;text-align:right;">— ${esc(name)}</p>
+            </div>`
+         : ""}
+       ${inst.record ? `<p style="margin:14px 0 4px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Their record</p><p style="color:#2b2621;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">${esc(inst.record)}</p>` : ""}
+       ${inst.room ? `<p style="margin:14px 0 4px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">The space</p><p style="color:#2b2621;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">${esc(inst.room)}</p>` : ""}`
+    : "";
 
   const RELATION_LABEL: Record<string, string> = { work: "It's their work", passion: "A lifelong passion" };
   const ADVANCED_LABEL: Record<string, string> = { yes: "Yes — they'd go deeper", curious: "Curious", no: "Not for them" };
@@ -216,18 +260,20 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
       <span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#2b2621;">EDUCATED</span><span style="font-family:Georgia,serif;font-size:14px;font-weight:600;letter-spacing:2px;color:#3f6b67;">TRAVELER</span>
     </div>
     <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:34px 28px;">
-      <p style="color:#8f5820;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 10px 0;font-family:'Courier New',monospace;">New Circle signup${when ? " · " + esc(when) : ""}</p>
-      <p style="color:#2b2621;font-family:Georgia,serif;font-size:23px;line-height:1.4;margin:0 0 22px 0;">${esc(name)} just raised a hand to join the Circle.</p>
+      <p style="color:#8f5820;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 10px 0;font-family:'Courier New',monospace;">${inst ? "A room offered" : "New Circle signup"}${when ? " · " + esc(when) : ""}</p>
+      <p style="color:#2b2621;font-family:Georgia,serif;font-size:23px;line-height:1.4;margin:0 0 22px 0;">${esc(name)} ${inst ? "wrote to you about a room they could open." : "just raised a hand to join the Circle."}</p>
 
       <table style="width:100%;border-collapse:collapse;margin-bottom:6px;">
         ${kv("Name", esc(name))}
         ${kv("Email", email ? `<a href="mailto:${esc(email)}" style="color:#3f6b67;">${esc(email)}</a>` : "")}
-        ${kv("Where they live", p.region ? esc(p.region) : "")}
+        ${kv("Where they live", (p.region && !inst) ? esc(p.region) : "")}
         ${kv("Came in through", src ? esc(src) : "")}
       </table>
 
-      <p style="margin:18px 0 10px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">The crafts — ${p.crafts.length}</p>
-      ${craftBlock}
+      ${offerBlock}
+
+      ${inst ? "" : `<p style="margin:18px 0 10px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">The crafts — ${p.crafts.length}</p>
+      ${craftBlock}`}
 
       ${intentRows ? `<p style="margin:18px 0 4px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;">Where they're starting from</p>
       <table style="width:100%;border-collapse:collapse;">${intentRows}</table>` : ""}
@@ -236,7 +282,7 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
       ${dreamBlock}
       ${leftoverBlock}
     </div>
-    <p style="color:#7a726a;font-size:12px;text-align:center;margin:22px 0 0 0;">Reply goes straight to ${esc(name)}. They're a lead, not yet a member — the door is yours to open.</p>
+    <p style="color:#7a726a;font-size:12px;text-align:center;margin:22px 0 0 0;">Reply goes straight to ${esc(name)}. ${inst ? "Nothing is agreed by what they sent — it says they exist, and the checking is yours to do." : "They're a lead, not yet a member — the door is yours to open."}</p>
   </div>
 </body></html>`;
 }
@@ -415,7 +461,10 @@ serve(async (req) => {
     const extra = p.crafts.length > 1 ? ` +${p.crafts.length - 1}` : "";
     const craftBit = p.crafts.length ? ` — ${p.crafts[0]}${extra}` : "";
     const masterBit = p.mastery?.skill ? ` · masters ${p.mastery.skill}${p.mastery.advanced === "yes" ? " (wants to go deeper)" : ""}` : "";
-    const subject = `New Circle signup: ${who}${craftBit}${p.dream ? " · with a dream" : ""}${masterBit}`;
+    // An offer to teach is not a signup and must not read as one in the inbox.
+    const subject = p.instructor
+      ? `A room offered: ${who}${p.instructor.craft ? " — " + p.instructor.craft : ""}${p.instructor.where ? " · " + p.instructor.where : ""}`
+      : `New Circle signup: ${who}${craftBit}${p.dream ? " · with a dream" : ""}${masterBit}`;
 
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
