@@ -247,7 +247,7 @@ const LP = 'style="margin:0 0 18px 0;"';
 function welcomePlainHtml(unsub: string): string {
   const body = `
     <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A place, a person, your people.</p>
-    <p ${LP}>Your letter is here, and I have read it. A proper answer is coming — give me a few days. There is one of me, and I would rather send you something real than something quick.</p>
+    <p ${LP}>Your letter is here. <strong>This note is automatic — the answer won't be.</strong> I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.</p>
     <p ${LP}>While you wait, here is what you have joined. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.</p>
     <p ${LP}>So — the letter. One place.</p>
     <p ${LP}>In 1924 a young potter named <strong>Shoji Hamada</strong> could have set up anywhere. He had spent three years in England building a pottery beside <strong>Bernard Leach</strong>, he was already good, and the capital was open to him. He chose <strong>Mashiko</strong> — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.</p>
@@ -269,7 +269,7 @@ function welcomePlainHtml(unsub: string): string {
 function welcomeText(unsub: string): string {
   return `A place, a person, your people.
 
-Your letter is here, and I have read it. A proper answer is coming — give me a few days. There is one of me, and I would rather send you something real than something quick.
+Your letter is here. This note is automatic — the answer won't be. I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.
 
 While you wait, here is what you have joined. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.
 
@@ -363,7 +363,7 @@ function teachOfferHtml(unsub: string, name?: string, craft?: string): string {
   const c = craft && craft !== "that craft" ? craft : "your craft";
   const body = `
     <p ${LP}>${hi}</p>
-    <p ${LP}>Thank you — I have what you wrote about ${c}, and I read these myself.</p>
+    <p ${LP}>Thank you — what you wrote about ${c} is here. <strong>This note is automatic; the answer won't be.</strong> I read these myself, and I will come back to you properly.</p>
     <p ${LP}>Here is where this honestly stands, because you should hear it from me rather than work it out later. EducatedTraveler is new. One week is signed — modernist technique in Barcelona, this October — and nobody has been anywhere yet. There are no alumni. The Circle is a list of people who have told me what they would give a week of their life to learn, and a list is not a queue: I will not tell you there is demand for your week until there is.</p>
     <p ${LP}>What happens next is slow, and it is my work, not yours. I check what can be checked, and I put nothing on the Atlas until you have seen it and told me it is right. Then I write to you with real questions — what it costs you to run, how many people you would actually want at the bench, how long it truly needs, what time of year is wrong. A week is the shape I know how to fill, and if your craft needs longer than that I would rather hear it now than trim it to fit. If it fits what people are asking me for, we talk about a date. If it does not fit yet, I will say so plainly and keep you on my list.</p>
     <p ${LP}>Nothing is agreed by what you sent. It tells me you exist, which is the part I cannot find on my own.</p>
@@ -380,7 +380,7 @@ function teachOfferText(unsub: string, name?: string, craft?: string): string {
   const c = craft && craft !== "that craft" ? craft : "your craft";
   return `${hi}
 
-Thank you — I have what you wrote about ${c}, and I read these myself.
+Thank you — what you wrote about ${c} is here. This note is automatic; the answer won't be. I read these myself, and I will come back to you properly.
 
 Here is where this honestly stands, because you should hear it from me rather than work it out later. EducatedTraveler is new. One week is signed — modernist technique in Barcelona, this October — and nobody has been anywhere yet. There are no alumni. The Circle is a list of people who have told me what they would give a week of their life to learn, and a list is not a queue: I will not tell you there is demand for your week until there is.
 
