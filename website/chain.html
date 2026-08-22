@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One sentence — EDUCATEDTRAVELER</title>
+
+    <meta name="description" content="Finish one sentence — what you'd learn, where, and how. Then you get to read your friend's.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://educatedtraveler.app/chain">
+    <meta property="og:title" content="Finish the sentence">
+    <meta property="og:description" content="I want to learn ___ in ___, by ___. Write yours and you unlock mine.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.app/chain">
+    <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <meta property="og:site_name" content="EducatedTraveler">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── ET warm-dark lock — same tokens as /circle, /hello, /barcelona.
+              The palette and faces are the house style and stay put. The one bold
+              move on this page is the sentence itself. ── */
+        :root{ --ink:#0d0b09; --paper:#f3ede2; --muted:rgba(243,237,226,0.56);
+               --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52;
+               --line:rgba(243,237,226,0.09);
+               --serif:'Fraunces',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace; }
+
+        *{ box-sizing:border-box; -webkit-font-smoothing:antialiased; margin:0; padding:0; }
+        body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
+              min-height:100vh; line-height:1.55; }
+        ::selection{ background:rgba(210,138,82,0.30); }
+        body::before{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+            background:
+                radial-gradient(900px 620px at 12% -10%, rgba(127,168,165,0.11), transparent 62%),
+                radial-gradient(820px 640px at 94% 4%, rgba(210,138,82,0.10), transparent 56%); }
+
+        nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(13,11,9,0.74);
+             backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+        .nav-in{ max-width:1100px; margin:0 auto; padding:14px 22px; }
+        .brand{ font-family:var(--serif); letter-spacing:0.16em; font-size:15px; color:var(--paper); text-decoration:none; }
+        .brand span{ color:var(--sea); }
+
+        .wrap{ max-width:560px; margin:0 auto; padding:88px 22px 64px; }
+
+        .eyebrow{ font-family:var(--mono); font-size:10.5px; letter-spacing:0.3em;
+                  text-transform:uppercase; color:var(--sea); margin-bottom:22px; }
+        .eyebrow.dim{ color:var(--faint); }
+
+        .beat{ display:none; }
+        .beat.on{ display:block; }
+
+        /* ══ THE SIGNATURE — the answer is a sentence with holes in it ══ */
+        .sent{ font-family:var(--serif); font-weight:300; font-size:clamp(1.45rem,5.9vw,1.95rem);
+               line-height:1.62; letter-spacing:-0.012em; color:var(--muted); margin-bottom:6px; }
+        .sent .fix{ color:var(--muted); }
+
+        /* the blanks: real inputs, auto-widened, wearing a writing line */
+        .blank{ font-family:var(--serif); font-weight:400; font-size:inherit; line-height:1.2;
+                color:var(--paper); background:none; border:0; border-bottom:1.5px solid rgba(210,138,82,0.42);
+                border-radius:0; padding:0 2px 3px; margin:0 1px; width:5.5em; max-width:100%;
+                outline:none; transition:border-color .22s, background .22s;
+                caret-color:var(--ember); }
+        .blank::placeholder{ color:rgba(243,237,226,0.26); font-style:italic; font-weight:300; }
+        /* an <input list> reserves room for Chrome's picker indicator, which eats the
+           last character or two of an auto-sized blank */
+        .blank::-webkit-calendar-picker-indicator{ display:none !important; }
+        .blank:focus{ border-bottom-color:var(--ember); background:rgba(210,138,82,0.07); }
+        .blank:focus-visible{ box-shadow:0 3px 0 -1px rgba(210,138,82,0.35); }
+        #sizer{ position:absolute; left:-9999px; top:-9999px; white-space:pre; visibility:hidden; }
+
+        /* the map's own answer, offered quietly under the sentence */
+        .hint{ display:none; font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em;
+               color:var(--faint); margin-top:12px; }
+        .hint.on{ display:block; }
+        .hint button{ background:none; border:0; color:var(--sea); font:inherit; cursor:pointer;
+                      border-bottom:1px solid rgba(127,168,165,0.4); padding:0 0 2px; }
+        .hint button:hover{ border-color:var(--sea); }
+
+        /* chips fill the third blank — most of the typing burden, removed */
+        .chips{ display:flex; flex-wrap:wrap; gap:7px; margin:20px 0 4px; }
+        .chip{ font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; color:var(--muted);
+               background:rgba(243,237,226,0.04); border:1px solid var(--line); border-radius:20px;
+               padding:7px 12px; cursor:pointer; transition:border-color .2s, color .2s, background .2s; }
+        .chip:hover{ border-color:rgba(127,168,165,0.45); color:var(--paper); }
+        .chip[aria-pressed="true"]{ border-color:rgba(127,168,165,0.6); color:var(--sea);
+                                    background:rgba(127,168,165,0.09); }
+
+        /* ══ the card — one sentence, sealed ══ */
+        .card{ position:relative; border:1px solid var(--line); border-radius:20px; padding:24px 22px 22px;
+               background:linear-gradient(168deg, rgba(243,237,226,0.055), rgba(243,237,226,0.015));
+               margin-bottom:18px; overflow:hidden; }
+        .card .who{ display:flex; align-items:center; justify-content:space-between; gap:12px;
+                    font-family:var(--mono); font-size:10px; letter-spacing:0.2em; text-transform:uppercase;
+                    color:var(--faint); margin-bottom:15px; }
+        .card .line{ font-family:var(--serif); font-weight:300; font-size:1.32rem; line-height:1.5;
+                     letter-spacing:-0.012em; color:var(--muted); }
+        .card .line b{ font-weight:400; color:var(--paper); }
+        .card .seal{ flex-shrink:0; opacity:0.5; }
+        .card.mine{ border-color:rgba(210,138,82,0.3);
+                    background:linear-gradient(168deg, rgba(210,138,82,0.09), rgba(210,138,82,0.02)); }
+        .card.theirs{ border-color:rgba(127,168,165,0.34);
+                      background:linear-gradient(168deg, rgba(127,168,165,0.09), rgba(127,168,165,0.02)); }
+
+        /* Sealed: only the ANSWERS blur. You can read the shape of the sentence and see
+           exactly what you're about to get — which is the whole tease.
+           --seal-blur tightens as the reader fills in their own blanks: the thing they
+           want comes into focus in step with the thing they give. Floors at 4px, so it
+           is never actually readable before they have earned it. */
+        .card.locked .line b{ filter:blur(var(--seal-blur, 12px)); opacity:0.78; user-select:none;
+                              transition:filter .5s cubic-bezier(.2,.7,.2,1); }
+        .card.locked .line{ color:var(--faint); }
+        .focus-note{ font-family:var(--mono); font-size:9.5px; letter-spacing:0.14em;
+                     text-transform:uppercase; color:var(--faint); margin:-8px 0 26px; text-align:center;
+                     transition:color .4s; }
+        .focus-note.near{ color:var(--ember); }
+        .card.locked::after{ content:""; position:absolute; inset:0; pointer-events:none;
+                             background:radial-gradient(130% 100% at 50% 45%, transparent 22%, rgba(13,11,9,0.46)); }
+        .card .tag{ font-family:var(--mono); font-size:9.5px; letter-spacing:0.18em; text-transform:uppercase;
+                    color:var(--faint); border:1px solid var(--line); border-radius:20px; padding:3px 9px; }
+        .card:not(.locked) .tag{ display:none; }
+
+        /* the one orchestrated moment */
+        /* the reveal lands one clause at a time — what, then where, then how */
+        @keyframes unseal{ from{ filter:blur(10px); opacity:.4; }
+                           to{ filter:blur(0); opacity:1; } }
+        .card.unsealing .line b:nth-of-type(1){ animation-delay:0s; }
+        .card.unsealing .line b:nth-of-type(2){ animation-delay:.42s; }
+        .card.unsealing .line b:nth-of-type(3){ animation-delay:.84s; }
+        @keyframes rise{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
+        .beat.on > *{ animation:rise .55s cubic-bezier(.2,.7,.2,1) both; }
+        .beat.on > *:nth-child(2){ animation-delay:.05s; }
+        .beat.on > *:nth-child(3){ animation-delay:.10s; }
+        .beat.on > *:nth-child(4){ animation-delay:.15s; }
+        .card.unsealing .line b{ animation:unseal .9s cubic-bezier(.2,.7,.2,1) both; }
+
+        /* the guess — one line, one stake, skippable */
+        .guess{ display:none; border:1px solid rgba(210,138,82,0.4); border-radius:18px;
+                padding:19px 18px; margin-top:24px;
+                background:linear-gradient(168deg, rgba(210,138,82,0.10), rgba(210,138,82,0.02)); }
+        .guess.on{ display:block; animation:rise .45s cubic-bezier(.2,.7,.2,1) both; }
+        .guess .q{ font-family:var(--serif); font-size:1.18rem; font-weight:300; line-height:1.34;
+                   margin-bottom:14px; letter-spacing:-0.012em; }
+        .guess .skip{ display:block; width:100%; text-align:center; background:none; border:0;
+                      color:var(--faint); font-family:var(--mono); font-size:10px; letter-spacing:0.16em;
+                      text-transform:uppercase; cursor:pointer; margin-top:13px; padding:4px 0; }
+        .guess .skip:hover{ color:var(--sea); }
+
+        .scored{ font-family:var(--mono); font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase;
+                 margin-bottom:14px; color:var(--faint); }
+        .scored.hit{ color:var(--ember); }
+
+        .sub.lead{ margin-bottom:34px; }
+
+        h1{ font-family:var(--serif); font-weight:300; font-size:clamp(1.75rem,5.4vw,2.3rem);
+            line-height:1.16; letter-spacing:-0.022em; margin-bottom:12px; }
+        h1 em{ font-style:italic; color:var(--ember); }
+        .sub{ color:var(--muted); font-size:14.5px; margin-bottom:26px; }
+        .sub b{ color:var(--paper); font-weight:500; }
+
+        .lbl{ display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:0.18em;
+              text-transform:uppercase; color:var(--faint); margin-bottom:8px; }
+        .field{ margin-bottom:16px; }
+        input.box, textarea{ width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16);
+               border-radius:14px; color:var(--paper); font-family:inherit; font-size:16px; padding:15px 16px;
+               outline:none; transition:border-color .25s, box-shadow .25s; resize:none; }
+        input.box::placeholder, textarea::placeholder{ color:rgba(243,237,226,0.30); }
+        input.box:focus, textarea:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+
+        .btn{ display:flex; align-items:center; justify-content:center; gap:9px; width:100%;
+              font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:var(--ink);
+              background:var(--paper); border:1px solid var(--paper); border-radius:14px; padding:16px 22px;
+              text-decoration:none; cursor:pointer; transition:transform .18s ease, background .25s, opacity .25s; }
+        .btn:hover{ transform:translateY(-1px); background:#fff; }
+        .btn:disabled{ opacity:.4; cursor:default; transform:none; }
+        .btn.ghost{ background:none; color:var(--paper); border-color:rgba(243,237,226,0.22); }
+        .btn.ghost:hover{ background:rgba(243,237,226,0.05); }
+        .btn + .btn{ margin-top:10px; }
+        :focus-visible{ outline:2px solid var(--sea); outline-offset:3px; }
+
+        .help{ color:var(--faint); font-size:12.5px; margin-top:14px; line-height:1.5; }
+        .help a{ color:var(--sea); }
+        .err{ display:none; color:var(--ember); font-size:13.5px; margin:12px 0 0; }
+
+        /* ══ the verdict — what the real Atlas says, three honest states ══ */
+        .verdict{ border-radius:20px; padding:21px 20px; margin:30px 0 0; border:1px solid var(--line);
+                  background:rgba(243,237,226,0.025); }
+        .verdict.yes{ border-color:rgba(127,168,165,0.42); background:rgba(127,168,165,0.08); }
+        .verdict.soon{ border-color:rgba(210,138,82,0.34); background:rgba(210,138,82,0.06); }
+        .verdict .k{ font-family:var(--mono); font-size:9.5px; letter-spacing:0.2em; text-transform:uppercase;
+                     color:var(--faint); margin-bottom:11px; }
+        .verdict.yes .k{ color:var(--sea); }
+        .verdict.soon .k{ color:var(--ember); }
+        .verdict .t{ font-family:var(--serif); font-size:1.22rem; font-weight:300; line-height:1.3;
+                     letter-spacing:-0.012em; margin-bottom:9px; }
+        .verdict p{ font-size:14px; color:var(--muted); line-height:1.62; }
+        .verdict .cohort{ margin-top:12px; padding-top:12px; border-top:1px solid var(--line);
+                          font-family:var(--mono); font-size:11px; letter-spacing:0.06em; color:var(--sea); }
+        .verdict .go{ display:inline-block; margin-top:14px; font-family:var(--mono); font-size:10.5px;
+                      letter-spacing:0.14em; text-transform:uppercase; color:var(--sea); text-decoration:none;
+                      border-bottom:1px solid rgba(127,168,165,0.4); padding-bottom:3px; }
+        .verdict .go:hover{ border-color:var(--sea); }
+
+        /* the cohort moment — the loudest thing on the read beat when it fires */
+        .together{ border-radius:20px; padding:21px 20px; margin:0 0 18px;
+                   border:1px solid rgba(210,138,82,0.45);
+                   background:linear-gradient(168deg, rgba(210,138,82,0.14), rgba(210,138,82,0.04)); }
+        .together.apart{ border-color:var(--line); background:rgba(243,237,226,0.025); }
+        .together .k{ font-family:var(--mono); font-size:9.5px; letter-spacing:0.2em; text-transform:uppercase;
+                      color:var(--ember); margin-bottom:11px; }
+        .together.apart .k{ color:var(--faint); }
+        .together .t{ font-family:var(--serif); font-size:1.22rem; font-weight:300; line-height:1.32;
+                      letter-spacing:-0.012em; margin-bottom:9px; }
+        .together p{ font-size:14px; color:var(--muted); line-height:1.62; }
+
+        .split{ display:flex; align-items:center; gap:14px; margin:34px 0 20px; }
+        .split::before, .split::after{ content:""; height:1px; flex:1; background:var(--line); }
+        .split span{ font-family:var(--mono); font-size:9.5px; letter-spacing:0.2em;
+                     text-transform:uppercase; color:var(--faint); }
+
+        .msg{ border:1px solid var(--line); border-radius:16px; background:rgba(243,237,226,0.03);
+              padding:15px 16px; margin:16px 0 14px; }
+        .msg textarea{ background:none; border:0; padding:0; font-size:15px; line-height:1.55; min-height:68px; }
+        .msg textarea:focus{ box-shadow:none; }
+        .msg .lnk{ font-family:var(--mono); font-size:10.5px; color:var(--sea); word-break:break-all;
+                   margin-top:11px; padding-top:11px; border-top:1px solid var(--line); }
+
+        .saved{ display:none; border:1px solid rgba(127,168,165,0.42); background:rgba(127,168,165,0.09);
+                border-radius:16px; padding:16px 18px; font-size:14px; line-height:1.6; }
+        .saved.on{ display:block; }
+
+        .close-line{ margin-top:36px; padding-top:22px; border-top:1px solid var(--line);
+                     font-family:var(--serif); font-style:italic; font-size:15.5px;
+                     color:var(--muted); line-height:1.5; }
+        .foot{ margin-top:28px; display:flex; gap:18px; flex-wrap:wrap; }
+        .foot a{ font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+                 color:var(--faint); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px; }
+        .foot a:hover{ color:var(--sea); border-color:var(--sea); }
+
+        .demo{ display:none; position:fixed; bottom:0; left:0; right:0; z-index:60;
+               background:rgba(210,138,82,0.14); border-top:1px solid rgba(210,138,82,0.4);
+               font-family:var(--mono); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase;
+               color:var(--ember); text-align:center; padding:9px 14px; }
+        .demo.on{ display:block; }
+
+        @media (prefers-reduced-motion: reduce){
+            *, *::before, *::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important;
+                                    transition-duration:.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav><div class="nav-in"><a class="brand" href="/">EDUCATED<span>TRAVELER</span></a></div></nav>
+
+<!-- the five-ring mark, used as a seal on each card -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="seal">
+    <circle cx="20" cy="13.40" r="6.6"/><circle cx="26.28" cy="17.96" r="6.6"/>
+    <circle cx="23.88" cy="25.34" r="6.6"/><circle cx="16.12" cy="25.34" r="6.6"/>
+    <circle cx="13.72" cy="17.96" r="6.6"/>
+</g></defs></svg>
+
+<div class="wrap">
+
+    <!-- ══ WRITE ══ -->
+    <section class="beat on" id="b1">
+        <div class="eyebrow" id="eyebrow">The Chain</div>
+
+        <div class="card locked theirs" id="theirs" style="display:none">
+            <div class="who">
+                <span id="their-who">Their sentence</span>
+                <span class="tag" id="their-tag">Sealed</span>
+            </div>
+            <div class="line" id="their-line"></div>
+        </div>
+        <p class="focus-note" id="focus-note" style="display:none">It sharpens as you write</p>
+
+        <p class="sub lead" id="sub">Finish the sentence. Not a hobby — the one you'd want to be
+           genuinely good at. <b>Where and how matter as much as what.</b></p>
+
+        <p class="sent">
+            <span class="fix">I want to learn</span>
+            <input class="blank" id="f_skill" list="crafts" maxlength="60" autocomplete="off"
+                   autocapitalize="none" placeholder="winemaking" aria-label="What you want to learn">
+            <datalist id="crafts"></datalist>
+            <span class="fix">in</span>
+            <input class="blank" id="f_place" maxlength="48" autocomplete="off"
+                   placeholder="Burgundy" aria-label="Where">
+            <span class="fix">, by</span>
+            <input class="blank" id="f_how" maxlength="72" autocomplete="off"
+                   placeholder="working the harvest" aria-label="How">
+        </p>
+        <span id="sizer" aria-hidden="true"></span>
+
+        <div class="hint" id="hint">
+            The map says <button type="button" id="hint-take"></button>
+        </div>
+
+        <div class="chips" id="chips" role="group" aria-label="Ways to learn it"></div>
+
+        <div class="err" id="err1"></div>
+        <button class="btn" id="go1" style="margin-top:24px">Unseal theirs</button>
+
+        <div class="guess" id="guess">
+            <div class="q" id="guess-q">Before it opens — what do you think they wrote?</div>
+            <input class="box" type="text" id="f_guess" maxlength="60"
+                   autocomplete="off" placeholder="Your hunch">
+            <button class="btn" id="go-guess" style="margin-top:13px">Open it</button>
+            <button class="skip" type="button" id="skip-guess">No idea — just show me</button>
+        </div>
+
+        <p class="help" id="help1">No account, no email. Just finish the sentence.</p>
+    </section>
+
+    <!-- ══ READ ══ -->
+    <section class="beat" id="b2">
+        <div class="eyebrow" id="eyebrow2">Unsealed</div>
+
+        <p class="scored" id="scored" style="display:none"></p>
+
+        <div class="card theirs" id="theirs-open" style="display:none">
+            <div class="who"><span id="their-who-2"></span>
+                <svg class="seal" width="24" height="24" viewBox="0 0 40 40" fill="none"
+                     stroke="var(--sea)" stroke-width="1.1"><use href="#seal"/></svg></div>
+            <div class="line" id="their-line-2"></div>
+        </div>
+
+        <div class="card mine" id="mine">
+            <div class="who"><span id="my-who">Yours</span>
+                <svg class="seal" width="24" height="24" viewBox="0 0 40 40" fill="none"
+                     stroke="var(--ember)" stroke-width="1.1"><use href="#seal"/></svg></div>
+            <div class="line" id="my-line"></div>
+        </div>
+
+        <!-- The cohort moment: computed from the two sentences in front of us, no data needed. -->
+        <div class="together" id="together" style="display:none">
+            <div class="k" id="tog-k">The room</div>
+            <div class="t" id="tog-t"></div>
+            <p id="tog-p"></p>
+        </div>
+
+        <div class="verdict" id="verdict">
+            <div class="k" id="v-k">The Atlas</div>
+            <div class="t" id="v-t"></div>
+            <p id="v-p"></p>
+            <p class="cohort" id="v-cohort" style="display:none"></p>
+            <a class="go" id="v-go" href="/atlas/" style="display:none">See where &rarr;</a>
+        </div>
+
+        <div class="split"><span>Make it happen</span></div>
+
+        <div class="saved" id="saved"><span id="saved-msg"></span></div>
+
+        <div id="enlarge">
+            <p class="sub" id="enlarge-sub">Leave your name and your sentence goes on the list with
+               everyone else's. When enough people want the same craft, that is when a week gets built —
+               and you hear first.</p>
+            <div class="field">
+                <label class="lbl" for="f_name">First name</label>
+                <input class="box" type="text" id="f_name" autocomplete="given-name" placeholder="Marie">
+            </div>
+            <div class="field">
+                <label class="lbl" for="f_email">Email</label>
+                <input class="box" type="email" id="f_email" autocomplete="email" inputmode="email"
+                       placeholder="you@example.com">
+            </div>
+            <div class="err" id="err2"></div>
+            <button class="btn" id="go2" style="margin-top:16px">Put my sentence on the list</button>
+            <p class="help">This is the Circle — the people the weeks get built for.
+               One email when something real happens for your craft. Nothing else.</p>
+        </div>
+
+        <div class="split"><span>Build the room</span></div>
+
+        <p class="sub" id="pass-sub">Send it to the person you'd actually want in the room.
+           They can't read yours until they write theirs.</p>
+
+        <div class="field">
+            <label class="lbl" for="f_signas">Send it as</label>
+            <input class="box" type="text" id="f_signas" maxlength="24" placeholder="Your first name">
+        </div>
+
+        <div class="msg">
+            <textarea id="f_msg" rows="3" aria-label="The message you send"></textarea>
+            <div class="lnk" id="link-txt">Add your name and the link appears</div>
+        </div>
+
+        <button class="btn" id="send">Send it</button>
+        <button class="btn ghost" id="copy" type="button">Copy the message</button>
+
+        <p class="close-line">Nobody learns a craft alone. They learn it next to
+           the people who wanted the same thing.</p>
+
+        <div class="foot">
+            <a href="/atlas/">The Atlas</a>
+            <a href="/about">The Story</a>
+        </div>
+    </section>
+
+</div>
+
+<div class="demo" id="demo">Preview — nothing is saved</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script src="/js/atlas-index.js"></script>
+<script>
+(function(){
+    "use strict";
+    function $(id){ return document.getElementById(id); }
+    function esc(s){ return String(s).replace(/[&<>"']/g, function(c){
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+
+    // Writing is gated on the HOSTNAME, not on "is there a client".
+    // supabase-config.js builds a PRODUCTION client wherever it loads, so a local
+    // preview would otherwise insert a real row and fire the real welcome email.
+    // ?live=1 forces a genuine write when you actually want to test the loop.
+    var PROD_HOSTS = ['educatedtraveler.app', 'www.educatedtraveler.app'];
+    var FORCE_LIVE = new URLSearchParams(location.search).get('live') === '1';
+    function isProd(){ return PROD_HOSTS.indexOf(location.hostname) !== -1 || FORCE_LIVE; }
+    function canWrite(){ return isProd() && !!(window.supabaseClient && window.supabaseClient.from); }
+
+    var state = { skill:'', place:'', how:'', match:null, hands:1, url:'',
+                  guess:'', guessed:false };
+
+    // ── the friend's sentence travels IN the link ─────────────────────────────
+    // ?c=<base64url json>. Not a database read on purpose: launch_waitlist SELECT is
+    // admin-only, and a public "read someone's answer by token" endpoint would put what
+    // members wrote on an open URL. The sender is handing this to one person; the link
+    // carries exactly that and nothing more.
+    // The gate is therefore SOFT — the text is in the page, blurred. Devtools defeats it.
+    // That is fine: it is a curiosity gate, not security.
+    function b64urlEncode(obj){
+        var bytes = new TextEncoder().encode(JSON.stringify(obj));
+        var bin = ''; bytes.forEach(function(b){ bin += String.fromCharCode(b); });
+        return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    }
+    function b64urlDecode(str){
+        var s = str.replace(/-/g,'+').replace(/_/g,'/');
+        while(s.length % 4) s += '=';
+        var bin = atob(s), bytes = new Uint8Array(bin.length);
+        for(var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+        return JSON.parse(new TextDecoder().decode(bytes));
+    }
+
+    var q = new URLSearchParams(location.search);
+    var friend = null;
+    if(q.get('c')){
+        try{
+            var d = b64urlDecode(q.get('c'));
+            if(d && d.s){
+                friend = { name:String(d.n||'').slice(0,24), skill:String(d.s).slice(0,60),
+                           place:String(d.p||'').slice(0,48), how:String(d.m||'').slice(0,72),
+                           hands:Math.min(parseInt(d.h,10)||1, 99) };
+                state.hands = friend.hands + 1;
+            }
+        }catch(e){ friend = null; }   // a mangled link just becomes a cold start
+    }
+
+    // ── the sentence, assembled ───────────────────────────────────────────────
+    // Clauses that are empty simply don't appear, so a one-word answer still reads
+    // as a sentence rather than a form with gaps in it.
+    function sentenceHTML(skill, place, how){
+        var s = 'I want to learn <b>' + esc(skill) + '</b>';
+        if(place) s += ' in <b>' + esc(place) + '</b>';
+        if(how)   s += ', by <b>' + esc(how) + '</b>';
+        return s + '.';
+    }
+    function sentenceText(skill, place, how){
+        var s = 'I want to learn ' + skill;
+        if(place) s += ' in ' + place;
+        if(how)   s += ', by ' + how;
+        return s + '.';
+    }
+
+    (function paintEntry(){
+        if(!friend) return;
+        var who = friend.name || 'A friend';
+        $('theirs').style.display = 'block';
+        $('their-who').textContent = who + "'s sentence";
+        $('their-line').innerHTML = sentenceHTML(friend.skill, friend.place, friend.how);
+        $('eyebrow').textContent = who + ' asked you';
+        $('sub').innerHTML = '<b>' + esc(who) + " already wrote theirs — it's sealed above.</b> "
+            + 'Finish yours and it opens. Where and how matter as much as what.';
+        $('help1').textContent = 'No account, no email. Write it and it opens.';
+        $('go1').textContent = 'Unseal ' + who + "'s";
+        $('focus-note').style.display = 'block';
+        $('guess-q').textContent = 'Before it opens — what do you think ' + who + ' wrote?';
+    })();
+
+    // ── one true hint ─────────────────────────────────────────────────────────
+    // The world their craft belongs to, straight off the Atlas: it narrows 112 crafts to
+    // one category and makes the thing guessable without giving it away. If their craft
+    // isn't on the map there is no world to name, and the tag just says Sealed — the
+    // silence stays honest rather than being filled with something invented.
+    var WORLD_LABEL = { adventure:'Adventure', movement:'Movement', culinary:'Culinary',
+                        wellness:'Wellness', creative:'Creative' };
+
+    // ── the craft list: real Atlas names only ─────────────────────────────────
+    var ATLAS = (window.ET_ATLAS_INDEX && window.ET_ATLAS_INDEX.crafts) || [];
+    (function fillList(){
+        if(!ATLAS.length) return;   // free text still works; the list is a convenience
+        var frag = document.createDocumentFragment();
+        ATLAS.forEach(function(c){
+            var o = document.createElement('option'); o.value = c.name; frag.appendChild(o);
+        });
+        $('crafts').appendChild(frag);
+    })();
+
+    function norm(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim(); }
+    var STOP = { and:1, the:1, of:1, a:1, in:1, at:1, for:1, with:1, to:1 };
+    function tokens(s){ return norm(s).split(' ').filter(function(t){ return t && !STOP[t]; }); }
+
+    // Three passes, loosest last. Substring alone is not enough: "winemaking" shares no
+    // substring with "Wine & Sommellerie", so the craft Arnaud himself uses as the example
+    // would have come back as "not on the map". Token-prefix catches it without inviting
+    // junk — the shared token must be at least 4 characters and must START the word, so
+    // "surfing" does not silently become "Kitesurfing".
+    function matchCraft(text){
+        var n = norm(text); if(!n || !ATLAS.length) return null;
+
+        var exact = ATLAS.find(function(c){ return norm(c.name) === n; });
+        if(exact) return exact;
+
+        var part = ATLAS.find(function(c){
+            var cn = norm(c.name);
+            return cn.length > 3 && (n.indexOf(cn) !== -1 || cn.indexOf(n) !== -1);
+        });
+        if(part) return part;
+
+        var want = tokens(text), best = null, bestScore = 0;
+        if(!want.length) return null;
+        ATLAS.forEach(function(c){
+            var have = tokens(c.name), score = 0;
+            have.forEach(function(h){
+                if(h.length < 4) return;
+                for(var i=0;i<want.length;i++){
+                    var w = want[i];
+                    if(w === h || w.indexOf(h) === 0 || (w.length >= 4 && h.indexOf(w) === 0)){ score++; break; }
+                }
+            });
+            // Ties go to the more specific (shorter) name, never to the one that happens
+            // to be open — the verdict must not lean toward good news.
+            if(score > bestScore || (score > 0 && score === bestScore && best
+               && c.name.length < best.name.length)){ best = c; bestScore = score; }
+        });
+        // One incidental token must not carry a whole match: "underwater basket weaving"
+        // otherwise comes back as Textiles & Weaving in Oaxaca, stated with a real place.
+        // At least half the words someone wrote have to be accounted for.
+        return (bestScore / want.length) >= 0.5 ? best : null;
+    }
+
+    // Runs here, not in paintEntry: matchCraft needs ATLAS, which is only populated above.
+    (function paintHint(){
+        if(!friend) return;
+        var m = matchCraft(friend.skill);
+        var w = m && WORLD_LABEL[m.world];
+        if(w) $('their-tag').textContent = w + ' · Sealed';
+    })();
+
+    // ── blanks that grow with what you type ──────────────────────────────────
+    var BLANKS = ['f_skill','f_place','f_how'];
+    function autosize(el){
+        var z = $('sizer'), cs = getComputedStyle(el);
+        z.style.font = cs.font;
+        z.style.letterSpacing = cs.letterSpacing;
+        // Placeholders render italic, which is wider than the upright face — measuring
+        // with the wrong slant is what clips the last character or two.
+        z.style.fontStyle = el.value ? cs.fontStyle : 'italic';
+        z.textContent = el.value || el.placeholder || '';
+        el.style.width = Math.max(z.offsetWidth + 14, 40) + 'px';
+    }
+    // Their sentence sharpens as yours fills in — 12px down to 6px. The floor is the
+    // whole point: at 4px a long phrase like "working the harvest" starts to be readable
+    // from its word shapes, which would hand over the answer before it was earned.
+    function sharpen(){
+        if(!friend) return;
+        var filled = BLANKS.filter(function(id){ return $(id).value.trim(); }).length;
+        $('theirs').style.setProperty('--seal-blur', (12 - filled * 2) + 'px');
+        $('focus-note').classList.toggle('near', filled >= 3);
+        $('focus-note').textContent = filled >= 3 ? 'One press away'
+                                    : filled === 0 ? 'It sharpens as you write'
+                                    : 'Sharper — keep going';
+    }
+
+    BLANKS.forEach(function(id){
+        var el = $(id);
+        el.addEventListener('input', function(){ autosize(el); sharpen(); });
+        el.addEventListener('keydown', function(e){
+            if(e.key !== 'Enter') return;
+            e.preventDefault();
+            var i = BLANKS.indexOf(id);
+            if(i < BLANKS.length - 1) $(BLANKS[i+1]).focus(); else $('go1').click();
+        });
+    });
+    // Fonts land after first paint; re-measure or every blank starts the wrong width.
+    function sizeAll(){ BLANKS.forEach(function(id){ autosize($(id)); }); }
+    sizeAll();
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(sizeAll);
+    window.addEventListener('resize', sizeAll);
+
+    // ── the map's own answer for where ───────────────────────────────────────
+    $('f_skill').addEventListener('input', function(){
+        var m = matchCraft(this.value);
+        var h = $('hint');
+        if(m && m.place && !$('f_place').value.trim()){
+            $('hint-take').textContent = m.place + ', ' + m.country;
+            h.classList.add('on');
+        } else { h.classList.remove('on'); }
+    });
+    $('hint-take').addEventListener('click', function(){
+        $('f_place').value = this.textContent;
+        autosize($('f_place'));
+        $('hint').classList.remove('on');
+        $('f_how').focus();
+    });
+
+    // ── chips fill the "how" blank ───────────────────────────────────────────
+    // No one-to-one option: EducatedTraveler runs cohorts, and offering a private
+    // lesson would collect demand for something that is never going to be built.
+    var WAYS = ['one week with a small group', 'living on site', 'alongside total beginners',
+                'with people already good at it', 'a whole season', 'working in the trade'];
+    (function buildChips(){
+        var box = $('chips');
+        WAYS.forEach(function(w){
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'chip'; b.textContent = w;
+            b.setAttribute('aria-pressed', 'false');
+            b.addEventListener('click', function(){
+                var on = $('f_how').value.trim() === w;
+                $('f_how').value = on ? '' : w;
+                autosize($('f_how'));
+                box.querySelectorAll('.chip').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+                if(!on) b.setAttribute('aria-pressed','true');
+            });
+            box.appendChild(b);
+        });
+    })();
+    $('f_how').addEventListener('input', function(){
+        var v = this.value.trim();
+        $('chips').querySelectorAll('.chip').forEach(function(c){
+            c.setAttribute('aria-pressed', c.textContent === v ? 'true' : 'false');
+        });
+    });
+
+    // ── write → read ─────────────────────────────────────────────────────────
+    $('go1').addEventListener('click', function(){
+        state.skill = $('f_skill').value.trim();
+        state.place = $('f_place').value.trim();
+        state.how   = $('f_how').value.trim();
+
+        if(!state.skill){
+            $('err1').textContent = 'The first blank is the one that matters — fill that and go.';
+            $('err1').style.display = 'block';
+            $('f_skill').focus();
+            return;
+        }
+        $('err1').style.display = 'none';
+        state.match = matchCraft(state.skill);
+
+        if(window.plausible) window.plausible('ChainAnswer', { props:{
+            from: friend ? 'passed' : 'cold',
+            onAtlas: state.match ? (state.match.open ? 'open' : 'listed') : 'no',
+            detail: (state.place ? 'where' : '') + (state.how ? '+how' : '') || 'skill-only' } });
+
+        // One guess before it opens — the difference between watching a reveal and
+        // having something riding on it. Only when there is someone to guess about.
+        if(friend && !state.guessed){
+            $('guess').classList.add('on');
+            this.style.display = 'none';
+            $('f_guess').focus();
+            $('guess').scrollIntoView({ behavior:'smooth', block:'center' });
+            return;
+        }
+        reveal();
+    });
+
+    $('f_guess').addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){ e.preventDefault(); $('go-guess').click(); }
+    });
+    $('go-guess').addEventListener('click', function(){
+        state.guess = $('f_guess').value.trim();
+        state.guessed = true;
+        reveal();
+    });
+    $('skip-guess').addEventListener('click', function(){
+        state.guessed = true;
+        reveal();
+    });
+
+    function reveal(){
+        $('my-line').innerHTML = sentenceHTML(state.skill, state.place, state.how);
+
+        if(friend){
+            var who = friend.name || 'A friend';
+            $('theirs-open').style.display = 'block';
+            $('their-who-2').textContent = who;
+            $('their-line-2').innerHTML = sentenceHTML(friend.skill, friend.place, friend.how);
+            $('theirs-open').classList.add('unsealing');
+            $('eyebrow2').textContent = 'Unsealed';
+            scoreGuess(who);
+            $('pass-sub').textContent = 'Send yours back to ' + who + ', then on to anyone else '
+                + "you'd want in the room. They can't read it until they write theirs.";
+            $('f_msg').value = "I answered yours — here's mine. You can't read it until you write one.";
+        } else {
+            $('eyebrow2').textContent = 'Your sentence';
+            $('f_msg').value = 'Finish this sentence: I want to learn ___ in ___, by ___. '
+                + "I wrote mine, you can't see it until you write yours.";
+        }
+
+        paintTogether();
+        paintVerdict();
+        paintCohortCount();
+        buildLink();
+        $('b1').classList.remove('on');
+        $('b2').classList.add('on');
+        window.scrollTo({ top:0, behavior:'smooth' });
+    }
+
+    // ── did they know their friend? ──────────────────────────────────────────
+    // Right counts if the words match or if both land on the same Atlas craft, so
+    // guessing "wine" against "winemaking" is a hit rather than a technicality.
+    function scoreGuess(who){
+        if(!state.guess) return;
+        var g = matchCraft(state.guess), t = matchCraft(friend.skill);
+        var hit = norm(state.guess) === norm(friend.skill) || (g && t && g.id === t.id);
+        var el = $('scored');
+        el.className = 'scored' + (hit ? ' hit' : '');
+        el.textContent = hit ? 'You guessed ' + state.guess + '. You knew.'
+                             : 'You guessed ' + state.guess + '. Not it.';
+        el.style.display = 'block';
+        if(window.plausible) window.plausible('ChainGuess', { props:{ hit: hit ? 'yes' : 'no' } });
+    }
+
+    // ── the cohort moment ────────────────────────────────────────────────────
+    // Two people wanting the same craft is the start of a room, and it is computed
+    // from the two sentences already on screen — no data, nothing to be wrong about.
+    // Same craft counts if the words match OR if both land on the same Atlas craft,
+    // so "winemaking" and "wine" are not treated as two different rooms.
+    function paintTogether(){
+        if(!friend) return;
+        var box = $('together'), who = friend.name || 'your friend';
+        var theirMatch = matchCraft(friend.skill);
+        var same = norm(friend.skill) === norm(state.skill)
+                || (theirMatch && state.match && theirMatch.id === state.match.id);
+
+        box.style.display = 'block';
+        if(same){
+            box.className = 'together';
+            $('tog-k').textContent = 'The start of a room';
+            // "wrote" only when the words really were the same. When it took the Atlas to
+            // see the two of them mean one craft, the honest verb is "want" — neither of
+            // them typed "Wine & Sommellerie".
+            $('tog-t').textContent = (norm(friend.skill) === norm(state.skill))
+                ? 'You and ' + who + ' both wrote ' + state.skill + '.'
+                : 'You and ' + who + ' both want ' + (state.match ? state.match.name : state.skill) + '.';
+            $('tog-p').textContent = 'A cohort is ten people. That is two of you. '
+                + 'Keep it moving and the rest of the room is one message away — '
+                + 'the weeks that happen are the ones enough people asked for together.';
+        } else {
+            box.className = 'together apart';
+            $('tog-k').textContent = 'Two rooms';
+            $('tog-t').textContent = who + ' wants ' + friend.skill + '. You want ' + state.skill + '.';
+            $('tog-p').textContent = 'Different crafts, so different weeks — both get counted. '
+                + 'The person who shares yours is probably one more message away.';
+        }
+    }
+
+    // ── the live headcount ───────────────────────────────────────────────────
+    // atlas_interest() is the public, anonymous, headcount-only function already read by
+    // /browse. A read, not a write, so it runs in preview too — same call any visitor makes.
+    // Shown ONLY at two or more: today the whole Atlas peaks at two, and "1 person wants
+    // this" is a weak number dressed as company. Silence stays the honest default; this
+    // line stays quiet until the chain has actually built something.
+    async function paintCohortCount(){
+        if(!state.match) return;
+        var sb = window.supabaseClient;
+        if(!sb || !sb.rpc) return;
+        try{
+            var res = await sb.rpc('atlas_interest');
+            if(!res || res.error || !Array.isArray(res.data)) return;
+            var want = norm(state.match.name);
+            var row = res.data.find(function(r){ return norm(r.discipline) === want; });
+            var n = row && Number(row.learners);
+            if(!n || n < 2) return;
+            $('v-cohort').textContent = n + ' others in the Circle have already named this one.';
+            $('v-cohort').style.display = 'block';
+        }catch(e){ /* the count is a bonus; its absence says nothing */ }
+    }
+
+    // Three states, all true. The Atlas index carries a real `open` flag and a real
+    // place, so this never promises a door that isn't there.
+    function paintVerdict(){
+        var m = state.match, v = $('verdict');
+        v.className = 'verdict';
+        $('v-go').style.display = 'none';
+
+        if(m && m.open){
+            v.classList.add('yes');
+            $('v-k').textContent = 'On the Atlas · open';
+            $('v-t').textContent = m.name + ' — ' + m.place + ', ' + m.country + '.';
+            $('v-p').textContent = 'This one is not a someday — the door is open. A week there is ten '
+                + 'people learning the same craft at the same time, from one master, at the source. '
+                + 'The Atlas ranks places by how alive the craft is there; nobody buys a spot on it.';
+            $('v-go').style.display = 'inline-block';
+            $('v-go').href = '/atlas/' + m.id;
+            $('v-go').textContent = 'See where →';
+        } else if(m){
+            v.classList.add('soon');
+            $('v-k').textContent = 'On the Atlas · no door open yet';
+            $('v-t').textContent = m.name + ' — ' + m.place + ', ' + m.country + '.';
+            $('v-p').textContent = 'It is on the map, but no week has been opened for it — a week needs '
+                + 'ten people before it is worth anyone flying. What moves it up the list is a group '
+                + 'asking for the same thing. So: gather one.';
+            $('v-go').style.display = 'inline-block';
+            $('v-go').href = '/atlas/' + m.id;
+            $('v-go').textContent = 'See the page →';
+        } else {
+            $('v-k').textContent = 'Not on the Atlas';
+            $('v-t').textContent = 'There is no ' + state.skill + ' on the map.';
+            $('v-p').textContent = 'That is not a no — it is a gap, and a craft nobody has asked for yet '
+                + 'is the most useful thing you can send. Find the others who want it and it stops '
+                + 'being a gap. Where is it still done properly? It gets looked at.';
+        }
+    }
+
+    // ── the enlargement: name + email, entirely optional ─────────────────────
+    // Skipping costs nothing — the reveal and the pass are already theirs. No email,
+    // no row: launch_waitlist is keyed on an address, and a fake one is worse than none.
+    function validEmail(e){ return /.+@.+\..+/.test(e); }
+
+    function emailHasAccount(email){
+        var sb = window.supabaseClient;
+        if(!canWrite() || !sb || !sb.functions) return Promise.resolve(false);
+        var probe = sb.functions.invoke('check-email', { body:{ email:email } })
+            .then(function(res){ return !!(res && !res.error && res.data && res.data.member); })
+            .catch(function(){ return false; });
+        return Promise.race([probe, new Promise(function(r){ setTimeout(function(){ r(false); }, 8000); })]);
+    }
+
+    $('f_name').addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){ e.preventDefault(); $('f_email').focus(); } });
+    $('f_email').addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){ e.preventDefault(); $('go2').click(); } });
+    // Their name here is also the name on the link they send — one less thing to type.
+    $('f_name').addEventListener('input', function(){
+        if(!$('f_signas').dataset.touched){ $('f_signas').value = this.value.trim(); buildLink(); }
+    });
+
+    $('go2').addEventListener('click', async function(){
+        var btn = this, err = $('err2');
+        var name = $('f_name').value.trim(), email = $('f_email').value.trim();
+        if(!name){ err.textContent = 'Just a first name.'; err.style.display='block'; $('f_name').focus(); return; }
+        if(!validEmail(email)){ err.textContent = 'That email does not look right.'; err.style.display='block'; $('f_email').focus(); return; }
+        err.style.display = 'none';
+
+        var label = btn.textContent;
+        btn.disabled = true; btn.textContent = 'One moment…';
+
+        var isMember = false;
+        try{ isMember = await emailHasAccount(email); }catch(e){ isMember = false; }
+
+        try{
+            await save(name, email, isMember);
+            $('enlarge').style.display = 'none';
+            $('saved').classList.add('on');
+            $('saved-msg').innerHTML = (isMember
+                ? "You're already in the Circle, " + esc(name) + " — "
+                : "Got it, " + esc(name) + ". You're in the Circle, and ")
+                + 'this is on the list with your name on it:<br><br><i>'
+                + sentenceHTML(state.skill, state.place, state.how) + '</i>';
+            if(window.plausible) window.plausible('ChainJoin', { props:{ member: isMember ? 'yes' : 'no' } });
+        }catch(e){
+            console.error('[Chain] save failed:', e);
+            btn.disabled = false; btn.textContent = label;
+            err.innerHTML = 'Could not save that just now — try again, or write to '
+                + '<a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.';
+            err.style.display = 'block';
+        }
+    });
+
+    // One anon INSERT in the shape /circle and the Atlas letter already write, so the
+    // 024 (notify-lead) and 025 (circle-welcome) triggers cover it with no new plumbing.
+    // {kind:'discipline'} is the object atlas_interest() counts — every answer becomes a
+    // real demand row. Where and how ride in the chain object: notify-lead has no case
+    // for it, so it lands in the sheet's raw block rather than being dropped.
+    async function save(name, email, isMember){
+        if(!canWrite()){ await new Promise(function(r){ setTimeout(r, 600); }); return; }
+        var interests = [
+            { kind:'profile', name:name, region:null },
+            { kind:'discipline', world:(state.match ? state.match.world : null), discipline:state.skill },
+            { kind:'chain', from:(friend && friend.name) || null, hands:state.hands,
+              where:state.place || null, how:state.how || null, guess:state.guess || null,
+              sentence:sentenceText(state.skill, state.place, state.how),
+              onAtlas:!!state.match }
+        ];
+        var res = await window.supabaseClient.from('launch_waitlist').insert({
+            email: email,
+            interests: interests,
+            source: 'chain',
+            unsubscribed: isMember || false   // already welcomed once; don't welcome twice
+        });
+        if(res && res.error) throw res.error;
+    }
+
+    // ── the pass ─────────────────────────────────────────────────────────────
+    $('f_signas').addEventListener('input', function(){ this.dataset.touched = '1'; buildLink(); });
+    $('f_msg').addEventListener('input', function(){ this.dataset.touched = '1'; });
+
+    function buildLink(){
+        var who = $('f_signas').value.trim();
+        if(!who){
+            state.url = '';
+            $('link-txt').textContent = 'Add your name and the link appears';
+            return;
+        }
+        var payload = { n:who, s:state.skill, h:state.hands };
+        if(state.place) payload.p = state.place;
+        if(state.how)   payload.m = state.how;
+        state.url = location.origin + '/chain?c=' + b64urlEncode(payload);
+        $('link-txt').textContent = state.url;
+    }
+
+    function needName(){
+        if(state.url) return false;
+        $('f_signas').focus();
+        $('link-txt').textContent = 'Put your first name in and the link appears';
+        return true;
+    }
+
+    $('send').addEventListener('click', async function(){
+        if(needName()) return;
+        var text = $('f_msg').value.trim();
+        if(navigator.share){
+            try{
+                await navigator.share({ title:'One sentence', text:text, url:state.url });
+                if(window.plausible) window.plausible('ChainPassed', { props:{ how:'share' } });
+            }catch(e){ /* backed out of the sheet — say nothing */ }
+        } else {
+            copy(text + '\n' + state.url, 'share');
+        }
+    });
+    $('copy').addEventListener('click', function(){
+        if(needName()) return;
+        copy($('f_msg').value.trim() + '\n' + state.url, 'copy');
+    });
+
+    function copy(text, how){
+        function done(){
+            if(window.plausible) window.plausible('ChainPassed', { props:{ how:how } });
+            var b = $('copy'); b.textContent = 'Copied — paste it to one person';
+            setTimeout(function(){ b.textContent = 'Copy the message'; }, 3200);
+        }
+        function fallback(){
+            var ta = document.createElement('textarea');
+            ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+            document.body.appendChild(ta); ta.select();
+            try{ document.execCommand('copy'); done(); }catch(e){}
+            document.body.removeChild(ta);
+        }
+        if(navigator.clipboard && navigator.clipboard.writeText){
+            navigator.clipboard.writeText(text).then(done).catch(fallback);
+        } else { fallback(); }
+    }
+
+    if(!isProd()) $('demo').classList.add('on');
+})();
+</script>
+</body>
+</html>
