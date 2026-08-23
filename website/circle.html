@@ -78,6 +78,9 @@
         .otherside a{ color:var(--sea); text-decoration:none; border-bottom:1px solid rgba(127,168,165,0.35); }
         .otherside a:hover{ border-bottom-color:var(--sea); }
         /* the boundary line, immediately above the sheet */
+        .etl-quip{ margin:14px 0 0; padding:11px 14px; border-left:2px solid var(--ember);
+                   background:rgba(210,138,82,0.08); border-radius:0 4px 4px 0;
+                   font-size:14px; line-height:1.6; color:rgba(243,237,226,0.86); }
         .scope{ margin:22px 0 10px; padding:12px 14px; border-left:2px solid var(--sea);
                 background:rgba(127,168,165,0.07); border-radius:0 4px 4px 0;
                 font-size:14px; line-height:1.6; color:rgba(243,237,226,0.80); }
@@ -341,7 +344,7 @@
                  joining, and the signature is where the name comes from. -->
             <section class="beat show" id="beat0" aria-label="Step 1: your letter">
                 <p class="eyebrow" style="margin-bottom:20px;">The Circle</p>
-                <h1 class="hook">Write me a letter.<br>That's how you join the Circle.</h1>
+                <h1 class="hook">Write me a note.<br>That's how you join the Circle.</h1>
                 <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley. <b>Tell me the skill you want to
                     learn and I'll open the doors</b> &mdash; I go and find where it's still alive, who still teaches it
                     by hand, and who else is chasing it. I make the introduction; I don't build anything around one
@@ -373,7 +376,7 @@
                             <input type="text" class="subline" id="f_craft" maxlength="80"
                                    placeholder="pottery, freediving, sourdough&hellip;">
                         </div>
-                        <label class="sr" for="f_letter">Your letter to Arnaud</label>
+                        <label class="sr" for="f_letter">Your note to Arnaud</label>
                         <textarea class="paper" id="f_letter" placeholder="Why it pulls at you, and where you are with it today. And how you'd want to learn it, if it were up to you &mdash; beside whom, where in the world, how long you could give it."></textarea>
                         <div class="sign">
                             <div class="yours">Talk soon,</div>
@@ -392,6 +395,7 @@
                     <button type="button" data-ins="Where I am with it today: ">Where I am with it today&hellip;</button>
                     <button type="button" data-ins="If it were up to me, I'd learn it ">If it were up to me, I'd learn it&hellip;</button>
                 </div>
+                <p class="etl-quip" id="letter-quip" role="status" aria-live="polite" style="display:none;">Wow &mdash; you're writing me a letter now. All the better: the more you tell me, the better I aim.</p>
                 <p class="help" style="margin-top:12px;">Tap one to start the sentence, or ignore them and write your own.
                     One sentence or ten &mdash; I read every one myself, and I answer.</p>
 
@@ -419,7 +423,7 @@
                 <button class="back" data-back="0">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">Where I write back</p>
                 <h2 class="q">Where do I reach you?</h2>
-                <p class="sub-tight">Your letter's written. This is the address I answer it to &mdash; and the door to
+                <p class="sub-tight" id="addr-sub">Your note's written. This is the address I answer it to &mdash; and the door to
                     your own place in the Circle.</p>
 
                 <div class="field">
@@ -432,7 +436,7 @@
                 </div>
 
                 <div class="row">
-                    <button class="cta" id="submit">Send my letter &rarr;</button>
+                    <button class="cta" id="submit">Send my note &rarr;</button>
                 </div>
                 <p class="signoff">Free. No password, ever. Leave whenever you like.</p>
                 <p class="err" role="alert" aria-live="assertive" id="err1"></p>
@@ -450,7 +454,7 @@
                 <p class="eyebrow" style="margin-top:16px;">You're in</p>
                 <h2 id="sent-h">You've joined the Circle.</h2>
                 <p id="sent-line">Your letter is with me, and I've sent a sign-in link to <b id="sent-email"></b>. Open it
-                    and your own place is there, your letter already on the wall. No password, ever. There are a few more
+                    and your own place is there, what you wrote already on the wall. No password, ever. There are a few more
                     questions waiting when you feel like it: the more I know, the better I aim.</p>
                 <p class="ps">I read every letter myself, so give me a day or two. Didn't the link arrive? Check spam, or
                     write me directly at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
@@ -525,7 +529,7 @@
 
             <div class="mbody">
                 <p style="font-family:'Fraunces',Georgia,serif;color:var(--paper);font-size:1.05rem;margin-bottom:6px">What EducatedTraveler is: a skill, a place, a person, your people.</p>
-                <p>Every real skill is learned the same three ways — where it's alive, from a master who'll hand it over, beside the handful chasing the same thing. <b>We connect — we don't sell. Earned, not bought.</b></p>
+                <p>Every real skill is learned the same three ways — where it's alive, from a master who'll hand it over, beside the handful chasing the same thing. </p>
                 <p><b>“I never found my teachers. They found me.”</b> Now I'm building the way in — the map I wish I'd had, and the doors it opens. The letter you're writing is where it starts.</p>
             </div>
             <div class="mfoot">
@@ -620,7 +624,18 @@
                 var el=$('letter-date'); if(el) el.textContent=m[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
             }catch(e){}
         })();
+        // A note becomes a letter past LETTER_WORDS — and the page says so. Latched:
+        // once it has fired, deleting a line does not take the joke back.
+        var LETTER_WORDS = 120, isLetter = false;
+        function words(t){ return (t.trim().match(/\S+/g) || []).length; }
         var letterEl = $('f_letter');
+        letterEl.addEventListener('input', function(){
+            if(isLetter || words(letterEl.value) < LETTER_WORDS) return;
+            isLetter = true;
+            var q=$('letter-quip'); if(q) q.style.display='block';
+            var sub=$('addr-sub'); if(sub) sub.innerHTML = sub.innerHTML.replace("note's", "letter's");
+            $('submit').innerHTML = 'Send my letter &rarr;';
+        });
         document.querySelectorAll('#letter-prompts button').forEach(function(b){
             b.addEventListener('click', function(){
                 var ins=b.getAttribute('data-ins'), cur=letterEl.value;
@@ -753,7 +768,7 @@
             if(already){
                 btn.disabled=false; btn.innerHTML=label;
                 $('member-note2-msg').textContent =
-                    "You're already in the Circle with this email, " + state.name + " — I've kept your letter and it's waiting in your portrait. No need to join twice.";
+                    "You're already in the Circle with this email, " + state.name + " — I've kept your " + (isLetter ? 'letter' : 'note') + " and it's waiting in your portrait. No need to join twice.";
                 $('member-signin2').href = '/join?tab=signin&email=' + encodeURIComponent(email);
                 if(note){ note.style.display='block'; note.scrollIntoView({behavior:'smooth', block:'center'}); }
                 if(window.plausible) window.plausible('CircleLetterExistingMember');

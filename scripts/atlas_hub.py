@@ -113,7 +113,7 @@ def letter_section(heading, sub, skill_field=True, prefill=""):
     </div>
     <div class="sign-off" id="l_signoff">
       <div class="sh serif">Sign it, so I know who I'm writing back to.</div>
-      <p class="sp">Your letter goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. No selling, ever. Unsubscribe in one click.</p>
+      <p class="sp">Your letter goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. Never a drip. Unsubscribe in one click.</p>
       <div class="sotwo">
         <div class="lfield" style="margin:0"><label for="l_name">First name</label><input id="l_name" placeholder="Marie" autocomplete="given-name"></div>
         <div class="lfield" style="margin:0"><label for="l_email">Email</label><input id="l_email" type="email" placeholder="you@example.com" autocomplete="email"></div>

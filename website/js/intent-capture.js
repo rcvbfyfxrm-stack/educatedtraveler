@@ -20,6 +20,9 @@
 (function () {
   'use strict';
 
+  // Past this, a note is a letter — and the page says so, warmly.
+  var LETTER_WORDS = 120;
+
   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
                 'August', 'September', 'October', 'November', 'December'];
 
@@ -56,6 +59,8 @@
     '  border:none;border-bottom:1px dashed rgba(44,35,26,.3);border-radius:0;outline:none;text-align:right;width:min(240px,70%);padding:0 2px 3px;box-shadow:none;}',
     '.etl input.etl-signline::placeholder{color:rgba(44,35,26,.3);font-size:19px;}',
     '.etl input.etl-signline:focus{border-bottom-color:rgba(44,35,26,.62);}',
+    '.etl-quip{margin-top:12px;padding:10px 13px;border-left:2px solid var(--ember,#d28a52);background:rgba(210,138,82,.08);'
+    + 'border-radius:0 4px 4px 0;font-size:13.5px;line-height:1.55;color:var(--paper,#f3ede2);}',
     '.etl-prompts{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}',
     '.etl-prompts button{font-family:inherit;font-size:12px;color:var(--muted,rgba(243,237,226,.62));background:rgba(243,237,226,.03);',
     '  border:1px solid rgba(243,237,226,.15);border-radius:10px;padding:7px 11px;cursor:pointer;}',
@@ -137,7 +142,7 @@
     subject.appendChild(sk); subject.appendChild(subline);
 
     var paper = el('textarea', 'etl-paper', {
-      id: uid + '-letter', 'aria-label': 'Your letter to Arnaud',
+      id: uid + '-letter', 'aria-label': 'Your note to Arnaud',
       placeholder: "Why it pulls at you, and where you are with it today. And how you'd want to learn it, if it were up to you — beside whom, where in the world, how long you could give it."
     });
 
@@ -151,6 +156,12 @@
 
     sheet.appendChild(to); sheet.appendChild(date); sheet.appendChild(subject);
     sheet.appendChild(paper); sheet.appendChild(signrow);
+
+    // A note becomes a letter at LETTER_WORDS, and the page says so — the joke is
+    // the point, and so is the thanks: length is a gift here, not a burden.
+    var quip = el('p', 'etl-quip', { role: 'status', 'aria-live': 'polite' });
+    quip.style.display = 'none';
+    var isLetter = false;
 
     var prompts = el('div', 'etl-prompts');
     STARTERS.forEach(function (pair) {
@@ -171,16 +182,26 @@
       'aria-label': 'Your email', placeholder: 'you@wherever.com'
     });
     var go = el('button', 'intent-go etl-go', { type: 'submit' });
-    go.textContent = 'Send my letter →';
+    go.textContent = 'Send my note →';
     row.appendChild(email); row.appendChild(go);
 
     var fine = el('p', 'etl-fine');
-    fine.textContent = 'Your letter comes straight to me and I read every one myself. Sending it puts you in the Circle — one letter when something is real, never a drip, one click to leave.';
+    fine.textContent = 'Your note comes straight to me and I read every one myself. Sending it puts you in the Circle — one letter from me when something is real, never a drip, one click to leave.';
 
     var msg = el('p', 'intent-msg', { hidden: 'hidden' });
 
     form.appendChild(sheet);
+    form.appendChild(quip);
     form.appendChild(prompts);
+
+    function words(t){ return (t.trim().match(/\S+/g) || []).length; }
+    paper.addEventListener('input', function(){
+      if (isLetter || words(paper.value) < LETTER_WORDS) return;
+      isLetter = true;                                  // latched: the joke never un-fires
+      quip.textContent = "Wow — you're writing me a letter now. All the better: the more you tell me, the better I aim.";
+      quip.style.display = 'block';
+      go.textContent = 'Send my letter →';
+    });
     form.appendChild(row);
     form.appendChild(fine);
     form.appendChild(msg);
@@ -262,6 +283,7 @@
     });
 
     function finish(name, addr, member, linked) {
+      var word = isLetter ? 'letter' : 'note';
       var safeName = document.createElement('div');
       safeName.textContent = name;
       var nameHtml = safeName.innerHTML;
@@ -273,14 +295,14 @@
       var done = el('p', 'etl-sent');
       if (member) {
         done.innerHTML = 'You\'re already in the Circle with this address, ' + nameHtml +
-          ' — I\'ve kept your letter and it\'s waiting in your portrait. ' +
+          ' — I\'ve kept your ' + word + ' and it\'s waiting in your portrait. ' +
           '<a href="/portrait" style="color:var(--sea,#7fa8a5)">Open your portrait →</a>';
       } else if (linked) {
-        done.innerHTML = 'Your letter\'s with me, ' + nameHtml + '. I\'ve sent a sign-in link to <span>' +
+        done.innerHTML = 'Your ' + word + '\'s with me, ' + nameHtml + '. I\'ve sent a sign-in link to <span>' +
           addrHtml + '</span> — open it and you\'re in, your letter already on the wall. ' +
           'I read every one myself, so give me a day or two.';
       } else {
-        done.innerHTML = 'Your letter\'s with me, ' + nameHtml + ', and I read every one myself. ' +
+        done.innerHTML = 'Your ' + word + '\'s with me, ' + nameHtml + ', and I read every one myself. ' +
           'I couldn\'t send your sign-in link just now — ' +
           '<a href="/join?tab=signin&email=' + encodeURIComponent(addr) + '" style="color:var(--sea,#7fa8a5)">ask for it again here</a> ' +
           'whenever you like, and your letter will already be there.';
