@@ -55,8 +55,10 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 /* the rosette — the ET mark itself: five rings, each a world, joined and interjoined.
    It lives in the filter panel now: the skills come first on this page, and the wheel
    is what you reach for once you want to narrow them. */
-.rosebox{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:2px 0 12px;margin:16px 0 0}
-.rosebox h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:16px 0 4px}
+/* The rosette is step 1's body. It shows only while step 1 is the open step —
+   hidden, not removed, because removing it would mean rebuilding the SVG. */
+.rosebox{display:none;padding:0 0 4px}
+.rosebox.on{display:block}
 .cam-wrap{position:relative;width:min(88vw,430px);margin:0 auto}
 .cam{width:100%;display:block;overflow:visible;filter:drop-shadow(0 18px 34px rgba(0,0,0,.45))}
 .petal{fill-opacity:.22;cursor:pointer;transition:fill-opacity .3s}
@@ -83,25 +85,60 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 /* studio */
 .studio{padding:12px 0 30px}.studio .grid{display:grid;grid-template-columns:272px minmax(0,1fr);gap:26px;align-items:start}
 @media(max-width:880px){.studio .grid{grid-template-columns:minmax(0,1fr)}}
-.side{position:sticky;top:74px;border:1px solid var(--line);border-radius:16px;background:var(--ink2);padding:16px 16px 8px;max-height:calc(100vh - 90px);overflow:auto}
-/* On a phone the panel stacks ABOVE the results, and the wheel plus eight pulls
-   would push the first skill a screen and a half down — on a page whose whole
-   point is that the skills come first. So it folds there, and only there: the
-   summary is hidden on desktop and the JS opens it above 880px. */
-.sidefold>summary{display:none}
-@media(max-width:880px){
-  .side{position:static;max-height:none;padding:0}
-  .sidefold>summary{display:block;list-style:none;cursor:pointer;padding:14px 16px;
-    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea)}
-  .sidefold>summary::-webkit-details-marker{display:none}
-  .sidefold>summary::after{content:' +';color:var(--faint)}
-  .sidefold[open]>summary::after{content:' \2212'}
-  .sidefold>div,.sidefold>.rosebox{padding-left:16px;padding-right:16px}
-  .sidefold>*:last-child{padding-bottom:8px}
-  .pulls{grid-template-columns:1fr 1fr}
-  .rosebox .cam{max-width:250px;margin:0 auto}
-}
-.side h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:16px 0 8px}#sideA h4:first-child{margin-top:2px}
+.side{position:sticky;top:74px;border:1px solid var(--line);border-radius:16px;background:var(--ink2);max-height:calc(100vh - 90px);overflow:auto}
+@media(max-width:880px){.side{position:static;max-height:none}}
+
+/* ── the filter, folded ───────────────────────────────────────────────────
+   Closed to start, on every screen. Seven filter groups opened flat is a
+   wall in front of a page whose point is the skills, and it asks you to
+   answer seven questions before you have seen one. Closed, the bar still
+   carries the live count and whatever you have already chosen, so the panel
+   says what it is doing even while it is shut. */
+.sidefold>summary{list-style:none;cursor:pointer;padding:15px 16px;display:flex;align-items:baseline;
+  justify-content:space-between;gap:10px;transition:color .2s}
+.sidefold>summary::-webkit-details-marker{display:none}
+.sidefold>summary:hover .sfl{color:var(--paper)}
+.sidefold>summary .sfl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sea);transition:color .2s}
+.sidefold>summary .sfl::after{content:' +';color:var(--faint)}
+.sidefold[open]>summary .sfl::after{content:' \2212'}
+.sidefold>summary .sfn{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--faint);
+  text-align:right;line-height:1.5}
+.sidefold>summary .sfn b{color:var(--sea);font-weight:500}
+.sidefold>div,.sidefold>.rosebox{padding-left:16px;padding-right:16px}
+.sidefold>*:last-child{padding-bottom:10px}
+
+/* ── one step at a time ───────────────────────────────────────────────────
+   The groups run general to narrow — world, pull, region, month, length,
+   the place, the exact skill — and only one is open at once. A step you have
+   passed collapses to a single line showing its answer and reopens on click;
+   a step you have not reached yet is not drawn at all. Every control inside
+   fires a re-render, and every option carries the number of skills it would
+   leave, so the funnel narrows in front of you instead of after you. */
+.step{border-top:1px solid var(--line)}
+#sideA>.step:first-child{border-top:none}
+.steprow{width:100%;display:flex;align-items:baseline;gap:9px;padding:11px 0;text-align:left;transition:color .2s}
+.steprow:hover .sname{color:var(--paper)}
+.step.on>.steprow{cursor:default}
+.stepn{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--faint);flex:0 0 auto;min-width:14px}
+.sname{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--sea);flex:0 0 auto;transition:color .2s}
+.step.done>.steprow .sname{color:var(--muted)}
+.sans{font-size:12px;color:var(--paper);opacity:.82;margin-left:auto;text-align:right;line-height:1.4}
+.step.done>.steprow .sans::after{content:' \270E';opacity:.45;margin-left:5px;font-size:10px}
+.stepbody{padding:2px 0 14px}
+.stepnext{display:flex;align-items:center;gap:12px;margin-top:13px}
+.stepnext button{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:99px;padding:7px 13px;color:var(--muted);transition:all .2s}
+.stepnext button:hover{border-color:var(--sea);color:var(--paper)}
+.stepnext button.go{border-color:rgba(127,168,165,.5);color:var(--sea)}
+.stepnext .left{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--faint)}
+.optn{opacity:.55;font-size:.92em}
+.pull.dead,.chip.dead{opacity:.34}
+/* The pulls stay one per row on a phone too — two columns wraps every note line
+   and buys nothing now that only one step is open at a time. */
+@media(max-width:880px){.rosebox .cam{max-width:250px;margin:0 auto}}
+.side h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:14px 0 8px}
 .fin{width:100%;background:rgba(243,237,226,.05);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:var(--paper);font-size:16px;font-family:inherit}.fin:focus{outline:none;border-color:rgba(127,168,165,.5)}
 select.fin option{background:var(--ink2)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
@@ -301,10 +338,13 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 <main class="studio" id="studio"><div class="wrap"><div class="grid">
   <aside class="side">
     <details class="sidefold" id="sidefold">
-      <summary>Narrow it down</summary>
+      <summary><span class="sfl">Narrow it down</span><span class="sfn" id="sfcount"></span></summary>
+      <!-- Step 1 is the wheel, and the wheel is an SVG built once at load. So it
+           lives in static markup between the two render targets: sideA draws the
+           step rows down to and including "Which world", sideB draws everything
+           after it, and neither innerHTML can reach the rosette. -->
       <div id="sideA"></div>
-      <div class="rosebox">
-        <h4>Five worlds</h4>
+      <div class="rosebox" id="rosebox">
         <svg class="cam" id="cam" viewBox="0 0 240 240" role="group" aria-label="Choose a world"></svg>
         <div class="legend" id="legend"></div>
       </div>
@@ -542,13 +582,23 @@ ORDER.forEach(function(w,i){var m=WORLDS[w],n=byWorldDisc[w].length;
 
   var pl=pt(i*72,LAB*RR);
   var t=svgEl("text",{"class":"wlabel",x:pl[0].toFixed(1),y:(pl[1]-2).toFixed(1)});t.textContent=m.short;gLab.appendChild(t);
-  var q=svgEl("text",{"class":"wcount",x:pl[0].toFixed(1),y:(pl[1]+9).toFixed(1)});q.textContent=n+" crafts";gLab.appendChild(q);
+  var q=svgEl("text",{"class":"wcount","data-wc":w,x:pl[0].toFixed(1),y:(pl[1]+9).toFixed(1)});q.textContent=n+" skills";gLab.appendChild(q);
 
-  var lb=document.createElement("button");lb.style.setProperty("--lc",m.color);lb.dataset.w=w;lb.innerHTML='<span class="d"></span>'+esc(m.label)+' <span style="opacity:.5">'+n+'</span>';
+  var lb=document.createElement("button");lb.style.setProperty("--lc",m.color);lb.dataset.w=w;lb.innerHTML='<span class="d"></span>'+esc(m.label)+' <span class="lgn" style="opacity:.5">'+n+'</span>';
   lb.onclick=function(){toggleWorld(w);};legend.appendChild(lb);
 });
 gLab.appendChild(svgEl("circle",{cx:CX,cy:CY,r:3.4,"class":"heart"}));  // the heart, where all five meet
 function syncWorld(){cam.querySelectorAll(".petal,.ring").forEach(function(p){p.classList.toggle("active",!!F.worlds[p.getAttribute("data-w")]);});legend.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",!!F.worlds[b.dataset.w]);});}
+// The ring and its legend chip both say what CLICKING it would leave you with,
+// recomputed against everything else you have already chosen — so the wheel
+// answers the funnel instead of repeating the same five totals forever.
+function syncWorldCounts(){
+  ORDER.forEach(function(w){
+    var n=nSkills(withF({worlds:toggled(F.worlds,w),craft:""}));
+    var t=cam.querySelector('[data-wc="'+w+'"]');if(t)t.textContent=n+" skill"+(n===1?"":"s");
+    var b=legend.querySelector('button[data-w="'+w+'"] .lgn');if(b)b.textContent=n;
+  });
+}
 hub.onclick=function(){if(curFeat&&curFeat.did){location.href="/atlas/"+curFeat.did;}else{F.worlds={};F.craft="";renderSide();render();syncWorld();}};
 function hexA(h,a){var n=parseInt(h.slice(1),16);return "rgba("+((n>>16)&255)+","+((n>>8)&255)+","+(n&255)+","+a+")";}
 // the flashing centre cycles the most surprising crafts first; each links to its best place
@@ -572,100 +622,183 @@ tick();setInterval(tick,2700);
 function blankF(){return {worlds:{},craft:"",pulls:{},regions:{},month:0,minRank:0,role:"",level:"",trip:0,english:false};}
 var F=blankF();
 function anyFilter(){return Object.keys(F.worlds).length||F.craft||Object.keys(F.pulls).length||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.trip||F.english;}
-function toggleWorld(w){if(F.worlds[w])delete F.worlds[w];else F.worlds[w]=1;F.craft="";renderSide();render();syncWorld();document.getElementById("studio").scrollIntoView({behavior:"smooth"});}
+function toggleWorld(w){if(F.worlds[w])delete F.worlds[w];else F.worlds[w]=1;F.craft="";renderSide();render();syncWorld();}
 
-// ── sidebar ──
-// Two containers, not one: the rosette lives between them in static markup, so a
-// re-render never destroys the SVG. The skill and the pulls come first, the wheel
-// after them, the where-and-when last.
-var sideA=document.getElementById("sideA"),sideB=document.getElementById("sideB");
-// Open on desktop, folded on a phone — same idiom as the where-and-when group.
-(function(){var sf=document.getElementById("sidefold");if(sf)sf.open=window.innerWidth>880;})();
+/* ══════════════════════════════════════════════════════════════════════════
+   THE FILTER, AS A FUNNEL
+   Seven groups opened flat is a wall, and it asks seven questions before you
+   have seen a single skill. So the panel starts CLOSED, and inside it the
+   groups run general to narrow — which world · what pulls you · where in the
+   world · when · how long · the place itself · the exact skill — with only
+   ONE open at a time. A step you have answered collapses to one line carrying
+   its answer, and reopens on click. A step you have not reached is not drawn.
+
+   Every control re-renders the results on the spot, and every option carries
+   the number of skills that clicking it would leave — so the funnel narrows
+   in front of you rather than after you. An option that would leave nothing
+   is dimmed, not hidden: a dead end you can see is information.
+   ══════════════════════════════════════════════════════════════════════════ */
+var sideA=document.getElementById("sideA"),sideB=document.getElementById("sideB"),
+    rosebox=document.getElementById("rosebox"),sfcount=document.getElementById("sfcount");
+var openStep=0, reached=0;          // which step is open, and how far we have got
+
+// matchDest reads a STATE, not the live F, so the same predicate can answer
+// "how many skills would this click leave?" without touching what is on screen.
+function matchDest(x,S){
+  S=S||F;
+  if(Object.keys(S.worlds).length&&!S.worlds[x.world])return false;
+  if(S.craft&&x.did!==S.craft)return false;
+  var ps=Object.keys(S.pulls);if(ps.length&&!inPull(x.did,ps))return false;
+  if(S.level&&x.lvl!==S.level)return false;
+  if(S.trip&&x.tripTier!==S.trip)return false;
+  if(S.english&&!x.english)return false;
+  if(Object.keys(S.regions).length&&!S.regions[x.region])return false;
+  if(S.minRank&&x.rank<S.minRank)return false;
+  if(S.role){if(S.role==="source"&&!(x.role==="source"||x.role==="both"))return false;if(S.role==="scene"&&!(x.role==="scene"||x.role==="both"))return false;if(S.role==="both"&&x.role!=="both")return false;}
+  if(S.month){var s=seasonMonths(x.season);if(!s||!s[S.month])return false;}
+  return true;
+}
+function withF(over){var S={},k;for(k in F)S[k]=F[k];for(k in over)S[k]=over[k];return S;}
+// distinct SKILLS, not places — the card is a skill, so the count must be too
+function nSkills(S){var seen={},n=0;for(var i=0;i<DESTS.length;i++){var x=DESTS[i];
+  if(!seen[x.did]&&matchDest(x,S)){seen[x.did]=1;n++;}}return n;}
+function toggled(obj,k){var o={},j;for(j in obj)o[j]=obj[j];if(o[k])delete o[k];else o[k]=1;return o;}
+function cnt(n){return '<span class="optn">'+n+'</span>';}
+function dead(n){return n?"":" dead";}
+
+// The last step offers only the skills the six before it have left standing —
+// otherwise the narrowest control would be the one that ignores the funnel.
 function craftOptions(){
-  var ws=Object.keys(F.worlds),ps=Object.keys(F.pulls);
-  var ds=A.filter(function(d){return (!ws.length||F.worlds[worldOf(d)])&&(!ps.length||inPull(d.id,ps));});
-  ds.sort(function(a,b){return a.discipline.localeCompare(b.discipline);});
-  return '<option value="">All skills'+((ws.length||ps.length)?" in selection":"")+'</option>'+ds.map(function(d){return '<option value="'+d.id+'"'+(F.craft===d.id?" selected":"")+'>'+esc(d.discipline)+'</option>';}).join("");
+  var S=withF({craft:""}),seen={};
+  DESTS.forEach(function(x){if(matchDest(x,S))seen[x.did]=1;});
+  var ds=A.filter(function(d){return seen[d.id];})
+          .sort(function(a,b){return a.discipline.localeCompare(b.discipline);});
+  return '<option value="">All '+ds.length+' skill'+(ds.length===1?"":"s")+' still in</option>'+ds.map(function(d){
+    return '<option value="'+d.id+'"'+(F.craft===d.id?" selected":"")+'>'+esc(d.discipline)+'</option>';}).join("");
+}
+
+// ── the seven steps, general to narrow ──
+// answer() is the one line a collapsed step shows. body() is what it opens to —
+// except step 0, whose body is the rosette sitting in static markup below it.
+var TRIPS=[[1,"A taster"],[2,"A weekend"],[3,"About a week"],[4,"An immersion"],[5,"A mastery track"]];
+var ROLES=[["source","At the source"],["scene","A living scene"],["both","Both"]];
+var STEPS=[
+{id:"world",name:"Which world",
+ has:function(){return Object.keys(F.worlds).length;},
+ answer:function(){var k=Object.keys(F.worlds);return k.length?k.map(function(w){return WORLDS[w].label;}).join(" · "):"Any of the five";},
+ body:function(){return "";}},   // the rosette is its body
+{id:"pull",name:"What pulls you",
+ has:function(){return Object.keys(F.pulls).length;},
+ answer:function(){var k=Object.keys(F.pulls);return k.length?k.map(function(p){return PULLS.filter(function(q){return q.id===p;})[0].label;}).join(" · "):"Anything";},
+ body:function(){
+   return '<p class="sidenote">Not a category — the thing you keep coming back to. Every one of these crosses more than one world.</p>'
+     +'<div class="pulls">'+PULLS.map(function(p){var n=nSkills(withF({pulls:toggled(F.pulls,p.id),craft:""}));
+        return '<button class="pull'+(F.pulls[p.id]?" on":"")+(F.pulls[p.id]?"":dead(n))+'" data-p="'+p.id+'">'
+             +'<span class="pn">'+esc(p.label)+' '+cnt(n)+'</span><span class="pw">'+esc(p.note)+'</span></button>';}).join("")+'</div>';},
+ wire:function(r){r.querySelectorAll(".pull").forEach(function(b){b.onclick=function(){
+    F.pulls=toggled(F.pulls,b.dataset.p);F.craft="";renderSide();render();};});}},
+{id:"region",name:"Where in the world",
+ has:function(){return Object.keys(F.regions).length;},
+ answer:function(){var k=Object.keys(F.regions);return k.length?k[0]:"Anywhere";},
+ body:function(){return '<select class="fin" id="region"><option value="">Anywhere</option>'
+   +REGIONS.map(function(r){var o={};o[r]=1;var n=nSkills(withF({regions:o,craft:""}));
+      return '<option value="'+esc(r)+'"'+(F.regions[r]?" selected":"")+'>'+esc(r)+' ('+n+')</option>';}).join("")
+   +'</select>';},
+ wire:function(r){r.querySelector("#region").onchange=function(){F.regions={};if(this.value)F.regions[this.value]=1;F.craft="";renderSide();render();};}},
+{id:"month",name:"When you could go",
+ has:function(){return !!F.month;},
+ answer:function(){return F.month?MNAMES[F.month-1]:"Any time of year";},
+ body:function(){return '<div class="months">'+MNAMES.map(function(m,i){var n=nSkills(withF({month:F.month===i+1?0:i+1,craft:""}));
+    return '<button class="chip mon'+(F.month===i+1?" on":"")+(F.month===i+1?"":dead(n))+'" data-m="'+(i+1)+'" title="'+n+' skills">'+m+'</button>';}).join("")+'</div>';},
+ wire:function(r){r.querySelectorAll(".mon").forEach(function(b){b.onclick=function(){
+    var n=+b.dataset.m;F.month=(F.month===n?0:n);F.craft="";renderSide();render();};});}},
+{id:"trip",name:"How long you'd go",
+ has:function(){return !!F.trip;},
+ answer:function(){var t=TRIPS.filter(function(x){return x[0]===F.trip;})[0];return t?t[1]:"Any length";},
+ body:function(){return '<div class="chips">'+TRIPS.map(function(t){var n=nSkills(withF({trip:F.trip===t[0]?0:t[0],craft:""}));
+    return '<button class="chip trip'+(F.trip===t[0]?" on":"")+(F.trip===t[0]?"":dead(n))+'" data-t="'+t[0]+'">'+t[1]+' '+cnt(n)+'</button>';}).join("")+'</div>';},
+ wire:function(r){r.querySelectorAll(".chip.trip").forEach(function(b){b.onclick=function(){
+    var n=+b.dataset.t;F.trip=(F.trip===n?0:n);F.craft="";renderSide();render();};});}},
+{id:"place",name:"The place itself",
+ has:function(){return F.role||F.english||F.minRank;},
+ answer:function(){var p=[];if(F.role)p.push(ROLES.filter(function(r){return r[0]===F.role;})[0][1]);
+   if(F.english)p.push("Taught in English");if(F.minRank)p.push("Legendary only");
+   return p.length?p.join(" · "):"However it comes";},
+ body:function(){
+   var h='<div class="chips">'+ROLES.map(function(r){var n=nSkills(withF({role:F.role===r[0]?"":r[0],craft:""}));
+     return '<button class="chip role'+(F.role===r[0]?" on":"")+(F.role===r[0]?"":dead(n))+'" data-r="'+r[0]+'">'+r[1]+' '+cnt(n)+'</button>';}).join("")+'</div>';
+   var ne=nSkills(withF({english:!F.english,craft:""})),nl=nSkills(withF({minRank:F.minRank?0:5,craft:""}));
+   return h+'<div class="chips" style="margin-top:6px">'
+     +'<button class="chip tgl-en'+(F.english?" on":"")+(F.english?"":dead(ne))+'">Taught in English '+cnt(ne)+'</button>'
+     +'<button class="chip tgl-leg'+(F.minRank?" on":"")+(F.minRank?"":dead(nl))+'" style="color:'+(F.minRank?"#f0c27a":"var(--muted)")+'">Legendary only '+cnt(nl)+'</button></div>';},
+ wire:function(r){
+   r.querySelectorAll(".chip.role").forEach(function(b){b.onclick=function(){
+     var v=b.dataset.r;F.role=(F.role===v?"":v);F.craft="";renderSide();render();};});
+   r.querySelector(".tgl-en").onclick=function(){F.english=!F.english;F.craft="";renderSide();render();};
+   r.querySelector(".tgl-leg").onclick=function(){F.minRank=F.minRank?0:5;F.craft="";renderSide();render();};}},
+{id:"skill",name:"The exact skill",
+ has:function(){return !!F.craft;},
+ answer:function(){var d=A.filter(function(x){return x.id===F.craft;})[0];return d?d.discipline:"All of them";},
+ body:function(){return '<select class="fin" id="craft">'+craftOptions()+'</select>';},
+ wire:function(r){r.querySelector("#craft").onchange=function(){F.craft=this.value;renderSide();render();};}}
+];
+
+function stepRow(s,i){
+  var open=(i===openStep);
+  // Step 0 emits no body: its body is the rosette, which lives in static markup
+  // just below this row, and its Next button is appended under the wheel.
+  var body=(open&&i>0)?'<div class="stepbody" data-body="'+i+'">'+s.body()+stepNext(s,i)+'</div>':'';
+  return '<div class="step'+(open?" on":"")+(!open&&s.has()?" done":"")+'" data-i="'+i+'">'
+    +'<button class="steprow" type="button" data-i="'+i+'">'
+      +'<span class="stepn">'+(i+1)+'</span><span class="sname">'+esc(s.name)+'</span>'
+      +(open?'':'<span class="sans">'+esc(s.answer())+'</span>')
+    +'</button>'+body+'</div>';
+}
+// One button per step, and its label is the honest state of that step: you have
+// answered it, or you are letting it go. Nothing auto-advances — a world and a
+// pull can both take several clicks, and a step that jumped away mid-choice
+// would be a filter arguing with you.
+function stepNext(s,i){
+  var last=(i===STEPS.length-1),n=nSkills(F);
+  return '<div class="stepnext"><button type="button" class="stepgo'+(s.has()?" go":"")+'" data-go="'+i+'">'
+    +(last?(s.has()?"Done":"Show them all"):(s.has()?"Next &rarr;":"Doesn&rsquo;t matter &rarr;"))
+    +'</button><span class="left"><b style="color:var(--sea);font-weight:500">'+n+'</b> skill'+(n===1?"":"s")+' left</span></div>';
 }
 function renderSide(){
-  // ── the skill, and what pulls you ──────────────────────────────────────
-  var a='<h4>The skill</h4><select class="fin" id="craft">'+craftOptions()+'</select>';
-  a+='<h4>What pulls you</h4><p class="sidenote">Not a category — the thing you keep coming back to. Every one of these crosses more than one world.</p>';
-  a+='<div class="pulls">'+PULLS.map(function(p){
-       return '<button class="pull'+(F.pulls[p.id]?" on":"")+'" data-p="'+p.id+'">'
-            + '<span class="pn">'+esc(p.label)+'</span><span class="pw">'+esc(p.note)+'</span></button>';}).join("")+'</div>';
-  sideA.innerHTML=a;
-
-  // ── Where you could actually go ────────────────────────────────────────
-  // These five only carry data for OPEN crafts — a craft nobody has asked for
-  // has no place yet, so no region, season, role or tier. render() therefore
-  // keeps the closed crafts visible in their own band rather than letting the
-  // map appear to shrink from 113 to 30.
-  var h='<details class="morefil"><summary>Where and when you could go</summary>';
-  h+='<h4>Where in the world</h4><select class="fin" id="region"><option value="">Anywhere</option>'
-     + REGIONS.map(function(r){var n=DESTS.filter(function(x){return x.region===r;}).length;
-         return '<option value="'+esc(r)+'"'+(F.regions[r]?" selected":"")+'>'+esc(r)+' ('+n+')</option>';}).join("")
-     + '</select>';
-
-  h+='<h4>When you could go</h4><div class="months">'
-     + MNAMES.map(function(m,i){var n=i+1;
-         return '<button class="chip mon'+(F.month===n?" on":"")+'" data-m="'+n+'">'+m+'</button>';}).join("")
-     + '</div>';
-
-  h+='<h4>How you would go</h4><div class="chips">'
-     + [[1,"A taster"],[2,"A weekend"],[3,"About a week"],[4,"An immersion"],[5,"A mastery track"]].map(function(t){
-         return '<button class="chip trip'+(F.trip===t[0]?" on":"")+'" data-t="'+t[0]+'">'+t[1]+'</button>';}).join("")
-     + '</div>';
-
-  h+='<h4>The place itself</h4><div class="chips">'
-     + [["source","At the source"],["scene","A living scene"],["both","Both"]].map(function(r){
-         return '<button class="chip role'+(F.role===r[0]?" on":"")+'" data-r="'+r[0]+'">'+r[1]+'</button>';}).join("")
-     + '</div><div class="chips" style="margin-top:6px">'
-     + '<button class="chip tgl-en'+(F.english?" on":"")+'">Taught in English</button>'
-     + '<button class="chip tgl-leg'+(F.minRank?" on":"")+'" style="color:'+(F.minRank?"#f0c27a":"var(--muted)")+'">Legendary only</button>'
-     + '</div>'
-     + '</details>';
-
-  h+='<button class="reset" id="reset">Clear</button>';
+  reached=Math.max(reached,openStep);
+  var last=Math.max(reached,0);
+  sideA.innerHTML=stepRow(STEPS[0],0);
+  rosebox.classList.toggle("on",openStep===0);
+  var h="";
+  for(var i=1;i<=last&&i<STEPS.length;i++)h+=stepRow(STEPS[i],i);
+  h+='<button class="reset" id="reset">Start again</button>';
   sideB.innerHTML=h;
-  // Under 880px the sidebar stacks above the results, so five more groups would
-  // push the first card off a phone. Collapsed there, open on desktop.
-  var mf=sideB.querySelector(".morefil"); if(mf) mf.open = window.innerWidth>880;
-  sideA.querySelector("#craft").onchange=function(){F.craft=this.value;render();};
-  // A pull changes which skills the skill-list can offer, so this one DOES have
-  // to redraw the panel — and it redraws sideA only, so the wheel below it and
-  // the where-and-when panel underneath both keep their state.
-  sideA.querySelectorAll(".pull").forEach(function(b){b.onclick=function(){
-    var p=b.dataset.p;if(F.pulls[p])delete F.pulls[p];else F.pulls[p]=1;
-    F.craft="";renderSide();render();};});
-  // None of the five below feed craftOptions(), so they must NOT call renderSide() —
-  // that re-runs the panel's innerHTML and destroys the control mid-click.
-  sideB.querySelector("#region").onchange=function(){F.regions={};if(this.value)F.regions[this.value]=1;render();};
-  sideB.querySelectorAll(".mon").forEach(function(b){b.onclick=function(){
-    var n=+b.dataset.m;F.month=(F.month===n?0:n);
-    sideB.querySelectorAll(".mon").forEach(function(o){o.classList.toggle("on",+o.dataset.m===F.month);});render();};});
-  sideB.querySelectorAll(".chip.trip").forEach(function(b){b.onclick=function(){
-    var n=+b.dataset.t;F.trip=(F.trip===n?0:n);
-    sideB.querySelectorAll(".chip.trip").forEach(function(o){o.classList.toggle("on",+o.dataset.t===F.trip);});render();};});
-  sideB.querySelectorAll(".chip.role").forEach(function(b){b.onclick=function(){
-    var v=b.dataset.r;F.role=(F.role===v?"":v);
-    sideB.querySelectorAll(".chip.role").forEach(function(o){o.classList.toggle("on",o.dataset.r===F.role);});render();};});
-  var en=sideB.querySelector(".tgl-en");en.onclick=function(){F.english=!F.english;en.classList.toggle("on",F.english);render();};
-  var lg=sideB.querySelector(".tgl-leg");lg.onclick=function(){F.minRank=F.minRank?0:5;lg.classList.toggle("on",!!F.minRank);lg.style.color=F.minRank?"#f0c27a":"var(--muted)";render();};
-  sideB.querySelector("#reset").onclick=function(){F=blankF();renderSide();render();syncWorld();};
+  // Step 0's Next button belongs under the rosette, not above it.
+  if(openStep===0){var b=document.createElement("div");b.className="stepbody";
+    b.innerHTML=stepNext(STEPS[0],0);rosebox.appendChild(b);}
+  else{var old=rosebox.querySelector(".stepbody");if(old)old.remove();}
+
+  [sideA,sideB,rosebox].forEach(function(root){
+    root.querySelectorAll(".steprow").forEach(function(b){b.onclick=function(){
+      var i=+b.dataset.i;if(i===openStep)return;openStep=i;renderSide();};});
+    root.querySelectorAll(".stepgo").forEach(function(b){b.onclick=function(){
+      var i=+b.dataset.go;openStep=(i>=STEPS.length-1)?-1:i+1;renderSide();};});
+  });
+  if(openStep>0&&STEPS[openStep].wire){
+    var body=sideB.querySelector('[data-body="'+openStep+'"]');
+    if(body)STEPS[openStep].wire(body);
+  }
+  var rst=sideB.querySelector("#reset");
+  if(rst)rst.onclick=function(){F=blankF();openStep=0;reached=0;renderSide();render();syncWorld();};
+  syncSummary();syncWorldCounts();
 }
-function matchDest(x){
-  if(Object.keys(F.worlds).length&&!F.worlds[x.world])return false;
-  if(F.craft&&x.did!==F.craft)return false;
-  var ps=Object.keys(F.pulls);if(ps.length&&!inPull(x.did,ps))return false;
-  if(F.level&&x.lvl!==F.level)return false;
-  if(F.trip&&x.tripTier!==F.trip)return false;
-  if(F.english&&!x.english)return false;
-  if(Object.keys(F.regions).length&&!F.regions[x.region])return false;
-  if(F.minRank&&x.rank<F.minRank)return false;
-  if(F.role){if(F.role==="source"&&!(x.role==="source"||x.role==="both"))return false;if(F.role==="scene"&&!(x.role==="scene"||x.role==="both"))return false;if(F.role==="both"&&x.role!=="both")return false;}
-  if(F.month){var s=seasonMonths(x.season);if(!s||!s[F.month])return false;}
-  return true;
+// The closed bar still has to say what the filter is doing, or closing it would
+// hide the fact that anything is filtered at all.
+function syncSummary(){
+  if(!sfcount)return;
+  var n=nSkills(F),picks=[];
+  STEPS.forEach(function(s){if(s.has())picks.push(s.answer());});
+  sfcount.innerHTML=(picks.length?esc(picks.join(" · "))+'<br>':'')+'<b>'+n+'</b> skill'+(n===1?"":"s");
 }
 function countOpen(){return A.filter(function(d){return d.open;}).length;}
 // Where and when only exist for a craft somebody has asked for. Rather than let
@@ -692,7 +825,9 @@ function render(){
   // matched the filters — so a region filter still moves the card's city, and
   // the count is a count of skills, which is what the reader is choosing from.
   var pick={};
-  DESTS.filter(matchDest).forEach(function(x){var p=pick[x.did];if(!p||x.rank>p.rank)pick[x.did]=x;});
+  // NOT DESTS.filter(matchDest): filter passes (item, index, array), and the
+  // index would land in matchDest's state argument as a number.
+  DESTS.filter(function(x){return matchDest(x);}).forEach(function(x){var p=pick[x.did];if(!p||x.rank>p.rank)pick[x.did]=x;});
   var list=Object.keys(pick).map(function(k){return pick[k];})
     .sort(function(a,b){return (wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
   var nw=countWanted(list,function(x){return x.discipline;});
@@ -701,7 +836,7 @@ function render(){
   // rather than letting the Atlas look like it shrank from 113 crafts to 30.
   var placeFiltered=Object.keys(F.regions).length||F.month||F.trip||F.role||F.english||F.minRank;
   var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> skill'+(list.length===1?"":"s")+(placeFiltered?' <span style="color:var(--faint);font-weight:400">in the '+countOpen()+' open crafts</span>':'')+'</div><div class="sortby">'+(nw?"asked-for skills first, then community strength":"ranked by community strength")+'</div></div>';
-  if(!list.length){results.innerHTML='<div class="empty">No skill matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>'+(placeFiltered?closedBand(nClosed):"");document.getElementById("clr").onclick=function(){F=blankF();renderSide();render();syncWorld();};return;}
+  if(!list.length){results.innerHTML='<div class="empty">No skill matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>'+(placeFiltered?closedBand(nClosed):"");document.getElementById("clr").onclick=function(){F=blankF();openStep=0;reached=0;renderSide();render();syncWorld();};return;}
   h+='<div class="gridwrap">'+list.map(gcard).join("")+'</div>';
   if(placeFiltered)h+=closedBand(nClosed);
   results.innerHTML=h;signalRender();
@@ -751,7 +886,7 @@ function gcard(x){
 function renderRails(){
   VIEW.cat=null;
   var nw=0;ORDER.forEach(function(w){nw+=countWanted(byWorldDisc[w],function(o){return o.d.discipline;});});
-  var h='<div class="rhead"><div class="count"><b>'+A.length+'</b> skills you can go and learn</div><div class="sortby">'+(nw?"asked-for skills first · narrow it by skill, pull or world":"narrow it by skill, pull or world")+'</div></div>';
+  var h='<div class="rhead"><div class="count"><b>'+A.length+'</b> skills you can go and learn</div><div class="sortby">'+(nw?"asked-for skills first · open the filter to narrow it":"open the filter to narrow it")+'</div></div>';
   results.innerHTML=h;
   ORDER.forEach(function(w){var m=WORLDS[w],list=craftsInOrder(w);if(!list.length)return;
     var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
