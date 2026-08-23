@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Five days in Martin Lippo's lab — EducatedTraveler</title>
-<meta name="description" content="Modernist technique for yacht chefs — 35 hours in Martin Lippo's Barcelona lab, 22–26 October 2026, in English. Leave with a signed certificate, a portfolio shot by his team, and techniques chosen for the galley. Confirmed at 10 seats taken or everyone refunded in full.">
+<title>Learn the modern techniques — five days at Vakuum, Barcelona — EducatedTraveler</title>
+<meta name="description" content="Textures, spherification, liquid nitrogen, foams, sous-vide — the foundations of the new culinary techniques and technologies, worked by hand for 35 hours at Vakuum, Martin Lippo's Barcelona laboratory. 22–26 October 2026, in English, for chefs who already cook for a living. €1,500, VAT included; a €350 deposit takes a seat. Confirmed at 10 seats or every euro refunded.">
 <link rel="canonical" href="https://educatedtraveler.app/barcelona">
-<meta property="og:title" content="Five days in Martin Lippo's lab — Barcelona, 22–26 October">
-<meta property="og:description" content="Modernist technique for working chefs — 35 hours hands-in, in English. Leave with a signed certificate, a portfolio shot in the lab, and the techniques your next job will notice. Confirmed at 10 seats taken or everyone refunded.">
+<meta property="og:title" content="Learn the modern techniques — five days at Vakuum, Barcelona, 22–26 October">
+<meta property="og:description" content="Textures, spherification, nitrogen, foams, sous-vide — 35 hours hands-in at Martin Lippo's teaching laboratory, in English, for working professional chefs. €1,500, VAT included; a €350 deposit takes a seat. Confirmed at 10 seats or every euro refunded.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/barcelona">
 <meta property="og:image" content="https://educatedtraveler.app/images/og-barcelona-collab.jpg">
@@ -68,17 +68,25 @@
   @keyframes neonpulse{0%,100%{opacity:1}50%{opacity:.8}}
   @media (prefers-reduced-motion:reduce){.neon .nd{animation:none}}
   body.is-confirmed .neon{display:none}
-  .seatbar{background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:1rem 1.3rem;margin:0 0 .8rem}
-  .seatbar-top{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center}
-  .seatbar .n{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:1.4rem;color:var(--paper)}
-  .seatbar .n b{color:var(--ember);font-weight:500}
-  .seatbar .lbl{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer)}
-  .pips{display:flex;gap:.35rem;flex-wrap:wrap}
-  .pip{width:13px;height:13px;border-radius:50%;border:1.5px solid var(--softer)}
-  .pip.on{background:var(--ember);border-color:var(--ember)}
-  .deadline{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--softer);line-height:1.7}
-  .deadline b{color:var(--sea);font-weight:500}
-  .updated{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--softer);margin-top:.55rem}
+  /* the price panel — the number and what it buys, before anyone scrolls */
+  .pricecard{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--ember);border-radius:8px;padding:1.2rem 1.4rem;margin:0 0 .8rem}
+  .pc-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1.6rem}
+  .pc-price{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;color:var(--paper)}
+  .pc-price .pc-cur{color:var(--ember)}
+  .pc-price .pc-vat{display:block;font-family:var(--mono);font-size:.62rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--softer);margin-top:.5rem}
+  .pc-what{flex:1 1 15rem}
+  .pc-lead{font-family:var(--serif);font-size:1.08rem;color:var(--paper);margin:0;max-width:none}
+  .pc-sub{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--softer);margin:.4rem 0 0;max-width:none;line-height:1.7}
+  .pc-sub b{color:var(--sea);font-weight:500}
+  .pc-in{list-style:none;padding:0;margin:1.1rem 0 0;max-width:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:0 1.6rem}
+  .pc-in li{position:relative;padding-left:1.25rem;margin:.34rem 0;font-size:.9rem;color:var(--soft)}
+  .pc-in li::before{content:"✓";position:absolute;left:0;top:0;color:var(--ember);font-size:.82rem}
+  .pc-out{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;line-height:1.7;color:var(--softer);margin:1rem 0 0;max-width:none;border-top:1px solid var(--line);padding-top:.85rem}
+  .pc-out b{color:var(--paper);font-weight:500}
+  /* what he has actually done — each line checkable in one click */
+  .creds{list-style:none;padding:0;margin:1.3rem 0 0;max-width:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:.7rem 1.6rem}
+  .creds li{border-left:2px solid var(--sea);padding:.1rem 0 .1rem .95rem;font-size:.9rem;color:var(--soft)}
+  .creds b{color:var(--paper);font-weight:500}
   .confirmed-banner{display:none;background:var(--sea);color:var(--ink);font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1.3rem;border-radius:6px;margin:0 0 .8rem}
   body.is-confirmed .confirmed-banner{display:block}
   section{padding:2.8rem 0 .6rem;border-bottom:1px solid var(--line)}
@@ -209,22 +217,35 @@
     </svg>
   </div>
     <p class="kicker">Lab Week 01 · Vakuum, Barcelona · Thursday 22 – Monday 26 October 2026</p>
-    <h1>Five days in <em>Martin Lippo's</em> lab.</h1>
-    <p class="sub">Modernist technique for working chefs — thirty-five hours, taught in English, timed for yard period, at <strong>Vakuum</strong> — his own teaching laboratory, not a restaurant. What you carry out is the point: the techniques, the certificate, the portfolio, the room.</p>
+    <h1>Learn the <em>modern techniques</em> — five days, hands in.</h1>
+    <p class="sub">Textures, spherification, liquid nitrogen, foams, sous-vide: the foundations of the new culinary techniques and technologies, worked by hand for thirty-five hours at <strong>Vakuum</strong> — Martin Lippo's teaching laboratory in Barcelona, not a restaurant. In English, at professional level, for chefs who already cook for a living: yacht chefs first, private and freelance chefs beside them.</p>
     <div class="confirmed-banner">Confirmed — the week is on. Buy your flights.</div>
+    <div class="pricecard" id="price">
+      <div class="pc-head">
+        <p class="pc-price"><span class="pc-cur">€</span>1,500<span class="pc-vat">VAT included</span></p>
+        <div class="pc-what">
+          <p class="pc-lead">One seat. Five days, 35 hours, all five techniques, in his lab.</p>
+          <p class="pc-sub">A <b>€350</b> deposit takes one · confirmed at <b>10 seats</b> · room capped at <b>15</b></p>
+        </div>
+      </div>
+      <ul class="pc-in">
+        <li>All five modules — textures, spherification, nitrogen, foams, sous-vide</li>
+        <li>Every ingredient, tool and the nitrogen itself</li>
+        <li>Vakuum's full recipe and theory dossiers, and the course recipes after</li>
+        <li>A signed certificate — 35 documented hours, in English</li>
+        <li>The week photographed by Martin's team, your plates included</li>
+        <li>Ten to fifteen working chefs at the same bench for five days</li>
+      </ul>
+      <p class="pc-out"><b>Not included:</b> flights and where you sleep — a shared cohort apartment is being arranged, at cost, and you can also arrange your own. You bring a chef jacket.</p>
+    </div>
     <div class="neon" id="neon" role="status">
       <span class="nd" id="neon-days">—</span>
       <span class="nl">days to confirm the room</span>
       <span class="nsub">10 seats taken by Tuesday 15 September — or the week doesn't run and every euro is refunded in full.</span>
     </div>
-    <div class="seatbar">
-      <div class="seatbar-top">
-        <div class="deadline">Confirmed at <b>10 seats</b> · €1,500, VAT included · a <b>€350</b> deposit takes one · room capped at <b>15</b></div>
-      </div>
-    </div>
     <div class="cta-row">
       <a class="btn btn-primary cta-jump" href="#apply">Take a seat — apply in 2 minutes</a>
-      <a class="btn btn-ghost" href="#leave-with">What you leave with</a>
+      <a class="btn btn-ghost" href="#days">What you'll learn</a>
     </div>
     <p class="follow-line">Not ready to apply? <button type="button" class="follow-btn" data-et-interested data-experience="Lab Week 01 — New culinary techniques &amp; technologies, Barcelona" data-adventure-id="lab-week-01-barcelona">Follow this week &rarr;</button> <span class="follow-sub">first word on seats, dates &amp; add-ons — saved to your account. Free, no obligation.</span></p>
   </div>
@@ -233,10 +254,12 @@
 <nav class="facts-strip" aria-label="The essentials">
   <div class="wrap">
     <span class="fs-k">Straight to it:</span>
-    <a href="#days">The five days →</a>
-    <a href="#stay">The stay →</a>
-    <a href="#terms">The terms &amp; price →</a>
+    <a href="#days">What you'll learn →</a>
     <a href="#leave-with">What you leave with →</a>
+    <a href="#price">€1,500 — what's in it →</a>
+    <a href="#master">Who teaches it →</a>
+    <a href="#stay">The stay →</a>
+    <a href="#terms">The terms →</a>
     <a href="#apply">Apply →</a>
   </div>
 </nav>
@@ -253,24 +276,26 @@
   </div>
 </section>
 
-<section>
+<section id="days">
   <div class="wrap">
-    <p class="eyebrow">Why this week</p>
-    <h2>The guests have eaten everywhere.</h2>
-    <figure class="side-photo">
-      <img src="/images/lippo/teaching.jpg" width="600" height="900" alt="Martin Lippo talking a technique through to seated cooks in the Vakuum kitchen, Barcelona" loading="lazy" onerror="this.closest('figure').style.display='none'">
-      <figcaption>Mid-session, Vakuum</figcaption>
-    </figure>
-    <p>The difference between a good week and a legendary one is three plates they've never seen — and those plates come out of this toolkit. For five straight days, Martin Lippo opens his Barcelona laboratory. Not a demo, not a screen: <strong>your hands, 35 hours, a vetted room of professional cooks — built for chefs off boats first.</strong></p>
-    <p>The usual route to these techniques is a months-long unpaid stage most people never finish. Martin built the other kind of room — a laboratory whose whole purpose is teaching. <strong>As of July 2026, we could not find another week like this anywhere in the world: open enrolment, in English, fully hands-on, the complete modernist fundamentals, taught in person by a named master in his own lab.</strong> We kept the list of everywhere we checked — ask, and we'll show you.</p>
-    <figure class="room-banner">
-      <img src="/images/lippo/the-room.jpg" width="1700" height="957" alt="A full room of professional cooks seated at the benches while Martin Lippo teaches at Vakuum, Barcelona" loading="lazy" onerror="this.closest('figure').style.display='none'">
-      <div class="rb-ov"></div>
-      <figcaption class="rb-cap">
-        <p class="rb-k">The room — Vakuum, Barcelona</p>
-        <div class="rb-t">One master. A room of professional cooks.<br>Five days at the same bench.</div>
-      </figcaption>
-    </figure>
+    <p class="eyebrow">The five days · 10:00–14:00 + 15:00–18:00</p>
+    <h2>What your hands will learn</h2>
+    <p>Martin's complete programme — the same five modules he sells separately — run as one consecutive week, in English. <strong>The foundations of the new culinary techniques and technologies, taught at professional pace:</strong> everyone in the room already cooks for a living, and every application is read before a seat is confirmed. It is not an introduction to cooking.</p>
+    <p>Five days starts every technique in your own hands and gives you the dossiers to work from afterwards. It does not hand you the craft — nothing five days long does, and anyone telling you otherwise is selling.</p>
+    <div class="photo-strip">
+      <figure><img src="/images/lippo/nitrogen.jpg" width="633" height="950" alt="Martin Lippo working over liquid nitrogen, fog spilling across the bench" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Liquid nitrogen</figcaption></figure>
+      <figure><img src="/images/lippo/spherification.jpg" width="633" height="950" alt="Cooks gathered around a spherification bath at the bench" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>At the bath</figcaption></figure>
+      <figure><img src="/images/lippo/bench.jpg" width="633" height="950" alt="Martin Lippo piping a preparation while chefs watch from across the bench" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Hands, not slides</figcaption></figure>
+    </div>
+    <div class="days">
+      <div class="day"><p class="d">Day one</p><h3>Textures &amp; texturizing agents</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day1-textures.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day1-textures.mp4" type="video/mp4"></video></div><p>Crisps and puffed work, meringues, vegan creams and ice cream, gelatine sponges, broken gels, agar pearls and veils, bake-stable fillings, airs.</p><p class="galley">In service — garnishes that hold on a moving boat or a villa buffet, made days ahead.</p></div>
+      <div class="day"><p class="d">Day two</p><h3>Spherification — all of it</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day2-spherification.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day2-spherification.mp4" type="video/mp4"></video></div><p>Theory, direct, reverse, multi, moulded, dehydrated, filled, frozen. Caviar technique and spherical gnocchi.</p><p class="galley">In service — the amuse-bouche that makes a charter or a dinner party, out of a small fridge.</p></div>
+      <div class="day"><p class="d">Day three</p><h3>Liquid nitrogen</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day3-nitrogen.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day3-nitrogen.mp4" type="video/mp4"></video></div><p>Safety and storage first. Then nitro sorbets and shots, snows and powders, cryo-stamping, spheres and wafers, teppan work.</p><p class="galley">Straight talk — rarely practical at sea. Bank this day: dockside events, private houses, the years after boats.</p></div>
+      <div class="day"><p class="d">Day four</p><h3>Foams &amp; siphon techniques</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day4-foams.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day4-foams.mp4" type="video/mp4"></video></div><p>How foams stabilise; hot, cold, fat-based, egg-white and starch foams; microwave sponges; foams for frying; the Souflair.</p><p class="galley">In service — a siphon earns its locker space in any small kitchen.</p></div>
+      <div class="day"><p class="d">Day five</p><h3>Sous-vide, properly</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day5-sousvide.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day5-sousvide.mp4" type="video/mp4"></video></div><p>Pasteurisation theory, core temperatures, direct and double cooking, long cooks, brining, conservation and regeneration.</p><p class="galley">In service — cook once on a quiet day, regenerate perfectly for twelve covers.</p></div>
+      <div class="day" style="border-style:dashed"><p class="d">Coming · optional add-ons</p><h3>Around the five days</h3><p>Being arranged now, cohort hears first: <strong>a table at a three-Michelin-star house — private table, eyes in the kitchen</strong> — plus an open-fire day and a Barcelona source day. Priced separately, capped small.</p><p class="galley">Nothing sold until it's booked and real — that's the house rule.</p></div>
+      <div class="day" id="stay" style="border-style:dashed"><p class="d">The stay · two ways</p><h3>Where you sleep</h3><p><strong>A shared cohort apartment near the lab — your own private room, at cost</strong> — or arrange your own. Your call at application.</p></div>
+    </div>
   </div>
 </section>
 
@@ -280,7 +305,7 @@
     <h2>The week pays in things you keep.</h2>
     <p>Serious chefs don't need a course explained as a good deal. One question matters: <strong>what do you have when it's over — and what does it do next?</strong></p>
     <div class="assets">
-      <div class="asset"><p class="d">The craft</p><h3>Techniques built for the galley</h3><p>Textures, spherification, nitrogen, foams, sous-vide — every module passed one test before it made the week: fast, built for mise en place, kind to shelf-stable ingredients.</p><p class="use">In your future → preference sheets you can say yes to, solo — and the course guests film.</p></div>
+      <div class="asset"><p class="d">The craft</p><h3>Techniques built for a small kitchen</h3><p>Textures, spherification, nitrogen, foams, sous-vide — every module passed one test before it made the week: it has to work in a galley. Fast, built for mise en place, kind to shelf-stable ingredients — which is also the villa, the chalet and the private house.</p><p class="use">In your future → preference sheets you can say yes to, solo — and the course guests film.</p></div>
       <div class="asset"><p class="d">The record</p><h3>A certificate that checks out</h3><p>In English, signed at Vakuum — on paper and as a PDF. 35 documented hours. Not a maritime qualification, and we won't pretend it is.</p><p class="use">In your future → one line on your CV anyone can verify in thirty seconds.</p></div>
       <div class="asset"><p class="d">The proof</p><h3>A portfolio, shot in the lab</h3><p>Martin's team photographs the week as it runs — your plates included. Real photographs of your work, not phone snapshots.</p><p class="use">In your future → one more piece of a stronger file: photos, menus, references.</p></div>
       <div class="asset"><p class="d">The library</p><h3>The full dossiers &amp; recipes</h3><p>Vakuum's complete recipe and theory dossiers, plus the course recipes sent to you after the week.</p><p class="use">In your future → the manual you'll train your own second from.</p></div>
@@ -294,25 +319,48 @@
   </div>
 </section>
 
-<section id="days">
+<section>
   <div class="wrap">
-    <p class="eyebrow">The five days · 10:00–14:00 + 15:00–18:00</p>
-    <h2>What your hands will learn</h2>
-    <p>Martin's complete programme — the same five modules he sells separately — run as one consecutive week, in English. Application-vetted: everyone in the room does this for a living.</p>
-    <div class="photo-strip">
-      <figure><img src="/images/lippo/nitrogen.jpg" width="633" height="950" alt="Martin Lippo working over liquid nitrogen, fog spilling across the bench" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Liquid nitrogen</figcaption></figure>
-      <figure><img src="/images/lippo/spherification.jpg" width="633" height="950" alt="Cooks gathered around a spherification bath at the bench" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>At the bath</figcaption></figure>
-      <figure><img src="/images/lippo/bench.jpg" width="633" height="950" alt="Martin Lippo piping a preparation while chefs watch from across the bench" loading="lazy" onerror="this.closest('figure').style.display='none'"><figcaption>Hands, not slides</figcaption></figure>
-    </div>
-    <div class="days">
-      <div class="day"><p class="d">Day one</p><h3>Textures &amp; texturizing agents</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day1-textures.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day1-textures.mp4" type="video/mp4"></video></div><p>Crisps and puffed work, meringues, vegan creams and ice cream, gelatine sponges, broken gels, agar pearls and veils, bake-stable fillings, airs.</p><p class="galley">At sea: garnishes that hold on a moving boat, made days ahead.</p></div>
-      <div class="day"><p class="d">Day two</p><h3>Spherification — all of it</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day2-spherification.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day2-spherification.mp4" type="video/mp4"></video></div><p>Theory, direct, reverse, multi, moulded, dehydrated, filled, frozen. Caviar technique and spherical gnocchi.</p><p class="galley">At sea: the amuse-bouche that makes a charter — from a small fridge.</p></div>
-      <div class="day"><p class="d">Day three</p><h3>Liquid nitrogen</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day3-nitrogen.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day3-nitrogen.mp4" type="video/mp4"></video></div><p>Safety and storage first. Then nitro sorbets and shots, snows and powders, cryo-stamping, spheres and wafers, teppan work.</p><p class="galley">Honestly: rarely practical aboard. Bank this day — for dockside events, estate work, the years after boats.</p></div>
-      <div class="day"><p class="d">Day four</p><h3>Foams &amp; siphon techniques</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day4-foams.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day4-foams.mp4" type="video/mp4"></video></div><p>How foams stabilise; hot, cold, fat-based, egg-white and starch foams; microwave sponges; foams for frying; the Souflair.</p><p class="galley">At sea: a siphon earns its locker space on any boat.</p></div>
-      <div class="day"><p class="d">Day five</p><h3>Sous-vide, properly</h3><div class="day-clip"><video muted loop playsinline preload="auto" poster="/video/lippo/clips/day5-sousvide.jpg" width="960" height="540" aria-label="Technique clip, silent, loops"><source src="/video/lippo/clips/day5-sousvide.mp4" type="video/mp4"></video></div><p>Pasteurisation theory, core temperatures, direct and double cooking, long cooks, brining, conservation and regeneration.</p><p class="galley">At sea: cook once in the yard, regenerate perfectly for 12 covers.</p></div>
-      <div class="day" style="border-style:dashed"><p class="d">Coming · optional add-ons</p><h3>Around the five days</h3><p>Being arranged now, cohort hears first: <strong>a table at a three-Michelin-star house — private table, eyes in the kitchen</strong> — plus an open-fire day and a Barcelona source day. Priced separately, capped small.</p><p class="galley">Nothing sold until it's booked and real — that's the house rule.</p></div>
-      <div class="day" id="stay" style="border-style:dashed"><p class="d">The stay · two ways</p><h3>Where you sleep</h3><p><strong>A shared cohort apartment near the lab — your own private room, at cost</strong> — or arrange your own. Your call at application.</p></div>
-    </div>
+    <p class="eyebrow">Why this week</p>
+    <h2>The guests have eaten everywhere.</h2>
+    <figure class="side-photo">
+      <img src="/images/lippo/teaching.jpg" width="600" height="900" alt="Martin Lippo talking a technique through to seated cooks in the Vakuum kitchen, Barcelona" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      <figcaption>Mid-session, Vakuum</figcaption>
+    </figure>
+    <p>The difference between a good week and a legendary one is three plates they've never seen — and those plates come out of this toolkit. For five straight days, Martin Lippo opens his Barcelona laboratory. Not a demo, not a screen: <strong>your hands, 35 hours, a vetted room of professional cooks — built for chefs off boats first, and open to any chef who cooks privately for a living.</strong></p>
+    <p>The usual route to these techniques is a months-long unpaid stage most people never finish. Martin built the other kind of room — a laboratory whose whole purpose is teaching. <strong>As of July 2026, we could not find another week like this anywhere in the world: open enrolment, in English, fully hands-on, the complete modernist fundamentals, taught in person by a named master in his own lab.</strong> We kept the list of everywhere we checked — ask, and we'll show you.</p>
+    <figure class="room-banner">
+      <img src="/images/lippo/the-room.jpg" width="1700" height="957" alt="A full room of professional cooks seated at the benches while Martin Lippo teaches at Vakuum, Barcelona" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      <div class="rb-ov"></div>
+      <figcaption class="rb-cap">
+        <p class="rb-k">The room — Vakuum, Barcelona</p>
+        <div class="rb-t">One master. A room of professional cooks.<br>Five days at the same bench.</div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="master">
+  <div class="wrap">
+    <p class="eyebrow">Who teaches it</p>
+    <h2>Martin Lippo, Vakuum</h2>
+    <figure class="master-photo">
+      <img src="/images/lippo/martin.jpg" width="1400" height="1050" alt="Martin Lippo, portrait in chef whites" loading="lazy" onerror="this.closest('figure').style.display='none'">
+      <figcaption>Martin Lippo — Vakuum, Barcelona</figcaption>
+    </figure>
+    <p>Argentine, born in Buenos Aires, in Barcelona since 2000. He never opened a restaurant. He built <a href="https://martinlippo.com/en/" rel="noopener">Vakuum</a> instead — a laboratory and training centre whose whole purpose is teaching — and the Nitro School, because liquid nitrogen is the terrain he is known for. He works between Adrià's modernism and Escoffier's classicism. Don't take that from me — every line below is one click away:</p>
+    <ul class="creds">
+      <li><b>His own laboratory, not a borrowed kitchen.</b> Vakuum, Passatge de Centelles — built for teaching, and it opens to a serious stranger on a date.</li>
+      <li><b>Over sixty technique videos for Les Vergers Boiron.</b> Filmed with him, free to watch — <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">the library is here</a>.</li>
+      <li><b>The Nitro School.</b> A named liquid-nitrogen programme with its own students, not a party trick bolted onto a course.</li>
+      <li><b>His work carried by the trade press</b> — <a href="https://www.sogoodmagazine.com/pastry-chefs/martin-lippo/" rel="noopener">so good.. magazine</a>.</li>
+      <li><b>He teaches beyond his own room</b> — tailored courses for hotels, caterers and schools, in Barcelona and abroad; the catalogue is <a href="https://martinlippo.com/en/services/" rel="noopener">on his site</a>.</li>
+      <li><b>He knows your world.</b> At twenty-six he crossed the Atlantic under sail — eighteen days at sea — and he has stood in the galley of a 70-metre superyacht.</li>
+    </ul>
+    <p>The clearest evidence isn't a claim, it's who signs his reviews. On his own site, with names, roles and countries: <strong>the head pastry chef of Lasarte (three Michelin stars), the chef of Lluerna (one), an executive chef of the Lancaster group, a pastry director, an ice-cream maker, a mixology school director</strong> — and a working superyacht chef.</p>
+    <blockquote class="quotebox">"Being able to practice the wide range of modern techniques on site made the whole difference."<span class="cite"><a href="https://martinlippo.com/en/services/" rel="noopener" style="color:inherit">Raoni Cavaco, superyacht chef — read the review at martinlippo.com →</a></span></blockquote>
+    <p>Read them yourself and decide. Reviews checked on his site 22 August 2026 — Arnaud Callier.</p>
+    <p class="apply-note">Check him yourself: <a href="https://martinlippo.com/en/" rel="noopener">martinlippo.com</a> — his lab, his course catalogue and his online-course prices, all public; write to him and he will quote you for a session direct · <a href="https://www.instagram.com/vakuum_by_martin_lippo/" rel="noopener">@vakuum_by_martin_lippo</a> · <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">Les Vergers Boiron</a>.</p>
   </div>
 </section>
 
@@ -321,7 +369,7 @@
     <p class="eyebrow">The honest terms</p>
     <h2>Straight, like a good galley</h2>
     <ul class="terms">
-      <li><strong>€1,500, VAT included — the whole number.</strong> Ingredients, tools, nitrogen, dossiers: all provided. You bring a chef jacket.</li>
+      <li><strong>€1,500, VAT included.</strong> That is the whole number for the week itself, and everything in the lab is inside it — the full list is at the top of this page. Flights and where you sleep are separate, and yours. You bring a chef jacket.</li>
       <li><strong>A €350 deposit takes your seat.</strong> The balance is only asked for once the week is confirmed — never before. Seats go in the order they're taken, deposit or in full; pay in full and you get first refusal on the add-ons.</li>
       <li><strong>The deposit isn't refundable if you pull out.</strong> Holding a seat means turning someone else away. The one exception is the week itself not running — then every euro comes back, deposits included. And if your October changes, you can pass your seat to another chef.</li>
       <li><strong>You pay EducatedTraveler, and EducatedTraveler handles everything</strong> — the seat, the paperwork, the certificate, the refund if it comes to that. Martin brings the knowledge, the lab and the teaching. We're paid out of that price; nothing is added on top.</li>
@@ -335,22 +383,6 @@
 
 <section>
   <div class="wrap">
-    <p class="eyebrow">The master</p>
-    <h2>Martin Lippo, Vakuum</h2>
-    <figure class="master-photo">
-      <img src="/images/lippo/martin.jpg" width="1400" height="1050" alt="Martin Lippo, portrait in chef whites" loading="lazy" onerror="this.closest('figure').style.display='none'">
-      <figcaption>Martin Lippo — Vakuum, Barcelona</figcaption>
-    </figure>
-    <p>Argentine, in Barcelona since 2000. Instead of a restaurant, he built <a href="https://martinlippo.com/en/" rel="noopener">Vakuum</a> — a laboratory whose whole purpose is teaching — and the Nitro School: liquid nitrogen is his signature terrain. Les Vergers Boiron built a <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">technique video library</a> around him; <a href="https://www.sogoodmagazine.com/pastry-chefs/martin-lippo/" rel="noopener">so good.. magazine</a> features his work; he stands between Adrià's modernism and Escoffier's classicism.</p>
-    <p>Martin will tell you chefs from World's 50 Best kitchens have taken his courses — and left with more than they came for. Weigh his word against the signed reviews on his own site, names and ranks attached — a working superyacht chef among them:</p>
-    <blockquote class="quotebox">"Being able to practice the wide range of modern techniques on site made the whole difference."<span class="cite"><a href="https://martinlippo.com/en/services/" rel="noopener" style="color:inherit">Raoni Cavaco, superyacht chef — read the review at martinlippo.com →</a></span></blockquote>
-    <p><strong>He knows your world.</strong> At twenty-six he crossed the Atlantic under sail — eighteen days at sea — and he has stood in the galley of a 70-metre superyacht. Everything taught in this week has to work on a boat.</p>
-    <p class="apply-note">Check him yourself: <a href="https://martinlippo.com/en/" rel="noopener">martinlippo.com</a> — his lab, sessions and prices, all public · <a href="https://www.instagram.com/vakuum_by_martin_lippo/" rel="noopener">@vakuum_by_martin_lippo</a> · <a href="https://les-vergers-boiron.com/en/us-chef/martin-lippo/" rel="noopener">Les Vergers Boiron</a>.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
     <p class="eyebrow">The bridge</p>
     <h2>Who's behind this</h2>
     <figure class="master-photo" style="max-width:280px">
@@ -358,7 +390,7 @@
       <figcaption>Arnaud Callier — working superyacht chef</figcaption>
     </figure>
     <p>I'm <strong>Arnaud Callier</strong> — a working superyacht chef. Everything I can really do, I learned at the source, from someone's hands. I built this week because I wanted it to exist and it didn't. I also keep the free map at <a href="https://educatedtraveler.app/atlas/">EducatedTraveler</a> — about a hundred crafts, where nobody can pay for a listing. This week is the first thing I've put my own name on. Find me on Instagram: <a href="https://www.instagram.com/arnaudcallier/" rel="noopener">@arnaudcallier</a>.</p>
-    <p><strong>Who it's for:</strong> chefs in yard period, rotational and freelance chefs between seasons, and serious professional cooks. <strong>Not a get-into-yachting course</strong> — it assumes you already cook for a living.</p>
+    <p><strong>Who it's for:</strong> professional private chefs. Yacht chefs first — the week was built with them in mind — and beside them villa, chalet and estate chefs, rotational and freelance chefs between contracts, and any cook who does this for a living. Advanced level: the room moves at professional pace. <strong>Not an introduction to cooking, and not a get-into-yachting course.</strong></p>
   </div>
 </section>
 
@@ -387,7 +419,7 @@
     <h2>Asked straight, answered straight</h2>
     <dl>
       <dt>"Why not just do his sessions directly?"</dt>
-      <dd>You can — his calendar is public and the free Atlas links you there. What it doesn't offer: the five modules consecutively, in English, in yard period, in a vetted room of peers — with everything around it handled.</dd>
+      <dd>You can — his calendar is public and the free Atlas links you there. What it doesn't offer: the five modules consecutively, in English, on fixed dates, in a vetted room of peers — with everything around it handled.</dd>
       <dt>"Five topics in five days — how deep does it go?"</dt>
       <dd>It's Vakuum's full programme — the same modules he sells separately, run consecutively. You leave with every technique started in your own hands and the dossiers to go deep after. Want one topic exhaustively? His single-module sessions are the better buy — I'll say so on the call.</dd>
       <dt>"Will this actually move my career?"</dt>
@@ -397,11 +429,12 @@
       <dt>"I can't confirm my October yet."</dt>
       <dd>Take the seat when you can. If your programme changes after we confirm, send a chef of your calibre in your place — up to 7 days out. After confirmation there are no cash refunds; better said here than in the small print.</dd>
       <dt>"How do I know it's legit?"</dt>
-      <dd>Check it: his lab, his sessions and his prices are on his own site, linked above. The map I keep is free and always will be. And you get me on the phone before you pay a euro.</dd>
+      <dd>Check it: his lab, his course catalogue and his online prices are on his own site, linked above — and you can write to him for a direct quote without me. The map I keep is free and always will be. And you get me on the phone before you pay a euro.</dd>
     </dl>
 
     <div class="circle-door">
-      <p><strong>Barcelona is Lab Week 01 — the first of them.</strong> A few times a year we open one door like this: a named master, at the source, a vetted room. Every week goes to <a href="/circle">the Circle</a> first — 72 hours before anyone else.</p>
+      <p><strong>EducatedTraveler exists for one thing: to go where a skill is still alive, and learn it there, from the person doing it.</strong> Not a screen, not a demo — the room where the work happens. These techniques came out of Catalonia and are still worked here every day, which is why this week is in Barcelona and not anywhere else.</p>
+      <p><strong>Barcelona is Lab Week 01 — the first of them.</strong> A few times a year one door like this opens: a named master, at the source, a vetted room. Every week goes to <a href="/circle">the Circle</a> first — 72 hours before anyone else.</p>
       <p>Not sure about October? Join anyway: one letter when something real happens. Nothing else, ever.</p>
     </div>
   </div>
@@ -415,7 +448,7 @@
 </footer>
 
 <div class="stickybar" id="stickybar">
-  <span class="st-count" id="st-count">Confirmed at 10 seats · 15 Sept</span>
+  <span class="st-count" id="st-count">€1,500 · a <b>€350</b> deposit takes a seat</span>
   <span style="display:flex;gap:.5rem;flex:0 0 auto">
     <a class="btn btn-peer" id="st-mail" href="#" style="padding:.7rem .9rem">Email</a>
     <a class="btn btn-primary cta-wa" href="#">WhatsApp</a>
@@ -447,7 +480,7 @@
      with their permission, not from a tally. */
   if (CONFIRMED) {
     document.body.classList.add("is-confirmed");
-    document.getElementById("st-count").textContent = "Confirmed — seats to " + CAP + " while they last";
+    document.getElementById("st-count").textContent = "Confirmed — \u20ac1,500 · seats to " + CAP + " while they last";
   }
 
   // channel attribution -> prefilled message + analytics

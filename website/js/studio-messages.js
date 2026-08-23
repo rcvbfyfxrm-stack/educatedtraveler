@@ -11,7 +11,7 @@ window.ET_MESSAGES = [
     when: "Soft launch. One at a time, never a broadcast (step lb-3).",
     fields: ["FIRSTNAME"],
     text:
-"{FIRSTNAME} — I'm organising something I think is exactly for you. You know Martin Lippo, the nitro master in Barcelona? I got him to run his full modernist week in English, just for yacht chefs — 22-26 October, right when the boats hit the yard. 35 hours in his lab. EUR 1,500, in line with his own published rates (I checked). It only runs if 10 chefs commit by {DEADLINE}, otherwise everyone's refunded in full — no risk on your side. Everything's here: {PAGE}. Want me to hold you a seat while you check your winter program?",
+"{FIRSTNAME} — I'm organising something I think is exactly for you. You know Martin Lippo, the nitro master in Barcelona? I got him to run his full modernist week in English, built for working chefs — yacht chefs first — 22-26 October. 35 hours in his lab. EUR 1,500 for the whole week, VAT included. It only runs if 10 chefs commit by {DEADLINE}, otherwise everyone's refunded in full — no risk on your side. Everything's here: {PAGE}. Want me to hold you a seat while you check your winter program?",
     note: "Personalise the first line if you can. Real count only.",
   },
   {
@@ -20,7 +20,7 @@ window.ET_MESSAGES = [
     when: "Soft launch, for chefs who already know you.",
     fields: ["FIRSTNAME"],
     text:
-"{FIRSTNAME}! Quick one. I got Martin Lippo — the nitro guy, Barcelona — to run his full week in English for yacht chefs: 22-26 Oct, yard period, 35 hours hands-in, EUR 1,500 (his own published rate, I checked). Confirms at 10 in or everyone's refunded — and I'm in the room too. Want me to hold you a seat while you check your winter program? {PAGE}",
+"{FIRSTNAME}! Quick one. I got Martin Lippo — the nitro guy, Barcelona — to run his full week in English for working chefs — yacht chefs first: 22-26 Oct, 35 hours hands-in, EUR 1,500 for the whole week. Confirms at 10 in or everyone's refunded — and I'm in the room too. Want me to hold you a seat while you check your winter program? {PAGE}",
     note: "The two-line version.",
   },
   {
@@ -29,7 +29,7 @@ window.ET_MESSAGES = [
     when: "Give to anyone who offers to share it. They add one personal line on top.",
     fields: [],
     text:
-"Martin Lippo — the nitro master from Barcelona — is opening his lab for a 5-day intensive built for yacht chefs. 22-26 Oct, right in yard period. 35 hours hands-in: spherification, liquid nitrogen, foams, textures, sous-vide. In English (his open sessions run in Spanish). EUR 1,500 for the full week's teaching, VAT included — in line with his own published rates. Confirmed the moment 10 chefs are in; if not, everyone's refunded in full. {PAGE}",
+"Martin Lippo — the nitro master from Barcelona — is opening his lab for a 5-day intensive built for working professional chefs — yacht chefs first. 22-26 Oct. 35 hours hands-in: spherification, liquid nitrogen, foams, textures, sous-vide. In English (his open sessions run in Spanish). EUR 1,500 for the full week's teaching, VAT included. Confirmed the moment 10 chefs are in; if not, everyone's refunded in full. {PAGE}",
     note: "Under 100 words on purpose. The forwarder's own line carries the trust.",
   },
   {
@@ -38,7 +38,7 @@ window.ET_MESSAGES = [
     when: "To people who'll pass it to their chef — paste the forward kit under it.",
     fields: ["FIRSTNAME"],
     text:
-"{FIRSTNAME} — quick favour, no selling involved. I've put together a 5-day modernist week in Barcelona with Martin Lippo (the liquid-nitrogen master), built specifically for yacht chefs — 22-26 October, during yard period, in English. If you know a chef who'd level up from this, would you pass them the forward note? It fills on word of mouth between crews, exactly how it should. Thanks — Arnaud",
+"{FIRSTNAME} — quick favour, no selling involved. I've put together a 5-day modernist week in Barcelona with Martin Lippo (the liquid-nitrogen master), built for working professional chefs, yacht chefs first — 22-26 October, in English. If you know a chef who'd level up from this, would you pass them the forward note? It fills on word of mouth between crews, exactly how it should. Thanks — Arnaud",
     note: "Then copy the Forward kit and send both.",
   },
   {
@@ -47,7 +47,7 @@ window.ET_MESSAGES = [
     when: "One post per group after clearing with the admin. Then answer in DM only.",
     fields: [],
     text:
-"Hey all — sharing something I organised myself, not an ad (mods: delete if not okay, no offence taken). I finally got Martin Lippo — the liquid-nitrogen master in Barcelona — to run his 5-day modernist week IN ENGLISH, built for yacht chefs: 22-26 October, right when the boats hit the yard. Spherification, nitro, foams, textures, sous-vide — 35 hours hands-in, EUR 1,500, in line with his own published rates (the math's on the page). Confirms the moment 10 chefs have paid; if we're not there by {DEADLINE}, everyone is refunded in full. I'm going myself. Everything's here: {PAGE} — questions in DM.",
+"Hey all — sharing something I organised myself, not an ad (mods: delete if not okay, no offence taken). I finally got Martin Lippo — the liquid-nitrogen master in Barcelona — to run his 5-day modernist week IN ENGLISH, built for working professional chefs, yacht chefs first: 22-26 October. Spherification, nitro, foams, textures, sous-vide — 35 hours hands-in, EUR 1,500 for the whole week, VAT included. Confirms the moment 10 chefs have paid; if we're not there by {DEADLINE}, everyone is refunded in full. I'm going myself. Everything's here: {PAGE} — questions in DM.",
     note: "Two group posts total per group, max. The second is a real-count update only.",
   },
   {
@@ -84,7 +84,7 @@ window.ET_MESSAGES = [
     subject: "A working superyacht chef built the modernist week he couldn't find",
     fields: [],
     text:
-"Hello — I'm Arnaud Callier, a working superyacht chef. I've arranged something I think your readers would want to know about: Martin Lippo, the liquid-nitrogen master in Barcelona, is running his full 5-day modernist week in English, built for yacht chefs — 22-26 October, timed for yard period, 35 hours hands-in at his Vakuum lab.\n\nThe angle: I couldn't find this week anywhere, so I built it. The terms are unusually plain — it confirms at 10 paid or everyone is refunded in full, and every claim on the page is checkable against Martin's own site. Happy to do an interview, share photos of the lab (with permission), and give you the live seat count.\n\nOne link: {PAGE}\n\nThank you — Arnaud",
+"Hello — I'm Arnaud Callier, a working superyacht chef. I've arranged something I think your readers would want to know about: Martin Lippo, the liquid-nitrogen master in Barcelona, is running his full 5-day modernist week in English, built for working professional chefs, yacht chefs first — 22-26 October, 35 hours hands-in at his Vakuum lab.\n\nThe angle: I couldn't find this week anywhere, so I built it. The terms are unusually plain — it confirms at 10 paid or everyone is refunded in full, and every claim on the page is checkable against Martin's own site. Happy to do an interview, share photos of the lab (with permission), and give you the live seat count.\n\nOne link: {PAGE}\n\nThank you — Arnaud",
     note: "Offer the story, not an ad. They cover launches like this as news.",
   },
   {
