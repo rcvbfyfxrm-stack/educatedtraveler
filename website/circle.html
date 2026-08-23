@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Circle — EDUCATEDTRAVELER</title>
 
-    <meta name="description" content="Tell me the craft you'd give a week of your life to learn. That's how I pick what gets built next — and the Circle hears it first.">
+    <meta name="description" content="Tell me the skill you want to learn and I'll open the doors — to where it's still alive, the person who still teaches it by hand, and the people already chasing it. Free. You join by writing me a letter.">
     <link rel="canonical" href="https://educatedtraveler.app/circle">
     <meta property="og:title" content="Join the Circle — EDUCATEDTRAVELER">
-    <meta property="og:description" content="Tell me the craft you'd give a week of your life to learn. That's how I pick what gets built next — and the Circle hears it first.">
+    <meta property="og:description" content="Tell me the skill you want to learn and I'll open the doors — to where it's still alive, the person who still teaches it by hand, and the people already chasing it. Free. You join by writing me a letter.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://educatedtraveler.app/circle">
     <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
@@ -232,6 +232,19 @@
         .done-state .go{ display:inline-block; margin-top:22px; color:var(--paper); opacity:.7; text-decoration:none;
                          font-size:14px; border-bottom:1px solid var(--line); padding-bottom:2px; }
         .done-state .go:hover{ opacity:1; color:var(--sea); }
+        /* Where to go once the letter is sent — the catalogue, and the two accounts. */
+        .ig-row{ display:grid; gap:10px; max-width:34rem; margin:14px auto 0; }
+        .ig-card{ display:grid; grid-template-columns:auto 1fr auto; align-items:center;
+                  column-gap:14px; row-gap:2px; text-align:left; text-decoration:none; padding:15px 18px;
+                  border:1px solid var(--line); border-radius:12px; background:var(--ink2);
+                  transition:border-color .3s ease, background .3s ease, transform .3s ease; }
+        .ig-card:hover{ border-color:rgba(127,168,165,0.34); background:rgba(243,237,226,0.04); transform:translateY(-2px); }
+        .ig-card .ic{ grid-column:1; grid-row:1 / span 2; width:22px; height:22px; color:var(--sea); }
+        .ig-card .lab{ grid-column:2; grid-row:1; justify-self:start;
+                       font-family:'Fraunces',Georgia,serif; font-size:16.5px; color:var(--paper); line-height:1.25; }
+        .ig-card .sub2{ grid-column:2; grid-row:2; justify-self:start;
+                        font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.05em; color:var(--faint); }
+        .ig-card .arw{ grid-column:3; grid-row:1 / span 2; color:var(--ember); font-size:15px; }
         .sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
 
         /* ── the portrait continuation (mirrors /portrait) ── */
@@ -329,15 +342,17 @@
             <section class="beat show" id="beat0" aria-label="Step 1: your letter">
                 <p class="eyebrow" style="margin-bottom:20px;">The Circle</p>
                 <h1 class="hook">Write me a letter.<br>That's how you join the Circle.</h1>
-                <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley. The Circle is the people I write to
-                    when a week is real — nobody has been anywhere yet, so you'd be early. Free, no password.
-                    There's no form to get through first. Just tell me, in your own words, what you'd give a week of
-                    your life to learn. Here's what joining gets you:</p>
+                <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley. <b>Tell me the skill you want to
+                    learn and I'll open the doors</b> &mdash; I go and find where it's still alive, who still teaches it
+                    by hand, and who else is chasing it. I make the introduction; I don't build anything around one
+                    person. Free, no password. Nobody has been anywhere yet, so you'd be early. Here's what joining
+                    gets you:</p>
 
                 <div class="gets">
-                    <p><span class="g-k">First word</span>The next week goes to the Circle before it goes anywhere else. Barcelona did.</p>
-                    <p><span class="g-k">One letter</span>When something is real. Never a drip. One click to leave.</p>
-                    <p><span class="g-k">A say</span>What the Circle asks for is how I decide what to check and what to build next.</p>
+                    <p><span class="g-k">The door</span>You name the skill. I go looking for the person, the place and the way in &mdash; and what I find goes up on the catalogue for everyone, not just for you.</p>
+                    <p><span class="g-k">The others</span>Your letter names a skill. So do other people's. The point of a circle is that you stop chasing it alone.</p>
+                    <p><span class="g-k">A say</span>This isn't a list I mail. What the Circle asks for is what I go and check, and which week gets built next &mdash; and it hears it first. Barcelona did.</p>
+                    <p><span class="g-k">One letter</span>When something is real. Never a drip. One click to leave. <a href="/letters/" style="color:var(--sea);">Read the ones I've already sent &rarr;</a></p>
                 </div>
 
                 <!-- Said BEFORE the sheet, not after: without it the letters arrive
@@ -432,15 +447,42 @@
             <!-- SENT — the letter is with him, and the link founds their place -->
             <section class="done-state" id="sent" aria-live="polite">
                 <div class="seal">&#9993;</div>
-                <p class="eyebrow" style="margin-top:16px;">It's with me</p>
-                <h2 id="sent-h">Your letter's with me.</h2>
-                <p id="sent-line">I've sent a sign-in link to <b id="sent-email"></b>. Open it and you're in &mdash; your
-                    own place in the Circle, your letter already on the wall. No password, ever. There are a few more
-                    questions waiting there when you feel like it: the more I know, the better I aim.</p>
+                <p class="eyebrow" style="margin-top:16px;">You're in</p>
+                <h2 id="sent-h">You've joined the Circle.</h2>
+                <p id="sent-line">Your letter is with me, and I've sent a sign-in link to <b id="sent-email"></b>. Open it
+                    and your own place is there, your letter already on the wall. No password, ever. There are a few more
+                    questions waiting when you feel like it: the more I know, the better I aim.</p>
                 <p class="ps">I read every letter myself, so give me a day or two. Didn't the link arrive? Check spam, or
                     write me directly at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
-                <div class="row" style="justify-content:center;">
-                    <a class="quiet" href="/atlas/">While you wait &mdash; wander the Atlas &rarr;</a>
+
+                <!-- Where to find the rest of it while the letter waits for an answer.
+                     Both handles are the ones already published on /hello and /barcelona. -->
+                <p class="eyebrow" style="margin-top:30px;">While you wait</p>
+                <div class="ig-row">
+                    <a class="ig-card" href="/atlas/">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M9 4 3 6.5v13L9 17l6 3 6-2.5v-13L15 7 9 4z"></path><path d="M9 4v13"></path><path d="M15 7v13"></path>
+                        </svg>
+                        <span class="lab">The catalogue of skills</span>
+                        <span class="sub2">Where crafts are still taught at the source</span>
+                        <span class="arw" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="ig-card" href="https://www.instagram.com/educatedtraveler.app/" target="_blank" rel="noopener noreferrer">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle>
+                        </svg>
+                        <span class="lab">EducatedTraveler</span>
+                        <span class="sub2">@educatedtraveler.app</span>
+                        <span class="arw" aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a class="ig-card" href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener noreferrer">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle>
+                        </svg>
+                        <span class="lab">Arnaud</span>
+                        <span class="sub2">@arnaudcallier</span>
+                        <span class="arw" aria-hidden="true">&rarr;</span>
+                    </a>
                 </div>
             </section>
 
@@ -733,7 +775,9 @@
         });
 
         function finish(linked){
-            $('sent-h').textContent = 'Your letter\'s with me, ' + state.name + '.';
+            // Said only here, and only truthfully: the insert above already returned
+            // early on failure, so by this line the row exists and they ARE in.
+            $('sent-h').textContent = 'You\'re in the Circle, ' + state.name + '.';
             $('sent-email').textContent = state.email;
             if(!linked){
                 $('sent-line').innerHTML =
