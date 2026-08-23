@@ -431,7 +431,7 @@ def short_sheet(d, total):
     alive = (f'<p class="alive">Strongest community around it, on public sources: '
              f'<b>{e(top["place"])}, {e(top["country"])}</b> &mdash; researched, not checked.</p>') if top else ""
     return f"""<header class="hero"><div class="wrap">
-<div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / {e(CORES[d['category']][0])}</div>
+<div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / {e(CORES[d['category']][0])}</div>
 <p style="margin:16px 0 0"><span class="notyet">Not open yet</span> <span class="opensby">&mdash; a letter to Arnaud opens it</span></p>
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{alive}
@@ -775,7 +775,7 @@ for d in DISC:
             source=f'atlas:{x["id"]}', discipline=d["id"], place=x["id"],
             label=f'{d["discipline"]} · {x["place"]}')
         body = f"""<header class="hero"><div class="wrap">
-<div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
+<div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
 <h1>Learn {e(d['discipline'])} in {e(x['place'])}</h1>
 <p class="lead">{e(x['why'])}</p>
 </div></header>
@@ -826,7 +826,7 @@ for d in DISC:
     cards = "".join(dest_card(d, x, is_best=(x["id"] == _bid)) for x in sorted(d["destinations"], key=lambda x: -x["communityRank"]))
     cred = f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">{e(d.get("goldCredential",""))}</strong>{" · " + e(d["certBody"]) if d.get("certBody") else ""}</p>' if d.get("goldCredential") else ""
     body = f"""<header class="hero"><div class="wrap">
-<div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / {e(CORES[d['category']][0])}</div>
+<div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / {e(CORES[d['category']][0])}</div>
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}
 </div></header>
