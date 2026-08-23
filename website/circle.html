@@ -343,28 +343,23 @@
             <!-- BEAT 1 — the letter. Nothing is asked before it: the letter IS the
                  joining, and the signature is where the name comes from. -->
             <section class="beat show" id="beat0" aria-label="Step 1: your letter">
+                <!-- The door is two sentences. Everything the Circle IS — the four
+                     things, the honesty about being early, the letters archive — waits
+                     on the sent screen: a wall of explanation in front of a blank sheet
+                     is what loses people before they write a word. -->
                 <p class="eyebrow" style="margin-bottom:20px;">The Circle</p>
                 <h1 class="hook">Write me a note.<br>That's how you join the Circle.</h1>
                 <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley. <b>Tell me the skill you want to
-                    learn and I'll open the doors</b> &mdash; I go and find where it's still alive, who still teaches it
-                    by hand, and who else is chasing it. I make the introduction; I don't build anything around one
-                    person. Free, no password. Nobody has been anywhere yet, so you'd be early. Here's what joining
-                    gets you:</p>
+                    learn and I'll open the doors.</b> Free, no password.</p>
 
-                <div class="gets">
-                    <p><span class="g-k">The door</span>You name the skill. I go looking for the person, the place and the way in &mdash; and what I find goes up on the catalogue for everyone, not just for you.</p>
-                    <p><span class="g-k">The others</span>Your letter names a skill. So do other people's. The point of a circle is that you stop chasing it alone.</p>
-                    <p><span class="g-k">A say</span>This isn't a list I mail. What the Circle asks for is what I go and check, and which week gets built next &mdash; and it hears it first. Barcelona did.</p>
-                    <p><span class="g-k">One letter</span>When something is real. Never a drip. One click to leave. <a href="/letters/" style="color:var(--sea);">Read the ones I've already sent &rarr;</a></p>
-                </div>
-
-                <!-- Said BEFORE the sheet, not after: without it the letters arrive
-                     asking for trading and marketing, and the honest answer is always
-                     no. The Atlas only holds crafts with a bench, a room and a pair of
-                     hands, so the boundary belongs where the writing starts. -->
-                <p class="scope">One thing before you write: I only map crafts you learn
-                    with your hands, in a real place, standing beside someone who can already do it.
-                    Anything that lives on a screen &mdash; trading, code, marketing &mdash; is not what this is for.</p>
+                <!-- Said BEFORE the sheet, not after: without the first half the letters
+                     arrive asking for trading and marketing, and the honest answer is
+                     always no; without the second half the Circle reads as a private
+                     concierge, which it is not. Both boundaries belong where the writing
+                     starts, and both stay short enough not to be a wall. -->
+                <p class="scope">Two things before you write: I only map crafts you learn with your hands, in a real
+                    place, beside someone who can already do it &mdash; nothing that lives on a screen. And what I find
+                    goes up on the catalogue for everyone, not just for you.</p>
 
                 <div class="sheet-wrap">
                     <div class="sheet">
@@ -396,8 +391,8 @@
                     <button type="button" data-ins="If it were up to me, I'd learn it ">If it were up to me, I'd learn it&hellip;</button>
                 </div>
                 <p class="etl-quip" id="letter-quip" role="status" aria-live="polite" style="display:none;">Wow &mdash; you're writing me a letter now. All the better: the more you tell me, the better I aim.</p>
-                <p class="help" style="margin-top:12px;">Tap one to start the sentence, or ignore them and write your own.
-                    One sentence or ten &mdash; I read every one myself, and I answer.</p>
+                <p class="help" style="margin-top:12px;">Tap one to start, or just write. One line is enough &mdash;
+                    I read every one myself, and I answer.</p>
 
                 <div class="row" style="margin-top:22px;">
                     <button class="cta" id="go0">Next &rarr;</button>
@@ -423,8 +418,9 @@
                 <button class="back" data-back="0">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">Where I write back</p>
                 <h2 class="q">Where do I reach you?</h2>
-                <p class="sub-tight" id="addr-sub">Your note's written. This is the address I answer it to &mdash; and the door to
-                    your own place in the Circle.</p>
+                <!-- Keep the literal "note's" here: the letter-length latch rewrites it
+                     to "letter's" with a string replace. -->
+                <p class="sub-tight" id="addr-sub">Your note's written. This is where I answer it.</p>
 
                 <div class="field">
                     <label class="fld"><span class="lbl">Your email</span>
@@ -459,18 +455,12 @@
                 <p class="ps">I read every letter myself, so give me a day or two. Didn't the link arrive? Check spam, or
                     write me directly at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
 
-                <!-- Where to find the rest of it while the letter waits for an answer.
-                     Both handles are the ones already published on /hello and /barcelona. -->
-                <p class="eyebrow" style="margin-top:30px;">While you wait</p>
+                <!-- The two accounts first, the catalogue third: the letter is sent, so
+                     the only useful next move is somewhere they can actually follow along
+                     today. Both handles are the ones already published on /hello and
+                     /barcelona. -->
+                <p class="eyebrow" style="margin-top:30px;">Find me here</p>
                 <div class="ig-row">
-                    <a class="ig-card" href="/atlas/">
-                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M9 4 3 6.5v13L9 17l6 3 6-2.5v-13L15 7 9 4z"></path><path d="M9 4v13"></path><path d="M15 7v13"></path>
-                        </svg>
-                        <span class="lab">The catalogue of skills</span>
-                        <span class="sub2">Where crafts are still taught at the source</span>
-                        <span class="arw" aria-hidden="true">&rarr;</span>
-                    </a>
                     <a class="ig-card" href="https://www.instagram.com/educatedtraveler.app/" target="_blank" rel="noopener noreferrer">
                         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle>
@@ -487,6 +477,26 @@
                         <span class="sub2">@arnaudcallier</span>
                         <span class="arw" aria-hidden="true">&rarr;</span>
                     </a>
+                    <a class="ig-card" href="/atlas/">
+                        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M9 4 3 6.5v13L9 17l6 3 6-2.5v-13L15 7 9 4z"></path><path d="M9 4v13"></path><path d="M15 7v13"></path>
+                        </svg>
+                        <span class="lab">The catalogue of skills</span>
+                        <span class="sub2">Where crafts are still taught at the source</span>
+                        <span class="arw" aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+
+                <!-- Everything the door used to say, said here instead — to someone who
+                     has already written, and has a reason to read it. -->
+                <p class="eyebrow" style="margin-top:34px;">What you just joined</p>
+                <p style="font-size:14.5px; max-width:34rem; margin:0 auto; text-align:left;">Straight up: nobody has
+                    been anywhere yet, so you're early.</p>
+                <div class="gets" style="max-width:34rem; margin:14px auto 0; text-align:left;">
+                    <p><span class="g-k">The door</span>You name the skill. I go looking for the person, the place and the way in &mdash; and what I find goes up on the catalogue for everyone, not just for you.</p>
+                    <p><span class="g-k">The others</span>Your letter names a skill. So do other people's. The point of a circle is that you stop chasing it alone.</p>
+                    <p><span class="g-k">A say</span>This isn't a list I mail. What the Circle asks for is what I go and check, and which week gets built next &mdash; and it hears it first. Barcelona did.</p>
+                    <p><span class="g-k">One letter</span>When something is real. Never a drip. One click to leave. <a href="/letters/" style="color:var(--sea);">Read the ones I've already sent &rarr;</a></p>
                 </div>
             </section>
 
