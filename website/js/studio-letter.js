@@ -71,7 +71,7 @@ One question, and I read every reply: which of the five days would change your c
 
 And if you know one chef who should be at that bench, forward this letter. That's how the room fills — one cook telling another.
 
-A place, a person, your people.
+A skill, a person, a place, your people.
 
 Arnaud`,
       ps: "P.S. Film from the lab is coming — Martin presenting the week himself. The Circle sees it first, too.",
@@ -122,7 +122,7 @@ Which technique do you wish someone had put in your hands, properly, years ago?
 
 And if you know a chef who'd want this letter, forward it. That's how the Circle grows — one cook telling another.
 
-A place, a person, your people.
+A skill, a person, a place, your people.
 
 Arnaud`,
     },

@@ -2,7 +2,7 @@
  * as a text file. Each routes to ONE Atlas page or the Circle.
  *
  * THE CORE (every post must carry it):
- *  - Spine:  a place, a person, your people.
+ *  - Spine:  a skill, a person, a place, your people.
  *  - Wedge:  our judgment isn't for sale — researched by hand, never ranked by who paid.
  *            Introduce before you ask; we may sell the immersion, never the vouch.
  *  - At the source, not the simulation · earned, not bought.
@@ -22,7 +22,7 @@ window.ET_POSTS = [
     imageNote: "1080×1350 branded card (the Vakuum lab through the glass). THIS is the post to spend the Collab invite on — his co-signature lands permanently on your grid, which is what every chef checks after your WhatsApp. He only taps accept. Caption stands alone if he declines.",
     slides: [],
     caption:
-"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for working chefs, yacht chefs first: textures, spherification, liquid nitrogen, foams and siphons, sous-vide done properly. Thirty-five hours, hands in — in October, when the season is finally quiet.\n\nAnd you leave with more than the techniques: a certificate in English signed at Vakuum — on paper and as a PDF, 35 documented hours — a portfolio of your own work shot in the lab by his team, his complete recipe and theory dossiers, and a bench of working cooks who do what you do. The things a career is actually built from.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't. This door is open.\n\nA place, a person, your people — this is what that looks like.\n\nHere are the honest terms. It runs the moment ten chefs have paid, and it caps at fifteen. Nobody has paid yet — you'd be first. If we're not at ten by Tuesday 15 September, the week cancels and every euro is refunded in full. Don't buy a flight until we announce CONFIRMED.\n\nThe day-by-day, the terms and the real count: educatedtraveler.app/barcelona",
+"One lab, five days, a room of chefs who do your job.\n\nThis October, Martin Lippo opens Vakuum for a full week in English, built for working chefs, yacht chefs first: textures, spherification, liquid nitrogen, foams and siphons, sous-vide done properly. Thirty-five hours, hands in — in October, when the season is finally quiet.\n\nAnd you leave with more than the techniques: a certificate in English signed at Vakuum — on paper and as a PDF, 35 documented hours — a portfolio of your own work shot in the lab by his team, his complete recipe and theory dossiers, and a bench of working cooks who do what you do. The things a career is actually built from.\n\nI'm a working superyacht chef. I built this because I wanted it to exist and it didn't. This door is open.\n\nA skill, a person, a place, your people — this is what that looks like.\n\nHere are the honest terms. It runs the moment ten chefs have paid, and it caps at fifteen. Nobody has paid yet — you'd be first. If we're not at ten by Tuesday 15 September, the week cancels and every euro is refunded in full. Don't buy a flight until we announce CONFIRMED.\n\nThe day-by-day, the terms and the real count: educatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-gate", format: "WEEK 1 · THU · Feed · the credibility post · GO", core: "",
@@ -223,7 +223,7 @@ window.ET_POSTS = [
     imageNote: "Swap in a founder photo or a licensed lab shot once the shoot happens; the announce card works as fallback.",
     slides: [],
     caption:
-"Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in October — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nA place, a person, your people — this is what that looks like.\n\nI'm not selling a dream week. It runs at ten paid — nobody has paid yet — or everyone gets refunded. The terms are public, and you can check every claim on his own site: his lab, his course catalogue, the people who signed his reviews.\n\nThe page has all of it: educatedtraveler.app/barcelona",
+"Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in October — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nA skill, a person, a place, your people — this is what that looks like.\n\nI'm not selling a dream week. It runs at ten paid — nobody has paid yet — or everyone gets refunded. The terms are public, and you can check every claim on his own site: his lab, his course catalogue, the people who signed his reviews.\n\nThe page has all of it: educatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-calendar", format: "EVENT-GATED · Feed · SHIP once the week is live on martinlippo.com (his web developer is on it — will take time)", core: "",
@@ -281,7 +281,7 @@ window.ET_POSTS = [
       "We mapped them — discipline by discipline, place by place.",
       "Where the craft is strongest and the community warmest. Verified by hand, never by who paid.",
       "That's the Atlas. The Circle is how we introduce you.",
-      "A place, a person, your people.",
+      "A skill, a person, a place, your people.",
     ],
     caption:
 "I left school at eighteen to learn from the world instead of a classroom. Almost everything I know came from someone who was good at something real and happy to share it — at the bench, on the water, over the fire. Never off a screen.\n\nSo I built EducatedTraveler: a living map of where a craft is still alive, and a circle that introduces you to the people keeping it warm.\n\nIf you've ever wanted to learn something with your hands, at the source — this one's for you. Pin it.\n\nOpen the Atlas: https://educatedtraveler.app/atlas/",
@@ -363,7 +363,7 @@ window.ET_POSTS = [
       "Tell us what pulls you.",
     ],
     caption:
-"The Circle isn't a newsletter you sign up for. It's a letter you write me.\n\nYou tell me — in your own words — the one craft you'd give a week of your life to learn, and why it pulls at you. I read every letter myself. Then I go find the real thing: the master still teaching by hand, the place where the craft is genuinely alive, and the handful of others chasing the same fire. When it's real, I write you back and open the door.\n\nA place, a person, your people.\n\nTake your place: https://educatedtraveler.app/circle",
+"The Circle isn't a newsletter you sign up for. It's a letter you write me.\n\nYou tell me — in your own words — the one craft you'd give a week of your life to learn, and why it pulls at you. I read every letter myself. Then I go find the real thing: the master still teaching by hand, the place where the craft is genuinely alive, and the handful of others chasing the same fire. When it's real, I write you back and open the door.\n\nA skill, a person, a place, your people.\n\nTake your place: https://educatedtraveler.app/circle",
     hashtags: "#educatedtraveler #thecircle #learnatthesource #craft #yourpeople",
     strategy:
 "PURPOSE — explain the ONE thing that makes ET different now: the Circle is a letter, not a list. It surfaces warm leads who name their own craft. WHEN — run monthly, and any time after the founder story lands. SHAPE — 5-slide carousel; slide 4 (the letter) is the heart — linger there. Reply to every comment; carousels get re-served for days. LINK — /circle (the one link: the questionnaire, the letter, and one-tap magic-link signup all live there; /portrait is only where you land after signing up to access your portrait). WATCH — /circle visits, portraits sealed, replies. SAFE — signature-safe: names no master, place, or date.",
@@ -427,7 +427,7 @@ window.ET_POSTS = [
     images: ["/images/posts/freediving/cover.png"],
     imageNote: "Branded reel cover (1080×1920) — pair with your own dive footage.",
     caption:
-"One of the strongest freediving communities on earth gathers around Dahab's Blue Hole.\n\nFlat, deep and warm all year — it's where the world's freedivers go to find depth, and find their cohort.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/freediving--dahab-red-sea",
+"One of the strongest freediving communities on earth gathers around Dahab's Blue Hole.\n\nFlat, deep and warm all year — it's where the world's freedivers go to find depth, and find their cohort.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a skill, a person, a place, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/freediving--dahab-red-sea",
     hashtags: "#freediving #dahab #bluehole #learnbydoing #atthesource",
   },
   {
@@ -437,7 +437,7 @@ window.ET_POSTS = [
     images: ["/images/posts/sailing/cover.png"],
     imageNote: "Branded reel cover (1080×1920) — pair with your own sailing footage.",
     caption:
-"The most respected ticket afloat was forged in the Solent's tidal chaos — earned, never bought.\n\nThis is where the RYA built the Yachtmaster scheme, and the water still examines you the hard way.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-solent-cowes-and-hamble",
+"The most respected ticket afloat was forged in the Solent's tidal chaos — earned, never bought.\n\nThis is where the RYA built the Yachtmaster scheme, and the water still examines you the hard way.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a skill, a person, a place, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-solent-cowes-and-hamble",
     hashtags: "#sailing #yachtmaster #rya #learnbydoing #thesolent",
   },
   {
@@ -447,7 +447,7 @@ window.ET_POSTS = [
     images: ["/images/posts/pastry/cover.png"],
     imageNote: "Branded reel cover (1080×1920) — pair with your own bench footage.",
     caption:
-"Paris is still the living capital of French pastry.\n\nStand at the bench where the CAP Patissier was forged and learn the craft the rest of the world measures itself against.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/french-pastry-and-patisserie--paris",
+"Paris is still the living capital of French pastry.\n\nStand at the bench where the CAP Patissier was forged and learn the craft the rest of the world measures itself against.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a skill, a person, a place, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/french-pastry-and-patisserie--paris",
     hashtags: "#pastrychef #paris #frenchpastry #learnbydoing #foodtok",
   },
   {
@@ -457,7 +457,7 @@ window.ET_POSTS = [
     images: ["/images/posts/asado/cover.png"],
     imageNote: "Branded reel cover (1080×1920) — pair with your own fire footage.",
     caption:
-"Argentina is the home of asado.\n\nOn the estancias the whole lamb slow-cooks on the iron cross, and the fire itself is the craft — learn to build it and read it.\n\nWe map where a craft is truly alive, and introduce you to the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/asado-and-open-fire-cooking--patagonia-buenos-aires",
+"Argentina is the home of asado.\n\nOn the estancias the whole lamb slow-cooks on the iron cross, and the fire itself is the craft — learn to build it and read it.\n\nWe map where a craft is truly alive, and introduce you to the people going — a skill, a person, a place, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/asado-and-open-fire-cooking--patagonia-buenos-aires",
     hashtags: "#asado #argentina #livefire #learnbydoing #foodtok",
   },
   {
@@ -467,7 +467,7 @@ window.ET_POSTS = [
     images: ["/images/posts/pranayama/cover.png"],
     imageNote: "Branded reel cover (1080×1920) — pair with your own breath/mat footage.",
     caption:
-"The world's oldest scientific yoga research institute, founded 1924.\n\nWhere pranayama was first put under the microscope and is still taught from the original texts — learn the breath at the source.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a place, a person, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/pranayama-and-breathwork--lonavla",
+"The world's oldest scientific yoga research institute, founded 1924.\n\nWhere pranayama was first put under the microscope and is still taught from the original texts — learn the breath at the source.\n\nWe map where a craft is truly alive, and introduce you to the school and the people going — a skill, a person, a place, your people.\nWhere to learn it: https://educatedtraveler.app/atlas/pranayama-and-breathwork--lonavla",
     hashtags: "#breathwork #pranayama #lonavla #yoga #learnbydoing",
   },
   {
@@ -477,7 +477,7 @@ window.ET_POSTS = [
     images: ["/images/posts/rolltack/cover.png"],
     imageNote: "Branded quote card (1080×1350) — feed post or story background.",
     caption:
-"You can't learn a roll-tack from a video.\n\nSome skills only the wind, the water, and a teacher beside you can give you. We map where they're still taught by hand, and introduce you to the people who teach them.\n\nA place, a person, your people: https://educatedtraveler.app/#circle",
+"You can't learn a roll-tack from a video.\n\nSome skills only the wind, the water, and a teacher beside you can give you. We map where they're still taught by hand, and introduce you to the people who teach them.\n\nA skill, a person, a place, your people: https://educatedtraveler.app/#circle",
     hashtags: "#sailing #learnbydoing #atthesource #educatedtraveler #skills",
   },
 ];

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founder's Letters — EDUCATEDTRAVELER</title>
+
+<meta name="description" content="The letters I write to the Circle — one when there's something real to say, never a drip. The Circle reads them first; they land here afterwards.">
+<link rel="canonical" href="https://educatedtraveler.app/letters/">
+<meta property="og:title" content="Founder's Letters — EDUCATEDTRAVELER">
+<meta property="og:description" content="Not a newsletter. A letter, when there's something real to say — the Circle reads it first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://educatedtraveler.app/letters/">
+<meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+<meta property="og:site_name" content="EducatedTraveler">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{ --ink:#0d0b09; --paper:#f3ede2; --muted:rgba(243,237,226,0.58);
+       --faint:rgba(243,237,226,0.34); --sea:#7fa8a5; --ember:#d28a52;
+       --line:rgba(243,237,226,0.09);
+       --sheet:#efe6d3; --sheet-edge:#e2d6bd; --sheet-ink:#2c231a; --sheet-faint:#6f6350; }
+*{ box-sizing:border-box; margin:0; padding:0; -webkit-font-smoothing:antialiased; }
+body{ font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--ink); color:var(--paper);
+      font-weight:300; line-height:1.6; }
+::selection{ background:rgba(210,138,82,0.30); }
+a{ color:inherit; }
+body::before{ content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:radial-gradient(900px 600px at 15% -8%, rgba(127,168,165,0.10), transparent 60%),
+             radial-gradient(800px 620px at 92% 6%, rgba(210,138,82,0.09), transparent 55%); }
+
+nav{ position:fixed; top:0; left:0; right:0; z-index:50; background:rgba(13,11,9,0.72);
+     backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+.nav-in{ max-width:1100px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.brand{ font-family:'Fraunces',Georgia,serif; letter-spacing:0.16em; font-size:15px; text-decoration:none; }
+.brand span{ color:var(--sea); }
+.nav-cta{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+          color:var(--paper); text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:9px 16px; }
+.nav-cta:hover{ border-color:rgba(127,168,165,.55); color:var(--sea); }
+
+.wrap{ max-width:720px; margin:0 auto; padding:120px 22px 80px; }
+.eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.30em;
+          text-transform:uppercase; color:var(--sea); }
+h1{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:clamp(1.9rem,5.2vw,2.9rem);
+    line-height:1.12; letter-spacing:-0.02em; margin:18px 0 16px; }
+.sub{ color:var(--muted); font-size:16px; max-width:56ch; }
+.sub b{ color:var(--paper); font-weight:400; }
+
+.letter{ margin:44px 0 0; }
+.lmeta{ display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:12px; }
+.lmeta .k{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.18em;
+           text-transform:uppercase; color:var(--sea); }
+.lmeta .w{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.10em;
+           text-transform:uppercase; color:var(--faint); }
+.lsubject{ font-family:'Fraunces',Georgia,serif; font-size:clamp(1.15rem,2.6vw,1.5rem); line-height:1.3;
+           margin-bottom:16px; }
+
+.sheet{ position:relative; background:linear-gradient(180deg,var(--sheet) 0%, #ece1cc 100%);
+        border:1px solid var(--sheet-edge); border-radius:5px; padding:34px 34px 30px; color:var(--sheet-ink);
+        box-shadow:0 1px 0 rgba(255,255,255,0.35) inset, 0 30px 60px -24px rgba(0,0,0,0.6); }
+.sheet p{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:17px; line-height:1.75; margin:0 0 16px; }
+.sheet p:last-child{ margin-bottom:0; }
+.sheet a{ color:#3f6b67; }
+.sheet .quiet{ color:var(--sheet-faint); font-size:14px; font-family:'Inter',sans-serif; }
+.sheet .sign{ font-family:'Fraunces',Georgia,serif; font-style:italic; }
+.sheet .ps{ margin-top:22px; padding-top:18px; border-top:1px solid rgba(44,35,26,0.14); font-size:15.5px; }
+
+.note{ margin:26px 0 0; padding:14px 16px; border-left:2px solid var(--sea);
+       background:rgba(127,168,165,0.07); border-radius:0 4px 4px 0;
+       font-size:14.5px; line-height:1.65; color:rgba(243,237,226,0.80); }
+
+.door{ margin:44px 0 0; text-align:center; }
+.cta{ display:inline-block; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:#14110d;
+      text-decoration:none; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%);
+      border-radius:999px; padding:14px 28px; }
+.cta:hover{ filter:brightness(1.05); }
+.door p{ color:var(--faint); font-size:13px; margin-top:12px; }
+
+.also{ margin:56px 0 0; padding-top:26px; border-top:1px solid var(--line); }
+.also h2{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.18em;
+          text-transform:uppercase; color:var(--faint); font-weight:400; margin-bottom:14px; }
+.also ul{ list-style:none; display:grid; gap:10px; }
+.also a{ color:var(--muted); text-decoration:none; font-size:15px; border-bottom:1px solid transparent; }
+.also a:hover{ color:var(--sea); border-bottom-color:rgba(127,168,165,0.4); }
+
+footer{ border-top:1px solid var(--line); margin-top:64px; padding:34px 22px 60px; text-align:center; }
+footer .tag{ font-family:'Fraunces',Georgia,serif; color:var(--muted); font-size:14px; }
+footer .seal{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.25em;
+              text-transform:uppercase; color:var(--faint); margin-top:8px; }
+footer nav.f{ position:static; background:none; border:none; backdrop-filter:none; margin-top:18px; }
+footer .flinks{ display:flex; flex-wrap:wrap; gap:18px; justify-content:center; }
+footer .flinks a{ color:var(--muted); text-decoration:none; font-size:13.5px; }
+footer .flinks a:hover{ color:var(--sea); }
+footer .reach{ display:flex; gap:14px; justify-content:center; align-items:center; margin-top:14px;
+               font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; }
+footer .reach a{ color:var(--faint); text-decoration:none; }
+footer .reach a:hover{ color:var(--sea); }
+</style>
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="brand">EDUCATED<span>TRAVELER</span></a>
+    <a href="/circle" class="nav-cta">Write me a letter</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <p class="eyebrow">Founder's Letters</p>
+  <h1>The letters I write to the Circle.</h1>
+  <p class="sub">Not a newsletter. A letter, when I've found something worth telling you about &mdash; never a drip,
+     one click to leave. <b>The Circle reads them first.</b> This is where they land afterwards.</p>
+
+  <!-- The letter every joiner receives. It is published here as it actually goes
+       out, including the line that says a trigger sent it — because it does. -->
+  <section class="letter">
+    <div class="lmeta">
+      <span class="k">Letter Nº 1</span>
+      <span class="w">Goes to everyone who joins &middot; the day their letter reaches me</span>
+    </div>
+    <p class="lsubject">Welcome to the Circle &mdash; the potter who signed the box, not the pot</p>
+
+    <div class="sheet">
+      <p>Your letter is here. This note is automatic &mdash; the answer won't be. I read every one myself, and I
+         will read yours; give me a few days. There is one of me, and I would rather send you something real
+         than something quick.</p>
+
+      <p>While you wait, here is what you have joined. The Circle is a letter I write when I find a place worth
+         knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the
+         list is the part that does the work: what you tell me decides which craft I go and check next.</p>
+
+      <p>So &mdash; the letter. One place.</p>
+
+      <p>In 1924 a young potter named Shoji Hamada could have set up anywhere. He had spent three years in England
+         building a pottery beside Bernard Leach, he was already good, and the capital was open to him. He chose
+         Mashiko &mdash; a country town north of Tokyo &mdash; for its clay, its glazes, its plain, useful pots, and
+         for the country life he had learned to want there.</p>
+
+      <p>He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the
+         hillside, from the clay and the ash and the iron glaze of that valley. And for most of his life he sent
+         them out unsigned &mdash; no seal, nothing stamped in the foot. He signed the wooden boxes they travelled
+         in, telling Leach he could not escape the social obligation, but he never signed the pot. Asked why, he
+         said: &ldquo;If you cannot see who it is by, it is either because the pot is bad, or because you are
+         blind.&rdquo; Japan made him a Living National Treasure in 1955, the first year the title was given.</p>
+
+      <p>The pots were unsigned. The man was never hard to find. He was in that town, at that wheel, and the
+         potters who wanted to learn came and stayed.</p>
+
+      <p>Almost everything now is built to be seen &mdash; the course with the certificate, the trip with the
+         photographs, the skill that goes on a profile. Hamada spent his life on the opposite bet: get close to the
+         real thing, do the work until it is genuinely good, and let the pot go without your name on it. Mashiko is
+         still a pottery town.</p>
+
+      <p>That is the whole idea of the catalogue: a map of places like Mashiko, one craft at a time, judged by the
+         strength of the people you'd find when you arrived. It's here:
+         <a href="/atlas/">educatedtraveler.app/atlas</a>.</p>
+
+      <p>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife
+         in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking,
+         sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly
+         the point &mdash; this was never meant to be about me.</p>
+
+      <p>There is nothing you need to do now. You have told me the craft, which is normally the question I have to
+         ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn
+         there.</p>
+
+      <p>I read every letter myself, and I answer.</p>
+
+      <p class="sign">Talk soon,<br>&mdash; Arnaud</p>
+
+      <p class="ps"><b>P.S.</b> What I'm doing this month: working through the crafts people have written to me
+         about, one at a time, and finding out who actually teaches them. And if someone came to mind while you
+         were reading &mdash; the friend who has been saying for years they'd learn to sail properly if they ever
+         had the time &mdash; send them the page for it.</p>
+    </div>
+  </section>
+
+  <p class="note">The Circle is small and new, and it gets these first. If you want them as they go out rather
+     than after, the way in is to write me one back.</p>
+
+  <div class="door">
+    <a class="cta" href="/circle">Write me a letter &rarr;</a>
+    <p>Free. No password, ever. One click to leave.</p>
+  </div>
+
+  <!-- The three longer pieces that used to live at /journal. They are articles,
+       not letters, so they keep their own names and their own addresses. -->
+  <section class="also">
+    <h2>Longer pieces, written earlier</h2>
+    <ul>
+      <li><a href="/journal/how-to-find-the-best-school-online">How to find the best school online &mdash; the six questions, in order</a></li>
+      <li><a href="/journal/how-to-choose-an-online-course">How to choose an online course</a></li>
+      <li><a href="/journal/the-night-cuisine-stopped-copying-the-past">The night cuisine stopped copying the past</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p class="tag">A skill, a person, a place, your people.</p>
+  <p class="seal">Tans fade, skills last</p>
+  <nav class="f">
+    <div class="flinks">
+      <a href="/atlas/">Catalogue of Skills</a>
+      <a href="/lab-weeks">Opening Doors</a>
+      <a href="/letters/">Founder's Letters</a>
+      <a href="/about">The Story</a>
+    </div>
+    <p class="reach">
+      <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener">@arnaudcallier</a>
+      <span style="color:var(--faint)">&middot;</span>
+      <a href="mailto:arnaudcallier@pm.me">Write to me</a>
+    </p>
+  </nav>
+</footer>
+
+</body>
+</html>

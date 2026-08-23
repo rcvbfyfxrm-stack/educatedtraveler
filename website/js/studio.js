@@ -1153,7 +1153,7 @@ If it resonates, I'd also welcome a short call: we are selecting a small number 
 
 Warmly,
 Arnaud Callier
-EducatedTraveler — a place, a person, your people.
+EducatedTraveler — a skill, a person, a place, your people.
 https://educatedtraveler.app`;
 
   let outreachDraft = { name: "", school: "", discipline: "", place: "", atlasUrl: "", contact: "" };
