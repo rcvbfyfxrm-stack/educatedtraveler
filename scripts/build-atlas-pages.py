@@ -409,6 +409,8 @@ def intent_form(prompt, source, discipline=None, place=None, label=None):
 # .btn; these pages only define .cta).
 SHORT_CSS = """
 .notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
+.opensby { font-size:13.5px; opacity:.62; white-space:nowrap; }
+@media (max-width:520px) { .opensby { display:block; margin-top:8px; white-space:normal; } }
 .alive { font-size:15px; opacity:.82; margin-top:14px; }
 .alive b { font-weight:500; opacity:1; }
 .btn { display:inline-block; padding:13px 26px; border-radius:99px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; border:none; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); transition:filter .2s,transform .2s; }
@@ -430,7 +432,7 @@ def short_sheet(d, total):
              f'<b>{e(top["place"])}, {e(top["country"])}</b> &mdash; researched, not checked.</p>') if top else ""
     return f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / {e(CORES[d['category']][0])}</div>
-<p style="margin:16px 0 0"><span class="notyet">Not open yet</span></p>
+<p style="margin:16px 0 0"><span class="notyet">Not open yet</span> <span class="opensby">&mdash; a letter to Arnaud opens it</span></p>
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{alive}
 </div></header>
@@ -439,12 +441,13 @@ def short_sheet(d, total):
 <h2 style="margin:6px 0 14px">The map grows where someone is actually going</h2>
 <p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it, and not before.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking {total} things badly.</p>
+<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a letter, and the letter comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
 </div></section>
 {atlas_hub.letter_section(
     "Write me a letter about " + e(d["discipline"]) + ".",
-    "Not a form — a letter, and I read every one myself. Tell me why this one pulls at you, "
-    "how you\'d want to learn it, and who you\'d want to be in it a year from now. "
-    "A letter about a craft is what opens it.",
+    "A letter to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft, and nothing else does. "
+    "Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at "
+    "you, how you\'d want to learn it, and who you\'d want to be in it a year from now.",
     skill_field=False, prefill=d["discipline"])}"""
 
 
@@ -475,7 +478,7 @@ def dest_stub(dest_id, parent_id, parent_name, place, country):
 <script>window.location.replace({json.dumps(url)});</script>
 </head>
 <body style="background:#0d0b09;color:#f3ede2;font-family:system-ui,sans-serif;padding:40px">
-<p>{e(parent_name)} isn't open on the Atlas yet, so there's no sheet for {e(place)}, {e(country)} — but you can ask me to open it.</p>
+<p>{e(parent_name)} isn't open on the Atlas yet, so there's no sheet for {e(place)}, {e(country)} — a letter to me, Arnaud, is what opens it.</p>
 <p><a href="{url}" style="color:#7fa8a5">Go to {e(parent_name)} &rarr;</a></p>
 </body>
 </html>"""

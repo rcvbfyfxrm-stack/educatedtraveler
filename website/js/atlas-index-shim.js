@@ -102,12 +102,12 @@
       var shut = !!SHUT[slug];
       card.classList.toggle("shut", shut);
       if (!shut) continue;
-      // Two lines the card prints from defaults, both of which would be claims we
-      // haven't earned on a craft nobody has asked for: "Our pick for this craft"
-      // (there is no published pick) and "Open to beginners" (nobody has checked).
-      var pick = card.querySelector(".pick"); if (pick) pick.remove();
+      // The card ships an empty .cfoot, invisible on an open craft. Here it becomes
+      // the one extra line a locked card carries, and it names the mechanism exactly:
+      // a letter, to Arnaud, is what opens the craft. "Ask me to open this one" left
+      // the reader to guess who "me" was and how you would ask.
       var foot = card.querySelector(".cfoot");
-      if (foot) { foot.textContent = "Ask me to open this one →"; foot.className = "cfoot askline"; }
+      if (foot) { foot.textContent = "✎ A letter to Arnaud opens this one →"; foot.className = "cfoot askline"; }
     }
   }
   document.addEventListener("et:atlas-render", stamp);

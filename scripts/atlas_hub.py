@@ -44,8 +44,9 @@ LETTER_CSS = """
 .lfield input::placeholder{color:rgba(243,237,226,.3)}
 .sheet{position:relative;background:linear-gradient(180deg,var(--sheet) 0%,#ece1cc 100%);border-radius:5px;padding:30px 30px 26px;color:var(--sheet-ink);border:1px solid var(--sheet-edge);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 30px 60px -24px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.35)}
 .sheet::after{content:"";position:absolute;left:14px;right:14px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.1),transparent)}
-.sheet .to{font-family:'Fraunces',Georgia,serif;font-size:19px;margin-bottom:2px}
-.sheet .date{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sheet-faint);margin-bottom:16px}
+.sheet .lhd{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid rgba(44,35,26,.18);padding-bottom:8px;margin-bottom:15px}
+.sheet .to{font-family:'Caveat','Fraunces',cursive;font-size:clamp(28px,4.4vw,36px);line-height:1;color:#3a2c1e}
+.sheet .date{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sheet-faint);margin:0 0 4px}
 .sheet textarea{width:100%;min-height:210px;background:transparent;border:none;outline:none;resize:vertical;color:var(--sheet-ink);font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:17px;line-height:34px;background-image:repeating-linear-gradient(transparent,transparent 33px,rgba(44,35,26,.14) 33px,rgba(44,35,26,.14) 34px);padding:0}
 .sheet textarea::placeholder{color:rgba(44,35,26,.34);font-style:italic}
 .sheet .sign{margin-top:18px;text-align:right}
@@ -100,8 +101,7 @@ def letter_section(heading, sub, skill_field=True, prefill=""):
   <div class="lbox" id="lbox">
     {skill}
     <div class="sheet">
-      <div class="to">Dear Arnaud,</div>
-      <div class="date" id="l_date"></div>
+      <div class="lhd"><div class="to">Dear Arnaud,</div><div class="date" id="l_date"></div></div>
       <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your letter</label>
       <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
       <div class="sign"><div class="yours">Talk soon,</div><div class="name" id="l_sign"></div></div>
@@ -120,7 +120,7 @@ def letter_section(heading, sub, skill_field=True, prefill=""):
       </div>
       <div class="lrow"><button class="btn" id="l_confirm" type="button">Send it to Arnaud &rarr;</button></div>
       <div class="lerr" id="l_err"></div>
-      <div class="lfine">I'm the only one who reads it.</div>
+      <div class="lfine">It goes to me, Arnaud. I'm the only one who reads it.</div>
     </div>
   </div>
   <div class="ldone" id="l_done">
@@ -260,25 +260,16 @@ LETTER_JS = r"""
 
 
 # The only visual rules the move adds: a card whose craft isn't open yet reads
-# quieter, and the rotating ticker under the rosette is a circle, echoing the
-# five rings above it instead of sitting under them as a box.
+# quieter, and the line it carries instead names what actually opens it.
 HUB_EXTRA_CSS = """
 /* a craft nobody has asked for yet — same card, quieter */
 .dcard.shut,.gcard.shut{background:rgba(20,17,13,.55)}
 .dcard.shut::before,.gcard.shut::before{opacity:.24}
-.dcard.shut .cred-eyebrow,.gcard.shut .cred-eyebrow{color:var(--ember);opacity:.9}
 .dcard.shut .craftname,.gcard.shut .craftname{opacity:.9}
-.askline{color:var(--sea)!important;letter-spacing:.06em}
-
-/* the ticker: a circle under the rings, echoing them, not a box beneath them */
-.cam-tick{width:min(56vw,204px);height:min(56vw,204px);margin:2px auto 0;padding:20px 22px;
-  border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;background:radial-gradient(circle at 50% 34%,rgba(20,17,13,.96),rgba(13,11,9,.96) 72%);
-  border:1px solid var(--line);box-shadow:0 14px 38px rgba(0,0,0,.5),inset 0 0 34px rgba(127,168,165,.05)}
-.cam-tick:hover{border-color:var(--sea);background:radial-gradient(circle at 50% 34%,rgba(28,24,19,.98),rgba(13,11,9,.98) 72%)}
-.cam-tick .lab{margin-bottom:8px;max-width:16ch;line-height:1.5}
-.cam-tick .craft{font-size:clamp(14px,1.9vw,17px);line-height:1.18}
-.cam-tick .place{margin-top:5px;font-size:10.5px}
+.dcard.shut .wherealive,.gcard.shut .wherealive{opacity:.8}
+/* the one line a locked card carries. It names the person, because the thing that
+   opens the craft is a letter to him and nothing else — not a sign-up, not a fee. */
+.askline{color:var(--ember)!important;letter-spacing:.04em}
 """
 
 
@@ -299,24 +290,24 @@ def build(analytics, site, total, n_open, generated_at, craft_nav=""):
 
     # 2. the counts — computed, never typed. The old ones had rotted to 99.
     t = re.sub(r'<meta property="og:description" content="[^"]*">',
-               f'<meta property="og:description" content="{total} crafts, five worlds. '
-               f'{n_open} are open — the full sheet, every place, the schools — because a member '
-               f'asked for them. Write me a letter and that is what opens the rest.">', t, count=1)
+               f'<meta property="og:description" content="{total} hands-on skills you can go and '
+               f'learn, each with the one place on earth its community is most alive. {n_open} are '
+               f'open in full. A letter to Arnaud opens the rest.">', t, count=1)
     t = re.sub(r'<meta name="description" content="[^"]*">',
-               f'<meta name="description" content="The EducatedTraveler Atlas: all {total} crafts '
-               f'across five worlds. {n_open} are open, with the school and the teacher we\'d send '
-               f'you to. The rest show what the craft is and where it\'s most alive — write a '
-               f'letter and I open it.">', t, count=1)
+               f'<meta name="description" content="The EducatedTraveler Atlas: {total} hands-on '
+               f'skills you can go and learn worldwide — learn tango in Buenos Aires, watchmaking '
+               f'in the Vallee de Joux, pottery in Mashiko. {n_open} are open in full, with the '
+               f'school we\'d send you to. A letter to Arnaud opens the rest.">', t, count=1)
 
-    # 2b. the hero sub — the ONE surface that still described every sheet as if it
-    #     carried a school. The card pills and the short sheets always said "not open
-    #     yet"; the hero didn't, so the unlock read as a letdown on first click instead
-    #     of as the point. Counted here for the same reason as above: never typed.
+    # 2b. the hero sub. It has one job: say what this page IS, in the first breath,
+    #     to somebody who has never heard of it. Counted, never typed — the old one
+    #     had rotted from 99 crafts to 112 before anybody noticed.
     t = re.sub(r'<p class="sub">[^<]*</p>',
-               f'<p class="sub">Five rings, five worlds — tap one, or search the list. '
-               f'Every skill has a sheet: what the craft really is, and where it\'s most '
-               f'alive. {n_open} are open, with the school we\'d send you to and why. '
-               f'I open the rest when someone writes to me about one.</p>', t, count=1)
+               f'<p class="sub">{total} crafts you can go and learn, each with the one place '
+               f'its community is most alive. {n_open} are open in full, with the school I '
+               f'would send you to and why. I open the rest when someone writes me a letter '
+               f'about one. Nobody pays to be on the Atlas, and nobody can pay to be left '
+               f'off it.</p>', t, count=1)
 
     # 3. the data source. repertoire.js (1.2 MB of research) and atlas-ratings.js
     #    are not served any more; the shim rebuilds what the page reads.

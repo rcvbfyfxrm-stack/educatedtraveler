@@ -32,8 +32,9 @@
 .lfield input::placeholder{color:rgba(243,237,226,.3)}
 .sheet{position:relative;background:linear-gradient(180deg,var(--sheet) 0%,#ece1cc 100%);border-radius:5px;padding:30px 30px 26px;color:var(--sheet-ink);border:1px solid var(--sheet-edge);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 30px 60px -24px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.35)}
 .sheet::after{content:"";position:absolute;left:14px;right:14px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.1),transparent)}
-.sheet .to{font-family:'Fraunces',Georgia,serif;font-size:19px;margin-bottom:2px}
-.sheet .date{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sheet-faint);margin-bottom:16px}
+.sheet .lhd{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid rgba(44,35,26,.18);padding-bottom:8px;margin-bottom:15px}
+.sheet .to{font-family:'Caveat','Fraunces',cursive;font-size:clamp(28px,4.4vw,36px);line-height:1;color:#3a2c1e}
+.sheet .date{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sheet-faint);margin:0 0 4px}
 .sheet textarea{width:100%;min-height:210px;background:transparent;border:none;outline:none;resize:vertical;color:var(--sheet-ink);font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:17px;line-height:34px;background-image:repeating-linear-gradient(transparent,transparent 33px,rgba(44,35,26,.14) 33px,rgba(44,35,26,.14) 34px);padding:0}
 .sheet textarea::placeholder{color:rgba(44,35,26,.34);font-style:italic}
 .sheet .sign{margin-top:18px;text-align:right}
@@ -66,6 +67,8 @@
 .cint .cint-dot{font-size:7px;vertical-align:2px;margin-right:6px;opacity:.85}
 
 .notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
+.opensby { font-size:13.5px; opacity:.62; white-space:nowrap; }
+@media (max-width:520px) { .opensby { display:block; margin-top:8px; white-space:normal; } }
 .alive { font-size:15px; opacity:.82; margin-top:14px; }
 .alive b { font-weight:500; opacity:1; }
 .btn { display:inline-block; padding:13px 26px; border-radius:99px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; border:none; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); transition:filter .2s,transform .2s; }
@@ -135,7 +138,7 @@ footer a { color:var(--sea); }
 </div></nav>
 <header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas</a> / Adventure</div>
-<p style="margin:16px 0 0"><span class="notyet">Not open yet</span></p>
+<p style="margin:16px 0 0"><span class="notyet">Not open yet</span> <span class="opensby">&mdash; a letter to Arnaud opens it</span></p>
 <h1>Dog Sledding &amp; Mushing</h1>
 <p class="lead">Driving your own team of huskies across the frozen Arctic, learning to harness, brake and read the trail while the dogs do what they were bred to do.</p><p class="alive">Strongest community around it, on public sources: <b>Tromsø, Norway</b> &mdash; researched, not checked.</p>
 </div></header>
@@ -144,18 +147,18 @@ footer a { color:var(--sea); }
 <h2 style="margin:6px 0 14px">The map grows where someone is actually going</h2>
 <p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it, and not before.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking 114 things badly.</p>
+<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a letter, and the letter comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
 </div></section>
 <div class="wrap"><section class="letter reveal" id="letter" aria-labelledby="letter-h">
   <div class="lhead">
     <div class="eyebrow">Write to me</div>
     <h2 class="serif" id="letter-h">Write me a letter about Dog Sledding &amp; Mushing.</h2>
-    <p class="lsub">Not a form — a letter, and I read every one myself. Tell me why this one pulls at you, how you'd want to learn it, and who you'd want to be in it a year from now. A letter about a craft is what opens it.</p>
+    <p class="lsub">A letter to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft, and nothing else does. Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at you, how you'd want to learn it, and who you'd want to be in it a year from now.</p>
   </div>
   <div class="lbox" id="lbox">
     <input type="hidden" id="l_skill" value="Dog Sledding &amp; Mushing">
     <div class="sheet">
-      <div class="to">Dear Arnaud,</div>
-      <div class="date" id="l_date"></div>
+      <div class="lhd"><div class="to">Dear Arnaud,</div><div class="date" id="l_date"></div></div>
       <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your letter</label>
       <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
       <div class="sign"><div class="yours">Talk soon,</div><div class="name" id="l_sign"></div></div>
@@ -174,7 +177,7 @@ footer a { color:var(--sea); }
       </div>
       <div class="lrow"><button class="btn" id="l_confirm" type="button">Send it to Arnaud &rarr;</button></div>
       <div class="lerr" id="l_err"></div>
-      <div class="lfine">I'm the only one who reads it.</div>
+      <div class="lfine">It goes to me, Arnaud. I'm the only one who reads it.</div>
     </div>
   </div>
   <div class="ldone" id="l_done">
