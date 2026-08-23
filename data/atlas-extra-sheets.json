@@ -6,8 +6,8 @@
     "Detect drift with:  grep -l 'class=\"spine\"' website/atlas/*.html   and   grep -l 'http-equiv=\"refresh\"' website/atlas/*.html",
     "A hand-written sheet MUST also be pinned open — otherwise the build would print 'Not open yet' on a page that already carries the full research, which is a lie on the page itself."
   ],
-
   "preserve": [
+    "chef-at-sea.html",
     "freediving.html",
     "japanese-knife-making.html",
     "lifestyle-medicine.html",
@@ -16,7 +16,6 @@
     "pottery-and-ceramics.html",
     "sailing-and-yachtmaster.html",
     "self-sufficiency.html",
-
     "avant-garde-and-modernist-technique.html",
     "avant-garde-and-modernist-technique--barcelona.html",
     "avant-garde-and-modernist-technique--melbourne-lilydale.html",
@@ -27,8 +26,8 @@
     "sailing-and-yachtmaster--uksa-cowes.html",
     "self-sufficiency--sunseed-almeria.html"
   ],
-
   "pinnedOpen": [
+    "chef-at-sea",
     "freediving",
     "japanese-knife-making",
     "lifestyle-medicine",
@@ -39,7 +38,6 @@
     "self-sufficiency",
     "yacht-crew-and-stcw"
   ],
-
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
   "hubCards": [
     {
@@ -74,6 +72,20 @@
       "english": true,
       "tripType": "Immersion",
       "tripLength": "a fortnight to years"
+    },
+    {
+      "id": "chef-at-sea",
+      "discipline": "Being a Chef at Sea",
+      "category": "culinary",
+      "blurb": "Nobody's country decides whether you're qualified to cook at sea — the flag on the transom does, and it usually asks for less than the schools do. A trade, not a tradition: no master, no workshop, no line of teachers. It passes between chefs who overlap for a season, aboard.",
+      "place": "Antibes & Palma",
+      "country": "France & Spain",
+      "nDest": 1,
+      "school": "No single pick — two honest routes",
+      "why": "Checked: this craft has no master and no room of its own, so nothing clears our bar. The sheet names the two routes instead — the MCA ticket at an approved centre, and a two-week orientation in Mallorca with named teachers.",
+      "english": true,
+      "tripType": "Assessment or orientation",
+      "tripLength": "three days to two weeks"
     }
   ]
 }
