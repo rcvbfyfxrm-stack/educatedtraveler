@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Atlas — a catalogue of skills, each at its source — EducatedTraveler</title>
+<title>The Atlas — hands-on skills, and where in the world to learn each one — EducatedTraveler</title>
 <meta name="description" content="The EducatedTraveler Atlas: crafts across five worlds. 29 are open in full, with the school and the teacher we'd send you to — the rest are catalogued, not checked. Write a letter and I open one.">
 <link rel="canonical" href="https://educatedtraveler.app/atlas/">
-<meta property="og:title" content="The Atlas — what's still taught, where">
+<meta property="og:title" content="The Atlas — hands-on skills, and where each one is most alive">
 <meta property="og:description" content="Crafts across five worlds. 29 are open in full — the sheet, the places, the schools — because someone asked for them. Write me a letter and that is what opens the rest.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/browse">
@@ -47,9 +47,18 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 .btn{display:inline-block;padding:12px 22px;border-radius:99px;font-size:14px;font-weight:500;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#14110d;transition:transform .25s,box-shadow .25s,filter .25s}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(127,168,165,.22);filter:brightness(1.05)}
 .btn-ghost{display:inline-block;padding:12px 20px;border-radius:99px;font-size:14px;border:1px solid rgba(243,237,226,.2);transition:border-color .25s,background .25s}.btn-ghost:hover{border-color:var(--sea);background:rgba(243,237,226,.04)}
 
-/* the rosette — the ET mark itself: five rings, each a world, joined and interjoined */
+/* the hero's worked example — the rotating craft, written the way every card is */
+.hero-demo{display:flex;flex-direction:column;align-items:center;gap:14px}
+.demo-note{color:var(--faint);font-size:12.5px;line-height:1.6;max-width:34ch;text-align:center}
+@media(max-width:880px){.hero-demo{margin-top:6px}}
+
+/* the rosette — the ET mark itself: five rings, each a world, joined and interjoined.
+   It lives in the filter panel now: the skills come first on this page, and the wheel
+   is what you reach for once you want to narrow them. */
+.rosebox{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:2px 0 12px;margin:16px 0 0}
+.rosebox h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:16px 0 4px}
 .cam-wrap{position:relative;width:min(88vw,430px);margin:0 auto}
-.cam{width:100%;display:block;overflow:visible;filter:drop-shadow(0 24px 50px rgba(0,0,0,.5))}
+.cam{width:100%;display:block;overflow:visible;filter:drop-shadow(0 18px 34px rgba(0,0,0,.45))}
 .petal{fill-opacity:.22;cursor:pointer;transition:fill-opacity .3s}
 .petal:hover,.petal.hov{fill-opacity:.5}.petal.active{fill-opacity:.62}
 .hit{cursor:pointer}
@@ -59,24 +68,40 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 .heart{fill:var(--ink);stroke:rgba(243,237,226,.24);stroke-width:.9;pointer-events:none}
 .wlabel{font-family:'Fraunces',Georgia,serif;font-size:11.5px;fill:var(--paper);text-anchor:middle;pointer-events:none;paint-order:stroke;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round}
 .wcount{font-family:'IBM Plex Mono',monospace;font-size:7.5px;fill:rgba(243,237,226,.55);text-anchor:middle;pointer-events:none;letter-spacing:.05em;paint-order:stroke;stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round}
-.cam-tick{display:block;width:100%;margin-top:14px;padding:11px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(20,17,13,.5);text-align:center;transition:border-color .25s,background .25s}
+.cam-tick{display:block;width:min(92vw,430px);padding:22px 26px;border:1px solid var(--line);border-radius:18px;background:rgba(20,17,13,.5);text-align:center;transition:border-color .25s,background .25s}
 .cam-tick:hover{border-color:var(--sea);background:rgba(20,17,13,.85)}
-.cam-tick .lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
-.cam-tick .rot{display:block;opacity:0;transition:opacity .5s}.cam-tick .rot.on{opacity:1}
-.cam-tick .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(14px,1.9vw,17px);line-height:1.15}
-.cam-tick .place{font-size:11px;color:var(--ember);margin-top:3px;display:inline-block}
-.legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
-.legend button{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);padding:5px 11px;border:1px solid var(--line);border-radius:99px;transition:all .2s}
+.cam-tick .lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
+.cam-tick .rot{display:block;opacity:0;transition:opacity .5s;min-height:74px}.cam-tick .rot.on{opacity:1}
+.cam-tick .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(19px,2.7vw,27px);line-height:1.14;display:block}
+.cam-tick .place{font-size:14px;color:var(--ember);margin-top:7px;display:inline-block}
+.legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
+.legend button{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);padding:4px 9px;border:1px solid var(--line);border-radius:99px;transition:all .2s}
 .legend button:hover{color:var(--paper)}.legend button.on{color:var(--paper);border-color:var(--lc)}
-.legend .d{width:9px;height:9px;border-radius:2px;background:var(--lc)}
+.legend .d{width:8px;height:8px;border-radius:2px;background:var(--lc)}
 @media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:18px}.hero-copy{text-align:center}.cues{justify-content:center}}
 
 /* studio */
 .studio{padding:12px 0 30px}.studio .grid{display:grid;grid-template-columns:272px minmax(0,1fr);gap:26px;align-items:start}
 @media(max-width:880px){.studio .grid{grid-template-columns:minmax(0,1fr)}}
 .side{position:sticky;top:74px;border:1px solid var(--line);border-radius:16px;background:var(--ink2);padding:16px 16px 8px;max-height:calc(100vh - 90px);overflow:auto}
-@media(max-width:880px){.side{position:static;max-height:none}}
-.side h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:16px 0 8px}.side h4:first-child{margin-top:2px}
+/* On a phone the panel stacks ABOVE the results, and the wheel plus eight pulls
+   would push the first skill a screen and a half down — on a page whose whole
+   point is that the skills come first. So it folds there, and only there: the
+   summary is hidden on desktop and the JS opens it above 880px. */
+.sidefold>summary{display:none}
+@media(max-width:880px){
+  .side{position:static;max-height:none;padding:0}
+  .sidefold>summary{display:block;list-style:none;cursor:pointer;padding:14px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea)}
+  .sidefold>summary::-webkit-details-marker{display:none}
+  .sidefold>summary::after{content:' +';color:var(--faint)}
+  .sidefold[open]>summary::after{content:' \2212'}
+  .sidefold>div,.sidefold>.rosebox{padding-left:16px;padding-right:16px}
+  .sidefold>*:last-child{padding-bottom:8px}
+  .pulls{grid-template-columns:1fr 1fr}
+  .rosebox .cam{max-width:250px;margin:0 auto}
+}
+.side h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin:16px 0 8px}#sideA h4:first-child{margin-top:2px}
 .fin{width:100%;background:rgba(243,237,226,.05);border:1px solid var(--line);border-radius:10px;padding:9px 11px;color:var(--paper);font-size:16px;font-family:inherit}.fin:focus{outline:none;border-color:rgba(127,168,165,.5)}
 select.fin option{background:var(--ink2)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
@@ -84,6 +109,20 @@ select.fin option{background:var(--ink2)}
 .chip:hover{color:var(--paper);border-color:rgba(243,237,226,.3)}.chip.on{color:#14110d;background:var(--cc,var(--sea));border-color:transparent;font-weight:500}
 .chip .wd{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--cc);margin-right:6px;vertical-align:middle}.chip.on .wd{background:#14110d}
 .months{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}
+/* ── what pulls you ──────────────────────────────────────────────────────
+   The search box that used to sit here asked you to already know the word.
+   Nobody arrives knowing it; they arrive knowing what they keep coming back
+   to. Each of these eight cuts ACROSS the five worlds — that is the test one
+   has to pass to be here, so it is a second way in rather than the rings
+   again in different clothes. */
+.sidenote{color:var(--faint);font-size:11.5px;line-height:1.55;margin:-2px 0 9px}
+.pulls{display:grid;grid-template-columns:1fr;gap:5px}
+.pull{text-align:left;white-space:normal;padding:8px 11px;border-radius:11px;border:1px solid var(--line);color:var(--muted);transition:all .2s;line-height:1.3}
+.pull:hover{color:var(--paper);border-color:rgba(243,237,226,.3)}
+.pull .pn{display:block;font-size:13px;color:inherit}
+.pull .pw{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.05em;color:var(--faint);margin-top:2px}
+.pull.on{color:#14110d;background:var(--sea);border-color:transparent}
+.pull.on .pn{font-weight:500}.pull.on .pw{color:rgba(20,17,13,.66)}
 .craftnav{border-top:1px solid var(--line);padding:30px 0 10px}
 .craftnav>summary{list-style:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .craftnav>summary::-webkit-details-marker{display:none}
@@ -116,7 +155,11 @@ select.fin option{background:var(--ink2)}
 .arrow{position:absolute;top:34%;z-index:5;width:42px;height:42px;border-radius:50%;background:rgba(28,24,19,.96);border:1px solid rgba(243,237,226,.28);color:var(--paper);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,border-color .25s,background .25s,transform .2s;font-size:20px;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.55)}.arrow.show{opacity:.95;pointer-events:auto}.railwrap:hover .arrow.show{opacity:1}.arrow:hover{border-color:var(--sea);background:var(--sea);color:#14110d;transform:scale(1.06)}.arrow.l{left:6px}.arrow.r{right:6px}
 @media(max-width:820px){.arrow{display:none}}
 
-/* cards — CRAFT + CREDENTIAL first, place secondary */
+/* cards — THE SKILL, then the one place it is most alive, then what it is.
+   Nothing else. Everything the card used to also carry (the credential pill,
+   the lineage, the school, the star, the community dots, the level and trip
+   length) is on the sheet the card opens; on 113 cards at once it was noise
+   in front of the two things a reader is actually choosing between. */
 .dcard,.gcard{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:17px;position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
 .dcard{scroll-snap-align:start;flex:0 0 auto;width:clamp(228px,25vw,262px)}
 .dcard::before,.gcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.5;transition:opacity .3s}
@@ -145,20 +188,13 @@ select.fin option{background:var(--ink2)}
   .dcard:hover .reveal-cue,.gcard:hover .reveal-cue{opacity:0}
 }
 @media(hover:none){.reveal-cue{display:none}}
-/* ===== Atlas card v2 — evidence-based: one anchor, one gold token, payload at rest ===== */
-.pick{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.cred-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
-.crafthead{display:flex;align-items:baseline;gap:9px;margin-bottom:8px}
-.cglyph{font-size:13px;color:var(--faint);flex:0 0 auto;line-height:1}
-.craftname{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:20px;line-height:1.12;color:var(--paper)}
-.tradition{font-size:12px;color:var(--muted);font-style:italic;margin:-2px 0 10px;line-height:1.4}
-.why-rest{font-size:14px;color:var(--paper);opacity:.86;line-height:1.5;margin:0 0 11px;padding-left:10px;border-left:2px solid rgba(210,138,82,.55);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.trustline{font-size:12.5px;color:var(--muted);margin-bottom:9px;line-height:1.45}
-.trustline .school{color:rgba(243,237,226,.78)}
-.goldstar{color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:11px;white-space:nowrap}
-.placeline{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:rgba(243,237,226,.82);margin-bottom:9px}
-.placeline .cdots{color:var(--sea);letter-spacing:2px;font-size:11px;flex:0 0 auto}
-.cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55}
+/* ===== Atlas card v3 — the skill, the place, the sentence ===== */
+.learn{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:5px}
+.wherealive{font-size:13.5px;color:var(--sc);line-height:1.4;margin-bottom:11px}
+.craftblurb{font-size:12.5px;color:var(--muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
+.cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
 .comm{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
 /* trip-type + language badges */
@@ -204,8 +240,12 @@ select.fin option{background:var(--ink2)}
 .lfield input::placeholder{color:rgba(243,237,226,.3)}
 .sheet{position:relative;background:linear-gradient(180deg,var(--sheet) 0%,#ece1cc 100%);border-radius:5px;padding:30px 30px 26px;color:var(--sheet-ink);border:1px solid var(--sheet-edge);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 30px 60px -24px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.35)}
 .sheet::after{content:"";position:absolute;left:14px;right:14px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.1),transparent)}
-.sheet .to{font-family:'Fraunces',Georgia,serif;font-size:19px;margin-bottom:2px}
-.sheet .date{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sheet-faint);margin-bottom:16px}
+/* The salutation IS the start of the letter, so it is written the way you would
+   write it — by hand, on the ruled paper, above a rule — instead of set as a
+   caption. It also does the plainest possible job of saying who this is going to. */
+.sheet .lhd{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid rgba(44,35,26,.18);padding-bottom:8px;margin-bottom:15px}
+.sheet .to{font-family:'Caveat','Fraunces',cursive;font-size:clamp(28px,4.4vw,36px);line-height:1;color:#3a2c1e}
+.sheet .date{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sheet-faint);margin:0 0 4px}
 .sheet textarea{width:100%;min-height:210px;background:transparent;border:none;outline:none;resize:vertical;color:var(--sheet-ink);font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:17px;line-height:34px;background-image:repeating-linear-gradient(transparent,transparent 33px,rgba(44,35,26,.14) 33px,rgba(44,35,26,.14) 34px);padding:0}
 .sheet textarea::placeholder{color:rgba(44,35,26,.34);font-style:italic}
 .sheet .sign{margin-top:18px;text-align:right}
@@ -246,21 +286,31 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   <div class="hero-bg" id="hero-bg"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <div class="eyebrow">The Atlas · a catalogue of skills</div>
-      <h1 class="serif">What's still taught, where —<br>and what I <em>couldn't check</em>.</h1>
+      <div class="eyebrow">The Atlas</div>
+      <h1 class="serif">A catalogue of hands-on skills —<br>and <em>where in the world</em> to learn each one.</h1>
       <p class="sub">Five rings, five worlds — tap one, or search the list. Every craft has a sheet: what it really is, and where it's taught at the source. 29 are open in full, with the school we'd send you to and why — the rest are catalogued, not checked. I open one when someone writes to me about it. Nobody pays to be on the Atlas, and nobody can pay to be left off it.</p>
-      <div class="cues"><a class="btn" href="#studio">Browse every skill</a><a class="btn-ghost" href="/circle">Join the Circle</a></div>
+      <div class="cues"><a class="btn" href="#studio">Browse every skill</a><a class="btn-ghost" href="#letter">Ask me to open one</a></div>
     </div>
-    <div class="cam-wrap">
-      <svg class="cam" id="cam" viewBox="0 0 240 240" role="group" aria-label="Choose a world"></svg>
-      <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">tap a ring — or take this one</span><span class="rot on" id="rot"></span></button>
+    <div class="hero-demo">
+      <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
+      <p class="demo-note">Every card reads like that: the skill, and the one place its community is most alive.</p>
     </div>
   </div>
-  <div class="wrap"><div class="legend" id="legend"></div></div>
 </header>
 
 <main class="studio" id="studio"><div class="wrap"><div class="grid">
-  <aside class="side" id="side"></aside>
+  <aside class="side">
+    <details class="sidefold" id="sidefold">
+      <summary>Narrow it down</summary>
+      <div id="sideA"></div>
+      <div class="rosebox">
+        <h4>Five worlds</h4>
+        <svg class="cam" id="cam" viewBox="0 0 240 240" role="group" aria-label="Choose a world"></svg>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div id="sideB"></div>
+    </details>
+  </aside>
   <section class="results" id="results"></section>
 </div></div></main>
 
@@ -268,7 +318,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   <div class="lhead">
     <div class="eyebrow">Write to me</div>
     <h2 class="serif" id="letter-h">Found a skill you keep coming back to? Write me a letter about it.</h2>
-    <p class="lsub">Not a form — a letter, and I read every one myself. Tell me <b>which craft</b> you're circling, <b>how</b> you'd want to learn it, and <b>who you'd want to be in it</b> a year from now. That last one is the one I care about most: how will you actually use this in your future?</p>
+    <p class="lsub">A letter to <b>Arnaud</b> — me — is what opens a skill on this Atlas. Not a form, not a team inbox: it lands in mine, and I read every one myself. Tell me <b>which craft</b> you're circling, <b>how</b> you'd want to learn it, and <b>who you'd want to be in it</b> a year from now. That last one is the one I care about most: how will you actually use this in your future?</p>
   </div>
 
   <div class="lbox" id="lbox">
@@ -279,8 +329,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
     </div>
 
     <div class="sheet">
-      <div class="to">Dear Arnaud,</div>
-      <div class="date" id="l_date"></div>
+      <div class="lhd"><div class="to">Dear Arnaud,</div><div class="date" id="l_date"></div></div>
       <label class="sr-only" for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your letter</label>
       <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
       <div class="sign"><div class="yours">Talk soon,</div><div class="name" id="l_sign"></div></div>
@@ -302,7 +351,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
       </div>
       <div class="lrow"><button class="btn" id="l_confirm" type="button">Send it to Arnaud →</button></div>
       <div class="lerr" id="l_err"></div>
-      <div class="lfine">I'm the only one who reads it.</div>
+      <div class="lfine">It goes to me, Arnaud. I'm the only one who reads it.</div>
     </div>
   </div>
 
@@ -349,38 +398,68 @@ var WORLDS={
 var ORDER=["adventure","culinary","creative","movement","wellness"];
 function worldOf(d){return MOVE[d.id]?"movement":(WORLDS[d.category]?d.category:"creative");}
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
-function dots(n){n=n||0;return "●●●●●".slice(0,n)+"○○○○○".slice(0,5-n);}
-function credLabel(d){var c=d.certShort||"";return (c&&!/^no /i.test(c))?c:"Hand-verified";}
-function srcLabel(role){return role==="source"?"At the source":role==="both"?"Source & scene":"A strong scene";}
-var COMMCOL={Legendary:"#f0c27a",Thriving:"#a3cdc9",Strong:"rgba(243,237,226,.72)",Growing:"rgba(243,237,226,.5)","Hidden-gem":"rgba(243,237,226,.5)"};
-function commDots(rank,label){var c=COMMCOL[label]||"var(--sea)";return '<span class="dots" style="color:'+c+'">'+dots(rank)+'</span>';}
-function commLabel(label){if(!label)return "";var c=COMMCOL[label]||"rgba(243,237,226,.6)";return '<span class="comm" style="color:'+c+'">'+esc(label)+' living community</span>';}
-var TRIPCOL={1:"rgba(243,237,226,.5)",2:"var(--sea)",3:"var(--sea)",4:"var(--ember)",5:"var(--gold)"};
-function tripBadge(tier,type,length){if(!type)return "";var c=TRIPCOL[tier]||"var(--sea)";
-  return '<span class="trip" style="--tc:'+c+'" title="Typical length of the flagship course here — see the place page for every option">◷ '+esc(type)+(length?' <span class="dur">· '+esc(length)+'</span>':'')+'</span>';}
-function langBadge(en,lang){if(en)return '<span class="lang" title="Confirmed taught in English"><span class="en">EN</span> English-taught</span>';if(lang)return '<span class="lang lang-loc" title="Flagship course taught in '+esc(lang)+', not English">Taught in '+esc(lang)+'</span>';return "";}
-// The single most curiosity-driving signal on the card — pick the 1-2 most distinctive
-// badges (a teaser the page then pays off). Mundane badges (scene/school/gold-cred) skipped.
-var SIGBADGE=[["record","Record-setting"],["mecca","Mecca"],["lineage","Unbroken lineage"],["heritage","Heritage"],["source","Birthplace"],["master-lab","Enrol with the master"],["master","Named masters"]];
-function sigChips(badges){if(!badges||!badges.length)return "";var set={};badges.forEach(function(b){set[b]=1;});var out=[];for(var i=0;i<SIGBADGE.length&&out.length<2;i++){if(set[SIGBADGE[i][0]])out.push(SIGBADGE[i][1]);}if(!out.length)return "";return '<div class="sig"><span class="dia">◆</span>'+out.map(esc).join(" · ")+'</div>';}
-function masterLine(m){if(!m)return "";var t=/^lineage of/i.test(m)?"in the "+m.charAt(0).toLowerCase()+m.slice(1):m;return '<div class="masterline" title="The person / lineage you study under">↳ '+esc(t)+'</div>';}
+// The card decorations this page used to draw — the community dots, the
+// credential pill, the trip and language badges, the signature chips, the
+// lineage line and the hover drawer with its cited rating — went with the card
+// they belonged to. All of it is still on the skill sheet, where a reader has
+// come to weigh one craft rather than scan a hundred. Nothing here reconstructs
+// them, so nothing can quietly grow back onto the card.
 function levelBucket(lv){lv=(lv||"").toLowerCase();var e=lv.split("->")[0];
   if(/intermediate/.test(e))return "intermediate";
   if(/advanced|experienced|expert/.test(e))return "advanced";
   return "beginner"; }
 
-// flat destinations
+// flat destinations — what's left is what the FILTERS read, plus the place and
+// the rank the card prints. The school, the master, the credential and the
+// reason-to-go are no longer pulled through: the card doesn't show them.
 var DESTS=[];
 A.forEach(function(d){var w=worldOf(d);
   (d.destinations||[]).forEach(function(x){
-    DESTS.push({world:w,discipline:d.discipline,did:d.id,open:!!d.open,cred:credLabel(d),gold:d.goldCredential||d.certBody||"",
+    DESTS.push({world:w,discipline:d.discipline,did:d.id,open:!!d.open,
       place:x.place,country:x.country,region:x.region||"",role:x.role||"",rank:x.communityRank||0,
-      rankLabel:x.communityLabel||"",season:x.bestSeason||"",level:x.level||"",lvl:levelBucket(x.level),
-      tripTier:x.tripTier||0,tripType:x.tripType||"",tripLength:x.tripLength||"",english:x.englishTaught===true,lang:x.instructionLanguage||"",
-      badges:x.badges||[],master:(x.masters||[])[0]||"",why:x.why||"",school:(x.schoolsInfo&&x.schoolsInfo[0]&&x.schoolsInfo[0].name)||"",
-      schools:(x.schoolsInfo||x.schools||[]).length,id:x.id});
+      season:x.bestSeason||"",level:x.level||"",lvl:levelBucket(x.level),
+      tripTier:x.tripTier||0,english:x.englishTaught===true,id:x.id});
   });
 });
+// what the craft actually is, in one line — the only body copy a card carries
+var BLURB={};A.forEach(function(d){BLURB[d.id]=d.blurb||"";});
+
+/* ── WHAT PULLS YOU ───────────────────────────────────────────────────────
+   This replaces the search box. A search box asks you to already know the
+   word for the thing; almost nobody arrives knowing it. They arrive knowing
+   what they keep coming back to — fire, salt water, feeding people, going
+   quiet.
+
+   THE RULE FOR THIS LIST: a pull only earns a place here if it cuts across
+   more than one of the five worlds. That is what stops it being the rosette
+   again in different clothes, and it is why "Slow it down" holds a tea
+   ceremony (Kitchen), kintsugi (Craft), freediving (Wild) and vipassana
+   (Body) at the same time. It is a curated lens, not a taxonomy: a craft may
+   sit in several pulls, and a few sit in none — those are still one click
+   away in the A–Z list and on their ring.                                  */
+var PULLS=[
+  {id:"feed", label:"Feed people",         note:"cook · bake · pour · ferment"},
+  {id:"fire", label:"Work with fire",      note:"forge · kiln · embers"},
+  {id:"make", label:"Make something",      note:"wood · clay · cloth · ink"},
+  {id:"water",label:"On the water",        note:"sea · river · depth"},
+  {id:"wild", label:"Where the road ends", note:"mountain · ice · wild country"},
+  {id:"music",label:"Move to music",       note:"dance · rhythm · an instrument"},
+  {id:"body", label:"Train the body",      note:"climb · fight · run · hold"},
+  {id:"slow", label:"Slow it down",        note:"breath · stillness · healing hands"}
+];
+var PULL_LIST={
+feed:["asado-and-open-fire-cooking","bread-and-boulangerie","cheese-and-fermentation","chef-at-sea","chocolate-and-confectionery","classical-french-cuisine","coffee-and-barista","french-pastry-and-patisserie","italian-cuisine-and-pasta","korean-cuisine-hansik","mixology-and-bartending","modern-new-technique-cuisine","modernist-spanish-cuisine","new-basque-cuisine","north-indian-cuisine","oaxacan-and-mexican-cuisine","peruvian-cuisine","sake-and-sommellerie-of-sake","self-sufficiency","sichuan-and-chinese-cuisine","sushi-and-washoku","tea-and-tea-ceremony","thai-cuisine","viennoiserie","vietnamese-cuisine","whisky-and-distilling","wine-and-sommellerie"],
+fire:["asado-and-open-fire-cooking","blacksmithing-and-bladesmithing","bread-and-boulangerie","glassblowing","japanese-knife-making","jewelry-and-goldsmithing","pottery-and-ceramics","whisky-and-distilling","wilderness-survival-and-bushcraft"],
+make:["blacksmithing-and-bladesmithing","bookbinding-and-letterpress","bread-and-boulangerie","calligraphy-and-lettering","chocolate-and-confectionery","cigar-rolling","filmmaking","french-pastry-and-patisserie","glassblowing","japanese-knife-making","jewelry-and-goldsmithing","kintsugi-japanese-gold-repair","leatherwork","lutherie-and-instrument-making","marble-sculpture-and-stone-carving","natural-dyeing","painting-and-fine-art","perfumery","photography","pottery-and-ceramics","printmaking","self-sufficiency","tattooing","textiles-and-weaving","viennoiserie","watchmaking","wooden-boatbuilding","woodworking-and-joinery"],
+water:["canyoning","cave-and-technical-diving","chef-at-sea","expedition-sea-kayaking","fly-fishing","freediving","kitesurfing","sailing-and-yachtmaster","scuba-diving","spearfishing","surfing","whitewater-kayaking","whitewater-rafting","windsurfing-and-wing-foil","wooden-boatbuilding","yacht-crew-and-stcw"],
+wild:["adventure-and-off-road-motorcycling","alpinism-and-mountaineering","bush-and-floatplane-flying","canyoning","caving-and-speleology","dog-sledding-and-mushing","expedition-sea-kayaking","falconry","fly-fishing","horsemanship","ice-and-mixed-climbing","mountain-biking","mountain-leadership-and-trekking","outdoor-leadership-and-wilderness-expeditions","paragliding","rock-climbing","safari-and-wildlife-guiding","self-sufficiency","ski-and-snowboard-mountain-guiding","ski-touring-and-splitboard","skydiving","trail-and-ultra-running","wilderness-survival-and-bushcraft"],
+music:["argentine-tango","bharatanatyam-indian-classical-dance","capoeira","ecstatic-dance-and-movement","flamenco-and-dance","guitar-and-music-performance","lutherie-and-instrument-making","salsa","sound-healing"],
+body:["alpinism-and-mountaineering","ashtanga-yoga","brazilian-jiu-jitsu","capoeira","cold-exposure-wim-hof-method","freediving","hatha-and-vinyasa-yoga","ice-and-mixed-climbing","iyengar-yoga","karate","kundalini-yoga","kung-fu","mountain-biking","muay-thai","pilates","rock-climbing","ski-touring-and-splitboard","tai-chi-and-qigong","trail-and-ultra-running","whitewater-kayaking"],
+slow:["ayurveda","calligraphy-and-lettering","cold-exposure-wim-hof-method","freediving","kintsugi-japanese-gold-repair","kyudo-japanese-archery","lifestyle-medicine","lymphatic-drainage","pranayama-and-breathwork","reflexology-and-shiatsu","reiki-and-energy-healing","sound-healing","tai-chi-and-qigong","tantra-and-conscious-intimacy","tea-and-tea-ceremony","thai-massage","traditional-spa-and-hydrotherapy","vipassana-and-meditation"]
+};
+var PULL_HAS={};PULLS.forEach(function(p){var m={};(PULL_LIST[p.id]||[]).forEach(function(id){m[id]=1;});PULL_HAS[p.id]=m;});
+function inPull(did,keys){for(var i=0;i<keys.length;i++){if(PULL_HAS[keys[i]]&&PULL_HAS[keys[i]][did])return true;}return false;}
+
 var byWorldDisc={};ORDER.forEach(function(w){byWorldDisc[w]=[];});
 A.forEach(function(d){var w=worldOf(d),t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});byWorldDisc[w].push({d:d,top:t||{}});});
 ORDER.forEach(function(w){byWorldDisc[w].sort(function(a,b){return (b.top.communityRank||0)-(a.top.communityRank||0);});});
@@ -402,17 +481,10 @@ function wanted(craft){var r=(window.ETInterest&&window.ETInterest.get)?window.E
 function craftsInOrder(w){return byWorldDisc[w].slice().sort(function(a,b){
   return (wanted(b.d.discipline)-wanted(a.d.discipline))||((b.top.communityRank||0)-(a.top.communityRank||0));});}
 function countWanted(list,key){var n=0;list.forEach(function(x){if(wanted(key(x)))n++;});return n;}
-// The single "best place to go" per craft — ONLY where a human actually chose one.
-// This drives the "Our pick for this craft" badge, which is a recommendation in our
-// name, so it may never be computed. It used to fall back to the strongest
-// communityRank when no `featured` was set: with no featured values in the data that
-// meant 25 crafts wore a pick badge nobody had judged — a blank filled by a sort.
-// Trust is the anchor (Arnaud, 2026-08-16): a pick is named only when it beats the
-// field by a clear distance, and if nothing has, the honest output is no badge.
-var BEST={};A.forEach(function(d){var f=d.featured||{},bid=null;
-  if(f.id){(d.destinations||[]).forEach(function(x){if(x.id===f.id)bid=x.id;});}
-  if(!bid&&f.place){(d.destinations||[]).forEach(function(x){if(x.place===f.place)bid=x.id;});}
-  if(bid)BEST[d.id]=bid;});
+// The "Our pick for this craft" badge is gone from the card, and with it the
+// `featured` lookup that drove it. That is not a loss of a recommendation: the
+// pick is named on the craft's own sheet, in full, with the reason. What the
+// card says now — where the community is strongest — is measured, not chosen.
 var REGIONS=Object.keys(DESTS.reduce(function(a,x){if(x.region)a[x.region]=1;return a;},{})).sort();
 var MON={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
 var MNAMES=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -423,18 +495,10 @@ function seasonMonths(s){if(!s)return null;s=s.toLowerCase();
   while((m=re.exec(s))){found=true;var a=MON[m[1]],b=MON[m[2]],i=a;for(var k=0;k<12;k++){set[i]=1;if(i===b)break;i=i%12+1;}}
   if(!found){var r2=/\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\b/g;while((m=r2.exec(s))){set[MON[m[1]]]=1;found=true;}}
   return found?set:null;}
-function ratingDisc(did){return RATINGS[did]||null;}
-function ratingDest(x){var r=RATINGS[x.did];return (r&&r.destId===x.id)?r:null;}
-function trustHTML(r){if(!r)return "";
-  var who=r.school?'<div style="font-size:11px;color:var(--muted);margin-top:3px">'+esc(r.school)+'</div>':'';
-  if(r.stars){var s=Math.round(r.stars);var st="★★★★★".slice(0,s)+"☆☆☆☆☆".slice(0,5-s);
-    return '<div class="trust"><span class="stars">'+st+'</span> <span class="src">'+esc(r.stars)+(r.count?' · '+Number(r.count).toLocaleString()+' reviews':'')+(r.source?' on '+esc(r.source):'')+'</span>'+who+(r.whyPick?'<span class="why">'+esc(r.whyPick)+'</span>':'')+'</div>';}
-  if(r.whyPick){return '<div class="trust"><span class="src" style="color:var(--sea)">✓ '+esc(r.school)+'</span><span class="why">'+esc(r.whyPick)+'</span></div>';}
-  return "";}
-// Progressive disclosure — the resting card stays calm; on hover (or focus, or inline on
-// touch where there's no hover) a bottom drawer reveals the place's reason-to-go and the
-// flagship school + cited rating. Absolute overlay => no reflow inside rails/grids.
-function revealExtra(why,r){var t=trustHTML(r);var w=why?'<div class="dw-why">“'+esc(why)+'”</div>':'';if(!w&&!t)return "";return '<span class="reveal-cue">more ⌄</span><div class="reveal-extra"><div class="dw-in">'+w+t+'</div></div>';}
+// The ratings the hover drawer used to cite are still loaded (atlas-index-shim
+// rebuilds window.ET_RATINGS for anything else that wants them) but the card no
+// longer draws them: a star and a school on a browse card is a claim made in
+// passing, and this page's job is to get you to the sheet that makes it properly.
 
 // ── the rosette ──
 // The Atlas wheel IS the EducatedTraveler mark: five rings of equal radius, each centred
@@ -490,42 +554,54 @@ function hexA(h,a){var n=parseInt(h.slice(1),16);return "rgba("+((n>>16)&255)+",
 // the flashing centre cycles the most surprising crafts first; each links to its best place
 var SURPRISE=["freediv","apnea","knife","blade","smith","forge","perfum","falconr","cheese","ferment","sake","chocolat","glassblow","glass","tango","flamenco","calligraph","indigo","dye","forag","mushroom","sourdough","kintsugi","leather","ceramic","pottery","blacksmith","woodblock","beekeep","honey","spearfish","cooper","lacquer","weav","whisky","whiskey","mezcal","truffle","oyster","lutherie","violin","wooden boat"];
 function isSurprising(name){name=(name||"").toLowerCase();return SURPRISE.some(function(k){return name.indexOf(k)>-1;});}
-function topDest(d){var bid=BEST[d.id];return (d.destinations||[]).filter(function(x){return x.id===bid;})[0]||(d.destinations||[])[0]||null;}
+// the place a craft's community is most alive in — the same one its card prints
+function aliveDest(d){var t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});return t;}
 var feats=[];
-A.forEach(function(d){if(!isSurprising(d.discipline))return;var t=topDest(d);if(t&&t.place)feats.push({craft:d.discipline,place:t.place,color:WORLDS[worldOf(d)].color,did:d.id});});
-ORDER.forEach(function(w){byWorldDisc[w].slice(0,3).forEach(function(o){if(o.top.place&&!feats.some(function(f){return f.did===o.d.id;}))feats.push({craft:o.d.discipline,place:o.top.place,color:WORLDS[w].color,did:o.d.id});});});
+A.forEach(function(d){if(!isSurprising(d.discipline))return;var t=aliveDest(d);if(t&&t.place)feats.push({craft:d.discipline,place:t.place,country:t.country||"",color:WORLDS[worldOf(d)].color,did:d.id});});
+ORDER.forEach(function(w){byWorldDisc[w].slice(0,3).forEach(function(o){if(o.top.place&&!feats.some(function(f){return f.did===o.d.id;}))feats.push({craft:o.d.discipline,place:o.top.place,country:o.top.country||"",color:WORLDS[w].color,did:o.d.id});});});
+// The hero's worked example. It is written exactly the way every card is, so the
+// page teaches its own format before you have scrolled to a single card.
 var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];curFeat=f;rot.classList.remove("on");
-  setTimeout(function(){rot.innerHTML='<span class="craft">'+esc(f.craft)+'</span><br><span class="place">'+esc(f.place)+' <span style="opacity:.7">↗</span></span>';rot.classList.add("on");},280);
+  setTimeout(function(){rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>';rot.classList.add("on");},280);
   bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
 tick();setInterval(tick,2700);
 
 // ── filter state ──
 // One factory, three call sites (init, Clear, "Loosen the filters") — they drifted
 // apart once already.
-function blankF(){return {worlds:{},craft:"",regions:{},month:0,minRank:0,role:"",level:"",q:"",trip:0,english:false};}
+function blankF(){return {worlds:{},craft:"",pulls:{},regions:{},month:0,minRank:0,role:"",level:"",trip:0,english:false};}
 var F=blankF();
-function anyFilter(){return Object.keys(F.worlds).length||F.craft||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.q||F.trip||F.english;}
+function anyFilter(){return Object.keys(F.worlds).length||F.craft||Object.keys(F.pulls).length||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.trip||F.english;}
 function toggleWorld(w){if(F.worlds[w])delete F.worlds[w];else F.worlds[w]=1;F.craft="";renderSide();render();syncWorld();document.getElementById("studio").scrollIntoView({behavior:"smooth"});}
 
-// ── sidebar (multi-level) ──
-var side=document.getElementById("side");
+// ── sidebar ──
+// Two containers, not one: the rosette lives between them in static markup, so a
+// re-render never destroys the SVG. The skill and the pulls come first, the wheel
+// after them, the where-and-when last.
+var sideA=document.getElementById("sideA"),sideB=document.getElementById("sideB");
+// Open on desktop, folded on a phone — same idiom as the where-and-when group.
+(function(){var sf=document.getElementById("sidefold");if(sf)sf.open=window.innerWidth>880;})();
 function craftOptions(){
-  var ws=Object.keys(F.worlds);var ds=A.filter(function(d){return !ws.length||F.worlds[worldOf(d)];});
+  var ws=Object.keys(F.worlds),ps=Object.keys(F.pulls);
+  var ds=A.filter(function(d){return (!ws.length||F.worlds[worldOf(d)])&&(!ps.length||inPull(d.id,ps));});
   ds.sort(function(a,b){return a.discipline.localeCompare(b.discipline);});
-  return '<option value="">All crafts'+(ws.length?" in selection":"")+'</option>'+ds.map(function(d){return '<option value="'+d.id+'"'+(F.craft===d.id?" selected":"")+'>'+esc(d.discipline)+'</option>';}).join("");
+  return '<option value="">All skills'+((ws.length||ps.length)?" in selection":"")+'</option>'+ds.map(function(d){return '<option value="'+d.id+'"'+(F.craft===d.id?" selected":"")+'>'+esc(d.discipline)+'</option>';}).join("");
 }
 function renderSide(){
-  var h="";
-  h+='<h4>Search</h4><input class="fin" id="q" placeholder="skill, place, country…" value="'+esc(F.q)+'">';
-  h+='<h4>World</h4><div class="chips">'+ORDER.map(function(w){return '<button class="chip world '+(F.worlds[w]?"on":"")+'" data-w="'+w+'" style="--cc:'+WORLDS[w].color+'"><span class="wd"></span>'+esc(WORLDS[w].short)+'</button>';}).join("")+'</div>';
-  h+='<h4>Skill</h4><select class="fin" id="craft">'+craftOptions()+'</select>';
+  // ── the skill, and what pulls you ──────────────────────────────────────
+  var a='<h4>The skill</h4><select class="fin" id="craft">'+craftOptions()+'</select>';
+  a+='<h4>What pulls you</h4><p class="sidenote">Not a category — the thing you keep coming back to. Every one of these crosses more than one world.</p>';
+  a+='<div class="pulls">'+PULLS.map(function(p){
+       return '<button class="pull'+(F.pulls[p.id]?" on":"")+'" data-p="'+p.id+'">'
+            + '<span class="pn">'+esc(p.label)+'</span><span class="pw">'+esc(p.note)+'</span></button>';}).join("")+'</div>';
+  sideA.innerHTML=a;
 
   // ── Where you could actually go ────────────────────────────────────────
   // These five only carry data for OPEN crafts — a craft nobody has asked for
   // has no place yet, so no region, season, role or tier. render() therefore
   // keeps the closed crafts visible in their own band rather than letting the
-  // map appear to shrink from 112 to 29.
-  h+='<details class="morefil"><summary>Where and when you could go</summary>';
+  // map appear to shrink from 113 to 30.
+  var h='<details class="morefil"><summary>Where and when you could go</summary>';
   h+='<h4>Where in the world</h4><select class="fin" id="region"><option value="">Anywhere</option>'
      + REGIONS.map(function(r){var n=DESTS.filter(function(x){return x.region===r;}).length;
          return '<option value="'+esc(r)+'"'+(F.regions[r]?" selected":"")+'>'+esc(r)+' ('+n+')</option>';}).join("")
@@ -551,32 +627,37 @@ function renderSide(){
      + '</details>';
 
   h+='<button class="reset" id="reset">Clear</button>';
-  side.innerHTML=h;
+  sideB.innerHTML=h;
   // Under 880px the sidebar stacks above the results, so five more groups would
   // push the first card off a phone. Collapsed there, open on desktop.
-  var mf=side.querySelector(".morefil"); if(mf) mf.open = window.innerWidth>880;
-  side.querySelector("#q").oninput=function(){F.q=this.value;render();};
-  side.querySelector("#craft").onchange=function(){F.craft=this.value;render();};
-  side.querySelectorAll(".world").forEach(function(b){b.onclick=function(){toggleWorld(b.dataset.w);};});
-  // None of the five feed craftOptions(), so they must NOT call renderSide() —
-  // that re-runs side.innerHTML and destroys the control mid-click.
-  side.querySelector("#region").onchange=function(){F.regions={};if(this.value)F.regions[this.value]=1;render();};
-  side.querySelectorAll(".mon").forEach(function(b){b.onclick=function(){
+  var mf=sideB.querySelector(".morefil"); if(mf) mf.open = window.innerWidth>880;
+  sideA.querySelector("#craft").onchange=function(){F.craft=this.value;render();};
+  // A pull changes which skills the skill-list can offer, so this one DOES have
+  // to redraw the panel — and it redraws sideA only, so the wheel below it and
+  // the where-and-when panel underneath both keep their state.
+  sideA.querySelectorAll(".pull").forEach(function(b){b.onclick=function(){
+    var p=b.dataset.p;if(F.pulls[p])delete F.pulls[p];else F.pulls[p]=1;
+    F.craft="";renderSide();render();};});
+  // None of the five below feed craftOptions(), so they must NOT call renderSide() —
+  // that re-runs the panel's innerHTML and destroys the control mid-click.
+  sideB.querySelector("#region").onchange=function(){F.regions={};if(this.value)F.regions[this.value]=1;render();};
+  sideB.querySelectorAll(".mon").forEach(function(b){b.onclick=function(){
     var n=+b.dataset.m;F.month=(F.month===n?0:n);
-    side.querySelectorAll(".mon").forEach(function(o){o.classList.toggle("on",+o.dataset.m===F.month);});render();};});
-  side.querySelectorAll(".chip.trip").forEach(function(b){b.onclick=function(){
+    sideB.querySelectorAll(".mon").forEach(function(o){o.classList.toggle("on",+o.dataset.m===F.month);});render();};});
+  sideB.querySelectorAll(".chip.trip").forEach(function(b){b.onclick=function(){
     var n=+b.dataset.t;F.trip=(F.trip===n?0:n);
-    side.querySelectorAll(".chip.trip").forEach(function(o){o.classList.toggle("on",+o.dataset.t===F.trip);});render();};});
-  side.querySelectorAll(".chip.role").forEach(function(b){b.onclick=function(){
+    sideB.querySelectorAll(".chip.trip").forEach(function(o){o.classList.toggle("on",+o.dataset.t===F.trip);});render();};});
+  sideB.querySelectorAll(".chip.role").forEach(function(b){b.onclick=function(){
     var v=b.dataset.r;F.role=(F.role===v?"":v);
-    side.querySelectorAll(".chip.role").forEach(function(o){o.classList.toggle("on",o.dataset.r===F.role);});render();};});
-  var en=side.querySelector(".tgl-en");en.onclick=function(){F.english=!F.english;en.classList.toggle("on",F.english);render();};
-  var lg=side.querySelector(".tgl-leg");lg.onclick=function(){F.minRank=F.minRank?0:5;lg.classList.toggle("on",!!F.minRank);lg.style.color=F.minRank?"#f0c27a":"var(--muted)";render();};
-  side.querySelector("#reset").onclick=function(){F=blankF();renderSide();render();syncWorld();};
+    sideB.querySelectorAll(".chip.role").forEach(function(o){o.classList.toggle("on",o.dataset.r===F.role);});render();};});
+  var en=sideB.querySelector(".tgl-en");en.onclick=function(){F.english=!F.english;en.classList.toggle("on",F.english);render();};
+  var lg=sideB.querySelector(".tgl-leg");lg.onclick=function(){F.minRank=F.minRank?0:5;lg.classList.toggle("on",!!F.minRank);lg.style.color=F.minRank?"#f0c27a":"var(--muted)";render();};
+  sideB.querySelector("#reset").onclick=function(){F=blankF();renderSide();render();syncWorld();};
 }
 function matchDest(x){
   if(Object.keys(F.worlds).length&&!F.worlds[x.world])return false;
   if(F.craft&&x.did!==F.craft)return false;
+  var ps=Object.keys(F.pulls);if(ps.length&&!inPull(x.did,ps))return false;
   if(F.level&&x.lvl!==F.level)return false;
   if(F.trip&&x.tripTier!==F.trip)return false;
   if(F.english&&!x.english)return false;
@@ -584,7 +665,6 @@ function matchDest(x){
   if(F.minRank&&x.rank<F.minRank)return false;
   if(F.role){if(F.role==="source"&&!(x.role==="source"||x.role==="both"))return false;if(F.role==="scene"&&!(x.role==="scene"||x.role==="both"))return false;if(F.role==="both"&&x.role!=="both")return false;}
   if(F.month){var s=seasonMonths(x.season);if(!s||!s[F.month])return false;}
-  if(F.q){var q=F.q.toLowerCase();if((x.discipline+" "+x.place+" "+x.country).toLowerCase().indexOf(q)<0)return false;}
   return true;
 }
 function countOpen(){return A.filter(function(d){return d.open;}).length;}
@@ -607,43 +687,52 @@ function signalRender(){try{document.dispatchEvent(new CustomEvent("et:atlas-ren
 function render(){
   VIEW.cat=null;
   if(!anyFilter()){renderRails();return;}
-  var list=DESTS.filter(matchDest).sort(function(a,b){return (wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
+  // One card is one SKILL. A craft with four places used to come back as four
+  // cards; now it comes back once, showing the strongest place that actually
+  // matched the filters — so a region filter still moves the card's city, and
+  // the count is a count of skills, which is what the reader is choosing from.
+  var pick={};
+  DESTS.filter(matchDest).forEach(function(x){var p=pick[x.did];if(!p||x.rank>p.rank)pick[x.did]=x;});
+  var list=Object.keys(pick).map(function(k){return pick[k];})
+    .sort(function(a,b){return (wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
   var nw=countWanted(list,function(x){return x.discipline;});
   var nClosed=A.filter(function(d){return !d.open;}).length;
   // The five place-filters only have data for open crafts. Say so in the count
-  // rather than letting the Atlas look like it shrank from 112 crafts to 29.
+  // rather than letting the Atlas look like it shrank from 113 crafts to 30.
   var placeFiltered=Object.keys(F.regions).length||F.month||F.trip||F.role||F.english||F.minRank;
-  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> place'+(list.length===1?"":"s")+(placeFiltered?' <span style="color:var(--faint);font-weight:400">in the '+countOpen()+' open crafts</span>':'')+'</div><div class="sortby">'+(nw?"asked-for crafts first, then community strength":"ranked by community strength")+'</div></div>';
-  if(!list.length){results.innerHTML='<div class="empty">No open place matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>'+(placeFiltered?closedBand(nClosed):"");document.getElementById("clr").onclick=function(){F=blankF();renderSide();render();syncWorld();};return;}
-  h+='<div class="gridwrap">'+list.slice(0,120).map(gcard).join("")+'</div>';
+  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> skill'+(list.length===1?"":"s")+(placeFiltered?' <span style="color:var(--faint);font-weight:400">in the '+countOpen()+' open crafts</span>':'')+'</div><div class="sortby">'+(nw?"asked-for skills first, then community strength":"ranked by community strength")+'</div></div>';
+  if(!list.length){results.innerHTML='<div class="empty">No skill matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>'+(placeFiltered?closedBand(nClosed):"");document.getElementById("clr").onclick=function(){F=blankF();renderSide();render();syncWorld();};return;}
+  h+='<div class="gridwrap">'+list.map(gcard).join("")+'</div>';
   if(placeFiltered)h+=closedBand(nClosed);
-  if(list.length>120)h+='<p style="color:var(--faint);text-align:center;margin-top:22px;font-size:13px">Showing the 120 strongest — narrow the filters to see the rest.</p>';
   results.innerHTML=h;signalRender();
 }
-// ===== Atlas card v2 (evidence-based rebuild) =====
-var GLYPH={adventure:"△",culinary:"◇",creative:"□",movement:"▽",wellness:"○"};
-var NAMED_PLATFORM=/google|tripadvisor|yelp|trustpilot|facebook/i;
-function gatedStar(r){if(r&&r.destId&&r.stars&&r.count&&Number(r.count)>=30&&NAMED_PLATFORM.test(r.source||""))return '<span class="goldstar">'+esc(String(r.stars))+'★ · '+Number(r.count).toLocaleString()+' · '+esc(r.source)+'</span>';return "";}
-function traditionTag(m){if(!m)return "";var t=/^lineage of\s+/i.test(m)?("in the lineage of "+m.replace(/^lineage of\s+/i,"")):("in the tradition of "+m);return '<div class="tradition">'+esc(t)+'</div>';}
-// No level recorded is not the same as "Beginner" — levelBucket() defaults to
-// beginner, so an empty level used to print "Open to beginners", a fitness claim
-// nobody had checked. Say nothing instead. The .cfoot element itself always
-// ships, even empty: atlas-index-shim.js rewrites it to the "Ask me to open this
-// one →" line on unopened crafts, and every one of those has an empty level.
-function fitCue(level){return !level?"":levelBucket(level)==="beginner"?"Open to beginners":"For practitioners";}
-function cardFoot(o){var b=[],fc=fitCue(o.level);if(fc)b.push(fc);if(o.tripType)b.push('~'+esc(o.tripType)+' · '+esc(o.tripLength)+' · est.');if(o.lang)b.push('Taught in '+esc(o.lang));return '<div class="cfoot">'+b.join(' · ')+'</div>';}
-function hoverReveal(r){if(!r||!r.whyPick)return "";return '<div class="reveal-extra"><div class="dw-in"><div class="dw-why">“'+esc(r.whyPick)+'”</div>'+((r.stars&&r.source)?'<div class="prov">as cited on '+esc(r.source)+'</div>':'')+'</div></div>';}
-function cardData(world,disc,t,r){return {world:world,craft:disc.discipline,cred:credLabel(disc),master:(t.masters||[])[0]||"",why:t.why||"",school:(t.schoolsInfo&&t.schoolsInfo[0]&&t.schoolsInfo[0].name)||"",place:t.place||"",country:t.country||"",rank:t.communityRank||0,level:t.level||"",tripType:t.tripType||"",tripLength:t.tripLength||"",lang:t.instructionLanguage||"",isBest:BEST[disc.id]===t.id,r:(r&&r.destId===t.id)?r:null};}
-function cardInner(o){var g=GLYPH[o.world]||"○",star=gatedStar(o.r);
-  return (o.isBest?'<div class="pick">Our pick for this craft</div>':'')+
-    (o.cred?'<div class="cred-eyebrow">'+esc(o.cred)+'</div>':'')+
-    '<div class="crafthead"><span class="cglyph">'+g+'</span><span class="craftname">'+esc(o.craft)+'</span></div>'+
-    traditionTag(o.master)+
-    (o.why?'<div class="why-rest">'+esc(o.why)+'</div>':'')+
-    ((o.school||star)?'<div class="trustline">'+(o.school?'<span class="school">at '+esc(o.school)+'</span>':'')+(star?(o.school?' · ':'')+star:'')+'</div>':'')+
-    '<div class="placeline"><span class="pl">'+esc(o.place)+(o.country?', '+esc(o.country):'')+'</span>'+(o.rank?'<span class="cdots">'+dots(o.rank)+'</span>':'')+'</div>'+
-    '<div class="cint" data-craft="'+esc(o.craft)+'"></div>'+
-    cardFoot(o)+hoverReveal(o.r);
+// ===== Atlas card v3 — the skill, then where it is most alive, then what it is =====
+// One card is one SKILL, and it reads as one sentence top to bottom:
+//     Learn / Argentine Tango / in Buenos Aires, Argentina
+// The place is the place that craft's community is strongest in — the Atlas's own
+// ranking axis, not a pick and not a sale. Under the sentence, the one line that
+// says what the craft actually is. Nothing else is on the card: the credential,
+// the lineage, the school, the rating, the level and the trip length are all on
+// the sheet the card opens, where there is room to say them honestly. Across 113
+// cards at once they were noise in front of the only two things anyone is really
+// choosing between — the skill, and where in the world it lives.
+function placeLine(place,country){
+  if(!place)return country||"";
+  // "United States, United States" and "Kyoto, Kyoto" are data, not sentences.
+  if(!country||place===country||place.indexOf(country)>-1)return place;
+  return place+", "+country;
+}
+// The .cfoot ships empty and stays invisible on an open craft. On a craft nobody
+// has asked for yet, atlas-index-shim.js rewrites it — that is where "a letter to
+// Arnaud opens this one" appears, and it is the only other line a card ever says.
+function cardData(world,disc,t){return {world:world,craft:disc.discipline,blurb:disc.blurb||"",
+  place:t.place||"",country:t.country||""};}
+function cardInner(o){
+  return '<div class="learn">Learn</div>'+
+    '<span class="craftname">'+esc(o.craft)+'</span>'+
+    (o.place?'<div class="wherealive">in '+esc(placeLine(o.place,o.country))+'</div>':'')+
+    (o.blurb?'<p class="craftblurb">'+esc(o.blurb)+'</p>':'')+
+    '<div class="cfoot"></div>';
 }
 // The card is an <article>: a stretched link opens the skill sheet, and the one
 // real button on it (write to Arnaud about this craft) keeps its own clicks.
@@ -653,23 +742,26 @@ function cardShell(cls,color,href,label,o){
     '<button class="writebtn" type="button" data-write-craft="'+esc(o.craft)+'" data-write-place="'+esc((o.place||"")+(o.country?', '+o.country:""))+'">✎ Write</button>'+
     cardInner(o)+'</article>';
 }
-function gcard(x){var r=ratingDest(x);
-  var o={world:x.world,craft:x.discipline,cred:x.cred,master:x.master,why:x.why,school:x.school,place:x.place,country:x.country,rank:x.rank,level:x.level,tripType:x.tripType,tripLength:x.tripLength,lang:x.lang,isBest:BEST[x.did]===x.id,r:(r&&r.destId===x.id)?r:null};
-  return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.id,x.discipline,o);
+// A filtered result is a skill too, so it links to the SKILL sheet, not to the
+// single place page it used to open — one card, one craft, everywhere.
+function gcard(x){
+  return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.did,x.discipline,
+    {world:x.world,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country});
 }
 function renderRails(){
   VIEW.cat=null;
   var nw=0;ORDER.forEach(function(w){nw+=countWanted(byWorldDisc[w],function(o){return o.d.discipline;});});
-  var h='<div class="rhead"><div class="count">Browse <b>five worlds</b> of craft</div><div class="sortby">'+(nw?"asked-for crafts first · pick a ring, or search →":"pick a ring, or search →")+'</div></div>';
+  var h='<div class="rhead"><div class="count"><b>'+A.length+'</b> skills you can go and learn</div><div class="sortby">'+(nw?"asked-for skills first · narrow it by skill, pull or world":"narrow it by skill, pull or world")+'</div></div>';
   results.innerHTML=h;
   ORDER.forEach(function(w){var m=WORLDS[w],list=craftsInOrder(w);if(!list.length)return;
     var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
     sec.innerHTML='<div class="shelf-h" role="button" tabindex="0" aria-label="Open the '+esc(m.label)+' catalogue"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="n">'+list.length+' crafts</span><span class="more">See all '+list.length+' crafts →</span></div>';
     var rw=document.createElement("div");rw.className="railwrap";var rail=document.createElement("div");rail.className="rail";
-    list.forEach(function(o){var t=o.top,r=ratingDisc(o.d.id);
-      if(r&&r.destId){var rd=(o.d.destinations||[]).find(function(z){return z.id===r.destId;}); if(rd)t=rd;}
+    // o.top IS the place the craft's community is strongest in — the card says
+    // where it is most alive, so that is the only place it can honestly print.
+    list.forEach(function(o){
       var wrap=document.createElement("div");
-      wrap.innerHTML=cardShell("dcard",m.color,"/atlas/"+o.d.id,o.d.discipline,cardData(worldOf(o.d),o.d,t,r));
+      wrap.innerHTML=cardShell("dcard",m.color,"/atlas/"+o.d.id,o.d.discipline,cardData(worldOf(o.d),o.d,o.top));
       rail.appendChild(wrap.firstChild);});
     rw.appendChild(rail);
     var larrow,rarrow;
@@ -684,9 +776,8 @@ function renderRails(){
 }
 // ── full-page catalogue for one category ──
 function openCatalogue(w){renderCatalogue(w);document.getElementById("studio").scrollIntoView({behavior:"smooth"});}
-function catCard(o,c){var d=o.d,t=o.top,r=ratingDisc(d.id);
-  if(r&&r.destId){var rd=(d.destinations||[]).find(function(z){return z.id===r.destId;});if(rd)t=rd;}
-  return cardShell("gcard",c,"/atlas/"+d.id,d.discipline,cardData(worldOf(d),d,t,r));
+function catCard(o,c){
+  return cardShell("gcard",c,"/atlas/"+o.d.id,o.d.discipline,cardData(worldOf(o.d),o.d,o.top));
 }
 function renderCatalogue(w){var m=WORLDS[w],list=craftsInOrder(w);VIEW.cat=w;
   var nw=countWanted(list,function(o){return o.d.discipline;});
