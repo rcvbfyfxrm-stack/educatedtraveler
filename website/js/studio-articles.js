@@ -94,7 +94,7 @@ window.ET_ARTICLES_SEED = [
   },
   {
     id: "mastery-meaning",
-    title: "Skills last, tans fade — the case for mastery",
+    title: "Tans fade, skills last — the case for mastery",
     core: "culinary",
     skill: "Cooking, pastry, fermentation, sommellerie",
     hook: "A capability you earn stays with you and compounds. A memory you buy doesn't. Mastery is the one purchase that keeps paying out.",
