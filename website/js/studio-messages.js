@@ -80,11 +80,11 @@ window.ET_MESSAGES = [
   {
     id: "email-press", campaign: "labweek01", kind: "email",
     label: "Press pitch (Dockwalk / The Superyacht Chef)",
-    when: "Phase 4, once the counter is public.",
+    when: "READY — his own page went live 23 Aug 2026 and names ET as the organiser.",
     subject: "A working superyacht chef built the modernist week he couldn't find",
     fields: [],
     text:
-"Hello — I'm Arnaud Callier, a working superyacht chef. I've arranged something I think your readers would want to know about: Martin Lippo, the liquid-nitrogen master in Barcelona, is running his full 5-day modernist week in English, built for working professional chefs, yacht chefs first — 22-26 October, 35 hours hands-in at his Vakuum lab.\n\nThe angle: I couldn't find this week anywhere, so I built it. The terms are unusually plain — it confirms at 10 paid or everyone is refunded in full, and every claim on the page is checkable against Martin's own site. Happy to do an interview, share photos of the lab (with permission), and give you the live seat count.\n\nOne link: {PAGE}\n\nThank you — Arnaud",
+"Hello — I'm Arnaud Callier, a working superyacht chef. I've arranged something I think your readers would want to know about: Martin Lippo, the liquid-nitrogen master in Barcelona, is running his full 5-day modernist week in English, built for working professional chefs, yacht chefs first — 22-26 October, 35 hours hands-in at his Vakuum lab.\n\nThe angle: I couldn't find this week anywhere, so I built it. The terms are unusually plain — it confirms at 10 paid or everyone is refunded in full, and every claim on the page is checkable against Martin's own site. The week is published on his own site too, under his name, listing EducatedTraveler as the organiser: martinlippo.com/professional-training-for-yacht-chefs/. Happy to do an interview and share photos of the lab, with permission.\n\nOne link: {PAGE}\n\nThank you — Arnaud",
     note: "Offer the story, not an ad. They cover launches like this as news.",
   },
   {

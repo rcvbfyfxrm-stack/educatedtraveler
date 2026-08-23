@@ -226,14 +226,14 @@ window.ET_POSTS = [
 "Every yacht chef knows the gap. The guests have eaten everywhere, and the difference between a good week and a legendary one is three plates they've never seen.\n\nI went looking for the week that would close it. It didn't exist. The masters who teach this run their sessions in Spanish, months apart, a flight away from wherever the boat is. The famous kitchens don't take you at all.\n\nSo I asked Martin Lippo to open his lab for five straight days, in English, in October — and he said yes. A room of chefs who do our job, thirty-five hours, hands in.\n\nA skill, a place, a person, your people — this is what that looks like.\n\nI'm not selling a dream week. It runs at ten paid — nobody has paid yet — or everyone gets refunded. The terms are public, and you can check every claim on his own site: his lab, his course catalogue, the people who signed his reviews.\n\nThe page has all of it: educatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-calendar", format: "EVENT-GATED · Feed · SHIP once the week is live on martinlippo.com (his web developer is on it — will take time)", core: "",
+    id: "lab-week-calendar", format: "Feed · GO — his page went live 23 Aug 2026: martinlippo.com/professional-training-for-yacht-chefs/", core: "",
     title: "It's on his calendar now (the proof)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The week",
     images: ["/images/posts/lab-week/announce.jpg"],
     imageNote: "A screenshot of his martinlippo.com October listing is the strongest possible image here — use it once it's live.",
     slides: [],
     caption:
-"It's real now — his own calendar says so.\n\nWhen you tell chefs you've arranged a week with Martin Lippo, the fair question is: says who? So here's the proof that costs me nothing to give you — the week is now listed on his own site, on his schedule. 22-26 October, five days, English.\n\nFor months this was a conversation and a handshake. Now there's a signed page: the dates, the refund terms, the certificate, what happens if we don't reach ten. All agreed and written down before a single chef was asked to pay. Slow is the honest speed.\n\nIt confirms the moment ten chefs are in, or everyone's refunded. Everything's checkable at the source: educatedtraveler.app/barcelona",
+"It's real now — his own calendar says so.\n\nWhen you tell chefs you've arranged a week with Martin Lippo, the fair question is: says who? So here's the proof that costs me nothing to give you — the week is now published on his own site, under his name, and it says \"Organised by Educated Traveler\". 22-26 October, five days, 35 hours, English, fifteen places. martinlippo.com/professional-training-for-yacht-chefs/\n\nFor months this was a conversation and a handshake. Now there's a signed page: the dates, the refund terms, the certificate, what happens if we don't reach ten. All agreed and written down before a single chef was asked to pay. Slow is the honest speed.\n\nIt confirms the moment ten chefs are in, or everyone's refunded. Everything's checkable at the source: educatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-firstseats", format: "Feed · documentary arc · SHIP AT ≥3 PAID · count-agnostic (stays true as it climbs)", core: "",
@@ -533,7 +533,7 @@ window.ET_POST_AGENDA = {
       sub: "These are gated on a real event, not a date. Publishing one early is the only way to lose this.",
       items: [
         { id: "lab-week-video", when: "when Martin's film lands — Collab #2" },
-        { id: "lab-week-calendar", when: "when the week is listed on martinlippo.com" },
+        { id: "lab-week-calendar", when: "READY — his page is live (23 Aug 2026)" },
         { id: "lab-week-count", when: "each new paid seat · a Story" },
         { id: "lab-week-firstseats", when: "once 3 have paid" },
         { id: "lab-week-confirmed", when: "the day you reach 10 — Collab #3" },
