@@ -32,7 +32,7 @@ window.ET_POSTS = [
     imageNote: "Warm-dark type card. Do NOT pair this with a lab photo — the bareness is the point. No Collab tag: this is ET's own statement, not Martin's.",
     slides: [],
     caption:
-"Most people announce a course as though it's already happening. Here's mine, with the failure condition attached.\n\nLab Week 01 runs if ten chefs have paid by Tuesday 15 September. Right now, none have. If we don't reach ten, the week cancels and every euro goes back — I've said that publicly, on the page, before asking anyone for money.\n\nI'm telling you that for a plain reason: you can't check my track record, because I don't have one yet. This is the first week EducatedTraveler has ever run. So the only thing I can offer instead is that every claim is checkable at the source — Martin's lab, his own site, his published sessions, the terms in writing — and that I tell you the count as it really is rather than as I'd like it to be.\n\nNo waitlist theatre. No seats-going-fast. Ten chefs, or nobody goes.\n\nThe terms, in full: educatedtraveler.app/barcelona",
+"Most people announce a course as though it's already happening. Here's mine, with the failure condition attached.\n\nLab Week 01 runs if ten chefs have paid by Tuesday 15 September. Some have. It isn't ten yet. If we don't reach ten, the week cancels and every euro goes back — I've said that publicly, on the page, before asking anyone for money.\n\nI'm telling you that for a plain reason: you can't check my track record, because I don't have one yet. This is the first week EducatedTraveler has ever run. So the only thing I can offer instead is that every claim is checkable at the source — Martin's lab, the week published on his own site under his name, the terms in writing — and that you'll get the failure condition from me before you ever get a number designed to move you.\n\nNo waitlist theatre. No seats-going-fast. Ten chefs, or nobody goes.\n\nThe terms, in full: educatedtraveler.app/barcelona",
   },
 
   /* ---- THE BUILD-UP LAYER. The rule that makes this legitimate: mystique is
@@ -88,14 +88,14 @@ window.ET_POSTS = [
     images: ["/images/posts/lab-week/clock.png"],
     imageNote: "1080×1920 template. Fill [N] and [X] by hand each time — both are real numbers, the deadline and the paid count. Never run this in the same week as lab-week-count; one clock, one signal.",
     story: [
-      "One frame. [N] days until 15 September. [X] of 10 paid. Link sticker to the page.",
-      "If [X] is still 0, post it anyway with 0. The zero is the credibility.",
+      "One frame. [N] days until 15 September. The deadline only — no seat count. Link sticker to the page.",
+      "If the honest thing to add is that seats are moving, say that in words. Never a figure.",
     ],
     slides: [],
     caption:
-"[N] days until the week either runs or refunds.\n[X] of 10 paid. Real count.\n(Link sticker → educatedtraveler.app/barcelona)",
+"[N] days until the week either runs or refunds.\nIt runs at ten paid, it caps at fifteen. That is the whole arithmetic you will get from me.\n(Link sticker → educatedtraveler.app/barcelona)",
     strategy:
-"PURPOSE — the only urgency in this campaign that is actually true. The deadline is real, externally fixed, and published; the count is whatever it is. WHY IT BUILDS — a real clock gets more powerful every week without you touching the language, and it costs nothing to be honest about. RULE — one a week, maximum. Posting a countdown daily converts a real deadline into pressure theatre, and this audience can smell it. IF THE NUMBER IS EMBARRASSING — post it anyway. A founder who shows 0 of 10 with six weeks left is the same founder who'll refund you, and chefs read it that way.",
+"PURPOSE — the only urgency in this campaign that is actually true. The deadline is real, externally fixed and published — and it works without a seat count, which is why none goes out. WHY IT BUILDS — a real clock gets more powerful every week without you touching the language, and it costs nothing to be honest about. RULE — one a week, maximum. Posting a countdown daily converts a real deadline into pressure theatre, and this audience can smell it. IF THE NUMBER IS EMBARRASSING — post it anyway. A founder who shows 0 of 10 with six weeks left is the same founder who'll refund you, and chefs read it that way.",
   },
   {
     id: "lab-week-roi", format: "WEEK 4 · TUE · Carousel (7 slides) · the career-assets post", core: "",
@@ -118,7 +118,7 @@ window.ET_POSTS = [
       "22–26 October · Vakuum, Barcelona · it runs at 10 paid · educatedtraveler.app/barcelona",
     ],
     caption:
-"Serious chefs don't need a course explained as a good deal. The only question that matters: what do you walk out with?\n\nHere's the honest inventory. The techniques, in your hands — thirty-five documented hours of them, chosen to work at sea. A certificate in English, on paper and PDF, signed at Vakuum: checkable in thirty seconds, and not a maritime qualification — I won't pretend it is. A portfolio of your own plates, shot by his team during the week. The full recipe and theory dossiers. And the bench itself: ten to fifteen working cooks beside you, and the calls and referrals that come out of a room like that.\n\nNobody here promises you a job. Every line above is checkable instead.\n\nThe rest — dates, terms, the real count — is on the page.\n\neducatedtraveler.app/barcelona",
+"Serious chefs don't need a course explained as a good deal. The only question that matters: what do you walk out with?\n\nHere's the honest inventory. The techniques, in your hands — thirty-five documented hours of them, chosen to work at sea. A certificate in English, on paper and PDF, signed at Vakuum: checkable in thirty seconds, and not a maritime qualification — I won't pretend it is. A portfolio of your own plates, shot by his team during the week. The full recipe and theory dossiers. And the bench itself: ten to fifteen working cooks beside you, and the calls and referrals that come out of a room like that.\n\nNobody here promises you a job. Every line above is checkable instead.\n\nThe rest — the five days, the terms, what a seat covers — is on the page.\n\neducatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-galley", format: "WEEK 2 · THU · Feed · the galley-fit umbrella post (the five day-posts below unpack it)", core: "",
@@ -193,7 +193,7 @@ window.ET_POSTS = [
     imageNote: "Warm-dark type card. No photo — the line carries it.",
     slides: [],
     caption:
-"There are no reviews of this week. There are no testimonials, no photos of last year's cohort, no chef you can message to ask if it was worth it.\n\nYou'd be the one writing them.\n\nI could hide that. Instead I'll say what it actually means: cohort one is the only cohort nobody can ever join later. Whatever this becomes, there's exactly one room of chefs who were in it before there was any proof — and founding-cohort standing is the one thing the week can never issue again. It comes with first refusal, 72 hours early, on every EducatedTraveler week after this one.\n\nWhat you can check instead of reviews: Martin's lab, his own site, his published sessions, the terms in writing, and a refund line I put in public before asking anyone for money.\n\nFive days, 22–26 October, Barcelona. It runs at ten paid.\n\neducatedtraveler.app/barcelona",
+"There are no reviews of this week. There are no testimonials, no photos of last year's cohort, no chef you can message to ask if it was worth it.\n\nYou'd be the one writing them.\n\nI could hide that. Instead I'll say what it actually means: cohort one is the only cohort nobody can ever join later. Whatever this becomes, there's exactly one room of chefs who were in it before there was any proof — and founding-cohort standing is the one thing the week can never issue again. It comes with first refusal, 72 hours early, on every EducatedTraveler week after this one.\n\nWhat you can check instead of reviews: Martin's lab, the week published on his own site under his name and organised by EducatedTraveler, the terms in writing, and a refund line I put in public before asking anyone for money.\n\nFive days, 22–26 October, Barcelona. It runs at ten paid.\n\neducatedtraveler.app/barcelona",
   },
   {
     id: "lab-week-boatbudget", format: "WEEK 5 · THU · Feed or Story · removes the money objection without discussing price", core: "",
@@ -256,14 +256,14 @@ window.ET_POSTS = [
 "CONFIRMED. Barcelona is on.\n\n[N] chefs have paid — the threshold was ten, and today, against the written ledger, Martin and I called it together: Lab Week 01 runs. 22-26 October, Vakuum, Barcelona. Thirty-five hours, in English, hands in.\n\nWe said we'd call it honestly whichever way it went — ten paid by the deadline, or every euro refunded. That was the deal, and it held.\n\nTo the chefs who took a seat on a promise: you're the founding cohort. Buy your flights — the table opens this week.\n\nThe room caps at fifteen, so [15 minus N] seats are still open. If you were waiting for it to be real: it's real.\n\neducatedtraveler.app/barcelona",
   },
   {
-    id: "lab-week-count", format: "Story template · repeat at every real milestone", core: "",
-    title: "Seat-count story (honest milestone)",
+    id: "lab-week-count", format: "Story template · when a seat is genuinely paid for · NO NUMBERS", core: "",
+    title: "Milestone story (a seat went — no numbers)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "Link sticker → the page",
     images: [],
-    imageNote: "Plain warm-dark story frame: the number huge in ember, one line under it, link sticker. Only ever the REAL count.",
+    imageNote: "Plain warm-dark story frame: one line of type, link sticker. NEVER a number, and never a progress bar — no seat count goes public (Arnaud, 23 Aug 2026).",
     slides: [],
     caption:
-"[N] of 10.\nReal count, updated today. When it reaches ten, Barcelona is on — if it doesn't by 15 September, everyone is refunded in full.\n(Link sticker → educatedtraveler.app/barcelona)",
+"Another seat went today.\nNo count, no scoreboard — the mechanism is the whole story: it runs at ten paid, it caps at fifteen, and if it isn't there by 15 September everyone is refunded in full.\n(Link sticker → educatedtraveler.app/barcelona)",
   },
   {
     id: "this-is-et", format: "Carousel · pinned launch post", core: "",
@@ -523,7 +523,7 @@ window.ET_POST_AGENDA = {
         { id: "lab-week-firsttime", when: "W6 · Tue 1 Sep — no testimonials; you'd write them" },
         { id: "lab-week-boatbudget", when: "W6 · Thu 3 Sep — ask your captain" },
         { id: "lab-week-addons", when: "W7 · Tue 8 Sep — what's being arranged; cohort first" },
-        { id: "lab-week-day1", when: "W7 · Thu 10 Sep — textures (swap for day4, or re-run the gate with the real count)" },
+        { id: "lab-week-day1", when: "W7 · Thu 10 Sep — textures (swap for day4, or re-run the gate post)" },
         { id: "lab-week-clock", when: "one Story a week, all the way through — the only true urgency you have" },
         { id: "lab-week-day4", when: "spare · foams and siphon — the swap card for any slot" },
       ],

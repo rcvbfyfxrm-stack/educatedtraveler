@@ -16,7 +16,7 @@ window.ET_MESSAGES = [
     fields: ["FIRSTNAME"],
     text:
 "{FIRSTNAME} — I'm organising something I think is exactly for you. You know Martin Lippo, the nitro master in Barcelona? I got him to run his full modernist week in English, built for working chefs — yacht chefs first — 22-26 October. 35 hours in his lab. EUR 1,500 for the whole week, VAT included. It only runs if 10 chefs commit by {DEADLINE}, otherwise everyone's refunded in full — no risk on your side. Everything's here: {PAGE}. Want me to hold you a seat while you check your winter program?",
-    note: "Personalise the first line if you can. Real count only.",
+    note: "Personalise the first line if you can. Never quote a seat count — not even privately in a DM.",
   },
   {
     id: "wa-brief", campaign: "labweek01", kind: "whatsapp",

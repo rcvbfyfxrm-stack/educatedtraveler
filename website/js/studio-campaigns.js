@@ -13,16 +13,17 @@ window.ET_CAMPAIGNS = [
     deadline: "2026-09-15", tz: "+02:00",
     eventStart: "2026-10-22", eventEnd: "2026-10-26",
     launchPhaseId: "labweek01",           // joins ET_LAUNCH.phases[].id — shares the checklist ticks
-    publicCountVar: "SEATS_TAKEN",        // reminder: the page's own count lives in website/barcelona.html
+    // NO public seat count: the page carries no counter and never will (Arnaud, 23 Aug 2026).
+    // The figure below is the PRIVATE ledger only — it drives the checklist, never any copy.
     milestones: [
-      { at: 3, do: "Counter goes public. Go loud: the collab post with Martin, chef groups (admin-cleared), press, the site strip." },
+      { at: 3, do: "Go loud — WITHOUT a number: the collab post with Martin, chef groups (admin-cleared), press. Say seats are taken, never how many." },
       { at: 8, do: "Goal-gradient push. If the signed extension exists, 8 on 15 Sept moves the decision to 25 Sept." },
       { at: 10, do: "CONFIRMED. Decide jointly with Martin on the ledger, announce publicly, open the cohort group, seats to 15 until 8 Oct." },
     ],
     links: [
       { label: "The page", href: "https://educatedtraveler.app/barcelona" },
       { label: "Announce post", tab: "posts" },
-      { label: "Seat-count story", tab: "posts" },
+      { label: "Milestone story", tab: "posts" },
       { label: "The letter", tab: "letter" },
     ],
     note: "Martin said yes on the phone 16 July — send the WhatsApp recap (step lb-1) for the written trace. Chefs pay EducatedTraveler; ET handles all formalities and settles with Vakuum after. Certificate = English, paper + PDF. His team shoots during the week (portfolio for every chef). The private playbook (agreement points, gate branches, the levers) lives in the local LAUNCH-CHECKLIST — never in this repo.",

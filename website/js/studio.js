@@ -375,7 +375,7 @@
 
     // page-count reminder + "I pushed" stamp
     const rem = el("div", { class: "panel", style: "padding:10px 14px; margin-top:12px; border-left:3px solid var(--ember); background:rgba(210,138,82,.06);" });
-    rem.appendChild(el("div", { style: "font-size:12.5px; line-height:1.5; color:var(--paper);", text: "The public page has its own count. When this changes, edit var " + (c.publicCountVar || "SEATS_TAKEN") + " in website/barcelona.html and push — same day (step lb-6)." }));
+    rem.appendChild(el("div", { style: "font-size:12.5px; line-height:1.5; color:var(--paper);", text: "This figure is the PRIVATE ledger. The public page carries no seat count and never will (Arnaud, 23 Aug 2026) — nothing to edit on the site when this changes, and no number goes into a post, a story or a message." }));
     const stampRow = el("div", { style: "display:flex; gap:10px; align-items:center; margin-top:8px;" });
     stampRow.appendChild(el("button", { class: "btn-ghost", style: "padding:6px 12px; border-radius:8px; font-size:12px;", onclick: () => { st.pushedAt = todayISO(); save(); render(); } }, "I updated the page"));
     if (st.updated && st.pushedAt !== st.updated) stampRow.appendChild(el("span", { class: "pill", style: "background:var(--ember); color:#1a1206;", text: "page is behind — push it" }));
