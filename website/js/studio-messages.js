@@ -1,7 +1,11 @@
 /* Studio message library — copy-ready outreach for the campaign, one tap.
  * PUBLIC FILE: no prospect names, no numbers, no private terms. Counts are TOKENS,
- * filled from live state at copy time — never hardcode a seat count here.
- * Auto-tokens (filled from the campaign + your entered count): {SEATS} {GOAL}
+ * filled from live state at copy time. NO SEAT NUMBERS, EVER (Arnaud, 23 Aug 2026):
+ *  not a count, not "X of Y", not "almost there". Only the mechanism goes out —
+ *  it runs at ten paid, it caps at fifteen.
+ * Auto-tokens: {DEADLINE} {DAYS_LEFT} {PAGE} {PARTNER} {FIRSTNAME}.
+ * {SEATS} and {GOAL} still resolve in studio.js but MUST NOT be used in a
+ * template: seat numbers never go public (Arnaud, 23 Aug 2026).
  *   {DAYS_LEFT} {DEADLINE} {PAGE} {PARTNER}. Manual tokens become inputs: {FIRSTNAME} ...
  * Voice lock: introduce/connect, never sell/book/enroll; no banned words; no emoji. */
 window.ET_MESSAGES = [
@@ -70,12 +74,12 @@ window.ET_MESSAGES = [
   },
   {
     id: "wa-milestone", campaign: "labweek01", kind: "story",
-    label: "Milestone story (real count only)",
-    when: "Only when the public counter is 3+ and the number actually moved.",
+    label: "Milestone story (a seat went — no numbers)",
+    when: "When a seat is genuinely paid for. Never on an application, never on interest.",
     fields: [],
     text:
-"{SEATS} of {GOAL}.\nReal count, updated today — it only ever shows paid seats. When it reaches {GOAL}, Barcelona is on. If it doesn't by {DEADLINE}, everyone is refunded in full.\n(Link sticker to the page)",
-    note: "The token guard refuses to copy if the count isn't set. Never a number you haven't earned.",
+"Another seat went today.\nNo count, no scoreboard — you won't get a number out of me, because a number is how people get rushed. The mechanism is the whole story: it runs at ten paid, it caps at fifteen, and if it isn't there by {DEADLINE} everyone is refunded in full.\n(Link sticker to the page)",
+    note: "Say a seat moved, never how many have. Numbers of taken seats do not go public — the ten and the fifteen are the mechanism, and they are the only figures allowed.",
   },
   {
     id: "email-press", campaign: "labweek01", kind: "email",

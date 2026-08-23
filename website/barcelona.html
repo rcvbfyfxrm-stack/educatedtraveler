@@ -148,6 +148,25 @@
   .follow-btn:hover{border-color:var(--ember)}
   .follow-btn[disabled]{color:var(--softer);border-color:transparent;cursor:default;opacity:.8}
   .follow-sub{color:var(--softer);opacity:.82;font-size:.82rem}
+  /* his name carries the week — give it its own weight wherever it appears */
+  .ml{font-family:var(--serif);font-weight:600;font-size:1.12em;color:var(--ember);letter-spacing:-.005em}
+  h2 .ml{font-size:1em}
+  figcaption .ml{font-size:1.05em;letter-spacing:.06em}
+  /* folded blocks — the terms and the questions, open on demand */
+  .fold{border-top:1px solid var(--line)}
+  .fold:last-of-type{border-bottom:1px solid var(--line)}
+  .fold>summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:.9rem;padding:1.05rem 0}
+  .fold>summary::-webkit-details-marker{display:none}
+  .fold>summary::after{content:"+";margin-left:auto;font-family:var(--mono);font-size:1.25rem;line-height:1;color:var(--ember)}
+  .fold[open]>summary::after{content:"\2212"}
+  .fold>summary:focus-visible{outline:1px solid var(--sea);outline-offset:3px}
+  .fold>summary h2,.fold>summary h3{margin:0}
+  .fold>summary:hover h2,.fold>summary:hover h3{color:var(--sea)}
+  .fold-h{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);white-space:nowrap}
+  @media(max-width:620px){.fold-h{display:none}}
+  .fold .terms{margin-top:0;padding-bottom:.8rem}
+  .qa .fold>summary h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.05rem;color:var(--paper)}
+  .qa .fold p{margin:.1rem 0 1.2rem;border-left:2px solid var(--sea);padding-left:.95rem;font-size:.94rem;color:var(--soft)}
   dl{max-width:66ch}
   dt{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--paper);margin-top:1.3rem}
   dd{margin:.4rem 0 0;color:var(--soft);font-size:.94rem;border-left:2px solid var(--sea);padding-left:.95rem}
@@ -222,7 +241,7 @@
   </div>
     <p class="kicker">Lab Week 01 · Vakuum, Barcelona · Thursday 22 – Monday 26 October 2026</p>
     <h1>Learn the <em>modern techniques</em> — five days, hands in.</h1>
-    <p class="sub">Textures, spherification, liquid nitrogen, foams, sous-vide: the foundations of the new culinary techniques and technologies, worked by hand for thirty-five hours at <strong>Vakuum</strong> — Martin Lippo's teaching laboratory in Barcelona, not a restaurant. In English, at professional level, for chefs who already cook for a living: yacht chefs first, private and freelance chefs beside them.</p>
+    <p class="sub">Textures, spherification, liquid nitrogen, foams, sous-vide: the foundations of the new culinary techniques and technologies, worked by hand for thirty-five hours at <strong>Vakuum</strong> — <span class="ml">Martin Lippo</span>'s teaching laboratory in Barcelona, not a restaurant. In English, at professional level, for chefs who already cook for a living: yacht chefs first, private and freelance chefs beside them.</p>
     <div class="confirmed-banner">Confirmed — the week is on. Buy your flights.</div>
     <div class="pricecard" id="price">
       <div class="pc-head">
@@ -276,7 +295,7 @@
         <source src="/video/lippo/lippo-presentation-web.mp4" type="video/mp4">
         Your browser can't play this video. <a href="/video/lippo/lippo-presentation-web.mp4">Download it instead</a>.
       </video>
-      <figcaption>Martin Lippo on the week — filmed at Vakuum, Barcelona. 69 seconds.</figcaption>
+      <figcaption><span class="ml">Martin Lippo</span> on the week — filmed at Vakuum, Barcelona. 69 seconds.</figcaption>
     </figure>
   </div>
 </section>
@@ -332,7 +351,7 @@
       <img src="/images/lippo/teaching.jpg" width="600" height="900" alt="Martin Lippo talking a technique through to seated cooks in the Vakuum kitchen, Barcelona" loading="lazy" onerror="this.closest('figure').style.display='none'">
       <figcaption>Mid-session, Vakuum</figcaption>
     </figure>
-    <p>The difference between a good week and a legendary one is three plates they've never seen — and those plates come out of this toolkit. For five straight days, Martin Lippo opens his Barcelona laboratory. Not a demo, not a screen: <strong>your hands, 35 hours, a vetted room of professional cooks — built for chefs off boats first, and open to any chef who cooks privately for a living.</strong></p>
+    <p>The difference between a good week and a legendary one is three plates they've never seen — and those plates come out of this toolkit. For five straight days, <span class="ml">Martin Lippo</span> opens his Barcelona laboratory. Not a demo, not a screen: <strong>your hands, 35 hours, a vetted room of professional cooks — built for chefs off boats first, and open to any chef who cooks privately for a living.</strong></p>
     <p>The usual route to these techniques is a months-long unpaid stage most people never finish. Martin built the other kind of room — a laboratory whose whole purpose is teaching. <strong>As of July 2026, we could not find another week like this anywhere in the world: open enrolment, in English, fully hands-on, the complete modernist fundamentals, taught in person by a named master in his own lab.</strong> We kept the list of everywhere we checked — ask, and we'll show you.</p>
     <figure class="room-banner">
       <img src="/images/lippo/the-room.jpg" width="1700" height="957" alt="A full room of professional cooks seated at the benches while Martin Lippo teaches at Vakuum, Barcelona" loading="lazy" onerror="this.closest('figure').style.display='none'">
@@ -348,10 +367,10 @@
 <section id="master">
   <div class="wrap">
     <p class="eyebrow">Who teaches it</p>
-    <h2>Martin Lippo, Vakuum</h2>
+    <h2><span class="ml">Martin Lippo</span>, Vakuum</h2>
     <figure class="master-photo">
       <img src="/images/lippo/martin.jpg" width="1400" height="1050" alt="Martin Lippo, portrait in chef whites" loading="lazy" onerror="this.closest('figure').style.display='none'">
-      <figcaption>Martin Lippo — Vakuum, Barcelona</figcaption>
+      <figcaption><span class="ml">Martin Lippo</span> — Vakuum, Barcelona</figcaption>
     </figure>
     <p>Argentine, born in Buenos Aires, in Barcelona since 2000. He never opened a restaurant. He built <a href="https://martinlippo.com/en/" rel="noopener">Vakuum</a> instead — a laboratory and training centre whose whole purpose is teaching — and the Nitro School, because liquid nitrogen is the terrain he is known for. He works between Adrià's modernism and Escoffier's classicism. Don't take that from me — every line below is one click away:</p>
     <ul class="creds">
@@ -372,17 +391,19 @@
 <section id="terms">
   <div class="wrap">
     <p class="eyebrow">The honest terms</p>
-    <h2>Straight, like a good galley</h2>
+    <details class="fold" id="terms-fold">
+      <summary><h2>Straight, like a good galley</h2><span class="fold-h">price · deposit · refund · transfer</span></summary>
     <ul class="terms">
       <li><strong>€1,500, VAT included.</strong> That is the whole number for the week itself, and everything in the lab is inside it — the full list is at the top of this page. Flights and where you sleep are separate, and yours. You bring a chef jacket.</li>
       <li><strong>A €350 deposit takes your seat.</strong> The balance is only asked for once the week is confirmed — never before. Seats go in the order they're taken, deposit or in full; pay in full and you get first refusal on the add-ons.</li>
       <li><strong>The deposit isn't refundable if you pull out.</strong> Holding a seat means turning someone else away. The one exception is the week itself not running — then every euro comes back, deposits included. And if your October changes, you can pass your seat to another chef.</li>
-      <li><strong>You pay EducatedTraveler, and EducatedTraveler handles everything</strong> — the seat, the paperwork, the certificate, the refund if it comes to that. Martin brings the knowledge, the lab and the teaching. We're paid out of that price; nothing is added on top.</li>
+      <li><strong>You pay EducatedTraveler, and EducatedTraveler handles everything</strong> — the seat, the paperwork, the certificate, the refund if it comes to that. <span class="ml">Martin Lippo</span> brings the knowledge, the lab and the teaching. We're paid out of that price; nothing is added on top.</li>
       <li><strong>Confirmed the moment 10 seats are taken.</strong> Not there by Tuesday 15 September → the week cancels and every euro is refunded in full — deposits included, said publicly. <strong>Don't buy flights until we announce CONFIRMED.</strong></li>
       <li><strong>After confirmation, seats are transferable, not refundable.</strong> Can't come? Send a chef of comparable calibre in your place, up to 7 days before the week.</li>
       <li><strong>Your boat may fund it.</strong> 65% of yachts hold a crew training budget — averaging €2,567 per crew member per year (Quay Crew, 2024). We can invoice the boat; ask your captain.</li>
       <li><strong>The lab is at Passatge de Centelles, Barcelona.</strong> 55 minutes' flight from Palma, 1h25 from Nice.</li>
     </ul>
+    </details>
   </div>
 </section>
 
@@ -422,20 +443,26 @@
   <div class="wrap">
     <p class="eyebrow">Questions</p>
     <h2>Asked straight, answered straight</h2>
-    <dl>
-      <dt>"Why not just do his sessions directly?"</dt>
-      <dd>You can — his calendar is public and the free Atlas links you there. What it doesn't offer: the five modules consecutively, in English, on fixed dates, in a vetted room of peers — with everything around it handled.</dd>
-      <dt>"Five topics in five days — how deep does it go?"</dt>
-      <dd>It's Vakuum's full programme — the same modules he sells separately, run consecutively. You leave with every technique started in your own hands and the dossiers to go deep after. Want one topic exhaustively? His single-module sessions are the better buy — I'll say so on the call.</dd>
-      <dt>"Will this actually move my career?"</dt>
-      <dd>No honest person promises you a job. For context, from the industry's own guides: Northrop &amp; Johnson's 2026 salary guide runs from about $5,000–6,000 a month for a sole chef under 30 metres to $15,000+ past 80 — and Quay Crew's survey of a hundred-plus head chefs found most already carry Michelin experience: pay follows the food guests remember. Hiring runs on your cooking, checkable training, and word of mouth; the week leaves all of it stronger. The rest is yours.</dd>
-      <dt>"What if it doesn't fill?"</dt>
-      <dd>EducatedTraveler refunds every euro and I'll say so publicly. Confirmed at 10, or refunded after 15 September. Don't buy flights before we call it.</dd>
-      <dt>"I can't confirm my October yet."</dt>
-      <dd>Take the seat when you can. If your programme changes after we confirm, send a chef of your calibre in your place — up to 7 days out. After confirmation there are no cash refunds; better said here than in the small print.</dd>
-      <dt>"How do I know it's legit?"</dt>
-      <dd>Check it in one click: <a href="https://martinlippo.com/professional-training-for-yacht-chefs/" rel="noopener">the week is published on his own site</a>, under his name, listing EducatedTraveler as the organiser — the dates, the 35 hours, the fifteen places and what's included all match this page. His lab, his course catalogue and his online prices are there too, and you can write to him for a direct quote without me. The map I keep is free and always will be. And you get me on the phone before you pay a euro.</dd>
-    </dl>
+    <div class="qa">
+      <details class="fold"><summary><h3>"Why not just do his sessions directly?"</h3></summary>
+        <p>You can — his calendar is public and the free Atlas links you there. What it doesn't offer: the five modules consecutively, in English, on fixed dates, in a vetted room of peers — with everything around it handled.</p>
+      </details>
+      <details class="fold"><summary><h3>"Five topics in five days — how deep does it go?"</h3></summary>
+        <p>It's Vakuum's full programme — the same modules he sells separately, run consecutively. You leave with every technique started in your own hands and the dossiers to go deep after. Want one topic exhaustively? His single-module sessions are the better buy — I'll say so on the call.</p>
+      </details>
+      <details class="fold"><summary><h3>"Will this actually move my career?"</h3></summary>
+        <p>No honest person promises you a job. For context, from the industry's own guides: Northrop &amp; Johnson's 2026 salary guide runs from about $5,000–6,000 a month for a sole chef under 30 metres to $15,000+ past 80 — and Quay Crew's survey of a hundred-plus head chefs found most already carry Michelin experience: pay follows the food guests remember. Hiring runs on your cooking, checkable training, and word of mouth; the week leaves all of it stronger. The rest is yours.</p>
+      </details>
+      <details class="fold"><summary><h3>"What if it doesn't fill?"</h3></summary>
+        <p>EducatedTraveler refunds every euro and I'll say so publicly. Confirmed at 10, or refunded after 15 September. Don't buy flights before we call it.</p>
+      </details>
+      <details class="fold"><summary><h3>"I can't confirm my October yet."</h3></summary>
+        <p>Take the seat when you can. If your programme changes after we confirm, send a chef of your calibre in your place — up to 7 days out. After confirmation there are no cash refunds; better said here than in the small print.</p>
+      </details>
+      <details class="fold"><summary><h3>"How do I know it's legit?"</h3></summary>
+        <p>Check it in one click: <a href="https://martinlippo.com/professional-training-for-yacht-chefs/" rel="noopener">the week is published on his own site</a>, under his name, listing EducatedTraveler as the organiser — the dates, the 35 hours, the fifteen places and what's included all match this page. His lab, his course catalogue and his online prices are there too, and you can write to him for a direct quote without me. The map I keep is free and always will be. And you get me on the phone before you pay a euro.</p>
+      </details>
+    </div>
 
     <div class="circle-door">
       <p><strong>EducatedTraveler exists for one thing: to go where a skill is still alive, and learn it there, from the person doing it.</strong> Not a screen, not a demo — the room where the work happens. These techniques came out of Catalonia and are still worked here every day, which is why this week is in Barcelona and not anywhere else.</p>
@@ -513,6 +540,21 @@
     a.addEventListener("click", function () {
       if (window.plausible) plausible("Apply Scroll", { props: { src: src || "direct" } });
     });
+  });
+
+  // a jump link into a folded block opens it — otherwise #terms lands on a closed lid
+  function openFromHash(){
+    var h = location.hash;
+    if (!h || h.length < 2) return;
+    var t = document.querySelector(h);
+    if (!t) return;
+    if (t.tagName === "DETAILS") t.open = true;
+    t.querySelectorAll("details").forEach(function(d){ d.open = true; });
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click", function(){ setTimeout(openFromHash, 0); });
   });
 </script>
 
