@@ -246,7 +246,7 @@ const LP = 'style="margin:0 0 18px 0;"';
 
 function welcomePlainHtml(unsub: string): string {
   const body = `
-    <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A skill, a person, a place, your people.</p>
+    <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A skill, a place, a person, your people.</p>
     <p ${LP}>Your letter is here. <strong>This note is automatic — the answer won't be.</strong> I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.</p>
     <p ${LP}>While you wait, here is what you have joined. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.</p>
     <p ${LP}>So — the letter. One place.</p>
@@ -267,7 +267,7 @@ function welcomePlainHtml(unsub: string): string {
 }
 
 function welcomeText(unsub: string): string {
-  return `A skill, a person, a place, your people.
+  return `A skill, a place, a person, your people.
 
 Your letter is here. This note is automatic — the answer won't be. I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.
 

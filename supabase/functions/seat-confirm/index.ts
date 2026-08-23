@@ -76,7 +76,7 @@ function letterHtml(name: string, paid: number, balance: number, when: string): 
     <p style="${P}">You'll hear from me before then anyway &mdash; where to stay, how to reach Passatge de Centelles, what the five days actually look like, and the add-ons around the week once they're booked and real. Nothing is sold here before it exists.</p>
     <p style="${P}">Anything at all, reply to this. It's me at the other end.</p>
     <p style="${P}margin-bottom:26px;">Arnaud</p>
-    <p style="color:#6b625a;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:0;border-top:1px solid #e2dbd0;padding-top:18px;">A skill, a person, a place, your people.</p>
+    <p style="color:#6b625a;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:0;border-top:1px solid #e2dbd0;padding-top:18px;">A skill, a place, a person, your people.</p>
   </div>
 </div>`;
 }
