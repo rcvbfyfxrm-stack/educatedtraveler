@@ -559,13 +559,13 @@ def short_sheet(d, total):
 <section><div class="wrap prose">
 <div class="mono">Why there's nothing more on this page</div>
 <h2 style="margin:6px 0 14px">The map grows where someone is actually going</h2>
-<p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it, and not before.</p>
+<p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it &mdash; or, now and then, when one pulls at me hard enough that I go and check it myself.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking {total} things badly.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a letter, and the letter comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
 </div></section>
 {atlas_hub.letter_section(
     "Write me a letter about " + e(d["discipline"]) + ".",
-    "A letter to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft, and nothing else does. "
+    "A letter to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft. "
     "Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at "
     "you, how you\'d want to learn it, and who you\'d want to be in it a year from now.",
     skill_field=False, prefill=d["discipline"])}
@@ -715,6 +715,33 @@ def best_dest_id(d):
     best = max(d["destinations"], key=lambda x: x["communityRank"], default=None)
     return best["id"] if best else None
 
+# Rule 10 of the Standard: a name and a date on the check itself — "who checked this,
+# what they actually did, and when. No house voice. If nobody will put their name on
+# it, it does not go up." The `state` must be one of the Standard's sanctioned strings
+# (18 Aug 2026 amendment): "catalogued, not checked" · "researched, not checked" · a
+# CHECKED form. Anything else is a label climbing, which is what the amendment exists
+# to stop — desk research is NOT a check, however carefully it was done.
+CHECK_STATES = {"catalogued, not checked", "researched, not checked"}
+
+
+def check_line(x):
+    c = x.get("check") or {}
+    if not c:
+        return ""
+    if not (c.get("by") and c.get("date") and c.get("state")):
+        raise SystemExit(f'build-atlas-pages: check on {x["id"]} needs by + date + state.')
+    st = c["state"]
+    if st not in CHECK_STATES and not st.lower().startswith("checked "):
+        raise SystemExit(
+            f'build-atlas-pages: check state {st!r} on {x["id"]} is not a sanctioned string.\n'
+            '  Use "catalogued, not checked", "researched, not checked", or a "Checked <date>" form.')
+    what = f' &mdash; {e(c["what"])}' if c.get("what") else ""
+    return ('<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
+            'letter-spacing:.02em;color:rgba(243,237,226,.62);margin:14px 0 0;padding-top:10px;'
+            'border-top:1px dashed rgba(127,168,165,.28)">'
+            f'{e(st)} &middot; {e(c["by"])} &middot; {e(c["date"])}{what}</p>')
+
+
 def dest_card(d, x, link=True, is_best=False):
     badges = "".join(f'<span class="badge">{e(BADGE_LABELS.get(b, b))}</span>' for b in x["badges"])
     title = f'{e(x["place"])}, {e(x["country"])}'
@@ -729,7 +756,8 @@ def dest_card(d, x, link=True, is_best=False):
             f'<h2 style="margin:6px 0 4px">{title}</h2>'
             f'<div class="meta" style="margin-bottom:10px">{community_pill(x)}'
             f' · Season: {e(x["bestSeason"])} · {e(x["level"])}</div>'
-            f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{badges}</div>')
+            f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{badges}'
+            f'{check_line(x)}</div>')
 
 def alts_block(f):
     alts = f.get("alternatives") or []
@@ -1165,5 +1193,15 @@ n_dest_stub = sum(len(d["destinations"]) for d in DISC if not is_open(d["id"]))
 print(f"{len(CARDS)} crafts — {N_OPEN} open, {n_short} short (unlock file dated {UNLOCK_DATE or 'unknown'})")
 print(f"  {n_dest_full} place pages · {n_dest_stub} place stubs · {_kept} pages preserved · browse home rebuilt")
 print(f"  website/js/atlas-index.js written · sitemap.xml: {len(seen_url)} URLs · robots.txt written")
+
+# Rule 10 debt, said out loud on every build. An open sheet with no name and no date on
+# it does not meet the Standard, and a count that nobody prints is a count nobody fixes.
+_open_disc = [d for d in DISC if is_open(d["id"])]
+_no_check = sorted(d["id"] for d in _open_disc
+                   if not any(x.get("check") for x in d["destinations"]))
+if _no_check:
+    print(f"  ⚠ rule 10 — {len(_no_check)} of {len(_open_disc)} open crafts carry no name-and-date "
+          f"check line yet: {', '.join(_no_check[:6])}"
+          + (f", +{len(_no_check) - 6} more" if len(_no_check) > 6 else ""))
 if ASSUME_ALL_OPEN:
     print("  !! --assume-all-open: this output is for diffing only. Do not commit it.")

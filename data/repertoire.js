@@ -22696,7 +22696,13 @@ window.ET_ATLAS = {
           "tripType": "Mastery track",
           "tripLength": "12 weeks",
           "englishTaught": true,
-          "englishBasis": "The school is in Ireland and every course is taught in English."
+          "englishBasis": "The school is in Ireland and every course is taught in English.",
+          "check": {
+            "state": "researched, not checked",
+            "by": "Arnaud Callier",
+            "date": "24 August 2026",
+            "what": "read against the school's own course, farm and fee pages, and its three published intake dates and fees. Nobody from EducatedTraveler has stood in it."
+          }
         }
       ],
       "id": "organic-farm-to-table-cooking",
