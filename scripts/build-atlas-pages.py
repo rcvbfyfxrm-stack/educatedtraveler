@@ -89,6 +89,92 @@ def is_open(disc_id):
     return True if ASSUME_ALL_OPEN else disc_id in OPEN
 
 
+# ---------- crafts close to this one ----------
+# Somebody who opens one craft is rarely after only that craft, so every craft page
+# ends with a few neighbours. The grouping is CURATED, in data/atlas-extra-sheets.json,
+# and it is curated on purpose: a scored-similarity pass over name/blurb/world/country
+# was tried first and paired Muay Thai with Thai MASSAGE on the word "Thai", and
+# Self-Sufficiency with Watchmaking on the word "creative". A wrong neighbour is not a
+# false claim, but it reads as a machine talking, and nothing on the Atlas may.
+CRAFT_FAMILIES = MANIFEST.get("craftFamilies", {})
+CRAFT_META = {}
+for _d in DISC:
+    _top = max(_d["destinations"], key=lambda x: x["communityRank"], default=None) or {}
+    CRAFT_META[_d["id"]] = {"name": _d["discipline"], "place": _top.get("place", ""),
+                            "country": _top.get("country", ""),
+                            "rank": _top.get("communityRank", 0)}
+for _h in HUB_CARDS:                        # crafts that live only as a hand-written sheet
+    CRAFT_META[_h["id"]] = {"name": _h["discipline"], "place": _h.get("place", ""),
+                            "country": _h.get("country", ""),
+                            "rank": _h.get("communityRank", 0)}
+
+_named = {c for ids in CRAFT_FAMILIES.values() for c in ids}
+if _named - set(CRAFT_META):
+    raise SystemExit("build-atlas-pages: craftFamilies names crafts that do not exist: "
+                     + ", ".join(sorted(_named - set(CRAFT_META))))
+# A craft with no family gets no neighbours and quietly loses the block. Adding a craft
+# and forgetting to place it is exactly the kind of miss that ships unnoticed.
+if CRAFT_FAMILIES and set(CRAFT_META) - _named:
+    raise SystemExit("build-atlas-pages: these crafts are in no family, so they would have "
+                     "no neighbours — add them to craftFamilies in data/atlas-extra-sheets.json:\n  "
+                     + ", ".join(sorted(set(CRAFT_META) - _named)))
+
+
+def related_crafts(craft_id, n=4):
+    """Up to n neighbours, taken one at a time from each family the craft belongs to.
+
+    Round-robin rather than family-by-family: a craft in two families should show both,
+    not four from the first one. Open crafts come first — they are the ones with
+    somewhere to go today.
+    """
+    pools = []
+    for label, ids in CRAFT_FAMILIES.items():
+        if craft_id not in ids:
+            continue
+        sibs = [c for c in ids if c != craft_id and c in CRAFT_META]
+        sibs.sort(key=lambda c: (0 if is_open(c) else 1, -CRAFT_META[c]["rank"],
+                                 CRAFT_META[c]["name"]))
+        if sibs:
+            pools.append([label, sibs])
+    out, seen = [], {craft_id}
+    while pools and len(out) < n:
+        for pool in list(pools):
+            label, sibs = pool
+            while sibs and sibs[0] in seen:
+                sibs.pop(0)
+            if not sibs:
+                pools.remove(pool)
+                continue
+            c = sibs.pop(0)
+            seen.add(c)
+            out.append((c, label))
+            if len(out) >= n:
+                break
+    return out
+
+
+def related_block(craft_id):
+    rel = related_crafts(craft_id)
+    if not rel:
+        return ""
+    cards = []
+    for c, label in rel:
+        m = CRAFT_META[c]
+        bits = [e(label)]
+        if m["place"]:
+            bits.append(f'{e(m["place"])}, {e(m["country"])}')
+        if not is_open(c):
+            bits.append('<span style="opacity:.7">not open yet</span>')
+        cards.append('<div class="card" style="padding:14px 18px">'
+                     f'<a class="t" style="text-decoration:none" href="/atlas/{c}">{e(m["name"])}</a>'
+                     f'<div class="meta">{" · ".join(bits)}</div></div>')
+    return ('<section><div class="wrap"><div class="mono">If this one pulls you</div>'
+            '<h2>Close to this on the map</h2>'
+            '<p class="meta" style="margin:6px 0 14px">Grouped by hand, not by an algorithm — '
+            'same hands, same instinct, a different craft.</p>'
+            f'<div class="grid">{"".join(cards)}</div></div></section>')
+
+
 # ---------- the day each craft opened ----------
 # data/atlas-unlocked.json holds WHICH crafts are open and off how many hands; it does
 # not hold WHEN, and it is rewritten in full on every refresh. So the dates live here,
@@ -482,7 +568,8 @@ def short_sheet(d, total):
     "A letter to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft, and nothing else does. "
     "Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at "
     "you, how you\'d want to learn it, and who you\'d want to be in it a year from now.",
-    skill_field=False, prefill=d["discipline"])}"""
+    skill_field=False, prefill=d["discipline"])}
+{related_block(d["id"])}"""
 
 
 # Lets the next build recognise its own place stubs. Without it the preserve sweep
@@ -864,7 +951,8 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}
 </div></header>
-<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{intent_form(f"{d['discipline']} pulls you? Leave an email — we'll introduce you to the right place and the right people as the map grows.", source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>"""
+<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{intent_form(f"{d['discipline']} pulls you? Leave an email — we'll introduce you to the right place and the right people as the map grows.", source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>
+{related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
         breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)]))
 

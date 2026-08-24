@@ -88,5 +88,201 @@
       "tripType": "Assessment or orientation",
       "tripLength": "three days to two weeks"
     }
-  ]
+  ],
+  "_craftFamilies_comment": "Curated adjacency for the 'Close to this on the map' block on every craft page. Hand-grouped on purpose: a scored similarity pass paired Muay Thai with Thai massage on the word 'Thai'. A craft may sit in several families; the builder takes one from each in turn. Every craft must be in at least one family or the build stops.",
+  "craftFamilies": {
+    "From the land": [
+      "organic-farm-to-table-cooking",
+      "self-sufficiency",
+      "cheese-and-fermentation",
+      "asado-and-open-fire-cooking",
+      "bread-and-boulangerie"
+    ],
+    "The classical kitchen": [
+      "classical-french-cuisine",
+      "new-basque-cuisine",
+      "modernist-spanish-cuisine",
+      "modern-new-technique-cuisine",
+      "italian-cuisine-and-pasta",
+      "chef-at-sea"
+    ],
+    "Baking, pastry and sweet": [
+      "bread-and-boulangerie",
+      "french-pastry-and-patisserie",
+      "viennoiserie",
+      "chocolate-and-confectionery"
+    ],
+    "Kitchens of the world": [
+      "italian-cuisine-and-pasta",
+      "new-basque-cuisine",
+      "korean-cuisine-hansik",
+      "north-indian-cuisine",
+      "oaxacan-and-mexican-cuisine",
+      "peruvian-cuisine",
+      "sichuan-and-chinese-cuisine",
+      "thai-cuisine",
+      "vietnamese-cuisine",
+      "sushi-and-washoku"
+    ],
+    "What's in the glass": [
+      "wine-and-sommellerie",
+      "sake-and-sommellerie-of-sake",
+      "whisky-and-distilling",
+      "mixology-and-bartending",
+      "coffee-and-barista",
+      "tea-and-tea-ceremony"
+    ],
+    "A trained nose and palate": [
+      "perfumery",
+      "wine-and-sommellerie",
+      "tea-and-tea-ceremony",
+      "cigar-rolling"
+    ],
+    "Fire and metal": [
+      "blacksmithing-and-bladesmithing",
+      "japanese-knife-making",
+      "jewelry-and-goldsmithing",
+      "glassblowing"
+    ],
+    "Earth and stone": [
+      "pottery-and-ceramics",
+      "kintsugi-japanese-gold-repair",
+      "marble-sculpture-and-stone-carving"
+    ],
+    "Cloth, thread and hide": [
+      "textiles-and-weaving",
+      "natural-dyeing",
+      "leatherwork"
+    ],
+    "Ink and line": [
+      "calligraphy-and-lettering",
+      "bookbinding-and-letterpress",
+      "printmaking",
+      "painting-and-fine-art",
+      "tattooing"
+    ],
+    "Wood and precision": [
+      "woodworking-and-joinery",
+      "lutherie-and-instrument-making",
+      "wooden-boatbuilding",
+      "watchmaking"
+    ],
+    "Music and the instrument": [
+      "guitar-and-music-performance",
+      "lutherie-and-instrument-making"
+    ],
+    "Through a lens": [
+      "photography",
+      "filmmaking",
+      "wildlife-photography"
+    ],
+    "Under water": [
+      "freediving",
+      "spearfishing",
+      "scuba-diving",
+      "cave-and-technical-diving"
+    ],
+    "On the water": [
+      "sailing-and-yachtmaster",
+      "windsurfing-and-wing-foil",
+      "kitesurfing",
+      "surfing",
+      "expedition-sea-kayaking",
+      "whitewater-kayaking",
+      "whitewater-rafting"
+    ],
+    "Working at sea": [
+      "yacht-crew-and-stcw",
+      "chef-at-sea",
+      "sailing-and-yachtmaster",
+      "wooden-boatbuilding"
+    ],
+    "Rock, ice and altitude": [
+      "rock-climbing",
+      "ice-and-mixed-climbing",
+      "alpinism-and-mountaineering",
+      "canyoning",
+      "caving-and-speleology",
+      "mountain-leadership-and-trekking"
+    ],
+    "Snow": [
+      "ski-touring-and-splitboard",
+      "ski-and-snowboard-mountain-guiding",
+      "ice-and-mixed-climbing",
+      "dog-sledding-and-mushing"
+    ],
+    "In the air": [
+      "paragliding",
+      "skydiving",
+      "bush-and-floatplane-flying"
+    ],
+    "Living with wild animals": [
+      "falconry",
+      "horsemanship",
+      "safari-and-wildlife-guiding",
+      "fly-fishing",
+      "dog-sledding-and-mushing",
+      "wildlife-photography"
+    ],
+    "Out there on your own": [
+      "wilderness-survival-and-bushcraft",
+      "outdoor-leadership-and-wilderness-expeditions",
+      "mountain-leadership-and-trekking",
+      "trail-and-ultra-running",
+      "self-sufficiency"
+    ],
+    "Engine and wheel": [
+      "adventure-and-off-road-motorcycling",
+      "motorsport-and-race-driving",
+      "mountain-biking"
+    ],
+    "Yoga": [
+      "ashtanga-yoga",
+      "hatha-and-vinyasa-yoga",
+      "iyengar-yoga",
+      "kundalini-yoga"
+    ],
+    "Breath, cold and stillness": [
+      "pranayama-and-breathwork",
+      "vipassana-and-meditation",
+      "cold-exposure-wim-hof-method",
+      "tai-chi-and-qigong",
+      "kundalini-yoga"
+    ],
+    "Hands on the body": [
+      "lymphatic-drainage",
+      "reflexology-and-shiatsu",
+      "thai-massage",
+      "traditional-spa-and-hydrotherapy",
+      "ayurveda"
+    ],
+    "Sound, energy and release": [
+      "reiki-and-energy-healing",
+      "sound-healing",
+      "ecstatic-dance-and-movement",
+      "tantra-and-conscious-intimacy"
+    ],
+    "Strength and health": [
+      "pilates",
+      "lifestyle-medicine",
+      "tai-chi-and-qigong",
+      "trail-and-ultra-running"
+    ],
+    "Fighting arts": [
+      "muay-thai",
+      "brazilian-jiu-jitsu",
+      "karate",
+      "kung-fu",
+      "capoeira",
+      "kyudo-japanese-archery"
+    ],
+    "Dance, with a partner and without": [
+      "argentine-tango",
+      "salsa",
+      "flamenco-and-dance",
+      "bharatanatyam-indian-classical-dance",
+      "ecstatic-dance-and-movement",
+      "capoeira"
+    ]
+  }
 }
