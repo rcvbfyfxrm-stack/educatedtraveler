@@ -1,0 +1,33 @@
+{
+  "_comment": "The day each craft OPENED on the Atlas — the day a real person's ask first landed in data/atlas-unlocked.json. Seeded from `git log data/atlas-unlocked.json`, which is the record refresh-unlocked.mjs was built to leave; grown after that by scripts/build-atlas-pages.py, which stamps any newly-open craft with the unlock file's generated_at date. Append-only: a date, once written, is never rewritten, because it is the day it happened. /atlas reads this to show the newest first.",
+  "opened": {
+    "ashtanga-yoga": "2026-08-05",
+    "cold-exposure-wim-hof-method": "2026-08-05",
+    "freediving": "2026-08-05",
+    "french-pastry-and-patisserie": "2026-08-05",
+    "italian-cuisine-and-pasta": "2026-08-05",
+    "jewelry-and-goldsmithing": "2026-08-05",
+    "kitesurfing": "2026-08-05",
+    "lymphatic-drainage": "2026-08-05",
+    "modernist-spanish-cuisine": "2026-08-05",
+    "new-basque-cuisine": "2026-08-05",
+    "rock-climbing": "2026-08-05",
+    "sailing-and-yachtmaster": "2026-08-05",
+    "self-sufficiency": "2026-08-05",
+    "ski-touring-and-splitboard": "2026-08-05",
+    "sound-healing": "2026-08-05",
+    "spearfishing": "2026-08-05",
+    "surfing": "2026-08-05",
+    "sushi-and-washoku": "2026-08-05",
+    "thai-massage": "2026-08-05",
+    "hatha-and-vinyasa-yoga": "2026-08-06",
+    "perfumery": "2026-08-06",
+    "photography": "2026-08-06",
+    "pottery-and-ceramics": "2026-08-06",
+    "vipassana-and-meditation": "2026-08-06",
+    "windsurfing-and-wing-foil": "2026-08-06",
+    "wine-and-sommellerie": "2026-08-06",
+    "safari-and-wildlife-guiding": "2026-08-23",
+    "wildlife-photography": "2026-08-24"
+  }
+}

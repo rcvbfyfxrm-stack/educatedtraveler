@@ -1,0 +1,124 @@
+#!/usr/bin/env python3
+"""Gate on the built /atlas home. Run it after scripts/build-atlas-pages.py.
+
+    python3 scripts/check-atlas-hub.py
+
+Every check here is one that would otherwise fail silently — the page still 200s,
+still looks finished, and is wrong. That is the failure mode this file exists for.
+
+  1. the band is in the HTML at all, above the browse, with cards in it;
+  2. every craft in the band is one somebody actually asked for — a slug in
+     data/atlas-unlocked.json, never a pinned sheet Arnaud wrote himself;
+  3. the band is in date order, newest first, and every date is the one in
+     data/atlas-opened.json — printed, not invented;
+  4. the counts in the copy equal the counts in the data;
+  5. the five world colours in atlas_hub.WORLD_COLOR still match the WORLDS map
+     the page itself draws with, so a band card is the colour of its world;
+  6. every card links to a craft page that exists on disk.
+
+Exit 0 = all clear. Exit 1 = do not ship it.
+"""
+import json
+import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import atlas_hub
+
+ROOT = Path(__file__).resolve().parent.parent
+PAGE = ROOT / "website/atlas/index.html"
+fails = []
+
+
+def bad(msg):
+    fails.append(msg)
+
+
+if not PAGE.exists():
+    sys.exit("check-atlas-hub: website/atlas/index.html is missing — build first.")
+
+html = PAGE.read_text()
+hands = json.loads((ROOT / "data/atlas-unlocked.json").read_text())["open"]
+opened = json.loads((ROOT / "data/atlas-opened.json").read_text())["opened"]
+
+# ── 1. the band exists, above the browse ───────────────────────────────────
+band = re.search(r'<section class="newopen".*?</section>', html, re.S)
+if not band:
+    sys.exit("check-atlas-hub: FAIL — no band on the page. The Circle's crafts are not shown.")
+band = band.group(0)
+if html.index(band) > html.index('<main class="studio"'):
+    bad("the band is below the browse, not above it")
+
+cards = re.findall(r'<article class="gcard" style="--sc:(#[0-9a-f]{6})">.*?'
+                   r'href="/atlas/([a-z0-9-]+)".*?'
+                   r'<div class="openedon">Opened <b>([^<]+)</b></div>', band, re.S)
+if not cards:
+    sys.exit("check-atlas-hub: FAIL — the band has no cards.")
+if len(cards) != band.count("<article"):
+    bad(f"{band.count('<article')} cards in the band but only {len(cards)} parse — "
+        "the card markup changed and this check no longer reads it")
+
+MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def iso(pretty):
+    m = re.fullmatch(r"(\d{1,2}) ([A-Z][a-z]{2}) (\d{4})", pretty.strip())
+    return f"{m[3]}-{MONTHS.index(m[2]) + 1:02d}-{int(m[1]):02d}" if m and m[2] in MONTHS else None
+
+
+# ── 2 + 3 + 6. every card, one at a time ───────────────────────────────────
+seen = []
+for color, slug, date in cards:
+    if slug not in hands:
+        bad(f"{slug} is in the band but not in data/atlas-unlocked.json — the band would be "
+            "claiming an ask that never happened")
+    d = iso(date)
+    if not d:
+        bad(f"{slug}: date '{date}' is not a date this check can read")
+    elif opened.get(slug) != d:
+        bad(f"{slug}: the page says {d}, data/atlas-opened.json says {opened.get(slug)}")
+    else:
+        seen.append(d)
+    if not (ROOT / f"website/atlas/{slug}.html").exists():
+        bad(f"{slug}: the card links to /atlas/{slug}, which is not on disk")
+
+if seen != sorted(seen, reverse=True):
+    bad(f"the band is not newest-first: {seen}")
+
+# ── 4. the counts in the copy are the counts in the data ───────────────────
+idx = (ROOT / "website/js/atlas-index.js").read_text()
+crafts = json.loads(idx[idx.index("{"):idx.rindex("}") + 1])["crafts"]
+n_open = sum(1 for c in crafts if c["open"])
+n_asked = sum(1 for c in crafts if c["open"] and c["id"] in hands)
+
+m = re.search(r"<b>(\d+) of the (\d+) open crafts</b>", band)
+if not m:
+    bad("the band no longer prints the two counts — nothing to check, which is worse")
+elif (int(m[1]), int(m[2])) != (n_asked, n_open):
+    bad(f"the band says {m[1]} of {m[2]}; the data says {n_asked} of {n_open}")
+
+m = re.search(r"The other (\d+|one) I opened myself", band)
+n_mine = n_open - n_asked
+if n_mine and not m:
+    bad(f"{n_mine} crafts were opened by hand and the band does not say so")
+elif m and (1 if m[1] == "one" else int(m[1])) != n_mine:
+    bad(f"the band claims {m[1]} hand-opened crafts; the data says {n_mine}")
+
+# ── 5. the colours still mirror the page's own map ─────────────────────────
+tpl = (ROOT / "scripts/atlas-hub-template.html").read_text()
+live = dict(re.findall(r'(\w+):\{label:"[^"]*",short:"[^"]*",color:"(#[0-9a-f]{6})"\}',
+                       tpl[tpl.index("var WORLDS={"):tpl.index("var ORDER=")]))
+if not live:
+    bad("could not read the WORLDS map out of the template — the colour mirror is unchecked")
+elif live != atlas_hub.WORLD_COLOR:
+    bad(f"atlas_hub.WORLD_COLOR has drifted from the template: {atlas_hub.WORLD_COLOR} vs {live}")
+
+# ── verdict ────────────────────────────────────────────────────────────────
+if fails:
+    print("check-atlas-hub: FAIL")
+    for f in fails:
+        print("  · " + f)
+    sys.exit(1)
+print(f"check-atlas-hub: OK — {len(cards)} crafts in the band, newest {cards[0][2]}, "
+      f"{n_asked} of {n_open} open crafts asked for.")

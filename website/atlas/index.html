@@ -320,6 +320,24 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 /* the one line a locked card carries. It names the person, because the thing that
    opens the craft is a letter to him and nothing else — not a sign-up, not a fee. */
 .askline{color:var(--ember)!important;letter-spacing:.04em}
+
+/* the band above the browse — what the Circle opened, newest first */
+.newopen{padding:36px 0 6px}
+.newopen .nohead{max-width:62ch;margin-bottom:20px}
+.newopen h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3.2vw,34px);line-height:1.1;letter-spacing:-.01em;margin:11px 0 12px}
+.newopen .nosub{color:var(--muted);font-size:14.5px;line-height:1.7}
+.newopen .nosub b{color:var(--paper);font-weight:400}
+/* Fixed counts, not auto-fill: four cards divide evenly by 4, by 2 and by 1, so the
+   band is always full rows. auto-fill picked the column count off the viewport and
+   left a single card stranded on a second row at most desktop widths. */
+.nogrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+@media(max-width:1000px){.nogrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.nogrid{grid-template-columns:minmax(0,1fr)}}
+.openedon{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.openedon b{color:var(--sc);font-weight:400}
+.nomore{margin:16px 0 0;font-size:13.5px}
+.nomore a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)}
+.nomore a:hover{color:var(--paper)}
 </style>
 </head>
 <body>
@@ -344,6 +362,8 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
     </div>
   </div>
 </header>
+
+<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap"><div class="nohead"><div class="eyebrow">Opened by the Circle</div><h2 class="serif" id="opened-h">The crafts someone asked for, newest first.</h2><p class="nosub">Every craft here starts as a short entry. When a real person names one — in a letter, on a raise-your-hand form, or on the way into the Circle — I do the work behind it: the places, the schools, the reason to go. Then it opens. <b>28 of the 34 open crafts</b> got here that way. The other 6 I opened myself. Each date is the day the ask landed.</p></div><div class="nogrid"><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/wildlife-photography" aria-label="Open the Wildlife Photography skill sheet"></a><div class="openedon">Opened <b>24 Aug 2026</b></div><span class="craftname">Wildlife Photography</span><div class="wherealive">in Pusztaszer, Hungary</div></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/safari-and-wildlife-guiding" aria-label="Open the Safari &amp; Wildlife Guiding skill sheet"></a><div class="openedon">Opened <b>23 Aug 2026</b></div><span class="craftname">Safari &amp; Wildlife Guiding</span><div class="wherealive">in Greater Kruger / Makuleke Concession, South Africa</div></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/hatha-and-vinyasa-yoga" aria-label="Open the Hatha &amp; Vinyasa Yoga skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Hatha &amp; Vinyasa Yoga</span><div class="wherealive">in Rishikesh, India</div></article><article class="gcard" style="--sc:#cf8f6e"><a class="cardlink" href="/atlas/perfumery" aria-label="Open the Perfumery skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Perfumery</span><div class="wherealive">in Grasse, France</div></article></div><p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet →</a></p></div></section>
 
 <main class="studio" id="studio"><div class="wrap"><div class="grid">
   <aside class="side">

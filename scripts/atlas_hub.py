@@ -14,7 +14,9 @@ What the build changes, and nothing else:
      rebuilds window.ET_ATLAS / window.ET_RATINGS, so the page's own script runs
      exactly as it did;
   3. a short rule set for cards whose craft isn't open yet, and the ticker under
-     the rosette drawn as a circle rather than a rounded box.
+     the rosette drawn as a circle rather than a rounded box;
+  4. the band above the browse — the crafts the Circle opened, newest first,
+     each with the day its ask landed (opened_band() below).
 
 The letter, and the letter alone, is also shared with the short craft sheets —
 LETTER_CSS / LETTER_JS / letter_section() below. One letter on the site.
@@ -26,6 +28,17 @@ from pathlib import Path
 e = html.escape
 
 TEMPLATE = Path(__file__).resolve().parent / "atlas-hub-template.html"
+
+# The five worlds, by the colour the page already draws them in. Mirror of the WORLDS
+# map in atlas-hub-template.html — a card in the band must be the same colour as the
+# same card in the grid below it. Checked by scripts/check-atlas-hub.py.
+WORLD_COLOR = {
+    "adventure": "#6fa3a0",
+    "culinary": "#c9a24a",
+    "creative": "#cf8f6e",
+    "movement": "#bf8088",
+    "wellness": "#94ad86",
+}
 
 
 # ── the letter, shared with every short craft sheet ─────────────────────────
@@ -270,14 +283,89 @@ HUB_EXTRA_CSS = """
 /* the one line a locked card carries. It names the person, because the thing that
    opens the craft is a letter to him and nothing else — not a sign-up, not a fee. */
 .askline{color:var(--ember)!important;letter-spacing:.04em}
+
+/* the band above the browse — what the Circle opened, newest first */
+.newopen{padding:36px 0 6px}
+.newopen .nohead{max-width:62ch;margin-bottom:20px}
+.newopen h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3.2vw,34px);line-height:1.1;letter-spacing:-.01em;margin:11px 0 12px}
+.newopen .nosub{color:var(--muted);font-size:14.5px;line-height:1.7}
+.newopen .nosub b{color:var(--paper);font-weight:400}
+/* Fixed counts, not auto-fill: four cards divide evenly by 4, by 2 and by 1, so the
+   band is always full rows. auto-fill picked the column count off the viewport and
+   left a single card stranded on a second row at most desktop widths. */
+.nogrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+@media(max-width:1000px){.nogrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.nogrid{grid-template-columns:minmax(0,1fr)}}
+.openedon{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.openedon b{color:var(--sc);font-weight:400}
+.nomore{margin:16px 0 0;font-size:13.5px}
+.nomore a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)}
+.nomore a:hover{color:var(--paper)}
 """
 
 
-def build(analytics, site, total, n_open, generated_at, craft_nav=""):
+def opened_band(items, n_asked, n_open):
+    """The crafts the Circle opened, newest first — the band above the browse.
+
+    Static HTML, not drawn by JavaScript: it is the first thing on the page after
+    the hero, so it has to be there for a reader with JS off and for a crawler.
+    Every card is the same .gcard the grid below uses, so there is one card design
+    on this page and no second one to keep in step.
+
+    No per-card count, deliberately. Two sources hold one: data/atlas-unlocked.json
+    (distinct people across the waitlist, the concierge queue and profiles) and the
+    public atlas_interest() RPC, which is drawn from fewer tables and does not carry
+    every craft this band shows — Safari & Wildlife Guiding opened off a profile and
+    the RPC has no row for it. Either would print a number beside some cards and
+    nothing beside others, and "opened because someone asked" next to a blank reads
+    as nobody asked. The section says the mechanism once; the card says the day.
+
+    items: [{id, name, place, country, color, opened}] already in display order.
+    n_asked / n_open: real, derived, and printed rather than typed.
+    """
+    if not items:
+        return ""
+    n_mine = n_open - n_asked
+    # The second half of the sentence only exists while there are sheets Arnaud
+    # wrote himself. If that ever goes to zero the line must not still claim them.
+    mine = (f" The other {n_mine} I opened myself." if n_mine > 1 else
+            " The other one I opened myself." if n_mine == 1 else "")
+    cards = []
+    for it in items:
+        where = it["place"]
+        if it["country"] and it["country"] not in where:
+            where = f"{where}, {it['country']}"
+        cards.append(
+            f'<article class="gcard" style="--sc:{e(it["color"])}">'
+            f'<a class="cardlink" href="/atlas/{e(it["id"])}" aria-label="Open the '
+            f'{e(it["name"])} skill sheet"></a>'
+            f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
+            f'<span class="craftname">{e(it["name"])}</span>'
+            + (f'<div class="wherealive">in {e(where)}</div>' if where else "")
+            + "</article>")
+    return (
+        '<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap">'
+        '<div class="nohead">'
+        '<div class="eyebrow">Opened by the Circle</div>'
+        '<h2 class="serif" id="opened-h">The crafts someone asked for, newest first.</h2>'
+        '<p class="nosub">Every craft here starts as a short entry. When a real person names '
+        'one — in a letter, on a raise-your-hand form, or on the way into the Circle — I do '
+        'the work behind it: the places, the schools, the reason to go. Then it opens. '
+        f'<b>{n_asked} of the {n_open} open crafts</b> got here that way.{mine} Each date is '
+        'the day the ask landed.</p>'
+        '</div>'
+        f'<div class="nogrid">{"".join(cards)}</div>'
+        '<p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet '
+        '→</a></p>'
+        '</div></section>')
+
+
+def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
+          n_asked=0):
     """Turn the live /browse file into /atlas/index.html.
 
     Everything that makes the page what it is comes from the template. Only the
-    address, the data source and the two rules above are ours.
+    address, the data source, the two rules above and the band are ours.
     """
     t = TEMPLATE.read_text()
 
@@ -326,5 +414,18 @@ def build(analytics, site, total, n_open, generated_at, craft_nav=""):
     #    Real <a href> to all 112 craft pages; each craft page already links its
     #    own places statically, so this completes the graph.
     t = t.replace("<!--ATLAS_CRAFT_NAV-->", craft_nav)
+
+    # 7. the band. It sits between the hero and the browse, because the answer to
+    #    "who decides what opens here" belongs above the thing it decides. Asserted,
+    #    not attempted: if the anchor ever moves in the template the build stops
+    #    rather than shipping a page that quietly lost its band.
+    anchor = '<main class="studio" id="studio">'
+    band = opened_band(list(opened), n_asked, n_open)
+    if band:
+        if anchor not in t:
+            raise SystemExit("atlas_hub: the <main class=\"studio\"> anchor is gone from "
+                             "scripts/atlas-hub-template.html — the opened band has nowhere "
+                             "to go. Fix the anchor; do not ship the page without it.")
+        t = t.replace(anchor, band + "\n\n" + anchor, 1)
 
     return t
