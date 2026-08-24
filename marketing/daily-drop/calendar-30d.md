@@ -470,7 +470,25 @@ The full page: https://educatedtraveler.app/atlas/lifestyle-medicine
 #breathwork #yogatok #learnbydoing #unitedstates #lifestylemedicine
 ```
 
-## Day 27 — Yacht Crew & STCW · Antibes, France  `[adventure]`
+## Day 27 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
+- **Atlas page:** https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession
+- **Footage:** EcoTraining — https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Safari & Wildlife Guiding, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+Greater Kruger / Makuleke Concession is both the birthplace of Safari & Wildlife Guiding and its living capital.
+
+This is where the FGASA gold standard was forged, where you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and certify at the source.
+
+Community strength: Legendary. Season: May-Sep (dry season).
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession
+
+#adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding
+```
+
+## Day 28 — Yacht Crew & STCW · Antibes, France  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes
 - **Footage:** bluewater, Antibes — https://www.bluewateryachting.com/crew-training (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Yacht Crew & STCW, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -488,7 +506,7 @@ The full page: https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes
 #adventuretravel #skillsnotsouvenirs #learnbydoing #antibes #yachtcrewstcw
 ```
 
-## Day 28 — Spearfishing · Kona, Big Island, United States  `[adventure]`
+## Day 29 — Spearfishing · Kona, Big Island, United States  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/spearfishing--kona-big-island
 - **Footage:** Kona Freedivers — https://www.konafreedivers.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Spearfishing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
