@@ -22639,6 +22639,200 @@ window.ET_ATLAS = {
         "certification": "STCW Basic Safety Training, MCA-approved",
         "fitsBecause": "Antibes is where the Mediterranean's crew are actually hired, so the ticket and the dock are the same walk — and bluewater publishes the names of the people who teach it, which most schools in this craft do not."
       }
+    },
+    {
+      "discipline": "Organic Farm-to-Table Cooking",
+      "category": "culinary",
+      "goldCredential": "Ballymaloe Cookery School Certificate — graded Distinction, Highly Commended or Pass on the school's own practical, written and wine examinations",
+      "certShort": "Ballymaloe Certificate",
+      "blurb": "Cooking that starts in the soil. You grow it, milk it, gather it and butcher it, then cook it the same morning — learned on a working organic farm, where the short distance between the bed and the pan is the whole lesson.",
+      "destinations": [
+        {
+          "place": "Shanagarry, East Cork",
+          "country": "Ireland",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Ballymaloe Cookery School, Organic Farm and Gardens",
+            "Ballymaloe Organic Farm School"
+          ],
+          "masters": [
+            "Darina Allen",
+            "Rory O'Connell",
+            "Rachel Allen"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master",
+            "master-lab",
+            "heritage"
+          ],
+          "why": "A cookery school that sits inside its own 100-acre organic farm at Kinoith, about four kilometres from Ballymaloe House. The vegetables, eggs, milk and meat used in the morning kitchens come off the land outside the door — and the afternoon demonstration is still given by the people whose names are on the school.",
+          "bestSeason": "Year-round — the 12-week certificate starts in January, April and September",
+          "level": "Beginner → confident professional cook",
+          "id": "organic-farm-to-table-cooking--shanagarry-east-cork",
+          "ceiling": "Twelve weeks makes you a confident, employable cook with a real grounding in where food comes from. It is not a chef's apprenticeship, and the certificate is the school's own rather than a state qualification — ask what it is worth to the kitchens you want to work in before you count on it.",
+          "room": {
+            "day": "Monday, Tuesday, Thursday and Friday: a practical morning in the kitchens where students cook a three- or four-course meal together, then lunch served and hosted by the students, then an afternoon demonstration led by Darina Allen, Rory O'Connell, Rachel Allen or a guest chef. Wednesday is specialist demonstrations, cheese tasting, wine lectures and outside speakers.",
+            "who": "In the school's own words, \"anybody with a passion for food\" — from people heading for a professional kitchen to serious home cooks."
+          },
+          "schoolsInfo": [
+            {
+              "name": "Ballymaloe Cookery School, Organic Farm and Gardens",
+              "url": "https://www.ballymaloecookeryschool.ie/",
+              "course": "12 Week Certificate Course",
+              "blurb": "Opened in 1983 by Darina Allen and her brother Rory O'Connell at Shanagarry, County Cork, on a 100-acre organic farm with an acre of glasshouses, free-range pigs, Angus, Kerry, Dexter and Jersey cattle and laying hens. Four mornings a week are hands-on kitchen practice; the afternoons are demonstrations.",
+              "confidence": "high"
+            },
+            {
+              "name": "Ballymaloe Organic Farm School",
+              "url": "https://www.ballymaloecookeryschool.ie/farm-school",
+              "course": "One-day and week-long courses in growing, keeping and preserving",
+              "blurb": "The growing half of the same farm, taught separately and led by Darina Allen: one-day courses on living soil, keeping hens, beekeeping, seed-saving, composting and orchards, plus a week of practical homesteading.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "12 weeks",
+          "englishTaught": true,
+          "englishBasis": "The school is in Ireland and every course is taught in English."
+        },
+        {
+          "place": "Axminster, Devon",
+          "country": "England",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "River Cottage Cookery School"
+          ],
+          "masters": [
+            "Hugh Fearnley-Whittingstall (founder)",
+            "Gill Meller"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master"
+          ],
+          "why": "River Cottage HQ on the Devon–Dorset border: farmland with a cookery school running out of it, and day courses in sourdough, pasta, fish, foraging and gardening that anyone can book. The school calls its cookery courses organic; no certifying body is named on its own pages, so take that as their word rather than a checked certification.",
+          "bestSeason": "Year-round",
+          "level": "Beginner → confident home cook",
+          "id": "organic-farm-to-table-cooking--axminster-devon",
+          "schoolsInfo": [
+            {
+              "name": "River Cottage Cookery School",
+              "url": "https://rivercottage.net/courses/",
+              "course": "One- and two-day courses (sourdough, pasta, fish and shellfish, foraging, gardening, fermentation)",
+              "blurb": "The cookery school at River Cottage HQ, Trinity Hill Road, Axminster, on the Devon–Dorset border, founded out of Hugh Fearnley-Whittingstall's River Cottage. Courses are open to book by anyone and are taught by the school's own tutors, among them Gill Meller; the school lists an ICSA Centre of Excellence award.",
+              "confidence": "medium"
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "1–2 days",
+          "englishTaught": true,
+          "englishBasis": "In England; taught in English."
+        },
+        {
+          "place": "Pocantico Hills, New York",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Stone Barns Center for Food & Agriculture"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "An 80-acre working farm and education centre in Westchester County, founded in 2004, where the growing half of the craft is what gets taught: seasonal hands-on workshops led by the farm's own farmers and ecologists, plus eight crops and livestock apprenticeships a year.",
+          "bestSeason": "Year-round",
+          "level": "Beginner → serious grower",
+          "id": "organic-farm-to-table-cooking--pocantico-hills-new-york",
+          "schoolsInfo": [
+            {
+              "name": "Stone Barns Center for Food & Agriculture",
+              "url": "https://www.stonebarnscenter.org/seasonal-workshops",
+              "course": "Seasonal workshops with the farm's farmers and ecologists; annual crops and livestock apprenticeships",
+              "blurb": "A non-profit farm and education centre established in 2004 on 80 acres in Pocantico Hills, New York, created by David Rockefeller and Peggy Dulany as a memorial to Peggy Rockefeller. It runs public hands-on workshops taught by its own farmers and takes on eight crops and livestock apprentices a year.",
+              "confidence": "medium"
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "A day, or a season as an apprentice",
+          "englishTaught": true,
+          "englishBasis": "In the United States; taught in English."
+        }
+      ],
+      "id": "organic-farm-to-table-cooking",
+      "featured": {
+        "id": "organic-farm-to-table-cooking--shanagarry-east-cork",
+        "place": "Shanagarry, East Cork",
+        "country": "Ireland",
+        "school": "Ballymaloe Cookery School, Organic Farm and Gardens",
+        "url": "https://www.ballymaloecookeryschool.ie/certificate-cookery-course/12-week-certificate-course-overview",
+        "course": "12 Week Certificate Course",
+        "description": "Twelve weeks inside the food system you are cooking from. Four mornings a week in the practical kitchens, where students produce a three- or four-course meal as a team and are marked on time management and prioritising; lunch is then served and hosted by the students. Afternoons are demonstrations led by Darina Allen, Rory O'Connell or Rachel Allen, or by guest chefs. Wednesdays are specialist demonstrations, cheese tastings, wine lectures and outside speakers. There is a practical technique exam and a salad-and-herb recognition test in week six, and final practical, written and wine examinations in week twelve; certificates are graded Distinction, Highly Commended or Pass.",
+        "duration": "12 weeks, five days a week",
+        "format": "Full-time; cottages on the farm or local accommodation, booked and paid separately",
+        "certification": "Ballymaloe Cookery School Certificate (Distinction / Highly Commended / Pass)",
+        "fitsBecause": "The farm is not a field trip here — it is the larder. The produce, dairy and meat come off the same 100 acres, the growers work alongside the cooks, and the founders still run the demonstrations themselves.",
+        "sessions": [
+          "Three intakes a year — January, April and September",
+          "January 2027: 4 Jan – 27 Mar"
+        ],
+        "priceFrom": "€17,495",
+        "priceNote": "Fees published by the school: €17,495 for the September 2026 intake, €17,695 for January 2027, €17,850 for April 2027. Accommodation — cottages on the farm or nearby — is booked and paid separately.",
+        "confidence": "high",
+        "alternatives": [
+          {
+            "course": "Farm to Fork",
+            "duration": "2½ days",
+            "format": "Non-residential, 9am–2pm",
+            "school": "Ballymaloe Cookery School",
+            "place": "Shanagarry",
+            "url": "https://www.ballymaloecookeryschool.ie/courses/farm-to-fork",
+            "priceFrom": "€935",
+            "fit": "Shorter",
+            "note": "A tour of the organic farm, gardens, dairy and glasshouses, three demonstrations and two hands-on kitchen sessions, with the milking and the picking included — the whole idea in miniature, and none of the depth of the certificate.",
+            "confidence": "high"
+          },
+          {
+            "course": "A Week of Practical Homesteading",
+            "duration": "1 week",
+            "format": "Non-residential",
+            "school": "Ballymaloe Organic Farm School",
+            "place": "Shanagarry",
+            "url": "https://www.ballymaloecookeryschool.ie/farm-school",
+            "priceFrom": "€2,295",
+            "fit": "The growing half",
+            "note": "The farm school's week on growing, keeping and preserving rather than cooking. Take this if it is the land side you are after.",
+            "confidence": "high"
+          },
+          {
+            "course": "Organic Farm School one-day courses — living soil, keeping hens, beekeeping, seed-saving, orchards",
+            "duration": "1 day",
+            "format": "Non-residential",
+            "school": "Ballymaloe Organic Farm School",
+            "place": "Shanagarry",
+            "url": "https://www.ballymaloecookeryschool.ie/farm-school",
+            "priceFrom": "€95",
+            "fit": "Taster",
+            "note": "Single days on one skill each, €95–€175 depending on the course. A way to see the place before committing twelve weeks to it.",
+            "confidence": "high"
+          }
+        ]
+      }
     }
   ],
   "enrichedAt": "2026-06-11",
