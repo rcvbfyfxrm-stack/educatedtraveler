@@ -847,11 +847,18 @@ MOVEMENT_IDS = {"muay-thai", "brazilian-jiu-jitsu", "karate", "kung-fu", "capoei
                 "flamenco-and-dance", "argentine-tango", "salsa",
                 "bharatanatyam-indian-classical-dance", "ecstatic-dance-and-movement"}
 WORLD_OF = {"wellness": "wellness", "adventure": "adventure", "creative": "creative", "culinary": "culinary"}
+# Same rule as MOVEMENT_IDS, pointing the other way. Wildlife Photography belongs in
+# Creative in the data — it is photography, and it sits beside Photography — but nobody
+# hunting it browses "Craft & Making". They open The Wild. The breadcrumb still reads
+# Creative; only the world a person filters by changes.
+ADVENTURE_IDS = {"wildlife-photography"}
 
 
 def world_of(name, category, disc_id=""):
     if disc_id in MOVEMENT_IDS or MOVEMENT_RE.search(name or ""):
         return "movement"
+    if disc_id in ADVENTURE_IDS:
+        return "adventure"
     return WORLD_OF.get(category, "creative")
 
 

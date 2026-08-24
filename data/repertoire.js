@@ -22833,6 +22833,275 @@ window.ET_ATLAS = {
           }
         ]
       }
+    },
+    {
+      "discipline": "Wildlife Photography",
+      "category": "creative",
+      "certBody": "No universal body — portfolio and prize based. SINWP offers voluntary nature/wildlife qualifications, PPA a general Certified Professional Photographer credential, and NANPA is the main association. Wildlife Photographer of the Year (Natural History Museum, London) is the recognised summit.",
+      "certShort": "No universal body (portfolio + prize based)",
+      "goldCredential": "No universal credential — a published portfolio and a Wildlife Photographer of the Year placing are the real currency. BA (Hons) Marine & Natural History Photography (Falmouth) is the nearest formal route.",
+      "blurb": "Waiting in a hide until the light, the animal and the frame arrive together, and learning to be there — still, ready and unseen — at the moment they do.",
+      "ceiling": "A week in good hides will transform your keeper rate — long-lens technique, reading light, hide craft and the patience to sit out a subject. What it cannot give you is the thing that separates the published from the competent: returning to the same animals over years, and luck you cannot book.",
+      "room": {
+        "ratio": "Small by necessity — a hide holds one to five people, and the field trips cap at four to twelve.",
+        "day": "Inverted around the animals. Dawn and dusk in the hide or the vehicle, the middle of the day for edit, critique and sleep.",
+        "who": "Keen amateurs with a long lens through to working professionals; a broad age range, and patient by self-selection."
+      },
+      "featured": {
+        "id": "wildlife-photography--pusztaszer",
+        "place": "Pusztaszer",
+        "country": "Hungary",
+        "school": "Bence Máté's Hides (via NaturesLens)",
+        "url": "https://natureslens.co.uk/photography-holiday/wildlife-photography-hides-of-hungary/",
+        "course": "Wildlife Photography Hides of Hungary — 7 nights",
+        "description": "Seven nights working the hide complex Bence Máté built on his family farm in the Kiskunság — over 25 purpose-built hides including four drinking stations, five for European Roller, six for Hoopoe, two for Bee-eater, one for Kingfisher, two for ground squirrel, plus a tower hide, a shore hide, a cinema hide for otters and the large theatre hide. Máté is the only photographer to have won both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year, and he pioneered the one-way glass that makes these hides work. Note that he supplies the hides rather than the teaching: tuition on this departure is by NaturesLens director David Miles. Full board, single occupancy, internal transfers, park fees, hide access and permits included.",
+        "duration": "7 nights",
+        "format": "Hide-based, full board; maximum 7 participants",
+        "certification": "None — portfolio work",
+        "fitsBecause": "The densest purpose-built hide complex in the world, at the hands of the man who invented the technique, in the landscape he built it for.",
+        "sessions": [
+          "2027-06-05"
+        ],
+        "priceFrom": "£4,499",
+        "priceNote": "£4,499 for 7 nights, full board, single occupancy; £850 deposit. Minimum 7, maximum 7 participants.",
+        "confidence": "high — price, dates, group size, hide inventory and the identity of the teaching leader all verified on the operator's own booking page 2026-08-24",
+        "alternatives": [
+          {
+            "course": "Shared photo hide, per night",
+            "duration": "1 night",
+            "format": "Shared hide (Kuhmo, Finland)",
+            "school": "Wildlife Safaris Finland",
+            "place": "Kuhmo, Finland",
+            "url": "https://www.wildfinland.org/prices.html",
+            "priceFrom": "€210",
+            "fit": "Taster",
+            "note": "One night in a shared hide for brown bear, wolf and wolverine — the cheapest honest way into hide photography anywhere on the Atlas.",
+            "confidence": "high"
+          },
+          {
+            "course": "Full service package, per night",
+            "duration": "per night, minimum 2 people",
+            "format": "Hide placement, guiding, accommodation and meals (Kuhmo, Finland)",
+            "school": "Wildlife Safaris Finland",
+            "place": "Kuhmo, Finland",
+            "url": "https://www.wildfinland.org/prices.html",
+            "priceFrom": "€370",
+            "fit": "Shorter",
+            "note": "Everything included and guided by Lassi Rautiainen's operation — go for as few or as many nights as you like. Solo travellers outside high season pay double.",
+            "confidence": "high"
+          },
+          {
+            "course": "Private low-angle hide, per night",
+            "duration": "1 night",
+            "format": "Private hide (Kuhmo, Finland)",
+            "school": "Wildlife Safaris Finland",
+            "place": "Kuhmo, Finland",
+            "url": "https://www.wildfinland.org/prices.html",
+            "priceFrom": "€300",
+            "fit": "Shorter",
+            "note": "Eye-level with a bear, alone. The angle that makes the picture, without the week.",
+            "confidence": "high"
+          }
+        ]
+      },
+      "destinations": [
+        {
+          "place": "Pusztaszer",
+          "country": "Hungary",
+          "region": "Eastern Europe",
+          "role": "source",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Bence Máté's Hides",
+            "NaturesLens",
+            "Skua Nature"
+          ],
+          "masters": [
+            "Bence Máté"
+          ],
+          "badges": [
+            "source",
+            "master",
+            "master-lab",
+            "record"
+          ],
+          "why": "One-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.",
+          "bestSeason": "Apr-Aug",
+          "level": "Beginner -> Professional",
+          "id": "wildlife-photography--pusztaszer",
+          "schoolsInfo": [
+            {
+              "name": "Bence Máté's Hides",
+              "url": "https://www.bencemateshides.com/",
+              "course": "Hide hire — theatre, cinema, kingfisher, roller, hoopoe, bee-eater, ground squirrel, tower and drinking-station hides",
+              "blurb": "The hide complex on Bence Máté's family farm in the Kiskunság, plus a second set in South Africa (overnight, lagoon and scavenger hides). Máté pioneered the one-way glass that lets a photographer work within metres of an unbothered bird. The site lists no prices, no dates and no course structure — this is a facility to hire, not a taught course, and booking is by email.",
+              "confidence": "high on the hides and the master; low on booking mechanics — no prices, dates or structure are published on his own site"
+            },
+            {
+              "name": "NaturesLens",
+              "url": "https://natureslens.co.uk/photography-holiday/wildlife-photography-hides-of-hungary/",
+              "course": "Wildlife Photography Hides of Hungary — 7 nights, £4,499",
+              "blurb": "A UK operator running week-long, full-board departures into Máté's hides with instruction throughout from company director David Miles. Maximum seven participants. This is where the teaching comes from — Máté himself does not tutor these groups.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "NaturesLens is a UK operator and the departure is led in English by its own director."
+        },
+        {
+          "place": "Kuhmo",
+          "country": "Finland",
+          "region": "Nordic & Baltic",
+          "role": "source",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Wildlife Safaris Finland (Kuikka Wilderness Lodge)"
+          ],
+          "masters": [
+            "Lassi Rautiainen"
+          ],
+          "badges": [
+            "source",
+            "master",
+            "master-lab",
+            "lineage"
+          ],
+          "why": "Photo-hide tourism was effectively invented here. Lassi Rautiainen has been photographing these bears since the 1970s and taking others to them since 1988, and around twenty individual brown bears still work the bog in front of his hides — along with wolves and wolverines.",
+          "bestSeason": "Apr-Aug (evenings and nights); Sep-Mar (daytime)",
+          "level": "Beginner -> Professional",
+          "id": "wildlife-photography--kuhmo",
+          "schoolsInfo": [
+            {
+              "name": "Wildlife Safaris Finland",
+              "url": "https://www.wildfinland.org/",
+              "course": "Bear, wolf and wolverine photo hides — from €210 per night shared, €370 full service",
+              "blurb": "Lassi and Sami Rautiainen run hides for one to five people out of Kuikka Wilderness Lodge in Kuhmo, on the Russian border. Shared hide €210 per person per night, private small hide €250, private low-angle €300; the €370 full-service package adds guiding, room and meals. Rooms from €65 shared, camera bodies and long lenses available to rent. Lassi is Finland's pioneer of photo-hide tourism.",
+              "confidence": "high — every price quoted directly from the operator's own published price list, verified 2026-08-24"
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "a weekend",
+          "englishTaught": true,
+          "englishBasis": "The operation runs international photo tourism and publishes its site and price list in English."
+        },
+        {
+          "place": "Maasai Mara Conservancies",
+          "country": "Kenya",
+          "region": "Sub-Saharan Africa",
+          "role": "scene",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Kicheche Camps"
+          ],
+          "masters": [
+            "Paul Goldstein"
+          ],
+          "badges": [
+            "scene",
+            "mecca",
+            "master",
+            "master-lab"
+          ],
+          "why": "The most photographed big-cat ground on earth, worked from conservancies rather than the crowded reserve. Paul Goldstein has run his own camps here for decades and guides the departures himself, which is rarer than it sounds.",
+          "bestSeason": "Jun-Mar (set departures Jun, Dec, Jan, Mar)",
+          "level": "Beginner -> Professional",
+          "id": "wildlife-photography--maasai-mara-conservancies",
+          "schoolsInfo": [
+            {
+              "name": "Paul Goldstein Photo Safaris / Kicheche Camps",
+              "url": "https://paulgoldstein.co.uk/safaris-and-expeditions/",
+              "course": "Big Cat Whiskers Safari — six nights across two Mara conservancy camps (maximum 10); extended nine-night version across all three Kicheche camps",
+              "blurb": "Goldstein is one of the UK's best-known wildlife photographers and owns the Kicheche camps he guides from, in the Mara North, Olare Motorogi and Naboisho conservancies. He runs a standing programme — Kenya, plus Spitsbergen, Pantanal jaguars, Baffin Island polar bears, Bandhavgarh tigers and South Georgia — with published dates and hard group caps. Booking is by register-interest and enquiry; no prices are published on his site.",
+              "confidence": "high on dates, camps, group caps and that he personally guides — all listed on his own site 2026-08-24; no price is published anywhere public"
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "A British photographer running departures for a UK and international clientele."
+        },
+        {
+          "place": "South Luangwa",
+          "country": "Zambia",
+          "region": "Sub-Saharan Africa",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Edward Selfe Photo Safaris"
+          ],
+          "masters": [
+            "Edward Selfe"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "master-lab",
+            "school"
+          ],
+          "why": "The valley that invented the walking safari, and the one place on this sheet where the photographer teaching you is also a fully qualified guide who lives there year-round rather than flying in for the season.",
+          "bestSeason": "May-Oct",
+          "level": "Intermediate -> Professional",
+          "id": "wildlife-photography--south-luangwa",
+          "schoolsInfo": [
+            {
+              "name": "Edward Selfe Photo Safaris",
+              "url": "https://www.edwardselfephotosafaris.com/photographic-safaris",
+              "course": "Set-departure and private photographic safaris — maximum 4 participants",
+              "blurb": "Selfe has lived in the Luangwa Valley since 2009 and holds both of South Luangwa's guiding qualifications, with eighteen years guiding and photographing across the continent. Groups cap at four, with 'practical technical and artistic guidance throughout' and one-to-one coaching on private trips. Note the scheduled departures currently published range across Uganda, the Mara, Serengeti, Botswana and Tanzania rather than Luangwa itself.",
+              "confidence": "high on his credentials, teaching and group size; prices and dates verified on his own booking page but the published set departures are 2028 and cost USD 16,000-32,000 per person"
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "A British guide operating in anglophone Zambia; all trips run in English."
+        },
+        {
+          "place": "Falmouth",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Falmouth University"
+          ],
+          "masters": [],
+          "badges": [
+            "school",
+            "gold-cred"
+          ],
+          "why": "The only full degree in this craft found anywhere — three years on the Cornish coast learning natural history and underwater photography as a profession rather than a holiday.",
+          "bestSeason": "Sep-Jun",
+          "level": "Beginner -> Professional",
+          "id": "wildlife-photography--falmouth",
+          "schoolsInfo": [
+            {
+              "name": "Falmouth University",
+              "url": "https://www.ucas.com/explore/courses/9ad71cbb-0b37-7bad-1c0d-3f18037abbea/marine-and-natural-history-photography",
+              "course": "BA (Hons) Marine & Natural History Photography — 3 years full-time (UCAS WF67, institution F33)",
+              "blurb": "A three-year honours degree on the Penryn campus in Cornwall covering wildlife, marine and environmental photography and filmmaking, including underwater modules shot on the Cornish coast, taught by working photographers and filmmakers. Four-year professional-placement and integrated-foundation-year variants also run.",
+              "confidence": "high — award, duration and UCAS code verified via UCAS and The Uni Guide; the university's own course page sits behind Cloudflare and returned 403 to both a fetch and a browser-agent request, so its wording is not directly confirmed here"
+            }
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "A UK undergraduate degree, taught in English."
+        }
+      ],
+      "id": "wildlife-photography"
     }
   ],
   "enrichedAt": "2026-06-11",
