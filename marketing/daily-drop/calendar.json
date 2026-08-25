@@ -199,6 +199,17 @@
   },
   {
     "day": 19,
+    "core": "creative",
+    "discipline": "Wildlife Photography",
+    "place": "Pusztaszer, Hungary",
+    "atlasUrl": "https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer",
+    "clipBrief": "30-60s wordless process: hands + material of Wildlife Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Bence Máté's Hides",
+    "footageUrl": "https://www.bencemateshides.com/",
+    "caption": "This is where Wildlife Photography was born.\n\nOne-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.\n\nCommunity strength: Legendary. Season: Apr-Aug.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer\n\n#crafttok #processvideo #handmade #pusztaszer #wildlifephotography"
+  },
+  {
+    "day": 20,
     "core": "culinary",
     "discipline": "Wine & Sommellerie",
     "place": "Bordeaux, France",
@@ -209,7 +220,7 @@
     "caption": "Bordeaux is both the birthplace of Wine & Sommellerie and its living capital.\n\nStand at the source among classified-growth chateaux, where the city of wine itself teaches you to taste the terroir that wrote the rulebook.\n\nCommunity strength: Legendary. Season: May-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux\n\n#foodtok #cookingclass #learnbydoing #bordeaux #winesommellerie"
   },
   {
-    "day": 20,
+    "day": 21,
     "core": "wellness",
     "discipline": "Lymphatic Drainage",
     "place": "Walchsee, Austria",
@@ -220,7 +231,7 @@
     "caption": "This is where Lymphatic Drainage was born.\n\nThe Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and the final training week treats real patients, not classmates. A dedicated English-language course runs at the source.\n\nCommunity strength: The source. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/lymphatic-drainage\n\n#breathwork #yogatok #learnbydoing #walchsee #lymphaticdrainage"
   },
   {
-    "day": 21,
+    "day": 22,
     "core": "adventure",
     "discipline": "Rock Climbing",
     "place": "Yosemite Valley, United States",
@@ -231,7 +242,7 @@
     "caption": "Yosemite Valley is both the birthplace of Rock Climbing and its living capital.\n\nEl Capitan's granite is the planet's bucket-list wall, and the Valley floor is where big-wall craft is still taught and tested by the people pushing it.\n\nCommunity strength: Legendary. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/rock-climbing--yosemite-valley\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #yosemitevalley #rockclimbing"
   },
   {
-    "day": 22,
+    "day": 23,
     "core": "culinary",
     "discipline": "New culinary techniques & technologies",
     "place": "Barcelona, Spain",
@@ -242,7 +253,7 @@
     "caption": "The strongest New culinary techniques & technologies community on earth gathers in Barcelona.\n\nCatalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can actually enrol with a master, at Martin Lippo's Vakuum lab and Jordi Butron's Espai Sucre.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona\n\n#foodtok #cookingclass #learnbydoing #barcelona #newculinarytechniquestec"
   },
   {
-    "day": 23,
+    "day": 24,
     "core": "wellness",
     "discipline": "Sound Healing",
     "place": "Kathmandu / Pokhara, Nepal",
@@ -253,7 +264,7 @@
     "caption": "This is where Sound Healing was born.\n\nThe Himalayan home of singing-bowl craft and Nada Yoga, where you learn bowls and gongs at the source from the makers and Tibetan-rooted sound healers.\n\nCommunity strength: Thriving. Season: Oct-Nov, Mar-Apr.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/sound-healing--kathmandu-pokhara\n\n#breathwork #yogatok #learnbydoing #kathmandupokhara #soundhealing"
   },
   {
-    "day": 24,
+    "day": 25,
     "core": "adventure",
     "discipline": "Ski-touring & Splitboard",
     "place": "Wasatch (Salt Lake City / Park City), United States",
@@ -264,18 +275,18 @@
     "caption": "Wasatch (Salt Lake City / Park City) is both the birthplace of Ski-touring & Splitboard and its living capital.\n\nThe splitboard was born in Utah's Wasatch in 1991, and the range's light powder and dense AIARE cohort make it the home of human-powered riding.\n\nCommunity strength: Legendary. Season: Dec-Apr.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/ski-touring-and-splitboard--wasatch-salt-lake-city-park-city\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #wasatchsaltlakecityparkcity #skitouringsplitboard"
   },
   {
-    "day": 25,
+    "day": 26,
     "core": "culinary",
-    "discipline": "Modernist Spanish Cuisine",
-    "place": "Girona, Spain",
-    "atlasUrl": "https://educatedtraveler.app/atlas/modernist-spanish-cuisine--girona",
-    "clipBrief": "30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "El Celler de Can Roca (stage program)",
-    "footageUrl": "https://cellercanroca.com/en/",
-    "caption": "The strongest Modernist Spanish Cuisine community on earth gathers in Girona.\n\nHome of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique, where a stage is earned, not bought.\n\nCommunity strength: Thriving. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--girona\n\n#foodtok #cookingclass #learnbydoing #girona #modernistspanishcuisine"
+    "discipline": "Organic Farm-to-Table Cooking",
+    "place": "Shanagarry, East Cork, Ireland",
+    "atlasUrl": "https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork",
+    "clipBrief": "30-60s wordless process: hands + material of Organic Farm-to-Table Cooking, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Ballymaloe Cookery School, Organic Farm and Gardens",
+    "footageUrl": "https://www.ballymaloecookeryschool.ie/",
+    "caption": "The strongest Organic Farm-to-Table Cooking community on earth gathers in Shanagarry, East Cork.\n\nA cookery school that sits inside its own 100-acre organic farm at Kinoith, about four kilometres from Ballymaloe House. The vegetables, eggs, milk and meat used in the morning kitchens come off the land outside the door — and the afternoon demonstration is still given by the people whose names are on the school.\n\nCommunity strength: Legendary. Season: Year-round — the 12-week certificate starts in January, April and September.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork\n\n#foodtok #cookingclass #learnbydoing #shanagarryeastcork #organicfarmtotablecookin"
   },
   {
-    "day": 26,
+    "day": 27,
     "core": "wellness",
     "discipline": "Lifestyle Medicine",
     "place": "United States, United States",
@@ -286,7 +297,7 @@
     "caption": "The strongest Lifestyle Medicine community on earth gathers in United States.\n\nThe evidence-based, board-recognised home of root-cause care — a fast-growing community of clinicians who treat causes over symptoms. A clinician's credential, built on a real medical board.\n\nCommunity strength: A growing movement. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/lifestyle-medicine\n\n#breathwork #yogatok #learnbydoing #unitedstates #lifestylemedicine"
   },
   {
-    "day": 27,
+    "day": 28,
     "core": "adventure",
     "discipline": "Safari & Wildlife Guiding",
     "place": "Greater Kruger / Makuleke Concession, South Africa",
@@ -297,7 +308,18 @@
     "caption": "Greater Kruger / Makuleke Concession is both the birthplace of Safari & Wildlife Guiding and its living capital.\n\nThis is where the FGASA gold standard was forged, where you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and certify at the source.\n\nCommunity strength: Legendary. Season: May-Sep (dry season).\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding"
   },
   {
-    "day": 28,
+    "day": 29,
+    "core": "culinary",
+    "discipline": "Modernist Spanish Cuisine",
+    "place": "Girona, Spain",
+    "atlasUrl": "https://educatedtraveler.app/atlas/modernist-spanish-cuisine--girona",
+    "clipBrief": "30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "El Celler de Can Roca (stage program)",
+    "footageUrl": "https://cellercanroca.com/en/",
+    "caption": "The strongest Modernist Spanish Cuisine community on earth gathers in Girona.\n\nHome of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique, where a stage is earned, not bought.\n\nCommunity strength: Thriving. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--girona\n\n#foodtok #cookingclass #learnbydoing #girona #modernistspanishcuisine"
+  },
+  {
+    "day": 30,
     "core": "adventure",
     "discipline": "Yacht Crew & STCW",
     "place": "Antibes, France",
@@ -306,16 +328,5 @@
     "footageSource": "bluewater, Antibes",
     "footageUrl": "https://www.bluewateryachting.com/crew-training",
     "caption": "The strongest Yacht Crew & STCW community on earth gathers in Antibes.\n\nAntibes is where the Mediterranean's crew actually get hired — the schools, the agencies and the crew houses sit inside the same square kilometre, so the training and the dock are the same walk.\n\nCommunity strength: Legendary. Season: Feb–May, before the Med season.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #antibes #yachtcrewstcw"
-  },
-  {
-    "day": 29,
-    "core": "adventure",
-    "discipline": "Spearfishing",
-    "place": "Kona, Big Island, United States",
-    "atlasUrl": "https://educatedtraveler.app/atlas/spearfishing--kona-big-island",
-    "clipBrief": "30-60s wordless process: hands + material of Spearfishing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Kona Freedivers",
-    "footageUrl": "https://www.konafreedivers.com/",
-    "caption": "The strongest Spearfishing community on earth gathers in Kona, Big Island.\n\nDeep blue water and a steep drop-off minutes from shore make Kona one of the world's classrooms for bluewater pelagic hunting.\n\nCommunity strength: Thriving. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/spearfishing--kona-big-island\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #konabigisland #spearfishing"
   }
 ]
