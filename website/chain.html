@@ -142,6 +142,42 @@
         .beat.on > *:nth-child(4){ animation-delay:.15s; }
         .card.unsealing .line b{ animation:unseal .9s cubic-bezier(.2,.7,.2,1) both; }
 
+        /* ── the thinking face ── */
+        /* Sealed, it is a blurred disc — you can tell a face is waiting, not whose or what
+           it's doing. It shares --seal-blur with the sentence, so both come into focus on
+           the same schedule as the reader fills their own blanks. */
+        .facerow{ display:flex; align-items:center; gap:12px; margin-top:16px;
+                  padding-top:15px; border-top:1px solid var(--line); }
+        .facewrap{ flex-shrink:0; width:52px; height:52px; border-radius:50%; overflow:hidden;
+                   border:1px solid var(--line); background:#14110d; display:block; }
+        .facewrap.big{ width:76px; height:76px; border-color:rgba(127,168,165,0.4); }
+        .facewrap img{ display:block; width:100%; height:100%; object-fit:cover; }
+        .card.locked .facewrap img{ filter:blur(var(--seal-blur, 12px)); transform:scale(1.25);
+                                    transition:filter .5s cubic-bezier(.2,.7,.2,1); }
+        .card.unsealing .facewrap img{ animation:unseal .9s cubic-bezier(.2,.7,.2,1) both;
+                                       animation-delay:1.26s; }
+        .facecap{ font-family:var(--mono); font-size:10px; letter-spacing:0.14em;
+                  text-transform:uppercase; color:var(--faint); line-height:1.5; }
+
+        .facepick{ position:relative; display:flex; align-items:center; gap:13px;
+                   border:1px dashed rgba(243,237,226,0.22); border-radius:16px; padding:14px 16px;
+                   cursor:pointer; transition:border-color .25s, background .25s; }
+        .facepick:hover{ border-color:rgba(127,168,165,0.5); background:rgba(127,168,165,0.05); }
+        .facepick.filled{ border-style:solid; border-color:rgba(127,168,165,0.4);
+                          background:rgba(127,168,165,0.06); cursor:default; }
+        .facepick input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+        .facepick.filled input{ pointer-events:none; }
+        .fp-ic{ flex-shrink:0; width:38px; height:38px; border-radius:50%;
+                border:1px solid rgba(243,237,226,0.28); display:flex; align-items:center;
+                justify-content:center; color:var(--faint); font-size:16px; overflow:hidden; }
+        .fp-ic img{ display:block; width:100%; height:100%; object-fit:cover; }
+        .fp-txt{ font-size:14px; color:var(--muted); line-height:1.45; }
+        .swapface{ display:none; background:none; border:0; color:var(--faint); font-family:var(--mono);
+                   font-size:10px; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer;
+                   margin-top:10px; border-bottom:1px solid var(--line); padding:0 0 3px; }
+        .swapface.on{ display:inline-block; }
+        .swapface:hover{ color:var(--sea); border-color:var(--sea); }
+
         /* the guess — one line, one stake, skippable */
         .guess{ display:none; border:1px solid rgba(210,138,82,0.4); border-radius:18px;
                 padding:19px 18px; margin-top:24px;
@@ -169,6 +205,7 @@
         .lbl{ display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:0.18em;
               text-transform:uppercase; color:var(--faint); margin-bottom:8px; }
         .field{ margin-bottom:16px; }
+        .lbl .opt{ letter-spacing:0.06em; text-transform:none; color:rgba(243,237,226,0.26); }
         input.box, textarea{ width:100%; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16);
                border-radius:14px; color:var(--paper); font-family:inherit; font-size:16px; padding:15px 16px;
                outline:none; transition:border-color .25s, box-shadow .25s; resize:none; }
@@ -280,6 +317,10 @@
                 <span class="tag" id="their-tag">Sealed</span>
             </div>
             <div class="line" id="their-line"></div>
+            <div class="facerow" id="their-facerow" style="display:none">
+                <span class="facewrap"><img id="their-face" alt="" ></span>
+                <span class="facecap" id="their-facecap"></span>
+            </div>
         </div>
         <p class="focus-note" id="focus-note" style="display:none">It sharpens as you write</p>
 
@@ -331,6 +372,10 @@
                 <svg class="seal" width="24" height="24" viewBox="0 0 40 40" fill="none"
                      stroke="var(--sea)" stroke-width="1.1"><use href="#seal"/></svg></div>
             <div class="line" id="their-line-2"></div>
+            <div class="facerow" id="their-facerow-2" style="display:none">
+                <span class="facewrap big"><img id="their-face-2" alt=""></span>
+                <span class="facecap" id="their-facecap-2"></span>
+            </div>
         </div>
 
         <div class="card mine" id="mine">
@@ -388,6 +433,20 @@
             <input class="box" type="text" id="f_signas" maxlength="24" placeholder="Your first name">
         </div>
 
+        <div class="field">
+            <span class="lbl">Your thinking face <span class="opt">— optional</span></span>
+            <label class="facepick" id="facepick">
+                <input type="file" id="f_face" accept="image/*" capture="user">
+                <span class="fp-ic" id="fp-ic">+</span>
+                <span class="fp-txt" id="fp-txt">The face you were making a minute ago</span>
+            </label>
+            <button class="swapface" id="swapface" type="button">Take another</button>
+            <p class="help" id="face-help">Scrambled in your browser before it leaves. The key lives in the
+               link you send and never reaches the server — so the person you send it to is the only one
+               who can ever see it. Not even I can.</p>
+            <div class="err" id="err-face"></div>
+        </div>
+
         <div class="msg">
             <textarea id="f_msg" rows="3" aria-label="The message you send"></textarea>
             <div class="lnk" id="link-txt">Add your name and the link appears</div>
@@ -429,7 +488,7 @@
     function canWrite(){ return isProd() && !!(window.supabaseClient && window.supabaseClient.from); }
 
     var state = { skill:'', place:'', how:'', match:null, hands:1, url:'',
-                  guess:'', guessed:false };
+                  guess:'', guessed:false, faceToken:'', faceSecret:'', faceUrl:'' };
 
     // ── the friend's sentence travels IN the link ─────────────────────────────
     // ?c=<base64url json>. Not a database read on purpose: launch_waitlist SELECT is
@@ -451,6 +510,70 @@
         return JSON.parse(new TextDecoder().decode(bytes));
     }
 
+    // ── the thinking face: encrypted here, readable only by the person you send it to ──
+    // The bytes that reach the server are AES-GCM ciphertext. The key is generated in this
+    // browser and travels in the link's FRAGMENT (#k=…), which browsers never send in an
+    // HTTP request — so it never reaches Supabase, an access log, or Arnaud. Nobody but the
+    // holder of the whole link can turn those bytes back into a face, and that includes us.
+    // (Same soft-gate caveat as the sentence: once the recipient's page decrypts it to show
+    // the blurred disc, the image is in their DOM. It is a tease, not a vault.)
+    var FACE_BUCKET = 'chain-faces';
+    var FACE_URL = 'https://exaehwaqwcledemwpluw.supabase.co/storage/v1/object/public/' + FACE_BUCKET + '/';
+
+    function mkToken(){
+        var a = new Uint8Array(12); crypto.getRandomValues(a);
+        return Array.from(a).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+    }
+    function bytesToB64url(b){
+        var s = ''; b.forEach(function(x){ s += String.fromCharCode(x); });
+        return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+    }
+    function b64urlToBytes(str){
+        var s = str.replace(/-/g,'+').replace(/_/g,'/');
+        while(s.length % 4) s += '=';
+        var bin = atob(s), out = new Uint8Array(bin.length);
+        for(var i=0;i<bin.length;i++) out[i] = bin.charCodeAt(i);
+        return out;
+    }
+
+    // Downscale before encrypting: a phone photo is 3–8MB, and the bucket caps at 1MB.
+    // 440px is plenty for a 76px disc and keeps the upload quick on mobile data.
+    function shrink(file, max){
+        return new Promise(function(res, rej){
+            var url = URL.createObjectURL(file), img = new Image();
+            img.onload = function(){
+                var s = Math.min(1, max / Math.max(img.width, img.height));
+                var c = document.createElement('canvas');
+                c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+                c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+                URL.revokeObjectURL(url);
+                c.toBlob(function(b){ b ? res(b) : rej(new Error('could not encode')); }, 'image/jpeg', 0.72);
+            };
+            img.onerror = function(){ URL.revokeObjectURL(url); rej(new Error('not a picture')); };
+            img.src = url;
+        });
+    }
+
+    async function encryptBlob(blob){
+        var key = await crypto.subtle.generateKey({ name:'AES-GCM', length:256 }, true, ['encrypt','decrypt']);
+        var iv = crypto.getRandomValues(new Uint8Array(12));
+        var ct = await crypto.subtle.encrypt({ name:'AES-GCM', iv:iv }, key, await blob.arrayBuffer());
+        var raw = new Uint8Array(await crypto.subtle.exportKey('raw', key));
+        var secret = new Uint8Array(raw.length + iv.length);
+        secret.set(raw, 0); secret.set(iv, raw.length);
+        return { cipher:new Blob([ct], { type:'application/octet-stream' }), secret:bytesToB64url(secret) };
+    }
+
+    async function decryptFace(token, secretB64){
+        var s = b64urlToBytes(secretB64);
+        if(s.length !== 44) throw new Error('bad key');          // 32-byte key + 12-byte iv
+        var key = await crypto.subtle.importKey('raw', s.slice(0, 32), { name:'AES-GCM' }, false, ['decrypt']);
+        var res = await fetch(FACE_URL + encodeURIComponent(token));
+        if(!res.ok) throw new Error('face not found');
+        var plain = await crypto.subtle.decrypt({ name:'AES-GCM', iv:s.slice(32) }, key, await res.arrayBuffer());
+        return URL.createObjectURL(new Blob([plain], { type:'image/jpeg' }));
+    }
+
     var q = new URLSearchParams(location.search);
     var friend = null;
     if(q.get('c')){
@@ -459,6 +582,7 @@
             if(d && d.s){
                 friend = { name:String(d.n||'').slice(0,24), skill:String(d.s).slice(0,60),
                            place:String(d.p||'').slice(0,48), how:String(d.m||'').slice(0,72),
+                           face:String(d.f||'').slice(0,64),
                            hands:Math.min(parseInt(d.h,10)||1, 99) };
                 state.hands = friend.hands + 1;
             }
@@ -494,6 +618,19 @@
         $('go1').textContent = 'Unseal ' + who + "'s";
         $('focus-note').style.display = 'block';
         $('guess-q').textContent = 'Before it opens — what do you think ' + who + ' wrote?';
+
+        // The face is a second reason to answer: you can see one is waiting, not whose or
+        // what it's doing. If the key is missing (a link forwarded without its fragment) or
+        // the object is gone, nothing is shown — never an error, never a broken frame.
+        var secret = (location.hash || '').replace(/^#k=/, '');
+        if(friend.face && secret){
+            decryptFace(friend.face, secret).then(function(url){
+                state.faceUrl = url;
+                $('their-face').src = url;
+                $('their-facecap').textContent = who + ' left a face';
+                $('their-facerow').style.display = 'flex';
+            }).catch(function(e){ console.warn('[Chain] face unavailable:', e && e.message); });
+        }
     })();
 
     // ── one true hint ─────────────────────────────────────────────────────────
@@ -704,6 +841,11 @@
             $('theirs-open').style.display = 'block';
             $('their-who-2').textContent = who;
             $('their-line-2').innerHTML = sentenceHTML(friend.skill, friend.place, friend.how);
+            if(state.faceUrl){
+                $('their-face-2').src = state.faceUrl;
+                $('their-facecap-2').textContent = 'Thinking about it';
+                $('their-facerow-2').style.display = 'flex';
+            }
             $('theirs-open').classList.add('unsealing');
             $('eyebrow2').textContent = 'Unsealed';
             scoreGuess(who);
@@ -911,6 +1053,61 @@
         if(res && res.error) throw res.error;
     }
 
+    // ── taking the face ──────────────────────────────────────────────────────
+    // capture="user" opens the front camera straight away on a phone; on a desktop the
+    // same control is an ordinary file picker, so nothing is unreachable either way.
+    $('f_face').addEventListener('change', async function(){
+        var file = this.files && this.files[0];
+        if(!file) return;
+        var err = $('err-face'), pick = $('facepick');
+        err.style.display = 'none';
+        $('fp-txt').textContent = 'Scrambling…';
+
+        try{
+            var small = await shrink(file, 440);
+            var enc = await encryptBlob(small);
+
+            if(canWrite()){
+                var token = mkToken() + '.bin';
+                var up = await window.supabaseClient.storage.from(FACE_BUCKET)
+                    .upload(token, enc.cipher, { contentType:'application/octet-stream', upsert:false });
+                if(up && up.error) throw up.error;
+                state.faceToken = token;
+            } else {
+                // Preview: the encrypt step really ran, nothing is uploaded. The link that
+                // gets built carries no token, so it can't promise a face that isn't stored.
+                state.faceToken = '';
+            }
+            state.faceSecret = enc.secret;
+
+            var shown = URL.createObjectURL(small);
+            $('fp-ic').innerHTML = '';
+            var im = new Image(); im.src = shown; im.alt = '';
+            $('fp-ic').appendChild(im);
+            $('fp-txt').textContent = canWrite()
+                ? 'Only they will see this'
+                : 'Encrypted here — not uploaded in preview';
+            pick.classList.add('filled');
+            $('swapface').classList.add('on');
+            buildLink();
+            if(window.plausible) window.plausible('ChainFace');
+        }catch(e){
+            console.error('[Chain] face failed:', e);
+            $('fp-txt').textContent = 'The face you were making a minute ago';
+            err.textContent = /picture/.test(e && e.message || '')
+                ? 'That needs to be a photo.'
+                : 'That photo would not go through — try another, or skip it.';
+            err.style.display = 'block';
+        }
+        this.value = '';   // let the same file be picked again after a failure
+    });
+
+    $('swapface').addEventListener('click', function(){
+        $('facepick').classList.remove('filled');
+        $('f_face').value = '';
+        $('f_face').click();
+    });
+
     // ── the pass ─────────────────────────────────────────────────────────────
     $('f_signas').addEventListener('input', function(){ this.dataset.touched = '1'; buildLink(); });
     $('f_msg').addEventListener('input', function(){ this.dataset.touched = '1'; });
@@ -925,7 +1122,11 @@
         var payload = { n:who, s:state.skill, h:state.hands };
         if(state.place) payload.p = state.place;
         if(state.how)   payload.m = state.how;
-        state.url = location.origin + '/chain?c=' + b64urlEncode(payload);
+        if(state.faceToken) payload.f = state.faceToken;
+        // The key goes in the fragment, never the query: fragments are not sent to servers,
+        // so the thing that unlocks the face exists only in the message they send.
+        state.url = location.origin + '/chain?c=' + b64urlEncode(payload)
+                  + (state.faceToken && state.faceSecret ? '#k=' + state.faceSecret : '');
         $('link-txt').textContent = state.url;
     }
 
