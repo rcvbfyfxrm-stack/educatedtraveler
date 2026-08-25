@@ -519,6 +519,17 @@
     var STOP = { and:1, the:1, of:1, a:1, in:1, at:1, for:1, with:1, to:1 };
     function tokens(s){ return norm(s).split(' ').filter(function(t){ return t && !STOP[t]; }); }
 
+    // Words that say how a craft is NAMED, not which craft it is. They may support a
+    // match; they can never carry one alone. "pasta making" scored a point against
+    // "Japanese Knife-Making" on the word "making", tied with "Italian Cuisine & Pasta",
+    // and the shorter-name tie-break then told the reader the Atlas had their craft
+    // open in Shimanto, Japan. A wrong open door is the worst thing this page can say.
+    var WEAK = { making:1, make:1, made:1, craft:1, crafts:1, crafting:1, work:1,
+                 working:1, art:1, arts:1, artisan:1, artisanal:1, school:1, course:1,
+                 courses:1, class:1, classes:1, lesson:1, lessons:1, technique:1,
+                 techniques:1, traditional:1, natural:1, modern:1, classic:1,
+                 classical:1, study:1, studies:1, skill:1, skills:1 };
+
     // Three passes, loosest last. Substring alone is not enough: "winemaking" shares no
     // substring with "Wine & Sommellerie", so the craft Arnaud himself uses as the example
     // would have come back as "not on the map". Token-prefix catches it without inviting
@@ -536,26 +547,40 @@
         });
         if(part) return part;
 
-        var want = tokens(text), best = null, bestScore = 0;
+        var want = tokens(text), best = null, bestScore = 0, bestStrong = 0;
         if(!want.length) return null;
+        var wantStrong = want.filter(function(w){ return !WEAK[w]; });
         ATLAS.forEach(function(c){
-            var have = tokens(c.name), score = 0;
+            var have = tokens(c.name), score = 0, strong = 0;
             have.forEach(function(h){
                 if(h.length < 4) return;
                 for(var i=0;i<want.length;i++){
                     var w = want[i];
-                    if(w === h || w.indexOf(h) === 0 || (w.length >= 4 && h.indexOf(w) === 0)){ score++; break; }
+                    if(w === h || w.indexOf(h) === 0 || (w.length >= 4 && h.indexOf(w) === 0)){
+                        score++;
+                        if(!WEAK[w] && !WEAK[h]) strong++;
+                        break;
+                    }
                 }
             });
+            // A craft only enters the running if it accounted for a word that actually
+            // names a craft. Matching on "making" alone is not evidence of anything.
+            if(!strong) return;
             // Ties go to the more specific (shorter) name, never to the one that happens
             // to be open — the verdict must not lean toward good news.
-            if(score > bestScore || (score > 0 && score === bestScore && best
-               && c.name.length < best.name.length)){ best = c; bestScore = score; }
+            if(strong > bestStrong
+               || (strong === bestStrong && score > bestScore)
+               || (strong === bestStrong && score === bestScore && best
+                   && c.name.length < best.name.length)){
+                best = c; bestScore = score; bestStrong = strong;
+            }
         });
+        if(!best) return null;
         // One incidental token must not carry a whole match: "underwater basket weaving"
         // otherwise comes back as Textiles & Weaving in Oaxaca, stated with a real place.
-        // At least half the words someone wrote have to be accounted for.
-        return (bestScore / want.length) >= 0.5 ? best : null;
+        // At least half the naming words have to be accounted for — measured against the
+        // words that name a craft, so "knife making" is judged on "knife".
+        return (bestStrong / (wantStrong.length || want.length)) >= 0.5 ? best : null;
     }
 
     // Runs here, not in paintEntry: matchCraft needs ATLAS, which is only populated above.
