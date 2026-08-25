@@ -6,7 +6,8 @@
 Every check here is one that would otherwise fail silently — the page still 200s,
 still looks finished, and is wrong. That is the failure mode this file exists for.
 
-  1. the band is in the HTML at all, above the browse, with cards in it;
+  1. the band is in the HTML at all, above the browse, with cards in it, and it is
+     a rail that carries EVERY craft somebody asked for — not the first few;
   2. every craft in the band is one somebody actually asked for — a slug in
      data/atlas-unlocked.json, never a pinned sheet Arnaud wrote himself;
   3. the band is in date order, newest first, and every date is the one in
@@ -85,6 +86,26 @@ for color, slug, date in cards:
 
 if seen != sorted(seen, reverse=True):
     bad(f"the band is not newest-first: {seen}")
+
+# ── 3b. it carries ALL of them ─────────────────────────────────────────────
+# The band used to print the first four and say "the crafts someone asked for".
+# It is a rail now and shows every one, which is a promise the page can only keep
+# while nothing caps the list again — so the cap is what this checks for. Compared
+# against the crafts that COULD be in it: asked for, open, and with a date on file.
+in_band = {slug for _, slug, _ in cards}
+should = {s for s in hands if s in opened and (ROOT / f"website/atlas/{s}.html").exists()}
+if should - in_band:
+    bad(f"{len(should - in_band)} craft(s) somebody asked for are missing from the band: "
+        f"{', '.join(sorted(should - in_band))} — the section claims all of them")
+if not re.search(r'<div class="norail"', band):
+    bad("the band is not a rail any more — with every craft in it and no rail, the "
+        "section is a wall of cards rather than something a reader can scan")
+m = re.search(r"all (\d+) — scroll", band)
+if not m:
+    bad("the band no longer says how many crafts are in it, so a reader has no way "
+        "to know whether the row they can see is all of them")
+elif int(m[1]) != len(cards):
+    bad(f"the band says 'all {m[1]}' but carries {len(cards)} cards")
 
 # ── 4. the counts in the copy are the counts in the data ───────────────────
 idx = (ROOT / "website/js/atlas-index.js").read_text()

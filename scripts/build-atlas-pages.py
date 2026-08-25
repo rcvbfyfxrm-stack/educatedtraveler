@@ -626,6 +626,52 @@ def room_block(x, d=None):
             '<p class="meta" style="margin-top:10px">Want the rest — a normal day, first hour to last? '
             'Ask the school; a serious one answers in two minutes.</p></div></section>')
 
+def craft_depth(d):
+    """The craft itself, past the one-line lead — what a trip can honestly give you,
+    and what the days are actually like.
+
+    A craft page led with a sentence and then went straight to the places, so the
+    only in-depth reading on the Atlas was buried one click further down, on a place
+    sheet (Arnaud, 2026-08-25: "I don't see the in-depth description"). This is the
+    craft-level research we already hold, at the level it was written for. It sits
+    BELOW the places on purpose: where the craft is most alive stays the point of
+    the page, and this is what you read once that has pulled you.
+
+    Renders only from rows that exist. 12 of the 34 open crafts carry it today; the
+    rest get no section and no link to one, rather than a heading over a blank.
+    """
+    ceiling, room = d.get("ceiling"), d.get("room") or {}
+    if not ceiling and not room:
+        return ""
+    out = ('<section id="in-depth"><div class="wrap prose">'
+           '<div class="mono">If this one pulls you</div>'
+           f'<h2>{e(d["discipline"])} in depth</h2>')
+    if ceiling:
+        out += ('<p style="opacity:.82;font-size:15px;margin-bottom:16px">'
+                '<strong style="font-weight:500">What you can realistically reach:</strong> '
+                f'{e(ceiling)}</p>')
+    rows = [(lbl, room[k]) for k, lbl in
+            (("ratio", "Group"), ("day", "A normal day"), ("who", "Who comes")) if room.get(k)]
+    if rows:
+        out += ('<ul class="clean" style="font-size:14.5px">'
+                + "".join(f'<li><strong style="font-weight:500">{lbl}</strong> — {e(v)}</li>'
+                          for lbl, v in rows) + "</ul>")
+    return out + ('<p class="meta" style="margin-top:12px">This is the craft, not one school\'s '
+                  'version of it. What each place does with it is on that place\'s own sheet.</p>'
+                  "</div></section>")
+
+
+def depth_link(d):
+    """The way down to it, under the lead. Only ever printed when the section exists."""
+    if not craft_depth(d):
+        return ""
+    return ('<p style="margin-top:16px"><a href="#in-depth" style="text-decoration:none;'
+            'font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);'
+            'padding-bottom:2px">Read the craft in depth &darr;</a>'
+            '<span class="meta" style="display:block;margin-top:7px">What a trip can honestly '
+            'give you, and what the days are like. The places come first.</span></p>')
+
+
 def credential_section(d):
     if not d.get("goldCredential"):
         return ""
@@ -742,6 +788,39 @@ def check_line(x):
             f'{e(st)} &middot; {e(c["by"])} &middot; {e(c["date"])}{what}</p>')
 
 
+def sheet_link(d, x):
+    """The door to a place's own sheet, written as a door.
+
+    The place name in the card heading has always been a link and nothing about it
+    said there was a whole page behind it, so the reason-to-go read as the end of
+    the story instead of the first line of it (Arnaud, 2026-08-25: "have the link
+    somewhere where it reads nice"). Same href, said out loud.
+
+    It names only what that page actually carries, off the row rather than off a
+    template: a sheet with no named master must not promise one.
+    """
+    has = []
+    n = len(x.get("schoolsInfo") or x.get("schools") or [])
+    if n:
+        has.append("the school" if n == 1 else f"all {n} schools")
+    if any(s.get("course") for s in (x.get("schoolsInfo") or [])):
+        has.append("the course and what it costs")
+    if x.get("masters"):
+        has.append("who teaches")
+    if x.get("room") or d.get("room"):
+        has.append("how the days run")
+    if not has:
+        return ""
+    if len(has) > 1:
+        has[-1] = "and " + has[-1]
+    what = (", " if len(has) > 2 else " ").join(has)
+    return ('<p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)">'
+            f'<a href="/atlas/{x["id"]}" style="text-decoration:none;font-size:14px;color:var(--sea);'
+            'border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">'
+            f'The full sheet on {e(x["place"])} &rarr;</a>'
+            f'<span class="meta" style="display:block;margin-top:7px">{what.capitalize()}.</span></p>')
+
+
 def dest_card(d, x, link=True, is_best=False):
     badges = "".join(f'<span class="badge">{e(BADGE_LABELS.get(b, b))}</span>' for b in x["badges"])
     title = f'{e(x["place"])}, {e(x["country"])}'
@@ -757,7 +836,7 @@ def dest_card(d, x, link=True, is_best=False):
             f'<div class="meta" style="margin-bottom:10px">{community_pill(x)}'
             f' · Season: {e(x["bestSeason"])} · {e(x["level"])}</div>'
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{badges}'
-            f'{check_line(x)}</div>')
+            f'{sheet_link(d, x) if link else ""}{check_line(x)}</div>')
 
 def alts_block(f):
     alts = f.get("alternatives") or []
@@ -977,9 +1056,10 @@ for d in DISC:
     body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / {e(CORES[d['category']][0])}</div>
 <h1>{e(d['discipline'])}</h1>
-<p class="lead">{e(d['blurb'])}</p>{cred}
+<p class="lead">{e(d['blurb'])}</p>{cred}{depth_link(d)}
 </div></header>
 <section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{intent_form(f"{d['discipline']} pulls you? Leave an email — we'll introduce you to the right place and the right people as the map grows.", source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>
+{craft_depth(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
         breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)]))
@@ -1105,7 +1185,12 @@ N_OPEN = sum(1 for c in CARDS if c["open"])
 # Only crafts in data/atlas-unlocked.json get in here. The pinned-open sheets are
 # open too, but nobody asked for them — Arnaud wrote them — and a band that mixed
 # the two would be claiming an ask that never happened.
-BAND_N = 4                                 # one full row; see .nogrid in atlas_hub.py
+# EVERY craft that got here by an ask — not the first four. The band is a rail now
+# (.norail in atlas_hub.py), so the row scrolls rather than the list being cut: a
+# section headed "the crafts someone asked for" that showed 4 of 28 was not telling
+# the truth about its own subject. There is no cap here on purpose; if this list ever
+# grows past what a rail can carry, that is a design problem to solve on the page and
+# not a reason to quietly stop showing people the craft they asked for.
 _by_id = {c["id"]: c for c in CARDS}
 _asked = [c for c in CARDS if c["open"] and c["id"] in HANDS]
 N_ASKED = len(_asked)
@@ -1114,10 +1199,15 @@ N_ASKED = len(_asked)
 _band_slugs = sorted((c["id"] for c in _asked if c["id"] in OPENED),
                      key=lambda s: (_by_id[s]["name"].lower(),))
 _band_slugs.sort(key=lambda s: OPENED[s], reverse=True)
+# why + blurb: the same two lines the browse cards carry, from the same fields, so a
+# band card reads like the card it is. Every craft in this band is open, so `why` is
+# always a published reason-to-go — nothing here can print a sentence the craft's own
+# sheet does not.
 OPENED_BAND = [{"id": s, "name": _by_id[s]["name"], "place": _by_id[s]["place"],
                 "country": _by_id[s]["country"],
                 "color": atlas_hub.WORLD_COLOR.get(_by_id[s]["world"], "#7fa8a5"),
-                "opened": pretty_date(OPENED[s])} for s in _band_slugs[:BAND_N]]
+                "why": _by_id[s].get("why", ""), "blurb": _by_id[s].get("blurb", ""),
+                "opened": pretty_date(OPENED[s])} for s in _band_slugs]
 
 (ROOT / "website/js/atlas-index.js").write_text(
     "// EducatedTraveler — the Atlas browse index. GENERATED by scripts/build-atlas-pages.py.\n"

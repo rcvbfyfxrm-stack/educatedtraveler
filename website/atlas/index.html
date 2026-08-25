@@ -225,11 +225,28 @@ select.fin option{background:var(--ink2)}
   .dcard:hover .reveal-cue,.gcard:hover .reveal-cue{opacity:0}
 }
 @media(hover:none){.reveal-cue{display:none}}
-/* ===== Atlas card v3 — the skill, the place, the sentence ===== */
+/* ===== Atlas card v4 — the skill, the place, why that place, what the craft is =====
+   The place is deliberately the second-loudest thing on the card and the only
+   coloured one: the skill is what you are choosing, the place is what makes the
+   choice real, and a reader scanning a hundred cards should be able to read the
+   pair as one line without the place shrinking into the body copy. */
 .learn{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:5px}
-.wherealive{font-size:13.5px;color:var(--sc);line-height:1.4;margin-bottom:11px}
-.craftblurb{font-size:12.5px;color:var(--muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:4px}
+.wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px}
+.wherealive .in{font-size:12.5px;font-weight:400;opacity:.62}
+/* Why THAT place — the school's own reason to go, as it is written on the sheet
+   this card opens. Never re-cut, never paraphrased: a card that rewrites the
+   research in shorter words is a machine talking, and nothing here may. It is
+   clamped instead, so the cut is visibly a cut and the rest is one click away. */
+.cardhook{font-size:12.5px;color:var(--paper);opacity:.88;line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+/* Separated from the hook above it by SIZE, not by fading it out — at --faint on
+   this background the line was decoration rather than something you could read. */
+.craftblurb{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* A craft nobody has asked for has no published reason-to-go, so its card carries
+   the one line its own sheet leads with — and carries it once, at full size,
+   rather than printing the same sentence twice in two different greys. */
+.cardhook.only{-webkit-line-clamp:4;margin-bottom:0}
+.cardhook.only + .craftblurb{display:none}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
@@ -327,14 +344,24 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 .newopen h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3.2vw,34px);line-height:1.1;letter-spacing:-.01em;margin:11px 0 12px}
 .newopen .nosub{color:var(--muted);font-size:14.5px;line-height:1.7}
 .newopen .nosub b{color:var(--paper);font-weight:400}
-/* Fixed counts, not auto-fill: four cards divide evenly by 4, by 2 and by 1, so the
-   band is always full rows. auto-fill picked the column count off the viewport and
-   left a single card stranded on a second row at most desktop widths. */
-.nogrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
-@media(max-width:1000px){.nogrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.nogrid{grid-template-columns:minmax(0,1fr)}}
+/* A RAIL, NOT A ROW OF FOUR (2026-08-25, Arnaud's ask).
+   The band used to be a four-card grid and the other twenty-four crafts the Circle
+   opened were simply not on the page — the section claimed "the crafts someone asked
+   for" and showed a seventh of them. It scrolls now, and every one of them is in it.
+   Same .rail mechanics as the catalogue shelves below, so there is one horizontal
+   card behaviour on this page and not a second one to keep in step. */
+.norail{display:flex;gap:13px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:4px 2px 14px;scrollbar-width:none;cursor:grab}
+.norail::-webkit-scrollbar{display:none}
+.norail.drag{cursor:grabbing;scroll-behavior:auto}
+.norail>.gcard{scroll-snap-align:start;flex:0 0 auto;width:clamp(228px,25vw,262px)}
+.nowrap-rail{position:relative}
 .openedon{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
 .openedon b{color:var(--sc);font-weight:400}
+/* how far along the band you are — the answer to "is that all of them?", which a
+   scrolling row has to give in words because it cannot give it by being full */
+.nocount{display:flex;align-items:center;gap:12px;margin:2px 0 12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.nocount .track{flex:1;max-width:230px;height:2px;border-radius:2px;background:rgba(243,237,226,.12);overflow:hidden}
+.nocount .track i{display:block;height:100%;width:20%;border-radius:2px;background:var(--sea);transition:width .25s,margin-left .25s}
 .nomore{margin:16px 0 0;font-size:13.5px}
 .nomore a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)}
 .nomore a:hover{color:var(--paper)}
@@ -358,12 +385,12 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
     </div>
     <div class="hero-demo">
       <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
-      <p class="demo-note">Every card reads like that: the skill, and the one place its community is most alive.</p>
+      <p class="demo-note">Every card reads like that — the skill, and the one place its community is most alive — and then tells you why that place.</p>
     </div>
   </div>
 </header>
 
-<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap"><div class="nohead"><div class="eyebrow">Opened by the Circle</div><h2 class="serif" id="opened-h">The crafts someone asked for, newest first.</h2><p class="nosub">Every craft here starts as a short entry. When a real person names one — in a letter, on a raise-your-hand form, or on the way into the Circle — I do the work behind it: the places, the schools, the reason to go. Then it opens. <b>28 of the 34 open crafts</b> got here that way. The other 6 I opened myself. Each date is the day the ask landed.</p></div><div class="nogrid"><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/wildlife-photography" aria-label="Open the Wildlife Photography skill sheet"></a><div class="openedon">Opened <b>24 Aug 2026</b></div><span class="craftname">Wildlife Photography</span><div class="wherealive">in Pusztaszer, Hungary</div></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/safari-and-wildlife-guiding" aria-label="Open the Safari &amp; Wildlife Guiding skill sheet"></a><div class="openedon">Opened <b>23 Aug 2026</b></div><span class="craftname">Safari &amp; Wildlife Guiding</span><div class="wherealive">in Greater Kruger / Makuleke Concession, South Africa</div></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/hatha-and-vinyasa-yoga" aria-label="Open the Hatha &amp; Vinyasa Yoga skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Hatha &amp; Vinyasa Yoga</span><div class="wherealive">in Rishikesh, India</div></article><article class="gcard" style="--sc:#cf8f6e"><a class="cardlink" href="/atlas/perfumery" aria-label="Open the Perfumery skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Perfumery</span><div class="wherealive">in Grasse, France</div></article></div><p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet →</a></p></div></section>
+<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap"><div class="nohead"><div class="eyebrow">Opened by the Circle</div><h2 class="serif" id="opened-h">The crafts someone asked for, newest first.</h2><p class="nosub">Every craft here starts as a short entry. When a real person names one — in a letter, on a raise-your-hand form, or on the way into the Circle — I do the work behind it: the places, the schools, the reason to go. Then it opens. <b>28 of the 34 open crafts</b> got here that way. The other 6 I opened myself. Each date is the day the ask landed.</p></div><div class="nocount"><span id="noseen">1 of 28</span><span class="track"><i id="nofill"></i></span><span>all 28 — scroll</span></div><div class="nowrap-rail"><div class="norail" id="norail"><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/wildlife-photography" aria-label="Open the Wildlife Photography skill sheet"></a><div class="openedon">Opened <b>24 Aug 2026</b></div><span class="craftname">Wildlife Photography</span><div class="wherealive"><span class="in">in</span> Pusztaszer, Hungary</div><p class="cardhook">One-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.</p><p class="craftblurb">Waiting in a hide until the light, the animal and the frame arrive together, and learning to be there — still, ready and unseen — at the moment they do.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/safari-and-wildlife-guiding" aria-label="Open the Safari &amp; Wildlife Guiding skill sheet"></a><div class="openedon">Opened <b>23 Aug 2026</b></div><span class="craftname">Safari &amp; Wildlife Guiding</span><div class="wherealive"><span class="in">in</span> Greater Kruger / Makuleke Concession, South Africa</div><p class="cardhook">This is where the FGASA gold standard was forged, where you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and certify at the source.</p><p class="craftblurb">Reading spoor, tracking lions on foot and naming every bird, tree and behaviour across unfenced wilderness until the bush itself becomes your language.</p></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/hatha-and-vinyasa-yoga" aria-label="Open the Hatha &amp; Vinyasa Yoga skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Hatha &amp; Vinyasa Yoga</span><div class="wherealive"><span class="in">in</span> Rishikesh, India</div><p class="cardhook">Earn your RYT-200 where the Ganges meets the Himalaya, shoulder to shoulder with a global cohort in the city the practice itself calls its capital.</p><p class="craftblurb">The breath-linked flow of posture and stillness that became the world&#x27;s most-practiced moving meditation, rooted on the banks of the Ganges and in the halls of the Mysore Palace.</p></article><article class="gcard" style="--sc:#cf8f6e"><a class="cardlink" href="/atlas/perfumery" aria-label="Open the Perfumery skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Perfumery</span><div class="wherealive"><span class="in">in</span> Grasse, France</div><p class="cardhook">The world capital of perfume, where the UNESCO-listed know-how of fields, distillery and the nose has flowed unbroken since the 1600s.</p><p class="craftblurb">Standing at the perfumer&#x27;s organ, hundreds of raw materials at your fingertips, building an invisible architecture of memory one drop at a time.</p></article><article class="gcard" style="--sc:#cf8f6e"><a class="cardlink" href="/atlas/photography" aria-label="Open the Photography skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Photography</span><div class="wherealive"><span class="in">in</span> Paris, France</div><p class="cardhook">Daguerre&#x27;s process was announced to the Académie here in 1839, and the city still trains image-makers a few streets from where the medium was born.</p><p class="craftblurb">Seeing with light and time, then committing to a single frame, in darkroom and field, until your eye becomes unmistakably your own.</p></article><article class="gcard" style="--sc:#cf8f6e"><a class="cardlink" href="/atlas/pottery-and-ceramics" aria-label="Open the Pottery &amp; Ceramics skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Pottery &amp; Ceramics</span><div class="wherealive"><span class="in">in</span> Mashiko, Japan</div><p class="cardhook">Hamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.</p><p class="craftblurb">You center wet clay on a spinning wheel and pull a living vessel up out of mud, then trust it to the fire.</p></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/vipassana-and-meditation" aria-label="Open the Vipassana &amp; Meditation skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Vipassana &amp; Meditation</span><div class="wherealive"><span class="in">in</span> Igatpuri (Dhamma Giri), India</div><p class="cardhook">The world headquarters of Goenka Vipassana and one of the largest meditation centres on Earth, where the modern revival was born and the gold-standard 10-day course is taught at the source.</p><p class="craftblurb">Ten days of noble silence and bare attention to breath and sensation, an unbroken Theravada technique taught exactly as it was 2,500 years ago.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/windsurfing-and-wing-foil" aria-label="Open the Windsurfing &amp; Wing-foil skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Windsurfing &amp; Wing-foil</span><div class="wherealive"><span class="in">in</span> Karpathos (Afiartis), Greece</div><p class="cardhook">The Afiartis bay funnels the strongest, most reliable meltemi in Greece — 25-35 knots gusting higher for weeks on end — making it a mecca for powered-up intermediate-to-expert sailors, with a tamer Chicken Bay for those stepping up. It is the quietest and least-developed of the Greek spots, where the windsurf community is the entire scene and there is no nightlife. Remote and effectively car-dependent, but cheap on gear and gloriously empty.</p><p class="craftblurb">Rig a sail to a board and steer by feel through your feet, then graduate to a wing and a foil that lifts you silently clear of the water.</p></article><article class="gcard" style="--sc:#c9a24a"><a class="cardlink" href="/atlas/wine-and-sommellerie" aria-label="Open the Wine &amp; Sommellerie skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><span class="craftname">Wine &amp; Sommellerie</span><div class="wherealive"><span class="in">in</span> Bordeaux, France</div><p class="cardhook">Stand at the source among classified-growth chateaux, where the city of wine itself teaches you to taste the terroir that wrote the rulebook.</p><p class="craftblurb">The disciplined reading of terroir, vintage and varietal in the glass, until your palate can name a wine&#x27;s birthplace blind.</p></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/ashtanga-yoga" aria-label="Open the Ashtanga Yoga skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Ashtanga Yoga</span><div class="wherealive"><span class="in">in</span> Mysore (Gokulam), India</div><p class="cardhook">The Gokulam neighbourhood where the method was born and the lineage still holds, the one place every authorised Ashtanga teacher on Earth traces home.</p><p class="craftblurb">The fierce, set-sequence breath-and-movement discipline of Pattabhi Jois, where you earn each posture one practice at a time at dawn.</p></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/cold-exposure-wim-hof-method" aria-label="Open the Cold Exposure (Wim Hof Method) skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Cold Exposure (Wim Hof Method)</span><div class="wherealive"><span class="in">in</span> Przesieka, Karkonosze Mountains, Poland</div><p class="cardhook">Wim Hof&#x27;s own mountain training ground, where the legendary Winter Expedition and final instructor module are earned barefoot in the snow up Mount Sniezka.</p><p class="craftblurb">A trinity of conscious breathing, deliberate cold and focused mindset that lets ordinary people stride bare-skinned into ice and snow.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/freediving" aria-label="Open the Freediving skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Freediving</span><div class="wherealive"><span class="in">in</span> Apnea Academy / Italian Mediterranean, Italy</div><p class="cardhook">The Mediterranean that bred Mayol, Maiorca and Pelizzari is where competitive apnea was born, and the Apnea Academy lineage still teaches it at the source.</p><p class="craftblurb">Drop on a single breath into the blue, slow your heart, and learn the discipline of going deep on nothing but your lungs and your nerve.</p></article><article class="gcard" style="--sc:#c9a24a"><a class="cardlink" href="/atlas/french-pastry-and-patisserie" aria-label="Open the French Pastry &amp; Patisserie skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">French Pastry &amp; Patisserie</span><div class="wherealive"><span class="in">in</span> Paris, France</div><p class="cardhook">This is the source: stand at the bench where the CAP Pâtissier was forged and earn the diploma the rest of the world measures itself against.</p><p class="craftblurb">The lacquered glaze, the tempered ganache, the entremets built layer by mirrored layer — the most exacting sweet craft on earth, learned plaque by plaque.</p></article><article class="gcard" style="--sc:#c9a24a"><a class="cardlink" href="/atlas/italian-cuisine-and-pasta" aria-label="Open the Italian Cuisine &amp; Pasta skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Italian Cuisine &amp; Pasta</span><div class="wherealive"><span class="in">in</span> Bologna, Italy</div><p class="cardhook">The world&#x27;s only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.</p><p class="craftblurb">The art of the rolled sheet and the regional table — hands learning to read dough by touch and build a menu from the land it grows on.</p></article><article class="gcard" style="--sc:#cf8f6e"><a class="cardlink" href="/atlas/jewelry-and-goldsmithing" aria-label="Open the Jewelry &amp; Goldsmithing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Jewelry &amp; Goldsmithing</span><div class="wherealive"><span class="in">in</span> Florence, Italy</div><p class="cardhook">In the city of the goldsmiths&#x27; bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.</p><p class="craftblurb">Sawing, soldering, setting stones and raising metal at the bench until a sketch becomes a wearable object that will be handed down.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/kitesurfing" aria-label="Open the Kitesurfing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Kitesurfing</span><div class="wherealive"><span class="in">in</span> Maui (Kite Beach, Kanaha), United States</div><p class="cardhook">Maui&#x27;s North Shore is where modern kiteboarding was proven and pushed in the late &#x27;90s, and Kanaha&#x27;s reliable trades still draw the riders who write the sport&#x27;s playbook.</p><p class="craftblurb">Harness a wind-driven kite and carve, jump and loop across open water, flying between sea and sky on a single board.</p></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/lymphatic-drainage" aria-label="Open the Lymphatic Drainage skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Lymphatic Drainage</span><div class="wherealive"><span class="in">in</span> Walchsee, Austria</div><p class="cardhook">The Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and the final training week treats real patients, not classmates. A dedicated English-language course runs at the source.</p><p class="craftblurb">The clinical, featherlight touch that treats lymphoedema — a credential a health system reimburses, not a spa detox.</p></article><article class="gcard" style="--sc:#c9a24a"><a class="cardlink" href="/atlas/modernist-spanish-cuisine" aria-label="Open the Modernist Spanish Cuisine skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Modernist Spanish Cuisine</span><div class="wherealive"><span class="in">in</span> Roses / Cala Montjoi (Costa Brava), Spain</div><p class="cardhook">The exact cove where Ferran Adrià detonated modernist cuisine and elBulli reigned as the world&#x27;s best restaurant — a pilgrimage to the origin point of the avant-garde.</p><p class="craftblurb">The science-driven vanguard of foams, spherification and deconstruction that Ferran Adrià unleashed from a cove on the Costa Brava and rewired global fine dining.</p></article><article class="gcard" style="--sc:#c9a24a"><a class="cardlink" href="/atlas/new-basque-cuisine" aria-label="Open the New Basque Cuisine skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">New Basque Cuisine</span><div class="wherealive"><span class="in">in</span> San Sebastián (Donostia), Spain</div><p class="cardhook">The cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.</p><p class="craftblurb">The 1970s avant-garde revolt that revived Basque tradition through French nouvelle technique — local product elevated with intellect and fire.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/rock-climbing" aria-label="Open the Rock Climbing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Rock Climbing</span><div class="wherealive"><span class="in">in</span> Yosemite Valley, United States</div><p class="cardhook">El Capitan&#x27;s granite is the planet&#x27;s bucket-list wall, and the Valley floor is where big-wall craft is still taught and tested by the people pushing it.</p><p class="craftblurb">Reading stone with your fingertips and trusting your own placements as you move up vertical rock under your own power.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/sailing-and-yachtmaster" aria-label="Open the Sailing &amp; Yachtmaster skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Sailing &amp; Yachtmaster</span><div class="wherealive"><span class="in">in</span> The Solent (Cowes &amp; Hamble), United Kingdom</div><p class="cardhook">The Solent is where the RYA built its Yachtmaster scheme, and its tidal chaos still forges the most respected ticket afloat, one examined and earned rather than bought.</p><p class="craftblurb">Take command of a yacht offshore, reading wind, tide and stars until the sea answers to your hand on the helm.</p></article><article class="gcard" style="--sc:#cf8f6e"><a class="cardlink" href="/atlas/self-sufficiency" aria-label="Open the Self-Sufficiency &amp; Food Preservation skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Self-Sufficiency &amp; Food Preservation</span><div class="wherealive"><span class="in">in</span> Almería, Spain</div><p class="cardhook only">The one craft here sold as walking away from everyone — whose own founder said its whole point was to end up needing them. Growing your own food, and keeping it through the winter, is real skill: soil, water, seed, and a preservation craft where a mistake can genuinely poison you.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/ski-touring-and-splitboard" aria-label="Open the Ski-touring &amp; Splitboard skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Ski-touring &amp; Splitboard</span><div class="wherealive"><span class="in">in</span> Chamonix / Verbier (Haute Route), France / Switzerland</div><p class="cardhook">The Chamonix-to-Zermatt Haute Route, first skied in 1903, is the original multi-day ski tour and still the pilgrimage every tourer dreams of earning.</p><p class="craftblurb">Climbing under your own power on skins, then dropping into untracked snow far beyond the resort boundary.</p></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/sound-healing" aria-label="Open the Sound Healing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Sound Healing</span><div class="wherealive"><span class="in">in</span> Kathmandu / Pokhara, Nepal</div><p class="cardhook">The Himalayan home of singing-bowl craft and Nada Yoga, where you learn bowls and gongs at the source from the makers and Tibetan-rooted sound healers.</p><p class="craftblurb">Tuning the body with gongs, voice and Himalayan bowls, the ancient science of Nada Yoga where vibration becomes medicine.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/spearfishing" aria-label="Open the Spearfishing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Spearfishing</span><div class="wherealive"><span class="in">in</span> Côte d&#x27;Azur (Cassis to Antibes), France</div><p class="cardhook">Modern sport spearfishing was invented on this French-Italian Mediterranean coast in the 1920s, and the mask, fins and snorkel were all born here from the hunt.</p><p class="craftblurb">Hold your breath, stalk the reef or the open blue, and take a single clean shot, the oldest hunt on Earth done on lungs alone.</p></article><article class="gcard" style="--sc:#6fa3a0"><a class="cardlink" href="/atlas/surfing" aria-label="Open the Surfing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Surfing</span><div class="wherealive"><span class="in">in</span> Waikiki, Oahu, United States</div><p class="cardhook">He&#x27;e nalu was born on these rolling rights, and to learn at the source where Duke Kahanamoku carried surfing to the world is the pilgrimage every surfer owes the sea.</p><p class="craftblurb">Read the ocean, paddle into a moving wall of water and trim along its face in the oldest wave-riding craft on earth.</p></article><article class="gcard" style="--sc:#c9a24a"><a class="cardlink" href="/atlas/sushi-and-washoku" aria-label="Open the Sushi &amp; Washoku skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Sushi &amp; Washoku</span><div class="wherealive"><span class="in">in</span> Tokyo (Tsukiji / Toyosu), Japan</div><p class="cardhook">This is edomae sushi at its birthplace, where you train beside the world&#x27;s most demanding fish market and earn your skills the way the masters did.</p><p class="craftblurb">The exacting art of edomae sushi and washoku, where a lifetime is spent mastering rice, knife, and the fifth taste at the source of a UNESCO-listed cuisine.</p></article><article class="gcard" style="--sc:#94ad86"><a class="cardlink" href="/atlas/thai-massage" aria-label="Open the Thai Massage skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><span class="craftname">Thai Massage</span><div class="wherealive"><span class="in">in</span> Chiang Mai, Thailand</div><p class="cardhook">The world capital of Northern-style Nuad Thai, where a dense cohort of Thai and foreign students train side by side at the source and walk out with ministry-recognized certificates.</p><p class="craftblurb">An acupressure-and-assisted-yoga floor art where the practitioner walks energy lines along the body with palms, thumbs, elbows, and feet.</p></article></div></div><p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet →</a></p></div></section>
 
 <main class="studio" id="studio"><div class="wrap"><div class="grid">
   <aside class="side">
@@ -479,16 +506,21 @@ function levelBucket(lv){lv=(lv||"").toLowerCase();var e=lv.split("->")[0];
   if(/advanced|experienced|expert/.test(e))return "advanced";
   return "beginner"; }
 
-// flat destinations — what's left is what the FILTERS read, plus the place and
-// the rank the card prints. The school, the master, the credential and the
-// reason-to-go are no longer pulled through: the card doesn't show them.
+// flat destinations — what the FILTERS read, plus the four things the card prints:
+// the place, the rank, and the reason to go to THAT place. The school, the master
+// and the credential are still not pulled through: the card doesn't show them.
+//
+// `why` came back on 2026-08-25, at Arnaud's ask — a card that says only "in
+// Pusztaszer, Hungary" tells you where but not what you would actually be doing
+// there, and "one-way glass hide photography was invented here" is the half a
+// reader wants. It is the same sentence the sheet prints, moved, not rewritten.
 var DESTS=[];
 A.forEach(function(d){var w=worldOf(d);
   (d.destinations||[]).forEach(function(x){
     DESTS.push({world:w,discipline:d.discipline,did:d.id,open:!!d.open,
       place:x.place,country:x.country,region:x.region||"",role:x.role||"",rank:x.communityRank||0,
       season:x.bestSeason||"",level:x.level||"",lvl:levelBucket(x.level),
-      tripTier:x.tripTier||0,english:x.englishTaught===true,id:x.id});
+      tripTier:x.tripTier||0,english:x.englishTaught===true,id:x.id,why:x.why||""});
   });
 });
 // what the craft actually is, in one line — the only body copy a card carries
@@ -871,16 +903,17 @@ function render(){
   if(placeFiltered)h+=closedBand(nClosed);
   results.innerHTML=h;signalRender();
 }
-// ===== Atlas card v3 — the skill, then where it is most alive, then what it is =====
+// ===== Atlas card v4 — the skill, where it is most alive, why there, what it is =====
 // One card is one SKILL, and it reads as one sentence top to bottom:
 //     Learn / Argentine Tango / in Buenos Aires, Argentina
 // The place is the place that craft's community is strongest in — the Atlas's own
-// ranking axis, not a pick and not a sale. Under the sentence, the one line that
-// says what the craft actually is. Nothing else is on the card: the credential,
-// the lineage, the school, the rating, the level and the trip length are all on
-// the sheet the card opens, where there is room to say them honestly. Across 113
-// cards at once they were noise in front of the only two things anyone is really
-// choosing between — the skill, and where in the world it lives.
+// ranking axis, not a pick and not a sale. Under that sentence, two lines and no
+// more: why THAT place (the sheet's own reason to go), then what the craft
+// actually is. Nothing else is on the card: the credential, the lineage, the
+// school, the rating, the level and the trip length are all on the sheet the card
+// opens, where there is room to say them honestly. Across 113 cards at once they
+// were noise in front of what anyone is really choosing between — the skill, where
+// in the world it lives, and what you would actually be doing when you got there.
 function placeLine(place,country){
   if(!place)return country||"";
   // "United States, United States" and "Kyoto, Kyoto" are data, not sentences.
@@ -891,12 +924,23 @@ function placeLine(place,country){
 // has asked for yet, atlas-index-shim.js rewrites it — that is where "a letter to
 // Arnaud opens this one" appears, and it is the only other line a card ever says.
 function cardData(world,disc,t){return {world:world,craft:disc.discipline,blurb:disc.blurb||"",
-  place:t.place||"",country:t.country||""};}
+  place:t.place||"",country:t.country||"",why:t.why||""};}
+// The hook is the reason to go to the place printed above it. On a craft nobody
+// has asked for there is no published reason to go, and the shim puts the craft's
+// own blurb in that slot instead — true of the card either way, but then it IS
+// the blurb, so print it once rather than twice.
 function cardInner(o){
+  var hook=o.why||"",blurb=o.blurb||"";
+  // No published reason to go (a hand-written sheet that never had one): the card
+  // leads with what the craft is rather than dropping its only sentence to the
+  // small, quiet size meant for a second line. Every card has one line at full size.
+  if(!hook){hook=blurb;blurb="";}
+  var same=hook&&blurb&&hook===blurb;
   return '<div class="learn">Learn</div>'+
     '<span class="craftname">'+esc(o.craft)+'</span>'+
-    (o.place?'<div class="wherealive">in '+esc(placeLine(o.place,o.country))+'</div>':'')+
-    (o.blurb?'<p class="craftblurb">'+esc(o.blurb)+'</p>':'')+
+    (o.place?'<div class="wherealive"><span class="in">in</span> '+esc(placeLine(o.place,o.country))+'</div>':'')+
+    (hook?'<p class="cardhook'+(same||!blurb?' only':'')+'">'+esc(hook)+'</p>':'')+
+    (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     '<div class="cfoot"></div>';
 }
 // The card is an <article>: a stretched link opens the skill sheet, and the one
@@ -909,9 +953,12 @@ function cardShell(cls,color,href,label,o){
 }
 // A filtered result is a skill too, so it links to the SKILL sheet, not to the
 // single place page it used to open — one card, one craft, everywhere.
+// x is the destination the filters actually matched, so the hook is the reason to
+// go THERE — a region filter moves the card's city and the sentence under it moves
+// with it, rather than leaving the strongest place's reason under a different town.
 function gcard(x){
   return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.did,x.discipline,
-    {world:x.world,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country});
+    {world:x.world,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country,why:x.why||""});
 }
 function renderRails(){
   VIEW.cat=null;
@@ -1100,6 +1147,42 @@ document.addEventListener("et:atlas-interest",function(e){
     }
   };
 })();
+})();
+</script>
+<script>
+(function(){
+  var rail=document.getElementById("norail");if(!rail)return;
+  var wrap=rail.parentNode,fill=document.getElementById("nofill"),seen=document.getElementById("noseen");
+  var n=rail.children.length,l,r;
+  ["l","r"].forEach(function(sd){
+    var b=document.createElement("button");b.className="arrow "+sd;
+    b.setAttribute("aria-label",sd==="l"?"Earlier crafts":"More crafts the Circle opened");
+    b.innerHTML=sd==="l"?"\u2039":"\u203a";
+    b.onclick=function(){rail.scrollBy({left:(sd==="l"?-1:1)*rail.clientWidth*0.85,behavior:"smooth"});};
+    wrap.appendChild(b);if(sd==="l")l=b;else r=b;});
+  function sync(){
+    var max=rail.scrollWidth-rail.clientWidth-2;
+    l.classList.toggle("show",rail.scrollLeft>4);
+    r.classList.toggle("show",max>4&&rail.scrollLeft<max);
+    if(!fill||!n)return;
+    var frac=rail.clientWidth/rail.scrollWidth,pos=max>0?rail.scrollLeft/(rail.scrollWidth-rail.clientWidth):0;
+    fill.style.width=Math.min(100,frac*100).toFixed(1)+"%";
+    fill.style.marginLeft=(pos*(100-Math.min(100,frac*100))).toFixed(1)+"%";
+    if(seen){
+      var first=Math.round(pos*Math.max(0,n-Math.round(n*frac)))+1;
+      var last=Math.min(n,first+Math.round(n*frac)-1);
+      seen.textContent=first+"\u2013"+last+" of "+n;
+    }
+  }
+  rail.addEventListener("scroll",sync);
+  window.addEventListener("resize",sync);
+  var down=false,sx=0,sl=0,mv=0;
+  rail.addEventListener("pointerdown",function(e){down=true;mv=0;sx=e.clientX;sl=rail.scrollLeft;rail.classList.add("drag");try{rail.setPointerCapture(e.pointerId);}catch(_){}});
+  rail.addEventListener("pointermove",function(e){if(!down)return;var dx=e.clientX-sx;mv=Math.max(mv,Math.abs(dx));rail.scrollLeft=sl-dx;});
+  function up(){down=false;rail.classList.remove("drag");}
+  rail.addEventListener("pointerup",up);rail.addEventListener("pointercancel",up);rail.addEventListener("pointerleave",up);
+  rail.addEventListener("click",function(e){if(mv>6)e.preventDefault();},true);
+  sync();setTimeout(sync,400);
 })();
 </script>
 </body>

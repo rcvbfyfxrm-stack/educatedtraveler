@@ -290,17 +290,68 @@ HUB_EXTRA_CSS = """
 .newopen h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3.2vw,34px);line-height:1.1;letter-spacing:-.01em;margin:11px 0 12px}
 .newopen .nosub{color:var(--muted);font-size:14.5px;line-height:1.7}
 .newopen .nosub b{color:var(--paper);font-weight:400}
-/* Fixed counts, not auto-fill: four cards divide evenly by 4, by 2 and by 1, so the
-   band is always full rows. auto-fill picked the column count off the viewport and
-   left a single card stranded on a second row at most desktop widths. */
-.nogrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
-@media(max-width:1000px){.nogrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:520px){.nogrid{grid-template-columns:minmax(0,1fr)}}
+/* A RAIL, NOT A ROW OF FOUR (2026-08-25, Arnaud's ask).
+   The band used to be a four-card grid and the other twenty-four crafts the Circle
+   opened were simply not on the page — the section claimed "the crafts someone asked
+   for" and showed a seventh of them. It scrolls now, and every one of them is in it.
+   Same .rail mechanics as the catalogue shelves below, so there is one horizontal
+   card behaviour on this page and not a second one to keep in step. */
+.norail{display:flex;gap:13px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:4px 2px 14px;scrollbar-width:none;cursor:grab}
+.norail::-webkit-scrollbar{display:none}
+.norail.drag{cursor:grabbing;scroll-behavior:auto}
+.norail>.gcard{scroll-snap-align:start;flex:0 0 auto;width:clamp(228px,25vw,262px)}
+.nowrap-rail{position:relative}
 .openedon{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
 .openedon b{color:var(--sc);font-weight:400}
+/* how far along the band you are — the answer to "is that all of them?", which a
+   scrolling row has to give in words because it cannot give it by being full */
+.nocount{display:flex;align-items:center;gap:12px;margin:2px 0 12px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.nocount .track{flex:1;max-width:230px;height:2px;border-radius:2px;background:rgba(243,237,226,.12);overflow:hidden}
+.nocount .track i{display:block;height:100%;width:20%;border-radius:2px;background:var(--sea);transition:width .25s,margin-left .25s}
 .nomore{margin:16px 0 0;font-size:13.5px}
 .nomore a{color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)}
 .nomore a:hover{color:var(--paper)}
+"""
+
+# The band's arrows and drag. The catalogue rails below get theirs from the page's
+# own script, which only ever walks #results — the band is outside it, so it needs
+# its own. Kept to the same gestures (arrows, drag, wheel-free) so the two rails
+# feel like one thing, and it degrades to a plain scrolling row without JS.
+HUB_EXTRA_JS = """
+(function(){
+  var rail=document.getElementById("norail");if(!rail)return;
+  var wrap=rail.parentNode,fill=document.getElementById("nofill"),seen=document.getElementById("noseen");
+  var n=rail.children.length,l,r;
+  ["l","r"].forEach(function(sd){
+    var b=document.createElement("button");b.className="arrow "+sd;
+    b.setAttribute("aria-label",sd==="l"?"Earlier crafts":"More crafts the Circle opened");
+    b.innerHTML=sd==="l"?"\\u2039":"\\u203a";
+    b.onclick=function(){rail.scrollBy({left:(sd==="l"?-1:1)*rail.clientWidth*0.85,behavior:"smooth"});};
+    wrap.appendChild(b);if(sd==="l")l=b;else r=b;});
+  function sync(){
+    var max=rail.scrollWidth-rail.clientWidth-2;
+    l.classList.toggle("show",rail.scrollLeft>4);
+    r.classList.toggle("show",max>4&&rail.scrollLeft<max);
+    if(!fill||!n)return;
+    var frac=rail.clientWidth/rail.scrollWidth,pos=max>0?rail.scrollLeft/(rail.scrollWidth-rail.clientWidth):0;
+    fill.style.width=Math.min(100,frac*100).toFixed(1)+"%";
+    fill.style.marginLeft=(pos*(100-Math.min(100,frac*100))).toFixed(1)+"%";
+    if(seen){
+      var first=Math.round(pos*Math.max(0,n-Math.round(n*frac)))+1;
+      var last=Math.min(n,first+Math.round(n*frac)-1);
+      seen.textContent=first+"\\u2013"+last+" of "+n;
+    }
+  }
+  rail.addEventListener("scroll",sync);
+  window.addEventListener("resize",sync);
+  var down=false,sx=0,sl=0,mv=0;
+  rail.addEventListener("pointerdown",function(e){down=true;mv=0;sx=e.clientX;sl=rail.scrollLeft;rail.classList.add("drag");try{rail.setPointerCapture(e.pointerId);}catch(_){}});
+  rail.addEventListener("pointermove",function(e){if(!down)return;var dx=e.clientX-sx;mv=Math.max(mv,Math.abs(dx));rail.scrollLeft=sl-dx;});
+  function up(){down=false;rail.classList.remove("drag");}
+  rail.addEventListener("pointerup",up);rail.addEventListener("pointercancel",up);rail.addEventListener("pointerleave",up);
+  rail.addEventListener("click",function(e){if(mv>6)e.preventDefault();},true);
+  sync();setTimeout(sync,400);
+})();
 """
 
 
@@ -320,7 +371,12 @@ def opened_band(items, n_asked, n_open):
     nothing beside others, and "opened because someone asked" next to a blank reads
     as nobody asked. The section says the mechanism once; the card says the day.
 
-    items: [{id, name, place, country, color, opened}] already in display order.
+    Every craft the Circle opened is in here, not the first four (2026-08-25). It is
+    a rail rather than a grid because "the crafts someone asked for" showing four of
+    twenty-eight is a claim the section does not keep, and cutting the sentence is
+    worse than making the row scroll.
+
+    items: [{id, name, place, country, color, opened, why, blurb}] in display order.
     n_asked / n_open: real, derived, and printed rather than typed.
     """
     if not items:
@@ -335,14 +391,29 @@ def opened_band(items, n_asked, n_open):
         where = it["place"]
         if it["country"] and it["country"] not in where:
             where = f"{where}, {it['country']}"
+        # The same two body lines the browse cards below carry, in the same order and
+        # from the same source: why THAT place, then what the craft is. A band card is
+        # a .gcard, so if it said less than the card beside it there would be two card
+        # designs on one page again. `.cardhook.only` prints one line when they are the
+        # same sentence — the rule lives in the CSS, shared with the page's own renderer.
+        hook, blurb = (it.get("why") or "").strip(), (it.get("blurb") or "").strip()
+        # No published reason to go: lead with what the craft is, rather than leaving
+        # the card's only sentence at the small size meant for a second line. Mirrors
+        # cardInner() in the template — every card has one line at full size.
+        if not hook:
+            hook, blurb = blurb, ""
+        only = " only" if (not blurb or hook == blurb) else ""
         cards.append(
             f'<article class="gcard" style="--sc:{e(it["color"])}">'
             f'<a class="cardlink" href="/atlas/{e(it["id"])}" aria-label="Open the '
             f'{e(it["name"])} skill sheet"></a>'
             f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
             f'<span class="craftname">{e(it["name"])}</span>'
-            + (f'<div class="wherealive">in {e(where)}</div>' if where else "")
+            + (f'<div class="wherealive"><span class="in">in</span> {e(where)}</div>' if where else "")
+            + (f'<p class="cardhook{only}">{e(hook)}</p>' if hook else "")
+            + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
             + "</article>")
+    n = len(items)
     return (
         '<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap">'
         '<div class="nohead">'
@@ -354,7 +425,10 @@ def opened_band(items, n_asked, n_open):
         f'<b>{n_asked} of the {n_open} open crafts</b> got here that way.{mine} Each date is '
         'the day the ask landed.</p>'
         '</div>'
-        f'<div class="nogrid">{"".join(cards)}</div>'
+        f'<div class="nocount"><span id="noseen">1 of {n}</span>'
+        f'<span class="track"><i id="nofill"></i></span>'
+        f'<span>all {n} — scroll</span></div>'
+        f'<div class="nowrap-rail"><div class="norail" id="norail">{"".join(cards)}</div></div>'
         '<p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet '
         '→</a></p>'
         '</div></section>')
@@ -427,5 +501,12 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
                              "scripts/atlas-hub-template.html — the opened band has nowhere "
                              "to go. Fix the anchor; do not ship the page without it.")
         t = t.replace(anchor, band + "\n\n" + anchor, 1)
+        # 8. the band's own arrows and drag. Asserted like the anchor above: a band
+        #    that silently lost its controls scrolls on desktop only by trackpad, and
+        #    looks like a row of four again to anyone who never tries.
+        if "</body>" not in t:
+            raise SystemExit("atlas_hub: no </body> in scripts/atlas-hub-template.html — "
+                             "the band's rail script has nowhere to go.")
+        t = t.replace("</body>", "<script>" + HUB_EXTRA_JS + "</script>\n</body>", 1)
 
     return t

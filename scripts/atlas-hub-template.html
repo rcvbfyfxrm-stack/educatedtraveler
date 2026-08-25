@@ -225,11 +225,28 @@ select.fin option{background:var(--ink2)}
   .dcard:hover .reveal-cue,.gcard:hover .reveal-cue{opacity:0}
 }
 @media(hover:none){.reveal-cue{display:none}}
-/* ===== Atlas card v3 — the skill, the place, the sentence ===== */
+/* ===== Atlas card v4 — the skill, the place, why that place, what the craft is =====
+   The place is deliberately the second-loudest thing on the card and the only
+   coloured one: the skill is what you are choosing, the place is what makes the
+   choice real, and a reader scanning a hundred cards should be able to read the
+   pair as one line without the place shrinking into the body copy. */
 .learn{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:5px}
-.wherealive{font-size:13.5px;color:var(--sc);line-height:1.4;margin-bottom:11px}
-.craftblurb{font-size:12.5px;color:var(--muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:4px}
+.wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px}
+.wherealive .in{font-size:12.5px;font-weight:400;opacity:.62}
+/* Why THAT place — the school's own reason to go, as it is written on the sheet
+   this card opens. Never re-cut, never paraphrased: a card that rewrites the
+   research in shorter words is a machine talking, and nothing here may. It is
+   clamped instead, so the cut is visibly a cut and the rest is one click away. */
+.cardhook{font-size:12.5px;color:var(--paper);opacity:.88;line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+/* Separated from the hook above it by SIZE, not by fading it out — at --faint on
+   this background the line was decoration rather than something you could read. */
+.craftblurb{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* A craft nobody has asked for has no published reason-to-go, so its card carries
+   the one line its own sheet leads with — and carries it once, at full size,
+   rather than printing the same sentence twice in two different greys. */
+.cardhook.only{-webkit-line-clamp:4;margin-bottom:0}
+.cardhook.only + .craftblurb{display:none}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
@@ -330,7 +347,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
     </div>
     <div class="hero-demo">
       <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
-      <p class="demo-note">Every card reads like that: the skill, and the one place its community is most alive.</p>
+      <p class="demo-note">Every card reads like that — the skill, and the one place its community is most alive — and then tells you why that place.</p>
     </div>
   </div>
 </header>
@@ -449,16 +466,21 @@ function levelBucket(lv){lv=(lv||"").toLowerCase();var e=lv.split("->")[0];
   if(/advanced|experienced|expert/.test(e))return "advanced";
   return "beginner"; }
 
-// flat destinations — what's left is what the FILTERS read, plus the place and
-// the rank the card prints. The school, the master, the credential and the
-// reason-to-go are no longer pulled through: the card doesn't show them.
+// flat destinations — what the FILTERS read, plus the four things the card prints:
+// the place, the rank, and the reason to go to THAT place. The school, the master
+// and the credential are still not pulled through: the card doesn't show them.
+//
+// `why` came back on 2026-08-25, at Arnaud's ask — a card that says only "in
+// Pusztaszer, Hungary" tells you where but not what you would actually be doing
+// there, and "one-way glass hide photography was invented here" is the half a
+// reader wants. It is the same sentence the sheet prints, moved, not rewritten.
 var DESTS=[];
 A.forEach(function(d){var w=worldOf(d);
   (d.destinations||[]).forEach(function(x){
     DESTS.push({world:w,discipline:d.discipline,did:d.id,open:!!d.open,
       place:x.place,country:x.country,region:x.region||"",role:x.role||"",rank:x.communityRank||0,
       season:x.bestSeason||"",level:x.level||"",lvl:levelBucket(x.level),
-      tripTier:x.tripTier||0,english:x.englishTaught===true,id:x.id});
+      tripTier:x.tripTier||0,english:x.englishTaught===true,id:x.id,why:x.why||""});
   });
 });
 // what the craft actually is, in one line — the only body copy a card carries
@@ -841,16 +863,17 @@ function render(){
   if(placeFiltered)h+=closedBand(nClosed);
   results.innerHTML=h;signalRender();
 }
-// ===== Atlas card v3 — the skill, then where it is most alive, then what it is =====
+// ===== Atlas card v4 — the skill, where it is most alive, why there, what it is =====
 // One card is one SKILL, and it reads as one sentence top to bottom:
 //     Learn / Argentine Tango / in Buenos Aires, Argentina
 // The place is the place that craft's community is strongest in — the Atlas's own
-// ranking axis, not a pick and not a sale. Under the sentence, the one line that
-// says what the craft actually is. Nothing else is on the card: the credential,
-// the lineage, the school, the rating, the level and the trip length are all on
-// the sheet the card opens, where there is room to say them honestly. Across 113
-// cards at once they were noise in front of the only two things anyone is really
-// choosing between — the skill, and where in the world it lives.
+// ranking axis, not a pick and not a sale. Under that sentence, two lines and no
+// more: why THAT place (the sheet's own reason to go), then what the craft
+// actually is. Nothing else is on the card: the credential, the lineage, the
+// school, the rating, the level and the trip length are all on the sheet the card
+// opens, where there is room to say them honestly. Across 113 cards at once they
+// were noise in front of what anyone is really choosing between — the skill, where
+// in the world it lives, and what you would actually be doing when you got there.
 function placeLine(place,country){
   if(!place)return country||"";
   // "United States, United States" and "Kyoto, Kyoto" are data, not sentences.
@@ -861,12 +884,23 @@ function placeLine(place,country){
 // has asked for yet, atlas-index-shim.js rewrites it — that is where "a letter to
 // Arnaud opens this one" appears, and it is the only other line a card ever says.
 function cardData(world,disc,t){return {world:world,craft:disc.discipline,blurb:disc.blurb||"",
-  place:t.place||"",country:t.country||""};}
+  place:t.place||"",country:t.country||"",why:t.why||""};}
+// The hook is the reason to go to the place printed above it. On a craft nobody
+// has asked for there is no published reason to go, and the shim puts the craft's
+// own blurb in that slot instead — true of the card either way, but then it IS
+// the blurb, so print it once rather than twice.
 function cardInner(o){
+  var hook=o.why||"",blurb=o.blurb||"";
+  // No published reason to go (a hand-written sheet that never had one): the card
+  // leads with what the craft is rather than dropping its only sentence to the
+  // small, quiet size meant for a second line. Every card has one line at full size.
+  if(!hook){hook=blurb;blurb="";}
+  var same=hook&&blurb&&hook===blurb;
   return '<div class="learn">Learn</div>'+
     '<span class="craftname">'+esc(o.craft)+'</span>'+
-    (o.place?'<div class="wherealive">in '+esc(placeLine(o.place,o.country))+'</div>':'')+
-    (o.blurb?'<p class="craftblurb">'+esc(o.blurb)+'</p>':'')+
+    (o.place?'<div class="wherealive"><span class="in">in</span> '+esc(placeLine(o.place,o.country))+'</div>':'')+
+    (hook?'<p class="cardhook'+(same||!blurb?' only':'')+'">'+esc(hook)+'</p>':'')+
+    (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     '<div class="cfoot"></div>';
 }
 // The card is an <article>: a stretched link opens the skill sheet, and the one
@@ -879,9 +913,12 @@ function cardShell(cls,color,href,label,o){
 }
 // A filtered result is a skill too, so it links to the SKILL sheet, not to the
 // single place page it used to open — one card, one craft, everywhere.
+// x is the destination the filters actually matched, so the hook is the reason to
+// go THERE — a region filter moves the card's city and the sentence under it moves
+// with it, rather than leaving the strongest place's reason under a different town.
 function gcard(x){
   return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.did,x.discipline,
-    {world:x.world,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country});
+    {world:x.world,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country,why:x.why||""});
 }
 function renderRails(){
   VIEW.cat=null;
