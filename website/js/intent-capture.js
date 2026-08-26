@@ -70,6 +70,9 @@
     '  padding:11px 16px;color:var(--paper,#f3ede2);font-family:inherit;font-size:16px;outline:none;}',
     '.etl input.etl-email:focus{border-color:var(--sea,#7fa8a5);}',
     '.etl-fine{font-size:12px;opacity:.55;margin-top:9px;line-height:1.55;}',
+    '.etl-ok{display:flex;gap:10px;align-items:flex-start;margin-top:15px;margin-bottom:2px;cursor:pointer;}',
+    '.etl-ok input{flex:0 0 auto;width:18px;height:18px;margin-top:1px;accent-color:var(--ember,#d28a52);cursor:pointer;}',
+    '.etl-ok span{font-size:12.5px;line-height:1.55;opacity:.72;}',
     '.etl-sent{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:17px;line-height:1.5;color:var(--paper,#f3ede2);}',
     '.etl-sent span{color:var(--sea,#7fa8a5);}'
   ].join('');
@@ -185,8 +188,18 @@
     go.textContent = 'Send my note →';
     row.appendChild(email); row.appendChild(go);
 
+    // Consent is a TICK, not an inference from pressing send. Written in the sender's
+    // own voice so the sheet still reads as a letter rather than turning into a form —
+    // which is the whole point of this script existing.
+    var okwrap = el('label', 'etl-ok');
+    var okbox = el('input', null, { type: 'checkbox', id: uid + '-ok' });
+    var oktxt = el('span');
+    oktxt.textContent = 'Yes — keep my name and address so you can write back. '
+      + 'One letter when something is real, nothing else, and I can leave from any of them.';
+    okwrap.appendChild(okbox); okwrap.appendChild(oktxt);
+
     var fine = el('p', 'etl-fine');
-    fine.textContent = 'Your note comes straight to me and I read every one myself. Sending it puts you in the Circle — one letter from me when something is real, never a drip, one click to leave.';
+    fine.textContent = 'Your note comes straight to me and I read every one myself. What you write, your name and your address are kept for that and nothing else — never sold, never passed on. Write to arnaudcallier@pm.me to be removed and it is done.';
 
     var msg = el('p', 'intent-msg', { hidden: 'hidden' });
 
@@ -202,6 +215,9 @@
       quip.style.display = 'block';
       go.textContent = 'Send my letter →';
     });
+    // The tick goes ABOVE the send button. Below it, the reader presses send and only
+    // then discovers there was a condition — which is a refusal they did not see coming.
+    form.appendChild(okwrap);
     form.appendChild(row);
     form.appendChild(fine);
     form.appendChild(msg);
@@ -222,6 +238,8 @@
       if (letter.length < 2) { say('Write me a line or two first — that is the joining.', 'err'); paper.focus(); return; }
       if (!name) { say('Sign it, so I know who I am answering.', 'err'); sign.focus(); return; }
       if (!validEmail(addr)) { say('I need a real address to write back to.', 'err'); email.focus(); return; }
+      // No tick, no row. Consent has to be given, not assumed from a button press.
+      if (!okbox.checked) { say('Tick the box first — I will not keep your details without it.', 'err'); okbox.focus(); return; }
       msg.hidden = true;
 
       var label = go.textContent;

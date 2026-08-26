@@ -90,6 +90,11 @@
         input::placeholder, textarea::placeholder{ color:rgba(243,237,226,0.30); }
         input:focus, textarea:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
         .help{ color:var(--faint); font-size:12.5px; margin-top:8px; line-height:1.5; }
+        .consent{ display:flex; align-items:flex-start; gap:10px; margin-top:14px; cursor:pointer;
+                  color:var(--muted); font-size:13.5px; line-height:1.5; }
+        .consent input{ margin-top:3px; width:16px; height:16px; flex:0 0 auto;
+                        accent-color:var(--sea); cursor:pointer; }
+
         .field{ margin-bottom:20px; }
 
         /* chips */
@@ -275,6 +280,11 @@
                     </label>
                     <p class="help">This is the address your Circle account lives at. One click from my email signs you
                         straight in — no password to remember.</p>
+                    <label class="consent" for="f_consent" id="consent-row">
+                        <input type="checkbox" id="f_consent">
+                        <span>Yes &mdash; keep my name and email so you can write to me. One letter when
+                              something is real, nothing else, and I can leave from any of them. What I
+                              write here is kept for that and nothing else; never sold, never passed on.</span></label>
                 </div>
 
                 <div class="row">
@@ -650,6 +660,9 @@
             var err=$('err0');
             if(!name){ err.textContent='Just your first name is enough.'; err.style.display='block'; $('f_name').focus(); return; }
             if(!session && !validEmail(email)){ err.textContent='I need a real email to reach you — it’s where your account lives.'; err.style.display='block'; $('f_email').focus(); return; }
+            // Asked of a new person only: someone already signed in gave permission when
+            // they joined, and asking again every visit is friction that buys nothing.
+            if(!session && !$('f_consent').checked){ err.textContent='Tick the box so I am allowed to write to you.'; err.style.display='block'; $('f_consent').focus(); return; }
             err.style.display='none'; state.name=name; state.email=email; syncSignature(); saveDraft(); show(1);
         });
 
@@ -1067,6 +1080,8 @@
             if(session){
                 userId = session.user.id;
                 state.email = session.user.email || '';
+                var cr = document.getElementById('consent-row');
+                if(cr) cr.style.display = 'none';       // already given, at joining
                 // hide the email field — we already know it
                 var ef=$('emailField'); if(ef) ef.style.display='none';
                 markWho('Signed in as '+state.email);

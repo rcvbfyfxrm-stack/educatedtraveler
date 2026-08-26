@@ -80,6 +80,11 @@
                outline:none; transition:border-color .25s, box-shadow .25s; }
         input::placeholder{ color:rgba(243,237,226,0.30); }
         input:focus{ border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+        .consent{ display:flex; align-items:flex-start; gap:10px; margin-top:2px; cursor:pointer;
+                  color:var(--muted); font-size:13.5px; line-height:1.5; }
+        .consent input{ margin-top:3px; width:16px; height:16px; flex:0 0 auto;
+                        accent-color:var(--sea); cursor:pointer; }
+
         .field{ margin-bottom:16px; }
         .help{ color:var(--faint); font-size:12.5px; margin-top:12px; line-height:1.5; }
 
@@ -215,9 +220,16 @@
                 <input type="text" id="f_where" placeholder="Barcelona, at the market" autocomplete="off" enterkeyhint="go">
             </div>
 
+            <label class="consent" for="f_consent"><input type="checkbox" id="f_consent">
+                <span>Yes &mdash; keep my name and email so you can write to me. One letter when
+                      something is real, nothing else, and I can leave from any of them.</span></label>
+
             <p class="err" role="alert" aria-live="assertive" id="err"></p>
             <button class="btn" id="go" type="button">That's me &rarr;</button>
-            <p class="help">It comes straight to me — I read every one myself.</p>
+            <p class="help">It comes straight to me &mdash; I read every one myself. What you write,
+               your name and your email are kept for that and nothing else; never sold, never passed
+               on. Write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be
+               removed and it is done.</p>
         </div>
 
         <!-- ═══════════ THE HAND-OFF — into the Circle ═══════════ -->
@@ -399,6 +411,8 @@
             note.style.display = 'none';
             if(!name){ err.textContent = 'Just your first name is enough.'; err.style.display='block'; $('f_name').focus(); return; }
             if(!validEmail(email)){ err.textContent = 'I need a real email to reach you.'; err.style.display='block'; $('f_email').focus(); return; }
+            // No tick, no row — permission is given, never assumed from a button press.
+            if(!$('f_consent').checked){ err.textContent = 'Tick the box so I am allowed to write to you.'; err.style.display='block'; $('f_consent').focus(); return; }
             err.style.display = 'none';
 
             var label = btn.innerHTML;
