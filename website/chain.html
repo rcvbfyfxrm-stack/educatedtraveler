@@ -12,10 +12,18 @@
     <meta property="og:description" content="I spent ___ learning ___ in ___ — and here's the photo. Show yours and mine opens.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://educatedtraveler.app/chain">
-    <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <!-- The preview card is the whole first impression: this link arrives in a
+         messaging app and is opened or ignored on this image alone. It used to be the
+         house logo, which says who sent it and nothing about why to tap. It is now the
+         sealed card itself. The blur is an abstract field, not a photograph of anyone —
+         the card must not imply a person who does not exist. -->
+    <meta property="og:image" content="https://educatedtraveler.app/images/chain-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="A sealed card: someone's sentence and photo, blurred until you show yours.">
     <meta property="og:site_name" content="EducatedTraveler">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <meta name="twitter:image" content="https://educatedtraveler.app/images/chain-og.png">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -130,8 +138,10 @@
 
         /* ══ the photo — the thing that makes it about a person, not a wish ══
            It seals and unseals with the words. A photo behind glass is a stronger
-           tease than a sentence behind glass, so the blur runs heavier: at 6px a
-           face is still a face, and the whole point is that you cannot quite see it. */
+           tease than a sentence behind glass, so the blur runs heavier. The blur is
+           the LOOK of the seal, not the seal: what sits behind it before the reader
+           answers is a 32px file (see sealURL), so there is nothing here for turning
+           the filter off to reveal. */
         .shot{ position:relative; margin:15px -22px -22px; overflow:hidden; line-height:0;
                border-top:1px solid var(--line); }
         .shot img{ width:100%; height:auto; max-height:340px; object-fit:cover; display:block;
@@ -271,6 +281,32 @@
         .saved{ display:none; border:1px solid rgba(127,168,165,0.42); background:rgba(127,168,165,0.09);
                 border-radius:16px; padding:16px 18px; font-size:14px; line-height:1.6; }
         .saved.on{ display:block; }
+
+        /* ══ the ask — three of them, because one is not a chain ══
+           A chain letter that goes to one person is a coin flip on its own survival.
+           Three is the unit, so three is what the page asks for and counts. Each row
+           carries a KIND of person, because "share with anyone" is a blank page and
+           "the one who's always got a project on" is a face you can already see. */
+        .asks{ display:flex; flex-direction:column; gap:9px; margin:2px 0 13px; }
+        .ask{ display:flex; align-items:center; gap:13px; width:100%; text-align:left;
+              background:rgba(243,237,226,0.04); border:1px solid var(--line); border-radius:15px;
+              padding:14px 15px; cursor:pointer; color:var(--paper); font:inherit;
+              transition:border-color .2s, background .2s; }
+        .ask:hover{ border-color:rgba(210,138,82,0.5); background:rgba(210,138,82,0.06); }
+        .ask .n{ flex-shrink:0; width:25px; height:25px; border-radius:50%; display:grid;
+                 place-items:center; font-family:var(--mono); font-size:10.5px;
+                 color:var(--faint); border:1px solid var(--line); }
+        .ask .who{ flex:1; font-size:14px; color:var(--muted); line-height:1.4; }
+        .ask .go{ flex-shrink:0; font-family:var(--mono); font-size:9.5px; letter-spacing:0.16em;
+                  text-transform:uppercase; color:var(--ember); }
+        .ask.done{ border-color:rgba(127,168,165,0.45); background:rgba(127,168,165,0.07); }
+        .ask.done .n{ color:var(--sea); border-color:rgba(127,168,165,0.5); }
+        .ask.done .who{ color:var(--paper); }
+        .ask.done .go{ color:var(--sea); }
+        .tally{ font-family:var(--mono); font-size:10px; letter-spacing:0.14em;
+                text-transform:uppercase; color:var(--faint); margin:0 0 18px; }
+        .tally.on{ color:var(--ember); }
+        .tally.full{ color:var(--sea); }
 
         .close-line{ margin-top:36px; padding-top:22px; border-top:1px solid var(--line);
                      font-family:var(--serif); font-style:italic; font-size:15.5px;
@@ -432,10 +468,13 @@
                One email when something real happens for your craft. Nothing else.</p>
         </div>
 
-        <div class="split"><span>Pass it on</span></div>
+        <div class="split"><span>Ask three people</span></div>
 
-        <p class="sub" id="pass-sub">Send it to someone whose answer you actually want to see.
-           Yours stays blurred until they show you what they learned.</p>
+        <!-- Framed as GETTING, not giving. Nobody forwards this to be generous — they
+             forward it because they want to see what the other person will say. The
+             page should ask the question they are already asking themselves. -->
+        <p class="sub" id="pass-sub">Who do you actually want to see the answer from?
+           Yours stays blurred to them until they show you theirs.</p>
 
         <div class="field">
             <label class="lbl" for="f_signas">Send it as</label>
@@ -447,7 +486,9 @@
             <div class="lnk" id="link-txt">Add your name and the link appears</div>
         </div>
 
-        <button class="btn" id="send">Send it</button>
+        <div class="asks" id="asks"></div>
+        <p class="tally" id="tally">Nobody yet</p>
+
         <button class="btn ghost" id="copy" type="button">Copy the message</button>
 
         <p class="close-line">You find out more about someone from four days they gave
@@ -628,7 +669,12 @@
                  working:1, art:1, arts:1, artisan:1, artisanal:1, school:1, course:1,
                  courses:1, class:1, classes:1, lesson:1, lessons:1, technique:1,
                  techniques:1, traditional:1, natural:1, modern:1, classic:1,
-                 classical:1, study:1, studies:1, skill:1, skills:1 };
+                 classical:1, study:1, studies:1, skill:1, skills:1,
+                 // The Atlas's own five worlds. A world is the level ABOVE a craft, so
+                 // by definition it cannot be one: "culinary" and "culinary arts" both
+                 // came back as New culinary techniques & technologies, open in
+                 // Barcelona, off the word this page uses to mean a whole category.
+                 adventure:1, movement:1, culinary:1, wellness:1, creative:1 };
 
     // Everyday words for crafts the Atlas names in its own vocabulary. Without these
     // the page tells someone who spent four days on sourdough that bread is not on the
@@ -649,7 +695,7 @@
     };
     function byId(id){ return ATLAS.find(function(c){ return c.id === id; }) || null; }
 
-    // Four passes, loosest last. Bare substring is not enough in either direction:
+    // Five passes, loosest last. Bare substring is not enough in either direction:
     // "winemaking" shares no substring with "Wine & Sommellerie", so the craft Arnaud
     // himself uses as the example would have come back as "not on the map" — while
     // "art" shared one with "bartending" and came back as Mixology & Bartending.
@@ -691,15 +737,20 @@
         //     Textiles & Weaving and nothing else. "cooking" is two crafts and "dance"
         //     is three, and choosing between them is how this page invents a door.
         function whole(hay, needle){ return (' ' + hay + ' ').indexOf(' ' + needle + ' ') !== -1; }
+        // Read on the naming words only. Leaving them in made the page answer a
+        // question it had just refused: "dance" was three crafts and got a refusal,
+        // then "a dance course" walked past it and came back Flamenco & Dance. A weak
+        // word cannot add information, so it must not change the verdict either.
+        var ns = wantStrong.join(' ');
         var inAnswer = ATLAS.filter(function(c){
-            var cn = norm(c.name); return cn.length > 3 && whole(n, cn); });
+            var cn = norm(c.name); return cn.length > 3 && whole(ns, cn); });
         if(inAnswer.length) return inAnswer.reduce(function(x, y){
             return norm(y.name).length > norm(x.name).length ? y : x; });
         var inName = ATLAS.filter(function(c){
-            var cn = norm(c.name); return cn.length > 3 && whole(cn, n); });
+            var cn = norm(c.name); return cn.length > 3 && whole(cn, ns); });
         if(inName.length) return inName.length === 1 ? inName[0] : null;
 
-        var best = null, bestScore = 0, bestStrong = 0;
+        var scored = [];
         ATLAS.forEach(function(c){
             var have = tokens(c.name), score = 0, strong = 0;
             have.forEach(function(h){
@@ -716,16 +767,31 @@
             // A craft only enters the running if it accounted for a word that actually
             // names a craft. Matching on "making" alone is not evidence of anything.
             if(!strong) return;
-            // Ties go to the more specific (shorter) name, never to the one that happens
-            // to be open — the verdict must not lean toward good news.
-            if(strong > bestStrong
-               || (strong === bestStrong && score > bestScore)
-               || (strong === bestStrong && score === bestScore && best
-                   && c.name.length < best.name.length)){
-                best = c; bestScore = score; bestStrong = strong;
-            }
+            // cover = how much of the CRAFT'S OWN name the answer accounted for.
+            // "diving" is all of Freediving and a third of Cave & Technical Diving.
+            var big = have.filter(function(h){ return h.length >= 4; }).length;
+            scored.push({ c:c, score:score, strong:strong, cover:score / (big || 1) });
         });
-        if(!best) return null;
+        if(!scored.length) return null;
+
+        // Naming words first, then total words, then coverage. Coverage replaces the
+        // old last resort, which was the SHORTER NAME — an accident, not a reason:
+        // "free diving" tied Freediving with Scuba Diving and Cave & Technical Diving,
+        // and the right answer only won because it happened to be spelled shortest.
+        function rank(x, y){
+            if(y.strong !== x.strong) return y.strong - x.strong;
+            if(y.score  !== x.score ) return y.score  - x.score;
+            return y.cover - x.cover;
+        }
+        scored.sort(rank);
+        var top = scored[0];
+        // And when even coverage ties, the crafts are indistinguishable on the words
+        // given, so the page says nothing. "a cooking course" splits Asado & Open-Fire
+        // Cooking from Organic Farm-to-Table Cooking one word in four apiece; "thai
+        // cooking" used to come back Muay Thai. Choosing is how this page invents a
+        // door, and it has no business inventing one to avoid saying "not on the map".
+        if(scored.length > 1 && rank(top, scored[1]) === 0) return null;
+        var best = top.c, bestStrong = top.strong;
         // One incidental token must not carry a whole match: "underwater basket weaving"
         // otherwise comes back as Textiles & Weaving in Oaxaca, stated with a real place.
         // At least half the naming words have to be accounted for — measured against the
@@ -1020,8 +1086,15 @@
             $('theirs-open').classList.add('unsealing');
             $('eyebrow2').textContent = 'Unsealed';
             scoreGuess(who);
-            $('pass-sub').textContent = 'Send yours back to ' + who + ', then on to anyone whose '
-                + 'answer you actually want to see. Yours stays blurred until they show theirs.';
+            // The debt is the strongest slot on the page — they showed you theirs and
+            // you have not shown them yours yet — so it takes the number one row.
+            var firstAsk = $('asks').querySelector('.ask');
+            if(firstAsk){
+                firstAsk.querySelector('.who').textContent = 'Back to ' + who
+                    + ' — they still have not seen yours';
+            }
+            $('pass-sub').textContent = who + ' is waiting to see yours. After that: who else '
+                + 'do you actually want the answer from?';
             $('f_msg').value = "I showed you mine — here's what I learned. "
                 + "You can't see it until you show me yours.";
         } else {
@@ -1258,39 +1331,98 @@
         return true;
     }
 
-    $('send').addEventListener('click', async function(){
+    // ── the ask: three of them, and the page counts ──────────────────────────
+    // A chain letter sent to one person is a coin flip on its own survival, so one
+    // send is not the unit — three is. The prompts name a KIND of person because
+    // "send it to anyone" is a blank page, and "the one who's always got a project
+    // on" is a face the reader can already see.
+    var ASKS = ["The one who's always got a project on",
+                "Someone you haven't spoken to in a year",
+                "The person who taught you something"];
+
+    (function buildAsks(){
+        var box = $('asks');
+        ASKS.forEach(function(label, i){
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'ask';
+            b.innerHTML = '<span class="n">' + (i + 1) + '</span>'
+                        + '<span class="who"></span><span class="go">Send</span>';
+            b.querySelector('.who').textContent = label;   // textContent: never innerHTML
+            b.addEventListener('click', function(){ passItOn(b); });
+            box.appendChild(b);
+        });
+    })();
+
+    function sentCount(){ return $('asks').querySelectorAll('.ask.done').length; }
+
+    function tally(){
+        var n = sentCount(), t = $('tally');
+        t.className = 'tally' + (n >= 3 ? ' full' : n ? ' on' : '');
+        t.textContent = n === 0 ? 'Nobody yet — it only becomes a chain if you send it'
+                      : n === 1 ? 'One sent · two more and it actually travels'
+                      : n === 2 ? 'Two sent · one more'
+                      :           'Three sent — that is a chain';
+    }
+    tally();
+
+    // Only a share the reader actually completed counts. Backing out of the system
+    // sheet throws AbortError, and a row that ticked itself on a cancelled share
+    // would make the tally a lie the reader can see through.
+    async function passItOn(btn){
         if(needName()) return;
-        var text = $('f_msg').value.trim();
+        var text = $('f_msg').value.trim(), ok = false, how = 'copy';
         if(navigator.share){
+            how = 'share';
             try{
-                await navigator.share({ title:'One sentence', text:text, url:state.url });
-                if(window.plausible) window.plausible('ChainPassed', { props:{ how:'share' } });
-            }catch(e){ /* backed out of the sheet — say nothing */ }
+                await navigator.share({ title:'Show me what you learned',
+                                        text:text, url:state.url });
+                ok = true;
+            }catch(e){
+                // AbortError is the reader closing the share sheet on purpose — respect
+                // it and tick nothing. Anything else means the browser advertises share
+                // and cannot actually do it, which is exactly what desktop Chrome does:
+                // navigator.share exists, there is no share target, and it throws. Left
+                // as a cancel, every Send on a laptop would be a button that does
+                // nothing forever. So fall through to the clipboard instead.
+                if(e && e.name === 'AbortError') return;
+                how = 'copy';
+                ok = await copyText(text + '\n' + state.url);
+            }
         } else {
-            copy(text + '\n' + state.url, 'share');
+            ok = await copyText(text + '\n' + state.url);
         }
-    });
-    $('copy').addEventListener('click', function(){
+        if(!ok) return;
+        btn.classList.add('done');
+        btn.querySelector('.go').textContent = how === 'share' ? 'Sent' : 'Copied';
+        tally();
+        if(window.plausible) window.plausible('ChainPassed',
+            { props:{ how:how, nth:String(sentCount()) } });
+    }
+
+    $('copy').addEventListener('click', async function(){
         if(needName()) return;
-        copy($('f_msg').value.trim() + '\n' + state.url, 'copy');
+        var b = this;
+        if(!await copyText($('f_msg').value.trim() + '\n' + state.url)) return;
+        b.textContent = 'Copied — now paste it to someone';
+        setTimeout(function(){ b.textContent = 'Copy the message'; }, 3200);
+        if(window.plausible) window.plausible('ChainPassed', { props:{ how:'copy', nth:'manual' } });
     });
 
-    function copy(text, how){
-        function done(){
-            if(window.plausible) window.plausible('ChainPassed', { props:{ how:how } });
-            var b = $('copy'); b.textContent = 'Copied — paste it to one person';
-            setTimeout(function(){ b.textContent = 'Copy the message'; }, 3200);
-        }
-        function fallback(){
-            var ta = document.createElement('textarea');
-            ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
-            document.body.appendChild(ta); ta.select();
-            try{ document.execCommand('copy'); done(); }catch(e){}
-            document.body.removeChild(ta);
-        }
-        if(navigator.clipboard && navigator.clipboard.writeText){
-            navigator.clipboard.writeText(text).then(done).catch(fallback);
-        } else { fallback(); }
+    function copyText(text){
+        return new Promise(function(resolve){
+            function fallback(){
+                var ta = document.createElement('textarea');
+                ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+                document.body.appendChild(ta); ta.select();
+                var ok = false;
+                try{ ok = document.execCommand('copy'); }catch(e){}
+                document.body.removeChild(ta);
+                resolve(ok);
+            }
+            if(navigator.clipboard && navigator.clipboard.writeText){
+                navigator.clipboard.writeText(text).then(function(){ resolve(true); }, fallback);
+            } else { fallback(); }
+        });
     }
 
     if(!isProd()) $('demo').classList.add('on');
