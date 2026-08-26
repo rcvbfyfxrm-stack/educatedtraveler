@@ -41,6 +41,65 @@ WORLD_COLOR = {
 }
 
 
+# ── provenance: an immersive line may not out-claim its own research ────────
+# learnLines (data/atlas-extra-sheets.json) are hand-written above the `why` they
+# summarise, and the failure mode is not a typo — it is DRIFT. Arnaud's own worked
+# example for this feature turned "the most photographed big-cat ground on earth"
+# into "where the most big cats are", which is a different and unverified claim.
+# So: every number and every proper noun in a line must already appear in that
+# destination's own research. It cannot judge prose, but it catches the thing that
+# actually goes wrong — a name or a figure that came from nowhere.
+#
+# Shared by the build (which WARNS, so an unattended nightly never dies on it) and
+# by check-atlas-hub.py (which FAILS, because that one runs before anything ships).
+import unicodedata
+
+_PROV_STOP = set(
+    "learn learning stand start sail watch the a an and or in on at of to for from with by "
+    "is are was were be been it its their his her you your they them where when which who "
+    "that this these those as into out up down over under one two three four five six seven "
+    "eight nine ten first only every each all both no not never own same other more most less "
+    "least like than then so if but while during after before between among around through "
+    "across against without within".split())
+
+
+def _prov_norm(s):
+    s = unicodedata.normalize("NFKD", s)
+    s = "".join(c for c in s if not unicodedata.combining(c)).lower()
+    return s.replace("\u2013", "-").replace("\u2014", "-").replace("\u2019", "'").replace(",", "")
+
+
+def learn_line_drift(learn_lines, disciplines):
+    """[(dest_id, kind, token, line)] for every token a line asserts and its own
+    research does not. Empty list = every line stays inside what is already verified."""
+    by_id = {x["id"]: (d, x) for d in disciplines for x in d["destinations"]}
+    out = []
+    for did, line in (learn_lines or {}).items():
+        if did not in by_id or not (line or "").strip():
+            continue
+        d, x = by_id[did]
+        hay = _prov_norm(" ".join([
+            x.get("why", ""), d.get("blurb", ""), x.get("place", ""), x.get("country", ""),
+            " ".join(x.get("masters") or []),
+            " ".join((s.get("course") or "") + " " + (s.get("blurb") or "")
+                     for s in (x.get("schoolsInfo") or [])),
+            d.get("goldCredential", ""), d.get("certBody", ""),
+            x.get("level", ""), x.get("bestSeason", "")]))
+        for n in re.findall(r"\d[\d,\u2013-]*", line):
+            tok = _prov_norm(n).strip("-")
+            if tok and tok not in hay:
+                out.append((did, "number", n, line))
+        for w in re.findall(r"\b[A-Z][\w'\u2019\u00C0-\u024F-]{2,}", line):
+            nw = _prov_norm(w)
+            if nw in _PROV_STOP:
+                continue
+            if nw.endswith("'s"):
+                nw = nw[:-2]
+            if nw not in hay and nw.rstrip("s") not in hay:
+                out.append((did, "name", w, line))
+    return out
+
+
 # ── the letter, shared with every short craft sheet ─────────────────────────
 LETTER_CSS = """
 :root{--sheet:#f6efe0;--sheet-ink:#2c231a;--sheet-edge:#d9cdb4;--sheet-faint:rgba(44,35,26,.5)}

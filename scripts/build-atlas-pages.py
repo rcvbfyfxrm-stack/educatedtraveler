@@ -120,6 +120,58 @@ if CRAFT_FAMILIES and set(CRAFT_META) - _named:
                      + ", ".join(sorted(set(CRAFT_META) - _named)))
 
 
+# ---------- the immersive line on a place card ----------
+# "Learn to work a one-way glass hide, where the technique was invented." — the line
+# that makes a card worth reading rather than scanning (Arnaud, 2026-08-26: "things
+# like that that make it more immersive just to read it").
+#
+# CURATED, in data/atlas-extra-sheets.json -> learnLines, keyed by DESTINATION id, for
+# the same reason craftFamilies is curated: the obvious build was to compose it from
+# the craft blurb plus the destination's `why`, and every version of that reads as a
+# machine talking. Worse, compressing a researched sentence is where a claim quietly
+# changes — "the most photographed big-cat ground on earth" is not "where the most big
+# cats are", and only one of those is true. Each line here is written by hand against
+# the `why` it sits above, and says nothing that sentence does not already say.
+#
+# NOT a hard failure when one is missing, deliberately: a craft opens the moment
+# somebody asks for it, unattended, and a refusal here would take the whole nightly
+# Atlas build down on the night that happened. A place with no line simply shows none.
+LEARN_LINES = MANIFEST.get("learnLines", {})
+_dest_ids = {x["id"] for d in DISC for x in d["destinations"]}
+_stray = set(LEARN_LINES) - _dest_ids
+if _stray:
+    raise SystemExit("build-atlas-pages: learnLines names destinations that do not exist: "
+                     + ", ".join(sorted(_stray)))
+
+
+def learn_line(x):
+    """The immersive line, under the place name. Absent until somebody writes it."""
+    line = (LEARN_LINES.get(x["id"]) or "").strip()
+    if not line:
+        return ""
+    return ('<p style="font-family:\'Fraunces\',Georgia,serif;font-size:17px;line-height:1.4;'
+            'color:var(--sea);margin:8px 0 10px;max-width:54ch">' + e(line) + "</p>")
+
+
+def with_whom(d, x):
+    """Who you would actually be with, and for how long — both already published on the
+    sheet this card opens, neither of them previously anywhere on the craft page.
+
+    Craft page only (link=True). The place's own sheet already carries a Masters &
+    lineage section a few centimetres below, and this would just say it twice."""
+    bits = []
+    ms = [m for m in (x.get("masters") or []) if m]
+    if ms:
+        bits.append("With <strong style=\"font-weight:500\">" + e(ms[0]) + "</strong>"
+                    + (f" and {len(ms) - 1} more" if len(ms) > 1 else ""))
+    if x.get("tripLength"):
+        # "Starter — about a week": the tripType reads as a label, so it keeps its capital.
+        bits.append(e(str(x.get("tripType") or "").strip() or "A trip") + " — " + e(x["tripLength"]))
+    if not bits:
+        return ""
+    return ('<p class="meta" style="margin:10px 0 0">' + " &middot; ".join(bits) + "</p>")
+
+
 def related_crafts(craft_id, n=4):
     """Up to n neighbours, taken one at a time from each family the craft belongs to.
 
@@ -833,10 +885,12 @@ def dest_card(d, x, link=True, is_best=False):
     border = 'border-left:3px solid #d28a52;' if is_best else ""
     return (f'<div class="card" style="{border}">{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
             f'<h2 style="margin:6px 0 4px">{title}</h2>'
+            f'{learn_line(x)}'
             f'<div class="meta" style="margin-bottom:10px">{community_pill(x)}'
             f' · Season: {e(x["bestSeason"])} · {e(x["level"])}</div>'
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{badges}'
-            f'{sheet_link(d, x) if link else ""}{check_line(x)}</div>')
+            + (f'{with_whom(d, x)}{sheet_link(d, x)}' if link else "")
+            + f'{check_line(x)}</div>')
 
 def alts_block(f):
     alts = f.get("alternatives") or []
@@ -1293,5 +1347,24 @@ if _no_check:
     print(f"  ⚠ rule 10 — {len(_no_check)} of {len(_open_disc)} open crafts carry no name-and-date "
           f"check line yet: {', '.join(_no_check[:6])}"
           + (f", +{len(_no_check) - 6} more" if len(_no_check) > 6 else ""))
+# Which place cards are still missing their immersive line. Printed rather than
+# raised: a craft opens unattended the moment somebody asks for it, and a refusal
+# here would take the nightly build down on exactly that night. Visible, not fatal.
+_want_line = [x["id"] for d in DISC if is_open(d["id"]) and f'{d["id"]}.html' not in PRESERVE
+              for x in d["destinations"]]
+_no_line = [i for i in _want_line if not (LEARN_LINES.get(i) or "").strip()]
+if _no_line:
+    print(f"  ⚠ {len(_no_line)} of {len(_want_line)} open place cards have no learnLines entry "
+          f"yet: {', '.join(_no_line[:5])}"
+          + (f", +{len(_no_line) - 5} more" if len(_no_line) > 5 else ""))
+else:
+    print(f"  ✓ all {len(_want_line)} open place cards carry an immersive line")
+# Drift, not typos: a line that names something its own research does not. Warned
+# here (the nightly must survive it) and FAILED in scripts/check-atlas-hub.py.
+_drift = atlas_hub.learn_line_drift(LEARN_LINES, DISC)
+if _drift:
+    print(f"  ⚠ {len(_drift)} learnLines token(s) not traceable to the research they sit above:")
+    for _did, _kind, _tok, _ in _drift[:6]:
+        print(f"      {_did}: {_kind} {_tok!r}")
 if ASSUME_ALL_OPEN:
     print("  !! --assume-all-open: this output is for diffing only. Do not commit it.")

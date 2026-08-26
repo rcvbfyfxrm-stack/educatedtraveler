@@ -15,7 +15,9 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
   4. the counts in the copy equal the counts in the data;
   5. the five world colours in atlas_hub.WORLD_COLOR still match the WORLDS map
      the page itself draws with, so a band card is the colour of its world;
-  6. every card links to a craft page that exists on disk.
+  6. every card links to a craft page that exists on disk;
+  7. every immersive learnLines sentence stays inside the research it sits above —
+     no number and no proper noun that destination's own row does not already carry.
 
 Exit 0 = all clear. Exit 1 = do not ship it.
 """
@@ -134,6 +136,17 @@ if not live:
     bad("could not read the WORLDS map out of the template — the colour mirror is unchecked")
 elif live != atlas_hub.WORLD_COLOR:
     bad(f"atlas_hub.WORLD_COLOR has drifted from the template: {atlas_hub.WORLD_COLOR} vs {live}")
+
+# ── 7. the immersive lines say nothing their own research does not ─────────
+# The line sits directly above the `why` it summarises, so drift here is not a
+# cosmetic bug: it is the Atlas making a claim it has not checked. See
+# atlas_hub.learn_line_drift for what it can and cannot catch.
+_rep = (ROOT / "data/repertoire.js").read_text()
+_disc = json.loads(_rep[_rep.index("{", _rep.index("window.ET_ATLAS")):_rep.rindex("}") + 1])["disciplines"]
+_lines = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text()).get("learnLines", {})
+for _did, _kind, _tok, _line in atlas_hub.learn_line_drift(_lines, _disc):
+    bad(f"learnLines[{_did}] asserts {_kind} {_tok!r}, which is nowhere in that "
+        f"destination's own research: {_line!r}")
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:
