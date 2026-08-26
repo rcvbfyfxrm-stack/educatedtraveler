@@ -481,7 +481,8 @@ def opened_band(items, n_asked, n_open):
             + (f'<div class="wherealive"><span class="in">in</span> {e(where)}</div>' if where else "")
             + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
             + (f'<p class="cardhook">{e(hook)}</p>' if hook else "")
-            + (f'<div class="placecue">{nplaces} places</div>' if nplaces > 1 else "")
+            + (f'<button class="placecue" type="button">{nplaces} places →</button>'
+               if nplaces > 1 else "")
             + "</article>")
     n = len(items)
     return (

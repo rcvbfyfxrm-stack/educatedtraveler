@@ -144,7 +144,7 @@ elif m and (1 if m[1] == "one" else int(m[1])) != n_mine:
 _by_slug = {c["id"]: c for c in crafts}
 for _, _slug, _ in cards:
     m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
-    cue = re.search(r'<div class="placecue">(\d+) places</div>', m[1]) if m else None
+    cue = re.search(r'<button class="placecue" type="button">(\d+) places', m[1]) if m else None
     real = sum(1 for d in _by_slug.get(_slug, {}).get("dests", []) if d.get("place"))
     if cue and int(cue[1]) != real:
         bad(f"{_slug}: the card says {cue[1]} places, the index holds {real}")

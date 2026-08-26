@@ -294,13 +294,13 @@ select.fin option{background:var(--ink2)}
    and shove the row below it around while somebody is reading. */
 .walks .wherealive{min-height:42px}
 .walks .cardhook{min-height:54px}
-/* Says the card has more than one answer, and counts them off while it walks.
-   Hidden where there is no pointer to rest — on a phone the card cannot walk,
-   so a phone is never told it can. */
+/* Says the card has more than one answer, counts them off while it walks, and
+   opens all of them. It is a real control now, so it is a button and it is on every
+   device: the walk needs a pointer, reading the list does not. z-index clears the
+   stretched .cardlink underneath, which would otherwise swallow the click. */
 .placecue{display:none}
-@media(hover:hover){
-  .walks .placecue{display:block;margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);text-align:right}
-}
+.walks .placecue{display:block;position:relative;z-index:3;width:100%;margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);text-align:right;transition:color .2s}
+.walks .placecue:hover,.walks .placecue:focus-visible{color:var(--sc)}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
@@ -312,6 +312,55 @@ select.fin option{background:var(--ink2)}
 .lang{display:inline-flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sea);border:1px solid rgba(127,168,165,.3);border-radius:99px;padding:3px 8px;line-height:1.2}
 .lang .en{font-weight:600;color:var(--paper)}
 .lang.lang-loc{color:var(--ember);border-color:rgba(210,138,82,.34)}
+/* ── every place, at reading speed ─────────────────────────────────────────
+   The walk under the pointer is a taster: it moves on its own and it moves on.
+   This is the same list with the timer taken off — one place per line, the
+   written sentence at a size you read rather than scan, and the place folded
+   into the end of it where it belongs. Nothing here is new copy: it is the
+   line that is already on the card with its own full stop moved to the far
+   side of the place name. */
+.pmodal{--sc:var(--sea);position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(12px,4vw,40px)}
+.pmodal[hidden]{display:none}
+.pmodal .scrim{position:absolute;inset:0;background:rgba(6,5,4,.78);backdrop-filter:blur(7px);animation:pfade .25s ease both}
+.pmodal .panel{position:relative;display:flex;flex-direction:column;width:min(760px,100%);max-height:min(88vh,940px);background:var(--ink2);border:1px solid color-mix(in srgb,var(--sc) 30%,var(--line));border-radius:18px;box-shadow:0 40px 90px -20px rgba(0,0,0,.75);overflow:hidden;animation:prise .32s cubic-bezier(.2,.8,.2,1) both}
+.pmodal .panel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.75}
+@keyframes pfade{from{opacity:0}to{opacity:1}}
+@keyframes prise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.pmodal .scrim,.pmodal .panel{animation:none}}
+.phead{display:flex;align-items:flex-start;gap:16px;padding:24px 26px 18px;border-bottom:1px solid var(--line)}
+.phead .pt{flex:1;min-width:0}
+.phead .peyebrow{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.phead h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(22px,3.4vw,30px);line-height:1.12;letter-spacing:-.01em}
+.phead .pclose{flex:0 0 auto;width:34px;height:34px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:15px;line-height:1;transition:border-color .2s,color .2s}
+.phead .pclose:hover,.phead .pclose:focus-visible{border-color:var(--sc);color:var(--paper)}
+.pmodal :focus{outline:none}
+.pmodal :focus-visible{outline:1px solid color-mix(in srgb,var(--sc) 70%,transparent);outline-offset:3px}
+.plist{list-style:none;margin:0;padding:8px 26px 6px;overflow-y:auto;overscroll-behavior:contain}
+/* the list is taller than the panel on a phone, and a list cut by a hard edge looks
+   finished rather than scrollable. A sticky fade sits on the bottom of whatever is
+   in view and says there is more under it. */
+.plist::after{content:"";display:block;position:sticky;bottom:-6px;height:38px;margin-top:-38px;background:linear-gradient(to top,var(--ink2),rgba(20,17,13,0));pointer-events:none}
+.plist li{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:19px 0;border-bottom:1px solid var(--line)}
+.plist li:last-child{border-bottom:none}
+.plist .pn{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--sc);opacity:.75;padding-top:7px}
+/* the sentence, at a size you read */
+.psay{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(17px,2.1vw,21px);line-height:1.42;color:var(--paper)}
+.psay .pw{color:var(--sc);font-style:italic}
+/* a place nobody has written a line for yet: its own name, and the research it
+   would have been written above — said plainly rather than dressed as a sentence
+   that does not exist */
+.pplain{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(17px,2.1vw,21px);line-height:1.42;color:var(--sc);font-style:italic}
+.pwhy{margin-top:8px;font-size:13px;line-height:1.62;color:var(--muted)}
+.pfoot{padding:16px 26px 20px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.pfoot .pnote{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+.pfoot .pgo{font-size:14px;color:var(--sc);border-bottom:1px solid rgba(127,168,165,.35);padding-bottom:2px;transition:border-color .2s}
+.pfoot .pgo:hover{border-color:var(--sea)}
+body.plocked{overflow:hidden}
+@media(max-width:560px){
+  .phead{padding:19px 18px 15px}.plist{padding:4px 18px}.pfoot{padding:14px 18px 17px}
+  .plist li{grid-template-columns:1fr;gap:6px}.plist .pn{padding-top:0}
+}
+
 /* the whole card opens the skill sheet — a stretched link under the content, so
    the one real button on the card (write to Arnaud) still gets its own clicks */
 .cardlink{position:absolute;inset:0;z-index:1;border-radius:inherit}
@@ -429,6 +478,24 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   </aside>
   <section class="results" id="results"></section>
 </div></div></main>
+
+<div class="pmodal" id="pmodal" hidden role="dialog" aria-modal="true" aria-labelledby="pmodal-h">
+  <div class="scrim" data-pclose></div>
+  <div class="panel">
+    <div class="phead">
+      <div class="pt">
+        <div class="peyebrow">Where it is taught</div>
+        <h2 class="serif" id="pmodal-h"></h2>
+      </div>
+      <button class="pclose" type="button" data-pclose aria-label="Close">✕</button>
+    </div>
+    <ul class="plist" id="plist"></ul>
+    <div class="pfoot">
+      <span class="pnote" id="pnote"></span>
+      <a class="pgo" id="pgo" href="#">Open the full sheet →</a>
+    </div>
+  </div>
+</div>
 
 <div class="wrap"><section class="letter reveal" id="letter" aria-labelledby="letter-h">
   <div class="lhead">
@@ -1000,7 +1067,7 @@ function cardInner(o){
     (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     (hook?'<p class="cardhook">'+esc(hook)+'</p>':'')+
     '<div class="cfoot"></div>'+
-    (n>1?'<div class="placecue">'+n+' places</div>':'');
+    (n>1?'<button class="placecue" type="button">'+n+' places →</button>':'');
 }
 // The card is an <article>: a stretched link opens the skill sheet, and the one
 // real button on it (write to Arnaud about this craft) keeps its own clicks.
@@ -1225,6 +1292,101 @@ document.addEventListener("et:atlas-interest",function(e){
    card is put back to the exact markup its renderer produced — not to the top of
    the list, which on a filtered card would silently swap the place the filter
    matched for a different one. */
+/* ── placePanel — every place the craft is taught, at reading speed ─────────
+   The walk under the pointer moves on its own and moves on; this is the same
+   list with the timer taken off. One place per line, the written sentence at a
+   size you read rather than scan, and the place folded into the end of it where
+   it belongs: "…on the farm where the technique was invented in Pusztaszer,
+   Hungary."
+
+   The fold is the only edit made to any sentence here, and it is punctuation:
+   the line's own full stop moves to the far side of the place name. Nothing is
+   rewritten to make room, because the words are not ours to shorten — see the
+   LEARN_LINES note in build-atlas-pages.py for what happens to a claim when a
+   researched sentence gets compressed by somebody in a hurry.
+
+   A place nobody has written a line for yet is not folded into a sentence that
+   does not exist. It gets its own name and the research it would have been
+   written above, said plainly. Fourteen of the hundred places are like this. */
+var placePanel=(function(){
+  var box=document.getElementById("pmodal"),list=document.getElementById("plist"),
+      title=document.getElementById("pmodal-h"),note=document.getElementById("pnote"),
+      go=document.getElementById("pgo"),back=null;
+  if(!box)return {open:function(){},close:function(){},isOpen:function(){return false;}};
+  var open=false;
+  function entry(p,i){
+    var n='<span class="pn">'+(i<9?"0":"")+(i+1)+'</span>';
+    var where=esc(placeLine(p.place,p.country));
+    if(p.written){
+      // the sentence, with its own full stop moved past the place
+      return '<li>'+n+'<div><p class="psay">'+esc(p.line.replace(/\.\s*$/,""))+
+             ' <span class="pw">in '+where+'</span>.</p></div></li>';
+    }
+    return '<li>'+n+'<div><p class="pplain">In '+where+'</p>'+
+           (p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div></li>';
+  }
+  // `from` is the control that opened it: where focus goes back to on close, and
+  // which card the panel takes its colour from. Both were read off
+  // document.activeElement first, which is wrong twice over — a programmatic open
+  // never moves focus at all, and Safari does not focus a button on click.
+  function show(did,craft,from){
+    var ps=PLACES[did]||[];
+    if(ps.length<2)return;
+    back=from||null;
+    // the panel is the card, opened out — so it carries the card's world colour
+    var host=from&&from.closest?from.closest(".dcard,.gcard"):null;
+    box.style.setProperty("--sc",(host&&host.style.getPropertyValue("--sc"))||"var(--sea)");
+    title.textContent=craft;
+    list.innerHTML=ps.map(entry).join("");
+    var written=0;ps.forEach(function(p){if(p.written)written++;});
+    // says what the list is, and does not pretend the unwritten ones are written
+    note.textContent=ps.length+" places"+(written<ps.length?" · "+(ps.length-written)+" not written up yet":"");
+    go.setAttribute("href","/atlas/"+did);
+    go.textContent="Open the "+craft+" sheet →";
+    box.removeAttribute("hidden");
+    document.body.classList.add("plocked");
+    open=true;
+    var c=box.querySelector(".pclose");if(c)c.focus();
+    list.scrollTop=0;
+  }
+  function close(){
+    if(!open)return;
+    box.setAttribute("hidden","");
+    document.body.classList.remove("plocked");
+    open=false;
+    if(back&&back.focus)try{back.focus();}catch(e){}
+    back=null;
+  }
+  box.addEventListener("click",function(e){
+    if(e.target.hasAttribute&&e.target.hasAttribute("data-pclose"))close();
+  });
+  document.addEventListener("keydown",function(e){
+    if(!open)return;
+    if(e.key==="Escape"){e.preventDefault();close();return;}
+    // the panel is modal, so the tab ring stays inside it
+    if(e.key!=="Tab")return;
+    var f=box.querySelectorAll("button, [href]");
+    if(!f.length)return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  });
+  return {open:show,close:close,isOpen:function(){return open;}};
+})();
+
+// The cue opens it. Delegated, because the grid is rebuilt on every filter change,
+// and the click is stopped short of the stretched .cardlink under the card.
+document.addEventListener("click",function(e){
+  var cue=e.target&&e.target.closest?e.target.closest(".placecue"):null;
+  if(!cue)return;
+  e.preventDefault();e.stopPropagation();
+  var card=cue.closest(".dcard,.gcard");if(!card)return;
+  var a=card.querySelector("a.cardlink"),h=a&&a.getAttribute("href");
+  var did=h?h.split("/atlas/")[1]:"";
+  var nm=card.querySelector(".craftname");
+  if(did)placePanel.open(did,nm?nm.textContent:did,cue);
+},true);
+
 (function placeWalk(){
   var still=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var card=null,list=null,home=null,i=0,tid=0,fade=0,lead=0;
@@ -1242,7 +1404,7 @@ document.addEventListener("et:atlas-interest",function(e){
       var el=q(card,s.trim());if(el)el.classList.toggle("swapping",on);});
   }
   function step(){
-    if(!card)return;
+    if(!card||placePanel.isOpen())return;
     dim(true);
     fade=setTimeout(function(){
       if(!card)return;
@@ -1259,6 +1421,7 @@ document.addEventListener("et:atlas-interest",function(e){
     card=null;list=null;home=null;i=0;
   }
   function start(c){
+    if(placePanel.isOpen())return;
     var ps=PLACES[slug(c)];
     if(!ps||ps.length<2)return;
     var w=q(c,".wherealive"),k=q(c,".cardhook");
@@ -1269,7 +1432,7 @@ document.addEventListener("et:atlas-interest",function(e){
     for(var n=0;n<ps.length;n++){if(shown.indexOf(ps[n].place)>-1){i=n;break;}}
     cue(c,(i+1)+" / "+ps.length);
     if(still)return;
-    lead=setTimeout(function(){step();tid=setInterval(step,1900);},450);
+    lead=setTimeout(function(){step();tid=setInterval(step,2600);},520);
   }
   function enter(c){if(c===card)return;if(card)stop();if(c)start(c);}
   function near(e){var t=e.target;return t&&t.closest?t.closest(".dcard,.gcard"):null;}
