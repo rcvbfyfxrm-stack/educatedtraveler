@@ -42,6 +42,16 @@ on conflict (id) do update
 -- write endpoint, and the ceiling on it is 2 MB per object and nothing else. If the
 -- bucket is ever found filling with junk, the fix is an edge function issuing signed
 -- upload URLs, not a tighter policy here.
+-- ⚠ The bucket was created by hand before this migration existed, and that hand-made
+-- setup carried a public SELECT policy. On a fresh project there is nothing to drop and
+-- this is a no-op; on THIS project it is the whole point of the file. Verified on prod
+-- 2026-08-26: "chain faces public read" was present, and with it the anon key in the
+-- page could list every object in the bucket — every face ever sent through the chain,
+-- to anyone who asked, with no link. The public URL keeps working without it: a public
+-- bucket serves an object to whoever holds its URL, and a select policy only ever added
+-- the right to enumerate.
+drop policy if exists "chain faces public read" on storage.objects;
+
 drop policy if exists "chain faces anon insert" on storage.objects;
 
 create policy "chain faces anon insert" on storage.objects

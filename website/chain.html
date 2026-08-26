@@ -704,6 +704,9 @@
     // Token-prefix catches the first without inviting the second: the shared token must
     // be at least 4 characters and must START the word, so "surfing" does not silently
     // become "Kitesurfing".
+    // Word-boundary containment: "art" inside "bartending" is a coincidence, not a match.
+    function whole(hay, needle){ return (' ' + hay + ' ').indexOf(' ' + needle + ' ') !== -1; }
+
     function matchCraft(text){
         var n = norm(text); if(!n || !ATLAS.length) return null;
 
@@ -738,7 +741,6 @@
         //     stands ONLY when exactly one craft carries that fragment. "weaving" is
         //     Textiles & Weaving and nothing else. "cooking" is two crafts and "dance"
         //     is three, and choosing between them is how this page invents a door.
-        function whole(hay, needle){ return (' ' + hay + ' ').indexOf(' ' + needle + ' ') !== -1; }
         // Read on the naming words only. Leaving them in made the page answer a
         // question it had just refused: "dance" was three crafts and got a refusal,
         // then "a dance course" walked past it and came back Flamenco & Dance. A weak
@@ -800,6 +802,20 @@
         // words that name a craft, so "knife making" is judged on "knife". wantStrong is
         // guaranteed non-empty by the guard above, so there is no fallback to divide by.
         return (bestStrong / wantStrong.length) >= 0.5 ? best : null;
+    }
+
+    // When one word names SEVERAL crafts, matchCraft refuses — rightly, because picking
+    // one of them invents a door. But the page then said "there is no yoga on the map",
+    // and the Atlas has four kinds of yoga on it. The refusal was honest about WHICH
+    // one; the sentence it produced was simply false. This gives the page what the word
+    // really named, so it can say the true thing instead of claiming an absence.
+    function craftsNamed(text){
+        if(!ATLAS.length) return [];
+        var strong = tokens(text).filter(function(w){ return !WEAK[w]; });
+        if(!strong.length) return [];
+        var ns = strong.join(' ');
+        return ATLAS.filter(function(c){
+            var cn = norm(c.name); return cn.length > 3 && whole(cn, ns); });
     }
 
     // Runs here, not in paintEntry: matchCraft needs ATLAS, which is only populated above.
@@ -1215,6 +1231,18 @@
             $('v-go').style.display = 'inline-block';
             $('v-go').href = '/atlas/' + m.id;
             $('v-go').textContent = 'See the page →';
+        } else if(craftsNamed(state.skill).length > 1){
+            // Named something real, just not one thing. Say so, and let them pick.
+            var kin = craftsNamed(state.skill);
+            v.classList.add('soon');
+            $('v-k').textContent = 'On the Atlas · more than one kind';
+            $('v-t').textContent = 'The Atlas has ' + kin.length + ' kinds of ' + state.skill + '.';
+            $('v-p').textContent = kin.map(function(c){ return c.name; }).join(' · ')
+                + '. Which one you actually did changes where it goes deeper, so the map '
+                + 'will not guess on your behalf — but it is there.';
+            $('v-go').style.display = 'inline-block';
+            $('v-go').href = '/atlas/';
+            $('v-go').textContent = 'Find yours →';
         } else {
             $('v-k').textContent = 'Not on the Atlas';
             $('v-t').textContent = 'There is no ' + state.skill + ' on the map.';
