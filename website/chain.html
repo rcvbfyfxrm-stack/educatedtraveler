@@ -180,17 +180,25 @@
         .card.unsealing .line b:nth-of-type(1){ animation-delay:0s; }
         .card.unsealing .line b:nth-of-type(2){ animation-delay:.42s; }
         .card.unsealing .line b:nth-of-type(3){ animation-delay:.84s; }
-        @keyframes rise{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
-        .beat.on > *{ animation:rise .55s cubic-bezier(.2,.7,.2,1) both; }
-        .beat.on > *:nth-child(2){ animation-delay:.05s; }
-        .beat.on > *:nth-child(3){ animation-delay:.10s; }
-        .beat.on > *:nth-child(4){ animation-delay:.15s; }
+        /* ══ everything arrives as you come to it ══
+           The hiding is added by JS (html.js-reveal), never by the stylesheet, so a
+           page whose script never runs is still a whole page rather than a blank one.
+           Revealed once and never re-hidden — content that flickers away on scroll-up
+           reads as broken, not as craft. */
+        .js-reveal .beat > *{ opacity:0; transform:translateY(20px);
+              transition:opacity .62s cubic-bezier(.2,.7,.2,1),
+                         transform .62s cubic-bezier(.2,.7,.2,1); }
+        .js-reveal .beat > .seen{ opacity:1; transform:none; }
+        @media (prefers-reduced-motion: reduce){
+            .js-reveal .beat > *{ opacity:1 !important; transform:none !important; }
+        }
         .card.unsealing .line b{ animation:unseal .9s cubic-bezier(.2,.7,.2,1) both; }
 
         /* the guess — one line, one stake, skippable */
         .guess{ display:none; border:1px solid rgba(210,138,82,0.4); border-radius:18px;
                 padding:19px 18px; margin-top:24px;
                 background:linear-gradient(168deg, rgba(210,138,82,0.10), rgba(210,138,82,0.02)); }
+        @keyframes rise{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
         .guess.on{ display:block; animation:rise .45s cubic-bezier(.2,.7,.2,1) both; }
         .guess .q{ font-family:var(--serif); font-size:1.18rem; font-weight:300; line-height:1.34;
                    margin-bottom:14px; letter-spacing:-0.012em; }
@@ -308,6 +316,15 @@
         .tally.on{ color:var(--ember); }
         .tally.full{ color:var(--sea); }
 
+        /* the two places this page TAKES something, said plainly at the moment it asks */
+        .mini{ font-size:12px; line-height:1.5; color:var(--faint); margin:9px 2px 0; }
+        .consent{ display:flex; gap:11px; align-items:flex-start; margin:4px 0 2px;
+                  cursor:pointer; }
+        .consent input{ flex-shrink:0; width:19px; height:19px; margin-top:1px;
+                        accent-color:var(--ember); cursor:pointer; }
+        .consent span{ font-size:13px; line-height:1.5; color:var(--muted); }
+        .consent a{ color:var(--sea); }
+
         .close-line{ margin-top:36px; padding-top:22px; border-top:1px solid var(--line);
                      font-family:var(--serif); font-style:italic; font-size:15.5px;
                      color:var(--muted); line-height:1.5; }
@@ -392,6 +409,12 @@
                 <span class="txt" id="attach-txt"><b>Add the photo of you doing it</b>
                     Blurred until they show you theirs.</span>
             </label>
+            <!-- Said BEFORE they pick a file, not after. The seal is a curiosity gate,
+                 not a lock, and there is no delete path — so the page has to say both
+                 rather than let "blurred" imply a protection it does not have. -->
+            <p class="mini">Your photo travels inside the link. Whoever holds the link can
+               open it &mdash; including anyone it gets forwarded to &mdash; and it cannot be
+               taken down afterwards. Pick one you would not mind a stranger seeing.</p>
         </div>
 
         <div class="err" id="err1"></div>
@@ -462,10 +485,19 @@
                 <input class="box" type="email" id="f_email" autocomplete="email" inputmode="email"
                        placeholder="you@example.com">
             </div>
+            <label class="consent" for="f_consent">
+                <input type="checkbox" id="f_consent">
+                <span>Yes &mdash; keep my name and email so Arnaud can write to me about my
+                      craft. One email when something real happens for it, nothing else, and
+                      I can leave from any email he sends.</span>
+            </label>
             <div class="err" id="err2"></div>
             <button class="btn" id="go2" style="margin-top:16px">Put mine on the record</button>
             <p class="help">This is the Circle &mdash; the people the weeks get built for.
-               One email when something real happens for your craft. Nothing else.</p>
+               Your name, email and what you learned are kept for that and nothing else;
+               they are never sold and never passed on. Write to
+               <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed
+               and it is done.</p>
         </div>
 
         <div class="split"><span>Ask three people</span></div>
@@ -1128,6 +1160,7 @@
         $('b1').classList.remove('on');
         $('b2').classList.add('on');
         window.scrollTo({ top:0, behavior:'smooth' });
+        observeBeat();
     }
 
     // ── did they know their friend? ──────────────────────────────────────────
@@ -1280,6 +1313,11 @@
         var name = $('f_name').value.trim(), email = $('f_email').value.trim();
         if(!name){ err.textContent = 'Just a first name.'; err.style.display='block'; $('f_name').focus(); return; }
         if(!validEmail(email)){ err.textContent = 'That email does not look right.'; err.style.display='block'; $('f_email').focus(); return; }
+        // Consent is the tick, not the button. An unticked box means no row is written.
+        if(!$('f_consent').checked){
+            err.textContent = 'Tick the box first — I am not keeping your details without it.';
+            err.style.display = 'block'; $('f_consent').focus(); return;
+        }
         err.style.display = 'none';
 
         var label = btn.textContent;
@@ -1452,6 +1490,41 @@
             if(navigator.clipboard && navigator.clipboard.writeText){
                 navigator.clipboard.writeText(text).then(function(){ resolve(true); }, fallback);
             } else { fallback(); }
+        });
+    }
+
+    // ── reveal on scroll ─────────────────────────────────────────────────────
+    // Only ever adds a class. Nothing here decides whether content EXISTS, so a failed
+    // observer, an old browser or a reduced-motion setting all end in a readable page.
+    var io = null;
+    (function setupReveal(){
+        var reduced = window.matchMedia
+                   && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(reduced || !('IntersectionObserver' in window)) return;
+        document.documentElement.classList.add('js-reveal');
+        io = new IntersectionObserver(function(entries){
+            // Stagger only what came into view together, so a run of cards cascades
+            // instead of landing as one block.
+            var n = 0;
+            entries.forEach(function(en){
+                if(!en.isIntersecting) return;
+                var el = en.target;
+                el.style.transitionDelay = (Math.min(n++, 5) * 0.06) + 's';
+                el.classList.add('seen');
+                io.unobserve(el);
+            });
+        }, { rootMargin:'0px 0px -6% 0px', threshold:0.05 });
+        observeBeat();
+    })();
+
+    // Children of a hidden beat are never intersecting, so beat two has to be handed
+    // to the observer at the moment it is switched on.
+    function observeBeat(){
+        if(!io) return;
+        var on = document.querySelector('.beat.on');
+        if(!on) return;
+        [].forEach.call(on.children, function(el){
+            if(!el.classList.contains('seen')) io.observe(el);
         });
     }
 
