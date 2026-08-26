@@ -450,27 +450,29 @@ def opened_band(items, n_asked, n_open):
         where = it["place"]
         if it["country"] and it["country"] not in where:
             where = f"{where}, {it['country']}"
-        # The same two body lines the browse cards below carry, in the same order and
-        # from the same source: why THAT place, then what the craft is. A band card is
-        # a .gcard, so if it said less than the card beside it there would be two card
-        # designs on one page again. `.cardhook.only` prints one line when they are the
-        # same sentence — the rule lives in the CSS, shared with the page's own renderer.
-        hook, blurb = (it.get("why") or "").strip(), (it.get("blurb") or "").strip()
-        # No published reason to go: lead with what the craft is, rather than leaving
-        # the card's only sentence at the small size meant for a second line. Mirrors
-        # cardInner() in the template — every card has one line at full size.
-        if not hook:
-            hook, blurb = blurb, ""
-        only = " only" if (not blurb or hook == blurb) else ""
+        # The same body lines the browse cards below carry, in the same order and from
+        # the same source: what the craft IS, then where, then why there. A band card
+        # is a .gcard, so if it were ordered differently from the card beside it there
+        # would be two card designs on one page again. This mirrors cardInner() in the
+        # template exactly — change one and you change both, or the page lies.
+        blurb, hook = (it.get("blurb") or "").strip(), (it.get("why") or "").strip()
+        # No published reason to go: the shim puts the craft's own blurb in that slot,
+        # so without this the same sentence prints twice in two different greys.
+        if hook == blurb:
+            hook = ""
+        # A sheet that never carried a blurb: the reason-to-go takes the full-size
+        # line instead, so every card still has exactly one.
+        if not blurb:
+            blurb, hook = hook, ""
         cards.append(
             f'<article class="gcard" style="--sc:{e(it["color"])}">'
             f'<a class="cardlink" href="/atlas/{e(it["id"])}" aria-label="Open the '
             f'{e(it["name"])} skill sheet"></a>'
             f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
             f'<span class="craftname">{e(it["name"])}</span>'
-            + (f'<div class="wherealive"><span class="in">in</span> {e(where)}</div>' if where else "")
-            + (f'<p class="cardhook{only}">{e(hook)}</p>' if hook else "")
             + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
+            + (f'<div class="wherealive"><span class="in">in</span> {e(where)}</div>' if where else "")
+            + (f'<p class="cardhook">{e(hook)}</p>' if hook else "")
             + "</article>")
     n = len(items)
     return (

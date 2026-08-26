@@ -97,7 +97,7 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
    craft / place / reason-to-go, and the same three-line clamp on the reason — the why
    prose is never re-cut to fit, only clamped. Centred with a caption underneath it
    read as a pull-quote, which is the one thing it is not. */
-.cam-tick{--sc:var(--sea);position:relative;overflow:hidden;display:block;width:min(92vw,442px);min-height:206px;padding:19px 23px 21px;border:1px solid var(--line);border-radius:16px;background:rgba(20,17,13,.62);text-align:left;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s,box-shadow .3s}
+.cam-tick{--sc:var(--sea);position:relative;overflow:hidden;display:block;width:min(92vw,442px);min-height:230px;padding:19px 23px 21px;border:1px solid var(--line);border-radius:16px;background:rgba(20,17,13,.62);text-align:left;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s,box-shadow .3s}
 .cam-tick::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.55;transition:opacity .3s,background 1.4s ease}
 .cam-tick:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));background:rgba(20,17,13,.88);box-shadow:0 18px 40px rgba(0,0,0,.45)}.cam-tick:hover::before{opacity:1}
 .cam-tick .lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:11px}
@@ -105,8 +105,9 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 /* two lines each, so the tallest craft name and the longest place still fit inside the
    height the card holds — a card that grew mid-fade would shove the caption around */
 .cam-tick .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(20px,2.4vw,26px);line-height:1.12;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.cam-tick .place{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-top:6px;transition:color 1.4s ease}
-.cam-tick .whyline{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:11px;font-size:12.5px;line-height:1.5;color:var(--paper);opacity:.86}
+.cam-tick .whatline{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;font-size:12.5px;line-height:1.5;color:var(--paper);opacity:.86}
+.cam-tick .place{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-top:11px;transition:color 1.4s ease}
+.cam-tick .whyline{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:4px;font-size:11.5px;line-height:1.55;color:var(--muted)}
 .legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
 .legend button{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);padding:4px 9px;border:1px solid var(--line);border-radius:99px;transition:all .2s}
 .legend button:hover{color:var(--paper)}.legend button.on{color:var(--paper);border-color:var(--lc)}
@@ -260,28 +261,32 @@ select.fin option{background:var(--ink2)}
   .dcard:hover .reveal-cue,.gcard:hover .reveal-cue{opacity:0}
 }
 @media(hover:none){.reveal-cue{display:none}}
-/* ===== Atlas card v4 — the skill, the place, why that place, what the craft is =====
-   The place is deliberately the second-loudest thing on the card and the only
-   coloured one: the skill is what you are choosing, the place is what makes the
-   choice real, and a reader scanning a hundred cards should be able to read the
-   pair as one line without the place shrinking into the body copy. */
+/* ===== Atlas card v5 — the skill, what you would be doing, the place, why there =====
+   v4 put the place directly under the skill and left "what the craft actually is"
+   as the smallest, greyest line on the card — so a reader met a place name before
+   they had any picture of the thing they would be doing there, and the line that
+   makes it imaginable was the one line built to be skipped.
+   The order is now the order of the decision: the skill, then what your hands
+   would be doing (full size, because this is the line you read the card FOR),
+   then where, then why there. The place keeps its size and its colour — it is
+   still the only coloured thing on the card — it just comes second, once the
+   craft is something you can see. */
 .learn{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:4px}
-.wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px}
+.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:7px}
+.wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:5px}
 .wherealive .in{font-size:12.5px;font-weight:400;opacity:.62}
+/* What the craft IS — the line that has to make it picturable, so it is the one
+   at full size, directly under the name. Never re-cut, never paraphrased: a card
+   that rewrites the research in shorter words is a machine talking, and nothing
+   here may. It is clamped instead, so the cut is visibly a cut and the rest is
+   one click away. */
+.craftblurb{font-size:12.5px;color:var(--paper);opacity:.88;line-height:1.5;margin-bottom:11px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 /* Why THAT place — the school's own reason to go, as it is written on the sheet
-   this card opens. Never re-cut, never paraphrased: a card that rewrites the
-   research in shorter words is a machine talking, and nothing here may. It is
-   clamped instead, so the cut is visibly a cut and the rest is one click away. */
-.cardhook{font-size:12.5px;color:var(--paper);opacity:.88;line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-/* Separated from the hook above it by SIZE, not by fading it out — at --faint on
-   this background the line was decoration rather than something you could read. */
-.craftblurb{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-/* A craft nobody has asked for has no published reason-to-go, so its card carries
-   the one line its own sheet leads with — and carries it once, at full size,
-   rather than printing the same sentence twice in two different greys. */
-.cardhook.only{-webkit-line-clamp:4;margin-bottom:0}
-.cardhook.only + .craftblurb{display:none}
+   this card opens. It sits under the place because it is about the place, and it
+   is separated from the line above by SIZE, not by fading it out: at --faint on
+   this background it stopped being something anyone could read. Same five-line
+   body budget as v4, three and two the other way round. */
+.cardhook{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
@@ -386,7 +391,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
       </div>
       <div class="hero-demo">
         <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
-        <p class="demo-note">Every card on this page reads like that one — the skill, the one place its community is most alive, and why that place. Tap it to open the sheet.</p>
+        <p class="demo-note">Every card on this page reads like that one — the skill, what your hands would be doing, then the one place its community is most alive and why there. Tap it to open the sheet.</p>
       </div>
     </div>
   </div>
@@ -675,7 +680,7 @@ function aliveDest(d){var t=null;(d.destinations||[]).forEach(function(x){if(!t|
 // this page cannot afford. It also means the first click off the hero lands on a full
 // sheet rather than a short entry. `rest` is the fallback and nothing more.
 var feats=[],rest=[];
-function feat(d,t,w){return {craft:d.discipline,place:t.place,country:t.country||"",why:t.why||"",color:WORLDS[w].color,did:d.id};}
+function feat(d,t,w){return {craft:d.discipline,blurb:d.blurb||"",place:t.place,country:t.country||"",why:t.why||"",color:WORLDS[w].color,did:d.id};}
 function known(id){return feats.concat(rest).some(function(f){return f.did===id;});}
 A.forEach(function(d){if(!isSurprising(d.discipline))return;var t=aliveDest(d);if(!t||!t.place)return;(d._open===true?feats:rest).push(feat(d,t,worldOf(d)));});
 ORDER.forEach(function(w){byWorldDisc[w].slice(0,3).forEach(function(o){if(!o.top.place||known(o.d.id))return;(o.d._open===true?feats:rest).push(feat(o.d,o.top,w));});});
@@ -684,7 +689,7 @@ if(!feats.length)feats=rest;
 // page teaches its own format before you have scrolled to a single card.
 var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];curFeat=f;rot.classList.remove("on");
   hub.style.setProperty("--sc",f.color);
-  setTimeout(function(){rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>'+(f.why?'<span class="whyline">'+esc(f.why)+'</span>':'');rot.classList.add("on");},280);
+  setTimeout(function(){rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span>'+(f.blurb?'<span class="whatline">'+esc(f.blurb)+'</span>':'')+'<span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>'+(f.why?'<span class="whyline">'+esc(f.why)+'</span>':'');rot.classList.add("on");},280);
   bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
 tick();setInterval(tick,2700);
 
@@ -940,17 +945,18 @@ function cardData(world,disc,t){return {world:world,craft:disc.discipline,blurb:
 // own blurb in that slot instead — true of the card either way, but then it IS
 // the blurb, so print it once rather than twice.
 function cardInner(o){
-  var hook=o.why||"",blurb=o.blurb||"";
-  // No published reason to go (a hand-written sheet that never had one): the card
-  // leads with what the craft is rather than dropping its only sentence to the
-  // small, quiet size meant for a second line. Every card has one line at full size.
-  if(!hook){hook=blurb;blurb="";}
-  var same=hook&&blurb&&hook===blurb;
+  var blurb=o.blurb||"",hook=o.why||"";
+  // A craft nobody has asked for has no published reason-to-go, and the shim puts
+  // its own blurb in that slot — so without this the same sentence prints twice.
+  if(hook===blurb)hook="";
+  // A hand-written sheet that never carried a blurb: the reason-to-go takes the
+  // full-size line instead, so every card still has exactly one.
+  if(!blurb){blurb=hook;hook="";}
   return '<div class="learn">Learn</div>'+
     '<span class="craftname">'+esc(o.craft)+'</span>'+
-    (o.place?'<div class="wherealive"><span class="in">in</span> '+esc(placeLine(o.place,o.country))+'</div>':'')+
-    (hook?'<p class="cardhook'+(same||!blurb?' only':'')+'">'+esc(hook)+'</p>':'')+
     (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
+    (o.place?'<div class="wherealive"><span class="in">in</span> '+esc(placeLine(o.place,o.country))+'</div>':'')+
+    (hook?'<p class="cardhook">'+esc(hook)+'</p>':'')+
     '<div class="cfoot"></div>';
 }
 // The card is an <article>: a stretched link opens the skill sheet, and the one
