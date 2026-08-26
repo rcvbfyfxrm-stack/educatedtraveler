@@ -38,19 +38,41 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 @media(max-width:820px){nav.top .links a:not(.join){display:none}}
 
 /* hero + the rosette */
-.hero{padding:84px 0 22px;position:relative;overflow:hidden}
+.hero{padding:92px 0 36px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0;transition:background 1.4s ease}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
-.hero-copy h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(33px,4.8vw,58px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 14px}.hero-copy h1 em{font-style:italic;color:var(--sea)}
-.hero-copy .sub{color:var(--muted);max-width:46ch;font-size:clamp(14px,1.5vw,16px)}
-.cues{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .wrap{position:relative;z-index:1}
+/* The headline runs the full column and the row sits under it. Boxed into half the
+   page there was no good break in the sentence at any width: it either split the
+   italic phrase in two or broke "hands-on" across the hyphen. Given the width it
+   lands on two lines with the phrase intact, which is the break it always wanted.
+   The measure is capped well short of the column — display type set to 1240px is a
+   banner, not a sentence. */
+.hero-head h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(32px,4.4vw,50px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 0;max-width:min(100%,1040px);text-wrap:balance}
+.hero-head h1 em{font-style:italic;color:var(--sea);white-space:nowrap}
+.hero-head h1 .nb{white-space:nowrap}
+@media(max-width:344px){.hero-head h1 em{white-space:normal}}
+.hero-body{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(26px,4vw,54px);align-items:center;margin-top:clamp(24px,3.2vw,38px)}
+.hero-copy .sub{color:var(--muted);max-width:44ch;font-size:clamp(14px,1.5vw,16px)}
+/* The three numbers the whole page rests on, shown instead of buried mid-paragraph.
+   All three are counted in atlas_hub.build() and never typed — the prose version had
+   already rotted from 99 crafts to 112 before anybody noticed. The middle one is the
+   count nobody else on this shelf prints: what is listed and NOT checked. */
+.herofacts{list-style:none;display:flex;flex-wrap:wrap;margin:22px 0 0}
+.herofacts li{padding-right:clamp(15px,2.1vw,25px);margin-right:clamp(15px,2.1vw,25px);border-right:1px solid var(--line)}
+.herofacts li:last-child{padding-right:0;margin-right:0;border-right:none}
+.herofacts b{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(25px,2.9vw,33px);line-height:1;color:var(--paper)}
+.herofacts span{display:block;margin-top:7px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);line-height:1.7;max-width:21ch}
+.cues{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:12px 22px;border-radius:99px;font-size:14px;font-weight:500;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#14110d;transition:transform .25s,box-shadow .25s,filter .25s}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(127,168,165,.22);filter:brightness(1.05)}
 .btn-ghost{display:inline-block;padding:12px 20px;border-radius:99px;font-size:14px;border:1px solid rgba(243,237,226,.2);transition:border-color .25s,background .25s}.btn-ghost:hover{border-color:var(--sea);background:rgba(243,237,226,.04)}
+/* The one line on this page that no rival can print. Inside the paragraph it read as
+   a fifth clause nobody reaches; on its own, last in the hero, it is the closing note. */
+.hero-oath{margin-top:24px;padding-left:13px;border-left:1px solid rgba(127,168,165,.45);color:var(--muted);font-size:13.5px;line-height:1.6;max-width:42ch}
 
 /* the hero's worked example — the rotating craft, written the way every card is */
-.hero-demo{display:flex;flex-direction:column;align-items:center;gap:14px}
-.demo-note{color:var(--faint);font-size:12.5px;line-height:1.6;max-width:34ch;text-align:center}
-@media(max-width:880px){.hero-demo{margin-top:6px}}
+.hero-demo{display:flex;flex-direction:column;align-items:center;gap:13px}
+.demo-note{color:var(--faint);font-size:12.5px;line-height:1.6;max-width:38ch;text-align:center}
+@media(max-width:880px){.hero-demo{margin-top:14px}}
 
 /* the rosette — the ET mark itself: five rings, each a world, joined and interjoined.
    It lives in the filter panel now: the skills come first on this page, and the wheel
@@ -70,17 +92,30 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 .heart{fill:var(--ink);stroke:rgba(243,237,226,.24);stroke-width:.9;pointer-events:none}
 .wlabel{font-family:'Fraunces',Georgia,serif;font-size:11.5px;fill:var(--paper);text-anchor:middle;pointer-events:none;paint-order:stroke;stroke:var(--ink);stroke-width:2.6;stroke-linejoin:round}
 .wcount{font-family:'IBM Plex Mono',monospace;font-size:7.5px;fill:rgba(243,237,226,.55);text-anchor:middle;pointer-events:none;letter-spacing:.05em;paint-order:stroke;stroke:var(--ink);stroke-width:2.2;stroke-linejoin:round}
-.cam-tick{display:block;width:min(92vw,430px);padding:22px 26px;border:1px solid var(--line);border-radius:18px;background:rgba(20,17,13,.5);text-align:center;transition:border-color .25s,background .25s}
-.cam-tick:hover{border-color:var(--sea);background:rgba(20,17,13,.85)}
-.cam-tick .lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
-.cam-tick .rot{display:block;opacity:0;transition:opacity .5s;min-height:74px}.cam-tick .rot.on{opacity:1}
-.cam-tick .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(19px,2.7vw,27px);line-height:1.14;display:block}
-.cam-tick .place{font-size:14px;color:var(--ember);margin-top:7px;display:inline-block}
+/* The hero's worked example claims "every card reads like that", so it is built like
+   one: the same left colour edge in the craft's own world, the same left-aligned
+   craft / place / reason-to-go, and the same three-line clamp on the reason — the why
+   prose is never re-cut to fit, only clamped. Centred with a caption underneath it
+   read as a pull-quote, which is the one thing it is not. */
+.cam-tick{--sc:var(--sea);position:relative;overflow:hidden;display:block;width:min(92vw,442px);min-height:206px;padding:19px 23px 21px;border:1px solid var(--line);border-radius:16px;background:rgba(20,17,13,.62);text-align:left;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s,box-shadow .3s}
+.cam-tick::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.55;transition:opacity .3s,background 1.4s ease}
+.cam-tick:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));background:rgba(20,17,13,.88);box-shadow:0 18px 40px rgba(0,0,0,.45)}.cam-tick:hover::before{opacity:1}
+.cam-tick .lab{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:11px}
+.cam-tick .rot{display:block;opacity:0;transition:opacity .5s}.cam-tick .rot.on{opacity:1}
+/* two lines each, so the tallest craft name and the longest place still fit inside the
+   height the card holds — a card that grew mid-fade would shove the caption around */
+.cam-tick .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(20px,2.4vw,26px);line-height:1.12;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cam-tick .place{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-top:6px;transition:color 1.4s ease}
+.cam-tick .whyline{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:11px;font-size:12.5px;line-height:1.5;color:var(--paper);opacity:.86}
 .legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
 .legend button{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);padding:4px 9px;border:1px solid var(--line);border-radius:99px;transition:all .2s}
 .legend button:hover{color:var(--paper)}.legend button.on{color:var(--paper);border-color:var(--lc)}
 .legend .d{width:8px;height:8px;border-radius:2px;background:var(--lc)}
-@media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:18px}.hero-copy{text-align:center}.cues{justify-content:center}}
+@media(max-width:620px){.herofacts{display:grid;grid-template-columns:repeat(3,1fr)}
+.herofacts li{padding:0 clamp(6px,2vw,12px);margin:0;border-right:1px solid var(--line)}
+.herofacts li:first-child{padding-left:0}
+.herofacts span{max-width:none}}
+@media(max-width:880px){.hero{padding:84px 0 30px}.hero-head{text-align:center}.hero-body{grid-template-columns:1fr;gap:22px;margin-top:22px}.hero-copy{text-align:center}.hero-copy .sub{margin:0 auto}.cues{justify-content:center}.herofacts{justify-content:center}.herofacts span{margin:7px auto 0}.hero-oath{margin:24px auto 0;padding:13px 0 0;border-left:none;border-top:1px solid rgba(127,168,165,.4);max-width:40ch;text-align:center}}
 
 /* studio */
 .studio{padding:12px 0 30px}.studio .grid{display:grid;grid-template-columns:272px minmax(0,1fr);gap:26px;align-items:start}
@@ -377,15 +412,20 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 <header class="hero">
   <div class="hero-bg" id="hero-bg"></div>
   <div class="wrap">
-    <div class="hero-copy">
+    <div class="hero-head">
       <div class="eyebrow">The Atlas</div>
-      <h1 class="serif">A catalogue of hands-on skills —<br>and <em>where in the world</em> to learn each one.</h1>
-      <p class="sub">116 crafts you can go and learn, each with the one place its community is most alive. 34 are open in full, with the school I would send you to and why. I open the rest when someone writes me a letter about one. Nobody pays to be on the Atlas, and nobody can pay to be left off it.</p>
-      <div class="cues"><a class="btn" href="#studio">Browse every skill</a><a class="btn-ghost" href="#letter">Ask me to open one</a></div>
+      <h1 class="serif">A catalogue of <span class="nb">hands-on</span> skills — and <em>where in the world</em> to learn each one.</h1>
     </div>
-    <div class="hero-demo">
-      <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
-      <p class="demo-note">Every card reads like that — the skill, and the one place its community is most alive — and then tells you why that place.</p>
+    <div class="hero-body">
+      <div class="hero-copy">
+        <p class="sub">116 crafts you can go and learn, each with the one place its community is most alive — and, where it is open, the school I would send you to and why.</p><ul class="herofacts"><li><b>34</b><span>open in full</span></li><li><b>82</b><span>catalogued, not checked yet</span></li><li><b>28</b><span>opened because someone asked</span></li></ul>
+        <div class="cues"><a class="btn" href="#studio">Browse every skill</a><a class="btn-ghost" href="#letter">Ask me to open one</a></div>
+        <p class="hero-oath">Nobody pays to be on the Atlas, and nobody can pay to be left off it.</p>
+      </div>
+      <div class="hero-demo">
+        <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
+        <p class="demo-note">Every card on this page reads like that one — the skill, the one place its community is most alive, and why that place. Tap it to open the sheet.</p>
+      </div>
     </div>
   </div>
 </header>
@@ -668,13 +708,23 @@ var SURPRISE=["freediv","apnea","knife","blade","smith","forge","perfum","falcon
 function isSurprising(name){name=(name||"").toLowerCase();return SURPRISE.some(function(k){return name.indexOf(k)>-1;});}
 // the place a craft's community is most alive in — the same one its card prints
 function aliveDest(d){var t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});return t;}
-var feats=[];
-A.forEach(function(d){if(!isSurprising(d.discipline))return;var t=aliveDest(d);if(t&&t.place)feats.push({craft:d.discipline,place:t.place,country:t.country||"",color:WORLDS[worldOf(d)].color,did:d.id});});
-ORDER.forEach(function(w){byWorldDisc[w].slice(0,3).forEach(function(o){if(o.top.place&&!feats.some(function(f){return f.did===o.d.id;}))feats.push({craft:o.d.discipline,place:o.top.place,country:o.top.country||"",color:WORLDS[w].color,did:o.d.id});});});
+// Open crafts only, while there are any. The card's third line is the reason to go
+// to THAT place, and only an open craft has one — on a craft nobody has asked for yet
+// the same slot carries what the craft IS, which is a true sentence sitting where the
+// caption promises a reason, and that is exactly the kind of true-parts-false-picture
+// this page cannot afford. It also means the first click off the hero lands on a full
+// sheet rather than a short entry. `rest` is the fallback and nothing more.
+var feats=[],rest=[];
+function feat(d,t,w){return {craft:d.discipline,place:t.place,country:t.country||"",why:t.why||"",color:WORLDS[w].color,did:d.id};}
+function known(id){return feats.concat(rest).some(function(f){return f.did===id;});}
+A.forEach(function(d){if(!isSurprising(d.discipline))return;var t=aliveDest(d);if(!t||!t.place)return;(d._open===true?feats:rest).push(feat(d,t,worldOf(d)));});
+ORDER.forEach(function(w){byWorldDisc[w].slice(0,3).forEach(function(o){if(!o.top.place||known(o.d.id))return;(o.d._open===true?feats:rest).push(feat(o.d,o.top,w));});});
+if(!feats.length)feats=rest;
 // The hero's worked example. It is written exactly the way every card is, so the
 // page teaches its own format before you have scrolled to a single card.
 var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];curFeat=f;rot.classList.remove("on");
-  setTimeout(function(){rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>';rot.classList.add("on");},280);
+  hub.style.setProperty("--sc",f.color);
+  setTimeout(function(){rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>'+(f.why?'<span class="whyline">'+esc(f.why)+'</span>':'');rot.classList.add("on");},280);
   bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
 tick();setInterval(tick,2700);
 

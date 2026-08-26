@@ -520,15 +520,26 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
                f'in the Vallee de Joux, pottery in Mashiko. {n_open} are open in full, with the '
                f'school we\'d send you to. A letter to Arnaud opens the rest.">', t, count=1)
 
-    # 2b. the hero sub. It has one job: say what this page IS, in the first breath,
-    #     to somebody who has never heard of it. Counted, never typed — the old one
-    #     had rotted from 99 crafts to 112 before anybody noticed.
+    # 2b. the hero. One sentence saying what this page IS, then the three numbers the
+    #     whole claim rests on — shown, not buried in the fifth clause of a paragraph
+    #     nobody finishes. Counted, never typed: the prose version had already rotted
+    #     from 99 crafts to 112 before anybody noticed.
+    #
+    #     The middle number is the one no rival prints. A marketplace cannot say how
+    #     much of its own catalogue it has not checked; this page says it in the first
+    #     screen, beside the number it HAS checked, which is the only reason the first
+    #     number is worth anything. Dropping it would leave a reader to take all
+    #     {total} as vetted — true parts, false picture.
+    n_short = total - n_open
     t = re.sub(r'<p class="sub">[^<]*</p>',
                f'<p class="sub">{total} crafts you can go and learn, each with the one place '
-               f'its community is most alive. {n_open} are open in full, with the school I '
-               f'would send you to and why. I open the rest when someone writes me a letter '
-               f'about one. Nobody pays to be on the Atlas, and nobody can pay to be left '
-               f'off it.</p>', t, count=1)
+               f'its community is most alive — and, where it is open, the school I would send '
+               f'you to and why.</p>'
+               f'<ul class="herofacts">'
+               f'<li><b>{n_open}</b><span>open in full</span></li>'
+               f'<li><b>{n_short}</b><span>catalogued, not checked yet</span></li>'
+               f'<li><b>{n_asked}</b><span>opened because someone asked</span></li>'
+               f'</ul>', t, count=1)
 
     # 3. the data source. repertoire.js (1.2 MB of research) and atlas-ratings.js
     #    are not served any more; the shim rebuilds what the page reads.
