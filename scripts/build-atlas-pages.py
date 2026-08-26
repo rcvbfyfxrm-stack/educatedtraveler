@@ -1174,6 +1174,10 @@ def index_card(d):
             "tripLength": x.get("tripLength", ""), "english": x.get("englishTaught") is True,
             "lang": x.get("instructionLanguage", ""), "badges": x.get("badges", []),
             "master": (x.get("masters") or [""])[0], "why": x.get("why", ""),
+            # the hand-written immersive line for THIS place — the sentence a card
+            # shows while it walks. Written above the `why` beside it and gated by
+            # learn_line_drift(); the browse page shows it, it never composes one.
+            "learn": (LEARN_LINES.get(x["id"]) or "").strip(),
             "school": ((x.get("schoolsInfo") or [{}])[0]).get("name", ""),
             "nSchools": len(x.get("schoolsInfo") or x.get("schools") or []),
         } for x in d["destinations"]]
@@ -1183,7 +1187,8 @@ def index_card(d):
                            "rank": best.get("communityRank", 0), "rankLabel": "",
                            "season": "", "role": "", "level": "", "tripTier": 0,
                            "tripType": "", "tripLength": "", "english": False, "lang": "",
-                           "badges": [], "master": "", "why": "", "school": "", "nSchools": 0}]
+                           "badges": [], "master": "", "why": "", "learn": "",
+                           "school": "", "nSchools": 0}]
                         if best else [])
         return card
 
@@ -1195,6 +1200,7 @@ def index_card(d):
         "role": best.get("role", ""), "level": best.get("level", ""),
         "season": best.get("bestSeason", ""),
         "why": best.get("why", ""),
+        "learn": (LEARN_LINES.get(best.get("id", "")) or "").strip(),
         "master": (best.get("masters") or [""])[0],
         "school": ((best.get("schoolsInfo") or [{}])[0]).get("name", ""),
         "tripType": best.get("tripType", ""), "tripLength": best.get("tripLength", ""),
@@ -1261,6 +1267,9 @@ OPENED_BAND = [{"id": s, "name": _by_id[s]["name"], "place": _by_id[s]["place"],
                 "country": _by_id[s]["country"],
                 "color": atlas_hub.WORLD_COLOR.get(_by_id[s]["world"], "#7fa8a5"),
                 "why": _by_id[s].get("why", ""), "blurb": _by_id[s].get("blurb", ""),
+                # the written line for this craft's strongest place, so the band card
+                # at rest says exactly what the first step of its walk says
+                "learn": _by_id[s].get("learn", ""),
                 # how many places the craft is taught in — the card says so, and walks
                 # them under the pointer. Counted off the same dests the index ships,
                 # so the number on the card and the list it walks cannot disagree.

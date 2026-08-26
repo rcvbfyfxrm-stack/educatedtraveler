@@ -40,6 +40,10 @@
         badges: x.badges || [],
         masters: x.master ? [x.master] : [],
         why: line,
+        // The hand-written sentence for this place. A craft nobody has asked for has
+        // none — nobody has done the work behind it yet — and that is why a card with
+        // one place has nothing to walk and never claims otherwise.
+        learn: x.learn || "",
         // schoolsInfo carries only the NAME the card prints — never a URL, a
         // course, a price or a rating link. The page reads .name and .length.
         schoolsInfo: x.school ? [{ name: x.school }]

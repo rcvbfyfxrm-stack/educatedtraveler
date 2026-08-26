@@ -283,15 +283,17 @@ select.fin option{background:var(--ink2)}
    click away. It belongs to the CRAFT, so it is the one line that holds still
    while the card walks its places. */
 .craftblurb{font-size:12.5px;color:var(--paper);opacity:.88;line-height:1.5;margin-bottom:9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-/* Why THAT place — the school's own reason to go, as written on the sheet this
-   card opens. It belongs to the place, so it changes with it. */
-.cardhook{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:opacity .22s ease}
+/* The place's own sentence — the hand-written immersive line where there is one,
+   the researched reason-to-go where there is not. It belongs to the place, so it
+   changes with it. Three lines: a written line runs 74 to 116 characters and on the
+   narrowest card that is three lines, so two would cut every one of them. */
+.cardhook{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:opacity .22s ease}
 .wherealive.swapping,.cardhook.swapping{opacity:0}
 /* Only a card with somewhere to walk TO pays for the fixed box. Two lines of place
    and two of reason, held open, so the card cannot change height under the pointer
    and shove the row below it around while somebody is reading. */
 .walks .wherealive{min-height:42px}
-.walks .cardhook{min-height:36px}
+.walks .cardhook{min-height:54px}
 /* Says the card has more than one answer, and counts them off while it walks.
    Hidden where there is no pointer to rest — on a phone the card cannot walk,
    so a phone is never told it can. */
@@ -545,11 +547,27 @@ var BLURB={};A.forEach(function(d){BLURB[d.id]=d.blurb||"";});
 // Every place a craft is taught, strongest community first — the list a card walks
 // while the pointer rests on it. Same field, same order the sheet itself uses; the
 // card is reading the sheet out loud, not deciding anything.
+//
+// `line` is what the card prints under the place. It is the hand-written immersive
+// sentence for THAT place when there is one — 86 of the 100 places a card can walk
+// onto have one — and the researched reason-to-go when there is not. It is never
+// composed here out of the two: compressing a researched sentence is exactly where a
+// claim quietly changes, and "the most photographed big-cat ground on earth" is not
+// "where the most big cats are". Only one of those is true, and only one is written
+// down. See the LEARN_LINES note in build-atlas-pages.py.
 var PLACES={};A.forEach(function(d){
   PLACES[d.id]=(d.destinations||[]).filter(function(x){return x.place;})
     .slice().sort(function(a,b){return (b.communityRank||0)-(a.communityRank||0);})
-    .map(function(x){return {place:x.place,country:x.country||"",why:x.why||""};});
+    .map(function(x){return {place:x.place,country:x.country||"",
+                             line:(x.learn||"").trim()||x.why||"",written:!!(x.learn||"").trim()};});
 });
+// The line for the place a card is rendered with, so the resting card and the first
+// step of its walk say the same thing about the same place.
+function placeLineFor(did,place,why){
+  var ps=PLACES[did]||[];
+  for(var i=0;i<ps.length;i++){if(ps[i].place===place)return ps[i].line;}
+  return why||"";
+}
 
 /* ── WHAT PULLS YOU ───────────────────────────────────────────────────────
    This replaces the search box. A search box asks you to already know the
@@ -700,7 +718,9 @@ function aliveDest(d){var t=null;(d.destinations||[]).forEach(function(x){if(!t|
 // this page cannot afford. It also means the first click off the hero lands on a full
 // sheet rather than a short entry. `rest` is the fallback and nothing more.
 var feats=[],rest=[];
-function feat(d,t,w){return {craft:d.discipline,blurb:d.blurb||"",place:t.place,country:t.country||"",why:t.why||"",color:WORLDS[w].color,did:d.id};}
+// same rule as the cards: the written line for that place, the researched
+// reason-to-go when nobody has written one yet
+function feat(d,t,w){return {craft:d.discipline,blurb:d.blurb||"",place:t.place,country:t.country||"",why:(t.learn||"").trim()||t.why||"",color:WORLDS[w].color,did:d.id};}
 function known(id){return feats.concat(rest).some(function(f){return f.did===id;});}
 A.forEach(function(d){if(!isSurprising(d.discipline))return;var t=aliveDest(d);if(!t||!t.place)return;(d._open===true?feats:rest).push(feat(d,t,worldOf(d)));});
 ORDER.forEach(function(w){byWorldDisc[w].slice(0,3).forEach(function(o){if(!o.top.place||known(o.d.id))return;(o.d._open===true?feats:rest).push(feat(o.d,o.top,w));});});
@@ -972,6 +992,7 @@ function cardInner(o){
   // A hand-written sheet that never carried a blurb: the reason-to-go takes the
   // full-size line instead, so every card still has exactly one.
   if(!blurb){blurb=hook;hook="";}
+  if(o.did&&o.place)hook=placeLineFor(o.did,o.place,hook);
   var n=(PLACES[o.did]||[]).length;
   return '<div class="learn">Learn</div>'+
     '<span class="craftname">'+esc(o.craft)+'</span>'+
@@ -1213,7 +1234,7 @@ document.addEventListener("et:atlas-interest",function(e){
   function paint(){
     var p=list[i],w=q(card,".wherealive"),k=q(card,".cardhook");
     if(w)w.innerHTML='<span class="in">in</span> '+esc(placeLine(p.place,p.country));
-    if(k)k.textContent=p.why||"";
+    if(k)k.textContent=p.line||"";
     cue(card,(i+1)+" / "+list.length);
   }
   function dim(on){

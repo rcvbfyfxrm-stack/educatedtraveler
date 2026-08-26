@@ -21,10 +21,15 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
   8. a card that says "N places" is a card with N places to walk. The cue is
      rendered from one field and placeWalk() builds its list from another; if they
      drift, the card counts off "3 / 5" against a list of four and nothing else
-     ever complains.
+     ever complains;
+  9. the line a resting band card prints under its place is the written line for
+     THAT place. The band is static HTML from Python and the walk is JS reading
+     ET_ATLAS; if the two ever disagree the card changes its sentence the instant a
+     pointer touches it, which reads as a lie and looks like a bug.
 
 Exit 0 = all clear. Exit 1 = do not ship it.
 """
+import html as html_mod
 import json
 import re
 import sys
@@ -147,6 +152,22 @@ for _, _slug, _ in cards:
         bad(f"{_slug} is taught in {real} places and its card never says so")
     elif real > 1 and m and 'walks' not in (band[max(0, band.index(m[0]) - 120):band.index(m[0])]):
         bad(f"{_slug} counts {real} places but its card is not marked to walk them")
+
+# ── 9. the resting line is the written line for the place it sits under ────
+learn_lines = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text()).get("learnLines", {})
+for _, _slug, _ in cards:
+    c = _by_slug.get(_slug)
+    if not c:
+        continue
+    want = (learn_lines.get(c.get("destId", "")) or "").strip() or (c.get("why") or "").strip()
+    m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
+    got = re.search(r'<p class="cardhook">(.*?)</p>', m[1], re.S) if m else None
+    if want and not got:
+        bad(f"{_slug}: the band card prints no line under its place")
+    elif got and html_mod.unescape(got[1]) != want:
+        bad(f"{_slug}: the band card's line is not the written line for its place\n"
+            f"      card:    {html_mod.unescape(got[1])[:90]}\n"
+            f"      written: {want[:90]}")
 
 # ── 5. the colours still mirror the page's own map ─────────────────────────
 tpl = (ROOT / "scripts/atlas-hub-template.html").read_text()

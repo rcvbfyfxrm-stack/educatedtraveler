@@ -457,7 +457,12 @@ def opened_band(items, n_asked, n_open):
         # page again. This mirrors cardInner() in the template exactly — change one
         # and you change both, or the page lies. `walks` + the cue are the same deal:
         # placeWalk() picks a band card up off the class, exactly as it does a grid one.
-        blurb, hook = (it.get("blurb") or "").strip(), (it.get("why") or "").strip()
+        blurb = (it.get("blurb") or "").strip()
+        # Under the place: the hand-written immersive line for that place when there
+        # is one, the researched reason-to-go when there is not. Same rule and same
+        # order of preference as PLACES in the template, so the card does not change
+        # what it says the instant the pointer touches it.
+        hook = (it.get("learn") or "").strip() or (it.get("why") or "").strip()
         nplaces = int(it.get("nplaces") or 1)
         # No published reason to go: the shim puts the craft's own blurb in that slot,
         # so without this the same sentence prints twice in two different greys.
