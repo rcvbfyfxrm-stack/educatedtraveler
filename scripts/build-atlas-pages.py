@@ -1314,7 +1314,7 @@ CRAFT_NAV = (
 # /browse is deliberately absent: it is a redirect, and a redirect has no business
 # in a sitemap. The place stubs of a craft that isn't open are absent for the same
 # reason; they carry noindex and exist only so shared URLs still land somewhere true.
-static_urls = ["/", "/about", "/community", "/lab-weeks", "/circle", "/barcelona", "/instructors", "/letters/", "/teach"]
+static_urls = ["/", "/about", "/community", "/lab-weeks", "/circle", "/barcelona", "/instructors", "/letters/", "/teach", "/privacy"]
 
 # The journal was written, published, and then invisible: no letter has ever been in
 # this sitemap. Discover them instead of listing slugs, so publishing the next one is

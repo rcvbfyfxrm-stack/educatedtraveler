@@ -199,7 +199,12 @@
     okwrap.appendChild(okbox); okwrap.appendChild(oktxt);
 
     var fine = el('p', 'etl-fine');
-    fine.textContent = 'Your note comes straight to me and I read every one myself. What you write, your name and your address are kept for that and nothing else — never sold, never passed on. Write to arnaudcallier@pm.me to be removed and it is done.';
+    // innerHTML, not textContent, only because of the link — every character of it is
+    // written here and none of it comes from the reader.
+    fine.innerHTML = 'Your note comes straight to me and I read every one myself. What you write, '
+      + 'your name and your address are kept for that and nothing else — never sold, never passed '
+      + 'on. Write to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed '
+      + 'and it is done. &middot; <a href="/privacy">What I keep</a>';
 
     var msg = el('p', 'intent-msg', { hidden: 'hidden' });
 

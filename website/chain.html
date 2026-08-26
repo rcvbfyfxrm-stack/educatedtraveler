@@ -317,6 +317,11 @@
         .tally.full{ color:var(--sea); }
 
         /* the two places this page TAKES something, said plainly at the moment it asks */
+        .mini button{ background:none; border:0; padding:0; font:inherit; color:var(--sea);
+                      cursor:pointer; border-bottom:1px solid rgba(127,168,165,0.45); }
+        .mini button:hover{ border-color:var(--sea); }
+        .mini button:disabled{ opacity:.5; cursor:default; }
+
         .mini{ font-size:12px; line-height:1.5; color:var(--faint); margin:9px 2px 0; }
         .consent{ display:flex; gap:11px; align-items:flex-start; margin:4px 0 2px;
                   cursor:pointer; }
@@ -453,6 +458,13 @@
             <div class="shot" id="my-shot" style="display:none"><img id="my-img" alt=""></div>
         </div>
 
+        <!-- The one thing a photo of a person must always have: a way back out.
+             Shown only to the browser that holds the key, which is the browser that
+             sent it. Said plainly, because removing it does break the link. -->
+        <p class="mini" id="take-back" style="display:none">Changed your mind?
+           <button type="button" id="take-back-go">Remove my photo</button> — it goes from
+           our storage, and anyone you already sent the link to stops seeing it.</p>
+
         <!-- The cohort moment: computed from the two sentences in front of us, no data needed. -->
         <div class="together" id="together" style="display:none">
             <div class="k" id="tog-k">The room</div>
@@ -497,7 +509,7 @@
                Your name, email and what you learned are kept for that and nothing else;
                they are never sold and never passed on. Write to
                <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a> to be removed
-               and it is done.</p>
+               and it is done. &middot; <a href="/privacy">What I keep</a></p>
         </div>
 
         <div class="split"><span>Ask three people</span></div>
@@ -1044,8 +1056,73 @@
             sb.storage.from(BUCKET).upload(sealName(name), state.sealFile, opts)
         ]);
         both.forEach(function(res){ if(res && res.error) throw res.error; });
+
+        // The delete key. Minted here, written once, and kept only in this browser —
+        // it never goes in the link, and anon cannot read chain_photos back, so the
+        // one person who can remove this photo is whoever is holding this device.
+        // Without accounts that is the closest thing to proof of authorship there is.
+        // A failure here is NOT fatal to the send: the photo is already up and the
+        // chain should not break over it. The nightly sweep collects any row-less
+        // object once it is old enough, so nothing is left immortal by the mistake.
+        try{
+            var key = mintKey();
+            var rec = await sb.from('chain_photos').insert({ name:name, delete_key:key });
+            if(rec && rec.error) throw rec.error;
+            rememberMine(name, key);
+        }catch(e){
+            console.warn('[Chain] photo recorded without a delete key:', e && e.message);
+        }
+
         state.photoPath = name;
         return name;
+    }
+
+    // ── taking your own photo back ───────────────────────────────────────────
+    var MINE_KEY = 'et_chain_photos';
+    function mintKey(){
+        if(window.crypto && crypto.getRandomValues){
+            var a = new Uint8Array(24); crypto.getRandomValues(a);
+            return Array.prototype.map.call(a, function(b){
+                return ('0' + b.toString(16)).slice(-2); }).join('');
+        }
+        return String(Date.now()) + Math.random().toString(36).slice(2) +
+               Math.random().toString(36).slice(2);
+    }
+    function rememberMine(name, key){
+        try{
+            var all = JSON.parse(localStorage.getItem(MINE_KEY) || '[]');
+            all.push({ name:name, key:key, at:Date.now() });
+            localStorage.setItem(MINE_KEY, JSON.stringify(all.slice(-20)));
+        }catch(e){ /* private window, full disk: the photo still sent */ }
+    }
+    function myPhotos(){
+        try{ return JSON.parse(localStorage.getItem(MINE_KEY) || '[]'); }catch(e){ return []; }
+    }
+    function forgetMine(name){
+        try{
+            var left = myPhotos().filter(function(p){ return p.name !== name; });
+            localStorage.setItem(MINE_KEY, JSON.stringify(left));
+        }catch(e){}
+    }
+
+    async function removeMyPhoto(){
+        var mine = myPhotos().filter(function(p){ return p.name === state.photoPath; })[0];
+        if(!mine) return { ok:false, why:'no_key' };
+        // Through the client, not a bare fetch: edge functions want a JWT, and the anon
+        // key lives inside supabase-config.js rather than on window. A hand-rolled
+        // fetch here got a 401 and reported itself to the reader as "try again".
+        var sb = window.supabaseClient;
+        if(!sb || !sb.functions) return { ok:false, why:'offline' };
+        try{
+            var res = await sb.functions.invoke('chain-photo', {
+                body:{ action:'forget', name:mine.name, key:mine.key } });
+            if(res && res.error) return { ok:false, why:'failed' };
+            if(!res || !res.data || !res.data.forgotten){
+                return { ok:false, why:(res && res.data && res.data.error) || 'failed' };
+            }
+            forgetMine(mine.name);
+            return { ok:true };
+        }catch(e){ return { ok:false, why:'offline' }; }
     }
 
     // ── write → read ─────────────────────────────────────────────────────────
@@ -1151,6 +1228,12 @@
             $('eyebrow2').textContent = 'What you learned';
             $('f_msg').value = 'What is the best thing you actually learned this year? '
                 + "Mine's in here with the photo — you can't see it until you show me yours.";
+        }
+
+        // Only the browser that uploaded it holds the key, so only that browser is offered
+        // the way out. Everyone else down the chain is looking at someone else's photo.
+        if(state.photoPath && myPhotos().some(function(p){ return p.name === state.photoPath; })){
+            $('take-back').style.display = 'block';
         }
 
         paintTogether();
@@ -1527,6 +1610,20 @@
             if(!el.classList.contains('seen')) io.observe(el);
         });
     }
+
+    $('take-back-go').addEventListener('click', async function(){
+        var b = this, row = $('take-back');
+        b.disabled = true; b.textContent = 'Removing…';
+        var out = await removeMyPhoto();
+        if(out.ok){
+            $('my-shot').style.display = 'none';
+            row.textContent = 'Removed. It is gone from our storage, and the link no longer shows it.';
+        } else {
+            b.disabled = false; b.textContent = 'Remove my photo';
+            row.insertAdjacentHTML('beforeend',
+                ' <span style="color:var(--ember)">That did not go through — try again in a moment.</span>');
+        }
+    });
 
     if(!isProd()) $('demo').classList.add('on');
 })();
