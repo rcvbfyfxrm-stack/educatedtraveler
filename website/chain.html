@@ -528,9 +528,11 @@
                   photoPath:'', photoLocal:'' };
 
     var BUCKET = 'chain-faces';
-    // A link carries a FILE NAME, never a URL. The origin and the bucket are fixed here,
-    // so a doctored ?c= can only ever point at a photo inside EducatedTraveler's own
-    // storage — it can never make the page load, or leak a reader to, somewhere else.
+    // A link carries a FILE NAME, never a URL. The bucket is fixed here; the origin comes
+    // from supabase-config.js, which sets window.SUPABASE_URL site-wide. Neither is
+    // reachable from ?c=, which supplies the file name and nothing else — so a doctored
+    // ?c= can only ever point at a photo inside EducatedTraveler's own storage, and can
+    // never make the page load, or leak a reader to, somewhere else.
     // .jpg only, because .jpg is the only thing this page mints and the only thing
     // the bucket accepts — a name in any other shape is a name we did not write.
     var SAFE_PHOTO = /^[A-Za-z0-9_-]{6,64}\.jpg$/;
@@ -587,7 +589,7 @@
                 friend = { name:String(d.n||'').slice(0,24), skill:String(d.s).slice(0,60),
                            place:String(d.p||'').slice(0,48), days:String(d.d||'').slice(0,40),
                            photo:String(d.f||'').slice(0,80),
-                           hands:Math.min(parseInt(d.h,10)||1, 99) };
+                           hands:Math.max(1, Math.min(parseInt(d.h,10)||1, 99)) };
                 state.hands = friend.hands + 1;
             }
         }catch(e){ friend = null; }   // a mangled link just becomes a cold start
