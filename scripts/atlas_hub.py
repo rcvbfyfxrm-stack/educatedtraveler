@@ -451,11 +451,14 @@ def opened_band(items, n_asked, n_open):
         if it["country"] and it["country"] not in where:
             where = f"{where}, {it['country']}"
         # The same body lines the browse cards below carry, in the same order and from
-        # the same source: what the craft IS, then where, then why there. A band card
-        # is a .gcard, so if it were ordered differently from the card beside it there
-        # would be two card designs on one page again. This mirrors cardInner() in the
-        # template exactly — change one and you change both, or the page lies.
+        # the same source: the craft and its place as one title, then what the craft
+        # is, then why there. A band card is a .gcard, so if it were ordered
+        # differently from the card beside it there would be two card designs on one
+        # page again. This mirrors cardInner() in the template exactly — change one
+        # and you change both, or the page lies. `walks` + the cue are the same deal:
+        # placeWalk() picks a band card up off the class, exactly as it does a grid one.
         blurb, hook = (it.get("blurb") or "").strip(), (it.get("why") or "").strip()
+        nplaces = int(it.get("nplaces") or 1)
         # No published reason to go: the shim puts the craft's own blurb in that slot,
         # so without this the same sentence prints twice in two different greys.
         if hook == blurb:
@@ -465,14 +468,15 @@ def opened_band(items, n_asked, n_open):
         if not blurb:
             blurb, hook = hook, ""
         cards.append(
-            f'<article class="gcard" style="--sc:{e(it["color"])}">'
+            f'<article class="gcard{" walks" if nplaces > 1 else ""}" style="--sc:{e(it["color"])}">'
             f'<a class="cardlink" href="/atlas/{e(it["id"])}" aria-label="Open the '
             f'{e(it["name"])} skill sheet"></a>'
             f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
             f'<span class="craftname">{e(it["name"])}</span>'
-            + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
             + (f'<div class="wherealive"><span class="in">in</span> {e(where)}</div>' if where else "")
+            + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
             + (f'<p class="cardhook">{e(hook)}</p>' if hook else "")
+            + (f'<div class="placecue">{nplaces} places</div>' if nplaces > 1 else "")
             + "</article>")
     n = len(items)
     return (

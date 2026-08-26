@@ -1261,6 +1261,10 @@ OPENED_BAND = [{"id": s, "name": _by_id[s]["name"], "place": _by_id[s]["place"],
                 "country": _by_id[s]["country"],
                 "color": atlas_hub.WORLD_COLOR.get(_by_id[s]["world"], "#7fa8a5"),
                 "why": _by_id[s].get("why", ""), "blurb": _by_id[s].get("blurb", ""),
+                # how many places the craft is taught in — the card says so, and walks
+                # them under the pointer. Counted off the same dests the index ships,
+                # so the number on the card and the list it walks cannot disagree.
+                "nplaces": sum(1 for x in _by_id[s].get("dests", []) if x.get("place")),
                 "opened": pretty_date(OPENED[s])} for s in _band_slugs]
 
 (ROOT / "website/js/atlas-index.js").write_text(

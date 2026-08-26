@@ -17,7 +17,11 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
      the page itself draws with, so a band card is the colour of its world;
   6. every card links to a craft page that exists on disk;
   7. every immersive learnLines sentence stays inside the research it sits above —
-     no number and no proper noun that destination's own row does not already carry.
+     no number and no proper noun that destination's own row does not already carry;
+  8. a card that says "N places" is a card with N places to walk. The cue is
+     rendered from one field and placeWalk() builds its list from another; if they
+     drift, the card counts off "3 / 5" against a list of four and nothing else
+     ever complains.
 
 Exit 0 = all clear. Exit 1 = do not ship it.
 """
@@ -53,7 +57,7 @@ band = band.group(0)
 if html.index(band) > html.index('<main class="studio"'):
     bad("the band is below the browse, not above it")
 
-cards = re.findall(r'<article class="gcard" style="--sc:(#[0-9a-f]{6})">.*?'
+cards = re.findall(r'<article class="gcard[^"]*" style="--sc:(#[0-9a-f]{6})">.*?'
                    r'href="/atlas/([a-z0-9-]+)".*?'
                    r'<div class="openedon">Opened <b>([^<]+)</b></div>', band, re.S)
 if not cards:
@@ -127,6 +131,22 @@ if n_mine and not m:
     bad(f"{n_mine} crafts were opened by hand and the band does not say so")
 elif m and (1 if m[1] == "one" else int(m[1])) != n_mine:
     bad(f"the band claims {m[1]} hand-opened crafts; the data says {n_mine}")
+
+# ── 8. the number on the card is the length of the list it walks ───────────
+# The cue is written by build-atlas-pages (dests carrying a place); placeWalk()
+# rebuilds that list at runtime from ET_ATLAS by the same rule. Two code paths, one
+# number, and a mismatch stays invisible until somebody watches "3 / 5" walk four.
+_by_slug = {c["id"]: c for c in crafts}
+for _, _slug, _ in cards:
+    m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
+    cue = re.search(r'<div class="placecue">(\d+) places</div>', m[1]) if m else None
+    real = sum(1 for d in _by_slug.get(_slug, {}).get("dests", []) if d.get("place"))
+    if cue and int(cue[1]) != real:
+        bad(f"{_slug}: the card says {cue[1]} places, the index holds {real}")
+    elif real > 1 and not cue:
+        bad(f"{_slug} is taught in {real} places and its card never says so")
+    elif real > 1 and m and 'walks' not in (band[max(0, band.index(m[0]) - 120):band.index(m[0])]):
+        bad(f"{_slug} counts {real} places but its card is not marked to walk them")
 
 # ── 5. the colours still mirror the page's own map ─────────────────────────
 tpl = (ROOT / "scripts/atlas-hub-template.html").read_text()

@@ -105,9 +105,9 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 /* two lines each, so the tallest craft name and the longest place still fit inside the
    height the card holds — a card that grew mid-fade would shove the caption around */
 .cam-tick .craft{font-family:'Fraunces',Georgia,serif;font-size:clamp(20px,2.4vw,26px);line-height:1.12;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.cam-tick .whatline{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;font-size:12.5px;line-height:1.5;color:var(--paper);opacity:.86}
-.cam-tick .place{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-top:11px;transition:color 1.4s ease}
-.cam-tick .whyline{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:4px;font-size:11.5px;line-height:1.55;color:var(--muted)}
+.cam-tick .place{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-top:3px;transition:color 1.4s ease}
+.cam-tick .whatline{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:11px;font-size:12.5px;line-height:1.5;color:var(--paper);opacity:.86}
+.cam-tick .whyline{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px;font-size:11.5px;line-height:1.55;color:var(--muted)}
 .legend{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px}
 .legend button{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);padding:4px 9px;border:1px solid var(--line);border-radius:99px;transition:all .2s}
 .legend button:hover{color:var(--paper)}.legend button.on{color:var(--paper);border-color:var(--lc)}
@@ -261,32 +261,44 @@ select.fin option{background:var(--ink2)}
   .dcard:hover .reveal-cue,.gcard:hover .reveal-cue{opacity:0}
 }
 @media(hover:none){.reveal-cue{display:none}}
-/* ===== Atlas card v5 — the skill, what you would be doing, the place, why there =====
-   v4 put the place directly under the skill and left "what the craft actually is"
-   as the smallest, greyest line on the card — so a reader met a place name before
-   they had any picture of the thing they would be doing there, and the line that
-   makes it imaginable was the one line built to be skipped.
-   The order is now the order of the decision: the skill, then what your hands
-   would be doing (full size, because this is the line you read the card FOR),
-   then where, then why there. The place keeps its size and its colour — it is
-   still the only coloured thing on the card — it just comes second, once the
-   craft is something you can see. */
+/* ===== Atlas card v6 — "Wildlife Photography in Hungary" as one title ==========
+   v5 pushed the place below a three-line description, which broke the pair a
+   reader is actually holding in their head: the craft AND where. Craft and place
+   are one title again, tight, and the description under them is short enough to
+   take in without reading — two lines, not three.
+   And a craft is taught in more than one place. The card can only print one, so
+   resting the pointer on it walks the rest: the place line and the reason under
+   it change together, in the rank order the craft's own sheet uses. Nothing is
+   generated — both lines are the published place and the published reason for
+   that place, the same strings the sheet prints. The card walks a list; it never
+   writes one. See placeWalk() at the foot of this file. */
 .learn{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:7px}
-.wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:5px}
+.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:2px}
+.wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px;transition:opacity .22s ease}
 .wherealive .in{font-size:12.5px;font-weight:400;opacity:.62}
-/* What the craft IS — the line that has to make it picturable, so it is the one
-   at full size, directly under the name. Never re-cut, never paraphrased: a card
-   that rewrites the research in shorter words is a machine talking, and nothing
-   here may. It is clamped instead, so the cut is visibly a cut and the rest is
-   one click away. */
-.craftblurb{font-size:12.5px;color:var(--paper);opacity:.88;line-height:1.5;margin-bottom:11px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-/* Why THAT place — the school's own reason to go, as it is written on the sheet
-   this card opens. It sits under the place because it is about the place, and it
-   is separated from the line above by SIZE, not by fading it out: at --faint on
-   this background it stopped being something anyone could read. Same five-line
-   body budget as v4, three and two the other way round. */
-.cardhook{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* What the craft IS — two lines, because this one is read at a glance and a third
+   line is one nobody finishes. Never re-cut, never paraphrased: a card that
+   rewrites the research in shorter words is a machine talking, and nothing here
+   may. It is clamped instead, so the cut is visibly a cut and the rest is one
+   click away. It belongs to the CRAFT, so it is the one line that holds still
+   while the card walks its places. */
+.craftblurb{font-size:12.5px;color:var(--paper);opacity:.88;line-height:1.5;margin-bottom:9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* Why THAT place — the school's own reason to go, as written on the sheet this
+   card opens. It belongs to the place, so it changes with it. */
+.cardhook{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:opacity .22s ease}
+.wherealive.swapping,.cardhook.swapping{opacity:0}
+/* Only a card with somewhere to walk TO pays for the fixed box. Two lines of place
+   and two of reason, held open, so the card cannot change height under the pointer
+   and shove the row below it around while somebody is reading. */
+.walks .wherealive{min-height:42px}
+.walks .cardhook{min-height:36px}
+/* Says the card has more than one answer, and counts them off while it walks.
+   Hidden where there is no pointer to rest — on a phone the card cannot walk,
+   so a phone is never told it can. */
+.placecue{display:none}
+@media(hover:hover){
+  .walks .placecue{display:block;margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);text-align:right}
+}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
@@ -391,7 +403,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
       </div>
       <div class="hero-demo">
         <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
-        <p class="demo-note">Every card on this page reads like that one — the skill, what your hands would be doing, then the one place its community is most alive and why there. Tap it to open the sheet.</p>
+        <p class="demo-note">Every card on this page reads like that one — the skill and where, then what your hands would be doing and why there. Rest on a card and it walks the craft's other places, one at a time.</p>
       </div>
     </div>
   </div>
@@ -530,6 +542,14 @@ A.forEach(function(d){var w=worldOf(d);
 });
 // what the craft actually is, in one line — the only body copy a card carries
 var BLURB={};A.forEach(function(d){BLURB[d.id]=d.blurb||"";});
+// Every place a craft is taught, strongest community first — the list a card walks
+// while the pointer rests on it. Same field, same order the sheet itself uses; the
+// card is reading the sheet out loud, not deciding anything.
+var PLACES={};A.forEach(function(d){
+  PLACES[d.id]=(d.destinations||[]).filter(function(x){return x.place;})
+    .slice().sort(function(a,b){return (b.communityRank||0)-(a.communityRank||0);})
+    .map(function(x){return {place:x.place,country:x.country||"",why:x.why||""};});
+});
 
 /* ── WHAT PULLS YOU ───────────────────────────────────────────────────────
    This replaces the search box. A search box asks you to already know the
@@ -689,7 +709,7 @@ if(!feats.length)feats=rest;
 // page teaches its own format before you have scrolled to a single card.
 var ri=0,curFeat=null;function tick(){if(!feats.length)return;var f=feats[ri%feats.length];curFeat=f;rot.classList.remove("on");
   hub.style.setProperty("--sc",f.color);
-  setTimeout(function(){rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span>'+(f.blurb?'<span class="whatline">'+esc(f.blurb)+'</span>':'')+'<span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>'+(f.why?'<span class="whyline">'+esc(f.why)+'</span>':'');rot.classList.add("on");},280);
+  setTimeout(function(){rot.innerHTML='<span class="craft">Learn '+esc(f.craft)+'</span><span class="place">in '+esc(placeLine(f.place,f.country))+' <span style="opacity:.7">↗</span></span>'+(f.blurb?'<span class="whatline">'+esc(f.blurb)+'</span>':'')+(f.why?'<span class="whyline">'+esc(f.why)+'</span>':'');rot.classList.add("on");},280);
   bg.style.background="radial-gradient(800px 560px at 74% 26%,"+hexA(f.color,.15)+",transparent 60%),linear-gradient(180deg,var(--ink),var(--ink2))";ri++;}
 tick();setInterval(tick,2700);
 
@@ -938,7 +958,7 @@ function placeLine(place,country){
 // The .cfoot ships empty and stays invisible on an open craft. On a craft nobody
 // has asked for yet, atlas-index-shim.js rewrites it — that is where "a letter to
 // Arnaud opens this one" appears, and it is the only other line a card ever says.
-function cardData(world,disc,t){return {world:world,craft:disc.discipline,blurb:disc.blurb||"",
+function cardData(world,disc,t){return {world:world,did:disc.id,craft:disc.discipline,blurb:disc.blurb||"",
   place:t.place||"",country:t.country||"",why:t.why||""};}
 // The hook is the reason to go to the place printed above it. On a craft nobody
 // has asked for there is no published reason to go, and the shim puts the craft's
@@ -952,16 +972,19 @@ function cardInner(o){
   // A hand-written sheet that never carried a blurb: the reason-to-go takes the
   // full-size line instead, so every card still has exactly one.
   if(!blurb){blurb=hook;hook="";}
+  var n=(PLACES[o.did]||[]).length;
   return '<div class="learn">Learn</div>'+
     '<span class="craftname">'+esc(o.craft)+'</span>'+
-    (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     (o.place?'<div class="wherealive"><span class="in">in</span> '+esc(placeLine(o.place,o.country))+'</div>':'')+
+    (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     (hook?'<p class="cardhook">'+esc(hook)+'</p>':'')+
-    '<div class="cfoot"></div>';
+    '<div class="cfoot"></div>'+
+    (n>1?'<div class="placecue">'+n+' places</div>':'');
 }
 // The card is an <article>: a stretched link opens the skill sheet, and the one
 // real button on it (write to Arnaud about this craft) keeps its own clicks.
 function cardShell(cls,color,href,label,o){
+  if((PLACES[o.did]||[]).length>1)cls+=" walks";
   return '<article class="'+cls+'" style="--sc:'+color+'">'+
     '<a class="cardlink" href="'+esc(href)+'" aria-label="Open the '+esc(label)+' skill sheet"></a>'+
     '<button class="writebtn" type="button" data-write-craft="'+esc(o.craft)+'" data-write-place="'+esc((o.place||"")+(o.country?', '+o.country:""))+'">✎ Write</button>'+
@@ -974,7 +997,7 @@ function cardShell(cls,color,href,label,o){
 // with it, rather than leaving the strongest place's reason under a different town.
 function gcard(x){
   return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.did,x.discipline,
-    {world:x.world,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country,why:x.why||""});
+    {world:x.world,did:x.did,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country,why:x.why||""});
 }
 function renderRails(){
   VIEW.cat=null;
@@ -1163,7 +1186,90 @@ document.addEventListener("et:atlas-interest",function(e){
     }
   };
 })();
+
+/* ── placeWalk — the card walks its places while the pointer rests on it ─────
+   A craft is taught in more than one place and a card can only print one. So
+   resting on a card walks the rest: the place line and the reason under it move
+   together, because the reason belongs to the place. What the CRAFT is holds
+   still — that sentence is true wherever you go.
+
+   Every line comes out of PLACES, which is the craft's own destination list in
+   the craft's own rank order. Nothing is composed here and nothing is shortened
+   here: a card that rewrote the research in shorter words would be a machine
+   talking. The clamp does the cutting, visibly, as it does at rest.
+
+   Delegated from the document, because the results grid is thrown away and
+   rebuilt on every filter change and per-card listeners would die with it. One
+   timer at a time, because one card is under the pointer at a time. On stop the
+   card is put back to the exact markup its renderer produced — not to the top of
+   the list, which on a filtered card would silently swap the place the filter
+   matched for a different one. */
+(function placeWalk(){
+  var still=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var card=null,list=null,home=null,i=0,tid=0,fade=0,lead=0;
+  function q(c,s){return c.querySelector(s);}
+  function slug(c){var a=q(c,"a.cardlink"),h=a&&a.getAttribute("href");return h?h.split("/atlas/")[1]:"";}
+  function cue(c,txt){var el=q(c,".placecue");if(el)el.textContent=txt;}
+  function paint(){
+    var p=list[i],w=q(card,".wherealive"),k=q(card,".cardhook");
+    if(w)w.innerHTML='<span class="in">in</span> '+esc(placeLine(p.place,p.country));
+    if(k)k.textContent=p.why||"";
+    cue(card,(i+1)+" / "+list.length);
+  }
+  function dim(on){
+    ["  .wherealive","  .cardhook"].forEach(function(s){
+      var el=q(card,s.trim());if(el)el.classList.toggle("swapping",on);});
+  }
+  function step(){
+    if(!card)return;
+    dim(true);
+    fade=setTimeout(function(){
+      if(!card)return;
+      i=(i+1)%list.length;paint();dim(false);
+    },220);
+  }
+  function stop(){
+    clearTimeout(lead);clearTimeout(fade);clearInterval(tid);lead=fade=tid=0;
+    if(!card)return;
+    var w=q(card,".wherealive"),k=q(card,".cardhook");
+    if(w){w.classList.remove("swapping");if(home.w!==null)w.innerHTML=home.w;}
+    if(k){k.classList.remove("swapping");if(home.k!==null)k.innerHTML=home.k;}
+    cue(card,list.length+" places");
+    card=null;list=null;home=null;i=0;
+  }
+  function start(c){
+    var ps=PLACES[slug(c)];
+    if(!ps||ps.length<2)return;
+    var w=q(c,".wherealive"),k=q(c,".cardhook");
+    card=c;list=ps;home={w:w?w.innerHTML:null,k:k?k.innerHTML:null};
+    // begin at the place the card is already showing, so the first move is a move
+    // and not a jump back to the top of a list the reader is already standing in
+    var shown=w?w.textContent:"";i=0;
+    for(var n=0;n<ps.length;n++){if(shown.indexOf(ps[n].place)>-1){i=n;break;}}
+    cue(c,(i+1)+" / "+ps.length);
+    if(still)return;
+    lead=setTimeout(function(){step();tid=setInterval(step,1900);},450);
+  }
+  function enter(c){if(c===card)return;if(card)stop();if(c)start(c);}
+  function near(e){var t=e.target;return t&&t.closest?t.closest(".dcard,.gcard"):null;}
+  document.addEventListener("mouseover",function(e){enter(near(e));});
+  document.addEventListener("mouseout",function(e){
+    if(!card)return;
+    var to=e.relatedTarget;
+    if(to&&card.contains&&card.contains(to))return;
+    stop();
+  });
+  // keyboard reaches the same thing: the stretched link takes focus, the card walks
+  document.addEventListener("focusin",function(e){enter(near(e));});
+  document.addEventListener("focusout",function(e){
+    if(!card)return;
+    var to=e.relatedTarget;
+    if(to&&card.contains(to))return;
+    stop();
+  });
 })();
+})();
+
 </script>
 </body>
 </html>
