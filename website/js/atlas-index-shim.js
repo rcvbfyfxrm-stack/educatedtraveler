@@ -73,7 +73,14 @@
       featured: c.destId ? { id: c.destId }
               : (dests.length === 1 ? { id: dests[0].id } : {}),
       destinations: dests,
-      // not read by the page; used by the locked-card stamp below
+      // Whether the craft is open. BOTH names, and that is not belt-and-braces:
+      // the page reads `.open` in three places — countOpen(), the closed-craft
+      // count under a place filter, and every DESTS row — while this file only
+      // ever set `_open`. So countOpen() returned 0 and the live page said "in the
+      // 0 open crafts" whenever a place filter was on, with 34 of them open.
+      // Renaming either side would leave the other broken; carrying both is what
+      // makes every existing reader correct without touching the page.
+      open: !!c.open,
       _open: !!c.open
     };
   });

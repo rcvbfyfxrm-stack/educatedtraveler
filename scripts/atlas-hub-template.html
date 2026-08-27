@@ -119,7 +119,11 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 @media(max-width:880px){.hero{padding:84px 0 30px}.hero-head{text-align:center}.hero-body{grid-template-columns:1fr;gap:22px;margin-top:22px}.hero-copy{text-align:center}.hero-copy .sub{margin:0 auto}.cues{justify-content:center}.herofacts{justify-content:center}.herofacts span{margin:7px auto 0}.hero-oath{margin:24px auto 0;padding:13px 0 0;border-left:none;border-top:1px solid rgba(127,168,165,.4);max-width:40ch;text-align:center}}
 
 /* studio */
-.studio{padding:12px 0 30px}.studio .grid{display:grid;grid-template-columns:272px minmax(0,1fr);gap:26px;align-items:start}
+/* scroll-margin because the nav is fixed: "Browse every skill" jumps to #studio,
+   and the search bar is the first thing in it — without this the bar lands behind
+   the nav and the page looks like it scrolled to the filter panel. Same 74px the
+   letter already uses. */
+.studio{padding:12px 0 30px;scroll-margin-top:74px}.studio .grid{display:grid;grid-template-columns:272px minmax(0,1fr);gap:26px;align-items:start}
 @media(max-width:880px){.studio .grid{grid-template-columns:minmax(0,1fr)}}
 .side{position:sticky;top:74px;border:1px solid var(--line);border-radius:16px;background:var(--ink2);max-height:calc(100vh - 90px);overflow:auto}
 @media(max-width:880px){.side{position:static;max-height:none}}
@@ -366,6 +370,30 @@ body.plocked{overflow:hidden}
   .plist li{grid-template-columns:1fr;gap:6px}.plist .pn{padding-top:0}
 }
 
+/* ── the search bar ────────────────────────────────────────────────────────
+   The funnel below answers "I don't know the word for it". This answers the
+   other half of the room: somebody who arrived knowing exactly what they came
+   for and should not have to walk a funnel to reach it. Both, not either.
+   It lives above the grid rather than inside it because render() replaces
+   results.innerHTML wholesale — an input in there loses its focus, and its
+   caret, on every keystroke. */
+.skillsearch{display:flex;align-items:center;gap:11px;margin:0 0 20px;padding:0 16px;border:1px solid var(--line);border-radius:14px;background:rgba(20,17,13,.55);transition:border-color .2s,background .2s}
+.skillsearch:focus-within{border-color:color-mix(in srgb,var(--sea) 55%,var(--line));background:rgba(20,17,13,.85)}
+.skillsearch .qi{font-size:19px;line-height:1;color:var(--faint);transform:translateY(-1px)}
+.skillsearch:focus-within .qi{color:var(--sea)}
+.skillsearch input{flex:1;min-width:0;background:none;border:none;outline:none;color:var(--paper);font-family:inherit;font-weight:300;font-size:16px;padding:15px 0;line-height:1.4}
+.skillsearch input::placeholder{color:var(--faint)}
+.skillsearch input::-webkit-search-cancel-button{display:none}
+.qclear{flex:0 0 auto;width:26px;height:26px;border-radius:99px;border:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1;transition:border-color .2s,color .2s}
+.qclear:hover,.qclear:focus-visible{border-color:var(--sea);color:var(--paper)}
+.qclear[hidden]{display:none}
+/* nothing called that — the Atlas says so plainly and hands you the letter */
+.qnone{padding:52px 10px;text-align:center;color:var(--muted)}
+.qnone b{color:var(--paper);font-weight:400}
+.qnone .qn2{margin-top:10px;font-size:14px;color:var(--faint)}
+.qnone .btn-ghost{margin-top:18px}
+@media(max-width:760px){.skillsearch input{font-size:16px;padding:13px 0}}
+
 /* the whole card opens the skill sheet — a stretched link under the content, so
    the one real button on the card (write to Arnaud) still gets its own clicks */
 .cardlink{position:absolute;inset:0;z-index:1;border-radius:inherit}
@@ -465,7 +493,15 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   </div>
 </header>
 
-<main class="studio" id="studio"><div class="wrap"><div class="grid">
+<main class="studio" id="studio"><div class="wrap">
+  <div class="skillsearch">
+    <span class="qi" aria-hidden="true">⌕</span>
+    <input id="q" type="search" autocomplete="off" spellcheck="false"
+           aria-label="Search the Atlas by skill or place"
+           placeholder="Search a skill, or a place — tango, sourdough, Kyoto">
+    <button class="qclear" id="qclear" type="button" hidden aria-label="Clear the search">✕</button>
+  </div>
+  <div class="grid">
   <aside class="side">
     <details class="sidefold" id="sidefold">
       <summary><span class="sfl">Narrow it down</span><span class="sfn" id="sfcount"></span></summary>
@@ -605,10 +641,16 @@ function levelBucket(lv){lv=(lv||"").toLowerCase();var e=lv.split("->")[0];
 // Pusztaszer, Hungary" tells you where but not what you would actually be doing
 // there, and "one-way glass hide photography was invented here" is the half a
 // reader wants. It is the same sentence the sheet prints, moved, not rewritten.
+// Accent- and case-folded, so what somebody types on an English keyboard reaches
+// São Paulo, Côte d'Azur and Mysore (Gokulam) alike.
+function fold(s){return (s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
 var DESTS=[];
 A.forEach(function(d){var w=worldOf(d);
   (d.destinations||[]).forEach(function(x){
-    DESTS.push({world:w,discipline:d.discipline,did:d.id,open:!!d.open,
+    DESTS.push({hayName:fold(d.discipline),
+      hayPlace:fold((x.place||"")+" "+(x.country||"")+" "+(x.region||"")),
+      hay:fold(d.discipline+" "+(x.place||"")+" "+(x.country||"")+" "+(x.region||"")+" "+(d.blurb||"")),
+      world:w,discipline:d.discipline,did:d.id,open:!!d.open,
       place:x.place,country:x.country,region:x.region||"",role:x.role||"",rank:x.communityRank||0,
       season:x.bestSeason||"",level:x.level||"",lvl:levelBucket(x.level),
       tripTier:x.tripTier||0,english:x.englishTaught===true,id:x.id,why:x.why||""});
@@ -676,6 +718,21 @@ slow:["ayurveda","calligraphy-and-lettering","cold-exposure-wim-hof-method","fre
 };
 var PULL_HAS={};PULLS.forEach(function(p){var m={};(PULL_LIST[p.id]||[]).forEach(function(id){m[id]=1;});PULL_HAS[p.id]=m;});
 function inPull(did,keys){for(var i=0;i<keys.length;i++){if(PULL_HAS[keys[i]]&&PULL_HAS[keys[i]][did])return true;}return false;}
+/* The pull lists are a curated vocabulary for exactly the words people type, so
+   the search reaches them too. "forge" is the case that proved it: blacksmithing's
+   own blurb says "forging orange", which no substring of "forge" reaches, while
+   three unrelated crafts say "forged" and came back instead. The pull list has
+   said forge · kiln · embers all along. A second pass, because PULL_HAS is built
+   after DESTS and neither wants to move. */
+(function(){
+  var vocab={};
+  PULLS.forEach(function(p){
+    var words=" "+fold(p.label+" "+p.note.replace(/·/g," "));
+    var m=PULL_HAS[p.id]||{};
+    for(var did in m)if(m[did])vocab[did]=(vocab[did]||"")+words;
+  });
+  DESTS.forEach(function(x){x.hayPull=vocab[x.did]||"";x.hay+=x.hayPull;});
+})();
 
 var byWorldDisc={};ORDER.forEach(function(w){byWorldDisc[w]=[];});
 A.forEach(function(d){var w=worldOf(d),t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});byWorldDisc[w].push({d:d,top:t||{}});});
@@ -776,7 +833,7 @@ function syncWorldCounts(){
     var b=legend.querySelector('button[data-w="'+w+'"] .lgn');if(b)b.textContent=n;
   });
 }
-hub.onclick=function(){if(curFeat&&curFeat.did){location.href="/atlas/"+curFeat.did;}else{F.worlds={};F.craft="";renderSide();render();syncWorld();}};
+hub.onclick=function(){if(curFeat&&curFeat.did){location.href="/atlas/"+curFeat.did;}else{F.worlds={};F.craft="";syncSearch();renderSide();render();syncWorld();}};
 function hexA(h,a){var n=parseInt(h.slice(1),16);return "rgba("+((n>>16)&255)+","+((n>>8)&255)+","+(n&255)+","+a+")";}
 // the flashing centre cycles the most surprising crafts first; each links to its best place
 var SURPRISE=["freediv","apnea","knife","blade","smith","forge","perfum","falconr","cheese","ferment","sake","chocolat","glassblow","glass","tango","flamenco","calligraph","indigo","dye","forag","mushroom","sourdough","kintsugi","leather","ceramic","pottery","blacksmith","woodblock","beekeep","honey","spearfish","cooper","lacquer","weav","whisky","whiskey","mezcal","truffle","oyster","lutherie","violin","wooden boat"];
@@ -808,9 +865,9 @@ tick();setInterval(tick,2700);
 // ── filter state ──
 // One factory, three call sites (init, Clear, "Loosen the filters") — they drifted
 // apart once already.
-function blankF(){return {worlds:{},craft:"",pulls:{},regions:{},month:0,minRank:0,role:"",level:"",trip:0,english:false};}
+function blankF(){return {q:"",worlds:{},craft:"",pulls:{},regions:{},month:0,minRank:0,role:"",level:"",trip:0,english:false};}
 var F=blankF();
-function anyFilter(){return Object.keys(F.worlds).length||F.craft||Object.keys(F.pulls).length||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.trip||F.english;}
+function anyFilter(){return F.q||Object.keys(F.worlds).length||F.craft||Object.keys(F.pulls).length||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.trip||F.english;}
 function toggleWorld(w){if(F.worlds[w])delete F.worlds[w];else F.worlds[w]=1;F.craft="";renderSide();render();syncWorld();}
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -833,8 +890,28 @@ var openStep=0, reached=0;          // which step is open, and how far we have g
 
 // matchDest reads a STATE, not the live F, so the same predicate can answer
 // "how many skills would this click leave?" without touching what is on screen.
+/* Where the words landed. A search reaches the skill's name, the place it is
+   taught, and what the craft actually is — so "silence" finds vipassana and
+   "forge" finds a smithy without either word being in a title. But the three are
+   not worth the same: somebody typing "forge" means blacksmithing, not a blurb
+   that happens to use the word, so a name match sorts above a place match and a
+   place match above a description match. Without this, "fire" opened on New
+   Basque Cuisine. */
+function qScore(x){
+  if(!F.q)return 0;
+  var w=F.q.split(/\s+/),inName=1,inPlace=1;
+  for(var i=0;i<w.length;i++){
+    if(!w[i])continue;
+    if(x.hayName.indexOf(w[i])<0)inName=0;
+    if(x.hayPlace.indexOf(w[i])<0)inPlace=0;
+  }
+  var inPull=1;
+  for(var j=0;j<w.length;j++){if(w[j]&&(x.hayPull||"").indexOf(w[j])<0){inPull=0;break;}}
+  return inName?3:(inPlace?2:(inPull?1:0));
+}
 function matchDest(x,S){
   S=S||F;
+  if(S.q){var w=S.q.split(/\s+/);for(var qi=0;qi<w.length;qi++){if(w[qi]&&x.hay.indexOf(w[qi])<0)return false;}}
   if(Object.keys(S.worlds).length&&!S.worlds[x.world])return false;
   if(S.craft&&x.did!==S.craft)return false;
   var ps=Object.keys(S.pulls);if(ps.length&&!inPull(x.did,ps))return false;
@@ -978,7 +1055,7 @@ function renderSide(){
     if(body)STEPS[openStep].wire(body);
   }
   var rst=sideB.querySelector("#reset");
-  if(rst)rst.onclick=function(){F=blankF();openStep=0;reached=0;renderSide();render();syncWorld();};
+  if(rst)rst.onclick=function(){F=blankF();openStep=0;reached=0;syncSearch();renderSide();render();syncWorld();};
   syncSummary();syncWorldCounts();
 }
 // The closed bar still has to say what the filter is doing, or closing it would
@@ -1006,6 +1083,27 @@ var results=document.getElementById("results");
 var VIEW={cat:null};
 // every re-render tells the page's add-ons (the Circle-interest lines) to repaint
 function signalRender(){try{document.dispatchEvent(new CustomEvent("et:atlas-render"));}catch(e){}}
+/* The search box, wired. It is debounced because every keystroke re-walks all
+   440 destinations and rebuilds the grid, and typing "photography" should not do
+   that eleven times. F.q is folded on the way in, the same way x.hay was folded
+   on the way out, or an accent typed by a French keyboard would match nothing. */
+var qEl=document.getElementById("q"),qClear=document.getElementById("qclear"),qT=0;
+function syncSearch(){if(qEl){qEl.value=F.q||"";qClear.hidden=!F.q;}}
+function applyQ(v){
+  F.q=fold(v).trim();
+  qClear.hidden=!F.q;
+  // a search is an answer to "which skill", so it clears a craft already chosen
+  if(F.q)F.craft="";
+  renderSide();render();
+}
+if(qEl){
+  qEl.addEventListener("input",function(){clearTimeout(qT);var v=this.value;qT=setTimeout(function(){applyQ(v);},130);});
+  qEl.addEventListener("keydown",function(e){if(e.key==="Escape"){this.value="";clearTimeout(qT);applyQ("");}});
+  qClear.onclick=function(){qEl.value="";clearTimeout(qT);applyQ("");qEl.focus();};
+  // ?q= makes a search linkable — the same shape /atlas/?skill= already uses
+  try{var qp=new URLSearchParams(location.search).get("q");if(qp){qEl.value=qp;applyQ(qp);}}catch(e){}
+}
+
 function render(){
   VIEW.cat=null;
   if(!anyFilter()){renderRails();return;}
@@ -1018,14 +1116,26 @@ function render(){
   // index would land in matchDest's state argument as a number.
   DESTS.filter(function(x){return matchDest(x);}).forEach(function(x){var p=pick[x.did];if(!p||x.rank>p.rank)pick[x.did]=x;});
   var list=Object.keys(pick).map(function(k){return pick[k];})
-    .sort(function(a,b){return (wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
+    .sort(function(a,b){return (qScore(b)-qScore(a))||(wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
   var nw=countWanted(list,function(x){return x.discipline;});
   var nClosed=A.filter(function(d){return !d.open;}).length;
   // The five place-filters only have data for open crafts. Say so in the count
   // rather than letting the Atlas look like it shrank from 113 crafts to 30.
   var placeFiltered=Object.keys(F.regions).length||F.month||F.trip||F.role||F.english||F.minRank;
   var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> skill'+(list.length===1?"":"s")+(placeFiltered?' <span style="color:var(--faint);font-weight:400">in the '+countOpen()+' open crafts</span>':'')+'</div><div class="sortby">'+(nw?"asked-for skills first, then community strength":"ranked by community strength")+'</div></div>';
-  if(!list.length){results.innerHTML='<div class="empty">No skill matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>'+(placeFiltered?closedBand(nClosed):"");document.getElementById("clr").onclick=function(){F=blankF();openStep=0;reached=0;renderSide();render();syncWorld();};return;}
+  if(!list.length){
+    var only=F.q&&!(Object.keys(F.worlds).length||F.craft||Object.keys(F.pulls).length||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.trip||F.english);
+    results.innerHTML=(only
+      ? '<div class="qnone">Nothing on the Atlas is called <b>'+esc(F.q)+'</b> — not yet.'
+        // counted, never typed — the hero's numbers rotted from 99 to 112 once
+        // because somebody typed them into a sentence exactly like this one
+        +'<div class="qn2">'+A.length+' crafts are catalogued and '+countOpen()+' are open in full. If the one you are after is missing, it is missing because nobody has asked me for it.</div>'
+        +'<a class="btn-ghost" href="#letter">Write me about it →</a></div>'
+      : '<div class="empty">No skill matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>')
+      +(placeFiltered?closedBand(nClosed):"");
+    var cb=document.getElementById("clr");
+    if(cb)cb.onclick=function(){F=blankF();openStep=0;reached=0;syncSearch();renderSide();render();syncWorld();};
+    return;}
   h+='<div class="gridwrap">'+list.map(gcard).join("")+'</div>';
   if(placeFiltered)h+=closedBand(nClosed);
   results.innerHTML=h;signalRender();
