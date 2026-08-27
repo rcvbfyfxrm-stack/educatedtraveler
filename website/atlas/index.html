@@ -295,12 +295,17 @@ select.fin option{background:var(--ink2)}
 .walks .wherealive{min-height:42px}
 .walks .cardhook{min-height:54px}
 /* Says the card has more than one answer, counts them off while it walks, and
-   opens all of them. It is a real control now, so it is a button and it is on every
-   device: the walk needs a pointer, reading the list does not. z-index clears the
-   stretched .cardlink underneath, which would otherwise swallow the click. */
+   opens all of them. z-index clears the stretched .cardlink underneath, which would
+   otherwise swallow the click.
+
+   It shipped once as 9px at 34% opacity on a near-black card — which is what a
+   passive label looks like, and it stayed looking like one after it became the
+   control that opens the panel. Nobody could find it. A control has to look like a
+   control: this is the same pill the badges on this page already use (.trip, .lang,
+   .cred), in the craft's own world colour, at a size you can hit with a thumb. */
 .placecue{display:none}
-.walks .placecue{display:block;position:relative;z-index:3;width:100%;margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);text-align:right;transition:color .2s}
-.walks .placecue:hover,.walks .placecue:focus-visible{color:var(--sc)}
+.walks .placecue{display:inline-flex;align-items:center;gap:7px;position:relative;z-index:3;margin-top:12px;padding:5px 11px;border:1px solid color-mix(in srgb,var(--sc) 38%,transparent);border-radius:99px;background:color-mix(in srgb,var(--sc) 9%,transparent);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--sc);line-height:1.3;transition:border-color .2s,background .2s,color .2s}
+.walks .placecue:hover,.walks .placecue:focus-visible{border-color:var(--sc);background:color-mix(in srgb,var(--sc) 17%,transparent);color:var(--paper)}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
