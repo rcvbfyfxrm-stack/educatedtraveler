@@ -3,7 +3,7 @@
 This is /browse. Not a rebuild of it, not something inspired by it: the file
 itself, taken from the live page (scripts/atlas-hub-template.html) and moved to
 the /atlas address, because that is where everything lives now. The rosette, the
-rails, the card design, the filters, the letter, the ✎ buttons — all untouched.
+rails, the card design, the filters, the note, the ✎ buttons — all untouched.
 
 What the build changes, and nothing else:
   1. the head — canonical, og:url and title point at /atlas/, and the craft
@@ -18,8 +18,8 @@ What the build changes, and nothing else:
   4. the band above the browse — the crafts the Circle opened, newest first,
      each with the day its ask landed (opened_band() below).
 
-The letter, and the letter alone, is also shared with the short craft sheets —
-LETTER_CSS / LETTER_JS / letter_section() below. One letter on the site.
+The note, and the note alone, is also shared with the short craft sheets —
+LETTER_CSS / LETTER_JS / letter_section() below. One note on the site.
 """
 import html
 import re
@@ -100,7 +100,7 @@ def learn_line_drift(learn_lines, disciplines):
     return out
 
 
-# ── the letter, shared with every short craft sheet ─────────────────────────
+# ── the note, shared with every short craft sheet ─────────────────────────
 LETTER_CSS = """
 :root{--sheet:#f6efe0;--sheet-ink:#2c231a;--sheet-edge:#d9cdb4;--sheet-faint:rgba(44,35,26,.5)}
 .letter{margin:52px 0 18px;scroll-margin-top:74px}
@@ -157,8 +157,8 @@ LETTER_FONTS = ("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600"
 
 
 def letter_section(heading, sub, skill_field=True, prefill=""):
-    """The letter. skill_field=False on a craft sheet, where the craft is already
-    known and asking again would be a form pretending to be a letter."""
+    """The note. skill_field=False on a craft sheet, where the craft is already
+    known and asking again would be a form pretending to be a note."""
     pre = e(prefill, quote=True)
     skill = ('<div class="lfield"><label for="l_skill">The skill</label>'
              '<input id="l_skill" list="l_skills" placeholder="Start typing — or name one that isn\'t in the Atlas yet" autocomplete="off">'
@@ -174,18 +174,18 @@ def letter_section(heading, sub, skill_field=True, prefill=""):
     {skill}
     <div class="sheet">
       <div class="lhd"><div class="to">Dear Arnaud,</div><div class="date" id="l_date"></div></div>
-      <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your letter</label>
+      <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your note</label>
       <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
       <div class="sign"><div class="yours">Talk soon,</div><div class="name" id="l_sign"></div></div>
     </div>
     <div class="prompts" id="l_prompts"></div>
     <div class="lrow">
-      <button class="btn" id="l_send" type="button">Send this letter &rarr;</button>
+      <button class="btn" id="l_send" type="button">Send this note &rarr;</button>
       <span class="lcount" id="l_count">0 words</span>
     </div>
     <div class="sign-off" id="l_signoff">
       <div class="sh serif">Sign it, so I know who I'm writing back to.</div>
-      <p class="sp">Your letter goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. Never a drip. Unsubscribe in one click.</p>
+      <p class="sp">Your note goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. Never a drip. Unsubscribe in one click.</p>
       <div class="sotwo">
         <div class="lfield" style="margin:0"><label for="l_name">First name</label><input id="l_name" placeholder="Marie" autocomplete="given-name"></div>
         <div class="lfield" style="margin:0"><label for="l_email">Email</label><input id="l_email" type="email" placeholder="you@example.com" autocomplete="email"></div>
@@ -197,7 +197,7 @@ def letter_section(heading, sub, skill_field=True, prefill=""):
   </div>
   <div class="ldone" id="l_done">
     <div class="eyebrow">Sent</div>
-    <h3 class="serif" id="l_donehead">Your letter is with me.</h3>
+    <h3 class="serif" id="l_donehead">Your note is with me.</h3>
     <p id="l_donebody">I read every one myself, and I answer.</p>
     <p class="lpoem">Every craft on this map started with somebody saying it out loud.</p>
     <a class="lback" href="/about">The story of why I built this &rarr;</a>
@@ -205,7 +205,7 @@ def letter_section(heading, sub, skill_field=True, prefill=""):
 </section></div>"""
 
 
-# The letter's behaviour, shared with the short craft sheets. On the browse home
+# The note's behaviour, shared with the short craft sheets. On the browse home
 # the page's own copy runs; a craft sheet gets this one, and knows its slug.
 LETTER_JS = r"""
 (function(){
@@ -298,32 +298,32 @@ LETTER_JS = r"""
       unstash();
       if(window.plausible)window.plausible("AtlasLetter",{props:{skill:sk||"unnamed"}});
 
-      // The letter is already on its way to Arnaud — the insert fires notify-lead.
+      // The note is already on its way to Arnaud — the insert fires notify-lead.
       // Now found their account, the same way /circle's seal does: a magic link,
       // no password, ever. This is deliberately AFTER the insert and its failure
-      // is not fatal — a letter that reached him is worth more than an account,
-      // and we must never lose the letter because auth had a bad minute.
+      // is not fatal — a note that reached him is worth more than an account,
+      // and we must never lose the note because auth had a bad minute.
       var acct=false;
       try{
         var otp=await sb.auth.signInWithOtp({email:em,
           options:{emailRedirectTo:window.location.origin+"/portrait",shouldCreateUser:true}});
         acct=!(otp&&otp.error);
-        if(!acct)console.warn("[Letter] account link failed:",otp&&otp.error);
+        if(!acct)console.warn("[Note] account link failed:",otp&&otp.error);
         if(acct&&window.plausible)window.plausible("AtlasLetterAccountLink");
-      }catch(ae){console.warn("[Letter] account link threw:",ae);}
+      }catch(ae){console.warn("[Note] account link threw:",ae);}
 
-      $("l_donehead").textContent="Your letter is with me, "+nm+".";
+      $("l_donehead").textContent="Your note is with me, "+nm+".";
       $("l_donebody").textContent=acct
-        ? "I read every one myself, and I answer. You're in the Circle now — and I've sent a sign-in link to "+em+". One click and this letter, and the crafts you pick from here, live on a page that's yours. No password, ever."
-        : "I read every one myself, and I answer. Your letter is safe with me — but the sign-in link didn't go out just now, so there's no account waiting yet. Ask for a fresh one at educatedtraveler.app/you, or just write to me at arnaudcallier@pm.me. Either way I'll write when I find the master, the place and the moment that fit what you just told me.";
+        ? "I read every one myself, and I answer. You're in the Circle now — and I've sent a sign-in link to "+em+". One click and this note, and the crafts you pick from here, live on a page that's yours. No password, ever."
+        : "I read every one myself, and I answer. Your note is safe with me — but the sign-in link didn't go out just now, so there's no account waiting yet. Ask for a fresh one at educatedtraveler.app/you, or just write to me at arnaudcallier@pm.me. Either way I'll write when I find the master, the place and the moment that fit what you just told me.";
       $("lbox").style.display="none";
       $("l_done").classList.add("on");
       $("letter").scrollIntoView({behavior:"smooth",block:"start"});
     }catch(e){
-      console.error("[Letter] insert failed:",e);
+      console.error("[Note] insert failed:",e);
       stash(payload);
       btn.disabled=false;btn.textContent="Send it to Arnaud →";
-      err.innerHTML='That didn’t go through just now — your letter is safe on this screen. Try once more, or send it straight to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>, which reaches the same inbox.';
+      err.innerHTML='That didn’t go through just now — your note is safe on this screen. Try once more, or send it straight to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>, which reaches the same inbox.';
       err.style.display="block";
     }
   };
@@ -340,7 +340,7 @@ HUB_EXTRA_CSS = """
 .dcard.shut .craftname,.gcard.shut .craftname{opacity:.9}
 .dcard.shut .wherealive,.gcard.shut .wherealive{opacity:.8}
 /* the one line a locked card carries. It names the person, because the thing that
-   opens the craft is a letter to him and nothing else — not a sign-up, not a fee. */
+   opens the craft is a note to him and nothing else — not a sign-up, not a fee. */
 .askline{color:var(--ember)!important;letter-spacing:.04em}
 
 /* the band above the browse — what the Circle opened, newest first */
@@ -491,7 +491,7 @@ def opened_band(items, n_asked, n_open):
         '<div class="eyebrow">Opened by the Circle</div>'
         '<h2 class="serif" id="opened-h">The crafts someone asked for, newest first.</h2>'
         '<p class="nosub">Every craft here starts as a short entry. When a real person names '
-        'one — in a letter, on a raise-your-hand form, or on the way into the Circle — I do '
+        'one — in a note, on a raise-your-hand form, or on the way into the Circle — I do '
         'the work behind it: the places, the schools, the reason to go. Then it opens. '
         f'<b>{n_asked} of the {n_open} open crafts</b> got here that way.{mine} Each date is '
         'the day the ask landed.</p>'
@@ -525,12 +525,12 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
     t = re.sub(r'<meta property="og:description" content="[^"]*">',
                f'<meta property="og:description" content="{total} hands-on skills you can go and '
                f'learn, each with the one place on earth its community is most alive. {n_open} are '
-               f'open in full. A letter to Arnaud opens the rest.">', t, count=1)
+               f'open in full. A note to Arnaud opens the rest.">', t, count=1)
     t = re.sub(r'<meta name="description" content="[^"]*">',
                f'<meta name="description" content="The EducatedTraveler Atlas: {total} hands-on '
                f'skills you can go and learn worldwide — learn tango in Buenos Aires, watchmaking '
                f'in the Vallee de Joux, pottery in Mashiko. {n_open} are open in full, with the '
-               f'school we\'d send you to. A letter to Arnaud opens the rest.">', t, count=1)
+               f'school we\'d send you to. A note to Arnaud opens the rest.">', t, count=1)
 
     # 2b. the hero. One sentence saying what this page IS, then the three numbers the
     #     whole claim rests on — shown, not buried in the fifth clause of a paragraph

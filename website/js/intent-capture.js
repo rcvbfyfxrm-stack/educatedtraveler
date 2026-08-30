@@ -20,8 +20,8 @@
 (function () {
   'use strict';
 
-  // Past this, a note is a letter — and the page says so, warmly.
-  var LETTER_WORDS = 120;
+  // Past this, the page says it noticed the length — warmly. It is a note either way.
+  var LONG_WORDS = 120;
 
   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July',
                 'August', 'September', 'October', 'November', 'December'];
@@ -136,7 +136,7 @@
     var sk = el('span', 'etl-sk'); sk.textContent = 'About';
     var subline = el('input', 'etl-subline', {
       type: 'text', maxlength: '80', id: uid + '-craft',
-      'aria-label': 'The craft this letter is about',
+      'aria-label': 'The craft this note is about',
       placeholder: 'the craft you keep coming back to'
     });
     // On a craft page the letter opens already knowing what it is about — which
@@ -160,11 +160,11 @@
     sheet.appendChild(to); sheet.appendChild(date); sheet.appendChild(subject);
     sheet.appendChild(paper); sheet.appendChild(signrow);
 
-    // A note becomes a letter at LETTER_WORDS, and the page says so — the joke is
-    // the point, and so is the thanks: length is a gift here, not a burden.
+    // Past LONG_WORDS the page thanks you for the length — the thanks is the point:
+    // length is a gift here, not a burden. One word for it, always: a note.
     var quip = el('p', 'etl-quip', { role: 'status', 'aria-live': 'polite' });
     quip.style.display = 'none';
-    var isLetter = false;
+    var saidSo = false;
 
     var prompts = el('div', 'etl-prompts');
     STARTERS.forEach(function (pair) {
@@ -195,7 +195,7 @@
     var okbox = el('input', null, { type: 'checkbox', id: uid + '-ok' });
     var oktxt = el('span');
     oktxt.textContent = 'Yes — keep my name and address so you can write back. '
-      + 'One letter when something is real, nothing else, and I can leave from any of them.';
+      + 'One note when something is real, nothing else, and I can leave from any of them.';
     okwrap.appendChild(okbox); okwrap.appendChild(oktxt);
 
     var fine = el('p', 'etl-fine');
@@ -214,11 +214,10 @@
 
     function words(t){ return (t.trim().match(/\S+/g) || []).length; }
     paper.addEventListener('input', function(){
-      if (isLetter || words(paper.value) < LETTER_WORDS) return;
-      isLetter = true;                                  // latched: the joke never un-fires
-      quip.textContent = "Wow — you're writing me a letter now. All the better: the more you tell me, the better I aim.";
+      if (saidSo || words(paper.value) < LONG_WORDS) return;
+      saidSo = true;                                    // latched: the joke never un-fires
+      quip.textContent = "Wow — you're really writing now. All the better: the more you tell me, the better I aim.";
       quip.style.display = 'block';
-      go.textContent = 'Send my letter →';
     });
     // The tick goes ABOVE the send button. Below it, the reader presses send and only
     // then discovers there was a condition — which is a refusal they did not see coming.
@@ -306,7 +305,6 @@
     });
 
     function finish(name, addr, member, linked) {
-      var word = isLetter ? 'letter' : 'note';
       var safeName = document.createElement('div');
       safeName.textContent = name;
       var nameHtml = safeName.innerHTML;
@@ -318,17 +316,17 @@
       var done = el('p', 'etl-sent');
       if (member) {
         done.innerHTML = 'You\'re already in the Circle with this address, ' + nameHtml +
-          ' — I\'ve kept your ' + word + ' and it\'s waiting in your portrait. ' +
+          ' — I\'ve kept your note and it\'s waiting in your portrait. ' +
           '<a href="/portrait" style="color:var(--sea,#7fa8a5)">Open your portrait →</a>';
       } else if (linked) {
-        done.innerHTML = 'Your ' + word + '\'s with me, ' + nameHtml + '. I\'ve sent a sign-in link to <span>' +
-          addrHtml + '</span> — open it and you\'re in, your letter already on the wall. ' +
+        done.innerHTML = 'Your note\'s with me, ' + nameHtml + '. I\'ve sent a sign-in link to <span>' +
+          addrHtml + '</span> — open it and you\'re in, your note already on the wall. ' +
           'I read every one myself, so give me a day or two.';
       } else {
-        done.innerHTML = 'Your ' + word + '\'s with me, ' + nameHtml + ', and I read every one myself. ' +
+        done.innerHTML = 'Your note\'s with me, ' + nameHtml + ', and I read every one myself. ' +
           'I couldn\'t send your sign-in link just now — ' +
           '<a href="/join?tab=signin&email=' + encodeURIComponent(addr) + '" style="color:var(--sea,#7fa8a5)">ask for it again here</a> ' +
-          'whenever you like, and your letter will already be there.';
+          'whenever you like, and your note will already be there.';
       }
       form.insertBefore(done, msg);
       msg.hidden = true;

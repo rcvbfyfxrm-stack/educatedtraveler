@@ -8,7 +8,7 @@
  *  - At the source, not the simulation · earned, not bought.
  *  - Trust at all levels (the first rule): lead with the real craft + credential,
  *    only places/masters we vouch for; never fabricate proof.
- *  - The two surfaces: the Atlas (map of where a craft is alive) + the Circle (the letter).
+ *  - The two surfaces: the Atlas (map of where a craft is alive) + the Circle (the note).
  *
  * Voice-locked: introduce before you ask; sell only what's real and checkable. No banned words
  * (transformation, life-changing, vacation, luxury, easy), no prices, no emoji.
@@ -66,7 +66,7 @@ window.ET_POSTS = [
     title: "Who Martin Lippo actually is (says who?)",
     link: "https://educatedtraveler.app/barcelona", linkLabel: "The master",
     images: ["/images/posts/lab-week/master.png"],
-    imageNote: "Type card, or lead with /images/lippo/martin-teaching.png and use this as slide 2. HARD GUARD: his sea background — the Atlantic crossing, the 70-metre galley — is bio and 1:1 letters ONLY. It never goes on social, in any form, however well it would land with this audience.",
+    imageNote: "Type card, or lead with /images/lippo/martin-teaching.png and use this as slide 2. HARD GUARD: his sea background — the Atlantic crossing, the 70-metre galley — is bio and 1:1 notes ONLY. It never goes on social, in any form, however well it would land with this audience.",
     slides: [],
     caption:
 "When you tell a chef you've arranged a week with Martin Lippo, the fair question comes straight back: says who?\n\nSo here's the man, and every line is checkable in about a minute.\n\nArgentine, in Barcelona since 2000. He didn't open a restaurant — he built Vakuum, a laboratory whose entire purpose is teaching, and the Nitro School alongside it. Liquid nitrogen is his signature terrain. Les Vergers Boiron built a technique video library around him. He works in the space between Adria's modernism and Escoffier's classicism, which is a harder place to stand than either end of it.\n\nAnd on his own site, under his own name, there are signed reviews with names and ranks attached — including a working superyacht chef: \"Being able to practice the wide range of modern techniques on site made the whole difference.\" Raoni Cavaco.\n\nI'm not asking you to take my word for any of it. His lab, his sessions and his rates are all public. Go and look: martinlippo.com\n\nThe week he's opening for us: educatedtraveler.app/barcelona",
@@ -292,7 +292,7 @@ window.ET_POSTS = [
   {
     id: "story-what-would-you-learn", format: "Instagram Story · 6 frames, interactive", core: "",
     title: "What would you learn? (Story)",
-    link: "https://educatedtraveler.app/#circle", linkLabel: "Get the letter",
+    link: "https://educatedtraveler.app/#circle", linkLabel: "Get the note",
     images: [
       "/images/posts/story-learn/frame-01.png", "/images/posts/story-learn/frame-02.png",
       "/images/posts/story-learn/frame-03.png", "/images/posts/story-learn/frame-04.png",
@@ -308,7 +308,7 @@ window.ET_POSTS = [
       "Frame 6 — \"We'll introduce you.\" + LINK sticker → the Circle. \"Tap up.\"",
     ],
     caption:
-"Answer the question sticker — I read every one. Whatever you'd quietly love to learn, there's a place where it's genuinely alive and a master still teaching it by hand.\n\nTell me yours, and I'll point you to it. The letter is how I introduce you.\n\nGet the letter: https://educatedtraveler.app/#circle",
+"Answer the question sticker — I read every one. Whatever you'd quietly love to learn, there's a place where it's genuinely alive and a master still teaching it by hand.\n\nTell me yours, and I'll point you to it. The note is how I introduce you.\n\nGet the note: https://educatedtraveler.app/#circle",
     hashtags: "#educatedtraveler #whatwouldyoulearn #learnatthesource #learnbydoing #yourpeople",
     strategy:
 "PURPOSE — make people SURFACE a skill they secretly want: engagement and warm leads, not a sell. WHY STORIES — the Question and Poll stickers are the cheapest reach on the platform; every tap trains the feed, every typed answer is a person to DM. FLOW — hook (1) -> open question (2, the gold) -> two low-effort this-or-that polls (3-4, taps that pull people in) -> reframe (5) -> link out (6). AFTER — screenshot the best typed answers and reshare them as fresh frames (\"you said: ___ - here's where to learn it\") and reply to each with the matching Atlas page. CADENCE — run monthly; swap the two polls to match the season. WATCH — sticker taps, question replies, link-sticker taps -> Circle.",
@@ -347,26 +347,26 @@ window.ET_POSTS = [
   },
   {
     id: "circle", format: "Carousel", core: "",
-    title: "What the Circle is — the letter",
+    title: "What the Circle is — the note",
     link: "https://educatedtraveler.app/circle", linkLabel: "Take your place",
     images: [
       "/images/posts/circle/slide-01.png", "/images/posts/circle/slide-02.png",
       "/images/posts/circle/slide-03.png", "/images/posts/circle/slide-04.png",
       "/images/posts/circle/slide-05.png",
     ],
-    imageNote: "Branded slides (1080×1350), one per card. All five re-rendered to the letter framing (2026-07-18) — slides 3–4 now read 'you write me a letter' / 'I read every one myself'; slide 5 closes on 'Tell us what pulls you.'",
+    imageNote: "Branded slides (1080×1350), one per card. All five re-rendered to the note framing (2026-07-18) — slides 3–4 now read 'you write me a note' / 'I read every one myself'; slide 5 closes on 'Tell us what pulls you.'",
     slides: [
       "There's a place where the craft you love is still truly alive.",
       "A real master still teaching it — and the few others chasing the same fire.",
-      "The Atlas maps where it lives. The Circle is how you get in — you write me a letter.",
+      "The Atlas maps where it lives. The Circle is how you get in — you write me a note.",
       "You tell me, in your own words, the craft you'd give a week of your life to. I read every one myself.",
       "Tell us what pulls you.",
     ],
     caption:
-"The Circle isn't a newsletter you sign up for. It's a letter you write me.\n\nYou tell me — in your own words — the one craft you'd give a week of your life to learn, and why it pulls at you. I read every letter myself. Then I go find the real thing: the master still teaching by hand, the place where the craft is genuinely alive, and the handful of others chasing the same fire. When it's real, I write you back and open the door.\n\nA skill, a place, a person, your people.\n\nTake your place: https://educatedtraveler.app/circle",
+"The Circle isn't a newsletter you sign up for. It's a note you write me.\n\nYou tell me — in your own words — the one craft you'd give a week of your life to learn, and why it pulls at you. I read every note myself. Then I go find the real thing: the master still teaching by hand, the place where the craft is genuinely alive, and the handful of others chasing the same fire. When it's real, I write you back and open the door.\n\nA skill, a place, a person, your people.\n\nTake your place: https://educatedtraveler.app/circle",
     hashtags: "#educatedtraveler #thecircle #learnatthesource #craft #yourpeople",
     strategy:
-"PURPOSE — explain the ONE thing that makes ET different now: the Circle is a letter, not a list. It surfaces warm leads who name their own craft. WHEN — run monthly, and any time after the founder story lands. SHAPE — 5-slide carousel; slide 4 (the letter) is the heart — linger there. Reply to every comment; carousels get re-served for days. LINK — /circle (the one link: the questionnaire, the letter, and one-tap magic-link signup all live there; /portrait is only where you land after signing up to access your portrait). WATCH — /circle visits, portraits sealed, replies. SAFE — signature-safe: names no master, place, or date.",
+"PURPOSE — explain the ONE thing that makes ET different now: the Circle is a note, not a list. It surfaces warm leads who name their own craft. WHEN — run monthly, and any time after the founder story lands. SHAPE — 5-slide carousel; slide 4 (the note) is the heart — linger there. Reply to every comment; carousels get re-served for days. LINK — /circle (the one link: the questionnaire, the note, and one-tap magic-link signup all live there; /portrait is only where you land after signing up to access your portrait). WATCH — /circle visits, portraits sealed, replies. SAFE — signature-safe: names no master, place, or date.",
   },
   {
     id: "source-sim", format: "Carousel", core: "",
@@ -412,12 +412,12 @@ window.ET_POSTS = [
   },
   {
     id: "letter", format: "Story / post", core: "",
-    title: "The letter (Circle teaser)",
-    link: "https://educatedtraveler.app/#circle", linkLabel: "Get the letter",
+    title: "The note (Circle teaser)",
+    link: "https://educatedtraveler.app/#circle", linkLabel: "Get the note",
     images: ["/images/posts/letter/cover.png"],
     imageNote: "Branded quote card (1080×1350) — feed post or story background.",
     caption:
-"Now and then I write one letter: a single place where a craft is genuinely alive, the people who keep it, and how to go.\n\nNot a list. A door, and an introduction.\n\nGet the letter: https://educatedtraveler.app/#circle",
+"Now and then I write one note: a single place where a craft is genuinely alive, the people who keep it, and how to go.\n\nNot a list. A door, and an introduction.\n\nGet the note: https://educatedtraveler.app/#circle",
     hashtags: "#educatedtraveler #newsletter #learnatthesource #craft #yourpeople",
   },
   {

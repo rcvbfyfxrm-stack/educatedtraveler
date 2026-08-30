@@ -45,7 +45,7 @@ window.ET_PLAN = {
           title: "Week 3 — Make the Circle the destination", goal: "Every channel routes to the Circle; nothing dead-ends in a feed.", metric: "issue #1 open ≥40% · page CTA sign-up conv ≥20%",
           items: [
             { id: "wk3-cta", t: "Add one quiet Circle sign-up line to the highest-traffic Atlas pages + /crew ('hear about new masters & places' — belonging, not a sales list).", effort: "Half-day", impact: "High", done: "CTA live on top pages; sign-ups attributable in analytics" },
-            { id: "wk3-issue1", t: "Ship Circle letter issue #1 — one discipline×place story, founder-voiced, links out to one trusted school, ends with one question + one referral line.", effort: "Half-day", impact: "High", done: "issue #1 sent; open + click reported" },
+            { id: "wk3-issue1", t: "Ship Circle note issue #1 — one discipline×place story, founder-voiced, links out to one trusted school, ends with one question + one referral line.", effort: "Half-day", impact: "High", done: "issue #1 sent; open + click reported" },
             { id: "wk3-crew", t: "Fire the crew funnel — share /crew into your yachting/chef WhatsApp groups + 1:1 to chef peers. Your highest-trust, zero-cost channel.", effort: "Quick", impact: "High", done: "posted to ≥3 groups + 5 peers; first /crew visits show in analytics" }
           ]
         },
@@ -71,7 +71,7 @@ window.ET_PLAN = {
             { id: "wk6-analytics", t: "Review 30-day analytics — which disciplines/places get attention, where sign-ups come from, which clips earned saves/shares.", effort: "Half-day", impact: "High", done: "a one-page read of what moved" },
             { id: "wk6-gsc", t: "Check GSC indexing coverage (% indexed; long-tail impressions) using the non-branded filter — exclude queries containing 'educated traveler' / 'educatedtraveler'.", effort: "Quick", impact: "Med", done: "indexing % known; non-branded impressions visible" },
             { id: "wk6-pillar", t: "Decide the content pillar to lean into for months 2–6 based on which disciplines actually moved (let signal pick, not taste).", effort: "Half-day", impact: "High", done: "chosen pillar written down" },
-            { id: "wk6-capacity", t: "Honest founder-capacity check: is 3×/week + a biweekly letter sustainable around a 70-hr yacht week? Lower the floor if not — a held 3× beats a missed 5×.", effort: "Quick", impact: "High", done: "a realistic cadence floor committed to" }
+            { id: "wk6-capacity", t: "Honest founder-capacity check: is 3×/week + a biweekly note sustainable around a 70-hr yacht week? Lower the floor if not — a held 3× beats a missed 5×.", effort: "Quick", impact: "High", done: "a realistic cadence floor committed to" }
           ]
         }
       ]
@@ -80,10 +80,10 @@ window.ET_PLAN = {
       id: "months", title: "Next months (2–6)", sub: "Compound Phase 1. Don't force monetization. Start the slow open-loops early so they never block Phase 2.",
       groups: [
         {
-          title: "Keep compounding Phase 1 (the whole job)", goal: "Consistency over a year-plus is the moat. Protect the rhythm.", metric: "90 consecutive days posting · ≥6 letters at 40%+ open",
+          title: "Keep compounding Phase 1 (the whole job)", goal: "Consistency over a year-plus is the moat. Protect the rhythm.", metric: "90 consecutive days posting · ≥6 notes at 40%+ open",
           items: [
             { id: "m-cadence", t: "Hold the short-form cadence (3–5×/week, buffered) without pivoting the format before day 90.", effort: "Multi-session", impact: "High", done: "90 days of consistent posting" },
-            { id: "m-letter", t: "Ship the Circle letter biweekly (weekly when ashore); reply to every reply + DM; ask one question per issue.", effort: "Multi-session", impact: "High", done: "≥6 issues sent at 40%+ open" },
+            { id: "m-letter", t: "Ship the Circle note biweekly (weekly when ashore); reply to every reply + DM; ask one question per issue.", effort: "Multi-session", impact: "High", done: "≥6 issues sent at 40%+ open" },
             { id: "m-seo", t: "Enrich + verify ONLY the 10–15 pages analytics proves get traffic (build, gated to proven pages — do not chase more pages).", effort: "Multi-session", impact: "Med", done: "indexing >80%; a few long-tail page-one terms by month 6" },
             { id: "m-articles", t: "Publish the science-backed essays (Articles tab) — the 'why step up' pillar. Verify every claim against primary sources; each ends pointing to one Atlas page + the Circle.", effort: "Multi-session", impact: "Med", done: "≥2 essays published in ET voice" },
             { id: "m-partners", t: "Keep partner relationships warm; do NOT pitch a deal until the Phase-2 gate is met.", effort: "Multi-session", impact: "Med", done: "relationships warm, zero premature deal talk" }
@@ -125,26 +125,26 @@ window.ET_PLAN = {
       id: "vision", title: "The 0–5-year arc", sub: "The honest verdict: a great thesis, a hard solo build — the binding risk is distribution stamina, not the idea. The build is done; the experiment is whether you run the loop for 18 months. Full reasoning in VISION.md.",
       groups: [
         {
-          title: "The one bet & the tripwires", goal: "If one discipline holds, the moat compounds into something un-buyable. If it doesn't, nothing downstream saves it.", metric: "a real letter goes out every two weeks, to real people",
+          title: "The one bet & the tripwires", goal: "If one discipline holds, the moat compounds into something un-buyable. If it doesn't, nothing downstream saves it.", metric: "a real note goes out every two weeks, to real people",
           items: [
-            { id: "v-bet", t: "THE BET — send one genuinely good, firsthand-voiced Circle letter every two weeks to real people, for 18 months. Treat video, SEO, the crew network and essays purely as feeders into it.", effort: "Multi-session", impact: "High", done: "a real letter ships on cadence — not a test to your own inbox" },
-            { id: "v-tripwire3", t: "MONTH-3 TRIPWIRE — if real Circle letters still are not going out on cadence by month 3, that is a behavioural kill signal regardless of metrics (the build-instead-of-distribute trap has won). Decide honestly.", effort: "Quick", impact: "High", done: "letters are shipping, or the honest call is made in writing" },
+            { id: "v-bet", t: "THE BET — send one genuinely good, firsthand-voiced Circle note every two weeks to real people, for 18 months. Treat video, SEO, the crew network and essays purely as feeders into it.", effort: "Multi-session", impact: "High", done: "a real note ships on cadence — not a test to your own inbox" },
+            { id: "v-tripwire3", t: "MONTH-3 TRIPWIRE — if real Circle notes still are not going out on cadence by month 3, that is a behavioural kill signal regardless of metrics (the build-instead-of-distribute trap has won). Decide honestly.", effort: "Quick", impact: "High", done: "notes are shipping, or the honest call is made in writing" },
             { id: "v-ceiling", t: "Accept the realistic ceiling NOW: a respected media-and-community property with modest side income (the optimistic comp, VAWAA, reached ~$1.45M after ~9 years, full-time and funded). A good outcome — but decide it's worth the years before spending them.", effort: "Quick", impact: "Med", done: "ceiling consciously accepted" }
           ]
         },
         {
           title: "Sharpen the vision (3 moves)", goal: "Make the proof of the spine your own earned authority, made inspectable.", metric: "the public face = what you have personally earned",
           items: [
-            { id: "v-sharp-letter", t: "Make the owned Circle — a letter — the hero, not the video. Reframe ET publicly as 'a living atlas and a letter from someone who actually went and learned the thing.'", effort: "Half-day", impact: "High", done: "home / Story copy leads with the letter; video demoted to one feeder" },
+            { id: "v-sharp-letter", t: "Make the owned Circle — a note — the hero, not the video. Reframe ET publicly as 'a living atlas and a note from someone who actually went and learned the thing.'", effort: "Half-day", impact: "High", done: "home / Story copy leads with the note; video demoted to one feeder" },
             { id: "v-sharp-founder", t: "Lead with a small 'Founder's Atlas' of the disciplines you have personally earned (cooking, sailing, freediving, wine, breathwork) — 'I trained here, here is the honest truth.' Label the wider agent-built Atlas 'researched, verifying' beneath it. Nobody can clone a Michelin chef's firsthand verdict.", effort: "Multi-session", impact: "High", done: "Founder's Atlas live; the broader Atlas clearly labelled" },
             { id: "v-sharp-passport", t: "Recast the Skill Passport as a 'proof-of-doing' belonging artifact, not a credential play; only chase real credentials in the narrow chef / sommelier / dive / sailing subset where issuer reputation can compound.", effort: "Quick", impact: "Med", done: "passport framed as proof-of-doing, not certification" }
           ]
         },
         {
-          title: "Now (0–3 months) — turn the live machine ON", goal: "Stop building; run a distribution loop you can see. (Granular steps live in 'This week' + 'Next weeks'.)", metric: "letter #1 sent to real people · first visitor visible",
+          title: "Now (0–3 months) — turn the live machine ON", goal: "Stop building; run a distribution loop you can see. (Granular steps live in 'This week' + 'Next weeks'.)", metric: "note #1 sent to real people · first visitor visible",
           items: [
             { id: "v-now-measure", t: "Finish the three measurement owings: the Plausible account, GSC + Bing verify + sitemap, and the DB webhook auto-welcome + Resend open/click tracking. Without these you are blind on the one metric.", effort: "Half-day", impact: "High", done: "the one metric is actually visible" },
-            { id: "v-now-letter1", t: "Ship Circle letter #1 to actual subscribers (not a test to your own inbox). This single act is the line between a hobby and a business.", effort: "Half-day", impact: "High", done: "issue #1 sent; opens + clicks tracked" },
+            { id: "v-now-letter1", t: "Ship Circle note #1 to actual subscribers (not a test to your own inbox). This single act is the line between a hobby and a business.", effort: "Half-day", impact: "High", done: "issue #1 sent; opens + clicks tracked" },
             { id: "v-now-crew", t: "Fire the warmest free channel first — share /crew into your yacht / chef WhatsApp groups and 1:1 to chef peers.", effort: "Quick", impact: "High", done: "posted to ≥3 groups; /crew visits show in analytics" },
             { id: "v-now-archive", t: "Hard-archive (not 'dormant') the marketplace / payments / instructor stack off the live auth surface — it's a security + attention liability you cannot monitor at sea.", effort: "Half-day", impact: "Med", done: "payments / checkout / cohort code off the production path" }
           ]
@@ -152,7 +152,7 @@ window.ET_PLAN = {
         {
           title: "Year 1 — hold the loop to ~1,000 engaged subscribers", goal: "Let signal pick the pillar; survive the month-6 checkpoint honestly.", metric: "~500–1,000 engaged subs at 40%+ open / 6–9% click",
           items: [
-            { id: "v-y1-cadence", t: "Hold the letter (biweekly, weekly ashore); reply to every reply + DM; ask one question per issue. The letter is the spine — protect it above all.", effort: "Multi-session", impact: "High", done: "≥6 issues at 40%+ open" },
+            { id: "v-y1-cadence", t: "Hold the note (biweekly, weekly ashore); reply to every reply + DM; ask one question per issue. The note is the spine — protect it above all.", effort: "Multi-session", impact: "High", done: "≥6 issues at 40%+ open" },
             { id: "v-y1-feeders", t: "Run video / SEO / essays as feeders only; enrich + verify ONLY the 10–15 proven-traffic Atlas pages with firsthand language. Do not chase more pages.", effort: "Multi-session", impact: "Med", done: "feeders route to the Circle; top pages enriched" },
             { id: "v-y1-tax", t: "Start the tax-residence conversation (France vs Cayman) in the background — long external lead time, gates everything commercial — plus a light legal pass on the Atlas outbound links.", effort: "Multi-session", impact: "Med", done: "residence position in progress with advice" }
           ]
@@ -188,12 +188,12 @@ window.ET_PLAN = {
           ]
         },
         {
-          title: "Phase 1 — Own the audience (the Circle is the hero)", goal: "The whole game for ~18 months. The owned list is the only asset no algorithm can take.", metric: "≥6 letters at 40%+ open · every surface routes to one place",
+          title: "Phase 1 — Own the audience (the Circle is the hero)", goal: "The whole game for ~18 months. The owned list is the only asset no algorithm can take.", metric: "≥6 notes at 40%+ open · every surface routes to one place",
           items: [
-            { id: "pb-letter1", t: "Ship Circle letter #1 to real people (not a test to yourself).", effort: "Half-day", impact: "High", done: "issue #1 sent, opens tracked" },
-            { id: "pb-cadence", t: "Hold a firsthand letter every 2 weeks (weekly ashore); reply to every reply.", effort: "Multi-session", impact: "High", done: "6 issues out at 40%+ open" },
+            { id: "pb-letter1", t: "Ship Circle note #1 to real people (not a test to yourself).", effort: "Half-day", impact: "High", done: "issue #1 sent, opens tracked" },
+            { id: "pb-cadence", t: "Hold a firsthand note every 2 weeks (weekly ashore); reply to every reply.", effort: "Multi-session", impact: "High", done: "6 issues out at 40%+ open" },
             { id: "pb-onedest", t: "One destination per piece — every post / page routes to one Atlas page or the Circle, carrying the 'what we are' line.", effort: "Quick", impact: "High", done: "a single CTA on every surface" },
-            { id: "pb-feeders", t: "Feeders, not pillars — video / SEO / essays / the crew network all funnel INTO the letter.", effort: "Multi-session", impact: "Med", done: "each channel links to the Circle" },
+            { id: "pb-feeders", t: "Feeders, not pillars — video / SEO / essays / the crew network all funnel INTO the note.", effort: "Multi-session", impact: "Med", done: "each channel links to the Circle" },
             { id: "pb-crew", t: "Fire the warmest free channel first — the yacht / chef WhatsApp network + peers via /crew.", effort: "Quick", impact: "High", done: "shared to ≥3 groups; visits show in analytics" }
           ]
         },
@@ -227,9 +227,9 @@ window.ET_PLAN = {
   cadence: [
     "<b>Post the locked format 3–5×</b> (Reels + TikTok + Shorts, same clip, each → one Atlas page).",
     "<b>Keep the clip buffer ≥3 weeks ahead</b> — batch ashore; protect against connectivity gaps at sea.",
-    "<b>Send / draft the Circle letter</b> (biweekly default, weekly when ashore) and <b>reply to every reply + DM</b>.",
+    "<b>Send / draft the Circle note</b> (biweekly default, weekly when ashore) and <b>reply to every reply + DM</b>.",
     "<b>Send 1–2 approved touches</b> (footage-licensing or co-host nurture). No cold press until a clip travels.",
     "<b>Glance the dashboard (5 min)</b>: did engaged subscribers grow? Tally saves/shares + any 'connect-me' messages.",
-    "<b>Spend one compounding hour on an owned asset</b> (enrich a proven page, write the next letter, edit clips). One compounding hour beats ten reactive ones."
+    "<b>Spend one compounding hour on an owned asset</b> (enrich a proven page, write the next note, edit clips). One compounding hour beats ten reactive ones."
   ]
 };

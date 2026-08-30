@@ -5,9 +5,9 @@
 window.ET_LAUNCH = {
   intro: "Follow it top to bottom and tick each box. Everything you need is already in the Studio — this just puts it in order.",
 
-  // What each surface is for — clears up Daily Drop vs Posts vs Letter.
+  // What each surface is for — clears up Daily Drop vs Posts vs Note.
   surfaces: [
-    { name: "Letter", what: "The Circle newsletter — the hero. One place + one skill + the science. Write/send it from the Letter tab." },
+    { name: "Note", what: "The Circle newsletter — the hero. One place + one skill + the science. Write/send it from the Note tab." },
     { name: "Posts", what: "Your evergreen, branded library (philosophy posts + flagship reels, each with ET-design images). Copy caption, download images." },
     { name: "Daily Drop", what: "A dated calendar of place×skill clips, each already sourced from a real school — the steady drumbeat between flagship posts." },
     { name: "Outreach", what: "The emails that ask a school for permission to use their footage (and open a partner relationship). Permission first, always credit." },
@@ -21,7 +21,7 @@ window.ET_LAUNCH = {
       steps: [
         { id: "lb-1", when: "First — today", do: "Send Martin the one-line recap on WhatsApp — dates 22–26 Oct, chefs pay EducatedTraveler and ET settles with Vakuum, certificate in English (paper + PDF), his team shoots during the week — and get his thumbs-up back. A voice note counts as writing.", where: "WhatsApp → Martin", why: "The page and every post below name him as fact. Thirty seconds of written trace protects you both." },
         { id: "lb-2", when: "Same day", do: "Read the new page once on your phone — the career-assets narrative, the red countdown, the terms — and test the WhatsApp apply button.", where: "educatedtraveler.app/barcelona", why: "Every post below sends people here. The page closes; the posts only open." },
-        { id: "lb-3", when: "Launch day · morning", do: "Send the launch letter to the Circle — Issue 03, 'He didn't take the flight'.", where: "Letter → Issue 03", why: "The Circle hears first — that's the standing promise, and the letter carries the calling story the feed never gets." },
+        { id: "lb-3", when: "Launch day · morning", do: "Send the launch note to the Circle — Issue 03, 'He didn't take the flight'.", where: "Note → Issue 03", why: "The Circle hears first — that's the standing promise, and the note carries the calling story the feed never gets." },
         { id: "lb-4", when: "Launch day · evening", do: "POST 1 — the announce, inviting @vakuum_by_martin_lippo as collaborator (he only taps accept; it lives on both profiles).", where: "Posts → Lab Week 01 announce", why: "The reveal, with his name beside yours. The collab tag is the single strongest credibility act available." },
         { id: "lb-5", when: "Day 2", do: "POST 2 — the founder post: why a working yacht chef built this week.", where: "Posts → Why I built the week", why: "People follow a person before a project. This is the trust beat under the announcement." },
         { id: "lb-6", when: "Day 3", do: "POST 3 — the career-assets post: what a chef walks out with (certificate, portfolio by Martin's team, dossiers, the room).", where: "Posts → What you walk out with", why: "The ROI narrative in feed form — what the week does for the chef's next job, not what it costs." },
@@ -50,10 +50,10 @@ window.ET_LAUNCH = {
     {
       id: "launch",
       title: "Launch week — introduce EducatedTraveler",
-      sub: "Post once, in this order. One flagship a day, the Letter on day one. Reply to every comment.",
+      sub: "Post once, in this order. One flagship a day, the Note on day one. Reply to every comment.",
       steps: [
         { id: "lw-1", when: "Day 1 · morning", do: "Post & PIN the launch carousel “This is EducatedTraveler”.", where: "Posts → This is EducatedTraveler", why: "The front door. Pin it to the top of the profile so every new visitor meets it first." },
-        { id: "lw-2", when: "Day 1 · evening", do: "Send Circle Letter Issue 01 to your waitlist.", where: "Letter → Issue 01", why: "Lights up the philosophy + the science. Turns silent sign-ups into a real audience on day one." },
+        { id: "lw-2", when: "Day 1 · evening", do: "Send Circle Note Issue 01 to your waitlist.", where: "Note → Issue 01", why: "Lights up the philosophy + the science. Turns silent sign-ups into a real audience on day one." },
         { id: "lw-3", when: "Day 2", do: "Post the Story “What would you learn?” with the real Question + Poll stickers.", where: "Posts → What would you learn? (Story)", why: "Surfaces what people secretly want to learn. Every typed answer is someone to DM." },
         { id: "lw-4", when: "Day 3", do: "Post “Why I built this” (founder).", where: "Posts → Why I built this", why: "People follow a person before a project. This is the trust beat." },
         { id: "lw-5", when: "Day 4", do: "Post the “Source vs simulation” carousel.", where: "Posts → Source vs simulation", why: "States the wedge: some things only the source can teach." },
@@ -65,11 +65,11 @@ window.ET_LAUNCH = {
     {
       id: "weekly",
       title: "The weekly loop — repeat every week",
-      sub: "One Letter, and a small orbit of posts around it. The Letter leads; the posts point back to it and to the Atlas.",
+      sub: "One Note, and a small orbit of posts around it. The Note leads; the posts point back to it and to the Atlas.",
       steps: [
-        { id: "wk-1", when: "Mon", do: "Write & send the next Circle Letter — one new place×skill, one science nugget.", where: "Letter → structure + Science Vault", why: "The hero. Everything else this week is its echo." },
+        { id: "wk-1", when: "Mon", do: "Write & send the next Circle Note — one new place×skill, one science nugget.", where: "Note → structure + Science Vault", why: "The hero. Everything else this week is its echo." },
         { id: "wk-2", when: "Tue", do: "Post the place reel for that craft — school footage, with permission + credit.", where: "Daily Drop (today's card) / Outreach for permission", why: "The place, alive, in motion. The school's own footage is the strongest proof." },
-        { id: "wk-3", when: "Wed", do: "Post a “why this skill” card — pull one line from the Science Vault.", where: "Letter → Science Vault (make it a carousel)", why: "The science is what separates the Circle from a travel list. It makes people want to step up." },
+        { id: "wk-3", when: "Wed", do: "Post a “why this skill” card — pull one line from the Science Vault.", where: "Note → Science Vault (make it a carousel)", why: "The science is what separates the Circle from a travel list. It makes people want to step up." },
         { id: "wk-4", when: "Thu", do: "Run a Story — a Question or a this-or-that Poll about the week's skill.", where: "Posts → Story pattern (swap the options)", why: "Cheapest reach on the platform; keeps the audience tapping and replying." },
         { id: "wk-5", when: "Fri", do: "Post one library piece — a carousel (Circle / Become) or a second place reel.", where: "Posts", why: "Keeps the feed varied and routes new visitors to the Atlas + the Circle." },
         { id: "wk-6", when: "Sat/Sun", do: "Reshare the week's best replies, answer DMs, rest. Don't break the rhythm.", where: "Story + DMs", why: "Community is replies, not broadcasts. Protect the cadence above all." },

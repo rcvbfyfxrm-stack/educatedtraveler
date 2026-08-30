@@ -49,7 +49,7 @@ const SOURCE_LABEL: Record<string, string> = {
   "homepage-circle": "the homepage joiner",
   "join-page": "the join page",
   "barcelona": "the /barcelona teaser",
-  "teach-offer": "the /teach letter — a master's door",
+  "teach-offer": "the /teach note — a master's door",
 };
 
 const INTENT_LABEL: Record<string, string> = {
@@ -213,7 +213,7 @@ function sheetHtml(row: Record<string, unknown>, p: Parsed): string {
        </div>`
     : (p.instructor ? "" : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:20px 0 0 0;">No dream written — they skipped that step.</p>`);
 
-  // A master's letter, on the same paper as a learner's — it is the whole offer
+  // A master's note, on the same paper as a learner's — it is the whole offer
   // now, so it is read, not parsed. Nothing here is agreed by its arrival.
   const inst = p.instructor;
   const offerBlock = inst

@@ -58,7 +58,7 @@
       .map(function (l) { return '<a class="link-quiet" style="color:var(--sea); font-size:12px;" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label || l.url) + " ↗</a>"; })
       .join(" &nbsp;·&nbsp; ");
     return card(
-      '<div class="font-mono" style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ember); margin-bottom:10px;">A letter about</div>' +
+      '<div class="font-mono" style="font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ember); margin-bottom:10px;">A note about</div>' +
       '<h3 class="font-serif" style="font-size:24px; margin:0 0 4px; color:var(--paper);">' + esc(m.name) + "</h3>" +
       (meta ? '<div class="font-mono" style="font-size:11.5px; color:var(--sea); margin-bottom:6px;">' + meta + "</div>" : "") +
       (m.niche ? '<div style="font-size:13px; color:var(--muted); margin-bottom:14px;"><span style="color:var(--faint);">The niche —</span> ' + esc(m.niche) + "</div>" : "") +

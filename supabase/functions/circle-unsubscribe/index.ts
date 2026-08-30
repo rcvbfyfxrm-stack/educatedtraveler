@@ -33,7 +33,7 @@ serve(async (req) => {
       .eq("unsubscribe_token", token)
       .maybeSingle();
 
-    if (!row) return page("This link is no longer valid. If you'd like to leave, just reply to any letter.");
+    if (!row) return page("This link is no longer valid. If you'd like to leave, just reply to any note.");
 
     // A GET MUST NOT unsubscribe anybody.
     //
@@ -44,7 +44,7 @@ serve(async (req) => {
     // confirm-enrollment already had: GET shows, POST decides.
     if (req.method !== "POST") {
       if (row.unsubscribed) {
-        return page("You're already unsubscribed. No more letters will arrive.");
+        return page("You're already unsubscribed. No more notes will arrive.");
       }
       return page(
         `Leave the Circle?<br><br>` +
@@ -67,12 +67,12 @@ serve(async (req) => {
     if (ct.includes("application/x-www-form-urlencoded")) {
       const body = await req.text().catch(() => "");
       if (!body.includes("List-Unsubscribe")) {
-        return page("You've left the Circle. No more letters will arrive.<br><br>If that was a mistake, you're always welcome back at educatedtraveler.app.");
+        return page("You've left the Circle. No more notes will arrive.<br><br>If that was a mistake, you're always welcome back at educatedtraveler.app.");
       }
     }
     return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { "Content-Type": "application/json" } });
   } catch (e) {
     console.error(e);
-    return page("Something went wrong. Reply to any letter and I'll take you off by hand. — Arnaud");
+    return page("Something went wrong. Reply to any note and I'll take you off by hand. — Arnaud");
   }
 });

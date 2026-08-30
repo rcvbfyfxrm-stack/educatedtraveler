@@ -51,7 +51,7 @@ const QSER = "color:#2b2621;font-family:Georgia,'Times New Roman',serif;font-siz
 
 function issue01Html(unsub: string): string {
   const body = `
-      <p style="${P}margin:0 0 16px 0;">This is the first proper letter from the Circle. Here's how it will go: now and then, one place worth knowing — a single craft, the town where it's most alive, and the people you'd meet if you went. No selling. Just the map, and the occasional introduction.</p>
+      <p style="${P}margin:0 0 16px 0;">This is the first proper note from the Circle. Here's how it will go: now and then, one place worth knowing — a single craft, the town where it's most alive, and the people you'd meet if you went. No selling. Just the map, and the occasional introduction.</p>
       <p style="${P}margin:0 0 22px 0;">So. The deep.</p>
       <div style="${GIFT}">
         <p style="color:#2b2621;font-size:15px;line-height:1.75;margin:0 0 14px 0;">There's a town on the Sinai coast called <strong style="color:#2b2621;">Dahab</strong>, and just off it, a flat, current-free, almost perfectly round hole in the reef — the Blue Hole. It stays warm and deep all year, which is why it has quietly become the place freedivers from every country come to: to go down a line on a single breath and find out who they are at forty metres.</p>
@@ -64,7 +64,7 @@ function issue01Html(unsub: string): string {
       <p style="${P}margin:28px 0 0 0;">And the question, if you'll humour me — just hit reply:</p>
       <p style="${QSER}">Have you ever held your breath and gone down — even to the bottom of a pool? Tell me how it felt.</p>
       <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">And if the whole idea frightens you a little, tell me that instead. Both are exactly the right reason to go.</p>`;
-  return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Letter N&ordm; 1", heading: "Where the divers go to find the deep", body, unsub });
+  return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Note N&ordm; 1", heading: "Where the divers go to find the deep", body, unsub });
 }
 
 function issue02Html(unsub: string): string {
@@ -84,7 +84,7 @@ function issue02Html(unsub: string): string {
       <p style="${P}margin:28px 0 0 0;">And the question — just hit reply:</p>
       <p style="${QSER}">Where have you eaten that made you feel part of something, even for an hour?</p>
       <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">Tell me the place — and who you were standing next to.</p>`;
-  return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Letter N&ordm; 2", heading: "The snack named after a movie star", body, unsub });
+  return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Note N&ordm; 2", heading: "The snack named after a movie star", body, unsub });
 }
 
 function issue03Html(unsub: string): string {
@@ -104,7 +104,7 @@ function issue03Html(unsub: string): string {
       <p style="${P}margin:28px 0 0 0;">And a question — just hit reply:</p>
       <p style="${QSER}">Which craft would you cross an ocean to learn, if someone who'd actually teach you were waiting?</p>
       <p style="color:#6b625a;font-size:14px;line-height:1.7;margin:14px 0 0 0;">Tell me the craft — and I'll tell you who I'd point you toward.</p>`;
-  return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Letter N&ordm; 3", heading: "The rarest thing in a kitchen isn't talent", body, unsub });
+  return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; Note N&ordm; 3", heading: "The rarest thing in a kitchen isn't talent", body, unsub });
 }
 
 // Founding letter — sent once to the first signups + the friends Arnaud gathered
@@ -121,15 +121,15 @@ function foundingHtml(unsub: string): string {
       <img src="https://educatedtraveler.app/images/arnaud-portrait.jpg" width="150" alt="Arnaud" style="width:150px;height:150px;object-fit:cover;border-radius:14px;border:1px solid #e6ded1;filter:grayscale(1);display:inline-block;">
     </div>
     <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;">
-      <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 22px 0;font-family:'Courier New',monospace;">The Circle &middot; Letter 01</p>
+      <p style="color:#6b625a;font-size:10px;text-transform:uppercase;letter-spacing:3px;margin:0 0 22px 0;font-family:'Courier New',monospace;">The Circle &middot; Note 01</p>
       <p style="color:#2b2621;font-family:Georgia,'Times New Roman',serif;font-size:19px;line-height:1.55;margin:0 0 20px 0;">Hey you &mdash;</p>
       <p style="${P}margin:0 0 18px 0;">You're getting this because you're one of mine &mdash; family, or a friend I've talked half to death about this idea. Some of you signed up just to get me to stop going on about it. Either way: thank you. I mean it.</p>
       <p style="${P}margin:0 0 18px 0;">So here's the thing I won't shut up about.</p>
       <p style="${P}margin:0 0 18px 0;">I cook on boats now. But the first time anyone put a knife in my hand, I was the dishwasher in a little Mexican kitchen in Darwin. One afternoon, after lunch service, they were short a pair of hands &mdash; the chef pulled me off the sink, slid a board over and told me to slice an onion. I'd never done it. But being shown, right next to someone who knew how, taught me more than any classroom could. Almost everything I can do, I picked up like that. Never off a screen.</p>
       <p style="${P}margin:0 0 18px 0;">EducatedTraveler is me trying to bottle that:</p>
       <p style="${P}margin:0 0 18px 0;"><strong style="color:#2b2621;">A map of where those people still are</strong> &mdash; where a skill is still alive and someone teaches it by hand: freediving, pottery, pastry, sailing, the breath on a mat. Ranked by how good the people are, not who pays me. Nothing on it I wouldn't send you to myself.</p>
-      <p style="${P}margin:0 0 18px 0;"><strong style="color:#2b2621;">And a short letter</strong>, every couple of weeks: one place, one skill, the people who keep it, and how to go. No selling &mdash; just pointing you at the good stuff. Down the line, when I find a school worth it, I'll set one up with them and you lot hear first.</p>
-      <p style="${P}margin:0 0 18px 0;">Truth is, I'm learning all of this as I go &mdash; the website, this letter, all of it new to me. So I'm building it with you: any idea or bit of feedback you've got, I'd genuinely love to hear it. We're early, and you're early with me.</p>
+      <p style="${P}margin:0 0 18px 0;"><strong style="color:#2b2621;">And a short note</strong>, every couple of weeks: one place, one skill, the people who keep it, and how to go. No selling &mdash; just pointing you at the good stuff. Down the line, when I find a school worth it, I'll set one up with them and you lot hear first.</p>
+      <p style="${P}margin:0 0 18px 0;">Truth is, I'm learning all of this as I go &mdash; the website, this note, all of it new to me. So I'm building it with you: any idea or bit of feedback you've got, I'd genuinely love to hear it. We're early, and you're early with me.</p>
       <p style="${P}margin:0 0 26px 0;">And one favour: if someone comes to mind who'd love this, send them the door. A word from you is worth more than anything right now.</p>
       <div style="text-align:center;margin:26px 0;"><a href="https://educatedtraveler.app" style="${BTN}">Share educatedtraveler.app</a></div>
       <p style="${P}margin:22px 0 0 0;">Thank you for being here at the start. Truly.</p>
@@ -158,10 +158,10 @@ function foundingHtml(unsub: string): string {
 function portraitInviteHtml(unsub: string): string {
   const body = `
       <p style="${P}margin:0 0 18px 0;">You joined the Circle a while ago &mdash; and I haven't forgotten it. I've been building quietly since, and there's now something I made for the people who were here first. You're one of them.</p>
-      <p style="${P}margin:0 0 18px 0;">It's a single page. On it, you tell me &mdash; in your own words &mdash; the one craft you'd give a real week of your life to learn. And if you want, you write me a letter. Not a form with a letter-shaped box: a real letter. It opens <em style="color:#4a423b;">&ldquo;Arnaud,&rdquo;</em> and mine is the only pair of eyes that will ever read it.</p>
+      <p style="${P}margin:0 0 18px 0;">It's a single page. On it, you tell me &mdash; in your own words &mdash; the one craft you'd give a real week of your life to learn. And if you want, you write me a note. Not a form with a note-shaped box: a real note. It opens <em style="color:#4a423b;">&ldquo;Arnaud,&rdquo;</em> and mine is the only pair of eyes that will ever read it.</p>
       <p style="${P}margin:0 0 18px 0;">Here's why it matters. I take what you tell me and go find the real thing &mdash; the master still teaching by hand, the place where the craft is genuinely alive, the handful of people you'd want beside you. Then I open the door. The clearer you are with me, the better I aim. The first one is already taking shape around a modernist kitchen in Barcelona, this autumn.</p>
       <div style="text-align:center;margin:30px 0;"><a href="https://educatedtraveler.app/circle" style="${BTN}">Take your place &rarr;</a></div>
-      <p style="${P}margin:22px 0 0 0;">Five minutes, if you're quick. Twenty, if the letter gets away from you. Both are exactly right.</p>`;
+      <p style="${P}margin:22px 0 0 0;">Five minutes, if you're quick. Twenty, if the note gets away from you. Both are exactly right.</p>`;
   return shell({ eyebrow: "The Circle &nbsp;&middot;&nbsp; a door with your name on it", heading: "Now tell me what you'd give a week of your life to learn.", body, unsub });
 }
 
@@ -211,7 +211,7 @@ function friendInviteHtml(_unsub: string, name?: string): string {
     <div style="background:#ffffff;border:1px solid #e6ded1;border-radius:16px;padding:36px 28px;">
       <p style="color:#2b2621;font-family:Georgia,'Times New Roman',serif;font-size:19px;margin:0 0 20px 0;">Hey ${hi} &mdash;</p>
       <p style="${P}margin:0 0 18px 0;">It's Arnaud. You were one of the first people I told about EducatedTraveler &mdash; you've been on the list since the very start &mdash; and I've quietly been building the thing I kept going on about.</p>
-      <p style="${P}margin:0 0 18px 0;">It's finally real enough to show you properly. I made a page where you tell me, in your own words, the one craft you'd give a week of your life to learn &mdash; and, if you feel like it, write me a letter. It opens <em style="color:#4a423b;">&ldquo;Arnaud,&rdquo;</em> and I read every one myself.</p>
+      <p style="${P}margin:0 0 18px 0;">It's finally real enough to show you properly. I made a page where you tell me, in your own words, the one craft you'd give a week of your life to learn &mdash; and, if you feel like it, write me a note. It opens <em style="color:#4a423b;">&ldquo;Arnaud,&rdquo;</em> and I read every one myself.</p>
       <p style="${P}margin:0 0 22px 0;">I take what you tell me and go find the real thing &mdash; the master still teaching by hand, the place where the craft is alive, and your people &mdash; then I open the door.</p>
       <div style="text-align:center;margin:28px 0;"><a href="https://educatedtraveler.app/circle" style="${BTN}">Take your place &rarr;</a></div>
       <p style="${P}margin:20px 0 0 0;">Would mean a lot to have you properly in. And either way &mdash; good to have you here from the start. Let's catch up soon.</p>
@@ -247,9 +247,9 @@ const LP = 'style="margin:0 0 18px 0;"';
 function welcomePlainHtml(unsub: string): string {
   const body = `
     <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A skill, a place, a person, your people.</p>
-    <p ${LP}>Your letter is here. <strong>This note is automatic — the answer won't be.</strong> I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.</p>
-    <p ${LP}>While you wait, here is what you have joined. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.</p>
-    <p ${LP}>So — the letter. One place.</p>
+    <p ${LP}>Your note is here. <strong>This reply is automatic — the answer won't be.</strong> I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.</p>
+    <p ${LP}>While you wait, here is what you have joined. The Circle is a note I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.</p>
+    <p ${LP}>So — the note. One place.</p>
     <p ${LP}>In 1924 a young potter named <strong>Shoji Hamada</strong> could have set up anywhere. He had spent three years in England building a pottery beside <strong>Bernard Leach</strong>, he was already good, and the capital was open to him. He chose <strong>Mashiko</strong> — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.</p>
     <p ${LP}>He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, from the clay and the ash and the iron glaze of that valley. And for most of his life he sent them out unsigned — no seal, nothing stamped in the foot. He signed the wooden boxes they travelled in, telling Leach he could not escape the social obligation, but he never signed the pot. Asked why, he said: “If you cannot see who it is by, it is either because the pot is bad, or because you are blind.” Japan made him a Living National Treasure in 1955, the first year the title was given.</p>
     <p ${LP}>The pots were unsigned. The man was never hard to find. He was in that town, at that wheel, and the potters who wanted to learn came and stayed.</p>
@@ -258,7 +258,7 @@ function welcomePlainHtml(unsub: string): string {
     <p ${LP}>The Atlas is here: <a href="https://educatedtraveler.app/atlas/" style="color:#3f6b67;">educatedtraveler.app/atlas</a></p>
     <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.</p>
     <p ${LP}>There is nothing you need to do now. You have told me the craft, which is normally the question I have to ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn there.</p>
-    <p ${LP}>I read every letter myself, and I answer.</p>
+    <p ${LP}>I read every note myself, and I answer.</p>
     <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20letter." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
     <p style="margin:0;">— Arnaud</p>
@@ -269,11 +269,11 @@ function welcomePlainHtml(unsub: string): string {
 function welcomeText(unsub: string): string {
   return `A skill, a place, a person, your people.
 
-Your letter is here. This note is automatic — the answer won't be. I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.
+Your note is here. This reply is automatic — the answer won't be. I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.
 
-While you wait, here is what you have joined. The Circle is a letter I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.
+While you wait, here is what you have joined. The Circle is a note I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.
 
-So — the letter. One place.
+So — the note. One place.
 
 In 1924 a young potter named Shoji Hamada could have set up anywhere. He had spent three years in England building a pottery beside Bernard Leach, he was already good, and the capital was open to him. He chose Mashiko — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.
 
@@ -291,7 +291,7 @@ I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short a
 
 There is nothing you need to do now. You have told me the craft, which is normally the question I have to ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn there.
 
-I read every letter myself, and I answer.
+I read every note myself, and I answer.
 
 Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
 https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20letter.
@@ -316,7 +316,7 @@ function atlasLetterHtml(unsub: string, name?: string, craft?: string): string {
   const c = esc(craft || "that craft").trim();
   const body = `
     <p ${LP}>${who ? who + "," : "Hello,"}</p>
-    <p ${LP}>Your letter about <strong>${c}</strong> reached me. Thank you for writing it — I read every one myself, and letters like yours decide which craft I open next.</p>
+    <p ${LP}>Your note about <strong>${c}</strong> reached me. Thank you for writing it — I read every one myself, and notes like yours decide which craft I open next.</p>
     <p ${LP}>There's a sign-in link in your inbox from a moment ago. One click and you're on your own page — no password, ever.</p>
     <p ${LP}>When you're there, fill in the rest. It asks where you're starting from with ${c}, when you could actually go, how long you could give it, how far you'd travel, and where in the world you are.</p>
     <p ${LP}><a href="https://educatedtraveler.app/portrait" style="color:#3f6b67;">educatedtraveler.app/portrait</a></p>
@@ -332,7 +332,7 @@ function atlasLetterText(unsub: string, name?: string, craft?: string): string {
   const c = (craft || "that craft").trim();
   return `${who ? who + "," : "Hello,"}
 
-Your letter about ${c} reached me. Thank you for writing it — I read every one myself, and letters like yours decide which craft I open next.
+Your note about ${c} reached me. Thank you for writing it — I read every one myself, and notes like yours decide which craft I open next.
 
 There's a sign-in link in your inbox from a moment ago. One click and you're on your own page — no password, ever.
 
@@ -363,7 +363,7 @@ function teachOfferHtml(unsub: string, name?: string, craft?: string): string {
   const c = craft && craft !== "that craft" ? craft : "your craft";
   const body = `
     <p ${LP}>${hi}</p>
-    <p ${LP}>Thank you — what you wrote about ${c} is here. <strong>This note is automatic; the answer won't be.</strong> I read these myself, and I will come back to you properly.</p>
+    <p ${LP}>Thank you — what you wrote about ${c} is here. <strong>This reply is automatic; the answer won't be.</strong> I read these myself, and I will come back to you properly.</p>
     <p ${LP}>Here is where this honestly stands, because you should hear it from me rather than work it out later. EducatedTraveler is new. One week is signed — modernist technique in Barcelona, this October — and nobody has been anywhere yet. There are no alumni. The Circle is a list of people who have told me what they would give a week of their life to learn, and a list is not a queue: I will not tell you there is demand for your week until there is.</p>
     <p ${LP}>What happens next is slow, and it is my work, not yours. I check what can be checked, and I put nothing on the Atlas until you have seen it and told me it is right. Then I write to you with real questions — what it costs you to run, how many people you would actually want at the bench, how long it truly needs, what time of year is wrong. A week is the shape I know how to fill, and if your craft needs longer than that I would rather hear it now than trim it to fit. If it fits what people are asking me for, we talk about a date. If it does not fit yet, I will say so plainly and keep you on my list.</p>
     <p ${LP}>Nothing is agreed by what you sent. It tells me you exist, which is the part I cannot find on my own.</p>
@@ -380,7 +380,7 @@ function teachOfferText(unsub: string, name?: string, craft?: string): string {
   const c = craft && craft !== "that craft" ? craft : "your craft";
   return `${hi}
 
-Thank you — what you wrote about ${c} is here. This note is automatic; the answer won't be. I read these myself, and I will come back to you properly.
+Thank you — what you wrote about ${c} is here. This reply is automatic; the answer won't be. I read these myself, and I will come back to you properly.
 
 Here is where this honestly stands, because you should hear it from me rather than work it out later. EducatedTraveler is new. One week is signed — modernist technique in Barcelona, this October — and nobody has been anywhere yet. There are no alumni. The Circle is a list of people who have told me what they would give a week of their life to learn, and a list is not a queue: I will not tell you there is demand for your week until there is.
 
@@ -415,15 +415,15 @@ export const ISSUES: Record<string, {
 }> = {
   "welcome": { subject: "Welcome to the Circle — the potter who signed the box, not the pot", html: welcomePlainHtml, text: welcomeText, audience: "leads" },
   // Subject carries the craft name; circle-welcome substitutes {CRAFT}.
-  "atlas-letter": { subject: "Got your letter about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
+  "atlas-letter": { subject: "Got your note about {CRAFT}", html: atlasLetterHtml, text: atlasLetterText, audience: "leads" },
   // A possible master, from /teach. Never broadcast — it answers one person's offer.
   "teach-offer": { subject: "What you could open in {CRAFT} — where this stands", html: teachOfferHtml, text: teachOfferText, audience: "leads" },
   "portrait-invite": { subject: "Take your place in the Circle", html: portraitInviteHtml, audience: "leads" },
   "chef-invite": { subject: "That modernist cooking week — I want you close to it", html: chefInviteHtml, audience: "leads" },
   "friend-invite": { subject: "The thing I kept going on about — it's real now", html: friendInviteHtml, audience: "leads" },
-  "issue-01": { subject: "The Circle, Letter Nº 1 — where the divers go to find the deep", html: issue01Html },
-  "issue-02": { subject: "The Circle, Letter Nº 2 — the snack named after a movie star", html: issue02Html },
-  "issue-03": { subject: "The Circle, Letter Nº 3 — the rarest thing in a kitchen isn't talent", html: issue03Html },
+  "issue-01": { subject: "The Circle, Note Nº 1 — where the divers go to find the deep", html: issue01Html },
+  "issue-02": { subject: "The Circle, Note Nº 2 — the snack named after a movie star", html: issue02Html },
+  "issue-03": { subject: "The Circle, Note Nº 3 — the rarest thing in a kitchen isn't talent", html: issue03Html },
 };
 
 // 1:1 personal send — no List-Unsubscribe (not a bulk mailing). Those headers

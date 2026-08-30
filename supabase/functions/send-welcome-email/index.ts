@@ -234,7 +234,7 @@ serve(async (req) => {
         subject: (isUpdate
           ? `Profile filled in: ${firstName} (${email})`
           : `New adventurer: ${firstName} (${email})`) +
-          (interestHtml.includes("Their dream week") ? " · with a letter" : ""),
+          (interestHtml.includes("Their dream week") ? " · with a note" : ""),
         html: `
 <!DOCTYPE html><html><body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;margin:0;padding:24px;">
   <div style="max-width:520px;margin:0 auto;background:#fff;border-radius:12px;padding:28px;">

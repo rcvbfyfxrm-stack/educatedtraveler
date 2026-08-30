@@ -1,12 +1,12 @@
-/* Studio "Letter" tab — The Circle, EducatedTraveler's newsletter.
- * Littoralicious-for-skills: a founder letter that lights up the philosophy and
+/* Studio "Note" tab — The Circle, EducatedTraveler's newsletter.
+ * Littoralicious-for-skills: a founder note that lights up the philosophy and
  * backs it with real science about learning by hand at the source.
  * Voice-locked: connect / introduce, never sell / book / enroll. No banned words
  * (transformation, life-changing, vacation, luxury, easy), no prices, no emoji.
  * TRUST: never invent a school or a master. Where a specific place/teacher is named,
  * fill it from the live Atlas page — a [bracketed] slot means "verify, then write". */
 window.ET_LETTER = {
-  masthead: "The Circle — a letter from EducatedTraveler",
+  masthead: "The Circle — a note from EducatedTraveler",
   standfirst: "Every couple of weeks: one place where a craft is still alive, the people who keep it, why that skill is worth your hands — and the door in. No selling. Just an introduction.",
   cadence: "Every 2 weeks · plain, founder-voiced · one place, one skill, one door.",
 
@@ -31,13 +31,13 @@ window.ET_LETTER = {
   issues: [
     {
       id: "issue-03-launch",
-      title: "Issue 03 — The door to the avant-garde is open (THE LAUNCH LETTER — send on launch day)",
+      title: "Issue 03 — The door to the avant-garde is open (THE LAUNCH NOTE — send on launch day)",
       kind: "Launch reveal · builds on Issue 02's avant-garde story · why Barcelona + why Martin · Atlantic beat kept short · no boat names, ever",
       portrait: "/images/lippo/martin-teaching.png",
       subject: "The door to the avant-garde is open",
       preview: "Barcelona, October: five days in Martin Lippo's lab — the open door to the techniques that changed cooking.",
       body:
-`In the last letter I wrote to you about a cove on the Catalan coast — Cala Montjoi, where the most influential restaurant of our lifetime became a museum — and about the man in Barcelona who kept its language teachable. I ended with a promise: I was building something with Martin Lippo, and when it was real, you'd hear it here first.
+`In the last note I wrote to you about a cove on the Catalan coast — Cala Montjoi, where the most influential restaurant of our lifetime became a museum — and about the man in Barcelona who kept its language teachable. I ended with a promise: I was building something with Martin Lippo, and when it was real, you'd hear it here first.
 
 It's real.
 
@@ -69,7 +69,7 @@ The Circle reads this first — that was the promise, kept. If October is yours,
 
 One question, and I read every reply: which of the five days would change your cooking most?
 
-And if you know one chef who should be at that bench, forward this letter. That's how the room fills — one cook telling another.
+And if you know one chef who should be at that bench, forward this note. That's how the room fills — one cook telling another.
 
 A skill, a place, a person, your people.
 
@@ -114,13 +114,13 @@ I've stood in that lab. Steel benches, glass spheres, the fog coming off the nit
 
 ONE MORE THING
 
-I'm building something with Martin, in that lab, for chefs like us. It's not signed yet, so I'll say no more than that — but when it is, this letter is where you'll hear it first. That's a promise.
+I'm building something with Martin, in that lab, for chefs like us. It's not signed yet, so I'll say no more than that — but when it is, this note is where you'll hear it first. That's a promise.
 
 Until then, a question I genuinely want your answer to — just hit reply:
 
 Which technique do you wish someone had put in your hands, properly, years ago?
 
-And if you know a chef who'd want this letter, forward it. That's how the Circle grows — one cook telling another.
+And if you know a chef who'd want this note, forward it. That's how the Circle grows — one cook telling another.
 
 A skill, a place, a person, your people.
 
@@ -146,9 +146,9 @@ EducatedTraveler is me trying to bottle that:
 
 A map of where a skill is still alive and someone teaches it by hand — freediving, pottery, pastry, sailing, the breath on a mat. Ranked by how good the people are, not who pays me. Nothing on it I wouldn't send you to myself.
 
-And a short letter every couple of weeks: one place, one skill, the people who keep it, and how to go. No selling — just pointing you at the good stuff. Down the line, when I find a school worth it, I'll set one up with them and you lot hear first.
+And a short note every couple of weeks: one place, one skill, the people who keep it, and how to go. No selling — just pointing you at the good stuff. Down the line, when I find a school worth it, I'll set one up with them and you lot hear first.
 
-Truth is, I'm learning all of this as I go — the website, this letter, all of it new to me. So I'm building it with you: any idea or bit of feedback you've got, I'd genuinely love to hear it. We're early, and you're early with me.
+Truth is, I'm learning all of this as I go — the website, this note, all of it new to me. So I'm building it with you: any idea or bit of feedback you've got, I'd genuinely love to hear it. We're early, and you're early with me.
 
 One favour: if someone comes to mind who'd love this, send them to educatedtraveler.app. A word from you is worth more than anything right now.
 
@@ -191,7 +191,7 @@ educatedtraveler.app/atlas/freediving--dahab-red-sea
     "One idea, one place, one link. Cut anything that isn't pulling its weight.",
     "Every named school/master verified from the Atlas — nothing invented.",
     "Ends with one reply-question + one forward/referral line.",
-    "Plain and personal — reads like a letter, not a brochure. One photo at most.",
+    "Plain and personal — reads like a note, not a brochure. One photo at most.",
     "Test-send to yourself; read it on a phone; then schedule.",
   ],
 };

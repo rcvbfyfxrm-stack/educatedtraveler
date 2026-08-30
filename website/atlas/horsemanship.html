@@ -138,7 +138,7 @@ footer a { color:var(--sea); }
 </div></nav>
 <header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / Adventure</div>
-<p style="margin:16px 0 0"><span class="notyet">Not open yet</span> <span class="opensby">&mdash; a letter to Arnaud opens it</span></p>
+<p style="margin:16px 0 0"><span class="notyet">Not open yet</span> <span class="opensby">&mdash; a note to Arnaud opens it</span></p>
 <h1>Horsemanship</h1>
 <p class="lead">The four-century art of riding a horse in true partnership, from the haute ecole airs above the ground to long days in the saddle moving cattle across open country.</p><p class="alive">Strongest community around it, on public sources: <b>Saumur, France</b> &mdash; researched, not checked.</p>
 </div></header>
@@ -147,30 +147,30 @@ footer a { color:var(--sea); }
 <h2 style="margin:6px 0 14px">The map grows where someone is actually going</h2>
 <p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it &mdash; or, now and then, when one pulls at me hard enough that I go and check it myself.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking 116 things badly.</p>
-<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a letter, and the letter comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
+<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a note, and the note comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
 </div></section>
 <div class="wrap"><section class="letter reveal" id="letter" aria-labelledby="letter-h">
   <div class="lhead">
     <div class="eyebrow">Write to me</div>
-    <h2 class="serif" id="letter-h">Write me a letter about Horsemanship.</h2>
-    <p class="lsub">A letter to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft. Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at you, how you'd want to learn it, and who you'd want to be in it a year from now.</p>
+    <h2 class="serif" id="letter-h">Write me a note about Horsemanship.</h2>
+    <p class="lsub">A note to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft. Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at you, how you'd want to learn it, and who you'd want to be in it a year from now.</p>
   </div>
   <div class="lbox" id="lbox">
     <input type="hidden" id="l_skill" value="Horsemanship">
     <div class="sheet">
       <div class="lhd"><div class="to">Dear Arnaud,</div><div class="date" id="l_date"></div></div>
-      <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your letter</label>
+      <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your note</label>
       <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
       <div class="sign"><div class="yours">Talk soon,</div><div class="name" id="l_sign"></div></div>
     </div>
     <div class="prompts" id="l_prompts"></div>
     <div class="lrow">
-      <button class="btn" id="l_send" type="button">Send this letter &rarr;</button>
+      <button class="btn" id="l_send" type="button">Send this note &rarr;</button>
       <span class="lcount" id="l_count">0 words</span>
     </div>
     <div class="sign-off" id="l_signoff">
       <div class="sh serif">Sign it, so I know who I'm writing back to.</div>
-      <p class="sp">Your letter goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. Never a drip. Unsubscribe in one click.</p>
+      <p class="sp">Your note goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. Never a drip. Unsubscribe in one click.</p>
       <div class="sotwo">
         <div class="lfield" style="margin:0"><label for="l_name">First name</label><input id="l_name" placeholder="Marie" autocomplete="given-name"></div>
         <div class="lfield" style="margin:0"><label for="l_email">Email</label><input id="l_email" type="email" placeholder="you@example.com" autocomplete="email"></div>
@@ -182,7 +182,7 @@ footer a { color:var(--sea); }
   </div>
   <div class="ldone" id="l_done">
     <div class="eyebrow">Sent</div>
-    <h3 class="serif" id="l_donehead">Your letter is with me.</h3>
+    <h3 class="serif" id="l_donehead">Your note is with me.</h3>
     <p id="l_donebody">I read every one myself, and I answer.</p>
     <p class="lpoem">Every craft on this map started with somebody saying it out loud.</p>
     <a class="lback" href="/about">The story of why I built this &rarr;</a>
@@ -329,38 +329,38 @@ footer a { color:var(--sea); }
       unstash();
       if(window.plausible)window.plausible("AtlasLetter",{props:{skill:sk||"unnamed"}});
 
-      // The letter is already on its way to Arnaud — the insert fires notify-lead.
+      // The note is already on its way to Arnaud — the insert fires notify-lead.
       // Now found their account, the same way /circle's seal does: a magic link,
       // no password, ever. This is deliberately AFTER the insert and its failure
-      // is not fatal — a letter that reached him is worth more than an account,
-      // and we must never lose the letter because auth had a bad minute.
+      // is not fatal — a note that reached him is worth more than an account,
+      // and we must never lose the note because auth had a bad minute.
       var acct=false;
       try{
         var otp=await sb.auth.signInWithOtp({email:em,
           options:{emailRedirectTo:window.location.origin+"/portrait",shouldCreateUser:true}});
         acct=!(otp&&otp.error);
-        if(!acct)console.warn("[Letter] account link failed:",otp&&otp.error);
+        if(!acct)console.warn("[Note] account link failed:",otp&&otp.error);
         if(acct&&window.plausible)window.plausible("AtlasLetterAccountLink");
-      }catch(ae){console.warn("[Letter] account link threw:",ae);}
+      }catch(ae){console.warn("[Note] account link threw:",ae);}
 
-      $("l_donehead").textContent="Your letter is with me, "+nm+".";
+      $("l_donehead").textContent="Your note is with me, "+nm+".";
       $("l_donebody").textContent=acct
-        ? "I read every one myself, and I answer. You're in the Circle now — and I've sent a sign-in link to "+em+". One click and this letter, and the crafts you pick from here, live on a page that's yours. No password, ever."
-        : "I read every one myself, and I answer. Your letter is safe with me — but the sign-in link didn't go out just now, so there's no account waiting yet. Ask for a fresh one at educatedtraveler.app/you, or just write to me at arnaudcallier@pm.me. Either way I'll write when I find the master, the place and the moment that fit what you just told me.";
+        ? "I read every one myself, and I answer. You're in the Circle now — and I've sent a sign-in link to "+em+". One click and this note, and the crafts you pick from here, live on a page that's yours. No password, ever."
+        : "I read every one myself, and I answer. Your note is safe with me — but the sign-in link didn't go out just now, so there's no account waiting yet. Ask for a fresh one at educatedtraveler.app/you, or just write to me at arnaudcallier@pm.me. Either way I'll write when I find the master, the place and the moment that fit what you just told me.";
       $("lbox").style.display="none";
       $("l_done").classList.add("on");
       $("letter").scrollIntoView({behavior:"smooth",block:"start"});
     }catch(e){
-      console.error("[Letter] insert failed:",e);
+      console.error("[Note] insert failed:",e);
       stash(payload);
       btn.disabled=false;btn.textContent="Send it to Arnaud →";
-      err.innerHTML='That didn’t go through just now — your letter is safe on this screen. Try once more, or send it straight to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>, which reaches the same inbox.';
+      err.innerHTML='That didn’t go through just now — your note is safe on this screen. Try once more, or send it straight to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>, which reaches the same inbox.';
       err.style.display="block";
     }
   };
 })();
 </script>
-<footer><div class="wrap"><p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Horsemanship&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/horsemanship%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the letters I write in <a href="/letters/" style="color:var(--sea);">Founder&#39;s Letters</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Letters</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Opening Doors</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<footer><div class="wrap"><p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Horsemanship&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/horsemanship%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the notes I write in <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 <div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — converted at live ECB rates; the original is the source of truth">
 <span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>
 <script>

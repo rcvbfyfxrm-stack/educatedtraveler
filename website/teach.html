@@ -329,9 +329,9 @@
             <!-- BEAT 1 — the letter. A master's offer used to be four screens of
                  questions; it is now the same sheet of paper a learner writes on,
                  because what I need from you is what you'd say if we were talking. -->
-            <section class="beat show" id="beat0" aria-label="Step 1: your letter">
+            <section class="beat show" id="beat0" aria-label="Step 1: your note">
                 <p class="eyebrow" style="margin-bottom:20px;">The other side of the week</p>
-                <h1 class="hook">You teach it.<br>Write me a letter about it.</h1>
+                <h1 class="hook">You teach it.<br>Write me a note about it.</h1>
                 <p class="sub">I'm Arnaud, and I am never the teacher &mdash; I find the people who are, and I bring
                     a handful of the right students to their room. If you teach a craft with your hands, and there's a
                     bench, a kitchen, a workshop or a boat you could open for a week or more, tell me about it here,
@@ -357,7 +357,7 @@
                             <input type="text" class="subline" id="f_where" maxlength="120"
                                    placeholder="Mashiko, Japan &mdash; or just the region">
                         </div>
-                        <label class="sr" for="f_letter">Your letter to Arnaud</label>
+                        <label class="sr" for="f_letter">Your note to Arnaud</label>
                         <textarea class="paper" id="f_letter" placeholder="How long you've been at it, and what someone could check. The room itself, and whether it's yours to open. What someone would leave able to do that they couldn't on the Monday &mdash; and how long that really needs."></textarea>
                         <div class="sign">
                             <div class="yours">Talk soon,</div>
@@ -386,7 +386,7 @@
                 <p class="err" role="alert" aria-live="assertive" id="err0"></p>
 
                 <p class="otherside">Came here to learn, not to teach?
-                    <a href="/circle">Write me that letter instead &rarr;</a></p>
+                    <a href="/circle">Write me that note instead &rarr;</a></p>
             </section>
 
             <!-- BEAT 2 — the address -->
@@ -394,7 +394,7 @@
                 <button class="back" data-back="0">&larr; back</button>
                 <p class="eyebrow" style="margin-bottom:14px;">Where I write back</p>
                 <h2 class="q">Where do I reach you?</h2>
-                <p class="sub-tight">Your letter's written. This is the address I answer it to, and the door to your
+                <p class="sub-tight">Your note's written. This is the address I answer it to, and the door to your
                     own place in the Circle.</p>
 
                 <div class="field">
@@ -402,7 +402,7 @@
                         <input type="email" id="f_email" placeholder="you@wherever.com" autocomplete="email" required>
                     </label>
                     <label class="consent"><input type="checkbox" id="f_consent">
-                        <span>Yes &mdash; write to me about this. One letter, never a drip. One click to leave, any time.</span></label>
+                        <span>Yes &mdash; write to me about this. One note, never a drip. One click to leave, any time.</span></label>
                     <p class="help">What you've written is stored so I can read it and write back. Nothing is sold or shared, ever. &middot; <a href="/privacy">What I keep</a></p>
                 </div>
 
@@ -423,7 +423,7 @@
             <section class="done-state" id="sent" aria-live="polite">
                 <div class="seal">&#9993;</div>
                 <p class="eyebrow" style="margin-top:16px;">It's with me</p>
-                <h2 id="sent-h">Thank you &mdash; your letter's with me.</h2>
+                <h2 id="sent-h">Thank you &mdash; your note's with me.</h2>
                 <p id="sent-line">I've sent a sign-in link to <b id="sent-email"></b>, so you have your own place in the
                     Circle and can add to this whenever you like. I read these myself. If what you could open matches what
                     the Circle is asking for, you'll hear from me &mdash; and I'll come with questions before I come with a date.</p>
@@ -603,7 +603,7 @@
         });
 
         function finish(linked){
-            $('sent-h').textContent = 'Thank you, ' + state.name + ' — your letter\'s with me.';
+            $('sent-h').textContent = 'Thank you, ' + state.name + ' — your note\'s with me.';
             $('sent-email').textContent = state.email;
             if(!linked){
                 $('sent-line').innerHTML = 'I have what you wrote, and I read these myself. I couldn\'t send your sign-in link '

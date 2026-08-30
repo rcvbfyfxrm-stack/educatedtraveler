@@ -126,7 +126,7 @@ serve(async (req) => {
       return html(page({
         eyebrow: "Already done", tone: "done",
         heading: `${name} was confirmed on ${on}`,
-        body: `<p>${esc(eur(Number(row.seat_paid_eur ?? amount)))} recorded, and the letter has already gone. Nothing further to do &mdash; and nothing was sent twice.</p>`,
+        body: `<p>${esc(eur(Number(row.seat_paid_eur ?? amount)))} recorded, and the note has already gone. Nothing further to do &mdash; and nothing was sent twice.</p>`,
       }));
     }
 
@@ -135,7 +135,7 @@ serve(async (req) => {
       return html(page({
         eyebrow: "Confirm a seat",
         heading: `Did ${eur(amount)} from ${name} actually arrive?`,
-        body: `<p>Press this only once you can see the money in Revolut, PayPal or the bank. It stamps the seat as paid &mdash; the count toward the ten &mdash; and sends ${esc(name)} the letter saying the seat is held.</p>
+        body: `<p>Press this only once you can see the money in Revolut, PayPal or the bank. It stamps the seat as paid &mdash; the count toward the ten &mdash; and sends ${esc(name)} the note saying the seat is held.</p>
                <p style="color:rgba(243,237,226,.5);font-size:13px;">${esc(String(row.email))}${balance > 0 ? ` &nbsp;&middot;&nbsp; ${esc(eur(balance))} still to come` : " &nbsp;&middot;&nbsp; paid in full"}</p>`,
         form: `<form method="POST" style="margin-top:26px;">
                  <input type="hidden" name="token" value="${esc(token)}">
@@ -157,8 +157,8 @@ serve(async (req) => {
       return html(page({
         eyebrow: "Seat recorded", tone: "done",
         heading: `${name} is counted as paid.`,
-        body: `<p>${esc(eur(amount))} recorded${balance > 0 ? `, ${esc(eur(balance))} still to come` : " in full"}. <strong>No email was sent</strong> &mdash; the letter is held until you've approved the wording.</p>
-               <p style="color:rgba(243,237,226,.5);font-size:13px;">${esc(name)} has not heard anything from this. Write to them yourself, or say the word and the letter switches on.</p>`,
+        body: `<p>${esc(eur(amount))} recorded${balance > 0 ? `, ${esc(eur(balance))} still to come` : " in full"}. <strong>No email was sent</strong> &mdash; the note is held until you've approved the wording.</p>
+               <p style="color:rgba(243,237,226,.5);font-size:13px;">${esc(name)} has not heard anything from this. Write to them yourself, or say the word and the note switches on.</p>`,
       }));
     }
 
@@ -176,18 +176,18 @@ serve(async (req) => {
       // The seat is stamped either way — the money is real and the count must
       // reflect it. Say plainly that the chef has NOT been told.
       const err = await r.text().catch(() => "");
-      console.error("seat-confirm letter failed:", err);
+      console.error("seat-confirm note failed:", err);
       return html(page({
         eyebrow: "Half done", tone: "error",
-        heading: "Seat recorded, letter did not send",
-        body: `<p>${esc(name)} is counted as paid, but the letter failed to go out. Write to them yourself &mdash; they are owed the confirmation today.</p>`,
+        heading: "Seat recorded, note did not send",
+        body: `<p>${esc(name)} is counted as paid, but the note failed to go out. Write to them yourself &mdash; they are owed the confirmation today.</p>`,
       }), 502);
     }
 
     return html(page({
       eyebrow: "Seat confirmed", tone: "done",
       heading: `${name} is in.`,
-      body: `<p>${esc(eur(amount))} recorded${balance > 0 ? `, ${esc(eur(balance))} still to come` : " in full"}. The letter has gone to ${esc(String(row.email))}.</p>
+      body: `<p>${esc(eur(amount))} recorded${balance > 0 ? `, ${esc(eur(balance))} still to come` : " in full"}. The note has gone to ${esc(String(row.email))}.</p>
              <p style="color:rgba(243,237,226,.5);font-size:13px;">This is now a paid seat in the count toward ten.</p>`,
     }));
   } catch (e) {

@@ -5,7 +5,7 @@
 somebody in the Circle asked for it (data/atlas-unlocked.json, written by
 scripts/refresh-unlocked.mjs): the full sheet, every place, every school. A craft
 nobody has asked for yet gets a SHORT sheet — what the craft is, where it is most
-alive, and a box to write Arnaud a letter. The research is not on that page and
+alive, and a box to write Arnaud a note. The research is not on that page and
 not in the page source: the branch happens here, at build time, so the short sheet
 is genuinely short rather than a full page with something hidden over it.
 
@@ -546,7 +546,7 @@ footer a {{ color:var(--sea); }}
 {body}
 {TRUST_HTML}
 {tail_scripts}
-<footer><div class="wrap">{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the letters I write in <a href="/letters/" style="color:var(--sea);">Founder&#39;s Letters</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Letters</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Opening Doors</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<footer><div class="wrap">{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the notes I write in <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 {CUR_TOGGLE}
 </body>
 </html>"""
@@ -577,7 +577,7 @@ def intent_form(prompt, source, discipline=None, place=None, label=None):
 
 
 # The few rules a short sheet needs that the shared Atlas stylesheet doesn't carry:
-# the state badge, the "most alive" line, and the letter's button (the hub calls it
+# the state badge, the "most alive" line, and the note's button (the hub calls it
 # .btn; these pages only define .cta).
 SHORT_CSS = """
 .notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
@@ -594,7 +594,7 @@ SHORT_CSS = """
 
 
 def short_sheet(d, total):
-    """A craft nobody has asked for yet: what it is, where it's most alive, and the letter box.
+    """A craft nobody has asked for yet: what it is, where it's most alive, and the note box.
 
     Everything else — the places, the schools, the teachers, the credential, the
     prices — is deliberately absent from this page and from its source.
@@ -604,7 +604,7 @@ def short_sheet(d, total):
              f'<b>{e(top["place"])}, {e(top["country"])}</b> &mdash; researched, not checked.</p>') if top else ""
     return f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / {e(CORES[d['category']][0])}</div>
-<p style="margin:16px 0 0"><span class="notyet">Not open yet</span> <span class="opensby">&mdash; a letter to Arnaud opens it</span></p>
+<p style="margin:16px 0 0"><span class="notyet">Not open yet</span> <span class="opensby">&mdash; a note to Arnaud opens it</span></p>
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{alive}
 </div></header>
@@ -613,11 +613,11 @@ def short_sheet(d, total):
 <h2 style="margin:6px 0 14px">The map grows where someone is actually going</h2>
 <p style="opacity:.82;font-size:15px;max-width:62ch">That's all I'll put up for now. The rest of it — every place, the schools, the teachers, what the credential is actually worth — is researched and sitting in my files. I open a craft on the Atlas when a member writes to me about it &mdash; or, now and then, when one pulls at me hard enough that I go and check it myself.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking {total} things badly.</p>
-<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a letter, and the letter comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
+<p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a note, and the note comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
 </div></section>
 {atlas_hub.letter_section(
-    "Write me a letter about " + e(d["discipline"]) + ".",
-    "A letter to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft. "
+    "Write me a note about " + e(d["discipline"]) + ".",
+    "A note to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft. "
     "Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at "
     "you, how you\'d want to learn it, and who you\'d want to be in it a year from now.",
     skill_field=False, prefill=d["discipline"])}
@@ -651,7 +651,7 @@ def dest_stub(dest_id, parent_id, parent_name, place, country):
 <script>window.location.replace({json.dumps(url)});</script>
 </head>
 <body style="background:#0d0b09;color:#f3ede2;font-family:system-ui,sans-serif;padding:40px">
-<p>{e(parent_name)} isn't open on the Atlas yet, so there's no sheet for {e(place)}, {e(country)} — a letter to me, Arnaud, is what opens it.</p>
+<p>{e(parent_name)} isn't open on the Atlas yet, so there's no sheet for {e(place)}, {e(country)} — a note to me, Arnaud, is what opens it.</p>
 <p><a href="{url}" style="color:#7fa8a5">Go to {e(parent_name)} &rarr;</a></p>
 </body>
 </html>"""
@@ -1316,9 +1316,9 @@ CRAFT_NAV = (
 # reason; they carry noindex and exist only so shared URLs still land somewhere true.
 static_urls = ["/", "/about", "/community", "/lab-weeks", "/circle", "/barcelona", "/instructors", "/letters/", "/teach", "/privacy"]
 
-# The journal was written, published, and then invisible: no letter has ever been in
+# The journal was written, published, and then invisible: no note has ever been in
 # this sitemap. Discover them instead of listing slugs, so publishing the next one is
-# one file and no edit here. A letter still in review carries noindex — that is the
+# one file and no edit here. A note still in review carries noindex — that is the
 # gate, and a page that asks not to be indexed does not go in the sitemap.
 journal_dir = ROOT / "website/journal"
 if journal_dir.is_dir():

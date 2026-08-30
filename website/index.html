@@ -28,6 +28,7 @@
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
+<script>document.documentElement.className+=' js';</script>
 <style>
 
 :root{
@@ -179,7 +180,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
     <a href="/" class="wordmark">EDUCATED<b>TRAVELER</b></a>
     <div class="nav-links" aria-label="Site">
       <a href="/atlas/" title="The free record of where skills are still taught at the source">Catalogue of Skills</a>
-      <a href="/lab-weeks" title="The only paid thing: one week in a master's own working room">Opening Doors</a>
+      <a href="/lab-weeks" title="A week built with a master, in their own working room">Lab Weeks</a>
       <a href="/about" title="Who is behind this, and why">The Story</a>
     </div>
     <button type="button" class="nav-cta" onclick="goCircle()">Join the Circle</button>
@@ -224,59 +225,229 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
     <div class="base-q">
       <button type="button" class="q" onclick="openFounder()">Meet the founder</button>
       <span class="sep" aria-hidden="true"></span>
-      <a class="q" href="#doors">What's behind each door ↓</a>
+      <a class="q" href="#what">What EducatedTraveler is ↓</a>
     </div>
   </div>
 </header>
 
-<!-- ===================== THE FOUR DOORS =====================
-     A renamed nav link tells you a little; it still does not tell you what is
-     behind it. One honest line each, and every claim is checkable on the page
-     it points at. -->
-<section id="doors" class="doors" aria-labelledby="doors-h">
-  <div class="doors-in">
-    <p class="eyebrow" id="doors-h">What's behind each door</p>
-
-    <a class="door-card" href="/atlas/">
-      <span class="dc-name">Catalogue of Skills</span>
-      <span class="dc-what">Free. Nobody can buy a place on it.</span>
-      <p class="dc-body">The record of where a skill is still taught at the source &mdash; who stands in the room, whose room it is, and a link straight to the school so you can go direct without me. Most crafts aren't open yet; a letter is what opens one.</p>
-      <span class="dc-go">Open the catalogue &rarr;</span>
-    </a>
-
-    <a class="door-card" href="/lab-weeks">
-      <span class="dc-name">Opening Doors</span>
-      <span class="dc-what">The only thing that costs money.</span>
-      <p class="dc-body">One week at one bench, in a master's own working room, with a handful of people learning the same skill. Not a tour and not a demonstration &mdash; your hands, and they can ruin the piece. The first one has not happened yet: Barcelona, this October.</p>
-      <span class="dc-go">See the weeks &rarr;</span>
-    </a>
-
-    <a class="door-card" href="/about">
-      <span class="dc-name">The Story</span>
-      <span class="dc-what">Who is behind this, and why.</span>
-      <p class="dc-body">I'm Arnaud. Fifteen years crossing the world, about ten of them cooking on boats, learning from the people I met on the way. I never found my teachers &mdash; they found me. This is the way in I wish I'd had, and why it connects people instead of selling trips.</p>
-      <span class="dc-go">Read the story &rarr;</span>
-    </a>
-
-    <a class="door-card" href="/letters/">
-      <span class="dc-name">Founder's Letters</span>
-      <span class="dc-what">What the Circle actually receives.</span>
-      <p class="dc-body">A letter when I've found something worth telling you about &mdash; a skill, the place it's most alive, the person keeping it there. Never a drip. They're kept here in full, so you can read them before deciding whether you want the next one.</p>
-      <span class="dc-go">Read the letters &rarr;</span>
-    </a>
+<!-- ===================== WHAT THIS IS — the line assembles as you scroll =====================
+     Three beats on one sticky stage. Without JS the track collapses and the three
+     read as three plain paragraphs, so the meaning never depends on the effect. -->
+<section class="what" id="what" aria-labelledby="what-h">
+  <div class="what-track">
+    <div class="what-stage">
+      <p class="eyebrow" id="what-h">What this is</p>
+      <div class="what-beats">
+        <p class="wb on" data-b="0">EducatedTraveler is <em>a catalogue of skills</em>.</p>
+        <p class="wb" data-b="1">Not skills to read about. Skills you can <em>go and learn</em> &mdash; in the room where they are still done by hand.</p>
+        <p class="wb" data-b="2">Some of those doors are open already. <em>The rest open when someone asks.</em></p>
+      </div>
+      <div class="what-rail" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+    </div>
   </div>
 </section>
+
+<!-- ===================== WHY — reasons, not door names =====================
+     Every line here is something the reader can check on the page it points at.
+     Nothing on this band is a superlative or a promise. -->
+<section class="why" id="why" aria-labelledby="why-h">
+  <div class="wrap-in">
+    <p class="eyebrow rv" id="why-h">Why EducatedTraveler</p>
+    <h2 class="sec-h rv" style="--d:.06s">Four things you can check before you believe me.</h2>
+
+    <ol class="reasons">
+      <li class="rv" style="--d:.02s">
+        <span class="rn">01</span>
+        <h3>Nobody buys their way onto the catalogue.</h3>
+        <p>No listing fee, no placement, no commission. A craft is not on it because someone paid to be there &mdash; and it opens because someone asked for it.</p>
+      </li>
+      <li class="rv" style="--d:.08s">
+        <span class="rn">02</span>
+        <h3>Every open craft names the room and the person.</h3>
+        <p>The school, who still teaches it by hand, what your hands actually do there &mdash; and a link straight to them, so you can go direct without me.</p>
+      </li>
+      <li class="rv" style="--d:.14s">
+        <span class="rn">03</span>
+        <h3>When I can&rsquo;t stand behind a pick, the page says so.</h3>
+        <p>Some crafts read <i>&ldquo;a place, not a pick &mdash; no school named&rdquo;</i>. Most are marked <i>catalogued, not checked yet</i>. A blank costs one entry; a bad recommendation costs the reason to believe the next one.</p>
+      </li>
+      <li class="rv" style="--d:.20s">
+        <span class="rn">04</span>
+        <h3>The week itself is hands in.</h3>
+        <p>One bench, in a master&rsquo;s own working room, beside a handful of people learning the same skill. Not a tour and not a demonstration &mdash; you do the work, and you can ruin the piece.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== THE CATALOGUE ===================== -->
+<section class="band" id="catalogue" aria-labelledby="cat-h">
+  <div class="wrap-in band-in">
+    <div class="band-copy">
+      <p class="eyebrow rv">The Catalogue of Skills</p>
+      <h2 class="sec-h rv" id="cat-h" style="--d:.06s">Hands-on skills, and the doors they open.</h2>
+      <p class="lede rv" style="--d:.12s">A free record of crafts still taught where they are alive. Open one and it tells you where the craft is most alive, who still teaches it by hand, what you would actually do with your hands &mdash; and the school&rsquo;s own address, so you can go direct, without me.</p>
+      <p class="lede rv" style="--d:.18s">Most crafts are catalogued and not yet checked in full. The ones that are open were opened because somebody wrote and asked for that craft &mdash; and what I find then goes up for everyone, not just for the person who asked.</p>
+      <a class="btn btn-ghost rv" style="--d:.24s" href="/atlas/">Open the catalogue
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+    <ul class="band-facts rv" style="--d:.14s">
+      <li><b>Where</b><span>the craft is most alive today</span></li>
+      <li><b>Who</b><span>still teaches it by hand</span></li>
+      <li><b>What</b><span>your hands do in the room</span></li>
+      <li><b>Direct</b><span>the school&rsquo;s own address, not mine</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== A LAB WEEK ===================== -->
+<section class="band alt" id="labweek" aria-labelledby="lw-h">
+  <div class="wrap-in band-in">
+    <div class="band-copy">
+      <p class="eyebrow rv">Lab Weeks</p>
+      <h2 class="sec-h rv" id="lw-h" style="--d:.06s">What a Lab Week is.</h2>
+      <p class="lede rv" style="--d:.12s">A week EducatedTraveler builds <b>with the person who has the skill</b> &mdash; an instructor, an expert, a master &mdash; so you can go and learn it properly, in their own working room. Five days at one bench, a small group, hands in.</p>
+      <p class="lede rv" style="--d:.18s">It is the one thing here that costs money. A week is confirmed at ten seats, or every euro goes back.</p>
+      <div class="lw-cta rv" style="--d:.30s">
+        <a class="btn btn-primary" href="/barcelona">See the first week
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="/lab-weeks">How weeks get chosen</a>
+      </div>
+    </div>
+    <div class="lw-card rv" style="--d:.24s">
+      <p class="lw-k">The first week</p>
+      <p class="lw-t">Barcelona &middot; 22&ndash;26 October</p>
+      <p class="lw-b">Thirty-five hours of modernist technique in <span class="ml">Martin Lippo</span>&rsquo;s laboratory, in English, for chefs who already cook for a living.</p>
+      <p class="lw-p">&euro;1,500 <span>VAT included &middot; a &euro;350 deposit takes a seat</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE CIRCLE ===================== -->
+<section class="circle-band" id="circle" aria-labelledby="cb-h">
+  <div class="wrap-in">
+    <p class="eyebrow rv">The Circle</p>
+    <h2 class="sec-h big rv" id="cb-h" style="--d:.06s">Tell me the skill you want to learn, and I&rsquo;ll tell you whose door opens.</h2>
+    <p class="lede rv" style="--d:.12s">Joining is free, and it is one note: the craft you would give a week of your life to, and how you would want to learn it.</p>
+
+    <div class="cb-two">
+      <div class="rv" style="--d:.18s"><p class="cb-k">To hear about it</p><p>When a week is real, the Circle hears first &mdash; before anyone else. Never a drip, one click to leave.</p></div>
+      <div class="rv" style="--d:.24s"><p class="cb-k">To ask for it</p><p>Weeks are chosen by what people ask for, not by a calendar. Say which one should exist next.</p></div>
+    </div>
+
+    <p class="cb-fine rv" style="--d:.30s">I make the introduction; I don&rsquo;t build anything around one person. What I find goes up on the catalogue for everyone, not just for you.</p>
+
+    <div class="cb-cta rv" style="--d:.36s">
+      <button type="button" class="btn btn-primary" onclick="goCircle()">Join the Circle
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </button>
+      <a class="link-quiet" href="/letters/">Read the notes I&rsquo;ve already sent &rarr;</a>
+    </div>
+    <p class="cb-story rv" style="--d:.42s"><a href="/about">Who is behind this, and why &rarr;</a></p>
+  </div>
+</section>
+
 <style>
-.doors{position:relative;z-index:2;background:var(--ink-2);border-top:1px solid var(--line);padding:clamp(44px,7vh,72px) clamp(20px,5vw,40px)}
-.doors-in{max-width:var(--maxw);margin:0 auto;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.doors .eyebrow{grid-column:1/-1;margin-bottom:6px}
-.door-card{display:flex;flex-direction:column;gap:7px;padding:24px 24px 22px;border:1px solid var(--line);border-radius:12px;background:rgba(243,237,226,.02);transition:border-color .3s,background .3s,transform .3s}
-.door-card:hover{border-color:rgba(127,168,165,.34);background:rgba(243,237,226,.045);transform:translateY(-2px)}
-.dc-name{font-family:var(--f-display);font-weight:300;font-size:clamp(1.15rem,2.1vw,1.4rem);color:var(--paper);letter-spacing:-.01em}
-.dc-what{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--sea)}
-.dc-body{font-size:14px;line-height:1.6;color:var(--muted);margin-top:2px}
-.dc-go{margin-top:auto;padding-top:12px;font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ember-soft)}
+/* ── shared furniture for everything below the stage ───────────────────────── */
+.wrap-in{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.sec-h{font-family:var(--f-display);font-weight:300;font-size:clamp(1.5rem,3.4vw,2.35rem);
+  line-height:1.16;letter-spacing:-.018em;margin:10px 0 0;color:var(--paper);text-wrap:balance;max-width:20ch}
+.sec-h.big{max-width:24ch;font-size:clamp(1.6rem,3.9vw,2.7rem)}
+.lede{font-size:clamp(14.5px,1.35vw,16px);line-height:1.72;color:var(--muted);margin-top:16px;max-width:56ch}
+.lede b{color:var(--paper);font-weight:400}
+.lede i,.reasons i{font-style:italic;color:rgba(243,237,226,.82)}
+
+/* reveal-on-scroll — only armed once JS is alive, so no-JS keeps every word */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .75s cubic-bezier(.22,.61,.36,1),transform .75s cubic-bezier(.22,.61,.36,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ── WHAT THIS IS — the sticky stage ───────────────────────────────────────── */
+.what{position:relative;z-index:2;background:var(--ink);border-top:1px solid var(--line)}
+.js .what-track{height:280vh}
+.what-stage{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  gap:clamp(22px,4.2vh,40px);padding:clamp(56px,9vh,90px) clamp(20px,5vw,40px)}
+.js .what-stage{position:sticky;top:0;min-height:100svh;padding-top:0;padding-bottom:0}
+.what-beats{width:100%;max-width:min(92vw,860px)}
+.js .what-beats{display:grid}
+.wb{font-family:var(--f-display);font-weight:300;font-size:clamp(1.45rem,4.1vw,2.9rem);
+  line-height:1.15;letter-spacing:-.02em;color:var(--paper);text-wrap:balance;margin:0 0 22px}
+.wb:last-child{margin-bottom:0}
+.wb em{font-style:italic;color:var(--ember-soft)}
+.js .wb{grid-area:1/1;margin:0;opacity:0;transform:translateY(26px);
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+.js .wb.on{opacity:1;transform:none}
+.what-rail{display:flex;gap:9px}
+.what-rail i{display:block;width:26px;height:2px;background:var(--line-2);transition:background .5s,width .5s}
+.what-rail i.on{background:var(--sea);width:42px}
+@media (max-width:820px){ .js .what-track{height:240vh} }
+
+/* ── WHY — the reasons ─────────────────────────────────────────────────────── */
+.why{position:relative;z-index:2;background:var(--ink-2);border-top:1px solid var(--line);
+  padding:clamp(56px,9vh,96px) 0}
+.reasons{list-style:none;margin:clamp(26px,4vh,42px) 0 0;padding:0;display:grid;gap:12px;
+  grid-template-columns:1fr}
+@media (min-width:720px){ .reasons{grid-template-columns:1fr 1fr} }
+.reasons li{position:relative;padding:26px 26px 28px;background:rgba(243,237,226,.02);
+  border:1px solid var(--line);border-radius:12px;transition:border-color .35s,background .35s}
+.reasons li:hover{border-color:rgba(127,168,165,.3);background:rgba(243,237,226,.045)}
+.rn{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.22em;color:var(--sea)}
+.reasons h3{font-family:var(--f-display);font-weight:300;font-size:clamp(1.08rem,1.9vw,1.28rem);
+  line-height:1.28;color:var(--paper);margin:10px 0 0;letter-spacing:-.008em}
+.reasons p{font-size:14px;line-height:1.66;color:var(--muted);margin-top:9px}
+
+/* ── the two explainer bands ───────────────────────────────────────────────── */
+.band{position:relative;z-index:2;background:var(--ink);border-top:1px solid var(--line);
+  padding:clamp(56px,9vh,96px) 0}
+.band.alt{background:var(--ink-2)}
+.band-in{display:grid;gap:clamp(26px,4vw,52px);grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:start}
+@media (max-width:860px){ .band-in{grid-template-columns:1fr} }
+.band-copy .btn{margin-top:26px}
+
+.band-facts{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.band-facts{gap:8px}
+.band-facts li{display:flex;gap:14px;align-items:baseline;padding:15px 18px;border:1px solid var(--line);
+  border-radius:10px;background:rgba(243,237,226,.02)}
+.band-facts b{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sea);font-weight:400;flex:0 0 62px}
+.band-facts span{font-size:14px;line-height:1.55;color:var(--muted)}
+
+.lw-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.lw-card{border:1px solid rgba(210,138,82,.4);border-radius:14px;padding:24px 24px 22px;
+  background:rgba(13,11,9,.5)}
+.lw-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ember-soft)}
+.lw-t{font-family:var(--f-display);font-weight:300;font-size:clamp(1.18rem,2.2vw,1.5rem);color:var(--paper);margin-top:8px}
+.lw-b{font-size:14px;line-height:1.65;color:var(--muted);margin-top:12px}
+.lw-b .ml{font-family:var(--f-display);color:var(--ember-soft)}
+.lw-p{font-family:var(--f-display);font-weight:300;font-size:1.75rem;color:var(--paper);margin-top:18px;
+  padding-top:16px;border-top:1px solid var(--line)}
+.lw-p span{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;color:var(--muted);margin-top:6px}
+
+/* ── the Circle ────────────────────────────────────────────────────────────── */
+.circle-band{position:relative;z-index:2;background:var(--ink);border-top:1px solid var(--line);
+  padding:clamp(58px,10vh,104px) 0 clamp(50px,8vh,84px);text-align:center}
+.circle-band .wrap-in{display:flex;flex-direction:column;align-items:center}
+.circle-band .sec-h,.circle-band .lede{margin-left:auto;margin-right:auto}
+.cb-two{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  margin:clamp(26px,4vh,40px) 0 0;width:100%;max-width:720px;text-align:left}
+.cb-two > div{padding:20px 22px;border:1px solid var(--line);border-radius:12px;background:rgba(243,237,226,.02)}
+.cb-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sea);margin-bottom:9px}
+.cb-two p:last-child{font-size:14px;line-height:1.65;color:var(--muted)}
+.cb-fine{font-family:var(--f-display);font-style:italic;font-size:clamp(14.5px,1.5vw,17px);line-height:1.6;
+  color:rgba(243,237,226,.78);max-width:52ch;margin:clamp(24px,3.6vh,34px) auto 0;text-wrap:pretty}
+.cb-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;margin-top:clamp(24px,3.6vh,34px)}
+.cb-story{margin-top:22px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.cb-story a{color:var(--muted);border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:color .25s,border-color .25s}
+.cb-story a:hover{color:var(--sea);border-color:rgba(127,168,165,.5)}
+
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}
+  .js .wb{transition:opacity .01s}
+  .what-rail i{transition:none}
+}
 </style>
+
 
 <!-- ===================== FOUNDER / STORY POP-UP ===================== -->
 <div class="ov" id="founder" role="dialog" aria-modal="true" aria-labelledby="founder-h">
@@ -317,6 +488,51 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
 <script>
 (function(){
   "use strict";
+
+  // ── Everything below the stage: one rAF-throttled pass that reveals what has
+  //    been reached and moves the "what this is" beat with the scroll.
+  //    Deliberately NOT IntersectionObserver: a jump — End, a #fragment link,
+  //    a flicked phone — skips right over an observed element, which never
+  //    intersects and so stays at opacity 0 forever. A geometry sweep can't
+  //    strand anything: once a block has been at or above the fold it is shown,
+  //    and after a jump everything above the viewport is already past it.
+  (function(){
+    var rv    = [].slice.call(document.querySelectorAll('.rv')),
+        track = document.querySelector('.what-track'),
+        beats = [].slice.call(document.querySelectorAll('.wb')),
+        rail  = [].slice.call(document.querySelectorAll('.what-rail i')),
+        cur = -1, queued = false;
+
+    function reveal(){
+      if(!rv.length) return;
+      var line = window.innerHeight * 0.88, keep = [];
+      for(var i=0;i<rv.length;i++){
+        if(rv[i].getBoundingClientRect().top < line) rv[i].classList.add('in');
+        else keep.push(rv[i]);
+      }
+      rv = keep;                                   // revealed is permanent
+    }
+
+    function scrub(){
+      if(!track) return;
+      var span = track.offsetHeight - window.innerHeight;
+      if(span <= 0){ beats.forEach(function(b){ b.classList.add('on'); }); return; }
+      var p = Math.min(1, Math.max(0, -track.getBoundingClientRect().top / span)),
+          i = p < .34 ? 0 : (p < .68 ? 1 : 2);
+      if(i === cur) return;
+      cur = i;
+      beats.forEach(function(b,k){ b.classList.toggle('on', k===i); });
+      rail.forEach(function(d,k){ d.classList.toggle('on', k===i); });
+    }
+
+    function tick(){ queued = false; reveal(); scrub(); }
+    function onScroll(){ if(!queued){ queued = true; requestAnimationFrame(tick); } }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('hashchange', onScroll);
+    window.addEventListener('load', onScroll);
+    tick();
+  })();
 
   // "Join the Circle" opens the questionnaire (5 questions) at /circle
   window.goCircle=function(){ window.location.href='/circle'; };
@@ -360,9 +576,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60}
     <p style="margin:0 0 14px;font-family:var(--f-display);font-weight:300;font-size:15px;color:rgba(243,237,226,.6)">A skill, a place, a person, your people.</p>
     <p style="margin:0 0 12px;font-size:13px"><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20the%20homepage&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/%29" style="color:var(--sea);text-decoration:none;opacity:.85">Something wrong on this page? Tell me.</a></p>
   <a href="/atlas/" class="et-foot-link">Catalogue of Skills</a>
-  <a href="/lab-weeks" class="et-foot-link">Opening Doors</a>
+  <a href="/lab-weeks" class="et-foot-link">Lab Weeks</a>
   <a href="/about" class="et-foot-link">The Story</a>
-  <a href="/letters/" class="et-foot-link">Founder&#39;s Letters</a>
+  <a href="/letters/" class="et-foot-link">Founder&#39;s Notes</a>
 </footer>
 <style>.et-foot-link{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(243,237,226,0.34);text-decoration:none;margin:0 11px;transition:color .2s;white-space:nowrap;line-height:2.2;}.et-foot-link:hover{color:#7fa8a5;}</style>
 </body>

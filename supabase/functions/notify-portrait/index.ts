@@ -132,11 +132,11 @@ function fullSheetHtml(rec: Record<string, unknown>, email: string): string {
 
   const letterBlock = letter
     ? `<div style="background:#efe6d3;border-radius:8px;padding:24px 26px;margin:24px 0 6px 0;box-shadow:0 10px 30px -18px rgba(0,0,0,0.8);">
-         <p style="color:#6f6350;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0 0 14px 0;">The letter — for you alone</p>
-         <p style="color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;margin:0;white-space:pre-wrap;">${esc(letter)}</p>
+         <p style="color:#6f6350;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0 0 14px 0;">The note — for you alone</p>
+         <p style="color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;margin:0;white-space:pre-wrap;">${esc(note)}</p>
          <p style="color:#3a2c1e;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:16px 0 0 0;text-align:right;">— ${esc(name)}</p>
        </div>`
-    : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:20px 0 0 0;">No letter yet — they said they'd write it later.</p>`;
+    : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:20px 0 0 0;">No note yet — they said they'd write it later.</p>`;
 
   const status = rec.status ? String(rec.status) : "";
   const when = sealedAt(rec.portrait_completed_at as string);
@@ -172,7 +172,7 @@ function fullSheetHtml(rec: Record<string, unknown>, email: string): string {
         <a href="${APP_URL}/admin" style="display:inline-block;background-color:#3f6b67;background:linear-gradient(135deg,#3f6b67 0%,#8f5820 100%);color:#ffffff;text-decoration:none;padding:12px 28px;border-radius:50px;font-size:14px;font-weight:500;">Open the Circle roster</a>
       </div>
     </div>
-    <p style="color:#7a726a;font-size:12px;text-align:center;margin:22px 0 0 0;">Reply goes straight to ${esc(name)}. You read every letter — this one's waiting.</p>
+    <p style="color:#7a726a;font-size:12px;text-align:center;margin:22px 0 0 0;">Reply goes straight to ${esc(name)}. You read every note — this one's waiting.</p>
   </div>
 </body></html>`;
 }
@@ -195,13 +195,13 @@ function memberWelcome(rec: Record<string, unknown>, _email: string): { subject:
   const craftsLine = craftsSentence(crafts);
 
   const openerText = hasLetter
-    ? `Your portrait reached me — your letter with it. I've read it once already; I'll read it again, slowly. Nobody else will.`
-    : `Your portrait reached me. The sheet where the letter goes is still open — whenever a sentence feels true, come back and write it. One line is enough; it's the part I build from.`;
+    ? `Your portrait reached me — your note with it. I've read it once already; I'll read it again, slowly. Nobody else will.`
+    : `Your portrait reached me. The sheet where the note goes is still open — whenever a sentence feels true, come back and write it. One line is enough; it's the part I build from.`;
   const openerHtml = hasLetter
     ? esc(openerText)
-    : `Your portrait reached me. The sheet where the letter goes is <a href="${APP_URL}/portrait" style="color:#4a5f5d;">still open</a> — whenever a sentence feels true, come back and write it. One line is enough; it&#39;s the part I build from.`;
+    : `Your portrait reached me. The sheet where the note goes is <a href="${APP_URL}/portrait" style="color:#4a5f5d;">still open</a> — whenever a sentence feels true, come back and write it. One line is enough; it&#39;s the part I build from.`;
 
-  const nextText = `Here is what happens next, plainly. I go looking for the real thing — the master still practicing, the place where the craft is genuinely alive, the handful of people you'd want in the room. When I have something true to offer — the first is taking shape around a modernist kitchen in Barcelona, this autumn — you'll hear it from me before anyone else. Not a newsletter. A letter back.`;
+  const nextText = `Here is what happens next, plainly. I go looking for the real thing — the master still practicing, the place where the craft is genuinely alive, the handful of people you'd want in the room. When I have something true to offer — the first is taking shape around a modernist kitchen in Barcelona, this autumn — you'll hear it from me before anyone else. Not a newsletter. A note back.`;
   const replyText = `If there's anything you almost wrote and didn't — just hit reply. It comes straight to me, and I answer myself.`;
 
   const P = `color:#2c231a;font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.8;margin:0 0 18px 0;`;
@@ -314,7 +314,7 @@ serve(async (req) => {
   // 1) Arnaud's full sheet.
   const subject = `New portrait: ${name}` +
     (crafts.length ? ` — ${crafts[0]}${crafts.length > 1 ? ` +${crafts.length - 1}` : ""}` : "") +
-    (letter ? " · with a letter" : "");
+    (letter ? " · with a note" : "");
   const notify = await sendResend({
     from: FROM_NOTIFY, to: NOTIFY_TO, reply_to: email || undefined,
     subject, html: fullSheetHtml(rec, email),

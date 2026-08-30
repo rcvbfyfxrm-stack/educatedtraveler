@@ -115,10 +115,10 @@
       if (!shut) continue;
       // The card ships an empty .cfoot, invisible on an open craft. Here it becomes
       // the one extra line a locked card carries, and it names the mechanism exactly:
-      // a letter, to Arnaud, is what opens the craft. "Ask me to open this one" left
+      // a note, to Arnaud, is what opens the craft. "Ask me to open this one" left
       // the reader to guess who "me" was and how you would ask.
       var foot = card.querySelector(".cfoot");
-      if (foot) { foot.textContent = "✎ A letter to Arnaud opens this one →"; foot.className = "cfoot askline"; }
+      if (foot) { foot.textContent = "✎ A note to Arnaud opens this one →"; foot.className = "cfoot askline"; }
     }
   }
   document.addEventListener("et:atlas-render", stamp);

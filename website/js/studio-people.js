@@ -3,7 +3,7 @@
  * Supabase client. RLS: both tables are admin-only SELECT — without an admin
  * session the room stays sealed (same pattern as studio-news.js).
  * Organised by what they love (craft cloud filters) and what they wrote
- * (dreams + letters on warm paper). Renders via window.ET_RENDER_PEOPLE.
+ * (dreams + notes on warm paper). Renders via window.ET_RENDER_PEOPLE.
  */
 (function () {
   "use strict";
@@ -122,7 +122,7 @@
       const iv = row.interests;
       if (Array.isArray(iv)) iv.forEach((c) => addCraft(p, pretty(c), false));
       else if (iv && typeof iv === "object") Object.values(iv).flat().forEach((c) => addCraft(p, pretty(c), false));
-      addWriting(p, "The letter", row.dream_letter);
+      addWriting(p, "The note", row.dream_letter);
       addWriting(p, "About them", row.about);
       addWriting(p, "What matters to them", row.what_matters);
       [["When", row.availability], ["Length", row.preferred_duration], ["Reach", row.reach]].forEach(([k, v]) => {
@@ -214,7 +214,7 @@
   const inAtlas = (label) => atlasSlug(label) !== null;
 
   // A newcomer is anyone who joined the Circle but hasn't had a welcome
-  // letter yet — precisely the welcome queue.
+  // note yet — precisely the welcome queue.
   const isNewcomer = (p) => p.onList && !p.welcomedAt;
   // Named skills this person wants that the Atlas doesn't cover yet — the
   // ones to build before writing them. (No named skill ⇒ nothing to add.)
@@ -304,8 +304,8 @@
       ? (p.welcomedAt
           ? 'welcomed ' + esc(fmtDate(p.welcomedAt))
           : '<span style="color:var(--ember);">never welcomed ⚠</span>') +
-        (p.lastIssue ? ' &nbsp;·&nbsp; last letter: <span style="color:var(--muted);">' + esc(p.lastIssue) + "</span>" : "")
-      : '<span style="font-style:italic;">not on the letter list</span>';
+        (p.lastIssue ? ' &nbsp;·&nbsp; last note: <span style="color:var(--muted);">' + esc(p.lastIssue) + "</span>" : "")
+      : '<span style="font-style:italic;">not on the note list</span>';
     // each craft is tagged with its Atlas status: a live discipline page
     // (click through to the place you'll point them at) or ⚠ one to build first.
     const craftChip = (c) => {
@@ -340,7 +340,7 @@
       '</span></div>' +
       '<div class="font-mono" style="font-size:11.5px; color:var(--sea); margin:6px 0 0;"><a class="link-quiet" style="color:var(--sea); text-decoration:none;" href="mailto:' + esc(p.email) + '">' + esc(p.email) + "</a>" + (meta ? ' &nbsp;·&nbsp; <span style="color:var(--muted);">' + meta + "</span>" : "") + "</div>" +
       (via ? '<div class="font-mono" style="font-size:10.5px; color:var(--faint); margin:4px 0 0;">' + via + "</div>" : "") +
-      '<div class="font-mono" style="font-size:10.5px; color:var(--faint); margin:4px 0 0;">Letters: ' + letters + "</div>" +
+      '<div class="font-mono" style="font-size:10.5px; color:var(--faint); margin:4px 0 0;">Notes: ' + letters + "</div>" +
       crafts + masters + intent + writings + "</div>";
   }
 
@@ -383,7 +383,7 @@
       // ── the welcome queue, sorted by Atlas readiness ──
       const ready = base.filter((p) => atlasGaps(p).length === 0);
       const add = base.filter((p) => atlasGaps(p).length > 0);
-      html += '<p class="font-mono" style="font-size:11px; color:var(--faint); margin:2px 0 4px; line-height:1.7;">Everyone who just joined and still needs a welcome letter — split by whether you can write them now or must add their skill to the Atlas first.</p>';
+      html += '<p class="font-mono" style="font-size:11px; color:var(--faint); margin:2px 0 4px; line-height:1.7;">Everyone who just joined and still needs a welcome note — split by whether you can write them now or must add their skill to the Atlas first.</p>';
       if (!base.length) {
         html += '<p style="color:var(--faint); font-size:14px; font-style:italic; margin:14px 0 0;">No one waiting — every joiner has been welcomed. ✓</p>';
       } else {

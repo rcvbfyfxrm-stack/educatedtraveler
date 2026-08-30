@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your place in the Circle — EDUCATEDTRAVELER</title>
 
-    <meta name="description" content="Take your place in the Circle. Tell me who you are, the craft you'd give a week of your life to learn, and write me the letter — I read every one, and I build from them.">
+    <meta name="description" content="Take your place in the Circle. Tell me who you are, the craft you'd give a week of your life to learn, and write me the note — I read every one, and I build from them.">
     <link rel="canonical" href="https://educatedtraveler.app/portrait">
     <meta property="og:title" content="Your place in the Circle — EDUCATEDTRAVELER">
-    <meta property="og:description" content="Tell me who you are and write me the letter. I read every one — and I build from them.">
+    <meta property="og:description" content="Tell me who you are and write me the note. I read every one — and I build from them.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://educatedtraveler.app/portrait">
     <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
@@ -282,7 +282,7 @@
                         straight in — no password to remember.</p>
                     <label class="consent" for="f_consent" id="consent-row">
                         <input type="checkbox" id="f_consent">
-                        <span>Yes &mdash; keep my name and email so you can write to me. One letter when
+                        <span>Yes &mdash; keep my name and email so you can write to me. One note when
                               something is real, nothing else, and I can leave from any of them. What I
                               write here is kept for that and nothing else; never sold, never passed on.</span></label>
                     <p class="help" style="margin-top:8px"><a href="/privacy">What I keep</a></p>
@@ -396,9 +396,9 @@
             </section>
 
             <!-- BEAT 4 — THE LETTER -->
-            <section class="beat" id="beat4" aria-label="Step 5: your letter">
+            <section class="beat" id="beat4" aria-label="Step 5: your note">
                 <button class="back" data-back="3">&larr; back</button>
-                <p class="eyebrow" style="margin-bottom:14px;">The letter — for me alone</p>
+                <p class="eyebrow" style="margin-bottom:14px;">The note — for me alone</p>
                 <h2 class="q">Now write to me.</h2>
                 <p class="sub-tight">Not to a form — to a person. Tell me the week you'd love to have, and the people you'd
                     love to be in the room with. What you'd give anything to learn, and why it pulls at you. This is the part
@@ -408,7 +408,7 @@
                     <div class="sheet">
                         <div class="to" id="letter-to">Arnaud,</div>
                         <div class="date" id="letter-date"></div>
-                        <label class="sr" for="f_letter">Your letter to Arnaud</label>
+                        <label class="sr" for="f_letter">Your note to Arnaud</label>
                         <textarea class="paper" id="f_letter" placeholder="Write freely. The craft I can't stop thinking about is… The people I'd love to be around are… If you could build one week for me, it would…"></textarea>
                         <div class="sign">
                             <div class="yours">Speak soon,</div>
@@ -424,11 +424,11 @@
                     <button type="button" data-ins="What's really going on for me is ">What's really going on for me…</button>
                 </div>
 
-                <p class="letter-note">This letter is <b>private — it comes straight to me</b>, and to no one else. One
+                <p class="letter-note">This note is <b>private — it comes straight to me</b>, and to no one else. One
                     sentence or two pages. There's no right length; there's only what's true.</p>
 
                 <div class="row">
-                    <button class="cta" id="go4">Seal the letter &rarr;</button>
+                    <button class="cta" id="go4">Seal the note &rarr;</button>
                     <button class="quiet" data-skip="5">I'll write it later &rarr;</button>
                 </div>
             </section>
@@ -447,7 +447,7 @@
                 <div class="field" id="visField" style="margin-top:30px;">
                     <span class="lbl">Who gets to see your card</span>
                     <div class="chips" data-single="visibility" id="g_visibility"></div>
-                    <p class="help">This is only your card — your letter always stays private, between you and me. Start
+                    <p class="help">This is only your card — your note always stays private, between you and me. Start
                         wherever feels right; you can change it any time from your account.</p>
                 </div>
                 <div class="field" id="connectField" style="display:none;">
@@ -480,9 +480,9 @@
                 <div class="seal">✓</div>
                 <p class="eyebrow" style="margin-top:16px;">Sealed</p>
                 <h2 id="done-h">You have your place, now.</h2>
-                <p>That's it — you're on the inside. I've got your portrait and your letter, and I'll take it from here:
+                <p>That's it — you're on the inside. I've got your portrait and your note, and I'll take it from here:
                     finding the master, the place, and your people. When there's a real week to tell you about — starting
-                    with Barcelona this autumn — you'll be among the first to hear it. Not a newsletter. A letter back.</p>
+                    with Barcelona this autumn — you'll be among the first to hear it. Not a newsletter. A note back.</p>
                 <p class="ps" id="done-ps" style="display:none;">And that week you wrote me about? It's on my list now. I mean that.</p>
                 <div class="done-sign">
                     <img class="done-photo" src="/images/arnaud-portrait.jpg" alt="Arnaud" width="66" height="66" loading="lazy">
@@ -848,7 +848,7 @@
             var sf=[];
             ['depth','timing','length','reach'].forEach(function(g){ var a=answer(g); if(a) sf.push(esc(a)); });
             if(sf.length) line('Starting from', sf.join(' &nbsp;·&nbsp; '));
-            if(state.letter) line('Your letter', esc(state.letter), 'letterprev');
+            if(state.letter) line('Your note', esc(state.letter), 'letterprev');
             if(!p.children.length){
                 p.innerHTML='<div class="pline"><div class="pv" style="color:var(--muted)">You kept it brief — that’s allowed. Even just your name and email seals your place. Step back any time to add more.</div></div>';
             }
@@ -1222,9 +1222,9 @@
                 // Frame it that way, or a form after a letter reads as a re-ask.
                 if(arrivedThin){
                     var eb=document.querySelector('#beat1 .eyebrow');
-                    if(eb) eb.textContent='Your letter is with me';
+                    if(eb) eb.textContent='Your note is with me';
                     var q=document.querySelector('#beat1 h2.q');
-                    if(q) q.textContent='Now the part a letter can’t hold.';
+                    if(q) q.textContent='Now the part a note can’t hold.';
                     var sub=document.querySelector('#beat1 .sub-tight');
                     if(sub) sub.textContent='I’ve read what you sent. These fill in the rest of your portrait — '
                         + 'none of it is required, and you can stop wherever you like.';
@@ -1370,7 +1370,7 @@
       if(d && d.classList.contains('show')){
         if(wantLetter){
           // openLetter is defined in the main script — it restores the beat flow so
-          // "Seal the letter" carries on to the recap and saves as it always does.
+          // "Seal the note" carries on to the recap and saves as it always does.
           if(window.openLetter) window.openLetter();
         } else {
           showEnrich(true);
@@ -1443,9 +1443,9 @@
 <footer style="text-align:center;padding:42px 22px 48px;border-top:1px solid rgba(243,237,226,0.08);position:relative;z-index:1;">
     <p style="margin:0 0 12px;font-size:13px"><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20the%20portrait&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/portrait%29" style="color:var(--sea);text-decoration:none;opacity:.85">Something wrong on this page? Tell me.</a></p>
   <a href="/atlas/" class="et-foot-link">Catalogue of Skills</a>
-  <a href="/lab-weeks" class="et-foot-link">Opening Doors</a>
+  <a href="/lab-weeks" class="et-foot-link">Lab Weeks</a>
   <a href="/about" class="et-foot-link">The Story</a>
-  <a href="/letters/" class="et-foot-link">Founder&#39;s Letters</a>
+  <a href="/letters/" class="et-foot-link">Founder&#39;s Notes</a>
 </footer>
 <style>.et-foot-link{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(243,237,226,0.34);text-decoration:none;margin:0 11px;transition:color .2s;white-space:nowrap;line-height:2.2;}.et-foot-link:hover{color:#7fa8a5;}</style>
 </body>

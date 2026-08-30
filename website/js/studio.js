@@ -162,7 +162,7 @@
       const n = items.find((it) => !S.plan[it.id]);
       if (n) { nextTxt = n.t; nextWhere = "Plan · this week"; }
     }
-    banner.appendChild(el("div", { class: "font-serif", style: "font-size:20px; line-height:1.4; color:var(--paper);", text: nextTxt || "This week is clear — line up the schools' promo content and keep the letter shipping." }));
+    banner.appendChild(el("div", { class: "font-serif", style: "font-size:20px; line-height:1.4; color:var(--paper);", text: nextTxt || "This week is clear — line up the schools' promo content and keep the note shipping." }));
     if (nextWhere) banner.appendChild(el("span", { class: "tag", style: "margin-top:10px; display:inline-block;", text: "→ " + nextWhere }));
     v.appendChild(banner);
 
@@ -358,7 +358,7 @@
       wrap.appendChild(box);
       wrap.appendChild(el("div", { style: "font-size:11.5px; color:var(--faint); margin:6px 0 14px;", text: "Ticking this also ticks it in the Launch tab. The full ordered list lives there." }));
     } else {
-      wrap.appendChild(el("div", { style: "font-size:13px; color:#94ad86; margin:8px 0 14px;", text: "Every launch step is ticked. Keep the count honest and the letters shipping." }));
+      wrap.appendChild(el("div", { style: "font-size:13px; color:#94ad86; margin:8px 0 14px;", text: "Every launch step is ticked. Keep the count honest and the notes shipping." }));
     }
 
     // live seat count entry
@@ -505,7 +505,7 @@
   function renderLaunch(v, skipHead) {
     if (!skipHead) v.appendChild(sectionHead("Launch", LAUNCH.intro || ""));
 
-    // surfaces legend — clears up Daily Drop vs Posts vs Letter
+    // surfaces legend — clears up Daily Drop vs Posts vs Note
     const leg = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:18px;" });
     leg.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin-bottom:10px;", text: "What each tab is for" }));
     (LAUNCH.surfaces || []).forEach((s) => {
@@ -550,16 +550,16 @@
     return row;
   }
 
-  // ================= LETTER (the Circle newsletter) =================
+  // ================= NOTE (the Circle newsletter) =================
   function renderLetter(v) {
-    v.appendChild(sectionHead("The Letter", LETTER.standfirst || ""));
+    v.appendChild(sectionHead("The Note", LETTER.standfirst || ""));
     v.appendChild(el("p", { class: "font-mono", style: "font-size:11px; color:var(--sea); margin:-6px 0 18px; letter-spacing:.04em;", text: LETTER.cadence || "" }));
 
     // ---- one-click week drafter (Daily Drop place -> Letter + week of posts) ----
     if (DROP.length) {
       const drafter = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:22px;" });
       drafter.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; color:var(--ember); margin-bottom:4px;", text: "Draft a week from a place" }));
-      drafter.appendChild(el("p", { style: "font-size:12.5px; color:var(--muted); margin:0 0 10px; line-height:1.5;", text: "Pick a place from the Daily Drop. One click drafts the Letter — with a science beat matched to the craft — and the week of posts around it." }));
+      drafter.appendChild(el("p", { style: "font-size:12.5px; color:var(--muted); margin:0 0 10px; line-height:1.5;", text: "Pick a place from the Daily Drop. One click drafts the Note — with a science beat matched to the craft — and the week of posts around it." }));
       const row = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; align-items:center;" });
       const sel = el("select", { style: "flex:1; min-width:220px;" });
       DROP.forEach((d, i) => sel.appendChild(el("option", { value: String(i), text: (d.discipline || "?") + " · " + (d.place || "?") })));
@@ -590,7 +590,7 @@
 
     // science vault
     v.appendChild(el("div", { class: "eyebrow", style: "margin:26px 0 4px; color:var(--ember);", text: "Science vault — the why-it-remakes-you beat" }));
-    v.appendChild(el("p", { style: "color:var(--faint); font-size:12px; margin:0 0 12px; line-height:1.5;", text: "Pull ONE into each letter (and into a Wednesday 'why this skill' card). Real research — cite the study if you quote a number." }));
+    v.appendChild(el("p", { style: "color:var(--faint); font-size:12px; margin:0 0 12px; line-height:1.5;", text: "Pull ONE into each note (and into a Wednesday 'why this skill' card). Real research — cite the study if you quote a number." }));
     (LETTER.scienceVault || []).forEach((n) => {
       const card = el("div", { class: "panel", style: "padding:14px 16px; margin-bottom:10px;" });
       card.appendChild(el("div", { class: "font-serif", style: "font-size:16px; margin-bottom:5px;", text: n.claim }));
@@ -665,7 +665,7 @@
     const sci = nuggetForCore(d);
     return [
       "THE WEEK · " + disc + " · " + (d.place || ""), "",
-      "Mon — Send the Circle Letter above (this place + the science beat).",
+      "Mon — Send the Circle Note above (this place + the science beat).",
       "Tue — Place reel: the " + disc + " clip" + (d.footageSource ? (" (" + d.footageSource + " footage — with permission + credit)") : "") + " → " + (d.atlasUrl || ""),
       "Wed — 'Why this skill' card from the science beat: \"" + sci.claim + "\" (" + sci.source + ").",
       "Thu — Story: a Question or this-or-that Poll about " + disc + ".",
@@ -680,14 +680,14 @@
     const slug = String(d.discipline || "week").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
     const card = el("div", { class: "panel", style: "padding:16px 18px; margin-bottom:12px; border-color:rgba(210,138,82,0.3);" });
-    card.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--faint); margin-bottom:6px;", text: "Draft letter · edit before sending · verify the school from the Atlas" }));
+    card.appendChild(el("div", { class: "font-mono", style: "font-size:11px; color:var(--faint); margin-bottom:6px;", text: "Draft note · edit before sending · verify the school from the Atlas" }));
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:4px 0 4px;", text: "Subject" }));
     card.appendChild(el("div", { style: "font-size:14px; color:var(--paper); margin-bottom:6px;", text: draft.subject }));
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:4px 0 4px;", text: "Preview" }));
     card.appendChild(el("div", { style: "font-size:13px; color:var(--muted); margin-bottom:8px;", text: draft.preview }));
     card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.6; color:rgba(243,237,226,0.86); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: draft.body + "\n\n" + draft.ps }));
     const a1 = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;" });
-    a1.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(full) }, "Copy letter"));
+    a1.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(full) }, "Copy note"));
     a1.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(full + "\n\n----\n\n" + plan) }, "Copy whole week"));
     a1.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => download("et-week-" + slug + ".txt", full + "\n\n----\n\n" + plan) }, "Download .txt"));
     card.appendChild(a1);
@@ -713,10 +713,10 @@
     card.appendChild(el("div", { style: "font-size:14px; color:var(--paper); margin-bottom:8px;", text: it.subject }));
     card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 4px;", text: "Preview text" }));
     card.appendChild(el("div", { style: "font-size:13px; color:var(--muted); margin-bottom:10px;", text: it.preview }));
-    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 6px;", text: "Letter (paste-ready)" }));
+    card.appendChild(el("div", { class: "eyebrow", style: "font-size:9.5px; margin:6px 0 6px;", text: "Note (paste-ready)" }));
     card.appendChild(el("pre", { style: "white-space:pre-wrap; font-family:inherit; font-size:13.5px; line-height:1.62; color:rgba(243,237,226,0.86); background:rgba(243,237,226,0.03); border:1px solid var(--line); border-radius:10px; padding:14px; margin:0;", text: it.body + "\n\n" + (it.ps || "") }));
     const acts = el("div", { style: "display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;" });
-    acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(letterFullText(it)) }, "Copy full letter"));
+    acts.appendChild(el("button", { class: "btn-primary", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => copy(letterFullText(it)) }, "Copy full note"));
     acts.appendChild(el("button", { class: "btn-ghost", style: "padding:8px 13px; border-radius:9px; font-size:12px;", onclick: () => download("et-letter-" + it.id + ".txt", letterFullText(it)) }, "Download .txt"));
     card.appendChild(acts);
     return card;
@@ -966,7 +966,7 @@
 
   // ================= POSTS =================
   function renderPosts(v, skipHead) {
-    if (!skipHead) v.appendChild(sectionHead("Posts", "Ready-to-publish posts. Copy the caption or download it as a text file — each routes to ONE Atlas page or the Circle. Voice-locked: connect, never sell. The Circle (the letter) is the hero; video is a feeder."));
+    if (!skipHead) v.appendChild(sectionHead("Posts", "Ready-to-publish posts. Copy the caption or download it as a text file — each routes to ONE Atlas page or the Circle. Voice-locked: connect, never sell. The Circle (the note) is the hero; video is a feeder."));
 
     if (!POSTS.length) { v.appendChild(el("p", { style: "color:var(--faint); font-size:13px;", text: "No posts loaded (studio-posts.js missing)." })); return; }
 

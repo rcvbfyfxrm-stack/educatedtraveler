@@ -340,7 +340,7 @@
 
         <!-- THE LETTER — acknowledged only when written. It stays between them and Arnaud. -->
         <section class="blk" id="s-letter" style="display:none;">
-            <span class="lbl">Your letter</span>
+            <span class="lbl">Your note</span>
             <div class="letter-note">
                 <p class="note" id="letter-note"></p>
             </div>
@@ -348,13 +348,13 @@
 
         <!-- ...and asked for when it isn't. Straight to the paper, not the questionnaire. -->
         <section class="blk" id="s-letter-ask" style="display:none;">
-            <span class="lbl">Your letter</span>
+            <span class="lbl">Your note</span>
             <h2 class="serif">You haven't written to me yet.</h2>
             <div class="letter-ask">
-                <p class="note">You've told me what you want. The letter is where you tell me <em>why</em> &mdash; the week
+                <p class="note">You've told me what you want. The note is where you tell me <em>why</em> &mdash; the week
                     you'd want, in your own words, to me directly. It's the part I actually build from, and I read every one
                     myself. A few lines is plenty.</p>
-                <a class="go" href="/portrait#letter">Write me the letter &rarr;</a>
+                <a class="go" href="/portrait#letter">Write me the note &rarr;</a>
             </div>
         </section>
 
@@ -366,7 +366,7 @@
             <span class="lbl">Write to me</span>
             <h2 class="serif">About any craft &mdash; open or not.</h2>
             <p class="note">Name it and tell me what you'd want from it. If it's a craft the Atlas hasn't opened,
-                that's exactly the letter worth writing &mdash; it's how the next door gets chosen. Goes straight to me.</p>
+                that's exactly the note worth writing &mdash; it's how the next door gets chosen. Goes straight to me.</p>
 
             <div class="composer" id="composer">
                 <label class="clbl" for="w_craft">The craft</label>
@@ -408,9 +408,9 @@
 <footer>
     <p style="margin:0 0 12px;font-size:13px"><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20your%20place&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/you%29" style="color:var(--sea);text-decoration:none;opacity:.85">Something wrong on this page? Tell me.</a></p>
     <a href="/atlas/" class="et-foot-link">Catalogue of Skills</a>
-    <a href="/lab-weeks" class="et-foot-link">Opening Doors</a>
+    <a href="/lab-weeks" class="et-foot-link">Lab Weeks</a>
     <a href="/about" class="et-foot-link">The Story</a>
-    <a href="/letters/" class="et-foot-link">Founder&#39;s Letters</a>
+    <a href="/letters/" class="et-foot-link">Founder&#39;s Notes</a>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -566,7 +566,7 @@
             var when = p.portrait_completed_at;
             var day = '';
             try{ if(when) day = ' on ' + new Date(when).toLocaleDateString('en-GB',{day:'numeric',month:'long'}); }catch(e){}
-            $('letter-note').innerHTML = 'Your letter reached Arnaud' + esc(day)
+            $('letter-note').innerHTML = 'Your note reached Arnaud' + esc(day)
                 + '. He reads every one himself — it stays between the two of you.';
             $('s-letter').style.display='block';
         } else {
@@ -957,8 +957,8 @@
             if(window.plausible) window.plausible('MemberLetter', { props:{ skill: craft || 'unnamed' } });
             $('composer').style.display='none';
             $('w_done_t').textContent = craft
-                ? 'Your letter about ' + craft + ' is with me. I read every one myself, and I answer.'
-                : 'Your letter is with me. I read every one myself, and I answer.';
+                ? 'Your note about ' + craft + ' is with me. I read every one myself, and I answer.'
+                : 'Your note is with me. I read every one myself, and I answer.';
             $('w_done').style.display='block';
         }catch(e){
             btn.disabled=false; stat.textContent='';
@@ -991,7 +991,7 @@
             { has: !!p.previous_experience, label:'Say where you\'re starting from', field:'previous_experience' },
             { has: !!p.what_matters, label:'Tell me anything else',             field:'what_matters' },
             // straight to the paper: they have answered enough questions already
-            { has: !!p.dream_letter, label:'Write me the letter',               href:'/portrait#letter' }
+            { has: !!p.dream_letter, label:'Write me the note',               href:'/portrait#letter' }
         ];
         var done = items.filter(function(i){ return i.has; }).length;
         var pct = Math.round(done / items.length * 100);
