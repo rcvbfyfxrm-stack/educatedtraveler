@@ -23,7 +23,11 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
      drift, the card counts off "3 / 5" against a list of four and nothing else
      ever complains;
   9. the line a resting band card prints under its place is the written line for
-     THAT place. The band is static HTML from Python and the walk is JS reading
+     THAT place; 10. the line ABOVE the place — the card's resting title — is the
+     craft's own name, in the same words the grid's cardInner() builds it from;
+     11. the band's title and where stacks hold exactly the places the index says it
+     walks, in order, so the two card builders cannot drift and no card can change
+     height under the pointer; 12. no sheet card folds its place into its sentence. The band is static HTML from Python and the walk is JS reading
      ET_ATLAS; if the two ever disagree the card changes its sentence the instant a
      pointer touches it, which reads as a lie and looks like a bug.
 
@@ -62,7 +66,7 @@ band = band.group(0)
 if html.index(band) > html.index('<main class="studio"'):
     bad("the band is below the browse, not above it")
 
-cards = re.findall(r'<article class="gcard[^"]*" style="--sc:(#[0-9a-f]{6})">.*?'
+cards = re.findall(r'<article class="gcard[^"]*" style="--sc:(#[0-9a-f]{6})"[^>]*>.*?'
                    r'href="/atlas/([a-z0-9-]+)".*?'
                    r'<div class="openedon">Opened <b>([^<]+)</b></div>', band, re.S)
 if not cards:
@@ -169,6 +173,47 @@ for _, _slug, _ in cards:
             f"      card:    {html_mod.unescape(got[1])[:90]}\n"
             f"      written: {want[:90]}")
 
+# ── 10. a resting card names its craft, in the same words the grid uses ────
+# The band is static HTML from Python and the grid is JS from a template; both build
+# the title line, and only one of them is on the page this check can read. If they
+# drift, a reader scrolling from the band into the grid meets two card designs again
+# — which is the thing the band was rebuilt as a .gcard to end.
+for _, _slug, _ in cards:
+    c = _by_slug.get(_slug)
+    m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
+    if not c or not m:
+        continue
+    got = re.search(r'<p class="cardsay">(.*?)</p>', m[1], re.S)
+    want = f'Learn <span class="craftname">{html_mod.escape(c["name"], quote=False)}</span>'
+    if not got:
+        bad(f"{_slug}: the band card has no title line — it says nothing about what you "
+            f"would learn")
+        continue
+    rest = re.findall(r'<span class="sl(?: on)?">(.*?)</span>(?=<span class="sl|$)', got[1], re.S)
+    if not rest or rest[0] != want:
+        bad(f"{_slug}: the band card's resting title is not the craft's name\n"
+            f"      card: {(rest[0] if rest else got[1])[:90]}\n      want: {want[:90]}")
+    # ── 11. the band walks the same words, in the same order, as the grid ──
+    # Both stacks are built from ET_ATLAS by the same rule, in two languages. If they
+    # drift the two cards on one page count the same "3 / 5" against different places,
+    # and only one of them is on the page a check can read.
+    walk = atlas_hub.walk_places(c.get("dests", []))
+    for tag, wants in (("cardsay", [html_mod.escape(sy) or want for sy, _ in walk]),
+                       ("wherealive", ['<span class="in">in</span> ' + html_mod.escape(w)
+                                       for _, w in walk])):
+        blk = re.search(r'<(?:p|div) class="' + tag + r'">(.*?)</(?:p|div)>', m[1], re.S)
+        if not blk:
+            continue
+        sl = re.findall(r'<span class="sl(?: on)?">(.*?)</span>(?=<span class="sl|$)', blk[1], re.S)
+        if len(sl) != len(wants) + 1:
+            bad(f"{_slug}: .{tag} reserves {len(sl)} line(s) for a card that walks "
+                f"{len(wants)} place(s) — it will change height under the pointer")
+        elif sl[1:] != wants:
+            first = next(i for i in range(len(wants)) if sl[1:][i:i + 1] != wants[i:i + 1])
+            bad(f"{_slug}: .{tag} step {first + 1} is not what the index says\n"
+                f"      band:  {sl[1:][first] if first < len(sl) - 1 else '(missing)'}\n"
+                f"      index: {wants[first]}")
+
 # ── 5. the colours still mirror the page's own map ─────────────────────────
 tpl = (ROOT / "scripts/atlas-hub-template.html").read_text()
 live = dict(re.findall(r'(\w+):\{label:"[^"]*",short:"[^"]*",color:"(#[0-9a-f]{6})"\}',
@@ -184,10 +229,42 @@ elif live != atlas_hub.WORLD_COLOR:
 # atlas_hub.learn_line_drift for what it can and cannot catch.
 _rep = (ROOT / "data/repertoire.js").read_text()
 _disc = json.loads(_rep[_rep.index("{", _rep.index("window.ET_ATLAS")):_rep.rindex("}") + 1])["disciplines"]
-_lines = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text()).get("learnLines", {})
-for _did, _kind, _tok, _line in atlas_hub.learn_line_drift(_lines, _disc):
-    bad(f"learnLines[{_did}] asserts {_kind} {_tok!r}, which is nowhere in that "
-        f"destination's own research: {_line!r}")
+_extra = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())
+for _field in ("learnLines", "sayLines"):
+    for _did, _kind, _tok, _line in atlas_hub.learn_line_drift(_extra.get(_field, {}), _disc):
+        bad(f"{_field}[{_did}] asserts {_kind} {_tok!r}, which is nowhere in that "
+            f"destination's own research: {_line!r}")
+# A say line is the card's TITLE and the place goes on the line under it, so a say
+# line that writes the place in as well makes the card say it twice — "Learn to
+# photograph big cats in Kenya / in Maasai Mara Conservancies, Kenya".
+_places = {x["id"]: (x.get("place", ""), x.get("country", "")) for d in _disc for x in d["destinations"]}
+for _did, _say in _extra.get("sayLines", {}).items():
+    for _w in _places.get(_did, ()):
+        if _w and re.search(r"\bin\b[^.]*" + re.escape(_w), _say):
+            bad(f"sayLines[{_did}] writes its own place into the title: {_say!r} — the "
+                f"card prints '{_w}' on the next line and would say it twice")
+
+# ── 12. no sheet card folds its place into its sentence ───────────────────
+# 43 of the 87 written lines already carry their own "in..." or "here", so a second one
+# collides: "...every authorised Ashtanga teacher on earth traces home in Mysore
+# (Gokulam), India." The place goes on its own line under the sentence, for all of
+# them. This fails if anything ever folds it back in.
+_places_by_id = {x["id"]: x for d in _disc for x in d["destinations"]}
+for _page in sorted((ROOT / "website/atlas").glob("*.html")):
+    _html = _page.read_text()
+    for _h2, _did in re.findall(r'<h2 style="margin:6px 0 4px">(.*?)</h2>\s*'
+                                r'<div class="dwhere">.*?/atlas/([a-z0-9-]+)"', _html, re.S):
+        _x = _places_by_id.get(_did)
+        if not _x:
+            continue
+        _tail = f'{_x["place"]}, {_x["country"]}'
+        if html_mod.unescape(_h2).rstrip(". ").endswith(_tail):
+            bad(f"{_page.name}: the heading for {_did} folds its own place in — "
+                f"the place already prints on the line under it")
+        _line = (learn_lines.get(_did) or "").strip()
+        if _line and html_mod.unescape(_h2) != _line:
+            bad(f"{_page.name}: the heading for {_did} is not that place's written line\n"
+                f"      page:    {html_mod.unescape(_h2)[:90]}\n      written: {_line[:90]}")
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:

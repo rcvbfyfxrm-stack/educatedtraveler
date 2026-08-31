@@ -32,6 +32,11 @@ TEMPLATE = Path(__file__).resolve().parent / "atlas-hub-template.html"
 # The five worlds, by the colour the page already draws them in. Mirror of the WORLDS
 # map in atlas-hub-template.html — a card in the band must be the same colour as the
 # same card in the grid below it. Checked by scripts/check-atlas-hub.py.
+def _stack(first, rest):
+    return ('<span class="sl on">' + first + "</span>"
+            + "".join(f'<span class="sl">{x}</span>' for x in rest))
+
+
 WORLD_COLOR = {
     "adventure": "#6fa3a0",
     "culinary": "#c9a24a",
@@ -98,6 +103,47 @@ def learn_line_drift(learn_lines, disciplines):
             if nw not in hay and nw.rstrip("s") not in hay:
                 out.append((did, "name", w, line))
     return out
+
+
+_THE = re.compile(r"\b(States|Kingdom|Islands|Netherlands|Republic|Emirates|Philippines"
+                  r"|Bahamas|Maldives|Gambia)\b")
+
+
+def the_country(c):
+    """"the United States", not "United States". A rule and not a list, so a craft that
+    opens overnight on a country nobody has typed here yet still reads as English."""
+    return "the " + c if c in ("UK", "USA") or _THE.search(c or "") else c
+
+
+def place_line(place, country):
+    """"United States, United States" and "Kyoto, Kyoto" are data, not sentences."""
+    if not place:
+        return country or ""
+    if not country or place == country or country in place:
+        return place
+    return f"{place}, {country}"
+
+
+def walk_places(dests):
+    """[(say, where)] for the places a card walks, strongest community first — the same
+    order and the same two strings the browse template builds, because the band card is
+    a .gcard and the walk picks it up off the class exactly as it does a grid one.
+
+    `where` is the country alone: the sentence above it is already specific, and "in
+    Kenya" is the half a reader needs. But a craft taught twice in ONE country would
+    count "2 / 3" against a line that never moved, so that craft keeps its towns.
+    Disambiguation, not a claim — both strings are already published either way."""
+    ds = sorted([x for x in dests if x.get("place")],
+                key=lambda x: -(x.get("rank") or 0))
+    seen, dupe = set(), False
+    for x in ds:
+        c = x.get("country") or ""
+        if c in seen:
+            dupe = True
+        seen.add(c)
+    return [((x.get("say") or "").strip(),
+             place_line(x["place"], x.get("country") or "") if (dupe or not x.get("country"))
+             else the_country(x["country"])) for x in ds]
 
 
 # ── the note, shared with every short craft sheet ─────────────────────────
@@ -337,7 +383,7 @@ HUB_EXTRA_CSS = """
 /* a craft nobody has asked for yet — same card, quieter */
 .dcard.shut,.gcard.shut{background:rgba(20,17,13,.55)}
 .dcard.shut::before,.gcard.shut::before{opacity:.24}
-.dcard.shut .craftname,.gcard.shut .craftname{opacity:.9}
+.dcard.shut .cardsay,.gcard.shut .cardsay{opacity:.9}
 .dcard.shut .wherealive,.gcard.shut .wherealive{opacity:.8}
 /* the one line a locked card carries. It names the person, because the thing that
    opens the craft is a note to him and nothing else — not a sign-up, not a fee. */
@@ -457,6 +503,19 @@ def opened_band(items, n_asked, n_open):
         # page again. This mirrors cardInner() in the template exactly — change one
         # and you change both, or the page lies. `walks` + the cue are the same deal:
         # placeWalk() picks a band card up off the class, exactly as it does a grid one.
+        # Every line the card can ever say is in the card, one visible — see the stack()
+        # note in the template. The band builds it here so the two card builders put the
+        # same DOM on the same page; check 10 fails if they stop agreeing.
+        def say_stack(it):
+            me = f'Learn <span class="craftname">{e(it["name"])}</span>'
+            rest = [(e(sy) if sy else me) for sy, _ in (it.get("walk") or [])]
+            return '<p class="cardsay">' + _stack(me, rest) + "</p>"
+
+        def where_stack(it, where):
+            In = '<span class="in">in</span> '
+            rest = [In + e(w) for _, w in (it.get("walk") or [])]
+            return '<div class="wherealive">' + _stack(In + e(where), rest) + "</div>"
+
         blurb = (it.get("blurb") or "").strip()
         # Under the place: the hand-written immersive line for that place when there
         # is one, the researched reason-to-go when there is not. Same rule and same
@@ -473,12 +532,12 @@ def opened_band(items, n_asked, n_open):
         if not blurb:
             blurb, hook = hook, ""
         cards.append(
-            f'<article class="gcard{" walks" if nplaces > 1 else ""}" style="--sc:{e(it["color"])}">'
+            f'<article class="gcard{" walks" if nplaces > 1 else ""}" style="--sc:{e(it["color"])}"'
+            f' data-craft="{e(it["name"])}">'
             f'<a class="cardlink" href="/atlas/{e(it["id"])}" aria-label="Open the '
             f'{e(it["name"])} skill sheet"></a>'
             f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
-            f'<span class="craftname">{e(it["name"])}</span>'
-            + (f'<div class="wherealive"><span class="in">in</span> {e(where)}</div>' if where else "")
+            + say_stack(it) + (where_stack(it, where) if where else "")
             + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
             + (f'<p class="cardhook">{e(hook)}</p>' if hook else "")
             + (f'<button class="placecue" type="button">{nplaces} places →</button>'

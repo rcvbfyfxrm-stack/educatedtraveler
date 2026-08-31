@@ -44,6 +44,9 @@
         // none — nobody has done the work behind it yet — and that is why a card with
         // one place has nothing to walk and never claims otherwise.
         learn: x.learn || "",
+        // and what the card SAYS while it stands on this place — the title line,
+        // above the place rather than under it. Same rule: absent until written.
+        say: x.say || "",
         // schoolsInfo carries only the NAME the card prints — never a URL, a
         // course, a price or a rating link. The page reads .name and .length.
         schoolsInfo: x.school ? [{ name: x.school }]

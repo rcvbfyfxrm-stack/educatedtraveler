@@ -144,6 +144,29 @@ if _stray:
                      + ", ".join(sorted(_stray)))
 
 
+# ---------- the first line a card says ----------
+# "Learn to photograph big cats" — the card's own title, sitting straight above "in
+# Maasai Mara Conservancies, Kenya" (Arnaud, 2026-08-31: "always show what you will
+# learn and where... then the specificity of each place, straight simple, clear to
+# the point").
+#
+# At rest a card names the craft: "Learn Wildlife Photography in Pusztaszer, Hungary".
+# While it walks its places, the say line takes that slot and the craft's name gives
+# way to what you would actually be doing in THAT one. So this is the biggest words on
+# the card, which is exactly why it is CURATED and not composed: the same rule as
+# LEARN_LINES above, held harder. A say line may say nothing its own `why` does not
+# already say, and it is gated by the same learn_line_drift().
+#
+# It never carries the place — the card prints that on the next line and would say it
+# twice. Missing is fine, and is the state 111 of the 116 crafts are in: the card goes
+# on naming the craft, which is what it said before any of this existed.
+SAY_LINES = MANIFEST.get("sayLines", {})
+_stray_say = set(SAY_LINES) - _dest_ids
+if _stray_say:
+    raise SystemExit("build-atlas-pages: sayLines names destinations that do not exist: "
+                     + ", ".join(sorted(_stray_say)))
+
+
 def learn_line(x):
     """The immersive line, under the place name. Absent until somebody writes it."""
     line = (LEARN_LINES.get(x["id"]) or "").strip()
@@ -508,6 +531,8 @@ h2 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; mar
 section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
 .card {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; }}
 .card a.t {{ text-decoration:none; }} .card a.t:hover {{ color:var(--sea); }}
+.dwhere {{ font-size:17px; font-weight:500; color:var(--sea); line-height:1.3; margin:2px 0 10px; }}
+.dwhere .in {{ font-size:13px; font-weight:400; opacity:.62; }}
 .badge {{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(243,237,226,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }}
 .dots {{ color:var(--sea); letter-spacing:3px; }}
 .meta {{ font-size:13px; opacity:.6; }}
@@ -875,17 +900,33 @@ def sheet_link(d, x):
 
 def dest_card(d, x, link=True, is_best=False):
     badges = "".join(f'<span class="badge">{e(BADGE_LABELS.get(b, b))}</span>' for b in x["badges"])
-    title = f'{e(x["place"])}, {e(x["country"])}'
+    place = f'{e(x["place"])}, {e(x["country"])}'
     if link:
-        title = f'<a class="t" href="/atlas/{x["id"]}">{title}</a>'
+        place = f'<a class="t" href="/atlas/{x["id"]}">{place}</a>'
+    # THE SENTENCE LEADS, and the place goes on the line under it (Arnaud, 2026-08-31:
+    # "instead of putting Pusztaszer, Hungaria put first: Learn to work a one-way glass
+    # hide, on the farm where the technique was invented"). Under it, and not folded
+    # into it: 43 of the 87 written lines already carry their own "in..." or "here", and
+    # a second one collides — "...every authorised Ashtanga teacher on earth traces home
+    # in Mysore (Gokulam), India." One shape holds all 87, and it is the shape the
+    # browse card and the places panel now use too.
+    #
+    # A craft that opened unattended has no written line yet, so it keeps the old head:
+    # the place as the title, with nothing pretending to be a sentence above it.
+    written = (LEARN_LINES.get(x["id"]) or "").strip()
+    if written and link:
+        # a sentence, not a place name: it needs a headline's leading, not the body's
+        head = (f'<h2 style="margin:6px 0 4px;line-height:1.24">{e(written)}</h2>'
+                f'<div class="dwhere"><span class="in">in</span> {place}</div>')
+    else:
+        head = f'<h2 style="margin:6px 0 4px">{place}</h2>{learn_line(x)}'
     ribbon = ('<div style="display:inline-block;font-family:\'IBM Plex Mono\',monospace;font-size:10px;'
               'letter-spacing:.14em;text-transform:uppercase;color:#14110d;font-weight:600;'
               'background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:6px;padding:3px 9px;'
               'margin-bottom:10px">★ Best place to go</div>') if is_best else ""
     border = 'border-left:3px solid #d28a52;' if is_best else ""
     return (f'<div class="card" style="{border}">{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
-            f'<h2 style="margin:6px 0 4px">{title}</h2>'
-            f'{learn_line(x)}'
+            f'{head}'
             f'<div class="meta" style="margin-bottom:10px">{community_pill(x)}'
             f' · Season: {e(x["bestSeason"])} · {e(x["level"])}</div>'
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{badges}'
@@ -1178,6 +1219,9 @@ def index_card(d):
             # shows while it walks. Written above the `why` beside it and gated by
             # learn_line_drift(); the browse page shows it, it never composes one.
             "learn": (LEARN_LINES.get(x["id"]) or "").strip(),
+            # what the card SAYS while it is standing on this place — the title
+            # line, above the place, not under it. Same gate, same hand.
+            "say": (SAY_LINES.get(x["id"]) or "").strip(),
             "school": ((x.get("schoolsInfo") or [{}])[0]).get("name", ""),
             "nSchools": len(x.get("schoolsInfo") or x.get("schools") or []),
         } for x in d["destinations"]]
@@ -1187,7 +1231,7 @@ def index_card(d):
                            "rank": best.get("communityRank", 0), "rankLabel": "",
                            "season": "", "role": "", "level": "", "tripTier": 0,
                            "tripType": "", "tripLength": "", "english": False, "lang": "",
-                           "badges": [], "master": "", "why": "", "learn": "",
+                           "badges": [], "master": "", "why": "", "learn": "", "say": "",
                            "school": "", "nSchools": 0}]
                         if best else [])
         return card
@@ -1201,6 +1245,7 @@ def index_card(d):
         "season": best.get("bestSeason", ""),
         "why": best.get("why", ""),
         "learn": (LEARN_LINES.get(best.get("id", "")) or "").strip(),
+        "say": (SAY_LINES.get(best.get("id", "")) or "").strip(),
         "master": (best.get("masters") or [""])[0],
         "school": ((best.get("schoolsInfo") or [{}])[0]).get("name", ""),
         "tripType": best.get("tripType", ""), "tripLength": best.get("tripLength", ""),
@@ -1274,6 +1319,10 @@ OPENED_BAND = [{"id": s, "name": _by_id[s]["name"], "place": _by_id[s]["place"],
                 # them under the pointer. Counted off the same dests the index ships,
                 # so the number on the card and the list it walks cannot disagree.
                 "nplaces": sum(1 for x in _by_id[s].get("dests", []) if x.get("place")),
+                # the say line and the short where for each of those places, in walk
+                # order — so the band card carries the same stack the grid builds and
+                # cannot change height, or its words, differently from its neighbour
+                "walk": atlas_hub.walk_places(_by_id[s].get("dests", [])),
                 "opened": pretty_date(OPENED[s])} for s in _band_slugs]
 
 (ROOT / "website/js/atlas-index.js").write_text(
@@ -1379,5 +1428,14 @@ if _drift:
     print(f"  ⚠ {len(_drift)} learnLines token(s) not traceable to the research they sit above:")
     for _did, _kind, _tok, _ in _drift[:6]:
         print(f"      {_did}: {_kind} {_tok!r}")
+# The say line is the card's title, so it is held to the same standard by the same
+# gate — a title that overclaims is worse than a caption that does.
+_drift_say = atlas_hub.learn_line_drift(SAY_LINES, DISC)
+if _drift_say:
+    print(f"  ⚠ {len(_drift_say)} sayLines token(s) not traceable to the research they sit above:")
+    for _did, _kind, _tok, _ in _drift_say[:6]:
+        print(f"      {_did}: {_kind} {_tok!r}")
+if SAY_LINES:
+    print(f"  ✓ {len(SAY_LINES)} place(s) say what you would be doing there, not just where it is")
 if ASSUME_ALL_OPEN:
     print("  !! --assume-all-open: this output is for diffing only. Do not commit it.")

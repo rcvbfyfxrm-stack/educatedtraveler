@@ -374,5 +374,13 @@
     "yacht-crew-and-stcw--fort-lauderdale": "Learn with USCG and MCA tickets under one roof, if you don't yet know which side of the Atlantic you'll work.",
     "yacht-crew-and-stcw--dover-kent": "Learn at an academy that owns its own fire ground, survival pool and lifeboat centre.",
     "yacht-crew-and-stcw--sydney": "Start from the southern-hemisphere door, knowing what your tickets are worth before you buy a flight."
+  },
+  "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
+  "sayLines": {
+    "wildlife-photography--pusztaszer": "Learn to work a one-way glass hide",
+    "wildlife-photography--kuhmo": "Learn to sit a bear hide on the Russian border",
+    "wildlife-photography--maasai-mara-conservancies": "Learn to photograph big cats from a camp",
+    "wildlife-photography--south-luangwa": "Learn to photograph on foot, four to a group",
+    "wildlife-photography--falmouth": "Learn underwater photography as a degree"
   }
 }

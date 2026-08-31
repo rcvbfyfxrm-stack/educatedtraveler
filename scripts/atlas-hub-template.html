@@ -276,8 +276,8 @@ select.fin option{background:var(--ink2)}
    generated — both lines are the published place and the published reason for
    that place, the same strings the sheet prints. The card walks a list; it never
    writes one. See placeWalk() at the foot of this file. */
-.learn{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:2px}
+.cardsay{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:2px;transition:opacity .22s ease}
+.craftname{font:inherit;color:inherit}
 .wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px;transition:opacity .22s ease}
 .wherealive .in{font-size:12.5px;font-weight:400;opacity:.62}
 /* What the craft IS — two lines, because this one is read at a glance and a third
@@ -292,11 +292,18 @@ select.fin option{background:var(--ink2)}
    changes with it. Three lines: a written line runs 74 to 116 characters and on the
    narrowest card that is three lines, so two would cut every one of them. */
 .cardhook{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:opacity .22s ease}
-.wherealive.swapping,.cardhook.swapping{opacity:0}
+.cardsay.swapping,.wherealive.swapping,.cardhook.swapping{opacity:0}
 /* Only a card with somewhere to walk TO pays for the fixed box. Two lines of place
    and two of reason, held open, so the card cannot change height under the pointer
    and shove the row below it around while somebody is reading. */
-.walks .wherealive{min-height:42px}
+/* The stack reserves the tallest line the card can show, so a shorter one leaves the
+   difference somewhere. Bottom-align the title and that space sits under the eyebrow,
+   where it reads as spacing; top-align it and it opens a hole between the title and
+   the place belonging to it, which reads as a bug. */
+.cardsay{display:grid;align-items:end}
+.wherealive{display:grid;align-items:start}
+.cardsay .sl,.wherealive .sl{grid-area:1/1;visibility:hidden}
+.cardsay .sl.on,.wherealive .sl.on{visibility:visible}
 .walks .cardhook{min-height:54px}
 /* Says the card has more than one answer, counts them off while it walks, and
    opens all of them. z-index clears the stretched .cardlink underneath, which would
@@ -354,7 +361,8 @@ select.fin option{background:var(--ink2)}
 .plist .pn{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--sc);opacity:.75;padding-top:7px}
 /* the sentence, at a size you read */
 .psay{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(17px,2.1vw,21px);line-height:1.42;color:var(--paper)}
-.psay .pw{color:var(--sc);font-style:italic}
+.pwhere{margin-top:3px;font-size:16px;font-weight:500;color:var(--sc);font-style:italic}
+.pwhere .in{font-size:12.5px;font-weight:400;font-style:normal;opacity:.62}
 /* a place nobody has written a line for yet: its own name, and the research it
    would have been written above — said plainly rather than dressed as a sentence
    that does not exist */
@@ -669,11 +677,28 @@ var BLURB={};A.forEach(function(d){BLURB[d.id]=d.blurb||"";});
 // claim quietly changes, and "the most photographed big-cat ground on earth" is not
 // "where the most big cats are". Only one of those is true, and only one is written
 // down. See the LEARN_LINES note in build-atlas-pages.py.
+// "the United States", not "United States". A RULE and not a list, so a craft that
+// opens overnight on a country nobody has typed here yet still reads as English.
+function theCountry(c){
+  if(c==="UK"||c==="USA")return "the "+c;
+  return /\b(States|Kingdom|Islands|Netherlands|Republic|Emirates|Philippines|Bahamas|Maldives|Gambia)\b/.test(c)
+    ? "the "+c : c;
+}
 var PLACES={};A.forEach(function(d){
-  PLACES[d.id]=(d.destinations||[]).filter(function(x){return x.place;})
-    .slice().sort(function(a,b){return (b.communityRank||0)-(a.communityRank||0);})
-    .map(function(x){return {place:x.place,country:x.country||"",
-                             line:(x.learn||"").trim()||x.why||"",written:!!(x.learn||"").trim()};});
+  var ds=(d.destinations||[]).filter(function(x){return x.place;})
+    .slice().sort(function(a,b){return (b.communityRank||0)-(a.communityRank||0);});
+  // `where` is what the card prints WHILE IT WALKS. The country alone, because the
+  // sentence above it is already specific and "in Kenya" is the half a reader needs
+  // — but a craft taught twice in one country would count "2 / 3" against a line that
+  // never moved, so that craft keeps its towns. Disambiguation, not a claim: both
+  // strings are already published, and the resting card says the town either way.
+  var seen={},dupe=false;
+  ds.forEach(function(x){var c=x.country||"";if(seen[c])dupe=true;seen[c]=1;});
+  PLACES[d.id]=ds.map(function(x){return {place:x.place,country:x.country||"",
+                             line:(x.learn||"").trim()||x.why||"",written:!!(x.learn||"").trim(),
+                             say:(x.say||"").trim(),
+                             where:(dupe||!x.country)?placeLine(x.place,x.country)
+                                                     :theCountry(x.country)};});
 });
 // The line for the place a card is rendered with, so the resting card and the first
 // step of its walk say the same thing about the same place.
@@ -681,6 +706,46 @@ function placeLineFor(did,place,why){
   var ps=PLACES[did]||[];
   for(var i=0;i<ps.length;i++){if(ps[i].place===place)return ps[i].line;}
   return why||"";
+}
+function sayLineFor(did,place){
+  var ps=PLACES[did]||[];
+  for(var i=0;i<ps.length;i++){if(ps[i].place===place)return ps[i].say;}
+  return "";
+}
+// THE CARD'S TITLE. At rest it names the craft — "Learn Wildlife Photography", with
+// "in Pusztaszer, Hungary" on the line under it. The moment a pointer lands, the walk
+// swaps it for what you would actually be DOING in the place the card is standing on:
+// "Learn to photograph big cats", over "in Maasai Mara Conservancies, Kenya". What you
+// will learn and where, first, always — then the specificity of each place, one
+// sentence, straight (Arnaud, 2026-08-31).
+//
+// Two hand-written strings, never a composed one. A place with no say line keeps the
+// craft's name, which is what every card said before this existed. And the place is
+// NEVER written into the say line: the card prints it on the next line and would
+// otherwise say it twice.
+function sayInner(craft,say){
+  return say?esc(say):'Learn <span class="craftname">'+esc(craft)+'</span>';
+}
+// EVERY line the card can ever say is in the card, one of them visible. The grid row
+// is then the height of the tallest, per craft, measured by the browser — so a card
+// cannot grow under the pointer and no line has to be written short enough to fit a
+// number somebody guessed. It replaces a 40-character cap that was already blocking
+// the two best sentences on the sheet. visibility:hidden also keeps the ones that are
+// not showing out of the accessibility tree, so a screen reader hears one line.
+function stack(cls,first,rest){
+  var h='<span class="sl on">'+first+'</span>';
+  rest.forEach(function(x){h+='<span class="sl">'+x+'</span>';});
+  return h;
+}
+function sayHTML(craft,did){
+  var ps=(PLACES[did]||[]),me=sayInner(craft,"");
+  return '<p class="cardsay">'+stack("cardsay",me,ps.length>1?ps.map(function(p){
+    return sayInner(craft,p.say);}):[])+'</p>';
+}
+function whereHTML(place,country,did){
+  var ps=(PLACES[did]||[]),In='<span class="in">in</span> ';
+  return '<div class="wherealive">'+stack("wherealive",In+esc(placeLine(place,country)),
+    ps.length>1?ps.map(function(p){return In+esc(p.where);}):[])+'</div>';
 }
 
 /* ── WHAT PULLS YOU ───────────────────────────────────────────────────────
@@ -1168,17 +1233,22 @@ function cardData(world,disc,t){return {world:world,did:disc.id,craft:disc.disci
 // the blurb, so print it once rather than twice.
 function cardInner(o){
   var blurb=o.blurb||"",hook=o.why||"";
+  // Resolve the line FIRST, then check it against the blurb. It used to be the other
+  // way round, and placeLineFor put the sentence straight back after the guard had
+  // dropped it: 82 of the 116 cards printed their own blurb twice, in two greys, the
+  // exact thing the guard was written to stop. The band never did — build_band()
+  // resolves learn-or-why before it dedupes — so the two card builders disagreed on
+  // the same page, which is what check 9 exists to catch and could not see from here.
+  if(o.did&&o.place)hook=placeLineFor(o.did,o.place,hook);
   // A craft nobody has asked for has no published reason-to-go, and the shim puts
   // its own blurb in that slot — so without this the same sentence prints twice.
   if(hook===blurb)hook="";
   // A hand-written sheet that never carried a blurb: the reason-to-go takes the
   // full-size line instead, so every card still has exactly one.
   if(!blurb){blurb=hook;hook="";}
-  if(o.did&&o.place)hook=placeLineFor(o.did,o.place,hook);
   var n=(PLACES[o.did]||[]).length;
-  return '<div class="learn">Learn</div>'+
-    '<span class="craftname">'+esc(o.craft)+'</span>'+
-    (o.place?'<div class="wherealive"><span class="in">in</span> '+esc(placeLine(o.place,o.country))+'</div>':'')+
+  return sayHTML(o.craft,o.did)+
+    (o.place?whereHTML(o.place,o.country,o.did):'')+
     (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     (hook?'<p class="cardhook">'+esc(hook)+'</p>':'')+
     '<div class="cfoot"></div>'+
@@ -1188,7 +1258,7 @@ function cardInner(o){
 // real button on it (write to Arnaud about this craft) keeps its own clicks.
 function cardShell(cls,color,href,label,o){
   if((PLACES[o.did]||[]).length>1)cls+=" walks";
-  return '<article class="'+cls+'" style="--sc:'+color+'">'+
+  return '<article class="'+cls+'" style="--sc:'+color+'" data-craft="'+esc(o.craft)+'">'+
     '<a class="cardlink" href="'+esc(href)+'" aria-label="Open the '+esc(label)+' skill sheet"></a>'+
     '<button class="writebtn" type="button" data-write-craft="'+esc(o.craft)+'" data-write-place="'+esc((o.place||"")+(o.country?', '+o.country:""))+'">✎ Write</button>'+
     cardInner(o)+'</article>';
@@ -1432,10 +1502,20 @@ var placePanel=(function(){
   function entry(p,i){
     var n='<span class="pn">'+(i<9?"0":"")+(i+1)+'</span>';
     var where=esc(placeLine(p.place,p.country));
-    if(p.written){
-      // the sentence, with its own full stop moved past the place
-      return '<li>'+n+'<div><p class="psay">'+esc(p.line.replace(/\.\s*$/,""))+
-             ' <span class="pw">in '+where+'</span>.</p></div></li>';
+    // What you would be doing here, first and in one sentence, then the place on its
+    // own line — the panel is the card opened out, so it opens on the same shape.
+    //
+    // The place used to be folded into the sentence with its full stop moved past it,
+    // which reads beautifully for a line written to take it and is broken English for
+    // the 43 of 87 that already carry their own "in..." or "here": "...every authorised
+    // Ashtanga teacher on earth traces home in Mysore (Gokulam), India." Nothing is
+    // folded here any more, and nothing needs to be.
+    var lead=p.say||(p.written?p.line:"");
+    if(lead){
+      return '<li>'+n+'<div><p class="psay">'+esc(lead)+'</p>'+
+             '<p class="pwhere"><span class="in">in</span> '+where+'</p>'+
+             // the researched line, only when a say line took the lead off it
+             (p.say&&p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div></li>';
     }
     return '<li>'+n+'<div><p class="pplain">In '+where+'</p>'+
            (p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div></li>';
@@ -1498,25 +1578,36 @@ document.addEventListener("click",function(e){
   var card=cue.closest(".dcard,.gcard");if(!card)return;
   var a=card.querySelector("a.cardlink"),h=a&&a.getAttribute("href");
   var did=h?h.split("/atlas/")[1]:"";
-  var nm=card.querySelector(".craftname");
-  if(did)placePanel.open(did,nm?nm.textContent:did,cue);
+  var nm=card.getAttribute("data-craft")||"";
+  if(did)placePanel.open(did,nm||did,cue);
 },true);
 
 (function placeWalk(){
   var still=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var card=null,list=null,home=null,i=0,tid=0,fade=0,lead=0;
+  var card=null,list=null,home=null,craft="",i=0,tid=0,fade=0,lead=0;
   function q(c,s){return c.querySelector(s);}
   function slug(c){var a=q(c,"a.cardlink"),h=a&&a.getAttribute("href");return h?h.split("/atlas/")[1]:"";}
   function cue(c,txt){var el=q(c,".placecue");if(el)el.textContent=txt;}
+  // Child 0 of each stack is the resting line; child i+1 is place i. Showing one and
+  // hiding the rest, rather than rewriting the line, is what keeps the card's height
+  // fixed — the row is already as tall as the tallest thing in it.
+  function show(el,n){
+    if(!el)return;
+    var kids=el.children;
+    for(var j=0;j<kids.length;j++)kids[j].classList.toggle("on",j===n);
+  }
   function paint(){
-    var p=list[i],w=q(card,".wherealive"),k=q(card,".cardhook");
-    if(w)w.innerHTML='<span class="in">in</span> '+esc(placeLine(p.place,p.country));
+    var p=list[i],k=q(card,".cardhook");
+    // A place nobody has written a say line for keeps the craft's name rather than
+    // borrowing the last place's sentence, which would be the card telling a lie.
+    show(q(card,".cardsay"),i+1);
+    show(q(card,".wherealive"),i+1);
     if(k)k.textContent=p.line||"";
     cue(card,(i+1)+" / "+list.length);
   }
   function dim(on){
-    ["  .wherealive","  .cardhook"].forEach(function(s){
-      var el=q(card,s.trim());if(el)el.classList.toggle("swapping",on);});
+    [".cardsay",".wherealive",".cardhook"].forEach(function(s){
+      var el=q(card,s);if(el)el.classList.toggle("swapping",on);});
   }
   function step(){
     if(!card||placePanel.isOpen())return;
@@ -1529,23 +1620,30 @@ document.addEventListener("click",function(e){
   function stop(){
     clearTimeout(lead);clearTimeout(fade);clearInterval(tid);lead=fade=tid=0;
     if(!card)return;
-    var w=q(card,".wherealive"),k=q(card,".cardhook");
-    if(w){w.classList.remove("swapping");if(home.w!==null)w.innerHTML=home.w;}
+    var y=q(card,".cardsay"),w=q(card,".wherealive"),k=q(card,".cardhook");
+    if(y){y.classList.remove("swapping");show(y,0);}
+    if(w){w.classList.remove("swapping");show(w,0);}
     if(k){k.classList.remove("swapping");if(home.k!==null)k.innerHTML=home.k;}
     cue(card,list.length+" places");
-    card=null;list=null;home=null;i=0;
+    card=null;list=null;home=null;craft="";i=0;
   }
   function start(c){
     if(placePanel.isOpen())return;
     var ps=PLACES[slug(c)];
     if(!ps||ps.length<2)return;
     var w=q(c,".wherealive"),k=q(c,".cardhook");
-    card=c;list=ps;home={w:w?w.innerHTML:null,k:k?k.innerHTML:null};
+    card=c;list=ps;craft=c.getAttribute("data-craft")||"";
+    home={k:k?k.innerHTML:null};
     // begin at the place the card is already showing, so the first move is a move
     // and not a jump back to the top of a list the reader is already standing in
     var shown=w?w.textContent:"";i=0;
     for(var n=0;n<ps.length;n++){if(shown.indexOf(ps[n].place)>-1){i=n;break;}}
-    cue(c,(i+1)+" / "+ps.length);
+    // and paint it at once: the card is resting on this place already, so the only
+    // thing that changes is the title going from the craft's name to what you would
+    // be doing HERE. That is the whole point of touching the card, and waiting 2.6s
+    // to show it — on the one place the reader is actually looking at — buried it.
+    // It is also the only thing a reader who has asked for less motion ever sees.
+    paint();
     if(still)return;
     lead=setTimeout(function(){step();tid=setInterval(step,2600);},520);
   }
