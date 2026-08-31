@@ -133,7 +133,7 @@ function fullSheetHtml(rec: Record<string, unknown>, email: string): string {
   const letterBlock = letter
     ? `<div style="background:#efe6d3;border-radius:8px;padding:24px 26px;margin:24px 0 6px 0;box-shadow:0 10px 30px -18px rgba(0,0,0,0.8);">
          <p style="color:#6f6350;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;margin:0 0 14px 0;">The note — for you alone</p>
-         <p style="color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;margin:0;white-space:pre-wrap;">${esc(note)}</p>
+         <p style="color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;margin:0;white-space:pre-wrap;">${esc(letter)}</p>
          <p style="color:#3a2c1e;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:16px 0 0 0;text-align:right;">— ${esc(name)}</p>
        </div>`
     : `<p style="color:#6b625a;font-size:14px;font-style:italic;margin:20px 0 0 0;">No note yet — they said they'd write it later.</p>`;

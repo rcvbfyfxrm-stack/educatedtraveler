@@ -153,7 +153,31 @@ if have_node and js_blocks:
         if line.strip():
             fail(f"inline script does not parse — {line}")
 
-# ── 5 · the preserved sheets are the ones that get silently reverted ─────────
+# ── 5 · a rename that a syntax check cannot see ──────────────────────────────
+# A sweep that rewrites prose inside a template literal will happily rewrite the
+# identifier in `${esc(letter)}` too. The file still parses; it throws at runtime,
+# on send. This is how `${esc(note)}` reached notify-portrait, where the const is
+# `letter`. So: any bare `note` inside a ${...} must be declared in that file.
+# NB: must not match a plain call like `esc(note)` — that is the very use being
+# hunted, and an over-broad "parameter" pattern silently disarms the whole check.
+DECLARES = re.compile(r"\b(?:const|let|var|function)\s+note\b"      # declaration
+                      r"|\bnote\s*=(?!=)"                          # assignment
+                      r"|function[^(){}]*\([^)]*\bnote\b[^)]*\)"   # function parameter
+                      r"|\([^)]*\bnote\b[^)]*\)\s*=>"              # arrow parameter
+                      r"|\{[^{}]*\bnote\b[^{}]*\}\s*=(?!=)")       # destructuring
+INTERP = re.compile(r"\$\{([^{}]*)\}")
+BARE = re.compile(r"(?<![\w.$])note(?![\w$])")
+for path, body in corpus.items():
+    if path.suffix not in {".ts", ".js", ".mjs", ".html", ".py"}:
+        continue
+    if DECLARES.search(body):
+        continue                       # the file has its own `note`; leave it be
+    for m in INTERP.finditer(body):
+        if BARE.search(m.group(1)):
+            fail(f"{rel(path)}: ${{{m.group(1).strip()[:40]}}} uses `note`, which is not "
+                 "declared in this file — a prose sweep renamed an identifier")
+
+# ── 6 · the preserved sheets are the ones that get silently reverted ─────────
 preserve = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())["preserve"]
 if missing := [s for s in preserve if not (ROOT / "website/atlas" / s).exists()]:
     fail(f"preserved sheets missing from website/atlas/: {', '.join(missing)}")
