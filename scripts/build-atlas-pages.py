@@ -167,6 +167,60 @@ if _stray_say:
                      + ", ".join(sorted(_stray_say)))
 
 
+# ---------- the closed cell: on the record, not a place to learn ----------
+# The Standard asks two questions of every place — is the craft alive there, and can a
+# serious stranger get in — and the CLOSED cell (alive, unreachable) is what proves this
+# map is a record rather than a shop. Roses / Cala Montjoi is the case that forced the
+# flag: elBulli shut in 2011 and the cove now holds elBulli1846, a museum you buy a
+# ticket for. The page still said "Learn Modernist Spanish Cuisine in Roses", starred it
+# "Best place to go", promised "who teaches", and filed a Basque Culinary Center course
+# 450 km away under "Schools in Roses". Every one of those was assembled out of true
+# parts, and the picture they made was false.
+#
+# A destination marked closedToLearners keeps its research and loses every verb that
+# promises teaching: no "Learn ... in" title, no star, no featured course, no credential,
+# no honest-level line, no "the course and what it costs" or "who teaches" on its door.
+# In exchange it owes the reader one thing — closedNote, what is actually there and where
+# to go instead — and the build refuses to run without it.
+def is_closed(x):
+    return bool(x.get("closedToLearners"))
+
+
+for _d in DISC:
+    for _x in _d["destinations"]:
+        if is_closed(_x) and not (_x.get("closedNote") or "").strip():
+            raise SystemExit(f'build-atlas-pages: {_x["id"]} is closedToLearners and needs a '
+                             "closedNote — what is actually there, and where to go instead.")
+    _fid = (_d.get("featured") or {}).get("id")
+    if _fid and any(is_closed(_x) for _x in _d["destinations"] if _x["id"] == _fid):
+        raise SystemExit(f'build-atlas-pages: the featured course of {_d["id"]} is filed under '
+                         f"{_fid}, which is closedToLearners. A pick has to be somewhere you can go.")
+
+# ---------- saying it when we are not a neutral party ----------
+# Rule 9 of the Standard prints the way around EducatedTraveler on the entry itself.
+# Where we ALSO have a commercial relationship with a school, that belongs above the
+# recommendation, not in a footnote under it. Marking a school etRelationship:true
+# without writing the craft's disclosure fails the build, so a conflict cannot ship by
+# being forgotten.
+for _d in DISC:
+    _rel = sorted({s_["name"] for _x in _d["destinations"]
+                   for s_ in (_x.get("schoolsInfo") or []) if s_.get("etRelationship")})
+    if _rel and not (_d.get("disclosure") or "").strip():
+        raise SystemExit(f'build-atlas-pages: {_d["id"]} names a school we have a relationship '
+                         f'with ({", ".join(_rel)}) and carries no disclosure.')
+
+
+def disclosure_block(d, section=True):
+    """Where we stand with a school, said before the reader forms a view."""
+    t = (d.get("disclosure") or "").strip()
+    if not t:
+        return ""
+    card = ('<div class="card" style="border-left:3px solid var(--sea)">'
+            '<div class="mono">Where we stand with them</div>'
+            f'<p style="opacity:.86;margin-top:8px;max-width:62ch">{e(t)}</p></div>')
+    return f'<section><div class="wrap">{card}</div></section>' if section else card
+
+
 def learn_line(x):
     """The immersive line, under the place name. Absent until somebody writes it."""
     line = (LEARN_LINES.get(x["id"]) or "").strip()
@@ -182,6 +236,8 @@ def with_whom(d, x):
 
     Craft page only (link=True). The place's own sheet already carries a Masters &
     lineage section a few centimetres below, and this would just say it twice."""
+    if is_closed(x):
+        return ""          # you would be with nobody, for as long as the tour lasts
     bits = []
     ms = [m for m in (x.get("masters") or []) if m]
     if ms:
@@ -688,6 +744,8 @@ def dest_stub(dest_id, parent_id, parent_name, place, country):
 
 
 def ceiling_line(x, d=None):
+    if is_closed(x):
+        return ""          # "how far can you get" has no answer where nothing is taught
     c = x.get("ceiling") or (d.get("ceiling") if d else None)
     if c:
         return f'<p style="opacity:.82;font-size:15px;margin:14px 0 0;max-width:62ch"><strong style="font-weight:500">What you can realistically reach:</strong> {e(c)}</p>'
@@ -754,7 +812,11 @@ def depth_link(d):
             'give you, and what the days are like. The places come first.</span></p>')
 
 
-def credential_section(d):
+def credential_section(d, x=None):
+    # goldCredential is a CRAFT field printed on every destination page of that craft,
+    # so a page where nothing is taught must not print "what you walk away with".
+    if x is not None and is_closed(x):
+        return ""
     if not d.get("goldCredential"):
         return ""
     body = (f'<p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">{e(d["goldCredential"])}</strong>'
@@ -768,6 +830,8 @@ COMMUNITY_TIER = {
     "Strong":     ("rgba(243,237,226,.78)", "Strong living community"),
     "Growing":    ("rgba(243,237,226,.55)", "Growing community"),
     "Hidden-gem": ("rgba(243,237,226,.55)", "Hidden-gem community"),
+    # the closed cell — see is_closed(). Not a weak community: no community.
+    "Gone":       ("rgba(243,237,226,.45)", "The community is gone"),
 }
 
 def community_pill(x):
@@ -831,16 +895,19 @@ def money_html(text, style=""):
     return f'<span class="price" style="{style}">{e(text)}</span>'
 
 def best_dest_id(d):
+    # A closed destination is never the pick, however strong its community: the ribbon
+    # reads "best place to go" and there is nothing there to go and do.
+    dests = [x for x in d["destinations"] if not is_closed(x)]
     f = d.get("featured") or {}
     if f.get("id"):
-        for x in d["destinations"]:
+        for x in dests:
             if x["id"] == f["id"]:
                 return x["id"]
     if f.get("place"):
-        for x in d["destinations"]:
+        for x in dests:
             if x["place"] == f["place"]:
                 return x["id"]
-    best = max(d["destinations"], key=lambda x: x["communityRank"], default=None)
+    best = max(dests, key=lambda x: x["communityRank"], default=None)
     return best["id"] if best else None
 
 # Rule 10 of the Standard: a name and a date on the check itself — "who checked this,
@@ -884,11 +951,13 @@ def sheet_link(d, x):
     has = []
     n = len(x.get("schoolsInfo") or x.get("schools") or [])
     if n:
-        has.append("the school" if n == 1 else f"all {n} schools")
-    if any(s.get("course") for s in (x.get("schoolsInfo") or [])):
-        has.append("the course and what it costs")
-    if x.get("masters"):
-        has.append("who teaches")
+        has.append(("what is there" if is_closed(x) else "the school") if n == 1
+                   else f"all {n} schools")
+    if not is_closed(x):
+        if any(s.get("course") for s in (x.get("schoolsInfo") or [])):
+            has.append("the course and what it costs")
+        if x.get("masters"):
+            has.append("who teaches")
     if x.get("room") or d.get("room"):
         has.append("how the days run")
     if not has:
@@ -938,11 +1007,28 @@ def dest_card(d, x, link=True, is_best=False):
               'background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:6px;padding:3px 9px;'
               'margin-bottom:10px">★ Best place to go</div>') if is_best else ""
     border = 'border-left:3px solid #d28a52;' if is_best else ""
+    # A closed place gets the opposite of a ribbon: the plainest possible label, and the
+    # honest note sits ABOVE the badges so nobody reads "Birthplace · Mecca · Heritage"
+    # and arrives at a school that is not there.
+    # link=False is the place's own page, whose hero already carries the note a few
+    # centimetres above. Only the craft page, where the card is all a reader gets, needs it.
+    note = ""
+    if is_closed(x):
+        ribbon = ('<div style="display:inline-block;font-family:\'IBM Plex Mono\',monospace;font-size:10px;'
+                  'letter-spacing:.14em;text-transform:uppercase;color:var(--muted);'
+                  'border:1px solid var(--line);border-radius:6px;padding:3px 9px;'
+                  'margin-bottom:10px">Where it started · nothing is taught here</div>')
+        border = ""
+        if link:
+            note = ('<p style="opacity:.9;margin:0 0 12px;color:var(--ember);max-width:62ch">'
+                    f'{e(x["closedNote"])}</p>')
+    meta = f'{community_pill(x)} · Season: {e(x["bestSeason"])}'
+    if not is_closed(x):
+        meta += f' · {e(x["level"])}'
     return (f'<div class="card" style="{border}">{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
             f'{head}'
-            f'<div class="meta" style="margin-bottom:10px">{community_pill(x)}'
-            f' · Season: {e(x["bestSeason"])} · {e(x["level"])}</div>'
-            f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{badges}'
+            f'<div class="meta" style="margin-bottom:10px">{meta}</div>'
+            f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{note}{badges}'
             + (f'{with_whom(d, x)}{sheet_link(d, x)}' if link else "")
             + f'{check_line(x)}</div>')
 
@@ -971,6 +1057,8 @@ def alts_block(f):
             f'<ul class="clean">{"".join(rows)}</ul></div>')
 
 def featured_block(d, x):
+    if is_closed(x):
+        return ""
     f = d.get("featured") or {}
     if not f.get("course"):
         return ""
@@ -1053,7 +1141,11 @@ for d in DISC:
             (OUT / f'{x["id"]}.html').write_text(
                 dest_stub(x["id"], d["id"], d["discipline"], x["place"], x["country"]))
             continue
-        title = f'Learn {d["discipline"]} in {x["place"]}, {x["country"]} — schools, masters & the community'
+        if is_closed(x):
+            title = (f'{d["discipline"]} in {x["place"]}, {x["country"]} — where it started, '
+                     "and what is actually there")
+        else:
+            title = f'Learn {d["discipline"]} in {x["place"]}, {x["country"]} — schools, masters & the community'
         desc = (x["why"][:155] + "…") if len(x["why"]) > 156 else x["why"]
         path = f'/atlas/{x["id"]}'
         urls.append(path)
@@ -1086,12 +1178,31 @@ for d in DISC:
             else:
                 vnote = ('<p class="meta" style="margin-bottom:12px">'
                          'Checked by hand against each school\'s own course pages. No school paid to be listed.</p>')
-            schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="clean">{"".join(rows)}</ul></div></section>'
+            if is_closed(x):
+                vnote = ('<p class="meta" style="margin-bottom:12px">'
+                         "Checked by hand against each place's own pages. Nothing below is a course "
+                         "you can book, and nothing here paid to be listed.</p>")
+                schools_html = ('<section><div class="wrap"><div class="mono">What is actually there</div>'
+                                f'<h2>On the site today</h2>{vnote}'
+                                f'<ul class="clean">{"".join(rows)}</ul></div></section>')
+            else:
+                schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="clean">{"".join(rows)}</ul></div></section>'
 
         masters_html = ""
         if x["masters"]:
-            masters_html = ('<section><div class="wrap"><div class="mono">The lineage</div><h2>Masters & lineage</h2><ul class="clean">'
-                            + "".join(f"<li>{e(m)}</li>" for m in x["masters"]) + "</ul></div></section>")
+            # On a closed page these are the people the craft came from, and the heading
+            # has to say so: "Masters & lineage" on a page with no teaching reads as a
+            # staff list.
+            head = ("The lineage", "Masters & lineage")
+            tail = ""
+            if is_closed(x):
+                head = ("Who it came from", "The names this place gave the craft")
+                tail = ('<p class="meta" style="margin-top:10px">Named for the lineage, not as '
+                        "teachers — nobody on this list teaches here.</p>")
+            masters_html = (f'<section><div class="wrap"><div class="mono">{head[0]}</div>'
+                            f'<h2>{head[1]}</h2><ul class="clean">'
+                            + "".join(f"<li>{e(m)}</li>" for m in x["masters"])
+                            + f"</ul>{tail}</div></section>")
 
         siblings = [s for s in d["destinations"] if s["id"] != x["id"]]
         sib_html = ""
@@ -1105,20 +1216,27 @@ for d in DISC:
                   "url": SITE + path,
                   "containedInPlace": {"@type": "Country", "name": x["country"]}}
 
+        _h1 = (f"{e(d['discipline'])} in {e(x['place'])}" if is_closed(x)
+               else f"Learn {e(d['discipline'])} in {e(x['place'])}")
+        _closed_band = ('<p style="margin:18px 0 0;padding:14px 18px;border:1px solid var(--line);'
+                        'border-left:3px solid var(--ember);border-radius:10px;background:var(--ink2);'
+                        f'max-width:62ch;color:var(--paper);opacity:.92">{e(x["closedNote"])}</p>'
+                        ) if is_closed(x) else ""
+
         intent = intent_form(
             source=f'atlas:{x["id"]}', discipline=d["id"], place=x["id"],
             label=f'{d["discipline"]} · {x["place"]}')
         body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
-<h1>Learn {e(d['discipline'])} in {e(x['place'])}</h1>
-<p class="lead">{e(x['why'])}</p>
+<h1>{_h1}</h1>
+<p class="lead">{e(x['why'])}</p>{_closed_band}
 </div></header>
 <section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
-{featured_block(d, x)}
+{disclosure_block(d) if featured_block(d, x) else ""}{featured_block(d, x)}
 {masters_html}
 {rating_block(d, x)}{schools_html}
 {room_block(x, d)}
-{credential_section(d)}
+{credential_section(d, x)}
 <section><div class="wrap">{intent}</div></section>
 {sib_html}"""
         # saveable=False: skill-save.js hooks form.intent[data-discipline], which only
@@ -1162,7 +1280,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{depth_link(d)}
 </div></header>
-<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>
+<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>
 {craft_depth(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,

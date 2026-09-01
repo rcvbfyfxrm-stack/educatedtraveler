@@ -13378,17 +13378,114 @@ window.ET_ATLAS = {
     {
       "discipline": "Modernist Spanish Cuisine",
       "category": "culinary",
-      "certBody": "elBullifoundation legacy / Basque Culinary Center (no single formal body — restaurant stage lineage)",
-      "goldCredential": "A completed stage in an elBulli-lineage avant-garde kitchen / BCC Master in Culinary Arts",
+      "certBody": "No formal body. A school certifies its own course; a stage certifies nothing but the name on the door.",
+      "goldCredential": "A course certificate from a school you can book — or the long way round, a completed stage in a kitchen of this lineage.",
+      "ceiling": "A booked course puts the technique in your hands and shows you what each tool is actually for — spherification, foams, sous-vide, hydrocolloids. The stage is the other road, and it is a real one: months on the line in a kitchen of this lineage, applied for with a CV, paid anywhere from nothing to a small stipend, and nobody can promise you one. Both are real ways in. Only one of them is a door you can book.",
+      "disclosure": "EducatedTraveler runs a paid week with Martin Lippo, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week costs, and sold out at the time of writing. His classroom courses run in Spanish and carry no published price; English or French is a private course quoted by email. Checked on martinlippo.com, 1 September 2026. If a direct route suits you better, take it.",
       "blurb": "The science-driven vanguard of foams, spherification and deconstruction that Ferran Adrià unleashed from a cove on the Costa Brava and rewired global fine dining.",
       "destinations": [
+        {
+          "place": "Madrid",
+          "country": "Spain",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "mecca"
+          ],
+          "why": "Where the whole craft meets once a year — Madrid Fusión, the congress that has gathered the Spanish avant-garde since 2003, holds its 25th edition here in February 2027 — and where Dabiz Muñoz cooks three Michelin stars of it at DiverXO. The teaching is institutional rather than personal, and it is the only room on this craft with English in your ear.",
+          "bestSeason": "Sep-Jun",
+          "level": "Beginner -> Professional",
+          "id": "modernist-spanish-cuisine--madrid",
+          "schoolsInfo": [
+            {
+              "name": "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)",
+              "url": "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en",
+              "course": "Spanish Cuisine Diploma — the Superior Certificate is the avant-garde one",
+              "blurb": "On the UFV campus at Pozuelo de Alarcón. The avant-garde teaching here is not a short course: it is the last third of the nine-month Spanish Cuisine Diploma, and their own syllabus names it — 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', 'Sous-vide cooking', 'Reinventing & deconstructing classic dishes'. Taught in Spanish with simultaneous English translation through earphones, which no other room on this craft offers. Intakes January, April, July and October; 17,316 EUR for local students, 19,240 EUR for international. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months. Honest note, and it is the reason this is not our pick: Le Cordon Bleu names no chef for this diploma. Everywhere else on this map you can look the teacher up before you pay, and here you cannot — ask who will actually be in the room. Checked on cordonbleu.edu, 1 September 2026.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Madrid publishes the Spanish Cuisine Diploma as 'Spanish // English (simultaneous translation system through earphones)' on its own programme page.",
+          "instructionLanguage": "Spanish, with simultaneous English translation"
+        },
+        {
+          "place": "Barcelona",
+          "country": "Spain",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Vakuum by Martin Lippo",
+            "Espai Sucre"
+          ],
+          "masters": [
+            "Martin Lippo",
+            "Jordi Butron"
+          ],
+          "badges": [
+            "scene",
+            "mecca",
+            "master",
+            "school",
+            "master-lab"
+          ],
+          "why": "Where the elBulli cooks actually landed — Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024 — and, unlike the cove or the stage kitchens up the coast, the city where a stranger can book a bench and cook.",
+          "bestSeason": "Year-round",
+          "level": "Enthusiast -> Professional",
+          "id": "modernist-spanish-cuisine--barcelona",
+          "schoolsInfo": [
+            {
+              "name": "Vakuum by Martin Lippo",
+              "url": "https://martinlippo.com/en/",
+              "course": "Classroom courses and online modules — sous-vide and low temperature, foams, sodas and siphon work, spherification, textures and texturizers, liquid nitrogen",
+              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish and he publishes no price for them; English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026.",
+              "etRelationship": true,
+              "confidence": "high"
+            },
+            {
+              "name": "Culinary Institute of Barcelona (CIB)",
+              "url": "https://cib.education/cursos-de-cocina/chef-especialista-cocina-molecular",
+              "course": "Curso de Especialización en Técnicas Culinarias Avanzadas (postgrado)",
+              "blurb": "A three-month, 330-hour in-person postgrado in advanced culinary technique, Monday to Friday, taught 'en español y soporte en inglés'. Intakes January, May and September 2027, 9,900-11,000 EUR. Honest note: it is a school programme taught by a faculty — its own page says '+20 profesionales referentes' rather than naming one chef you can look up, which is the opposite of how everything else on this map is chosen. Listed because it is real, bookable and in the same city, not because we would send you there first. Checked on cib.education, 1 September 2026.",
+              "confidence": "high"
+            },
+            {
+              "name": "Espai Sucre",
+              "url": "https://espaisucre.com/en/",
+              "course": "11-month Restaurant Pastry and Traditional Pastry programs, plus 2-4 day monthly intensives",
+              "blurb": "Founded in 2000 by Jordi Butron and Xano Saguer, Espai Sucre is a school built entirely around the restaurant dessert — the same technique carried to the sweet side. It runs 2-4 day intensives monthly as well as the long programs. The school is operating and enrollable; the original restaurant has closed.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "days to weeks",
+          "englishTaught": false,
+          "englishBasis": "Vakuum's classroom courses are in Spanish — English or French only as a private booking, per his own classroom-courses page; the online modules are sold in English. Espai Sucre's long programs run in Spanish.",
+          "instructionLanguage": "Spanish (English online; English or French in person only as a private course)"
+        },
         {
           "place": "Roses / Cala Montjoi (Costa Brava)",
           "country": "Spain",
           "region": "Mediterranean",
           "role": "source",
-          "communityRank": 3,
-          "communityLabel": "Strong",
+          "communityRank": 1,
+          "communityLabel": "Gone",
+          "closedToLearners": true,
+          "closedNote": "elBulli closed on 30 July 2011 and never reopened. What stands in the cove now is elBulli1846, the foundation's museum — a ticket, and a visit of about two and a half hours. There is no course here, no enrolment and nobody teaching: their own site sells a visit. Come for the pilgrimage. For the technique itself, go to Barcelona or San Sebastián.",
           "schools": [
             "elBulli1846 (elBullifoundation museum & creativity lab)"
           ],
@@ -13399,36 +13496,27 @@ window.ET_ATLAS = {
           "badges": [
             "source",
             "mecca",
-            "master",
-            "heritage",
-            "lineage"
+            "heritage"
           ],
-          "why": "The exact cove where Ferran Adrià detonated modernist cuisine and elBulli reigned as the world's best restaurant — a pilgrimage to the origin point of the avant-garde.",
-          "bestSeason": "Apr-Oct",
-          "level": "Enthusiast -> Professional",
+          "why": "The exact cove where Ferran Adrià detonated modernist cuisine and elBulli reigned as the world's best restaurant, until it closed in 2011 — a pilgrimage to the origin point of the avant-garde, and nothing more than that.",
+          "bestSeason": "May-Oct",
+          "level": "Nothing is taught here",
           "id": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
           "schoolsInfo": [
             {
-              "name": "Basque Culinary Center (Faculty of Gastronomic Sciences)",
-              "url": "https://www.bculinary.com/en/programas-especializacion",
-              "course": "Avant-Garde Culinary Techniques (Tecnicas Culinarias de Vanguardia) - in-person specialization course",
-              "blurb": "Basque Culinary Center runs an in-person Avant-Garde Culinary Techniques specialization course on its San Sebastian campus, covering the context of the modern chef, creative processes, and cutting-edg",
-              "confidence": "high"
-            },
-            {
               "name": "elBulli1846 (elBullifoundation museum & creativity lab)",
               "url": "https://elbullifoundation.com/en/proyecto/elbulli1846/",
-              "course": "elBulli1846 guided museum and exhibition-lab tour",
-              "blurb": "Built on the former elBulli restaurant site at Cala Montjoi in Roses, elBulli1846 is the elBullifoundation's exhibition lab and museum of avant-garde gastronomy offering a roughly two-hour self-guided/guided tour rather than a hands-on cooking immersion.",
-              "confidence": "medium"
+              "course": "A museum visit — not a course",
+              "blurb": "Built on the site of elBulli, which closed in 2011, elBulli1846 is the elBullifoundation's museum and exhibition lab at Cala Montjoi: a visit of about two and a half hours, on a ticket, with a multimedia guide or a small-group guided tour. The 2026 season runs 1 May to 12 October. Their own pages sell a visit and help you plan one — there is no enrolment, no kitchen you cook in and no teacher. Checked on elbullifoundation.com, 31 August 2026.",
+              "confidence": "high"
             }
           ],
-          "tripTier": 4,
-          "tripType": "Immersion",
-          "tripLength": "a month+",
+          "tripTier": 0,
+          "tripType": "Visit",
+          "tripLength": "a couple of hours",
           "englishTaught": false,
-          "englishBasis": "BCC Avant-Garde Culinary Techniques in-person specialization is listed under 'Training delivered in Spanish'; elBulli1846 is a museum tour, not a course.",
-          "instructionLanguage": "Spanish"
+          "englishBasis": "Nothing is taught here in any language — elBulli1846 sells a museum visit, not a course.",
+          "instructionLanguage": ""
         },
         {
           "place": "Girona",
@@ -13504,9 +13592,16 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Basque Culinary Center",
-              "url": "https://www.bculinary.com/en/home",
-              "course": "Specialised intensive courses (e.g. Culinary Techniques Mastery, Avant-Garde Culinary Techniques)",
-              "blurb": "On its Miramón campus above San Sebastián, this gastronomy faculty runs multi-week full-time specialisation courses such as Culinary Techniques Mastery and Avant-Garde Culinary Techniques alongside its degree and master's programs.",
+              "url": "https://www.bculinary.com/en/programas-especializacion",
+              "course": "Avant-Garde Culinary Techniques (Técnicas Culinarias de Vanguardia) — in-person specialisation course",
+              "blurb": "On its Miramón campus above San Sebastián, this gastronomy faculty runs multi-week specialisation courses alongside its degree and master's programmes. The avant-garde one covers the context of the modern chef, the creative process and the techniques themselves with their application on the plate: roughly five weeks (the 2026 edition listed as 25 May to 26 June), Mondays and Tuesdays 15:00-20:30, in Spanish, at 3,320 euros. It is the institutional route into this craft, and the closest thing to a bookable replacement for what Cala Montjoi stopped being in 2011.",
+              "confidence": "high"
+            },
+            {
+              "name": "Basque Culinary Center — Técnicas Culinarias de Vanguardia (online)",
+              "url": "https://www.bculinary.com/es/cursos-online/tecnicas-culinarias-de-vanguardia",
+              "course": "Curso de Especialización Online de Técnicas Culinarias de Vanguardia — 8 ECTS",
+              "blurb": "The same faculty's avant-garde course at a distance: spherification, gelification, fermentation and vacuum cooking, 15 September 2026 to 18 February 2027, one live class a week on Thursdays 16:00-17:30 CEST, capped at 30 students, 2,310 EUR, in Spanish. Taught by Luis Arrufat, a former elBulli pastry chef, with Txema Urda — a named teacher out of the lineage, which the in-person specialisation does not advertise. Checked on bculinary.com, 1 September 2026.",
               "confidence": "high"
             },
             {
@@ -13528,38 +13623,38 @@ window.ET_ATLAS = {
       "id": "modernist-spanish-cuisine",
       "certShort": "elBullifoundation legacy",
       "featured": {
-        "id": "modernist-spanish-cuisine--roses-cala-montjoi-costa-brava",
-        "place": "Donostia-San Sebastián (Gipuzkoa)",
+        "id": "modernist-spanish-cuisine--barcelona",
+        "place": "Barcelona",
         "country": "Spain",
-        "school": "Basque Culinary Center (Faculty of Gastronomic Sciences)",
-        "url": "https://www.bculinary.com/en/programas-especializacion",
-        "course": "Avant-Garde Culinary Techniques (Tecnicas Culinarias de Vanguardia) - in-person specialization course",
-        "description": "Basque Culinary Center runs an in-person Avant-Garde Culinary Techniques specialization course on its San Sebastian campus, covering the context of the modern chef, creative processes, and cutting-edge techniques with their culinary application and dishes. It runs roughly five weeks (the 2026 edition listed as 25 May to 26 June), Monday and Tuesday 15:00-20:30, in Spanish, priced at 3,320 euros. The course replaces the iconic but inaccessible elBulli1846 site at Cala Montjoi, which is now a seasonal museum with no enrolment-based cooking course for travelers.",
-        "duration": "Approximately 5 weeks (2026 edition: 25 May - 26 June)",
-        "format": "In-person, on-campus in San Sebastian; Monday and Tuesday 15:00-20:30; taught in Spanish",
-        "certification": "Basque Culinary Center course completion certificate (specialization course)",
-        "fitsBecause": "A real, bookable in-person modernist/avant-garde cooking course in the Basque heart of Spain's vanguard cuisine, taught at a leading gastronomy institution with a concrete published curriculum, schedule and price.",
-        "sessions": [
-          "2026-05-25"
-        ],
-        "priceNote": "3,320 EUR (2026 edition).",
+        "school": "Vakuum by Martin Lippo",
+        "url": "https://martinlippo.com/en/",
+        "course": "Classroom courses in modernist technique — sous-vide, foams and siphon, spherification, textures, liquid nitrogen",
+        "description": "Martin Lippo is an Argentine chef who has worked in Barcelona since 2000 and was an early hand in sous-vide and low-temperature cooking. Vakuum is his own laboratory and training school. It is not the only bookable room on this craft, and we are not going to pretend it is — the Culinary Institute of Barcelona sells a three-month advanced-technique postgrado in the same city, the Basque Culinary Center runs a five-week specialisation and an online one, and Le Cordon Bleu Madrid teaches the avant-garde block inside a nine-month diploma. It is the shortest and the cheapest of them, and the only one where the person who built the curriculum is the person at the bench: no CV, no invitation, no cohort to wait for. Those are the reasons. Rank them yourself.",
+        "duration": "Classroom courses of a day or two; online modules at your own pace",
+        "format": "In person in Barcelona, in Spanish — English or French as a private course; online modules in English",
+        "certification": "A Vakuum certificate of attendance — the school's own paper, not a state qualification",
+        "fitsBecause": "Open enrolment with no CV and no invitation, a named master who stands in his own room, a curriculum published module by module before you pay — and a way in that does not go through us.",
+        "sessions": [],
+        "priceNote": "He publishes no price for the classroom courses. They run in Spanish; English or French is a private course, quoted by email. Checked on martinlippo.com, 31 August 2026.",
         "confidence": "high",
         "alternatives": [
           {
-            "course": "Pintxos & Tapas Short Workshop (enthusiasts)",
-            "duration": "Short workshop",
-            "format": "In-person, Donostia-San Sebastián",
-            "url": "https://www.bculinary.com/en/formacion",
-            "fit": "Taster",
-            "note": "Brief hands-on session at the same faculty; an accessible taste rather than the avant-garde specialization course.",
-            "confidence": "med"
+            "course": "Online modules — foams, sous-vide, spherification, textures, liquid nitrogen",
+            "duration": "At your own pace",
+            "format": "Online, in English",
+            "url": "https://martinlippo.com/en/",
+            "priceNote": "EUR 80-95 a module; the full foams, carbonation and siphon pack EUR 386, down from EUR 460. Checked 31 August 2026.",
+            "fit": "Online",
+            "note": "His own teaching, bought direct, with nothing coming to us — but no bench, no master in the room and nobody at the next station.",
+            "confidence": "high"
           },
           {
-            "course": "Online Gastronomy Courses",
-            "format": "Online",
-            "url": "https://www.bculinary.com/en/cursos-online",
-            "fit": "Online",
-            "note": "Online format strips out the lab-based hands-on practice and place-based community of the in-person course.",
+            "course": "Espai Sucre monthly intensives",
+            "duration": "2-4 days",
+            "format": "In-person, Barcelona",
+            "url": "https://espaisucre.com/en/",
+            "fit": "Starter",
+            "note": "The same technique on the sweet side, in short bites, at a school we have no relationship with.",
             "confidence": "med"
           }
         ]
@@ -22119,10 +22214,48 @@ window.ET_ATLAS = {
         "certification": "Vakuum certificate of attendance",
         "fitsBecause": "It is a master-led avant-garde lab with genuine open enrolment and an unusually complete curriculum — the clearest fit for learning the technique at the source.",
         "sessions": [],
-        "priceNote": "In-person intensives roughly EUR 580; open group classes run in Spanish, with English/French as private courses (confirm current terms).",
+        "priceNote": "He publishes no price for the classroom courses. They run in Spanish; English or French is a private course, quoted by email. The online modules are listed separately below. Checked on martinlippo.com, 31 August 2026.",
         "confidence": "high"
       },
       "destinations": [
+        {
+          "place": "Paris",
+          "country": "France",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Le Cordon Bleu Paris"
+          ],
+          "masters": [
+            "Éric Briffard"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "master"
+          ],
+          "why": "Sous-vide was worked out in France, at Troisgros in 1974, and Paris is where the modernist toolkit is taught inside the classical one — four days of it, in a room where the lesson is translated into English as it is given.",
+          "bestSeason": "Year-round",
+          "level": "Professional",
+          "id": "modern-new-technique-cuisine--paris",
+          "schoolsInfo": [
+            {
+              "name": "Le Cordon Bleu Paris",
+              "url": "https://www.cordonbleu.edu/paris/advanced-culinary-techniques/en",
+              "course": "Advanced Culinary Techniques — 4 days, 31 hours",
+              "blurb": "Four intensive days, '31 hours of classroom instruction combined with hands-on workshops', designed by Éric Briffard, Meilleur Ouvrier de France and the school's Director of Culinary Arts. The syllabus is the modernist toolkit: sous-vide of meat, fish, shellfish, vegetables and fruit; molecular and cryogenic cuisine; cold and hot espumas with a siphon; drying, smoking, plating. Two things make it unusual on this craft — it is 'taught in French and consecutively translated into English', and you get in on 'at least two years of professional experience in the culinary field' if you do not hold their diploma, which most working chefs clear. It publishes no price and no dates: both are an enquiry. Checked on cordonbleu.edu, 1 September 2026.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "four days",
+          "englishTaught": true,
+          "englishBasis": "Le Cordon Bleu Paris states on the course page that the programme is 'taught in French and consecutively translated into English'.",
+          "instructionLanguage": "French, consecutively translated into English"
+        },
         {
           "place": "Barcelona",
           "country": "Spain",
