@@ -373,6 +373,47 @@ select.fin option{background:var(--ink2)}
 .placecue{display:none}
 .walks .placecue{display:inline-flex;align-items:center;gap:7px;position:relative;z-index:3;margin-top:12px;padding:5px 11px;border:1px solid color-mix(in srgb,var(--sc) 38%,transparent);border-radius:99px;background:color-mix(in srgb,var(--sc) 9%,transparent);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--sc);line-height:1.3;transition:border-color .2s,background .2s,color .2s}
 .walks .placecue:hover,.walks .placecue:focus-visible{border-color:var(--sc);background:color-mix(in srgb,var(--sc) 17%,transparent);color:var(--paper)}
+/* ── the hover popover — every place, without going anywhere ────────────────
+   The panel behind the chip has always held all of this, and nobody found it:
+   a control at the foot of a card is not where a reader is looking when they
+   rest on the title. So resting on the card now SHOWS the list, beside the
+   card, while the card goes on walking it — the row it is walking is lit, so
+   the popover and the card are visibly the same thing rather than two.
+
+   It is pointer-events:none on purpose, and that is not a shortcut. A hoverable
+   panel next to a card inside a horizontally scrolling rail has to decide what
+   happens when the pointer crosses the gap between them, and every answer
+   flickers on some path. This one cannot be pointed at, so there is no gap to
+   cross and no state to lose: it is a preview. The chip still opens the real
+   panel, which is the surface built for reading, and the popover says so.
+
+   Never on a phone and never on a narrow window — there is nowhere beside the
+   card to put it, and a touch device has no rest-the-pointer to trigger it. */
+.cardpop{position:fixed;z-index:150;width:270px;max-height:min(64vh,430px);overflow:hidden;
+  background:rgba(18,15,12,.975);border:1px solid color-mix(in srgb,var(--sc) 32%,var(--line));
+  border-radius:12px;box-shadow:0 22px 54px rgba(0,0,0,.62);padding:0 0 7px;
+  pointer-events:none;opacity:0;transform:translateY(7px) scale(.985);
+  transition:opacity .18s ease,transform .24s cubic-bezier(.18,.9,.26,1.24)}
+.cardpop.on{opacity:1;transform:none}
+.cardpop .ph{display:flex;justify-content:space-between;gap:10px;align-items:baseline;
+  padding:10px 13px 9px;border-bottom:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase}
+.cardpop .ph b{font-weight:500;color:var(--sc)}
+.cardpop .ph i{font-style:normal;color:var(--faint)}
+.cardpop ol{list-style:none;margin:0;padding:5px 0 0}
+.cardpop li{display:grid;grid-template-columns:20px 1fr;gap:9px;padding:7px 13px;
+  border-left:2px solid transparent;transition:background .18s,border-color .18s}
+.cardpop li .pi{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--faint);
+  padding-top:2px;letter-spacing:.06em}
+/* the research, clamped rather than re-cut — same rule the card holds itself to */
+.cardpop li .pt{font-size:12.5px;line-height:1.36;color:var(--paper);opacity:.72;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cardpop li .pw{font-size:11px;line-height:1.4;color:var(--muted);margin-top:2px}
+.cardpop li.at{background:color-mix(in srgb,var(--sc) 11%,transparent);
+  border-left-color:var(--sc)}
+.cardpop li.at .pt{opacity:1}
+.cardpop li.at .pi{color:var(--sc)}
+@media(prefers-reduced-motion:reduce){.cardpop{transition:opacity .18s ease;transform:none}}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
@@ -1561,6 +1602,70 @@ var placePanel=(function(){
   return {open:show,close:close,isOpen:function(){return open;}};
 })();
 
+/* One popover, moved and refilled, never one per card: 116 cards would be 116
+   nodes holding stale research the moment a filter runs. It reads PLACES, the
+   same list the walk steps through, so the two cannot say different things. */
+var cardPop=(function(){
+  var el=null,on=false,host=null;
+  function make(){
+    el=document.createElement("div");
+    el.className="cardpop";el.setAttribute("aria-hidden","true");
+    document.body.appendChild(el);
+    return el;
+  }
+  // Beside the card, and on the side where there is room. Clamped into the
+  // viewport rather than allowed to run off it, and never under the fixed nav.
+  function put(){
+    if(!el||!host)return;
+    var r=host.getBoundingClientRect(),w=el.offsetWidth,h=el.offsetHeight,gap=13;
+    var x=r.right+gap;
+    if(x+w>innerWidth-12)x=r.left-gap-w;
+    if(x<12)x=Math.max(12,Math.min(r.left,innerWidth-w-12));
+    var y=r.top+r.height/2-h/2;
+    y=Math.max(74,Math.min(y,innerHeight-h-12));
+    el.style.left=x+"px";el.style.top=y+"px";
+  }
+  function show(card,list,at,colour){
+    if(!matchMedia("(hover:hover) and (min-width:1024px)").matches)return;
+    if(!el)make();
+    host=card;
+    el.style.setProperty("--sc",colour||"var(--sea)");
+    var rows="";
+    for(var n=0;n<list.length;n++){
+      var pl=list[n],lead=pl.say||(pl.written?pl.line:"");
+      // A place nobody has written a line for says its own name and the research
+      // it would have been written above — it does not borrow a neighbour's.
+      rows+='<li'+(n===at?' class="at"':'')+'><span class="pi">'+(n<9?"0":"")+(n+1)+'</span><div>'+
+            (lead?'<p class="pt">'+esc(lead)+'</p><p class="pw">in '+esc(placeLine(pl.place,pl.country))+'</p>'
+                 :'<p class="pt">In '+esc(placeLine(pl.place,pl.country))+'</p>'+
+                  (pl.line?'<p class="pw">'+esc(pl.line)+'</p>':''))+
+            '</div></li>';
+    }
+    el.innerHTML='<div class="ph"><b>'+list.length+' places</b><i data-h>hold to stay</i></div><ol>'+rows+'</ol>';
+    put();
+    // one frame at the start position, or there is nothing for the pop to run from
+    void el.offsetHeight;
+    el.classList.add("on");on=true;
+  }
+  function mark(at){
+    if(!on||!el)return;
+    var ls=el.querySelectorAll("li");
+    for(var n=0;n<ls.length;n++)ls[n].classList.toggle("at",n===at);
+  }
+  function hold(is){
+    if(!on||!el)return;
+    var h=el.querySelector("[data-h]");
+    if(h)h.textContent=is?"held":"hold to stay";
+  }
+  function hide(){
+    if(!el)return;
+    el.classList.remove("on");on=false;host=null;
+  }
+  addEventListener("scroll",function(){if(on)put();},true);
+  addEventListener("resize",function(){if(on)put();});
+  return {show:show,mark:mark,hold:hold,hide:hide};
+})();
+
 // The cue opens it. Delegated, because the grid is rebuilt on every filter change,
 // and the click is stopped short of the stretched .cardlink under the card.
 document.addEventListener("click",function(e){
@@ -1571,13 +1676,14 @@ document.addEventListener("click",function(e){
   var a=card.querySelector("a.cardlink"),h=a&&a.getAttribute("href");
   var did=h?h.split("/atlas/")[1]:"";
   var nm=card.getAttribute("data-craft")||"";
+  cardPop.hide();
   if(did)placePanel.open(did,nm||did,cue);
 },true);
 
 (function placeWalk(){
   var still=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var card=null,list=null,home=null,craft="",i=0,tid=0,fade=0,lead=0;
-  var held=false,press=0,swallow=0,sx=0,sy=0,HOLD=420;
+  var held=false,press=0,swallow=0,sx=0,sy=0,HOLD=420,popT=0;
   function q(c,s){return c.querySelector(s);}
   function slug(c){var a=q(c,"a.cardlink"),h=a&&a.getAttribute("href");return h?h.split("/atlas/")[1]:"";}
   function cue(c,txt){var el=q(c,".placecue");if(el)el.textContent=txt;}
@@ -1597,6 +1703,7 @@ document.addEventListener("click",function(e){
     show(q(card,".wherealive"),i+1);
     if(k)k.textContent=p.line||"";
     cue(card,(i+1)+" / "+list.length);
+    cardPop.mark(i);
   }
   function dim(on){
     [".cardsay",".wherealive",".cardhook"].forEach(function(s){
@@ -1628,7 +1735,9 @@ document.addEventListener("click",function(e){
   }
   function stop(){
     clearTimeout(press);clearTimeout(lead);clearTimeout(fade);clearInterval(tid);
-    press=lead=fade=tid=0;held=false;
+    clearTimeout(popT);
+    press=lead=fade=tid=popT=0;held=false;
+    cardPop.hide();
     if(!card)return;
     card.classList.remove("pressing");card.classList.remove("pinned");
     var y=q(card,".cardsay"),w=q(card,".wherealive"),k=q(card,".cardhook");
@@ -1655,6 +1764,10 @@ document.addEventListener("click",function(e){
     // to show it — on the one place the reader is actually looking at — buried it.
     // It is also the only thing a reader who has asked for less motion ever sees.
     paint();
+    popT=setTimeout(function(){
+      if(card===c&&!placePanel.isOpen())
+        cardPop.show(c,ps,i,c.style.getPropertyValue("--sc"));
+    },300);
     if(still)return;
     lead=setTimeout(function(){step();tid=setInterval(step,2600);},520);
   }
@@ -1705,8 +1818,10 @@ document.addEventListener("click",function(e){
       [".cardsay",".wherealive",".cardhook"].forEach(function(s){
         var el=q(card,s);if(el)el.classList.remove("swapping");});
       cue(card,"held "+(i+1)+" / "+list.length);
+      cardPop.hold(true);
     }else{
       cue(card,(i+1)+" / "+list.length);
+      cardPop.hold(false);
       tid=setInterval(step,2600);
     }
   }
