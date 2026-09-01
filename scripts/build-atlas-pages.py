@@ -233,6 +233,24 @@ if _sweep_bad:
                      "usable —\n  " + "\n  ".join(_sweep_bad))
 
 
+def sibling_line(d):
+    """The neighbouring craft this one is most often confused with, and the difference.
+
+    Modernist Spanish Cuisine and New culinary techniques share a toolkit, an origin
+    story and a city, and a reader who lands on one has no way to know the other
+    exists or why. Curated per craft — a machine cannot say what the difference is,
+    only that two pages look alike.
+    """
+    sib = d.get("sibling")
+    if not sib:
+        return ""
+    return ('<p class="meta" style="margin-top:14px;padding-top:12px;'
+            'border-top:1px solid var(--line);max-width:62ch">'
+            f'{e(sib["line"])} <a href="/atlas/{e(sib["id"])}" style="color:var(--sea);'
+            'text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)">'
+            f'{e(sib["label"])} &rarr;</a></p>')
+
+
 def sweep_block(d):
     """What we looked at and did not list — the Standard's own wedge, printed.
 
@@ -272,6 +290,10 @@ def sweep_block(d):
             'none of it is on this map. The reason sits next to each one, because a place left '
             'off without a reason is just an opinion.</p>'
             f'<ul class="clean" style="font-size:14.5px">{rows}</ul>{gap_html}{stale}</div></section>')
+
+
+def has_relationship(x):
+    return any(s.get("etRelationship") for s in (x.get("schoolsInfo") or []))
 
 
 def disclosure_block(d, section=True):
@@ -920,6 +942,11 @@ def price_start(f):
     if m:
         cur = m.group(1).upper()
         return cur + ("" if cur in "€£$¥" else " ") + m.group(2)
+    # "3,320 EUR" and "2.310 EUR" — the order a European school writes it in.
+    m = re.search(r"(?:~|approx\.?\s*)?(\d[\d.,]*)\s?(€|£|\$|¥|USD|EUR|GBP|CHF|AUD|CAD|NZD|JPY)\b", n, re.I)
+    if m:
+        cur = m.group(2).upper()
+        return cur + ("" if cur in "€£$¥" else " ") + m.group(1)
     return None
 
 _SYM2ISO = {"€": "EUR", "£": "GBP", "$": "USD", "¥": "JPY"}
@@ -1120,6 +1147,32 @@ def alts_block(f):
             'EducatedTraveler philosophy less, but a real first step.</p>'
             f'<ul class="clean">{"".join(rows)}</ul></div>')
 
+_DATEISH = re.compile(r"(\d{4})-(\d{2})(?:-(\d{2}))?")
+
+
+def future_sessions(f):
+    """The sessions that have not already happened, and the count that had.
+
+    "Next sessions: 2026-05-25" printed on the first of September is not a small
+    slip — it is the page telling a reader to turn up to something that finished in
+    June. Eight open crafts were doing it. A session whose date cannot be parsed is
+    KEPT, not hidden: the free-text ones ("19 April 2027 - 9 July 2027") are real, and
+    guessing is how you delete a true line.
+    """
+    keep, gone = [], 0
+    for sess in f.get("sessions") or []:
+        ms = _DATEISH.findall(str(sess))
+        if not ms:
+            keep.append(sess)
+            continue
+        y, mo, dd = ms[-1]                       # the LAST date in a range is its end
+        if f"{y}-{mo}-{dd or '28'}" < TODAY:
+            gone += 1
+        else:
+            keep.append(sess)
+    return keep, gone
+
+
 def featured_block(d, x):
     if is_closed(x):
         return ""
@@ -1140,7 +1193,16 @@ def featured_block(d, x):
                      [f.get("duration"), f.get("format"),
                       (f.get("certification") if f.get("certification") not in (None, "—") else None)] if c)
     desc = f'<p style="opacity:.82;margin-top:10px">{e(f["description"])}</p>' if f.get("description") else ""
-    sessions = ('<p class="meta" style="margin-top:8px">Next sessions: ' + e(" · ".join(f["sessions"][:4])) + '</p>') if f.get("sessions") else ""
+    _future, _gone = future_sessions(f)
+    if _future:
+        sessions = '<p class="meta" style="margin-top:8px">Next sessions: ' + e(" · ".join(_future[:4])) + "</p>"
+    elif _gone:
+        # Every date we hold has passed. Say that, rather than print a finished one or
+        # silently drop the line as though we never had any.
+        sessions = ('<p class="meta" style="margin-top:8px">The dates we hold for this one have '
+                    'all run. Ask the school for the next intake — and tell me what they say.</p>')
+    else:
+        sessions = ""
     fit = f'<p style="font-style:italic;opacity:.72;margin-top:10px">{e(f["fitsBecause"])}</p>' if f.get("fitsBecause") else ""
     link = (f'<a class="school-url" target="_blank" rel="noopener" href="{e(f["url"])}">Visit {e(f.get("school",""))} ↗</a>'
             if f.get("url") else "")
@@ -1296,7 +1358,7 @@ for d in DISC:
 <p class="lead">{e(x['why'])}</p>{_closed_band}
 </div></header>
 <section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
-{disclosure_block(d) if featured_block(d, x) else ""}{featured_block(d, x)}
+{disclosure_block(d) if has_relationship(x) else ""}{featured_block(d, x)}
 {masters_html}
 {rating_block(d, x)}{schools_html}
 {room_block(x, d)}
@@ -1342,7 +1404,7 @@ for d in DISC:
     body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / {e(CORES[d['category']][0])}</div>
 <h1>{e(d['discipline'])}</h1>
-<p class="lead">{e(d['blurb'])}</p>{cred}{depth_link(d)}
+<p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
 <section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{sweep_block(d)}
 {craft_depth(d)}
@@ -1672,6 +1734,20 @@ if _vstate.exists():
         print(f"  ⚠⚠ {len(_sick)} claim(s) the night check has failed to confirm 3+ times running "
               f"— re-verify or take them down: {', '.join(_sick[:4])}"
               + (f", +{len(_sick) - 4} more" if len(_sick) > 4 else ""))
+
+_stale_sessions = []
+for _d in DISC:
+    if not is_open(_d["id"]):
+        continue
+    _f = _d.get("featured") or {}
+    _k, _g = future_sessions(_f)
+    if _g:
+        _stale_sessions.append((_d["id"], _g, len(_k)))
+if _stale_sessions:
+    print(f"  ⚠ {len(_stale_sessions)} open craft(s) hold session dates that have already run "
+          "(hidden from the page, still in the data — replace them): "
+          + ", ".join(f"{i} ({g} past" + (f", {k} to come)" if k else ", none left)")
+                      for i, g, k in _stale_sessions[:5]))
 
 if ASSUME_ALL_OPEN:
     print("  !! --assume-all-open: this output is for diffing only. Do not commit it.")

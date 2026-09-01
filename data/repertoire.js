@@ -13438,10 +13438,9 @@ window.ET_ATLAS = {
             "scene",
             "mecca",
             "master",
-            "school",
-            "master-lab"
+            "school"
           ],
-          "why": "Where the elBulli cooks actually landed — Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024 — and, unlike the cove or the stage kitchens up the coast, the city where a stranger can book a bench and cook.",
+          "why": "Where the elBulli cooks actually landed. Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024, and the diaspora around it makes this the densest scene the cuisine has — denser than the city we would actually send you to learn it in.",
           "bestSeason": "Year-round",
           "level": "Enthusiast -> Professional",
           "id": "modernist-spanish-cuisine--barcelona",
@@ -13669,30 +13668,45 @@ window.ET_ATLAS = {
         ]
       },
       "certShort": "elBullifoundation legacy",
+      "sibling": {
+        "id": "modern-new-technique-cuisine",
+        "label": "New culinary techniques & technologies",
+        "line": "This is the cuisine and the lineage, in the country it came from — learned through a Spanish school or a Spanish kitchen. The technique itself left Spain long ago and is taught in labs from Paris to Melbourne; that is a different craft."
+      },
       "featured": {
-        "id": "modernist-spanish-cuisine--barcelona",
-        "place": "Barcelona",
+        "id": "modernist-spanish-cuisine--san-sebasti-n-donostia",
+        "place": "Donostia-San Sebastián (Gipuzkoa)",
         "country": "Spain",
-        "school": "Vakuum by Martin Lippo",
-        "url": "https://martinlippo.com/en/",
-        "course": "Classroom courses in modernist technique — sous-vide, foams and siphon, spherification, textures, liquid nitrogen",
-        "description": "Martin Lippo is an Argentine chef who has worked in Barcelona since 2000 and was an early hand in sous-vide and low-temperature cooking. Vakuum is his own laboratory and training school. It is not the only bookable room on this craft, and we are not going to pretend it is — the Culinary Institute of Barcelona sells a three-month advanced-technique postgrado in the same city, the Basque Culinary Center runs a five-week specialisation and an online one, and Le Cordon Bleu Madrid teaches the avant-garde block inside a nine-month diploma. It is the shortest and the cheapest of them, and the only one where the person who built the curriculum is the person at the bench: no CV, no invitation, no cohort to wait for. Those are the reasons. Rank them yourself.",
-        "duration": "Classroom courses of a day or two; online modules at your own pace",
-        "format": "In person in Barcelona, in Spanish — English or French as a private course; online modules in English",
-        "certification": "A Vakuum certificate of attendance — the school's own paper, not a state qualification",
-        "fitsBecause": "Open enrolment with no CV and no invitation, a named master who stands in his own room, a curriculum published module by module before you pay — and a way in that does not go through us.",
-        "sessions": [],
-        "priceNote": "He publishes no price for the classroom courses. They run in Spanish; English or French is a private course, quoted by email. Checked on martinlippo.com, 31 August 2026.",
+        "school": "Basque Culinary Center (Faculty of Gastronomic Sciences)",
+        "url": "https://www.bculinary.com/en/programas-especializacion",
+        "course": "Avant-Garde Culinary Techniques (Técnicas Culinarias de Vanguardia) — in-person specialisation",
+        "description": "The Basque Culinary Center is a faculty of gastronomic sciences, founded in 2011 by a board of Basque chefs, and this is its avant-garde course: the context the modern chef works in, the creative process, and the techniques themselves with their application on the plate. Roughly five weeks — the 2026 edition ran 25 May to 26 June and is finished; the next one is not published yet, so ask — Mondays and Tuesdays 15:00 to 20:30, in Spanish. Why here and not Barcelona, which has the stronger scene: this craft is a cuisine, not a toolkit, and San Sebastián is where it is taught as one, by an institution built for it, with Mugaritz pushing the same thing nightly a few kilometres away. Barcelona is where you go for the technique on its own, and that is a different page.",
+        "duration": "About 5 weeks (2026 edition: 25 May - 26 June)",
+        "format": "In person, on the Miramón campus above San Sebastián; Mondays and Tuesdays 15:00-20:30; taught in Spanish",
+        "certification": "A Basque Culinary Center course completion certificate — a faculty's own paper, not a state qualification",
+        "fitsBecause": "A real, priced, published course in the avant-garde, at the institution the Spanish vanguard built for itself, and nothing about it comes through us. Its weakness, said here rather than left for you to find: like every school on this craft except Vakuum, it does not name the chef who will be in the room. Ask, before you pay.",
+        "sessions": [
+          "2026-05-25"
+        ],
+        "priceNote": "3,320 EUR (2026 edition). Checked on bculinary.com, 1 September 2026.",
         "confidence": "high",
         "alternatives": [
           {
-            "course": "Online modules — foams, sous-vide, spherification, textures, liquid nitrogen",
-            "duration": "At your own pace",
-            "format": "Online, in English",
-            "url": "https://martinlippo.com/en/",
-            "priceNote": "EUR 80-95 a module; the full foams, carbonation and siphon pack EUR 386, down from EUR 460. Checked 31 August 2026.",
+            "course": "Técnicas Culinarias de Vanguardia — the same course, online",
+            "duration": "15 September 2026 to 18 February 2027, 8 ECTS",
+            "format": "Online, in Spanish, one live class a week",
+            "url": "https://www.bculinary.com/es/cursos-online/tecnicas-culinarias-de-vanguardia",
+            "priceNote": "2.310 EUR. Checked 1 September 2026.",
             "fit": "Online",
-            "note": "His own teaching, bought direct, with nothing coming to us — but no bench, no master in the room and nobody at the next station.",
+            "note": "Taught by Luis Arrufat, a former elBulli pastry chef — a named teacher out of the lineage, which the in-person course does not advertise. Capped at 30. No bench, and nobody at the next station.",
+            "confidence": "high"
+          },
+          {
+            "course": "The toolkit on its own, at a master-led lab",
+            "format": "In person and online",
+            "url": "/atlas/modern-new-technique-cuisine",
+            "fit": "Technique",
+            "note": "If it is the technique you want rather than the cuisine — sous-vide, spherification, foams, nitrogen — that is a different craft on this map, and it has its own page and its own pick.",
             "confidence": "high"
           }
         ]
