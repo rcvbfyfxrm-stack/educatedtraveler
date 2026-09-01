@@ -3,11 +3,16 @@
 // The one thing no website can know is whether money arrived. Revolut, PayPal
 // and a bank transfer all settle somewhere this code cannot see, so a chef
 // pressing "I've sent it" is a claim and nothing more. This function is where
-// the claim becomes a fact: Arnaud looks at the account, and only then does a
-// seat count toward the ten and only then does the chef hear that it is held.
+// the claim becomes a fact: Arnaud looks at the account, and only then is the
+// payment recorded.
+//
+// ⚠ It records that MONEY ARRIVED. It does not count a seat and it must never
+// tell a chef a seat is held (Arnaud, 1 Sept). Nothing is held until ten have
+// paid and the week is announced CONFIRMED — saying otherwise in a private
+// mail is exactly the kind of promise the public page refuses to make.
 //
 //   GET  ?token=<seat_token>   → read-only interstitial with a POST button.
-//   POST  token=<seat_token>   → stamps seat_paid_at, emails the chef.
+//   POST  token=<seat_token>   → stamps seat_paid_at, then writes to the chef.
 //
 // GET never mutates: email scanners and link prefetchers issue bare GETs, and
 // one of those must never tell a chef his seat is safe. Same defence as
@@ -28,11 +33,14 @@ const admin = createClient(SUPABASE_URL, SERVICE_KEY);
 
 // ── SEND LOCK ─────────────────────────────────────────────────────────────
 // Arnaud, 17 Aug: "don't send an email to anyone… but ask me first."
-// While this is false, confirming a seat records the money and NOTHING leaves
-// the building. Not an instruction anyone has to remember — the send is simply
-// not reachable. Flip to true only once he has approved the wording, and only
-// on his say-so.
-const SEND_LETTER = false;
+// Wording approved and switched ON 1 Sept 2026 — "push it for the future
+// joiners and signupers, don't send anything to the previous people".
+//
+// That second half needs no code: the send is reachable ONLY from the POST
+// branch, and a row that already carries seat_paid_at returns at the
+// "Already done" screen above it. Nobody confirmed before today can be
+// written to by this function, however many times the link is opened.
+const SEND_LETTER = true;
 
 function esc(s: unknown) {
   return String(s ?? "").replace(/[&<>"']/g, (c) =>
@@ -51,7 +59,8 @@ function seatOf(iv: unknown): Record<string, unknown> {
 }
 
 // ── The letter to the chef ────────────────────────────────────────────────
-// Claims no skill, no rank, no position in the queue, and never a seat count.
+// Claims no skill, no rank, no position in the queue, never a seat count, and
+// never that a seat is held.
 // Every fact is checkable against the public /barcelona page — which is the
 // point: the refund promise is only worth something if it is said in public
 // and repeated in private in the same words.
@@ -63,17 +72,15 @@ function letterHtml(name: string, paid: number, balance: number, when: string): 
   return `<div style="background:#faf7f2;padding:30px 0;font-family:Georgia,'Times New Roman',serif;">
   <div style="max-width:540px;margin:0 auto;padding:0 26px;">
     <p style="font-size:10px;text-transform:uppercase;letter-spacing:2.5px;color:#8f5820;margin:0 0 12px 0;font-family:'Courier New',monospace;">Lab Week 01 &nbsp;&middot;&nbsp; Barcelona</p>
-    <h1 style="font-size:25px;font-weight:normal;color:#2b2621;margin:0 0 22px 0;line-height:1.25;">Your ${esc(eur(paid))} arrived. Your seat is held.</h1>
+    <h1 style="font-size:25px;font-weight:normal;color:#2b2621;margin:0 0 22px 0;line-height:1.25;">Your ${esc(eur(paid))} arrived.</h1>
     <p style="${P}">That's the whole message. The rest is so that nothing surprises you later.</p>
     <table style="border-collapse:collapse;width:100%;margin:0 0 22px 0;background:#f2ede4;border-left:2px solid #b06f33;border-radius:0 8px 8px 0;padding:4px;">
       ${row("Received", `<strong>${esc(eur(paid))}</strong>, ${esc(when)}`)}
       ${balance > 0 ? row("Still to come", `${esc(eur(balance))}, and not before the week is confirmed`) : row("Paid", "in full &mdash; nothing further to send")}
       ${row("The week", "22&ndash;26 October 2026, at Vakuum in Barcelona")}
     </table>
-    <p style="${P}">Your money is safe with me until the week is locked. If anything at all were to stop it running, every euro comes back to you &mdash; deposit or full payment, without conditions and without you having to ask for it.</p>
-    <p style="${P}">Hold off on flights for now. I'll write to you the moment the dates are locked for everyone, and that mail is your green light to book.</p>
-    <p style="${P}">After that your seat is transferable but not refundable. If you can't come, send a chef of comparable calibre in your place, up to seven days before.</p>
-    <p style="${P}">You'll hear from me before then anyway &mdash; where to stay, how to reach Passatge de Centelles, what the five days actually look like, and the add-ons around the week once they're booked and real. Nothing is sold here before it exists.</p>
+    <p style="${P}">Once the week is confirmed, your seat is transferable but not refundable. If you can't come, send a chef of comparable calibre in your place, up to seven days before.</p>
+    <p style="${P}">You'll hear from me well before October anyway &mdash; where to stay, how to reach Passatge de Centelles, what the five days actually look like, and the add-ons around the week once they're booked and real. Nothing is sold here before it exists.</p>
     <p style="${P}">Anything at all, reply to this. It's me at the other end.</p>
     <p style="${P}margin-bottom:26px;">Arnaud</p>
     <p style="color:#6b625a;font-family:Georgia,serif;font-style:italic;font-size:15px;margin:0;border-top:1px solid #e2dbd0;padding-top:18px;">A skill, a place, a person, your people.</p>
@@ -125,8 +132,8 @@ serve(async (req) => {
       const on = new Date(String(row.seat_paid_at)).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
       return html(page({
         eyebrow: "Already done", tone: "done",
-        heading: `${name} was confirmed on ${on}`,
-        body: `<p>${esc(eur(Number(row.seat_paid_eur ?? amount)))} recorded, and the note has already gone. Nothing further to do &mdash; and nothing was sent twice.</p>`,
+        heading: `${name} was recorded on ${on}`,
+        body: `<p>${esc(eur(Number(row.seat_paid_eur ?? amount)))} recorded.${SEND_LETTER ? " The note has already gone." : " No note was sent &mdash; the send is still switched off."} Nothing further to do here, and nothing was sent twice.</p>`,
       }));
     }
 
@@ -135,7 +142,7 @@ serve(async (req) => {
       return html(page({
         eyebrow: "Confirm a seat",
         heading: `Did ${eur(amount)} from ${name} actually arrive?`,
-        body: `<p>Press this only once you can see the money in Revolut, PayPal or the bank. It stamps the seat as paid &mdash; the count toward the ten &mdash; and sends ${esc(name)} the note saying the seat is held.</p>
+        body: `<p>Press this only once you can see the money in Revolut, PayPal or the bank. It records the payment against ${esc(name)} &mdash; it does not count a seat and it does not tell them one is held.</p>
                <p style="color:rgba(243,237,226,.5);font-size:13px;">${esc(String(row.email))}${balance > 0 ? ` &nbsp;&middot;&nbsp; ${esc(eur(balance))} still to come` : " &nbsp;&middot;&nbsp; paid in full"}</p>`,
         form: `<form method="POST" style="margin-top:26px;">
                  <input type="hidden" name="token" value="${esc(token)}">
@@ -156,7 +163,7 @@ serve(async (req) => {
     if (!SEND_LETTER) {
       return html(page({
         eyebrow: "Seat recorded", tone: "done",
-        heading: `${name} is counted as paid.`,
+        heading: `${name}’s ${eur(amount)} is recorded.`,
         body: `<p>${esc(eur(amount))} recorded${balance > 0 ? `, ${esc(eur(balance))} still to come` : " in full"}. <strong>No email was sent</strong> &mdash; the note is held until you've approved the wording.</p>
                <p style="color:rgba(243,237,226,.5);font-size:13px;">${esc(name)} has not heard anything from this. Write to them yourself, or say the word and the note switches on.</p>`,
       }));
@@ -167,7 +174,7 @@ serve(async (req) => {
       headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         from: FROM, to: [String(row.email)], reply_to: REPLY_TO,
-        subject: "Your seat is held — Lab Week 01, Barcelona",
+        subject: `Your ${eur(amount)} arrived — Lab Week 01, Barcelona`,
         html: letterHtml(name, amount, balance, when),
       }),
     });
@@ -180,15 +187,15 @@ serve(async (req) => {
       return html(page({
         eyebrow: "Half done", tone: "error",
         heading: "Seat recorded, note did not send",
-        body: `<p>${esc(name)} is counted as paid, but the note failed to go out. Write to them yourself &mdash; they are owed the confirmation today.</p>`,
+        body: `<p>${esc(name)}’s payment is recorded, but the note failed to go out. Write to them yourself &mdash; they are owed word that the money arrived.</p>`,
       }), 502);
     }
 
     return html(page({
       eyebrow: "Seat confirmed", tone: "done",
-      heading: `${name} is in.`,
+      heading: `${name}’s payment is recorded.`,
       body: `<p>${esc(eur(amount))} recorded${balance > 0 ? `, ${esc(eur(balance))} still to come` : " in full"}. The note has gone to ${esc(String(row.email))}.</p>
-             <p style="color:rgba(243,237,226,.5);font-size:13px;">This is now a paid seat in the count toward ten.</p>`,
+             <p style="color:rgba(243,237,226,.5);font-size:13px;">Recorded as received. Nothing here claims a seat is held &mdash; the ledger you keep by hand is still the count.</p>`,
     }));
   } catch (e) {
     console.error(e);

@@ -331,7 +331,7 @@ function seatHtml(
     `<tr><td style="padding:7px 14px 7px 0;color:#6b625a;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Courier New',monospace;white-space:nowrap;vertical-align:top;">${esc(k)}</td><td style="padding:7px 0;color:#2b2621;font-size:15px;line-height:1.6;">${v}</td></tr>`;
 
   const banner = declaredSent
-    ? `<p style="margin:0;color:#7a3f10;font-size:15px;line-height:1.6;"><strong>They pressed “I've sent it”.</strong> That is the chef's word, not a receipt — the money moves outside the site. Check ${esc(method.replace(/^(from their|by) /, ""))} before this counts toward the ten.</p>`
+    ? `<p style="margin:0;color:#7a3f10;font-size:15px;line-height:1.6;"><strong>They pressed “I've sent it”.</strong> That is the chef's word, not a receipt — the money moves outside the site. Check ${esc(method.replace(/^(from their|by) /, ""))} before you record it.</p>`
     : `<p style="margin:0;color:#6b625a;font-size:15px;line-height:1.6;"><strong>They started the hand-off.</strong> Nothing has been sent yet, and plenty of people stop here. Worth a note if it goes quiet.</p>`;
 
   return `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:26px;background:#faf7f2;">
@@ -347,14 +347,14 @@ function seatHtml(
       ${line("Reference to look for", esc(s.name || email))}
     </table>
     ${alreadyPaid
-      ? `<p style="margin:20px 0 0 0;color:#0b7a58;font-size:14px;">Already confirmed — the seat is counted and the letter has gone.</p>`
+      ? `<p style="margin:20px 0 0 0;color:#0b7a58;font-size:14px;">Already recorded as received.</p>`
       : `<div style="margin:22px 0 0 0;padding:16px 18px;background:#f2ede4;border-radius:8px;">
-           <p style="margin:0 0 12px 0;color:#3d3630;font-size:14px;line-height:1.6;">When you can see the money, press this. It counts the seat toward the ten and sends ${esc(s.name || "them")} the letter saying it's held.</p>
-           <a href="${esc(confirmUrl)}" style="display:inline-block;background:#3f6b67;color:#ffffff;text-decoration:none;padding:12px 26px;border-radius:50px;font-size:14px;font-family:Helvetica,Arial,sans-serif;">The money is here — hold their seat</a>
+           <p style="margin:0 0 12px 0;color:#3d3630;font-size:14px;line-height:1.6;">When you can see the money, press this. It records the payment against their name &mdash; nothing more. What ${esc(s.name || "the chef")} is told, if anything, is decided on the next screen.</p>
+           <a href="${esc(confirmUrl)}" style="display:inline-block;background:#3f6b67;color:#ffffff;text-decoration:none;padding:12px 26px;border-radius:50px;font-size:14px;font-family:Helvetica,Arial,sans-serif;">The money is here &mdash; record it</a>
            <p style="margin:12px 0 0 0;color:#6b625a;font-size:12px;">Opens a page and asks again before anything is sent. Nothing happens until you press the second button.</p>
          </div>`}
     <p style="margin:18px 0 0 0;color:#6b625a;font-size:13px;line-height:1.7;font-style:italic;">
-      Only a payment you can see in Revolut, PayPal or the bank counts toward the ten. Reply to this email and it goes straight to the chef.
+      Only a payment you can see in Revolut, PayPal or the bank counts. Reply to this email and it goes straight to the chef.
     </p>
   </div>`;
 }
