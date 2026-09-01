@@ -304,6 +304,51 @@ select.fin option{background:var(--ink2)}
    narrowest card that is three lines, so two would cut every one of them. */
 .cardhook{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:opacity .22s ease}
 .cardsay.swapping,.wherealive.swapping,.cardhook.swapping{opacity:0}
+/* ── the walk POPS, it does not only dissolve ──────────────────────────────
+   A crossfade is the one transition a reader can miss. At 2.6s apart, a line
+   that fades out and a different line that fades in at the same coordinates
+   reads as the card having been like that the whole time — nothing announced
+   that a new place arrived, so nothing did. The walk is a MOVE, so it moves:
+   the line leaving goes up and out, the line arriving comes up from under it
+   and lands a little past its resting size before settling. That overshoot is
+   the pop, and it is the part that says "another place", not "same place".
+
+   Two easings, not one. Leaving is flat and quick; arriving is longer and
+   overshoots. The same curve both ways makes the card bounce twice a step,
+   which is a toy. Travel is held to 7-9px and scale to 3%: this is 21px
+   Fraunces on a dark ground, and more than that smears while it is in flight.
+
+   .landing is the arriving frame with its transition switched OFF, so the new
+   line can be PUT below where it belongs without animating there, and then
+   released. Without a start state the browser has actually committed there is
+   nothing to travel from and the pop silently does not happen — which is the
+   bug this whole block exists to avoid, so see land() in placeWalk(). */
+.cardsay,.wherealive,.cardhook{transition:opacity .26s ease,transform .34s cubic-bezier(.18,.9,.26,1.24)}
+.cardsay.swapping,.wherealive.swapping,.cardhook.swapping{transform:translateY(-7px);transition:opacity .19s ease,transform .19s ease}
+.cardsay.landing,.wherealive.landing,.cardhook.landing{opacity:0;transform:translateY(9px) scale(.972);transition:none}
+@media(prefers-reduced-motion:reduce){
+  .cardsay,.wherealive,.cardhook{transition:opacity .2s ease}
+  .cardsay.swapping,.wherealive.swapping,.cardhook.swapping,
+  .cardsay.landing,.wherealive.landing,.cardhook.landing{transform:none}
+}
+/* ── press and hold to stay on a place ─────────────────────────────────────
+   2.6 seconds is a reading speed for one line, not for three, and a timer
+   cannot tell which place you actually wanted. Holding the card stops it where
+   it stands: the place under the pointer is the place that stays, until you
+   hold again or leave. Same gesture with a mouse and with a thumb.
+
+   .pressing is the half-second before it takes — the card gives slightly under
+   the press, which is the only reason anyone discovers the gesture exists.
+   .pinned is after: the chip fills in and says "held", because a card that has
+   silently stopped walking is indistinguishable from a card that broke.
+
+   The callout is turned off on the stretched link, or a hold on a phone raises
+   the OS "open link / copy" sheet over the card instead. */
+.dcard.pressing,.gcard.pressing{transform:translateY(-3px) scale(.993)}
+.dcard.pressing,.gcard.pressing,.dcard.pinned,.gcard.pinned{-webkit-user-select:none;user-select:none}
+.walks a.cardlink{-webkit-touch-callout:none}
+.walks.pinned .placecue{border-color:var(--sc);background:color-mix(in srgb,var(--sc) 20%,transparent);color:var(--paper)}
+.walks.pinned .placecue::before{content:"";flex:0 0 auto;width:6px;height:6px;border-radius:1px;background:currentColor}
 /* Only a card with somewhere to walk TO pays for the fixed box. Two lines of place
    and two of reason, held open, so the card cannot change height under the pointer
    and shove the row below it around while somebody is reading. */
@@ -528,7 +573,7 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
       </div>
       <div class="hero-demo">
         <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
-        <p class="demo-note">Every card on this page reads like that one — the skill and where, then what your hands would be doing and why there. Rest on a card and it walks the craft's other places, one at a time.</p>
+        <p class="demo-note">Every card on this page reads like that one — the skill and where, then what your hands would be doing and why there. Rest on a card and it walks the craft's other places, one at a time — hold it to stay on one.</p>
       </div>
     </div>
   </div>
@@ -1570,6 +1615,7 @@ document.addEventListener("click",function(e){
 (function placeWalk(){
   var still=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var card=null,list=null,home=null,craft="",i=0,tid=0,fade=0,lead=0;
+  var held=false,press=0,swallow=0,sx=0,sy=0,HOLD=420;
   function q(c,s){return c.querySelector(s);}
   function slug(c){var a=q(c,"a.cardlink"),h=a&&a.getAttribute("href");return h?h.split("/atlas/")[1]:"";}
   function cue(c,txt){var el=q(c,".placecue");if(el)el.textContent=txt;}
@@ -1594,17 +1640,35 @@ document.addEventListener("click",function(e){
     [".cardsay",".wherealive",".cardhook"].forEach(function(s){
       var el=q(card,s);if(el)el.classList.toggle("swapping",on);});
   }
+  // The arriving half of a step. .landing carries transition:none, so adding it
+  // PUTS the new line below where it belongs instead of animating it there, and
+  // the forced read of offsetHeight is what makes the browser commit that as a
+  // real start state. Take it off in the same breath and the line rises into
+  // position and overshoots. Skip the forced read and the three class changes
+  // collapse into one style recalculation with no start state to travel from:
+  // no error, no pop, and nothing to debug. Hence spelling it out here.
+  function land(){
+    [".cardsay",".wherealive",".cardhook"].forEach(function(s){
+      var el=q(card,s);if(!el)return;
+      el.classList.add("landing");
+      el.classList.remove("swapping");
+      void el.offsetHeight;
+      el.classList.remove("landing");
+    });
+  }
   function step(){
-    if(!card||placePanel.isOpen())return;
+    if(!card||held||placePanel.isOpen())return;
     dim(true);
     fade=setTimeout(function(){
       if(!card)return;
-      i=(i+1)%list.length;paint();dim(false);
-    },220);
+      i=(i+1)%list.length;paint();land();
+    },200);
   }
   function stop(){
-    clearTimeout(lead);clearTimeout(fade);clearInterval(tid);lead=fade=tid=0;
+    clearTimeout(press);clearTimeout(lead);clearTimeout(fade);clearInterval(tid);
+    press=lead=fade=tid=0;held=false;
     if(!card)return;
+    card.classList.remove("pressing");card.classList.remove("pinned");
     var y=q(card,".cardsay"),w=q(card,".wherealive"),k=q(card,".cardhook");
     if(y){y.classList.remove("swapping");show(y,0);}
     if(w){w.classList.remove("swapping");show(w,0);}
@@ -1649,6 +1713,68 @@ document.addEventListener("click",function(e){
     if(to&&card.contains(to))return;
     stop();
   });
+
+  /* ── hold ───────────────────────────────────────────────────────────────────────
+     Press and keep pressing and the walk stops on the place it is showing.
+     Hold again and it walks on; leave the card and it all resets, because a
+     card nobody is touching has no state worth keeping.
+
+     It pins the place ON SCREEN, not the next one: a hold that lands mid-fade
+     would otherwise stop on a line the reader never saw. So the fade is torn
+     down rather than finished — the swap had not happened yet, and the place
+     under the pointer is the one that was asked for.
+
+     420ms is past a tap and short of feeling stuck. A pointer that travels
+     more than 10px is a drag on the rail, not a hold, and cancels. And a press
+     that became a hold must not also be a click, or letting go opens the craft
+     sheet (the whole card is a stretched <a>) or the places panel (the chip).
+     That is what swallow does — on window in the capture phase, so it runs
+     ahead of both, and on a timer, because an engine that suppresses the click
+     after a long press would otherwise leave it armed for the next real one.
+
+     Nothing here runs for a reader who asked for less motion: that card is not
+     walking, so there is nothing to hold it on. */
+  function pin(on){
+    if(!card)return;
+    held=on;
+    card.classList.toggle("pinned",on);
+    if(on){
+      clearTimeout(lead);clearTimeout(fade);clearInterval(tid);lead=fade=tid=0;
+      [".cardsay",".wherealive",".cardhook"].forEach(function(s){
+        var el=q(card,s);if(el)el.classList.remove("swapping");});
+      cue(card,"held "+(i+1)+" / "+list.length);
+    }else{
+      cue(card,(i+1)+" / "+list.length);
+      tid=setInterval(step,2600);
+    }
+  }
+  function unpress(){clearTimeout(press);press=0;if(card)card.classList.remove("pressing");}
+  document.addEventListener("pointerdown",function(e){
+    if(still||e.button)return;
+    var c=near(e);if(!c)return;
+    // a thumb has no hover, so on touch the press is also what starts the walk
+    if(c!==card)enter(c);
+    if(!card)return;
+    sx=e.clientX;sy=e.clientY;
+    clearTimeout(press);
+    card.classList.add("pressing");
+    press=setTimeout(function(){
+      press=0;if(!card)return;
+      card.classList.remove("pressing");
+      swallow=1;setTimeout(function(){swallow=0;},900);
+      pin(!held);
+    },HOLD);
+  });
+  document.addEventListener("pointermove",function(e){
+    if(!press)return;
+    if(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)unpress();
+  });
+  document.addEventListener("pointerup",unpress);
+  document.addEventListener("pointercancel",unpress);
+  addEventListener("click",function(e){
+    if(!swallow)return;
+    swallow=0;e.preventDefault();e.stopPropagation();
+  },true);
 })();
 
 /* ── the fold decides the layout ───────────────────────────────────────────
