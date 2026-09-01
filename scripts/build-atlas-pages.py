@@ -137,6 +137,13 @@ if CRAFT_FAMILIES and set(CRAFT_META) - _named:
 # NOT a hard failure when one is missing, deliberately: a craft opens the moment
 # somebody asks for it, unattended, and a refusal here would take the whole nightly
 # Atlas build down on the night that happened. A place with no line simply shows none.
+MEASURE = MANIFEST.get("measure", {})
+_craft_ids = {d["id"] for d in DISC}
+_stray_m = set(MEASURE) - _craft_ids
+if _stray_m:
+    raise SystemExit("build-atlas-pages: measure names crafts that do not exist: "
+                     + ", ".join(sorted(_stray_m)))
+
 LEARN_LINES = MANIFEST.get("learnLines", {})
 _dest_ids = {x["id"] for d in DISC for x in d["destinations"]}
 _stray = set(LEARN_LINES) - _dest_ids
@@ -249,6 +256,55 @@ def sibling_line(d):
             f'{e(sib["line"])} <a href="/atlas/{e(sib["id"])}" style="color:var(--sea);'
             'text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)">'
             f'{e(sib["label"])} &rarr;</a></p>')
+
+
+def measure_block(d):
+    """The Measure — is this community worth the trip, and how.
+
+    Five named conditions on the five dots, so the meter reads as a legend rather
+    than a magnitude: an empty dot says which thing is missing. Only crafts listed
+    in the manifest get one. A craft with no entry shows NO meter — that is an
+    absence, not a zero, and the difference is the whole honesty of the mark.
+    """
+    mm = MEASURE.get(d["id"])
+    if not mm:
+        return ""
+    dots = int(mm["dots"])
+    meter = ('<span style="color:var(--sea)">' + "&#9679;" * dots + "</span>"
+             + '<span style="color:var(--faint)">' + "&#9675;" * (5 - dots) + "</span>")
+    rows = ""
+    for c in mm["conditions"]:
+        on = c.get("on")
+        mark = "&#9679;" if on else "&#9675;"
+        col = "var(--sea)" if on else "var(--faint)"
+        body = "" if on else ";color:var(--muted)"
+        rows += (f'<p style="margin:0 0 14px{body}"><b style="color:{col}">{mark} {c["n"]}.</b> '
+                 f'{c["t"]}</p>')
+    note = mm.get("ceilingNote")
+    note = (f'<p style="margin:0 0 14px;color:var(--muted)"><b style="color:var(--paper)">'
+            f'{note}</b></p>') if note else ""
+    return (
+      '<section><div class="wrap">'
+      '<div class="mono">Is this community worth the trip</div>'
+      f'<h2 style="margin-bottom:10px">{dots} of 5 &mdash; and here is which {dots}</h2>'
+      '<p class="meta" style="margin:0 0 16px">We grade a craft on five things and publish the '
+      'ones we could not check. The dots are not a score out of five: each is a named condition, '
+      'and an empty one tells you exactly what is missing.</p>'
+      '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
+      'border-left:2px solid var(--sea)">'
+      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'
+      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.16em;'
+      f'text-transform:uppercase;color:var(--ember);margin:0 0 18px">{mm["verdict"]}</p>'
+      f'{rows}{note}'
+      # the generated template has no .checked rule — carry the look inline so the
+      # line does not silently collapse into one run of prose here.
+      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
+      f'letter-spacing:.02em;color:var(--muted);margin:16px 0 0;padding-top:10px;'
+      f'border-top:1px dashed rgba(127,168,165,.28)">'
+      f'<b style="color:var(--sea);text-transform:uppercase;letter-spacing:.14em;font-size:10px;'
+      f'font-weight:500;display:block;margin-bottom:4px">{mm["state"]} &middot; {mm["checker"]} '
+      f'&middot; {mm["date"]}</b>{mm["check"]}</p>'
+      '</div></div></section>')
 
 
 def sweep_block(d):
@@ -1406,7 +1462,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
-<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{sweep_block(d)}
+<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{measure_block(d)}{sweep_block(d)}
 {craft_depth(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,

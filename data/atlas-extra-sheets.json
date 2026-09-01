@@ -384,5 +384,46 @@
     "wildlife-photography--maasai-mara-conservancies": "Learn to photograph big cats from a camp",
     "wildlife-photography--south-luangwa": "Learn to photograph on foot, four to a group",
     "wildlife-photography--falmouth": "Learn underwater photography as a degree"
+  },
+  "_measure_comment": "The Measure — a craft-level grade, five named conditions on the five dots. Rendered only for crafts listed here: a craft with no entry shows no meter, which is an absence and not a zero. Dots are capped by evidence state — desk research stops at three, because THE GROUND and THE STRETCH are exactly what a brochure claims and only a visit settles.",
+  "measure": {
+    "modernist-spanish-cuisine": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Worth the detour — go if the craft already pulls you",
+      "state": "researched, not checked",
+      "checker": "Arnaud Callier",
+      "date": "1 September 2026",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": true,
+          "t": "Martín Lippo teaches modernist technique in his own Barcelona laboratory — a named person, in his own working place. Madrid's route is institutional rather than personal: Le Cordon Bleu inside the Universidad Francisco de Vitoria, with no single teacher named on it."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "You can book your way in, on dates. Madrid's avant-garde teaching is the last third of a nine-month Spanish Cuisine Diploma, and their own syllabus names the block — spherifications, low-temperature cooking, the fundamentals of molecular cuisine. Barcelona's lab courses are shorter. The stage is the other road and it is a real one, but it is applied for with a CV and nobody can promise you one: only one of the two is a door you can book. Your hands can ruin the work on either."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "The strongest thing this craft has — and the place dots above are the evidence for it, not a second opinion. Barcelona is where the elBulli cooks actually landed, and Disfrutar, opened by three of them, was named the world's best restaurant in 2024. Madrid gathers the whole avant-garde once a year at Madrid Fusión, running since 2003 and reaching its 25th edition in February 2027. There is a generation above you here, and one below."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "Empty because nobody from EducatedTraveler has been — not because it failed. This is the dot that would fill first, and it is the one this craft can win that the travelling toolkit never can: <a href=\"/atlas/modern-new-technique-cuisine\" style=\"color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)\">that technique</a> goes anywhere, and this cuisine came from here."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "Held by the same cap, and there is more here than an attendance certificate: the Superior Certificate is a real nine-month qualification, and a stage in a kitchen of this lineage is months on the line. The ceiling is as high as this craft gets — three Michelin stars at DiverXO, the world's best restaurant list at Disfrutar."
+        }
+      ],
+      "check": "Graded from the entries already verified on this page, not from a fresh sweep. Nobody from EducatedTraveler has stood in either room — and that alone is what holds the last two dots, not doubt about the places.",
+      "ceilingNote": "Ceiling five: this craft belongs to its ground, so a visit could take it the whole way."
+    }
   }
 }
