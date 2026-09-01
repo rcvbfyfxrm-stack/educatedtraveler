@@ -167,13 +167,19 @@ DECLARES = re.compile(r"\b(?:const|let|var|function)\s+note\b"      # declaratio
                       r"|\{[^{}]*\bnote\b[^{}]*\}\s*=(?!=)")       # destructuring
 INTERP = re.compile(r"\$\{([^{}]*)\}")
 BARE = re.compile(r"(?<![\w.$])note(?![\w$])")
+# An interpolation may CONTAIN prose — `${paid ? " The note has already gone." : ""}` —
+# and the word inside those quotes is a sentence, not an identifier. Strip the string
+# literals before hunting, or the check fires on the very copy the note rename was for
+# and gets muted. `${esc(note)}`, the case this exists to catch, has no quotes in it
+# and is untouched by this.
+STRINGS = re.compile(r"'[^']*'|\"[^\"]*\"|`[^`]*`")
 for path, body in corpus.items():
     if path.suffix not in {".ts", ".js", ".mjs", ".html", ".py"}:
         continue
     if DECLARES.search(body):
         continue                       # the file has its own `note`; leave it be
     for m in INTERP.finditer(body):
-        if BARE.search(m.group(1)):
+        if BARE.search(STRINGS.sub(" ", m.group(1))):
             fail(f"{rel(path)}: ${{{m.group(1).strip()[:40]}}} uses `note`, which is not "
                  "declared in this file — a prose sweep renamed an identifier")
 
