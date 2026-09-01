@@ -88,21 +88,21 @@ def block(craft_id):
             bits.append(f'{e(m["place"])}, {e(m["country"])}')
         if c not in OPEN:
             bits.append('<span style="opacity:.7">not open yet</span>')
-        cards.append(
-            '<div style="background:var(--ink2);border:1px solid var(--line);border-radius:10px;'
-            'padding:14px 18px">'
-            f'<a href="/atlas/{c}" style="text-decoration:none;color:inherit;font-family:\'Fraunces\','
-            f'Georgia,serif;font-size:17px">{e(m["name"])}</a>'
-            f'<div style="font-size:13px;color:var(--muted);margin-top:4px">{" · ".join(bits)}</div>'
-            "</div>")
-    return (f'{OPEN_MARK}\n<section><div class="wrap">'
-            '<div class="eyebrow">If this one pulls you</div>'
-            '<h2 class="serif">Close to this on the map</h2>'
+        place = f'{e(m["place"])}, {e(m["country"])}' if (m["place"] and c in OPEN) else ""
+        state = "<b>open</b> &middot; where to learn it" if c in OPEN else "not open yet"
+        cards.append(atlas_hub.rail_cards(
+            [(f"/atlas/{c}", e(label), e(m["name"]), place, state)]))
+    nav = ('<div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button>'
+           '<button data-cr="next" aria-label="Next">&#8250;</button></div>') if len(cards) > 2 else ""
+    return (f'{OPEN_MARK}\n<style>{atlas_hub.RAIL_CSS}</style>'
+            '<section><div class="wrap"><div class="crail-wrap">'
+            '<div class="crail-head"><div><div class="eyebrow">If this one pulls you</div>'
+            '<h2 class="serif" style="margin:6px 0 0">Close to this on the map</h2></div>'
+            f'{nav}</div>'
             '<p style="font-size:13px;color:var(--muted);margin:6px 0 14px">Grouped by hand, not by '
-            'an algorithm — same hands, same instinct, a different craft.</p>'
-            '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));'
-            f'gap:12px">{"".join(cards)}</div>'
-            f'</div></section>\n{CLOSE_MARK}\n')
+            'an algorithm — same hands, same instinct, a different craft. Drag, or use the arrows.</p>'
+            f'<div class="crail">{"".join(cards)}</div>'
+            f'</div></div></section><script>{atlas_hub.RAIL_JS}</script>\n{CLOSE_MARK}\n')
 
 
 DISC_BY_ID = {d["id"]: d for d in DISC}
@@ -142,14 +142,17 @@ def sweep_block(craft_id):
     gap = (f'<p style="font-size:13px;color:var(--muted);margin-top:12px">Not searched yet: '
            f'{e(", ".join(gaps))}. If you know this craft in one of those, write and say so — '
            'that is how the next sweep gets pointed.</p>') if gaps else ""
-    return (f'{SWEEP_OPEN}\n<section><div class="wrap">'
-            '<div class="eyebrow">Checked and not listed</div>'
-            '<h2 class="serif">What did not clear</h2>'
+    nrej = len(sw.get("rejected") or [])
+    return (f'{SWEEP_OPEN}\n<section><div class="wrap"><details class="fold"><summary>'
+            '<span class="eyebrow" style="display:block">Checked and not listed</span>'
+            f'<h2 class="serif" style="margin:6px 0 0">What did not clear'
+            f'<span style="opacity:.45;font-weight:300"> &middot; {nrej}</span></h2>'
+            '</summary><div class="foldbody">'
             f'<p style="font-size:13px;color:var(--muted);margin:6px 0 14px;max-width:62ch">{scope} '
             'Everything below is real, and none of it is on this map. The reason sits next to each '
             'one, because a place left off without a reason is just an opinion.</p>'
             f'<ul style="list-style:none;padding:0;margin:0">{rows}</ul>{gap}'
-            f'</div></section>\n{SWEEP_CLOSE}\n')
+            f'</div></details></div></section>\n{SWEEP_CLOSE}\n')
 
 
 # The craft sheets in `preserve` — the redirect stubs and place pages are not craft pages.

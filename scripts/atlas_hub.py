@@ -251,6 +251,144 @@ def walk_places(dests):
              else the_country(x["country"])) for x in ds]
 
 
+# ── the neighbours, as a rail you can move through ─────────────────────────
+# "Close to this on the map" was a static grid of four small cards, and it read as a
+# footer — the last thing on a page, four names, nothing to do (Arnaud, 2026-09-01:
+# "make it more cool like cards, diaporama").
+#
+# Same .norail mechanics as the opened band and the catalogue shelves, deliberately:
+# one horizontal card behaviour on this site, not a third one to keep in step. Drag,
+# arrows, snap, hidden scrollbar. The cards are taller than the old grid's because a
+# neighbour is worth a reason, not just a name.
+#
+# It degrades to a plain scrolling row with no JS: the arrows are the enhancement, the
+# scroll is the feature.
+RAIL_CSS = """
+.crail-wrap{position:relative}
+.crail-head h2{margin:0}
+.crail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  padding:6px 2px 16px;scrollbar-width:none;cursor:grab}
+.crail::-webkit-scrollbar{display:none}
+.crail.drag{cursor:grabbing;scroll-behavior:auto}
+.crail>a{scroll-snap-align:start;flex:0 0 auto;width:clamp(226px,26vw,270px);
+  display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;
+  background:var(--ink2);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
+  transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s,background .22s}
+.crail>a:hover{transform:translateY(-3px);border-color:rgba(127,168,165,.42);background:rgba(127,168,165,.05)}
+.crail .cr-w{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--faint)}
+.crail .cr-n{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.2}
+.crail .cr-p{font-size:13px;color:var(--muted);line-height:1.5}
+.crail .cr-s{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);margin-top:auto;padding-top:8px}
+.crail .cr-s b{color:var(--sea);font-weight:400}
+.crail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
+.crail-nav{display:flex;gap:7px;flex:0 0 auto;padding-bottom:3px}
+.crail-nav button{width:30px;height:30px;border-radius:99px;border:1px solid var(--line);
+  background:var(--ink2);color:var(--paper);cursor:pointer;font-size:13px;line-height:1;
+  opacity:.72;transition:opacity .2s,border-color .2s}
+.crail-nav button:hover{opacity:1;border-color:rgba(127,168,165,.42)}
+.crail-nav button[disabled]{opacity:.22;cursor:default}
+@media(max-width:560px){.crail-nav{display:none}}
+"""
+
+# One card-width per press, clamped, and the arrows disable at the ends so the row
+# says how far it goes rather than pretending to be endless.
+RAIL_JS = """
+(function(){
+  document.querySelectorAll('.crail-wrap').forEach(function(w){
+    var r=w.querySelector('.crail'),p=w.querySelector('[data-cr="prev"]'),n=w.querySelector('[data-cr="next"]');
+    if(!r) return;
+    function step(){ var c=r.firstElementChild; return c?c.getBoundingClientRect().width+14:280; }
+    function sync(){ if(!p||!n) return;
+      p.disabled = r.scrollLeft<=2;
+      n.disabled = r.scrollLeft >= r.scrollWidth-r.clientWidth-2; }
+    if(p) p.addEventListener('click',function(){ r.scrollBy({left:-step(),behavior:'smooth'}); });
+    if(n) n.addEventListener('click',function(){ r.scrollBy({left: step(),behavior:'smooth'}); });
+    r.addEventListener('scroll',sync,{passive:true}); window.addEventListener('resize',sync); sync();
+    // drag to pan, the same gesture as the band. A drag must never fire the link
+    // under it, so a pointer that moved more than a few px swallows the click.
+    var down=false,x0=0,l0=0,moved=0;
+    r.addEventListener('pointerdown',function(e){ down=true;moved=0;x0=e.clientX;l0=r.scrollLeft;r.classList.add('drag'); });
+    r.addEventListener('pointermove',function(e){ if(!down)return; var dx=e.clientX-x0;
+      moved=Math.max(moved,Math.abs(dx)); r.scrollLeft=l0-dx; });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      r.addEventListener(ev,function(){ down=false;r.classList.remove('drag');
+        if(moved>6){ r.addEventListener('click',function k(e){ e.preventDefault();e.stopPropagation();
+          r.removeEventListener('click',k,true); },true); } });
+    });
+  });
+})();
+"""
+
+
+def rail_cards(items):
+    """items: (href, world_label, name, place_line, state_html or "") -> the cards."""
+    out = ""
+    for href, world, name, place, state in items:
+        out += (f'<a href="{href}">'
+                f'<span class="cr-w">{world}</span>'
+                f'<span class="cr-n">{name}</span>'
+                + (f'<span class="cr-p">{place}</span>' if place else "")
+                + (f'<span class="cr-s">{state}</span>' if state else "")
+                + "</a>")
+    return out
+
+
+def rail_section(eyebrow, heading, sub, cards, n):
+    nav = ('<div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button>'
+           '<button data-cr="next" aria-label="Next">&#8250;</button></div>') if n > 2 else ""
+    return ('<section><div class="wrap"><div class="crail-wrap">'
+            f'<div class="crail-head"><div><div class="mono">{eyebrow}</div>'
+            f'<h2>{heading}</h2></div>{nav}</div>'
+            f'<p class="meta" style="margin:6px 0 14px">{sub}</p>'
+            f'<div class="crail">{cards}</div>'
+            "</div></div></section>")
+
+
+# ── why you can trust this map, at the Measure's standard ──────────────────
+# The old block listed five things "a place has to clear", written before any of the
+# machinery that now does the clearing existed. It promised a bar and named no
+# instrument. This one names all four instruments, and each is checkable on the page
+# the reader is already on: the Measure's five dots, the sweep's rejections, the night
+# check, and the disclosure. Folded, because a reader who already trusts the page
+# should not have to scroll past the argument for trusting it (Arnaud, 2026-09-01).
+#
+# The one rule it must never break: everything claimed here is something the site
+# actually does. An honest blank outranks a plausible name — including ours.
+TRUST_ITEMS = [
+    ("We grade it in public, and publish what is missing.",
+     "The Measure is five named conditions, not a score: the room, the door, the bench, the "
+     "ground, the stretch. An empty dot tells you which one is missing and why. A craft nobody "
+     "has graded shows no meter at all, because an absence is not a zero."),
+    ("We print what we checked and did NOT list.",
+     "Every swept craft carries the places we looked at and turned down, each with its reason. "
+     "That list is the part no marketplace prints, because a rejection is where the money is."),
+    ("The claims are read back to their sources every night.",
+     "A robot re-reads every price, course name and link we publish against the school's own "
+     "page. When one stops matching three nights running, it is flagged for a human — and an "
+     "entry that cannot be confirmed comes off. It is never softened."),
+    ("Where we are not neutral, we say so above the recommendation.",
+     "We run one paid week a year, with one teacher. His entry says that before it says anything "
+     "good about him, and prints the way to reach him without us, at his prices."),
+    ("Nothing here has been stood in yet.",
+     "An open sheet means desk research, carefully done. No place on this map has been visited "
+     "and dated by us. When one is, the check will carry a name and a date — and until then, the "
+     "grade says so in the dots it leaves empty."),
+    ("Nobody pays to be here, and nobody can pay to be left off.",
+     "No commission, no listing fee, no tourist board. The order is the strength of the "
+     "community, never the size of the wallet."),
+]
+
+TRUST_ASK = [
+    "Who actually teaches it? Can you find them by name, with a track record you can check yourself?",
+    "Is the craft alive in that place, or is the school the only thing there? A real scene has more than one good option.",
+    "What exactly do you walk away with — a recognised qualification, or a certificate they printed themselves? Ask which.",
+    "Can you speak to someone who did the course? A real person, not a testimonial on their own page.",
+    "What happens on a bad day — weather, an injury, a teacher who doesn't show? A serious place has an honest answer.",
+]
+
+
 # ── the note, shared with every short craft sheet ─────────────────────────
 NOTE_CSS = """
 /* The frame around the note — the heading, the sub, and the width it sits in.

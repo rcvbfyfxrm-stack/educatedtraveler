@@ -301,7 +301,59 @@ footer{padding:38px 0 64px;font-size:13px;color:var(--faint)}footer a{color:var(
 
 <!-- §5 trust -->
 <!-- et:related-crafts -->
-<section><div class="wrap"><div class="eyebrow">If this one pulls you</div><h2 class="serif">Close to this on the map</h2><p style="font-size:13px;color:var(--muted);margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft.</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px"><div style="background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:14px 18px"><a href="/atlas/organic-farm-to-table-cooking" style="text-decoration:none;color:inherit;font-family:'Fraunces',Georgia,serif;font-size:17px">Organic Farm-to-Table Cooking</a><div style="font-size:13px;color:var(--muted);margin-top:4px">From the land · Shanagarry, East Cork, Ireland</div></div><div style="background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:14px 18px"><a href="/atlas/mountain-leadership-and-trekking" style="text-decoration:none;color:inherit;font-family:'Fraunces',Georgia,serif;font-size:17px">International Mountain Leadership &amp; Trekking</a><div style="font-size:13px;color:var(--muted);margin-top:4px">Out there on your own · Snowdonia / Eryri, Wales (UK) · <span style="opacity:.7">not open yet</span></div></div><div style="background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:14px 18px"><a href="/atlas/asado-and-open-fire-cooking" style="text-decoration:none;color:inherit;font-family:'Fraunces',Georgia,serif;font-size:17px">Asado &amp; Open-Fire Cooking</a><div style="font-size:13px;color:var(--muted);margin-top:4px">From the land · Patagonia / Buenos Aires, Argentina · <span style="opacity:.7">not open yet</span></div></div><div style="background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:14px 18px"><a href="/atlas/outdoor-leadership-and-wilderness-expeditions" style="text-decoration:none;color:inherit;font-family:'Fraunces',Georgia,serif;font-size:17px">Outdoor Leadership &amp; Wilderness Expeditions</a><div style="font-size:13px;color:var(--muted);margin-top:4px">Out there on your own · Lander, United States · <span style="opacity:.7">not open yet</span></div></div></div></div></section>
+<style>
+.crail-wrap{position:relative}
+.crail-head h2{margin:0}
+.crail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  padding:6px 2px 16px;scrollbar-width:none;cursor:grab}
+.crail::-webkit-scrollbar{display:none}
+.crail.drag{cursor:grabbing;scroll-behavior:auto}
+.crail>a{scroll-snap-align:start;flex:0 0 auto;width:clamp(226px,26vw,270px);
+  display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;
+  background:var(--ink2);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
+  transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s,background .22s}
+.crail>a:hover{transform:translateY(-3px);border-color:rgba(127,168,165,.42);background:rgba(127,168,165,.05)}
+.crail .cr-w{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--faint)}
+.crail .cr-n{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.2}
+.crail .cr-p{font-size:13px;color:var(--muted);line-height:1.5}
+.crail .cr-s{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);margin-top:auto;padding-top:8px}
+.crail .cr-s b{color:var(--sea);font-weight:400}
+.crail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
+.crail-nav{display:flex;gap:7px;flex:0 0 auto;padding-bottom:3px}
+.crail-nav button{width:30px;height:30px;border-radius:99px;border:1px solid var(--line);
+  background:var(--ink2);color:var(--paper);cursor:pointer;font-size:13px;line-height:1;
+  opacity:.72;transition:opacity .2s,border-color .2s}
+.crail-nav button:hover{opacity:1;border-color:rgba(127,168,165,.42)}
+.crail-nav button[disabled]{opacity:.22;cursor:default}
+@media(max-width:560px){.crail-nav{display:none}}
+</style><section><div class="wrap"><div class="crail-wrap"><div class="crail-head"><div><div class="eyebrow">If this one pulls you</div><h2 class="serif" style="margin:6px 0 0">Close to this on the map</h2></div><div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button><button data-cr="next" aria-label="Next">&#8250;</button></div></div><p style="font-size:13px;color:var(--muted);margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft. Drag, or use the arrows.</p><div class="crail"><a href="/atlas/organic-farm-to-table-cooking"><span class="cr-w">From the land</span><span class="cr-n">Organic Farm-to-Table Cooking</span><span class="cr-p">Shanagarry, East Cork, Ireland</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/mountain-leadership-and-trekking"><span class="cr-w">Out there on your own</span><span class="cr-n">International Mountain Leadership &amp; Trekking</span><span class="cr-s">not open yet</span></a><a href="/atlas/asado-and-open-fire-cooking"><span class="cr-w">From the land</span><span class="cr-n">Asado &amp; Open-Fire Cooking</span><span class="cr-s">not open yet</span></a><a href="/atlas/outdoor-leadership-and-wilderness-expeditions"><span class="cr-w">Out there on your own</span><span class="cr-n">Outdoor Leadership &amp; Wilderness Expeditions</span><span class="cr-s">not open yet</span></a></div></div></div></section><script>
+(function(){
+  document.querySelectorAll('.crail-wrap').forEach(function(w){
+    var r=w.querySelector('.crail'),p=w.querySelector('[data-cr="prev"]'),n=w.querySelector('[data-cr="next"]');
+    if(!r) return;
+    function step(){ var c=r.firstElementChild; return c?c.getBoundingClientRect().width+14:280; }
+    function sync(){ if(!p||!n) return;
+      p.disabled = r.scrollLeft<=2;
+      n.disabled = r.scrollLeft >= r.scrollWidth-r.clientWidth-2; }
+    if(p) p.addEventListener('click',function(){ r.scrollBy({left:-step(),behavior:'smooth'}); });
+    if(n) n.addEventListener('click',function(){ r.scrollBy({left: step(),behavior:'smooth'}); });
+    r.addEventListener('scroll',sync,{passive:true}); window.addEventListener('resize',sync); sync();
+    // drag to pan, the same gesture as the band. A drag must never fire the link
+    // under it, so a pointer that moved more than a few px swallows the click.
+    var down=false,x0=0,l0=0,moved=0;
+    r.addEventListener('pointerdown',function(e){ down=true;moved=0;x0=e.clientX;l0=r.scrollLeft;r.classList.add('drag'); });
+    r.addEventListener('pointermove',function(e){ if(!down)return; var dx=e.clientX-x0;
+      moved=Math.max(moved,Math.abs(dx)); r.scrollLeft=l0-dx; });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      r.addEventListener(ev,function(){ down=false;r.classList.remove('drag');
+        if(moved>6){ r.addEventListener('click',function k(e){ e.preventDefault();e.stopPropagation();
+          r.removeEventListener('click',k,true); },true); } });
+    });
+  });
+})();
+</script>
 <!-- /et:related-crafts -->
 <section class="trust"><div class="wrap">
   <div class="eyebrow">Why you can trust this page</div>

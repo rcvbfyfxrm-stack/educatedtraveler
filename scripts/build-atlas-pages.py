@@ -307,6 +307,41 @@ def measure_block(d):
       '</div></div></section>')
 
 
+def in_depth_block(d):
+    """The craft itself, at length. A different thing from the overall, and mostly not
+    written yet.
+
+    Arnaud, 2026-09-01, pointing at /atlas/modern-new-technique-cuisine: "this is the
+    in depth... 'Read the craft in depth' — it's actually the overall. Add the in-depth
+    after the overall." He is right, and most of the fix is the rename above: what the
+    generated pages called "in depth" is `ceiling` + `room`, a summary of what a trip
+    gives you. That is the overall, and it now says so.
+
+    The real in-depth is what the hand-written sheets carry — what the craft actually
+    is, where it came from, what is technique and what is theatre. No generated craft
+    holds a word of it, so this renders only where the prose exists and prints NOTHING
+    where it does not. No heading over a blank, and nothing assembled by machine to
+    fill the space: a composed in-depth would be the Atlas talking without having read
+    anything, which is the one voice it may never use.
+    """
+    dp = d.get("inDepth")
+    if not dp:
+        return ""
+    body = ""
+    for sec in dp["sections"]:
+        body += (f'<h3 style="font-family:\'Fraunces\',Georgia,serif;font-weight:400;'
+                 f'font-size:19px;margin:24px 0 8px">{e(sec["h"])}</h3>')
+        body += "".join(f'<p style="opacity:.82;font-size:15px;margin-bottom:12px">{e(t)}</p>'
+                        for t in sec["p"])
+    src = (f'<p class="meta" style="margin-top:18px">Sources: {e(dp["sources"])}</p>'
+           if dp.get("sources") else "")
+    return ('<section id="in-depth-long"><div class="wrap prose">'
+            '<details class="fold"><summary>'
+            '<span class="mono" style="color:var(--sea)">The long way round</span>'
+            f'<h2 style="margin:6px 0 0">{e(d["discipline"])} in depth</h2>'
+            f'</summary><div class="foldbody">{body}{src}</div></details></div></section>')
+
+
 def sweep_block(d):
     """What we looked at and did not list — the Standard's own wedge, printed.
 
@@ -340,12 +375,18 @@ def sweep_block(d):
     stale = ('<p class="meta" style="margin-top:10px;color:var(--ember)">This sweep is over a '
              'year old. Treat it as a record of what was true then, not of what is true now.</p>'
              ) if atlas_hub.sweep_stale(sw, TODAY) else ""
-    return ('<section><div class="wrap prose"><div class="mono">Checked and not listed</div>'
-            f'<h2>What did not clear</h2>'
+    nrej = len(sw.get("rejected") or [])
+    return ('<section><div class="wrap prose">'
+            '<details class="fold"><summary>'
+            '<span class="mono" style="color:var(--sea)">Checked and not listed</span>'
+            f'<h2 style="margin:6px 0 0">What did not clear'
+            f'<span style="opacity:.45;font-weight:300"> &middot; {nrej}</span></h2>'
+            '</summary><div class="foldbody">'
             f'<p class="meta" style="margin-bottom:14px">{scope} Everything below is real, and '
             'none of it is on this map. The reason sits next to each one, because a place left '
             'off without a reason is just an opinion.</p>'
-            f'<ul class="clean" style="font-size:14.5px">{rows}</ul>{gap_html}{stale}</div></section>')
+            f'<ul class="clean" style="font-size:14.5px">{rows}</ul>{gap_html}{stale}'
+            "</div></details></div></section>")
 
 
 def has_relationship(x):
@@ -430,24 +471,19 @@ def related_block(craft_id):
     rel = related_crafts(craft_id)
     if not rel:
         return ""
-    cards = []
+    items = []
     for c, label in rel:
         m = CRAFT_META[c]
-        bits = [e(label)]
         # Only an OPEN craft names its place here. A locked neighbour printing its
         # town on this card would publish exactly what its own page withholds.
-        if m["place"] and is_open(c):
-            bits.append(f'{e(m["place"])}, {e(m["country"])}')
-        if not is_open(c):
-            bits.append('<span style="opacity:.7">not open yet</span>')
-        cards.append('<div class="card" style="padding:14px 18px">'
-                     f'<a class="t" style="text-decoration:none" href="/atlas/{c}">{e(m["name"])}</a>'
-                     f'<div class="meta">{" · ".join(bits)}</div></div>')
-    return ('<section><div class="wrap"><div class="mono">If this one pulls you</div>'
-            '<h2>Close to this on the map</h2>'
-            '<p class="meta" style="margin:6px 0 14px">Grouped by hand, not by an algorithm — '
-            'same hands, same instinct, a different craft.</p>'
-            f'<div class="grid">{"".join(cards)}</div></div></section>')
+        place = f'{e(m["place"])}, {e(m["country"])}' if (m["place"] and is_open(c)) else ""
+        state = "<b>open</b> &middot; where to learn it" if is_open(c) else "not open yet"
+        items.append((f"/atlas/{c}", e(label), e(m["name"]), place, state))
+    return atlas_hub.rail_section(
+        "If this one pulls you", "Close to this on the map",
+        "Grouped by hand, not by an algorithm — same hands, same instinct, a different craft. "
+        "Drag, or use the arrows.",
+        atlas_hub.rail_cards(items), len(items))
 
 
 # ---------- the day each craft opened ----------
@@ -546,33 +582,32 @@ e = html.escape
 # Founder-voice trust block — appears small at the bottom of every Atlas page.
 # Voice: Arnaud, first person, plain, no hype. No fabricated ratings — only what
 # we can stand behind. The reader's 5 questions sit in <details> to stay compact.
-TRUST_HTML = """<section style="border-top:1px solid var(--line);background:var(--ink2)">
+TRUST_HTML = ("""<section style="border-top:1px solid var(--line);background:var(--ink2)">
 <div class="wrap prose">
-<div class="mono">Why you can trust this map</div>
-<h2 style="font-size:20px;margin:8px 0 14px">What we check before we send you anywhere</h2>
-<p style="opacity:.82;font-size:15px;margin-bottom:16px">This Atlas exists because there is a real difference between a school that teaches you and a good-looking website — and too much of the internet is the second kind. Here is what a place has to clear before it goes on here, and what we'll tell you straight when it doesn't.</p>
-<ul class="clean" style="font-size:14.5px">
-<li><strong style="font-weight:500">The craft is actually alive there.</strong> A working scene, with people who do this every day — not a demo put on for visitors.</li>
-<li><strong style="font-weight:500">There's a real teacher behind it.</strong> Named, still practising, and certified where the craft has certificates.</li>
-<li><strong style="font-weight:500">The credential is what it claims to be.</strong> A state diploma and a certificate a school prints itself are not the same thing. We check which, and we say which.</li>
-<li><strong style="font-weight:500">Nothing here has been stood in yet.</strong> An open sheet — one with a school named — means desk research, not a visit. No place here has been stood in and dated. When one is, the check will carry a name and a date. We'd rather say that than pretend.</li>
-<li><strong style="font-weight:500">Nobody pays to be here.</strong> No commission, no selling the trip. The order on this map is the strength of the community, never the size of the wallet.</li>
-__BLANK_LI__
+<details class="fold">
+<summary>
+<span class="mono" style="color:var(--sea)">Why you can trust this map</span>
+<h2 style="font-size:20px;margin:6px 0 0">How a place gets on here, and what we do when it stops being true</h2>
+</summary>
+<div class="foldbody">
+<p style="opacity:.82;font-size:15px;margin-bottom:16px">There is a real difference between a school that teaches you and a good-looking website, and too much of the internet is the second kind. Four instruments do the work, and every one of them is visible on the page you are already on.</p>
+<ul class="clean" style="font-size:14.5px">"""
++ "".join(f'<li><strong style="font-weight:500">{h}</strong> {b}</li>'
+          for h, b in atlas_hub.TRUST_ITEMS)
++ """__BLANK_LI__
 </ul>
 <details style="margin-top:18px">
 <summary style="cursor:pointer;color:var(--sea);font-size:14px">Before you trust any school — mine or anyone else's — ask these five things</summary>
-<ol style="font-size:14px;opacity:.84;margin:14px 0 0 18px;line-height:1.75">
-<li>Who actually teaches it? Can you find them by name, with a track record you can check yourself?</li>
-<li>Is the craft alive in that place, or is the school the only thing there? A real scene has more than one good option.</li>
-<li>What exactly do you walk away with — a recognised qualification, or a certificate they printed themselves? Ask which.</li>
-<li>Can you speak to someone who did the course? A real person, not a testimonial on their own page.</li>
-<li>What happens on a bad day — weather, an injury, a teacher who doesn't show? A serious place has an honest answer.</li>
-</ol>
+<ol style="font-size:14px;opacity:.84;margin:14px 0 0 18px;line-height:1.75">"""
++ "".join(f"<li>{q}</li>" for q in atlas_hub.TRUST_ASK)
++ """</ol>
 <p style="font-size:13px;opacity:.6;margin-top:12px">If a place dodges these, that's your answer. It costs you nothing to ask, and it tells you everything.</p>
 <p style="font-size:13px;opacity:.6;margin-top:10px">This is the short version. <a href="/journal/how-to-find-the-best-school-online" style="color:var(--sea)">The full method is here</a> — the six questions, in order, for any craft anywhere.</p>
 </details>
 </div>
-</section>"""
+</details>
+</div>
+</section>""")
 
 # Currency switcher (Original / EUR / USD principally) — converts every .price[data-amt]
 # span client-side at fixed approximate rates; the original price stays the source of truth.
@@ -649,6 +684,10 @@ AUTH_SCRIPTS = '<script src="/js/auth.js"></script>\n<script src="/js/database.j
 SKILL_SAVE = '<script src="/js/skill-save.js" defer></script>'
 
 
+RAIL_CSS = atlas_hub.RAIL_CSS
+RAIL_JS = atlas_hub.RAIL_JS
+
+
 def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
          saveable=True, extra_head="", extra_scripts="", body_attrs=""):
     # A quiet way to tell me a sheet has gone stale. The subject carries the page
@@ -715,6 +754,17 @@ body {{ font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:v
 .serif {{ font-family:'Fraunces',Georgia,serif; }}
 .mono {{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }}
 a {{ color:inherit; }}
+/* Folded sections. The marker is ours, on the left, so a summary can carry a heading
+   without the browser's triangle landing in the middle of it. */
+details.fold > summary {{ cursor:pointer; list-style:none; position:relative; padding-left:26px; }}
+details.fold > summary::-webkit-details-marker {{ display:none; }}
+details.fold > summary::before {{ content:"+"; position:absolute; left:0; top:1px;
+  font-family:'IBM Plex Mono',monospace; font-size:17px; line-height:1.2; color:var(--sea); opacity:.8; }}
+details.fold[open] > summary::before {{ content:"\2212"; }}
+details.fold > summary:hover::before {{ opacity:1; }}
+details.fold .foldbody {{ margin-top:16px; padding-left:26px; }}
+{RAIL_CSS}
+@media(max-width:560px){{ details.fold .foldbody {{ padding-left:0; }} }}
 .wrap {{ max-width:880px; margin:0 auto; padding:0 24px; }}
 /* Prose sections keep the page's one spine (880px) and cap the READING MEASURE
    instead of the container — same 62ch as .lead. Narrowing the container is what
@@ -770,6 +820,7 @@ footer a {{ color:var(--sea); }}
 {tail_scripts}
 <footer><div class="wrap">{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the notes I write in <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 {CUR_TOGGLE}
+<script>{RAIL_JS}</script>
 </body>
 </html>"""
     # The blank-line credo belongs only where there IS a blank — the not-open sheets.
@@ -927,7 +978,7 @@ def craft_depth(d):
         return ""
     out = ('<section id="in-depth"><div class="wrap prose">'
            '<div class="mono">If this one pulls you</div>'
-           f'<h2>{e(d["discipline"])} in depth</h2>')
+           f'<h2>{e(d["discipline"])} &mdash; the overall</h2>')
     if ceiling:
         out += ('<p style="opacity:.82;font-size:15px;margin-bottom:16px">'
                 '<strong style="font-weight:500">What you can realistically reach:</strong> '
@@ -949,7 +1000,7 @@ def depth_link(d):
         return ""
     return ('<p style="margin-top:16px"><a href="#in-depth" style="text-decoration:none;'
             'font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);'
-            'padding-bottom:2px">Read the craft in depth &darr;</a>'
+            'padding-bottom:2px">The overall on this craft &darr;</a>'
             '<span class="meta" style="display:block;margin-top:7px">What a trip can honestly '
             'give you, and what the days are like. The places come first.</span></p>')
 
@@ -1463,7 +1514,7 @@ for d in DISC:
 <p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
 <section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{measure_block(d)}{sweep_block(d)}
-{craft_depth(d)}
+{craft_depth(d)}{in_depth_block(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
         breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)]))

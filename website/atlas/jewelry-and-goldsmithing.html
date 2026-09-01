@@ -26,6 +26,44 @@ body { font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:va
 .serif { font-family:'Fraunces',Georgia,serif; }
 .mono { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }
 a { color:inherit; }
+/* Folded sections. The marker is ours, on the left, so a summary can carry a heading
+   without the browser's triangle landing in the middle of it. */
+details.fold > summary { cursor:pointer; list-style:none; position:relative; padding-left:26px; }
+details.fold > summary::-webkit-details-marker { display:none; }
+details.fold > summary::before { content:"+"; position:absolute; left:0; top:1px;
+  font-family:'IBM Plex Mono',monospace; font-size:17px; line-height:1.2; color:var(--sea); opacity:.8; }
+details.fold[open] > summary::before { content:"2"; }
+details.fold > summary:hover::before { opacity:1; }
+details.fold .foldbody { margin-top:16px; padding-left:26px; }
+
+.crail-wrap{position:relative}
+.crail-head h2{margin:0}
+.crail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;
+  padding:6px 2px 16px;scrollbar-width:none;cursor:grab}
+.crail::-webkit-scrollbar{display:none}
+.crail.drag{cursor:grabbing;scroll-behavior:auto}
+.crail>a{scroll-snap-align:start;flex:0 0 auto;width:clamp(226px,26vw,270px);
+  display:flex;flex-direction:column;gap:7px;text-decoration:none;color:inherit;
+  background:var(--ink2);border:1px solid var(--line);border-radius:12px;padding:16px 18px 15px;
+  transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s,background .22s}
+.crail>a:hover{transform:translateY(-3px);border-color:rgba(127,168,165,.42);background:rgba(127,168,165,.05)}
+.crail .cr-w{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--faint)}
+.crail .cr-n{font-family:'Fraunces',Georgia,serif;font-size:18px;line-height:1.2}
+.crail .cr-p{font-size:13px;color:var(--muted);line-height:1.5}
+.crail .cr-s{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);margin-top:auto;padding-top:8px}
+.crail .cr-s b{color:var(--sea);font-weight:400}
+.crail-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
+.crail-nav{display:flex;gap:7px;flex:0 0 auto;padding-bottom:3px}
+.crail-nav button{width:30px;height:30px;border-radius:99px;border:1px solid var(--line);
+  background:var(--ink2);color:var(--paper);cursor:pointer;font-size:13px;line-height:1;
+  opacity:.72;transition:opacity .2s,border-color .2s}
+.crail-nav button:hover{opacity:1;border-color:rgba(127,168,165,.42)}
+.crail-nav button[disabled]{opacity:.22;cursor:default}
+@media(max-width:560px){.crail-nav{display:none}}
+
+@media(max-width:560px){ details.fold .foldbody { padding-left:0; } }
 .wrap { max-width:880px; margin:0 auto; padding:0 24px; }
 /* Prose sections keep the page's one spine (880px) and cap the READING MEASURE
    instead of the container — same 62ch as .lead. Narrowing the container is what
@@ -83,31 +121,25 @@ footer a { color:var(--sea); }
 </div></header>
 <section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2><div class="card" style="border-left:3px solid #d28a52;"><div style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:6px;padding:3px 9px;margin-bottom:10px">★ Best place to go</div><div class="mono">Birthplace &amp; living capital</div><h2 style="margin:6px 0 4px;line-height:1.24">Learn to saw, solder and set stones at the first Italian school for the craft, by the goldsmiths&#x27; bridge.</h2><div class="dwhere"><span class="in">in</span> <a class="t" href="/atlas/jewelry-and-goldsmithing--florence">Florence, Italy</a></div><div class="meta" style="margin-bottom:10px"><span style="color:#f0c27a;letter-spacing:3px">●●●●●</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#f0c27a;font-weight:500">Legendary living community</span> · Season: Sep-Jun · Beginner -&gt; Diploma</div><p style="opacity:.82;margin-bottom:12px">In the city of the goldsmiths&#x27; bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.</p><span class="badge">Birthplace</span><span class="badge">Living scene</span><span class="badge">Heritage</span><span class="badge">Verified schools</span><span class="badge">Named masters</span><span class="badge">Mecca</span><p class="meta" style="margin:10px 0 0">With <strong style="font-weight:500">Gio Carbone (LAO founder)</strong> &middot; Mastery track — months–years</p><p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)"><a href="/atlas/jewelry-and-goldsmithing--florence" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">The full sheet on Florence &rarr;</a><span class="meta" style="display:block;margin-top:7px">All 2 schools, the course and what it costs, and who teaches.</span></p></div><div class="card" style=""><div class="mono">Strong living community</div><h2 style="margin:6px 0 4px;line-height:1.24">Learn to grade a diamond where the global standard is set, for a diploma every bench on earth knows.</h2><div class="dwhere"><span class="in">in</span> <a class="t" href="/atlas/jewelry-and-goldsmithing--carlsbad-new-york">Carlsbad / New York, United States</a></div><div class="meta" style="margin-bottom:10px"><span style="color:#f0c27a;letter-spacing:3px">●●●●●</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#f0c27a;font-weight:500">Legendary living community</span> · Season: Year-round · Beginner -&gt; Graduate Gemologist</div><p style="opacity:.82;margin-bottom:12px">Home of the GIA, which sets the global diamond standard, where the Graduate Gemologist diploma you earn is recognized at every bench on earth.</p><span class="badge">Living scene</span><span class="badge">Verified schools</span><span class="badge">Gold credential</span><p class="meta" style="margin:10px 0 0">Mastery track — months–years</p><p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)"><a href="/atlas/jewelry-and-goldsmithing--carlsbad-new-york" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">The full sheet on Carlsbad / New York &rarr;</a><span class="meta" style="display:block;margin-top:7px">All 3 schools and the course and what it costs.</span></p></div><div class="card" style=""><div class="mono">Strong living community</div><h2 style="margin:6px 0 4px;line-height:1.24">Learn German bench technique in the Goldstadt, which has been turning out jewellers since 1767.</h2><div class="dwhere"><span class="in">in</span> <a class="t" href="/atlas/jewelry-and-goldsmithing--pforzheim">Pforzheim, Germany</a></div><div class="meta" style="margin-bottom:10px"><span style="color:#a3cdc9;letter-spacing:3px">●●●●○</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3cdc9;font-weight:500">Thriving living community</span> · Season: Sep-Jul · Beginner -&gt; Master</div><p style="opacity:.82;margin-bottom:12px">Germany&#x27;s &#x27;Goldstadt&#x27; has forged jewellers since 1767, and its Goldschmiedeschule is where European technical mastery is still drilled into the hand.</p><span class="badge">Living scene</span><span class="badge">Verified schools</span><span class="badge">Heritage</span><p class="meta" style="margin:10px 0 0">Immersion — a month+</p><p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)"><a href="/atlas/jewelry-and-goldsmithing--pforzheim" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">The full sheet on Pforzheim &rarr;</a><span class="meta" style="display:block;margin-top:7px">All 2 schools and the course and what it costs.</span></p></div><div class="card" style=""><div class="mono">Birthplace &amp; living capital</div><h2 style="margin:6px 0 4px;line-height:1.24">Learn kundan-meenakari and hand-cut colour from generational lineages in the lanes behind Johari Bazaar.</h2><div class="dwhere"><span class="in">in</span> <a class="t" href="/atlas/jewelry-and-goldsmithing--jaipur">Jaipur, India</a></div><div class="meta" style="margin-bottom:10px"><span style="color:#a3cdc9;letter-spacing:3px">●●●●○</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#a3cdc9;font-weight:500">Thriving living community</span> · Season: Oct-Mar · Beginner -&gt; Advanced</div><p style="opacity:.82;margin-bottom:12px">The world capital of colored-stone cutting and kundan-meenakari, where generational lapidary and enamel lineages still teach hand-cut brilliance in the lanes behind Johari Bazaar.</p><span class="badge">Birthplace</span><span class="badge">Living scene</span><span class="badge">Heritage</span><span class="badge">Unbroken lineage</span><p class="meta" style="margin:10px 0 0">Mastery track — months–years</p><p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)"><a href="/atlas/jewelry-and-goldsmithing--jaipur" style="text-decoration:none;font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">The full sheet on Jaipur &rarr;</a><span class="meta" style="display:block;margin-top:7px">All 2 schools and the course and what it costs.</span></p></div><form class="intent" data-discipline="jewelry-and-goldsmithing" data-label="Jewelry &amp; Goldsmithing" data-source="atlas:jewelry-and-goldsmithing"><p class="intent-q">Write me a note about this one &mdash; how you&#39;d love to learn it, and where. It comes to my own inbox and I read every one myself.</p><p class="intent-fine">If this box never loads, the same note reaches me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p></form></div></section>
 
-<section><div class="wrap"><div class="mono">If this one pulls you</div><h2>Close to this on the map</h2><p class="meta" style="margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft.</p><div class="grid"><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/japanese-knife-making">Japanese Knife-Making</a><div class="meta">Fire and metal · Shimanto, Japan</div></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/blacksmithing-and-bladesmithing">Blacksmithing &amp; Bladesmithing</a><div class="meta">Fire and metal · <span style="opacity:.7">not open yet</span></div></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/glassblowing">Glassblowing</a><div class="meta">Fire and metal · <span style="opacity:.7">not open yet</span></div></div></div></div></section>
+<section><div class="wrap"><div class="crail-wrap"><div class="crail-head"><div><div class="mono">If this one pulls you</div><h2>Close to this on the map</h2></div><div class="crail-nav"><button data-cr="prev" aria-label="Previous">&#8249;</button><button data-cr="next" aria-label="Next">&#8250;</button></div></div><p class="meta" style="margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft. Drag, or use the arrows.</p><div class="crail"><a href="/atlas/japanese-knife-making"><span class="cr-w">Fire and metal</span><span class="cr-n">Japanese Knife-Making</span><span class="cr-p">Shimanto, Japan</span><span class="cr-s"><b>open</b> &middot; where to learn it</span></a><a href="/atlas/blacksmithing-and-bladesmithing"><span class="cr-w">Fire and metal</span><span class="cr-n">Blacksmithing &amp; Bladesmithing</span><span class="cr-s">not open yet</span></a><a href="/atlas/glassblowing"><span class="cr-w">Fire and metal</span><span class="cr-n">Glassblowing</span><span class="cr-s">not open yet</span></a></div></div></div></section>
 <section style="border-top:1px solid var(--line);background:var(--ink2)">
 <div class="wrap prose">
-<div class="mono">Why you can trust this map</div>
-<h2 style="font-size:20px;margin:8px 0 14px">What we check before we send you anywhere</h2>
-<p style="opacity:.82;font-size:15px;margin-bottom:16px">This Atlas exists because there is a real difference between a school that teaches you and a good-looking website — and too much of the internet is the second kind. Here is what a place has to clear before it goes on here, and what we'll tell you straight when it doesn't.</p>
-<ul class="clean" style="font-size:14.5px">
-<li><strong style="font-weight:500">The craft is actually alive there.</strong> A working scene, with people who do this every day — not a demo put on for visitors.</li>
-<li><strong style="font-weight:500">There's a real teacher behind it.</strong> Named, still practising, and certified where the craft has certificates.</li>
-<li><strong style="font-weight:500">The credential is what it claims to be.</strong> A state diploma and a certificate a school prints itself are not the same thing. We check which, and we say which.</li>
-<li><strong style="font-weight:500">Nothing here has been stood in yet.</strong> An open sheet — one with a school named — means desk research, not a visit. No place here has been stood in and dated. When one is, the check will carry a name and a date. We'd rather say that than pretend.</li>
-<li><strong style="font-weight:500">Nobody pays to be here.</strong> No commission, no selling the trip. The order on this map is the strength of the community, never the size of the wallet.</li>
-
+<details class="fold">
+<summary>
+<span class="mono" style="color:var(--sea)">Why you can trust this map</span>
+<h2 style="font-size:20px;margin:6px 0 0">How a place gets on here, and what we do when it stops being true</h2>
+</summary>
+<div class="foldbody">
+<p style="opacity:.82;font-size:15px;margin-bottom:16px">There is a real difference between a school that teaches you and a good-looking website, and too much of the internet is the second kind. Four instruments do the work, and every one of them is visible on the page you are already on.</p>
+<ul class="clean" style="font-size:14.5px"><li><strong style="font-weight:500">We grade it in public, and publish what is missing.</strong> The Measure is five named conditions, not a score: the room, the door, the bench, the ground, the stretch. An empty dot tells you which one is missing and why. A craft nobody has graded shows no meter at all, because an absence is not a zero.</li><li><strong style="font-weight:500">We print what we checked and did NOT list.</strong> Every swept craft carries the places we looked at and turned down, each with its reason. That list is the part no marketplace prints, because a rejection is where the money is.</li><li><strong style="font-weight:500">The claims are read back to their sources every night.</strong> A robot re-reads every price, course name and link we publish against the school's own page. When one stops matching three nights running, it is flagged for a human — and an entry that cannot be confirmed comes off. It is never softened.</li><li><strong style="font-weight:500">Where we are not neutral, we say so above the recommendation.</strong> We run one paid week a year, with one teacher. His entry says that before it says anything good about him, and prints the way to reach him without us, at his prices.</li><li><strong style="font-weight:500">Nothing here has been stood in yet.</strong> An open sheet means desk research, carefully done. No place on this map has been visited and dated by us. When one is, the check will carry a name and a date — and until then, the grade says so in the dots it leaves empty.</li><li><strong style="font-weight:500">Nobody pays to be here, and nobody can pay to be left off.</strong> No commission, no listing fee, no tourist board. The order is the strength of the community, never the size of the wallet.</li>
 </ul>
 <details style="margin-top:18px">
 <summary style="cursor:pointer;color:var(--sea);font-size:14px">Before you trust any school — mine or anyone else's — ask these five things</summary>
-<ol style="font-size:14px;opacity:.84;margin:14px 0 0 18px;line-height:1.75">
-<li>Who actually teaches it? Can you find them by name, with a track record you can check yourself?</li>
-<li>Is the craft alive in that place, or is the school the only thing there? A real scene has more than one good option.</li>
-<li>What exactly do you walk away with — a recognised qualification, or a certificate they printed themselves? Ask which.</li>
-<li>Can you speak to someone who did the course? A real person, not a testimonial on their own page.</li>
-<li>What happens on a bad day — weather, an injury, a teacher who doesn't show? A serious place has an honest answer.</li>
-</ol>
+<ol style="font-size:14px;opacity:.84;margin:14px 0 0 18px;line-height:1.75"><li>Who actually teaches it? Can you find them by name, with a track record you can check yourself?</li><li>Is the craft alive in that place, or is the school the only thing there? A real scene has more than one good option.</li><li>What exactly do you walk away with — a recognised qualification, or a certificate they printed themselves? Ask which.</li><li>Can you speak to someone who did the course? A real person, not a testimonial on their own page.</li><li>What happens on a bad day — weather, an injury, a teacher who doesn't show? A serious place has an honest answer.</li></ol>
 <p style="font-size:13px;opacity:.6;margin-top:12px">If a place dodges these, that's your answer. It costs you nothing to ask, and it tells you everything.</p>
 <p style="font-size:13px;opacity:.6;margin-top:10px">This is the short version. <a href="/journal/how-to-find-the-best-school-online" style="color:var(--sea)">The full method is here</a> — the six questions, in order, for any craft anywhere.</p>
+</details>
+</div>
 </details>
 </div>
 </section>
@@ -172,6 +204,32 @@ footer a { color:var(--sea); }
     });
   })();
   apply();
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.crail-wrap').forEach(function(w){
+    var r=w.querySelector('.crail'),p=w.querySelector('[data-cr="prev"]'),n=w.querySelector('[data-cr="next"]');
+    if(!r) return;
+    function step(){ var c=r.firstElementChild; return c?c.getBoundingClientRect().width+14:280; }
+    function sync(){ if(!p||!n) return;
+      p.disabled = r.scrollLeft<=2;
+      n.disabled = r.scrollLeft >= r.scrollWidth-r.clientWidth-2; }
+    if(p) p.addEventListener('click',function(){ r.scrollBy({left:-step(),behavior:'smooth'}); });
+    if(n) n.addEventListener('click',function(){ r.scrollBy({left: step(),behavior:'smooth'}); });
+    r.addEventListener('scroll',sync,{passive:true}); window.addEventListener('resize',sync); sync();
+    // drag to pan, the same gesture as the band. A drag must never fire the link
+    // under it, so a pointer that moved more than a few px swallows the click.
+    var down=false,x0=0,l0=0,moved=0;
+    r.addEventListener('pointerdown',function(e){ down=true;moved=0;x0=e.clientX;l0=r.scrollLeft;r.classList.add('drag'); });
+    r.addEventListener('pointermove',function(e){ if(!down)return; var dx=e.clientX-x0;
+      moved=Math.max(moved,Math.abs(dx)); r.scrollLeft=l0-dx; });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(ev){
+      r.addEventListener(ev,function(){ down=false;r.classList.remove('drag');
+        if(moved>6){ r.addEventListener('click',function k(e){ e.preventDefault();e.stopPropagation();
+          r.removeEventListener('click',k,true); },true); } });
+    });
+  });
 })();
 </script>
 </body>
