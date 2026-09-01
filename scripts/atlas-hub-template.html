@@ -338,7 +338,7 @@ select.fin option{background:var(--ink2)}
 .pmodal{--sc:var(--sea);position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(12px,4vw,40px)}
 .pmodal[hidden]{display:none}
 .pmodal .scrim{position:absolute;inset:0;background:rgba(6,5,4,.78);backdrop-filter:blur(7px);animation:pfade .25s ease both}
-.pmodal .panel{position:relative;display:flex;flex-direction:column;width:min(760px,100%);max-height:min(88vh,940px);background:var(--ink2);border:1px solid color-mix(in srgb,var(--sc) 30%,var(--line));border-radius:18px;box-shadow:0 40px 90px -20px rgba(0,0,0,.75);overflow:hidden;animation:prise .32s cubic-bezier(.2,.8,.2,1) both}
+.pmodal .panel{position:relative;display:flex;flex-direction:column;width:min(760px,100%);height:min(78vh,640px);background:var(--ink2);border:1px solid color-mix(in srgb,var(--sc) 30%,var(--line));border-radius:18px;box-shadow:0 40px 90px -20px rgba(0,0,0,.75);overflow:hidden;animation:prise .32s cubic-bezier(.2,.8,.2,1) both}
 .pmodal .panel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.75}
 @keyframes pfade{from{opacity:0}to{opacity:1}}
 @keyframes prise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
@@ -351,31 +351,51 @@ select.fin option{background:var(--ink2)}
 .phead .pclose:hover,.phead .pclose:focus-visible{border-color:var(--sc);color:var(--paper)}
 .pmodal :focus{outline:none}
 .pmodal :focus-visible{outline:1px solid color-mix(in srgb,var(--sc) 70%,transparent);outline-offset:3px}
-.plist{list-style:none;margin:0;padding:8px 26px 6px;overflow-y:auto;overscroll-behavior:contain}
-/* the list is taller than the panel on a phone, and a list cut by a hard edge looks
-   finished rather than scrollable. A sticky fade sits on the bottom of whatever is
-   in view and says there is more under it. */
-.plist::after{content:"";display:block;position:sticky;bottom:-6px;height:38px;margin-top:-38px;background:linear-gradient(to top,var(--ink2),rgba(20,17,13,0));pointer-events:none}
-.plist li{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:19px 0;border-bottom:1px solid var(--line)}
-.plist li:last-child{border-bottom:none}
-.plist .pn{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--sc);opacity:.75;padding-top:7px}
+/* ONE PLACE AT A TIME. The list used to stack all five and scroll; five places are a
+   set you compare, not a page you read, so the panel shows one and you move through
+   them. Scroll-snap does the whole job in CSS: a phone swipes up and down through the
+   places with no touch handler at all, a trackpad and a wheel do the same, and the
+   buttons and arrow keys below just scroll the same track. scroll-snap-stop:always is
+   what makes a fast flick land on the next place instead of sailing past three. */
+.plist{list-style:none;margin:0;padding:0;flex:1;min-height:0;overflow-y:auto;
+  overscroll-behavior:contain;scroll-snap-type:y mandatory;scroll-behavior:smooth;
+  scrollbar-width:none}
+.plist::-webkit-scrollbar{display:none}
+.plist li{scroll-snap-align:start;scroll-snap-stop:always;min-height:100%;
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-content:center;
+  padding:28px 30px;box-sizing:border-box}
+.plist .pn{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--sc);opacity:.75;padding-top:9px}
 /* the sentence, at a size you read */
-.psay{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(17px,2.1vw,21px);line-height:1.42;color:var(--paper)}
-.pwhere{margin-top:3px;font-size:16px;font-weight:500;color:var(--sc);font-style:italic}
+.psay{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(21px,3.1vw,29px);line-height:1.28;color:var(--paper)}
+.pwhere{margin-top:8px;font-size:clamp(16px,2vw,19px);font-weight:500;color:var(--sc);font-style:italic}
 .pwhere .in{font-size:12.5px;font-weight:400;font-style:normal;opacity:.62}
 /* a place nobody has written a line for yet: its own name, and the research it
    would have been written above — said plainly rather than dressed as a sentence
    that does not exist */
-.pplain{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(17px,2.1vw,21px);line-height:1.42;color:var(--sc);font-style:italic}
-.pwhy{margin-top:8px;font-size:13px;line-height:1.62;color:var(--muted)}
+.pplain{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(21px,3.1vw,29px);line-height:1.28;color:var(--sc);font-style:italic}
+.pwhy{margin-top:16px;font-size:14px;line-height:1.66;color:var(--muted);max-width:52ch}
 .pfoot{padding:16px 26px 20px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .pfoot .pnote{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
 .pfoot .pgo{font-size:14px;color:var(--sc);border-bottom:1px solid rgba(127,168,165,.35);padding-bottom:2px;transition:border-color .2s}
 .pfoot .pgo:hover{border-color:var(--sea)}
+.pnav{display:flex;align-items:center;gap:13px}
+.pdots{display:flex;gap:7px}
+.pdots button{width:7px;height:7px;padding:0;border-radius:99px;background:var(--sc);opacity:.28;transition:opacity .2s,transform .2s}
+.pdots button[aria-current="true"]{opacity:1;transform:scale(1.5)}
+.pdots button:hover{opacity:.7}
+.pcount{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--faint);min-width:52px}
+.parrow{width:30px;height:30px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:12px;line-height:1;transition:border-color .2s,color .2s,opacity .2s}
+.parrow:hover:not(:disabled){border-color:var(--sc);color:var(--paper)}
+.parrow:disabled{opacity:.28}
+/* the swipe is the whole interaction on a phone, so say so once, on the first slide */
+.pswipe{grid-column:1/-1;margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+@media(hover:hover){.pswipe{display:none}}
+@media(prefers-reduced-motion:reduce){.plist{scroll-behavior:auto}}
 body.plocked{overflow:hidden}
 @media(max-width:560px){
-  .phead{padding:19px 18px 15px}.plist{padding:4px 18px}.pfoot{padding:14px 18px 17px}
-  .plist li{grid-template-columns:1fr;gap:6px}.plist .pn{padding-top:0}
+  .phead{padding:19px 18px 15px}.plist{padding:0}.pfoot{padding:14px 18px 17px}
+  .plist li{grid-template-columns:1fr;gap:6px;padding:22px 18px}.plist .pn{padding-top:0}
+  .pfoot{justify-content:center}.pfoot .pgo{order:3;flex:1 0 100%;text-align:center}
 }
 
 /* ── the search bar ────────────────────────────────────────────────────────
@@ -506,7 +526,13 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
     </div>
     <ul class="plist" id="plist"></ul>
     <div class="pfoot">
-      <span class="pnote" id="pnote"></span>
+      <div class="pnav">
+        <div class="pdots" id="pdots"></div>
+        <span class="pcount" id="pcount"></span>
+        <button class="parrow" id="pprev" type="button" aria-label="Previous place">▲</button>
+        <button class="parrow" id="pnext" type="button" aria-label="Next place">▼</button>
+      </div>
+      <span class="pnote" id="pnote" hidden></span>
       <a class="pgo" id="pgo" href="#">Open the full sheet →</a>
     </div>
   </div>
@@ -1328,7 +1354,9 @@ document.addEventListener("et:atlas-interest",function(e){
 var placePanel=(function(){
   var box=document.getElementById("pmodal"),list=document.getElementById("plist"),
       title=document.getElementById("pmodal-h"),note=document.getElementById("pnote"),
-      go=document.getElementById("pgo"),back=null;
+      go=document.getElementById("pgo"),dots=document.getElementById("pdots"),
+      count=document.getElementById("pcount"),prev=document.getElementById("pprev"),
+      next=document.getElementById("pnext"),back=null,at=0,n=0;
   if(!box)return {open:function(){},close:function(){},isOpen:function(){return false;}};
   var open=false;
   function entry(p,i){
@@ -1342,16 +1370,70 @@ var placePanel=(function(){
     // the 43 of 87 that already carry their own "in..." or "here": "...every authorised
     // Ashtanga teacher on earth traces home in Mysore (Gokulam), India." Nothing is
     // folded here any more, and nothing needs to be.
+    var hint=i===0?'<p class="pswipe">Swipe up for the next place</p>':"";
     var lead=p.say||(p.written?p.line:"");
     if(lead){
       return '<li>'+n+'<div><p class="psay">'+esc(lead)+'</p>'+
              '<p class="pwhere"><span class="in">in</span> '+where+'</p>'+
              // the researched line, only when a say line took the lead off it
-             (p.say&&p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div></li>';
+             (p.say&&p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div>'+hint+'</li>';
     }
     return '<li>'+n+'<div><p class="pplain">In '+where+'</p>'+
-           (p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div></li>';
+           (p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div>'+hint+'</li>';
   }
+  // ── the diaporama ───────────────────────────────────────────────────────
+  // Which slide is showing, read off GEOMETRY rather than an IntersectionObserver:
+  // a jump straight to slide 4 never crosses 2 and 3, so an observer leaves them
+  // unreported and the dots lie. Nearest centre is always right, whatever the scroll
+  // did to get there.
+  function current(){
+    var mid=list.scrollTop+list.clientHeight/2,best=0,d=Infinity;
+    for(var i=0;i<list.children.length;i++){
+      var el=list.children[i],
+          top=list.scrollTop+el.getBoundingClientRect().top-list.getBoundingClientRect().top,
+          c=top+el.offsetHeight/2,g=Math.abs(c-mid);
+      if(g<d){d=g;best=i;}
+    }
+    return best;
+  }
+  function mark(i){
+    at=i;
+    count.textContent=(i<9?"0":"")+(i+1)+" / "+(n<10?"0":"")+n;
+    for(var k=0;k<dots.children.length;k++)
+      dots.children[k].setAttribute("aria-current",k===i?"true":"false");
+    prev.disabled=i===0;next.disabled=i===n-1;
+  }
+  // A smooth scroll passes THROUGH the slides between here and there, and the sweep
+  // below reads each one as "the current slide" on the way. Press the arrow twice
+  // quickly and the second press read a rolled-back index and went to the slide you
+  // were already heading for. So the sweep stands down while a move is in flight.
+  var nav=0;
+  function goTo(i){
+    if(i<0||i>=n)return;
+    clearTimeout(nav);nav=setTimeout(function(){nav=0;},420);
+    // scrollTop, not scrollIntoView: the panel is inside a fixed modal and
+    // scrollIntoView walks up the ancestors and shoves the page behind it too.
+    // Measured off the rectangles, because offsetTop is relative to the positioned
+    // .panel rather than the track and would over-scroll by the header's height.
+    list.scrollTop+=list.children[i].getBoundingClientRect().top
+                   -list.getBoundingClientRect().top;
+    mark(i);
+  }
+  // turning a phone changes the slide height, and the reader should still be on the
+  // place they were reading rather than wherever that many pixels now lands
+  addEventListener("resize",function(){
+    if(!open)return;
+    var sb=list.style.scrollBehavior;list.style.scrollBehavior="auto";
+    goTo(at);list.style.scrollBehavior=sb;
+  });
+  var tick=0;
+  list.addEventListener("scroll",function(){
+    if(tick)return;
+    tick=requestAnimationFrame(function(){tick=0;if(nav)return;var i=current();if(i!==at)mark(i);});
+  });
+  prev.onclick=function(){goTo(at-1);};
+  next.onclick=function(){goTo(at+1);};
+
   // `from` is the control that opened it: where focus goes back to on close, and
   // which card the panel takes its colour from. Both were read off
   // document.activeElement first, which is wrong twice over — a programmatic open
@@ -1365,16 +1447,30 @@ var placePanel=(function(){
     box.style.setProperty("--sc",(host&&host.style.getPropertyValue("--sc"))||"var(--sea)");
     title.textContent=craft;
     list.innerHTML=ps.map(entry).join("");
+    n=ps.length;
+    dots.innerHTML=ps.map(function(p,i){
+      return '<button type="button" aria-label="'+esc(placeLine(p.place,p.country))+'"></button>';
+    }).join("");
+    for(var i=0;i<dots.children.length;i++)dots.children[i].onclick=(function(k){
+      return function(){goTo(k);};})(i);
     var written=0;ps.forEach(function(p){if(p.written)written++;});
-    // says what the list is, and does not pretend the unwritten ones are written
-    note.textContent=ps.length+" places"+(written<ps.length?" · "+(ps.length-written)+" not written up yet":"");
+    // The count moved to the slide counter, so this line has one job left: not
+    // pretending the unwritten places are written. It shows up only when that is true,
+    // rather than being hidden along with the count it used to carry.
+    if(written<ps.length){
+      note.textContent=(ps.length-written)+" not written up yet";
+      note.removeAttribute("hidden");
+    }else note.setAttribute("hidden","");
     go.setAttribute("href","/atlas/"+did);
     go.textContent="Open the "+craft+" sheet →";
     box.removeAttribute("hidden");
     document.body.classList.add("plocked");
     open=true;
     var c=box.querySelector(".pclose");if(c)c.focus();
-    list.scrollTop=0;
+    // straight to the first place, with no animation on the way in
+    var sb=list.style.scrollBehavior;list.style.scrollBehavior="auto";
+    list.scrollTop=0;mark(0);
+    requestAnimationFrame(function(){list.style.scrollBehavior=sb;});
   }
   function close(){
     if(!open)return;
@@ -1390,6 +1486,14 @@ var placePanel=(function(){
   document.addEventListener("keydown",function(e){
     if(!open)return;
     if(e.key==="Escape"){e.preventDefault();close();return;}
+    // the panel is a set of places you step through, so the arrows step through them
+    // rather than nudging a scrollbar a few pixels
+    if(e.key==="ArrowDown"||e.key==="ArrowRight"||e.key==="PageDown"){
+      e.preventDefault();goTo(at+1);return;}
+    if(e.key==="ArrowUp"||e.key==="ArrowLeft"||e.key==="PageUp"){
+      e.preventDefault();goTo(at-1);return;}
+    if(e.key==="Home"){e.preventDefault();goTo(0);return;}
+    if(e.key==="End"){e.preventDefault();goTo(n-1);return;}
     // the panel is modal, so the tab ring stays inside it
     if(e.key!=="Tab")return;
     var f=box.querySelectorAll("button, [href]");
