@@ -544,9 +544,6 @@ ul.clean li:last-child {{ border-bottom:none; }}
 .grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }}
 .intent {{ border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }}
 .intent-q {{ font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }}
-.intent-row {{ display:flex; gap:8px; flex-wrap:wrap; }}
-.intent-input {{ flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:16px; }}
-.intent-input:focus {{ outline:none; border-color:var(--sea); }}
 .intent-go {{ border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .intent-go:hover {{ filter:brightness(1.05); }} .intent-go:disabled {{ opacity:.5; cursor:default; }}
 .intent-msg {{ font-size:13.5px; margin-top:10px; }} .intent-msg.ok {{ color:var(--sea); }} .intent-msg.err {{ color:#e0915f; }}
@@ -585,34 +582,37 @@ def circle_cta(line):
             '<a class="cta" href="/#circle">Tell us this pulls you — join the Circle</a>'
             '<p class="meta" style="margin-top:10px">Prices are a verified starting point — no checkout, no hard sell. We introduce; you decide.</p>')
 
-def intent_form(prompt, source, discipline=None, place=None, label=None):
+def intent_form(source, discipline=None, place=None, label=None):
+    """The note, on a craft or a place sheet.
+
+    An empty shell on purpose: /js/intent-capture.js replaces what is inside it with
+    the sheet, the signature and one button, and asks for the address afterwards in a
+    dialog — the note first, the form never. What the page contributes is the craft
+    and the place, through the data-* attributes, so the note already knows what it
+    is about. What is written here is only what a reader whose scripts never arrived
+    would see, and it has to reach me too: a mailto does, with nothing in the way.
+    """
     data = f' data-discipline="{e(discipline)}"' if discipline else ""
     data += f' data-place="{e(place)}"' if place else ""
     data += f' data-label="{e(label)}"' if label else ""
     return (f'<form class="intent"{data} data-source="{e(source)}">'
-            f'<p class="intent-q">{e(prompt)}</p>'
-            '<div class="intent-row">'
-            '<input type="email" name="email" required placeholder="you@email.com" class="intent-input">'
-            '<button type="submit" class="intent-go">Raise your hand</button></div>'
-            '<p class="intent-msg" hidden></p>'
-            '<p class="intent-fine">Prices are a verified starting point — no checkout, no hard sell. We introduce; you decide.</p>'
-            '</form>'
-            '<noscript><a class="cta" href="/#circle">Join the Circle</a></noscript>')
+            '<p class="intent-q">Write me a note about this one &mdash; how you&#39;d love to learn '
+            'it, and where. It comes to my own inbox and I read every one myself.</p>'
+            '<p class="intent-fine">If this box never loads, the same note reaches me at '
+            '<a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>'
+            '</form>')
 
 
 
 # The few rules a short sheet needs that the shared Atlas stylesheet doesn't carry:
-# the state badge, the "most alive" line, and the note's button (the hub calls it
-# .btn; these pages only define .cta).
+# the state badge and the "most alive" line. The note's own button is drawn by
+# /js/intent-capture.js, so there is no .btn here to keep in step with it.
 SHORT_CSS = """
 .notyet { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); border:1px solid rgba(210,138,82,.34); border-radius:99px; padding:4px 11px; }
 .opensby { font-size:13.5px; opacity:.62; white-space:nowrap; }
 @media (max-width:520px) { .opensby { display:block; margin-top:8px; white-space:normal; } }
 .alive { font-size:15px; opacity:.82; margin-top:14px; }
 .alive b { font-weight:500; opacity:1; }
-.btn { display:inline-block; padding:13px 26px; border-radius:99px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; border:none; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); transition:filter .2s,transform .2s; }
-.btn:hover { filter:brightness(1.05); transform:translateY(-1px); }
-.btn:disabled { opacity:.5; cursor:default; transform:none; }
 .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--sea); }
 .serif { font-family:'Fraunces',Georgia,serif; }
 """
@@ -640,12 +640,12 @@ def short_sheet(d, total):
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">That isn't a tease. It's how I keep this honest: I publish a sheet when someone is genuinely going to use it, so I can check it properly before you read it, instead of checking {total} things badly.</p>
 <p style="opacity:.82;font-size:15px;max-width:62ch;margin-top:14px">So the key to this one is a note, and the note comes to me — Arnaud. Not a form and not a team inbox: my own, and I'm the only one who reads it. Write it below and I'll answer you.</p>
 </div></section>
-{atlas_hub.letter_section(
+{atlas_hub.note_section(
     "Write me a note about " + e(d["discipline"]) + ".",
     "A note to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft. "
     "Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at "
     "you, how you\'d want to learn it, and who you\'d want to be in it a year from now.",
-    skill_field=False, prefill=d["discipline"])}
+    discipline=d["id"], label=d["discipline"])}
 {related_block(d["id"])}"""
 
 
@@ -1101,8 +1101,6 @@ for d in DISC:
                   "containedInPlace": {"@type": "Country", "name": x["country"]}}
 
         intent = intent_form(
-            f"{x['place']} pulls you? Leave an email — we'll introduce you to the school and the "
-            f"people going as the map grows toward it.",
             source=f'atlas:{x["id"]}', discipline=d["id"], place=x["id"],
             label=f'{d["discipline"]} · {x["place"]}')
         body = f"""<header class="hero"><div class="wrap">
@@ -1145,10 +1143,8 @@ for d in DISC:
             f'{d["discipline"]} — what it is, and where it\'s most alive',
             desc, path, short_sheet(d, N_CRAFTS),
             breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)],
-            saveable=False, extra_head="<style>" + atlas_hub.LETTER_CSS + SHORT_CSS + "</style>",
-            extra_scripts='<script defer src="/js/atlas-circle-interest.js"></script>'
-                          '<script>' + atlas_hub.LETTER_JS + '</script>',
-            body_attrs=f' data-craft-slug="{e(d["id"])}"'))
+            saveable=False, extra_head="<style>" + atlas_hub.NOTE_CSS + SHORT_CSS + "</style>",
+            extra_scripts='<script defer src="/js/atlas-circle-interest.js"></script>'))
         continue
 
     title = f'{d["discipline"]} — where to learn it at the source ({len(d["destinations"])} destinations)'
@@ -1161,7 +1157,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{depth_link(d)}
 </div></header>
-<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{intent_form(f"{d['discipline']} pulls you? Leave an email — we'll introduce you to the right place and the right people as the map grows.", source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>
+<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>
 {craft_depth(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,

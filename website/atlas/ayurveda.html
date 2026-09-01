@@ -18,50 +18,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Atlas", "item": "https://educatedtraveler.app/atlas/"}, {"@type": "ListItem", "position": 2, "name": "Ayurveda", "item": "https://educatedtraveler.app/atlas/ayurveda"}]}</script>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script><style>
-:root{--sheet:#f6efe0;--sheet-ink:#2c231a;--sheet-edge:#d9cdb4;--sheet-faint:rgba(44,35,26,.5)}
+/* The frame around the note — the heading, the sub, and the width it sits in.
+   The sheet, the signature, the button and the dialog are drawn by
+   /js/intent-capture.js, which is the one note on the site. */
 .letter{margin:52px 0 18px;scroll-margin-top:74px}
 .letter .lhead{text-align:center;max-width:60ch;margin:0 auto 24px}
 .letter h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(25px,3.8vw,38px);line-height:1.1;margin:12px 0 14px;letter-spacing:-.01em}
 .letter .lsub{color:var(--muted);font-size:15px;line-height:1.65}
 .letter .lsub b{color:var(--paper);font-weight:400}
 .lbox{max-width:660px;margin:0 auto}
-.lfield{margin-bottom:16px}
-.lfield label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin-bottom:7px}
-.lfield input{width:100%;background:rgba(243,237,226,.04);border:1px solid rgba(243,237,226,.16);border-radius:12px;color:var(--paper);font-family:inherit;font-size:16px;padding:12px 14px;outline:none;transition:border-color .2s}
-.lfield input:focus{border-color:rgba(127,168,165,.6)}
-.lfield input::placeholder{color:rgba(243,237,226,.3)}
-.sheet{position:relative;background:linear-gradient(180deg,var(--sheet) 0%,#ece1cc 100%);border-radius:5px;padding:30px 30px 26px;color:var(--sheet-ink);border:1px solid var(--sheet-edge);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 30px 60px -24px rgba(0,0,0,.6),0 2px 10px rgba(0,0,0,.35)}
-.sheet::after{content:"";position:absolute;left:14px;right:14px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,0,0,.1),transparent)}
-.sheet .lhd{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid rgba(44,35,26,.18);padding-bottom:8px;margin-bottom:15px}
-.sheet .to{font-family:'Caveat','Fraunces',cursive;font-size:clamp(28px,4.4vw,36px);line-height:1;color:#3a2c1e}
-.sheet .date{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sheet-faint);margin:0 0 4px}
-.sheet textarea{width:100%;min-height:210px;background:transparent;border:none;outline:none;resize:vertical;color:var(--sheet-ink);font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:17px;line-height:34px;background-image:repeating-linear-gradient(transparent,transparent 33px,rgba(44,35,26,.14) 33px,rgba(44,35,26,.14) 34px);padding:0}
-.sheet textarea::placeholder{color:rgba(44,35,26,.34);font-style:italic}
-.sheet .sign{margin-top:18px;text-align:right}
-.sheet .sign .yours{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15px;color:var(--sheet-faint)}
-.sheet .sign .name{font-family:'Caveat','Fraunces',cursive;font-size:30px;line-height:1;color:#3a2c1e;margin-top:2px;min-height:30px}
-.prompts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.prompts button{font-family:inherit;font-size:12.5px;color:var(--muted);background:rgba(243,237,226,.03);border:1px solid rgba(243,237,226,.15);border-radius:11px;padding:8px 12px;transition:all .18s}
-.prompts button:hover{border-color:rgba(127,168,165,.5);color:var(--paper)}
-.lrow{display:flex;align-items:center;gap:18px;margin-top:22px;flex-wrap:wrap}
-.lcount{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--faint)}
-.sign-off{display:none;margin-top:22px;padding:22px 22px 20px;border:1px solid var(--line);border-left:2px solid var(--sea);border-radius:14px;background:rgba(127,168,165,.05)}
-.sign-off.on{display:block;animation:lrise .45s cubic-bezier(.2,.8,.2,1) both}
-@keyframes lrise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.sign-off .sh{font-family:'Fraunces',Georgia,serif;font-size:19px;margin-bottom:6px}
-.sign-off .sp{color:var(--muted);font-size:13.5px;line-height:1.6;margin-bottom:16px}
-.sotwo{display:grid;grid-template-columns:1fr 1.35fr;gap:10px}
-@media(max-width:560px){.sotwo{grid-template-columns:1fr}}
-.lerr{display:none;color:#f0a58a;font-size:13px;margin-top:14px;line-height:1.55}
-.lerr a{color:var(--sea);text-decoration:underline}
-.lfine{font-size:11.5px;color:var(--faint);margin-top:12px;line-height:1.6}
-.ldone{display:none;text-align:center;padding:34px 24px 30px;border:1px solid var(--line);border-radius:18px;background:rgba(243,237,226,.02)}
-.ldone.on{display:block;animation:lrise .5s cubic-bezier(.2,.8,.2,1) both}
-.ldone h3{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3.2vw,31px);margin:12px 0 12px}
-.ldone p{color:var(--muted);max-width:48ch;margin:0 auto 10px;font-size:14.5px;line-height:1.65}
-.ldone .lpoem{color:var(--sea);font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:15.5px;margin-top:18px}
-.ldone .lback{display:inline-block;margin-top:20px;font-size:12.5px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
-.ldone .lback:hover{color:var(--sea)}
 .cint{font-size:11.5px;color:var(--sea);margin-top:9px;padding-top:9px;border-top:1px solid var(--line);line-height:1.45}
 .cint:empty{display:none}
 .cint .cint-dot{font-size:7px;vertical-align:2px;margin-right:6px;opacity:.85}
@@ -71,9 +36,6 @@
 @media (max-width:520px) { .opensby { display:block; margin-top:8px; white-space:normal; } }
 .alive { font-size:15px; opacity:.82; margin-top:14px; }
 .alive b { font-weight:500; opacity:1; }
-.btn { display:inline-block; padding:13px 26px; border-radius:99px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; font-family:inherit; border:none; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); transition:filter .2s,transform .2s; }
-.btn:hover { filter:brightness(1.05); transform:translateY(-1px); }
-.btn:disabled { opacity:.5; cursor:default; transform:none; }
 .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--sea); }
 .serif { font-family:'Fraunces',Georgia,serif; }
 </style>
@@ -114,9 +76,6 @@ ul.clean li:last-child { border-bottom:none; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
 .intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }
 .intent-q { font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }
-.intent-row { display:flex; gap:8px; flex-wrap:wrap; }
-.intent-input { flex:1 1 220px; background:rgba(243,237,226,0.04); border:1px solid rgba(243,237,226,0.16); border-radius:99px; padding:11px 16px; color:var(--paper); font-size:16px; }
-.intent-input:focus { outline:none; border-color:var(--sea); }
 .intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .intent-go:hover { filter:brightness(1.05); } .intent-go:disabled { opacity:.5; cursor:default; }
 .intent-msg { font-size:13.5px; margin-top:10px; } .intent-msg.ok { color:var(--sea); } .intent-msg.err { color:#e0915f; }
@@ -133,7 +92,7 @@ footer a { color:var(--sea); }
 @media(max-width:560px) { .cur-toggle .lab { display:none; } .cur-toggle { right:10px; bottom:10px; } }
 </style>
 </head>
-<body data-craft-slug="ayurveda">
+<body>
 <nav class="top"><div class="wrap">
 <a class="brand" href="/">EDUCATEDTRAVELER</a>
 <div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" style="margin:0;padding:8px 18px;font-size:13px;">Join the Circle</a><a href="/profile" id="et-nav-profile" class="cta" style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your Profile</a></div>
@@ -157,37 +116,13 @@ footer a { color:var(--sea); }
     <h2 class="serif" id="letter-h">Write me a note about Ayurveda.</h2>
     <p class="lsub">A note to <b>Arnaud</b> &mdash; me &mdash; is what opens this craft. Not a form: it lands in my inbox and I read every one myself. Tell me why this one pulls at you, how you'd want to learn it, and who you'd want to be in it a year from now.</p>
   </div>
-  <div class="lbox" id="lbox">
-    <input type="hidden" id="l_skill" value="Ayurveda">
-    <div class="sheet">
-      <div class="lhd"><div class="to">Dear Arnaud,</div><div class="date" id="l_date"></div></div>
-      <label for="l_body" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your note</label>
-      <textarea id="l_body" placeholder="The skill I keep coming back to is… Tell me why it pulls at you, how you'd want to learn it, and what you'd want to be able to do with it."></textarea>
-      <div class="sign"><div class="yours">Talk soon,</div><div class="name" id="l_sign"></div></div>
-    </div>
-    <div class="prompts" id="l_prompts"></div>
-    <div class="lrow">
-      <button class="btn" id="l_send" type="button">Send this note &rarr;</button>
-      <span class="lcount" id="l_count">0 words</span>
-    </div>
-    <div class="sign-off" id="l_signoff">
-      <div class="sh serif">Sign it, so I know who I'm writing back to.</div>
-      <p class="sp">Your note goes straight to my inbox, and sending it puts you in the Circle — that's how I stay in touch when I find a master worth your time. Never a drip. Unsubscribe in one click.</p>
-      <div class="sotwo">
-        <div class="lfield" style="margin:0"><label for="l_name">First name</label><input id="l_name" placeholder="Marie" autocomplete="given-name"></div>
-        <div class="lfield" style="margin:0"><label for="l_email">Email</label><input id="l_email" type="email" placeholder="you@example.com" autocomplete="email"></div>
-      </div>
-      <div class="lrow"><button class="btn" id="l_confirm" type="button">Send it to Arnaud &rarr;</button></div>
-      <div class="lerr" id="l_err"></div>
-      <div class="lfine">It goes to me, Arnaud. I'm the only one who reads it.</div>
-    </div>
-  </div>
-  <div class="ldone" id="l_done">
-    <div class="eyebrow">Sent</div>
-    <h3 class="serif" id="l_donehead">Your note is with me.</h3>
-    <p id="l_donebody">I read every one myself, and I answer.</p>
-    <p class="lpoem">Every craft on this map started with somebody saying it out loud.</p>
-    <a class="lback" href="/about">The story of why I built this &rarr;</a>
+  <div class="lbox">
+    <form class="intent" data-discipline="ayurveda" data-label="Ayurveda" data-source="atlas:ayurveda">
+      <p class="intent-q">Write me a note about this one &mdash; how you&#39;d love to learn it, and where.
+      It comes to my own inbox and I read every one myself.</p>
+      <p class="intent-fine">If this box never loads, the same note reaches me at
+      <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>
+    </form>
   </div>
 </section></div>
 <section><div class="wrap"><div class="mono">If this one pulls you</div><h2>Close to this on the map</h2><p class="meta" style="margin:6px 0 14px">Grouped by hand, not by an algorithm — same hands, same instinct, a different craft.</p><div class="grid"><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/lymphatic-drainage">Lymphatic Drainage</a><div class="meta">Hands on the body · Walchsee, Austria</div></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/thai-massage">Thai Massage</a><div class="meta">Hands on the body · Chiang Mai, Thailand</div></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/reflexology-and-shiatsu">Reflexology &amp; Shiatsu</a><div class="meta">Hands on the body · Tokyo, Japan · <span style="opacity:.7">not open yet</span></div></div><div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/traditional-spa-and-hydrotherapy">Traditional Spa &amp; Hydrotherapy</a><div class="meta">Hands on the body · Budapest, Hungary · <span style="opacity:.7">not open yet</span></div></div></div></div></section>
@@ -240,128 +175,7 @@ footer a { color:var(--sea); }
 })();
 </script>
 <script src="/js/intent-capture.js" defer></script>
-<script defer src="/js/atlas-circle-interest.js"></script><script>
-(function(){
-  var $=function(id){return document.getElementById(id);};
-  var skillIn=$("l_skill"),body=$("l_body"),nameIn=$("l_name"),emailIn=$("l_email");
-  if(!skillIn||!body) return;
-  var SLUG=(document.body.getAttribute("data-craft-slug")||"");
-
-  var dl=$("l_skills");
-  if(dl&&window.ET_ATLAS_INDEX){
-    (window.ET_ATLAS_INDEX.crafts||[]).map(function(c){return c.name;})
-      .sort(function(a,b){return a.localeCompare(b);})
-      .forEach(function(n){var o=document.createElement("option");o.value=n;dl.appendChild(o);});
-  }
-
-  var MN=["January","February","March","April","May","June","July","August","September","October","November","December"];
-  var now=new Date();$("l_date").textContent=MN[now.getMonth()]+" "+now.getDate()+", "+now.getFullYear();
-
-  function words(){var t=body.value.trim();return t?t.split(/\s+/).length:0;}
-  function syncCount(){var n=words();$("l_count").textContent=n+" word"+(n===1?"":"s");}
-  function syncSign(){$("l_sign").textContent=(nameIn&&nameIn.value.trim())||"";}
-  body.addEventListener("input",syncCount);
-  if(nameIn)nameIn.addEventListener("input",syncSign);
-  syncCount();
-
-  var PROMPTS=[
-    ["The craft","The skill I keep coming back to is "],
-    ["Why it pulls","What pulls me to it is "],
-    ["How I'd learn it","I'd want to learn it by "],
-    ["A year from now","A year from now I'd want to be able to "],
-    ["What stops me","What stops me right now is "]
-  ];
-  var pbox=$("l_prompts");
-  PROMPTS.forEach(function(p){
-    var b=document.createElement("button");b.type="button";b.textContent=p[0];
-    b.onclick=function(){
-      var v=body.value, pad=(v && !/\n\s*$/.test(v))?"\n\n":"";
-      body.value=v+pad+p[1];body.focus();
-      try{body.selectionStart=body.selectionEnd=body.value.length;}catch(e){}
-      syncCount();
-    };
-    pbox.appendChild(b);
-  });
-
-  $("l_send").onclick=function(){
-    if(words()<3){body.focus();body.style.backgroundColor="rgba(210,138,82,.12)";
-      setTimeout(function(){body.style.backgroundColor="";},900);return;}
-    var so=$("l_signoff");so.classList.add("on");
-    setTimeout(function(){try{nameIn.focus();}catch(e){}so.scrollIntoView({behavior:"smooth",block:"nearest"});},120);
-  };
-
-  function flag(el){el.focus();el.style.borderColor="#d28a52";setTimeout(function(){el.style.borderColor="";},1600);}
-
-  var PK="et_letter_pending";
-  function stash(p){try{localStorage.setItem(PK,JSON.stringify(p));}catch(e){}}
-  function unstash(){try{localStorage.removeItem(PK);}catch(e){}}
-  var flushing=false;
-  function flush(){
-    var sb=window.supabaseClient;if(!sb||flushing)return;
-    var raw;try{raw=localStorage.getItem(PK);}catch(e){return;}
-    if(!raw)return;
-    var p;try{p=JSON.parse(raw);}catch(e){unstash();return;}
-    if(!p||!p.email){unstash();return;}
-    flushing=true;
-    sb.from("launch_waitlist").insert(p).then(function(res){
-      flushing=false;
-      if(!res.error){unstash();if(window.plausible)window.plausible("AtlasLetterRecovered",{props:{source:p.source}});}
-    }).catch(function(){flushing=false;});
-  }
-  flush();setTimeout(flush,2500);
-
-  $("l_confirm").onclick=async function(){
-    var btn=this,err=$("l_err");err.style.display="none";
-    var nm=(nameIn.value||"").trim(), em=(emailIn.value||"").trim(), txt=body.value.trim(), sk=(skillIn.value||"").trim();
-    if(!nm)return flag(nameIn);
-    if(!em||em.indexOf("@")<1||em.indexOf(".")<0)return flag(emailIn);
-
-    btn.disabled=true;btn.textContent="Sending…";
-    var interests=[{kind:"profile",name:nm}];
-    if(sk)interests.push(SLUG?{kind:"discipline",discipline:sk,slug:SLUG,label:sk}
-                             :{kind:"discipline",discipline:sk});
-    interests.push({kind:"dream",text:txt});
-    var payload={email:em,interests:interests,source:SLUG?("atlas-letter:"+SLUG):"atlas-letter"};
-
-    try{
-      var sb=window.supabaseClient;
-      if(!sb)throw new Error("offline");
-      var res=await sb.from("launch_waitlist").insert(payload);
-      if(res&&res.error)throw res.error;
-      unstash();
-      if(window.plausible)window.plausible("AtlasLetter",{props:{skill:sk||"unnamed"}});
-
-      // The note is already on its way to Arnaud — the insert fires notify-lead.
-      // Now found their account, the same way /circle's seal does: a magic link,
-      // no password, ever. This is deliberately AFTER the insert and its failure
-      // is not fatal — a note that reached him is worth more than an account,
-      // and we must never lose the note because auth had a bad minute.
-      var acct=false;
-      try{
-        var otp=await sb.auth.signInWithOtp({email:em,
-          options:{emailRedirectTo:window.location.origin+"/portrait",shouldCreateUser:true}});
-        acct=!(otp&&otp.error);
-        if(!acct)console.warn("[Note] account link failed:",otp&&otp.error);
-        if(acct&&window.plausible)window.plausible("AtlasLetterAccountLink");
-      }catch(ae){console.warn("[Note] account link threw:",ae);}
-
-      $("l_donehead").textContent="Your note is with me, "+nm+".";
-      $("l_donebody").textContent=acct
-        ? "I read every one myself, and I answer. You're in the Circle now — and I've sent a sign-in link to "+em+". One click and this note, and the crafts you pick from here, live on a page that's yours. No password, ever."
-        : "I read every one myself, and I answer. Your note is safe with me — but the sign-in link didn't go out just now, so there's no account waiting yet. Ask for a fresh one at educatedtraveler.app/you, or just write to me at arnaudcallier@pm.me. Either way I'll write when I find the master, the place and the moment that fit what you just told me.";
-      $("lbox").style.display="none";
-      $("l_done").classList.add("on");
-      $("letter").scrollIntoView({behavior:"smooth",block:"start"});
-    }catch(e){
-      console.error("[Note] insert failed:",e);
-      stash(payload);
-      btn.disabled=false;btn.textContent="Send it to Arnaud →";
-      err.innerHTML='That didn’t go through just now — your note is safe on this screen. Try once more, or send it straight to <a href="mailto:arnaudcallier@pm.me">arnaudcallier@pm.me</a>, which reaches the same inbox.';
-      err.style.display="block";
-    }
-  };
-})();
-</script>
+<script defer src="/js/atlas-circle-interest.js"></script>
 <footer><div class="wrap"><p style="margin:0 0 14px"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Ayurveda&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/ayurveda%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p><p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the notes I write in <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 <div class="cur-toggle" id="cur-toggle" hidden title="Show prices in your currency — converted at live ECB rates; the original is the source of truth">
 <span class="lab">Prices</span><button data-c="orig">Original</button><button data-c="EUR">€ EUR</button><button data-c="USD">$ USD</button></div>

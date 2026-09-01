@@ -96,8 +96,11 @@ footer{padding:40px 0 60px;font-size:13px;opacity:.5;} footer a{color:var(--sea)
 </div></header>
 <main class="article"><div class="wrap">
 ${body}
-<div class="intent" style="margin-top:34px;"><p class="intent-q">${esc(title)} pulls you? Leave an email — I'll introduce you to the right place and the right people as the map grows.</p>
-<form class="intent" data-discipline="${esc(slug)}" data-label="${esc(title)}" data-source="atlas:${esc(slug)}"><div class="intent-row"><input type="email" name="email" required placeholder="you@email.com" class="intent-input"><button type="submit" class="intent-go">Raise your hand</button></div><p class="intent-msg" hidden></p></form></div>
+<div style="margin-top:34px;">
+<!-- The note. /js/intent-capture.js replaces what is inside this form with the sheet,
+     the signature and one button, and asks for the address afterwards in a dialog.
+     What is written here is only what a reader whose scripts never arrived sees. -->
+<form class="intent" data-discipline="${esc(slug)}" data-label="${esc(title)}" data-source="atlas:${esc(slug)}"><p class="intent-q">Write me a note about this one &mdash; how you&#39;d love to learn it, and where. It comes to my own inbox and I read every one myself.</p><p class="intent-fine">If this box never loads, the same note reaches me at <a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p></form></div>
 </div></main>
 <section class="trust"><div class="wrap">
 <div class="mono">Why you can trust this map</div>
