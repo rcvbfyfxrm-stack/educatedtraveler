@@ -27,7 +27,9 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
      craft's own name, in the same words the grid's cardInner() builds it from;
      11. the band's title and where stacks hold exactly the places the index says it
      walks, in order, so the two card builders cannot drift and no card can change
-     height under the pointer; 12. no sheet card folds its place into its sentence. The band is static HTML from Python and the walk is JS reading
+     height under the pointer; 12. no sheet card folds its place into its sentence, it leads with the shortest
+     written line there is for that place, and this check actually found the headings
+     it was meant to read (it silently matched none once, and reported OK). The band is static HTML from Python and the walk is JS reading
      ET_ATLAS; if the two ever disagree the card changes its sentence the instant a
      pointer touches it, which reads as a lie and looks like a bug.
 
@@ -249,22 +251,37 @@ for _did, _say in _extra.get("sayLines", {}).items():
 # collides: "...every authorised Ashtanga teacher on earth traces home in Mysore
 # (Gokulam), India." The place goes on its own line under the sentence, for all of
 # them. This fails if anything ever folds it back in.
+# ⚠ The h2's style attribute is NOT part of the contract and this check used to pin it
+# exactly. A `line-height` was added to the heading and the pattern quietly matched zero
+# rows — the gate reported OK on every page while inspecting nothing, and shipped that
+# way. Hence `_seen`: a check that can fall silent is worse than no check, so this one
+# fails when it finds nothing to look at.
+_say_lines = _extra.get("sayLines", {})
 _places_by_id = {x["id"]: x for d in _disc for x in d["destinations"]}
+_seen = 0
 for _page in sorted((ROOT / "website/atlas").glob("*.html")):
     _html = _page.read_text()
-    for _h2, _did in re.findall(r'<h2 style="margin:6px 0 4px">(.*?)</h2>\s*'
+    for _h2, _did in re.findall(r'<h2 style="[^"]*">([^<]*)</h2>\s*'
                                 r'<div class="dwhere">.*?/atlas/([a-z0-9-]+)"', _html, re.S):
         _x = _places_by_id.get(_did)
         if not _x:
             continue
+        _seen += 1
         _tail = f'{_x["place"]}, {_x["country"]}'
         if html_mod.unescape(_h2).rstrip(". ").endswith(_tail):
             bad(f"{_page.name}: the heading for {_did} folds its own place in — "
                 f"the place already prints on the line under it")
-        _line = (learn_lines.get(_did) or "").strip()
+        # the short line when there is one: `learn` is `say` plus a clause and the `why`
+        # four lines below already carries both, so the middle tier goes
+        _line = (_say_lines.get(_did) or "").strip() or (learn_lines.get(_did) or "").strip()
         if _line and html_mod.unescape(_h2) != _line:
             bad(f"{_page.name}: the heading for {_did} is not that place's written line\n"
                 f"      page:    {html_mod.unescape(_h2)[:90]}\n      written: {_line[:90]}")
+_want_heads = sum(1 for _d in _disc for _x in _d["destinations"]
+                  if (learn_lines.get(_x["id"]) or "").strip())
+if _seen != _want_heads:
+    bad(f"check 12 inspected {_seen} sheet heading(s) but {_want_heads} places carry a "
+        f"written line — the pattern has stopped matching the page and this check is blind")
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:

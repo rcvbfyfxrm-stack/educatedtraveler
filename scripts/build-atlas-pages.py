@@ -913,7 +913,15 @@ def dest_card(d, x, link=True, is_best=False):
     #
     # A craft that opened unattended has no written line yet, so it keeps the old head:
     # the place as the title, with nothing pretending to be a sentence above it.
-    written = (LEARN_LINES.get(x["id"]) or "").strip()
+    # THE SHORT LINE WHEN THERE IS ONE. `learn` is `say` plus a clause, and the `why`
+    # printed four lines below already carries both — "Learn to work a one-way glass
+    # hide, on the farm where the technique was invented." over "One-way glass hide
+    # photography was invented here. Bence Máté... built over 25 hides on the family
+    # farm". Three tiers, one fact. The say line and the untouched `why` say everything
+    # the middle tier said, in less, so the middle tier goes (Arnaud, 2026-08-31: "more
+    # concise without losing substance"). Verified place by place before cutting: every
+    # one of the five is a compression of the `why` beneath it.
+    written = (SAY_LINES.get(x["id"]) or "").strip() or (LEARN_LINES.get(x["id"]) or "").strip()
     if written and link:
         # a sentence, not a place name: it needs a headline's leading, not the body's
         head = (f'<h2 style="margin:6px 0 4px;line-height:1.24">{e(written)}</h2>'
