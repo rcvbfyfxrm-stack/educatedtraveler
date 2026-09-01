@@ -12,7 +12,8 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
      data/atlas-unlocked.json, never a pinned sheet Arnaud wrote himself;
   3. the band is in date order, newest first, and every date is the one in
      data/atlas-opened.json — printed, not invented;
-  4. the counts in the copy equal the counts in the data;
+  4. the counts in the hero facts equal the counts in the data, and the band has
+     not grown a second copy of them;
   5. the five world colours in atlas_hub.WORLD_COLOR still match the WORLDS map
      the page itself draws with, so a band card is the colour of its world;
   6. every card links to a craft page that exists on disk;
@@ -125,23 +126,34 @@ elif int(m[1]) != len(cards):
     bad(f"the band says 'all {m[1]}' but carries {len(cards)} cards")
 
 # ── 4. the counts in the copy are the counts in the data ───────────────────
+# The band lost its standfirst on 2026-08-31, and with it the sentence that used to
+# carry these two numbers. They are still printed — in the hero facts, first screen —
+# so the check moved rather than died: a hero that says "34 open in full · 28 opened
+# because someone asked" over data that says otherwise is exactly the silent wrong
+# this file exists to stop.
 idx = (ROOT / "website/js/atlas-index.js").read_text()
 crafts = json.loads(idx[idx.index("{"):idx.rindex("}") + 1])["crafts"]
 n_open = sum(1 for c in crafts if c["open"])
 n_asked = sum(1 for c in crafts if c["open"] and c["id"] in hands)
 
-m = re.search(r"<b>(\d+) of the (\d+) open crafts</b>", band)
-if not m:
-    bad("the band no longer prints the two counts — nothing to check, which is worse")
-elif (int(m[1]), int(m[2])) != (n_asked, n_open):
-    bad(f"the band says {m[1]} of {m[2]}; the data says {n_asked} of {n_open}")
+facts = re.search(r'<ul class="herofacts">.*?</ul>', html, re.S)
+if not facts:
+    bad("the hero facts are gone — the page no longer prints how much of it is open, "
+        "and nothing else on it does")
+else:
+    for label, want in (("open in full", n_open),
+                        ("opened because someone asked", n_asked)):
+        m = re.search(r"<b>(\d+)</b><span>" + re.escape(label) + r"</span>", facts[0])
+        if not m:
+            bad(f'the hero no longer prints "{label}" — nothing to check, which is worse')
+        elif int(m[1]) != want:
+            bad(f'the hero says {m[1]} {label}; the data says {want}')
 
-m = re.search(r"The other (\d+|one) I opened myself", band)
-n_mine = n_open - n_asked
-if n_mine and not m:
-    bad(f"{n_mine} crafts were opened by hand and the band does not say so")
-elif m and (1 if m[1] == "one" else int(m[1])) != n_mine:
-    bad(f"the band claims {m[1]} hand-opened crafts; the data says {n_mine}")
+# The band must not quietly grow a standfirst back with counts typed into it: two
+# places printing the same number is how they drift.
+if re.search(r"open crafts</b>|I opened myself", band):
+    bad("the band is claiming counts in its copy again — the hero facts are the one "
+        "place those numbers are printed, and two places is how they drift apart")
 
 # ── 8. the number on the card is the length of the list it walks ───────────
 # The cue is written by build-atlas-pages (dests carrying a place); placeWalk()

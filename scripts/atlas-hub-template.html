@@ -123,10 +123,21 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
    and the search bar is the first thing in it — without this the bar lands behind
    the nav and the page looks like it scrolled to the filter panel. Same 74px the
    letter already uses. */
-.studio{padding:12px 0 30px;scroll-margin-top:74px}.studio .grid{display:grid;grid-template-columns:272px minmax(0,1fr);gap:26px;align-items:start}
-@media(max-width:880px){.studio .grid{grid-template-columns:minmax(0,1fr)}}
-.side{position:sticky;top:74px;border:1px solid var(--line);border-radius:16px;background:var(--ink2);max-height:calc(100vh - 90px);overflow:auto}
-@media(max-width:880px){.side{position:static;max-height:none}}
+.studio{padding:12px 0 30px;scroll-margin-top:74px}
+/* Folded, the filter is not a column (2026-08-31, Arnaud's ask). It used to hold
+   272px and a gap on the left whether or not anybody had opened it, so the first
+   thing in the studio was the filter and the skills were what was left over —
+   and the shelves lost a card's width off the right edge to a panel nobody had
+   touched. Closed, the grid is one track: the bar sits above the results and the
+   skills get the whole page. Open it and the sidebar comes back exactly as it
+   was. The class is set by script rather than :has() so the layout does not
+   depend on a selector the page can't feature-test. */
+.studio .grid{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;align-items:start}
+.studio .grid.sideopen{grid-template-columns:272px minmax(0,1fr)}
+@media(max-width:880px){.studio .grid.sideopen{grid-template-columns:minmax(0,1fr)}}
+.side{border:1px solid var(--line);border-radius:16px;background:var(--ink2);width:272px;max-width:100%}
+.grid.sideopen .side{position:sticky;top:74px;max-height:calc(100vh - 90px);overflow:auto}
+@media(max-width:880px){.side{width:auto}.grid.sideopen .side{position:static;max-height:none}}
 
 /* ── the filter, folded ───────────────────────────────────────────────────
    Closed to start, on every screen. Seven filter groups opened flat is a
@@ -1600,6 +1611,21 @@ document.addEventListener("click",function(e){
     if(to&&card.contains(to))return;
     stop();
   });
+})();
+
+/* ── the fold decides the layout ───────────────────────────────────────────
+   The panel is a <details>, so the only thing that knows whether it is open is
+   the element itself. Mirror that onto the grid, once at load and on every
+   toggle, and the closed state is a bar above the skills rather than a column
+   beside them. If this script never runs the grid stays one track and the panel
+   opens full width above the results — narrower than intended, still usable. */
+(function(){
+  var sf=document.getElementById("sidefold"),
+      gr=document.querySelector(".studio .grid");
+  if(!sf||!gr)return;
+  function sync(){gr.classList.toggle("sideopen",sf.open);}
+  sf.addEventListener("toggle",sync);
+  sync();
 })();
 })();
 

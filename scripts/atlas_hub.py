@@ -214,8 +214,6 @@ HUB_EXTRA_CSS = """
 .newopen{padding:36px 0 6px}
 .newopen .nohead{max-width:62ch;margin-bottom:20px}
 .newopen h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(23px,3.2vw,34px);line-height:1.1;letter-spacing:-.01em;margin:11px 0 12px}
-.newopen .nosub{color:var(--muted);font-size:14.5px;line-height:1.7}
-.newopen .nosub b{color:var(--paper);font-weight:400}
 /* A RAIL, NOT A ROW OF FOUR (2026-08-25, Arnaud's ask).
    The band used to be a four-card grid and the other twenty-four crafts the Circle
    opened were simply not on the page — the section claimed "the crafts someone asked
@@ -281,7 +279,7 @@ HUB_EXTRA_JS = """
 """
 
 
-def opened_band(items, n_asked, n_open):
+def opened_band(items):
     """The crafts the Circle opened, newest first — the band above the browse.
 
     Static HTML, not drawn by JavaScript: it is the first thing on the page after
@@ -295,23 +293,23 @@ def opened_band(items, n_asked, n_open):
     every craft this band shows — Safari & Wildlife Guiding opened off a profile and
     the RPC has no row for it. Either would print a number beside some cards and
     nothing beside others, and "opened because someone asked" next to a blank reads
-    as nobody asked. The section says the mechanism once; the card says the day.
+    as nobody asked. The heading says what the section is; the card says the day.
 
     Every craft the Circle opened is in here, not the first four (2026-08-25). It is
     a rail rather than a grid because "the crafts someone asked for" showing four of
     twenty-eight is a claim the section does not keep, and cutting the sentence is
     worse than making the row scroll.
 
+    No standfirst under the heading (2026-08-31, Arnaud's ask). It explained the
+    mechanism — how a craft goes from an entry to an open sheet, and how many got
+    here that way — and the heading plus the dates on the cards already say it. The
+    two counts it carried are still printed, in the hero facts, where the gate now
+    reads them.
+
     items: [{id, name, place, country, color, opened, why, blurb}] in display order.
-    n_asked / n_open: real, derived, and printed rather than typed.
     """
     if not items:
         return ""
-    n_mine = n_open - n_asked
-    # The second half of the sentence only exists while there are sheets Arnaud
-    # wrote himself. If that ever goes to zero the line must not still claim them.
-    mine = (f" The other {n_mine} I opened myself." if n_mine > 1 else
-            " The other one I opened myself." if n_mine == 1 else "")
     cards = []
     for it in items:
         where = it["place"]
@@ -370,11 +368,6 @@ def opened_band(items, n_asked, n_open):
         '<div class="nohead">'
         '<div class="eyebrow">Opened by the Circle</div>'
         '<h2 class="serif" id="opened-h">The crafts someone asked for, newest first.</h2>'
-        '<p class="nosub">Every craft here starts as a short entry. When a real person names '
-        'one — in a note, on a raise-your-hand form, or on the way into the Circle — I do '
-        'the work behind it: the places, the schools, the reason to go. Then it opens. '
-        f'<b>{n_asked} of the {n_open} open crafts</b> got here that way.{mine} Each date is '
-        'the day the ask landed.</p>'
         '</div>'
         f'<div class="nocount"><span id="noseen">1 of {n}</span>'
         f'<span class="track"><i id="nofill"></i></span>'
@@ -456,7 +449,7 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
     #    not attempted: if the anchor ever moves in the template the build stops
     #    rather than shipping a page that quietly lost its band.
     anchor = '<main class="studio" id="studio">'
-    band = opened_band(list(opened), n_asked, n_open)
+    band = opened_band(list(opened))
     if band:
         if anchor not in t:
             raise SystemExit("atlas_hub: the <main class=\"studio\"> anchor is gone from "
