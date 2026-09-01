@@ -47,6 +47,110 @@ WORLD_COLOR = {
 }
 
 
+# ── the worldwide sweep: what was looked at, and what did not clear ─────────
+# Arnaud, 2026-09-01: "make sure you check all the market worldwide when rendering a
+# skill, so nothing is forgotten."
+#
+# The failure this exists to stop is not a wrong fact. It is a MISSING one, and a
+# missing one leaves no trace: Modernist Spanish Cuisine shipped with a pick, a star
+# and four destinations, and Le Cordon Bleu Madrid — the only room on the craft where
+# a non-Spanish speaker can follow the lesson live — was simply not in the file.
+# Nothing on the page was false. Nothing on the page could have told you.
+#
+# So a craft records where it LOOKED, not only what it found, and it records what it
+# turned down. The rejections are the part that matters twice over: they stop the next
+# session re-deriving the same four dead ends, and published, they are the one thing
+# the Standard says no rival will print — a public count of what was checked and did
+# not clear. A sweep with an empty rejected list is not a sweep that found everything
+# worthy; it is a sweep that was not written down. The gate says so.
+SWEEP_REGIONS = [
+    "Western Europe", "Southern Europe & Mediterranean", "Nordic & Baltic",
+    "Eastern Europe & Central Asia", "North America", "Latin America & Caribbean",
+    "Sub-Saharan Africa", "Middle East & North Africa", "South & Southeast Asia",
+    "East Asia", "Oceania",
+]
+# A craft may be genuinely concentrated — Argentine tango is not under-swept for having
+# no Oceania entry. What is checked is that somebody LOOKED, in every region, on a day.
+SWEEP_STALE_DAYS = 365
+
+
+def sweep_problems(craft_id, sweep, today):
+    """[] when the record is usable, else one line per thing wrong with it.
+
+    Hard problems only — a malformed sweep is worse than none, because it looks like
+    diligence. Staleness is reported separately by sweep_stale(); an old sweep is
+    still a real one.
+    """
+    out = []
+    if not isinstance(sweep, dict):
+        return [f"{craft_id}: sweep must be an object"]
+    d = (sweep.get("date") or "").strip()
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", d):
+        out.append(f"{craft_id}: sweep.date must be YYYY-MM-DD, got {d!r}")
+    elif d > today:
+        out.append(f"{craft_id}: sweep.date {d} is in the future")
+    regions = sweep.get("regions") or []
+    if not regions:
+        out.append(f"{craft_id}: sweep.regions is empty — name the regions you searched")
+    unknown = [r for r in regions if r not in SWEEP_REGIONS]
+    if unknown:
+        out.append(f"{craft_id}: sweep.regions has names that are not regions: {unknown}")
+    if len(set(regions)) != len(regions):
+        out.append(f"{craft_id}: sweep.regions repeats a region")
+    rejected = sweep.get("rejected") or []
+    if not rejected:
+        out.append(f"{craft_id}: sweep.rejected is empty. A worldwide look that turned "
+                   "nothing down was not written down — record what you found and why "
+                   "it is not on the map.")
+    for r in rejected:
+        if not (r.get("name") or "").strip():
+            out.append(f"{craft_id}: a rejected entry has no name")
+        if not (r.get("why") or "").strip():
+            out.append(f"{craft_id}: rejected {r.get('name','?')!r} with no reason — "
+                       "an unexplained rejection is a private opinion, not a record")
+        u = (r.get("url") or "").strip()
+        if u and not u.startswith(("http://", "https://")):
+            out.append(f"{craft_id}: rejected {r.get('name','?')!r} has a malformed url")
+    return out
+
+
+def sweep_bounded(sweep):
+    """A craft that is regional by its own name is not under-swept for being so.
+
+    "Modernist SPANISH Cuisine" searched in one region is a complete sweep, and
+    printing "1 of 11" against it would be a false alarm that teaches everyone to
+    ignore the real ones. The escape hatch is a SENTENCE, not a flag: say why the
+    search stops where it does, and the reader can disagree with the reasoning.
+    """
+    return ((sweep or {}).get("bounded") or "").strip()
+
+
+def sweep_gaps(sweep):
+    """Regions this craft has not been searched in yet.
+
+    Reported and PUBLISHED, never fatal. A craft swept in five regions of eleven is a
+    true statement about an unfinished job; a craft with all eleven typed in because
+    the build demanded them is a false one, and the second is the failure mode a gate
+    like this actually creates. So the gap is carried in the open, on the page, the
+    way the Atlas already carries "nothing here has been stood in yet".
+    """
+    if sweep_bounded(sweep):
+        return []
+    have = set((sweep or {}).get("regions") or [])
+    return [r for r in SWEEP_REGIONS if r not in have]
+
+
+def sweep_stale(sweep, today, days=SWEEP_STALE_DAYS):
+    """True when the sweep is older than `days`. Decay is the wedge; a sweep decays too."""
+    import datetime as _dt
+    d = (sweep or {}).get("date") or ""
+    try:
+        then = _dt.date.fromisoformat(d)
+    except ValueError:
+        return True
+    return (_dt.date.fromisoformat(today) - then).days > days
+
+
 # ── provenance: an immersive line may not out-claim its own research ────────
 # learnLines (data/atlas-extra-sheets.json) are hand-written above the `why` they
 # summarise, and the failure mode is not a typo — it is DRIFT. Arnaud's own worked

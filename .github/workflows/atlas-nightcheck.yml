@@ -1,0 +1,66 @@
+name: Night check the Atlas
+
+# Read every claim on an open craft back against the page it came from, once a night,
+# and say what no longer holds.
+#
+# Arnaud, 2026-09-01: "automatically double check each skill added by night."
+#
+# It found something on its first run: Espai Sucre, listed on two crafts as "operating
+# and enrollable", shut on 31 July 2024. Its TLS certificate was the tell. Nothing
+# inside the repo could have told us — that is the whole argument for this job.
+#
+# WHAT IT WILL NEVER DO: edit a claim, sign a check, or take an entry down. Rule 10
+# wants a name and a date on a check, and a runner has neither. It produces evidence;
+# Arnaud decides. See the header of scripts/night-check.py.
+#
+# Runs at 02:40, ahead of concierge-draft (03:12) and the Atlas rebuild (04:05), so
+# the morning's build already prints anything that has been failing three nights.
+on:
+  schedule:
+    - cron: '40 2 * * *'
+  workflow_dispatch:
+    inputs:
+      craft:
+        description: 'One craft id, or blank for every open craft'
+        required: false
+
+jobs:
+  check:
+    if: github.repository == 'rcvbfyfxrm-stack/educatedtraveler'
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+
+      # continue-on-error: the run is RED when something needs a decision, and the
+      # report still has to be committed on exactly those nights — that is the night
+      # the file matters. The step below re-reads the exit code and fails the job at
+      # the end, after the evidence is safely on main.
+      - name: Read the claims back against their sources
+        id: night
+        continue-on-error: true
+        run: |
+          set +e
+          python3 scripts/night-check.py ${{ inputs.craft && format('--craft {0}', inputs.craft) || '' }} \
+            | tee /tmp/nightcheck.log
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Commit the report and the failure counts
+        run: |
+          git config user.name  "et-atlas"
+          git config user.email "atlas@educatedtraveler.app"
+          git add docs/ATLAS-NIGHTCHECK.md data/atlas-verify-state.json
+          git commit -m "atlas: night check — what the sources still say" || { echo "nothing changed"; exit 0; }
+          # The Atlas rebuild pushes to the same branch 85 minutes later; on the rare
+          # race, rebase onto it rather than clobbering a rebuild.
+          git pull --rebase --autostash origin main || true
+          git push
+
+      - name: Fail if something needs a decision
+        if: steps.night.outputs.code != '0'
+        run: |
+          echo "::error::A published claim has failed three nights running, or a page has just started 404ing. See docs/ATLAS-NIGHTCHECK.md — re-verify by hand, then re-date the entry or take it down."
+          tail -30 /tmp/nightcheck.log
+          exit 1

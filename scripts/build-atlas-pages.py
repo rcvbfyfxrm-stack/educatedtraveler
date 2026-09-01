@@ -35,6 +35,7 @@ hand-written sheets and the redirect stubs that keep already-shared URLs alive.
 regen can be diffed against the live site to prove the fold-in is faithful; never
 commit its output.
 """
+import datetime as _dt
 import json, html, re, sys
 from urllib.parse import quote as _q
 from pathlib import Path
@@ -208,6 +209,69 @@ for _d in DISC:
     if _rel and not (_d.get("disclosure") or "").strip():
         raise SystemExit(f'build-atlas-pages: {_d["id"]} names a school we have a relationship '
                          f'with ({", ".join(_rel)}) and carries no disclosure.')
+
+
+TODAY = _dt.date.today().isoformat()
+
+# A malformed sweep is worse than no sweep: it reads as diligence and is not. So a
+# sweep that exists must be well-formed or the build stops. A craft with NO sweep is
+# a backlog item, not an error — 34 crafts opened before this rule existed and
+# failing on all of them would just mean the rule gets deleted. The backlog is
+# printed instead, the way rule 10's is, so it stays visible until it is empty.
+_sweep_bad, SWEEP_MISSING, SWEEP_STALE = [], [], []
+for _d in DISC:
+    _sw = _d.get("sweep")
+    if _sw is None:
+        if is_open(_d["id"]):
+            SWEEP_MISSING.append(_d["id"])
+        continue
+    _sweep_bad += atlas_hub.sweep_problems(_d["id"], _sw, TODAY)
+    if atlas_hub.sweep_stale(_sw, TODAY):
+        SWEEP_STALE.append(_d["id"])
+if _sweep_bad:
+    raise SystemExit("build-atlas-pages: the worldwide sweep on these crafts is not "
+                     "usable —\n  " + "\n  ".join(_sweep_bad))
+
+
+def sweep_block(d):
+    """What we looked at and did not list — the Standard's own wedge, printed.
+
+    Rivals publish what cleared. A panel cannot chase decay and a marketplace will not
+    print the route around itself, and neither will print the places that failed: the
+    count of what was checked and did not clear is the one thing only a record can
+    say. It sits under the destinations, in plain type, with the day it was done.
+    """
+    sw = d.get("sweep")
+    if not sw:
+        return ""
+    rows = ""
+    for r in sw.get("rejected") or []:
+        nm = e(r["name"])
+        if r.get("url"):
+            nm = (f'<a class="school-url" rel="nofollow noopener" target="_blank" '
+                  f'href="{e(r["url"])}">{nm} \u2197</a>')
+        where = f' <span class="meta">{e(r["place"])}</span>' if r.get("place") else ""
+        rows += (f'<li><strong style="font-weight:500">{nm}</strong>{where}'
+                 f'<div style="font-size:14px;opacity:.75;margin-top:4px">{e(r["why"])}</div></li>')
+    nreg = len(sw.get("regions") or [])
+    bounded = atlas_hub.sweep_bounded(sw)
+    scope = (f'Searched on {e(sw["date"])}. {e(bounded)}' if bounded else
+             f'Searched in {nreg} of {len(atlas_hub.SWEEP_REGIONS)} regions of the world, '
+             f'on {e(sw["date"])}.')
+    gaps = atlas_hub.sweep_gaps(sw)
+    gap_html = (f'<p class="meta" style="margin-top:12px">Not searched yet: '
+                f'{e(", ".join(gaps))}. If you know this craft in one of those, '
+                'write and say so — that is how the next sweep gets pointed.</p>'
+                ) if gaps else ""
+    stale = ('<p class="meta" style="margin-top:10px;color:var(--ember)">This sweep is over a '
+             'year old. Treat it as a record of what was true then, not of what is true now.</p>'
+             ) if atlas_hub.sweep_stale(sw, TODAY) else ""
+    return ('<section><div class="wrap prose"><div class="mono">Checked and not listed</div>'
+            f'<h2>What did not clear</h2>'
+            f'<p class="meta" style="margin-bottom:14px">{scope} Everything below is real, and '
+            'none of it is on this map. The reason sits next to each one, because a place left '
+            'off without a reason is just an opinion.</p>'
+            f'<ul class="clean" style="font-size:14.5px">{rows}</ul>{gap_html}{stale}</div></section>')
 
 
 def disclosure_block(d, section=True):
@@ -1280,7 +1344,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{depth_link(d)}
 </div></header>
-<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>
+<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{sweep_block(d)}
 {craft_depth(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
@@ -1584,5 +1648,30 @@ if _drift_say:
         print(f"      {_did}: {_kind} {_tok!r}")
 if SAY_LINES:
     print(f"  ✓ {len(SAY_LINES)} place(s) say what you would be doing there, not just where it is")
+# The worldwide-sweep backlog. An open craft with no sweep is one where nobody has
+# written down where they looked — which is exactly how Le Cordon Bleu Madrid stayed
+# off Modernist Spanish Cuisine while the sheet carried a star and four places.
+_swept = [d["id"] for d in DISC if is_open(d["id"]) and d.get("sweep")]
+if SWEEP_MISSING:
+    print(f"  ⚠ worldwide sweep — {len(SWEEP_MISSING)} of {len(SWEEP_MISSING) + len(_swept)} open "
+          f"crafts have no record of where they were searched: {', '.join(sorted(SWEEP_MISSING)[:5])}"
+          + (f", +{len(SWEEP_MISSING) - 5} more" if len(SWEEP_MISSING) > 5 else ""))
+if _swept:
+    print(f"  ✓ {len(_swept)} craft(s) publish what they checked and did not list")
+if SWEEP_STALE:
+    print(f"  ⚠ {len(SWEEP_STALE)} sweep(s) older than a year, re-sweep due: {', '.join(sorted(SWEEP_STALE))}")
+
+# What the night check found and could not resolve. Read from disk rather than
+# fetched: the build must never depend on the network, and it must never quietly
+# publish a claim the night has been failing to confirm.
+_vstate = ROOT / "data/atlas-verify-state.json"
+if _vstate.exists():
+    _vs = json.loads(_vstate.read_text()).get("entries", {})
+    _sick = sorted(k for k, v in _vs.items() if v.get("failing", 0) >= 3)
+    if _sick:
+        print(f"  ⚠⚠ {len(_sick)} claim(s) the night check has failed to confirm 3+ times running "
+              f"— re-verify or take them down: {', '.join(_sick[:4])}"
+              + (f", +{len(_sick) - 4} more" if len(_sick) > 4 else ""))
+
 if ASSUME_ALL_OPEN:
     print("  !! --assume-all-open: this output is for diffing only. Do not commit it.")

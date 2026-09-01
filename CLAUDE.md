@@ -136,3 +136,12 @@ supabase functions deploy send-welcome-email      # edge functions
 ---
 
 *History, deploy archaeology and the email-config method: `docs/HISTORY.md`.*
+
+## Rendering a skill on the Atlas
+
+**Check the whole market before you write the sheet, and write down where you looked.**
+A missing school leaves no trace on the page — that is how Le Cordon Bleu Madrid stayed
+off Modernist Spanish Cuisine while it carried a star, four places and verified prices.
+`docs/ATLAS-SWEEP.md` is the standard: the `sweep` block, what the build refuses, and
+what the nightly re-check does. The rejections are not an appendix — published, they are
+the one thing the Standard says no rival will print.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Put the "Close to this on the map" block on the hand-written craft sheets.
+"""Put the generator's shared blocks on the hand-written craft sheets.
 
 build-atlas-pages.py adds that block to every craft page it generates, but the nine
 hand-written sheets in data/atlas-extra-sheets.json's `preserve` list are — correctly —
@@ -19,10 +19,14 @@ one; the only classes used are `wrap`, `eyebrow` and `serif`, which all nine car
 import html, json, re, sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import atlas_hub
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "website" / "atlas"
 DRY = "--dry" in sys.argv
 OPEN_MARK, CLOSE_MARK = "<!-- et:related-crafts -->", "<!-- /et:related-crafts -->"
+SWEEP_OPEN, SWEEP_CLOSE = "<!-- et:sweep -->", "<!-- /et:sweep -->"
 e = html.escape
 
 MANIFEST = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())
@@ -101,6 +105,53 @@ def block(craft_id):
             f'</div></section>\n{CLOSE_MARK}\n')
 
 
+DISC_BY_ID = {d["id"]: d for d in DISC}
+
+
+def sweep_block(craft_id):
+    """"Checked and not listed", for a preserved sheet.
+
+    The lesson this file was written to record, applied to itself: every time the
+    generator grows a convention, ask what it does to the hand-written sheets, because
+    they are invisible to it BY DESIGN and they are the deepest pages on the Atlas. The
+    worldwide sweep is the newest such convention, and the craft with the most thorough
+    sweep on the map — New culinary techniques & technologies — is a preserved sheet.
+    Without this, the one page that most needed to publish what it turned down would
+    have been the only page that could not.
+    """
+    d = DISC_BY_ID.get(craft_id)
+    sw = (d or {}).get("sweep")
+    if not sw:
+        return ""
+    rows = ""
+    for r in sw.get("rejected") or []:
+        nm = e(r["name"])
+        if r.get("url"):
+            nm = (f'<a href="{e(r["url"])}" target="_blank" rel="nofollow noopener" '
+                  f'style="color:var(--sea);text-decoration:none">{nm} \u2197</a>')
+        where = (f' <span style="color:var(--muted);font-size:13px">{e(r["place"])}</span>'
+                 if r.get("place") else "")
+        rows += ('<li style="padding:10px 0;border-bottom:1px solid var(--line)">'
+                 f'<strong style="font-weight:500">{nm}</strong>{where}'
+                 f'<div style="font-size:14px;color:var(--muted);margin-top:4px">{e(r["why"])}</div></li>')
+    bounded = atlas_hub.sweep_bounded(sw)
+    scope = (f'Searched on {e(sw["date"])}. {e(bounded)}' if bounded else
+             f'Searched in {len(sw.get("regions") or [])} of {len(atlas_hub.SWEEP_REGIONS)} '
+             f'regions of the world, on {e(sw["date"])}.')
+    gaps = atlas_hub.sweep_gaps(sw)
+    gap = (f'<p style="font-size:13px;color:var(--muted);margin-top:12px">Not searched yet: '
+           f'{e(", ".join(gaps))}. If you know this craft in one of those, write and say so — '
+           'that is how the next sweep gets pointed.</p>') if gaps else ""
+    return (f'{SWEEP_OPEN}\n<section><div class="wrap">'
+            '<div class="eyebrow">Checked and not listed</div>'
+            '<h2 class="serif">What did not clear</h2>'
+            f'<p style="font-size:13px;color:var(--muted);margin:6px 0 14px;max-width:62ch">{scope} '
+            'Everything below is real, and none of it is on this map. The reason sits next to each '
+            'one, because a place left off without a reason is just an opinion.</p>'
+            f'<ul style="list-style:none;padding:0;margin:0">{rows}</ul>{gap}'
+            f'</div></section>\n{SWEEP_CLOSE}\n')
+
+
 # The craft sheets in `preserve` — the redirect stubs and place pages are not craft pages.
 sheets = sorted(s for s in PRESERVE
                 if s.endswith(".html") and "--" not in s and s[:-5] in META)
@@ -110,22 +161,25 @@ for name in sheets:
     if not p.exists():
         skipped.append((name, "file missing"))
         continue
-    t = p.read_text()
+    t = t2 = p.read_text()
     new_block = block(name[:-5])
     if not new_block:
         skipped.append((name, "no family"))
         continue
 
-    if OPEN_MARK in t:                       # re-run: replace in place
-        t2 = re.sub(re.escape(OPEN_MARK) + r".*?" + re.escape(CLOSE_MARK) + r"\n?",
-                    new_block, t, flags=re.S)
-    else:
-        anchor = '<section class="trust"' if '<section class="trust"' in t else "<footer"
-        if anchor not in t:
+    for om, cm, blk in ((OPEN_MARK, CLOSE_MARK, new_block),
+                        (SWEEP_OPEN, SWEEP_CLOSE, sweep_block(name[:-5]))):
+        if not blk:
+            continue
+        if om in t2:                         # re-run: replace in place
+            t2 = re.sub(re.escape(om) + r".*?" + re.escape(cm) + r"\n?", blk, t2, flags=re.S)
+            continue
+        anchor = '<section class="trust"' if '<section class="trust"' in t2 else "<footer"
+        if anchor not in t2:
             skipped.append((name, "no anchor"))
             continue
-        i = t.index(anchor)
-        t2 = t[:i] + new_block + t[i:]
+        i = t2.index(anchor)
+        t2 = t2[:i] + blk + t2[i:]
     if t2 != t:
         if not DRY:
             p.write_text(t2)
