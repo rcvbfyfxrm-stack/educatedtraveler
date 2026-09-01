@@ -258,6 +258,9 @@ def sibling_line(d):
             f'{e(sib["label"])} &rarr;</a></p>')
 
 
+_WORD = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "All five"}
+
+
 def measure_block(d):
     """The Measure — is this community worth the trip, and how.
 
@@ -286,15 +289,18 @@ def measure_block(d):
     return (
       '<section><div class="wrap">'
       '<div class="mono">Is this community worth the trip</div>'
-      f'<h2 style="margin-bottom:10px">{dots} of 5 &mdash; and here is which {dots}</h2>'
-      '<p class="meta" style="margin:0 0 16px">We grade a craft on five things and publish the '
-      'ones we could not check. The dots are not a score out of five: each is a named condition, '
-      'and an empty one tells you exactly what is missing.</p>'
+      f'<h2 style="margin-bottom:10px">{_WORD.get(dots, dots)} of the five things we check '
+      f'are true here</h2>'
+      '<p class="meta" style="margin:0 0 16px">We check five things before we send anyone '
+      'anywhere. Here they are for this craft &mdash; the ones that hold, and the ones we cannot '
+      'answer yet. An empty dot is not a mark against the place: it says we have not been.</p>'
       '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
       'border-left:2px solid var(--sea)">'
       f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'
-      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.16em;'
-      f'text-transform:uppercase;color:var(--ember);margin:0 0 18px">{mm["verdict"]}</p>'
+      # a sentence, not a badge: uppercase letterspaced mono is for short labels, and
+      # a shouted two-line verdict is a guide awarding a distinction — not us talking.
+      f'<p style="font-size:15.5px;line-height:1.55;color:var(--ember);margin:0 0 18px">'
+      f'{mm["verdict"]}.</p>'
       f'{rows}{note}'
       # the generated template has no .checked rule — carry the look inline so the
       # line does not silently collapse into one run of prose here.

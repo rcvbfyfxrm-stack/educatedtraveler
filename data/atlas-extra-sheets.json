@@ -385,13 +385,13 @@
     "wildlife-photography--south-luangwa": "Learn to photograph on foot, four to a group",
     "wildlife-photography--falmouth": "Learn underwater photography as a degree"
   },
-  "_measure_comment": "The Measure — a craft-level grade, five named conditions on the five dots. Rendered only for crafts listed here: a craft with no entry shows no meter, which is an absence and not a zero. Dots are capped by evidence state — desk research stops at three, because THE GROUND and THE STRETCH are exactly what a brochure claims and only a visit settles.",
+  "_measure_comment": "The Measure — the per-craft answer to the promise the trust block already makes: what we check before we send you anywhere. Five named conditions on the five dots. Rendered only for crafts listed here; a craft with no entry shows no meter, which is an absence and not a zero. Desk research stops at three — the ground and the stretch are what a brochure claims, and only somebody standing in the room settles them. Never write a line that ranks one craft against another, and never borrow a restaurant guide's award language: we report what we found and hand the reader the decision.",
   "measure": {
     "modernist-spanish-cuisine": {
       "dots": 3,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "Worth the detour — go if the craft already pulls you",
+      "verdict": "If this craft already pulls you, there is enough here to go on — we have not stood in it, so we will not tell you to cross the world for it yet",
       "state": "researched, not checked",
       "checker": "Arnaud Callier",
       "date": "1 September 2026",
@@ -409,21 +409,21 @@
         {
           "n": "The bench",
           "on": true,
-          "t": "The strongest thing this craft has — and the place dots above are the evidence for it, not a second opinion. Barcelona is where the elBulli cooks actually landed, and Disfrutar, opened by three of them, was named the world's best restaurant in 2024. Madrid gathers the whole avant-garde once a year at Madrid Fusión, running since 2003 and reaching its 25th edition in February 2027. There is a generation above you here, and one below."
+          "t": "The strongest thing this craft has — and the community dots above are the evidence for it, not a second opinion. Barcelona is where the elBulli cooks actually landed, and Disfrutar, opened by three of them, was named the world's best restaurant in 2024. Madrid gathers the whole avant-garde once a year at Madrid Fusión, running since 2003 and reaching its 25th edition in February 2027. There is a generation above you here, and one below."
         },
         {
           "n": "The ground",
           "on": false,
-          "t": "Empty because nobody from EducatedTraveler has been — not because it failed. This is the dot that would fill first, and it is the one this craft can win that the travelling toolkit never can: <a href=\"/atlas/modern-new-technique-cuisine\" style=\"color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)\">that technique</a> goes anywhere, and this cuisine came from here."
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. It is also the first thing a visit would settle, and the one this craft can answer that the travelling toolkit never can: <a href=\"/atlas/modern-new-technique-cuisine\" style=\"color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)\">that technique</a> goes anywhere, and this cuisine came from here."
         },
         {
           "n": "The stretch",
           "on": false,
-          "t": "Held by the same cap, and there is more here than an attendance certificate: the Superior Certificate is a real nine-month qualification, and a stage in a kitchen of this lineage is months on the line. The ceiling is as high as this craft gets — three Michelin stars at DiverXO, the world's best restaurant list at Disfrutar."
+          "t": "The same reason, and there is more here than an attendance certificate: the Superior Certificate is a real nine-month qualification, and a stage in a kitchen of this lineage is months on the line. As high as this craft goes is very high — three Michelin stars at DiverXO, the world's best restaurant list at Disfrutar."
         }
       ],
-      "check": "Graded from the entries already verified on this page, not from a fresh sweep. Nobody from EducatedTraveler has stood in either room — and that alone is what holds the last two dots, not doubt about the places.",
-      "ceilingNote": "Ceiling five: this craft belongs to its ground, so a visit could take it the whole way."
+      "check": "Read from the entries already verified on this page, not from a fresh sweep. Nobody from EducatedTraveler has stood in either room — and that alone is what holds the last two, not doubt about the places. When somebody does, the line will carry their name and the day they went.",
+      "ceilingNote": "All five are reachable here: this cuisine belongs to its ground, so a visit could answer the last two."
     }
   }
 }
