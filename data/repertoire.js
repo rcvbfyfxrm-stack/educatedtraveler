@@ -13777,6 +13777,10 @@ window.ET_ATLAS = {
             {
               "name": "Japan Culinary Masters Academy (JCMA)",
               "url": "https://jcma.tokyo",
+              "risingStar": {
+                "since": "2026-06",
+                "why": "Too new to have a record, and worth watching for exactly that reason: the teacher who carried Tokyo Sushi Academy's English course has opened her own room, for eight people at a time. Nobody has finished the diploma yet. Go now and you are early — and you are one of the people the next reader gets to ask."
+              },
               "course": "Sushi Diploma Course — six weeks, three levels, ending in omakase at the counter",
               "blurb": "New, and the newest thing on this craft: the operating company was established in June 2026 and the school runs out of Otsuka in Bunkyo-ku. What makes it worth naming this early is who is at the front of it. Hiroko Ishii is principal and representative director, and she was one of the two main instructors of Tokyo Sushi Academy's English course — Tokyo Sushi Academy's own video site names 'Hiro sensei and Hiroko sensei' in that role, and she no longer appears on their instructor page. Her route there ran through food science, French cuisine at Le Cordon Bleu Paris, and nine years in Switzerland cooking sushi and teaching it. The course is six weeks in three two-week levels — knife work and shari, then whole-fish butchery and counter service, then anago, hirame, tsumami and the structure of an omakase; the final exam is serving omakase at the counter, and includes a visit to the Tokyo fish market. English instruction, maximum eight students. 1,200,000 JPY tax included for the six weeks, or 420,000 JPY a level, and they help with the student visa for 10,000 JPY. Honest note: it has been open a matter of months and has no alumni to ask. That is a real risk and the reason it is not our pick — but a named teacher with that lineage, in English, in a room of eight, is the strongest new thing on this craft. Checked on jcma.tokyo, 2 September 2026.",
               "verify": ["Hiroko Ishii", "Max 8 Students", "English Instruction"],

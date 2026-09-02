@@ -428,6 +428,50 @@ def sweep_block(d):
             "</div></details></div></section>")
 
 
+# ── rising star: a room too new to have a record, said as a category ──────
+# Arnaud, 2026-09-02, on JCMA opening in June: "that's why you can tag it as rising
+# star". He is right, and it is the better shape. Burying "it has no alumni" in prose
+# reads as a hedge on a recommendation; naming the category turns the same fact into
+# the reason to look — a new room with a named teacher is interesting BECAUSE nobody
+# has been yet, and the reader can price that themselves.
+#
+# THE ONE PROPERTY IT MUST HAVE IS AN EXPIRY. A "new" badge that never comes off is a
+# lie with a delay on it, and decay is this map's whole wedge. So the tag carries the
+# month the room opened, the build works out how new that still is, and past
+# RISING_MONTHS it REFUSES TO BUILD until somebody takes the tag off or the school has
+# earned a real entry. Nothing here ages quietly.
+RISING_MONTHS = 24
+
+
+def rising_star(s_):
+    """The chip, or "" — and a hard stop once the tag has outlived its truth."""
+    r = s_.get("risingStar")
+    if not r:
+        return ""
+    since = (r.get("since") or "").strip()
+    if not re.fullmatch(r"\d{4}-\d{2}", since):
+        raise SystemExit(f'build-atlas-pages: {s_["name"]!r} is tagged risingStar and needs '
+                         "`since` as YYYY-MM, the month it opened. \"New\" without a date is "
+                         "just an adjective.")
+    y, m = (int(v) for v in since.split("-"))
+    months = (int(TODAY[:4]) - y) * 12 + (int(TODAY[5:7]) - m)
+    if months < 0:
+        raise SystemExit(f'build-atlas-pages: {s_["name"]!r} says it opened {since}, in the future.')
+    if months > RISING_MONTHS:
+        raise SystemExit(
+            f'build-atlas-pages: {s_["name"]!r} has been "rising" for {months} months. Past '
+            f"{RISING_MONTHS} it is not new — it is unproven, or it is established. Take the tag "
+            "off and say which. A badge that never expires is a lie with a delay on it.")
+    age = ("opened this month" if months < 1 else
+           "open one month" if months == 1 else f"open {months} months")
+    return ('<div style="margin-top:6px"><span style="display:inline-block;'
+            "font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;"
+            'text-transform:uppercase;color:var(--ember);border:1px solid rgba(210,138,82,.45);'
+            f'border-radius:99px;padding:2px 9px">Rising star &middot; {e(age)}</span>'
+            '<div style="font-size:13.5px;color:var(--muted);margin-top:6px;max-width:62ch">'
+            f'{e(r["why"])}</div></div>')
+
+
 def has_relationship(x):
     return any(s.get("etRelationship") for s in (x.get("schoolsInfo") or []))
 
@@ -1470,6 +1514,7 @@ for d in DISC:
             if s["name"].lower() in seen: continue
             seen.add(s["name"].lower())
             inner = f'<strong style="font-weight:500">{e(s["name"])}</strong>'
+            inner += rising_star(s)
             if s.get("course"): inner += f'<div class="meta">{e(s["course"])}</div>'
             if s.get("blurb"): inner += f'<div style="font-size:14px;opacity:.75;margin-top:4px">{e(s["blurb"])}</div>'
             if s.get("rating"):
