@@ -69,6 +69,20 @@
               color:var(--faint); margin-bottom:12px; display:block; }
         .blk h2{ font-family:'Fraunces',Georgia,serif; font-weight:300; font-size:1.28rem; letter-spacing:-0.01em; margin-bottom:6px; }
         .note{ color:var(--muted); font-size:14px; line-height:1.6; }
+        .vf{ display:block; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em;
+             text-transform:uppercase; color:var(--muted); }
+        .vf select, .vf input[type=text], .vf input[type=date], .vf textarea{
+             display:block; width:100%; margin-top:6px; background:rgba(243,237,226,0.04);
+             border:1px solid rgba(243,237,226,0.16); border-radius:8px; padding:9px 11px;
+             color:var(--paper); font-family:'Inter',system-ui,-apple-system,sans-serif;
+             font-size:14px; letter-spacing:0;
+             text-transform:none; }
+        .vf textarea{ resize:vertical; line-height:1.55; }
+        .vf select:focus, .vf input:focus, .vf textarea:focus{
+             outline:none; border-color:rgba(127,168,165,0.6); box-shadow:0 0 0 3px rgba(127,168,165,0.12); }
+        .vf-check{ display:flex; gap:9px; align-items:flex-start; margin:14px 0 14px;
+             color:var(--muted); font-size:13.5px; line-height:1.55; }
+        .vf-check input{ margin-top:3px; flex:0 0 auto; }
         .note.empty{ color:var(--faint); font-style:italic; }
         .note a{ color:var(--sea); text-decoration:none; }
         .note a:hover{ text-decoration:underline; }
@@ -297,6 +311,44 @@
                 <a href="/portrait">Add it to your portrait &rarr;</a></p>
         </section>
 
+
+        <!-- A CHEF WHO STOOD IN THE ROOM (vouches) — hidden until the Atlas index loads -->
+        <section class="blk" id="s-vouch" style="display:none">
+            <span class="lbl">Somewhere you actually went</span>
+            <h2 class="serif">Sign for a room you have stood in.</h2>
+            <p class="note">Every page on the Atlas says the same thing: nobody from here has stood
+                in these rooms yet. You can change that for one of them. Your name and your trade go
+                on it, because a working chef&rsquo;s word is worth something to the next one &mdash;
+                and it is the only kind of evidence that can answer what a website never will.</p>
+            <form id="v-form" style="margin-top:16px;max-width:560px">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 12px">
+                    <label class="vf">Craft<select id="v-craft"></select></label>
+                    <label class="vf">Where<select id="v-place"></select></label>
+                    <label class="vf">Your trade<select id="v-trade"></select></label>
+                    <label class="vf">When you were there<input type="date" id="v-when" required></label>
+                    <label class="vf">What you did<select id="v-state">
+                        <option value="stood in it">I stood in it &mdash; I was taught there</option>
+                        <option value="checked it">I checked it &mdash; I went and looked</option>
+                    </select></label>
+                    <label class="vf">How you got there<select id="v-route">
+                        <option value="direct">I went on my own</option>
+                        <option value="with-us">I came on a week EducatedTraveler sold</option>
+                    </select></label>
+                </div>
+                <label class="vf" style="margin-top:12px">The name to put on it
+                    <input type="text" id="v-name" maxlength="40" placeholder="Kate M." required></label>
+                <label class="vf" style="margin-top:12px">What you actually saw
+                    <textarea id="v-what" rows="5" maxlength="1200" required
+                      placeholder="Who was in the room. What your hands were allowed to ruin. Who else was at the bench. The thing you could not have learned from a video."></textarea></label>
+                <label class="vf-check"><input type="checkbox" id="v-consent">
+                    <span>Put this on the Atlas under my name and trade. I understand it is public,
+                    and that Arnaud reads it before anything appears.</span></label>
+                <button type="submit" id="v-send" class="cta">Sign it</button>
+                <p class="note" id="v-msg" style="display:none;margin-top:10px"></p>
+            </form>
+            <div id="v-mine" style="margin-top:14px"></div>
+        </section>
+
         <!-- SAVED FROM THE ATLAS (saved_adventures, "skill:*") -->
         <section class="blk" id="s-saved">
             <span class="lbl">Skills you've saved</span>
@@ -419,6 +471,7 @@
      truth for which crafts have a sheet and which are open. A craft the member
      named in their own words has neither, and must never become a dead link. -->
 <script src="/js/atlas-index.js"></script>
+<script src="/js/vouch.js"></script>
 <!-- The Lab Weeks, owned by the homepage and /lab-weeks. This page reads, never restates. -->
 <script src="/js/lab-weeks.js"></script>
 <script>
@@ -593,6 +646,8 @@
         }
 
         show('v-in');
+        // The door for people who actually went. Never blocks the rest of the page.
+        try{ if(window.etVouchInit) window.etVouchInit(sb, uid); }catch(e){}
     }
 
     function renderSaved(list){

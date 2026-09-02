@@ -137,6 +137,23 @@ if CRAFT_FAMILIES and set(CRAFT_META) - _named:
 # NOT a hard failure when one is missing, deliberately: a craft opens the moment
 # somebody asks for it, unattended, and a refusal here would take the whole nightly
 # Atlas build down on the night that happened. A place with no line simply shows none.
+# Checks signed by people who actually went, written by scripts/refresh-vouches.mjs
+# out of the approved rows in Supabase. Merged onto the destination so the whole
+# rule-10 machinery (check_line, _evidence_cap) picks them up unchanged.
+# A `check` hand-written in repertoire.js WINS: that is Arnaud's own visit, and a
+# member's vouch never overwrites the house's own check of the same room.
+_VOUCH_PATH = ROOT / "data/atlas-vouches.json"
+VOUCHES_SIGNED = json.loads(_VOUCH_PATH.read_text()) if _VOUCH_PATH.exists() else {}
+_applied = 0
+for _d in DISC:
+    for _x in _d["destinations"]:
+        _v = VOUCHES_SIGNED.get(_x["id"])
+        if _v and not _x.get("check"):
+            _x["check"] = _v
+            _applied += 1
+if VOUCHES_SIGNED:
+    print(f"  {_applied} place(s) carry a check signed by somebody who went")
+
 MEASURE = MANIFEST.get("measure", {})
 MEASURE_CAPS = MANIFEST.get("measureCaps", {})
 _craft_ids = {d["id"] for d in DISC}
@@ -298,11 +315,11 @@ def _vouch_line(d):
     alone = [c for _, c in v if c.get("route") == "direct"]
     bits = []
     if mine:
-        bits.append(f'{_WORD.get(len(mine), len(mine)).lower()} on a week we sold')
+        bits.append(f'{atlas_hub._WORD.get(len(mine), len(mine)).lower()} on a week we sold')
     if alone:
-        bits.append(f'{_WORD.get(len(alone), len(alone)).lower()} who went on their own')
+        bits.append(f'{atlas_hub._WORD.get(len(alone), len(alone)).lower()} who went on their own')
     tail = (" &mdash; " + ", ".join(bits)) if bits else ""
-    n = _WORD.get(len(v), len(v))
+    n = atlas_hub._WORD.get(len(v), len(v))
     who = "chef has" if len(v) == 1 else "chefs have"
     return (f'<p style="margin:0 0 14px;color:var(--muted)">{n} working {who} stood in a room '
             f'on this craft and signed what they saw{tail}. Their words are on the place\'s '
