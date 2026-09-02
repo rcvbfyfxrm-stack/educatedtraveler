@@ -110,6 +110,7 @@ def claims(disc, open_ids, only=None):
             if r.get("url"):
                 out.append({"craft": d["id"], "where": r.get("place", ""), "what": "rejected",
                             "name": r["name"], "url": r["url"], "verify": r.get("verify") or []})
+    out = [c for c in out if str(c["url"]).startswith(("http://", "https://"))]
     seen, uniq = set(), []
     for c in out:
         k = (c["craft"], c["url"], c["name"])
@@ -121,6 +122,12 @@ def claims(disc, open_ids, only=None):
 
 # ── the fetch ───────────────────────────────────────────────────────────────
 _TAGS = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
+# Every remaining tag becomes a space. Without this the haystack is raw HTML, so a
+# phrase the page splits across two elements — "<span>Max 8</span> <span>Students</span>"
+# — never matches the phrase we published, and the claim reports as broken every night
+# for a difference that is not one. A check that cries wolf is a check that gets turned
+# off, which is worse than not having it.
+_ANYTAG = re.compile(r"<[^>]+>")
 
 
 def norm(s):
@@ -166,7 +173,7 @@ def check_one(c, timeout):
     if status >= 400:
         r["ok"] = False
         return r
-    text = norm(_html.unescape(_TAGS.sub(" ", body)))
+    text = norm(_html.unescape(_ANYTAG.sub(" ", _TAGS.sub(" ", body))))
     r["missing"] = [v for v in c["verify"] if norm(v) not in text]
     r["ok"] = not r["missing"]
     return r

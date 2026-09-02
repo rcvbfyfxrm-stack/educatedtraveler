@@ -71,6 +71,42 @@
       ],
       "ceilingNote": "All five are reachable here: this craft belongs to its ground — Grasse is fields as much as laboratories — so one visit in season could answer the last two.",
       "check": "Graded from the entries already verified on this page, not from a visit. The faculty, the eighteen months, the 13,500 EUR and the English working language come from the Grasse Institute's own pages, read on 2 September 2026; the ISIPCA sessions and prices from theirs, the same day."
+    },
+    "sushi-and-washoku": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Everything a stranger needs is here and published — teachers by name, courses in English, dates and prices — and we have still not stood at any of these counters, so the last two are ours to earn",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": true,
+          "t": "Named, and recently better named. Tokyo Sushi Academy publishes all seven of its instructors — Fumimasa Murakami is vice-principal, and Sachiko Goto and Kumiko Imazu carry the International Sushi Course, the one taught for people who do not speak Japanese. And Hiroko Ishii, who was one of the two main instructors of that same English course, has opened her own school: JCMA in Bunkyo-ku, eight students to a room. Jiro Ono used to sit in this field on this page. He teaches at none of these schools, and taking his name out of it is what let the real ones in."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Wide open, on dates, in English, which is rarer in this craft than the teaching. Tokyo Sushi Academy has run international courses since 2002. JCMA's diploma is six weeks in three levels — knife work and shari, then whole-fish butchery and counter service, then anago, hirame and the structure of an omakase — at 1,200,000 JPY, and they will help with the student visa. Your hands can ruin it in front of people: the final exam is serving omakase at the counter."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "Tokyo reads Legendary on the community dots above, and the evidence is the ordinary fact of the city: the market, the counters, and schools that have put thousands of foreign cooks through since 2002. There is a generation above you here and one below, and both are at work by five in the morning."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. This craft belongs to its ground about as completely as any on the map, and one morning at Toyosu with somebody who buys there would answer it."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason. On paper the ladder is real and unusually legible — Japan has a national cooking licence, and JCMA's third level ends in a Diploma in Professional Sushi Arts rather than a certificate of attendance. We have read that. We have not watched anyone climb it, and one of these schools is three months old."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to its ground, so one visit could answer the last two.",
+      "check": "Graded from the entries already verified on this page, not from a visit. The JCMA facts come from jcma.tokyo, read on 2 September 2026; Hiroko Ishii's role on Tokyo Sushi Academy's English course from that school's own tsavideos.com, the same day."
     }
   }
 }

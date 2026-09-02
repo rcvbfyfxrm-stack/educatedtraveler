@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-01 — 290 published claims re-read against the pages they came from, across 31 open crafts._
+_2026-09-02 — 294 published claims re-read against the pages they came from, across 31 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -13,7 +13,6 @@ _none._
 ## Started failing tonight
 
 - freediving · Freediving Greece — HTTP 404 — https://www.freediving-club.com/
-- sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 500 — https://www.yacht-school.co.uk/
 - kitesurfing · Kiteboarding School of Maui — HTTP 404 — https://www.ksmaui.com/packages/
 - ski-touring-and-splitboard · Ski touring Half day — HTTP 404 — https://www.chamonix-guides.com/en/activities/details/ski-touring-half-day
 - safari-and-wildlife-guiding · Koiyaki Guiding School — HTTP 404 — https://www.maasaimara.com/entries/koiyaki-guiding-school
@@ -27,16 +26,22 @@ _none._
 
 These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not a school that closed. Never escalated, because a check that cries wolf gets muted. If one matters, open it in a browser; that is the only way to know.
 
-- hatha-and-vinyasa-yoga · Ubud Yoga Centre — HTTP 403
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
-- freediving · Y-40 Deep Joy (Montegrotto Terme) — HTTP 403
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
+- sailing-and-yachtmaster · UKSA (United Kingdom Sailing Academy), Cowes — HTTP 401
+- sailing-and-yachtmaster · RYA Day Skipper Practical — HTTP 401
+- sailing-and-yachtmaster · RYA Day Skipper Shorebased Theory — HTTP 401
+- kitesurfing · GoKite Cabarete — HTTP 403
 - windsurfing-and-wing-foil · Naxos Surf Club — HTTP 403
+- rock-climbing · American Alpine Institute — HTTP 403
+- rock-climbing · The Climbing Academy (Sheffield) — HTTP 403
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
 - pottery-and-ceramics · Seto Ceramics and Glass Art Center — HTTP 403
-- jewelry-and-goldsmithing · Indian Institute of Gems & Jewellery (IIGJ Jaipur) — HTTP 403
+- photography · London College of Communication (UAL) — HTTP 403
+- photography · Central Saint Martins (UAL) — HTTP 403
 - italian-cuisine-and-pasta · Bologna Cooking School — HTTP 403
-- italian-cuisine-and-pasta · Casa Artusi - Scuola di Cucina di Casa Artusi — HTTP 403
+- wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
+- yacht-crew-and-stcw · UKSA (United Kingdom Sailing Academy), Cowes — HTTP 401
 - wildlife-photography · Falmouth University — HTTP 403
 
 
@@ -45,8 +50,8 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 
 Informational, never escalated. A rejected place going offline is usually the reason it was rejected. What would matter here is the opposite — one coming back — and no status code can tell you that.
 
-- modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1081)>
-- modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1081)>
+- modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [Errno 54] Connection reset by peer>
+- modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [Errno 54] Connection reset by peer>
 
 ## Claims with nothing to verify against
 
@@ -63,6 +68,7 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - hatha-and-vinyasa-yoga · Mysore · Sthalam 8 Ashtanga Yoga Vedanta Centre
 - hatha-and-vinyasa-yoga · Ubud, Bali · The Yoga Barn
 - hatha-and-vinyasa-yoga · Ubud, Bali · Radiantly Alive
+- hatha-and-vinyasa-yoga · Ubud, Bali · Ubud Yoga Centre
 - hatha-and-vinyasa-yoga · Encinitas, California · Soul of Yoga
 - ashtanga-yoga · Mysore (Gokulam) · Sharath Yoga Centre (SYC)
 - ashtanga-yoga · Mysore (Gokulam) · K. Pattabhi Jois Ashtanga Yoga Shala (Saraswathi Jois)
@@ -110,7 +116,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - cold-exposure-wim-hof-method · Reykjavik & surrounds · Certified WHM Instructors Iceland (activities.wimhofmethod.com)
 - freediving · Apnea Academy (Italy-based; instructor course held in the Mediterranean/Red Sea) · Apnea Academy (Umberto Pelizzari)
 - freediving · Apnea Academy / Italian Mediterranean · Apnea Academy (Umberto Pelizzari's school)
-- freediving · Dahab (Red Sea) · Freedive Dahab
-- freediving · Dahab (Red Sea) · Dahab Freedivers
+- freediving · Apnea Academy / Italian Mediterranean · Y-40 Deep Joy (Montegrotto Terme)
 
-_258 in total._
+_251 in total._
