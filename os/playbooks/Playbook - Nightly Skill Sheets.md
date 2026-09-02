@@ -124,10 +124,36 @@ Overwrite the existing thin `website/atlas/<id>.html` in place (same URL, same `
 
 ---
 
+## THE MEASURE — every sheet carries one (Arnaud, 2 Sept 2026)
+
+*"make it the standard of ET any skill sheet that comes out."*
+
+A sheet without a grade is not finished. It goes in `data/atlas-extra-sheets.json`
+→ `measure`, and **the build refuses if the number of ungraded open crafts goes up** —
+so a new sheet with no grade stops the nightly run and names itself in the error.
+
+Five conditions, and the count must equal the number that are on: **the room** (somebody
+still stands in it) · **the door** (a stranger gets in on a date, and their hands can ruin
+it) · **the bench** (others, and a generation either side) · **the ground** (the craft
+belongs to this place) · **the stretch** (something that would prove you, and a ceiling
+worth years).
+
+**Desk research stops at three.** The ground and the stretch are exactly what a brochure
+claims, so they stay dark until somebody has stood in the room. That is not a mark against
+the place and the copy must say so — *"we have not been."*
+
+**Say it in our voice, never a guide's.** The count is a word, not a numeral — *"Three of
+the five things we check are true here"*, never "3/5", because a score invites ranking one
+craft against another. The line under it is a sentence in body type, never a shouted badge.
+Nothing is awarded. We report what we found and the reader decides.
+
+Preview before you commit: `python3 scripts/preview-measure.py`.
+
 ## Pre-ship checklist (every sheet)
 - [ ] routed through `keel` if this session can reach it; otherwise the rule-zero list applied by hand
 - [ ] no week block added or changed without the gate state confirmed (left as found, noted in the PR)
 - [ ] no line violates one of the twelve laws; if one was fixed, the PR body names the law
+- [ ] **the Measure is written, the count equals the conditions that are on, and it is capped at three unless somebody has stood in the room**
 - [ ] one spine, hook open, one-line close
 - [ ] every fact / link / media crosschecked at content depth; unverifiable dropped
 - [ ] every factual line has its checking sentence — nothing smuggled

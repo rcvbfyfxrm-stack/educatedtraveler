@@ -1868,6 +1868,34 @@ if _no_check:
     print(f"  ⚠ rule 10 — {len(_no_check)} of {len(_open_disc)} open crafts carry no name-and-date "
           f"check line yet: {', '.join(_no_check[:6])}"
           + (f", +{len(_no_check) - 6} more" if len(_no_check) > 6 else ""))
+# ── THE MEASURE IS THE STANDARD NOW (Arnaud, 2 Sept 2026) ────────────────────
+# "make it the standard of ET any skill sheet that comes out."
+#
+# Failing on the crafts that opened before the Measure existed would just mean the
+# rule gets deleted, which is how every good rule dies here. So the backlog is
+# printed like rule 10's — and the DEBT MAY NOT GROW. A new sheet without a grade
+# raises the count and stops the build; grading one lowers it and the floor can be
+# tightened. That is what makes it the standard for what comes out, without
+# pretending the archive is already there.
+_no_measure = sorted(d["id"] for d in _open_disc if d["id"] not in MEASURE)
+_floor = MANIFEST.get("measureDebtFloor")
+if _no_measure:
+    print(f"  ⚠ the Measure — {len(_no_measure)} of {len(_open_disc)} open crafts carry no grade "
+          f"yet: {', '.join(_no_measure[:6])}"
+          + (f", +{len(_no_measure) - 6} more" if len(_no_measure) > 6 else ""))
+if _floor is not None:
+    if len(_no_measure) > _floor:
+        _new = [c for c in _no_measure if c not in set(MANIFEST.get("measureDebtKnown", []))]
+        raise SystemExit(
+            f'build-atlas-pages: {len(_no_measure)} open crafts have no Measure, and the floor is '
+            f'{_floor}. Every sheet that comes out carries one — that is the standard.\n'
+            + (f'  New without a grade: {", ".join(_new)}\n' if _new else "")
+            + '  Add it to data/atlas-extra-sheets.json -> measure, or preview one first with '
+              'scripts/preview-measure.py.')
+    if len(_no_measure) < _floor:
+        print(f"  ✓ the Measure debt fell to {len(_no_measure)} — tighten measureDebtFloor in "
+              "data/atlas-extra-sheets.json so it cannot drift back up")
+
 # Which place cards are still missing their immersive line. Printed rather than
 # raised: a craft opens unattended the moment somebody asks for it, and a refusal
 # here would take the nightly build down on exactly that night. Visible, not fatal.
