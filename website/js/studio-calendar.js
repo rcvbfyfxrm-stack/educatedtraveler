@@ -170,13 +170,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 16,
     "core": "culinary",
-    "discipline": "Sushi & Washoku",
-    "place": "Osaka, Japan",
-    "atlasUrl": "https://educatedtraveler.app/atlas/sushi-and-washoku--osaka",
-    "clipBrief": "30-60s wordless process: hands + material of Sushi & Washoku, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Tsuji Culinary Institute (Abeno, Tsujicho Group)",
-    "footageUrl": "https://www.tsuji.ac.jp/en/college/osaka/",
-    "caption": "Osaka is both the birthplace of Sushi & Washoku and its living capital.\n\nJapan's most established culinary academy sits in the nation's kitchen, where the one-year Japanese Culinary Course readies you for the National Chef's License.\n\nCommunity strength: Legendary. Season: Apr-Nov.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/sushi-and-washoku--osaka\n\n#foodtok #cookingclass #learnbydoing #osaka #sushiwashoku"
+    "discipline": "Modernist Spanish Cuisine",
+    "place": "Barcelona, Spain",
+    "atlasUrl": "https://educatedtraveler.app/atlas/modernist-spanish-cuisine--barcelona",
+    "clipBrief": "30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Vakuum by Martin Lippo",
+    "footageUrl": "https://martinlippo.com/en/",
+    "caption": "The strongest Modernist Spanish Cuisine community on earth gathers in Barcelona.\n\nWhere the elBulli cooks actually landed. Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024, and the diaspora around it makes this the densest scene the cuisine has — denser than the city we would actually send you to learn it in.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--barcelona\n\n#foodtok #cookingclass #learnbydoing #barcelona #modernistspanishcuisine"
   },
   {
     "day": 17,
@@ -214,13 +214,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 20,
     "core": "culinary",
-    "discipline": "Wine & Sommellerie",
-    "place": "Bordeaux, France",
-    "atlasUrl": "https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux",
-    "clipBrief": "30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School)",
-    "footageUrl": "https://www.ecoleduvindebordeaux.com/en",
-    "caption": "Bordeaux is both the birthplace of Wine & Sommellerie and its living capital.\n\nStand at the source among classified-growth chateaux, where the city of wine itself teaches you to taste the terroir that wrote the rulebook.\n\nCommunity strength: Legendary. Season: May-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux\n\n#foodtok #cookingclass #learnbydoing #bordeaux #winesommellerie"
+    "discipline": "Sushi & Washoku",
+    "place": "Osaka, Japan",
+    "atlasUrl": "https://educatedtraveler.app/atlas/sushi-and-washoku--osaka",
+    "clipBrief": "30-60s wordless process: hands + material of Sushi & Washoku, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Tsuji Culinary Institute (Abeno, Tsujicho Group)",
+    "footageUrl": "https://www.tsuji.ac.jp/en/college/osaka/",
+    "caption": "Osaka is both the birthplace of Sushi & Washoku and its living capital.\n\nJapan's most established culinary academy sits in the nation's kitchen, where the one-year Japanese Culinary Course readies you for the National Chef's License.\n\nCommunity strength: Legendary. Season: Apr-Nov.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/sushi-and-washoku--osaka\n\n#foodtok #cookingclass #learnbydoing #osaka #sushiwashoku"
   },
   {
     "day": 21,
@@ -247,13 +247,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 23,
     "core": "culinary",
-    "discipline": "New culinary techniques & technologies",
-    "place": "Barcelona, Spain",
-    "atlasUrl": "https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona",
-    "clipBrief": "30-60s wordless process: hands + material of New culinary techniques & technologies, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Vakuum by Martin Lippo",
-    "footageUrl": "https://martinlippo.com/en/",
-    "caption": "The strongest New culinary techniques & technologies community on earth gathers in Barcelona.\n\nCatalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can actually enrol with a master, at Martin Lippo's Vakuum lab and Jordi Butron's Espai Sucre.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona\n\n#foodtok #cookingclass #learnbydoing #barcelona #newculinarytechniquestec"
+    "discipline": "Wine & Sommellerie",
+    "place": "Bordeaux, France",
+    "atlasUrl": "https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux",
+    "clipBrief": "30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School)",
+    "footageUrl": "https://www.ecoleduvindebordeaux.com/en",
+    "caption": "Bordeaux is both the birthplace of Wine & Sommellerie and its living capital.\n\nStand at the source among classified-growth chateaux, where the city of wine itself teaches you to taste the terroir that wrote the rulebook.\n\nCommunity strength: Legendary. Season: May-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux\n\n#foodtok #cookingclass #learnbydoing #bordeaux #winesommellerie"
   },
   {
     "day": 24,
@@ -280,13 +280,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 26,
     "core": "culinary",
-    "discipline": "Organic Farm-to-Table Cooking",
-    "place": "Shanagarry, East Cork, Ireland",
-    "atlasUrl": "https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork",
-    "clipBrief": "30-60s wordless process: hands + material of Organic Farm-to-Table Cooking, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Ballymaloe Cookery School, Organic Farm and Gardens",
-    "footageUrl": "https://www.ballymaloecookeryschool.ie/",
-    "caption": "The strongest Organic Farm-to-Table Cooking community on earth gathers in Shanagarry, East Cork.\n\nA cookery school that sits inside its own 100-acre organic farm at Kinoith, about four kilometres from Ballymaloe House. The vegetables, eggs, milk and meat used in the morning kitchens come off the land outside the door — and the afternoon demonstration is still given by the people whose names are on the school.\n\nCommunity strength: Legendary. Season: Year-round — the 12-week certificate starts in January, April and September.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork\n\n#foodtok #cookingclass #learnbydoing #shanagarryeastcork #organicfarmtotablecookin"
+    "discipline": "New culinary techniques & technologies",
+    "place": "Barcelona, Spain",
+    "atlasUrl": "https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona",
+    "clipBrief": "30-60s wordless process: hands + material of New culinary techniques & technologies, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Vakuum by Martin Lippo",
+    "footageUrl": "https://martinlippo.com/en/",
+    "caption": "The strongest New culinary techniques & technologies community on earth gathers in Barcelona.\n\nCatalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can still enrol with a master rather than apply for a stage, at Martin Lippo's Vakuum lab.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona\n\n#foodtok #cookingclass #learnbydoing #barcelona #newculinarytechniquestec"
   },
   {
     "day": 27,
@@ -313,13 +313,13 @@ window.ET_DAILY_DROP = [
   {
     "day": 29,
     "core": "culinary",
-    "discipline": "Modernist Spanish Cuisine",
-    "place": "Girona, Spain",
-    "atlasUrl": "https://educatedtraveler.app/atlas/modernist-spanish-cuisine--girona",
-    "clipBrief": "30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "El Celler de Can Roca (stage program)",
-    "footageUrl": "https://cellercanroca.com/en/",
-    "caption": "The strongest Modernist Spanish Cuisine community on earth gathers in Girona.\n\nHome of the Roca brothers' twice-crowned World's Best Restaurant — the densest living node of Spanish avant-garde technique, where a stage is earned, not bought.\n\nCommunity strength: Thriving. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--girona\n\n#foodtok #cookingclass #learnbydoing #girona #modernistspanishcuisine"
+    "discipline": "Organic Farm-to-Table Cooking",
+    "place": "Shanagarry, East Cork, Ireland",
+    "atlasUrl": "https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork",
+    "clipBrief": "30-60s wordless process: hands + material of Organic Farm-to-Table Cooking, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Ballymaloe Cookery School, Organic Farm and Gardens",
+    "footageUrl": "https://www.ballymaloecookeryschool.ie/",
+    "caption": "The strongest Organic Farm-to-Table Cooking community on earth gathers in Shanagarry, East Cork.\n\nA cookery school that sits inside its own 100-acre organic farm at Kinoith, about four kilometres from Ballymaloe House. The vegetables, eggs, milk and meat used in the morning kitchens come off the land outside the door — and the afternoon demonstration is still given by the people whose names are on the school.\n\nCommunity strength: Legendary. Season: Year-round — the 12-week certificate starts in January, April and September.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork\n\n#foodtok #cookingclass #learnbydoing #shanagarryeastcork #organicfarmtotablecookin"
   },
   {
     "day": 30,
