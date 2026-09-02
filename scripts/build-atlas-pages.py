@@ -56,6 +56,32 @@ src = (ROOT / "data/repertoire.js").read_text()
 DATA = json.loads(src[src.index("{", src.index("window.ET_ATLAS")):src.rindex("}") + 1])
 DISC = DATA["disciplines"]
 
+# A duplicate key in JSON is not an error — the last one silently wins. Four rewritten
+# blurbs sat in this file, and in git, and on nobody's screen, because an older `blurb`
+# followed them in the same object. Nothing failed. Nothing looked wrong. The only
+# symptom was a page that did not say what the file said.
+#
+# So the file is parsed a second time, refusing duplicates. This is the cheapest gate
+# on the project and it guards the most expensive failure mode there is: work that is
+# committed, reported as done, and not there.
+_dups = []
+def _no_dup_keys(pairs):
+    seen = {}
+    for k, v in pairs:
+        if k in seen:
+            _dups.append((k, str(seen.get("name") or seen.get("id") or "")[:60]))
+        seen[k] = v
+    return seen
+
+
+json.loads(src[src.index("{", src.index("window.ET_ATLAS")):src.rindex("}") + 1],
+           object_pairs_hook=_no_dup_keys)
+if _dups:
+    raise SystemExit(
+        "build-atlas-pages: data/repertoire.js has duplicate keys. JSON keeps the LAST one "
+        "silently, so the other is invisible work:\n  "
+        + "\n  ".join(f"{k!r} in {ctx!r}" for k, ctx in _dups))
+
 # ---------- which crafts are open ----------
 # The build must never quietly decide that nothing is open. That would publish 112
 # short sheets — a site that looks finished and is empty — and delete the real
