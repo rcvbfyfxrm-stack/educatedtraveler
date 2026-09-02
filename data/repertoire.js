@@ -33,7 +33,8 @@ window.ET_ATLAS = {
             "Rishikesh Yog Peeth",
             "Yoga Niketan Ashram"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Lineage of Swami Sivananda Saraswati"
           ],
           "badges": [
@@ -102,7 +103,8 @@ window.ET_ATLAS = {
             "Atmavikasa Centre of Yogic Sciences",
             "Sthalam 8 Ashtanga Yoga Vedanta Centre"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Lineage of Tirumalai Krishnamacharya"
           ],
           "badges": [
@@ -286,7 +288,12 @@ window.ET_ATLAS = {
             "Sthalam 8 Ashtanga Yoga Vedanta Centre"
           ],
           "masters": [
-            "Lineage of K. Pattabhi Jois"
+            "Shruthi Jois",
+            "Shraddha Jois"
+          ],
+          "lineage": [
+            "K. Pattabhi Jois",
+            "R. Sharath Jois (1971-2024)"
           ],
           "badges": [
             "source",
@@ -303,6 +310,8 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Sharath Yoga Centre (SYC)",
+              "blurb": "Read this before you plan a trip around it: R. Sharath Jois, the grandson of Pattabhi Jois who gave the shala its name and its authority, died on 11 November 2024 at 53, of a heart attack while hiking with students during a United States tour. The shala continues and their own site says so plainly — 'we tragically and unexpectedly lost our Sharathji' — with Shruthi Jois and Shraddha Jois now named alongside the teaching staff. Two things follow that a reader should have. Authorisation and Certification were his to give, and what those words mean now is a question for the shala rather than for us. And access is by lottery: registration for the 2026 season is closed, and students are 'selected randomly by algorithm to match our shala capacity', with confirmations sent by 2 August. Checked on sharathyogacentre.com, 3 September 2026.",
+              "verify": ["Sharath", "algorithm"],
               "url": "https://sharathyogacentre.com/",
               "course": "Mysore-style Ashtanga study at SYC (regular classes)",
               "blurb": "Study at the source institution carrying the Pattabhi Jois / Sharath Jois lineage in Gokulam, Mysuru.",
@@ -458,7 +467,8 @@ window.ET_ATLAS = {
           "schools": [
             "Kaivalyadhama Yoga Institute"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Lineage of Swami Kuvalayananda"
           ],
           "badges": [
@@ -610,7 +620,8 @@ window.ET_ATLAS = {
             "Kane School of Core Integration",
             "True Pilates New York"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Lineage of Romana Kryzanowska",
             "Lineage of Joseph Pilates"
           ],
@@ -788,8 +799,10 @@ window.ET_ATLAS = {
             "Ramamani Iyengar Memorial Yoga Institute (RIMYI)"
           ],
           "masters": [
-            "Lineage of B.K.S. Iyengar",
             "Prashant Iyengar"
+          ],
+          "lineage": [
+            "Lineage of B.K.S. Iyengar"
           ],
           "badges": [
             "source",
@@ -917,7 +930,8 @@ window.ET_ATLAS = {
             "Vipassana Research Institute (VRI)",
             "Dhamma Tapovana (long-course centre, Igatpuri)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "S. N. Goenka (lineage of Sayagyi U Ba Khin)"
           ],
           "badges": [
@@ -973,7 +987,8 @@ window.ET_ATLAS = {
             "Chanmyay Yeiktha Meditation Centre",
             "International Meditation Centre (U Ba Khin tradition)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Mahasi Sayadaw (lineage)",
             "Sayagyi U Ba Khin (lineage)"
           ],
@@ -1148,7 +1163,8 @@ window.ET_ATLAS = {
             "International House of Reiki (Japan retreats)",
             "Usui Reiki Ryoho Gakkai lineage seminars"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Mikao Usui (founder, lineage)"
           ],
           "badges": [
@@ -1527,7 +1543,8 @@ window.ET_ATLAS = {
             "Tantra Essence (Khajuraho intensives, Ma Ananda Sarita)",
             "Osho-lineage tantra retreats"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Ma Ananda Sarita (Osho lineage)"
           ],
           "badges": [
@@ -1581,7 +1598,8 @@ window.ET_ATLAS = {
             "Tantra Essence (Ma Ananda Sarita's base)",
             "Embodied Awakening Academy"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Ma Ananda Sarita (Osho lineage)"
           ],
           "badges": [
@@ -1885,7 +1903,8 @@ window.ET_ATLAS = {
             "Arya Vaidya Sala, Kottakkal",
             "ASAP Kerala (Additional Skill Acquisition Programme)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Vaidyaratnam P. S. Varier lineage (founder, Arya Vaidya Sala, 1902)"
           ],
           "badges": [
@@ -1946,7 +1965,8 @@ window.ET_ATLAS = {
             "Gampaha Wickramarachchi University of Indigenous Medicine",
             "Gampaha Wickramarachchi Ayurveda Teaching Hospital"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Ayurveda Cakrawarti Pandit G. P. Wickramarachchi lineage (founder, 1928)"
           ],
           "badges": [
@@ -2849,7 +2869,8 @@ window.ET_ATLAS = {
             "Esalen Institute",
             "5Rhythms (Gabrielle Roth lineage workshops)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Gabrielle Roth (founding lineage)"
           ],
           "badges": [
@@ -3084,7 +3105,8 @@ window.ET_ATLAS = {
             "3HO Foundation",
             "Hacienda de Guru Ram Das (Espanola ashram)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Yogi Bhajan (founding lineage)"
           ],
           "badges": [
@@ -3307,7 +3329,8 @@ window.ET_ATLAS = {
             "Massilia Plongée (Marseille)",
             "Calanques Plongée"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Jacques-Yves Cousteau (lineage)",
             "Émile Gagnan (lineage)"
           ],
@@ -3569,7 +3592,9 @@ window.ET_ATLAS = {
             "Y-40 Deep Joy (Montegrotto Terme)"
           ],
           "masters": [
-            "Umberto Pelizzari (Apnea Academy)",
+            "Umberto Pelizzari (Apnea Academy)"
+          ],
+          "lineage": [
             "Jacques Mayol (lineage)",
             "Enzo Maiorca (lineage)"
           ],
@@ -3954,7 +3979,9 @@ window.ET_ATLAS = {
             "Wet Rocks Diving"
           ],
           "masters": [
-            "Jarrod Jablonski (GUE founder)",
+            "Jarrod Jablonski (GUE founder)"
+          ],
+          "lineage": [
             "Sheck Exley (lineage)"
           ],
           "badges": [
@@ -4332,7 +4359,8 @@ window.ET_ATLAS = {
             "Waikiki Beach Services (Beachboys)",
             "Faith Surf School"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Duke Kahanamoku (lineage)",
             "The Waikiki Beachboys lineage"
           ],
@@ -4735,7 +4763,8 @@ window.ET_ATLAS = {
           "communityRank": 3,
           "communityLabel": "Strong",
           "schools": [],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Jim Drake & Hoyle Schweitzer (founding lineage)"
           ],
           "badges": [
@@ -4767,8 +4796,10 @@ window.ET_ATLAS = {
             "Hawaiian Sailboarding Techniques"
           ],
           "masters": [
-            "Robby Naish (lineage)",
             "Alan Cadiz (HST)"
+          ],
+          "lineage": [
+            "Robby Naish (lineage)"
           ],
           "badges": [
             "scene",
@@ -7357,7 +7388,8 @@ window.ET_ATLAS = {
             "Ecole Nationale d'Equitation (Cadre Noir)",
             "IFCE (Institut Francais du Cheval et de l'Equitation)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "The Cadre Noir lineage (after Francois Robichon de La Gueriniere)"
           ],
           "badges": [
@@ -7409,7 +7441,8 @@ window.ET_ATLAS = {
           "schools": [
             "Spanische Hofreitschule (Spanish Riding School)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "The Spanish Riding School Bereiter lineage"
           ],
           "badges": [
@@ -8151,8 +8184,10 @@ window.ET_ATLAS = {
             "Mashiko Togei Club"
           ],
           "masters": [
-            "Shoji Hamada (Living National Treasure, mingei lineage)",
             "Tatsuzo Shimaoka"
+          ],
+          "lineage": [
+            "Shoji Hamada (Living National Treasure, mingei lineage)"
           ],
           "badges": [
             "source",
@@ -8316,7 +8351,8 @@ window.ET_ATLAS = {
           "schools": [
             "The Leach Pottery (Bernard Leach's studio, courses & residencies)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Bernard Leach (founder, Anglo-Oriental studio-pottery lineage)"
           ],
           "badges": [
@@ -8433,7 +8469,8 @@ window.ET_ATLAS = {
           "schools": [
             "The Krenov School of Fine Furniture (Mendocino College, formerly College of the Redwoods)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "James Krenov (founding lineage)"
           ],
           "badges": [
@@ -10063,7 +10100,8 @@ window.ET_ATLAS = {
             "SAORI no Mori (SAORI Worldwide HQ, Izumi, Osaka)",
             "Kawashima Textile School (Kyoto)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Misao Jo / SAORI lineage"
           ],
           "badges": [
@@ -10971,7 +11009,8 @@ window.ET_ATLAS = {
             "Centro de Baile Jerez",
             "Peña Flamenca Tío José de Paula"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "The Jerez gitano bulería lineage (Moraíto, José Mercé)"
           ],
           "badges": [
@@ -11346,7 +11385,8 @@ window.ET_ATLAS = {
             "Academia Cremonensis",
             "Cremona Bottega network (maestro workshops)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "The Cremonese tradition of Amati, Stradivari & Guarneri"
           ],
           "badges": [
@@ -11765,7 +11805,8 @@ window.ET_ATLAS = {
             "Calligraphy & Lettering Arts Society (CLAS)",
             "City Lit (Calligraphy & Lettering)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "The Edward Johnston revival lineage"
           ],
           "badges": [
@@ -12941,7 +12982,8 @@ window.ET_ATLAS = {
             "Institut Paul Bocuse (Institut Lyfe)",
             "Lycée hôtelier François Rabelais (Lyon-Dardilly)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Paul Bocuse lineage",
             "the Mères Lyonnaises"
           ],
@@ -13084,7 +13126,9 @@ window.ET_ATLAS = {
             "Bologna Cooking School"
           ],
           "masters": [
-            "Alessandra Spisni",
+            "Alessandra Spisni"
+          ],
+          "lineage": [
             "the Bolognese sfogline lineage"
           ],
           "badges": [
@@ -13135,7 +13179,8 @@ window.ET_ATLAS = {
           "schools": [
             "Casa Artusi — Scuola di Cucina di Casa Artusi"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Pellegrino Artusi lineage"
           ],
           "badges": [
@@ -13171,7 +13216,8 @@ window.ET_ATLAS = {
           "schools": [
             "ALMA — La Scuola Internazionale di Cucina Italiana"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Gualtiero Marchesi lineage (founding Dean)"
           ],
           "badges": [
@@ -13252,7 +13298,9 @@ window.ET_ATLAS = {
           ],
           "masters": [
             "Juan Mari Arzak",
-            "Pedro Subijana",
+            "Pedro Subijana"
+          ],
+          "lineage": [
             "Luis Irizar lineage"
           ],
           "badges": [
@@ -14470,7 +14518,8 @@ window.ET_ATLAS = {
             "Instituto de Cocina D'Gallia",
             "Instituto Columbia"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Gaston Acurio (Astrid y Gaston lineage)"
           ],
           "badges": [
@@ -14852,7 +14901,8 @@ window.ET_ATLAS = {
             "Nishiyama Shuzojo brewing experience (Tamba)",
             "SSI partner courses"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Tanba Toji lineage"
           ],
           "badges": [
@@ -14913,7 +14963,8 @@ window.ET_ATLAS = {
             "Imayotsukasa Gakkogura brewery school",
             "SSI (Sake Service Institute) certification partners"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Toji guild lineage (master brewers)"
           ],
           "badges": [
@@ -15215,7 +15266,8 @@ window.ET_ATLAS = {
             "London School of Coffee",
             "Square Mile Coffee Roasters training"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "James Hoffmann (World Barista Champion lineage)"
           ],
           "badges": [
@@ -15339,7 +15391,8 @@ window.ET_ATLAS = {
             "Club de Cantineros de Cuba",
             "Havana Club Rum Museum bartending experiences"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Cantineros de Cuba lineage"
           ],
           "badges": [
@@ -15444,7 +15497,9 @@ window.ET_ATLAS = {
             "Columbia Bartending Agency & School"
           ],
           "masters": [
-            "Dale DeGroff (\"King Cocktail\")",
+            "Dale DeGroff (\"King Cocktail\")"
+          ],
+          "lineage": [
             "Audrey Saunders (Pegu Club lineage)"
           ],
           "badges": [
@@ -15651,7 +15706,8 @@ window.ET_ATLAS = {
             "Noma Projects / fermentation workshops",
             "Empirical / Nordic Food Lab alumni courses"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Rene Redzepi & David Zilber (Noma fermentation lineage)"
           ],
           "badges": [
@@ -15819,7 +15875,8 @@ window.ET_ATLAS = {
             "Omotesenke",
             "Uji matcha producer workshops"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Sen no Rikyu lineage (Urasenke / Omotesenke / Mushakojisenke)"
           ],
           "badges": [
@@ -16526,7 +16583,8 @@ window.ET_ATLAS = {
             "Wudang Mountain Kung Fu Academy (China Wudang Wushu Academy)",
             "Wudang Daoist Traditional Kung Fu Academy"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "You Xuande (14th-generation Wudang lineage master)"
           ],
           "badges": [
@@ -16822,9 +16880,11 @@ window.ET_ATLAS = {
             "Mariposita de San Telmo"
           ],
           "masters": [
-            "Carlos Gavito lineage",
             "Gustavo Naveira",
             "Chicho Frumboli"
+          ],
+          "lineage": [
+            "Carlos Gavito lineage"
           ],
           "badges": [
             "source",
@@ -17315,7 +17375,8 @@ window.ET_ATLAS = {
             "Rukmini Devi College of Fine Arts (Kalakshetra)",
             "Bharata Kalanjali"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Rukmini Devi Arundale lineage (Kalakshetra style)",
             "Pandanallur lineage"
           ],
@@ -17377,7 +17438,8 @@ window.ET_ATLAS = {
             "Tamil University Department of Dance",
             "Thanjavur Quartet-lineage gurukulams"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Thanjavur Quartet lineage (Chinnaiah, Ponniah, Sivanandam, Vadivelu)"
           ],
           "badges": [
@@ -19654,7 +19716,8 @@ window.ET_ATLAS = {
             "InsideJapan private master-archer lessons",
             "Kyoto-area municipal kyudojo"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Ogasawara-ryu lineage",
             "Heki-ryu lineage"
           ],
@@ -20044,7 +20107,8 @@ window.ET_ATLAS = {
             "Campo dell'Altissimo",
             "Accademia di Belle Arti di Carrara"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Carrara quarry artisan lineage"
           ],
           "badges": [
@@ -20247,8 +20311,10 @@ window.ET_ATLAS = {
             "Santa Reparata International School of Art (SRISA)"
           ],
           "masters": [
-            "Giannini family binding lineage",
             "Master binder Simonetta"
+          ],
+          "lineage": [
+            "Giannini family binding lineage"
           ],
           "badges": [
             "source",
@@ -22537,7 +22603,8 @@ window.ET_ATLAS = {
             "Dr. Vodder Akademie",
             "Wittlinger Therapiezentrum"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Dr. Emil Vodder (Wittlinger lineage)"
           ],
           "badges": [

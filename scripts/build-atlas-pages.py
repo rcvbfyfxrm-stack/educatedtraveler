@@ -472,6 +472,40 @@ def rising_star(s_):
             f'{e(r["why"])}</div></div>')
 
 
+# ── who teaches now, and where it comes from: two different questions ─────
+# `masters` is what makes a place page say "who teaches" and a card say "With <name>".
+# Across the open Atlas it held 19 entries that are not teachers at all: Pattabhi Jois
+# (d. 2009), Sivananda (d. 1963), Krishnamacharya (d. 1989), Duke Kahanamoku (d. 1968),
+# Bernard Leach (d. 1979), Pellegrino Artusi (d. 1911), Jacques Mayol, Emil Vodder.
+# The same error that put Ferran Adrià on a museum sheet, Jiro Ono on a sushi school
+# and Dabiz Muñoz on Madrid — nineteen more times, and nobody could see it because a
+# lineage in a "who teaches" field reads like an answer.
+#
+# So the two questions are two fields. `masters` = people alive and in the room, and
+# only that drives the promise. `lineage` = where the craft comes from, which is worth
+# printing and is never a teacher. The guard refuses the mixture, because the whole
+# failure was that the mixture looked fine.
+_LINEAGE_SHAPED = re.compile(r"lineage|school of|tradition|^the\b|founding|formerly|"
+                             r"living national treasure", re.I)
+
+
+def lineage_guard(disc):
+    bad = []
+    for d in disc:
+        for x in d["destinations"]:
+            for m in x.get("masters") or []:
+                if _LINEAGE_SHAPED.search(m):
+                    bad.append(f'{d["id"]} / {x["place"]}: {m!r}')
+    if bad:
+        raise SystemExit(
+            "build-atlas-pages: these sit in `masters`, which is the field that makes a page "
+            "say WHO TEACHES, and they are lineages rather than people in the room. Move them "
+            "to `lineage` on the same destination:\n  " + "\n  ".join(bad))
+
+
+lineage_guard(DISC)
+
+
 def has_relationship(x):
     return any(s.get("etRelationship") for s in (x.get("schoolsInfo") or []))
 
@@ -1545,12 +1579,28 @@ for d in DISC:
             else:
                 schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="clean">{"".join(rows)}</ul></div></section>'
 
+        # Two questions, two sections. A destination with a lineage and no living teacher
+        # now says exactly that, instead of printing a dead man under a heading the reader
+        # will take for a staff list.
+        lin = x.get("lineage") or []
+        lineage_html = ""
+        if lin:
+            tailnote = ('A lineage, not a staff list. Nobody on it is teaching today — for who '
+                        "is, look just above." if x["masters"] else
+                        "A lineage, not a staff list. We have not been able to name anyone "
+                        "currently teaching here, which is a gap in our work — ask the school "
+                        "who will be in the room.")
+            lineage_html = ('<section><div class="wrap"><div class="mono">Where it comes from</div>'
+                            '<h2>The names this craft came through</h2><ul class="clean">'
+                            + "".join(f"<li>{e(m)}</li>" for m in lin)
+                            + f'</ul><p class="meta" style="margin-top:10px">{tailnote}</p>'
+                            "</div></section>")
         masters_html = ""
         if x["masters"]:
             # On a closed page these are the people the craft came from, and the heading
             # has to say so: "Masters & lineage" on a page with no teaching reads as a
             # staff list.
-            head = ("The lineage", "Masters & lineage")
+            head = ("Who teaches now", "The people in the room")
             tail = ""
             if is_closed(x):
                 head = ("Who it came from", "The names this place gave the craft")
@@ -1590,7 +1640,7 @@ for d in DISC:
 </div></header>
 <section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
 {disclosure_block(d) if has_relationship(x) else ""}{featured_block(d, x)}
-{masters_html}
+{masters_html}{lineage_html}
 {rating_block(d, x)}{schools_html}
 {room_block(x, d)}
 {credential_section(d, x)}
