@@ -251,6 +251,61 @@ def walk_places(dests):
              else the_country(x["country"])) for x in ds]
 
 
+_WORD = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "All five"}
+
+
+def measure_html(mm, dots=None, vouch=""):
+    """The Measure block itself, from a grade — published or still drafted.
+
+    Split out of build-atlas-pages.measure_block() so a draft can be READ in the
+    form it would ship in. The caller does the judging: measure_block() checks the
+    evidence cap first and only then asks for markup, and the preview renders a
+    grade nobody has signed. A preview that drew its own lookalike would be worth
+    nothing — the point of reading a draft is to read the thing that would go up.
+    """
+    if not mm:
+        return ""
+    dots = int(mm["dots"]) if dots is None else dots
+    meter = ('<span style="color:var(--sea)">' + "&#9679;" * dots + "</span>"
+             + '<span style="color:var(--faint)">' + "&#9675;" * (5 - dots) + "</span>")
+    rows = ""
+    for c in mm["conditions"]:
+        on = c.get("on")
+        mark = "&#9679;" if on else "&#9675;"
+        col = "var(--sea)" if on else "var(--faint)"
+        body = "" if on else ";color:var(--muted)"
+        rows += (f'<p style="margin:0 0 14px{body}"><b style="color:{col}">{mark} {c["n"]}.</b> '
+                 f'{c["t"]}</p>')
+    note = mm.get("ceilingNote")
+    note = (f'<p style="margin:0 0 14px;color:var(--muted)"><b style="color:var(--paper)">'
+            f'{note}</b></p>') if note else ""
+    return (
+      '<section><div class="wrap">'
+      '<div class="mono">Is this community worth the trip</div>'
+      f'<h2 style="margin-bottom:10px">{_WORD.get(dots, dots)} of the five things we check '
+      f'are true here</h2>'
+      '<p class="meta" style="margin:0 0 16px">We check five things before we send anyone '
+      'anywhere. Here they are for this craft &mdash; the ones that hold, and the ones we cannot '
+      'answer yet. An empty dot is not a mark against the place: it says we have not been.</p>'
+      '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
+      'border-left:2px solid var(--sea)">'
+      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'
+      # a sentence, not a badge: uppercase letterspaced mono is for short labels, and
+      # a shouted two-line verdict is a guide awarding a distinction — not us talking.
+      f'<p style="font-size:15.5px;line-height:1.55;color:var(--ember);margin:0 0 18px">'
+      f'{mm["verdict"]}.</p>'
+      f'{rows}{vouch}{note}'
+      # the generated template has no .checked rule — carry the look inline so the
+      # line does not silently collapse into one run of prose here.
+      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
+      f'letter-spacing:.02em;color:var(--muted);margin:16px 0 0;padding-top:10px;'
+      f'border-top:1px dashed rgba(127,168,165,.28)">'
+      f'<b style="color:var(--sea);text-transform:uppercase;letter-spacing:.14em;font-size:10px;'
+      f'font-weight:500;display:block;margin-bottom:4px">{mm["state"]} &middot; {mm["checker"]} '
+      f'&middot; {mm["date"]}</b>{mm["check"]}</p>'
+      '</div></div></section>')
+
+
 # ── the neighbours, as a rail you can move through ─────────────────────────
 # "Close to this on the map" was a static grid of four small cards, and it read as a
 # footer — the last thing on a page, four names, nothing to do (Arnaud, 2026-09-01:

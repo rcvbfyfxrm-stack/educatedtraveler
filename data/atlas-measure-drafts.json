@@ -1,0 +1,76 @@
+{
+  "drafts": {
+    "jewelry-and-goldsmithing": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "There is more to go on here than almost anywhere else on this map — but we have not stood at any of these benches, so the last two are still ours to earn, not yours to trust",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": true,
+          "t": "Thinly, and we will say so: Gio Carbone at Le Arti Orafe in Florence is the one named person on this page, in the school he founded. The other three destinations are institutions — the Gemological Institute of America, Pforzheim's Goldschmiedeschule, the Indian Institute of Gems & Jewellery — and name nobody. One name out of four lights this dot. It does not make us comfortable."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Open in four countries, on published dates: LAO's annual goldsmithing course in Florence, the GIA Graduate Jeweler diploma over 28 weeks in Carlsbad, Studio Jewelers' 24-week programme in New York, Pforzheim's Berufskolleg and Meisterschule, IIGJ's manufacturing diploma in Jaipur. And your hands can ruin the work about as literally as anywhere here — solder floods, a stone chips, the piece is gone."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "The strongest thing this craft has, and the community dots above are the evidence for it rather than a second opinion. Florence and the Carlsbad–New York axis both read Legendary; Pforzheim is a town built around goldsmithing with a Meisterschule at its centre; Jaipur's Johari Bazaar is lapidary and meenakari ateliers working street by street. Four scenes, three continents, peers in all of them."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Two of these places are ground-bound in a way a visit would settle in an afternoon — Pforzheim is where the German trade concentrated, Jaipur is where the stones are cut and enamelled — and we have stood in neither."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason, and there is plainly more here than an attendance certificate: the GIA Graduate Gemologist is a qualification the trade reads, and the German Meister is a state-regulated title with an examination behind it. We have read that on their pages. We have not watched anyone climb it, and until we have, it stays a claim we are repeating rather than one we are making."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to its benches, so one visit could answer the last two.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Prices, course lengths and diploma names come from the school entries below, each carrying its own source."
+    },
+    "perfumery": {
+      "dots": 2,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "The doors here are wider than this craft's reputation suggests — but we cannot yet tell you whose hands you would be watching, and that is a gap in our work rather than in Grasse",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": false,
+          "t": "Empty, and this one is ours rather than the craft's: not a single teacher is named on either destination of this page. Grasse and Versailles hold the two most serious perfumery schools in the world and we cannot say whose bench you would stand at. Ask the school directly, and the answer should be a person you can look up — not a department. Closing this is the next thing owed on this page."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Wide, and unusually so for a craft with this reputation for being closed. The Grasse Institute of Perfumery runs an International Technical Degree in Fragrance Creation and Sensory Evaluation at about EUR 13,500; ISIPCA runs its summer school in Versailles; Cinquième Sens teaches in both cities; Molinard runs harvest-season workshops in Grasse. You book these. And your hands can ruin the work: an accord is a composition, and a wrong one is simply wrong."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "Both destinations read Legendary on the community dots above, which are the evidence for this and not a second opinion. Grasse is a town organised around the industry, Versailles holds ISIPCA, and Givaudan runs its own four-year perfumery school in the same orbit. There is a generation above you here and one below."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. And this craft has a ground as real as any on the map: Grasse is fields as much as laboratories, which is why Molinard's workshops run at harvest and not in February. Somebody standing in it in season is what fills this."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason. On paper the ladder is one of the best here — ISIPCA's diploma is state-recognised through the Université de Versailles, and the Grasse Institute's is an International Technical Degree, neither of them a certificate of attendance. That is what their pages say and we believe it. We have not seen anyone finish."
+        }
+      ],
+      "ceilingNote": "All five are reachable here — but the first one to fill should be the room, and that takes a phone call, not a plane.",
+      "check": "Graded from the entries already verified on this page, not from a visit. THE ROOM is the exception: it is empty because our own research names nobody, which is a gap to close rather than a verdict on Grasse."
+    }
+  }
+}

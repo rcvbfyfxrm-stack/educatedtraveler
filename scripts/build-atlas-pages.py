@@ -259,7 +259,6 @@ def sibling_line(d):
             f'{e(sib["label"])} &rarr;</a></p>')
 
 
-_WORD = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "All five"}
 
 
 def _vouches(d):
@@ -311,12 +310,12 @@ def _vouch_line(d):
 
 
 def measure_block(d):
-    """The Measure — is this community worth the trip, and how.
+    """The Measure for a craft, if one has been graded AND signed.
 
-    Five named conditions on the five dots, so the meter reads as a legend rather
-    than a magnitude: an empty dot says which thing is missing. Only crafts listed
-    in the manifest get one. A craft with no entry shows NO meter — that is an
-    absence, not a zero, and the difference is the whole honesty of the mark.
+    A craft with no entry shows NO meter — that is an absence, not a zero, and the
+    difference is the whole honesty of the mark. The rendering itself lives in
+    atlas_hub.measure_html() so that scripts/preview-measure.py shows a drafted grade
+    exactly as it would ship, rather than a lookalike of it.
     """
     mm = MEASURE.get(d["id"])
     if not mm:
@@ -328,45 +327,7 @@ def measure_block(d):
             f'build-atlas-pages: measure on {d["id"]} claims {dots} dots but the evidence '
             f'only carries {cap}. Nobody has stood in a room here yet, and the ground and the '
             'stretch are exactly what a brochure claims. Lower the dots or add the check.')
-    meter = ('<span style="color:var(--sea)">' + "&#9679;" * dots + "</span>"
-             + '<span style="color:var(--faint)">' + "&#9675;" * (5 - dots) + "</span>")
-    rows = ""
-    for c in mm["conditions"]:
-        on = c.get("on")
-        mark = "&#9679;" if on else "&#9675;"
-        col = "var(--sea)" if on else "var(--faint)"
-        body = "" if on else ";color:var(--muted)"
-        rows += (f'<p style="margin:0 0 14px{body}"><b style="color:{col}">{mark} {c["n"]}.</b> '
-                 f'{c["t"]}</p>')
-    note = mm.get("ceilingNote")
-    note = (f'<p style="margin:0 0 14px;color:var(--muted)"><b style="color:var(--paper)">'
-            f'{note}</b></p>') if note else ""
-    return (
-      '<section><div class="wrap">'
-      '<div class="mono">Is this community worth the trip</div>'
-      f'<h2 style="margin-bottom:10px">{_WORD.get(dots, dots)} of the five things we check '
-      f'are true here</h2>'
-      '<p class="meta" style="margin:0 0 16px">We check five things before we send anyone '
-      'anywhere. Here they are for this craft &mdash; the ones that hold, and the ones we cannot '
-      'answer yet. An empty dot is not a mark against the place: it says we have not been.</p>'
-      '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
-      'border-left:2px solid var(--sea)">'
-      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'
-      # a sentence, not a badge: uppercase letterspaced mono is for short labels, and
-      # a shouted two-line verdict is a guide awarding a distinction — not us talking.
-      f'<p style="font-size:15.5px;line-height:1.55;color:var(--ember);margin:0 0 18px">'
-      f'{mm["verdict"]}.</p>'
-      f'{rows}{_vouch_line(d)}{note}'
-      # the generated template has no .checked rule — carry the look inline so the
-      # line does not silently collapse into one run of prose here.
-      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
-      f'letter-spacing:.02em;color:var(--muted);margin:16px 0 0;padding-top:10px;'
-      f'border-top:1px dashed rgba(127,168,165,.28)">'
-      f'<b style="color:var(--sea);text-transform:uppercase;letter-spacing:.14em;font-size:10px;'
-      f'font-weight:500;display:block;margin-bottom:4px">{mm["state"]} &middot; {mm["checker"]} '
-      f'&middot; {mm["date"]}</b>{mm["check"]}</p>'
-      '</div></div></section>')
-
+    return atlas_hub.measure_html(mm, dots, _vouch_line(d))
 
 def in_depth_block(d):
     """The craft itself, at length. A different thing from the overall, and mostly not
@@ -1184,6 +1145,25 @@ CHECKED_STATES = {"stood in it", "checked it", "a named person vouched"}
 ROUTES = {"with-us": "came on a week we sold",
           "direct":  "went on their own, nothing through us"}
 
+# A Measure is a GRADE with a name on it, so the fields that make it one are not
+# optional. The checker especially: an unsigned grade is a house voice, which rule 10
+# exists to forbid, and it is the one field a script must never fill in for a person.
+# So a draft grade simply cannot ship — the build stops until a human signs it.
+for _mid, _mm in MEASURE.items():
+    _missing = [k for k in ("dots", "verdict", "state", "checker", "date", "conditions")
+                if not _mm.get(k)]
+    if _missing:
+        raise SystemExit(f"build-atlas-pages: the Measure on {_mid} is missing {_missing}. "
+                         "A grade ships with a name and a date on it, or it does not ship.")
+    if len(_mm["conditions"]) != 5:
+        raise SystemExit(f'build-atlas-pages: the Measure on {_mid} has '
+                         f'{len(_mm["conditions"])} conditions; the meter is five named ones.')
+    if int(_mm["dots"]) != sum(1 for _c in _mm["conditions"] if _c.get("on")):
+        raise SystemExit(f'build-atlas-pages: the Measure on {_mid} says {_mm["dots"]} dots but '
+                         f'{sum(1 for _c in _mm["conditions"] if _c.get("on"))} conditions are on. '
+                         "The number and the legend have to be the same statement.")
+
+
 
 def check_line(x):
     c = x.get("check") or {}
@@ -1937,6 +1917,19 @@ if _stale_sessions:
           "(hidden from the page, still in the data — replace them): "
           + ", ".join(f"{i} ({g} past" + (f", {k} to come)" if k else ", none left)")
                       for i, g, k in _stale_sessions[:5]))
+
+# Drafted grades waiting for a signature. Counted, never read: the build must be able
+# to say how many are pending without being able to publish one.
+_dpath = ROOT / "data/atlas-measure-drafts.json"
+if _dpath.exists():
+    _drafts = json.loads(_dpath.read_text()).get("drafts", {})
+    if _drafts:
+        print(f"  ⚠ {len(_drafts)} Measure(s) drafted and unsigned — not on the site. "
+              f"Read and sign with scripts/sign-measure.py: {', '.join(sorted(_drafts)[:4])}"
+              + (f", +{len(_drafts) - 4} more" if len(_drafts) > 4 else ""))
+_graded = len(MEASURE)
+_openn = sum(1 for d in DISC if is_open(d["id"]))
+print(f"  · the Measure: {_graded} of {_openn} open crafts graded and signed")
 
 if ASSUME_ALL_OPEN:
     print("  !! --assume-all-open: this output is for diffing only. Do not commit it.")
