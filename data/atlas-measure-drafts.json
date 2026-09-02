@@ -107,6 +107,294 @@
       ],
       "ceilingNote": "All five are reachable here: this craft belongs to its ground, so one visit could answer the last two.",
       "check": "Graded from the entries already verified on this page, not from a visit. The JCMA facts come from jcma.tokyo, read on 2 September 2026; Hiroko Ishii's role on Tokyo Sushi Academy's English course from that school's own tsavideos.com, the same day."
+    },
+    "photography": {
+      "dots": 2,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "The schools here are among the best in the world and we cannot tell you who teaches at a single one of them — that is our gap, not theirs, and it is the first thing to fix on this page",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": false,
+          "t": "Empty across all four cities, and it is our failing rather than the craft's. Spéos, Gobelins, the International Center of Photography, the ENSP at Arles, the RCA, Central Saint Martins — and not one named teacher between them on this page. Magnum's Arles workshops are taught by Magnum photographers, whose names are public. This is closeable research, not an absence in the world, and until it is closed you should ask each school who will actually be in the room."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Open at every level and on published dates: Spéos runs a one-year professional programme in Paris at 18,950 EUR for EU students and 20,950 for international, ICP a one-year certificate in New York, the ENSP a three-year master-level diploma at Arles, and the Rencontres d'Arles run two- to six-day workshops each spring and summer. Your hands can ruin it in the ordinary way of the craft — the frame you did not take is gone."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "New York reads Legendary on the community dots above and Paris, Arles and London all read Thriving. Arles in particular is a scene that assembles: the Rencontres bring the working world of the craft to one town for a season, which is a different and rarer thing than a school with good rooms."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Arles is the case for going: a photography town for a few weeks a year, and nobody from here has stood in it during them."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason, and the ladder is real on paper — the ENSP diploma is master-level, the RCA and Central Saint Martins award MAs, and ICP's certificate is read in the trade. We have read that. We have not watched anyone climb it."
+        }
+      ],
+      "ceilingNote": "All five are reachable here — but the first to fill is the room, and that is a morning's work on six school pages rather than a plane ticket.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. THE ROOM is the exception: it is empty because our own research names nobody."
+    },
+    "ashtanga-yoga": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "The lineage is intact and the doors are open, but the man this map's pick was named after died in 2024 and access is now a lottery — go in knowing both",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": true,
+          "t": "Named, and the naming has changed. R. Sharath Jois died on 11 November 2024 at fifty-three; the Sharath Yoga Centre continues and now names Shruthi Jois and Shraddha Jois. In New York, Eddie Stern teaches at his own shala — a named person in his own room, which is the whole test. London's three Mysore-style programmes name nobody on this page, and should."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Open, and unusually honest about being hard. Mysore is a lottery: registration for the 2026 season is closed and students are selected 'randomly by algorithm to match our shala capacity'. London and New York run daily self-practice programmes you can simply join. Your hands can ruin it in the only way this craft allows — by forcing a posture your body has not reached."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "Mysore reads Legendary on the community dots above, and the bench is the point of the method: Mysore-style means a room of people practising their own sequence beside you with one teacher moving between them. There is a generation above you here and one below, in three cities."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Gokulam is a few streets that the practice organises itself around, and a season there is the only way to know what that is like."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason, and this is the craft where the ladder matters most and is least settled. Authorisation and then Certification were historically the rarest stamps in yoga and they were Sharath's to give. What they mean now is a question for the shala, and not one we can answer for you."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to its ground about as completely as any on the map.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Sharath Jois's death and the 2026 lottery come from the shala's own site, read 3 September 2026."
+    },
+    "cold-exposure-wim-hof-method": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "One method, one family, one certificate that the same company writes and marks — everything here is real and almost all of it comes from a single source, which you should weigh",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": true,
+          "t": "Named at the top: Wim Hof himself takes the Module III intensive in the Karkonosze mountains, and Enahm Hof runs the Academy from Amsterdam. That is a named person in his own room, and unusually it is the person the method is named after. Iceland names nobody and is delivered by certified instructors rather than by the Academy."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Open and laddered: Fundamentals, then Modules I to III, ending in an in-person intensive. You book it. And the hands can ruin it in a way worth stating plainly — this is cold water and breath retention, the failure modes are real, and every serious page about it says never to practise the breathing in or near water."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "Przesieka reads Legendary above and Amsterdam Thriving. The cohorts are the method's whole distribution — thousands of certified instructors worldwide came through these rooms, which is a genuine peer network and also the reason to read the next dot carefully."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. And of everything on this map, a Karkonosze winter is the one that cannot be researched — you either stood in the water or you did not."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason, and there is a second reason worth saying: the qualification here is a Certified Wim Hof Method Instructor, awarded by the Wim Hof Method Academy. The company teaches the method, defines the method, and certifies the teachers of the method. That is not a criticism — it is one closed loop rather than an outside body, and you should price it as such."
+        }
+      ],
+      "ceilingNote": "All five are reachable here, and the ground would fill in a single February.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms."
+    },
+    "french-pastry-and-patisserie": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "The best-defined ladder in any craft on this map — a state diploma at the bottom and a national title at the top — and we can only confirm one of the famous names actually teaches",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": true,
+          "t": "Lit by one confirmed name and we will say which. Frédéric Bau founded L'École Valrhona at Tain-l'Hermitage and is its creative director; that is a named person in a room he built. Paris carries Pierre Hermé and Cédric Grolet on this page and we have not confirmed that either of them teaches the courses listed under them — FERRANDI, Le Cordon Bleu and Bellouet are institutions with their own faculty. Ask before you assume."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Open at every price and length: FERRANDI's intensive professional programme at about 24,500 EUR, Le Cordon Bleu's Diplôme de Pâtisserie, Bellouet's three-month formation, and L'École Valrhona's two- and three-day professional courses, which is the cheapest serious way into this craft anywhere. Your hands can ruin it constantly and visibly, which is most of what the training is for."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "Paris and Tain-l'Hermitage and Tokyo all read Legendary on the community dots above. This is the craft where the peers are the industry — the same rooms, the same suppliers, and a competition circuit that the whole trade watches."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. And this one has a ground in a literal sense: Valrhona is a chocolate factory with a school attached, in the town it is named after."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason, and it is a shame, because the ladder here is the clearest on the whole map. The CAP Pâtissier is a French state diploma. The Meilleur Ouvrier de France is a national title with an examination and a collar. Neither is a certificate of attendance and neither is ours to vouch for yet."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to its ground, and the ladder above it is real.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms."
+    },
+    "hatha-and-vinyasa-yoga": {
+      "dots": 2,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Four of the strongest yoga towns on earth and not one named teacher between them on this page — in a craft where the teacher is the entire product, that is the gap to close before you book",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": false,
+          "t": "Empty in all four places, and in this craft that matters more than in any other on the map. Rishikesh and Mysore carry lineages — Sivananda, Krishnamacharya — and a lineage is not a teacher. Ubud's Yoga Barn and Radiantly Alive, and Encinitas's Soul of Yoga, name nobody here either. A two-hundred-hour training is four weeks of one person's attention: find out whose before you pay, and treat a school that will not tell you as an answer."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Wide open, and the widest on this map: two-hundred-hour teacher trainings run continuously in Rishikesh, Mysore, Ubud and Encinitas, residential, with dates published months out. Your hands can ruin it, and in this craft the thing they can ruin is you — this is the discipline where being pushed past your range does lasting damage."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "Rishikesh and Ubud both read Legendary above. These are towns where the practice is the local economy, which cuts both ways: there are peers everywhere and there is also a great deal of training sold to people who will never teach."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Rishikesh on the Ganges is a ground in the fullest sense, and a month there is the only way to know which schools are serious."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason, and here the ladder is genuinely weak and we should say so: RYT-200 and RYT-500 are registrations with Yoga Alliance, a body you pay to be listed by. That is not a qualification an outside examiner stands behind. It is the standard the market uses, and it is worth knowing what it is."
+        }
+      ],
+      "ceilingNote": "All five are reachable here — but the room is the one that matters in this craft, and it is a week of emails rather than a journey.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. THE ROOM is the exception: it is empty because our own research names nobody."
+    },
+    "italian-cuisine-and-pasta": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "A named woman with flour on her hands at one end and a proper culinary school at the other — this craft is in better shape on this map than most",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": true,
+          "t": "Alessandra Spisni teaches the professional sfoglia course at La Vecchia Scuola Bolognese, in her own school, and she is the reason Bologna is the pick. That is the test passed exactly: a named person, still working, in the room you would be in. Forlimpopoli and Colorno carry lineages instead — Artusi, Marchesi — and both are dead, which is why they now sit under 'where it comes from' rather than under who teaches."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Open at three depths: Spisni's professional sfoglia course at about 6,000 EUR, Casa Artusi's shorter sfoglia courses in Forlimpopoli, and ALMA's Italian Pasta Program at Colorno for people who want the institutional route. Your hands can ruin it in the plainest way on this map — the sfoglia is either right or it is not, and the woman across the table will tell you which."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "Bologna reads Legendary above. The sfogline are a living trade in that city rather than a heritage act, and the school sits in the middle of it. Colorno reads Thriving on the strength of ALMA, which draws cooks from everywhere."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Emilia-Romagna is the ground this craft grew out of, and one week in a Bologna kitchen would answer more than a month of reading."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason. ALMA's Diploma in Italian Cuisine is a real qualification and the sfoglina training at VSB is a trade credential that Bologna itself recognises. We have read both. We have watched nobody finish either."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to its ground as completely as any on the map.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms."
+    },
+    "kitesurfing": {
+      "dots": 2,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "The most standardised teaching on this map and the least personal — you can book a certified course almost anywhere, and we cannot name a single instructor",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": false,
+          "t": "Empty in all three places. Maui, Tarifa and Cabarete carry ten schools between them and not one named teacher on this page. That is partly the shape of the craft — instruction is certified and interchangeable by design, which is a strength for safety and a weakness for this test — and partly our own gap. Ask who your instructor will be and how many hours they have taught; the school will have the answer and the answer varies enormously."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Wider than anywhere else on this map. IKO courses run at every level in all three places, typically three days, in small groups — Freeride Tarifa caps at two to four students an instructor. And the hands can ruin it in a way that is genuinely dangerous rather than merely disappointing, which is why the certification exists at all."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "Tarifa and Cabarete both read Legendary above, and they are the two towns in the world where the whole day is organised around wind. The peers are on the water beside you, which in this craft is where learning actually happens."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. And this craft is more ground-bound than it looks: Tarifa works because of the Levante and the Poniente, and no amount of reading tells you what that is like."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason. IKO Level 3 and then the instructor certification are a real, legible ladder with an outside body behind it — better than most crafts here. We have read it; we have not climbed it."
+        }
+      ],
+      "ceilingNote": "All five are reachable here — and the room would fill with three phone calls.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. THE ROOM is the exception: it is empty because our own research names nobody."
+    },
+    "new-basque-cuisine": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "A faculty the Basque chefs built for themselves, with their restaurants a few kilometres away — and a gap between the names on the page and the names in the classroom",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "The room",
+          "on": true,
+          "t": "Named, with a caveat we would rather state than bury. Andoni Luis Aduriz at Mugaritz and Martín Berasategui at Lasarte-Oria are named on this page and both are real, working chefs in their own kitchens — but what they offer is a stage, not a course, and you apply rather than book. The Basque Culinary Center, which is where you can actually enrol, names no teacher on this page. Luis Irizar, who trained much of this generation, died in 2024 and now sits under 'where it comes from'."
+        },
+        {
+          "n": "The door",
+          "on": true,
+          "t": "Open at the faculty and shut at the restaurants, and the difference is the whole shape of this craft. The Basque Culinary Center runs its Culinary Techniques Mastery at about 3,320 EUR and the Escuela de Cocina Luis Irizar a two-year professional specialisation. Mugaritz and Berasategui take stagiaires on their own terms. Your hands can ruin it in either room."
+        },
+        {
+          "n": "The bench",
+          "on": true,
+          "t": "San Sebastián reads Legendary above, and the reason is not a school — it is that a town of a hundred and eighty thousand people holds one of the densest concentrations of serious kitchens in Europe, plus the faculty those kitchens founded. There is a generation above you here and one below, and they drink in the same bars."
+        },
+        {
+          "n": "The ground",
+          "on": false,
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. This is a cuisine of a specific coast and a specific set of producers, and a week in the Gipuzkoa markets would teach more than the reading has."
+        },
+        {
+          "n": "The stretch",
+          "on": false,
+          "t": "The same reason. The Basque Culinary Center's degree is awarded with Mondragon University, which is an outside body with an examination behind it — one of the better ladders on this map. We have read it. We have not seen anyone climb it."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this cuisine belongs to its ground, so one visit could answer the last two.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms."
     }
   }
 }
