@@ -11184,7 +11184,11 @@ window.ET_ATLAS = {
             "Cinquième Sens",
             "Molinard (harvest-season perfume workshops)"
           ],
-          "masters": [],
+          "masters": [
+            "Jean-Claude Ellena",
+            "Marianne Nawrocki",
+            "Joëlle Lerioux Patris"
+          ],
           "badges": [
             "source",
             "mecca",
@@ -11199,8 +11203,10 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Grasse Institute of Perfumery (GIP)",
-              "url": "https://www.grasse-perfumery.com/long-term/international-technical-degree-in-fragrance-creation-and-sensory-evaluation/",
-              "course": "International Technical Degree in Fragrance Creation and Sensory Evaluation",
+              "url": "https://www.grasse-perfumery.com/who-we-are/",
+              "course": "International Technical Degree in Fragrance Creation and Sensory Evaluation — 18 months, in English, twelve places",
+              "blurb": "The school publishes its faculty, which is rarer in this craft than the teaching itself: Jean-Claude Ellena, listed as 'Senior Perfumer – Ex Hermes' and the house's in-house perfumer for twelve years, teaches here, alongside senior perfumers Marianne Nawrocki and Joëlle Lerioux Patris and a bench of working perfumers. Eighteen months in total — twelve in the centre from January to December, then a six-month internship. 13,500 EUR plus a 150 EUR testing fee, and the working language is English. Twelve places a year, applications between 1 January and 1 July for the following year. Checked on grasse-perfumery.com, 2 September 2026.",
+              "verify": ["Jean-Claude ELLENA", "Marianne NAWROCKI"],
               "blurb": "A long-form program in the historic perfume capital totalling 1,200 training hours, of which 600 are practical and supervised at the perfumer's organ.",
               "confidence": "high"
             },
@@ -11250,8 +11256,10 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "ISIPCA",
-              "url": "https://www.isipca.fr/en",
-              "course": "Art of Perfumery \"A la Française\" (Summer School)",
+              "url": "https://www.isipca.fr/en/formations/perfume/art-french-perfumery",
+              "course": "Art of Perfumery \"à la française\" (Summer School) — 10 days, 70 hours",
+              "blurb": "The school behind the state-recognised diploma also runs a ten-day, seventy-hour summer school, open to anyone over 18 — students of science, art or literature, and professionals topping up. Three sessions in 2026: 29 June to 10 July and 3 to 14 August at 3,560 EUR, 13 to 24 July at 3,400 EUR (that one skips 14 July). The price excludes lunch. Honest note, and it is the reason this destination does not carry a named teacher: ISIPCA names no perfumer on either the course page or its own teams page. Ask who will be in the room before you book — Grasse publishes its faculty and this does not. Checked on isipca.fr, 2 September 2026.",
+              "verify": ["70 hours", "3,560"],
               "blurb": "ISIPCA is a postgraduate perfume, cosmetics and food-flavoring institute in Versailles whose 10-day, 70-hour \"Art of Perfumery À la Française\" summer school teaches fragrance history, raw-material evaluation and laboratory formulation in subgroups to participants aged 18 and over.",
               "confidence": "high"
             },
@@ -11287,14 +11295,14 @@ window.ET_ATLAS = {
         "url": "https://www.grasse-perfumery.com/long-term/international-technical-degree-in-fragrance-creation-and-sensory-evaluation/",
         "course": "International Technical Degree in Fragrance Creation and Sensory Evaluation",
         "description": "A long-form program in the historic perfume capital totalling 1,200 training hours, of which 600 are practical and supervised at the perfumer's organ. Students learn raw materials, fragrance families, accord building and blending, plus chemistry, olfaction training, regulations and analysis (gas chromatography, mass spectrometry), and visit jasmine, rose and lavender growers and local factories. Taught in English to a class capped at twelve, selected for olfactory talent, followed by a six-month industry internship.",
-        "duration": "18 months of classroom (Jan-Dec) + 6-month internship; 1,200 hours",
+        "duration": "18 months in total — 12 in the centre (January to December), then a 6-month internship",
         "format": "Full-time, English-taught, limited to 12 students",
         "certification": "International Technical Degree in Fragrance Creation and Sensory Evaluation (validated by Prodarom)",
         "fitsBecause": "A small-cohort, full-time immersion in Grasse, the birthplace of French perfumery, with hands-on lab time and field visits leading to an industry-recognized degree.",
         "sessions": [
           "Jan 2027"
         ],
-        "priceNote": "~€13,500",
+        "priceNote": "13,500 EUR, plus a 150 EUR testing fee. Checked on grasse-perfumery.com, 2 September 2026.",
         "confidence": "high",
         "alternatives": [
           {
@@ -13738,7 +13746,9 @@ window.ET_ATLAS = {
             "Tsuji Culinary Institute (Tokyo)"
           ],
           "masters": [
-            "Jiro Ono (Sukiyabashi Jiro lineage)"
+            "Fumimasa Murakami",
+            "Sachiko Goto",
+            "Kumiko Imazu"
           ],
           "badges": [
             "source",
@@ -13756,7 +13766,9 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Tokyo Sushi Academy",
-              "url": "https://www.sushischool.jp/en/5weeks-total-course",
+              "url": "https://www.sushischool.jp/instrutorsandstaff",
+              "blurb": "The school publishes its teaching staff, which is the thing to look for and the thing most sushi schools do not do. Seven instructors are named. Fumimasa Murakami is vice-principal and chief instructor, ten years at the academy after Shizuoka, Akasaka kaiseki and a Shinjuku sushi counter. The International Sushi Course — the one taught for people who do not speak Japanese — is carried by Sachiko Goto, who came up through kaiseki, joined in 2005 and has taught the international course since 2025, and by Kumiko Imazu, who joined in 2023. Osamu Nishida and Issei Kurimoto have each taught here thirteen years. Checked on sushischool.jp, 2 September 2026.",
+              "verify": ["Fumimasa", "Sachiko", "Kumiko"],
               "course": "International Sushi Chef Course (5 weeks)",
               "blurb": "Japan's first sushi school and the only one teaching professionals in English, Tokyo Sushi Academy runs an intensive five-week course centered on edomae nigiri: shari (sushi rice) preparation, fish cl",
               "confidence": "high"

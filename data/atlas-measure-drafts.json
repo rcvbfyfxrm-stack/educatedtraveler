@@ -37,16 +37,16 @@
       "check": "Graded from the entries already verified on this page, not from a visit. Prices, course lengths and diploma names come from the school entries below, each carrying its own source."
     },
     "perfumery": {
-      "dots": 2,
+      "dots": 3,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "The doors here are wider than this craft's reputation suggests — but we cannot yet tell you whose hands you would be watching, and that is a gap in our work rather than in Grasse",
+      "verdict": "Grasse publishes the bench you would stand at, and one of the names on it spent twelve years as the in-house perfumer at Hermès — we have still not been, so the last two are ours to earn",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "The room",
-          "on": false,
-          "t": "Empty, and this one is ours rather than the craft's: not a single teacher is named on either destination of this page. Grasse and Versailles hold the two most serious perfumery schools in the world and we cannot say whose bench you would stand at. Ask the school directly, and the answer should be a person you can look up — not a department. Closing this is the next thing owed on this page."
+          "on": true,
+          "t": "Named, and unusually well: the Grasse Institute publishes its whole faculty. Jean-Claude Ellena teaches there — listed on their own page as 'Senior Perfumer – Ex Hermes', which undersells twelve years as that house's in-house perfumer — alongside senior perfumers Marianne Nawrocki and Joëlle Lerioux Patris and a bench of working perfumers. Versailles is the opposite and we say so on its entry: ISIPCA names no perfumer on the course page or on its own teams page. One city here tells you whose hands you would be watching. The other does not, and you should ask."
         },
         {
           "n": "The door",
@@ -69,8 +69,8 @@
           "t": "The same reason. On paper the ladder is one of the best here — ISIPCA's diploma is state-recognised through the Université de Versailles, and the Grasse Institute's is an International Technical Degree, neither of them a certificate of attendance. That is what their pages say and we believe it. We have not seen anyone finish."
         }
       ],
-      "ceilingNote": "All five are reachable here — but the first one to fill should be the room, and that takes a phone call, not a plane.",
-      "check": "Graded from the entries already verified on this page, not from a visit. THE ROOM is the exception: it is empty because our own research names nobody, which is a gap to close rather than a verdict on Grasse."
+      "ceilingNote": "All five are reachable here: this craft belongs to its ground — Grasse is fields as much as laboratories — so one visit in season could answer the last two.",
+      "check": "Graded from the entries already verified on this page, not from a visit. The faculty, the eighteen months, the 13,500 EUR and the English working language come from the Grasse Institute's own pages, read on 2 September 2026; the ISIPCA sessions and prices from theirs, the same day."
     }
   }
 }
