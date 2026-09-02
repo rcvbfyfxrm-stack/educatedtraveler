@@ -138,6 +138,7 @@ if CRAFT_FAMILIES and set(CRAFT_META) - _named:
 # somebody asks for it, unattended, and a refusal here would take the whole nightly
 # Atlas build down on the night that happened. A place with no line simply shows none.
 MEASURE = MANIFEST.get("measure", {})
+MEASURE_CAPS = MANIFEST.get("measureCaps", {})
 _craft_ids = {d["id"] for d in DISC}
 _stray_m = set(MEASURE) - _craft_ids
 if _stray_m:
@@ -261,6 +262,54 @@ def sibling_line(d):
 _WORD = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "All five"}
 
 
+def _vouches(d):
+    """Every check on this craft's places where somebody was actually in the room."""
+    out = []
+    for x in d["destinations"]:
+        c = x.get("check") or {}
+        if c.get("state") in CHECKED_STATES:
+            out.append((x, c))
+    return out
+
+
+def _evidence_cap(d):
+    """How far the evidence lets this craft's dots go, and why.
+
+    A craft is held at the desk cap until a person has stood in one of its rooms.
+    Two of them — or somebody who went back — is what a place holding up looks like,
+    and only that reaches five. Returns (cap, reason-or-empty).
+    """
+    v = _vouches(d)
+    if not v:
+        return MEASURE_CAPS.get("researched, not checked", 3), ""
+    if len(v) >= 2:
+        return MEASURE_CAPS.get("twoOrReturn", 5), ""
+    x, c = v[0]
+    cap = MEASURE_CAPS.get(c["state"], 4)
+    return cap, (f'{e(c["by"])} stood in the room at {e(x["place"])} on {e(c["date"])}. '
+                 'One visit is one week and one cohort, so the last dot waits for a second.')
+
+
+def _vouch_line(d):
+    """Who has been — split by route, because the gap between the two is the finding."""
+    v = _vouches(d)
+    if not v:
+        return ""
+    mine = [c for _, c in v if c.get("route") == "with-us"]
+    alone = [c for _, c in v if c.get("route") == "direct"]
+    bits = []
+    if mine:
+        bits.append(f'{_WORD.get(len(mine), len(mine)).lower()} on a week we sold')
+    if alone:
+        bits.append(f'{_WORD.get(len(alone), len(alone)).lower()} who went on their own')
+    tail = (" &mdash; " + ", ".join(bits)) if bits else ""
+    n = _WORD.get(len(v), len(v))
+    who = "chef has" if len(v) == 1 else "chefs have"
+    return (f'<p style="margin:0 0 14px;color:var(--muted)">{n} working {who} stood in a room '
+            f'on this craft and signed what they saw{tail}. Their words are on the place\'s '
+            'own page.</p>')
+
+
 def measure_block(d):
     """The Measure — is this community worth the trip, and how.
 
@@ -273,6 +322,12 @@ def measure_block(d):
     if not mm:
         return ""
     dots = int(mm["dots"])
+    cap, cap_reason = _evidence_cap(d)
+    if dots > cap:
+        raise SystemExit(
+            f'build-atlas-pages: measure on {d["id"]} claims {dots} dots but the evidence '
+            f'only carries {cap}. Nobody has stood in a room here yet, and the ground and the '
+            'stretch are exactly what a brochure claims. Lower the dots or add the check.')
     meter = ('<span style="color:var(--sea)">' + "&#9679;" * dots + "</span>"
              + '<span style="color:var(--faint)">' + "&#9675;" * (5 - dots) + "</span>")
     rows = ""
@@ -301,7 +356,7 @@ def measure_block(d):
       # a shouted two-line verdict is a guide awarding a distinction — not us talking.
       f'<p style="font-size:15.5px;line-height:1.55;color:var(--ember);margin:0 0 18px">'
       f'{mm["verdict"]}.</p>'
-      f'{rows}{note}'
+      f'{rows}{_vouch_line(d)}{note}'
       # the generated template has no .checked rule — carry the look inline so the
       # line does not silently collapse into one run of prose here.
       f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
@@ -1120,7 +1175,14 @@ def best_dest_id(d):
 # (18 Aug 2026 amendment): "catalogued, not checked" · "researched, not checked" · a
 # CHECKED form. Anything else is a label climbing, which is what the amendment exists
 # to stop — desk research is NOT a check, however carefully it was done.
+# The three CHECKED forms were missing here until 2 Sept 2026, so rule 10 could not
+# actually be written down: the builder could only ever say "not checked". A vouch
+# carries the witness's TRADE, because a named yacht chef's word is what another
+# yacht chef can weigh — membership of anything is not evidence (Arnaud, 2 Sept).
 CHECK_STATES = {"catalogued, not checked", "researched, not checked"}
+CHECKED_STATES = {"stood in it", "checked it", "a named person vouched"}
+ROUTES = {"with-us": "came on a week we sold",
+          "direct":  "went on their own, nothing through us"}
 
 
 def check_line(x):
@@ -1130,15 +1192,29 @@ def check_line(x):
     if not (c.get("by") and c.get("date") and c.get("state")):
         raise SystemExit(f'build-atlas-pages: check on {x["id"]} needs by + date + state.')
     st = c["state"]
-    if st not in CHECK_STATES and not st.lower().startswith("checked "):
+    if (st not in CHECK_STATES and st not in CHECKED_STATES
+            and not st.lower().startswith("checked ")):
         raise SystemExit(
             f'build-atlas-pages: check state {st!r} on {x["id"]} is not a sanctioned string.\n'
-            '  Use "catalogued, not checked", "researched, not checked", or a "Checked <date>" form.')
+            '  Use "catalogued, not checked", "researched, not checked", '
+            '"stood in it", "checked it", "a named person vouched", or a "Checked <date>" form.')
+    if st in CHECKED_STATES and not c.get("trade"):
+        raise SystemExit(
+            f'build-atlas-pages: the check on {x["id"]} says somebody was there, so it needs '
+            'a `trade` — a name alone is not weighable by a reader who does the same job.')
+    route = c.get("route")
+    if route and route not in ROUTES:
+        raise SystemExit(f'build-atlas-pages: route {route!r} on {x["id"]} is not with-us or direct.')
+    who = e(c["by"]) + (f', {e(c["trade"])}' if c.get("trade") else "")
     what = f' &mdash; {e(c["what"])}' if c.get("what") else ""
+    # The interest goes at the point of the judgement, never in a log.
+    disc = (f'<br><span style="color:var(--ember)">&#9888; {e(ROUTES[route])}. '
+            'Read it knowing that.</span>') if route == "with-us" else (
+           f'<br>{e(ROUTES[route])}.' if route else "")
     return ('<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
             'letter-spacing:.02em;color:rgba(243,237,226,.62);margin:14px 0 0;padding-top:10px;'
             'border-top:1px dashed rgba(127,168,165,.28)">'
-            f'{e(st)} &middot; {e(c["by"])} &middot; {e(c["date"])}{what}</p>')
+            f'{e(st)} &middot; {who} &middot; {e(c["date"])}{what}{disc}</p>')
 
 
 def sheet_link(d, x):

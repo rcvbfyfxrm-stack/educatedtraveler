@@ -425,5 +425,14 @@
       "check": "Read from the entries already verified on this page, not from a fresh sweep. Nobody from EducatedTraveler has stood in either room — and that alone is what holds the last two, not doubt about the places. When somebody does, the line will carry their name and the day they went.",
       "ceilingNote": "All five are reachable here: this cuisine belongs to its ground, so a visit could answer the last two."
     }
+  },
+  "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves.",
+  "measureCaps": {
+    "catalogued, not checked": 0,
+    "researched, not checked": 3,
+    "a named person vouched": 4,
+    "checked it": 4,
+    "stood in it": 4,
+    "twoOrReturn": 5
   }
 }
