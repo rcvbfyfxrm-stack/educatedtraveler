@@ -11954,10 +11954,7 @@ window.ET_ATLAS = {
             "École Lenôtre"
           ],
           "masters": [],
-          "lineage": [
-            "Pierre Hermé",
-            "Cédric Grolet"
-          ],
+          "lineage": [],
           "badges": [
             "source",
             "scene",
@@ -12785,9 +12782,7 @@ window.ET_ATLAS = {
             "Le Cordon Bleu Paris",
             "École de Boulangerie et de Pâtisserie de Paris (EBP)"
           ],
-          "masters": [
-            "Cédric Grolet"
-          ],
+          "masters": [],
           "badges": [
             "scene",
             "mecca",
