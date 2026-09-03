@@ -11953,7 +11953,8 @@ window.ET_ATLAS = {
             "École Bellouet Conseil",
             "École Lenôtre"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Pierre Hermé",
             "Cédric Grolet"
           ],
@@ -12019,8 +12020,9 @@ window.ET_ATLAS = {
             "École Nationale Supérieure de la Pâtisserie (ENSP, Yssingeaux)",
             "Institut Paul Bocuse"
           ],
-          "masters": [
-            "Frédéric Bau"
+          "masters": [],
+          "lineage": [
+            "Frédéric Bau (founded L'École Valrhona, 1988)"
           ],
           "badges": [
             "scene",
