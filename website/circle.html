@@ -216,6 +216,20 @@
         .member-note .quiet-alt{ display:block; margin-top:12px; font-size:12.5px; color:var(--faint); }
         .member-note .quiet-alt a{ color:var(--muted); text-decoration:underline; }
         .member-note .quiet-alt a:hover{ color:var(--sea); }
+        /* Same notice, but greeting a member BEFORE the sheet rather than after the
+           send — so it sits above what follows instead of under it. */
+        .member-note.member-band{ margin:0 0 30px; }
+
+        /* The door back in, for someone who already has an account. Static markup:
+           it must be here when the SDK is blocked or slow, because that is exactly
+           when a member is stuck outside. member-nav.js hides it once a session is
+           found — nothing ever shows it. */
+        .signin-line{ margin-top:18px; font-family:'IBM Plex Mono',monospace; font-size:12px;
+                      letter-spacing:0.06em; color:var(--faint); }
+        .signin-line a{ color:var(--muted); text-decoration:none;
+                        border-bottom:1px solid rgba(127,168,165,0.35); padding-bottom:1px;
+                        transition:color .25s, border-color .25s; }
+        .signin-line a:hover{ color:var(--sea); border-bottom-color:var(--sea); }
 
         /* promise panel */
         .promise{ border:1px solid var(--line); border-left:2px solid var(--sea); background:rgba(243,237,226,0.022);
@@ -340,6 +354,16 @@
                 <i id="r0" class="on"></i><i id="r1"></i>
             </div>
 
+            <!-- Already signed in on this browser. The rule member-nav.js opens with —
+                 don't ask a member to join twice — but said BEFORE the sheet, not after
+                 they have filled it in. The note below stays: a member is welcome to
+                 write me another one, it just isn't how they get back to their place. -->
+            <div class="member-note member-band" id="member-band" role="status" aria-live="polite">
+                <p id="member-band-msg">You're already in the Circle &mdash; your place is waiting.</p>
+                <a class="cta cta-sm" href="/you">Go to your place &rarr;</a>
+                <span class="quiet-alt">Not you? <a href="#" id="band-signout">Sign out &rarr;</a></span>
+            </div>
+
             <!-- BEAT 1 — the letter. Nothing is asked before it: the letter IS the
                  joining, and the signature is where the name comes from. -->
             <section class="beat show" id="beat0" aria-label="Step 1: your note">
@@ -351,6 +375,11 @@
                 <h1 class="hook">Write me a note.<br>That's how you join the Circle.</h1>
                 <p class="sub">I'm Arnaud. I built EducatedTraveler from a galley. <b>Tell me the skill you want to
                     learn and I'll open the doors.</b> Free, no password.</p>
+
+                <!-- Said here, at the top, and not only after a member has filled in the
+                     whole note and been recognised by #member-note2. Someone who already
+                     has an account is looking for the way back in, not for a form. -->
+                <p class="signin-line" data-visitor-only>Already in the Circle? <a href="/you">Sign in &rarr;</a></p>
 
                 <!-- Said BEFORE the sheet, not after: without the first half the letters
                      arrive asking for trading and marketing, and the honest answer is
@@ -408,7 +437,7 @@
                 <!-- Already signed in on this browser: don't ask a member to join twice. -->
                 <div class="member-note" id="member-note" role="status" aria-live="polite">
                     <p id="member-note-msg">You're already in the Circle with this email — no need to sign up again.</p>
-                    <a class="cta cta-sm" id="member-signin" href="/join?tab=signin">Sign in to your account &rarr;</a>
+                    <a class="cta cta-sm" id="member-signin" href="/you">Sign in to your account &rarr;</a>
                     <span class="quiet-alt">Not you? <a href="#" id="member-continue">Use a different email &rarr;</a></span>
                 </div>
             </section>
@@ -437,7 +466,7 @@
 
                 <div class="member-note" id="member-note2" role="status" aria-live="polite">
                     <p id="member-note2-msg">You're already in the Circle with this email — no need to sign up again.</p>
-                    <a class="cta cta-sm" id="member-signin2" href="/join?tab=signin">Sign in to your account &rarr;</a>
+                    <a class="cta cta-sm" id="member-signin2" href="/you">Sign in to your account &rarr;</a>
                     <span class="quiet-alt">Not you? <a href="#" id="member-continue2">Use a different email &rarr;</a></span>
                 </div>
             </section>
@@ -581,6 +610,8 @@
     <!-- Supabase: the Circle writes to launch_waitlist (an audience we own, not a sales list) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
+    <!-- hides [data-visitor-only] and repoints any join CTA once a session is found -->
+    <script src="/js/member-nav.js" defer></script>
 
     <script>
     (function(){
@@ -692,9 +723,16 @@
             });
         });
 
-        // Already signed in on this browser? Say so at the door rather than after they
-        // have written. Their letter still counts — it saves as a carrier row and lands
-        // in their portrait — so this is a signpost, not a wall. Fail-quiet.
+        // Already signed in on this browser? Say so at the DOOR — in #member-band, above
+        // the sheet — rather than in #member-note at the foot of the letter, where it sat
+        // below the fold and was found only by someone already scrolling past it. Their
+        // note still counts either way: it saves as a carrier row and lands in their
+        // portrait, so this is a signpost, not a wall. Fail-quiet.
+        //
+        // The destination is /you, the same place member-nav.js sends a member and the
+        // same place the header sends them. /portrait is the questionnaire, not the door.
+        var MEMBER_LINE = " — no need to join twice. Your place is where the crafts you follow live.";
+
         (function(){
             var tries = 0;
             (function poll(){
@@ -704,19 +742,49 @@
                         if(!s || !s.user || bypassMemberCheck) return;
                         var email = s.user.email || '';
                         state.email = state.email || email;
-                        $('member-note-msg').textContent =
-                            "You're already in the Circle" + (email ? ', ' + email : '') +
-                            " — you don't have to join again. Write to me here whenever you like; it lands in your portrait.";
-                        var link = $('member-signin');
-                        link.href = '/portrait';
-                        link.innerHTML = 'Open your portrait &rarr;';
-                        $('member-note').style.display = 'block';
+                        greet(s, email);
                     }).catch(function(){});
                     return;
                 }
                 if(window.supabaseError || tries++ > 100) return;
                 setTimeout(poll, 50);
             })();
+
+            // Paint with the address first and upgrade to the first name if one arrives:
+            // a slow or failed profile read must never hold the door shut.
+            function greet(session, email){
+                var band = $('member-band'), msg = $('member-band-msg');
+                if(!band || !msg) return;
+                msg.textContent = "You're already in the Circle" + (email ? ', ' + email : '') + MEMBER_LINE;
+                band.style.display = 'block';
+                // member-nav.js normally does this, but it is a separate file and a
+                // separate request: if it never lands we must not greet a member and
+                // invite them to sign in in the same breath.
+                Array.prototype.forEach.call(document.querySelectorAll('[data-visitor-only]'),
+                    function(el){ el.style.display = 'none'; });
+                try{
+                    window.supabaseClient.from('profiles').select('first_name,name')
+                        .eq('id', session.user.id).maybeSingle()
+                        .then(function(r){
+                            var n = r && r.data ? (r.data.first_name || r.data.name || '') : '';
+                            n = String(n).trim();
+                            if(!n) return;
+                            msg.textContent = "You're already in the Circle, "
+                                + n.charAt(0).toUpperCase() + n.slice(1) + MEMBER_LINE;
+                        })
+                        .catch(function(){});
+                }catch(e){}
+            }
+
+            // Someone else's session on a shared browser is the only honest reading of
+            // "not you" when we already know who is signed in — so this signs out, it
+            // does not just hide the band.
+            var out = $('band-signout');
+            if(out) out.addEventListener('click', function(ev){
+                ev.preventDefault();
+                var sb = window.supabaseClient, done = function(){ window.location.reload(); };
+                if(sb && sb.auth){ sb.auth.signOut().then(done).catch(done); } else { done(); }
+            });
         })();
 
         // ── the payload ──
@@ -775,7 +843,7 @@
                 btn.disabled=false; btn.innerHTML=label;
                 $('member-note2-msg').textContent =
                     "You're already in the Circle with this email, " + state.name + " — I've kept your note and it's waiting in your portrait. No need to join twice.";
-                $('member-signin2').href = '/join?tab=signin&email=' + encodeURIComponent(email);
+                $('member-signin2').href = '/you?email=' + encodeURIComponent(email);
                 if(note){ note.style.display='block'; note.scrollIntoView({behavior:'smooth', block:'center'}); }
                 if(window.plausible) window.plausible('CircleLetterExistingMember');
                 return;
@@ -803,7 +871,7 @@
             if(!linked){
                 $('sent-line').innerHTML =
                     'I have it, and I read every one myself. I couldn\'t send your sign-in link just now — ' +
-                    '<a href="/join?tab=signin&email=' + encodeURIComponent(state.email) + '" style="color:var(--sea)">ask for it again here</a> ' +
+                    '<a href="/you?email=' + encodeURIComponent(state.email) + '" style="color:var(--sea)">ask for it again here</a> ' +
                     'whenever you like, and your note will already be there.';
             }
             document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });

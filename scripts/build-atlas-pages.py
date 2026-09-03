@@ -798,8 +798,8 @@ CUR_TOGGLE = """<div class="cur-toggle" id="cur-toggle" hidden title="Show price
 # Atlas. They live here now: the generator owns the page again.
 NAV_AUTH = ('<div id="et-nav-auth"><a href="/circle" id="et-nav-join" class="cta" '
             'style="margin:0;padding:8px 18px;font-size:13px;">Join the Circle</a>'
-            '<a href="/profile" id="et-nav-profile" class="cta" '
-            'style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your Profile</a></div>')
+            '<a href="/you" id="et-nav-profile" class="cta" '
+            'style="margin:0;padding:8px 18px;font-size:13px;display:none;">Your place</a></div>')
 
 NAV_AUTH_TOGGLE = """<!-- et-nav-auth-toggle -->
 <script>
@@ -961,7 +961,7 @@ footer a {{ color:var(--sea); }}
 {body}
 {TRUST_HTML}
 {tail_scripts}
-<footer><div class="wrap">{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the notes I write in <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<footer><div class="wrap">{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, read the notes I write in <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>, and when a week takes shape near what pulls you, <a href="/circle" style="color:var(--sea);">the Circle</a> is how I open the door.</p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 {CUR_TOGGLE}
 <script>{RAIL_JS}</script>
 </body>

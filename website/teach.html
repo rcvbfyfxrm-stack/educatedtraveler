@@ -414,7 +414,7 @@
 
                 <div class="member-note" id="member-note" role="status" aria-live="polite">
                     <p id="member-note-msg">You're already in the Circle with this email.</p>
-                    <a class="cta cta-sm" id="member-signin" href="/join?tab=signin">Sign in to your account &rarr;</a>
+                    <a class="cta cta-sm" id="member-signin" href="/you">Sign in to your account &rarr;</a>
                     <span class="quiet-alt">Not you? <a href="#" id="member-continue">Use a different email &rarr;</a></span>
                 </div>
             </section>
@@ -587,7 +587,7 @@
                 btn.disabled=false; btn.innerHTML=label;
                 $('member-note-msg').textContent =
                     "You're already in the Circle with this email, " + state.name + " — I've kept what you wrote, and it's on your sheet. No need to join twice.";
-                $('member-signin').href = '/join?tab=signin&email=' + encodeURIComponent(email);
+                $('member-signin').href = '/you?email=' + encodeURIComponent(email);
                 $('member-note').style.display='block';
                 $('member-note').scrollIntoView({behavior:'smooth', block:'center'});
                 return;
@@ -607,7 +607,7 @@
             $('sent-email').textContent = state.email;
             if(!linked){
                 $('sent-line').innerHTML = 'I have what you wrote, and I read these myself. I couldn\'t send your sign-in link '
-                    + 'just now — <a href="/join?tab=signin&email=' + encodeURIComponent(state.email) + '" style="color:var(--sea)">ask for it again here</a> '
+                    + 'just now — <a href="/you?email=' + encodeURIComponent(state.email) + '" style="color:var(--sea)">ask for it again here</a> '
                     + 'whenever you like.';
             }
             document.querySelectorAll('.beat').forEach(function(b){ b.classList.remove('show'); });

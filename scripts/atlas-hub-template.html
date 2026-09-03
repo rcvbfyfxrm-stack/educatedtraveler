@@ -659,6 +659,9 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 
 <div class="wrap"><div class="circle-alt reveal">
   <p>Not in the mood to write? <a href="/circle">Join the Circle</a> instead — a minute of questions, same door.</p>
+  <!-- The door back in. Static, so it survives a blocked CDN — which is exactly
+       when a member is locked out. member-nav.js hides it once a session is found. -->
+  <p data-visitor-only style="margin-top:8px">Already in? <a href="/you">Sign in</a></p>
 </div></div>
 
 <!--ATLAS_CRAFT_NAV-->

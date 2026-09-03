@@ -483,6 +483,22 @@
     function show(which){
         ['v-loading','v-out','v-in'].forEach(function(v){ $(v).classList.remove('show'); });
         $(which).classList.add('show');
+        if(which === 'v-out') prefillFromUrl();
+    }
+
+    // /circle hands the address over in ?email= once it recognises a member, so the
+    // person who just typed it does not type it a second time. Set as a VALUE — never
+    // written into markup — so a crafted query string is inert. Every show('v-out')
+    // path runs through here; a missing or malformed param simply leaves the field be.
+    function prefillFromUrl(){
+        try{
+            var q = new URLSearchParams(window.location.search).get('email');
+            if(!q) return;
+            q = q.trim();
+            if(q.indexOf('@') < 1 || q.length > 254) return;
+            var f = $('f_email');
+            if(f && !f.value) f.value = q;
+        }catch(e){}
     }
 
     // ── the Atlas catalogue: name -> sheet ───────────────────────────────

@@ -91,6 +91,7 @@
         <div id="mobile-menu" class="hidden md:hidden" style="border-top:1px solid var(--line);">
             <div class="px-6 py-4 space-y-1">
                 <a href="/circle" class="block py-3 text-sea-soft">Join the Circle</a>
+                <a href="/you" class="block py-3 text-paper-faint text-sm" data-visitor-only>Already in? Sign in</a>
             </div>
         </div>
     </nav>
@@ -305,6 +306,9 @@
                 <a href="/circle" class="btn-primary inline-block px-8 py-4 rounded-full">Join the Circle</a>
                 <a href="/atlas/" class="btn-ghost inline-block px-8 py-4 rounded-full">Open the Atlas</a>
             </div>
+            <!-- The door back in. Static, so it survives a blocked CDN — which is exactly
+                 when a member is locked out. member-nav.js hides it once a session is found. -->
+            <p class="text-paper-faint text-sm mt-6" data-visitor-only>Already in? <a href="/you" class="underline" style="color:var(--sea)">Sign in</a></p>
             <p class="text-paper-faint text-sm mt-10 italic font-serif">Tans fade. Skills last.</p>
         </div>
     </section>

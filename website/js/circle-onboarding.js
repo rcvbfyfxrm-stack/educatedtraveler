@@ -398,7 +398,7 @@
     return Promise.race([probe,timeout]); // fails OPEN — never blocks a real join (8s covers cold starts)
   }
   function renderExisting(email){
-    var url="/join?tab=signin&email="+encodeURIComponent(email);
+    var url="/you?email="+encodeURIComponent(email);
     els.panel.innerHTML='<div class="etc-done"><div class="etc-orb" aria-hidden="true"></div><h2>You\'re already in the Circle.</h2><p>This email already has an account — no need to sign up again. Step back into yours and pick up where you left off.</p><a class="etc-cta etc-explore" href="'+url+'" style="text-decoration:none;display:inline-block">Sign in to your account →</a></div>';
     setTimeout(function(){var e=els.panel.querySelector(".etc-explore");if(e)e.focus();},30);
     if(window.plausible)window.plausible("CircleSignupExistingMember",{props:{source:CONFIG.saveSource}});

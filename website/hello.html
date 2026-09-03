@@ -198,9 +198,13 @@
             <h1>Good to meet you.<br>Now let me <em>find you again.</em></h1>
             <p class="sub">Your name and your email. That's the whole ask.</p>
 
+            <!-- The door back in. Static, so it survives a blocked CDN — which is exactly
+                 when a member is locked out. member-nav.js hides it once a session is found. -->
+            <p class="mins" style="margin:14px 0 0" data-visitor-only>Already in? <a href="/you" style="color:var(--sea)">Sign in &rarr;</a></p>
+
             <div class="note" id="member-note">
                 <p id="member-note-msg"></p>
-                <p style="margin-top:12px"><a id="member-signin" href="/join?tab=signin">Step back into your account &rarr;</a></p>
+                <p style="margin-top:12px"><a id="member-signin" href="/you">Step back into your account &rarr;</a></p>
                 <button type="button" id="member-continue">Use a different email</button>
             </div>
 
@@ -322,6 +326,8 @@
     <!-- Supabase: this writes to launch_waitlist, the same audience as /circle -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
+    <!-- hides [data-visitor-only] and repoints any join CTA once a session is found -->
+    <script src="/js/member-nav.js" defer></script>
     <script src="/js/lab-weeks.js"></script>
     <script>
     (function(){
@@ -425,7 +431,7 @@
                     btn.disabled = false; btn.innerHTML = label;
                     $('member-note-msg').textContent =
                         "We've already done this, " + name + " — this email is in the Circle. No need to sign up twice.";
-                    $('member-signin').href = '/join?tab=signin&email=' + encodeURIComponent(email);
+                    $('member-signin').href = '/you?email=' + encodeURIComponent(email);
                     note.style.display = 'block';
                     note.scrollIntoView({ behavior:'smooth', block:'center' });
                     if(window.plausible) window.plausible('HelloExistingMember');

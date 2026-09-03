@@ -98,6 +98,7 @@
         <div id="mobile-menu" class="hidden md:hidden" style="border-top: 1px solid var(--line);">
             <div class="px-6 py-2">
                 <a href="/circle" class="block py-3" style="color:var(--sea)">Join the Circle</a>
+                <a href="/you" class="block py-3 text-sm text-paper-muted" data-visitor-only>Already in? Sign in</a>
             </div>
         </div>
     </nav>
@@ -188,6 +189,11 @@
                 <p class="intent-fine text-xs text-paper-faint mt-4"><a href="/circle" class="underline" style="color:var(--sea)">Write it here →</a></p>
                 <p class="intent-msg text-sm mt-4" hidden></p>
             </form>
+            <!-- OUTSIDE the form on purpose: intent-capture.js replaces the form's
+                 innerHTML wholesale, and this line has to be the one thing that
+                 survives a script that never arrives. member-nav.js hides it once a
+                 session is found. -->
+            <p class="text-xs text-paper-faint mt-4 text-center" data-visitor-only>Already in? <a href="/you" class="underline" style="color:var(--sea)">Sign in →</a></p>
         </div>
     </section>
 

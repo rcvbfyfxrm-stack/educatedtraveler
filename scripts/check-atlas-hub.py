@@ -32,7 +32,10 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
      written line there is for that place, and this check actually found the headings
      it was meant to read (it silently matched none once, and reported OK). The band is static HTML from Python and the walk is JS reading
      ET_ATLAS; if the two ever disagree the card changes its sentence the instant a
-     pointer touches it, which reads as a lie and looks like a bug.
+     pointer touches it, which reads as a lie and looks like a bug;
+  13. the hub carries the static [data-visitor-only] sign-in link to /you AND loads
+     member-nav.js to hide it again — the only way a signed-out member gets back
+     into their account from the Atlas, and nothing at runtime would miss it.
 
 Exit 0 = all clear. Exit 1 = do not ship it.
 """
@@ -301,6 +304,31 @@ _want_heads = sum(1 for _d in _disc for _x in _d["destinations"]
 if _seen != _want_heads:
     bad(f"check 12 inspected {_seen} sheet heading(s) but {_want_heads} places carry a "
         f"written line — the pattern has stopped matching the page and this check is blind")
+
+# ── 13 · the door back in ──────────────────────────────────────────────────
+# A member who is signed out has exactly one way back into their account from the
+# Atlas, and it is this link. It is static markup precisely so it survives a dead
+# CDN; that also means nothing at runtime would ever complain if it were dropped
+# from the template — the hub would still 200, still look finished, and quietly
+# strand every returning member. Hence a build gate.
+#
+# Both halves matter: the link must be there AND member-nav.js must be loaded,
+# because member-nav.js is the only thing that takes the line away once a session
+# is found. Without it a signed-in member is invited to sign in.
+#
+# The attribute sits on the wrapper and the href on a nested <a> in one place, and on
+# the same tag in another — so match the pair by proximity rather than by tag shape,
+# which is what a first version of this check got wrong.
+_signin = any('href="/you"' in html[m.start():m.start() + 400]
+              for m in re.finditer(r'data-visitor-only', html))
+if not _signin:
+    bad('check 13: the hub has no [data-visitor-only] sign-in link to /you — a signed-out '
+        'member has no way back into their account from the Atlas. It lives in '
+        'scripts/atlas-hub-template.html (the .circle-alt block); editing '
+        'website/atlas/index.html by hand is undone by the next build.')
+if "member-nav.js" not in html:
+    bad('check 13: the hub does not load /js/member-nav.js, so nothing hides the '
+        '[data-visitor-only] sign-in line — a signed-in member is told to sign in.')
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:

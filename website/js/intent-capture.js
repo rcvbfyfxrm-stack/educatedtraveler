@@ -449,7 +449,7 @@
       } else {
         done.innerHTML = 'Your note\'s with me, ' + nameHtml + ', and I read every one myself. ' +
           'I couldn\'t send your sign-in link just now — ' +
-          '<a href="/join?tab=signin&email=' + encodeURIComponent(addr) + '" style="color:var(--sea,#7fa8a5)">ask for it again here</a> ' +
+          '<a href="/you?email=' + encodeURIComponent(addr) + '" style="color:var(--sea,#7fa8a5)">ask for it again here</a> ' +
           'whenever you like, and your note will already be there.';
       }
       form.appendChild(done);
