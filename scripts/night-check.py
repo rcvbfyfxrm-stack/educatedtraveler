@@ -30,6 +30,11 @@ Two things, in order of value:
 A missing `verify` is legal and is reported as thin coverage, not as a failure: a
 claim nobody wrote a test for is simply a claim nobody is watching.
 
+⚠ A verify string must be readable ON THE URL THE ENTRY CITES. Quoting a school's
+about page while linking its course page fails every night for a difference that is
+not one — the sentence is true, it is just not there. If the fact and the link live on
+different pages, cite the page carrying the fact you are leaning on.
+
 TRANSIENTS
 ----------
 One bad night is not decay — a site is down, a WAF is grumpy, a runner has no DNS.

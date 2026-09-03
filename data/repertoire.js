@@ -4592,9 +4592,10 @@ window.ET_ATLAS = {
             },
             {
               "name": "Kiteboarding School of Maui",
-              "url": "https://www.ksmaui.com/packages/",
-              "course": "Three-Day Private Coaching Series (9 hours)",
-              "blurb": "The Kiteboarding School of Maui is a CORE-supported kiteboarding school at the Kite Beach end of Kanaha Beach Park whose flagship offering is a three-day, nine-hour series of private coaching for riders aiming to master the sport.",
+              "url": "https://www.ksmaui.com/",
+              "course": "Private and semi-private kiteboarding and wing lessons, all levels",
+              "blurb": "Booked through their own scheduling page rather than sold as a fixed package: private and semi-private lessons for beginner, intermediate and advanced, with lessons starting at set times each day. Honest note, and the reason this craft scores what it does: their team page describes the instructors warmly and names none of them. Ask who yours will be and how long they have taught. The three-day coaching series we listed until now is no longer on their site. Checked on ksmaui.com, 3 September 2026.",
+              "verify": ["semi-private"],
               "confidence": "high"
             }
           ],
@@ -13929,9 +13930,10 @@ window.ET_ATLAS = {
             },
             {
               "name": "La Carriere Cooking School (since 1931)",
-              "url": "https://www.taiwa.ac.jp/lacarriere/en/course/washoku.php",
-              "course": "Washoku course",
-              "blurb": "Kyoto's oldest cooking school, founded in 1931 and run by Taiwa Gakuen, offers monthly hands-on washoku classes covering Kyoto home cooking, obanzai and the UNESCO-listed fundamentals of Japanese cuisine.",
+              "url": "https://www.taiwa.ac.jp/lacarriere/en/course/",
+              "course": "International programme — six short courses, sushi among them",
+              "blurb": "Founded in 1931 and, in their own words, the oldest cooking school in Kyoto. What they run for visitors is not a washoku course as we had it listed but a six-course international programme, each a single 2.5-hour session at 11,000 JPY a head with a minimum of three people — one of them nigiri sushi with red miso soup, others ramen and gyoza. Short, real, and a taste rather than a training: it belongs on this page as a first step, not as a route into the craft. The washoku course page we linked until now is gone. Checked on taiwa.ac.jp, 3 September 2026.",
+              "verify": ["11,000", "Red Miso Soup"],
               "confidence": "high"
             },
             {

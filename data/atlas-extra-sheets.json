@@ -502,16 +502,16 @@
       "date": "3 September 2026"
     },
     "french-pastry-and-patisserie": {
-      "dots": 3,
+      "dots": 2,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "The best-defined ladder in any craft on this map — a state diploma at the bottom and a national title at the top — and we can only confirm one of the famous names actually teaches",
+      "verdict": "The clearest ladder on this map sits above rooms whose teachers we cannot name — the qualifications are real and the question of who will be in front of you is still open",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "The room",
-          "on": true,
-          "t": "Lit by one confirmed name and we will say which. Frédéric Bau founded L'École Valrhona at Tain-l'Hermitage and is its creative director; that is a named person in a room he built. Paris carries Pierre Hermé and Cédric Grolet on this page and we have not confirmed that either of them teaches the courses listed under them — FERRANDI, Le Cordon Bleu and Bellouet are institutions with their own faculty. Ask before you assume."
+          "on": false,
+          "t": "Dark after a second look, and the correction is ours. Frédéric Bau founded this school in 1988 and is Valrhona's creative director — both true, both checkable — but the test is a named person who still stands in the room, and we could not confirm he teaches the courses. Pierre Hermé and Cédric Grolet are named on this page above FERRANDI, Le Cordon Bleu and Bellouet, three institutions with their own faculty, and we could not confirm either of them teaches there either. A famous name attached to a school is not a teacher. Ask each of them who will be at your bench."
         },
         {
           "n": "The door",
@@ -534,8 +534,8 @@
           "t": "The same reason, and it is a shame, because the ladder here is the clearest on the whole map. The CAP Pâtissier is a French state diploma. The Meilleur Ouvrier de France is a national title with an examination and a collar. Neither is a certificate of attendance and neither is ours to vouch for yet."
         }
       ],
-      "ceilingNote": "All five are reachable here: this craft belongs to its ground, and the ladder above it is real.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms.",
+      "ceilingNote": "All five are reachable here, and the room is the cheapest of them to fill: four emails.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Amended 3 September 2026 after re-checking: THE ROOM was lit on Frédéric Bau as founder and creative director, which is not the same as teaching, so it now reads dark.",
       "checker": "Arnaud Callier",
       "date": "3 September 2026"
     },
@@ -569,7 +569,7 @@
         {
           "n": "The stretch",
           "on": false,
-          "t": "The same reason, and here the ladder is genuinely weak and we should say so: RYT-200 and RYT-500 are registrations with Yoga Alliance, a body you pay to be listed by. That is not a qualification an outside examiner stands behind. It is the standard the market uses, and it is worth knowing what it is."
+          "t": "The same reason, and here the ladder is genuinely weak — which their own standards say plainly enough that we can quote the shape of it. RYT 200 is obtained 'after completing a 200-hour yoga teacher training registered with Yoga Alliance'; the teaching requirement for it is listed as None; and the cost is a 50 USD one-time application fee plus 65 USD annual membership dues. Yoga Alliance registers you and requires the school to assess you. It does not examine you. That is a register, not a qualification an outside examiner stands behind, and it is worth knowing exactly what you are buying. Read on their Standards for RYT Credentials, 3 September 2026."
         }
       ],
       "ceilingNote": "All five are reachable here — but the room is the one that matters in this craft, and it is a week of emails rather than a journey.",
