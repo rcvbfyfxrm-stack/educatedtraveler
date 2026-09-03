@@ -555,6 +555,14 @@ body.plocked{overflow:hidden}
 .intent-q{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:10px}
 .intent-fine{font-size:12px;color:var(--faint);line-height:1.6}
 footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color:var(--faint)}footer a{color:var(--sea)}.frow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* The hero is one line and the rotating card, centred. The copy column
+   (standfirst, the two buttons, the oath) and the card's explainer were cut
+   2026-09-03; .herofacts styling is kept because the counts may come back. */
+.hero-head{text-align:center}
+.hero-head h1{margin-left:auto;margin-right:auto}
+.hero-head h1 em{white-space:normal}
+.hero-body{grid-template-columns:1fr;justify-items:center}
 </style>
 </head>
 <body>
@@ -568,17 +576,11 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   <div class="wrap">
     <div class="hero-head">
       <div class="eyebrow">The Atlas</div>
-      <h1 class="serif">A catalogue of <span class="nb">hands-on</span> skills — and <em>where in the world</em> to learn each one.</h1>
+      <h1 class="serif">A catalogue of <span class="nb">hands-on</span> skills <em>you can make a life of</em> — and where in the world to learn it.</h1>
     </div>
     <div class="hero-body">
-      <div class="hero-copy">
-        <p class="sub">Crafts you can go and learn, each with the one place its community is most alive — and, where it is open, the school I would send you to and why.</p>
-        <div class="cues"><a class="btn" href="#studio">Browse every skill</a><a class="btn-ghost" href="#letter">Ask me to open one</a></div>
-        <p class="hero-oath">Nobody pays to be on the Atlas, and nobody can pay to be left off it.</p>
-      </div>
       <div class="hero-demo">
         <button class="cam-tick" id="hub" aria-label="Open the highlighted craft"><span class="lab">for example, right now</span><span class="rot on" id="rot"></span></button>
-        <p class="demo-note">Every card on this page reads like that one — the skill and where, then what your hands would be doing and why there. Rest on a card and it walks the craft's other places, one at a time — hold it to stay on one.</p>
       </div>
     </div>
   </div>

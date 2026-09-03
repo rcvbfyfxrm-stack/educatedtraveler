@@ -66,8 +66,10 @@ band = re.search(r'<section class="newopen".*?</section>', html, re.S)
 if not band:
     sys.exit("check-atlas-hub: FAIL — no band on the page. The Circle's crafts are not shown.")
 band = band.group(0)
-if html.index(band) > html.index('<main class="studio"'):
-    bad("the band is below the browse, not above it")
+if html.index(band) < html.index('<main class="studio"'):
+    bad("the band is above the browse. Since 2026-09-03 the hero is one line and "
+        "the rotating card, and the reader goes straight to the catalogue; the "
+        "band belongs after it")
 
 cards = re.findall(r'<article class="gcard[^"]*" style="--sc:(#[0-9a-f]{6})"[^>]*>.*?'
                    r'href="/atlas/([a-z0-9-]+)".*?'
@@ -138,8 +140,13 @@ n_asked = sum(1 for c in crafts if c["open"] and c["id"] in hands)
 
 facts = re.search(r'<ul class="herofacts">.*?</ul>', html, re.S)
 if not facts:
-    bad("the hero facts are gone — the page no longer prints how much of it is open, "
-        "and nothing else on it does")
+    # Arnaud cut the hero facts on 2026-09-03: the top of the Atlas is now one
+    # line and the rotating card, nothing else. Their absence is his decision and
+    # is allowed. The check did not die — if they are ever put back they are
+    # still measured against the data below, and the band still may not grow its
+    # own copy of the numbers. What is no longer asserted is that the page prints
+    # anywhere how much of itself is catalogued-but-unchecked.
+    pass
 else:
     for label, want in (("open in full", n_open),
                         ("opened because someone asked", n_asked)):

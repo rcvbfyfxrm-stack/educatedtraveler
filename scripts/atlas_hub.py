@@ -712,16 +712,20 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
     #     screen, beside the number it HAS checked, which is the only reason the first
     #     number is worth anything. Dropping it would leave a reader to take all
     #     {total} as vetted — true parts, false picture.
-    n_short = total - n_open
-    t = re.sub(r'<p class="sub">[^<]*</p>',
-               f'<p class="sub">{total} crafts you can go and learn, each with the one place '
-               f'its community is most alive — and, where it is open, the school I would send '
-               f'you to and why.</p>'
-               f'<ul class="herofacts">'
-               f'<li><b>{n_open}</b><span>open in full</span></li>'
-               f'<li><b>{n_short}</b><span>catalogued, not checked yet</span></li>'
-               f'<li><b>{n_asked}</b><span>opened because someone asked</span></li>'
-               f'</ul>', t, count=1)
+    # 2b. The standfirst and the hero facts USED to be injected here: the count
+    #     open, the count catalogued-but-unchecked, and the count opened because
+    #     someone asked. Arnaud cut them on 2026-09-03 — the top of the Atlas is
+    #     now one line and the rotating card, and nothing else, on his explicit
+    #     instruction after being shown what the middle number was doing.
+    #
+    #     Recorded so nobody restores it by accident, and so nobody deletes the
+    #     reasoning either: the middle number is the one no rival prints. A
+    #     marketplace cannot say how much of its own catalogue it has not checked.
+    #     Without it a reader takes all {total} as vetted — true parts, false
+    #     picture. check-atlas-hub check 4 still verifies these numbers against
+    #     the data IF a <ul class="herofacts"> is ever put back, and still forbids
+    #     the band from growing its own copy of them. Putting them back is a
+    #     template edit plus restoring this block.
 
     # 3. the data source. repertoire.js (1.2 MB of research) and atlas-ratings.js
     #    are not served any more; the shim rebuilds what the page reads.
@@ -741,18 +745,19 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
     #    own places statically, so this completes the graph.
     t = t.replace("<!--ATLAS_CRAFT_NAV-->", craft_nav)
 
-    # 7. the band. It sits between the hero and the browse, because the answer to
-    #    "who decides what opens here" belongs above the thing it decides. Asserted,
-    #    not attempted: if the anchor ever moves in the template the build stops
-    #    rather than shipping a page that quietly lost its band.
-    anchor = '<main class="studio" id="studio">'
+    # 7. the band. It sat between the hero and the browse until 2026-09-03; the
+    #    top of the page is now one line and the card, and the reader goes
+    #    straight to the catalogue, so the band follows it instead of preceding
+    #    it. Asserted, not attempted: if the anchor ever moves in the template the
+    #    build stops rather than shipping a page that quietly lost its band.
+    anchor = '</main>'
     band = opened_band(list(opened))
     if band:
-        if anchor not in t:
-            raise SystemExit("atlas_hub: the <main class=\"studio\"> anchor is gone from "
+        if t.count(anchor) != 1:
+            raise SystemExit("atlas_hub: expected exactly one </main> in "
                              "scripts/atlas-hub-template.html — the opened band has nowhere "
                              "to go. Fix the anchor; do not ship the page without it.")
-        t = t.replace(anchor, band + "\n\n" + anchor, 1)
+        t = t.replace(anchor, anchor + "\n\n" + band, 1)
         # 8. the band's own arrows and drag. Asserted like the anchor above: a band
         #    that silently lost its controls scrolls on desktop only by trackpad, and
         #    looks like a row of four again to anyone who never tries.
