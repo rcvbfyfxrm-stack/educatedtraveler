@@ -256,7 +256,7 @@ The full page: https://educatedtraveler.app/atlas/kitesurfing--tarifa
 
 ## Day 15 — Perfumery · Grasse, France  `[creative]`
 - **Atlas page:** https://educatedtraveler.app/atlas/perfumery--grasse
-- **Footage:** Grasse Institute of Perfumery (GIP) — https://www.grasse-perfumery.com/long-term/international-technical-degree-in-fragrance-creation-and-sensory-evaluation/ (licensed/reposted with credit — see OUTREACH.md)
+- **Footage:** Grasse Institute of Perfumery (GIP) — https://www.grasse-perfumery.com/who-we-are/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Perfumery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 

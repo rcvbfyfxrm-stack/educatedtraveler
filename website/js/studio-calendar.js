@@ -164,7 +164,7 @@ window.ET_DAILY_DROP = [
     "atlasUrl": "https://educatedtraveler.app/atlas/perfumery--grasse",
     "clipBrief": "30-60s wordless process: hands + material of Perfumery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
     "footageSource": "Grasse Institute of Perfumery (GIP)",
-    "footageUrl": "https://www.grasse-perfumery.com/long-term/international-technical-degree-in-fragrance-creation-and-sensory-evaluation/",
+    "footageUrl": "https://www.grasse-perfumery.com/who-we-are/",
     "caption": "This is where Perfumery was born.\n\nThe world capital of perfume, where the UNESCO-listed know-how of fields, distillery and the nose has flowed unbroken since the 1600s.\n\nCommunity strength: Legendary. Season: May-Oct (rose & jasmine harvest).\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/perfumery--grasse\n\n#crafttok #processvideo #handmade #grasse #perfumery"
   },
   {
