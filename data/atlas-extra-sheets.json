@@ -557,13 +557,13 @@
       "dots": 2,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "Four of the strongest yoga towns on earth and not one named teacher between them on this page — in a craft where the teacher is the entire product, that is the gap to close before you book",
+      "verdict": "One school out of the four towns will tell you who teaches, and it is not the one we star — in a craft where the teacher is the entire product, that is the gap to close before you book",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
           "on": false,
-          "t": "Empty in all four places, and in this craft that matters more than in any other on the map. Rishikesh and Mysore carry lineages — Sivananda, Krishnamacharya — and a lineage is not a teacher. Ubud's Yoga Barn and Radiantly Alive, and Encinitas's Soul of Yoga, name nobody here either. A two-hundred-hour training is four weeks of one person's attention: find out whose before you pay, and treat a school that will not tell you as an answer."
+          "t": "Lit in one town of four, and not the town we send you to. Atmavikasa in Mysore publishes a teachers page naming Yogacharya Venkatesha and Acharye Hema, who describe themselves as independent expert teachers with thirty years of teaching behind them and who carry the trainings — founding a school is not teaching in it, and this is the rarer case where the same two people do both. Rishikesh, which is our pick, names nobody, and neither do Ubud's Yoga Barn and Radiantly Alive or Encinitas's Soul of Yoga. Rishikesh and Mysore also carry lineages, Sivananda and Krishnamacharya, and a lineage is not a teacher. This dot stays dark because the place we point you at cannot yet tell you whose hands you would be in. A two-hundred-hour training is four weeks of one person's attention: find out whose before you pay, and treat a school that will not tell you as an answer."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -586,10 +586,10 @@
           "t": "The same reason, and here the ladder is genuinely weak — which their own standards say plainly enough that we can quote the shape of it. RYT 200 is obtained 'after completing a 200-hour yoga teacher training registered with Yoga Alliance'; the teaching requirement for it is listed as None; and the cost is a 50 USD one-time application fee plus 65 USD annual membership dues. Yoga Alliance registers you and requires the school to assess you. It does not examine you. That is a register, not a qualification an outside examiner stands behind, and it is worth knowing exactly what you are buying. Read on their Standards for RYT Credentials, 3 September 2026."
         }
       ],
-      "ceilingNote": "All five are reachable here — but who teaches is the one that matters in this craft, and it is a week of emails rather than a journey.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Who teaches is the exception: it is empty because our own research names nobody.",
+      "ceilingNote": "All five are reachable here, and the room is still the one that matters. Two names came back from a single email; the rest is more of the same work.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Amended 4 September 2026: Atmavikasa answered a direct question, and its own teachers page, read the same day, names Yogacharya Venkatesha and Acharye Hema as the teachers rather than only as founders — so THE ROOM is no longer empty across the board. It stays dark because Rishikesh is the destination we recommend and it still names no one. A school answering us does not raise its craft's grade; only the recommended room being lit would do that.",
       "checker": "Arnaud Callier",
-      "date": "3 September 2026"
+      "date": "4 September 2026"
     },
     "italian-cuisine-and-pasta": {
       "dots": 3,

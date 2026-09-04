@@ -131,7 +131,7 @@ window.ET_ATLAS = {
               "name": "Atmavikasa Centre of Yogic Sciences",
               "url": "https://www.atmavikasayoga.in/",
               "course": "Authentic Hatha Yoga Teachers Training / Back-Bending Intensive (multi-week residential)",
-              "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school, founded by Yogacharya V. Venkatesha and Acharya Hema. Multi-week residential teacher trainings and yoga-therapy intensives, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
+              "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school. Yogacharya Venkatesha and Acharye Hema founded it and still teach it, which their own teachers page says plainly. Multi-week residential teacher trainings and yoga-therapy intensives, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
               "confidence": "high"
             },
             {
