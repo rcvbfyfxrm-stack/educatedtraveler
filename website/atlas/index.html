@@ -119,10 +119,11 @@ nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:
 @media(max-width:880px){.hero{padding:84px 0 30px}.hero-head{text-align:center}.hero-body{grid-template-columns:1fr;gap:22px;margin-top:22px}.hero-copy{text-align:center}.hero-copy .sub{margin:0 auto}.cues{justify-content:center}.herofacts{justify-content:center}.herofacts span{margin:7px auto 0}.hero-oath{margin:24px auto 0;padding:13px 0 0;border-left:none;border-top:1px solid rgba(127,168,165,.4);max-width:40ch;text-align:center}}
 
 /* studio */
-/* scroll-margin because the nav is fixed: "Browse every skill" jumps to #studio,
-   and the search bar is the first thing in it — without this the bar lands behind
-   the nav and the page looks like it scrolled to the filter panel. Same 74px the
-   letter already uses. */
+/* scroll-margin because the nav is fixed. Nothing on the page jumps to #studio any
+   more — the "Browse every skill" button that did was cut on 2026-09-03 — but
+   /atlas/#studio is still a valid URL, and without this the search bar lands behind
+   the nav. Kept as insurance, not because something uses it. Same 74px the note
+   uses. */
 .studio{padding:12px 0 30px;scroll-margin-top:74px}
 /* Folded, the filter is not a column (2026-08-31, Arnaud's ask). It used to hold
    272px and a gap on the left whether or not anybody had opened it, so the first

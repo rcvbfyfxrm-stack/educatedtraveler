@@ -6,14 +6,15 @@
 Every check here is one that would otherwise fail silently — the page still 200s,
 still looks finished, and is wrong. That is the failure mode this file exists for.
 
-  1. the band is in the HTML at all, above the browse, with cards in it, and it is
+  1. the band is in the HTML at all, below the browse, with cards in it, and it is
      a rail that carries EVERY craft somebody asked for — not the first few;
   2. every craft in the band is one somebody actually asked for — a slug in
      data/atlas-unlocked.json, never a pinned sheet Arnaud wrote himself;
   3. the band is in date order, newest first, and every date is the one in
      data/atlas-opened.json — printed, not invented;
-  4. the counts in the hero facts equal the counts in the data, and the band has
-     not grown a second copy of them;
+  4. IF the hero facts are present their counts equal the counts in the data —
+     they were cut on 2026-09-03, so absence is allowed — and either way the band
+     has not grown a copy of them;
   5. the five world colours in atlas_hub.WORLD_COLOR still match the WORLDS map
      the page itself draws with, so a band card is the colour of its world;
   6. every card links to a craft page that exists on disk;
@@ -64,7 +65,7 @@ html = PAGE.read_text()
 hands = json.loads((ROOT / "data/atlas-unlocked.json").read_text())["open"]
 opened = json.loads((ROOT / "data/atlas-opened.json").read_text())["opened"]
 
-# ── 1. the band exists, above the browse ───────────────────────────────────
+# ── 1. the band exists, below the browse ───────────────────────────────────
 band = re.search(r'<section class="newopen".*?</section>', html, re.S)
 if not band:
     sys.exit("check-atlas-hub: FAIL — no band on the page. The Circle's crafts are not shown.")
@@ -131,11 +132,11 @@ elif int(m[1]) != len(cards):
     bad(f"the band says 'all {m[1]}' but carries {len(cards)} cards")
 
 # ── 4. the counts in the copy are the counts in the data ───────────────────
-# The band lost its standfirst on 2026-08-31, and with it the sentence that used to
-# carry these two numbers. They are still printed — in the hero facts, first screen —
-# so the check moved rather than died: a hero that says "34 open in full · 28 opened
-# because someone asked" over data that says otherwise is exactly the silent wrong
-# this file exists to stop.
+# The band lost its standfirst on 2026-08-31, and the hero facts that replaced it were
+# cut on 2026-09-03 — so today NOTHING on the page prints these numbers. The check is
+# conditional now, not dead: if a <ul class="herofacts"> is ever put back, a hero that
+# says "34 open in full · 28 opened because someone asked" over data that says
+# otherwise is exactly the silent wrong this file exists to stop.
 idx = (ROOT / "website/js/atlas-index.js").read_text()
 crafts = json.loads(idx[idx.index("{"):idx.rindex("}") + 1])["crafts"]
 n_open = sum(1 for c in crafts if c["open"])
@@ -159,11 +160,11 @@ else:
         elif int(m[1]) != want:
             bad(f'the hero says {m[1]} {label}; the data says {want}')
 
-# The band must not quietly grow a standfirst back with counts typed into it: two
-# places printing the same number is how they drift.
+# The band must not quietly grow a standfirst back with counts typed into it: a typed
+# number that nothing else on the page prints is one nobody notices going stale.
 if re.search(r"open crafts</b>|I opened myself", band):
-    bad("the band is claiming counts in its copy again — the hero facts are the one "
-        "place those numbers are printed, and two places is how they drift apart")
+    bad("the band is claiming counts in its copy again — nothing else on the page "
+        "prints these numbers now, and a count nothing corroborates is one that rots")
 
 # ── 8. the number on the card is the length of the list it walks ───────────
 # The cue is written by build-atlas-pages (dests carrying a place); placeWalk()
