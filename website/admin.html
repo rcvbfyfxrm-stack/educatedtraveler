@@ -154,6 +154,7 @@
                 <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="cohorts">Cohorts</button>
                 <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="enrollments">Enrollments</button>
                 <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="survey">Survey v2</button>
+                <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="comments">School comments</button>
                 <button class="tab tab-inactive pb-3 text-sm whitespace-nowrap" data-tab="activity">Activity Log</button>
             </div>
 
@@ -167,6 +168,7 @@
                 <div id="panel-cohorts" class="tab-panel hidden"></div>
                 <div id="panel-enrollments" class="tab-panel hidden"></div>
                 <div id="panel-survey" class="tab-panel hidden"></div>
+                <div id="panel-comments" class="tab-panel hidden"></div>
                 <div id="panel-activity" class="tab-panel hidden"></div>
             </div>
         </div>
@@ -321,7 +323,7 @@
         async function loadAllData() {
             const sb = window.supabaseClient;
 
-            const [profiles, prefs, adventures, badges, instructors, cohorts, enrollments, surveys] = await Promise.all([
+            const [profiles, prefs, adventures, badges, instructors, cohorts, enrollments, surveys, vouches] = await Promise.all([
                 // is_admin() is checked inside the function, not inferred from a table
                 // grant every signed-in member shares (see migration 039)
                 sb.rpc('admin_all_profiles'),
@@ -332,6 +334,10 @@
                 sb.from('cohorts').select('*, instructors(name)').order('created_at', { ascending: false }),
                 sb.from('enrollments').select('*, profiles(name, email), cohorts(title)').order('enrolled_at', { ascending: false }),
                 sb.from('survey_responses').select('*').order('created_at', { ascending: false }),
+                // Somebody said they stood in a room. Nothing on the Atlas says so yet,
+                // and nothing will until this screen is read — the form promises "Arnaud
+                // reads every one", and for months there was nowhere he could.
+                sb.from('vouches').select('*').order('created_at', { ascending: false }),
             ]);
 
             adminData = {
@@ -343,6 +349,7 @@
                 cohorts: cohorts.data || [],
                 enrollments: enrollments.data || [],
                 surveys: surveys.data || [],
+                vouches: vouches.data || [],
             };
 
             renderKPIs();
@@ -354,6 +361,7 @@
             renderCohorts();
             renderEnrollments();
             renderSurvey();
+            renderComments();
             renderActivity();
         }
 
@@ -1113,6 +1121,71 @@
                     </div>
                 </div>
             `;
+        }
+
+        // ========================================
+        // SCHOOL COMMENTS — the queue that makes the promise true
+        // ========================================
+        // Every comment box on the Atlas says "Arnaud reads every one himself before
+        // anything appears". This screen is where that happens. Approving is the ONLY
+        // way a comment reaches a public page: the SELECT policy serves rows that are
+        // both approved and consented, and nothing else.
+        function renderComments() {
+            const el = document.getElementById('panel-comments');
+            const rows = adminData.vouches || [];
+            const pending = rows.filter(r => r.status === 'pending');
+            const rest = rows.filter(r => r.status !== 'pending');
+
+            const card = (r) => {
+                const who = [r.display_name, r.trade].filter(Boolean).join(', ') || 'no name given';
+                const where = [r.school, r.destination].filter(Boolean).join(' · ');
+                // consent_public false means: they told us, but not for the page.
+                const consent = r.consent_public
+                    ? '<span class="text-[#7fa8a5]">may be published</span>'
+                    : '<span class="text-amber-400">PRIVATE — they did not agree to publish</span>';
+                const actions = r.status === 'pending'
+                    ? `<div class="flex gap-2 mt-3">
+                         <button data-approve="${r.id}" class="text-xs px-3 py-1.5 rounded-full bg-[#7fa8a5] text-black"
+                           ${r.consent_public ? '' : 'disabled title="They did not consent to publish" style="opacity:.4;cursor:not-allowed"'}>
+                           Put it on the page</button>
+                         <button data-decline="${r.id}" class="text-xs px-3 py-1.5 rounded-full border border-white/15 text-white/60">Decline</button>
+                       </div>`
+                    : `<p class="text-xs text-white/30 mt-3 mono">${esc(r.status)}${r.decided_at ? ' · ' + new Date(r.decided_at).toLocaleDateString('en-GB') : ''}</p>`;
+                return `<div class="border border-white/10 rounded-xl p-4 mb-3">
+                    <p class="mono text-xs text-white/40">${esc(where)}</p>
+                    <p class="mt-2 text-white/90" style="font-family:Fraunces,Georgia,serif;font-weight:300;line-height:1.6">${esc(r.what || '')}</p>
+                    <p class="mono text-xs text-white/40 mt-2">— ${esc(who)}${r.email ? ' · ' + esc(r.email) : ''}
+                       ${r.wants_circle ? ' · <span class="text-[#7fa8a5]">wants the Circle note</span>' : ''}</p>
+                    <p class="mono text-xs mt-1">${consent}</p>
+                    ${actions}
+                </div>`;
+            };
+
+            el.innerHTML = `
+                <h2 class="text-lg font-light mb-1">School comments</h2>
+                <p class="text-sm text-white/40 mb-5">${pending.length} waiting${pending.length ? ' — nothing is on the Atlas until you say so' : ''}.</p>
+                ${pending.length ? pending.map(card).join('') : '<p class="text-sm text-white/30 mb-6">Nothing waiting.</p>'}
+                ${rest.length ? `<h3 class="text-sm text-white/40 mt-8 mb-3 mono">Already decided</h3>${rest.map(card).join('')}` : ''}`;
+
+            el.querySelectorAll('[data-approve]').forEach(b =>
+                b.addEventListener('click', () => decide(b.getAttribute('data-approve'), 'approved', b)));
+            el.querySelectorAll('[data-decline]').forEach(b =>
+                b.addEventListener('click', () => decide(b.getAttribute('data-decline'), 'declined', b)));
+        }
+
+        async function decide(id, status, btn) {
+            btn.disabled = true; btn.textContent = '…';
+            const sb = window.supabaseClient;
+            const { data: u } = await sb.auth.getUser();
+            const { error } = await sb.from('vouches').update({
+                status,
+                decided_by: u && u.user ? u.user.id : null,
+                decided_at: new Date().toISOString()
+            }).eq('id', id);
+            if (error) { btn.disabled = false; btn.textContent = 'Failed — retry'; return; }
+            const row = (adminData.vouches || []).find(r => r.id === id);
+            if (row) { row.status = status; row.decided_at = new Date().toISOString(); }
+            renderComments();
         }
 
         // ========================================

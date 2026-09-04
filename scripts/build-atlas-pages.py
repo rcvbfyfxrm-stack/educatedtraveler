@@ -1006,6 +1006,9 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
     if saveable:
         tail.append(AUTH_SCRIPTS)
     tail.append('<script src="/js/intent-capture.js" defer></script>')
+    # The comment box on each school. It no-ops on any page with no li[data-school],
+    # so it costs a craft page nothing and only does work on a place page.
+    tail.append('<script src="/js/school-note.js" defer></script>')
     if saveable:
         tail.append(SKILL_SAVE)
     if extra_scripts:
@@ -1870,7 +1873,12 @@ for d in DISC:
                           f'<strong style="font-weight:500">{e(str(s["rating"]))}/5</strong>{e(rcnt)} on {cited} '
                           f'<span style="opacity:.7">— verify it yourself</span></div>')
             if s.get("url"): inner += f'<div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="{e(s["url"])}">{e(s["url"])}</a></div>'
-            rows.append(f"<li>{inner}</li>")
+            # data-school is the key a comment is filed under, and it is the school's
+            # NAME — the only stable handle a school has here. Rename a school in the
+            # data and its comments are orphaned, so rename by editing, never by
+            # deleting and re-adding.
+            rows.append(f'<li data-school="{e(s["name"])}" data-craft="{e(d["id"])}" '
+                        f'data-dest="{e(x["id"])}">{inner}</li>')
         if rows:
             feat = d.get("featured") or {}
             if feat.get("confidence") == "low":
