@@ -22,8 +22,43 @@
         });
     };
 
-    var TRADES = ['Yacht chef', 'Private chef', 'Chef de partie', 'Head chef', 'Sous chef',
-                  'Pastry chef', 'Chalet chef', 'Estate chef', 'Freelance chef', 'Other'];
+    // A trade list is only worth having if it fits the room being signed for. The
+    // first version of this file offered ten chef jobs for all 116 crafts, so a
+    // potter signing for a kiln room picked "Chef de partie" or "Other" — which
+    // makes the trade on the page worthless as evidence, and that is the whole
+    // point of collecting it.
+    //
+    // Keyed on the craft's `world`, the five-way split the Atlas index already
+    // ships (culinary / creative / movement / wellness / adventure). Five lists to
+    // keep true, not 116. A world nobody matched falls back to FREE alone rather
+    // than to somebody else's trades.
+    var OTHER = 'Something else';
+    var TRADES_BY_WORLD = {
+        culinary: ['Chef de partie', 'Sous chef', 'Head chef', 'Yacht chef', 'Private chef',
+                   'Pastry chef', 'Baker', 'Butcher', 'Cheesemaker', 'Sommelier',
+                   'Restaurant owner', 'Cook — self-taught'],
+        creative: ['Potter / ceramicist', 'Woodworker', 'Jeweller', 'Blacksmith',
+                   'Textile maker / weaver', 'Leatherworker', 'Glassblower', 'Bookbinder',
+                   'Photographer', 'Designer', 'Artist', 'Teacher of a craft'],
+        movement: ['Yoga teacher', 'Dance teacher', 'Dancer', 'Martial arts instructor',
+                   'Physiotherapist', 'Bodyworker / massage', 'Personal trainer',
+                   'Studio owner', 'Performer', 'Athlete'],
+        wellness: ['Yoga teacher', 'Breathwork / meditation teacher', 'Therapist / counsellor',
+                   'Nurse', 'Doctor', 'Nutritionist', 'Bodyworker / massage', 'Herbalist',
+                   'Retreat host', 'Personal trainer'],
+        adventure: ['Mountain guide', 'Ski instructor', 'Dive instructor',
+                    'Sailing instructor / skipper', 'Yacht crew', 'Climbing instructor',
+                    'Expedition leader', 'Ranger / conservationist', 'Outdoor instructor',
+                    'Pilot', 'Rider / motorcyclist']
+    };
+
+    // Every list ends here. A dropdown is a cage unless there is a way out of it,
+    // and the trades that matter most are often the ones nobody thought to list.
+    function tradesFor(craftId) {
+        var c = crafts().filter(function (x) { return x.id === craftId; })[0];
+        var list = (c && TRADES_BY_WORLD[c.world]) || [];
+        return list.concat([OTHER]);
+    }
 
     function crafts() {
         var ix = window.ET_ATLAS_INDEX;
@@ -42,6 +77,37 @@
               }).join('')
             : '<option value="">— no places listed for this craft —</option>';
         sel.disabled = !ds.length;
+    }
+
+    // Keeps whatever they had chosen if the new craft's world still offers it — a
+    // yoga teacher switching between two movement crafts should not have their
+    // answer silently reset under them.
+    function fillTrades(craftId) {
+        var sel = $('v-trade');
+        if (!sel) return;
+        var had = sel.value;
+        var list = tradesFor(craftId);
+        sel.innerHTML = list.map(function (t) {
+            return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
+        }).join('');
+        if (had && list.indexOf(had) !== -1) sel.value = had;
+        reflectOther();
+    }
+
+    function reflectOther() {
+        var wrap = $('v-trade-other-wrap');
+        if (!wrap) return;
+        var on = $('v-trade').value === OTHER;
+        wrap.style.display = on ? '' : 'none';
+        if (!on) $('v-trade-other').value = '';
+    }
+
+    // What actually goes in the `trade` column: their own words when they chose to
+    // write them, the list entry otherwise. Same column either way.
+    function tradeValue() {
+        var sel = $('v-trade').value;
+        if (sel !== OTHER) return sel;
+        return ($('v-trade-other').value || '').trim();
     }
 
     function say(msg, tone) {
@@ -82,6 +148,7 @@
         var name = ($('v-name').value || '').trim();
         if (name.length < 2) { return say('A name to put on it, please — first name and an initial is enough.', 'bad'); }
         if (what.length < 40) { return say('Say a little more — what did you actually see in the room?', 'bad'); }
+        if (!tradeValue()) { return say('Put your trade on it — in your own words is fine.', 'bad'); }
         if (!$('v-consent').checked) {
             return say('We cannot put it on the page without your say-so. Tick the box, or write to Arnaud instead.', 'bad');
         }
@@ -95,7 +162,7 @@
             destination: $('v-place').value,
             state: $('v-state').value,
             display_name: name,
-            trade: $('v-trade').value,
+            trade: tradeValue(),
             visited_on: $('v-when').value,
             route: $('v-route').value,
             what: what,
@@ -136,12 +203,29 @@
         $('v-craft').innerHTML = cs.map(function (c) {
             return '<option value="' + esc(c.id) + '">' + esc(c.name) + '</option>';
         }).join('');
-        $('v-trade').innerHTML = TRADES.map(function (t) {
-            return '<option value="' + esc(t) + '">' + esc(t) + '</option>';
-        }).join('');
         $('v-when').max = new Date().toISOString().slice(0, 10);
         fillPlaces($('v-craft').value);
-        $('v-craft').addEventListener('change', function () { fillPlaces(this.value); });
+        fillTrades($('v-craft').value);
+        $('v-craft').addEventListener('change', function () {
+            fillPlaces(this.value);
+            fillTrades(this.value);
+        });
+        $('v-trade').addEventListener('change', reflectOther);
+
+        // They already told us what they do on /portrait ("What you do with your
+        // days"). Asking again is the kind of small rudeness that makes a form feel
+        // like paperwork. Free text there, so it usually lands in the other box.
+        try {
+            var pr = await sb.from('profiles').select('profession').eq('id', uid).maybeSingle();
+            var job = (pr && pr.data && pr.data.profession || '').trim();
+            if (job) {
+                var list = tradesFor($('v-craft').value);
+                var hit = list.filter(function (t) { return t.toLowerCase() === job.toLowerCase(); })[0];
+                if (hit) { $('v-trade').value = hit; }
+                else { $('v-trade').value = OTHER; $('v-trade-other').value = job; }
+                reflectOther();
+            }
+        } catch (e) { /* a prefill is a courtesy, never a gate */ }
         $('v-form').addEventListener('submit', function (e) { submit(sb, uid, e); });
         loadMine(sb, uid);
     };

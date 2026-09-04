@@ -49,6 +49,21 @@ function installPreviewGuard(client) {
         });
         return q;
     };
+    // AUTH TOO. The banner below says "no email is sent", and until this existed
+    // that was false: signInWithOtp is not a `from()` call, so it sailed straight
+    // past the guard and Supabase mailed a real sign-in link from localhost. A
+    // preview that lies about what it sent is worse than no preview at all.
+    if (client.auth) {
+        ['signInWithOtp', 'signUp', 'resetPasswordForEmail'].forEach(function (op) {
+            if (typeof client.auth[op] !== 'function') return;
+            client.auth[op] = function () {
+                console.warn('[ET preview] auth.' + op + ' was NOT sent — this is not a '
+                           + 'production hostname. Add ?live=1 to the URL to send for real.');
+                return Promise.resolve({ data: { user: null, session: null }, error: null });
+            };
+        });
+    }
+
     if (client.storage && typeof client.storage.from === 'function') {
         var realStorageFrom = client.storage.from.bind(client.storage);
         client.storage.from = function (bucket) {

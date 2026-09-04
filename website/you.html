@@ -124,6 +124,16 @@
         .rec .add.done{ border-color:rgba(210,138,82,0.4); background:rgba(210,138,82,0.13); color:var(--ember); }
 
         /* what they're after — a plain two-column read-back */
+        /* the three acts */
+        .act{ margin-bottom:26px; }
+        .act:last-child{ margin-bottom:0; }
+        .act-h{ display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+                padding-bottom:6px; border-bottom:1px solid rgba(127,168,165,0.28); }
+        .act-t{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.18em;
+                text-transform:uppercase; color:var(--sea); }
+        .act-n{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.1em;
+                color:var(--faint); flex:0 0 auto; }
+        .act-s{ color:var(--faint); font-size:13px; margin:8px 0 2px; }
         .want{ display:flex; gap:14px; padding:11px 0; border-bottom:1px solid var(--line); align-items:baseline; }
         .want:last-child{ border-bottom:none; }
         .want{ flex-wrap:wrap; }
@@ -295,6 +305,17 @@
 
         <p class="standfirst" id="standfirst"></p>
 
+        <!-- FIRST, not last. How far along the portrait is, and what is still blank,
+             is the one thing a member can act on the moment they arrive — it used to
+             sit below every other section, at the very bottom of the page. -->
+        <section class="blk" id="s-more" style="display:none;">
+            <span class="lbl">Your portrait, so far</span>
+            <div class="meter"><i id="meter-fill"></i></div>
+            <p class="note" id="meter-note" style="margin-bottom:14px;"></p>
+            <div id="gaps"></div>
+        </section>
+
+
         <!-- THE WEEK THAT'S COMING — read from js/lab-weeks.js, the single source the
              homepage and /lab-weeks already use. Never a second copy of the facts. -->
         <section class="blk" id="s-week" style="display:none;">
@@ -318,13 +339,16 @@
             <h2 class="serif">Sign for a room you have stood in.</h2>
             <p class="note">Every page on the Atlas says the same thing: nobody from here has stood
                 in these rooms yet. You can change that for one of them. Your name and your trade go
-                on it, because a working chef&rsquo;s word is worth something to the next one &mdash;
-                and it is the only kind of evidence that can answer what a website never will.</p>
+                on it, because someone who already does the work for a living is worth something to the
+                next one &mdash; and it is the only kind of evidence that can answer what a website
+                never will.</p>
             <form id="v-form" style="margin-top:16px;max-width:560px">
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 12px">
                     <label class="vf">Craft<select id="v-craft"></select></label>
                     <label class="vf">Where<select id="v-place"></select></label>
                     <label class="vf">Your trade<select id="v-trade"></select></label>
+                    <label class="vf" id="v-trade-other-wrap" style="display:none">Your trade, in your words
+                        <input type="text" id="v-trade-other" maxlength="60" placeholder="Whatever you'd call it"></label>
                     <label class="vf">When you were there<input type="date" id="v-when" required></label>
                     <label class="vf">What you did<select id="v-state">
                         <option value="stood in it">I stood in it &mdash; I was taught there</option>
@@ -376,10 +400,10 @@
 
         <!-- WHAT THEY WANT — every question, answerable and re-answerable right here -->
         <section class="blk" id="s-wants" style="display:none;">
-            <span class="lbl">What you're after</span>
+            <span class="lbl">Where you come from, where you are, where you're going</span>
             <h2 class="serif">How the week should fit you.</h2>
-            <p class="note" style="margin-bottom:6px;">Change any of it whenever you like &mdash; and if none of the
-                answers is quite yours, say it in your own words. The more you tell me, the better I aim.</p>
+            <p class="note" style="margin-bottom:6px;">Three short passes, not a form &mdash; answer one line or all
+                of them, in any order. If none of the answers is quite yours, say it in your own words.</p>
             <div id="wants"></div>
         </section>
 
@@ -440,13 +464,6 @@
         </section>
 
         <!-- WHAT'S STILL BLANK — the portrait is a thing you develop, not a form you filed -->
-        <section class="blk" id="s-more" style="display:none;">
-            <span class="lbl">Your portrait, so far</span>
-            <div class="meter"><i id="meter-fill"></i></div>
-            <p class="note" id="meter-note" style="margin-bottom:14px;"></p>
-            <div id="gaps"></div>
-        </section>
-
         <div class="actions">
             <a class="go" href="/portrait#add">Add to your portrait &rarr;</a>
             <a class="go" href="/atlas/">Wander the Atlas &rarr;</a>
@@ -708,30 +725,46 @@
     // gradient questions keep their LABEL TEXT (portrait's prefillChoice matches on
     // the label), and anything typed is stored verbatim — every reader falls back to
     // the raw value, so free text survives a round trip.
+    // Three acts, in the order a person actually tells you about themselves: what
+    // they already do, what they want to learn, and what they would actually sign
+    // up for. Nine questions in one flat list read as a form; the same nine under
+    // these three headings read as a conversation, and the last act is the one
+    // that decides whether a week can be built for them.
+    var ACTS = [
+        { g:'from', title:'Where you come from', note:'What your hands already know.' },
+        { g:'now',  title:'Where you are',       note:'What you want to learn next.' },
+        { g:'to',   title:'Where you want to go', note:'What you would actually say yes to.' }
+    ];
+
     var QUESTIONS = [
-        { k:'budget', col:'budget', kind:'code', q:'What you’d give',
-          opts:[['under-1k','Under €1,000'],['1-2k','€1,000–2,000'],['2-3.5k','€2,000–3,500'],
-                ['3.5k-plus','€3,500+'],['right-one','Whatever the right one costs']] },
-        { k:'group', pref:'group', kind:'code', q:'The room you’d want',
-          opts:[['intimate','Small & intimate'],['cohort','A proper cohort'],['either','No preference']] },
-        { k:'intensity', pref:'intensity', kind:'code', q:'How hard you’d push',
-          opts:[['gentle','Gentle & deep'],['balanced','Balanced'],['all-in','All-in, intensive']] },
-        { k:'want', pref:'want', kind:'code', q:'What you’re really after',
-          opts:[['craft','The craft itself'],['people','The people around it'],
-                ['place','The place it lives'],['change','To come back changed']] },
-        { k:'reach', col:'reach', kind:'label', q:'How far you’d travel',
-          opts:[['close','Close to home'],['region','My region / a short hop'],
-                ['world','Across the world for the right one']] },
-        { k:'availability', col:'availability', kind:'label', q:'When you could go',
-          opts:[['ready-now','I\'m ready now'],['this-year','This year'],['next-year','Next year'],
-                ['someday','Someday — I’m dreaming']] },
-        { k:'preferred_duration', col:'preferred_duration', kind:'label', q:'How long',
-          opts:[['weekend','A weekend'],['most-week','Most of a week'],
-                ['full-week','A full week or more'],['open','As long as it takes']] },
-        { k:'previous_experience', col:'previous_experience', kind:'label', q:'Where you’re starting from',
+        // ACT ONE — free text, because a trade is not a menu. This is also what
+        // vouch.js prefills "Your trade" from, so it is worth asking properly.
+        { k:'profession', col:'profession', kind:'free', g:'from', q:'What you do with your days',
+          placeholder:'e.g. yacht chef, potter, nurse, still figuring it out' },
+        { k:'previous_experience', col:'previous_experience', kind:'label', g:'from', q:'Where you’re starting from',
           opts:[['beginner','Total beginner'],['dabbled','I’ve dabbled'],
                 ['deeper','I practice — want to go deeper'],['mastery','Serious — chasing mastery']] },
-        { k:'what_matters', col:'what_matters', kind:'free', q:'Anything else I should know',
+
+        { k:'budget', col:'budget', kind:'code', g:'to', q:'What you’d give',
+          opts:[['under-1k','Under €1,000'],['1-2k','€1,000–2,000'],['2-3.5k','€2,000–3,500'],
+                ['3.5k-plus','€3,500+'],['right-one','Whatever the right one costs']] },
+        { k:'group', pref:'group', kind:'code', g:'to', q:'The room you’d want',
+          opts:[['intimate','Small & intimate'],['cohort','A proper cohort'],['either','No preference']] },
+        { k:'intensity', pref:'intensity', kind:'code', g:'now', q:'How hard you’d push',
+          opts:[['gentle','Gentle & deep'],['balanced','Balanced'],['all-in','All-in, intensive']] },
+        { k:'want', pref:'want', kind:'code', g:'now', q:'What you’re really after',
+          opts:[['craft','The craft itself'],['people','The people around it'],
+                ['place','The place it lives'],['change','To come back changed']] },
+        { k:'reach', col:'reach', kind:'label', g:'to', q:'How far you’d travel',
+          opts:[['close','Close to home'],['region','My region / a short hop'],
+                ['world','Across the world for the right one']] },
+        { k:'availability', col:'availability', kind:'label', g:'to', q:'When you could go',
+          opts:[['ready-now','I\'m ready now'],['this-year','This year'],['next-year','Next year'],
+                ['someday','Someday — I’m dreaming']] },
+        { k:'preferred_duration', col:'preferred_duration', kind:'label', g:'to', q:'How long',
+          opts:[['weekend','A weekend'],['most-week','Most of a week'],
+                ['full-week','A full week or more'],['open','As long as it takes']] },
+        { k:'what_matters', col:'what_matters', kind:'free', g:'now', q:'Anything else I should know',
           placeholder:'Whatever matters — in your own words' }
     ];
 
@@ -772,12 +805,25 @@
     }
 
     function renderWants(){
-        $('wants').innerHTML = QUESTIONS.map(function(f){
-            var v = displayValue(f);
-            return '<div class="want" data-k="'+esc(f.k)+'">'
-                 + '<span class="k">'+esc(f.q)+'</span>'
-                 + '<span class="v'+(v?'':' blank')+'">'+(v ? esc(v) : 'Not yet &mdash; tell me')+'</span>'
-                 + '<button class="edit" type="button">'+(v ? 'Change' : 'Answer')+'</button>'
+        // One act at a time. Each act counts its own answers, so the block a member
+        // has not touched says so on its own line instead of hiding inside a
+        // nine-row list where nothing looks more urgent than anything else.
+        $('wants').innerHTML = ACTS.map(function(a){
+            var qs = QUESTIONS.filter(function(f){ return f.g === a.g; });
+            if(!qs.length) return '';
+            var done = qs.filter(function(f){ return !!displayValue(f); }).length;
+            return '<div class="act">'
+                 + '<div class="act-h"><span class="act-t">'+esc(a.title)+'</span>'
+                 + '<span class="act-n">'+done+' of '+qs.length+'</span></div>'
+                 + '<p class="act-s">'+esc(a.note)+'</p>'
+                 + qs.map(function(f){
+                     var v = displayValue(f);
+                     return '<div class="want" data-k="'+esc(f.k)+'">'
+                          + '<span class="k">'+esc(f.q)+'</span>'
+                          + '<span class="v'+(v?'':' blank')+'">'+(v ? esc(v) : 'Not yet &mdash; tell me')+'</span>'
+                          + '<button class="edit" type="button">'+(v ? 'Change' : 'Answer')+'</button>'
+                          + '</div>';
+                   }).join('')
                  + '</div>';
         }).join('');
         $('wants').querySelectorAll('.edit').forEach(function(btn){
@@ -1052,6 +1098,7 @@
             { has: !!p.avatar_url,   label:'Put a face to the name',            href:'/portrait#add' },
             { has: !!(p.interests && Object.keys(p.interests).length), label:'Name a craft you\'d give a week to', href:'/portrait' },
             { has: nSaved > 0,       label:'Save a skill from the Atlas',       href:'/atlas/' },
+            { has: !!p.profession,   label:'Say what you do with your days',    field:'profession' },
             { has: !!p.budget,       label:'Say what the right week is worth',  field:'budget' },
             { has: !!pref.group,     label:'Choose the room you\'d want',       field:'group' },
             { has: !!pref.intensity, label:'Say how hard you\'d push',          field:'intensity' },
