@@ -14,7 +14,8 @@ Styling is written against the design tokens the sheets already define (--line,
 --ink2, --sea, --muted) so it inherits each sheet's own palette rather than imposing
 one; the only classes used are `wrap`, `eyebrow` and `serif`, which all nine carry.
 
-  python3 scripts/inject-related-handwritten.py [--dry]
+  python3 scripts/inject-related-handwritten.py [--dry] [--adopt]
+  ⚠ run it AFTER build-atlas-pages.py — that is the gate this one trusts.
 """
 import html, json, re, sys
 from pathlib import Path
@@ -27,10 +28,13 @@ OUT = ROOT / "website" / "atlas"
 DRY = "--dry" in sys.argv
 OPEN_MARK, CLOSE_MARK = "<!-- et:related-crafts -->", "<!-- /et:related-crafts -->"
 SWEEP_OPEN, SWEEP_CLOSE = "<!-- et:sweep -->", "<!-- /et:sweep -->"
+MEAS_OPEN, MEAS_CLOSE = "<!-- et:measure -->", "<!-- /et:measure -->"
+ADOPT = "--adopt" in sys.argv
 e = html.escape
 
 MANIFEST = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())
 FAMILIES = MANIFEST.get("craftFamilies", {})
+MEASURE = MANIFEST.get("measure", {})
 HUB_CARDS = MANIFEST.get("hubCards", [])
 PRESERVE = set(MANIFEST["preserve"])
 PINNED = set(MANIFEST.get("pinnedOpen", []))
@@ -155,6 +159,63 @@ def sweep_block(craft_id):
             f'</div></details></div></section>\n{SWEEP_CLOSE}\n')
 
 
+MEAS_EYEBROW = "Is this community worth the trip"
+
+
+def measure_block(craft_id):
+    """The Measure, for a preserved sheet.
+
+    ⚠⚠ THE LESSON THIS FILE ALREADY RECORDS, HAPPENING AGAIN. Its own docstring says
+    to ask, every time the generator grows a convention, what that convention does to
+    the hand-written sheets — because they are invisible to the generator BY DESIGN.
+    On 5 September 2026 all 31 open crafts were graded and signed, build-atlas-pages.py
+    reported "31 of 31 graded and signed", and six of those grades could never appear
+    anywhere: freediving, lifestyle-medicine, lymphatic-drainage, pottery-and-ceramics,
+    sailing-and-yachtmaster and modern-new-technique-cuisine are all preserved sheets.
+    Signed, counted, and invisible. That is the worst shape a failure can take.
+
+    Rendered by atlas_hub.measure_html() — the same function the generated pages and
+    preview-measure.py use, never a lookalike, so the three cannot drift apart.
+
+    ⛔ THE EVIDENCE CAP IS NOT CHECKED HERE, ON PURPOSE. build-atlas-pages.measure_block()
+    refuses to build at all when a craft's dots exceed what its evidence carries, and
+    re-implementing that judgement in a second place is how two rules that were meant to
+    be one start disagreeing. Run the build first; it is the gate. This only draws.
+    """
+    mm = MEASURE.get(craft_id)
+    if not mm:
+        return ""
+    return f"{MEAS_OPEN}\n{atlas_hub.measure_html(mm)}\n{MEAS_CLOSE}\n"
+
+
+def adopt_unmarked_measure(text):
+    """Wrap a Measure that was written by hand into the sheet, so this script owns it.
+
+    modern-new-technique-cuisine carried one signed 27 June 2026, months before the
+    grade went into data/. Left alone that is two grades for one craft — the page
+    saying one thing and the manifest another, which is exactly the "two meanings
+    behind one mark" the migration note in THE-MEASURE-META-PROMPT warns about. The
+    two agreed on all five conditions when this was written, so adopting is an update
+    rather than an overrule; it is still gated behind --adopt because rewriting a
+    hand-written sheet is a decision, not a default.
+    """
+    i = text.find(MEAS_EYEBROW)
+    if i == -1:
+        return text, False
+    s = text.rfind("<section", 0, i)
+    if s == -1:
+        return text, False
+    depth, end = 0, None
+    for m in re.finditer(r"</?section\b[^>]*>", text[s:]):
+        depth += 1 if not m.group(0).startswith("</") else -1
+        if depth == 0:
+            end = s + m.end()
+            break
+    if end is None:
+        return text, False
+    return text[:s] + MEAS_OPEN + "\n" + text[s:end] + "\n" + MEAS_CLOSE + "\n" + text[end:], True
+
+
 # The craft sheets in `preserve` — the redirect stubs and place pages are not craft pages.
 sheets = sorted(s for s in PRESERVE
                 if s.endswith(".html") and "--" not in s and s[:-5] in META)
@@ -170,7 +231,20 @@ for name in sheets:
         skipped.append((name, "no family"))
         continue
 
+    meas = measure_block(name[:-5])
+    if meas and MEAS_OPEN not in t2 and MEAS_EYEBROW in t2:
+        if ADOPT:
+            t2, done = adopt_unmarked_measure(t2)
+            print(f"    ADOPTED the hand-written Measure on {name}" if done else
+                  f"    could not locate the hand-written Measure on {name}")
+            if not done:
+                meas = ""
+        else:
+            skipped.append((name, "already carries a Measure written by hand — "
+                                  "re-run with --adopt to let this script own it"))
+            meas = ""
     for om, cm, blk in ((OPEN_MARK, CLOSE_MARK, new_block),
+                        (MEAS_OPEN, MEAS_CLOSE, meas),
                         (SWEEP_OPEN, SWEEP_CLOSE, sweep_block(name[:-5]))):
         if not blk:
             continue

@@ -655,8 +655,20 @@ def rising_star(s_):
 # only that drives the promise. `lineage` = where the craft comes from, which is worth
 # printing and is never a teacher. The guard refuses the mixture, because the whole
 # failure was that the mixture looked fine.
+# ⚠ 2026-09-05: the pattern had `founding` but not `movement`, `est.` or `memorial`,
+# and it let four entries through that grading the crafts then found by hand — the
+# Compagnie des Guides de Chamonix (a company, on three separate crafts) and
+# "Dean Ornish (lifestyle-medicine movement)". `founder` is deliberately NOT in here:
+# a living founder who still teaches is a legitimate answer to "who teaches", and
+# Lotta Ericson, Tony Moniz and Alan Cadiz are all exactly that. Founder is ambiguity,
+# not evidence — it needs a person to judge it, which is what the Measure is for.
+#
+# ⛔ AND NO REGEX CAN SEE A DEATH. Tatsuzo Shimaoka (d. 2007) and Asokananda (d. 2005)
+# sat in `masters` as bare names and this guard was blind to both by construction.
+# The only thing that catches those is somebody asking, of each name, "is this person
+# alive and will they be in the room" — question one of the Measure.
 _LINEAGE_SHAPED = re.compile(r"lineage|school of|tradition|^the\b|founding|formerly|"
-                             r"living national treasure", re.I)
+                             r"living national treasure|movement|est\.|memorial", re.I)
 
 
 def lineage_guard(disc):

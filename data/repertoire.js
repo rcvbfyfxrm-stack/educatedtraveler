@@ -104,7 +104,7 @@ window.ET_ATLAS = {
             "Sthalam 8 Ashtanga Yoga Vedanta Centre"
           ],
           "masters": [
-            "Yogacharya Venkatesha",
+            "Yogacharya V. Venkatesha",
             "Acharya Hema"
           ],
           "lineage": [
@@ -314,7 +314,10 @@ window.ET_ATLAS = {
             {
               "name": "Sharath Yoga Centre (SYC)",
               "blurb": "Read this before you plan a trip around it: R. Sharath Jois, the grandson of Pattabhi Jois who gave the shala its name and its authority, died on 11 November 2024 at 53, of a heart attack while hiking with students during a United States tour. The shala continues and their own site says so plainly — 'we tragically and unexpectedly lost our Sharathji' — with Shruthi Jois and Shraddha Jois now named alongside the teaching staff. Two things follow that a reader should have. Authorisation and Certification were his to give, and what those words mean now is a question for the shala rather than for us. And access is by lottery: registration for the 2026 season is closed, and students are 'selected randomly by algorithm to match our shala capacity', with confirmations sent by 2 August. Checked on sharathyogacentre.com, 3 September 2026.",
-              "verify": ["Sharath", "algorithm"],
+              "verify": [
+                "Sharath",
+                "algorithm"
+              ],
               "url": "https://sharathyogacentre.com/",
               "course": "Mysore-style Ashtanga study at SYC (regular classes)",
               "confidence": "medium"
@@ -1088,8 +1091,11 @@ window.ET_ATLAS = {
             "Barre Center for Buddhist Studies"
           ],
           "masters": [
-            "Joseph Goldstein",
-            "Sharon Salzberg"
+            "Guy Armstrong",
+            "Devin Berry",
+            "Kamala Masters",
+            "Winnie Nazarko",
+            "Carol Wilson"
           ],
           "badges": [
             "scene",
@@ -1120,7 +1126,10 @@ window.ET_ATLAS = {
           "tripType": "Taster",
           "tripLength": "a weekend",
           "englishTaught": true,
-          "englishBasis": "native-English country"
+          "englishBasis": "native-English country",
+          "lineage": [
+            "Joseph Goldstein and Sharon Salzberg (IMS founders)"
+          ]
         }
       ],
       "id": "vipassana-and-meditation",
@@ -1740,8 +1749,7 @@ window.ET_ATLAS = {
             "Chetawan (Wat Pho) Thai Traditional Massage School, Chiang Mai branch"
           ],
           "masters": [
-            "Chongkol Setthakorn (founder, ITM)",
-            "Asokananda / Harald Brust (founder, Sunshine Network)"
+            "Chongkol Setthakorn (founder, ITM)"
           ],
           "badges": [
             "source",
@@ -1798,7 +1806,10 @@ window.ET_ATLAS = {
           "tripType": "Deep-dive",
           "tripLength": "2–4 weeks",
           "englishTaught": true,
-          "englishBasis": "Old Medicine Hospital school runs classes in both Thai and English; majority of 20,000+ students international"
+          "englishBasis": "Old Medicine Hospital school runs classes in both Thai and English; majority of 20,000+ students international",
+          "lineage": [
+            "Asokananda / Harald Brust (founder of the Sunshine Network, died 2005)"
+          ]
         },
         {
           "place": "Bangkok",
@@ -2263,7 +2274,6 @@ window.ET_ATLAS = {
             "Iokai Shiatsu Center (Zen Shiatsu)"
           ],
           "masters": [
-            "Tokujiro Namikoshi (founder of Shiatsu, est. Japan Shiatsu College 1940)",
             "Shizuto Masunaga (founder, Zen Shiatsu)"
           ],
           "badges": [
@@ -2306,7 +2316,10 @@ window.ET_ATLAS = {
           "tripType": "Starter",
           "tripLength": "about a week",
           "englishTaught": true,
-          "englishBasis": "Iokai Intensive Course for Foreigners is delivered in Japanese with full English interpretation provided so participants follow in English"
+          "englishBasis": "Iokai Intensive Course for Foreigners is delivered in Japanese with full English interpretation provided so participants follow in English",
+          "lineage": [
+            "Tokujiro Namikoshi (founder of Shiatsu, Japan Shiatsu College founded 1940)"
+          ]
         },
         {
           "place": "St. Petersburg, Florida",
@@ -4598,7 +4611,9 @@ window.ET_ATLAS = {
               "url": "https://www.ksmaui.com/",
               "course": "Private and semi-private kiteboarding and wing lessons, all levels",
               "blurb": "Booked through their own scheduling page rather than sold as a fixed package: private and semi-private lessons for beginner, intermediate and advanced, with lessons starting at set times each day. Honest note, and the reason this craft scores what it does: their team page describes the instructors warmly and names none of them. Ask who yours will be and how long they have taught. The three-day coaching series we listed until now is no longer on their site. Checked on ksmaui.com, 3 September 2026.",
-              "verify": ["semi-private"],
+              "verify": [
+                "semi-private"
+              ],
               "confidence": "high"
             }
           ],
@@ -5249,9 +5264,7 @@ window.ET_ATLAS = {
             "Compagnie des Guides de Chamonix",
             "ENSA (École Nationale de Ski et d'Alpinisme)"
           ],
-          "masters": [
-            "Compagnie des Guides de Chamonix (est. 1821)"
-          ],
+          "masters": [],
           "badges": [
             "scene",
             "school",
@@ -5282,7 +5295,10 @@ window.ET_ATLAS = {
           "tripType": "Deep-dive",
           "tripLength": "2–4 weeks",
           "englishTaught": true,
-          "englishBasis": "Compagnie des Guides de Chamonix serves an international clientele with a dedicated English site and English-speaking IFMGA guides."
+          "englishBasis": "Compagnie des Guides de Chamonix serves an international clientele with a dedicated English site and English-speaking IFMGA guides.",
+          "lineage": [
+            "Compagnie des Guides de Chamonix (founded 1821)"
+          ]
         },
         {
           "place": "Peak District (Stanage, Sheffield)",
@@ -5427,9 +5443,7 @@ window.ET_ATLAS = {
             "ENSA (École Nationale de Ski et d'Alpinisme)",
             "Chamonix Experience"
           ],
-          "masters": [
-            "Compagnie des Guides de Chamonix (est. 1821)"
-          ],
+          "masters": [],
           "badges": [
             "source",
             "mecca",
@@ -5476,7 +5490,10 @@ window.ET_ATLAS = {
           "tripType": "Starter",
           "tripLength": "about a week",
           "englishTaught": true,
-          "englishBasis": "Chamonix Experience (Chamex) is an English-language, internationally-marketed guiding company with UIAGM guides; Compagnie des Guides also English."
+          "englishBasis": "Chamonix Experience (Chamex) is an English-language, internationally-marketed guiding company with UIAGM guides; Compagnie des Guides also English.",
+          "lineage": [
+            "Compagnie des Guides de Chamonix (founded 1821)"
+          ]
         },
         {
           "place": "Zermatt",
@@ -5665,9 +5682,7 @@ window.ET_ATLAS = {
             "ENSA (École Nationale de Ski et d'Alpinisme)",
             "Compagnie des Guides de Chamonix"
           ],
-          "masters": [
-            "Compagnie des Guides de Chamonix (est. 1821)"
-          ],
+          "masters": [],
           "badges": [
             "source",
             "mecca",
@@ -5706,7 +5721,10 @@ window.ET_ATLAS = {
           "tripType": "Starter",
           "tripLength": "about a week",
           "englishTaught": true,
-          "englishBasis": "Chamex states its UIAGM ski guides speak English; English course pages for off-piste progression"
+          "englishBasis": "Chamex states its UIAGM ski guides speak English; English course pages for off-piste progression",
+          "lineage": [
+            "Compagnie des Guides de Chamonix (founded 1821)"
+          ]
         },
         {
           "place": "Revelstoke / Golden (British Columbia)",
@@ -5851,9 +5869,7 @@ window.ET_ATLAS = {
             "Compagnie des Guides de Chamonix",
             "ENSA (École Nationale de Ski et d'Alpinisme)"
           ],
-          "masters": [
-            "Compagnie des Guides de Chamonix (est. 1821)"
-          ],
+          "masters": [],
           "badges": [
             "source",
             "mecca",
@@ -5884,7 +5900,10 @@ window.ET_ATLAS = {
           "tripType": "Immersion",
           "tripLength": "a month+",
           "englishTaught": true,
-          "englishBasis": "Compagnie des Guides de Chamonix page explicitly offers 'IFMGA English speaking mountain guiding service'"
+          "englishBasis": "Compagnie des Guides de Chamonix page explicitly offers 'IFMGA English speaking mountain guiding service'",
+          "lineage": [
+            "Compagnie des Guides de Chamonix (founded 1821)"
+          ]
         },
         {
           "place": "Wasatch (Salt Lake City / Park City)",
@@ -8227,11 +8246,10 @@ window.ET_ATLAS = {
             "Hamada Shoji Memorial Mashiko Sankokan",
             "Mashiko Togei Club"
           ],
-          "masters": [
-            "Tatsuzo Shimaoka"
-          ],
+          "masters": [],
           "lineage": [
-            "Shoji Hamada (Living National Treasure, mingei lineage)"
+            "Shoji Hamada (Living National Treasure, mingei lineage)",
+            "Tatsuzo Shimaoka (Living National Treasure, Mashiko, died 2007)"
           ],
           "badges": [
             "source",
@@ -11289,7 +11307,10 @@ window.ET_ATLAS = {
               "url": "https://www.grasse-perfumery.com/who-we-are/",
               "course": "International Technical Degree in Fragrance Creation and Sensory Evaluation — 18 months, in English, twelve places",
               "blurb": "The school publishes its faculty, which is rarer in this craft than the teaching itself: Jean-Claude Ellena, listed as 'Senior Perfumer – Ex Hermes' and the house's in-house perfumer for twelve years, teaches here, alongside senior perfumers Marianne Nawrocki and Joëlle Lerioux Patris and a bench of working perfumers. Eighteen months in total — twelve in the centre from January to December, then a six-month internship. 13,500 EUR plus a 150 EUR testing fee, and the working language is English. Twelve places a year, applications between 1 January and 1 July for the following year. Checked on grasse-perfumery.com, 2 September 2026.",
-              "verify": ["Jean-Claude ELLENA", "Marianne NAWROCKI"],
+              "verify": [
+                "Jean-Claude ELLENA",
+                "Marianne NAWROCKI"
+              ],
               "confidence": "high"
             },
             {
@@ -11341,7 +11362,10 @@ window.ET_ATLAS = {
               "url": "https://www.isipca.fr/en/formations/perfume/art-french-perfumery",
               "course": "Art of Perfumery \"à la française\" (Summer School) — 10 days, 70 hours",
               "blurb": "The school behind the state-recognised diploma also runs a ten-day, seventy-hour summer school, open to anyone over 18 — students of science, art or literature, and professionals topping up. Three sessions in 2026: 29 June to 10 July and 3 to 14 August at 3,560 EUR, 13 to 24 July at 3,400 EUR (that one skips 14 July). The price excludes lunch. Honest note, and it is the reason this destination does not carry a named teacher: ISIPCA names no perfumer on either the course page or its own teams page. Ask who will be in the room before you book — Grasse publishes its faculty and this does not. Checked on isipca.fr, 2 September 2026.",
-              "verify": ["70 hours", "3,560"],
+              "verify": [
+                "70 hours",
+                "3,560"
+              ],
               "confidence": "high"
             },
             {
@@ -13506,7 +13530,11 @@ window.ET_ATLAS = {
               "course": "Spanish Cuisine Diploma — the Superior Certificate is the avant-garde one",
               "blurb": "On the UFV campus at Pozuelo de Alarcón. The avant-garde teaching here is not a short course: it is the last third of the nine-month Spanish Cuisine Diploma, and their own syllabus names it — 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', 'Sous-vide cooking', 'Reinventing & deconstructing classic dishes'. Taught in Spanish with simultaneous English translation through earphones, which no other room on this craft offers. Intakes January, April, July and October; 17,316 EUR for local students, 19,240 EUR for international. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months. Honest note, and it is the reason this is not our pick: Le Cordon Bleu names no chef for this diploma. Everywhere else on this map you can look the teacher up before you pay, and here you cannot — ask who will actually be in the room. Checked on cordonbleu.edu, 1 September 2026.",
               "confidence": "high",
-              "verify": ["Avant-garde techniques & utensils", "17,316", "simultaneous translation"]
+              "verify": [
+                "Avant-garde techniques & utensils",
+                "17,316",
+                "simultaneous translation"
+              ]
             }
           ],
           "tripTier": 5,
@@ -13547,7 +13575,10 @@ window.ET_ATLAS = {
               "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish and he publishes no price for them; English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026.",
               "etRelationship": true,
               "confidence": "high",
-              "verify": ["Sous Vide", "386"]
+              "verify": [
+                "Sous Vide",
+                "386"
+              ]
             },
             {
               "name": "Culinary Institute of Barcelona (CIB)",
@@ -13555,7 +13586,9 @@ window.ET_ATLAS = {
               "course": "Curso de Especialización en Técnicas Culinarias Avanzadas (postgrado)",
               "blurb": "A three-month, 330-hour in-person postgrado in advanced culinary technique, Monday to Friday, taught 'en español y soporte en inglés'. Intakes January, May and September 2027, 9,900-11,000 EUR. Honest note: it is a school programme taught by a faculty — its own page says '+20 profesionales referentes' rather than naming one chef you can look up, which is the opposite of how everything else on this map is chosen. Listed because it is real, bookable and in the same city, not because we would send you there first. Checked on cib.education, 1 September 2026.",
               "confidence": "high",
-              "verify": ["330 horas"]
+              "verify": [
+                "330 horas"
+              ]
             }
           ],
           "tripTier": 3,
@@ -13597,7 +13630,9 @@ window.ET_ATLAS = {
               "course": "A museum visit — not a course",
               "blurb": "Built on the site of elBulli, which closed in 2011, elBulli1846 is the elBullifoundation's museum and exhibition lab at Cala Montjoi: a visit of about two and a half hours, on a ticket, with a multimedia guide or a small-group guided tour. The 2026 season runs 1 May to 12 October. Their own pages sell a visit and help you plan one — there is no enrolment, no kitchen you cook in and no teacher. Checked on elbullifoundation.com, 31 August 2026.",
               "confidence": "high",
-              "verify": ["museum of the restaurant"]
+              "verify": [
+                "museum of the restaurant"
+              ]
             }
           ],
           "tripTier": 0,
@@ -13692,7 +13727,10 @@ window.ET_ATLAS = {
               "course": "Curso de Especialización Online de Técnicas Culinarias de Vanguardia — 8 ECTS",
               "blurb": "The same faculty's avant-garde course at a distance: spherification, gelification, fermentation and vacuum cooking, 15 September 2026 to 18 February 2027, one live class a week on Thursdays 16:00-17:30 CEST, capped at 30 students, 2,310 EUR, in Spanish. Taught by Luis Arrufat, a former elBulli pastry chef, with Txema Urda — a named teacher out of the lineage, which the in-person specialisation does not advertise. Checked on bculinary.com, 1 September 2026.",
               "confidence": "high",
-              "verify": ["2.310", "Arrufat"]
+              "verify": [
+                "2.310",
+                "Arrufat"
+              ]
             },
             {
               "name": "Mugaritz (creativity stage)",
@@ -13856,7 +13894,11 @@ window.ET_ATLAS = {
               "name": "Tokyo Sushi Academy",
               "url": "https://www.sushischool.jp/instrutorsandstaff",
               "blurb": "The school publishes its teaching staff, which is the thing to look for and the thing most sushi schools do not do. Seven instructors are named. Fumimasa Murakami is vice-principal and chief instructor, ten years at the academy after Shizuoka, Akasaka kaiseki and a Shinjuku sushi counter. The International Sushi Course — the one taught for people who do not speak Japanese — is carried by Sachiko Goto, who came up through kaiseki, joined in 2005 and has taught the international course since 2025, and by Kumiko Imazu, who joined in 2023. Osamu Nishida and Issei Kurimoto have each taught here thirteen years. Checked on sushischool.jp, 2 September 2026.",
-              "verify": ["Fumimasa", "Sachiko", "Kumiko"],
+              "verify": [
+                "Fumimasa",
+                "Sachiko",
+                "Kumiko"
+              ],
               "course": "International Sushi Chef Course (5 weeks)",
               "confidence": "high"
             },
@@ -13869,7 +13911,11 @@ window.ET_ATLAS = {
               },
               "course": "Sushi Diploma Course — six weeks, three levels, ending in omakase at the counter",
               "blurb": "New, and the newest thing on this craft: the operating company was established in June 2026 and the school runs out of Otsuka in Bunkyo-ku. What makes it worth naming this early is who is at the front of it. Hiroko Ishii is principal and representative director, and she was one of the two main instructors of Tokyo Sushi Academy's English course — Tokyo Sushi Academy's own video site names 'Hiro sensei and Hiroko sensei' in that role, and she no longer appears on their instructor page. Her route there ran through food science, French cuisine at Le Cordon Bleu Paris, and nine years in Switzerland cooking sushi and teaching it. The course is six weeks in three two-week levels — knife work and shari, then whole-fish butchery and counter service, then anago, hirame, tsumami and the structure of an omakase; the final exam is serving omakase at the counter, and includes a visit to the Tokyo fish market. English instruction, maximum eight students. 1,200,000 JPY tax included for the six weeks, or 420,000 JPY a level, and they help with the student visa for 10,000 JPY. Honest note: it has been open a matter of months and has no alumni to ask. That is a real risk and the reason it is not our pick — but a named teacher with that lineage, in English, in a room of eight, is the strongest new thing on this craft. Checked on jcma.tokyo, 2 September 2026.",
-              "verify": ["Hiroko Ishii", "Max 8 Students", "English Instruction"],
+              "verify": [
+                "Hiroko Ishii",
+                "Max 8 Students",
+                "English Instruction"
+              ],
               "confidence": "high"
             },
             {
@@ -13974,7 +14020,10 @@ window.ET_ATLAS = {
               "url": "https://www.taiwa.ac.jp/lacarriere/en/course/",
               "course": "International programme — six short courses, sushi among them",
               "blurb": "Founded in 1931 and, in their own words, the oldest cooking school in Kyoto. What they run for visitors is not a washoku course as we had it listed but a six-course international programme, each a single 2.5-hour session at 11,000 JPY a head with a minimum of three people — one of them nigiri sushi with red miso soup, others ramen and gyoza. Short, real, and a taste rather than a training: it belongs on this page as a first step, not as a route into the craft. The washoku course page we linked until now is gone. Checked on taiwa.ac.jp, 3 September 2026.",
-              "verify": ["11,000", "Red Miso Soup"],
+              "verify": [
+                "11,000",
+                "Red Miso Soup"
+              ],
               "confidence": "high"
             },
             {
@@ -22495,7 +22544,11 @@ window.ET_ATLAS = {
               "course": "Advanced Culinary Techniques — 4 days, 31 hours",
               "blurb": "Four intensive days, '31 hours of classroom instruction combined with hands-on workshops', designed by Éric Briffard, Meilleur Ouvrier de France and the school's Director of Culinary Arts. The syllabus is the modernist toolkit: sous-vide of meat, fish, shellfish, vegetables and fruit; molecular and cryogenic cuisine; cold and hot espumas with a siphon; drying, smoking, plating. Two things make it unusual on this craft — it is 'taught in French and consecutively translated into English', and you get in on 'at least two years of professional experience in the culinary field' if you do not hold their diploma, which most working chefs clear. It publishes no price and no dates: both are an enquiry. Checked on cordonbleu.edu, 1 September 2026.",
               "confidence": "high",
-              "verify": ["31 hours", "Briffard", "two years of professional experience"]
+              "verify": [
+                "31 hours",
+                "Briffard",
+                "two years of professional experience"
+              ]
             }
           ],
           "tripTier": 3,
@@ -22536,7 +22589,11 @@ window.ET_ATLAS = {
               "course": "Open courses, private masterclasses & online modules — sous-vide and low-temperature cooking, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen",
               "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. Open group courses run in Spanish; English or French is available as a private course. Listed because the founder met Martin Lippo in person.",
               "confidence": "high",
-              "verify": ["Sous Vide", "386"]
+              "verify": [
+                "Sous Vide",
+                "386"
+              ],
+              "etRelationship": true
             }
           ],
           "tripTier": 5,
@@ -22622,7 +22679,8 @@ window.ET_ATLAS = {
           "englishTaught": true,
           "englishBasis": "native-English country"
         }
-      ]
+      ],
+      "disclosure": "EducatedTraveler runs a paid week with Martin Lippo, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week costs, and sold out at the time of writing. His classroom courses run in Spanish and carry no published price; English or French is a private course quoted by email. Checked on martinlippo.com, 1 September 2026. If a direct route suits you better, take it."
     },
     {
       "discipline": "Lymphatic Drainage",
@@ -22710,9 +22768,7 @@ window.ET_ATLAS = {
             "American College of Lifestyle Medicine",
             "American Board of Lifestyle Medicine"
           ],
-          "masters": [
-            "Dean Ornish (lifestyle-medicine movement)"
-          ],
+          "masters": [],
           "badges": [
             "evidence-based",
             "board-recognised",
@@ -22736,7 +22792,10 @@ window.ET_ATLAS = {
           "tripLength": "CME + exam",
           "instructionLanguage": "English",
           "englishTaught": true,
-          "englishBasis": "English (US body); some approved CME in Spanish."
+          "englishBasis": "English (US body); some approved CME in Spanish.",
+          "lineage": [
+            "Dean Ornish (lifestyle-medicine movement)"
+          ]
         }
       ],
       "id": "lifestyle-medicine",
@@ -22757,8 +22816,7 @@ window.ET_ATLAS = {
         "priceNote": "CME + exam fees (clinicians)",
         "confidence": "high"
       }
-    }
-  ,
+    },
     {
       "discipline": "Yacht Crew & STCW",
       "category": "adventure",

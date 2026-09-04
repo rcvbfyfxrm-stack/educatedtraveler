@@ -274,6 +274,24 @@ MEASURE_QUESTIONS = (
 )
 
 
+def _answers_line(dots):
+    """The Measure's headline, agreeing with its own number at every count.
+
+    It shipped as one hardcoded string — "{word} of the five answers are yes here" —
+    which is only correct between two and four. No signed grade had ever been outside
+    that range, so two latent faults sat in it unseen until the 2026-09-04 batch put
+    two crafts on one dot: "One of the five answers ARE yes here", and, at the top of
+    the scale, "ALL FIVE of the five answers are yes here". A headline that cannot
+    count reads as carelessness about the number underneath it, which is the one thing
+    this block cannot afford. _WORD is shared with the vouch line and the walked
+    places, so the fix belongs here rather than in the lookup.
+    """
+    if dots == 5:
+        return "All five answers are yes here"
+    verb = "is" if dots == 1 else "are"
+    return f"{_WORD.get(dots, dots)} of the five answers {verb} yes here"
+
+
 def measure_html(mm, dots=None, vouch=""):
     """The Measure block itself, from a grade — published or still drafted.
 
@@ -320,8 +338,7 @@ def measure_html(mm, dots=None, vouch=""):
     return (
       '<section><div class="wrap">'
       '<div class="mono">Is this community worth the trip</div>'
-      f'<h2 style="margin-bottom:10px">{_WORD.get(dots, dots)} of the five answers '
-      f'are yes here</h2>'
+      f'<h2 style="margin-bottom:10px">{_answers_line(dots)}</h2>'
       '<p class="meta" style="margin:0 0 16px">The same five questions, asked of every craft on '
       'this map, before we send anyone anywhere. A full dot is a yes we can show you the working '
       'for. An empty dot is not a mark against the place: it says we could not answer it from a '

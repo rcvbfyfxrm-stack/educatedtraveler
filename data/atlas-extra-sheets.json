@@ -891,6 +891,837 @@
       "check": "Graded from the entries already verified on this page, not from a visit. The JCMA facts come from jcma.tokyo, read on 2 September 2026; Hiroko Ishii's role on Tokyo Sushi Academy's English course from that school's own tsavideos.com, the same day.",
       "checker": "Arnaud Callier",
       "date": "3 September 2026"
+    },
+    "freediving": {
+      "dots": 4,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "The rare craft where the people who set the records still take the course themselves — four places, five names, and the only thing missing is somebody of ours in the water",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Named in three of the four places, and named unusually high. Umberto Pelizzari, who held seventeen world records, founded the Apnea Academy and its seven-day instructor course. William Trubridge runs Vertical Blue at Dean's Blue Hole and leads its once-yearly Master Class himself. Lotta Ericson, a former world-record holder, founded Freedive Dahab in 2003, and Stavros Kastrinakis, an AIDA world-record holder, founded the Kalamata club in 2007. This map's usual problem is a famous name over a door that somebody else teaches behind; here the record says the name takes the course."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open at every level, everywhere, on published dates. Beginner-to-instructor pathways in Dahab, two-to-four-week Master Programmes, a seven-day residential instructor course in the Mediterranean. And the hands can ruin it in the most literal sense on this map: this is breath-hold, the failure mode is blackout, and the buddy system is the discipline rather than the paperwork."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Dahab is where the world's freedivers go to find each other — three schools on one bay, month-long intensives, and the Blue Hole as a shared workplace. Kalamata's competition line puts you on the same rope as people going considerably deeper than you. Both directions, on the same buoy."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and settled by the sport's own governing body rather than by a school. CMAS held the 8th World Championship Freediving Depth at Kalamata from 2 to 13 October 2024 — the world championship coming to the bay, organised by nobody who teaches there. What that does not settle is Dahab, which is the busiest of the four and the one nobody outside the sport has written about.",
+          "evidence": [
+            {
+              "what": "CMAS's own record of the 8th World Championship Freediving Depth",
+              "url": "https://www.cmas.org/freediving-events/8th-cmas-freediving-depth-world-championship.html",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. AIDA and Molchanovs both publish real ladders that run well past instructor, and the depth itself is an unarguable measure of where you are on them. But whether there is a room above you worth years — people to keep training with after the certificate — is the one thing no agency publishes, and only somebody who stayed can say."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to specific water, and one season in Dahab could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been in the water at any of these four sites. The fourth answer is CMAS's own event record for Kalamata, read 4 September 2026. The first is unusually strong for this map and is the reason the count is four: it rests on what each school publishes about its own founder, not on a third party, and it is the one that a phone call could still overturn.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "lifestyle-medicine": {
+      "dots": 1,
+      "ceiling": 3,
+      "register": "school-led",
+      "verdict": "A real medical board certification and not a travel destination — closed to anyone without a clinical degree, and listed here against a whole country rather than a place",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, in the institution-taught form. The American Board of Lifestyle Medicine is a certifying board and the American College of Lifestyle Medicine is the body that trains toward it; the credential belongs to them rather than to a teacher. No individual is named and none should be. ⚠ Our own who-teaches field held 'Dean Ornish (lifestyle-medicine movement)', which is a movement rather than a person in a room; it has been moved to where the craft comes from."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "No, and this is a fact about the craft rather than a mark against it. Board certification requires either a physician primary-board-certified for at least two years, or a Master's or Doctorate in a health or allied health discipline. A serious stranger without a clinical degree cannot get in on any date. That is a professional credential working exactly as it should — and it means this entry answers a different question from every other craft on this map."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": false,
+          "t": "Not established. The route to the credential is largely online coursework and a board exam, with an annual conference alongside it. A conference is people in a room; it is not people learning beside you. Nothing published describes a cohort you would join."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "No. This entry's only destination is 'United States' — a country, not a place. The question asks whether a craft belongs to particular ground, and an entry that names no town cannot answer it. That is the honest state of this listing rather than a finding about lifestyle medicine."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The ladder is genuine and well defined — the ABLM Diplomate, with continuing education above it — and it is one of the few on this map backed by a medical board. It is also a ladder for clinicians already inside the profession."
+        }
+      ],
+      "ceilingNote": "Three is the ceiling here and one is the count, because two of the empty answers are structural: there is no town, and the door is a professional one. If this belongs on the Atlas at all, it belongs as a credential to know about rather than a place to travel to — and that is a decision about the listing, not a grade.",
+      "check": "Graded from the entry already verified on this page, not from a visit. Eligibility was read from the American Board of Lifestyle Medicine's own prerequisites on 4 September 2026. This is the lowest count on the map alongside sound healing, and for the opposite reason: nothing here is weak, it is simply not the kind of thing this instrument measures. Worth reading as a question about the listing before it is read as a grade.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "lymphatic-drainage": {
+      "dots": 3,
+      "ceiling": 4,
+      "register": "school-led",
+      "verdict": "One village, one academy, one method — the training is as serious as anything on this map, and the place has nothing to do with why",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, in the form this craft actually takes. Nobody apprentices under a named master here: manual lymph drainage is transmitted by a body with a lineage, and both are named — the Dr. Vodder Academy, carrying Emil Vodder's method through the Wittlinger family since the early 1970s, teaching beside their own working lymphoedema clinic. We name no individual instructor because the credential is the academy's, not a person's, and that is the shape of the craft rather than a gap in the research."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, and harder than most doors on this map. A hundred and eighty hours across two two-week blocks, with a dedicated English-language course at the source. And the last week is spent on real clinic patients rather than on classmates — which is exactly the test: your hands are on somebody with a diagnosis, and you can do it badly."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "A taught course in blocks has a cohort, and this one sits inside a working clinic, so there are therapists above you doing the job you are learning. What is not published is how many people are in the room, and we have not asked."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "No — and this is the honest answer rather than a criticism. The test is whether this craft, taught this way, would make sense anywhere else, and it plainly would: the Vodder certificate is taught by recognised schools in several countries and the method does not change with the ground. Walchsee is where the academy is. It is not where the craft lives."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The ladder past the 180 hours is real and clinical — therapy certificates, combined decongestive therapy, the reimbursement systems that make this a job rather than a spa treatment. Whether the source has years in it, or whether you take the certificate and leave, is not something a syllabus can tell you."
+        }
+      ],
+      "ceilingNote": "Four is the ceiling here, not five: the fourth answer is a settled no. Where the craft is alive is a question this method has already answered by travelling well.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been to Walchsee. The first condition is filled on the institution-taught form — a named body with a named lineage — on the precedent this map set for wine on 6 August 2026, not because an individual was found. The fourth is a considered no rather than an unanswered question, which is why this craft's ceiling is four.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "modern-new-technique-cuisine": {
+      "dots": 3,
+      "ceiling": 4,
+      "register": "place-led",
+      "verdict": "Four named masters running four real labs on four continents — the strongest teaching on this map that belongs to no ground at all, which is the whole point of a toolkit",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, in all four places, and each is a named living person teaching in their own lab: Martin Lippo at Vakuum in Barcelona, Éric Briffard at Le Cordon Bleu Paris, Miguel Ángel Cepeda in Puebla and Mexico City, Dale Prentice at Sous Vide Australia in Lilydale. That is four out of four, which nothing else on this map manages. ⛔ Where we stand: EducatedTraveler runs a paid week with Martin Lippo, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him; the way in without us is his own site, martinlippo.com."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, and unusually so for the avant-garde. This is the rare corner of modernist cooking you can enrol in rather than apply for a stage at: open courses and private masterclasses at Vakuum, a four-day 31-hour Advanced Culinary Techniques course in Paris taught with English translation as it is given, a multi-week diplomado in Mexico, public workshops in Melbourne. And the hands can ruin it — a spherification bath and liquid nitrogen are unforgiving, which is why the labs are labs."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, on the open courses and the diplomado, which run as classes rather than as private hire. What is not published anywhere is the group size at any of the four, and in a technique lab that is the number that decides whether you touch the equipment or watch it. Ask before you book."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "No, and it is worth saying why rather than treating it as a hole. The test this question applies is whether the craft, taught this way, would make sense anywhere else — and a technique toolkit is designed to travel. Sous-vide was worked out at Troisgros in 1974 and now belongs to every kitchen with a circulator. Catalonia's claim on the avant-garde is real and it is graded on this map's modernist Spanish cuisine page, where the restaurants are. Here you are buying a technique, and the technique is portable by design."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been, and this craft has no ladder to point at instead: its own record says there is no single formal body and that the qualification is a certificate of attendance. That is not a criticism of the labs, which are teaching real skills. It does mean that what happens after the course is entirely up to you and your own kitchen."
+        }
+      ],
+      "ceilingNote": "Four is the ceiling here, not five: the fourth answer is a settled no, because this is a toolkit rather than a tradition, and portability is what makes it worth learning.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has taken any of these four courses. ⛔ The interest above is disclosed here because it must be disclosed at the point of the judgement — and grading this craft found it was not disclosed on this page at all: the same school carried the relationship flag and the full disclosure on the modernist Spanish cuisine page, and nothing on this one. That is now fixed — this page carries the same disclosure and the same flag — and the grade was written before the fix rather than after it.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "organic-farm-to-table-cooking": {
+      "dots": 3,
+      "ceiling": 4,
+      "register": "place-led",
+      "verdict": "One school, three named cooks who still stand up and demonstrate, and a hundred acres of their own soil outside the door — everything here is real and all of it is one address",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, and named three times over: Darina Allen, Rory O'Connell and Rachel Allen. What fills this dot rather than the names alone is that the record says the afternoon demonstration is still given by the people whose names are on the school — which is the difference between a founder and a teacher, and the thing this map has been caught getting wrong elsewhere."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, published and long enough to matter. The twelve-week certificate course is the flagship, with one-day and week-long courses at the farm school in growing, keeping and preserving. And the hands can ruin it: you cook the food, and on the farm side you can genuinely lose a crop or a preserve — the school's own framing is that a preserving mistake is a real one."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes. Twelve weeks residential is a cohort in the strongest sense on this map — you live and cook with the same people for a season, which is closer to a house than a class. What is not published is how many, and the shorter farm courses are a different and smaller thing."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not established, and the honest reason is that the ground here belongs to the school. The hundred-acre organic farm at Kinoith is Ballymaloe's own land, so it cannot answer a question about whether the craft is alive in Shanagarry beyond Ballymaloe. Farm-to-table cooking taught on a working organic farm would make the same sense on any working organic farm — which is what this question is for. Nothing published by somebody with nothing to sell describes East Cork's food scene around the school, and we looked."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. There is no outside body and no published ladder — this craft's own record carries neither a certifying body nor a gold credential — so what sits above the twelve weeks is the school's word and your own kitchen. That is not unusual for a craft school; it does mean the ceiling is unmeasurable from here."
+        }
+      ],
+      "ceilingNote": "Four is the ceiling until somebody outside Kinoith writes about East Cork — and the answer that would move first is the fourth, not the fifth.",
+      "check": "Graded from the entry already verified on this page, not from a visit. Nobody from EducatedTraveler has cooked at Ballymaloe. The fourth answer was searched and left empty rather than filled from the school's own account of its farm — a school's page about its own ground is the brochure sentence this question exists to refuse, however true it happens to be.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "pottery-and-ceramics": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Four towns where clay is the local industry rather than the local attraction — and not one living potter named among them, which is our gap and a morning's work to close",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all four places, and one of them worse than empty. Mashiko's entry named Tatsuzo Shimaoka until today — a Living National Treasure who died on 11 December 2007, now moved to where the craft comes from, which is where he belonged; Jingdezhen, the Six Ancient Kilns and St Ives name nobody at all. A craft taught hand over hand at a wheel is a craft where the person is the whole thing, so this is the first question to fix on this page and the cheapest — every one of these studios has a potter whose name is on their own website."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Wide open, at every length. Half-day and full-day wheel classes in Mashiko with live-in stays, hands-on sessions at Seto and Tokoname, one-to-six-month residencies at Sanbao and the Pottery Workshop in Jingdezhen, and the year-long Leach Year in St Ives. And clay is the plainest case on this map of hands that can ruin it: a wall pulled wrong collapses, and a pot can still die in the kiln after a week of work."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and at both ends. Jingdezhen is the densest working cohort of ceramicists anywhere, with Sanbao hosting dozens of makers a year alongside the university's international work camps. Mashiko carries about 250 potteries in one town. In residencies of that shape there is always somebody further on than you at the next wheel, and somebody behind you."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and Mashiko settles it in the town's own words rather than a school's. The Mashiko Tourist Association calls pottery the town's main industry, counts around 250 potteries and about 50 ceramic shops, and has run a Pottery Fair twice a year since 1966 — roughly 50 shops and as many as 800 tents, drawing about 600,000 people, with the 2026 autumn fair set for 31 October to 3 November. That is a town earning its living from the craft, not a school renting a room in one.",
+          "evidence": [
+            {
+              "what": "the Mashiko Tourist Association's own page on the town and its Pottery Fair",
+              "url": "http://www.mashiko-kankou.org/english/mta1/mashikoyaki/toukiiti/tokiichi.htm",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The rungs above a week at the wheel are obvious and long — glazing, firing, a kiln you can load yourself, the years Mashiko and Bizen assume before anybody talks about your work — but no body publishes them, because this craft is taught by apprenticeship and residency rather than by a syllabus. Only somebody who stayed past the introductory course can say what is above it."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to its clay and its kilns as completely as any on the map, and the first answer needs an email rather than a journey.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has thrown a pot in any of these towns. The fourth answer is the Mashiko Tourist Association's own page, read 4 September 2026. ⚠ Grading the first answer turned up an error on our side: Tatsuzo Shimaoka was printed in the field that says who teaches at Mashiko, and he died in 2007. He has been moved to the lineage. It is recorded here because we published it, and a correction we made ourselves belongs beside the grade rather than quietly done.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "rock-climbing": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Four of the best-known crags on earth, taught by certified guides nobody has named for you — the standard is the point of the craft, and the person is still the thing you are buying",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all four places, and largely by design. Rock climbing is taught by guides an outside body certifies — AMGA in the United States, the IFMGA internationally, the state diploma through ENSA in Chamonix — so instructors are interchangeable on purpose and no school advertises one. That is a real strength for safety and a real weakness for this question. Chamonix's entry named the Compagnie des Guides, founded in 1821, which is a company rather than a person, and it has been moved to where the craft comes from. Ask who your guide will be and what they are certified to lead; both answers exist and both vary."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open and properly laddered. Yosemite runs sequential multi-day classes from 'Welcome to the Rock' to a two-day big wall course, capped at six students an instructor. Chamonix's two-day multi-pitch course asks for French grade IV before you book it, which is a door with a standard on it. Plas y Brenin runs a five-day residential. And the hands can ruin it: you place your own protection and you build your own anchors, which is the whole of why the instruction exists."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and the ladder runs both ways. Joshua Tree carries a dense winter cohort and is where the AMGA Single Pitch Instructor course is taught, so the people beside you include those learning to teach. Sheffield's walls hold the Peak's climbers between crag days, and Yosemite Valley has thousands of climbers passing through every season."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and the United States National Park Service says so about Yosemite without selling anything: it calls the Valley one of the world's greatest climbing areas, requires a wilderness climbing permit from everybody sleeping on a big wall, and manages the peregrine falcon closures around the routes. A park authority building its permit system around climbers is a place organised by the craft.",
+          "evidence": [
+            {
+              "what": "the National Park Service's own climbing pages for Yosemite",
+              "url": "https://www.nps.gov/yose/planyourvisit/climbing.htm",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The ladder here is unusually legible — single pitch, multi-pitch, aid, the AMGA and IFMGA guide certifications above all of it — and El Capitan is about as clear a thing to set out to do as any craft on this map offers. What a season on the ground is actually like, and whether the people stay, is not on any page."
+        }
+      ],
+      "ceilingNote": "All five are reachable here — and who teaches would be answered by four emails, one per town.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has climbed at any of these four crags. The fourth answer is the National Park Service's own climbing pages, read 4 September 2026. The first is graded empty on the same reading applied to kitesurfing: where an outside body certifies the instructor, we do not fill this question on the certification — it answers a different question. ⚠ Chamonix's who-teaches field held the Compagnie des Guides, a company; it has been moved to where the craft comes from, here and on the three other crafts that carried the same entry. A second gap belongs in the open rather than in a private note: this page keeps no record of which climbing regions were searched and set aside, so it cannot show you why Kalymnos — four thousand bolted routes, from a beginner's slab to the hardest grades, on an island whose economy runs on them — is not on it.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "safari-and-wildlife-guiding": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "The longest courses on this map, on ground owned by the people who live on it — and not one trainer named across three countries",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all three places. EcoTraining, Bhejane and Nature Guide Training all run FGASA-accredited courses and none of them names an instructor on this page; the Koiyaki Guiding School, which trains young Maasai in their own conservancy, names nobody either. In a craft where you learn to walk up on dangerous game, who is carrying the rifle beside you is not a detail. Ask for the name and the trails-guide qualification of the person leading your walks."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, and long. Fifty-five and sixty-day residential courses in the Greater Kruger and at Mashatu, a one-year professional programme in KwaZulu-Natal, a one-year Maasai guiding course in Naboisho. Published, bookable, and with the FGASA Apprentice Field Guide qualification at the end rather than a certificate of attendance. The hands can ruin it in the most serious sense on this map: rifle handling and approaching big game on foot are assessed because the failure mode is somebody dying."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, more completely than almost anywhere here. You live in unfenced bush camps with the same cohort for two months to a year, which is the compagnon's house rather than a classroom. The trails-guide ladder above the field-guide qualification means there is always somebody a stage ahead in camp, and somebody a stage behind."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and both East and Southern African entries are settled by the landowners rather than by a school. In Kenya, the Maasai Mara Wildlife Conservancies Association has 24 member conservancies bringing together over 15,000 landowners across about 450,000 acres, with lease fees paid to those landowners annually — the ground itself is a working institution run by the people from it. The South African case is the same shape: the Makuleke community's settlement agreement of 30 May 1998 restored their ownership of the Pafuri land inside Kruger — the first time a community's land rights were restored inside a South African national park — and the Makuleke Contractual Park is co-managed with SANParks.",
+          "evidence": [
+            {
+              "what": "the Maasai Mara Wildlife Conservancies Association on its own membership",
+              "url": "https://maraconservancies.org/about-us/",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. FGASA publishes a genuine ladder — Apprentice Field Guide, Professional Field Guide, Trails Guide, and the trails qualifications above that — and it is one of the better-defined professional routes on this map. Whether the elders you would need are actually in camp, and for how long, is exactly what a fifty-five-day brochure cannot tell you."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft cannot be taught anywhere but on this ground, so one course could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been on any of these courses. The fourth answer is the Maasai Mara Wildlife Conservancies Association's own membership page, read 4 September 2026; the Makuleke settlement is South African public record from 1998 and is stated without a link because the judgment's host refused the page on both days of reading.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "sailing-and-yachtmaster": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "school-led",
+      "verdict": "The one qualification on this map you can genuinely fail, examined by somebody who did not teach you — and we cannot name a single instructor who would get you there",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all three places. Four RYA centres on the Solent, one school in Auckland, two in Tortola, and not one named instructor between them. That is partly the shape of the thing: the RYA writes the syllabus, licenses the centre and appoints the examiner, so the instructor is deliberately interchangeable. But you will live aboard with this person for a week or sixteen, which makes it a fair question to ask before you book."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, and the strongest door on this map. UKSA's sixteen-week residential programme takes a novice to a commercially endorsed Yachtmaster; Hamble Point runs a five-day prep and exam. What matters is what the exam is: the Yachtmaster is a Certificate of Competence, assessed by an RYA examiner who is not your instructor, and people fail it. Almost nothing else on this map is marked by somebody with no stake in passing you."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and closer than anywhere else here — you sleep aboard with a handful of crew and stand watches with them. UKSA's sixteen-week cohort moves together from novice to ticket, which is a ladder in both directions inside one programme, and the BVI liveaboard courses draw a cohort from several continents."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and the Solent settles it twice over. Cowes Week sailed its bicentenary regatta in 2026 with 35 classes racing, and the regatta is already advertising 31 July to 6 August 2027 at the start of its third century — a town whose calendar has been built around sailing for two hundred years. And the Royal Yachting Association, the body that writes the Yachtmaster scheme, has its head office at Hamble-le-Rice, the second town on this page.",
+          "evidence": [
+            {
+              "what": "Cowes Week's own site, on the bicentenary regatta and the 2027 dates",
+              "url": "https://www.cowesweek.co.uk/",
+              "date": "4 September 2026"
+            },
+            {
+              "what": "the RYA's own contact page, showing its head office at Hamble-le-Rice",
+              "url": "https://www.rya.org.uk/about-us/contact-us/",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The ladder is public and unusually clear — Competent Crew, Day Skipper, Coastal, Yachtmaster Offshore, Yachtmaster Ocean — and the sea miles between the rungs are counted rather than claimed. What none of that shows is whether the Solent keeps you after the ticket, which is the difference between a qualification and a place."
+        }
+      ],
+      "ceilingNote": "All five are reachable here — and who teaches is a phone call to four centres that all publish a number.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sat an RYA course at any of these three centres. The fourth answer rests on two sources read 4 September 2026: Cowes Week's own site, and the RYA's contact page for its head office. The RYA is named here as the scheme's author rather than as a disinterested witness — it licenses the centres on this page — which is why the regatta is listed first.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "ski-touring-and-splitboard": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Three ranges where the craft is the local trade, guided by IFMGA professionals nobody has named — and the fifth answer here is buried under snow rather than unknown",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all three places. Chamonix's entry named the Compagnie des Guides, founded in 1821, which is a company and not a person, and it has been moved to where the craft comes from; Utah and Lyngen name nobody, though both advertise IFMGA and AMGA certification. In a craft where the guide's judgement in avalanche terrain is the entire product, the name and the certification of the person deciding the route is the question to ask, and every one of these operators can answer it."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open on published dates at every level. The six-day Chamonix-to-Zermatt Haute Route, a three-day ski and splitboard mountaineering camp in the Wasatch, AIARE Level 1 with two field days, Saturday-to-Saturday guided weeks in Lyngen with boat access. And the hands can ruin it in the way that matters most on this map: the skill being taught is choosing where to put your skis on a loaded slope, and the failure mode is an avalanche."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes. Hut-to-hut on the Haute Route you are roped to the people you are learning with; AIARE field days are run in small groups digging the same pit. The Wasatch carries a dense avalanche-course cohort every winter, with professional-level training running alongside the recreational courses — which is what someone above you looks like."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and the Swiss Army settles it for the Chamonix-Verbier half of this page. The Patrouille des Glaciers is run by the Swiss Army every two years: the Z race climbs from Zermatt to Verbier via Arolla, the A race from Arolla to Verbier. The 2026 edition was raced in April and the site is already counting to 2028. A national army putting a ski-mountaineering race across this ground, decade after decade, is the craft belonging to the place rather than visiting it.",
+          "evidence": [
+            {
+              "what": "the Patrouille des Glaciers, organised by the Swiss Army, on its own races and routes",
+              "url": "https://www.pdg.ch/en/",
+              "date": "5 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. AIARE's levels and the IFMGA guide certification are both published ladders with outside bodies behind them, and the Haute Route is a named thing you could set out to earn. But the ceiling in this craft is measured in seasons of snowpack, and no page publishes whether the people who could teach you that are still there in March."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to specific snow, so one full season could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has skinned in any of these three ranges. The fourth answer is the Patrouille des Glaciers' own site, read 5 September 2026, and it covers the Chamonix-Verbier entry rather than the Wasatch or Lyngen. ⚠ Chamonix's who-teaches field held the Compagnie des Guides, a company rather than a person; the same entry sat on three other crafts and has been moved on all of them.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "sound-healing": {
+      "dots": 1,
+      "ceiling": 4,
+      "register": "school-led",
+      "verdict": "The weakest entry on this map, and we would rather say so than dress it up — real cohorts, real certificates, and nothing underneath them that we could check",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all three places, and there is no honest way to fill it. This map fills this question for a body-taught craft on a named institution with a named lineage — that is how wine and lymphatic drainage are graded. Sound healing has neither: the record's own line on this craft is that there is no single global body, and no individual teacher is named in Kathmandu, the Bay Area or Glastonbury. That is an absence, not a refusal to name."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "This is the one door on the map that does not hold. The dates and the enrolment are real — ten-day trainings in Kathmandu and Pokhara, a 186-hour certificate in Sausalito, diploma routes in the UK — so the first half is a plain yes. The second half is what fails: this question also asks whether your hands can ruin the work, because if they cannot, you are watching a demonstration rather than learning a craft. Nothing you can do to a singing bowl in ten days is wrong in a way anybody could show you. Weigh that against what the certificate costs."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and this is the honest strength here. The trainings are residential and run as cohorts — ten days and nine nights in Pokhara, 186 hours in Sausalito, a year-long programme at CIIS — so there are people learning beside you, and the diploma routes in the UK have assessors above you."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "No, or at least nothing we could establish. Kathmandu has a genuine metal-bowl-making trade in Patan and Bhaktapur going back centuries, and that is a real craft alive in a real place — but it is a metalworking trade, not this practice, and everything published about it that we could find is published by people selling bowls. Sound healing as taught here would make the same sense in any other town, which is what this question is for."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been, and unusually there is no published ladder to point at either. This craft's own record says no single global body defines the rungs, so there is nothing above the certificate that an outside authority has described."
+        }
+      ],
+      "ceilingNote": "Four is the ceiling here rather than five, and the two empty answers in the middle are the ones to weigh: this is a craft where a good recording might genuinely do what a course does.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has attended any of these trainings. This is the lowest count on the Atlas and it deserves saying plainly: nothing here is a fake, the schools are real and the hours are real, and the instrument still cannot find a teacher, a ground, or a way for a student to get it wrong. If that reading is too hard, the place to argue with it is the second answer — and that argument should be had before this grade is signed rather than after.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "spearfishing": {
+      "dots": 2,
+      "ceiling": 4,
+      "register": "place-led",
+      "verdict": "The oldest hunt on earth, sold on this map mostly as a charter — a state diploma at one end, a guide and a boat at the other, and nobody named at either",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all three places, and the page says so about itself: no single named regional club could be verified on the Côte d'Azur. Kona and Cabo name schools and charter operations rather than instructors. This craft is passed between hunters more than it is taught in classes, which makes the absence understandable and does not make it less of a gap."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, at two very different levels. CREPS PACA at Antibes delivers the French state professional diploma for breath-hold disciplines — a real, examined qualification. Kona Freedivers runs a two-day spearfishing course that requires a Level 1 Freediver certification before you may book it, which is a door with a standard on it. And the hands can ruin it beyond argument: a speargun on a breath-hold, with a shot you either take cleanly or should not take."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Partly, and only in one of the three. France's federated clubs are volunteer associations where members train and qualify together, and a state diploma at Antibes has a cohort by definition. Kona and Cabo sell private charters and one-on-one tours, which is the opposite — good instruction, no bench."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not established, and not for want of looking. Spearfishing on this coast is genuinely native — the modern sport was invented between Cassis and Antibes, and the mask, fins and snorkel came out of it — and Hawaiian spearfishing is older still and part of how people there eat. But every account of either that we could find is published by somebody selling a charter, a course or a gun, and a school's own page about its town is exactly what this question refuses."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. CMAS grades and the national federation licences are a real ladder, and the French diploma at Antibes is a genuine professional rung. Whether there is a community above you on any of these three coasts, rather than a boat you rent again, is not something a booking page can answer."
+        }
+      ],
+      "ceilingNote": "Four is the ceiling until somebody publishes something about these coasts who is not selling on them — and the fourth answer is the one most likely to change, because the Côte d'Azur has a federation and a history behind it.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has dived any of these three coasts. The fourth answer is empty because the search failed, not because the answer is no — worth restating, since this craft's ground is probably its strongest quality and we could not source it. The French federation and the CMAS commission are both interested parties here: they appear on this craft's own page, so nothing they publish can settle the fourth question.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "surfing": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Three towns that are properly organised around the craft, and three schools named after surfers whose names are the one thing we could not check",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all three places, and Waikiki is the frustrating one. Hans Hedemann is a former professional surfer with a school under his name; Tony Moniz is a Hawaiian professional who founded Faith Surf School in 2000; the Waikiki Beachboys have been licensed on that beach since 1955 and are a lineage in their own right. What nothing published says is whether any of them takes the lesson. This map has been caught before treating a famous name over a door as an answer to this question, so it is left empty until somebody tells us."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Wide open at every level. Week-long packages on the Waikiki rollers, graded levels one to four at Ericeira with surf guiding above them, residential camps at Peniche running beginners on Baleal's sand. And the hands can ruin it in the plainest way on the map: nobody can catch the wave for you, and you will spend the first days failing in front of everybody."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and Peniche is the clearest ladder here — you can start on the sand at Baleal and end up watching Supertubos in the same corridor, which is someone above you and someone below you in a single town. Ericeira draws Europe's densest surf cohort into camps that are residential by design."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and settled twice, by two bodies with nothing to sell you. Save The Waves dedicated Ericeira a World Surfing Reserve in October 2011 — the second in the world and the first in Europe, over five kilometres of coastline. And the World Surf League's 2026 Championship Tour holds its tenth event of the year at Supertubos in Peniche, from 16 to 25 October. A world tour and an international conservation designation are the town being part of the sport, rather than a beach with schools on it.",
+          "evidence": [
+            {
+              "what": "Save The Waves on the Ericeira World Surfing Reserve",
+              "url": "https://www.savethewaves.org/ericeira/",
+              "date": "4 September 2026"
+            },
+            {
+              "what": "the World Surf League's own 2026 event page for Peniche",
+              "url": "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
+              "date": "5 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The ISA publishes an instructor and coach ladder, and the progression from whitewater to a green face to a proper turn is real and slow. But surfing's ceiling is measured in years of the same reef in the same season, and whether these towns hold somebody through that is not something a camp advertises."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to particular water, and one winter in Ericeira could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has surfed at any of these three places. The fourth answer rests on two sources read 4 September 2026: Save The Waves on the reserve, and the World Surf League's own 2026 event page for Peniche, re-read 5 September. ⚠ Reading the first of those against our own page found a disagreement worth recording: Save The Waves says five kilometres of coastline, and this page says four. And a second gap belongs in the open: this page keeps no record of which surf regions were searched and set aside, so it cannot show you why Bali and Taghazout — the two places on earth where most beginners actually learn — are not on it.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "thai-massage": {
+      "dots": 4,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "A craft the Thai state certifies, UNESCO lists and a Bangkok temple wrote down in stone — the strongest ground on this map, and the only thing missing is anybody of ours on the mat",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, in the form this craft takes: a named body with a named lineage, and the body is a temple. Wat Pho opened Thailand's first state-recognised traditional medicine school in 1955 and its certificate is recognised by the Ministries of Health, Labour and Education; the Old Medicine Hospital school in Chiang Mai has taught Northern-style Nuad Thai since 1962 under the Ministry of Education. No individual instructor is named, and in a ministry-accredited 200-hour programme that is the shape of the thing rather than a hole. ⚠ Two names sat in this page's who-teaches field until today. Asokananda, who founded the Sunshine Network, died on 24 June 2005 and has been moved to where the craft comes from. Chongkol Setthakorn, who founded ITM, was still leading the morning exercises there in 2019 and is left in place — but founding a school is not the same as teaching your course, and nobody has confirmed which he does now."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, laddered, and cheap. A 200-hour Professional Thai Massage Therapy course at Wat Pho, a 165-hour professional programme at the Chiang Mai branch, a two-week 60-hour beginner course at Sunshine, six progressive levels at ITM. All published, all accredited, all bookable by a foreigner. And the hands can ruin it: you work with palms, thumbs, elbows and feet on somebody else's spine, and doing it wrong hurts a person."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and in both directions. Chiang Mai runs Thai and foreign students side by side in the same rooms, and ITM's six levels mean the person on the next mat is either a stage ahead of you or a stage behind. This is a craft practised in pairs, so the cohort is not optional — it is the equipment."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and answered by UNESCO twice rather than by a school. Nuad Thai was inscribed on the Representative List of the Intangible Cultural Heritage of Humanity in 2019. And the Epigraphic Archives of Wat Pho — 1,431 stone inscriptions cut between 1831 and 1841, among them the massage texts and illustrations in the temple's Twin Pavilion — were inscribed on UNESCO's Memory of the World register in 2011. The temple where you would take the course is the place the craft was written down.",
+          "evidence": [
+            {
+              "what": "UNESCO's Representative List entry for Nuad Thai",
+              "url": "https://ich.unesco.org/en/RL/nuad-thai-traditional-thai-massage-01384",
+              "date": "4 September 2026"
+            },
+            {
+              "what": "UNESCO's Memory of the World entry for the Epigraphic Archives of Wat Pho",
+              "url": "https://www.unesco.org/en/memory-world/epigraphic-archives-wat-pho",
+              "date": "5 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The rungs are published and long — foundation, therapeutic levels one to four, the 200-hour professional therapy course, and instructor above that — and the Thai ministries stand behind them. Whether there is a teacher above you who would keep taking you further after the certificate is the part no ministry registers."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to these two cities about as completely as anything on the map, so one course could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has trained at Wat Pho or in Chiang Mai. The fourth answer rests on two UNESCO registers, the second re-read on 5 September 2026 — which is when a claim that almost half the Wat Pho stones are medical texts came off this grade, because UNESCO's own page does not say it. The first is filled on the institution-taught form — a named body with a named lineage — and not on the personal names: one was a man who died in 2005, now moved to the lineage, and the other we could not confirm is still teaching.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "vipassana-and-meditation": {
+      "dots": 3,
+      "ceiling": 4,
+      "register": "place-led",
+      "verdict": "The most open door on this map and the one that costs nothing — a technique deliberately taught without personalities, in places we could find nobody impartial to describe",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, and in three different forms. Barre publishes five core guiding teachers by name. Igatpuri names nobody on purpose: the Goenka tradition teaches by recorded instruction and appointed assistant teachers, and refusing to build a course around a personality is the tradition's own doctrine rather than our missing research. Yangon carries the Mahasi lineage at the centre Mahasi Sayadaw opened in 1950. ⚠ Our Barre entry named Joseph Goldstein and Sharon Salzberg, whom the school files under its Founders Council rather than among its current teachers — the same error this map made on a pastry school. It is fixed: the page now carries the five the Insight Meditation Society itself names as core guiding teachers — Guy Armstrong, Devin Berry, Kamala Masters, Winnie Nazarko and Carol Wilson — and the two founders sit with the lineage."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open wider than anything else here, and free. The ten-day course runs on published dates worldwide, takes complete beginners, and is given on donation with no fee at all. What the door asks after that is whether you can do it badly, and you can: ten days of noble silence with a fixed timetable is work nobody can do on your behalf, people leave part-way through, and the centres screen applicants because the failure modes are real."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and at a scale nothing else here matches — Dhamma Giri's pagoda has over four hundred individual cells, and the Mahasi centre in Yangon runs over a hundred buildings for monks, nuns and lay practitioners. The ladder is explicit too: you sit a ten-day course, then you serve one, then you sit the long courses. Somebody above you and somebody below you is built into the structure."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Not established. Igatpuri is the honest problem: the Nashik district government lists Dhamma Giri as a religious site and says nothing more, and everything else published about the town's practice comes from the network that runs the centre. Yangon is almost certainly a yes — Burmese lay meditation is a national practice rather than a visitor's activity — and we could not find a source for it that was not either the centres themselves or a directory of them. Left empty rather than filled on a guess."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The ladder here is unusually real and unusually long: ten days, then twenty, thirty, forty-five, and an annual sixty-day course at Dhamma Tapovana, with assistant teacher appointment above all of it. Whether that is a room you would want to be in for years is not a question anybody publishes an answer to, and it is the whole question in this craft."
+        }
+      ],
+      "ceilingNote": "Four is the ceiling until somebody outside these networks writes about these towns — but every rung of the ladder is already open to a stranger, for nothing, which is not true anywhere else on this map.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sat a course at any of these three centres. The fourth answer was searched and left empty rather than filled from the network's own material. The first answer was checked against the Insight Meditation Society's own teacher listing, read 4 September and again 5 September 2026 — which is how the Founders Council error came to light, and the five names that replaced it were taken off that page and nowhere else.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "wildlife-photography": {
+      "dots": 4,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Four named photographers, each in their own ground, each still working it — the strongest answer to the first question anywhere on this map, and the last one still ours to earn",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, in four of the five places, and this is as strong as this question gets here. Bence Máté built over twenty-five hides on his family's farm at Pusztaszer and invented the one-way glass technique in 2005. Lassi Rautiainen has photographed the Kuhmo bears since the 1970s and taken others to them since 1988. Paul Goldstein has run his own Mara camps for decades and guides the departures himself. Edward Selfe lives in South Luangwa year-round and is a fully qualified guide as well as the photographer teaching you. Four living people, named, in their own places, on the days nobody is watching."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, published and priced. Hides let by the night at Pusztaszer, bear and wolf hides at Kuhmo from €210 shared, a seven-night Hungarian hide holiday at £4,499, six-night Mara departures capped at ten, South Luangwa set departures capped at four, and a three-year degree at Falmouth for anybody who wants the long route. And the hands can ruin it twice over: you miss the frame, and worse, you can spook the animal for everybody in the hide."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, though quietly. A hide holds one to five people and the field trips cap at four to twelve, which is small rather than empty, and the people in them run from keen amateurs with a long lens to working professionals — both directions, in one vehicle. Falmouth adds the other kind of cohort entirely, with three year-groups of it."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and Hungary settles it through the national park rather than the hides. The Kiskunság National Park directorate publishes that the Pusztaszer Landscape Protection Area covers 22,225 hectares, of which five thousand are internationally recognised wetland under the Ramsar Convention, with over 280 bird species recorded around its lakes. The birds are there because the ground is protected, not because somebody built a hide. Kenya is the same shape: the Mara conservancies are 24 member conservancies over about 450,000 acres, leased from more than 15,000 Maasai landowners.",
+          "evidence": [
+            {
+              "what": "Kiskunság National Park on the Pusztaszer Landscape Protection Area",
+              "url": "https://www.knp.hu/en/pusztaszer-landscape-protection-area",
+              "date": "4 September 2026"
+            },
+            {
+              "what": "the Maasai Mara Wildlife Conservancies Association on its own membership",
+              "url": "https://maraconservancies.org/about-us/",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been, and this craft has no ladder to point at instead: its own record says there is no universal credential, and that a published portfolio and a Wildlife Photographer of the Year placing are the real currency. That summit is real — Bence Máté is the only photographer to have held both the young and the adult title — but a prize is not a set of rungs, and only somebody who came back to the same animals over years can say whether the ceiling here is worth them."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to particular ground and particular animals, so one return visit could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sat in any of these hides. The fourth answer rests on two sources read 4 September 2026: the Kiskunság National Park directorate and the Mara conservancies association. The first answer is filled on what each photographer publishes about their own work, and on two of them the page goes further — Goldstein guiding his own departures, Selfe living in the valley year-round — which is the claim most worth checking first if this grade is ever wrong.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "windsurfing-and-wing-foil": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Eight places chosen for their wind and one instructor named across all of them — the teaching is standardised, the towns genuinely are not",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Almost empty, and the exception proves the point. Alan Cadiz at Hawaiian Sailboarding Techniques on Maui is the only instructor named across eight places, and nothing published tells us whether he takes the lessons himself. The other seven — Tarifa, Pozo, Lo Stagnone, Dahab, Naxos, Karpathos and the Californian coast where the board was invented — name nobody. VDWS licenses the school rather than the person, which is why, and it is still worth asking who will be on the beach with you."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open everywhere, cheaply, at every level. VDWS windsurf and wing courses with rental at ION Club centres across four countries, improvement clinics at Pozo, gear-size swapping on weekly and monthly rentals at Dahab. The progression is unusually well-served: shallow standable lagoons at Naxos and Lo Stagnone for a first week, nuclear wind at Pozo and Karpathos for the tenth. And the hands can ruin it — nobody sails your board."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and Maui is the clearest case of it anywhere on this map: Kanaha's flatwater nursery and Ho'okipa's wave are the same launch, so a beginner and a world champion share a car park. Karpathos is the other kind — the record's own line is that the windsurf community is the entire scene there, which is a bench with nothing else on it."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and the tour settles it. The Professional Windsurfers Association's own 2026 calendar puts a five-star wave World Cup on Gran Canaria from 4 to 12 July and the Aloha Classic on Maui from 19 to 30 October — two of the eight places on this page hosting world-tour events in a single season, booked by nobody who teaches on them. The calendar names the islands rather than the beaches, so it carries Gran Canaria and Maui and does not by itself carry Pozo Izquierdo or Ho'okipa.",
+          "evidence": [
+            {
+              "what": "the PWA World Tour's own 2026 calendar",
+              "url": "https://www.pwaworldtour.com/events/2026/",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. VDWS and the IWO publish licence levels through to instructor, which is a genuine outside ladder, and the step from sail to wing is a second one most of these towns can teach. What a published level cannot show is whether a place holds you past the season you learned in, and that is the question here."
+        }
+      ],
+      "ceilingNote": "All five are reachable here — and who teaches on Maui is one email, which we have tried to send and could not get past their contact form.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sailed at any of these eight places. The fourth answer is the PWA's own 2026 calendar, read 4 September 2026, and the wording is deliberately careful: the calendar lists Gran Canaria and Maui, not Pozo Izquierdo and Ho'okipa, and this page should not put a beach name in the tour's mouth.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "wine-and-sommellerie": {
+      "dots": 4,
+      "ceiling": 5,
+      "register": "school-led",
+      "verdict": "A craft where the qualification travels and the teacher does not, taught in three cities that live off the trade — and an exam you can genuinely fail",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, in the institutional form, and this map already ruled on it: wine's teaching is institutional rather than a master you apprentice under. The bodies are named and so are their lineages — the Wine & Spirit Education Trust from Bermondsey, the Institute of Masters of Wine, the Court of Master Sommeliers, and the CIVB's own school in Bordeaux. No individual is named because the credential belongs to the body, not to the person who taught you for it, and that is the shape of this craft rather than thin research."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open on published dates from Level 1 upward, and the door has a lock on it. The WSET Diploma and the Master of Wine study programme are examined by the awarding body, blind, and people fail them repeatedly — the Master of Wine in particular is famous for it. That is the second half of this question answered better than almost anywhere here: your palate can fail in a way nobody can talk you past."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes. These are classroom cohorts working structured blind-tasting flights together, which is a craft you cannot practise alone — you calibrate against other people's palates or you calibrate against nothing. Napa carries the densest New World cohort of Diploma candidates, and London puts Level 1 students in the same building as the Diploma."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and Bordeaux settles it through the growers rather than the schools. The Union des Grands Crus de Bordeaux, founded in 1973, has 126 member châteaux across Médoc, Pessac-Léognan, Saint-Émilion, Pomerol and Sauternes, runs about 80 events a year worldwide, and put nearly 5,000 wine-trade professionals through the city over four days of En Primeur Week in April 2026. A city that fills for four days because of what is in the barrels is a place the trade belongs to.",
+          "evidence": [
+            {
+              "what": "the Union des Grands Crus de Bordeaux on its members and En Primeur Week",
+              "url": "https://www.ugcb.net/en",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The ladder is the clearest on this map — WSET 1 to 4, then the Diploma, then the Master of Wine or the Master Sommelier — and it is public, examined and takes years by design. What it does not show is whether the room above the Diploma is open to you in these cities, which is a matter of who will pour for you, and nobody publishes that."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: the trade and the teaching sit in the same three cities, so one harvest could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sat a WSET course in Bordeaux, London or Napa. The fourth answer is the Union des Grands Crus de Bordeaux's own site, read 4 September 2026 — a growers' body, which sells wine but does not sell the courses on this page. The first is filled on the institution-taught form, on this map's own 6 August 2026 precedent for exactly this craft.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
+    },
+    "yacht-crew-and-stcw": {
+      "dots": 3,
+      "ceiling": 5,
+      "register": "school-led",
+      "verdict": "Six towns that exist because of boats, teaching a legal minimum honestly — and not one instructor named, in a course whose whole value is the person running the fire ground",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all six places. Antibes, Palma, Cowes, Fort Lauderdale, Dover and Sydney list seven schools between them and not one named instructor. That is the shape of an MCA-approved course, where the syllabus and the approval belong to the flag state and the trainer is interchangeable by design. It is still worth asking: firefighting and sea survival are taught by people who did the job, or by people who did not, and the difference shows in four days."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open to anybody, which is the honest strength here. Four to five days, no sea experience assumed, MCA-approved, on published dates in six countries. And the hands can ruin it in the most literal way on this map: you enter a smoke house with a hose and you board a liferaft in a pool, and both are assessed because the failure mode at sea is death. This page is also honest about what the ticket is not — it gets you to an interview, and no school can promise a job."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes. Classroom and pool groups of roughly ten to twenty, in smaller teams on the fire ground and at the liferaft, and the people beside you are mostly going for their first boat — which in this trade is the cohort that becomes your network. Antibes is where that matters most: the schools, the agencies and the crew houses are inside the same square kilometre."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and both ends of this page settle it without a school's help. Port Vauban at Antibes calls itself the first yachting marina in the Mediterranean, with 1,500 berths and room for boats up to 150 metres, run under a 25-year public service delegation awarded by the City of Antibes. And Cowes sailed the bicentenary of Cowes Week in 2026 with 35 classes racing, already advertising 31 July to 6 August 2027. These are towns whose harbours and calendars are organised around boats, which is why the crew market is there at all.",
+          "evidence": [
+            {
+              "what": "Port Vauban's own site, on its berths and capacity",
+              "url": "https://leportvauban.com/en/",
+              "date": "5 September 2026"
+            },
+            {
+              "what": "Cowes Week's own site, on the bicentenary regatta and the 2027 dates",
+              "url": "https://www.cowesweek.co.uk/",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been on one of these courses. The ladder above STCW Basic is real and legible — sea time, then a departmental ticket, then the certificates of competency under the same convention — and this page already says so plainly. What no school can tell you is whether the town keeps you between boats, which in this trade is the whole question and is answered by a winter, not a brochure."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: these are working ports rather than teaching towns, so one season on the dock could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has taken STCW at any of these six schools — which is worth stating twice on this craft, because it is the one on the map closest to the founder's own trade and the temptation to grade it from experience rather than from the record is real. The fourth answer rests on two sources read 4 September 2026: Port Vauban's own site and Cowes Week's.",
+      "checker": "Arnaud Callier",
+      "date": "5 September 2026"
     }
   },
   "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
@@ -903,40 +1734,9 @@
     "stood in it": 4,
     "twoOrReturn": 5
   },
-  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown exists only so the error can name the new craft.",
-  "measureDebtFloor": 30,
-  "measureDebtKnown": [
-    "ashtanga-yoga",
-    "cold-exposure-wim-hof-method",
-    "freediving",
-    "french-pastry-and-patisserie",
-    "hatha-and-vinyasa-yoga",
-    "italian-cuisine-and-pasta",
-    "jewelry-and-goldsmithing",
-    "kitesurfing",
-    "lifestyle-medicine",
-    "lymphatic-drainage",
-    "modern-new-technique-cuisine",
-    "new-basque-cuisine",
-    "organic-farm-to-table-cooking",
-    "perfumery",
-    "photography",
-    "pottery-and-ceramics",
-    "rock-climbing",
-    "safari-and-wildlife-guiding",
-    "sailing-and-yachtmaster",
-    "ski-touring-and-splitboard",
-    "sound-healing",
-    "spearfishing",
-    "surfing",
-    "sushi-and-washoku",
-    "thai-massage",
-    "vipassana-and-meditation",
-    "wildlife-photography",
-    "windsurfing-and-wing-foil",
-    "wine-and-sommellerie",
-    "yacht-crew-and-stcw"
-  ],
+  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day.",
+  "measureDebtFloor": 1,
+  "measureDebtKnown": [],
   "_skillLadders_comment": "The ladder a craft is climbed by — ALWAYS somebody else's published standard, adopted and cited, never ours. 112 of 113 crafts carry a certBody and a goldCredential, so the ladder usually exists in public; where no body publishes one, the craft goes in laddersNotPublished and shows no ladder, because an invented rung is this map awarding itself an authority it does not have. A rung is the unit a course is ticked against, and the body's own skills are printed under it as what the rung means: IKO lists 46 skills across four levels and a kite school's page says 'we take you to Level 2', so ticking skills would have measured what a school writes on its website. url + read + verify on the ladder and on every rung, because night-check.py re-reads all of them.",
   "skillLadders": {
     "kitesurfing": {
