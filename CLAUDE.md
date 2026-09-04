@@ -24,7 +24,8 @@
 | asking "where is this going, and what's next" | **`DIRECTION.md`** — the single current answer (12 Aug 2026). Replaces `roadmap.md`, `BUSINESS-STRATEGY.md`, `IMPLEMENTATION-PLAN.md`, which describe the retired certification thesis and must never be used again |
 | deciding anything strategic | `marketing/The-Base.pdf` (definition + decision rules) |
 | judging whether a place/master belongs | `marketing/The-Standard.pdf` (the ten rules) |
-| grading a craft — **every sheet carries one** | `marketing/The-Measure.pdf` (five conditions, capped by what was actually checked) |
+| what a reader would actually be taught | `data/atlas-extra-sheets.json` → `skillLadders` (a body's published rungs, adopted and cited — never ours) and `courseCoverage` (what a school publishes it teaches; described, never scored) |
+| grading a craft — **every sheet carries one** | `marketing/The-Measure.pdf` (five questions, printed in fixed words the build enforces, capped by what was actually checked) |
 | writing an Atlas skill sheet | `marketing/The-Skill-Sheet.pdf` |
 | writing copy, a letter, a post, an offer | **`keel`** — ALWAYS, automatic (Arnaud 2026-08-12) |
 | handling one live conversation with a chef | **`hail`** — ALWAYS, automatic (Arnaud 2026-08-12) |

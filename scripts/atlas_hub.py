@@ -253,6 +253,26 @@ def walk_places(dests):
 
 _WORD = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "All five"}
 
+# ── the five questions, in the words a reader already thinks in ───────────
+# They shipped as five nouns — the room, the door, the bench, the ground, the
+# stretch — which is how the instrument is built and how compagnons talk about it.
+# On the page it failed: a reader met "The stretch." above a paragraph that never
+# said what a stretch was, and had to reverse-engineer the question from the answer
+# (Arnaud, 2026-09-03: "the stretch and the ground, it's really hard to understand.
+# make it so people understand reading one sentence").
+#
+# So the page asks the question instead of naming it. The nouns stay in the
+# instrument's own doc, where a grader uses them as shorthand; nothing a traveller
+# reads uses a metaphor for a thing we can just say. Same five, same order, on every
+# craft — a legend is only learnable if it never moves, so the build enforces both.
+MEASURE_QUESTIONS = (
+    "Is there a teacher, and can we name them?",
+    "Can a stranger get in, on a date you can book?",
+    "Will there be other people learning beside you?",
+    "Is the craft alive in this place, or is the school the only thing here?",
+    "Is there enough here to keep you learning for years?",
+)
+
 
 def measure_html(mm, dots=None, vouch=""):
     """The Measure block itself, from a grade — published or still drafted.
@@ -274,19 +294,38 @@ def measure_html(mm, dots=None, vouch=""):
         mark = "&#9679;" if on else "&#9675;"
         col = "var(--sea)" if on else "var(--faint)"
         body = "" if on else ";color:var(--muted)"
-        rows += (f'<p style="margin:0 0 14px{body}"><b style="color:{col}">{mark} {c["n"]}.</b> '
-                 f'{c["t"]}</p>')
+        # A dot filled from public evidence has to SHOW the evidence — the block promises
+        # "a yes we can show you the working for", and a yes with nothing under it is the
+        # brochure sentence wearing our colours. Rendered from the same rows the build
+        # checked: it refuses this dot unless one of these hosts has nothing to sell.
+        ev = ""
+        for x in c.get("evidence") or []:
+            link = (f'<a href="{e(x["url"])}" rel="nofollow noopener" target="_blank" '
+                    f'style="color:var(--sea);text-decoration:none;'
+                    f'border-bottom:1px solid rgba(127,168,165,.32)">{e(x["what"])} &nearr;</a>'
+                    ) if x.get("url") else e(x["what"])
+            ev += f'{"" if not ev else " &middot; "}{link}'
+            if x.get("date"):
+                ev += f' <span style="opacity:.7">read {e(x["date"])}</span>'
+        ev = (f'<span class="meta" style="display:block;margin-top:5px">Evidence, from people '
+              f'with nothing to sell you: {ev}</span>') if ev else ""
+        # the question on its own line, the finding under it: inline, the 70-character
+        # fourth question ran into its own answer and the two read as one sentence.
+        rows += (f'<p style="margin:0 0 14px{body}">'
+                 f'<b style="display:block;color:{col};font-weight:400;margin-bottom:2px">'
+                 f'{mark} {c["n"]}</b>{c["t"]}{ev}</p>')
     note = mm.get("ceilingNote")
     note = (f'<p style="margin:0 0 14px;color:var(--muted)"><b style="color:var(--paper)">'
             f'{note}</b></p>') if note else ""
     return (
       '<section><div class="wrap">'
       '<div class="mono">Is this community worth the trip</div>'
-      f'<h2 style="margin-bottom:10px">{_WORD.get(dots, dots)} of the five things we check '
-      f'are true here</h2>'
-      '<p class="meta" style="margin:0 0 16px">We check five things before we send anyone '
-      'anywhere. Here they are for this craft &mdash; the ones that hold, and the ones we cannot '
-      'answer yet. An empty dot is not a mark against the place: it says we have not been.</p>'
+      f'<h2 style="margin-bottom:10px">{_WORD.get(dots, dots)} of the five answers '
+      f'are yes here</h2>'
+      '<p class="meta" style="margin:0 0 16px">The same five questions, asked of every craft on '
+      'this map, before we send anyone anywhere. A full dot is a yes we can show you the working '
+      'for. An empty dot is not a mark against the place: it says we could not answer it from a '
+      'desk, and nobody of ours has been yet.</p>'
       '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
       'border-left:2px solid var(--sea)">'
       f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'
@@ -304,6 +343,161 @@ def measure_html(mm, dots=None, vouch=""):
       f'font-weight:500;display:block;margin-bottom:4px">{mm["state"]} &middot; {mm["checker"]} '
       f'&middot; {mm["date"]}</b>{mm["check"]}</p>'
       '</div></div></section>')
+
+
+# ── the ladder, and what one course covers of it ──────────────────────────
+# Arnaud, 2026-09-03: "I want for each craft to have a checklist of skills needed for
+# each level… so people can easily see what they going to go through if joining a
+# course. I know its tricky to realise it and to verify it."
+#
+# ⛔ THE LADDER IS NEVER OURS. It is somebody else's published standard — IKO's levels,
+# AIDA's, the CAP Pâtissier référentiel, RYA's — adopted, named and dated. 112 of 113
+# crafts already carry a certBody and a goldCredential, so the ladder almost always
+# exists and is public. Where no body publishes one, the craft gets NO ladder: an
+# invented rung is exactly the kind of authority this map refuses to award itself, and
+# an honest blank outranks a good guess.
+#
+# ⛔ AND COVERAGE IS NEVER A SCORE. Arnaud asked for "the most skills they learn in
+# their class the best course" and that is the one shape it must not take: it would
+# rank whoever writes the longest syllabus page, and reward breadth over depth in a
+# craft where a week doing one thing properly beats a week touching fourteen. So the
+# ticks are printed and described, never totalled into a rating and never set against
+# another school's. The count is spelled as a word for the same reason the Measure's is.
+#
+# What makes a tick honest is that it is not our sentence: each one carries the
+# school's own wording and the URL it is on, and night-check.py re-reads it every
+# night. A tick nobody is watching is refused by the build.
+LADDER_WHY = {
+    "not-named":        "not named on their course page",
+    "not-taught-here":  "nobody on this map teaches it",
+    "above-this-course": "above what this course goes to",
+}
+
+_NUM = ("no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+        "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+        "seventeen", "eighteen", "nineteen", "twenty")
+
+
+def num_word(n):
+    """A count as a word, because a numeral reads as a score.
+
+    Same law as the Measure's _WORD and the same reason: "9 of 14" invites a reader to
+    rank two schools against each other on a number neither of them chose. Past twenty
+    the word is worse than the digits, and no ladder on this map is that long.
+    """
+    return _NUM[n] if 0 <= n < len(_NUM) else str(n)
+
+
+def ladder_rungs(lad):
+    """The rungs, by id — the unit a course is actually ticked against.
+
+    ⚠ NOT the individual skills, and the difference was found by reading what schools
+    publish. IKO lists 46 separate skills across its four levels; a kite school's page
+    says "we take you to Level 2". Ticking 46 boxes off a page that names four would
+    print forty empty circles against a school that had done nothing wrong — the
+    checklist would be measuring what a school writes on its website, which is the
+    exact failure this feature was designed not to be. So the rung is the unit, and
+    the body's own skills are printed underneath it as what that rung means.
+    """
+    return {r["id"]: r for r in lad.get("rungs", [])}
+
+
+def rung_line(r):
+    return " &middot; ".join(e(s) for s in r.get("skills", []))
+
+
+def ladder_html(lad, compact=False):
+    """The craft's ladder, on the craft page: what the whole climb is, before any school.
+
+    Sits with `ceiling` and `room` in the in-depth section rather than beside the
+    places, because it is the craft itself and not one town's version of it — the same
+    reason craft_depth() sits below the destinations.
+
+    `compact` is the place sheet's copy: same rungs, same source line, no heading. The
+    rungs are defined ONCE above the schools rather than repeated under each of them —
+    three schools against IKO's four levels printed the same 46 skills three times.
+    """
+    if not lad:
+        return ""
+    rungs = ""
+    for r in lad.get("rungs", []):
+        name = e(r["name"])
+        if r.get("url"):
+            name = (f'<a href="{e(r["url"])}" rel="nofollow noopener" target="_blank" '
+                    f'style="color:var(--sea);text-decoration:none">{name} &nearr;</a>')
+        rungs += ('<div style="margin:0 0 14px;padding-left:14px;'
+                  'border-left:2px solid rgba(127,168,165,.34)">'
+                  '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:10.5px;'
+                  'letter-spacing:.14em;text-transform:uppercase;color:var(--sea);'
+                  f'margin-bottom:4px">{name}</div>'
+                  f'<div style="font-size:14.5px;line-height:1.6">{rung_line(r)}</div></div>')
+    src = e(lad["body"])
+    if lad.get("url"):
+        src = (f'<a href="{e(lad["url"])}" rel="nofollow noopener" target="_blank" '
+               f'style="color:var(--sea);text-decoration:none;'
+               f'border-bottom:1px solid rgba(127,168,165,.32)">{src} &nearr;</a>')
+    head = "" if compact else (
+        '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;'
+        'letter-spacing:.14em;text-transform:uppercase;color:var(--sea);'
+        'margin-bottom:8px">What you would actually learn</div>'
+        f'<h2 style="margin-bottom:10px">The ladder &mdash; {e(lad["standard"])}</h2>')
+    note = f' {e(lad["note"])}' if lad.get("note") else ""
+    return (f'<div style="margin-top:{"0" if compact else "26px"}">{head}'
+            f'<p class="meta" style="margin:0 0 16px">This ladder is {src}\'s, not ours. '
+            f'We read it on {e(lad["read"])} and copied it down; we did not write it, and '
+            f'we do not decide who has climbed it.{note}</p>{rungs}</div>')
+
+
+def coverage_html(cov, lad, school):
+    """What one course says it covers, ticked against the craft's ladder.
+
+    The unticked half is the useful half — a course that stops at the second rung is
+    not a worse course, it is a shorter one, and a reader deciding what to book needs
+    the ceiling more than the total. So every empty circle carries its reason and none
+    of them reads as a fault.
+    """
+    if not cov or not lad:
+        return ""
+    R = ladder_rungs(lad)
+    rows = ""
+    # Names only, and no skills under them: the rungs are spelled out once above the
+    # schools. A checklist a reader has to re-read three times is not a checklist.
+    for c in cov.get("covers", []):
+        r = R.get(c["id"], {"name": c["id"]})
+        rows += ('<li style="display:flex;gap:10px;align-items:baseline;padding:7px 0">'
+                 '<span style="color:var(--sea);font-size:11px">&#9679;</span>'
+                 f'<span style="font-weight:500">{e(r["name"])}</span></li>')
+    for m in cov.get("missing", []):
+        r = R.get(m["id"], {"name": m["id"]})
+        rows += ('<li style="display:flex;gap:10px;align-items:baseline;padding:7px 0;'
+                 'color:var(--muted)">'
+                 '<span style="color:var(--faint);font-size:11px">&#9675;</span>'
+                 f'<span>{e(r["name"])}<span class="meta" style="margin-left:8px">'
+                 f'{e(LADDER_WHY.get(m["why"], m["why"]))}</span></span></li>')
+    n_cov, n_all = len(cov.get("covers", [])), len(lad.get("rungs", []))
+    # ⚠ Each rung is usually its own course. "Four of the four" must never be read as
+    # "one booking gets you all of it" — that is the two-true-things-arranged-into-a-
+    # false-one fault, and here it would cost somebody a plane ticket.
+    if n_cov == 0:
+        tally = ("None of them named. Worth one email before you book: ask which rung the "
+                 "course takes you to, and what that certifies.")
+    elif n_cov == n_all:
+        tally = f"All {num_word(n_all)}, as separate courses &mdash; not as one week."
+    else:
+        tally = (f"{num_word(n_cov).capitalize()} of the {num_word(n_all)}, and each is its "
+                 "own course.")
+    src = (f'<a href="{e(cov["url"])}" rel="nofollow noopener" target="_blank" '
+           f'style="color:var(--sea);text-decoration:none;'
+           'border-bottom:1px solid rgba(127,168,165,.32)">their own course page &nearr;</a>'
+           ) if cov.get("url") else "their own course page"
+    return ('<div style="margin:0 0 20px;padding:18px 20px;background:var(--ink2);'
+            'border:1px solid var(--line);border-left:2px solid var(--sea)">'
+            f'<p style="font-size:15px;margin:0 0 3px"><strong style="font-weight:500">'
+            f'{e(school)}</strong></p>'
+            f'<p class="meta" style="margin:0 0 14px">From {src}, read {e(cov["read"])}. '
+            'Their words, not ours.</p>'
+            f'<ul class="clean" style="font-size:14.5px;margin:0">{rows}</ul>'
+            f'<p class="meta" style="margin:12px 0 0">{tally}</p></div>')
 
 
 # ── the neighbours, as a rail you can move through ─────────────────────────
@@ -413,9 +607,11 @@ def rail_section(eyebrow, heading, sub, cards, n):
 # actually does. An honest blank outranks a plausible name — including ours.
 TRUST_ITEMS = [
     ("We grade it in public, and publish what is missing.",
-     "The Measure is five named conditions, not a score: the room, the door, the bench, the "
-     "ground, the stretch. An empty dot tells you which one is missing and why. A craft nobody "
-     "has graded shows no meter at all, because an absence is not a zero."),
+     "The Measure is five plain questions, not a score: is there a teacher we can name, can a "
+     "stranger get in, will you be learning beside other people, is the craft alive in the place, "
+     "and is there enough there to keep you going for years. An empty dot tells you which one we "
+     "could not answer and why. A craft nobody has graded shows no meter at all, because an "
+     "absence is not a zero."),
     ("We print what we checked and did NOT list.",
      "Every swept craft carries the places we looked at and turned down, each with its reason. "
      "That list is the part no marketplace prints, because a rejection is where the money is."),

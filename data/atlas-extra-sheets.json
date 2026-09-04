@@ -385,83 +385,97 @@
     "wildlife-photography--south-luangwa": "Learn to photograph on foot, four to a group",
     "wildlife-photography--falmouth": "Learn underwater photography as a degree"
   },
-  "_measure_comment": "The Measure — the per-craft answer to the promise the trust block already makes: what we check before we send you anywhere. Five named conditions on the five dots. Rendered only for crafts listed here; a craft with no entry shows no meter, which is an absence and not a zero. Desk research stops at three — the ground and the stretch are what a brochure claims, and only somebody standing in the room settles them. Never write a line that ranks one craft against another, and never borrow a restaurant guide's award language: we report what we found and hand the reader the decision.",
+  "_measure_comment": "The Measure — the per-craft answer to the promise the trust block already makes: what we check before we send you anywhere. Five questions on the five dots, asked in the same words and the same order on every craft, because a legend a reader has to relearn is not a legend (the build refuses any other wording — see MEASURE_QUESTIONS in scripts/atlas_hub.py). The instrument's own shorthand — the room, the door, the bench, the ground, the stretch — stays in THE-MEASURE-META-PROMPT.md and never reaches a reader: on the page we ask the question rather than name it. Rendered only for crafts listed here; a craft with no entry shows no meter, which is an absence and not a zero. Desk research stops at three — whether a craft is alive in its place, and whether there is enough there to keep you going, are exactly what a brochure claims, and only somebody standing in the room settles them. Never write a line that ranks one craft against another, and never borrow a restaurant guide's award language: we report what we found and hand the reader the decision.",
   "measure": {
     "modernist-spanish-cuisine": {
-      "dots": 3,
+      "dots": 4,
       "ceiling": 5,
       "register": "place-led",
       "verdict": "If this craft already pulls you, there is enough here to go on — we have not stood in it, so we will not tell you to cross the world for it yet",
       "state": "researched, not checked",
       "checker": "Arnaud Callier",
-      "date": "1 September 2026",
+      "date": "4 September 2026",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": true,
           "t": "Martín Lippo teaches modernist technique in his own Barcelona laboratory — a named person, in his own working place. Madrid's route is institutional rather than personal: Le Cordon Bleu inside the Universidad Francisco de Vitoria, with no single teacher named on it."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
-          "t": "You can book your way in, on dates. Madrid's avant-garde teaching is the last third of a nine-month Spanish Cuisine Diploma, and their own syllabus names the block — spherifications, low-temperature cooking, the fundamentals of molecular cuisine. Barcelona's lab courses are shorter. The stage is the other road and it is a real one, but it is applied for with a CV and nobody can promise you one: only one of the two is a door you can book. Your hands can ruin the work on either."
+          "t": "You can book your way in, on dates. Madrid's avant-garde teaching is the last third of a nine-month Spanish Cuisine Diploma, and their own syllabus names the block — spherifications, low-temperature cooking, the fundamentals of molecular cuisine. Barcelona's lab courses are shorter. The stage is the other road and it is a real one, but it is applied for with a CV and nobody can promise you one: only one of the two is a way in you can book. Your hands can ruin the work on either."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "The strongest thing this craft has — and the community dots above are the evidence for it, not a second opinion. Barcelona is where the elBulli cooks actually landed, and Disfrutar, opened by three of them, was named the world's best restaurant in 2024. Madrid gathers the whole avant-garde once a year at Madrid Fusión, running since 2003 and reaching its 25th edition in February 2027. There is a generation above you here, and one below."
         },
         {
-          "n": "The ground",
-          "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. It is also the first thing a visit would settle, and the one this craft can answer that the travelling toolkit never can: <a href=\"/atlas/modern-new-technique-cuisine\" style=\"color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)\">that technique</a> goes anywhere, and this cuisine came from here."
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and this is the question that separates this craft from the travelling toolkit. Madrid Fusión — Alimentos de España — has been the vanguard's own congress since 2003, and it happens here rather than in any of the places the technique has since reached. <a href=\"/atlas/modern-new-technique-cuisine\" style=\"color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.32)\">That technique</a> goes anywhere; this cuisine came from here and still argues with itself in the same rooms.",
+          "evidence": [
+            {
+              "what": "Madrid Fusión — Alimentos de España",
+              "url": "https://www.madridfusion.net/en/",
+              "date": "4 September 2026"
+            }
+          ]
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
-          "t": "The same reason, and there is more here than an attendance certificate: the Superior Certificate is a real nine-month qualification, and a stage in a kitchen of this lineage is months on the line. As high as this craft goes is very high — three Michelin stars at DiverXO, the world's best restaurant list at Disfrutar."
+          "t": "Nobody of ours has been, and there is more here than an attendance certificate: the Superior Certificate is a real nine-month qualification, and a stage in a kitchen of this lineage is months on the line. As high as this craft goes is very high — three Michelin stars at DiverXO, the world's best restaurant list at Disfrutar."
         }
       ],
-      "check": "Read from the entries already verified on this page, not from a fresh sweep. Nobody from EducatedTraveler has stood in either room — and that alone is what holds the last two, not doubt about the places. When somebody does, the line will carry their name and the day they went.",
-      "ceilingNote": "All five are reachable here: this cuisine belongs to its ground, so a visit could answer the last two."
+      "check": "Read from the entries already verified on this page, not from a fresh sweep. Nobody from EducatedTraveler has stood in either room — and that alone is what holds the last one, not doubt about the places. When somebody does, the line will carry their name and the day they went. The fourth answer is new: Madrid Fusión's own site, read 4 September 2026.",
+      "ceilingNote": "All five are reachable here: this cuisine belongs to its places, so a visit could answer the last one."
     },
     "ashtanga-yoga": {
-      "dots": 3,
+      "dots": 4,
       "ceiling": 5,
       "register": "place-led",
       "verdict": "The lineage is intact and the doors are open, but the man this map's pick was named after died in 2024 and access is now a lottery — go in knowing both",
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": true,
           "t": "Named, and the naming has changed. R. Sharath Jois died on 11 November 2024 at fifty-three; the Sharath Yoga Centre continues and now names Shruthi Jois and Shraddha Jois. In New York, Eddie Stern teaches at his own shala — a named person in his own room, which is the whole test. London's three Mysore-style programmes name nobody on this page, and should."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Open, and unusually honest about being hard. Mysore is a lottery: registration for the 2026 season is closed and students are selected 'randomly by algorithm to match our shala capacity'. London and New York run daily self-practice programmes you can simply join. Your hands can ruin it in the only way this craft allows — by forcing a posture your body has not reached."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
-          "t": "Mysore reads Legendary on the community dots above, and the bench is the point of the method: Mysore-style means a room of people practising their own sequence beside you with one teacher moving between them. There is a generation above you here and one below, in three cities."
+          "t": "Mysore reads Legendary on the community dots above, and learning beside other people is the point of the method: Mysore-style means a room of people practising their own sequence beside you with one teacher moving between them. There is a generation above you here and one below, in three cities."
         },
         {
-          "n": "The ground",
-          "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Gokulam is a few streets that the practice organises itself around, and a season there is the only way to know what that is like."
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and not on a school's say-so. Karnataka's own tourism department publishes a page on Mysuru's Ashtanga yoga — <em>“the city has a worldwide recognition as a yoga destination”</em> — and names the shalas on it, the K. Pattabhi Jois Ashtanga Yoga Institute among them. A state naming the practice among the things its city is known for is a town organised around a craft, which is what this question asks. What it cannot tell you is what a season in Gokulam is actually like.",
+          "evidence": [
+            {
+              "what": "Karnataka Tourism — the state department's own page on Mysuru",
+              "url": "https://www.karnatakatourism.org/destinations/mysuru/",
+              "date": "4 September 2026"
+            }
+          ]
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
-          "t": "The same reason, and this is the craft where the ladder matters most and is least settled. Authorisation and then Certification were historically the rarest stamps in yoga and they were Sharath's to give. What they mean now is a question for the shala, and not one we can answer for you."
+          "t": "Nobody of ours has been, and this is the craft where the ladder matters most and is least settled. Authorisation and then Certification were historically the rarest stamps in yoga and they were Sharath's to give. What they mean now is a question for the shala, and not one we can answer for you."
         }
       ],
-      "ceilingNote": "All five are reachable here: this craft belongs to its ground about as completely as any on the map.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Sharath Jois's death and the 2026 lottery come from the shala's own site, read 3 September 2026.",
+      "ceilingNote": "All five are reachable here: this craft belongs to its places about as completely as any on the map.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Sharath Jois's death and the 2026 lottery come from the shala's own site, read 3 September 2026. The fourth answer is new: it rests on Karnataka Tourism's own Mysuru page, read 4 September 2026, not on anything a school told us.",
       "checker": "Arnaud Callier",
-      "date": "3 September 2026"
+      "date": "4 September 2026"
     },
     "cold-exposure-wim-hof-method": {
       "dots": 3,
@@ -471,32 +485,32 @@
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": true,
           "t": "Named at the top: Wim Hof himself takes the Module III intensive in the Karkonosze mountains, and Enahm Hof runs the Academy from Amsterdam. That is a named person in his own room, and unusually it is the person the method is named after. Iceland names nobody and is delivered by certified instructors rather than by the Academy."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Open and laddered: Fundamentals, then Modules I to III, ending in an in-person intensive. You book it. And the hands can ruin it in a way worth stating plainly — this is cold water and breath retention, the failure modes are real, and every serious page about it says never to practise the breathing in or near water."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "Przesieka reads Legendary above and Amsterdam Thriving. The cohorts are the method's whole distribution — thousands of certified instructors worldwide came through these rooms, which is a genuine peer network and also the reason to read the next dot carefully."
         },
         {
-          "n": "The ground",
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
           "on": false,
           "t": "We have not been. That is the whole reason this one is empty — not anything we found. And of everything on this map, a Karkonosze winter is the one that cannot be researched — you either stood in the water or you did not."
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
           "t": "The same reason, and there is a second reason worth saying: the qualification here is a Certified Wim Hof Method Instructor, awarded by the Wim Hof Method Academy. The company teaches the method, defines the method, and certifies the teachers of the method. That is not a criticism — it is one closed loop rather than an outside body, and you should price it as such."
         }
       ],
-      "ceilingNote": "All five are reachable here, and the ground would fill in a single February.",
+      "ceilingNote": "All five are reachable here, and a single February there would answer whether the craft is alive in the place.",
       "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms.",
       "checker": "Arnaud Callier",
       "date": "3 September 2026"
@@ -509,33 +523,33 @@
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": false,
           "t": "Dark after a second look, and the correction is ours. Frédéric Bau founded this school in 1988 and is Valrhona's creative director — both true, both checkable — but the test is a named person who still stands in the room, and we could not confirm he teaches the courses. This page used to carry Pierre Hermé and Cédric Grolet against Paris. Neither teaches on these programmes, and both names have been taken down. A famous name attached to a school is not a teacher. Ask each school who will be at your bench."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Open at every price and length: FERRANDI's intensive professional programme at about 24,500 EUR, Le Cordon Bleu's Diplôme de Pâtisserie, Bellouet's three-month formation, and L'École Valrhona's two- and three-day professional courses, which is the cheapest serious way into this craft anywhere. Your hands can ruin it constantly and visibly, which is most of what the training is for."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "Paris and Tain-l'Hermitage and Tokyo all read Legendary on the community dots above. This is the craft where the peers are the industry — the same rooms, the same suppliers, and a competition circuit that the whole trade watches."
         },
         {
-          "n": "The ground",
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
           "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. And this one has a ground in a literal sense: Valrhona is a chocolate factory with a school attached, in the town it is named after."
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. And the craft is plainly alive around this one: Valrhona is a chocolate factory with a school attached, in the town it is named after."
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
           "t": "The same reason, and it is a shame, because the ladder here is the clearest on the whole map. The CAP Pâtissier is a French state diploma. The Meilleur Ouvrier de France is a national title with an examination and a collar. Neither is a certificate of attendance and neither is ours to vouch for yet."
         }
       ],
-      "ceilingNote": "All five are reachable here, and the room is the cheapest of them to fill: four emails.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Amended 3 September 2026 after re-checking: THE ROOM was lit on Frédéric Bau as founder and creative director, which is not the same as teaching, so it now reads dark. Amended again the same day: Pierre Hermé and Cédric Grolet were removed from the Paris entry after the school confirmed neither has any connection to its training.",
+      "ceilingNote": "All five are reachable here, and the cheapest of them to answer is who teaches: four emails.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Amended 3 September 2026 after re-checking: the teacher question was lit on Frédéric Bau as founder and creative director, which is not the same as teaching, so it now reads dark. Amended again the same day: Pierre Hermé and Cédric Grolet were removed from the Paris entry after the school confirmed neither has any connection to its training.",
       "checker": "Arnaud Callier",
       "date": "3 September 2026"
     },
@@ -547,33 +561,33 @@
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": false,
           "t": "Empty in all four places, and in this craft that matters more than in any other on the map. Rishikesh and Mysore carry lineages — Sivananda, Krishnamacharya — and a lineage is not a teacher. Ubud's Yoga Barn and Radiantly Alive, and Encinitas's Soul of Yoga, name nobody here either. A two-hundred-hour training is four weeks of one person's attention: find out whose before you pay, and treat a school that will not tell you as an answer."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Wide open, and the widest on this map: two-hundred-hour teacher trainings run continuously in Rishikesh, Mysore, Ubud and Encinitas, residential, with dates published months out. Your hands can ruin it, and in this craft the thing they can ruin is you — this is the discipline where being pushed past your range does lasting damage."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "Rishikesh and Ubud both read Legendary above. These are towns where the practice is the local economy, which cuts both ways: there are peers everywhere and there is also a great deal of training sold to people who will never teach."
         },
         {
-          "n": "The ground",
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
           "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Rishikesh on the Ganges is a ground in the fullest sense, and a month there is the only way to know which schools are serious."
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Rishikesh on the Ganges is a town this practice organises itself around, and a month there is the only way to know which schools are serious."
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
           "t": "The same reason, and here the ladder is genuinely weak — which their own standards say plainly enough that we can quote the shape of it. RYT 200 is obtained 'after completing a 200-hour yoga teacher training registered with Yoga Alliance'; the teaching requirement for it is listed as None; and the cost is a 50 USD one-time application fee plus 65 USD annual membership dues. Yoga Alliance registers you and requires the school to assess you. It does not examine you. That is a register, not a qualification an outside examiner stands behind, and it is worth knowing exactly what you are buying. Read on their Standards for RYT Credentials, 3 September 2026."
         }
       ],
-      "ceilingNote": "All five are reachable here — but the room is the one that matters in this craft, and it is a week of emails rather than a journey.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. THE ROOM is the exception: it is empty because our own research names nobody.",
+      "ceilingNote": "All five are reachable here — but who teaches is the one that matters in this craft, and it is a week of emails rather than a journey.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Who teaches is the exception: it is empty because our own research names nobody.",
       "checker": "Arnaud Callier",
       "date": "3 September 2026"
     },
@@ -585,225 +599,260 @@
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": true,
           "t": "Alessandra Spisni teaches the professional sfoglia course at La Vecchia Scuola Bolognese, in her own school, and she is the reason Bologna is the pick. That is the test passed exactly: a named person, still working, in the room you would be in. Forlimpopoli and Colorno carry lineages instead — Artusi, Marchesi — and both are dead, which is why they now sit under 'where it comes from' rather than under who teaches."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Open at three depths: Spisni's professional sfoglia course at about 6,000 EUR, Casa Artusi's shorter sfoglia courses in Forlimpopoli, and ALMA's Italian Pasta Program at Colorno for people who want the institutional route. Your hands can ruin it in the plainest way on this map — the sfoglia is either right or it is not, and the woman across the table will tell you which."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "Bologna reads Legendary above. The sfogline are a living trade in that city rather than a heritage act, and the school sits in the middle of it. Colorno reads Thriving on the strength of ALMA, which draws cooks from everywhere."
         },
         {
-          "n": "The ground",
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
           "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Emilia-Romagna is the ground this craft grew out of, and one week in a Bologna kitchen would answer more than a month of reading."
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Emilia-Romagna is where this craft grew up, and one week in a Bologna kitchen would answer more than a month of reading."
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
           "t": "The same reason. ALMA's Diploma in Italian Cuisine is a real qualification and the sfoglina training at VSB is a trade credential that Bologna itself recognises. We have read both. We have watched nobody finish either."
         }
       ],
-      "ceilingNote": "All five are reachable here: this craft belongs to its ground as completely as any on the map.",
+      "ceilingNote": "All five are reachable here: this craft belongs to its places as completely as any on the map.",
       "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms.",
       "checker": "Arnaud Callier",
       "date": "3 September 2026"
     },
     "jewelry-and-goldsmithing": {
-      "dots": 3,
+      "dots": 4,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "There is more to go on here than almost anywhere else on this map — but we have not stood at any of these benches, so the last two are still ours to earn, not yours to trust",
+      "verdict": "There is more to go on here than almost anywhere else on this map — but we have not stood at any of these benches, so the last one is still ours to earn, not yours to trust",
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": true,
           "t": "Thinly, and we will say so: Gio Carbone at Le Arti Orafe in Florence is the one named person on this page, in the school he founded. The other three destinations are institutions — the Gemological Institute of America, Pforzheim's Goldschmiedeschule, the Indian Institute of Gems & Jewellery — and name nobody. One name out of four lights this dot. It does not make us comfortable."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Open in four countries, on published dates: LAO's annual goldsmithing course in Florence, the GIA Graduate Jeweler diploma over 28 weeks in Carlsbad, Studio Jewelers' 24-week programme in New York, Pforzheim's Berufskolleg and Meisterschule, IIGJ's manufacturing diploma in Jaipur. And your hands can ruin the work about as literally as anywhere here — solder floods, a stone chips, the piece is gone."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "The strongest thing this craft has, and the community dots above are the evidence for it rather than a second opinion. Florence and the Carlsbad–New York axis both read Legendary; Pforzheim is a town built around goldsmithing with a Meisterschule at its centre; Jaipur's Johari Bazaar is lapidary and meenakari ateliers working street by street. Four scenes, three continents, peers in all of them."
         },
         {
-          "n": "The ground",
-          "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Two of these places are ground-bound in a way a visit would settle in an afternoon — Pforzheim is where the German trade concentrated, Jaipur is where the stones are cut and enamelled — and we have stood in neither."
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes for Pforzheim, and only there. The town has a jewellery museum of its own, the Schmuckmuseum Pforzheim — what a place keeps when the trade is the reason it exists rather than an industry that happens to be there. Jaipur and Florence we have taken on their reputations and the schools' own pages, which is not the same standard; an afternoon in either would settle it.",
+          "evidence": [
+            {
+              "what": "the Schmuckmuseum Pforzheim, the town's jewellery museum",
+              "url": "https://www.schmuckmuseum.de/en/",
+              "date": "4 September 2026"
+            }
+          ]
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
-          "t": "The same reason, and there is plainly more here than an attendance certificate: the GIA Graduate Gemologist is a qualification the trade reads, and the German Meister is a state-regulated title with an examination behind it. We have read that on their pages. We have not watched anyone climb it, and until we have, it stays a claim we are repeating rather than one we are making."
+          "t": "Nobody of ours has been, and there is plainly more here than an attendance certificate: the GIA Graduate Gemologist is a qualification the trade reads, and the German Meister is a state-regulated title with an examination behind it. We have read that on their pages. We have not watched anyone climb it, and until we have, it stays a claim we are repeating rather than one we are making."
         }
       ],
-      "ceilingNote": "All five are reachable here: this craft belongs to its benches, so one visit could answer the last two.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Prices, course lengths and diploma names come from the school entries below, each carrying its own source.",
+      "ceilingNote": "All five are reachable here: this craft belongs to its benches, so one visit could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Prices, course lengths and diploma names come from the school entries below, each carrying its own source. The fourth answer is new and covers Pforzheim only: the Schmuckmuseum's own site, read 4 September 2026.",
       "checker": "Arnaud Callier",
-      "date": "3 September 2026"
+      "date": "4 September 2026"
     },
     "kitesurfing": {
-      "dots": 2,
+      "dots": 3,
       "ceiling": 5,
       "register": "place-led",
       "verdict": "The most standardised teaching on this map and the least personal — you can book a certified course almost anywhere, and we cannot name a single instructor",
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": false,
           "t": "Empty in all three places. Maui, Tarifa and Cabarete carry ten schools between them and not one named teacher on this page. That is partly the shape of the craft — instruction is certified and interchangeable by design, which is a strength for safety and a weakness for this test — and partly our own gap. Ask who your instructor will be and how many hours they have taught; the school will have the answer and the answer varies enormously."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Wider than anywhere else on this map. IKO courses run at every level in all three places, typically three days, in small groups — Freeride Tarifa caps at two to four students an instructor. And the hands can ruin it in a way that is genuinely dangerous rather than merely disappointing, which is why the certification exists at all."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "Tarifa and Cabarete both read Legendary above, and they are the two towns in the world where the whole day is organised around wind. The peers are on the water beside you, which in this craft is where learning actually happens."
         },
         {
-          "n": "The ground",
-          "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. And this craft is more ground-bound than it looks: Tarifa works because of the Levante and the Poniente, and no amount of reading tells you what that is like."
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes. The Global Kitesports Association's own calendar puts the GKA Youth Kite World Championships in Tarifa on 25–28 June 2026 — the tour bringing a world championship to the town, booked by nobody who teaches here. That is the town being part of the sport rather than a beach with schools on it. What it does not settle is the Levante and the Poniente, which is the part you have to stand in.",
+          "evidence": [
+            {
+              "what": "the Global Kitesports Association's own event calendar",
+              "url": "https://gkakiteworldtour.com/events/",
+              "date": "4 September 2026"
+            }
+          ]
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
-          "t": "The same reason. IKO Level 3 and then the instructor certification are a real, legible ladder with an outside body behind it — better than most crafts here. We have read it; we have not climbed it."
+          "t": "Nobody of ours has been. IKO Level 3 and then the instructor certification are a real, legible ladder with an outside body behind it — better than most crafts here. Its four levels are further down this page, in IKO's own words. We have read them; nobody of ours has climbed them."
         }
       ],
-      "ceilingNote": "All five are reachable here — and the room would fill with three phone calls.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. THE ROOM is the exception: it is empty because our own research names nobody.",
+      "ceilingNote": "All five are reachable here — and who teaches would be answered by three phone calls.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Who teaches is the exception: it is empty because our own research names nobody. The fourth answer is new: the GKA's own event calendar lists Tarifa for 25–28 June 2026, read 4 September 2026.",
       "checker": "Arnaud Callier",
-      "date": "3 September 2026"
+      "date": "4 September 2026"
     },
     "new-basque-cuisine": {
-      "dots": 3,
+      "dots": 4,
       "ceiling": 5,
       "register": "place-led",
       "verdict": "A faculty the Basque chefs built for themselves, with their restaurants a few kilometres away — and a gap between the names on the page and the names in the classroom",
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": true,
           "t": "Named, with a caveat we would rather state than bury. Andoni Luis Aduriz at Mugaritz and Martín Berasategui at Lasarte-Oria are named on this page and both are real, working chefs in their own kitchens — but what they offer is a stage, not a course, and you apply rather than book. The Basque Culinary Center, which is where you can actually enrol, names no teacher on this page. Luis Irizar, who trained much of this generation, died in 2024 and now sits under 'where it comes from'."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Open at the faculty and shut at the restaurants, and the difference is the whole shape of this craft. The Basque Culinary Center runs its Culinary Techniques Mastery at about 3,320 EUR and the Escuela de Cocina Luis Irizar a two-year professional specialisation. Mugaritz and Berasategui take stagiaires on their own terms. Your hands can ruin it in either room."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "San Sebastián reads Legendary above, and the reason is not a school — it is that a town of a hundred and eighty thousand people holds one of the densest concentrations of serious kitchens in Europe, plus the faculty those kitchens founded. There is a generation above you here and one below, and they drink in the same bars."
         },
         {
-          "n": "The ground",
-          "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. This is a cuisine of a specific coast and a specific set of producers, and a week in the Gipuzkoa markets would teach more than the reading has."
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes. San Sebastián Gastronomika fills the Kursaal in Donostia every autumn — 5–7 October in 2026 — a congress the city's own kitchens built and still fill. A town that hosts the argument about its cuisine is a town that cuisine belongs to. What we still have not done is walk the Gipuzkoa markets, which is where a week would teach more than the reading has.",
+          "evidence": [
+            {
+              "what": "San Sebastián Gastronomika",
+              "url": "https://www.sansebastiangastronomika.com/",
+              "date": "4 September 2026"
+            }
+          ]
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
-          "t": "The same reason. The Basque Culinary Center's degree is awarded with Mondragon University, which is an outside body with an examination behind it — one of the better ladders on this map. We have read it. We have not seen anyone climb it."
+          "t": "Nobody of ours has been. The Basque Culinary Center's degree is awarded with Mondragon University, which is an outside body with an examination behind it — one of the better ladders on this map. We have read it. We have not seen anyone climb it."
         }
       ],
-      "ceilingNote": "All five are reachable here: this cuisine belongs to its ground, so one visit could answer the last two.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms.",
+      "ceilingNote": "All five are reachable here: this cuisine belongs to its place, so one visit could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. The fourth answer is new: San Sebastián Gastronomika's own site, read 4 September 2026.",
       "checker": "Arnaud Callier",
-      "date": "3 September 2026"
+      "date": "4 September 2026"
     },
     "perfumery": {
-      "dots": 3,
+      "dots": 4,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "Grasse publishes the bench you would stand at, and one of the names on it spent twelve years as the in-house perfumer at Hermès — we have still not been, so the last two are ours to earn",
+      "verdict": "Grasse publishes the bench you would stand at, and one of the names on it spent twelve years as the in-house perfumer at Hermès — we have still not been, so the last one is ours to earn",
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": true,
           "t": "Named, and unusually well: the Grasse Institute publishes its whole faculty. Jean-Claude Ellena teaches there — listed on their own page as 'Senior Perfumer – Ex Hermes', which undersells twelve years as that house's in-house perfumer — alongside senior perfumers Marianne Nawrocki and Joëlle Lerioux Patris and a bench of working perfumers. Versailles is the opposite and we say so on its entry: ISIPCA names no perfumer on the course page or on its own teams page. One city here tells you whose hands you would be watching. The other does not, and you should ask."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Wide, and unusually so for a craft with this reputation for being closed. The Grasse Institute of Perfumery runs an International Technical Degree in Fragrance Creation and Sensory Evaluation at about EUR 13,500; ISIPCA runs its summer school in Versailles; Cinquième Sens teaches in both cities; Molinard runs harvest-season workshops in Grasse. You book these. And your hands can ruin the work: an accord is a composition, and a wrong one is simply wrong."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "Both destinations read Legendary on the community dots above, which are the evidence for this and not a second opinion. Grasse is a town organised around the industry, Versailles holds ISIPCA, and Givaudan runs its own four-year perfumery school in the same orbit. There is a generation above you here and one below."
         },
         {
-          "n": "The ground",
-          "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. And this craft has a ground as real as any on the map: Grasse is fields as much as laboratories, which is why Molinard's workshops run at harvest and not in February. Somebody standing in it in season is what fills this."
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and by the strongest source on this map. UNESCO inscribed <em>“the skills related to perfume in Pays de Grasse”</em> on its Representative List in 2018 — the growing of the plants, the processing of the raw materials and the composing, named together as one living practice belonging to that place. Grasse is fields as much as laboratories, which is why Molinard's workshops run at harvest and not in February. Standing in it in season is what the last dot still waits for.",
+          "evidence": [
+            {
+              "what": "UNESCO, Representative List of the Intangible Cultural Heritage of Humanity, 2018",
+              "url": "https://ich.unesco.org/en/RL/01207",
+              "date": "4 September 2026"
+            }
+          ]
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
-          "t": "The same reason. On paper the ladder is one of the best here — ISIPCA's diploma is state-recognised through the Université de Versailles, and the Grasse Institute's is an International Technical Degree, neither of them a certificate of attendance. That is what their pages say and we believe it. We have not seen anyone finish."
+          "t": "Nobody of ours has been. On paper the ladder is one of the best here — ISIPCA's diploma is state-recognised through the Université de Versailles, and the Grasse Institute's is an International Technical Degree, neither of them a certificate of attendance. That is what their pages say and we believe it. We have not seen anyone finish."
         }
       ],
-      "ceilingNote": "All five are reachable here: this craft belongs to its ground — Grasse is fields as much as laboratories — so one visit in season could answer the last two.",
-      "check": "Graded from the entries already verified on this page, not from a visit. The faculty, the eighteen months, the 13,500 EUR and the English working language come from the Grasse Institute's own pages, read on 2 September 2026; the ISIPCA sessions and prices from theirs, the same day.",
+      "ceilingNote": "All five are reachable here: this craft belongs to Grasse — fields as much as laboratories — so one visit in season could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. The faculty, the eighteen months, the 13,500 EUR and the English working language come from the Grasse Institute's own pages, read on 2 September 2026; the ISIPCA sessions and prices from theirs, the same day. The fourth answer is new: it rests on UNESCO's 2018 inscription for the Pays de Grasse, read 4 September 2026.",
       "checker": "Arnaud Callier",
-      "date": "3 September 2026"
+      "date": "4 September 2026"
     },
     "photography": {
-      "dots": 2,
+      "dots": 3,
       "ceiling": 5,
       "register": "place-led",
       "verdict": "The schools here are among the best in the world and we cannot tell you who teaches at a single one of them — that is our gap, not theirs, and it is the first thing to fix on this page",
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": false,
           "t": "Empty across all four cities, and it is our failing rather than the craft's. Spéos, Gobelins, the International Center of Photography, the ENSP at Arles, the RCA, Central Saint Martins — and not one named teacher between them on this page. Magnum's Arles workshops are taught by Magnum photographers, whose names are public. This is closeable research, not an absence in the world, and until it is closed you should ask each school who will actually be in the room."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Open at every level and on published dates: Spéos runs a one-year professional programme in Paris at 18,950 EUR for EU students and 20,950 for international, ICP a one-year certificate in New York, the ENSP a three-year master-level diploma at Arles, and the Rencontres d'Arles run two- to six-day workshops each spring and summer. Your hands can ruin it in the ordinary way of the craft — the frame you did not take is gone."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "New York reads Legendary on the community dots above and Paris, Arles and London all read Thriving. Arles in particular is a scene that assembles: the Rencontres bring the working world of the craft to one town for a season, which is a different and rarer thing than a school with good rooms."
         },
         {
-          "n": "The ground",
-          "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. Arles is the case for going: a photography town for a few weeks a year, and nobody from here has stood in it during them."
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, in Paris. Paris Photo takes the Grand Palais for four days each November — 12–15 November in 2026 — and it is the largest fair in the world for the photography market. A city that hosts the trade's own market is a city the craft lives in, not one that happens to have schools. ⚠ Arles is the more obvious answer and we are not using it: the festival there runs workshops we list on this page, so it cannot be its own witness.",
+          "evidence": [
+            {
+              "what": "Paris Photo, at the Grand Palais",
+              "url": "https://www.parisphoto.com/en-gb.html",
+              "date": "4 September 2026"
+            }
+          ]
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
-          "t": "The same reason, and the ladder is real on paper — the ENSP diploma is master-level, the RCA and Central Saint Martins award MAs, and ICP's certificate is read in the trade. We have read that. We have not watched anyone climb it."
+          "t": "Nobody of ours has been, and the ladder is real on paper — the ENSP diploma is master-level, the RCA and Central Saint Martins award MAs, and ICP's certificate is read in the trade. We have read that. We have not watched anyone climb it."
         }
       ],
-      "ceilingNote": "All five are reachable here — but the first to fill is the room, and that is a morning's work on six school pages rather than a plane ticket.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. THE ROOM is the exception: it is empty because our own research names nobody.",
+      "ceilingNote": "All five are reachable here — but the first to answer is who teaches, and that is a morning's work on six school pages rather than a plane ticket.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Who teaches is the exception: it is empty because our own research names nobody. The fourth answer is new, and it is about Paris rather than Arles: Paris Photo's own site, read 4 September 2026.",
       "checker": "Arnaud Callier",
-      "date": "3 September 2026"
+      "date": "4 September 2026"
     },
     "sushi-and-washoku": {
       "dots": 3,
@@ -813,41 +862,42 @@
       "state": "researched, not checked",
       "conditions": [
         {
-          "n": "The room",
+          "n": "Is there a teacher, and can we name them?",
           "on": true,
           "t": "Named, and recently better named. Tokyo Sushi Academy publishes all seven of its instructors — Fumimasa Murakami is vice-principal, and Sachiko Goto and Kumiko Imazu carry the International Sushi Course, the one taught for people who do not speak Japanese. And Hiroko Ishii, who was one of the two main instructors of that same English course, has opened her own school: JCMA in Bunkyo-ku, eight students to a room. Jiro Ono used to sit in this field on this page. He teaches at none of these schools, and taking his name out of it is what let the real ones in."
         },
         {
-          "n": "The door",
+          "n": "Can a stranger get in, on a date you can book?",
           "on": true,
           "t": "Wide open, on dates, in English, which is rarer in this craft than the teaching. Tokyo Sushi Academy has run international courses since 2002. JCMA's diploma is six weeks in three levels — knife work and shari, then whole-fish butchery and counter service, then anago, hirame and the structure of an omakase — at 1,200,000 JPY, and they will help with the student visa. Your hands can ruin it in front of people: the final exam is serving omakase at the counter."
         },
         {
-          "n": "The bench",
+          "n": "Will there be other people learning beside you?",
           "on": true,
           "t": "Tokyo reads Legendary on the community dots above, and the evidence is the ordinary fact of the city: the market, the counters, and schools that have put thousands of foreign cooks through since 2002. There is a generation above you here and one below, and both are at work by five in the morning."
         },
         {
-          "n": "The ground",
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
           "on": false,
-          "t": "We have not been. That is the whole reason this one is empty — not anything we found. This craft belongs to its ground about as completely as any on the map, and one morning at Toyosu with somebody who buys there would answer it."
+          "t": "We have not been. That is the whole reason this one is empty — not anything we found. This craft belongs to its place about as completely as any on the map, and one morning at Toyosu with somebody who buys there would answer it."
         },
         {
-          "n": "The stretch",
+          "n": "Is there enough here to keep you learning for years?",
           "on": false,
           "t": "The same reason. On paper the ladder is real and unusually legible — Japan has a national cooking licence, and JCMA's third level ends in a Diploma in Professional Sushi Arts rather than a certificate of attendance. We have read that. We have not watched anyone climb it, and one of these schools is three months old."
         }
       ],
-      "ceilingNote": "All five are reachable here: this craft belongs to its ground, so one visit could answer the last two.",
+      "ceilingNote": "All five are reachable here: this craft belongs to its places, so one visit could answer the last two.",
       "check": "Graded from the entries already verified on this page, not from a visit. The JCMA facts come from jcma.tokyo, read on 2 September 2026; Hiroko Ishii's role on Tokyo Sushi Academy's English course from that school's own tsavideos.com, the same day.",
       "checker": "Arnaud Callier",
       "date": "3 September 2026"
     }
   },
-  "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves.",
+  "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
   "measureCaps": {
     "catalogued, not checked": 0,
     "researched, not checked": 3,
+    "public evidence on the place": 4,
     "a named person vouched": 4,
     "checked it": 4,
     "stood in it": 4,
@@ -886,5 +936,241 @@
     "windsurfing-and-wing-foil",
     "wine-and-sommellerie",
     "yacht-crew-and-stcw"
-  ]
+  ],
+  "_skillLadders_comment": "The ladder a craft is climbed by — ALWAYS somebody else's published standard, adopted and cited, never ours. 112 of 113 crafts carry a certBody and a goldCredential, so the ladder usually exists in public; where no body publishes one, the craft goes in laddersNotPublished and shows no ladder, because an invented rung is this map awarding itself an authority it does not have. A rung is the unit a course is ticked against, and the body's own skills are printed under it as what the rung means: IKO lists 46 skills across four levels and a kite school's page says 'we take you to Level 2', so ticking skills would have measured what a school writes on its website. url + read + verify on the ladder and on every rung, because night-check.py re-reads all of them.",
+  "skillLadders": {
+    "kitesurfing": {
+      "standard": "the IKO Kiteboarder levels",
+      "body": "the International Kiteboarding Organization",
+      "url": "https://d8.ikointl.com/courses",
+      "read": "3 September 2026",
+      "verify": [
+        "Kiteboarder",
+        "Instructor"
+      ],
+      "note": "IKO's own site is an app you log into; these are the level pages it publishes openly, which is where we read every line below.",
+      "rungs": [
+        {
+          "id": "level-1",
+          "name": "Level 1 — Discovery",
+          "url": "https://d8.ikointl.com/course/kiteboarder/discovery",
+          "verify": [
+            "SEA (Spot, Environment, Activity) assessment",
+            "Self-land"
+          ],
+          "skills": [
+            "SEA (Spot, Environment, Activity) assessment",
+            "Inflate, hold, carry, and secure a kite on land",
+            "Kite setup",
+            "Safety Systems Use & Flight Demonstration",
+            "Pre-flight check",
+            "Launch and land as an assistant",
+            "First piloting and explore the wind window's edge",
+            "Let go of the bar",
+            "Twist and untwist the lines",
+            "Fly one-handed",
+            "Trim introduction",
+            "Walk while flying the kite",
+            "Launch and land as a pilot",
+            "Wind window theory",
+            "Inflight quick release activation",
+            "Self-land",
+            "Equipment packing"
+          ]
+        },
+        {
+          "id": "level-2",
+          "name": "Level 2 — Intermediate",
+          "url": "https://d8.ikointl.com/course/kiteboarder/intermediate",
+          "verify": [
+            "Body-drag upwind & Board Recovery",
+            "Waterstart"
+          ],
+          "skills": [
+            "Enter and exit the water while controlling the kite",
+            "Water relaunch",
+            "Body-drag with 2 hands, kite stable",
+            "Body-drag with power stroke",
+            "Body-drag upwind & Board Recovery",
+            "Body-drag with the board",
+            "Self-rescue and pack down introduction",
+            "ROW (Right Of Way) rules introduction",
+            "Steady-pull & Power-Pull",
+            "Waterstart",
+            "Controlled stop"
+          ]
+        },
+        {
+          "id": "level-3",
+          "name": "Level 3 — Independent",
+          "url": "https://d8.ikointl.com/course/kiteboarder/independent",
+          "verify": [
+            "Ride upwind",
+            "Self-rescue and pack down in deep water"
+          ],
+          "skills": [
+            "Control of speed by edging",
+            "Ride upwind",
+            "Sliding transition",
+            "Ride toeside",
+            "Jibe",
+            "Self-launch",
+            "Self-rescue and pack down in deep water"
+          ]
+        },
+        {
+          "id": "level-4",
+          "name": "Level 4 — Advanced",
+          "url": "https://d8.ikointl.com/course/kiteboarder/advanced",
+          "verify": [
+            "Jump with a grab",
+            "Board recovery"
+          ],
+          "skills": [
+            "Basic jump",
+            "Power jibe",
+            "Jump with a grab",
+            "Jump transition",
+            "Rider recovery",
+            "Board recovery",
+            "International kiteboarding signs",
+            "ROW (Right Of Way) rules",
+            "Equipment",
+            "Weather and tides",
+            "Aerodynamics"
+          ]
+        }
+      ]
+    },
+    "french-pastry-and-patisserie": {
+      "standard": "the CAP Pâtissier, the French state diploma",
+      "body": "the Ministère de l'Éducation nationale, on France Compétences",
+      "url": "https://www.francecompetences.fr/recherche/rncp/38765/",
+      "read": "3 September 2026",
+      "verify": [
+        "Production de petits fours et gâteaux de voyage",
+        "Production d'entremets et petits gâteaux"
+      ],
+      "note": "The two professional blocks are below, translated from the ministry's own wording on the page linked above; the diploma also carries the school-leaving subjects every French CAP carries — French, history and civics, maths and science, sport, a foreign language, health and environment — which are on that page and are not the craft.",
+      "rungs": [
+        {
+          "id": "bloc-1",
+          "name": "Bloc 1 — Petits fours et gâteaux de voyage",
+          "url": "https://www.francecompetences.fr/recherche/rncp/38765/",
+          "verify": [
+            "Élaborer des crèmes selon leur technique de fabrication"
+          ],
+          "skills": [
+            "Take in the delivery",
+            "Keep track of what is in store",
+            "Set up your own station",
+            "Work to the hygiene rules",
+            "Make the creams, each by its own method",
+            "Prepare, bake and finish the pastries — doughs, dry and soft petits fours, meringues",
+            "Judge your own production"
+          ]
+        },
+        {
+          "id": "bloc-2",
+          "name": "Bloc 2 — Entremets et petits gâteaux",
+          "url": "https://www.francecompetences.fr/recherche/rncp/38765/",
+          "verify": [
+            "Monter, garnir et glacer un entremets"
+          ],
+          "skills": [
+            "Organise the production",
+            "Prepare the garnishes",
+            "Build the bases of an entremets or a small cake",
+            "Assemble, fill and glaze it",
+            "Decorate it",
+            "Present the finished pastry",
+            "Work out what it cost to make"
+          ]
+        }
+      ]
+    }
+  },
+  "_courseCoverage_comment": "What each school PUBLISHES about which rungs its teaching covers — read off their own page, on a date, with their own wording kept as `verify` so night-check.py re-reads it. Never a score and never sorted: the order is the order the schools are already in. ⚠ Cite the page the syllabus is actually ON — Freeride Tarifa's home page names no level and its lessons page publishes the whole IKO syllabus, and a verify string is only checked against the url the entry gives. ⚠ Every rung is either ticked or given a reason (not-named · not-taught-here · above-this-course); the build refuses a partial list. A school we could not read gets no entry at all — an absence, not a zero.",
+  "courseCoverage": {
+    "kitesurfing": {
+      "Tarifa": {
+        "Freeride Tarifa": {
+          "url": "https://freeridetarifa.com/kitesurf-lessons/",
+          "read": "3 September 2026",
+          "covers": [
+            {
+              "id": "level-1",
+              "verify": "Discovery | IKO Lv.1"
+            },
+            {
+              "id": "level-2",
+              "verify": "Intermediate | IKO Lv.2"
+            },
+            {
+              "id": "level-3",
+              "verify": "Independent | IKO Lv.3"
+            },
+            {
+              "id": "level-4",
+              "verify": "Advanced | IKO Lv.4"
+            }
+          ],
+          "missing": []
+        },
+        "Matos Tarifa": {
+          "url": "https://matos-tarifa.com/en/",
+          "read": "3 September 2026",
+          "covers": [
+            {
+              "id": "level-1",
+              "verify": "Lvl. 1 – Discovery"
+            },
+            {
+              "id": "level-2",
+              "verify": "Lvl. 2 – Intermediate"
+            },
+            {
+              "id": "level-3",
+              "verify": "Lvl. 3 – Independent"
+            },
+            {
+              "id": "level-4",
+              "verify": "Lvl. 4 – Advanced"
+            }
+          ],
+          "missing": []
+        },
+        "KBC (Kiteboarding Club) Tarifa": {
+          "url": "https://www.kiteboarding-club.com/en/kitesurf-course-tarifa/",
+          "read": "3 September 2026",
+          "covers": [],
+          "missing": [
+            {
+              "id": "level-1",
+              "why": "not-named"
+            },
+            {
+              "id": "level-2",
+              "why": "not-named"
+            },
+            {
+              "id": "level-3",
+              "why": "not-named"
+            },
+            {
+              "id": "level-4",
+              "why": "not-named"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "laddersNotPublished": {
+    "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write."
+  },
+  "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
+  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. A craft opening without one stops the build and names itself. Lower the floor whenever it falls, so it can never drift back up.",
+  "ladderDebtFloor": 28,
+  "ladderDebtKnown": []
 }

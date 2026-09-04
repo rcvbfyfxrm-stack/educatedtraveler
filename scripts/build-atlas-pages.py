@@ -195,6 +195,101 @@ if _stray:
     raise SystemExit("build-atlas-pages: learnLines names destinations that do not exist: "
                      + ", ".join(sorted(_stray)))
 
+# ── the ladder, and what one course covers of it ──────────────────────────
+# The ladder belongs to a body that publishes it, and the coverage belongs to a school
+# that publishes its own syllabus. Neither is ours, so both are refused unless they say
+# whose they are and where they were read. See atlas_hub.ladder_html for the doctrine.
+SKILL_LADDERS = MANIFEST.get("skillLadders", {})
+COURSE_COVERAGE = MANIFEST.get("courseCoverage", {})
+
+_stray_l = set(SKILL_LADDERS) - _craft_ids
+if _stray_l:
+    raise SystemExit("build-atlas-pages: skillLadders names crafts that do not exist: "
+                     + ", ".join(sorted(_stray_l)))
+
+for _cid, _lad in SKILL_LADDERS.items():
+    _miss = [k for k in ("standard", "body", "url", "read", "rungs") if not _lad.get(k)]
+    if _miss:
+        raise SystemExit(
+            f"build-atlas-pages: the ladder on {_cid} is missing {_miss}.\n"
+            "  A ladder is somebody else's published standard, adopted: it ships with the "
+            "body's name, the page it was read on, and the day.\n"
+            "  If no body publishes one for this craft, it gets no ladder — an invented "
+            "rung is this map awarding itself an authority it does not have.")
+    for _r in _lad["rungs"]:
+        if not (_r.get("id") and _r.get("name") and _r.get("skills")):
+            raise SystemExit(f"build-atlas-pages: a rung on {_cid}'s ladder is missing id, "
+                             "name or skills. A rung with no skills under it is a label, and "
+                             "the skills are the whole point: they say what the rung means.")
+    _ids = [r["id"] for r in _lad["rungs"]]
+    if len(_ids) != len(set(_ids)):
+        _dupe = sorted({i for i in _ids if _ids.count(i) > 1})
+        raise SystemExit(f"build-atlas-pages: the ladder on {_cid} repeats rung id(s) "
+                         f"{_dupe}. Coverage is keyed on the id, so a repeat silently ticks "
+                         "two rungs at once.")
+
+_stray_c = set(COURSE_COVERAGE) - _craft_ids
+if _stray_c:
+    raise SystemExit("build-atlas-pages: courseCoverage names crafts that do not exist: "
+                     + ", ".join(sorted(_stray_c)))
+
+for _cid, _places in COURSE_COVERAGE.items():
+    _d = next(d for d in DISC if d["id"] == _cid)
+    if _cid not in SKILL_LADDERS:
+        raise SystemExit(f"build-atlas-pages: courseCoverage on {_cid} has no ladder to tick "
+                         "against. Coverage is a reading of somebody's standard, so the "
+                         "standard comes first.")
+    _known = {r["id"] for r in SKILL_LADDERS[_cid]["rungs"]}
+    _real_places = {x["place"]: x for x in _d["destinations"]}
+    for _place, _schools in _places.items():
+        if _place not in _real_places:
+            raise SystemExit(f"build-atlas-pages: courseCoverage on {_cid} names the place "
+                             f"{_place!r}, which is not on this craft. Places here: "
+                             + ", ".join(sorted(_real_places)))
+        _names = {s["name"] for s in _real_places[_place].get("schoolsInfo") or []}
+        for _school, _cov in _schools.items():
+            if _school not in _names:
+                raise SystemExit(f"build-atlas-pages: courseCoverage on {_cid}/{_place} names "
+                                 f"the school {_school!r}, which is not listed there. "
+                                 "Schools here: " + ", ".join(sorted(_names)))
+            if not (_cov.get("url") and _cov.get("read")):
+                raise SystemExit(f"build-atlas-pages: coverage for {_school} ({_cid}/{_place}) "
+                                 "needs the url it was read on and the day it was read.")
+            for _c in _cov.get("covers", []):
+                if _c["id"] not in _known:
+                    raise SystemExit(f"build-atlas-pages: coverage for {_school} ticks "
+                                     f"{_c['id']!r}, which is not on {_cid}'s ladder.")
+                # The tick is not our sentence — it is theirs, and night-check.py re-reads
+                # it. A tick nobody is watching is a claim nobody can catch going stale,
+                # which is the exact rot this map exists to chase.
+                if not _c.get("verify"):
+                    raise SystemExit(
+                        f"build-atlas-pages: coverage for {_school} ticks {_c['id']!r} with "
+                        "no `verify` string. Every tick carries the school's own wording, "
+                        "readable on the url above, so the nightly check can watch it.")
+            for _m in _cov.get("missing", []):
+                if _m["id"] not in _known:
+                    raise SystemExit(f"build-atlas-pages: coverage for {_school} marks "
+                                     f"{_m['id']!r} missing, which is not on {_cid}'s ladder.")
+                if _m.get("why") not in atlas_hub.LADDER_WHY:
+                    raise SystemExit(
+                        f"build-atlas-pages: coverage for {_school} gives {_m['id']!r} the "
+                        f"reason {_m.get('why')!r}. An empty circle always says which it is: "
+                        + ", ".join(sorted(atlas_hub.LADDER_WHY)))
+            # Every rung is accounted for, or the checklist is telling half a story: a
+            # course that quietly drops the rungs it does not reach reads as if the ladder
+            # ended where the course did. Same law as the Measure's — the number and the
+            # legend have to be the same statement.
+            _said = [c["id"] for c in _cov.get("covers", [])] + \
+                    [m["id"] for m in _cov.get("missing", [])]
+            if sorted(_said) != sorted(_known) or len(_said) != len(set(_said)):
+                raise SystemExit(
+                    f"build-atlas-pages: coverage for {_school} ({_cid}/{_place}) accounts for "
+                    f"{len(set(_said))} rung(s) and the ladder has {len(_known)}.\n"
+                    f"  Missing from the list: {sorted(set(_known) - set(_said)) or 'none'}\n"
+                    "  Every rung is ticked or given a reason. A rung left out reads as though "
+                    "the ladder stopped where the course did.")
+
 
 # ---------- the first line a card says ----------
 # "Learn to photograph big cats" — the card's own title, sitting straight above "in
@@ -314,16 +409,64 @@ def _vouches(d):
     return out
 
 
-def _evidence_cap(d):
+def _host(u):
+    m = re.match(r"https?://([^/]+)", str(u or ""), re.I)
+    return m.group(1).lower().removeprefix("www.") if m else ""
+
+
+def _selling_hosts(d):
+    """Every host that is selling a course on this craft.
+
+    Nothing published on one of these can be third-party evidence that the craft is
+    alive in the town: a school's own page saying the place lives and breathes this is
+    the brochure sentence the cap exists to refuse. A festival's own site, a guild
+    register, a trade body or a public listing is a different kind of witness — it is
+    not selling you the week.
+    """
+    hosts = set()
+    for x in d["destinations"]:
+        for s in x.get("schoolsInfo") or []:
+            hosts.add(_host(s.get("url")))
+    f = d.get("featured") or {}
+    hosts.add(_host(f.get("url")))
+    for a in f.get("alternatives") or []:
+        hosts.add(_host(a.get("url")))
+    return {h for h in hosts if h}
+
+
+def _public_evidence(d, mm):
+    """Is the fourth question carried by somebody who is not selling the course?
+
+    Arnaud, 2026-09-03: "most of the places the craft is alive their." He is right, and
+    the old cap over-applied — it held the fourth dot dark on the grounds that only a
+    visit could settle it, when a guild register, a world-tour stop, a weekly market or
+    a UNESCO listing settles it in public and from a desk. So THIS one dot can now be
+    filled without going. The fifth cannot: a ceiling is not a fact anybody publishes.
+    """
+    if not mm:
+        return False
+    q4 = mm["conditions"][3]
+    if not q4.get("on"):
+        return False
+    return any(_host(ev.get("url")) and _host(ev.get("url")) not in _selling_hosts(d)
+               for ev in q4.get("evidence") or [])
+
+
+def _evidence_cap(d, mm=None):
     """How far the evidence lets this craft's dots go, and why.
 
-    A craft is held at the desk cap until a person has stood in one of its rooms.
-    Two of them — or somebody who went back — is what a place holding up looks like,
-    and only that reaches five. Returns (cap, reason-or-empty).
+    A craft is held at the desk cap until a person has stood in one of its rooms, with
+    the one exception above: public evidence about the town, from somebody with nothing
+    to sell, lifts the desk cap by one. Two visitors — or somebody who went back — is
+    what a place holding up looks like, and only that reaches five.
+    Returns (cap, reason-or-empty).
     """
     v = _vouches(d)
     if not v:
-        return MEASURE_CAPS.get("researched, not checked", 3), ""
+        cap = MEASURE_CAPS.get("researched, not checked", 3)
+        if _public_evidence(d, mm):
+            cap = max(cap, MEASURE_CAPS.get("public evidence on the place", cap))
+        return cap, ""
     if len(v) >= 2:
         return MEASURE_CAPS.get("twoOrReturn", 5), ""
     x, c = v[0]
@@ -364,12 +507,13 @@ def measure_block(d):
     if not mm:
         return ""
     dots = int(mm["dots"])
-    cap, cap_reason = _evidence_cap(d)
+    cap, cap_reason = _evidence_cap(d, mm)
     if dots > cap:
         raise SystemExit(
             f'build-atlas-pages: measure on {d["id"]} claims {dots} dots but the evidence '
-            f'only carries {cap}. Nobody has stood in a room here yet, and the ground and the '
-            'stretch are exactly what a brochure claims. Lower the dots or add the check.')
+            f'only carries {cap}. Nobody has stood in a room here yet, and whether the craft is '
+            'alive in its place and whether there is enough there to keep you going are exactly '
+            'what a brochure claims. Lower the dots or add the check.')
     return atlas_hub.measure_html(mm, dots, _vouch_line(d))
 
 def in_depth_block(d):
@@ -1117,7 +1261,8 @@ def craft_depth(d):
     rest get no section and no link to one, rather than a heading over a blank.
     """
     ceiling, room = d.get("ceiling"), d.get("room") or {}
-    if not ceiling and not room:
+    lad = SKILL_LADDERS.get(d["id"])
+    if not ceiling and not room and not lad:
         return ""
     out = ('<section id="in-depth"><div class="wrap prose">'
            '<div class="mono">If this one pulls you</div>'
@@ -1132,6 +1277,7 @@ def craft_depth(d):
         out += ('<ul class="clean" style="font-size:14.5px">'
                 + "".join(f'<li><strong style="font-weight:500">{lbl}</strong> — {e(v)}</li>'
                           for lbl, v in rows) + "</ul>")
+    out += atlas_hub.ladder_html(lad)
     return out + ('<p class="meta" style="margin-top:12px">This is the craft, not one school\'s '
                   'version of it. What each place does with it is on that place\'s own sheet.</p>'
                   "</div></section>")
@@ -1159,6 +1305,52 @@ def credential_section(d, x=None):
             + (f' · Certifying body: {e(d["certBody"])}' if d.get("certBody") else "") + '</p>'
             '<p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p>')
     return f'<section><div class="wrap prose"><div class="mono">What you walk away with</div><h2>The credential</h2>{body}</div></section>'
+
+def coverage_block(d, x):
+    """What each course here says it covers, against the craft's ladder.
+
+    Under the credential, which answers the other half of the same question: that one
+    says what you walk away holding, this one says what you would actually do. A place
+    with no coverage read yet shows nothing — the same rule as the Measure, because a
+    heading over an empty list is a promise the page has not kept.
+
+    ⛔ The order is the order the schools are already listed in, and there is no total
+    and no comparison between them. Sorting these by how many ticks each has is the one
+    edit that would turn a record into a ranking.
+    """
+    if is_closed(x):
+        return ""
+    lad = SKILL_LADDERS.get(d["id"])
+    covs = (COURSE_COVERAGE.get(d["id"], {}) or {}).get(x["place"], {})
+    if not lad or not covs:
+        return ""
+    blocks = ""
+    for s in x.get("schoolsInfo") or []:
+        cov = covs.get(s["name"])
+        if cov:
+            blocks += atlas_hub.coverage_html(cov, lad, s["name"])
+    if not blocks:
+        return ""
+    n_read, n_all = len(covs), len(x.get("schoolsInfo") or [])
+    rest = ("" if n_read >= n_all else
+            f' The other {atlas_hub.num_word(n_all - n_read)} '
+            f'{"school on this page" if n_all - n_read == 1 else "schools on this page"} had '
+            'nothing we could read on the day we looked, so nothing is said about them here.')
+    return ('<section><div class="wrap prose">'
+            '<div class="mono">What you would actually do</div>'
+            '<h2>What these schools teach</h2>'
+            f'<p class="meta" style="margin-bottom:16px">Read off each school\'s own pages '
+            f'against {e(lad["standard"])} &mdash; not our list, and not a score. '
+            '<strong style="font-weight:500">A school that publishes its syllabus in detail '
+            'looks fuller here than one that does not, and that is a fact about their website '
+            'rather than their teaching.</strong> A short course is not a worse course, so '
+            f'every empty circle says which kind of empty it is. Nobody of ours has been, so '
+            f'all of this is what they publish, not what we watched happen.{rest}</p>'
+            f'{atlas_hub.ladder_html(lad, compact=True)}'
+            '<p class="meta" style="margin:18px 0 14px">And here is who says they teach '
+            'which:</p>'
+            f'{blocks}</div></section>')
+
 
 COMMUNITY_TIER = {
     "Legendary":  ("#f0c27a", "Legendary living community"),
@@ -1278,11 +1470,39 @@ for _mid, _mm in MEASURE.items():
                          "A grade ships with a name and a date on it, or it does not ship.")
     if len(_mm["conditions"]) != 5:
         raise SystemExit(f'build-atlas-pages: the Measure on {_mid} has '
-                         f'{len(_mm["conditions"])} conditions; the meter is five named ones.')
+                         f'{len(_mm["conditions"])} conditions; the meter is five questions.')
+    # The five are a legend, and a legend only works if it is the same five, in the same
+    # words, in the same order, on every craft — a reader learns it once on the first sheet
+    # they open and never again. It is also where the old nouns would grow back one grade at
+    # a time, which is what put "The stretch." on a live page above a paragraph that never
+    # said what a stretch was. So the wording is not a grader's choice.
+    if tuple(_c["n"] for _c in _mm["conditions"]) != atlas_hub.MEASURE_QUESTIONS:
+        raise SystemExit(
+            f'build-atlas-pages: the Measure on {_mid} asks its own questions.\n'
+            '  The five are fixed, in this order, and a traveller reads them, so they are '
+            'plain English and never the instrument\'s shorthand:\n'
+            + "".join(f"    {_q}\n" for _q in atlas_hub.MEASURE_QUESTIONS)
+            + '  Found:\n' + "".join(f'    {_c["n"]}\n' for _c in _mm["conditions"]))
     if int(_mm["dots"]) != sum(1 for _c in _mm["conditions"] if _c.get("on")):
         raise SystemExit(f'build-atlas-pages: the Measure on {_mid} says {_mm["dots"]} dots but '
                          f'{sum(1 for _c in _mm["conditions"] if _c.get("on"))} conditions are on. '
                          "The number and the legend have to be the same statement.")
+    # The two questions a desk cannot answer on its own, each with its own way out.
+    _dd = next(d for d in DISC if d["id"] == _mid)
+    if _mm["conditions"][3].get("on") and not _public_evidence(_dd, _mm):
+        raise SystemExit(
+            f"build-atlas-pages: the Measure on {_mid} says the craft is alive in the place, "
+            "with no evidence from anybody who is not selling the course.\n"
+            "  Give the fourth condition an `evidence` list — a festival, a guild register, a "
+            "market, a trade body, a listing — each with its url and the day it was read.\n"
+            "  A school's own page is not evidence about its town: every host that sells a "
+            "course on this craft is refused here.")
+    if _mm["conditions"][4].get("on") and not _vouches(_dd):
+        raise SystemExit(
+            f"build-atlas-pages: the Measure on {_mid} says there is enough here to keep you "
+            "learning for years, and nobody has been.\n"
+            "  A published ladder shows the rungs exist; only somebody who climbed part of it "
+            "can say the room above you is real. This one waits for a check.")
 
 
 
@@ -1669,7 +1889,7 @@ for d in DISC:
 {masters_html}{lineage_html}
 {rating_block(d, x)}{schools_html}
 {room_block(x, d)}
-{credential_section(d, x)}
+{credential_section(d, x)}{coverage_block(d, x)}
 <section><div class="wrap">{intent}</div></section>
 {sib_html}"""
         # saveable=False: skill-save.js hooks form.intent[data-discipline], which only
@@ -2016,6 +2236,39 @@ if _floor is not None:
     if len(_no_measure) < _floor:
         print(f"  ✓ the Measure debt fell to {len(_no_measure)} — tighten measureDebtFloor in "
               "data/atlas-extra-sheets.json so it cannot drift back up")
+
+# ── the ladder debt, on the same ratchet ─────────────────────────────────────
+# Same shape as the Measure's and for the same reason: a craft whose body publishes a
+# ladder and whose sheet does not carry it is telling a reader less than the school's
+# own homepage does. The archive is printed, not fatal; the debt may not grow.
+#
+# ⚠ A craft with NO published ladder is not debt — photography's own certBody says
+# "no universal body", and inventing rungs for it is the failure, not the gap. Those
+# are declared in laddersNotPublished and counted as done.
+_none_published = set(MANIFEST.get("laddersNotPublished", []))
+_no_ladder = sorted(d["id"] for d in _open_disc
+                    if d["id"] not in SKILL_LADDERS and d["id"] not in _none_published)
+_lfloor = MANIFEST.get("ladderDebtFloor")
+if _no_ladder:
+    print(f"  ⚠ the ladder — {len(_no_ladder)} of {len(_open_disc)} open crafts carry no skill "
+          f"ladder yet: {', '.join(_no_ladder[:6])}"
+          + (f", +{len(_no_ladder) - 6} more" if len(_no_ladder) > 6 else ""))
+if _lfloor is not None:
+    if len(_no_ladder) > _lfloor:
+        _newl = [c for c in _no_ladder if c not in set(MANIFEST.get("ladderDebtKnown", []))]
+        raise SystemExit(
+            f"build-atlas-pages: {len(_no_ladder)} open crafts have no ladder, and the floor is "
+            f"{_lfloor}.\n"
+            + (f'  New without one: {", ".join(_newl)}\n' if _newl else "")
+            + "  Add the body's published ladder to data/atlas-extra-sheets.json -> "
+              "skillLadders, or — if no body publishes one — say so in laddersNotPublished.")
+    if len(_no_ladder) < _lfloor:
+        print(f"  ✓ the ladder debt fell to {len(_no_ladder)} — tighten ladderDebtFloor in "
+              "data/atlas-extra-sheets.json so it cannot drift back up")
+_n_cov = sum(len(s) for p in COURSE_COVERAGE.values() for s in p.values())
+if SKILL_LADDERS:
+    print(f"  · the ladder: {len(SKILL_LADDERS)} craft(s) carry one, {_n_cov} course(s) read "
+          f"against it")
 
 # Which place cards are still missing their immersive line. Printed rather than
 # raised: a craft opens unattended the moment somebody asks for it, and a refusal

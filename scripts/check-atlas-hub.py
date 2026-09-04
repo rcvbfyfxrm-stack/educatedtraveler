@@ -37,6 +37,10 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
   13. the hub carries the static [data-visitor-only] sign-in link to /you AND loads
      member-nav.js to hide it again — the only way a signed-out member gets back
      into their account from the Atlas, and nothing at runtime would miss it.
+  14. the skill ladder and the coverage ticks actually reach the page — the rungs
+     and the circles counted off the built HTML against the data they came from,
+     because a block that renders its heading and drops its list is the failure
+     this file has now caught three times.
 
 Exit 0 = all clear. Exit 1 = do not ship it.
 """
@@ -330,6 +334,63 @@ if not _signin:
 if "member-nav.js" not in html:
     bad('check 13: the hub does not load /js/member-nav.js, so nothing hides the '
         '[data-visitor-only] sign-in line — a signed-in member is told to sign in.')
+
+# ── 14. the ladder and the ticks actually reach the page ──────────────────
+# The Measure block shipped once with a `.checked` class the generated template never
+# defined: the build passed, both gates passed, and the check line rendered as one run
+# of prose. A block that silently stops rendering is this codebase's most-repeated
+# failure, so the ladder is counted on the page, not trusted to the builder.
+#
+# It also counts the RUNGS and the TICKS, because half a block is the version nobody
+# notices: a ladder that renders its heading and drops its levels still looks fine.
+_ladders = _extra.get("skillLadders", {})
+_coverage = _extra.get("courseCoverage", {})
+for _cid, _lad in _ladders.items():
+    _p = ROOT / f"website/atlas/{_cid}.html"
+    if not _p.is_file():
+        bad(f"skillLadders names {_cid} but website/atlas/{_cid}.html does not exist")
+        continue
+    _h = _p.read_text()
+    if "The ladder &mdash;" not in _h and "The ladder —" not in _h:
+        bad(f"{_cid}.html carries no ladder section, and skillLadders says it has one")
+        continue
+    for _r in _lad.get("rungs", []):
+        if html_mod.escape(_r["name"]) not in _h:
+            bad(f"{_cid}.html is missing the rung {_r['name']!r} its ladder declares")
+    if _lad.get("body") and html_mod.escape(_lad["body"]) not in _h:
+        bad(f"{_cid}.html prints a ladder without naming {_lad['body']} — a ladder with "
+            "nobody's name on it reads as ours")
+_seen_cov = 0
+for _cid, _places in _coverage.items():
+    for _place, _schools in _places.items():
+        _x = next((x for d in _disc if d["id"] == _cid
+                   for x in d["destinations"] if x["place"] == _place), None)
+        if not _x:
+            continue
+        _p = ROOT / f"website/atlas/{_x['id']}.html"
+        if not _p.is_file():
+            bad(f"courseCoverage names {_cid}/{_place}, but {_x['id']}.html is not built")
+            continue
+        _h = _p.read_text()
+        if "What these schools teach" not in _h:
+            bad(f"{_x['id']}.html carries no coverage section, and courseCoverage has "
+                f"{len(_schools)} school(s) read for it")
+            continue
+        for _school, _cov in _schools.items():
+            _seen_cov += 1
+            if html_mod.escape(_school) not in _h:
+                bad(f"{_x['id']}.html has a coverage section that never names {_school}")
+        # every tick and every empty circle on the page, against what the data declares
+        _ticks, _empty = _h.count("&#9679;</span>"), _h.count("&#9675;</span>")
+        _wt = sum(len(c.get("covers", [])) for c in _schools.values())
+        _we = sum(len(c.get("missing", [])) for c in _schools.values())
+        if (_ticks, _empty) != (_wt, _we):
+            bad(f"{_x['id']}.html draws {_ticks} tick(s) and {_empty} empty circle(s) where "
+                f"the data says {_wt} and {_we} — the legend and the page disagree")
+_want_cov = sum(len(s) for p in _coverage.values() for s in p.values())
+if _seen_cov != _want_cov:
+    bad(f"check 14 inspected {_seen_cov} coverage block(s) but {_want_cov} course(s) carry "
+        "coverage — the pattern has stopped matching the page and this check is blind")
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:

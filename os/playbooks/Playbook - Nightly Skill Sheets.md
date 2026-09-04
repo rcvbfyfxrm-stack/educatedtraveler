@@ -132,22 +132,72 @@ A sheet without a grade is not finished. It goes in `data/atlas-extra-sheets.jso
 → `measure`, and **the build refuses if the number of ungraded open crafts goes up** —
 so a new sheet with no grade stops the nightly run and names itself in the error.
 
-Five conditions, and the count must equal the number that are on: **the room** (somebody
-still stands in it) · **the door** (a stranger gets in on a date, and their hands can ruin
-it) · **the bench** (others, and a generation either side) · **the ground** (the craft
-belongs to this place) · **the stretch** (something that would prove you, and a ceiling
-worth years).
+Five questions, and the count must equal the number answered yes. **They are asked in
+these exact words, in this order, on every craft** — the build refuses any other wording
+(`MEASURE_QUESTIONS` in `scripts/atlas_hub.py`):
 
-**Desk research stops at three.** The ground and the stretch are exactly what a brochure
-claims, so they stay dark until somebody has stood in the room. That is not a mark against
-the place and the copy must say so — *"we have not been."*
+1. Is there a teacher, and can we name them?
+2. Can a stranger get in, on a date you can book?
+3. Will there be other people learning beside you?
+4. Is the craft alive in this place, or is the school the only thing here?
+5. Is there enough here to keep you learning for years?
+
+The instrument's own shorthand — the room, the door, the bench, the ground, the stretch —
+is for the grader and `THE-MEASURE-META-PROMPT.md`, and **never reaches the page** (Arnaud,
+3 Sept 2026: *"the stretch and the ground, it's really hard to understand. make it so people
+understand reading one sentence"*). On the page we ask the question rather than name it: a
+reader should not have to work out what a condition means from the answer under it. Same
+rule in the answer prose — write "who teaches", not "the room".
+
+**Desk research stops at three.** Whether a craft is alive in its place, and whether there
+is enough there to keep you going, are exactly what a brochure claims, so they stay dark
+until somebody has stood in the room. That is not a mark against the place and the copy must
+say so — *"we have not been."*
 
 **Say it in our voice, never a guide's.** The count is a word, not a numeral — *"Three of
-the five things we check are true here"*, never "3/5", because a score invites ranking one
-craft against another. The line under it is a sentence in body type, never a shouted badge.
+the five answers are yes here"*, never "3/5", because a score invites ranking one craft
+against another. The line under it is a sentence in body type, never a shouted badge.
 Nothing is awarded. We report what we found and the reader decides.
 
 Preview before you commit: `python3 scripts/preview-measure.py`.
+
+## THE LADDER — what a reader would actually be taught (Arnaud, 3 Sept 2026)
+
+*"I want for each craft to have a checklist of skills needed for each level… so people can
+easily see what they going to go through if joining a course."*
+
+⛔ **The ladder is never ours.** It is a body's published standard, adopted and cited: the IKO
+Kiteboarder levels, AIDA's, the CAP Pâtissier blocks on France Compétences, RYA's. 112 of the
+113 crafts carry a `certBody` and a `goldCredential`, so the ladder usually already exists in
+public — find it, read it, copy it down, and name whose it is on the page. **If no body
+publishes one, the craft gets no ladder** and goes in `laddersNotPublished` with the reason.
+Writing rungs ourselves would be this map awarding itself a standard nobody asked it to write.
+
+**The rung is the unit, not the skill.** IKO lists 46 skills across four levels; a kite
+school's page says *"we take you to Level 2"*. Ticking skills would have printed forty empty
+circles against a school that had done nothing wrong — it would measure what a school writes
+on its website. So a course is ticked rung by rung, and the body's own skills are printed
+underneath as what the rung means.
+
+⛔ **Coverage is described, never scored.** Arnaud asked for *"the most skills they learning in
+their class the best course"* and that is the one shape it must not take: it would rank
+whoever writes the longest syllabus page, and reward breadth over depth. **No total, no
+comparison, no sorting by ticks.** The page says out loud that a detailed website looks fuller
+here than a plain one and that this is a fact about the website. Every empty circle carries
+its reason — `not-named` · `not-taught-here` · `above-this-course` — and every rung is
+accounted for, or the build refuses it.
+
+**A tick is their sentence, not ours.** It carries the school's own wording as `verify`, and
+`night-check.py` re-reads it on the url the entry cites, every night. ⚠ **Cite the page the
+syllabus is actually on** — Freeride Tarifa's home page names no level and its lessons page
+publishes the whole IKO syllabus. A school we could not read gets no entry at all.
+
+**The ladder is evidence for the fifth question, never a substitute for it.** A published
+ladder shows the rungs exist; only somebody who climbed part of it can say the room above you
+is worth years. The build refuses the fifth dot without a check.
+
+Data: `data/atlas-extra-sheets.json` → `skillLadders`, `courseCoverage`, `laddersNotPublished`,
+on the same debt ratchet as the Measure (`ladderDebtFloor`).
 
 ## Pre-ship checklist (every sheet)
 - [ ] routed through `keel` if this session can reach it; otherwise the rule-zero list applied by hand

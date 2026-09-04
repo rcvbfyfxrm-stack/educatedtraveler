@@ -82,7 +82,46 @@ def load():
     unlocked = json.loads((ROOT / "data/atlas-unlocked.json").read_text())
     manifest = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())
     open_ids = set(unlocked.get("open") or {}) | set(manifest.get("pinnedOpen") or [])
-    return disc, open_ids
+    return disc, open_ids, manifest
+
+
+def manifest_claims(manifest, open_ids, only=None):
+    """The claims that live in the manifest rather than the catalogue.
+
+    A ticked skill is the strongest kind of claim on this map: we are saying a named
+    school teaches a named thing, on the strength of a sentence on their page. So every
+    tick carries that sentence and it is re-read here with everything else. The ladder
+    itself is watched the same way — a body that renames its levels quietly rewrites
+    what our whole checklist means.
+    """
+    out = []
+    for cid, lad in (manifest.get("skillLadders") or {}).items():
+        if cid not in open_ids or (only and cid != only):
+            continue
+        if lad.get("url"):
+            out.append({"craft": cid, "where": "", "what": "ladder",
+                        "name": lad.get("standard", ""), "url": lad["url"],
+                        "verify": lad.get("verify") or []})
+        # One row per rung as well: the body's own page for that level is where the
+        # skills under it were copied from, and a level quietly renamed or dropped is
+        # the way this whole checklist goes wrong without anybody noticing.
+        for r in lad.get("rungs", []):
+            if r.get("url"):
+                out.append({"craft": cid, "where": "", "what": "rung",
+                            "name": f'{lad.get("standard", "")} — {r["name"]}',
+                            "url": r["url"], "verify": r.get("verify") or []})
+    for cid, places in (manifest.get("courseCoverage") or {}).items():
+        if cid not in open_ids or (only and cid != only):
+            continue
+        for place, schools in places.items():
+            for school, cov in schools.items():
+                if not cov.get("url"):
+                    continue
+                out.append({"craft": cid, "where": place, "what": "coverage",
+                            "name": f'{school} — what it covers', "url": cov["url"],
+                            "verify": [c["verify"] for c in cov.get("covers", [])
+                                       if c.get("verify")]})
+    return out
 
 
 def claims(disc, open_ids, only=None):
@@ -193,8 +232,8 @@ def main():
     ap.add_argument("--workers", type=int, default=8)
     a = ap.parse_args()
 
-    disc, open_ids = load()
-    rows = claims(disc, open_ids, a.craft)
+    disc, open_ids, manifest = load()
+    rows = claims(disc, open_ids, a.craft) + manifest_claims(manifest, open_ids, a.craft)
     if a.limit:
         rows = rows[:a.limit]
     if not rows:
