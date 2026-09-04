@@ -103,7 +103,10 @@ window.ET_ATLAS = {
             "Atmavikasa Centre of Yogic Sciences",
             "Sthalam 8 Ashtanga Yoga Vedanta Centre"
           ],
-          "masters": [],
+          "masters": [
+            "Yogacharya V. Venkatesha",
+            "Acharya Hema"
+          ],
           "lineage": [
             "Lineage of Tirumalai Krishnamacharya"
           ],
@@ -128,7 +131,7 @@ window.ET_ATLAS = {
               "name": "Atmavikasa Centre of Yogic Sciences",
               "url": "https://www.atmavikasayoga.in/",
               "course": "Authentic Hatha Yoga Teachers Training / Back-Bending Intensive (multi-week residential)",
-              "blurb": "A Mysore Hatha-yoga centre founded by Yogacharya V. Venkatesha and Acharya Hema, running multi-week residential teacher trainings and yoga-therapy intensives known for its signature back-bending and no-injury methodology.",
+              "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school, founded by Yogacharya V. Venkatesha and Acharya Hema. Multi-week residential teacher trainings and yoga-therapy intensives, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
               "confidence": "high"
             },
             {
@@ -4641,7 +4644,7 @@ window.ET_ATLAS = {
               "name": "Matos Tarifa",
               "url": "https://matos-tarifa.com/en/",
               "course": "IKO kitesurf courses, beginner to advanced",
-              "blurb": "A Tarifa kite school whose instructors are certified by the IKO and the Andalusian Sailing Federation, teaching levels from beginner discovery to advanced strapless using radio-helmet instruction.",
+              "blurb": "A Tarifa kite school whose instructors are certified by the IKO and the Andalusian Sailing Federation, teaching every level from first discovery to advanced coaching with radio helmets, and running progression and Tiki kite camps year round.",
               "confidence": "high"
             },
             {
