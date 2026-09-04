@@ -104,7 +104,7 @@ window.ET_ATLAS = {
             "Sthalam 8 Ashtanga Yoga Vedanta Centre"
           ],
           "masters": [
-            "Yogacharya V. Venkatesha",
+            "Yogacharya Venkatesha",
             "Acharya Hema"
           ],
           "lineage": [
