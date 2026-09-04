@@ -1,0 +1,24 @@
+-- 046 — the grant 045 forgot, without which 045 does nothing at all.
+--
+-- 045 added `vouches_insert_anon` and `vouches_select_public` and they were both
+-- inert. A policy is a filter on a privilege you already hold; it does not confer
+-- one. `anon` held nothing on this table — 044 granted only `authenticated` — so
+-- every anonymous request died at the grant check with
+--
+--     42501 permission denied for table vouches
+--
+-- before any policy was consulted. The failure looks identical to a policy that
+-- rejects you, which is what makes it worth a comment: the fix is not in the
+-- WITH CHECK clause anybody would go and read first.
+--
+-- Caught by firing the real anonymous request rather than trusting that the
+-- objects had been created. They had. They just could not run.
+--
+-- SELECT is safe to grant because RLS is enabled (verified: relrowsecurity =
+-- true) and `vouches_select_public` serves only rows that are `approved` AND
+-- `consent_public`. INSERT is safe because `vouches_insert_anon` forces
+-- user_id null, status 'pending', undecided, a named school and 40–2000
+-- characters. No UPDATE and no DELETE: an anonymous writer may add a comment and
+-- may never touch one, their own included.
+
+grant select, insert on public.vouches to anon;
