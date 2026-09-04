@@ -1079,6 +1079,11 @@ ul.clean li:last-child {{ border-bottom:none; }}
 .cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .cta:hover {{ opacity:.92; }}
 .grid {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }}
+.shots {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:18px 14px; align-items:start; }}
+.shots figure {{ margin:0; }}
+.shots figure.wide {{ grid-column:1/-1; }}
+.shots img {{ width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--ink2); }}
+.shots figcaption {{ font-size:13px; opacity:.6; margin-top:8px; line-height:1.55; }}
 .intent {{ border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }}
 .intent-q {{ font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }}
 .intent-go {{ border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
@@ -1245,6 +1250,65 @@ def room_block(x, d=None):
             f'<h2>The room</h2><ul class="clean" style="font-size:14.5px">{"".join(items)}</ul>'
             '<p class="meta" style="margin-top:10px">Want the rest — a normal day, first hour to last? '
             'Ask the school; a serious one answers in two minutes.</p></div></section>')
+
+# ── photographs a school sent us, credited to it ──────────────────────────
+# The wave-one and wave-two letters asked every school two things: is this page
+# right, and do you have footage. Matos Tarifa answered both on 4 September 2026.
+# Publishing what a school sends creates an obvious hazard — the page starts to
+# look like a favour returned — so the block says the opposite out loud, in the
+# same words the email used: sending pictures does not move a school up the page.
+# It is also an open offer, printed where the other schools on the page can read
+# it, which is what keeps this a record rather than a shop window.
+#
+# The pictures hang off the SCHOOL, never off the place, so the credit cannot
+# drift onto somebody else's work when a destination is re-sorted.
+def photo_block(x):
+    """Photographs supplied by the schools on this place page, credited to each."""
+    blocks = []
+    for s_ in x.get("schoolsInfo") or []:
+        ph = s_.get("photos") or {}
+        items = ph.get("items") or []
+        if not items:
+            continue
+        figs = ""
+        for im in items:
+            # A caption is optional. A file that is not there, and alt text that is
+            # not written, are both build stoppers: a broken image on a page whose
+            # whole claim is that it was checked by hand is worse than no picture.
+            f = ROOT / "website" / im["src"].lstrip("/")
+            if not f.exists():
+                raise SystemExit(f'build-atlas-pages: {s_["name"]!r} lists a photograph '
+                                 f'that is not in the repo: {im["src"]}')
+            if not (im.get("alt") or "").strip():
+                raise SystemExit(f'build-atlas-pages: {im["src"]} has no alt text. Someone '
+                                 "reading this page with their eyes shut gets nothing. "
+                                 "Describe what is in the frame.")
+            cls = ' class="wide"' if im.get("wide") else ""
+            cap = (f'<figcaption>{e(im["caption"])}</figcaption>'
+                   if im.get("caption") else "")
+            figs += (f'<figure{cls}><img src="{e(im["src"])}" alt="{e(im["alt"])}" '
+                     f'width="{int(im["w"])}" height="{int(im["h"])}" loading="lazy" '
+                     f'decoding="async">{cap}</figure>')
+        name = e(s_["name"])
+        credit = (f'<a class="school-url" rel="nofollow noopener" target="_blank" '
+                  f'href="{e(s_["url"])}">{name}</a>') if s_.get("url") else name
+        given = f', {e(pretty_date(ph["given"]))}' if ph.get("given") else ""
+        blocks.append(
+            f'<div class="mono">Sent by the school</div>'
+            f'<h2>What a lesson here looks like</h2>'
+            f'<p class="meta" style="margin-bottom:18px;max-width:62ch">{name} sent these when '
+            "I wrote to ask whether this page described the school correctly. They are the "
+            "school's own photographs, published with its permission and credited to it — and "
+            "they do not move it up the page: where it sits was decided from its own course "
+            "pages, before I wrote. Any school on this page can have the same space, on the "
+            "same terms.</p>"
+            f'<div class="shots">{figs}</div>'
+            f'<p class="meta" style="margin-top:14px">Photographs: {credit}{given}. '
+            "Used with permission; all rights remain theirs.</p>")
+    if not blocks:
+        return ""
+    return "".join(f'<section><div class="wrap">{b}</div></section>' for b in blocks)
+
 
 def craft_depth(d):
     """The craft itself, past the one-line lead — what a trip can honestly give you,
@@ -1887,7 +1951,7 @@ for d in DISC:
 <section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
 {disclosure_block(d) if has_relationship(x) else ""}{featured_block(d, x)}
 {masters_html}{lineage_html}
-{rating_block(d, x)}{schools_html}
+{rating_block(d, x)}{schools_html}{photo_block(x)}
 {room_block(x, d)}
 {credential_section(d, x)}{coverage_block(d, x)}
 <section><div class="wrap">{intent}</div></section>

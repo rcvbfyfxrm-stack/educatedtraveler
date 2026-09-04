@@ -91,6 +91,11 @@ ul.clean li:last-child { border-bottom:none; }
 .cta { display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }
 .cta:hover { opacity:.92; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px; }
+.shots { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:18px 14px; align-items:start; }
+.shots figure { margin:0; }
+.shots figure.wide { grid-column:1/-1; }
+.shots img { width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line); background:var(--ink2); }
+.shots figcaption { font-size:13px; opacity:.6; margin-top:8px; line-height:1.55; }
 .intent { border:1px solid var(--line); border-radius:12px; padding:20px 22px; background:rgba(243,237,226,0.02); margin:18px 0 0; }
 .intent-q { font-size:15px; opacity:.82; margin-bottom:12px; max-width:56ch; }
 .intent-go { border:none; border-radius:99px; padding:11px 22px; font-size:14px; font-weight:500; color:#14110d; cursor:pointer; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }

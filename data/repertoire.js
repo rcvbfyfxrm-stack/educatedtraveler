@@ -4645,7 +4645,48 @@ window.ET_ATLAS = {
               "url": "https://matos-tarifa.com/en/",
               "course": "IKO kitesurf courses, beginner to advanced",
               "blurb": "A Tarifa kite school whose instructors are certified by the IKO and the Andalusian Sailing Federation, teaching every level from first discovery to advanced coaching with radio helmets, and running progression and Tiki kite camps year round.",
-              "confidence": "high"
+              "confidence": "high",
+              "photos": {
+                "given": "2026-09-04",
+                "items": [
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-01-down-to-the-water.jpg",
+                    "w": 1600,
+                    "h": 1066,
+                    "wide": true,
+                    "alt": "A kitesurfer in a helmet walks down the sand at Tarifa with a board under one arm, their kite already flying overhead, a dozen more kites in the sky behind them and a low headland at the end of the beach.",
+                    "caption": "The kite already up, the board under one arm, and the walk down the sand — in the same sky as everyone else's. This is the beach on an ordinary day."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-02-waterstart.jpg",
+                    "w": 1600,
+                    "h": 956,
+                    "alt": "A student in a helmet sits low in shallow turquoise water with a kiteboard across their body, control lines running up out of the frame to the kite.",
+                    "caption": "The waterstart, which is where most of a first week actually goes: in the water, board on, waiting to be lifted out rather than dragged along."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-03-instructor-watching.jpg",
+                    "w": 1600,
+                    "h": 1066,
+                    "alt": "An instructor in a wetsuit lettered INSTRUCTOR across the back stands in the shorebreak watching a helmeted student ride past on a directional board, a kite in the air behind them.",
+                    "caption": "The instructor stays in the shorebreak — the word is across the back of his wetsuit — while the student rides past on his own. That is what the radio helmet is for: the coaching reaches the water without the coach."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-04-tiki-board.jpg",
+                    "w": 1600,
+                    "h": 1127,
+                    "alt": "A kitesurfer in a white helmet wades in through the shorebreak carrying a wooden directional board marked TK-02, control bar still in hand, other kites behind.",
+                    "caption": "Walking in from a Tiki session on a wooden directional board. The Tiki and progression camps run all year, not only across the summer."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-05-jump.jpg",
+                    "w": 1600,
+                    "h": 900,
+                    "alt": "A kitesurfer airborne against a clear sky above choppy blue sea, board still on their feet, head turned up towards the kite.",
+                    "caption": "Jumping is taught here rather than left to be worked out — eyes up on the kite, board kept on the feet. It is its own course."
+                  }
+                ]
+              }
             },
             {
               "name": "Subcielo Kite School",
