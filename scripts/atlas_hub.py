@@ -364,10 +364,16 @@ def measure_html(mm, dots=None, vouch=""):
       '<section><div class="wrap">'
       '<div class="mono">Is this community worth the trip</div>'
       f'<h2 style="margin-bottom:10px">{_answers_line(dots)}</h2>'
+      # The old legend said an empty dot "is not a mark against the place". That was true of
+      # seventeen of the twenty-one empty dots and false of the other four — the dark first
+      # questions on kitesurfing, photography, french pastry and hatha yoga, which are exactly
+      # marks against the listing ("ten schools between them and not one named teacher"). A
+      # legend on an instrument about honesty may not be the one sentence on the page that is
+      # not checked. It now names all three reasons, and the sentence under each dot says which.
       '<p class="meta" style="margin:0 0 16px">The same five questions, asked of every craft on '
       'this map, before we send anyone anywhere. A full dot is a yes we can show you the working '
-      'for. An empty dot is not a mark against the place: it says we could not answer it from a '
-      'desk, and nobody of ours has been yet.</p>'
+      'for. An empty dot means one of three things, and the sentence under it says which: nobody '
+      'publishes the answer, we read it and the answer is no, or nobody of ours has been.</p>'
       '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
       'border-left:2px solid var(--sea)">'
       f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'

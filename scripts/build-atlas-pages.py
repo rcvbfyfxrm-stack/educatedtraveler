@@ -533,7 +533,7 @@ def measure_block(d):
     if not mm:
         return ""
     dots = int(mm["dots"])
-    cap, cap_reason = _evidence_cap(d, mm)
+    cap = _evidence_cap(d, mm)[0]
     if dots > cap:
         raise SystemExit(
             f'build-atlas-pages: measure on {d["id"]} claims {dots} dots but the evidence '

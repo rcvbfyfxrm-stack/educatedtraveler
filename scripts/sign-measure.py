@@ -41,7 +41,7 @@ def save(p, obj):
 
 def show(craft, m):
     on = sum(1 for c in m["conditions"] if c.get("on"))
-    print(f"\n  {craft}  —  {on} of 5, ceiling {m.get('ceiling', '?')}")
+    print(f"\n  {craft}  —  {on} of 5")
     print(f"  verdict : {m['verdict']}")
     print(f"  state   : {m['state']}")
     for c in m["conditions"]:

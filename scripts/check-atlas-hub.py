@@ -392,6 +392,72 @@ if _seen_cov != _want_cov:
     bad(f"check 14 inspected {_seen_cov} coverage block(s) but {_want_cov} course(s) carry "
         "coverage — the pattern has stopped matching the page and this check is blind")
 
+# ── 15. the Measure reads the same on every page that carries one ─────────
+# There are more Measures on this site than there are entries in `measure`. One page,
+# modern-new-technique-cuisine.html, carries a Measure block carved by hand in June and
+# sits in `preserve`, so the build never rewrites it and no other check has ever looked
+# at it. Its legend drifted out of step with the renderer's and nothing said a word.
+# So this check reads the built HTML, not the data: every page that carries the block at
+# all, whether generated or hand-written, must ask the same questions, count its own dots
+# correctly, and print the legend the renderer currently prints. The legend is taken by
+# rendering a block through atlas_hub itself — a check that hardcoded the sentence would
+# pass forever while the page and the code parted company.
+_ref_mm = {
+    "dots": 1,
+    "verdict": "reference",
+    "state": "reference",
+    "checker": "reference",
+    "date": "reference",
+    "check": "reference",
+    "conditions": [{"n": q, "t": "reference", "on": i == 0}
+                   for i, q in enumerate(atlas_hub.MEASURE_QUESTIONS)],
+}
+_ref = atlas_hub.measure_html(_ref_mm)
+_ref_legend = re.search(r'<p class="meta" style="margin:0 0 16px">(.*?)</p>', _ref, re.S)
+_n_q = len(atlas_hub.MEASURE_QUESTIONS)
+if not _ref_legend:
+    bad("check 15 cannot find the legend in atlas_hub.measure_html output — the pattern "
+        "has stopped matching and this check is blind")
+else:
+    _legend = _ref_legend.group(1)
+    _measure_pages = sorted(f for f in (ROOT / "website/atlas").glob("*.html")
+                            if "Is this community worth the trip" in f.read_text())
+    if not _measure_pages:
+        bad("check 15 found no page carrying a Measure — the heading has changed and this "
+            "check is blind")
+    for _f in _measure_pages:
+        _h = _f.read_text()
+        for _q in atlas_hub.MEASURE_QUESTIONS:
+            if _h.count(_q) != 1:
+                bad(f"{_f.name} carries a Measure that asks {_q!r} {_h.count(_q)} time(s). "
+                    "The five are fixed, in one order, on every page — a legend is only "
+                    "learnable if it never moves.")
+        if _legend not in _h:
+            bad(f"{_f.name} prints a Measure legend that is not the one atlas_hub renders. "
+                "A hand-written block has drifted, or the renderer changed and this page "
+                "was not rebuilt.")
+        _m = re.search(r'color:var\(--sea\)">((?:&#9679;)*)</span>'
+                       r'<span style="color:var\(--faint\)">((?:&#9675;)*)</span>', _h)
+        if not _m:
+            bad(f"{_f.name} carries a Measure with no meter this check can read")
+            continue
+        _lit, _dark = _m.group(1).count("&#9679;"), _m.group(2).count("&#9675;")
+        if _lit + _dark != _n_q:
+            bad(f"{_f.name} draws a meter of {_lit + _dark} dots where the Measure asks "
+                f"{_n_q} questions")
+        # Taken from _answers_line, never pattern-matched: it agrees with its own number
+        # at every count ("One … is", "All five answers are"), and a check that spelled
+        # the sentence itself would have to be edited every time the headline learns to
+        # count. This one broke exactly that way once, on the singular.
+        _want_hd = atlas_hub._answers_line(_lit)
+        _hd = re.search(r"<h2[^>]*>([^<]*answers[^<]*)</h2>", _h)
+        if not _hd:
+            bad(f"{_f.name} carries a Measure whose heading this check cannot read")
+        elif _hd.group(1).strip() != _want_hd:
+            bad(f"{_f.name} lights {_lit} dot(s) and says {_hd.group(1).strip()!r} above "
+                f"them, where the renderer would write {_want_hd!r} — the number and the "
+                "legend have to be the same statement")
+
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:
     print("check-atlas-hub: FAIL")
