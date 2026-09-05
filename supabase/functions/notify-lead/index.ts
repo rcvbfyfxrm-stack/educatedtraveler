@@ -403,6 +403,23 @@ serve(async (req) => {
         .limit(1)
         .maybeSingle();
       row = data as Record<string, unknown> | null;
+      if (!row) {
+        // Fallback for anyone whose seat row was folded into an older row by the
+        // dedupe before pay.html started sending is_carrier. The payment object
+        // survives inside interests even when the source stayed the old one.
+        const { data: folded } = await admin
+          .from("launch_waitlist")
+          .select("id,email,interests,source,created_at,seat_token,seat_paid_at")
+          .ilike("email", body.seat_email.trim())
+          .order("created_at", { ascending: false })
+          .limit(5);
+        const hit = (folded ?? []).find((r) => {
+          const xs = Array.isArray(r.interests) ? r.interests : [];
+          return xs.some((x) => x && typeof x === "object" &&
+            (x as { kind?: string }).kind === "seat-payment");
+        });
+        row = (hit ?? null) as Record<string, unknown> | null;
+      }
       if (!row) return json({ message: "no seat row for that email" });
     } else {
       const rec = body?.record;

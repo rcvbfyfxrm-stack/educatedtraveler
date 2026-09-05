@@ -1451,7 +1451,10 @@
             email: email,
             interests: interests,
             source: 'chain',
-            unsubscribed: isMember || false   // already welcomed once; don't welcome twice
+            is_carrier: isMember || false      // already welcomed once; don't welcome twice
+          // (NOT `unsubscribed` — migration 036 split the two and says never
+          //  conflate them again: an opted-out flag here drops a real member
+          //  out of every future broadcast.)
         });
         if(res && res.error) throw res.error;
     }

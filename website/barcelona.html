@@ -135,6 +135,16 @@
   .cta-pick{align-items:center;gap:.9rem}
   .cta-or{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--softer)}
   .pick-line{font-size:.9rem;color:var(--softer);margin:1.4rem 0 0}
+  /* The Circle's own door. Hidden by default and revealed by js/member-nav.js,
+     which sets data-member on <html> once a session is confirmed. A visitor with
+     JS off sees the ordinary apply route, which is the safe way round. */
+  [data-member-only]{display:none}
+  html[data-member="true"] [data-member-only]{display:block}
+  html[data-member="true"] [data-visitor-only]{display:none}
+  .member-seat{border:1px solid var(--sea);border-radius:14px;padding:1.3rem 1.4rem;margin:0 0 1.6rem}
+  .member-seat .ms-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);margin:0 0 .5rem}
+  .member-seat p{margin:.45rem 0}
+  .member-seat .ms-fine{font-size:.85rem;color:var(--softer)}
   .apply-note{font-size:.85rem;color:var(--softer)}
   .facts-strip{background:var(--ink-2,#14110d);border-top:1px solid rgba(243,237,226,.09);border-bottom:1px solid rgba(243,237,226,.09)}
   .facts-strip .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.4rem 1.8rem;padding-top:1rem;padding-bottom:1rem}
@@ -424,10 +434,23 @@
   <div class="wrap">
     <p class="eyebrow">Take a seat</p>
     <h2>Apply — two minutes, then a call</h2>
+
+    <!-- Already in the Circle? Then the call is optional and the seat link is
+         right here. The Circle is what the week is built for, so its members do
+         not queue behind an application to reach the payment page. Revealed by
+         member-nav.js; everyone else reads the three steps below. -->
+    <div class="member-seat" data-member-only>
+      <p class="ms-eyebrow">You're in the Circle</p>
+      <p><strong>You can take your seat now.</strong> No application first — you're already someone I know. Want the call anyway? Write to me and we'll talk before you pay.</p>
+      <p><a class="btn btn-primary" href="/pay">Take your seat &rarr;</a></p>
+      <p class="ms-fine">&euro;350 takes your place in the order, &euro;1,500 in total. Nothing is confirmed until ten seats are paid by 15 September, and every euro comes back if it isn't.</p>
+    </div>
+    <p class="pick-line" data-visitor-only>In the Circle already? <a href="/you">Sign in</a> and the seat link appears here.</p>
+
     <div class="apply-steps">
       <p><b>1 · Apply — two minutes.</b> Send me five things: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
       <p><b>2 · A 15-minute call.</b> Your questions, and me checking the week fits you. Mid-charter? Voice notes work — tell me your watch.</p>
-      <p><b>3 · The payment link.</b> €350 takes the seat, and the link holds it 48 hours while it's live.</p>
+      <p><b>3 · The payment link.</b> €350 takes your place in the order. Nothing is confirmed until ten seats are paid.</p>
     </div>
     <p class="pick-line">Both arrive with the five questions already written out.</p>
     <div class="cta-row cta-pick">
@@ -564,6 +587,7 @@
 <script src="/js/auth.js"></script>
 <script src="/js/database.js"></script>
 <script src="/js/experience-actions.js"></script>
+<script src="/js/member-nav.js"></script>
 
 <script>
 // Technique clips: silent, loop, play only while visible. Falls back to the

@@ -1068,7 +1068,12 @@
             var res = await sb.from('launch_waitlist').insert({
                 email: email,
                 interests: interests,
-                source: sheet ? ('atlas-letter:'+sheet.id) : 'atlas-letter'
+                source: sheet ? ('atlas-letter:'+sheet.id) : 'atlas-letter',
+                // A member ALWAYS has a non-carrier row already, so without this
+                // the BEFORE INSERT dedupe (036) folds the note into it and
+                // returns NULL — which silences notify-lead, and the page below
+                // promises an answer nobody was told to give.
+                is_carrier: true
             });
             if(res && res.error) throw res.error;
             if(window.plausible) window.plausible('MemberLetter', { props:{ skill: craft || 'unnamed' } });

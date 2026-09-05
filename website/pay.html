@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Take your seat — Lab Week 01, Barcelona — EducatedTraveler</title>
-<meta name="description" content="Payment page for Lab Week 01 — five days with Martin Lippo at Vakuum, Barcelona, 22–26 October 2026. €350 deposit holds your seat; €1,500 in total.">
+<meta name="description" content="Payment page for Lab Week 01 — five days with Martin Lippo at Vakuum, Barcelona, 22–26 October 2026. €350 deposit, €1,500 in total. Nothing is confirmed until ten seats are paid by 15 September.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://educatedtraveler.app/pay">
 <link rel="icon" href="/favicon.svg">
@@ -148,7 +148,7 @@
 <div class="wrap">
   <div class="price">
     <div class="amt">€<b>350</b></div>
-    <p class="vat">Deposit · holds your seat today</p>
+    <p class="vat">Deposit · your place in the order</p>
     <dl class="ledger">
       <dt>The week</dt><dd><b>€1,500</b> in total, VAT included — the whole number</dd>
       <dt>Today</dt><dd><b>€350</b> minimum to book · pay it all now if you'd rather</dd>
@@ -163,7 +163,7 @@
     <p class="eyebrow">Read before you pay</p>
     <h2>The conditions. Same ones as the public page.</h2>
     <ul class="terms">
-      <li><strong>Your deposit holds your seat and counts toward the 10.</strong> Seats go in the order they're taken — deposit or in full, first 15 in the room. The week runs the moment 10 seats are taken, and nobody is asked for the balance before that.</li>
+      <li><strong>Your deposit takes your place in the order.</strong> Nothing is confirmed until ten seats are paid — I write to you the day that happens, and not before. Seats go in the order they're taken — deposit or in full, first 15 in the room. The week runs the moment 10 seats are taken, and nobody is asked for the balance before that.</li>
       <li><strong>Paid in full? You're asked first on the add-ons.</strong> The three-Michelin-star table is capped small. When the add-ons around the week are booked and real, chefs who paid in full get first refusal — nothing is sold before it's real, that's the house rule.</li>
       <li><strong>Not there by Tuesday 15 September?</strong> The week cancels and <strong>every euro of your deposit comes back in full</strong> — said publicly, and it applies to €350 exactly as it applies to €1,500.</li>
       <li><strong class="flag">Don't buy flights until we announce CONFIRMED.</strong> I'll write to you the day it happens. Until then, book nothing.</li>
@@ -504,6 +504,13 @@
         var insert = sb.from('launch_waitlist').insert({
           email: email,
           source: 'pay:lab-week-01-barcelona',
+          // A seat payment is a CARRIER row, always. Without this flag the
+          // BEFORE INSERT dedupe (migration 036) folds it into the payer's
+          // existing Circle row and returns NULL, which silences every AFTER
+          // INSERT trigger: no notify-lead, no seat token, no confirm link,
+          // and the chef never hears that the money arrived. Every chef in the
+          // Circle is exactly the case that was being dropped.
+          is_carrier: true,
           interests: [{
             kind: 'seat-payment',
             label: 'Lab Week 01 — Martin Lippo, Barcelona, 22–26 Oct 2026',
