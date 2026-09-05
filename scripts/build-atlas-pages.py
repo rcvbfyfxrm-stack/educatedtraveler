@@ -898,7 +898,7 @@ BADGE_LABELS = {
     "source": "Birthplace", "scene": "Living scene", "mecca": "Mecca",
     "master": "Named masters", "school": "Verified schools", "gold-cred": "Gold credential",
     "heritage": "Heritage", "record": "Record holder", "lineage": "Unbroken lineage",
-    "master-lab": "Enrol with the master",
+    "master-lab": "Takes students directly",
 }
 ROLE_LABELS = {"source": "Birthplace of the discipline", "scene": "Strong living community", "both": "Birthplace & living capital"}
 
@@ -1474,6 +1474,18 @@ def community_pill(x):
             f'<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.1em;'
             f'text-transform:uppercase;color:{col};font-weight:500">{e(text)}</span>')
 
+def price_is_approx(f):
+    """True when the number we are about to print was read out of a loose note
+    rather than a floor the school itself published. price_start() strips a
+    leading "~", so "~EUR895" was being printed as "from EUR895" on the same page
+    as the note it came from: "from" promises nothing costs less, "~" is a shrug.
+    """
+    if not f or f.get("priceFrom"):
+        return False
+    n = f.get("priceNote") or ""
+    return bool(re.search(r"~|approx", n, re.I))
+
+
 def price_start(f):
     if not f:
         return None
@@ -1748,7 +1760,8 @@ def alts_block(f):
                 if a.get("url") else e(a["course"]))
         meta = " · ".join(e(v) for v in [a.get("duration"), a.get("format"), a.get("school"), a.get("place")] if v)
         ps = price_start(a)
-        price = ("from " + money_html(ps)) if ps and ps != "Donation-based" else (money_html(ps) if ps else "price on request")
+        _lead = "about " if price_is_approx(a) else "from "
+        price = (_lead + money_html(ps)) if ps and ps != "Donation-based" else (money_html(ps) if ps else "price on request")
         fit = f'<span class="badge">{e(a["fit"])}</span>' if a.get("fit") else ""
         note = f'<div style="font-size:13px;opacity:.6;font-style:italic;margin-top:3px">{e(a["note"])}</div>' if a.get("note") else ""
         rows.append('<li><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">'
@@ -1798,7 +1811,8 @@ def featured_block(d, x):
         return ""
     ps = price_start(f)
     if ps and ps != "Donation-based":
-        price_html = ('<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#f0c27a">from </span>'
+        _lead = "about " if price_is_approx(f) else "from "
+        price_html = ('<span style="font-family:\'Fraunces\',Georgia,serif;font-size:22px;color:#f0c27a">' + _lead + '</span>'
                       + money_html(ps, style="font-family:'Fraunces',Georgia,serif;font-size:22px;color:#f0c27a"))
     elif ps == "Donation-based":
         price_html = '<span style="color:#f0c27a">Donation-based</span>'
@@ -1924,7 +1938,8 @@ for d in DISC:
                          'Honest note: this one is still provisional — I\'m verifying it. Treat it as a lead worth checking, not a verdict.</p>')
             else:
                 vnote = ('<p class="meta" style="margin-bottom:12px">'
-                         'Checked by hand against each school\'s own course pages. No school paid to be listed.</p>')
+                         'Researched by hand against each school\'s own course pages \u00b7 Arnaud Callier. '
+                         'No school paid to be listed.</p>')
             if is_closed(x):
                 vnote = ('<p class="meta" style="margin-bottom:12px">'
                          "Checked by hand against each place's own pages. Nothing below is a course "
