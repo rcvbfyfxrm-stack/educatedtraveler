@@ -4917,6 +4917,102 @@ window.ET_ATLAS = {
           "tripLength": "2–4 weeks",
           "englishTaught": true,
           "englishBasis": "Baleal Surf Camp markets a 'relaxed International atmosphere', multilingual site incl. English; instruction in English."
+        },
+        {
+          "place": "Canggu & Uluwatu, Bali",
+          "country": "Indonesia",
+          "region": "Southeast Asia",
+          "role": "scene",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "WaveHouse Bali (Canggu)",
+            "Padang Padang Surf Camp (Uluwatu)",
+            "Canggu Bali Surf Lesson (Odysseys)"
+          ],
+          "masters": [
+            "Richie (Padang Padang Surf Camp, Bingin)"
+          ],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "One island holds the whole ladder: the beach breaks at Canggu where most of the world's beginners actually stand up, and an hour south the Bukit reefs — Padang Padang, Bingin, Uluwatu — where the same coaches take you once you can.",
+          "bestSeason": "Apr-Oct (west coast), Nov-Mar (east coast)",
+          "level": "Beginner -> reef",
+          "id": "surfing--canggu-and-uluwatu-bali",
+          "schoolsInfo": [
+            {
+              "name": "WaveHouse Bali (Canggu)",
+              "url": "https://wavehousebali.com/canggu/surfing",
+              "course": "Four graded levels, complete beginner through intermediate",
+              "blurb": "All instructors are ISA certified and lifeguard qualified, teaching at a maximum of two to three students per instructor. The break is chosen each morning on the swell, tide, wind and the student's level rather than fixed to one beach.",
+              "confidence": "high"
+            },
+            {
+              "name": "Padang Padang Surf Camp (Uluwatu)",
+              "url": "https://www.balisurfingcamp.com/surf-school",
+              "course": "Beginner, intermediate and private lessons, plus surf guiding for surfers who can already paddle out alone",
+              "blurb": "Coaching on the Bukit Peninsula since 2005, led by Richie, who grew up at Bingin and has coached there for over twenty years, with Randy, a former Rip Curl Grom Search winner. Groups are set by ability and an instructor or guide paddles out every session.",
+              "confidence": "high"
+            },
+            {
+              "name": "Canggu Bali Surf Lesson (Odysseys Surf School)",
+              "url": "https://surflessoncanggu.com/",
+              "course": "Group, private, semi-private and children's lessons, and intermediate lessons",
+              "blurb": "Run from the LV8 resort at Berawa by Odysseys Surf School of Kuta, teaching in Bali for over fifteen years. Instructors are certified by the Academy of Surfing Instructors with bronze-level surf rescue, resuscitation and first aid.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "a week to a season",
+          "englishTaught": true,
+          "englishBasis": "All three publish in English and teach an international clientele; Odysseys' instructors are noted as fluent in English and Japanese."
+        },
+        {
+          "place": "Taghazout & Tamraght",
+          "country": "Morocco",
+          "region": "Middle East & North Africa",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Salt House Morocco (Tamraght)",
+            "Surf Berbere (Taghazout)"
+          ],
+          "masters": [
+            "Yazid Kanane (Salt House Morocco)"
+          ],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "Two villages on the same bay, three hours from Europe, where the season runs from autumn to spring and the camps outnumber the breaks — and where at least one of them is owned and coached by the people from it.",
+          "bestSeason": "Oct-Apr",
+          "level": "Beginner -> ISA Level 1 instructor",
+          "id": "surfing--taghazout-and-tamraght",
+          "schoolsInfo": [
+            {
+              "name": "Salt House Morocco (Tamraght)",
+              "url": "https://salthousemorocco.com/",
+              "course": "Weekly surf guiding, intermediate coaching, longboard and surf-and-yoga packages, from about EUR 455 a week all in",
+              "blurb": "Founded in 2017 by Yazid Kanane, a surfer from the Souss-Massa region, and described on its own site as 100% Moroccan-owned and operated with a local team. Coaching runs in small groups capped at six guests to a coach.",
+              "confidence": "high"
+            },
+            {
+              "name": "Surf Berbere (Taghazout)",
+              "url": "https://surfberbere.com/",
+              "course": "Surf school packages by level, and a four-week course to a Level 1 ISA surf instructor and lifeguard qualification",
+              "blurb": "On the seafront of the fishing village itself, running packages split by experience — under four weeks' surfing, improver, and experienced — alongside the instructor route, which is the rung above the holiday and the reason this town is on the map twice.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "a week to a month",
+          "englishTaught": true,
+          "englishBasis": "Both publish in English and run on a largely northern-European clientele; Morocco's surf towns work in English, French and Darija."
         }
       ],
       "id": "surfing",
@@ -4960,16 +5056,6 @@ window.ET_ATLAS = {
         ]
       },
       "alsoHere": [
-        {
-          "place": "Canggu & Uluwatu, Bali",
-          "country": "Indonesia",
-          "note": "Where more beginners learn than almost anywhere on earth — warm water, endless schools, and reef once you progress."
-        },
-        {
-          "place": "Taghazout & Tamraght",
-          "country": "Morocco",
-          "note": "A short flight from Europe, with more surf camps than surf spots and a long autumn-to-spring season."
-        },
         {
           "place": "Nosara & Santa Teresa",
           "country": "Costa Rica",

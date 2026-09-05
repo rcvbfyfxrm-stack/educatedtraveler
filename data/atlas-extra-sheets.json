@@ -376,7 +376,9 @@
     "yacht-crew-and-stcw--fort-lauderdale": "Learn with USCG and MCA tickets under one roof, if you don't yet know which side of the Atlantic you'll work.",
     "yacht-crew-and-stcw--dover-kent": "Learn at an academy that owns its own fire ground, survival pool and lifeboat centre.",
     "yacht-crew-and-stcw--sydney": "Start from the southern-hemisphere door, knowing what your tickets are worth before you buy a flight.",
-    "rock-climbing--kalymnos": "Learn to lead outdoors on an island with 4,216 bolted routes on it"
+    "rock-climbing--kalymnos": "Learn to lead outdoors on an island with 4,216 bolted routes on it",
+    "surfing--canggu-and-uluwatu-bali": "Learn where most of the world's beginners stand up, and stay for the reefs",
+    "surfing--taghazout-and-tamraght": "Learn through the winter, three hours from Europe, with people from the village"
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
@@ -1412,23 +1414,23 @@
       "dots": 3,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "Three towns that are properly organised around the craft, and three schools named after surfers whose names are the one thing we could not check",
+      "verdict": "Five places now, and the two added last are the only two that can tell you who will be in the water with you — the three that have been here longest still cannot",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
           "on": false,
-          "t": "Empty in all three places, and Waikiki is the frustrating one. Hans Hedemann is a former professional surfer with a school under his name; Tony Moniz is a Hawaiian professional who founded Faith Surf School in 2000; the Waikiki Beachboys have been licensed on that beach since 1955 and are a lineage in their own right. What nothing published says is whether any of them takes the lesson. This map has been caught before treating a famous name over a door as an answer to this question, so it is left empty until somebody tells us."
+          "t": "Empty at three of the five, and the two that answer it are the ones added today. Salt House in Tamraght was founded in 2017 by Yazid Kanane, a surfer from the Souss-Massa region, and its own site calls it 100% Moroccan-owned and operated. Padang Padang Surf Camp has coached the Bukit since 2005, led by Richie, who grew up at Bingin and has coached there over twenty years. Both are people their own schools say do the teaching. Waikiki is still the frustrating one: Hans Hedemann is a former professional with a school under his name, Tony Moniz a Hawaiian professional who founded Faith Surf School in 2000, and the Beachboys have been licensed on that beach since 1955 — and nothing published says whether any of them takes the lesson. Ericeira and Peniche name nobody at all. Two out of five is not a yes; it is a gap with a shape now."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
           "on": true,
-          "t": "Wide open at every level. Week-long packages on the Waikiki rollers, graded levels one to four at Ericeira with surf guiding above them, residential camps at Peniche running beginners on Baleal's sand. And the hands can ruin it in the plainest way on the map: nobody can catch the wave for you, and you will spend the first days failing in front of everybody."
+          "t": "Wide open at every level. Week-long packages on the Waikiki rollers, graded levels one to four at Ericeira with surf guiding above them, residential camps at Peniche running beginners on Baleal's sand, small-group coaching in Tamraght capped at six to a coach, and in Taghazout a four-week route to a Level 1 ISA instructor and lifeguard ticket — the first rung above a holiday that this craft has on the map. And the hands can ruin it in the plainest way on the map: nobody can catch the wave for you, and you will spend the first days failing in front of everybody."
         },
         {
           "n": "Will there be other people learning beside you?",
           "on": true,
-          "t": "Yes, and Peniche is the clearest ladder here — you can start on the sand at Baleal and end up watching Supertubos in the same corridor, which is someone above you and someone below you in a single town. Ericeira draws Europe's densest surf cohort into camps that are residential by design."
+          "t": "Yes, and Peniche is the clearest ladder here — you can start on the sand at Baleal and end up watching Supertubos in the same corridor, which is someone above you and someone below you in a single town. Ericeira draws Europe's densest surf cohort into camps that are residential by design, and Bali runs the same ladder across one island — the Canggu sand where most of the world's beginners stand up, and the Bukit reefs an hour south where the same coaches take you next."
         },
         {
           "n": "Is the craft alive in this place, or is the school the only thing here?",
@@ -1453,8 +1455,8 @@
           "t": "Nobody of ours has been. The ISA publishes an instructor and coach ladder, and the progression from whitewater to a green face to a proper turn is real and slow. But surfing's ceiling is measured in years of the same reef in the same season, and whether these towns hold somebody through that is not something a camp advertises."
         }
       ],
-      "ceilingNote": "All five are reachable here: this craft belongs to particular water, and one winter in Ericeira could answer the last one.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has surfed at any of these three places. The fourth answer rests on two sources read 4 September 2026: Save The Waves on the reserve, and the World Surf League's own 2026 event page for Peniche, re-read 5 September. ⚠ Reading the first of those against our own page found a disagreement worth recording: Save The Waves says five kilometres of coastline, and this page says four. And a second gap belongs in the open: this page keeps no record of which surf regions were searched and set aside, so it cannot show you why Bali and Taghazout — the two places on earth where most beginners actually learn — are not on it.",
+      "ceilingNote": "All five are reachable here: this craft belongs to particular water, and one winter in Ericeira or one autumn in Taghazout could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has surfed at any of these three places. The fourth answer rests on two sources read 4 September 2026: Save The Waves on the reserve, and the World Surf League's own 2026 event page for Peniche, re-read 5 September. ⚠ Reading the first of those against our own page found a disagreement worth recording: Save The Waves says five kilometres of coastline, and this page says four. ⚠ Amended 5 September 2026, the day after signing. This page said it could not show why Bali and Taghazout were missing, and the honest answer was the same as Kalymnos's: they should not have been. Both are now destinations, researched from the schools' own pages, and between them they give this craft the first two surf coaches it can name. The count does not move — three of five is still three of five — and the first question stays empty, because two named coaches on the two newest entries tell a reader booking Waikiki nothing at all.",
       "checker": "Arnaud Callier",
       "date": "5 September 2026"
     },
