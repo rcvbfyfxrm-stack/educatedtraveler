@@ -9,7 +9,7 @@ on:
   # and never reach the live site: a craft would open in the repo and keep saying
   # "Not open yet" to visitors until a human happened to push something.
   workflow_run:
-    workflows: ["Rebuild the Atlas", "Publish approved concierge Atlas pages"]
+    workflows: ["Rebuild the Atlas", "Publish approved concierge Atlas pages", "Night check the Atlas"]
     types: [completed]
     branches: ["main"]
   workflow_dispatch:

@@ -578,14 +578,7 @@ window.ET_RATINGS = {
     "url": "https://centre-de-formation.centre.contact/creps-paca-site-d-antibes-4430802.html",
     "whyPick": "CREPS PACA Antibes is the French state sports ministry's accredited training centre that delivers the official BPJEPS \"Plongée subaquatique sans scaphandre\" diploma — the only recognised professional qualification in France for teaching freediving and spearfishing (chasse sous-marine), an 819-hour course run at the Fort Carré site on the Mediterranean.",
     "destPlace": "Côte d'Azur (Cassis to Antibes)",
-    "sources": [
-      {
-        "source": "Google (via Centre-de-formation)",
-        "stars": 4.4,
-        "count": null,
-        "url": "https://centre-de-formation.centre.contact/creps-paca-site-d-antibes-4430802.html"
-      }
-    ]
+    "sources": []
   },
   "surfing": {
     "destId": "surfing--waikiki-oahu",
