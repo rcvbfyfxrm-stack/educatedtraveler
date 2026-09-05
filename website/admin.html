@@ -337,7 +337,7 @@
                 // Somebody said they stood in a room. Nothing on the Atlas says so yet,
                 // and nothing will until this screen is read — the form promises "Arnaud
                 // reads every one", and for months there was nowhere he could.
-                sb.from('vouches').select('*').order('created_at', { ascending: false }),
+                sb.rpc('admin_all_vouches'),
             ]);
 
             adminData = {

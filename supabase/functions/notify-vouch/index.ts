@@ -57,6 +57,7 @@ function sheet(v: Record<string, unknown>, email: string) {
   <table style="border-collapse:collapse;width:100%;margin:0 0 20px 0;">
     ${row("Craft", `<a href="https://educatedtraveler.app/atlas/${esc(craft)}" style="color:#2b6660;">${esc(craft)}</a>`)}
     ${row("Place", `<a href="https://educatedtraveler.app/atlas/${esc(dest)}" style="color:#2b6660;">${esc(dest)}</a>`)}
+    ${v.school ? row("School", esc(v.school)) : ""}
     ${row("What they did", esc(v.state))}
     ${row("When", esc(v.visited_on))}
     ${row("Account", `<a href="mailto:${esc(email)}" style="color:#2b6660;">${esc(email)}</a>`)}
@@ -96,11 +97,18 @@ serve(async (req) => {
     const { data: v, error } = await admin.from("vouches").select("*").eq("id", id).single();
     if (error || !v) return json({ error: "row not found" }, 404);
 
-    let email = "";
-    try {
-      const u = await admin.auth.admin.getUserById(String(v.user_id));
-      email = u?.data?.user?.email ?? "";
-    } catch (_e) { /* the sheet is still worth sending without it */ }
+    // A signed vouch comes from a member, so the address is on the auth user.
+    // A SCHOOL COMMENT (migration 045) comes from anyone, has user_id = null,
+    // and carries its own `email` on the row. Reading only the first shape sent
+    // Arnaud a comment with an empty Account row and no reply path, so he could
+    // neither tell which school it was about nor answer the person.
+    let email = typeof v.email === "string" ? v.email.trim() : "";
+    if (!email && v.user_id) {
+      try {
+        const u = await admin.auth.admin.getUserById(String(v.user_id));
+        email = u?.data?.user?.email ?? "";
+      } catch (_e) { /* the sheet is still worth sending without it */ }
+    }
 
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -108,7 +116,9 @@ serve(async (req) => {
       body: JSON.stringify({
         from: FROM, to: [NOTIFY_TO],
         ...(email ? { reply_to: email } : {}),
-        subject: `${v.display_name} (${v.trade}) signed for ${v.destination}`,
+        subject: v.school
+          ? `${v.display_name || "Someone"} wrote about ${v.school}`
+          : `${v.display_name}${v.trade ? ` (${v.trade})` : ""} signed for ${v.destination}`,
         html: sheet(v as Record<string, unknown>, email),
       }),
     });

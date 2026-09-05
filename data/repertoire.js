@@ -445,7 +445,7 @@ window.ET_ATLAS = {
         "school": "Sharath Yoga Centre (SYC)",
         "url": "https://sharathyogacentre.com/",
         "course": "Mysore-style Ashtanga study at SYC (regular classes)",
-        "description": "Study at the source institution carrying the Pattabhi Jois / Sharath Jois lineage in Gokulam, Mysuru. Students practice the set Ashtanga sequence in the daily dawn Mysore-style format, receiving individual adjustments and being given postures one at a time, supplemented by led classes and philosophy/Sanskrit study. Admission is by written application to the shala and a minimum study period is required.",
+        "description": "Study at the source institution carrying the Pattabhi Jois / Sharath Jois lineage in Gokulam, Mysuru. Students practice the set Ashtanga sequence in the daily dawn Mysore-style format, receiving individual adjustments and being given postures one at a time, supplemented by led classes and philosophy/Sanskrit study. Access is by lottery, not application: registration for the 2026 season is closed and students are selected at random to match the shala's capacity (sharathyogacentre.com, read 3 September 2026).",
         "duration": "Minimum one month per visit (registration in two-week minimum blocks)",
         "format": "Daily early-morning Mysore-style self-practice in the shala; not residential (students arrange own housing in Gokulam)",
         "certification": "No course certificate; pathway toward SYC Authorisation/Certification over years of study",
@@ -6074,8 +6074,7 @@ window.ET_ATLAS = {
           {
             "course": "Ski touring Half day",
             "duration": "Half day (3–4 hours)",
-            "priceFrom": "€120",
-            "url": "https://www.chamonix-guides.com/en/activities/details/ski-touring-half-day",
+            "url": "https://www.chamonix-guides.com/",
             "fit": "Taster",
             "note": "An introductory half-day on technique only — no multi-day route, hut life, or alpine traverse depth.",
             "confidence": "high"
@@ -8332,7 +8331,7 @@ window.ET_ATLAS = {
             },
             {
               "name": "Mashiko Togei Club",
-              "url": "https://mashiko-togei.net/",
+              "url": "http://mashiko-tougei-club.jp/",
               "course": "Half-day to full-day wheel and hand-building pottery classes",
               "blurb": "The Mashiko Togei Club is a relaxed folk-style pottery studio in the Mashiko ceramic town offering three-hour and full-day wheel and hand-building classes, with English-speaking staff and accommodation arranged on request.",
               "confidence": "medium"

@@ -633,7 +633,8 @@ TRUST_ITEMS = [
      "Every swept craft carries the places we looked at and turned down, each with its reason. "
      "That list is the part no marketplace prints, because a rejection is where the money is."),
     ("The claims are read back to their sources every night.",
-     "A robot re-reads every price, course name and link we publish against the school's own "
+     "A robot re-reads every link we publish against the school's own page each night, and "
+     "every price and course name we have written a test for. "
      "page. When one stops matching three nights running, it is flagged for a human — and an "
      "entry that cannot be confirmed comes off. It is never softened."),
     ("Where we are not neutral, we say so above the recommendation.",
