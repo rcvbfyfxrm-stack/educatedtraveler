@@ -296,8 +296,13 @@ def also_here_html(d):
     rows = d.get("alsoHere") or []
     if not rows:
         return ""
+    # data-also is what school-note.js hangs the "been here?" box on. It carries the
+    # PLACE, not a school, because on this list there is no school yet — finding out
+    # whether one belongs here is the entire reason the line is published.
     lis = "".join(
-        '<li style="padding:11px 0;border-bottom:1px solid var(--line)">'
+        f'<li data-also="1" data-craft="{e(d["id"])}" data-place="{e(r["place"])}" '
+        f'data-country="{e(r["country"])}" '
+        'style="padding:11px 0;border-bottom:1px solid var(--line)">'
         f'<strong style="font-weight:500">{e(r["place"])}</strong>'
         f'<span style="color:var(--muted)">, {e(r["country"])}</span>'
         f'<div style="font-size:14px;color:var(--muted);margin-top:3px">{e(r["note"])}</div></li>'
@@ -312,7 +317,7 @@ def also_here_html(d):
             'know of. <b>Nobody has checked any of them.</b> No school here is vetted, no teacher '
             'named, nothing graded — this is the lowest state on the map, and we would rather '
             'print it than let a short list read as a complete one. A line each, and what the '
-            'place is known for.</p>'
+            'place is known for. <b>If you have been to one, or know a school or an instructor there, the line will take a note.</b></p>'
             f'<ul style="list-style:none;padding:0;margin:0">{lis}</ul>'
             '</div></section>')
 

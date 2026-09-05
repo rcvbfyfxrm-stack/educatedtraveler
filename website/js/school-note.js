@@ -57,6 +57,12 @@
             '  font:500 13px/1 inherit;cursor:pointer}',
             '.sn-go[disabled]{opacity:.55;cursor:default}',
             '.sn-cancel{background:none;border:none;color:var(--faint);font-size:12px;cursor:pointer}',
+            '.sn-pick{background:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;',
+            '  color:var(--muted);font:inherit;font-size:13px;cursor:pointer}',
+            '.sn-pick:hover{color:var(--paper)}',
+            '.sn-pick.on{border-color:var(--sea);color:var(--sea);background:rgba(127,168,165,.10)}',
+            '.sn-lab{display:block;margin:12px 0 0;font-size:12.5px;color:var(--muted)}',
+            '.sn-lab input{margin-top:5px}',
             '.sn-count{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--faint);margin-left:auto}',
             '.sn-msg{font-size:13px;margin-top:10px;line-height:1.6}',
             '.sn-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}',
@@ -85,17 +91,22 @@
     function sb() { return window.supabaseClient; }
 
     // ── the dialog: asked only once there is something to send ───────────────
-    function askAddress(onSend) {
+    // `kind` only swaps two lines of copy. A note about a place nobody has checked is
+    // not going on a school's page, because there is no school and no page — offering
+    // that tick would be asking consent for something that cannot happen.
+    function askAddress(onSend, kind) {
+        var isPlace = kind === 'place';
         var wrap = document.createElement('div');
         wrap.className = 'sn-dlg';
         wrap.innerHTML =
             '<div class="sn-card" role="dialog" aria-modal="true" aria-label="Where I write back">' +
               '<h3>Where do I write back?</h3>' +
-              '<p>Your comment is written. This is only so Arnaud can answer it, and so you can be ' +
+              '<p>Your ' + (isPlace ? 'note' : 'comment') + ' is written. This is only so Arnaud can answer it, and so you can be ' +
               'credited if you want to be. He reads every one himself before anything appears.</p>' +
               '<input type="email" id="sn-email" placeholder="you@wherever.com" autocomplete="email">' +
               '<label class="sn-tick"><input type="checkbox" id="sn-pub" checked>' +
-                '<span>Put it on the school’s page. I understand it is public.</span></label>' +
+                '<span>' + (isPlace ? 'Quote me if this place ever gets a page of its own. I understand that would be public.'
+                                    : 'Put it on the school’s page. I understand it is public.') + '</span></label>' +
               '<label class="sn-field"><span>The name to put on it</span>' +
                 '<input type="text" id="sn-name" placeholder="Kate M. is plenty — or leave it blank" maxlength="60"></label>' +
               '<label class="sn-tick"><input type="checkbox" id="sn-circle">' +
@@ -211,6 +222,126 @@
         });
     }
 
+    // ── the same box, on a place nobody has checked ──────────────────────────
+    // Arnaud, 2026-09-05: "people can tell me if they have been and if its belong to
+    // educatedtraveler ... you think of another school/instructor that belong here
+    // write me a note!"
+    //
+    // The 308 lines under "Where else this craft lives" are the only part of the Atlas
+    // that admits it has not been looked at. That makes them the one place where a
+    // reader knows something we do not — so the box belongs there more than anywhere
+    // else on the site, and it asks the two questions the line cannot answer itself:
+    // have you been, and is there somebody here who should be on this map.
+    //
+    // ⛔ IT CARRIES A state ONLY WHEN THEY SAY THEY WENT, and is keyed
+    // `<craft>--also--<place>`, which matches no destination id. Neither is what stops
+    // it moving a grade — refresh-vouches.mjs does that at the query, by taking only
+    // rows with no school and a real user_id. These are belt to that braces, and the
+    // comment above the filter in that file is the one to read.
+    function slugify(s) {
+        return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 60);
+    }
+
+    function wirePlace(li) {
+        var place = li.getAttribute('data-place');
+        var country = li.getAttribute('data-country') || '';
+        var craft = li.getAttribute('data-craft');
+        if (!place || !craft || li.querySelector('.sn-open')) return;
+
+        var btn = document.createElement('button');
+        btn.className = 'sn-open';
+        btn.type = 'button';
+        btn.textContent = 'Been here? Know someone who teaches here?';
+        li.appendChild(btn);
+
+        btn.addEventListener('click', function () {
+            btn.style.display = 'none';
+            var panel = document.createElement('div');
+            panel.className = 'sn-panel';
+            panel.innerHTML =
+                '<p class="sn-q">Nobody from EducatedTraveler has been to <b>' + esc(place) + '</b>. ' +
+                  'You may know better than the line above.</p>' +
+                '<div class="sn-row" role="group" aria-label="Have you been there?">' +
+                  '<button class="sn-pick" data-been="1" type="button">I have been</button>' +
+                  '<button class="sn-pick" data-been="0" type="button">Not been, but I know it</button>' +
+                '</div>' +
+                '<label class="sn-lab">A school or an instructor here, if you know one' +
+                  '<input class="sn-school" maxlength="120" placeholder="A name — that is the part we cannot research from a desk"></label>' +
+                '<textarea maxlength="' + MAX + '" placeholder="What is actually there. Who teaches, ' +
+                  'and whether you think it belongs on this map."></textarea>' +
+                '<div class="sn-hp"><label>Leave this empty<input type="text" tabindex="-1" autocomplete="off"></label></div>' +
+                '<div class="sn-row"><button class="sn-go" disabled>Send it to Arnaud →</button>' +
+                  '<button class="sn-cancel">Not now</button>' +
+                  '<span class="sn-count">0 / ' + MIN + '</span></div>' +
+                '<p class="sn-msg" style="display:none"></p>';
+            li.appendChild(panel);
+
+            var been = null;
+            var picks = panel.querySelectorAll('.sn-pick');
+            Array.prototype.forEach.call(picks, function (b) {
+                b.addEventListener('click', function () {
+                    been = b.getAttribute('data-been') === '1';
+                    Array.prototype.forEach.call(picks, function (o) { o.classList.remove('on'); });
+                    b.classList.add('on');
+                });
+            });
+
+            var ta = panel.querySelector('textarea');
+            var school = panel.querySelector('.sn-school');
+            var go = panel.querySelector('.sn-go');
+            var count = panel.querySelector('.sn-count');
+            var msg = panel.querySelector('.sn-msg');
+            var hp = panel.querySelector('.sn-hp input');
+            ta.focus();
+
+            ta.addEventListener('input', function () {
+                var n = ta.value.trim().length;
+                count.textContent = n < MIN ? n + ' / ' + MIN : n + ' / ' + MAX;
+                go.disabled = n < MIN;
+            });
+            panel.querySelector('.sn-cancel').addEventListener('click', function () {
+                panel.remove(); btn.style.display = '';
+            });
+
+            go.addEventListener('click', function () {
+                var what = ta.value.trim();
+                if (what.length < MIN) return;
+                if (hp.value) { panel.remove(); btn.style.display = ''; return; }
+                // The two answers are not columns on this table, and inventing columns
+                // for them would need a migration nobody has run. They are the first
+                // line of the note instead, where the person reading it will see them.
+                var stamp = (been === true ? 'Has been there.'
+                          : been === false ? 'Has not been — writing from what they know.'
+                          : 'Did not say whether they have been.');
+                askAddress(function (a, done) {
+                    send({ craft: craft,
+                           destination: craft + '--also--' + slugify(place),
+                           // The policy requires a school. When they name none, the row is
+                           // about the place, and it says so rather than inventing a school.
+                           school: school.value.trim() || (place + (country ? ', ' + country : '')),
+                           what: stamp + '\n\n' + what,
+                           been: been === true,
+                           email: a.email, display_name: a.name, publish: a.publish,
+                           circle: a.circle },
+                         function (ok, text) {
+                             done(ok);
+                             if (!ok) {
+                                 // Their words stay on the screen — the same rule the
+                                 // school box follows, and for the same reason.
+                                 msg.innerHTML = text;
+                                 msg.style.display = 'block';
+                                 msg.style.color = '#f0a58a';
+                                 go.disabled = false;
+                                 return;
+                             }
+                             panel.innerHTML = '<p class="sn-msg" style="display:block">' + text + '</p>';
+                         });
+                }, 'place');
+            });
+        });
+    }
+
     function send(row, cb) {
         var client = sb();
         if (!client) return cb(false, 'Could not reach the site just now — try again in a minute.');
@@ -223,7 +354,11 @@
             destination: row.destination,
             school: row.school,
             what: row.what,
-            state: 'stood in it',
+            // ⛔ A state is a claim about evidence. A school comment is written by
+            // somebody who was there; a note on a catalogued place may not be — so it
+            // carries a state only when they said they went. refresh-vouches.mjs is
+            // what actually keeps either of them out of a grade.
+            state: row.been === false ? null : 'stood in it',
             display_name: row.display_name || null,
             email: row.email || null,
             consent_public: !!row.publish,
@@ -299,8 +434,13 @@
 
     function boot() {
         var lis = document.querySelectorAll('li[data-school]');
-        if (!lis.length) return;
+        var also = document.querySelectorAll('li[data-also]');
+        if (!lis.length && !also.length) return;
         css();
+        // The catalogued places need no supabase round-trip: nothing is published back
+        // to them, so the boxes are wired and the function returns before the wait loop.
+        Array.prototype.forEach.call(also, wirePlace);
+        if (!lis.length) return;
         Array.prototype.forEach.call(lis, wire);
         var first = lis[0];
         var craft = first.getAttribute('data-craft'), dest = first.getAttribute('data-dest');

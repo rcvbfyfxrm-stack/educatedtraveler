@@ -231,7 +231,14 @@ def also_here_block(craft_id):
     d = DISC_BY_ID.get(craft_id)
     if not d or not d.get("alsoHere"):
         return ""
-    return f"{ALSO_OPEN}\n{atlas_hub.also_here_html(d)}\n{ALSO_CLOSE}\n"
+    # ⚠ The script too. A preserved sheet is not built by build-atlas-pages, so it
+    # never got /js/school-note.js — the box would have been markup with nothing
+    # behind it on exactly the six sheets that need it most. Fourth time this trap
+    # has fired; it lives inside the marker so a re-run replaces it rather than
+    # stacking a second copy.
+    return (f"{ALSO_OPEN}\n{atlas_hub.also_here_html(d)}\n"
+            '<script src="/js/school-note.js" defer></script>\n'
+            f"{ALSO_CLOSE}\n")
 
 
 # The craft sheets in `preserve` — the redirect stubs and place pages are not craft pages.
