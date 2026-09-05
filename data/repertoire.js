@@ -269,7 +269,49 @@ window.ET_ATLAS = {
             "confidence": "low"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Goa (Arambol & Mandrem)",
+          "country": "India",
+          "note": "The winter beach season, when north Goa fills with month-long trainings run by teachers who move down from the Himalaya."
+        },
+        {
+          "place": "Dharamsala & McLeod Ganj",
+          "country": "India",
+          "note": "A Himalayan foothill town where the Tibetan exile community makes asana sit beside meditation rather than replace it."
+        },
+        {
+          "place": "Neyyar Dam & Varkala, Kerala",
+          "country": "India",
+          "note": "Sivananda's southern ashram country, where the practice is taught alongside Ayurveda and a fixed daily discipline."
+        },
+        {
+          "place": "Koh Phangan",
+          "country": "Thailand",
+          "note": "A Gulf island whose whole visitor economy grew around yoga, fasting and detox; huge choice, very uneven."
+        },
+        {
+          "place": "Byron Bay",
+          "country": "Australia",
+          "note": "Australia's alternative-health capital and one of the densest teacher-training markets in the English-speaking world."
+        },
+        {
+          "place": "Boulder, Colorado",
+          "country": "United States",
+          "note": "A long American contemplative scene around Naropa, where yoga and Buddhist practice have overlapped for fifty years."
+        },
+        {
+          "place": "Tulum & Playa del Carmen",
+          "country": "Mexico",
+          "note": "The Caribbean retreat coast — short trainings, strong on setting, thin on lineage."
+        },
+        {
+          "place": "Lisbon & the Algarve",
+          "country": "Portugal",
+          "note": "Europe's cheapest year-round retreat coast, and the one most reachable without a long-haul flight."
+        }
+      ]
     },
     {
       "discipline": "Ashtanga Yoga",
@@ -453,7 +495,49 @@ window.ET_ATLAS = {
         "sessions": [],
         "priceNote": "",
         "confidence": "medium"
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Goa",
+          "country": "India",
+          "note": "Where the winter shalas run while Mysore is out of season, often with the same travelling students."
+        },
+        {
+          "place": "Copenhagen",
+          "country": "Denmark",
+          "note": "A northern-European city with an established Mysore-style morning practice, six days a week."
+        },
+        {
+          "place": "Berlin",
+          "country": "Germany",
+          "note": "A large European Ashtanga community spread across several independent shalas."
+        },
+        {
+          "place": "Melbourne",
+          "country": "Australia",
+          "note": "The southern-hemisphere counterweight to London and New York, with its own long-running Mysore rooms."
+        },
+        {
+          "place": "Tokyo",
+          "country": "Japan",
+          "note": "A disciplined, early-morning Mysore culture that suits the method's demand for daily attendance."
+        },
+        {
+          "place": "Encinitas & Los Angeles",
+          "country": "United States",
+          "note": "Where Ashtanga first took root in America, and where several of its senior Western teachers still live."
+        },
+        {
+          "place": "Paris",
+          "country": "France",
+          "note": "A continental hub with Mysore rooms running through the working week."
+        },
+        {
+          "place": "Stockholm",
+          "country": "Sweden",
+          "note": "A small but continuous Scandinavian scene, useful if you want a room rather than a crowd."
+        }
+      ]
     },
     {
       "discipline": "Pranayama & Breathwork",
@@ -1153,7 +1237,54 @@ window.ET_ATLAS = {
         ],
         "priceNote": "Donation only (no fee)",
         "confidence": "high"
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Bodh Gaya",
+          "country": "India",
+          "note": "Where the Buddha is said to have been enlightened; the winter retreat season draws teachers from every Buddhist tradition."
+        },
+        {
+          "place": "Dharamsala",
+          "country": "India",
+          "note": "Tibetan Buddhist teaching in the Himalayan foothills, a different lineage from the Burmese one this craft is built on."
+        },
+        {
+          "place": "Kathmandu (Kopan & Shechen)",
+          "country": "Nepal",
+          "note": "Monastery-run courses above the valley, taught in English for foreigners for decades."
+        },
+        {
+          "place": "Wat Suan Mokkh, Chaiya",
+          "country": "Thailand",
+          "note": "A southern forest monastery whose ten-day silent retreats run on a monastic timetable, outdoors."
+        },
+        {
+          "place": "Pa-Auk, Mawlamyine",
+          "country": "Myanmar",
+          "note": "A forest monastery known for long, technically exacting concentration practice rather than short courses."
+        },
+        {
+          "place": "Plum Village, Dordogne",
+          "country": "France",
+          "note": "Thich Nhat Hanh's community — the same silence, a wholly different Vietnamese Zen approach."
+        },
+        {
+          "place": "Gaia House, Devon",
+          "country": "United Kingdom",
+          "note": "England's principal insight-meditation retreat centre, in the same Western lineage as Barre."
+        },
+        {
+          "place": "Amaravati, Hertfordshire",
+          "country": "United Kingdom",
+          "note": "Thai forest lineage transplanted to England, with retreats offered on donation."
+        },
+        {
+          "place": "Spirit Rock, California",
+          "country": "United States",
+          "note": "The West Coast counterpart to Barre, from the same founding generation of Western teachers."
+        }
+      ]
     },
     {
       "discipline": "Reiki & Energy Healing",
@@ -1534,7 +1665,44 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Rishikesh",
+          "country": "India",
+          "note": "Nada yoga taught inside the wider yoga economy, where sound is one module of a longer training."
+        },
+        {
+          "place": "Ubud, Bali",
+          "country": "Indonesia",
+          "note": "A dense retreat market with gong and bowl trainings running most weeks of the year."
+        },
+        {
+          "place": "Berlin",
+          "country": "Germany",
+          "note": "A secular European scene where sound work sits closer to music therapy than to devotion."
+        },
+        {
+          "place": "Sedona, Arizona",
+          "country": "United States",
+          "note": "The American centre of the commercial sound-bath market; large, and almost entirely unregulated."
+        },
+        {
+          "place": "Totnes, Devon",
+          "country": "United Kingdom",
+          "note": "A small English town with a long alternative-therapy tradition and several practitioner trainings."
+        },
+        {
+          "place": "Ibiza",
+          "country": "Spain",
+          "note": "A retreat island where sound work has been folded into the wellness season."
+        },
+        {
+          "place": "Byron Bay",
+          "country": "Australia",
+          "note": "The Australian end of the same market, with trainings aimed at practitioners rather than visitors."
+        }
+      ]
     },
     {
       "discipline": "Tantra & Conscious Intimacy",
@@ -1895,7 +2063,39 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Chiang Rai",
+          "country": "Thailand",
+          "note": "Northern-style practice away from Chiang Mai's crowded school district, in a quieter town."
+        },
+        {
+          "place": "Koh Samui & Koh Phangan",
+          "country": "Thailand",
+          "note": "Island schools built around the visitor season; convenient, and further from the ministry-recognised lineages."
+        },
+        {
+          "place": "Ayutthaya",
+          "country": "Thailand",
+          "note": "The old capital, where the temple medicine that Wat Pho later codified was practised."
+        },
+        {
+          "place": "Luang Prabang",
+          "country": "Laos",
+          "note": "A neighbouring Lao bodywork tradition with shared roots and a different rhythm."
+        },
+        {
+          "place": "Phnom Penh",
+          "country": "Cambodia",
+          "note": "Khmer massage, related and distinct, with training aimed largely at local practitioners."
+        },
+        {
+          "place": "Vientiane",
+          "country": "Laos",
+          "note": "Herbal compress and sauna traditions taught alongside the hands-on work."
+        }
+      ]
     },
     {
       "discipline": "Ayurveda",
@@ -2864,7 +3064,49 @@ window.ET_ATLAS = {
             "confidence": "low"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Tromsø & Lofoten",
+          "country": "Norway",
+          "note": "Arctic sea temperatures with a local swimming culture that predates any method by centuries."
+        },
+        {
+          "place": "Finnish Lakeland",
+          "country": "Finland",
+          "note": "Sauna and ice-hole as ordinary domestic practice rather than a course — the oldest version of this."
+        },
+        {
+          "place": "Otepää & Võru",
+          "country": "Estonia",
+          "note": "Smoke-sauna country, on UNESCO's intangible heritage list, where heat and cold are a ritual not a challenge."
+        },
+        {
+          "place": "Scottish Highlands",
+          "country": "United Kingdom",
+          "note": "Wild swimming in lochs year-round, with a growing network of unguided local groups."
+        },
+        {
+          "place": "Cornwall",
+          "country": "United Kingdom",
+          "note": "Sea swimming through the winter, the cheapest cold water reachable from most of England."
+        },
+        {
+          "place": "Bavarian Alps & Lake Constance",
+          "country": "Germany",
+          "note": "Kneipp's own country, where cold-water therapy has a formal medical tradition behind it."
+        },
+        {
+          "place": "Swiss Alps (Zermatt & Engadin)",
+          "country": "Switzerland",
+          "note": "High-altitude cold with a long spa-medicine history alongside it."
+        },
+        {
+          "place": "Big Sur & Northern California",
+          "country": "United States",
+          "note": "Cold Pacific water and the American end of the breathwork scene."
+        }
+      ]
     },
     {
       "discipline": "Ecstatic Dance & Movement",
@@ -3811,7 +4053,59 @@ window.ET_ATLAS = {
         ],
         "priceNote": "~€895 (instructor course)",
         "confidence": "medium"
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Amed & Nusa Penida, Bali",
+          "country": "Indonesia",
+          "note": "Warm, deep water close to shore and a large year-round instructor community."
+        },
+        {
+          "place": "Panglao, Bohol",
+          "country": "Philippines",
+          "note": "A cheap, warm training base with deep water minutes from the beach."
+        },
+        {
+          "place": "Koh Tao",
+          "country": "Thailand",
+          "note": "High-volume, low-cost courses; the easiest place in the world to get certified, and the least selective."
+        },
+        {
+          "place": "Roatán",
+          "country": "Honduras",
+          "note": "Caribbean walls dropping straight off the reef, with a small permanent freediving scene."
+        },
+        {
+          "place": "Sharm el-Sheikh",
+          "country": "Egypt",
+          "note": "The Red Sea's other base, less concentrated than Dahab and easier to reach."
+        },
+        {
+          "place": "Tenerife & La Palma, Canary Islands",
+          "country": "Spain",
+          "note": "Deep Atlantic water within Europe, usable all winter."
+        },
+        {
+          "place": "Gozo",
+          "country": "Malta",
+          "note": "Blue-hole and cave diving in the Mediterranean, on a short flight from most of Europe."
+        },
+        {
+          "place": "Villefranche & Nice",
+          "country": "France",
+          "note": "Deep water immediately off a city shoreline, where French apnea clubs train."
+        },
+        {
+          "place": "Sardinia",
+          "country": "Italy",
+          "note": "Clear Tyrrhenian water and a strong domestic apnea culture."
+        },
+        {
+          "place": "Limassol & Cyprus",
+          "country": "Cyprus",
+          "note": "Warm water into late autumn, with an established competition line."
+        }
+      ]
     },
     {
       "discipline": "Spearfishing",
@@ -3972,7 +4266,59 @@ window.ET_ATLAS = {
         "priceNote": "",
         "confidence": "medium",
         "priceFrom": "€3,696"
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Sardinia",
+          "country": "Italy",
+          "note": "Rocky Tyrrhenian coast with one of Europe's deepest-rooted breath-hold hunting cultures."
+        },
+        {
+          "place": "Dalmatian islands",
+          "country": "Croatia",
+          "note": "Clear Adriatic water, strict permit rules, and a serious domestic scene."
+        },
+        {
+          "place": "The Cyclades",
+          "country": "Greece",
+          "note": "Island coastlines where spearfishing is ordinary practice rather than a holiday activity."
+        },
+        {
+          "place": "Azores",
+          "country": "Portugal",
+          "note": "Mid-Atlantic pelagic hunting, weather-dependent and for experienced divers."
+        },
+        {
+          "place": "Cape Verde",
+          "country": "Cape Verde",
+          "note": "Warm Atlantic bluewater with wahoo and tuna close to the islands."
+        },
+        {
+          "place": "Coiba & the Pacific coast",
+          "country": "Panama",
+          "note": "Remote bluewater reached by boat, with strong protection rules around the park."
+        },
+        {
+          "place": "Cape Town & the Cape peninsula",
+          "country": "South Africa",
+          "note": "Cold, tough Atlantic conditions and a demanding local tradition."
+        },
+        {
+          "place": "Northland",
+          "country": "New Zealand",
+          "note": "A national spearfishing culture with well-defined size and bag limits."
+        },
+        {
+          "place": "Exmouth, Western Australia",
+          "country": "Australia",
+          "note": "Ningaloo's edge, where reef and bluewater meet within a short run."
+        },
+        {
+          "place": "Florida Keys",
+          "country": "United States",
+          "note": "Shallow reef and wreck hunting under tightly enforced seasonal rules."
+        }
+      ]
     },
     {
       "discipline": "Cave & Technical Diving",
@@ -4347,7 +4693,59 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Palma de Mallorca",
+          "country": "Spain",
+          "note": "The Mediterranean's yachting capital, where much of the industry's training and hiring happens."
+        },
+        {
+          "place": "Gibraltar",
+          "country": "Gibraltar",
+          "note": "A tidal, current-heavy strait that teaches passage planning quickly, in English, at the mouth of the Med."
+        },
+        {
+          "place": "Athens & the Saronic Gulf",
+          "country": "Greece",
+          "note": "Reliable summer wind and short island hops — the classic European charter classroom."
+        },
+        {
+          "place": "Split & the Dalmatian coast",
+          "country": "Croatia",
+          "note": "Sheltered island chains with predictable afternoon breeze, forgiving for a first skippered week."
+        },
+        {
+          "place": "Antigua",
+          "country": "Antigua and Barbuda",
+          "note": "The Caribbean's racing and yachting hub, with a long season and deep professional crew market."
+        },
+        {
+          "place": "Annapolis, Maryland",
+          "country": "United States",
+          "note": "The centre of American sail training on Chesapeake Bay, with its own certification ladder."
+        },
+        {
+          "place": "Auckland's Hauraki Gulf and the Bay of Islands",
+          "country": "New Zealand",
+          "note": "Beyond the city, the cruising ground that made New Zealand a sailing nation."
+        },
+        {
+          "place": "Largs & the Firth of Clyde",
+          "country": "United Kingdom",
+          "note": "Cold, tidal Scottish water where the RYA scheme is taught without the Solent's traffic."
+        },
+        {
+          "place": "Cape Town",
+          "country": "South Africa",
+          "note": "Big Atlantic swell and strong wind — a hard place to learn and a serious one to log miles."
+        },
+        {
+          "place": "Pittwater & Sydney",
+          "country": "Australia",
+          "note": "Year-round sailing on protected water, with an established southern-hemisphere training market."
+        }
+      ]
     },
     {
       "discipline": "Surfing",
@@ -4560,7 +4958,79 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Canggu & Uluwatu, Bali",
+          "country": "Indonesia",
+          "note": "Where more beginners learn than almost anywhere on earth — warm water, endless schools, and reef once you progress."
+        },
+        {
+          "place": "Taghazout & Tamraght",
+          "country": "Morocco",
+          "note": "A short flight from Europe, with more surf camps than surf spots and a long autumn-to-spring season."
+        },
+        {
+          "place": "Nosara & Santa Teresa",
+          "country": "Costa Rica",
+          "note": "Consistent Pacific beach break and a resident international surf community."
+        },
+        {
+          "place": "Weligama & Arugam Bay",
+          "country": "Sri Lanka",
+          "note": "Two coasts with opposite seasons, so the island works most of the year."
+        },
+        {
+          "place": "Hossegor & the Landes",
+          "country": "France",
+          "note": "Europe's heaviest beach break, and the industry town behind it — better for progression than for a first week."
+        },
+        {
+          "place": "Biarritz & the Basque coast",
+          "country": "France",
+          "note": "Where European surfing began, with gentler options than the Landes just south."
+        },
+        {
+          "place": "Zarautz & Mundaka",
+          "country": "Spain",
+          "note": "A Basque beach-break town for learning, twenty minutes from one of the world's best left-hand river mouths."
+        },
+        {
+          "place": "Lagos & Sagres",
+          "country": "Portugal",
+          "note": "The Algarve's two-coast corner, where you can nearly always find a sheltered side."
+        },
+        {
+          "place": "Byron Bay",
+          "country": "Australia",
+          "note": "Long, forgiving points and the densest learner scene in Australia."
+        },
+        {
+          "place": "Siargao",
+          "country": "Philippines",
+          "note": "Warm water, a famous reef wave, and gentler beach options for a first season."
+        },
+        {
+          "place": "Newquay & north Cornwall",
+          "country": "United Kingdom",
+          "note": "Britain's own surf coast, cold and consistent, with the shortest journey for anyone in England."
+        },
+        {
+          "place": "Tofino, British Columbia",
+          "country": "Canada",
+          "note": "Cold-water surfing in temperate rainforest, quiet and seriously equipment-dependent."
+        },
+        {
+          "place": "Jeffreys Bay",
+          "country": "South Africa",
+          "note": "A world-famous right point with an intermediate step-up alongside it."
+        },
+        {
+          "place": "Puerto Escondido",
+          "country": "Mexico",
+          "note": "A heavy, dangerous beach break — listed as a destination to progress toward, not to learn at."
+        }
+      ]
     },
     {
       "discipline": "Kitesurfing",
@@ -4805,7 +5275,59 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Dakhla",
+          "country": "Western Sahara / Morocco",
+          "note": "A flatwater lagoon with near-constant wind, and the winter base for much of Europe's kite scene."
+        },
+        {
+          "place": "Essaouira",
+          "country": "Morocco",
+          "note": "Reliable Atlantic wind and a working town rather than a resort."
+        },
+        {
+          "place": "Le Morne",
+          "country": "Mauritius",
+          "note": "Lagoon flatwater inside the reef with a wave option outside it, in warm water year-round."
+        },
+        {
+          "place": "Paje, Zanzibar",
+          "country": "Tanzania",
+          "note": "Shallow, waist-deep water over sand at low tide — one of the safest places to make first mistakes."
+        },
+        {
+          "place": "Cumbuco, Taíba & Jericoacoara",
+          "country": "Brazil",
+          "note": "Months of side-onshore trade wind along a coast built entirely around kiting."
+        },
+        {
+          "place": "Hood River, Oregon",
+          "country": "United States",
+          "note": "The Columbia River Gorge — freshwater, thermally driven wind, and North America's centre of the sport."
+        },
+        {
+          "place": "Kalpitiya",
+          "country": "Sri Lanka",
+          "note": "A lagoon-and-ocean combination with two distinct wind seasons."
+        },
+        {
+          "place": "Mui Ne",
+          "country": "Vietnam",
+          "note": "Consistent winter wind and low costs, popular for long improver stays."
+        },
+        {
+          "place": "Langebaan",
+          "country": "South Africa",
+          "note": "A large flatwater lagoon with a long windy summer."
+        },
+        {
+          "place": "Fuerteventura & Lanzarote",
+          "country": "Spain",
+          "note": "Canary trade winds within the EU, usable most of the year."
+        }
+      ]
     },
     {
       "discipline": "Windsurfing & Wing-foil",
@@ -5188,7 +5710,59 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Sotavento, Fuerteventura",
+          "country": "Spain",
+          "note": "A long flatwater lagoon at low tide and open ocean at high, with a strong summer trade wind."
+        },
+        {
+          "place": "Bonaire",
+          "country": "Netherlands",
+          "note": "Lac Bay's shallow, standable flatwater — the classic freestyle nursery."
+        },
+        {
+          "place": "Hood River, Oregon",
+          "country": "United States",
+          "note": "The Columbia River Gorge, where American windsurfing is concentrated and the wind is thermal and dependable."
+        },
+        {
+          "place": "Vassiliki, Lefkada",
+          "country": "Greece",
+          "note": "An afternoon thermal that builds like clockwork in a bay designed for teaching."
+        },
+        {
+          "place": "Prasonisi, Rhodes",
+          "country": "Greece",
+          "note": "A sandbar with flatwater one side and chop the other, so one spot covers two skill sets."
+        },
+        {
+          "place": "Torbole, Lake Garda",
+          "country": "Italy",
+          "note": "Two reliable daily winds on fresh water, and the gentlest introduction in the Alps."
+        },
+        {
+          "place": "Essaouira",
+          "country": "Morocco",
+          "note": "Strong Atlantic wind on a working-town coast, cheap outside the European season."
+        },
+        {
+          "place": "Alaçatı",
+          "country": "Türkiye",
+          "note": "Shallow standable water and a long summer meltemi, heavily geared to lessons."
+        },
+        {
+          "place": "Jericoacoara",
+          "country": "Brazil",
+          "note": "Months of side-onshore wind with flatwater lagoons inland from the beach."
+        },
+        {
+          "place": "Langebaan & Cape Town",
+          "country": "South Africa",
+          "note": "A big lagoon for flatwater and serious ocean conditions nearby."
+        }
+      ]
     },
     {
       "discipline": "Rock Climbing",
@@ -5467,7 +6041,89 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Railay & Tonsai, Krabi",
+          "country": "Thailand",
+          "note": "Warm limestone straight off the beach, with well-bolted easy routes and schools used to complete beginners."
+        },
+        {
+          "place": "Red River Gorge, Kentucky",
+          "country": "United States",
+          "note": "The best-known sport climbing in North America, with a long season and guide services used to first-timers."
+        },
+        {
+          "place": "Frankenjura",
+          "country": "Germany",
+          "note": "Thousands of short limestone routes where modern sport-climbing grades were argued into existence."
+        },
+        {
+          "place": "Siurana & Margalef",
+          "country": "Spain",
+          "note": "Catalonia's twin sport-climbing valleys, technical conglomerate and steep limestone side by side."
+        },
+        {
+          "place": "El Chorro & Málaga",
+          "country": "Spain",
+          "note": "Southern Spanish limestone with a mild winter season and a long-established climbing village."
+        },
+        {
+          "place": "Arco, Lake Garda",
+          "country": "Italy",
+          "note": "A town organised around climbing, with everything from single pitch to long alpine rock nearby."
+        },
+        {
+          "place": "Leonidio",
+          "country": "Greece",
+          "note": "A newer Greek sport-climbing area developed rapidly by local and visiting bolters."
+        },
+        {
+          "place": "Costa Blanca",
+          "country": "Spain",
+          "note": "Winter-reliable limestone with a mix of sport and long easy multi-pitch — good for a first big route."
+        },
+        {
+          "place": "Ceüse",
+          "country": "France",
+          "note": "A single high alpine crag with a reputation for the best limestone in Europe, and a long walk to reach it."
+        },
+        {
+          "place": "Verdon Gorge",
+          "country": "France",
+          "note": "Vertiginous limestone abseil-in routes; a place to go once you can already lead."
+        },
+        {
+          "place": "Fontainebleau",
+          "country": "France",
+          "note": "The world's oldest bouldering forest, with graded circuits designed for progression and no rope at all."
+        },
+        {
+          "place": "Rocklands, Cederberg",
+          "country": "South Africa",
+          "note": "Sandstone bouldering on a winter season, remote and self-sufficient."
+        },
+        {
+          "place": "Squamish, British Columbia",
+          "country": "Canada",
+          "note": "Granite cracks and bouldering an hour from a major city, with a short intense summer."
+        },
+        {
+          "place": "Indian Creek & Moab, Utah",
+          "country": "United States",
+          "note": "Splitter desert cracks that teach a technique almost nowhere else demands."
+        },
+        {
+          "place": "Smith Rock, Oregon",
+          "country": "United States",
+          "note": "Where American sport climbing started, on welded tuff, with a long shoulder season."
+        },
+        {
+          "place": "Albarracín",
+          "country": "Spain",
+          "note": "Red sandstone bouldering in a walled medieval town, winter-friendly and compact."
+        }
+      ]
     },
     {
       "discipline": "Alpinism & Mountaineering",
@@ -6081,7 +6737,64 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Bernese Oberland",
+          "country": "Switzerland",
+          "note": "Big glaciated hut-to-hut country; the Haute Route's quieter neighbour and just as serious."
+        },
+        {
+          "place": "Silvretta & the Arlberg",
+          "country": "Austria",
+          "note": "Gentle-angled glacier touring with a dense hut network — the usual place Europeans learn."
+        },
+        {
+          "place": "The Dolomites",
+          "country": "Italy",
+          "note": "Short approaches, spectacular lines and a strong guide culture, with avalanche terrain that punishes casualness."
+        },
+        {
+          "place": "Hakuba & Niseko",
+          "country": "Japan",
+          "note": "Deep, frequent, low-density snow; the reason splitboarders fly a long way in January."
+        },
+        {
+          "place": "Gudauri & Svaneti",
+          "country": "Georgia",
+          "note": "Big Caucasus terrain at a fraction of Alpine prices, with thinner rescue cover to match."
+        },
+        {
+          "place": "Rogers Pass, British Columbia",
+          "country": "Canada",
+          "note": "Roadside access to serious alpine touring, under one of the most sophisticated avalanche programmes anywhere."
+        },
+        {
+          "place": "The Tetons, Wyoming",
+          "country": "United States",
+          "note": "Steep, committing lines above a town that has produced generations of ski mountaineers."
+        },
+        {
+          "place": "Eastern Sierra, California",
+          "country": "United States",
+          "note": "Long spring corn seasons and huge vertical, with little infrastructure once you leave the road."
+        },
+        {
+          "place": "Sunnmøre Alps",
+          "country": "Norway",
+          "note": "Fjord-to-summit lines like Lyngen's, further south and reachable without an Arctic flight."
+        },
+        {
+          "place": "Gavarnie & the Pyrenees",
+          "country": "France / Spain",
+          "note": "A cheaper, lower range with a real touring tradition and a shorter season."
+        },
+        {
+          "place": "Écrins",
+          "country": "France",
+          "note": "France's high, dry massif — less crowded than Chamonix and more remote when things go wrong."
+        }
+      ]
     },
     {
       "discipline": "Paragliding",
@@ -7476,7 +8189,59 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Mana Pools & Hwange",
+          "country": "Zimbabwe",
+          "note": "Some of the most demanding walking-safari country in Africa, with a famously rigorous national guide exam."
+        },
+        {
+          "place": "South Luangwa",
+          "country": "Zambia",
+          "note": "The valley where the walking safari was invented, and where guides still qualify to lead on foot."
+        },
+        {
+          "place": "Serengeti & Ngorongoro",
+          "country": "Tanzania",
+          "note": "The migration ecosystem — enormous, heavily visited, and the standard against which others are described."
+        },
+        {
+          "place": "Nyerere (Selous)",
+          "country": "Tanzania",
+          "note": "Vast, wild and lightly trafficked, with boat and walking access rather than road."
+        },
+        {
+          "place": "Etosha & Damaraland",
+          "country": "Namibia",
+          "note": "Desert-adapted wildlife and a landscape that teaches tracking because cover is thin."
+        },
+        {
+          "place": "Kgalagadi Transfrontier Park",
+          "country": "South Africa / Botswana",
+          "note": "Red dunes and predator viewing in a park run jointly across a border."
+        },
+        {
+          "place": "Madikwe & the Waterberg",
+          "country": "South Africa",
+          "note": "Malaria-free reserves close to Johannesburg where many South African guides do their first seasons."
+        },
+        {
+          "place": "Queen Elizabeth & Kibale",
+          "country": "Uganda",
+          "note": "Savannah and primate work in one country, with a separate guiding qualification for gorilla and chimp tracking."
+        },
+        {
+          "place": "Ranthambore, Kanha & Bandhavgarh",
+          "country": "India",
+          "note": "Tiger country, with a state-licensed naturalist system that works nothing like FGASA."
+        },
+        {
+          "place": "Pantanal",
+          "country": "Brazil",
+          "note": "The densest large-mammal viewing in South America, and a guiding tradition built around boats and horses."
+        }
+      ]
     },
     {
       "discipline": "Horsemanship",
@@ -8515,7 +9280,74 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Kyoto (Kiyomizu & Gojōzaka)",
+          "country": "Japan",
+          "note": "Refined tea-ware traditions and workshops in the city that shaped what tea ceramics look like."
+        },
+        {
+          "place": "Icheon",
+          "country": "South Korea",
+          "note": "Korea's ceramic town, with a celadon and buncheong lineage and a large annual festival."
+        },
+        {
+          "place": "Faenza",
+          "country": "Italy",
+          "note": "The town that gave faience its name, with a museum and a technical school behind it."
+        },
+        {
+          "place": "Deruta",
+          "country": "Italy",
+          "note": "Umbrian maiolica painting, taught as decoration on form rather than throwing."
+        },
+        {
+          "place": "Stoke-on-Trent",
+          "country": "United Kingdom",
+          "note": "The industrial heart of English ceramics — production skills and mould-making rather than studio pottery."
+        },
+        {
+          "place": "La Borne",
+          "country": "France",
+          "note": "A French wood-firing village with a residency culture and long anagama traditions."
+        },
+        {
+          "place": "Höhr-Grenzhausen",
+          "country": "Germany",
+          "note": "The Westerwald's salt-glaze stoneware town, with a technical ceramics institute."
+        },
+        {
+          "place": "San Bartolo Coyotepec, Oaxaca",
+          "country": "Mexico",
+          "note": "Burnished barro negro, hand-built without a wheel, in a village that makes almost nothing else."
+        },
+        {
+          "place": "Bat Trang",
+          "country": "Vietnam",
+          "note": "A river village supplying Hanoi with pottery for centuries, now heavily geared to visitors."
+        },
+        {
+          "place": "Fez & Safi",
+          "country": "Morocco",
+          "note": "Zellige tile-cutting and painted earthenware, taught in workshops rather than schools."
+        },
+        {
+          "place": "İznik & Kütahya",
+          "country": "Türkiye",
+          "note": "The quartz-bodied tile tradition behind Ottoman mosque interiors, revived and still worked."
+        },
+        {
+          "place": "Alfred, New York",
+          "country": "United States",
+          "note": "A university ceramics programme with an outsized influence on American studio pottery."
+        },
+        {
+          "place": "Gulgong, New South Wales",
+          "country": "Australia",
+          "note": "A small town that hosts one of the ceramics world's main international gatherings."
+        }
+      ]
     },
     {
       "discipline": "Woodworking & Joinery",
@@ -9653,7 +10485,59 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Berlin",
+          "country": "Germany",
+          "note": "Cheap studio space, a large working photographer community and a strong documentary tradition."
+        },
+        {
+          "place": "Tokyo",
+          "country": "Japan",
+          "note": "A distinct photographic canon and a used-camera market unlike anywhere else."
+        },
+        {
+          "place": "Prague",
+          "country": "Czechia",
+          "note": "FAMU's film and photography school gave central Europe a lasting photographic culture."
+        },
+        {
+          "place": "Amsterdam & Rotterdam",
+          "country": "Netherlands",
+          "note": "Dutch documentary photography and a dense network of small galleries and photo festivals."
+        },
+        {
+          "place": "Perpignan",
+          "country": "France",
+          "note": "The town that hosts photojournalism's main annual meeting each September."
+        },
+        {
+          "place": "Milan",
+          "country": "Italy",
+          "note": "Fashion and commercial photography, where the work is advertising rather than reportage."
+        },
+        {
+          "place": "Los Angeles",
+          "country": "United States",
+          "note": "Studio and entertainment photography, and the industry that supplies it."
+        },
+        {
+          "place": "Chicago",
+          "country": "United States",
+          "note": "A long American teaching tradition in street and documentary work."
+        },
+        {
+          "place": "Copenhagen",
+          "country": "Denmark",
+          "note": "Nordic documentary photography with a strong publishing culture behind it."
+        },
+        {
+          "place": "Mexico City",
+          "country": "Mexico",
+          "note": "A deep Latin American photographic archive and an active contemporary scene."
+        }
+      ]
     },
     {
       "discipline": "Filmmaking",
@@ -10930,7 +11814,64 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Vicenza",
+          "country": "Italy",
+          "note": "Italy's gold manufacturing district, where the trade is industry rather than atelier."
+        },
+        {
+          "place": "Valenza",
+          "country": "Italy",
+          "note": "High jewellery production for the big houses, and the bench skills that go with it."
+        },
+        {
+          "place": "Birmingham (Jewellery Quarter)",
+          "country": "United Kingdom",
+          "note": "A working quarter with an assay office and a long-established jewellery school."
+        },
+        {
+          "place": "Antwerp",
+          "country": "Belgium",
+          "note": "The diamond trade's centre, where the skills taught are cutting, grading and dealing."
+        },
+        {
+          "place": "Idar-Oberstein",
+          "country": "Germany",
+          "note": "Gemstone cutting and engraving, a specialism almost nowhere else still teaches."
+        },
+        {
+          "place": "Bangkok",
+          "country": "Thailand",
+          "note": "One of the world's largest coloured-stone markets, with cutting and setting workshops attached."
+        },
+        {
+          "place": "Istanbul (Grand Bazaar)",
+          "country": "Türkiye",
+          "note": "Goldsmithing worked in small family workshops behind the bazaar, largely closed to visitors."
+        },
+        {
+          "place": "Taxco",
+          "country": "Mexico",
+          "note": "A silver town where the whole economy is one metal and one craft."
+        },
+        {
+          "place": "Kyoto & Tokyo",
+          "country": "Japan",
+          "note": "Metal-inlay and alloy traditions — mokume-gane and irogane — that come from sword furniture, not jewellery."
+        },
+        {
+          "place": "Copenhagen",
+          "country": "Denmark",
+          "note": "Scandinavian silversmithing, where design school and bench training sit together."
+        },
+        {
+          "place": "Athens",
+          "country": "Greece",
+          "note": "Goldsmithing built on classical and Byzantine forms, with a small teaching scene."
+        }
+      ]
     },
     {
       "discipline": "Tattooing",
@@ -11475,7 +12416,59 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Kannauj",
+          "country": "India",
+          "note": "Attar distillation into sandalwood, done in copper stills the same way for centuries."
+        },
+        {
+          "place": "Florence",
+          "country": "Italy",
+          "note": "A pharmacy-and-perfumery tradition running back to the monastic apothecaries."
+        },
+        {
+          "place": "Geneva & Zurich",
+          "country": "Switzerland",
+          "note": "Where the largest fragrance houses are headquartered, and where the industry's own schools sit."
+        },
+        {
+          "place": "Cologne",
+          "country": "Germany",
+          "note": "The city that named a whole fragrance family and still trades on it."
+        },
+        {
+          "place": "Isparta",
+          "country": "Türkiye",
+          "note": "Rose fields and distilleries supplying much of the world's rose oil, harvested in May and June."
+        },
+        {
+          "place": "Taif",
+          "country": "Saudi Arabia",
+          "note": "Mountain rose gardens producing one of the most expensive oils in perfumery."
+        },
+        {
+          "place": "Kyoto",
+          "country": "Japan",
+          "note": "Kōdō, the way of incense — a separate discipline that treats scent as something you listen to."
+        },
+        {
+          "place": "Seville & Granada",
+          "country": "Spain",
+          "note": "Orange flower and Andalusian distillation traditions rooted in Al-Andalus."
+        },
+        {
+          "place": "New York",
+          "country": "United States",
+          "note": "The commercial end of the industry, where briefs are written and fragrances are sold."
+        },
+        {
+          "place": "Provence (Nyons & the Drôme)",
+          "country": "France",
+          "note": "Lavender country north of Grasse, where the raw material is farmed rather than compounded."
+        }
+      ]
     },
     {
       "discipline": "Lutherie & Instrument-making",
@@ -12280,7 +13273,59 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Yssingeaux, Haute-Loire",
+          "country": "France",
+          "note": "A small town in the Auvergne given over to a single national pastry school."
+        },
+        {
+          "place": "Brussels & Bruges",
+          "country": "Belgium",
+          "note": "Chocolate work at a standard that rivals France, taught as its own discipline."
+        },
+        {
+          "place": "Vienna",
+          "country": "Austria",
+          "note": "Viennoiserie's actual origin, and a café-pastry tradition that France later absorbed."
+        },
+        {
+          "place": "Turin",
+          "country": "Italy",
+          "note": "Gianduja, chocolate and a confectionery tradition with its own technical schools."
+        },
+        {
+          "place": "Barcelona",
+          "country": "Spain",
+          "note": "A modern Spanish pastry scene that has been exporting technique for twenty years."
+        },
+        {
+          "place": "London",
+          "country": "United Kingdom",
+          "note": "Where a French-trained pastry chef can work in English, at high standard, without the language gate."
+        },
+        {
+          "place": "Seoul",
+          "country": "South Korea",
+          "note": "One of the fastest-growing high-end pastry markets, with French-trained chefs returning home."
+        },
+        {
+          "place": "Taipei",
+          "country": "Taiwan",
+          "note": "A dense competitive bakery culture with strong showings at international pastry contests."
+        },
+        {
+          "place": "Montreal",
+          "country": "Canada",
+          "note": "French-language training in North America, which removes the usual obstacle for anglophone students."
+        },
+        {
+          "place": "Melbourne",
+          "country": "Australia",
+          "note": "A southern-hemisphere pastry scene with its own seasonal calendar and strong café trade."
+        }
+      ]
     },
     {
       "discipline": "Bread & Boulangerie",
@@ -13383,7 +14428,59 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Naples",
+          "country": "Italy",
+          "note": "Pizza as a codified craft with its own protected discipline, and a city that treats it that way."
+        },
+        {
+          "place": "Rome",
+          "country": "Italy",
+          "note": "Four canonical pasta dishes and an argument about each; the best place to learn restraint."
+        },
+        {
+          "place": "Florence & Tuscany",
+          "country": "Italy",
+          "note": "Grilling, bread-based cooking and a butchery tradition that shapes the whole regional table."
+        },
+        {
+          "place": "Modena",
+          "country": "Italy",
+          "note": "Balsamic, cured pork and the technical end of Emilian cooking, next door to Bologna."
+        },
+        {
+          "place": "Bari & Lecce, Puglia",
+          "country": "Italy",
+          "note": "Semolina pasta shaped by hand — orecchiette — and a vegetable-led cuisine."
+        },
+        {
+          "place": "Palermo & Catania, Sicily",
+          "country": "Italy",
+          "note": "Arab, Norman and Spanish layers in one kitchen, and street food as a serious form."
+        },
+        {
+          "place": "Alba & the Langhe",
+          "country": "Italy",
+          "note": "Piedmontese cooking built around truffle, hazelnut and Barolo, with a strong food-school presence."
+        },
+        {
+          "place": "Genoa & Liguria",
+          "country": "Italy",
+          "note": "Pesto, focaccia and a coastal cooking that uses almost no tomato."
+        },
+        {
+          "place": "Venice & the Veneto",
+          "country": "Italy",
+          "note": "Rice rather than pasta, lagoon fish, and cicchetti as a whole way of eating."
+        },
+        {
+          "place": "Sardinia",
+          "country": "Italy",
+          "note": "Its own pasta shapes, breads and pastoral cooking, closer to an island tradition than an Italian one."
+        }
+      ]
     },
     {
       "discipline": "New Basque Cuisine",
@@ -13537,7 +14634,44 @@ window.ET_ATLAS = {
             "confidence": "med"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Bilbao",
+          "country": "Spain",
+          "note": "The other Basque city, with a pintxo culture of its own and a large restaurant trade."
+        },
+        {
+          "place": "Getaria & Zarautz",
+          "country": "Spain",
+          "note": "The coastal grill towns where whole-fish cooking over embers is the entire technique."
+        },
+        {
+          "place": "Axpe, Atxondo",
+          "country": "Spain",
+          "note": "A single valley that made wood-fire cooking a modern discipline studied worldwide."
+        },
+        {
+          "place": "Biarritz & Saint-Jean-de-Luz",
+          "country": "France",
+          "note": "The French Basque coast, where the same larder is cooked through a French lens."
+        },
+        {
+          "place": "Pamplona & Navarra",
+          "country": "Spain",
+          "note": "Vegetable-led cooking and a produce tradition the San Sebastián kitchens buy from."
+        },
+        {
+          "place": "Vitoria-Gasteiz",
+          "country": "Spain",
+          "note": "The Basque Country's administrative capital and a quieter, cheaper place to eat and train."
+        },
+        {
+          "place": "Logroño & Rioja",
+          "country": "Spain",
+          "note": "An hour south, where the wine region's own tapas street feeds the same industry."
+        }
+      ]
     },
     {
       "discipline": "Modernist Spanish Cuisine",
@@ -13888,7 +15022,39 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Valencia & Dénia",
+          "country": "Spain",
+          "note": "Rice cookery treated with the same rigour, and a Mediterranean produce tradition behind it."
+        },
+        {
+          "place": "Bilbao",
+          "country": "Spain",
+          "note": "Basque avant-garde work that sits alongside the Catalan story rather than under it."
+        },
+        {
+          "place": "Seville & Cádiz",
+          "country": "Spain",
+          "note": "Andalusian frying and a sherry-country larder that the modernists have repeatedly borrowed from."
+        },
+        {
+          "place": "Tenerife & Las Palmas",
+          "country": "Spain",
+          "note": "An Atlantic island scene with its own produce and a growing high-end restaurant trade."
+        },
+        {
+          "place": "Málaga & Marbella",
+          "country": "Spain",
+          "note": "A concentrated coastal restaurant economy that draws chefs from the northern scenes."
+        },
+        {
+          "place": "Madrid's outskirts (Alcalá & Aranjuez)",
+          "country": "Spain",
+          "note": "Where several of the capital's kitchens source and where quieter training happens."
+        }
+      ]
     },
     {
       "discipline": "Sushi & Washoku",
@@ -14142,7 +15308,59 @@ window.ET_ATLAS = {
         "priceNote": "",
         "confidence": "high",
         "priceFrom": "¥880,000"
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Kanazawa",
+          "country": "Japan",
+          "note": "A castle town with its own refined kaiseki tradition and exceptional winter seafood."
+        },
+        {
+          "place": "Sapporo & Hokkaido",
+          "country": "Japan",
+          "note": "The source of much of Japan's best cold-water fish, uni and crab."
+        },
+        {
+          "place": "Fukuoka",
+          "country": "Japan",
+          "note": "A distinct Kyushu food culture, with yatai street stalls and its own fish market."
+        },
+        {
+          "place": "Toyama",
+          "country": "Japan",
+          "note": "A deep bay producing firefly squid and white shrimp, and a strong sushi culture around it."
+        },
+        {
+          "place": "Shizuoka",
+          "country": "Japan",
+          "note": "Wasabi cultivation and Suruga Bay's fish, close enough to Tokyo for a short stay."
+        },
+        {
+          "place": "Hiroshima",
+          "country": "Japan",
+          "note": "Oyster country with a regional cooking identity separate from Kansai and Kanto."
+        },
+        {
+          "place": "New York",
+          "country": "United States",
+          "note": "The largest concentration of serious sushi outside Japan, and the easiest to reach in English."
+        },
+        {
+          "place": "Vancouver",
+          "country": "Canada",
+          "note": "A Pacific-facing city with long-established Japanese kitchens and excellent local fish."
+        },
+        {
+          "place": "São Paulo",
+          "country": "Brazil",
+          "note": "The biggest Japanese diaspora anywhere, and a hybrid cuisine that came out of it."
+        },
+        {
+          "place": "Honolulu",
+          "country": "United States",
+          "note": "Where Japanese technique and Hawaiian fish have been cooking together for over a century."
+        }
+      ]
     },
     {
       "discipline": "Thai Cuisine",
@@ -15013,7 +16231,89 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Beaune & Burgundy",
+          "country": "France",
+          "note": "Where terroir as an idea was worked out, on a map of vineyards divided plot by plot."
+        },
+        {
+          "place": "Reims & Épernay",
+          "country": "France",
+          "note": "Champagne's houses and the specific technical training that sparkling wine demands."
+        },
+        {
+          "place": "Montpellier",
+          "country": "France",
+          "note": "France's principal oenology faculty, and a teaching tradition older than most wine schools."
+        },
+        {
+          "place": "Alba & the Langhe",
+          "country": "Italy",
+          "note": "Nebbiolo country, with a wine school in Alba and producers who take students seriously."
+        },
+        {
+          "place": "Verona",
+          "country": "Italy",
+          "note": "Home of Italy's largest wine fair and a natural base for learning the whole national map at once."
+        },
+        {
+          "place": "Florence & Tuscany",
+          "country": "Italy",
+          "note": "Sangiovese and a long history of estates that host tasting education."
+        },
+        {
+          "place": "Haro, Rioja",
+          "country": "Spain",
+          "note": "A station district of historic bodegas within walking distance of each other."
+        },
+        {
+          "place": "Jerez de la Frontera",
+          "country": "Spain",
+          "note": "Sherry's solera system — a technique that exists nowhere else and is taught on site."
+        },
+        {
+          "place": "Porto & the Douro",
+          "country": "Portugal",
+          "note": "Fortified wine and the steepest terraced vineyards in Europe, both explained in the lodges."
+        },
+        {
+          "place": "Geisenheim",
+          "country": "Germany",
+          "note": "A leading viticulture and oenology university, teaching in German and English."
+        },
+        {
+          "place": "Adelaide & the Barossa",
+          "country": "Australia",
+          "note": "Australia's wine capital, with a research institute and a university course behind it."
+        },
+        {
+          "place": "Marlborough & Central Otago",
+          "country": "New Zealand",
+          "note": "Two very different climates that make the country a compact teaching map."
+        },
+        {
+          "place": "Stellenbosch",
+          "country": "South Africa",
+          "note": "A university wine faculty and an old Cape estate landscape around it."
+        },
+        {
+          "place": "Mendoza",
+          "country": "Argentina",
+          "note": "High-altitude viticulture at the foot of the Andes, with strong harvest-season programmes."
+        },
+        {
+          "place": "Colchagua & Casablanca",
+          "country": "Chile",
+          "note": "A country narrow enough to teach the effect of ocean and altitude in a single week."
+        },
+        {
+          "place": "Sonoma & Willamette",
+          "country": "United States",
+          "note": "Napa's neighbours, cheaper and often more open to students."
+        }
+      ]
     },
     {
       "discipline": "Sake & Sommellerie of Sake",
@@ -22725,7 +24025,54 @@ window.ET_ATLAS = {
           "englishBasis": "native-English country"
         }
       ],
-      "disclosure": "EducatedTraveler runs a paid week with Martin Lippo, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week costs, and sold out at the time of writing. His classroom courses run in Spanish and carry no published price; English or French is a private course quoted by email. Checked on martinlippo.com, 1 September 2026. If a direct route suits you better, take it."
+      "disclosure": "EducatedTraveler runs a paid week with Martin Lippo, so we are not a neutral party about him. Nobody pays to be on this map and no money reaches us from him. The way in without us is his own site, martinlippo.com, and here is the whole range so you can judge it: single online modules EUR 80-95, the full foams pack EUR 386, and a 44-hour streaming master at EUR 1,880 — more than our week costs, and sold out at the time of writing. His classroom courses run in Spanish and carry no published price; English or French is a private course quoted by email. Checked on martinlippo.com, 1 September 2026. If a direct route suits you better, take it.",
+      "alsoHere": [
+        {
+          "place": "Copenhagen",
+          "country": "Denmark",
+          "note": "Fermentation and preservation developed as a technical discipline with published method."
+        },
+        {
+          "place": "Lima",
+          "country": "Peru",
+          "note": "Where technique meets an ingredient map most kitchens have never worked with."
+        },
+        {
+          "place": "São Paulo",
+          "country": "Brazil",
+          "note": "Amazonian ingredients handled with modern technique, and a serious research kitchen culture."
+        },
+        {
+          "place": "Singapore",
+          "country": "Singapore",
+          "note": "A dense high-end restaurant scene where equipment and technique move fast."
+        },
+        {
+          "place": "Tokyo",
+          "country": "Japan",
+          "note": "Precision technique from an entirely different tradition, and the equipment industry behind it."
+        },
+        {
+          "place": "London",
+          "country": "United Kingdom",
+          "note": "A development-kitchen culture and the easiest English-language access to it."
+        },
+        {
+          "place": "New York",
+          "country": "United States",
+          "note": "Where much of the equipment and food-science literature is written and taught."
+        },
+        {
+          "place": "Bangkok",
+          "country": "Thailand",
+          "note": "A modern Thai kitchen scene applying these tools to a non-European larder."
+        },
+        {
+          "place": "Dubai",
+          "country": "United Arab Emirates",
+          "note": "A fast-growing restaurant market that hires internationally and pays for technique."
+        }
+      ]
     },
     {
       "discipline": "Lymphatic Drainage",
@@ -22793,7 +24140,44 @@ window.ET_ATLAS = {
         "sessions": [],
         "priceNote": "from €895 per block (a verified starting point, not a checkout)",
         "confidence": "high"
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Victoria, British Columbia",
+          "country": "Canada",
+          "note": "A long-established North American teaching centre for the same Vodder method."
+        },
+        {
+          "place": "Hinterzarten & Freiburg",
+          "country": "Germany",
+          "note": "Black Forest clinics where manual lymph drainage sits inside German medical rehabilitation."
+        },
+        {
+          "place": "Brussels & Leuven",
+          "country": "Belgium",
+          "note": "The Leduc method — a separate school of lymphatic therapy with its own clinical evidence base."
+        },
+        {
+          "place": "Paris",
+          "country": "France",
+          "note": "French drainage lymphatique training, taught within physiotherapy rather than beside it."
+        },
+        {
+          "place": "São Paulo",
+          "country": "Brazil",
+          "note": "The world's largest post-surgical drainage market, and an enormous, uneven training industry."
+        },
+        {
+          "place": "Sydney & Melbourne",
+          "country": "Australia",
+          "note": "Lymphoedema practitioner training tied to the national health system's referral pathways."
+        },
+        {
+          "place": "Barcelona",
+          "country": "Spain",
+          "note": "Clinical and aesthetic training taught side by side, which is worth telling apart before you pay."
+        }
+      ]
     },
     {
       "discipline": "Lifestyle Medicine",
@@ -22860,7 +24244,44 @@ window.ET_ATLAS = {
         "sessions": [],
         "priceNote": "CME + exam fees (clinicians)",
         "confidence": "high"
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Loma Linda, California",
+          "country": "United States",
+          "note": "A university town built around one of the longest-studied long-lived populations anywhere."
+        },
+        {
+          "place": "Boston",
+          "country": "United States",
+          "note": "Where much of the nutrition and preventive-medicine research literature is produced."
+        },
+        {
+          "place": "Rochester, Minnesota",
+          "country": "United States",
+          "note": "A major clinical centre with its own preventive and integrative medicine programmes."
+        },
+        {
+          "place": "London",
+          "country": "United Kingdom",
+          "note": "The British society's base, and a separate national route to the same board exam."
+        },
+        {
+          "place": "Amsterdam & Utrecht",
+          "country": "Netherlands",
+          "note": "European lifestyle-medicine teaching inside a strong primary-care system."
+        },
+        {
+          "place": "Sydney & Melbourne",
+          "country": "Australia",
+          "note": "The Australasian society, with its own conference and clinician training."
+        },
+        {
+          "place": "Bengaluru",
+          "country": "India",
+          "note": "A large Indian preventive-medicine scene where the discipline meets yoga and Ayurveda."
+        }
+      ]
     },
     {
       "discipline": "Yacht Crew & STCW",
@@ -23116,7 +24537,64 @@ window.ET_ATLAS = {
         "format": "In person at the Antibes centre, classroom with pool and fire-ground practicals",
         "certification": "STCW Basic Safety Training, MCA-approved",
         "fitsBecause": "Antibes is where the Mediterranean's crew are actually hired, so the ticket and the dock are the same walk — and bluewater publishes the names of the people who teach it, which most schools in this craft do not."
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Auckland",
+          "country": "New Zealand",
+          "note": "A refit and superyacht hub with training and a southern-hemisphere season."
+        },
+        {
+          "place": "Cape Town",
+          "country": "South Africa",
+          "note": "Where a large share of the industry's crew are trained, at markedly lower cost."
+        },
+        {
+          "place": "Viareggio & La Spezia",
+          "country": "Italy",
+          "note": "Italy's build and refit coast, where boats sit for months and crew work ashore."
+        },
+        {
+          "place": "Barcelona",
+          "country": "Spain",
+          "note": "A major refit yard and a Mediterranean crew market alongside Palma's."
+        },
+        {
+          "place": "Gibraltar",
+          "country": "Gibraltar",
+          "note": "English-speaking, at the gateway between the Med and the Atlantic, with a working port."
+        },
+        {
+          "place": "Monaco",
+          "country": "Monaco",
+          "note": "Where the industry's main show happens each September and much of the hiring is arranged."
+        },
+        {
+          "place": "Split",
+          "country": "Croatia",
+          "note": "The Adriatic charter fleet's base, with a shorter but intense summer season."
+        },
+        {
+          "place": "Athens & Piraeus",
+          "country": "Greece",
+          "note": "The Greek charter market and the largest merchant fleet ownership in the world beside it."
+        },
+        {
+          "place": "Newport, Rhode Island",
+          "country": "United States",
+          "note": "The American east-coast yachting town, with training and a summer season."
+        },
+        {
+          "place": "Phuket",
+          "country": "Thailand",
+          "note": "The Asian charter base, where the season runs opposite to the Mediterranean's."
+        },
+        {
+          "place": "Southampton",
+          "country": "United Kingdom",
+          "note": "The British marine industry's home, with the widest range of maritime courses in one city."
+        }
+      ]
     },
     {
       "discipline": "Organic Farm-to-Table Cooking",
@@ -23242,7 +24720,59 @@ window.ET_ATLAS = {
             "confidence": "high"
           }
         ]
-      }
+      },
+      "alsoHere": [
+        {
+          "place": "Tarrytown, New York",
+          "country": "United States",
+          "note": "A working farm and restaurant built as a single institution, with the kitchen downstream of the field."
+        },
+        {
+          "place": "Devon",
+          "country": "United Kingdom",
+          "note": "The English smallholding-and-cookery tradition, with courses in growing, butchery and preserving."
+        },
+        {
+          "place": "Daylesford, Gloucestershire",
+          "country": "United Kingdom",
+          "note": "A large organic estate with a cookery school attached to its own production."
+        },
+        {
+          "place": "Pollenzo, Piedmont",
+          "country": "Italy",
+          "note": "Slow Food's own university, teaching food systems as an academic subject rather than a cookery course."
+        },
+        {
+          "place": "Sicily (Case Vecchie, Palermo province)",
+          "country": "Italy",
+          "note": "A working estate teaching Sicilian home cooking from its own land."
+        },
+        {
+          "place": "Copenhagen & Bornholm",
+          "country": "Denmark",
+          "note": "Nordic growing seasons and a preservation culture built around a short summer."
+        },
+        {
+          "place": "Sonoma & the Napa Valley",
+          "country": "United States",
+          "note": "American farm-to-table's origin, where restaurant and grower relationships were first formalised."
+        },
+        {
+          "place": "Provence",
+          "country": "France",
+          "note": "Market cooking taught around a produce calendar rather than a syllabus."
+        },
+        {
+          "place": "Byron Bay & the Northern Rivers",
+          "country": "Australia",
+          "note": "Subtropical growing and a dense organic small-farm network."
+        },
+        {
+          "place": "Ubud, Bali",
+          "country": "Indonesia",
+          "note": "Rice-terrace agriculture and a large, very uneven cooking-course market on top of it."
+        }
+      ]
     },
     {
       "discipline": "Wildlife Photography",
@@ -23511,7 +25041,79 @@ window.ET_ATLAS = {
           "englishBasis": "A UK undergraduate degree, taught in English."
         }
       ],
-      "id": "wildlife-photography"
+      "id": "wildlife-photography",
+      "alsoHere": [
+        {
+          "place": "Svalbard",
+          "country": "Norway",
+          "note": "High Arctic, worked from a ship — polar bear, walrus and light that lasts all night in summer."
+        },
+        {
+          "place": "Churchill, Manitoba",
+          "country": "Canada",
+          "note": "Polar bears on the tundra in a short autumn season, from vehicles built for it."
+        },
+        {
+          "place": "Bandhavgarh & Ranthambore",
+          "country": "India",
+          "note": "Tiger photography under a permit-and-zone system that decides what you can shoot."
+        },
+        {
+          "place": "Pantanal",
+          "country": "Brazil",
+          "note": "The best jaguar photography in the world, from boats, in a defined dry season."
+        },
+        {
+          "place": "Galápagos",
+          "country": "Ecuador",
+          "note": "Animals with no fear of people, and rules that keep you a fixed distance from them anyway."
+        },
+        {
+          "place": "Torres del Paine",
+          "country": "Chile",
+          "note": "Puma tracking on foot with local trackers, in hard weather."
+        },
+        {
+          "place": "Bwindi & Volcanoes",
+          "country": "Uganda / Rwanda",
+          "note": "Gorilla photography in dark forest, on a permit, with an hour to work."
+        },
+        {
+          "place": "Yellowstone & Grand Teton",
+          "country": "United States",
+          "note": "Wolves, bears and rut behaviour, all reachable by road in winter."
+        },
+        {
+          "place": "Katmai, Alaska",
+          "country": "United States",
+          "note": "Brown bears fishing at close range in a July and September season."
+        },
+        {
+          "place": "Antarctic Peninsula",
+          "country": "Antarctica",
+          "note": "Penguins and whales from a ship, on a short summer window and at real cost."
+        },
+        {
+          "place": "Hortobágy & the Danube Delta",
+          "country": "Hungary / Romania",
+          "note": "Central European wetlands with hide networks of their own, close to Pusztaszer's tradition."
+        },
+        {
+          "place": "Varanger & Båtsfjord",
+          "country": "Norway",
+          "note": "Arctic seabirds and winter ducks from floating hides, in cold that decides the day."
+        },
+        {
+          "place": "Extremadura",
+          "country": "Spain",
+          "note": "Raptors, storks and dehesa woodland, with hides run by local landowners."
+        },
+        {
+          "place": "Bharatpur (Keoladeo)",
+          "country": "India",
+          "note": "A man-made wetland that became one of Asia's great bird sites, worked on foot or by rickshaw."
+        }
+      ]
     }
   ],
   "enrichedAt": "2026-06-11",

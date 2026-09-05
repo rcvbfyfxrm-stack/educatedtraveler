@@ -29,6 +29,7 @@ DRY = "--dry" in sys.argv
 OPEN_MARK, CLOSE_MARK = "<!-- et:related-crafts -->", "<!-- /et:related-crafts -->"
 SWEEP_OPEN, SWEEP_CLOSE = "<!-- et:sweep -->", "<!-- /et:sweep -->"
 MEAS_OPEN, MEAS_CLOSE = "<!-- et:measure -->", "<!-- /et:measure -->"
+ALSO_OPEN, ALSO_CLOSE = "<!-- et:also-here -->", "<!-- /et:also-here -->"
 ADOPT = "--adopt" in sys.argv
 e = html.escape
 
@@ -216,6 +217,23 @@ def adopt_unmarked_measure(text):
     return text[:s] + MEAS_OPEN + "\n" + text[s:end] + "\n" + MEAS_CLOSE + "\n" + text[end:], True
 
 
+def also_here_block(craft_id):
+    """Where else the craft lives, for a preserved sheet.
+
+    The third time this file has had to catch up with the generator, and the second in
+    one day — the Measure was invisible on six hand-written sheets this morning for
+    exactly this reason. So the block was written into atlas_hub from the start rather
+    than into build-atlas-pages, and both callers draw the same function.
+
+    ⚠ THE STANDING RULE, now demonstrated three times: a new section on a craft page is
+    not shipped until you have asked what it does to `preserve`.
+    """
+    d = DISC_BY_ID.get(craft_id)
+    if not d or not d.get("alsoHere"):
+        return ""
+    return f"{ALSO_OPEN}\n{atlas_hub.also_here_html(d)}\n{ALSO_CLOSE}\n"
+
+
 # The craft sheets in `preserve` — the redirect stubs and place pages are not craft pages.
 sheets = sorted(s for s in PRESERVE
                 if s.endswith(".html") and "--" not in s and s[:-5] in META)
@@ -244,6 +262,7 @@ for name in sheets:
                                   "re-run with --adopt to let this script own it"))
             meas = ""
     for om, cm, blk in ((OPEN_MARK, CLOSE_MARK, new_block),
+                        (ALSO_OPEN, ALSO_CLOSE, also_here_block(name[:-5])),
                         (MEAS_OPEN, MEAS_CLOSE, meas),
                         (SWEEP_OPEN, SWEEP_CLOSE, sweep_block(name[:-5]))):
         if not blk:

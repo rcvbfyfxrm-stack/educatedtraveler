@@ -292,6 +292,31 @@ def _answers_line(dots):
     return f"{_WORD.get(dots, dots)} of the five answers {verb} yes here"
 
 
+def also_here_html(d):
+    rows = d.get("alsoHere") or []
+    if not rows:
+        return ""
+    lis = "".join(
+        '<li style="padding:11px 0;border-bottom:1px solid var(--line)">'
+        f'<strong style="font-weight:500">{e(r["place"])}</strong>'
+        f'<span style="color:var(--muted)">, {e(r["country"])}</span>'
+        f'<div style="font-size:14px;color:var(--muted);margin-top:3px">{e(r["note"])}</div></li>'
+        for r in rows)
+    n = num_word(len(rows))
+    return ('<section><div class="wrap">'
+            '<div class="mono">Catalogued, not checked</div>'
+            f'<h2 style="margin-bottom:10px">Where else this craft lives'
+            f'<span style="opacity:.45;font-weight:300"> &middot; {n}</span></h2>'
+            '<p class="meta" style="margin:0 0 16px;max-width:62ch">Listing five places would '
+            'tell you this craft happens in five places, and it does not. These are the rest we '
+            'know of. <b>Nobody has checked any of them.</b> No school here is vetted, no teacher '
+            'named, nothing graded — this is the lowest state on the map, and we would rather '
+            'print it than let a short list read as a complete one. A line each, and what the '
+            'place is known for.</p>'
+            f'<ul style="list-style:none;padding:0;margin:0">{lis}</ul>'
+            '</div></section>')
+
+
 def measure_html(mm, dots=None, vouch=""):
     """The Measure block itself, from a grade — published or still drafted.
 

@@ -495,6 +495,32 @@ def _vouch_line(d):
             'own page.</p>')
 
 
+
+# ── where else the craft lives: named, and nothing more ────────────────────
+# Arnaud, 2026-09-05: "add all the places possible that could be interested. even if
+# its in one line."
+#
+# He is right about the failure. A craft sheet that lists five places implies the craft
+# happens in five places, and for rock climbing or surfing that is simply false — the
+# Atlas was reading as a map of the world when it was a map of what we had got round to.
+#
+# ⛔ SO THE ENTRY IS A PLACE, NEVER A BUSINESS, AND THE GATE ENFORCES IT. No url, no
+# school name, no price, no dates. The reason is not tidiness: a place does not close.
+# Espai Sucre was listed here as "operating and enrollable" for two years after it shut,
+# and Revere Academy — closed since 2017 — was paired with another school's address by a
+# scrape. Both were BUSINESS facts rotting inside a listing. "Kalymnos is a sport-climbing
+# island" does not rot, which is what makes a one-line place entry safe to publish at a
+# volume no one could keep checked.
+#
+# The label is the Atlas's own lowest evidence state, not a new one: `measureCaps` already
+# says "catalogued, not checked" earns NO meter at all — an absence, not a zero. These are
+# that, and the page says so above them rather than in a footnote.
+def also_here_block(d):
+    """Delegates to atlas_hub, so the generated pages and the hand-written sheets
+    draw the identical block from one function rather than two that drift.
+    """
+    return atlas_hub.also_here_html(d)
+
 def measure_block(d):
     """The Measure for a craft, if one has been graded AND signed.
 
@@ -2017,7 +2043,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
-<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{measure_block(d)}{sweep_block(d)}
+<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{measure_block(d)}{sweep_block(d)}
 {craft_depth(d)}{in_depth_block(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
@@ -2293,6 +2319,32 @@ if _no_check:
     print(f"  ⚠ rule 10 — {len(_no_check)} of {len(_open_disc)} open crafts carry no name-and-date "
           f"check line yet: {', '.join(_no_check[:6])}"
           + (f", +{len(_no_check) - 6} more" if len(_no_check) > 6 else ""))
+
+# ── the gate on `alsoHere` ────────────────────────────────────────────────
+# Three refusals, and the middle one is the whole point of the field.
+for _d in DISC:
+    _seen = {x["place"].lower() for x in _d["destinations"]}
+    for _r in _d.get("alsoHere") or []:
+        for _k in ("place", "country", "note"):
+            if not (_r.get(_k) or "").strip():
+                raise SystemExit(f'build-atlas-pages: alsoHere on {_d["id"]} has an entry with no '
+                                 f'{_k}. A place with no line about it is a name, not an entry.')
+        # ⛔ A one-line entry may never become a recommendation. Nothing here is checked,
+        # so a link would be us pointing at a business we have not looked at — which is
+        # exactly what the rest of this file spends its gates refusing to do.
+        if any(k in _r for k in ("url", "school", "schools", "price")):
+            raise SystemExit(f'build-atlas-pages: alsoHere on {_d["id"]} carries a url, a school or '
+                             f'a price on {_r.get("place")!r}. These places are catalogued and NOT '
+                             'checked; naming a business here would recommend something nobody has '
+                             'looked at. Put it in `destinations` and research it, or leave the line.')
+        if _r["place"].lower() in _seen:
+            raise SystemExit(f'build-atlas-pages: alsoHere on {_d["id"]} repeats {_r["place"]!r}, '
+                             'which is already a checked destination on this craft.')
+_n_also = sum(len(_d.get("alsoHere") or []) for _d in DISC)
+if _n_also:
+    print(f"  · {_n_also} place(s) catalogued but not checked, across "
+          f"{sum(1 for _d in DISC if _d.get('alsoHere'))} craft(s)")
+
 # ── THE MEASURE IS THE STANDARD NOW (Arnaud, 2 Sept 2026) ────────────────────
 # "make it the standard of ET any skill sheet that comes out."
 #
