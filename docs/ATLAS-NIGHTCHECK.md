@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-04 — 294 published claims re-read against the pages they came from, across 31 open crafts._
+_2026-09-05 — 307 published claims re-read against the pages they came from, across 31 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -12,13 +12,11 @@ _none._
 
 ## Started failing tonight
 
-- freediving · Freediving Greece — HTTP 404 — https://www.freediving-club.com/
-- ski-touring-and-splitboard · Ski touring Half day — HTTP 404 — https://www.chamonix-guides.com/en/activities/details/ski-touring-half-day
-- safari-and-wildlife-guiding · Koiyaki Guiding School — HTTP 404 — https://www.maasaimara.com/entries/koiyaki-guiding-school
+_none._
 
 ## Back to normal
 
-_none._
+- ski-touring-and-splitboard · Lyngen Lodge
 
 ## Unreadable, not gone
 
@@ -27,13 +25,13 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
 - ashtanga-yoga · Ashtanga Yoga New York (Eddie Stern) — HTTP 403
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
+- rock-climbing · Kalymnos Primal Climb — HTTP 429
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
 - pottery-and-ceramics · Seto Ceramics and Glass Art Center — HTTP 403
 - photography · Magnum Photos workshops (Arles) — HTTP 403
 - photography · London College of Communication (UAL) — HTTP 403
 - photography · Central Saint Martins (UAL) — HTTP 403
 - italian-cuisine-and-pasta · Bologna Cooking School — HTTP 403
-- italian-cuisine-and-pasta · Casa Artusi - Scuola di Cucina di Casa Artusi — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School) — HTTP 403
 - wine-and-sommellerie · Introduction to Tasting — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB) — HTTP 403
@@ -115,4 +113,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Apnea Academy / Italian Mediterranean · Y-40 Deep Joy (Montegrotto Terme)
 - freediving · Dahab (Red Sea) · Freedive Dahab
 
-_250 in total._
+_253 in total._
