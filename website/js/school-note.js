@@ -107,8 +107,15 @@
         document.body.appendChild(wrap);
         $('sn-email').focus();
 
-        $('sn-back').addEventListener('click', function () { wrap.remove(); });
-        wrap.addEventListener('click', function (e) { if (e.target === wrap) wrap.remove(); });
+        function close() {
+            document.removeEventListener('keydown', onKey);
+            wrap.remove();
+        }
+        function onKey(e) { if (e.key === 'Escape') close(); }
+        document.addEventListener('keydown', onKey);
+
+        $('sn-back').addEventListener('click', close);
+        wrap.addEventListener('click', function (e) { if (e.target === wrap) close(); });
         $('sn-send').addEventListener('click', function () {
             var email = ($('sn-email').value || '').trim();
             if (email && email.indexOf('@') < 1) {
@@ -125,10 +132,7 @@
             this.disabled = true; this.textContent = 'Sending…';
             onSend({ email: email, publish: $('sn-pub').checked,
                      name: ($('sn-name').value || '').trim(), circle: circle },
-                   function (ok, msg) {
-                       wrap.remove();
-                       if (!ok) return msg && msg();
-                   });
+                   function () { close(); });
         });
     }
 
@@ -189,8 +193,18 @@
                            circle: a.circle },
                          function (ok, text) {
                              done(ok);
+                             if (!ok) {
+                                 // Their words stay on the screen. A failed send that
+                                 // also eats what somebody wrote is two losses, and the
+                                 // second one is ours.
+                                 msg.innerHTML = text;
+                                 msg.style.display = 'block';
+                                 msg.style.color = '#f0a58a';
+                                 go.disabled = false;
+                                 return;
+                             }
                              panel.innerHTML = '<p class="sn-msg" style="display:block">' + text + '</p>';
-                             if (ok && a.publish) reload(li, craft, dest);
+                             if (a.publish) reload(dest);
                          });
                 });
             });
@@ -244,7 +258,7 @@
     // ── what is already approved ─────────────────────────────────────────────
     // The SELECT policy is what guarantees these are approved and consented; this
     // only has to draw them. If it returns nothing, the page is exactly as it was.
-    function reload(scope, craft, dest) {
+    function reload(dest) {
         var client = sb();
         if (!client) return;
         client.from('vouches')
@@ -293,7 +307,7 @@
         // supabase-config takes a moment; the buttons work without it, the quotes do not
         var tries = 0;
         (function wait() {
-            if (sb()) return reload(document, craft, dest);
+            if (sb()) return reload(dest);
             if (window.supabaseError || tries++ > 100) return;
             setTimeout(wait, 50);
         })();

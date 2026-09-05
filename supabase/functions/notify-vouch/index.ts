@@ -50,27 +50,30 @@ function sheet(v: Record<string, unknown>, email: string) {
 </head><body style="margin:0;padding:0;background:#f6f1e7;">
 <div style="max-width:640px;margin:0 auto;padding:34px 26px;font-family:Helvetica,Arial,sans-serif;">
 
-  <p style="margin:0 0 4px 0;color:#6b625a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">A chef signed for a room</p>
-  <h1 style="margin:0 0 6px 0;color:#2b2621;font-family:Georgia,serif;font-size:25px;font-weight:normal;line-height:1.25;">${esc(v.display_name)}, ${esc(v.trade)}</h1>
+  <p style="margin:0 0 4px 0;color:#6b625a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">${v.school ? "A comment on a school" : "A chef signed for a room"}</p>
+  <h1 style="margin:0 0 6px 0;color:#2b2621;font-family:Georgia,serif;font-size:25px;font-weight:normal;line-height:1.25;">${
+    esc([v.display_name, v.trade].filter(Boolean).join(", ") || (v.school ? String(v.school) : "Someone who went"))
+  }</h1>
   <p style="margin:0 0 22px 0;color:#6b625a;font-size:14px;">Nothing is public. This is waiting on you.</p>
 
   <table style="border-collapse:collapse;width:100%;margin:0 0 20px 0;">
     ${row("Craft", `<a href="https://educatedtraveler.app/atlas/${esc(craft)}" style="color:#2b6660;">${esc(craft)}</a>`)}
     ${row("Place", `<a href="https://educatedtraveler.app/atlas/${esc(dest)}" style="color:#2b6660;">${esc(dest)}</a>`)}
-    ${row("What they did", esc(v.state))}
-    ${row("When", esc(v.visited_on))}
+    ${v.school ? row("School", esc(v.school)) : ""}
+    ${v.state ? row("What they did", esc(v.state)) : ""}
+    ${v.visited_on ? row("When", esc(v.visited_on)) : ""}
     ${row("Account", `<a href="mailto:${esc(email)}" style="color:#2b6660;">${esc(email)}</a>`)}
     ${row("Consent to publish", v.consent_public ? "Given" : "NOT given — do not publish")}
   </table>
 
-  <div style="background:${withUs ? "#f3e2d2" : "#e7efed"};border-left:3px solid ${withUs ? "#d28a52" : "#7fa8a5"};border-radius:6px;padding:14px 16px;margin:0 0 22px 0;">
+  ${route ? `<div style="background:${withUs ? "#f3e2d2" : "#e7efed"};border-left:3px solid ${withUs ? "#d28a52" : "#7fa8a5"};border-radius:6px;padding:14px 16px;margin:0 0 22px 0;">
     <p style="margin:0;color:#3a2f26;font-size:14px;line-height:1.6;">${esc(ROUTE_LINE[route] ?? route)}</p>
-  </div>
+  </div>` : ""}
 
   <div style="background:#efe6d3;border-radius:8px;padding:24px 26px;margin:0 0 22px 0;">
     <p style="margin:0 0 14px 0;color:#6f6350;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">What they saw, in their words</p>
     <p style="margin:0;color:#2c231a;font-family:Georgia,serif;font-size:16px;line-height:1.8;white-space:pre-wrap;">${esc(v.what)}</p>
-    <p style="margin:16px 0 0 0;color:#3a2c1e;font-family:Georgia,serif;font-style:italic;font-size:15px;text-align:right;">— ${esc(v.display_name)}, ${esc(v.trade)}</p>
+    <p style="margin:16px 0 0 0;color:#3a2c1e;font-family:Georgia,serif;font-style:italic;font-size:15px;text-align:right;">— ${esc([v.display_name, v.trade].filter(Boolean).join(", ") || "no name given")}</p>
   </div>
 
   <div style="border-top:1px solid #ddd2bd;padding-top:18px;">
@@ -81,7 +84,9 @@ function sheet(v: Record<string, unknown>, email: string) {
       node scripts/refresh-vouches.mjs<br>
       python3 scripts/build-atlas-pages.py
     </p>
-    <p style="margin:0;color:#6b625a;font-size:13.5px;line-height:1.7;">This is the first evidence the Atlas has ever had that is not desk research. It lifts that craft off three dots — so it is worth reading twice before it goes up.</p>
+    <p style="margin:0;color:#6b625a;font-size:13.5px;line-height:1.7;">${v.school
+      ? "This is a school comment. Approving it puts it under that school on the place page and nothing more — it does NOT move the Measure, and refresh-vouches ignores it by design. Approve it in the School comments tab of /admin."
+      : "This is the first evidence the Atlas has ever had that is not desk research. It lifts that craft off three dots — so it is worth reading twice before it goes up."}</p>
   </div>
 
 </div></body></html>`;
@@ -96,11 +101,16 @@ serve(async (req) => {
     const { data: v, error } = await admin.from("vouches").select("*").eq("id", id).single();
     if (error || !v) return json({ error: "row not found" }, 404);
 
-    let email = "";
-    try {
-      const u = await admin.auth.admin.getUserById(String(v.user_id));
-      email = u?.data?.user?.email ?? "";
-    } catch (_e) { /* the sheet is still worth sending without it */ }
+    // Since 045 a row can be anonymous: no user_id, but an address in `email`
+    // asked for after the comment was written. Look there first, or the alert
+    // about a school comment arrives with no way to answer it.
+    let email = String(v.email ?? "");
+    if (!email && v.user_id) {
+      try {
+        const u = await admin.auth.admin.getUserById(String(v.user_id));
+        email = u?.data?.user?.email ?? "";
+      } catch (_e) { /* the sheet is still worth sending without it */ }
+    }
 
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -108,7 +118,9 @@ serve(async (req) => {
       body: JSON.stringify({
         from: FROM, to: [NOTIFY_TO],
         ...(email ? { reply_to: email } : {}),
-        subject: `${v.display_name} (${v.trade}) signed for ${v.destination}`,
+        subject: v.school
+        ? `A comment on ${v.school} — ${v.destination}`
+        : `${v.display_name} (${v.trade}) signed for ${v.destination}`,
         html: sheet(v as Record<string, unknown>, email),
       }),
     });

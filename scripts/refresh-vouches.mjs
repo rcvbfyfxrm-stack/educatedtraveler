@@ -33,9 +33,26 @@ const ALLOW_SHRINK = process.argv.includes("--allow-shrink");
 const die = (m) => { console.error("refresh-vouches: " + m); process.exit(1); };
 if (!KEY) die("no SUPABASE_SERVICE_ROLE_KEY in the environment — refusing to write.");
 
+// ⚠ THE FILTER IS LEDE, NOT DETAIL. Since migration 045 the `vouches` table holds
+// TWO different animals, and only one of them may reach the Measure:
+//
+//   · a MEMBER VOUCH — the structured form on /you. A named person, a trade, a
+//     date they were there and how they got there. This is evidence, and
+//     _evidence_cap in build-atlas-pages.py lifts a craft off the three-dot desk
+//     cap because of it.
+//   · a SCHOOL COMMENT — anonymous, written from a school's page, carrying a
+//     `school` and often no name, no trade, no date and no route. It is worth
+//     reading and worth publishing under that school. It is NOT evidence that
+//     anybody from here stood in the room, and it must never move a grade.
+//
+// Both land approved and consented, so without these three clauses one anonymous
+// comment would raise a Measure grade signed "Arnaud Callier" — and print
+// `Invalid Date` on the page, because new Date(null + "T00:00:00Z") is invalid.
 const url = `${BASE}/rest/v1/vouches`
   + `?select=destination,state,display_name,trade,visited_on,route,what,created_at`
-  + `&status=eq.approved&consent_public=is.true&order=created_at.asc`;
+  + `&status=eq.approved&consent_public=is.true`
+  + `&school=is.null&user_id=not.is.null&visited_on=not.is.null`
+  + `&order=created_at.asc`;
 
 let rows;
 try {
@@ -45,9 +62,10 @@ try {
 } catch (e) { die(`fetch failed (${e.message}) — writing nothing.`); }
 
 if (!Array.isArray(rows)) die("unexpected payload — writing nothing.");
-if (!rows.length) die("zero approved vouches came back. That is either true and harmless, "
-  + "or RLS hid the table. Either way this writes nothing; delete data/atlas-vouches.json "
-  + "by hand if you really mean to clear it.");
+if (!rows.length) die("zero approved MEMBER vouches came back. That is either true and "
+  + "harmless, or RLS hid the table — or everything approved lately was a school comment, "
+  + "which this deliberately ignores. Either way this writes nothing; delete "
+  + "data/atlas-vouches.json by hand if you really mean to clear it.");
 
 // One check per place: the earliest approved vouch is the one that stands, and a
 // second is what lifts the craft to five. Later ones are kept in `also`.

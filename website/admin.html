@@ -1150,7 +1150,7 @@
                            Put it on the page</button>
                          <button data-decline="${r.id}" class="text-xs px-3 py-1.5 rounded-full border border-white/15 text-white/60">Decline</button>
                        </div>`
-                    : `<p class="text-xs text-white/30 mt-3 mono">${esc(r.status)}${r.decided_at ? ' · ' + new Date(r.decided_at).toLocaleDateString('en-GB') : ''}</p>`;
+                    : `<p class="text-xs text-white/30 mt-3 mono">${esc(r.status)}${r.decided_at ? ' · ' + new Date(r.decided_at).toLocaleDateString('en-GB') : ''}${r._mail ? ' · ' + esc(r._mail) : ''}</p>`;
                 return `<div class="border border-white/10 rounded-xl p-4 mb-3">
                     <p class="mono text-xs text-white/40">${esc(where)}</p>
                     <p class="mt-2 text-white/90" style="font-family:Fraunces,Georgia,serif;font-weight:300;line-height:1.6">${esc(r.what || '')}</p>
@@ -1183,8 +1183,24 @@
                 decided_at: new Date().toISOString()
             }).eq('id', id);
             if (error) { btn.disabled = false; btn.textContent = 'Failed — retry'; return; }
+
+            // Tell the person who wrote it. The decision is already saved, so a mail
+            // that fails must not read as a failed decision — it is reported on the
+            // row and nothing is rolled back.
+            let mail = '';
+            try {
+                const { data, error: mailErr } = await sb.functions.invoke('notify-vouch-decision', {
+                    body: { id, status }
+                });
+                if (mailErr) mail = 'saved, but the email did not send';
+                else if (data && data.sent === false) mail = 'saved — no address on this one, nothing sent';
+                else mail = status === 'approved' ? 'saved and they have been told' : 'saved and they have been told';
+            } catch (e) {
+                mail = 'saved, but the email did not send';
+            }
+
             const row = (adminData.vouches || []).find(r => r.id === id);
-            if (row) { row.status = status; row.decided_at = new Date().toISOString(); }
+            if (row) { row.status = status; row.decided_at = new Date().toISOString(); row._mail = mail; }
             renderComments();
         }
 
