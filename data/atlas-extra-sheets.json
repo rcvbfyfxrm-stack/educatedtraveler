@@ -375,7 +375,8 @@
     "yacht-crew-and-stcw--cowes-isle-of-wight": "Learn residentially — bed, food and fire ground through one door — on the water the RYA built its schemes around.",
     "yacht-crew-and-stcw--fort-lauderdale": "Learn with USCG and MCA tickets under one roof, if you don't yet know which side of the Atlantic you'll work.",
     "yacht-crew-and-stcw--dover-kent": "Learn at an academy that owns its own fire ground, survival pool and lifeboat centre.",
-    "yacht-crew-and-stcw--sydney": "Start from the southern-hemisphere door, knowing what your tickets are worth before you buy a flight."
+    "yacht-crew-and-stcw--sydney": "Start from the southern-hemisphere door, knowing what your tickets are worth before you buy a flight.",
+    "rock-climbing--kalymnos": "Learn to lead outdoors on an island with 4,216 bolted routes on it"
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
@@ -1144,7 +1145,7 @@
         {
           "n": "Is there a teacher, and can we name them?",
           "on": false,
-          "t": "Empty in all four places, and largely by design. Rock climbing is taught by guides an outside body certifies — AMGA in the United States, the IFMGA internationally, the state diploma through ENSA in Chamonix — so instructors are interchangeable on purpose and no school advertises one. That is a real strength for safety and a real weakness for this question. Chamonix's entry named the Compagnie des Guides, founded in 1821, which is a company rather than a person, and it has been moved to where the craft comes from. Ask who your guide will be and what they are certified to lead; both answers exist and both vary."
+          "t": "Empty at four of the five places, and largely by design. Rock climbing is taught by guides an outside body certifies — AMGA in the United States, the IFMGA internationally, the state diploma through ENSA in Chamonix — so instructors are interchangeable on purpose and no school advertises one. Kalymnos is the exception, and it is the place added last: Joe Fratianni, an Austrian state-certified instructor and an AMGA guide working toward IFMGA, and Simon Montmory, whose courses are named for the grade they take you to. Two names on one island do not answer the question for Yosemite, Chamonix, the Peak or Joshua Tree — at those four, ask who your guide will be and what they are certified to lead. Chamonix's entry named the Compagnie des Guides, founded in 1821, which is a company rather than a person; it has been moved to where the craft comes from."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -1154,17 +1155,22 @@
         {
           "n": "Will there be other people learning beside you?",
           "on": true,
-          "t": "Yes, and the ladder runs both ways. Joshua Tree carries a dense winter cohort and is where the AMGA Single Pitch Instructor course is taught, so the people beside you include those learning to teach. Sheffield's walls hold the Peak's climbers between crag days, and Yosemite Valley has thousands of climbers passing through every season."
+          "t": "Yes, and the ladder runs both ways. Joshua Tree carries a dense winter cohort and is where the AMGA Single Pitch Instructor course is taught, so the people beside you include those learning to teach. Sheffield's walls hold the Peak's climbers between crag days, Yosemite Valley has thousands passing through every season, and Kalymnos fills each spring and autumn around an international festival every October — the same thing on a season's rhythm."
         },
         {
           "n": "Is the craft alive in this place, or is the school the only thing here?",
           "on": true,
-          "t": "Yes, and the United States National Park Service says so about Yosemite without selling anything: it calls the Valley one of the world's greatest climbing areas, requires a wilderness climbing permit from everybody sleeping on a big wall, and manages the peregrine falcon closures around the routes. A park authority building its permit system around climbers is a place organised by the craft.",
+          "t": "Yes, and the United States National Park Service says so about Yosemite without selling anything: it calls the Valley one of the world's greatest climbing areas, requires a wilderness climbing permit from everybody sleeping on a big wall, and manages the peregrine falcon closures around the routes. A park authority building its permit system around climbers is a place organised by the craft. Kalymnos says it a second way: the island's guidebook counts 4,216 bolted sport routes and keeps a public log of the volunteers who re-bolt them, which is a community maintaining its own crags rather than a school renting them.",
           "evidence": [
             {
               "what": "the National Park Service's own climbing pages for Yosemite",
               "url": "https://www.nps.gov/yose/planyourvisit/climbing.htm",
               "date": "4 September 2026"
+            },
+            {
+              "what": "the Kalymnos guidebook's own route database and public rebolt log",
+              "url": "https://climbkalymnos.com/",
+              "date": "5 September 2026"
             }
           ]
         },
@@ -1175,7 +1181,7 @@
         }
       ],
       "ceilingNote": "All five are reachable here — and who teaches would be answered by four emails, one per town.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has climbed at any of these four crags. The fourth answer is the National Park Service's own climbing pages, read 4 September 2026. The first is graded empty on the same reading applied to kitesurfing: where an outside body certifies the instructor, we do not fill this question on the certification — it answers a different question. ⚠ Chamonix's who-teaches field held the Compagnie des Guides, a company; it has been moved to where the craft comes from, here and on the three other crafts that carried the same entry. A second gap belongs in the open rather than in a private note: this page keeps no record of which climbing regions were searched and set aside, so it cannot show you why Kalymnos — four thousand bolted routes, from a beginner's slab to the hardest grades, on an island whose economy runs on them — is not on it.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has climbed at any of these four crags. The fourth answer is the National Park Service's own climbing pages, read 4 September 2026. The first is graded empty on the same reading applied to kitesurfing: where an outside body certifies the instructor, we do not fill this question on the certification — it answers a different question. ⚠ Chamonix's who-teaches field held the Compagnie des Guides, a company; it has been moved to where the craft comes from, here and on the three other crafts that carried the same entry. ⚠ Amended 5 September 2026, the day after signing: this page said it could not show you why Kalymnos was missing, and the honest answer was that it should not have been. Kalymnos is now the fifth place, and it brings the first two climbing instructors this map can name. The page still keeps no record of which regions were searched and set aside, so Railay, the Red River Gorge, Frankenjura, Siurana, El Chorro and Arco are all real, all teach beginners, and none of them has been assessed here.",
       "checker": "Arnaud Callier",
       "date": "5 September 2026"
     },
@@ -1358,10 +1364,10 @@
       "date": "5 September 2026"
     },
     "spearfishing": {
-      "dots": 2,
+      "dots": 3,
       "ceiling": 4,
       "register": "place-led",
-      "verdict": "The oldest hunt on earth, sold on this map mostly as a charter — a state diploma at one end, a guide and a boat at the other, and nobody named at either",
+      "verdict": "The oldest hunt on earth, and on this map mostly sold as a charter — a state diploma at one end, a guide and a boat at the other, nobody named at either, and one coast where the sport plainly lives",
       "state": "researched, not checked",
       "conditions": [
         {
@@ -1381,8 +1387,15 @@
         },
         {
           "n": "Is the craft alive in this place, or is the school the only thing here?",
-          "on": false,
-          "t": "Not established, and not for want of looking. Spearfishing on this coast is genuinely native — the modern sport was invented between Cassis and Antibes, and the mask, fins and snorkel came out of it — and Hawaiian spearfishing is older still and part of how people there eat. But every account of either that we could find is published by somebody selling a charter, a course or a gun, and a school's own page about its town is exactly what this question refuses."
+          "on": true,
+          "t": "Yes, and settled by a federation that is not on this page and sells nothing. The Fédération Française de Pêche Sportive en Apnée ran the Challenge Nicolas Munier off Sainte-Maxime on 25 April 2026, on the Sardinaux plateau — the second round of its French Cup, 22 two-person teams, put on by its own Côte d'Azur regional league and doubling as a qualifier for the national team championship at Frontignan in June. A regional league running a national round on this coast is the sport belonging to the place rather than operating off it. What it does not settle is Kona or Cabo, where we still have nothing but sellers.",
+          "evidence": [
+            {
+              "what": "the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round",
+              "url": "https://www.ffpsa.net/coupe-de-france-de-peche-sous-marine-25-avril-2026-resultats-de-la-manche-cote-dazur",
+              "date": "5 September 2026"
+            }
+          ]
         },
         {
           "n": "Is there enough here to keep you learning for years?",
@@ -1390,8 +1403,8 @@
           "t": "Nobody of ours has been. CMAS grades and the national federation licences are a real ladder, and the French diploma at Antibes is a genuine professional rung. Whether there is a community above you on any of these three coasts, rather than a boat you rent again, is not something a booking page can answer."
         }
       ],
-      "ceilingNote": "Four is the ceiling until somebody publishes something about these coasts who is not selling on them — and the fourth answer is the one most likely to change, because the Côte d'Azur has a federation and a history behind it.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has dived any of these three coasts. The fourth answer is empty because the search failed, not because the answer is no — worth restating, since this craft's ground is probably its strongest quality and we could not source it. The French federation and the CMAS commission are both interested parties here: they appear on this craft's own page, so nothing they publish can settle the fourth question.",
+      "ceilingNote": "All five are reachable here — and the fourth answer, published empty the day this was signed, is now the strongest thing on the page. The gap was ours, not the coast's.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has dived any of these three coasts. ⚠ Amended 5 September 2026, the day after signing. The fourth answer went up empty with a note saying the search had failed rather than that the answer was no — and it had: a second look found the Fédération Française de Pêche Sportive en Apnée, a different body from the FFESSM listed on this page and one with nothing to sell here, running a national cup round on this coast in April 2026. The dot is filled and the amendment is printed rather than quietly made. The FFESSM and the CMAS commission remain interested parties: they appear on this craft's own page, so nothing they publish can settle this question.",
       "checker": "Arnaud Callier",
       "date": "5 September 2026"
     },

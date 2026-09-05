@@ -5301,6 +5301,51 @@ window.ET_ATLAS = {
           ]
         },
         {
+          "place": "Kalymnos",
+          "country": "Greece",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Kalymnos Primal Climb",
+            "Kalymnos Climbing Guide"
+          ],
+          "masters": [
+            "Joe Fratianni (Kalymnos Primal Climb)",
+            "Simon Montmory (Kalymnos Climbing Guide)"
+          ],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "A small Dodecanese island whose guidebook now lists 4,216 bolted sport routes, spanning a first 4a to the hardest grades, with an international climbing festival the municipality backs each October and a public log of the volunteers who rebolt the crags.",
+          "bestSeason": "Mar-May, Sep-Nov",
+          "level": "Beginner -> 8a sport",
+          "id": "rock-climbing--kalymnos",
+          "schoolsInfo": [
+            {
+              "name": "Kalymnos Primal Climb",
+              "url": "https://www.kalymnosprimalclimb.com/",
+              "course": "Sport Climbing Fundamentals; Transitions in Outdoor Climbing; Multi-Pitch Climbing; private lessons and Kalymnos climbing camps",
+              "blurb": "Run by Joe Fratianni, an Austrian state-certified instructor in climbing, skiing and alpine disciplines and an AMGA assistant-level guide working toward IFMGA certification, teaching individuals and small groups on Kalymnos and Telendos.",
+              "confidence": "high"
+            },
+            {
+              "name": "Kalymnos Climbing Guide",
+              "url": "https://www.kalymnosclimbingguide.com/",
+              "course": "From Gym to Rock; Take the Lead; Make 6a Your Comfort Zone; Reach 7a; multi-pitch on Kalymnos and Telendos",
+              "blurb": "Simon Montmory, a certified climbing instructor, runs a laddered set of courses named for the grade they take you to, from a first move outdoors through leading to 7a, plus personalised coaching from 5a to 8a.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Immersion",
+          "tripLength": "a week to a season",
+          "englishTaught": true,
+          "englishBasis": "Both instructors publish English-language sites and teach an international clientele; Joe Fratianni is American-certified and Simon Montmory's course pages are written in English."
+        },
+        {
           "place": "Peak District (Stanage, Sheffield)",
           "country": "United Kingdom",
           "region": "Western Europe",
