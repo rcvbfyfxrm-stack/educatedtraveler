@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-05 — 307 published claims re-read against the pages they came from, across 31 open crafts._
+_2026-09-06 — 312 published claims re-read against the pages they came from, across 31 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -8,7 +8,14 @@ This file is written by `scripts/night-check.py`. It is **not a check** in the s
 
 Three nights is past a bad evening. Re-verify by hand and either re-date the entry or take it down. The Standard does not allow a third option: an entry that cannot be confirmed is not softened, it comes off.
 
-_none._
+- **sound-healing · Pokhara Yoga School and Retreat Center** — https://www.pokharayogaschoolandretreatcenter.com/
+  - HTTP 0 URLError: <urlopen error timed out>
+- **cold-exposure-wim-hof-method · Innerfire BV** — https://www.innerfire.nl/
+  - HTTP 0 URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.innerfire.nl'. (_ssl.c:1010)>
+- **freediving · Freediving Greece** — https://www.freediving-club.com/
+  - HTTP 404
+- **safari-and-wildlife-guiding · Koiyaki Guiding School** — https://www.maasaimara.com/entries/koiyaki-guiding-school
+  - HTTP 404
 
 ## Started failing tonight
 
@@ -16,27 +23,50 @@ _none._
 
 ## Back to normal
 
-- ski-touring-and-splitboard · Lyngen Lodge
+- ski-touring-and-splitboard · Ski touring Half day
+- pottery-and-ceramics · Mashiko Togei Club
+- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen)
+- sushi-and-washoku · La Carriere Cooking School (since 1931)
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 1 — Petits fours et gâteaux de voyage
 
 ## Unreadable, not gone
 
 These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not a school that closed. Never escalated, because a check that cries wolf gets muted. If one matters, open it in a browser; that is the only way to know.
 
+- hatha-and-vinyasa-yoga · The Yoga Barn — HTTP 403
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
+- ashtanga-yoga · Stillpoint Yoga London — HTTP 403
 - ashtanga-yoga · Ashtanga Yoga New York (Eddie Stern) — HTTP 403
+- vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
+- sound-healing · British Academy of Sound Therapy — HTTP 403
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
+- surfing · Baleal Surf Camp — HTTP 403
+- kitesurfing · HST Windsurfing & Kitesurfing School — HTTP 403
+- kitesurfing · Private Single Kitesurfing Lesson — HTTP 403
+- kitesurfing · Action Sports Maui — HTTP 403
+- kitesurfing · Laurel Eastman Kiteboarding — HTTP 403
+- kitesurfing · GoKite Cabarete — HTTP 403
+- windsurfing-and-wing-foil · HST Windsurfing & Kitesurfing School — HTTP 403
+- windsurfing-and-wing-foil · Action Sports Maui — HTTP 403
+- windsurfing-and-wing-foil · Hawaiian Sailboarding Techniques — HTTP 403
 - rock-climbing · Kalymnos Primal Climb — HTTP 429
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
 - pottery-and-ceramics · Seto Ceramics and Glass Art Center — HTTP 403
 - photography · Magnum Photos workshops (Arles) — HTTP 403
 - photography · London College of Communication (UAL) — HTTP 403
 - photography · Central Saint Martins (UAL) — HTTP 403
+- jewelry-and-goldsmithing · Le Arti Orafe Jewellery School (LAO) — HTTP 403
+- jewelry-and-goldsmithing · Complete Stone Setting Course — HTTP 403
+- jewelry-and-goldsmithing · Introduction to Rhino3D for Goldsmithing (CAD.WE1) — HTTP 403
+- jewelry-and-goldsmithing · Alchimia Contemporary Jewellery School — HTTP 403
 - italian-cuisine-and-pasta · Bologna Cooking School — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School) — HTTP 403
 - wine-and-sommellerie · Introduction to Tasting — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB) — HTTP 403
+- wine-and-sommellerie · Institute of Masters of Wine — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
 - modern-new-technique-cuisine · Sous Vide Australia (The Upper Room) — HTTP 429
+- wildlife-photography · Paul Goldstein Photo Safaris / Kicheche Camps — HTTP 403
 - wildlife-photography · Falmouth University — HTTP 403
 
 
@@ -47,6 +77,7 @@ Informational, never escalated. A rejected place going offline is usually the re
 
 - modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
 - modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
+- modern-new-technique-cuisine · Modernist Cuisine Lab (Nathan Myhrvold) — HTTP 403
 
 ## Claims with nothing to verify against
 
@@ -61,14 +92,12 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - hatha-and-vinyasa-yoga · Mysore · Indea Yoga
 - hatha-and-vinyasa-yoga · Mysore · Atmavikasa Centre of Yogic Sciences
 - hatha-and-vinyasa-yoga · Mysore · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- hatha-and-vinyasa-yoga · Ubud, Bali · The Yoga Barn
 - hatha-and-vinyasa-yoga · Ubud, Bali · Radiantly Alive
 - hatha-and-vinyasa-yoga · Ubud, Bali · Ubud Yoga Centre
 - hatha-and-vinyasa-yoga · Encinitas, California · Soul of Yoga
 - ashtanga-yoga · Mysore (Gokulam) · Sharath Yoga Centre (SYC)
 - ashtanga-yoga · Mysore (Gokulam) · K. Pattabhi Jois Ashtanga Yoga Shala (Saraswathi Jois)
 - ashtanga-yoga · Mysore (Gokulam) · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- ashtanga-yoga · London · Stillpoint Yoga London
 - ashtanga-yoga · London · Astanga Yoga London (AYL)
 - ashtanga-yoga · London · Yoga Place
 - vipassana-and-meditation · Igatpuri (Dhamma Giri) · Dhamma Giri - Vipassana International Academy
@@ -79,7 +108,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - vipassana-and-meditation · Yangon · International Meditation Centre (U Ba Khin tradition)
 - vipassana-and-meditation · Chiang Mai · Wat Ram Poeng (Tapotaram) Northern Insight Meditation Centre
 - vipassana-and-meditation · Chiang Mai · Wat Suan Dok (Monk Chat / meditation retreats)
-- vipassana-and-meditation · Barre, Massachusetts · Insight Meditation Society (IMS)
 - vipassana-and-meditation · Barre, Massachusetts · Barre Center for Buddhist Studies
 - sound-healing · Kathmandu (Budhanilkantha) · Pragya Yoga School
 - sound-healing · Kathmandu (Budhanilkantha) · 4 Days / 20 Hours Basic Level Singing Bowl Sound Healing Training
@@ -90,7 +118,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - sound-healing · San Francisco / Bay Area · Globe Institute - Sound Healing Center (Sausalito)
 - sound-healing · San Francisco / Bay Area · California Institute of Integral Studies (sound-related programs)
 - sound-healing · Glastonbury / South West England · The College of Sound Healing
-- sound-healing · Glastonbury / South West England · British Academy of Sound Therapy
 - thai-massage · Chiang Mai · Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)
 - thai-massage · Chiang Mai · Introduction to Thai Massage
 - thai-massage · Chiang Mai · One Day Drop-In Pass
@@ -112,5 +139,9 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Apnea Academy / Italian Mediterranean · Apnea Academy (Umberto Pelizzari's school)
 - freediving · Apnea Academy / Italian Mediterranean · Y-40 Deep Joy (Montegrotto Terme)
 - freediving · Dahab (Red Sea) · Freedive Dahab
+- freediving · Dahab (Red Sea) · Dahab Freedivers
+- freediving · Dahab (Red Sea) · Touchdown Freediving
+- freediving · Dean's Blue Hole, Long Island · Vertical Blue (William Trubridge)
+- freediving · Kalamata & the Mani · Kalamata Freedivers
 
-_253 in total._
+_239 in total._
