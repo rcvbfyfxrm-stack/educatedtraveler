@@ -449,13 +449,6 @@
       "last_seen": "2026-09-07",
       "last_status": 200
     },
-    "freediving|Freediving Greece": {
-      "failing": 4,
-      "url": "https://www.freediving-club.com/",
-      "last_seen": "2026-09-07",
-      "last_status": 404,
-      "why": "HTTP 404"
-    },
     "spearfishing|CREPS PACA (Antibes)": {
       "failing": 0,
       "url": "https://www.creps-paca.fr/formation.fiche-BPJEPS-PSS-06",
@@ -920,13 +913,6 @@
       "url": "https://www.guidetrainingcourses.com/",
       "last_seen": "2026-09-07",
       "last_status": 200
-    },
-    "safari-and-wildlife-guiding|Koiyaki Guiding School": {
-      "failing": 4,
-      "url": "https://www.maasaimara.com/entries/koiyaki-guiding-school",
-      "last_seen": "2026-09-07",
-      "last_status": 404,
-      "why": "HTTP 404"
     },
     "safari-and-wildlife-guiding|EcoTraining (Mara camp)": {
       "failing": 0,

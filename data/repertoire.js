@@ -4009,13 +4009,6 @@ window.ET_ATLAS = {
               "course": "Advanced / Performance Freediver Course",
               "blurb": "An SSI educational and apnea training center in Kalamata offering SSI and AIDA freediving courses from introduction through advanced and performance levels, plus workshops and athlete masterclasses.",
               "confidence": "high"
-            },
-            {
-              "name": "Freediving Greece",
-              "url": "https://www.freediving-club.com/",
-              "course": "AIDA Freediver Courses (Beginner to Instructor)",
-              "blurb": "Freediving Club Greece, a Kalamata marina-based center founded in 2007 by AIDA world-record holder Stavros Kastrinakis, running AIDA freediving courses from beginner through instructor year-round.",
-              "confidence": "medium"
             }
           ],
           "tripTier": 1,
@@ -8229,13 +8222,7 @@ window.ET_ATLAS = {
           "level": "Beginner -> Professional Guide (KPSGA)",
           "id": "safari-and-wildlife-guiding--maasai-mara-laikipia",
           "schoolsInfo": [
-            {
-              "name": "Koiyaki Guiding School",
-              "url": "https://www.maasaimara.com/entries/koiyaki-guiding-school",
-              "course": "One-year Safari Guide course",
-              "blurb": "A Maasai-community guiding school in the Mara Naboisho Conservancy whose residential one-year course trains young Maasai as professional safari guides in nature management, guest relations and languages.",
-              "confidence": "high"
-            },
+            
             {
               "name": "EcoTraining (Mara camp)",
               "url": "https://www.ecotraining.co.za/",
