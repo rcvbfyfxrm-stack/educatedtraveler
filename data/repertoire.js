@@ -5219,6 +5219,7 @@ window.ET_ATLAS = {
               "confidence": "high",
               "photos": {
                 "given": "2026-09-04",
+                "by": "Mathieu",
                 "items": [
                   {
                     "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-01-down-to-the-water.jpg",
@@ -5255,6 +5256,48 @@ window.ET_ATLAS = {
                     "h": 900,
                     "alt": "A kitesurfer airborne against a clear sky above choppy blue sea, board still on their feet, head turned up towards the kite.",
                     "caption": "Jumping is taught here rather than left to be worked out — eyes up on the kite, board kept on the feet. It is its own course."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-06-on-the-sand.jpg",
+                    "w": 1277,
+                    "h": 1600,
+                    "alt": "A large red and white kite lies across the wet sand with its lines run out, while an instructor in a wide-brimmed hat holds the bar and a student in a yellow-green helmet stands beside him watching, the hills behind Tarifa and more kites in the sky.",
+                    "caption": "Before any of it is fun, the kite has to come down and go up again on a crowded beach. The instructor keeps the bar; the student stands at his shoulder and watches it done."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-07-strapless.jpg",
+                    "w": 1600,
+                    "h": 1066,
+                    "alt": "A kitesurfer in a Matos Tarifa vest is airborne with a pale surfboard tucked under his feet, shouting towards the camera, two other kites in the sky and the far coast low on the horizon.",
+                    "caption": "Strapless: no bindings, the board held on by the rider's weight alone. It is one of the courses they list, and this is what the far end of it looks like."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg",
+                    "w": 1284,
+                    "h": 1600,
+                    "alt": "A kitesurfer in a black wetsuit is airborne with knees drawn up and a twin-tip board angled above the water, spray still falling from it, a hazy mountain coast behind.",
+                    "caption": "The mountains on the far side of the frame are Morocco. The strait is what makes the wind here, and the wind is why the school exists."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-09-grab.jpg",
+                    "w": 1276,
+                    "h": 1600,
+                    "alt": "The same rider at the top of a jump, one hand on the control bar and the other reaching down to grab the edge of the board, which is held vertical behind him.",
+                    "caption": "The same jump a moment later, with a hand on the board. This is the part that is taught: not the height, but what you do with the time it buys."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-10-coming-in.jpg",
+                    "w": 1206,
+                    "h": 1600,
+                    "alt": "A kitesurfer walks up the wet sand smiling, control bar raised in one hand with the lines running out of frame, a dark board stood upright beside her, a dozen kites in the sky behind.",
+                    "caption": "Coming in, board under one hand and the kite still flying off the other. Count the kites behind her: this is an ordinary afternoon on Los Lances."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-11-instructors-and-students.jpg",
+                    "w": 1600,
+                    "h": 1600,
+                    "alt": "Six people in wetsuits stand on the sand in front of a Matos Tarifa flag, several making a shaka sign, two boards on the ground and a third held upright, kites in the sky behind them.",
+                    "caption": "Instructors and students together at the end of a session, in front of the school's own flag. Who teaches is a question this Atlas asks of every school; this is Matos Tarifa answering it with a photograph."
                   }
                 ]
               }

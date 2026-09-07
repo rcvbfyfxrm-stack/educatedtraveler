@@ -1377,6 +1377,14 @@ def photo_block(x):
         name = e(s_["name"])
         credit = (f'<a class="school-url" rel="nofollow noopener" target="_blank" '
                   f'href="{e(s_["url"])}">{name}</a>') if s_.get("url") else name
+        # A school is an address; a person answered it. `by` names whoever actually
+        # sent the pictures, in the form they signed themselves — no surname we were
+        # not given, no initial we invented. Present but blank is a mistake, not a
+        # choice, so it stops the build rather than printing "sent by ,".
+        if "by" in ph and not (ph.get("by") or "").strip():
+            raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has an empty photo credit. '
+                             "Name the person who sent them, or drop the field.")
+        by = f', sent by {e(ph["by"])}' if ph.get("by") else ""
         given = f', {e(pretty_date(ph["given"]))}' if ph.get("given") else ""
         blocks.append(
             f'<div class="mono">Sent by the school</div>'
@@ -1388,7 +1396,7 @@ def photo_block(x):
             "pages, before I wrote. Any school on this page can have the same space, on the "
             "same terms.</p>"
             f'<div class="shots">{figs}</div>'
-            f'<p class="meta" style="margin-top:14px">Photographs: {credit}{given}. '
+            f'<p class="meta" style="margin-top:14px">Photographs: {credit}{by}{given}. '
             "Used with permission; all rights remain theirs.</p>")
     if not blocks:
         return ""
