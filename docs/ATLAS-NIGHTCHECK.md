@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-06 — 312 published claims re-read against the pages they came from, across 31 open crafts._
+_2026-09-07 — 312 published claims re-read against the pages they came from, across 31 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -19,15 +19,11 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 ## Started failing tonight
 
-_none._
+- hatha-and-vinyasa-yoga · Atmavikasa Centre of Yogic Sciences — HTTP 404 — https://www.atmavikasayoga.in/
 
 ## Back to normal
 
-- ski-touring-and-splitboard · Ski touring Half day
-- pottery-and-ceramics · Mashiko Togei Club
-- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen)
-- sushi-and-washoku · La Carriere Cooking School (since 1931)
-- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 1 — Petits fours et gâteaux de voyage
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma
 
 ## Unreadable, not gone
 
@@ -40,6 +36,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
 - sound-healing · British Academy of Sound Therapy — HTTP 403
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
+- sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
 - surfing · Baleal Surf Camp — HTTP 403
 - kitesurfing · HST Windsurfing & Kitesurfing School — HTTP 403
 - kitesurfing · Private Single Kitesurfing Lesson — HTTP 403
@@ -144,4 +141,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Dean's Blue Hole, Long Island · Vertical Blue (William Trubridge)
 - freediving · Kalamata & the Mani · Kalamata Freedivers
 
-_239 in total._
+_238 in total._
