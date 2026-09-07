@@ -898,14 +898,19 @@ def opened_band(items):
         if not blurb:
             blurb, hook = hook, ""
         cards.append(
-            f'<article class="gcard{" walks" if nplaces > 1 else ""}" style="--sc:{e(it["color"])}"'
-            f' data-craft="{e(it["name"])}">'
+            f'<article class="gcard{" walks" if nplaces > 1 else ""}"'
+            + (f' data-shot style="--sc:{e(it["color"])};--shot:url({e(it["shot"])})"'
+               if it.get("shot") else f' style="--sc:{e(it["color"])}"')
+            + f' data-craft="{e(it["name"])}">'
             f'<a class="cardlink" href="/atlas/{e(it["id"])}" aria-label="Open the '
             f'{e(it["name"])} skill sheet"></a>'
             f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
             + say_stack(it) + (where_stack(it, where) if where else "")
             + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
             + (f'<p class="cardhook">{e(hook)}</p>' if hook else "")
+            # Whose photograph it is. Emitted empty when there is none, exactly as
+            # cardInner() does, so the walk has a node to write into on both builders.
+            + f'<p class="shotcredit">{("Photo: " + e(it["shotBy"])) if it.get("shotBy") else ""}</p>'
             + (f'<button class="placecue" type="button">{nplaces} places →</button>'
                if nplaces > 1 else "")
             + "</article>")

@@ -47,6 +47,12 @@
         // and what the card SAYS while it stands on this place — the title line,
         // above the place rather than under it. Same rule: absent until written.
         say: x.say || "",
+        // The photograph a school sent for THIS place, and whose it is. It travels
+        // with the destination and never with the craft, so a card can only ever
+        // wear it while it is standing here — see school_shot() in the builder.
+        // ⚠ This map is a whitelist: a field not named here is dropped, and the
+        // card silently loses it. That is how the picture went missing the first time.
+        shot: x.shot || "", shotBy: x.shotBy || "",
         // schoolsInfo carries only the NAME the card prints — never a URL, a
         // course, a price or a rating link. The page reads .name and .length.
         schoolsInfo: x.school ? [{ name: x.school }]

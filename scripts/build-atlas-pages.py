@@ -1159,6 +1159,9 @@ section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
 .dots {{ color:var(--sea); letter-spacing:3px; }}
 .meta {{ font-size:13px; opacity:.6; }}
 ul.clean {{ list-style:none; }} ul.clean li {{ padding:10px 0; border-bottom:1px solid var(--line); }}
+.schoolshot {{ float:right; width:92px; height:92px; object-fit:cover; border-radius:10px;
+  border:1px solid var(--line); margin:2px 0 8px 14px; shape-outside:inset(0 round 10px); }}
+@media (max-width:560px) {{ .schoolshot {{ width:66px; height:66px; margin-left:11px; }} }}
 ul.clean li:last-child {{ border-bottom:none; }}
 .school-url {{ font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; }} .school-url:hover {{ text-decoration:underline; }}
 .cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
@@ -1335,6 +1338,38 @@ def room_block(x, d=None):
             f'<h2>The room</h2><ul class="clean" style="font-size:14.5px">{"".join(items)}</ul>'
             '<p class="meta" style="margin-top:10px">Want the rest — a normal day, first hour to last? '
             'Ask the school; a serious one answers in two minutes.</p></div></section>')
+
+# ── a school's photograph, used where the page is standing on that school's place ──
+# The pictures belong to ONE school in ONE place. So they may only ever appear on a
+# surface that is already talking about that place: the school's own row, and a card
+# at the moment it is standing on that destination. Kitesurfing's featured place is
+# Maui and the photographs are from Tarifa — put them on the craft card as it rests
+# and the page shows Tarifa's water under the word Maui, which is the same species of
+# lie as composing a place sentence. Hence per-destination, never per-craft.
+#
+# `card` and `thumb` name which frame does which job; both fall back to the first
+# picture, so a school that sends photographs and picks nothing still works.
+def school_shot(x, key):
+    """(src, school name) for the first school at this destination with photographs."""
+    for s_ in x.get("schoolsInfo") or []:
+        ph = s_.get("photos") or {}
+        items = ph.get("items") or []
+        if not items:
+            continue
+        src = (ph.get(key) or "").strip() or items[0]["src"]
+        if src not in {i["src"] for i in items}:
+            raise SystemExit(f'build-atlas-pages: {s_["name"]!r} names a photos.{key} that is '
+                             f'not one of its own pictures: {src}')
+        # The card carries this inside an unquoted CSS url(), which is what keeps the
+        # one line that writes it down to a single kind of quote. So the characters
+        # that would end the url() early, or the attribute around it, stop the build
+        # here rather than silently breaking one card's background in the browser.
+        if any(ch in src for ch in "()\'\" ,\\") or src.strip() != src:
+            raise SystemExit(f'build-atlas-pages: {src!r} is not safe in an unquoted CSS '
+                             "url(). Rename the file without brackets, quotes or spaces.")
+        return src, s_["name"]
+    return "", ""
+
 
 # ── photographs a school sent us, credited to it ──────────────────────────
 # The wave-one and wave-two letters asked every school two things: is this page
@@ -1976,6 +2011,20 @@ for d in DISC:
             seen.add(s["name"].lower())
             inner = f'<strong style="font-weight:500">{e(s["name"])}</strong>'
             inner += rising_star(s)
+            # A school that sent pictures gets a face on its own row. It is one of
+            # its own frames, it links to nothing, and it sits beside the name rather
+            # than above the blurb so the row still reads as a list and not a gallery.
+            _sh = (s.get("photos") or {})
+            _thumb = ((_sh.get("thumb") or "").strip()
+                      or ((_sh.get("items") or [{}])[0].get("src", "")))
+            if _thumb:
+                _alt = next((i.get("alt", "") for i in (_sh.get("items") or [])
+                             if i["src"] == _thumb), "")
+                if not _alt.strip():
+                    raise SystemExit(f'build-atlas-pages: the row thumbnail for '
+                                     f'{s["name"]!r} has no alt text.')
+                inner = (f'<img class="schoolshot" src="{e(_thumb)}" alt="{e(_alt)}" '
+                         f'width="150" height="150" loading="lazy" decoding="async">') + inner
             if s.get("course"): inner += f'<div class="meta">{e(s["course"])}</div>'
             if s.get("blurb"): inner += f'<div style="font-size:14px;opacity:.75;margin-top:4px">{e(s["blurb"])}</div>'
             if s.get("rating"):
@@ -2203,6 +2252,9 @@ def index_card(d):
             "say": (SAY_LINES.get(x["id"]) or "").strip(),
             "school": ((x.get("schoolsInfo") or [{}])[0]).get("name", ""),
             "nSchools": len(x.get("schoolsInfo") or x.get("schools") or []),
+            # the picture a card wears while it is standing on THIS place, and who
+            # it belongs to. Empty for every place nobody has sent us photographs of.
+            "shot": school_shot(x, "card")[0], "shotBy": school_shot(x, "card")[1],
         } for x in d["destinations"]]
     else:
         card["dests"] = ([{"id": d["id"], "place": best.get("place", ""),
@@ -2230,6 +2282,9 @@ def index_card(d):
         "tripType": best.get("tripType", ""), "tripLength": best.get("tripLength", ""),
         "lang": best.get("instructionLanguage", ""), "english": best.get("englishTaught") is True,
         "badges": best.get("badges", []),
+        # The resting card stands on the featured place, so it wears that place's
+        # picture or none — never another destination's.
+        "shot": school_shot(best, "card")[0], "shotBy": school_shot(best, "card")[1],
     })
     if r and r.get("destId") == best.get("id") and r.get("stars"):
         card["star"] = {"v": r["stars"], "n": r.get("count"), "src": r.get("source", ""),
@@ -2302,6 +2357,10 @@ OPENED_BAND = [{"id": s, "name": _by_id[s]["name"], "place": _by_id[s]["place"],
                 # order — so the band card carries the same stack the grid builds and
                 # cannot change height, or its words, differently from its neighbour
                 "walk": atlas_hub.walk_places(_by_id[s].get("dests", [])),
+                # the picture the card wears AT REST, which is the featured place's
+                # or none — the walk swaps in the others from PLACES, same as the
+                # lines do, so a band card and a grid card wear the same frame.
+                "shot": _by_id[s].get("shot", ""), "shotBy": _by_id[s].get("shotBy", ""),
                 "opened": pretty_date(OPENED[s])} for s in _band_slugs]
 
 # ---------- a locked craft publishes a description, and nothing else ----------

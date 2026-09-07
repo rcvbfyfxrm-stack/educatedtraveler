@@ -5199,6 +5199,8 @@ window.ET_ATLAS = {
               "photos": {
                 "given": "2026-09-04",
                 "by": "Mathieu",
+                "thumb": "/images/atlas/kitesurfing--tarifa/matos-tarifa-11-instructors-and-students.jpg",
+                "card": "/images/atlas/kitesurfing--tarifa/matos-tarifa-01-down-to-the-water.jpg",
                 "items": [
                   {
                     "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-01-down-to-the-water.jpg",

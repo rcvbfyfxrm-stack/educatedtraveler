@@ -253,6 +253,28 @@ select.fin option{background:var(--ink2)}
 .dcard{scroll-snap-align:start;flex:0 0 auto;width:clamp(228px,25vw,262px)}
 .dcard::before,.gcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.5;transition:opacity .3s}
 .dcard:hover,.gcard:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));box-shadow:0 18px 40px rgba(0,0,0,.45)}.dcard:hover::before,.gcard:hover::before{opacity:1}
+/* ── a school's photograph behind the card ──────────────────────────────────
+   Only ever on a card standing on the place the photograph came from: the shot
+   is per-DESTINATION and the walk swaps it, so kitesurfing rests on Maui with
+   no picture and puts Tarifa's water up only while it is saying Tarifa.
+   The scrim is heavy on purpose. This is texture under type, not a photograph
+   with words on it — every line on the card has to keep the contrast it had on
+   a flat background, including .wherealive, which is a mid-tone colour at 16.5px
+   and the first thing a picture would drown. The text-shadow is the belt to that
+   brace: photographs vary, and a bright sky must not be able to eat a word. */
+.dcard[data-shot],.gcard[data-shot]{
+  background-image:linear-gradient(180deg,rgba(20,17,13,.78) 0%,rgba(20,17,13,.90) 52%,rgba(20,17,13,.98) 100%),var(--shot);
+  background-size:cover;background-position:center;background-repeat:no-repeat}
+.dcard[data-shot]:hover,.gcard[data-shot]:hover{
+  background-image:linear-gradient(180deg,rgba(20,17,13,.68) 0%,rgba(20,17,13,.86) 52%,rgba(20,17,13,.97) 100%),var(--shot)}
+.dcard[data-shot] .cardsay,.gcard[data-shot] .cardsay,
+.dcard[data-shot] .wherealive,.gcard[data-shot] .wherealive{
+  text-shadow:0 1px 10px rgba(13,11,9,.9),0 1px 2px rgba(13,11,9,.75)}
+/* Whose picture it is. Empty on every card that is not wearing one, and the
+   :empty rule is what keeps it from printing a blank line on the other 115. */
+.shotcredit{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--faint);margin:9px 0 0}
+.shotcredit:empty{display:none}
 .cred{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(231,181,78,.34);border-radius:99px;padding:4px 9px;margin-bottom:11px;max-width:100%}
 .cred .gem{color:var(--gold)}.cred span.t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .craft{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:20px;line-height:1.1;margin-bottom:7px}
@@ -763,6 +785,7 @@ var PLACES={};A.forEach(function(d){
   PLACES[d.id]=ds.map(function(x){return {place:x.place,country:x.country||"",
                              line:(x.learn||"").trim()||x.why||"",written:!!(x.learn||"").trim(),
                              say:(x.say||"").trim(),
+                             shot:x.shot||"",shotBy:x.shotBy||"",
                              where:(dupe||!x.country)?placeLine(x.place,x.country)
                                                      :theCountry(x.country)};});
 });
@@ -1292,7 +1315,7 @@ function placeLine(place,country){
 // has asked for yet, atlas-index-shim.js rewrites it — that is where "a letter to
 // Arnaud opens this one" appears, and it is the only other line a card ever says.
 function cardData(world,disc,t){return {world:world,did:disc.id,craft:disc.discipline,blurb:disc.blurb||"",
-  place:t.place||"",country:t.country||"",why:t.why||""};}
+  place:t.place||"",country:t.country||"",why:t.why||"",shot:t.shot||"",shotBy:t.shotBy||""};}
 // The hook is the reason to go to the place printed above it. On a craft nobody
 // has asked for there is no published reason to go, and the shim puts the craft's
 // own blurb in that slot instead — true of the card either way, but then it IS
@@ -1317,6 +1340,7 @@ function cardInner(o){
     (o.place?whereHTML(o.place,o.country,o.did):'')+
     (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     (hook?'<p class="cardhook">'+esc(hook)+'</p>':'')+
+    '<p class="shotcredit">'+(o.shotBy?'Photo: '+esc(o.shotBy):'')+'</p>'+
     '<div class="cfoot"></div>'+
     (n>1?'<button class="placecue" type="button">'+n+' places →</button>':'');
 }
@@ -1324,7 +1348,11 @@ function cardInner(o){
 // real button on it (write to Arnaud about this craft) keeps its own clicks.
 function cardShell(cls,color,href,label,o){
   if((PLACES[o.did]||[]).length>1)cls+=" walks";
-  return '<article class="'+cls+'" style="--sc:'+color+'" data-craft="'+esc(o.craft)+'">'+
+  // url() is left unquoted so this line needs one kind of quote and not three.
+  // The build refuses a photo path that is not safe unquoted, so nothing can get here
+  // carrying a bracket, a space or a quote of its own.
+  var shot=o.shot?' data-shot style="--sc:'+color+';--shot:url('+esc(o.shot)+')"':' style="--sc:'+color+'"';
+  return '<article class="'+cls+'"'+shot+' data-craft="'+esc(o.craft)+'">'+
     '<a class="cardlink" href="'+esc(href)+'" aria-label="Open the '+esc(label)+' skill sheet"></a>'+
     '<button class="writebtn" type="button" data-write-craft="'+esc(o.craft)+'" data-write-place="'+esc((o.place||"")+(o.country?', '+o.country:""))+'">✎ Write</button>'+
     cardInner(o)+'</article>';
@@ -1336,7 +1364,8 @@ function cardShell(cls,color,href,label,o){
 // with it, rather than leaving the strongest place's reason under a different town.
 function gcard(x){
   return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.did,x.discipline,
-    {world:x.world,did:x.did,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country,why:x.why||""});
+    {world:x.world,did:x.did,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country,why:x.why||"",
+     shot:x.shot||"",shotBy:x.shotBy||""});
 }
 function renderRails(){
   VIEW.cat=null;
@@ -1691,6 +1720,12 @@ document.addEventListener("click",function(e){
   var card=null,list=null,home=null,craft="",i=0,tid=0,fade=0,lead=0;
   var held=false,press=0,swallow=0,sx=0,sy=0,HOLD=420,popT=0;
   function q(c,s){return c.querySelector(s);}
+  function shotTo(c,src,by){
+    var cr=q(c,".shotcredit");
+    if(src){c.style.setProperty("--shot","url('"+src+"')");c.setAttribute("data-shot","");}
+    else{c.style.removeProperty("--shot");c.removeAttribute("data-shot");}
+    if(cr)cr.textContent=by?"Photo: "+by:"";
+  }
   function slug(c){var a=q(c,"a.cardlink"),h=a&&a.getAttribute("href");return h?h.split("/atlas/")[1]:"";}
   function cue(c,txt){var el=q(c,".placecue");if(el)el.textContent=txt;}
   // Child 0 of each stack is the resting line; child i+1 is place i. Showing one and
@@ -1708,6 +1743,10 @@ document.addEventListener("click",function(e){
     show(q(card,".cardsay"),i+1);
     show(q(card,".wherealive"),i+1);
     if(k)k.textContent=p.line||"";
+    // The picture is the one thing on the card that is not a line of type, so it
+    // cannot ride the .cardsay stack. It is swapped here instead, against the same
+    // index — a card standing on a place shows that place's photograph or none.
+    shotTo(card,p.shot,p.shotBy);
     cue(card,(i+1)+" / "+list.length);
     cardPop.mark(i);
   }
@@ -1750,6 +1789,7 @@ document.addEventListener("click",function(e){
     if(y){y.classList.remove("swapping");show(y,0);}
     if(w){w.classList.remove("swapping");show(w,0);}
     if(k){k.classList.remove("swapping");if(home.k!==null)k.innerHTML=home.k;}
+    shotTo(card,home.shot,home.shotBy);
     cue(card,list.length+" places");
     card=null;list=null;home=null;craft="";i=0;
   }
@@ -1759,7 +1799,10 @@ document.addEventListener("click",function(e){
     if(!ps||ps.length<2)return;
     var w=q(c,".wherealive"),k=q(c,".cardhook");
     card=c;list=ps;craft=c.getAttribute("data-craft")||"";
-    home={k:k?k.innerHTML:null};
+    home={k:k?k.innerHTML:null,
+          shot:c.style.getPropertyValue("--shot").replace(/^url\('?|'?\)$/g,""),
+          shotBy:(q(c,".shotcredit")||{}).textContent
+                   ? (q(c,".shotcredit").textContent||"").replace(/^Photo:\s*/,"") : ""};
     // begin at the place the card is already showing, so the first move is a move
     // and not a jump back to the top of a list the reader is already standing in
     var shown=w?w.textContent:"";i=0;
