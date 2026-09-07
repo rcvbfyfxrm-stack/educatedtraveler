@@ -633,16 +633,16 @@
       "date": "3 September 2026"
     },
     "jewelry-and-goldsmithing": {
-      "dots": 4,
+      "dots": 3,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "There is more to go on here than almost anywhere else on this map — but we have not stood at any of these benches, so the last one is still ours to earn, not yours to trust",
+      "verdict": "Four scenes on three continents and a credential the trade reads, above benches where nobody will yet tell you whose hands you would be working under",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
-          "on": true,
-          "t": "Thinly, and we will say so: Gio Carbone at Le Arti Orafe in Florence is the one named person on this page, in the school he founded. The other three destinations are institutions — the Gemological Institute of America, Pforzheim's Goldschmiedeschule, the Indian Institute of Gems & Jewellery — and name nobody. One name out of four lights this dot. It does not make us comfortable."
+          "on": false,
+          "t": "Dark, and the old answer said why without following it: Gio Carbone is 'the one named person on this page, in the school he founded'. He founded Le Arti Orafe in 1985 and nothing published says he teaches the annual course. The other three destinations — the Gemological Institute of America, Pforzheim's Goldschmiedeschule, the Indian Institute of Gems &amp; Jewellery — name nobody at all. The second way in does not open for the school we point you at either: LAO's annual course ends in a LAO diploma, awarded by LAO. The GIA Graduate Gemologist and the German Meister are examined by somebody outside the school, and both are real — but they are at Carlsbad and Pforzheim, not at the bench in Florence we send you to. His name stays on the page. Ask LAO who will be at the bench beside you."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -673,9 +673,9 @@
         }
       ],
       "ceilingNote": "All five are reachable here: this craft belongs to its benches, so one visit could answer the last one.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Prices, course lengths and diploma names come from the school entries below, each carrying its own source. The fourth answer is new and covers Pforzheim only: the Schmuckmuseum's own site, read 4 September 2026.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Prices, course lengths and diploma names come from the school entries below, each carrying its own source. The fourth answer is new and covers Pforzheim only: the Schmuckmuseum's own site, read 4 September 2026. Amended 5 September 2026: the first answer was lit on a founder, which the answer itself said out loud. It reads dark now and the count is three.",
       "checker": "Arnaud Callier",
-      "date": "4 September 2026"
+      "date": "7 September 2026"
     },
     "kitesurfing": {
       "dots": 3,
@@ -726,13 +726,13 @@
       "dots": 4,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "A faculty the Basque chefs built for themselves, with their restaurants a few kilometres away — and a gap between the names on the page and the names in the classroom",
+      "verdict": "A faculty the Basque chefs built for themselves, examined by a university rather than vouched for by a teacher — and the great names beside it are a lineage, not a class",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
           "on": true,
-          "t": "Named, with a caveat we would rather state than bury. Andoni Luis Aduriz at Mugaritz and Martín Berasategui at Lasarte-Oria are named on this page and both are real, working chefs in their own kitchens — but what they offer is a stage, not a course, and you apply rather than book. The Basque Culinary Center, which is where you can actually enrol, names no teacher on this page. Luis Irizar, who trained much of this generation, died in 2024 and now sits under 'where it comes from'."
+          "t": "Lit, but not by the names you would expect, and the difference is the whole answer. Andoni Luis Aduriz at Mugaritz and Martín Berasategui at Lasarte-Oria have moved to where the craft comes from: what they offer is a stage you apply for, not a course you book, and their own entries on this page say so — 'listed for the lineage, not as a class'. The Basque Culinary Center, which is where a stranger can actually enrol, still names no teacher. What lights this answer is the other way in: its Culinary Techniques Mastery carries 6 ECTS awarded with Mondragon University, so somebody outside the kitchen sets the standard and marks against it. That is a weaker promise than a name and a stronger one than a brochure. Ask them who runs the five weeks; the names would be worth more than the credits."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -763,9 +763,9 @@
         }
       ],
       "ceilingNote": "All five are reachable here: this cuisine belongs to its place, so one visit could answer the last one.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. The fourth answer is new: San Sebastián Gastronomika's own site, read 4 September 2026.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. The fourth answer is new: San Sebastián Gastronomika's own site, read 4 September 2026. Amended 5 September 2026: the first answer rested on Aduriz and Berasategui, whose own entries say they are listed for the lineage rather than as a class; both have moved to 'where it comes from'. The dot stays lit on Mondragon University's 6 ECTS, which is an outside examiner, not on a chef.",
       "checker": "Arnaud Callier",
-      "date": "4 September 2026"
+      "date": "7 September 2026"
     },
     "perfumery": {
       "dots": 4,
@@ -896,16 +896,16 @@
       "date": "3 September 2026"
     },
     "freediving": {
-      "dots": 4,
+      "dots": 3,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "The rare craft where the people who set the records still take the course themselves — four places, five names, and the only thing missing is somebody of ours in the water",
+      "verdict": "The widest door on this map and a genuine ladder above it, with three of its four named people there for having founded the place rather than for teaching in it",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
-          "on": true,
-          "t": "Named in three of the four places, and named unusually high. Umberto Pelizzari, who held seventeen world records, founded the Apnea Academy and its seven-day instructor course. William Trubridge runs Vertical Blue at Dean's Blue Hole and leads its once-yearly Master Class himself. Lotta Ericson, a former world-record holder, founded Freedive Dahab in 2003, and Stavros Kastrinakis, an AIDA world-record holder, founded the Kalamata club in 2007. This map's usual problem is a famous name over a door that somebody else teaches behind; here the record says the name takes the course."
+          "on": false,
+          "t": "Dark, and the correction is ours. Four names sit on this page and three of them are here for having founded the school: Umberto Pelizzari at the Apnea Academy, Lotta Ericson at Freedive Dahab, Stavros Kastrinakis at Kalamata. Founding a school is not teaching in it — the same reading that darkened this dot on French pastry two days before this grade was written, and the previous version of this answer offered the founder evidence as a strength. Only William Trubridge carries a teaching claim: he leads the once-yearly Master Class at Vertical Blue himself. The second way to light this answer does not open either. The course we point you at ends in an Apnea Academy Freediving Instructor certificate, which the Apnea Academy awards — AIDA and Molchanovs are real outside bodies in this craft, but the pick does not run through them. The names stay on the page; they are simply not the answer to this question."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -936,9 +936,9 @@
         }
       ],
       "ceilingNote": "All five are reachable here: this craft belongs to specific water, and one season in Dahab could answer the last one.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been in the water at any of these four sites. The fourth answer is CMAS's own event record for Kalamata, read 4 September 2026. The first is unusually strong for this map and is the reason the count is four: it rests on what each school publishes about its own founder, not on a third party, and it is the one that a phone call could still overturn.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been in the water at any of these four sites. The fourth answer is CMAS's own event record for Kalamata, read 4 September 2026. The first is unusually strong for this map and is the reason the count is four: it rests on what each school publishes about its own founder, not on a third party, and it is the one that a phone call could still overturn. Amended 5 September 2026: the first answer was lit on three founders and said so — 'it rests on what each school publishes about its own founder' — which is the Frédéric Bau reading exactly, offered as a strength. It reads dark now and the count is three.",
       "checker": "Arnaud Callier",
-      "date": "5 September 2026"
+      "date": "7 September 2026"
     },
     "lifestyle-medicine": {
       "dots": 1,
@@ -1183,7 +1183,7 @@
         }
       ],
       "ceilingNote": "All five are reachable here — and who teaches would be answered by four emails, one per town.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has climbed at any of these four crags. The fourth answer is the National Park Service's own climbing pages, read 4 September 2026. The first is graded empty on the same reading applied to kitesurfing: where an outside body certifies the instructor, we do not fill this question on the certification — it answers a different question. ⚠ Chamonix's who-teaches field held the Compagnie des Guides, a company; it has been moved to where the craft comes from, here and on the three other crafts that carried the same entry. ⚠ Amended 5 September 2026, the day after signing: this page said it could not show you why Kalymnos was missing, and the honest answer was that it should not have been. Kalymnos is now the fifth place, and it brings the first two climbing instructors this map can name. The page still keeps no record of which regions were searched and set aside, so Railay, the Red River Gorge, Frankenjura, Siurana, El Chorro and Arco are all real, all teach beginners, and none of them has been assessed here.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has climbed at any of these four crags. The fourth answer is the National Park Service's own climbing pages, read 4 September 2026. The first is graded empty on the same reading applied to kitesurfing: where an outside body certifies the instructor, we do not fill this question on the certification — it answers a different question. ⚠ Chamonix's who-teaches field held the Compagnie des Guides, a company; it has been moved to where the craft comes from, here and on the three other crafts that carried the same entry. ⚠ Amended 5 September 2026, after signing: this page said it could not show you why Kalymnos was missing, and the honest answer was that it should not have been. Kalymnos is now the fifth place, and it brings the first two climbing instructors this map can name. The page still keeps no record of which regions were searched and set aside, so Railay, the Red River Gorge, Frankenjura, Siurana, El Chorro and Arco are all real, all teach beginners, and none of them has been assessed here.",
       "checker": "Arnaud Callier",
       "date": "5 September 2026"
     },
@@ -1406,7 +1406,7 @@
         }
       ],
       "ceilingNote": "All five are reachable here — and the fourth answer, published empty the day this was signed, is now the strongest thing on the page. The gap was ours, not the coast's.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has dived any of these three coasts. ⚠ Amended 5 September 2026, the day after signing. The fourth answer went up empty with a note saying the search had failed rather than that the answer was no — and it had: a second look found the Fédération Française de Pêche Sportive en Apnée, a different body from the FFESSM listed on this page and one with nothing to sell here, running a national cup round on this coast in April 2026. The dot is filled and the amendment is printed rather than quietly made. The FFESSM and the CMAS commission remain interested parties: they appear on this craft's own page, so nothing they publish can settle this question.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has dived any of these three coasts. ⚠ Amended 5 September 2026, after signing. The fourth answer went up empty with a note saying the search had failed rather than that the answer was no — and it had: a second look found the Fédération Française de Pêche Sportive en Apnée, a different body from the FFESSM listed on this page and one with nothing to sell here, running a national cup round on this coast in April 2026. The dot is filled and the amendment is printed rather than quietly made. The FFESSM and the CMAS commission remain interested parties: they appear on this craft's own page, so nothing they publish can settle this question.",
       "checker": "Arnaud Callier",
       "date": "5 September 2026"
     },
@@ -1456,7 +1456,7 @@
         }
       ],
       "ceilingNote": "All five are reachable here: this craft belongs to particular water, and one winter in Ericeira or one autumn in Taghazout could answer the last one.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has surfed at any of these three places. The fourth answer rests on two sources read 4 September 2026: Save The Waves on the reserve, and the World Surf League's own 2026 event page for Peniche, re-read 5 September. ⚠ Reading the first of those against our own page found a disagreement worth recording: Save The Waves says five kilometres of coastline, and this page says four. ⚠ Amended 5 September 2026, the day after signing. This page said it could not show why Bali and Taghazout were missing, and the honest answer was the same as Kalymnos's: they should not have been. Both are now destinations, researched from the schools' own pages, and between them they give this craft the first two surf coaches it can name. The count does not move — three of five is still three of five — and the first question stays empty, because two named coaches on the two newest entries tell a reader booking Waikiki nothing at all.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has surfed at any of these three places. The fourth answer rests on two sources read 4 September 2026: Save The Waves on the reserve, and the World Surf League's own 2026 event page for Peniche, re-read 5 September. ⚠ Reading the first of those against our own page found a disagreement worth recording: Save The Waves says five kilometres of coastline, and this page says four. ⚠ Amended 5 September 2026, after signing. This page said it could not show why Bali and Taghazout were missing, and the honest answer was the same as Kalymnos's: they should not have been. Both are now destinations, researched from the schools' own pages, and between them they give this craft the first two surf coaches it can name. The count does not move — three of five is still three of five — and the first question stays empty, because two named coaches on the two newest entries tell a reader booking Waikiki nothing at all.",
       "checker": "Arnaud Callier",
       "date": "5 September 2026"
     },
@@ -1470,7 +1470,7 @@
         {
           "n": "Is there a teacher, and can we name them?",
           "on": true,
-          "t": "Yes, in the form this craft takes: a named body with a named lineage, and the body is a temple. Wat Pho opened Thailand's first state-recognised traditional medicine school in 1955 and its certificate is recognised by the Ministries of Health, Labour and Education; the Old Medicine Hospital school in Chiang Mai has taught Northern-style Nuad Thai since 1962 under the Ministry of Education. No individual instructor is named, and in a ministry-accredited 200-hour programme that is the shape of the thing rather than a hole. ⚠ Two names sat in this page's who-teaches field until today. Asokananda, who founded the Sunshine Network, died on 24 June 2005 and has been moved to where the craft comes from. Chongkol Setthakorn, who founded ITM, was still leading the morning exercises there in 2019 and is left in place — but founding a school is not the same as teaching your course, and nobody has confirmed which he does now."
+          "t": "Yes, in the form this craft takes: not a name, but a standard somebody outside the school sets and marks against. Wat Pho opened Thailand's first state-recognised traditional medicine school in 1955 and its certificate is recognised by the Ministries of Health, Labour and Education; the Old Medicine Hospital school in Chiang Mai has taught Northern-style Nuad Thai since 1962 under the Ministry of Education. No individual instructor is named at either, and in a ministry-accredited 200-hour programme that is the shape of the thing rather than a hole — you are examined by the state, not vouched for by a teacher. ⚠ Two names have left this page's who-teaches field for where the craft comes from. Asokananda, who founded the Sunshine Network, died in 2005. Chongkol Setthakorn founded ITM and was still leading the morning exercises there in 2019, but founding a school is not teaching your course and nobody has confirmed which he does now. Both names are still on the page, under the heading that is true of them."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -1506,9 +1506,9 @@
         }
       ],
       "ceilingNote": "All five are reachable here: this craft belongs to these two cities about as completely as anything on the map, so one course could answer the last one.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has trained at Wat Pho or in Chiang Mai. The fourth answer rests on two UNESCO registers, the second re-read on 5 September 2026 — which is when a claim that almost half the Wat Pho stones are medical texts came off this grade, because UNESCO's own page does not say it. The first is filled on the institution-taught form — a named body with a named lineage — and not on the personal names: one was a man who died in 2005, now moved to the lineage, and the other we could not confirm is still teaching.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has trained at Wat Pho or in Chiang Mai. The fourth answer rests on two UNESCO registers, the second re-read on 5 September 2026 — which is when a claim that almost half the Wat Pho stones are medical texts came off this grade, because UNESCO's own page does not say it. The first is filled on the institution-taught form — a named body with a named lineage — and not on the personal names: one was a man who died in 2005, now moved to the lineage, and the other we could not confirm is still teaching. Amended 7 September 2026: Chongkol Setthakorn has moved from who-teaches to where the craft comes from. He founded ITM; nothing published confirms he teaches the course. The answer stays lit on the ministry accreditation, which was always what was carrying it.",
       "checker": "Arnaud Callier",
-      "date": "5 September 2026"
+      "date": "7 September 2026"
     },
     "vipassana-and-meditation": {
       "dots": 3,
@@ -1552,13 +1552,13 @@
       "dots": 4,
       "ceiling": 5,
       "register": "place-led",
-      "verdict": "Four named photographers, each in their own ground, each still working it — the strongest answer to the first question anywhere on this map, and the last one still ours to earn",
+      "verdict": "Named photographers in their own ground, and at the one place we send you the teacher is the operator rather than the man whose name is on the hides — which the page now says",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
           "on": true,
-          "t": "Yes, in four of the five places, and this is as strong as this question gets here. Bence Máté built over twenty-five hides on his family's farm at Pusztaszer and invented the one-way glass technique in 2005. Lassi Rautiainen has photographed the Kuhmo bears since the 1970s and taken others to them since 1988. Paul Goldstein has run his own Mara camps for decades and guides the departures himself. Edward Selfe lives in South Luangwa year-round and is a fully qualified guide as well as the photographer teaching you. Four living people, named, in their own places, on the days nobody is watching."
+          "t": "Yes, and the correction makes it stronger rather than weaker. Bence Máté built over twenty-five hides at Pusztaszer and invented the one-way glass in 2005 — the whole discipline moved because of it — but this page's own entry says the rest out loud: the hides are a facility to hire, not a taught course, and 'Máté himself does not tutor these groups'. The teaching at our pick comes from David Miles, who runs the NaturesLens departures into those hides for a maximum of seven people, and he is now the name in the who-teaches field where Máté used to be. Paul Goldstein has run his own Mara camps for decades and guides the departures himself. Edward Selfe lives in South Luangwa year-round and is a fully qualified guide as well as the photographer teaching you. Lassi Rautiainen is Finland's pioneer of photo-hide tourism and has run Kuhmo since 1988, though what his packages add is guiding rather than tuition. Named people, in their own ground, on the days nobody is watching — and now the right ones."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -1594,9 +1594,9 @@
         }
       ],
       "ceilingNote": "All five are reachable here: this craft belongs to particular ground and particular animals, so one return visit could answer the last one.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sat in any of these hides. The fourth answer rests on two sources read 4 September 2026: the Kiskunság National Park directorate and the Mara conservancies association. The first answer is filled on what each photographer publishes about their own work, and on two of them the page goes further — Goldstein guiding his own departures, Selfe living in the valley year-round — which is the claim most worth checking first if this grade is ever wrong.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sat in any of these hides. The fourth answer rests on two sources read 4 September 2026: the Kiskunság National Park directorate and the Mara conservancies association. The first answer is filled on what each photographer publishes about their own work, and on two of them the page goes further — Goldstein guiding his own departures, Selfe living in the valley year-round — which is the claim most worth checking first if this grade is ever wrong. Amended 7 September 2026: the answer was lit on Bence Máté, and this page's own NaturesLens entry says he does not tutor the groups. He has moved to where the craft comes from, which is his due — he invented the one-way glass hide — and David Miles, who does the teaching, now carries the who-teaches field. The count does not move: the question was always answerable here, just not by him.",
       "checker": "Arnaud Callier",
-      "date": "5 September 2026"
+      "date": "7 September 2026"
     },
     "windsurfing-and-wing-foil": {
       "dots": 3,
