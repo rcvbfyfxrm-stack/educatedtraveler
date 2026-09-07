@@ -308,18 +308,28 @@ def also_here_html(d):
         f'<div style="font-size:14px;color:var(--muted);margin-top:3px">{e(r["note"])}</div></li>'
         for r in rows)
     n = num_word(len(rows))
+    plural = "place" if len(rows) == 1 else "places"
+    # Arnaud, 7 Sept 2026: make this "not take so much space and more complementary
+    # than part of the page". It ran to 220 words for three places — eleven per cent of
+    # a craft sheet — and the 85-word justification repeated identically on every craft,
+    # above the graded destinations it was explaining itself to. One line now, and the
+    # rest a click away. Nothing is unpublished; the list is the point and it is intact.
     return ('<section><div class="wrap">'
-            '<div class="mono">Catalogued, not checked</div>'
-            f'<h2 style="margin-bottom:10px">Where else this craft lives'
-            f'<span style="opacity:.45;font-weight:300"> &middot; {n}</span></h2>'
+            '<details class="fold"><summary>'
+            '<span class="mono" style="color:var(--sea)">Catalogued, not checked</span>'
+            f'<h2 style="margin:6px 0 0;font-size:20px">{n.capitalize()} more {plural} we know '
+            'of, and nobody has checked any of them</h2>'
+            '</summary><div class="foldbody">'
             '<p class="meta" style="margin:0 0 16px;max-width:62ch">Listing five places would '
             'tell you this craft happens in five places, and it does not. These are the rest we '
             'know of. <b>Nobody has checked any of them.</b> No school here is vetted, no teacher '
             'named, nothing graded — this is the lowest state on the map, and we would rather '
             'print it than let a short list read as a complete one. A line each, and what the '
-            'place is known for. <b>If you have been to one, or know a school or an instructor there, the line will take a note.</b></p>'
+            'place is known for. <b>If you have been to one, or know a school or an instructor '
+            'there, the line will take a note — it comes to me, and it is how a place stops being '
+            'a line and starts being checked.</b></p>'
             f'<ul style="list-style:none;padding:0;margin:0">{lis}</ul>'
-            '</div></section>')
+            '</div></details></div></section>')
 
 
 def measure_html(mm, dots=None, vouch=""):
