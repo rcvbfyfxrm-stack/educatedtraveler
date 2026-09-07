@@ -1909,9 +1909,7 @@ window.ET_ATLAS = {
             "Sunshine Massage School",
             "Chetawan (Wat Pho) Thai Traditional Massage School, Chiang Mai branch"
           ],
-          "masters": [
-            "Chongkol Setthakorn (founder, ITM)"
-          ],
+          "masters": [],
           "badges": [
             "source",
             "scene",
@@ -1969,6 +1967,7 @@ window.ET_ATLAS = {
           "englishTaught": true,
           "englishBasis": "Old Medicine Hospital school runs classes in both Thai and English; majority of 20,000+ students international",
           "lineage": [
+            "Chongkol Setthakorn (founder, ITM)",
             "Asokananda / Harald Brust (founder of the Sunshine Network, died 2005)"
           ]
         },
@@ -24895,6 +24894,9 @@ window.ET_ATLAS = {
             "Skua Nature"
           ],
           "masters": [
+            "David Miles (NaturesLens)"
+          ],
+          "lineage": [
             "Bence Máté"
           ],
           "badges": [

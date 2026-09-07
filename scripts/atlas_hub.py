@@ -375,10 +375,6 @@ def measure_html(mm, dots=None, vouch=""):
       # marks against the listing ("ten schools between them and not one named teacher"). A
       # legend on an instrument about honesty may not be the one sentence on the page that is
       # not checked. It now names all three reasons, and the sentence under each dot says which.
-      '<p class="meta" style="margin:0 0 16px">The same five questions, asked of every craft on '
-      'this map, before we send anyone anywhere. A full dot is a yes we can show you the working '
-      'for. An empty dot means one of three things, and the sentence under it says which: nobody '
-      'publishes the answer, we read it and the answer is no, or nobody of ours has been.</p>'
       '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
       'border-left:2px solid var(--sea)">'
       f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'
@@ -386,15 +382,32 @@ def measure_html(mm, dots=None, vouch=""):
       # a shouted two-line verdict is a guide awarding a distinction — not us talking.
       f'<p style="font-size:15.5px;line-height:1.55;color:var(--ember);margin:0 0 18px">'
       f'{mm["verdict"]}.</p>'
+      # Arnaud, 7 Sept 2026: "don't describe all the points, just add the note." Five
+      # answers ran to seven hundred words and outweighed the craft they were judging —
+      # the meter and the verdict say the thing, and the working belongs one click away
+      # rather than gone. Nothing is unpublished: the questions, the findings, the legend
+      # and the evidence links are all still on the page, folded. check 15 reads them
+      # inside the fold exactly as it did outside it.
+      '<details class="fold"><summary>'
+      '<span class="mono" style="color:var(--sea);font-size:12px;letter-spacing:.12em">'
+      'How this was graded</span></summary><div class="foldbody">'
+      '<p class="meta" style="margin:0 0 16px">The same five questions, asked of every craft on '
+      'this map, before we send anyone anywhere. A full dot is a yes we can show you the working '
+      'for. An empty dot means one of three things, and the sentence under it says which: nobody '
+      'publishes the answer, we read it and the answer is no, or nobody of ours has been.</p>'
       f'{rows}{vouch}{note}'
+      # the basis belongs with the working it describes, not above the fold: the NAME and
+      # the DAY are the accountability, and they stay in the open.
+      f'<p class="meta" style="margin:14px 0 0">{mm["check"]}</p>'
+      '</div></details>'
       # the generated template has no .checked rule — carry the look inline so the
       # line does not silently collapse into one run of prose here.
       f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;line-height:1.65;'
       f'letter-spacing:.02em;color:var(--muted);margin:16px 0 0;padding-top:10px;'
       f'border-top:1px dashed rgba(127,168,165,.28)">'
       f'<b style="color:var(--sea);text-transform:uppercase;letter-spacing:.14em;font-size:10px;'
-      f'font-weight:500;display:block;margin-bottom:4px">{mm["state"]} &middot; {mm["checker"]} '
-      f'&middot; {mm["date"]}</b>{mm["check"]}</p>'
+      f'font-weight:500;display:block">{mm["state"]} &middot; {mm["checker"]} '
+      f'&middot; {mm["date"]}</b></p>'
       '</div></div></section>')
 
 

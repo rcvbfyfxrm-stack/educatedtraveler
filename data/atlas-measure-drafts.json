@@ -128,6 +128,102 @@
       ],
       "ceilingNote": "All five are reachable here: this cuisine belongs to its place, so one visit could answer the last one.",
       "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. The fourth answer is new: San Sebastián Gastronomika's own site, read 4 September 2026. Amended 5 September 2026: the first answer rested on Aduriz and Berasategui, whose own entries say they are listed for the lineage rather than as a class; both have moved to 'where it comes from'. The dot stays lit on Mondragon University's 6 ECTS, which is an outside examiner, not on a chef."
+    },
+    "thai-massage": {
+      "dots": 4,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "A craft the Thai state certifies, UNESCO lists and a Bangkok temple wrote down in stone — the strongest ground on this map, and the only thing missing is anybody of ours on the mat",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, in the form this craft takes: not a name, but a standard somebody outside the school sets and marks against. Wat Pho opened Thailand's first state-recognised traditional medicine school in 1955 and its certificate is recognised by the Ministries of Health, Labour and Education; the Old Medicine Hospital school in Chiang Mai has taught Northern-style Nuad Thai since 1962 under the Ministry of Education. No individual instructor is named at either, and in a ministry-accredited 200-hour programme that is the shape of the thing rather than a hole — you are examined by the state, not vouched for by a teacher. ⚠ Two names have left this page's who-teaches field for where the craft comes from. Asokananda, who founded the Sunshine Network, died in 2005. Chongkol Setthakorn founded ITM and was still leading the morning exercises there in 2019, but founding a school is not teaching your course and nobody has confirmed which he does now. Both names are still on the page, under the heading that is true of them."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, laddered, and cheap. A 200-hour Professional Thai Massage Therapy course at Wat Pho, a 165-hour professional programme at the Chiang Mai branch, a two-week 60-hour beginner course at Sunshine, six progressive levels at ITM. All published, all accredited, all bookable by a foreigner. And the hands can ruin it: you work with palms, thumbs, elbows and feet on somebody else's spine, and doing it wrong hurts a person."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and in both directions. Chiang Mai runs Thai and foreign students side by side in the same rooms, and ITM's six levels mean the person on the next mat is either a stage ahead of you or a stage behind. This is a craft practised in pairs, so the cohort is not optional — it is the equipment."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and answered by UNESCO twice rather than by a school. Nuad Thai was inscribed on the Representative List of the Intangible Cultural Heritage of Humanity in 2019. And the Epigraphic Archives of Wat Pho — 1,431 stone inscriptions cut between 1831 and 1841, among them the massage texts and illustrations in the temple's Twin Pavilion — were inscribed on UNESCO's Memory of the World register in 2011. The temple where you would take the course is the place the craft was written down.",
+          "evidence": [
+            {
+              "what": "UNESCO's Representative List entry for Nuad Thai",
+              "url": "https://ich.unesco.org/en/RL/nuad-thai-traditional-thai-massage-01384",
+              "date": "4 September 2026"
+            },
+            {
+              "what": "UNESCO's Memory of the World entry for the Epigraphic Archives of Wat Pho",
+              "url": "https://www.unesco.org/en/memory-world/epigraphic-archives-wat-pho",
+              "date": "5 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The rungs are published and long — foundation, therapeutic levels one to four, the 200-hour professional therapy course, and instructor above that — and the Thai ministries stand behind them. Whether there is a teacher above you who would keep taking you further after the certificate is the part no ministry registers."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to these two cities about as completely as anything on the map, so one course could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has trained at Wat Pho or in Chiang Mai. The fourth answer rests on two UNESCO registers, the second re-read on 5 September 2026 — which is when a claim that almost half the Wat Pho stones are medical texts came off this grade, because UNESCO's own page does not say it. The first is filled on the institution-taught form — a named body with a named lineage — and not on the personal names: one was a man who died in 2005, now moved to the lineage, and the other we could not confirm is still teaching. Amended 7 September 2026: Chongkol Setthakorn has moved from who-teaches to where the craft comes from. He founded ITM; nothing published confirms he teaches the course. The answer stays lit on the ministry accreditation, which was always what was carrying it."
+    },
+    "wildlife-photography": {
+      "dots": 4,
+      "ceiling": 5,
+      "register": "place-led",
+      "verdict": "Named photographers in their own ground, and at the one place we send you the teacher is the operator rather than the man whose name is on the hides — which the page now says",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, and the correction makes it stronger rather than weaker. Bence Máté built over twenty-five hides at Pusztaszer and invented the one-way glass in 2005 — the whole discipline moved because of it — but this page's own entry says the rest out loud: the hides are a facility to hire, not a taught course, and 'Máté himself does not tutor these groups'. The teaching at our pick comes from David Miles, who runs the NaturesLens departures into those hides for a maximum of seven people, and he is now the name in the who-teaches field where Máté used to be. Paul Goldstein has run his own Mara camps for decades and guides the departures himself. Edward Selfe lives in South Luangwa year-round and is a fully qualified guide as well as the photographer teaching you. Lassi Rautiainen is Finland's pioneer of photo-hide tourism and has run Kuhmo since 1988, though what his packages add is guiding rather than tuition. Named people, in their own ground, on the days nobody is watching — and now the right ones."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, published and priced. Hides let by the night at Pusztaszer, bear and wolf hides at Kuhmo from €210 shared, a seven-night Hungarian hide holiday at £4,499, six-night Mara departures capped at ten, South Luangwa set departures capped at four, and a three-year degree at Falmouth for anybody who wants the long route. And the hands can ruin it twice over: you miss the frame, and worse, you can spook the animal for everybody in the hide."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, though quietly. A hide holds one to five people and the field trips cap at four to twelve, which is small rather than empty, and the people in them run from keen amateurs with a long lens to working professionals — both directions, in one vehicle. Falmouth adds the other kind of cohort entirely, with three year-groups of it."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and Hungary settles it through the national park rather than the hides. The Kiskunság National Park directorate publishes that the Pusztaszer Landscape Protection Area covers 22,225 hectares, of which five thousand are internationally recognised wetland under the Ramsar Convention, with over 280 bird species recorded around its lakes. The birds are there because the ground is protected, not because somebody built a hide. Kenya is the same shape: the Mara conservancies are 24 member conservancies over about 450,000 acres, leased from more than 15,000 Maasai landowners.",
+          "evidence": [
+            {
+              "what": "Kiskunság National Park on the Pusztaszer Landscape Protection Area",
+              "url": "https://www.knp.hu/en/pusztaszer-landscape-protection-area",
+              "date": "4 September 2026"
+            },
+            {
+              "what": "the Maasai Mara Wildlife Conservancies Association on its own membership",
+              "url": "https://maraconservancies.org/about-us/",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been, and this craft has no ladder to point at instead: its own record says there is no universal credential, and that a published portfolio and a Wildlife Photographer of the Year placing are the real currency. That summit is real — Bence Máté is the only photographer to have held both the young and the adult title — but a prize is not a set of rungs, and only somebody who came back to the same animals over years can say whether the ceiling here is worth them."
+        }
+      ],
+      "ceilingNote": "All five are reachable here: this craft belongs to particular ground and particular animals, so one return visit could answer the last one.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sat in any of these hides. The fourth answer rests on two sources read 4 September 2026: the Kiskunság National Park directorate and the Mara conservancies association. The first answer is filled on what each photographer publishes about their own work, and on two of them the page goes further — Goldstein guiding his own departures, Selfe living in the valley year-round — which is the claim most worth checking first if this grade is ever wrong. Amended 7 September 2026: the answer was lit on Bence Máté, and this page's own NaturesLens entry says he does not tutor the groups. He has moved to where the craft comes from, which is his due — he invented the one-way glass hide — and David Miles, who does the teaching, now carries the who-teaches field. The count does not move: the question was always answerable here, just not by him."
     }
   }
 }
