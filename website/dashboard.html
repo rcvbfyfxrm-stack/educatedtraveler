@@ -6,7 +6,7 @@
     <title>My Dashboard — EDUCATEDTRAVELER</title>
     <meta name="robots" content="noindex">
 
-    <meta name="description" content="Your adventure profile, saved experiences, and preferences.">
+    <meta name="description" content="Your profile, the skills you saved, and your preferences.">
     <meta property="og:title" content="My Dashboard — EDUCATEDTRAVELER">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -276,7 +276,7 @@
                 <div>
                     <p class="section-label">Profile Setup</p>
                     <h1 class="text-3xl font-light">Who are you?</h1>
-                    <p class="text-white/40 text-sm mt-1">Save at any time — even partially. Only the basics are required to unlock matches.</p>
+                    <p class="text-white/40 text-sm mt-1">Save at any time — even partially. Only the basics are required.</p>
                 </div>
                 <button id="close-profile-overlay" class="text-white/30 hover:text-white p-2 transition-colors" title="Close">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -524,7 +524,7 @@
 
                 <!-- QUEST PREFERENCES -->
                 <div id="pref-section" class="glass-strong rounded-2xl p-8 student-only">
-                    <p class="section-label">Your adventure DNA <span class="text-white/20 normal-case tracking-normal">— optional</span></p>
+                    <p class="section-label">How you like to learn <span class="text-white/20 normal-case tracking-normal">— optional</span></p>
                     <p class="text-white/40 text-xs mb-6">If you already took the home-page Quest, this is already filled in. Edit only if your taste has changed.</p>
 
                     <div class="mb-6">
@@ -547,7 +547,7 @@
                             <span class="text-xs font-medium uppercase tracking-wider" style="color:#7fa8a5">Why</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="certification">Get certified</button>
+                            <button class="chip pref-chip" data-pref-group="desires" data-pref-value="certification">A credential that counts</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="career">Career change</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="stories">Earned stories</button>
                             <button class="chip pref-chip" data-pref-group="desires" data-pref-value="reset">Total reset</button>
@@ -724,7 +724,7 @@
                     <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
                         <div>
                             <p class="text-white/40 text-xs">You can save at any time — even partially.</p>
-                            <p class="text-white/20 text-[0.65rem] mt-1">Profile <span id="save-completion-pct">0</span>% complete · <span id="save-completion-hint">Add a few basics to unlock matches.</span></p>
+                            <p class="text-white/20 text-[0.65rem] mt-1">Profile <span id="save-completion-pct">0</span>% complete · <span id="save-completion-hint">Add a few basics to finish when you like.</span></p>
                         </div>
                         <button class="cta-button px-8 py-3 rounded-full text-sm font-medium" id="save-profile-btn">
                             Save Profile
@@ -826,7 +826,7 @@
                         <!-- Profile + Sign Out -->
                         <div class="flex items-center gap-3 flex-wrap">
                             <div id="completion-chip" class="hidden text-xs px-3 py-1.5 rounded-full border border-[#7fa8a5]/30 text-[#9cc0bd] bg-[#7fa8a5]/5">
-                                Profile <span id="completion-chip-pct">0</span>% — <span id="completion-chip-hint">finish to unlock matches</span>
+                                Profile <span id="completion-chip-pct">0</span>% — <span id="completion-chip-hint">finish when you like</span>
                             </div>
                             <button id="edit-profile-btn" class="text-sm text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors px-4 py-2 rounded-full border border-[#7fa8a5]/30 hover:border-[#7fa8a5]/50">
                                 Edit Profile
@@ -844,9 +844,9 @@
 
             <!-- Badges -->
             <section class="mb-12 fade-up delay-1">
-                <h2 class="text-lg font-light mb-4">Your Badges</h2>
+                <h2 class="text-lg font-light mb-4">What you have signed for</h2>
                 <div id="badges-container" class="flex flex-wrap gap-3">
-                    <p id="no-badges" class="text-white/30 text-sm">Complete the quest to earn badges!</p>
+                    <p id="no-badges" class="text-white/30 text-sm">Nothing yet. Sign for a room you have stood in, and it shows here.</p>
                 </div>
             </section>
 
@@ -869,7 +869,7 @@
                     <a href="/#quest" class="text-sm text-[#7fa8a5] hover:text-[#9cc0bd] transition-colors">Find more</a>
                 </div>
                 <div id="adventures-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <p id="no-adventures" class="text-white/30 text-sm col-span-full">No saved adventures yet. Take the quest to discover your matches!</p>
+                    <p id="no-adventures" class="text-white/30 text-sm col-span-full">Nothing saved yet. Open the catalogue and keep the crafts that pull at you.</p>
                 </div>
             </section>
 
@@ -2130,7 +2130,7 @@
                 hint.textContent = 'almost there';
                 chip.classList.add('border-[#7fa8a5]/30','text-[#9cc0bd]','bg-[#7fa8a5]/5');
             } else {
-                hint.textContent = 'finish to unlock matches';
+                hint.textContent = 'finish when you like';
                 chip.classList.add('border-[#7fa8a5]/30','text-[#9cc0bd]','bg-[#7fa8a5]/5');
             }
         }
@@ -2386,8 +2386,8 @@
             if (hintEl) {
                 hintEl.textContent =
                     pct >= 80 ? 'Complete — we’ll surface your best matches.' :
-                    pct >= 40 ? 'Almost there. Keep going to unlock matches.' :
-                                'Add a few basics to unlock matches.';
+                    pct >= 40 ? 'Almost there.' :
+                                'Add a few basics when you have a minute.';
             }
             updateTamagotchi();
         }

@@ -1230,11 +1230,7 @@ window.ET_ATLAS = {
         "format": "Residential, segregated by gender, Noble Silence; large cohort sharing the same timetable",
         "certification": "Completion of the 10-day course (prerequisite to serve and to take long courses)",
         "fitsBecause": "A fully residential, community-held immersion at the headquarters of the tradition, taught exactly as in the source lineage and open to first-time students on a donation basis.",
-        "sessions": [
-          "2026-06-24",
-          "2026-07-08",
-          "2026-08-05"
-        ],
+        "sessions": [],
         "priceNote": "Donation only (no fee)",
         "confidence": "high"
       },
@@ -1464,10 +1460,7 @@ window.ET_ATLAS = {
         "format": "In-person seminar at the Kyoto institute; small group",
         "certification": "Jikiden Reiki Shoden/Okuden certificates; Shihan-kaku (teacher) qualification on the training course",
         "fitsBecause": "Learning Reiki in its authentic Japanese form directly at the Kyoto institute that preserves the original lineage, in a small in-person cohort with formal certification.",
-        "sessions": [
-          "2026-07-03",
-          "2026-07-06"
-        ],
+        "sessions": [],
         "priceNote": "",
         "confidence": "medium",
         "priceFrom": "JPY 85,000"
@@ -3325,9 +3318,7 @@ window.ET_ATLAS = {
         "format": "Residential, group-based, room and meals at Esalen",
         "certification": "—",
         "fitsBecause": "A multi-day residential 5Rhythms immersion at Esalen, the spiritual home of the U.S. ecstatic-movement and human-potential scene.",
-        "sessions": [
-          "2026-07-13"
-        ],
+        "sessions": [],
         "priceNote": "",
         "confidence": "high",
         "alternatives": [
@@ -4664,12 +4655,7 @@ window.ET_ATLAS = {
         "format": "Residential at the Cowes campus (shared accommodation when ashore), full-time, group-based",
         "certification": "RYA Yachtmaster Offshore (Sail) Certificate of Competence, with commercial endorsement capability; plus stacked RYA/STCW certificates",
         "fitsBecause": "A genuinely residential, months-long, community programme on the Solent — the spiritual home of British yacht racing — ending in a recognised professional Certificate of Competence.",
-        "sessions": [
-          "2026-08-10",
-          "2026-09-02",
-          "2026-10-05",
-          "2026-11-09"
-        ],
+        "sessions": ["2026-10-05", "2026-11-09"],
         "priceNote": "~£14,500 residential (£13,640 course-only)",
         "confidence": "high",
         "alternatives": [
@@ -4835,7 +4821,7 @@ window.ET_ATLAS = {
             "mecca",
             "heritage"
           ],
-          "why": "Europe's only World Surfing Reserve protects seven world-class breaks along a single 4km coast, drawing the continent's densest surf cohort to a town that breathes salt and wax year-round.",
+          "why": "Europe's only World Surfing Reserve protects seven breaks along a single 4km coast, drawing the continent's densest surf cohort to a town that breathes salt and wax year-round.",
           "bestSeason": "Sep-May (Jun-Sep for beginners)",
           "level": "Beginner -> Advanced",
           "id": "surfing--ericeira",
@@ -5400,7 +5386,7 @@ window.ET_ATLAS = {
             "priceFrom": "USD 325",
             "url": "https://hstwindsurfing.com/maui-kitesurfing-lessons/",
             "fit": "Taster",
-            "note": "Same world-class Kanaha spot, but a single session can't carry you to independent riding the way the three-day course does.",
+            "note": "Same Kanaha spot, but a single session can't carry you to independent riding the way the three-day course does.",
             "confidence": "high"
           }
         ]
@@ -5661,7 +5647,7 @@ window.ET_ATLAS = {
               "name": "ION Club Sicily",
               "url": "https://www.ion-club.net/sicily/windsurf-lessons/",
               "course": "VDWS windsurf, wing and kite courses + rental",
-              "blurb": "Rated 4.8/5 on TripAdvisor (38 reviews, as Duotone Pro Center Sicily). Part of the established ION Club network (founded 1985), with a premium current-season Duotone/Fanatic windsurf fleet rigged on-site and VDWS/FAV-certified multilingual instructors on the Lo Stagnone flatwater lagoon.",
+              "blurb": "Rated 4.8/5 on TripAdvisor (38 reviews, as Duotone Pro Center Sicily). Part of the established ION Club network (founded 1985), with a current-season Duotone/Fanatic windsurf fleet rigged on-site and VDWS/FAV-certified multilingual instructors on the Lo Stagnone flatwater lagoon.",
               "rating": "TripAdvisor 4.8/5 (38 reviews)",
               "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g21329138-d23424934-Reviews-Duotone_Pro_Center_Sicily-Birgi_Vecchi_Marsala_Province_of_Trapani_Sicily.html",
               "confidence": "high"
@@ -5689,7 +5675,7 @@ window.ET_ATLAS = {
             "scene",
             "school"
           ],
-          "why": "Dahab's shallow side-shore lagoon, warm wetsuit-free water and steady thermal wind make it one of the world's best value-for-mileage improver spots — purpose-built for nailing footstraps, planing and the carve gybe. The town is a quiet, chilled diver-and-nomad hub with a strong cheap-and-healthy food scene, not a party resort. Caveat: July-August air hits 38-40C so you sail mornings; September-October is the sweeter window with the heat gone and the wind still on.",
+          "why": "Dahab's shallow side-shore lagoon, warm wetsuit-free water and steady thermal wind mean a lot of time on the water for the money — purpose-built for nailing footstraps, planing and the carve gybe. The town is a quiet, chilled diver-and-nomad hub with a strong cheap-and-healthy food scene, not a party resort. Caveat: July-August air hits 38-40C so you sail mornings; September-October is the sweeter window with the heat gone and the wind still on.",
           "bestSeason": "Mar-Nov",
           "level": "Beginner -> Advanced",
           "id": "windsurfing-and-wing-foil--dahab-the-lagoon-sinai",
@@ -7120,7 +7106,7 @@ window.ET_ATLAS = {
             "scene",
             "school"
           ],
-          "why": "Fly between the Eiger, Mönch and Jungfrau over Lakes Thun and Brienz: a year-round alpine scene where world-class instructors sharpen pilots in serious mountain air.",
+          "why": "Fly between the Eiger, Mönch and Jungfrau over Lakes Thun and Brienz: a year-round alpine scene where instructors sharpen pilots in serious mountain air.",
           "bestSeason": "May-Oct",
           "level": "Beginner -> Advanced",
           "id": "paragliding--interlaken-bernese-oberland",
@@ -7621,11 +7607,7 @@ window.ET_ATLAS = {
         "format": "Full-day instruction, small-group; based in Bryson City, NC",
         "certification": "Certificate of completion (foundation toward ACA progressions; ACA instructor courses offered separately)",
         "fitsBecause": "Immersive multi-day, small-group instruction on the Nantahala, the river where American whitewater paddling instruction is centered.",
-        "sessions": [
-          "2026-06-15",
-          "2026-09",
-          "2026-10-26"
-        ],
+        "sessions": ["2026-09", "2026-10-26"],
         "priceNote": "from ~$875",
         "confidence": "high",
         "alternatives": [
@@ -8119,15 +8101,7 @@ window.ET_ATLAS = {
         "format": "Residential guided week, valley-based, small group (min 5)",
         "certification": "None (guided week, not the ICOpro/CIC guide certification)",
         "fitsBecause": "A verified week-long residential trip at the recognised source of European canyoning, with a progression of named canyons, included equipment and lodging, and concrete 2026 departure dates.",
-        "sessions": [
-          "2026-07-05",
-          "2026-07-19",
-          "2026-07-26",
-          "2026-08-02",
-          "2026-08-09",
-          "2026-08-16",
-          "2026-08-23"
-        ],
+        "sessions": [],
         "priceNote": "from EUR 1,070-1,130 per person depending on departure",
         "confidence": "high"
       }
@@ -8291,12 +8265,7 @@ window.ET_ATLAS = {
         "format": "Residential at remote bush camps; small student groups, full-time",
         "certification": "FGASA Nature Site Guide (NQF2) / EcoTraining Field Guide qualification (CATHSSETA)",
         "fitsBecause": "Fully residential, weeks-long, community camp life learning to guide at the source in Greater Kruger, leading to a recognized FGASA credential.",
-        "sessions": [
-          "2026-07-03",
-          "2026-08-05",
-          "2026-09-14",
-          "2026-10-12"
-        ],
+        "sessions": ["2026-09-14", "2026-10-12"],
         "priceNote": "",
         "confidence": "high",
         "alternatives": [
@@ -8743,10 +8712,7 @@ window.ET_ATLAS = {
         "format": "Residential field expedition, small group, fully immersive off-grid",
         "certification": "Certificate of completion",
         "fitsBecause": "Two weeks fully immersed, living off the land in a small group in the Utah wilderness where the school has taught bushcraft since 1968.",
-        "sessions": [
-          "2026-06-14",
-          "2026-08-30"
-        ],
+        "sessions": [],
         "priceNote": "from ~$2,620",
         "confidence": "high",
         "alternatives": [
@@ -9141,9 +9107,7 @@ window.ET_ATLAS = {
         "format": "Group training runs on-course, large open field, self-paced with aid stations",
         "certification": "—",
         "fitsBecause": "Running the legendary course itself alongside the ultra community at the home of the sport — at-the-source and communal, if short of a week.",
-        "sessions": [
-          "2026-05-23"
-        ],
+        "sessions": [],
         "priceNote": "~$70-80/day",
         "confidence": "high",
         "alternatives": [
@@ -10885,9 +10849,7 @@ window.ET_ATLAS = {
         "format": "Residential (housing included), full-time, small interdisciplinary cohort",
         "certification": "3iS certificate of completion",
         "fitsBecause": "Unlike La Fémis's Summer University (restricted to grant-funded non-EU applicants under 27 with French fluency), this is an open, English-language, residential immersive an international learner can actually attend in Paris.",
-        "sessions": [
-          "2026-07-06"
-        ],
+        "sessions": [],
         "priceNote": "€3,900 (housing included for the 3-week period)",
         "confidence": "high",
         "alternatives": [
@@ -11141,11 +11103,7 @@ window.ET_ATLAS = {
         "format": "Residential, full-time studio; small group (around 6 artists per program)",
         "certification": "Certificate of completion",
         "fitsBecause": "A multi-week, residential, small-group immersion in authentic Japanese mokuhanga taught by master printers — the deepest woodblock program of its kind.",
-        "sessions": [
-          "2026-04-12",
-          "2026-09-06",
-          "2026-10-18"
-        ],
+        "sessions": ["2026-10-18"],
         "priceNote": "",
         "confidence": "high"
       }
@@ -11312,10 +11270,7 @@ window.ET_ATLAS = {
         "format": "Residential (rural B&B in Mitla); small group capped at 8 guests",
         "certification": "—",
         "fitsBecause": "A multi-day, small-group, residential immersion taught by Teotitlan del Valle's own Zapotec master weavers in natural dye and loom weaving at the source.",
-        "sessions": [
-          "2026-07-12",
-          "2026-10-24"
-        ],
+        "sessions": ["2026-10-24"],
         "priceNote": "$3,050 shared room / $3,950 private room per person",
         "confidence": "high",
         "alternatives": [
@@ -11677,10 +11632,7 @@ window.ET_ATLAS = {
         "format": "Full-time, in-studio at the SCHOLA campus in Florence; small group",
         "certification": "Diploma / certificate of completion",
         "fitsBecause": "A multi-month, full-time, hands-on leatherworking program in Santa Croce, the historic heart of Florentine leather craft, taught by master artisans.",
-        "sessions": [
-          "2026-02",
-          "2026-09"
-        ],
+        "sessions": ["2026-09"],
         "priceNote": "approx. EUR 11,500 tuition for the 20-week course",
         "confidence": "high",
         "alternatives": [
@@ -12925,9 +12877,7 @@ window.ET_ATLAS = {
         "format": "Residential, full-time, ensemble-based with private lessons",
         "certification": "Program completion; optional 3 college credits (credit track)",
         "fitsBecause": "A residential, full-time immersion at the leading contemporary-music school, learning by playing in small ensembles with peers from around the world.",
-        "sessions": [
-          "2026-07-05"
-        ],
+        "sessions": [],
         "priceNote": "~$5,430 tuition (+ ~$4,200 housing)",
         "confidence": "high",
         "alternatives": [
@@ -13906,7 +13856,7 @@ window.ET_ATLAS = {
               "name": "Melissa Coppel Chocolate & Pastry School",
               "url": "https://school.melissacoppel.com/school-courses/",
               "course": "2-8 day hands-on intensives — bonbons, bean-to-bar, ganache, enrobing, spraying, panning (max 14)",
-              "blurb": "Founded in 2016 by Colombian-born master chocolatier Melissa Coppel, a dedicated school whose courses (e.g. a 6-day Chocolate Bootcamp) are 100% hands-on with open public booking. A world-class confectionery hub rather than a cacao-origin.",
+              "blurb": "Founded in 2016 by Colombian-born master chocolatier Melissa Coppel, a dedicated school whose courses (e.g. a 6-day Chocolate Bootcamp) are 100% hands-on with open public booking. A confectionery hub rather than a cacao-origin.",
               "confidence": "high"
             }
           ],
@@ -14343,11 +14293,7 @@ window.ET_ATLAS = {
         "format": "Residential city program, full-time, demonstration plus individual practical kitchens",
         "certification": "Diplôme de Cuisine (Le Cordon Bleu Foundation institutional diploma)",
         "fitsBecause": "The codified grammar of French cooking, learned full-time and in sequence at the school that defined the brigade-and-mother-sauce canon, ending in a recognized diploma.",
-        "sessions": [
-          "2026-04-07",
-          "2026-07-06",
-          "2026-10-05"
-        ],
+        "sessions": ["2026-10-05"],
         "priceNote": "~€35,500",
         "confidence": "high",
         "alternatives": [
@@ -14607,7 +14553,7 @@ window.ET_ATLAS = {
       "category": "culinary",
       "certBody": "Basque Culinary Center / Mondragon University (Bachelor & Master in Gastronomy)",
       "goldCredential": "Basque Culinary Center Degree in Gastronomy & Culinary Arts / Master in Culinary Arts",
-      "blurb": "The 1970s avant-garde revolt that revived Basque tradition through French nouvelle technique — local product elevated with intellect and fire.",
+      "blurb": "The 1970s avant-garde revolt that revived Basque tradition through French nouvelle technique — local product worked with intellect and fire.",
       "destinations": [
         {
           "place": "San Sebastián (Donostia)",
@@ -14731,9 +14677,7 @@ window.ET_ATLAS = {
         "format": "On-campus, in-person, full mornings, max 18 students; taught in Spanish",
         "certification": "Basque Culinary Center specialization certificate (6 ECTS)",
         "fitsBecause": "An immersive, small-cohort technique program at the academic home of New Basque cuisine, in the city where the movement was born.",
-        "sessions": [
-          "2026-05-25"
-        ],
+        "sessions": [],
         "priceNote": "~€3,320",
         "confidence": "high",
         "alternatives": [
@@ -15120,9 +15064,7 @@ window.ET_ATLAS = {
         "format": "In person, on the Miramón campus above San Sebastián; Mondays and Tuesdays 15:00-20:30; taught in Spanish",
         "certification": "A Basque Culinary Center course completion certificate — a faculty's own paper, not a state qualification",
         "fitsBecause": "A real, priced, published course in the avant-garde, at the institution the Spanish vanguard built for itself, and nothing about it comes through us. Its weakness, said here rather than left for you to find: like every school on this craft except Vakuum, it does not name the chef who will be in the room. Ask, before you pay.",
-        "sessions": [
-          "2026-05-25"
-        ],
+        "sessions": [],
         "priceNote": "3,320 EUR (2026 edition). Checked on bculinary.com, 1 September 2026.",
         "confidence": "high",
         "alternatives": [
@@ -15810,9 +15752,7 @@ window.ET_ATLAS = {
         "format": "Residential intensive, max ~12 students, market visits plus hands-on kitchen",
         "certification": "Certificate of completion",
         "fitsBecause": "A small-group, residential week embedded in Oaxaca's markets and traditions, teaching mole, masa and mezcal at the source from a school rooted in the community.",
-        "sessions": [
-          "2026-06-11"
-        ],
+        "sessions": [],
         "priceNote": "~$3,850 (double occupancy)",
         "confidence": "high",
         "alternatives": [
@@ -16922,9 +16862,7 @@ window.ET_ATLAS = {
         "format": "Residential; farm phase (Kaffa) + technical phase (Addis Ababa); accommodation, transport and meals included",
         "certification": "SCA-based credential / Specialty Coffee Association module certificates",
         "fitsBecause": "Immersive, residential, weeks-long, taught from farm to cup at coffee's genetic origin with an SCA-framework credential and a small cohort.",
-        "sessions": [
-          "2026-01-31"
-        ],
+        "sessions": [],
         "priceNote": "",
         "confidence": "medium"
       }
@@ -20025,10 +19963,7 @@ window.ET_ATLAS = {
         "format": "Residential (private studio apartment included), small cohort, English-language",
         "certification": "Certificate of completion",
         "fitsBecause": "Two months living in Kyoto doing daily hands-on natural-urushi kintsugi in a small group with master artisans — immersive, residential and at the source of the craft.",
-        "sessions": [
-          "2026-06-16",
-          "2026-09-01"
-        ],
+        "sessions": [],
         "priceNote": "$12,000 (early) – $13,500 USD (accommodation included)",
         "confidence": "high",
         "alternatives": [
@@ -21226,10 +21161,7 @@ window.ET_ATLAS = {
         "format": "Residential lodge-based academy, guided on-water instruction for all skill levels",
         "certification": "No formal credential; on-river competency in casting, presentation, water-reading and entomology",
         "fitsBecause": "A full immersion learning to fly fish on Montana's blue-ribbon trout rivers, lodging and guiding included, at the recognized American source of the sport.",
-        "sessions": [
-          "2026-08-16",
-          "2026-09-19"
-        ],
+        "sessions": ["2026-09-19"],
         "priceNote": "$4,000 per person (lodging, meals and loaner equipment included); spring Session 1 listed full",
         "confidence": "high",
         "sources": [
@@ -21816,14 +21748,7 @@ window.ET_ATLAS = {
         "format": "Small-group studio course (around 8 places per session), hands-on carving with a professional sculptor, optional live-in accommodation",
         "certification": "—",
         "fitsBecause": "An at-the-source, multi-week, small-group marble course in Carrara itself, teaching the full carving method on genuine Apuan white marble.",
-        "sessions": [
-          "2026-06-21 to 2026-07-04",
-          "2026-07-05 to 2026-07-18",
-          "2026-08-02 to 2026-08-15",
-          "2026-08-16 to 2026-08-29",
-          "2026-09-06 to 2026-09-19",
-          "2026-10-11 to 2026-10-24"
-        ],
+        "sessions": ["2026-09-06 to 2026-09-19", "2026-10-11 to 2026-10-24"],
         "priceNote": "Standard two-week course €1,200; advanced (electric/pneumatic tools) €2,500; accommodation not included; €210 deposit on booking.",
         "confidence": "high",
         "sources": [
@@ -22062,7 +21987,7 @@ window.ET_ATLAS = {
       "certBody": "British Canoeing / Paddle UK; Paddle Canada and the Sea Kayak Guides Alliance of BC (SKGABC) in Canada; American Canoe Association (ACA) in the US",
       "certShort": "British Canoeing",
       "goldCredential": "Sea Kayak Leader / Advanced Sea Kayak Leader (British Canoeing)",
-      "blurb": "Load the boat, point the bow at the horizon and let the coastline unspool for days. In expedition sea kayaking the journey itself is the adventure: tides, wild camps and committing crossings stitched into one continuous line under your own paddle.",
+      "blurb": "Load the boat, point the bow at the horizon and let the coastline unspool for days. In expedition sea kayaking the crossing itself is the work: tides, wild camps and committing crossings stitched into one continuous line under your own paddle.",
       "ceiling": "A weekend intro or two-day course gets you confident in sheltered, benign water and basic rescues, not leading anyone. Reading tidal races, planning open crossings and leading a loaded multi-day group in committing conditions is the Sea Kayak Leader / Advanced Sea Kayak Leader end of the ladder, built over seasons of logged days, not a single course.",
       "room": {
         "ratio": "Typically 1 coach to 3-6 paddlers on advanced coaching; small expedition pods of 4-8",
@@ -22809,7 +22734,7 @@ window.ET_ATLAS = {
       "certBody": "NOLS (National Outdoor Leadership School); Outward Bound; NOLS Wilderness Medicine for the medical credentials",
       "certShort": "NOLS",
       "goldCredential": "NOLS Semester / Outdoor Educator track with Wilderness First Responder (WFR)",
-      "blurb": "Multi-week backcountry expeditions where the route itself is the classroom: you backpack, sea kayak and mountaineer for weeks while learning expedition leadership, judgment and risk management — and walk out with a recognized credential. The journey is the adventure.",
+      "blurb": "Multi-week backcountry expeditions where the route itself is the classroom: you backpack, sea kayak and mountaineer for weeks while learning expedition leadership, judgment and risk management — and walk out with a recognized credential. The walking is the work.",
       "ceiling": "A 9-10 day Wilderness First Responder (WFR) gets you a respected, transferable medical certification but not leadership standing. A full 68-77 day semester earns the leadership and field credentials guides and programs actually look for; becoming a NOLS field instructor or earning a Wilderness EMT (via the 75-day WMR semester) is a further, much longer step.",
       "room": {
         "ratio": "Roughly 2-3 instructors to 8-15 students on expedition courses",
@@ -23748,7 +23673,7 @@ window.ET_ATLAS = {
             "school",
             "gold-cred"
           ],
-          "why": "The Canadian Rockies hold a vast concentration of world-class frozen waterfalls (the Banff/Canmore/Kananaskis corridor), and ACMG/IFMGA guiding here is among the deepest in the world.",
+          "why": "The Canadian Rockies hold a vast concentration of frozen waterfalls (the Banff/Canmore/Kananaskis corridor), and ACMG/IFMGA guiding here is among the deepest in the world.",
           "bestSeason": "December to March",
           "level": "Beginner -> Lead WI/M grades",
           "id": "ice-and-mixed-climbing--canmore-banff",

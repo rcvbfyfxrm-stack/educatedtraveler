@@ -1601,6 +1601,16 @@ def best_dest_id(d):
     # reads "best place to go" and there is nothing there to go and do.
     dests = [x for x in d["destinations"] if not is_closed(x)]
     f = d.get("featured") or {}
+    # A craft may DECLINE to name a pick. Until this existed the fallback below
+    # always returned the top-ranked destination, so a sheet could not say what
+    # the hand-written lifestyle-medicine sheet says — "the pick that used to sit
+    # here was withdrawn" — and fourteen crafts whose own Measure names no
+    # teacher still printed "Best place to go". An honest blank outranks a
+    # plausible name (law 4). Set `"withdrawn": true` on a craft's `featured`
+    # block to use it; which crafts deserve it is a judgement, not a default,
+    # so nothing in the data sets it yet.
+    if f.get("withdrawn"):
+        return None
     if f.get("id"):
         for x in dests:
             if x["id"] == f["id"]:
