@@ -131,8 +131,76 @@ window.ET_ATLAS = {
               "name": "Atmavikasa Centre of Yogic Sciences",
               "url": "https://www.atmavikasayoga.in/",
               "course": "Authentic Hatha Yoga Teachers Training / Back-Bending Intensive (multi-week residential)",
-              "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school. Yogacharya Venkatesha and Acharye Hema founded it and still teach it, which their own teachers page says plainly. Multi-week residential teacher trainings and yoga-therapy intensives, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
-              "confidence": "high"
+              "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school. Yogacharya Venkatesha and Acharya Hema founded it and still teach it, which their own teachers page says plainly. Multi-week residential teacher trainings and yoga-therapy intensives, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
+              "confidence": "high",
+                "photos": {
+                  "given": "2026-09-06",
+                  "by": "Acharya Hema",
+                  "thumb": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
+                  "card": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-02-the-door.jpg",
+                  "items": [
+                    {
+                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-01-the-hall.jpg",
+                      "w": 1108,
+                      "h": 691,
+                      "wide": true,
+                      "alt": "The school's empty practice hall: a high timber roof over a white gable wall hung with three framed pictures — a painted Buddha, the black Atmavikasa Yoga Kutira board and a portrait of Swami Vivekananda — a brass figure on a shelf below the centre board, and a dark polished red floor.",
+                      "caption": "This is the hall with nobody in it. A painted Buddha, the school's own board, a portrait of Vivekananda, a lamp on the floor beneath them — for a room where all the work is physical, almost nothing in it is equipment."
+                    },
+                    {
+                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-02-the-door.jpg",
+                      "w": 1123,
+                      "h": 1287,
+                      "alt": "The entrance seen from the garden gate: a tiled roof over bamboo-panelled walls, a white doorway standing open onto darkness, a pair of sandals on the terracotta-tiled path at the threshold, a bicycle against the wall beside the door, hibiscus and frangipani overhead, and a small notice half hidden by leaves.",
+                      "caption": "The door stands open onto the dark of the hall, sandals left at the threshold and a bicycle against the wall. The school has taught here since 1987, in its own words with “absolutely zero advertisements or promotions”."
+                    },
+                    {
+                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-08-flowers.jpg",
+                      "w": 1123,
+                      "h": 1109,
+                      "alt": "A floor covered end to end by an enormous mandala laid entirely in flower petals, in concentric rings of marigold yellow, deep red, orange, white and pale green, with oil lamps burning in it, and a wooden stand at the far end carrying a garlanded figure above a framed photograph.",
+                      "caption": "A whole floor given over to petals — marigold, rose, orange, white — with the lamps lit and a garlanded photograph at the head of it. Not everything here is a class: the centre also runs Yoga Aranya, a planting of more than a thousand trees where it intends to build a shala."
+                    },
+                    {
+                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
+                      "w": 1123,
+                      "h": 987,
+                      "wide": true,
+                      "alt": "About twenty practitioners lie face down on coloured mats across a dark red floor, all lifting chest, arms and legs clear of the ground at once in the locust pose, below the black Atmavikasa Yoga Kutira board, while a man in a white shirt stands at the far right, hands together, watching.",
+                      "caption": "A full room in salabhasana, the locust, the whole floor lifting at the same moment. Venkatesha is not on a mat at the front — he is at the wall by the bamboo screen, hands together, watching."
+                    },
+                    {
+                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-04-watching.jpg",
+                      "w": 1119,
+                      "h": 729,
+                      "wide": true,
+                      "alt": "A practitioner holds a headstand on a red mat in the hall, legs straight above them and clasped hands on the floor, while Venkatesha stands at the left with a thin pointer stick held down at his side, watching; two others stand at the right with their backs to the camera.",
+                      "caption": "The stick is a pointer, held down at his side. A headstand is being held in the middle of the room and most of the room has stopped its own work to watch it; nobody in this frame is being pushed or pulled into the shape."
+                    },
+                    {
+                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-05-the-fold.jpg",
+                      "w": 1027,
+                      "h": 673,
+                      "wide": true,
+                      "alt": "A deep seated forward fold seen from the side at floor level: the practitioner's chest and face lie flat along his straight legs, his back one arc, both arms reaching past his feet, and behind him, out of focus, a bronze Nataraja — Shiva dancing in a ring of flame.",
+                      "caption": "Paschimottanasana, from floor level, which is where the shape can be judged: the chest lies along the legs and the back is one long arc rather than a hinge at the hips. The school's reputation is built on back-bending — this is the same spine going the other way."
+                    },
+                    {
+                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-06-venkatesha.jpg",
+                      "w": 1123,
+                      "h": 981,
+                      "alt": "A warm sepia photograph of Yogacharya Venkatesha lying face down on a pale tiled floor, chin and chest to the ground, both arms folded behind his back with the hands drawn up together high between his shoulder blades, his head turned slightly, his eyes open and his expression calm.",
+                      "caption": "Yogacharya Venkatesha, who founded the centre and still teaches in it. He and Acharya Hema have taught in Mysore since 1987, and they are still the two names on the teaching."
+                    },
+                    {
+                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-07-hands-and-feet.jpg",
+                      "w": 1123,
+                      "h": 1093,
+                      "alt": "A man in white cotton and no shirt sits with his legs folded and the soles of his feet drawn up and pressed together before his chest, his palms joined above them so that hands and feet mirror each other, against the dark Atmavikasa Yoga Kutira board behind him.",
+                      "caption": "Hands and feet in the same gesture, in front of the school's own board. Atmavikasa is not affiliated with Yoga Alliance — it asked for that to be said plainly, on a page where most schools introduce themselves by their registration."
+                    }
+                  ]
+                }
             },
             {
               "name": "Sthalam 8 Ashtanga Yoga Vedanta Centre",
