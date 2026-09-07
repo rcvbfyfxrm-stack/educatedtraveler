@@ -11727,7 +11727,6 @@ window.ET_ATLAS = {
           "communityLabel": "Legendary",
           "schools": [
             "Gemological Institute of America (GIA)",
-            "Revere Academy of Jewelry Arts (San Francisco)",
             "Studio Jewelers (New York)"
           ],
           "masters": [],
@@ -11748,14 +11747,7 @@ window.ET_ATLAS = {
               "blurb": "A nonprofit gemological and jewelry institute headquartered in Carlsbad, California, whose on-campus 28-week Graduate Jeweler diploma program teaches fabrication, repair and stone-setting skills for the professional bench, incorporating curriculum developed with goldsmith Alan Revere.",
               "confidence": "high"
             },
-            {
-              "name": "Revere Academy of Jewelry Arts (San Francisco)",
-              "url": "",
-              "course": "",
-              "blurb": "A professional jewelry-arts school that operated in San Francisco from 1979 until it closed in 2017, having run multi-month Jewelry Technician Intensive diploma programs and short hands-on goldsmithing classes under founder Alan Revere; it is no longer in operation.",
-              "confidence": "low"
-            },
-            {
+                        {
               "name": "Studio Jewelers (New York)",
               "url": "https://studiojewelersltd.com/",
               "course": "Comprehensive Training Program (24 weeks)",
@@ -14646,7 +14638,8 @@ window.ET_ATLAS = {
             "Mugaritz (creativity stage)",
             "Martín Berasategui (restaurant stage)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Andoni Luis Aduriz (Mugaritz)",
             "Martín Berasategui"
           ],
@@ -14874,7 +14867,8 @@ window.ET_ATLAS = {
           "schools": [
             "elBulli1846 (elBullifoundation museum & creativity lab)"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Ferran Adrià",
             "Albert Adrià"
           ],
@@ -14917,7 +14911,8 @@ window.ET_ATLAS = {
             "El Celler de Can Roca (stage program)",
             "Escola d'Hostaleria i Turisme de Girona"
           ],
-          "masters": [
+          "masters": [],
+          "lineage": [
             "Joan Roca",
             "Jordi Roca"
           ],

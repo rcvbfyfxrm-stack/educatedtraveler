@@ -714,6 +714,50 @@ def lineage_guard(disc):
 lineage_guard(DISC)
 
 
+# ⛔ TWO THINGS NO REGEX OVER A NAME CAN CATCH, WHICH THE DATA ALREADY ANSWERS ITSELF.
+#
+# _LINEAGE_SHAPED reads the STRING. It cannot see a death and it cannot see a man who
+# founded a school he has never taught in — its own comment says so. But in both of the
+# cases below the file has already written down the answer somewhere else in the same
+# object, and disagreed with itself. Those are checkable, so they are checked.
+#
+# 1. A destination marked closedToLearners said, in its own closedNote, "There is no
+#    course here, no enrolment and nobody teaching" — and carried two names in `masters`.
+#    A page cannot say nobody teaches here and then say who teaches here.
+# 2. A schoolsInfo blurb that ends "listed for the lineage, not as a class" is the file
+#    ruling on its own entry. Five names sat in `masters` beside that sentence, on three
+#    published pages. Grep for the sentence and believe it.
+_NOT_A_CLASS = "listed for the lineage, not as a class"
+
+
+def masters_contradiction_guard(disc):
+    bad = []
+    for d in disc:
+        for x in d["destinations"]:
+            names = x.get("masters") or []
+            if not names:
+                continue
+            if x.get("closedToLearners"):
+                bad.append(f'{d["id"]} / {x["place"]}: closedToLearners, and `masters` names '
+                           f'{", ".join(names)}. Nobody teaches at a place with no course.')
+            for si in x.get("schoolsInfo") or []:
+                if _NOT_A_CLASS in (si.get("blurb") or ""):
+                    named = [m for m in names if any(w in si["name"] or w in (si.get("blurb") or "")
+                                                     for w in m.split() if len(w) > 3)]
+                    if named:
+                        bad.append(f'{d["id"]} / {x["place"]}: {si["name"]!r} says "{_NOT_A_CLASS}" '
+                                   f'and `masters` still carries {", ".join(named)}.')
+    if bad:
+        raise SystemExit(
+            "build-atlas-pages: `masters` contradicts what this file says elsewhere about the "
+            "same destination. `masters` is the field that makes a page say WHO TEACHES:\n  "
+            + "\n  ".join(bad)
+            + "\n  Move them to `lineage`, or remove them.")
+
+
+masters_contradiction_guard(DISC)
+
+
 def has_relationship(x):
     return any(s.get("etRelationship") for s in (x.get("schoolsInfo") or []))
 
@@ -1956,11 +2000,23 @@ for d in DISC:
         lin = x.get("lineage") or []
         lineage_html = ""
         if lin:
-            tailnote = ('A lineage, not a staff list. Nobody on it is teaching today — for who '
-                        "is, look just above." if x["masters"] else
-                        "A lineage, not a staff list. We have not been able to name anyone "
-                        "currently teaching here, which is a gap in our work — ask the school "
-                        "who will be in the room.")
+            # ⚠ Three cases, not two. The third was printing the wrong one of the first
+            # two: on a destination that is CLOSED, "we have not been able to name anyone
+            # currently teaching here, which is a gap in our work — ask the school who will
+            # be in the room" is false twice over. It is not a gap in our work, there is
+            # nobody teaching by definition, and there is no school left to ask. elBulli
+            # shut in 2011; the page was sending readers to ask it who would be at the bench.
+            if is_closed(x):
+                tailnote = ("A lineage, not a staff list, and nothing is taught here now — "
+                            "these are the names the craft came through, which is the whole "
+                            "reason the place is still worth knowing about.")
+            elif x["masters"]:
+                tailnote = ('A lineage, not a staff list. Nobody on it is teaching today — for '
+                            "who is, look just above.")
+            else:
+                tailnote = ("A lineage, not a staff list. We have not been able to name anyone "
+                            "currently teaching here, which is a gap in our work — ask the school "
+                            "who will be in the room.")
             lineage_html = ('<section><div class="wrap"><div class="mono">Where it comes from</div>'
                             '<h2>The names this craft came through</h2><ul class="clean">'
                             + "".join(f"<li>{e(m)}</li>" for m in lin)
