@@ -954,7 +954,7 @@ ORDER.forEach(function(w,i){var m=WORLDS[w],n=byWorldDisc[w].length;
     mk.appendChild(svgEl("circle",{cx:u[0].toFixed(2),cy:u[1].toFixed(2),r:2.4,fill:"#000"}));});
   defs.appendChild(mk);
 
-  var pet=svgEl("path",{d:petalPath(i),"class":"petal",fill:m.color,"data-w":w,role:"button",tabindex:"0","aria-label":m.label+" — "+n+" crafts"});
+  var pet=svgEl("path",{d:petalPath(i),"class":"petal",fill:m.color,"data-w":w,role:"button",tabindex:"0","aria-label":m.label});
   pet.addEventListener("click",function(){toggleWorld(w);});
   pet.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();toggleWorld(w);}});
   gFill.appendChild(pet);
@@ -972,7 +972,7 @@ ORDER.forEach(function(w,i){var m=WORLDS[w],n=byWorldDisc[w].length;
   var t=svgEl("text",{"class":"wlabel",x:pl[0].toFixed(1),y:(pl[1]-2).toFixed(1)});t.textContent=m.short;gLab.appendChild(t);
   var q=svgEl("text",{"class":"wcount","data-wc":w,x:pl[0].toFixed(1),y:(pl[1]+9).toFixed(1)});q.textContent=n+" skills";gLab.appendChild(q);
 
-  var lb=document.createElement("button");lb.style.setProperty("--lc",m.color);lb.dataset.w=w;lb.innerHTML='<span class="d"></span>'+esc(m.label)+' <span class="lgn" style="opacity:.5">'+n+'</span>';
+  var lb=document.createElement("button");lb.style.setProperty("--lc",m.color);lb.dataset.w=w;lb.innerHTML='<span class="d"></span>'+esc(m.label);
   lb.onclick=function(){toggleWorld(w);};legend.appendChild(lb);
 });
 gLab.appendChild(svgEl("circle",{cx:CX,cy:CY,r:3.4,"class":"heart"}));  // the heart, where all five meet
@@ -1083,7 +1083,7 @@ function withF(over){var S={},k;for(k in F)S[k]=F[k];for(k in over)S[k]=over[k];
 function nSkills(S){var seen={},n=0;for(var i=0;i<DESTS.length;i++){var x=DESTS[i];
   if(!seen[x.did]&&matchDest(x,S)){seen[x.did]=1;n++;}}return n;}
 function toggled(obj,k){var o={},j;for(j in obj)o[j]=obj[j];if(o[k])delete o[k];else o[k]=1;return o;}
-function cnt(n){return '<span class="optn">'+n+'</span>';}
+function cnt(n){return '';}
 function dead(n){return n?"":" dead";}
 
 // The last step offers only the skills the six before it have left standing —
@@ -1093,7 +1093,7 @@ function craftOptions(){
   DESTS.forEach(function(x){if(matchDest(x,S))seen[x.did]=1;});
   var ds=A.filter(function(d){return seen[d.id];})
           .sort(function(a,b){return a.discipline.localeCompare(b.discipline);});
-  return '<option value="">All '+ds.length+' skill'+(ds.length===1?"":"s")+' still in</option>'+ds.map(function(d){
+  return '<option value="">All skills still in</option>'+ds.map(function(d){
     return '<option value="'+d.id+'"'+(F.craft===d.id?" selected":"")+'>'+esc(d.discipline)+'</option>';}).join("");
 }
 
@@ -1122,14 +1122,14 @@ var STEPS=[
  answer:function(){var k=Object.keys(F.regions);return k.length?k[0]:"Anywhere";},
  body:function(){return '<select class="fin" id="region"><option value="">Anywhere</option>'
    +REGIONS.map(function(r){var o={};o[r]=1;var n=nSkills(withF({regions:o,craft:""}));
-      return '<option value="'+esc(r)+'"'+(F.regions[r]?" selected":"")+'>'+esc(r)+' ('+n+')</option>';}).join("")
+      return '<option value="'+esc(r)+'"'+(F.regions[r]?" selected":"")+'>'+esc(r)+'</option>';}).join("")
    +'</select>';},
  wire:function(r){r.querySelector("#region").onchange=function(){F.regions={};if(this.value)F.regions[this.value]=1;F.craft="";renderSide();render();};}},
 {id:"month",name:"When you could go",
  has:function(){return !!F.month;},
  answer:function(){return F.month?MNAMES[F.month-1]:"Any time of year";},
  body:function(){return '<div class="months">'+MNAMES.map(function(m,i){var n=nSkills(withF({month:F.month===i+1?0:i+1,craft:""}));
-    return '<button class="chip mon'+(F.month===i+1?" on":"")+(F.month===i+1?"":dead(n))+'" data-m="'+(i+1)+'" title="'+n+' skills">'+m+'</button>';}).join("")+'</div>';},
+    return '<button class="chip mon'+(F.month===i+1?" on":"")+(F.month===i+1?"":dead(n))+'" data-m="'+(i+1)+'">'+m+'</button>';}).join("")+'</div>';},
  wire:function(r){r.querySelectorAll(".mon").forEach(function(b){b.onclick=function(){
     var n=+b.dataset.m;F.month=(F.month===n?0:n);F.craft="";renderSide();render();};});}},
 {id:"trip",name:"How long you'd go",
@@ -1182,7 +1182,7 @@ function stepNext(s,i){
   var last=(i===STEPS.length-1),n=nSkills(F);
   return '<div class="stepnext"><button type="button" class="stepgo'+(s.has()?" go":"")+'" data-go="'+i+'">'
     +(last?(s.has()?"Done":"Show them all"):(s.has()?"Next &rarr;":"Doesn&rsquo;t matter &rarr;"))
-    +'</button><span class="left"><b style="color:var(--sea);font-weight:500">'+n+'</b> skill'+(n===1?"":"s")+' left</span></div>';
+    +'</button></div>';
 }
 function renderSide(){
   reached=Math.max(reached,openStep);
@@ -1218,7 +1218,7 @@ function syncSummary(){
   if(!sfcount)return;
   var n=nSkills(F),picks=[];
   STEPS.forEach(function(s){if(s.has())picks.push(s.answer());});
-  sfcount.innerHTML=(picks.length?esc(picks.join(" · "))+'<br>':'')+'<b>'+n+'</b> skill'+(n===1?"":"s");
+  sfcount.innerHTML=(picks.length?esc(picks.join(" · ")):'');
 }
 function countOpen(){return A.filter(function(d){return d.open;}).length;}
 // Where and when only exist for a craft somebody has asked for. Rather than let
@@ -1226,7 +1226,7 @@ function countOpen(){return A.filter(function(d){return d.open;}).length;}
 // their own band, saying exactly why they are not in the results.
 function closedBand(n){
   if(!n)return "";
-  return '<div class="closedband"><p><b>'+n+'</b> more crafts have no place on the map yet — '
+  return '<div class="closedband"><p>More crafts have no place on the map yet — '
     + 'I open one when a member writes to me about it, so there is nothing to filter by until then. '
     + '<a href="#letter">Write me a note</a> and I will open the one you want.</p></div>';
 }
@@ -1273,25 +1273,24 @@ function render(){
     .sort(function(a,b){return (qScore(b)-qScore(a))||(wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
   var nw=countWanted(list,function(x){return x.discipline;});
   var nClosed=A.filter(function(d){return !d.open;}).length;
-  // The five place-filters only have data for open crafts. Say so in the count
-  // rather than letting the Atlas look like it shrank from 113 crafts to 30.
-  var placeFiltered=Object.keys(F.regions).length||F.month||F.trip||F.role||F.english||F.minRank;
-  var h='<div class="rhead"><div class="count"><b>'+list.length+'</b> skill'+(list.length===1?"":"s")+(placeFiltered?' <span style="color:var(--faint);font-weight:400">in the '+countOpen()+' open crafts</span>':'')+'</div><div class="sortby">'+(nw?"asked-for skills first, then community strength":"ranked by community strength")+'</div></div>';
+  // The five place-filters only have data for open crafts. The count that used to
+  // say so is gone; the closed band below now says it on every view instead.
+  var h='<div class="rhead"><div class="count">Skills</div><div class="sortby">'+(nw?"asked-for skills first, then community strength":"ranked by community strength")+'</div></div>';
   if(!list.length){
     var only=F.q&&!(Object.keys(F.worlds).length||F.craft||Object.keys(F.pulls).length||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.trip||F.english);
     results.innerHTML=(only
       ? '<div class="qnone">Nothing on the Atlas is called <b>'+esc(F.q)+'</b> — not yet.'
         // counted, never typed — the hero's numbers rotted from 99 to 112 once
         // because somebody typed them into a sentence exactly like this one
-        +'<div class="qn2">'+A.length+' crafts are catalogued and '+countOpen()+' are open in full. If the one you are after is missing, it is missing because nobody has asked me for it.</div>'
+        +'<div class="qn2">If the one you are after is missing, it is missing because nobody has asked me for it.</div>'
         +'<a class="btn-ghost" href="#letter">Write me about it →</a></div>'
       : '<div class="empty">No skill matches every filter yet.<br><button class="btn-ghost" id="clr">Loosen the filters</button></div>')
-      +(placeFiltered?closedBand(nClosed):"");
+      +closedBand(nClosed);
     var cb=document.getElementById("clr");
     if(cb)cb.onclick=function(){F=blankF();openStep=0;reached=0;syncSearch();renderSide();render();syncWorld();};
     return;}
   h+='<div class="gridwrap">'+list.map(gcard).join("")+'</div>';
-  if(placeFiltered)h+=closedBand(nClosed);
+  h+=closedBand(nClosed);
   results.innerHTML=h;signalRender();
 }
 // ===== Atlas card v4 — the skill, where it is most alive, why there, what it is =====
@@ -1370,11 +1369,11 @@ function gcard(x){
 function renderRails(){
   VIEW.cat=null;
   var nw=0;ORDER.forEach(function(w){nw+=countWanted(byWorldDisc[w],function(o){return o.d.discipline;});});
-  var h='<div class="rhead"><div class="count"><b>'+A.length+'</b> skills you can go and learn</div><div class="sortby">'+(nw?"asked-for skills first · open the filter to narrow it":"open the filter to narrow it")+'</div></div>';
+  var h='<div class="rhead"><div class="count">Skills you can go and learn</div><div class="sortby">'+(nw?"asked-for skills first · open the filter to narrow it":"open the filter to narrow it")+'</div></div>';
   results.innerHTML=h;
   ORDER.forEach(function(w){var m=WORLDS[w],list=craftsInOrder(w);if(!list.length)return;
     var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
-    sec.innerHTML='<div class="shelf-h" role="button" tabindex="0" aria-label="Open the '+esc(m.label)+' catalogue"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="n">'+list.length+' crafts</span><span class="more">See all '+list.length+' crafts →</span></div>';
+    sec.innerHTML='<div class="shelf-h" role="button" tabindex="0" aria-label="Open the '+esc(m.label)+' catalogue"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="more">See all →</span></div>';
     var rw=document.createElement("div");rw.className="railwrap";var rail=document.createElement("div");rail.className="rail";
     // o.top IS the place the craft's community is strongest in — the card says
     // where it is most alive, so that is the only place it can honestly print.
@@ -1391,6 +1390,12 @@ function renderRails(){
     var sh=sec.querySelector(".shelf-h");sh.onclick=function(){openCatalogue(w);};sh.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openCatalogue(w);}};
     enableDrag(rail);updateArrows();setTimeout(updateArrows,400);
   });
+  // The crafts with no place on the map are the ones this page is quietest about:
+  // they are catalogued, they render a card, and nothing on the default view said
+  // they have nowhere to go. The band says it, here as everywhere else.
+  var nClosed=A.filter(function(d){return !d.open;}).length;
+  if(nClosed){var cbw=document.createElement("div");cbw.innerHTML=closedBand(nClosed);
+    if(cbw.firstChild)results.appendChild(cbw.firstChild);}
   signalRender();
 }
 // ── full-page catalogue for one category ──
@@ -1400,7 +1405,7 @@ function catCard(o,c){
 }
 function renderCatalogue(w){var m=WORLDS[w],list=craftsInOrder(w);VIEW.cat=w;
   var nw=countWanted(list,function(o){return o.d.discipline;});
-  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub"><b style="color:var(--paper);font-weight:500">'+list.length+' crafts</b> — every skill in this world, each with the place where its community is most alive.'+(nw?' The crafts a member of the Circle has asked for come first.':'')+'</p></div>';
+  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub">Every skill in this world, each with the place where its community is most alive.'+(nw?' The crafts a member of the Circle has asked for come first.':'')+'</p></div>';
   h+='<div class="gridwrap">'+list.map(function(o){return catCard(o,m.color);}).join("")+'</div>';
   results.innerHTML=h;signalRender();
   document.getElementById("backcat").onclick=function(){renderRails();document.getElementById("studio").scrollIntoView({behavior:"smooth"});};
