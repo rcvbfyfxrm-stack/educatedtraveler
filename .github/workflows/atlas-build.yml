@@ -44,16 +44,54 @@ jobs:
             node scripts/refresh-unlocked.mjs
           fi
 
+      # The bridge from the moderation queue to the map. Until this ran anywhere,
+      # approving a member's check in /admin changed nothing on the site, forever and
+      # silently — the guard in refresh-vouches.mjs was correct and the pipe it guards
+      # was not connected.
+      #
+      # ⚠ The script exits non-zero on an EMPTY answer on purpose: an empty array from a
+      # broken fetch would silently un-check every place somebody signed for. But today
+      # there are genuinely none, so "no rows" and "the fetch failed" arrive as the same
+      # exit code. The file's existence is what separates them: once one vouch has ever
+      # landed, a failure is real and stops the build.
+      - name: Pull the checks people signed
+        env:
+          SUPABASE_URL: https://exaehwaqwcledemwpluw.supabase.co
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          if [ -z "$SUPABASE_SERVICE_ROLE_KEY" ]; then
+            echo "No service key — keeping data/atlas-vouches.json as it is."
+          elif node scripts/refresh-vouches.mjs; then
+            echo "vouches refreshed"
+          elif [ -f data/atlas-vouches.json ]; then
+            echo "::error::refresh-vouches failed and a vouch file already exists — refusing to rebuild on a stale one."
+            exit 1
+          else
+            echo "No approved vouch has ever landed; the build reads that as none, which it is."
+          fi
+
       - name: Rebuild the Atlas
         run: |
           python3 scripts/build-atlas-pages.py
+          # The six preserved sheets are hand-written and the build never rewrites them.
+          # This is the only thing that keeps their Measure and their neighbours in step
+          # with the renderer, and it had been forgotten four times in two days.
+          python3 scripts/inject-related-handwritten.py
           python3 scripts/build-daily-drop.py
+
+      # "Exit 0 = all clear. Exit 1 = do not ship it." Fifteen checks that exist because
+      # the page still 200s, still looks finished, and is wrong — and until now they ran
+      # only when somebody remembered. A red gate leaves yesterday's pages up, which were
+      # checked; it never publishes a page known to be broken.
+      - name: Gate — every check, before anything is published
+        run: python3 scripts/check-atlas-hub.py
 
       - name: Commit
         run: |
           git config user.name  "et-atlas"
           git config user.email "atlas@educatedtraveler.app"
-          git add data/atlas-unlocked.json website/atlas website/js/atlas-index.js \
+          git add data/atlas-unlocked.json data/atlas-vouches.json \
+                  website/atlas website/js/atlas-index.js \
                   website/sitemap.xml website/robots.txt marketing website/js/studio-calendar.js 2>/dev/null || true
           git commit -m "atlas: rebuild — open crafts follow the letters" || { echo "nothing changed"; exit 0; }
           git push

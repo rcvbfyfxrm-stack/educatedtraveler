@@ -121,6 +121,28 @@ def manifest_claims(manifest, open_ids, only=None):
                             "name": f'{school} — what it covers', "url": cov["url"],
                             "verify": [c["verify"] for c in cov.get("covers", [])
                                        if c.get("verify")]})
+    # ── the Measure's own evidence ────────────────────────────────────────────
+    # The fourth answer only lights on a URL from somebody with nothing to sell you,
+    # and the build refuses the dot without one. Twenty-six of those links carry a
+    # lit dot across twenty of the thirty-one graded crafts — and until now not one
+    # of them was ever re-read. A festival page can 404 for a year while the dot it
+    # unlocked stays full. Decay is the wedge; this is the claim class the
+    # decay-catcher was pointed away from.
+    #
+    # `what` carries the question number so the report says which answer is at risk,
+    # and `verify` is the evidence's own `what` string — the thing we said that page
+    # showed. If the page no longer says it, the dot no longer stands.
+    for cid, mm in (manifest.get("measure") or {}).items():
+        if cid not in open_ids or (only and cid != only):
+            continue
+        for i, cond in enumerate(mm.get("conditions") or [], 1):
+            for ev in cond.get("evidence") or []:
+                if not (ev.get("url") or "").startswith(("http://", "https://")):
+                    continue
+                out.append({"craft": cid, "where": "", "what": f"measure q{i}",
+                            "name": ev.get("what", "") or f"evidence for answer {i}",
+                            "url": ev["url"],
+                            "verify": [ev["what"]] if ev.get("what") else []})
     return out
 
 

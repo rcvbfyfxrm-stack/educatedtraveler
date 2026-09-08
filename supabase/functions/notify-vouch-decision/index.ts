@@ -17,6 +17,13 @@
 // Outlook's Word engine ignores rgba().
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.7";
+// ⚠ This is invoked from admin.html with Authorization + apikey + Content-Type, which
+// guarantees a preflight. Without these headers the browser never sends the POST, the
+// page catches the failure and writes "saved, but the email did not send" on the row,
+// and the whole point of this function — telling the writer what happened — never
+// fires. Every other browser-invoked function in this repo imports this; this one was
+// the exception.
+import { corsHeaders, handlePreflight } from "../_shared/cors.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY")!;
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -26,7 +33,10 @@ const SITE = "https://educatedtraveler.app";
 
 const admin = createClient(SUPABASE_URL, SERVICE_KEY);
 const json = (b: unknown, status = 200) =>
-  new Response(JSON.stringify(b), { status, headers: { "Content-Type": "application/json" } });
+  new Response(JSON.stringify(b), {
+    status,
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+  });
 
 function esc(s: unknown) {
   return String(s ?? "")
@@ -55,7 +65,30 @@ function theirWords(v: Record<string, unknown>) {
   </div>`;
 }
 
+// ⚠ TWO DIFFERENT THINGS ARRIVE HERE AND ONLY ONE OF THEM GOES ON A PAGE.
+// A note on a SCHOOL is keyed to a real destination and renders under that school.
+// A note on a CATALOGUED PLACE is keyed `<craft>--also--<place>`, which is built on
+// purpose to match no destination id, and school-note.js says plainly why nothing
+// comes back: "The catalogued places need no supabase round-trip: nothing is
+// published back to them." It goes to Arnaud and nowhere else — which is the useful
+// thing, because nobody has checked that place yet.
+// This mail used to tell both of them "your note is on the Atlas" and hand them a
+// button to a page that 404s. The place note now gets the truth, which is a better
+// letter anyway: you told me something about a place nobody has checked.
+const isPlaceNote = (v: Record<string, unknown>) =>
+  String(v.destination ?? "").includes("--also--");
+
+function approvedPlace(v: Record<string, unknown>) {
+  return shell(`
+  <p style="margin:0 0 4px 0;color:#6b625a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">I read it</p>
+  <h1 style="margin:0 0 14px 0;color:#2b2621;font-family:Georgia,serif;font-size:24px;font-weight:normal;line-height:1.3;">Thank you — this is about ${esc(v.school)}, and nobody had checked it.</h1>
+  <p style="margin:0 0 20px 0;color:#2b2621;font-size:15px;line-height:1.7;">That place is on the map as a line and nothing more: no school vetted, no teacher named, nothing graded. Yours is the first thing anybody has told me about it. It is not going up as a quote — a line nobody has checked is not a place to publish someone's word under — but it is what turns that line into something I can go and check.</p>
+  ${theirWords(v)}
+  <p style="margin:0;color:#6b625a;font-size:14px;line-height:1.7;">If you know a school or a teacher there, reply to this — it is my own inbox, and that is the next thing I would need.</p>`);
+}
+
 function approved(v: Record<string, unknown>) {
+  if (isPlaceNote(v)) return approvedPlace(v);
   const dest = String(v.destination ?? "");
   return shell(`
   <p style="margin:0 0 4px 0;color:#6b625a;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Courier New',monospace;">It is up</p>
@@ -76,6 +109,8 @@ function declined(v: Record<string, unknown>) {
 }
 
 serve(async (req) => {
+  const pre = handlePreflight(req);
+  if (pre) return pre;
   try {
     // The caller must be an admin. Without this, the anon key plus a guessed id is
     // enough to make us send mail to a stranger with our name on it.
