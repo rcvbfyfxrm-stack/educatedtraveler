@@ -1667,6 +1667,21 @@ def best_dest_id(d):
 # actually be written down: the builder could only ever say "not checked". A vouch
 # carries the witness's TRADE, because a named yacht chef's word is what another
 # yacht chef can weigh — membership of anything is not evidence (Arnaud, 2 Sept).
+# A day as it is written on a grade — "5 September 2026" — and nothing else. The month
+# names are spelled out on every signature on this map, so a parser that also accepted
+# 09/05/2026 would only be guessing which half is the month.
+_DATE_IN_PROSE = re.compile(
+    r"\b\d{1,2} (?:January|February|March|April|May|June|July|August|September|October"
+    r"|November|December) \d{4}\b")
+
+
+def _grade_day(s):
+    try:
+        return _dt.datetime.strptime(str(s).strip(), "%d %B %Y").date()
+    except ValueError:
+        return None
+
+
 CHECK_STATES = {"catalogued, not checked", "researched, not checked"}
 CHECKED_STATES = {"stood in it", "checked it", "a named person vouched"}
 ROUTES = {"with-us": "came on a week we sold",
@@ -1701,6 +1716,68 @@ for _mid, _mm in MEASURE.items():
         raise SystemExit(f'build-atlas-pages: the Measure on {_mid} says {_mm["dots"]} dots but '
                          f'{sum(1 for _c in _mm["conditions"] if _c.get("on"))} conditions are on. '
                          "The number and the legend have to be the same statement.")
+    # Two keys grew on every grade and nothing has ever read either: `ceiling`, a number
+    # from the instrument's first sketch that the evidence cap replaced, and `register`,
+    # a taxonomy that never shipped. Dead fields on a signed judgement are not harmless —
+    # nobody reading this file can tell which of them the page is standing on — and this
+    # pair has already GROWN BACK once: deleted on 5 September, and nineteen new grades
+    # landed carrying both again mid-rebase. So the deletion and the refusal ship
+    # together, or the next rebase schedules the next regrowth.
+    # ⚠ `ceilingNote` is a different field, it is rendered, and it stays.
+    _dead = [_k for _k in ("ceiling", "register") if _k in _mm]
+    if _dead:
+        raise SystemExit(
+            f'build-atlas-pages: the Measure on {_mid} carries {_dead}, and nothing reads '
+            'either one — `ceiling` was a cap the evidence rules replaced, `register` a '
+            'taxonomy that never shipped. Take them off the grade; the note the page '
+            'prints is `ceilingNote`, which is alive and is not this.')
+    # The evidence block prints under one hardcoded sentence — "Evidence, from people with
+    # nothing to sell you" (atlas_hub.measure_html) — and that attribution is true of the
+    # FOURTH question only, because the fourth is the only one _public_evidence refuses
+    # sellers on. The first question's evidence would be a school's own faculty page: a
+    # host that by definition sells the course. Until the sentence is written per question,
+    # evidence anywhere else prints a false attribution under somebody's signature, which
+    # is the one thing an instrument about honesty cannot do.
+    for _i, _c in enumerate(_mm["conditions"]):
+        if _c.get("evidence") and _i != 3:
+            raise SystemExit(
+                f'build-atlas-pages: the Measure on {_mid} hangs evidence on question '
+                f'{_i + 1}, and the block can only label the fourth.\n'
+                '  It prints "Evidence, from people with nothing to sell you", and only the '
+                'fourth question is checked against the hosts selling this craft. On the '
+                'first question that sentence would sit over the school\'s own faculty page.\n'
+                '  Put the finding in the answer text, or write the label per question first.')
+    # A grade's `date` is the day somebody put their name on what this page now says, so
+    # nothing inside the grade may be dated after it. Three grades shipped reading
+    # "Amended 5 September 2026, the day after signing" beside "date": "5 September 2026" —
+    # an amendment claiming to postdate a signature it shares a day with. Two were found by
+    # an audit; the third (surfing) was found by nobody, and no guard would have seen it.
+    # An amendment made after the signature is not a footnote: it is a change published
+    # under a name that was given to different words, so it moves the date or it does not
+    # go up. Same-day is legal and is worth saying — "after signing" without a day stays.
+    _signed = _grade_day(_mm["date"])
+    if not _signed:
+        raise SystemExit(f'build-atlas-pages: the Measure on {_mid} is dated {_mm["date"]!r}, '
+                         'which is not a day this can read. Use "5 September 2026".')
+    for _where, _txt in ([("the basis line", _mm.get("check") or "")]
+                         + [(f'evidence on question {_i + 1}', _ev.get("date") or "")
+                            for _i, _c in enumerate(_mm["conditions"])
+                            for _ev in (_c.get("evidence") or [])]):
+        for _hit in _DATE_IN_PROSE.finditer(_txt):
+            _d = _grade_day(_hit.group(0))
+            if _d and _d > _signed:
+                raise SystemExit(
+                    f'build-atlas-pages: the Measure on {_mid} names {_hit.group(0)} in '
+                    f'{_where}, and the grade is signed {_mm["date"]}.\n'
+                    '  Nothing in a grade can be dated after the day its name went on it. '
+                    'Re-sign it with the later day, or the sentence comes out.')
+    if re.search(r"days? (?:after|before) signing", _mm.get("check") or "", re.I):
+        raise SystemExit(
+            f'build-atlas-pages: the Measure on {_mid} claims a change a day away from its '
+            'own signature.\n'
+            '  The `date` field IS the signing day. An amendment on another day moves that '
+            'date; it cannot be published under the old one. Re-sign it, or say "after '
+            'signing" without the day.')
     # The two questions a desk cannot answer on its own, each with its own way out.
     _dd = next(d for d in DISC if d["id"] == _mid)
     if _mm["conditions"][3].get("on") and not _public_evidence(_dd, _mm):
@@ -2518,8 +2595,16 @@ if _floor is not None:
             + '  Add it to data/atlas-extra-sheets.json -> measure, or preview one first with '
               'scripts/preview-measure.py.')
     if len(_no_measure) < _floor:
-        print(f"  ✓ the Measure debt fell to {len(_no_measure)} — tighten measureDebtFloor in "
-              "data/atlas-extra-sheets.json so it cannot drift back up")
+        # DEBT + 1, and the hint has to say the number, because it used to say the debt and
+        # the debt is the one value that arms the bomb: atlas-build.yml opens whatever the
+        # Circle asked for and rebuilds in the same unattended job, so a floor with no
+        # headroom stops the nightly rebuild the first morning a craft opens. That is why
+        # this floor was raised 0 → 1 in the first place, and the ladder's 28 → 29 on
+        # 7 September after it sat at exactly its own debt. One opening survives and is
+        # graded that day; two stop the build and the message names the two.
+        print(f"  ✓ the Measure debt fell to {len(_no_measure)} — set measureDebtFloor to "
+              f"{len(_no_measure) + 1} in data/atlas-extra-sheets.json (debt + 1, so one "
+              "Circle opening still builds) and it can never drift back up")
 
 # ── the ladder debt, on the same ratchet ─────────────────────────────────────
 # Same shape as the Measure's and for the same reason: a craft whose body publishes a
@@ -2547,8 +2632,13 @@ if _lfloor is not None:
             + "  Add the body's published ladder to data/atlas-extra-sheets.json -> "
               "skillLadders, or — if no body publishes one — say so in laddersNotPublished.")
     if len(_no_ladder) < _lfloor:
-        print(f"  ✓ the ladder debt fell to {len(_no_ladder)} — tighten ladderDebtFloor in "
-              "data/atlas-extra-sheets.json so it cannot drift back up")
+        # Debt + 1, for the reason spelled out on the Measure's floor above — and this one
+        # is not hypothetical: this floor sat at exactly its own debt on 7 September 2026
+        # and the next Circle opening would have stopped the nightly rebuild at 04:05,
+        # unattended, on a craft nobody had failed at anything.
+        print(f"  ✓ the ladder debt fell to {len(_no_ladder)} — set ladderDebtFloor to "
+              f"{len(_no_ladder) + 1} in data/atlas-extra-sheets.json (debt + 1, so one "
+              "Circle opening still builds) and it can never drift back up")
 _n_cov = sum(len(s) for p in COURSE_COVERAGE.values() for s in p.values())
 if SKILL_LADDERS:
     print(f"  · the ladder: {len(SKILL_LADDERS)} craft(s) carry one, {_n_cov} course(s) read "
@@ -2603,9 +2693,18 @@ if _vstate.exists():
     _vs = json.loads(_vstate.read_text()).get("entries", {})
     _sick = sorted(k for k, v in _vs.items() if v.get("failing", 0) >= 3)
     if _sick:
-        print(f"  ⚠⚠ {len(_sick)} claim(s) the night check has failed to confirm 3+ times running "
-              f"— re-verify or take them down: {', '.join(_sick[:4])}"
-              + (f", +{len(_sick) - 4} more" if len(_sick) > 4 else ""))
+        # The reason comes with the name. This line once said "re-verify or take them down"
+        # about two entries and gave no reason for either; both were a request that never
+        # became a response — one a timeout on the runner's own network, one a certificate
+        # issued for a different hostname — and neither school had closed. night-check.py
+        # no longer counts those against an entry, and this line no longer asks for a
+        # decision without showing what the decision would rest on.
+        print(f"  ⚠⚠ {len(_sick)} claim(s) the night check has failed to confirm 3+ times "
+              "running — re-verify by hand before touching anything:")
+        for _k in _sick[:4]:
+            print(f"      {_k} — {(_vs[_k].get('why') or 'no reason recorded')[:110]}")
+        if len(_sick) > 4:
+            print(f"      +{len(_sick) - 4} more in data/atlas-verify-state.json")
 
 _stale_sessions = []
 for _d in DISC:

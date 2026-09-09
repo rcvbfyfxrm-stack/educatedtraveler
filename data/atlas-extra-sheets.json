@@ -392,8 +392,6 @@
   "measure": {
     "modernist-spanish-cuisine": {
       "dots": 4,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "If this craft already pulls you, there is enough here to go on — we have not stood in it, so we will not tell you to cross the world for it yet",
       "state": "researched, not checked",
       "checker": "Arnaud Callier",
@@ -437,8 +435,6 @@
     },
     "ashtanga-yoga": {
       "dots": 4,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "The lineage is intact and the doors are open, but the man this map's pick was named after died in 2024 and access is now a lottery — go in knowing both",
       "state": "researched, not checked",
       "conditions": [
@@ -482,8 +478,6 @@
     },
     "cold-exposure-wim-hof-method": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "One method, one family, one certificate that the same company writes and marks — everything here is real and almost all of it comes from a single source, which you should weigh",
       "state": "researched, not checked",
       "conditions": [
@@ -520,8 +514,6 @@
     },
     "french-pastry-and-patisserie": {
       "dots": 2,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "The clearest ladder on this map sits above rooms whose teachers we cannot name — the qualifications are real and the question of who will be in front of you is still open",
       "state": "researched, not checked",
       "conditions": [
@@ -558,8 +550,6 @@
     },
     "hatha-and-vinyasa-yoga": {
       "dots": 2,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "One school out of the four towns will tell you who teaches, and it is not the one we star — in a craft where the teacher is the entire product, that is the gap to close before you book",
       "state": "researched, not checked",
       "conditions": [
@@ -596,8 +586,6 @@
     },
     "italian-cuisine-and-pasta": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "A named woman with flour on her hands at one end and a proper culinary school at the other — this craft is in better shape on this map than most",
       "state": "researched, not checked",
       "conditions": [
@@ -634,8 +622,6 @@
     },
     "jewelry-and-goldsmithing": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Four scenes on three continents and a credential the trade reads, above benches where nobody will yet tell you whose hands you would be working under",
       "state": "researched, not checked",
       "conditions": [
@@ -679,8 +665,6 @@
     },
     "kitesurfing": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "The most standardised teaching on this map and the least personal — you can book a certified course almost anywhere, and we cannot name a single instructor",
       "state": "researched, not checked",
       "conditions": [
@@ -724,8 +708,6 @@
     },
     "new-basque-cuisine": {
       "dots": 4,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "A faculty the Basque chefs built for themselves, examined by a university rather than vouched for by a teacher — and the great names beside it are a lineage, not a class",
       "state": "researched, not checked",
       "conditions": [
@@ -769,8 +751,6 @@
     },
     "perfumery": {
       "dots": 4,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Grasse publishes the bench you would stand at, and one of the names on it spent twelve years as the in-house perfumer at Hermès — we have still not been, so the last one is ours to earn",
       "state": "researched, not checked",
       "conditions": [
@@ -814,8 +794,6 @@
     },
     "photography": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "The schools here are among the best in the world and we cannot tell you who teaches at a single one of them — that is our gap, not theirs, and it is the first thing to fix on this page",
       "state": "researched, not checked",
       "conditions": [
@@ -859,8 +837,6 @@
     },
     "sushi-and-washoku": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Everything a stranger needs is here and published — teachers by name, courses in English, dates and prices — and we have still not stood at any of these counters, so the last two are ours to earn",
       "state": "researched, not checked",
       "conditions": [
@@ -897,8 +873,6 @@
     },
     "freediving": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "The widest door on this map and a genuine ladder above it, with three of its four named people there for having founded the place rather than for teaching in it",
       "state": "researched, not checked",
       "conditions": [
@@ -942,8 +916,6 @@
     },
     "lifestyle-medicine": {
       "dots": 1,
-      "ceiling": 3,
-      "register": "school-led",
       "verdict": "A real medical board certification and not a travel destination — closed to anyone without a clinical degree, and listed here against a whole country rather than a place",
       "state": "researched, not checked",
       "conditions": [
@@ -980,8 +952,6 @@
     },
     "lymphatic-drainage": {
       "dots": 3,
-      "ceiling": 4,
-      "register": "school-led",
       "verdict": "One village, one academy, one method — the training is as serious as anything on this map, and the place has nothing to do with why",
       "state": "researched, not checked",
       "conditions": [
@@ -1018,8 +988,6 @@
     },
     "modern-new-technique-cuisine": {
       "dots": 3,
-      "ceiling": 4,
-      "register": "place-led",
       "verdict": "Four named masters running four real labs on four continents — the strongest teaching on this map that belongs to no ground at all, which is the whole point of a toolkit",
       "state": "researched, not checked",
       "conditions": [
@@ -1056,8 +1024,6 @@
     },
     "organic-farm-to-table-cooking": {
       "dots": 3,
-      "ceiling": 4,
-      "register": "place-led",
       "verdict": "One school, three named cooks who still stand up and demonstrate, and a hundred acres of their own soil outside the door — everything here is real and all of it is one address",
       "state": "researched, not checked",
       "conditions": [
@@ -1094,8 +1060,6 @@
     },
     "pottery-and-ceramics": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Four towns where clay is the local industry rather than the local attraction — and not one living potter named among them, which is our gap and a morning's work to close",
       "state": "researched, not checked",
       "conditions": [
@@ -1139,8 +1103,6 @@
     },
     "rock-climbing": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Four of the best-known crags on earth, taught by certified guides nobody has named for you — the standard is the point of the craft, and the person is still the thing you are buying",
       "state": "researched, not checked",
       "conditions": [
@@ -1189,8 +1151,6 @@
     },
     "safari-and-wildlife-guiding": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "The longest courses on this map, on ground owned by the people who live on it — and not one trainer named across three countries",
       "state": "researched, not checked",
       "conditions": [
@@ -1234,8 +1194,6 @@
     },
     "sailing-and-yachtmaster": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "school-led",
       "verdict": "The one qualification on this map you can genuinely fail, examined by somebody who did not teach you — and we cannot name a single instructor who would get you there",
       "state": "researched, not checked",
       "conditions": [
@@ -1284,8 +1242,6 @@
     },
     "ski-touring-and-splitboard": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Three ranges where the craft is the local trade, guided by IFMGA professionals nobody has named — and the fifth answer here is buried under snow rather than unknown",
       "state": "researched, not checked",
       "conditions": [
@@ -1329,8 +1285,6 @@
     },
     "sound-healing": {
       "dots": 1,
-      "ceiling": 4,
-      "register": "school-led",
       "verdict": "The weakest entry on this map, and we would rather say so than dress it up — real cohorts, real certificates, and nothing underneath them that we could check",
       "state": "researched, not checked",
       "conditions": [
@@ -1367,8 +1321,6 @@
     },
     "spearfishing": {
       "dots": 3,
-      "ceiling": 4,
-      "register": "place-led",
       "verdict": "The oldest hunt on earth, and on this map mostly sold as a charter — a state diploma at one end, a guide and a boat at the other, nobody named at either, and one coast where the sport plainly lives",
       "state": "researched, not checked",
       "conditions": [
@@ -1412,8 +1364,6 @@
     },
     "surfing": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Five places now, and the two added last are the only two that can tell you who will be in the water with you — the three that have been here longest still cannot",
       "state": "researched, not checked",
       "conditions": [
@@ -1462,8 +1412,6 @@
     },
     "thai-massage": {
       "dots": 4,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "A craft the Thai state certifies, UNESCO lists and a Bangkok temple wrote down in stone — the strongest ground on this map, and the only thing missing is anybody of ours on the mat",
       "state": "researched, not checked",
       "conditions": [
@@ -1512,8 +1460,6 @@
     },
     "vipassana-and-meditation": {
       "dots": 3,
-      "ceiling": 4,
-      "register": "place-led",
       "verdict": "The most open door on this map and the one that costs nothing — a technique deliberately taught without personalities, in places we could find nobody impartial to describe",
       "state": "researched, not checked",
       "conditions": [
@@ -1550,8 +1496,6 @@
     },
     "wildlife-photography": {
       "dots": 4,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Named photographers in their own ground, and at the one place we send you the teacher is the operator rather than the man whose name is on the hides — which the page now says",
       "state": "researched, not checked",
       "conditions": [
@@ -1600,8 +1544,6 @@
     },
     "windsurfing-and-wing-foil": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "place-led",
       "verdict": "Eight places chosen for their wind and one instructor named across all of them — the teaching is standardised, the towns genuinely are not",
       "state": "researched, not checked",
       "conditions": [
@@ -1645,8 +1587,6 @@
     },
     "wine-and-sommellerie": {
       "dots": 4,
-      "ceiling": 5,
-      "register": "school-led",
       "verdict": "A craft where the qualification travels and the teacher does not, taught in three cities that live off the trade — and an exam you can genuinely fail",
       "state": "researched, not checked",
       "conditions": [
@@ -1690,8 +1630,6 @@
     },
     "yacht-crew-and-stcw": {
       "dots": 3,
-      "ceiling": 5,
-      "register": "school-led",
       "verdict": "Six towns that exist because of boats, teaching a legal minimum honestly — and not one instructor named, in a course whose whole value is the person running the fire ground",
       "state": "researched, not checked",
       "conditions": [
