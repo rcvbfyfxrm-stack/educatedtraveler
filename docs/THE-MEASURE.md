@@ -1,7 +1,8 @@
 # The Measure
 
-_How a place is judged on the Atlas. Five questions, the same five everywhere, answered
-in public and signed by a person._
+_How a place is judged on the Atlas. Five questions about the craft, the same five
+everywhere, answered in public and signed by a person — and a sixth about us, which
+nobody signs._
 
 Arnaud, 7 September 2026: *"create a manifesto on how each place is evaluated. make it
 clear, simple, so it's the standard for everything."*
@@ -13,13 +14,23 @@ grade written after it is refused if it breaks a rule below.
 
 ## The one idea
 
-**A grade is not a score. It is five questions, each answered yes or no, with the working
-shown.** A reader who disagrees with a dot can see exactly what it rests on and go and
-check. That is the whole instrument, and everything below serves it.
+**A grade is not a score. It is five questions about the craft, each answered yes or no,
+with the working shown — and a sixth about how far we went to find out.** A reader who
+disagrees with a dot can see exactly what it rests on and go and check. That is the whole
+instrument, and everything below serves it.
 
 There are no stars. There is no total out of ten. A craft with two dots is not worse than
-one with four — it is a craft where three of the five questions could not be answered yes,
-and the page says which three and why.
+one with four — it is a craft where four of the six questions could not be answered yes,
+and the page says which four and why.
+
+⭐ **The five are about the place. The sixth is about us.** They were one meter until
+9 September 2026, and it was the instrument's worst fault: every one of the thirty-one
+graded crafts opened its fifth answer with *"Nobody of ours has been"* and then argued, in
+the same paragraph, that the ladder above the course was real and long. One fact about our
+own reach was taking a dot off a question it was not answering — on every craft on the map,
+and the fifth dot had never once been available to light. Arnaud ruled it apart:
+*"'we have not been' should be separate than 'is the craft alive in this place'… make it
+separate for all."*
 
 ---
 
@@ -34,6 +45,10 @@ its own.
 3. **Will there be other people learning beside you?**
 4. **Is the craft alive in this place, or is the school the only thing here?**
 5. **Is there enough here to keep you learning for years?**
+
+And the sixth, which is not one of them:
+
+6. **Has one of us stood in a room here?**
 
 They were nouns once — the room, the door, the bench, the ground, the stretch — and that
 failed on the page: a reader met *"The stretch."* above a paragraph that never said what a
@@ -103,20 +118,39 @@ with an examiner is a ladder.
 certifies the teachers of the method is not an outside standard. Said of the Wim Hof Method
 Academy on its own page, and true wherever it is true.
 
+### 6 · Whether we went
+
+**Has one of us stood in a room here?** It is dark on every craft on this map today, and
+saying so plainly is the whole reason it exists.
+
+⛔ **No grader writes it, and no signature makes it true.** It is derived at build time
+from the checks on the craft's own places — a check with a name, a trade and a day on it,
+under rule 10 — so it cannot be argued into being lit, a school cannot move it, and a grade
+signed today becomes a six the night somebody finally goes, with no re-signature. The five
+stored answers are what a person signs; this one is a fact about us that the build reads.
+
+⚠ **It is not a proxy for the other five and may not be used as one.** A visit settles what
+a desk cannot — what a season in that room is actually like — and that is worth its own
+dot. It does not settle whether a body publishes a ladder, and until this question existed
+it was pretending to.
+
 ---
 
 ## What a dark dot means
 
-Exactly one of three things, and the sentence under it says which:
+On the five, exactly one of two things, and the sentence under it says which:
 
 1. **Nobody publishes the answer** — ten kite schools, not one named instructor.
 2. **We read it and the answer is no** — the certificate is issued by the school that
    teaches it.
-3. **Nobody of ours has been** — an admission about us, not a finding about the place.
 
 A dark dot is not automatically a criticism, and it is not automatically an excuse. The page
 may not blur the two: for eight weeks the legend claimed an empty dot was never a mark
 against a place, while four dark dots on the map were exactly that.
+
+On the sixth there is only ever one reason: **nobody of ours has been.** That is an
+admission about us, never a finding about the place — which is exactly why it was taken out
+of the other five.
 
 ---
 
@@ -135,6 +169,13 @@ relationship exists it is disclosed at the point of the judgement, not in a foot
 `data/atlas-measure-drafts.json`, which the build never reads, so a draft cannot reach the
 site by accident. Signing is `scripts/sign-measure.py <craft> --as "Name"` — the name is
 typed by the person whose name it is, one craft at a time. No script may write a `checker`.
+
+**A change to the instrument itself lands on every craft at once.** One map may not carry
+two meters: a reader learns the legend on the first sheet they open and must not meet a
+different one on the second. So `--stage` holds signed grades in `measureStaged`, which the
+build never reads, and `--publish-all` refuses while a single published craft is still
+unstaged. The reading stays slow — threes and fours, over days — and the landing is one
+commit.
 
 **A grade is amended in the open.** Correcting published text means saying what changed and
 when, in the basis line. A signed judgement rewritten silently is worse than the error.

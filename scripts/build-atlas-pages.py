@@ -165,7 +165,7 @@ if CRAFT_FAMILIES and set(CRAFT_META) - _named:
 # Atlas build down on the night that happened. A place with no line simply shows none.
 # Checks signed by people who actually went, written by scripts/refresh-vouches.mjs
 # out of the approved rows in Supabase. Merged onto the destination so the whole
-# rule-10 machinery (check_line, _evidence_cap) picks them up unchanged.
+# rule-10 machinery (check_line, _stood_in) picks them up unchanged.
 # A `check` hand-written in repertoire.js WINS: that is Arnaud's own visit, and a
 # member's vouch never overwrites the house's own check of the same room.
 _VOUCH_PATH = ROOT / "data/atlas-vouches.json"
@@ -181,7 +181,7 @@ if VOUCHES_SIGNED:
     print(f"  {_applied} place(s) carry a check signed by somebody who went")
 
 MEASURE = MANIFEST.get("measure", {})
-MEASURE_CAPS = MANIFEST.get("measureCaps", {})
+LADDERS_NOT_PUBLISHED = set(MANIFEST.get("laddersNotPublished") or {})
 _craft_ids = {d["id"] for d in DISC}
 _stray_m = set(MEASURE) - _craft_ids
 if _stray_m:
@@ -399,14 +399,11 @@ def sibling_line(d):
 
 
 
-def _vouches(d):
-    """Every check on this craft's places where somebody was actually in the room."""
-    out = []
-    for x in d["destinations"]:
-        c = x.get("check") or {}
-        if c.get("state") in CHECKED_STATES:
-            out.append((x, c))
-    return out
+# One definition, in atlas_hub, because the preserved sheets draw the same block from
+# the same function and a second copy here is how two rules that were meant to be one
+# start disagreeing.
+_vouches = atlas_hub.vouches
+_stood_in = atlas_hub.stood_in
 
 
 def _host(u):
@@ -452,48 +449,77 @@ def _public_evidence(d, mm):
                for ev in q4.get("evidence") or [])
 
 
-def _evidence_cap(d, mm=None):
-    """How far the evidence lets this craft's dots go, and why.
+# ── THE MEASURE'S RULES, one row per question ─────────────────────────────
+# Written down here because they were scattered: what lights a dot lived in a build
+# comment, what its evidence had to be lived in a cap table, and the sentence printed
+# over that evidence lived hardcoded in the renderer. `docs/THE-MEASURE.md` is the
+# standard a reader gets; this is the same standard in the form the build can enforce.
+#
+# ⛔ WHAT REPLACED THE CAP. Until 9 September 2026 a blanket `_evidence_cap` held every
+# desk-graded craft at three of five, on the grounds that the last two questions could
+# only be answered by going. That was one rule doing two jobs badly: it darkened the
+# fourth question on crafts where a festival, a guild or a state tourism board answers
+# it in public, and it darkened the fifth on crafts whose ladder is published by name.
+# Both now carry their own test, and the thing the cap was really protecting — that
+# nobody from here has been — is the sixth question, derived and unfakeable. A cap is a
+# blunt answer to "how much can a desk know"; a test per question is the honest one.
+#
+# ⚠ AND WHAT NO TEST CAN SEE. The first question's second limb — a body outside the
+# school examining THIS course — cannot be read off the data: `certBody` is prose, and
+# on several crafts it names the school itself (the Wim Hof Method Academy certifies
+# Wim Hof Method instructors; Sharath Yoga Centre authorises its own). The same is true
+# of `masters`, which a full audit found wrong on 41% of its entries. So the rule is
+# written here for the grader and the build refuses only what it can prove: a lit dot
+# on a craft that has declared it has nothing to stand on. In the house habit of
+# lineage_guard, which concedes in its own comment that no regex sees a death.
+MEASURE_RULES = (
+    {"lights": "A teacher this map can name, in the room — or a body outside the school "
+               "that examines THIS course. ⛔ Reputation never: a famous name over the door "
+               "is not a teacher in the room, and a school awarding its own diploma is not "
+               "an examiner. The second limb is about this course; the fifth question is "
+               "about a level above it, which is what stops the two counting the same fact "
+               "twice."},
+    {"lights": "A date a stranger can book, on a page that says so. A waiting list, an "
+               "application or a lottery is still a yes if the door opens for somebody who "
+               "was not already inside — and the answer says which it is."},
+    {"lights": "Other people learning beside you: a cohort, a shared room, a season when "
+               "the craft draws them. One-to-one tuition is not a no, but it is not this."},
+    {"lights": "The craft alive in the town, said by somebody who is not selling the "
+               "course — a festival, a guild register, a market, a trade body, a listing.",
+     "test": lambda d, mm: (
+         (True, "") if _public_evidence(d, mm) else
+         (False, "no evidence from anybody who is not selling the course. Give the answer an "
+                 "`evidence` list — a festival, a guild register, a market, a trade body, a "
+                 "listing — each with its url and the day it was read. A school's own page is "
+                 "not evidence about its town: every host selling a course on this craft is "
+                 "refused here."))},
+    {"lights": "A rung above this course, published by a body that is not the school. The "
+               "craft's own sheet already names it — certBody and goldCredential — and a "
+               "craft that has neither, or that has declared no body publishes one, cannot "
+               "light this.",
+     "test": lambda d, mm: _ladder_above(d)},
+)
 
-    A craft is held at the desk cap until a person has stood in one of its rooms, with
-    the one exception above: public evidence about the town, from somebody with nothing
-    to sell, lifts the desk cap by one. Two visitors — or somebody who went back — is
-    what a place holding up looks like, and only that reaches five.
-    Returns (cap, reason-or-empty).
+
+def _ladder_above(d):
+    """Is there a published rung above what a course here reaches?
+
+    ⭐ This is the question the sixth one was stealing. Every one of the thirty-one
+    grades signed before 9 September 2026 opened its fifth answer with "Nobody of ours
+    has been" and then argued the ladder was real and long — the answer contradicting
+    its own dark dot, thirty-one times. What a ladder is, is a matter of public record:
+    AIDA publishes one, the RYA publishes one, the CAP Pâtissier is a state diploma with
+    the MOF above it. Whether we have climbed it is a different question and now has its
+    own dot.
     """
-    v = _vouches(d)
-    if not v:
-        cap = MEASURE_CAPS.get("researched, not checked", 3)
-        if _public_evidence(d, mm):
-            cap = max(cap, MEASURE_CAPS.get("public evidence on the place", cap))
-        return cap, ""
-    if len(v) >= 2:
-        return MEASURE_CAPS.get("twoOrReturn", 5), ""
-    x, c = v[0]
-    cap = MEASURE_CAPS.get(c["state"], 4)
-    return cap, (f'{e(c["by"])} stood in the room at {e(x["place"])} on {e(c["date"])}. '
-                 'One visit is one week and one cohort, so the last dot waits for a second.')
-
-
-def _vouch_line(d):
-    """Who has been — split by route, because the gap between the two is the finding."""
-    v = _vouches(d)
-    if not v:
-        return ""
-    mine = [c for _, c in v if c.get("route") == "with-us"]
-    alone = [c for _, c in v if c.get("route") == "direct"]
-    bits = []
-    if mine:
-        bits.append(f'{atlas_hub._WORD.get(len(mine), len(mine)).lower()} on a week we sold')
-    if alone:
-        bits.append(f'{atlas_hub._WORD.get(len(alone), len(alone)).lower()} who went on their own')
-    tail = (" &mdash; " + ", ".join(bits)) if bits else ""
-    n = atlas_hub._WORD.get(len(v), len(v))
-    who = "chef has" if len(v) == 1 else "chefs have"
-    return (f'<p style="margin:0 0 14px;color:var(--muted)">{n} working {who} stood in a room '
-            f'on this craft and signed what they saw{tail}. Their words are on the place\'s '
-            'own page.</p>')
-
+    if d["id"] in LADDERS_NOT_PUBLISHED:
+        return False, ("this craft is declared in laddersNotPublished — its own certifying "
+                       "line says no body publishes a ladder for it, and inventing rungs is "
+                       "us awarding ourselves a standard nobody asked us to write")
+    if not (d.get("certBody") or "").strip() or not (d.get("goldCredential") or "").strip():
+        return False, ("the sheet names no certifying body and no credential above the "
+                       "course, so there is no published rung to point at")
+    return True, ""
 
 
 # ── where else the craft lives: named, and nothing more ────────────────────
@@ -512,9 +538,9 @@ def _vouch_line(d):
 # island" does not rot, which is what makes a one-line place entry safe to publish at a
 # volume no one could keep checked.
 #
-# The label is the Atlas's own lowest evidence state, not a new one: `measureCaps` already
-# says "catalogued, not checked" earns NO meter at all — an absence, not a zero. These are
-# that, and the page says so above them rather than in a footnote.
+# The label is the Atlas's own lowest evidence state, not a new one: a craft with no entry
+# in `measure` shows NO meter at all — an absence, not a zero. These are that, and the page
+# says so above them rather than in a footnote.
 def also_here_block(d):
     """Delegates to atlas_hub, so the generated pages and the hand-written sheets
     draw the identical block from one function rather than two that drift.
@@ -532,15 +558,7 @@ def measure_block(d):
     mm = MEASURE.get(d["id"])
     if not mm:
         return ""
-    dots = int(mm["dots"])
-    cap = _evidence_cap(d, mm)[0]
-    if dots > cap:
-        raise SystemExit(
-            f'build-atlas-pages: measure on {d["id"]} claims {dots} dots but the evidence '
-            f'only carries {cap}. Nobody has stood in a room here yet, and whether the craft is '
-            'alive in its place and whether there is enough there to keep you going are exactly '
-            'what a brochure claims. Lower the dots or add the check.')
-    return atlas_hub.measure_html(mm, dots, _vouch_line(d))
+    return atlas_hub.measure_html(mm, int(mm["dots"]), _stood_in(d))
 
 def in_depth_block(d):
     """The craft itself, at length. A different thing from the overall, and mostly not
@@ -1689,7 +1707,7 @@ def _grade_day(s):
 
 
 CHECK_STATES = {"catalogued, not checked", "researched, not checked"}
-CHECKED_STATES = {"stood in it", "checked it", "a named person vouched"}
+CHECKED_STATES = atlas_hub.CHECKED_STATES
 ROUTES = {"with-us": "came on a week we sold",
           "direct":  "went on their own, nothing through us"}
 
@@ -1737,22 +1755,19 @@ for _mid, _mm in MEASURE.items():
             'either one — `ceiling` was a cap the evidence rules replaced, `register` a '
             'taxonomy that never shipped. Take them off the grade; the note the page '
             'prints is `ceilingNote`, which is alive and is not this.')
-    # The evidence block prints under one hardcoded sentence — "Evidence, from people with
-    # nothing to sell you" (atlas_hub.measure_html) — and that attribution is true of the
-    # FOURTH question only, because the fourth is the only one _public_evidence refuses
-    # sellers on. The first question's evidence would be a school's own faculty page: a
-    # host that by definition sells the course. Until the sentence is written per question,
-    # evidence anywhere else prints a false attribution under somebody's signature, which
-    # is the one thing an instrument about honesty cannot do.
+    # Evidence goes only under a question that has a sentence to print over it. The two
+    # that have none hold None in atlas_hub.MEASURE_EVIDENCE, and a link there would come
+    # out under a blank label or, worse, under the fourth question's — which promises the
+    # host has nothing to sell you.
     for _i, _c in enumerate(_mm["conditions"]):
-        if _c.get("evidence") and _i != 3:
+        if _c.get("evidence") and not atlas_hub.MEASURE_EVIDENCE[_i]:
             raise SystemExit(
                 f'build-atlas-pages: the Measure on {_mid} hangs evidence on question '
-                f'{_i + 1}, and the block can only label the fourth.\n'
-                '  It prints "Evidence, from people with nothing to sell you", and only the '
-                'fourth question is checked against the hosts selling this craft. On the '
-                'first question that sentence would sit over the school\'s own faculty page.\n'
-                '  Put the finding in the answer text, or write the label per question first.')
+                f'{_i + 1}, which takes none.\n'
+                '  Only the first, fourth and fifth answers print an evidence line, because '
+                'only those three have a sentence that is true of what they link to. Put the '
+                'finding in the answer itself, or give the question a label in '
+                'atlas_hub.MEASURE_EVIDENCE and a test in MEASURE_RULES first.')
     # A grade's `date` is the day somebody put their name on what this page now says, so
     # nothing inside the grade may be dated after it. Three grades shipped reading
     # "Amended 5 September 2026, the day after signing" beside "date": "5 September 2026" —
@@ -1784,22 +1799,21 @@ for _mid, _mm in MEASURE.items():
             '  The `date` field IS the signing day. An amendment on another day moves that '
             'date; it cannot be published under the old one. Re-sign it, or say "after '
             'signing" without the day.')
-    # The two questions a desk cannot answer on its own, each with its own way out.
+    # Every lit dot against its own rule. The fifth used to be refused unless somebody had
+    # been — which is why it was dark on all thirty-one, and why it is not that any more:
+    # having been is the sixth question now, and it is derived rather than graded.
     _dd = next(d for d in DISC if d["id"] == _mid)
-    if _mm["conditions"][3].get("on") and not _public_evidence(_dd, _mm):
-        raise SystemExit(
-            f"build-atlas-pages: the Measure on {_mid} says the craft is alive in the place, "
-            "with no evidence from anybody who is not selling the course.\n"
-            "  Give the fourth condition an `evidence` list — a festival, a guild register, a "
-            "market, a trade body, a listing — each with its url and the day it was read.\n"
-            "  A school's own page is not evidence about its town: every host that sells a "
-            "course on this craft is refused here.")
-    if _mm["conditions"][4].get("on") and not _vouches(_dd):
-        raise SystemExit(
-            f"build-atlas-pages: the Measure on {_mid} says there is enough here to keep you "
-            "learning for years, and nobody has been.\n"
-            "  A published ladder shows the rungs exist; only somebody who climbed part of it "
-            "can say the room above you is real. This one waits for a check.")
+    for _i, (_c, _rule) in enumerate(zip(_mm["conditions"], MEASURE_RULES)):
+        _test = _rule.get("test")
+        if not (_c.get("on") and _test):
+            continue
+        _ok, _why = _test(_dd, _mm)
+        if not _ok:
+            raise SystemExit(
+                f'build-atlas-pages: the Measure on {_mid} lights question {_i + 1} '
+                f'— {atlas_hub.MEASURE_QUESTIONS[_i]}\n'
+                f'  and {_why}.\n'
+                f'  What lights it: {_rule["lights"]}')
 
 
 
@@ -2626,7 +2640,7 @@ if _floor is not None:
             + (f'  New without a grade: {", ".join(_new)}\n' if _new else "")
             + '  Add it to data/atlas-extra-sheets.json -> measure, or preview one first with '
               'scripts/preview-measure.py.')
-    if len(_no_measure) < _floor:
+    if len(_no_measure) + 1 < _floor:
         # DEBT + 1, and the hint has to say the number, because it used to say the debt and
         # the debt is the one value that arms the bomb: atlas-build.yml opens whatever the
         # Circle asked for and rebuilds in the same unattended job, so a floor with no
@@ -2663,7 +2677,7 @@ if _lfloor is not None:
             + (f'  New without one: {", ".join(_newl)}\n' if _newl else "")
             + "  Add the body's published ladder to data/atlas-extra-sheets.json -> "
               "skillLadders, or — if no body publishes one — say so in laddersNotPublished.")
-    if len(_no_ladder) < _lfloor:
+    if len(_no_ladder) + 1 < _lfloor:
         # Debt + 1, for the reason spelled out on the Measure's floor above — and this one
         # is not hypothetical: this floor sat at exactly its own debt on 7 September 2026
         # and the next Circle opening would have stopped the nightly rebuild at 04:05,
@@ -2754,6 +2768,17 @@ if _stale_sessions:
 
 # Drafted grades waiting for a signature. Counted, never read: the build must be able
 # to say how many are pending without being able to publish one.
+# Staged grades are invisible to this build BY DESIGN — `measure` is what ships — but a
+# staged set nobody publishes is a migration that quietly stopped halfway, so it is said
+# out loud on every build until somebody runs --publish-all.
+_staged = MANIFEST.get("measureStaged") or {}
+if _staged:
+    _unstaged = sorted(set(MEASURE) - set(_staged))
+    print(f"  · {len(_staged)} Measure(s) signed and STAGED, on no page yet"
+          + (f" — {len(_unstaged)} still to read: {', '.join(_unstaged[:4])}"
+             + (f", +{len(_unstaged) - 4} more" if len(_unstaged) > 4 else "")
+             if _unstaged else " — all read; publish with sign-measure.py --publish-all"))
+
 _dpath = ROOT / "data/atlas-measure-drafts.json"
 if _dpath.exists():
     _drafts = json.loads(_dpath.read_text()).get("drafts", {})

@@ -438,7 +438,10 @@ _ref_mm = {
 }
 _ref = atlas_hub.measure_html(_ref_mm)
 _ref_legend = re.search(r'<p class="meta" style="margin:0 0 16px">(.*?)</p>', _ref, re.S)
-_n_q = len(atlas_hub.MEASURE_QUESTIONS)
+# MEASURE_ALL, not MEASURE_QUESTIONS: five are stored on the grade and the sixth is
+# derived at render time, so the page asks six and the data holds five. A check that
+# counted the stored ones would have called every correct page wrong.
+_n_q = len(atlas_hub.MEASURE_ALL)
 if not _ref_legend:
     bad("check 15 cannot find the legend in atlas_hub.measure_html output — the pattern "
         "has stopped matching and this check is blind")
@@ -451,10 +454,10 @@ else:
             "check is blind")
     for _f in _measure_pages:
         _h = _f.read_text()
-        for _q in atlas_hub.MEASURE_QUESTIONS:
+        for _q in atlas_hub.MEASURE_ALL:
             if _h.count(_q) != 1:
                 bad(f"{_f.name} carries a Measure that asks {_q!r} {_h.count(_q)} time(s). "
-                    "The five are fixed, in one order, on every page — a legend is only "
+                    "The six are fixed, in one order, on every page — a legend is only "
                     "learnable if it never moves.")
         if _legend not in _h:
             bad(f"{_f.name} prints a Measure legend that is not the one atlas_hub renders. "

@@ -1677,16 +1677,6 @@
       "date": "5 September 2026"
     }
   },
-  "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
-  "measureCaps": {
-    "catalogued, not checked": 0,
-    "researched, not checked": 3,
-    "public evidence on the place": 4,
-    "a named person vouched": 4,
-    "checked it": 4,
-    "stood in it": 4,
-    "twoOrReturn": 5
-  },
   "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day.",
   "measureDebtFloor": 1,
   "measureDebtKnown": [],
@@ -1920,11 +1910,17 @@
     }
   },
   "laddersNotPublished": {
-    "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write."
+    "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write.",
+    "modern-new-technique-cuisine": "Its own certifying line reads 'No single formal body — master-led technique labs / certificates of attendance'. There is no ladder to adopt: the credential is the course, and the road above it is a stage nobody can promise you.",
+    "modernist-spanish-cuisine": "Its own certifying line reads 'No formal body. A school certifies its own course; a stage certifies nothing but the name on the door.' A ladder written by us here would be exactly the authority that line refuses.",
+    "sound-healing": "Its own certifying line reads 'No single global body; recognized diplomas vary'. Two schools issue their own diplomas and no body ranks them against each other, so there are no rungs to name.",
+    "wildlife-photography": "Its own certifying line reads 'No universal body — portfolio and prize based'. SINWP and PPA offer voluntary credentials nobody in the field is measured by; the summit named on the sheet is a competition placing, which is not a rung anybody can climb on request.",
+    "pottery-and-ceramics": "Its own certifying line reads 'Apprenticeship / studio-residency lineage (no single global body)'. The progression is real and it is served by time in somebody's studio, which is not a published ladder.",
+    "organic-farm-to-table-cooking": "The sheet names no certifying body and no credential at all — the only craft on the map that names neither. Nothing publishes a ladder here, and writing one would be inventing the standard as well as the grade."
   },
   "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
   "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day.",
-  "ladderDebtFloor": 29,
+  "ladderDebtFloor": 23,
   "ladderDebtKnown": [
     "ashtanga-yoga",
     "cold-exposure-wim-hof-method",
@@ -1934,23 +1930,17 @@
     "jewelry-and-goldsmithing",
     "lifestyle-medicine",
     "lymphatic-drainage",
-    "modern-new-technique-cuisine",
-    "modernist-spanish-cuisine",
     "new-basque-cuisine",
-    "organic-farm-to-table-cooking",
     "perfumery",
-    "pottery-and-ceramics",
     "rock-climbing",
     "safari-and-wildlife-guiding",
     "sailing-and-yachtmaster",
     "ski-touring-and-splitboard",
-    "sound-healing",
     "spearfishing",
     "surfing",
     "sushi-and-washoku",
     "thai-massage",
     "vipassana-and-meditation",
-    "wildlife-photography",
     "windsurfing-and-wing-foil",
     "wine-and-sommellerie",
     "yacht-crew-and-stcw"

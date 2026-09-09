@@ -9,7 +9,12 @@ you approve is what would ship.
 It writes OUTSIDE website/ on purpose. A drafted grade must not be one stray path away
 from being published, and a preview living in the deploy directory is exactly that.
 
-    python3 scripts/preview-measure.py [--out /path/to/file.html]
+    python3 scripts/preview-measure.py [--out /path/to/file.html] [--against-live]
+
+--against-live draws the grade that is on the site today beside the draft. A migration is
+read as a DIFFERENCE — this answer moved, that dot moved, the rest did not — and a page
+that shows only the new one asks the reader to hold the old one in their head, which is
+how a changed dot gets nodded through.
 """
 import argparse
 import html
@@ -22,6 +27,7 @@ import atlas_hub
 
 ROOT = Path(__file__).resolve().parent.parent
 DRAFTS = ROOT / "data/atlas-measure-drafts.json"
+MANIFEST = ROOT / "data/atlas-extra-sheets.json"
 DEFAULT_OUT = Path("/private/tmp/claude-501/-Users-callierapca/measure-drafts.html")
 
 CSS = """
@@ -51,7 +57,23 @@ a{color:var(--sea)}
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    ap.add_argument("--against-live", dest="against_live", action="store_true",
+                    help="draw today's published grade beside the draft")
     a = ap.parse_args()
+
+    manifest = json.loads(MANIFEST.read_text())
+    live_grades = manifest.get("measure", {})
+    # The sixth answer is derived, so the preview has to derive it too — a draft rendered
+    # without it would show five dots where the site shows six.
+    src = (ROOT / "data/repertoire.js").read_text()
+    disc = json.loads(src[src.index("{", src.index("window.ET_ATLAS")):src.rindex("}") + 1])
+    by_id = {d["id"]: d for d in disc["disciplines"]}
+    vpath = ROOT / "data/atlas-vouches.json"
+    vouched = json.loads(vpath.read_text()) if vpath.exists() else {}
+    for d in by_id.values():
+        for x in d["destinations"]:
+            if vouched.get(x["id"]) and not x.get("check"):
+                x["check"] = vouched[x["id"]]
 
     drafts = (json.loads(DRAFTS.read_text()) if DRAFTS.exists() else {}).get("drafts", {})
     if not drafts:
@@ -69,10 +91,19 @@ def main():
                  f'&middot; not on the site</span><h2 style="margin-bottom:4px">'
                  f'{html.escape(craft)}</h2>'
                  f'<p class="meta">Renders exactly like this once signed.</p></div>'
-                 + atlas_hub.measure_html(m)
+                 + atlas_hub.measure_html(m, stood=(atlas_hub.stood_in(by_id[craft])
+                                                    if craft in by_id else None))
                  + f'<div class="wrap"><div class="cmd">python3 scripts/sign-measure.py '
                    f'{html.escape(craft)} --as "Arnaud Callier"\npython3 scripts/sign-measure.py '
                    f'{html.escape(craft)} --reject</div></div>')
+        if a.against_live and craft in live_grades:
+            body += (f'<div class="wrap" style="padding-top:34px;opacity:.62">'
+                     f'<span class="tag" style="background:var(--muted)">On the site today'
+                     f'</span><h2 style="margin-bottom:4px">{html.escape(craft)}</h2>'
+                     f'<p class="meta">What the draft above would replace.</p></div>'
+                     + atlas_hub.measure_html(
+                         live_grades[craft],
+                         stood=(atlas_hub.stood_in(by_id[craft]) if craft in by_id else None)))
 
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

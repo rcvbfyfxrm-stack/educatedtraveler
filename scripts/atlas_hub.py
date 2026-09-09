@@ -271,7 +271,12 @@ def walk_places(dests):
              else the_country(x["country"])) for x in ds]
 
 
-_WORD = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "All five"}
+# ⚠ 5 used to read "All five" here, which was the headline's own special case parked in
+# a lookup three other sentences read. It already misfired in one of them — five vouches
+# would have printed "All five working chefs have stood in a room", all five of what —
+# and with a sixth question it would have printed "All five of the six answers". The
+# special case belongs to the sentence that needs it, which is _answers_line.
+_WORD = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six"}
 
 # ── the five questions, in the words a reader already thinks in ───────────
 # They shipped as five nouns — the room, the door, the bench, the ground, the
@@ -293,6 +298,52 @@ MEASURE_QUESTIONS = (
     "Is there enough here to keep you learning for years?",
 )
 
+# ── and a sixth, which no grader writes ───────────────────────────────────
+# Arnaud, 5 September 2026, on hatha yoga scoring two: "'we have not been' should be
+# separate than 'is the craft alive in this place'. we can check if the craft is alive
+# by the number of school and the community there and by the culture of the place.
+# make it separate for all."
+#
+# He was right, and the file was worse than he thought. All thirty-one graded crafts
+# opened their fifth answer with "Nobody of ours has been" — and then argued, in the
+# same paragraph, that the ladder above the course was real and long. One fact about
+# US was darkening a question about the CRAFT, on every craft on the map, and the fifth
+# dot had never once been available to light. Two things were being weighed on one
+# meter: what can be established about a place, and how deeply we verified it.
+#
+# So it becomes its own question. ⛔ IT IS DERIVED AT RENDER TIME, NEVER STORED: no
+# grader can write it, no school can move it, a signature cannot make it true, and the
+# five stored conditions keep their indices — conditions[3] and conditions[4] are still
+# the fourth and fifth questions everywhere that names them. The only thing that lights
+# it is a check with a name and a date on it, on one of this craft's own places.
+MEASURE_STOOD_IN = "Has one of us stood in a room here?"
+# What an evidence list under each question is, in the words printed above it — and None
+# where a question takes no evidence at all.
+#
+# ⚠ THIS USED TO BE ONE HARDCODED SENTENCE for whatever question carried a link, and it
+# was true only of the fourth: the fourth is the one the build checks against every host
+# selling this craft. The first question's evidence is a school's own faculty page — a
+# host that by definition sells the course — and the fifth's is the certifying body,
+# which certifies. Printing "from people with nothing to sell you" over either would be
+# a false attribution under somebody's signature, on the one instrument that cannot
+# afford one. So the sentence belongs to the question, and the two that take no evidence
+# say so by holding None: the build refuses a link there rather than mislabelling it.
+MEASURE_EVIDENCE = (
+    "Examined by, from outside the school:",
+    None,
+    None,
+    "Evidence, from people with nothing to sell you:",
+    "The rung above this course, published by:",
+    None,
+)
+MEASURE_ALL = MEASURE_QUESTIONS + (MEASURE_STOOD_IN,)
+# What the sixth says when the answer is no, which is every craft on the map today.
+# House prose, under nobody's name — the same standing as the legend, because a derived
+# answer has no author and must not read as though it had one.
+STOOD_IN_NOBODY = ("Nobody from here has stood in a room on this craft. Everything above "
+                   "is read, not seen \u2014 and this is the answer that says so, instead of "
+                   "quietly taking a dot off one of the others.")
+
 
 def _answers_line(dots):
     """The Measure's headline, agreeing with its own number at every count.
@@ -306,10 +357,11 @@ def _answers_line(dots):
     this block cannot afford. _WORD is shared with the vouch line and the walked
     places, so the fix belongs here rather than in the lookup.
     """
-    if dots == 5:
-        return "All five answers are yes here"
+    total = len(MEASURE_ALL)
+    if dots == total:
+        return "All six answers are yes here"
     verb = "is" if dots == 1 else "are"
-    return f"{_WORD.get(dots, dots)} of the five answers {verb} yes here"
+    return f"{_WORD.get(dots, dots)} of the six answers {verb} yes here"
 
 
 def also_here_html(d):
@@ -379,7 +431,49 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
 """
 
 
-def measure_html(mm, dots=None, vouch=""):
+
+# The three states that mean somebody was actually in the room. A membership, a
+# recommendation or a brochure is not one of them.
+CHECKED_STATES = {"stood in it", "checked it", "a named person vouched"}
+
+
+def vouches(d):
+    """Every check on this craft's places where somebody was actually in the room."""
+    return [(x, x["check"]) for x in d["destinations"]
+            if (x.get("check") or {}).get("state") in CHECKED_STATES]
+
+
+def stood_in(d):
+    """The sixth answer, derived — and the only one no grader may write.
+
+    ⛔ It lives HERE, beside the renderer, because three things draw a Measure: the
+    generated craft pages, the eighteen preserved sheets that inject-related-handwritten
+    rewrites, and preview-measure. The evidence cap was once re-implemented in two of
+    them and they drifted; the note in inject-related.measure_block says so in its own
+    words. One function, one answer, three callers.
+
+    Returns (on, the sentence under the dot), split by route — the gap between the two
+    is the finding.
+    """
+    v = vouches(d)
+    if not v:
+        return False, STOOD_IN_NOBODY
+    mine = [c for _, c in v if c.get("route") == "with-us"]
+    alone = [c for _, c in v if c.get("route") == "direct"]
+    bits = []
+    if mine:
+        bits.append(f"{_WORD.get(len(mine), len(mine)).lower()} on a week we sold")
+    if alone:
+        bits.append(f"{_WORD.get(len(alone), len(alone)).lower()} who went on their own")
+    tail = (" &mdash; " + ", ".join(bits)) if bits else ""
+    n = _WORD.get(len(v), len(v))
+    who = "chef has" if len(v) == 1 else "chefs have"
+    where = ", ".join(sorted(e(x["place"]) for x, _ in v))
+    return True, (f"{n} working {who} stood in a room on this craft and signed what they "
+                  f"saw{tail}: {where}. Their words are on the place's own page.")
+
+
+def measure_html(mm, dots=None, stood=None):
     """The Measure block itself, from a grade — published or still drafted.
 
     Split out of build-atlas-pages.measure_block() so a draft can be READ in the
@@ -390,11 +484,18 @@ def measure_html(mm, dots=None, vouch=""):
     """
     if not mm:
         return ""
+    # `dots` is what the GRADE says: the five stored conditions it lit. The sixth is
+    # added here and nowhere else, so a signed number never has to be re-signed because
+    # somebody went — the meter learns it the night the check lands.
+    stood_on, stood_t = stood if stood else (False, STOOD_IN_NOBODY)
     dots = int(mm["dots"]) if dots is None else dots
-    meter = ('<span style="color:var(--sea)">' + "&#9679;" * dots + "</span>"
-             + '<span style="color:var(--faint)">' + "&#9675;" * (5 - dots) + "</span>")
+    lit = dots + (1 if stood_on else 0)
+    total = len(MEASURE_ALL)
+    meter = ('<span style="color:var(--sea)">' + "&#9679;" * lit + "</span>"
+             + '<span style="color:var(--faint)">' + "&#9675;" * (total - lit) + "</span>")
     rows = ""
-    for c in mm["conditions"]:
+    for _i, c in enumerate(list(mm["conditions"])
+                           + [{"n": MEASURE_STOOD_IN, "t": stood_t, "on": stood_on}]):
         on = c.get("on")
         mark = "&#9679;" if on else "&#9675;"
         col = "var(--sea)" if on else "var(--faint)"
@@ -412,8 +513,8 @@ def measure_html(mm, dots=None, vouch=""):
             ev += f'{"" if not ev else " &middot; "}{link}'
             if x.get("date"):
                 ev += f' <span style="opacity:.7">read {e(x["date"])}</span>'
-        ev = (f'<span class="meta" style="display:block;margin-top:5px">Evidence, from people '
-              f'with nothing to sell you: {ev}</span>') if ev else ""
+        ev = (f'<span class="meta" style="display:block;margin-top:5px">'
+              f'{MEASURE_EVIDENCE[_i] or ""} {ev}</span>') if ev else ""
         # the question on its own line, the finding under it: inline, the 70-character
         # fourth question ran into its own answer and the two read as one sentence.
         rows += (f'<p style="margin:0 0 14px{body}">'
@@ -425,7 +526,7 @@ def measure_html(mm, dots=None, vouch=""):
     return (
       '<section><div class="wrap">'
       '<div class="mono">Is this community worth the trip</div>'
-      f'<h2 style="margin-bottom:10px">{_answers_line(dots)}</h2>'
+      f'<h2 style="margin-bottom:10px">{_answers_line(lit)}</h2>'
       # The old legend said an empty dot "is not a mark against the place". That was true of
       # seventeen of the twenty-one empty dots and false of the other four — the dark first
       # questions on kitesurfing, photography, french pastry and hatha yoga, which are exactly
@@ -449,10 +550,13 @@ def measure_html(mm, dots=None, vouch=""):
       '<span class="mono" style="color:var(--sea);font-size:12px;letter-spacing:.12em">'
       'How this was graded</span></summary><div class="foldbody">'
       '<p class="meta" style="margin:0 0 16px">The same five questions, asked of every craft on '
-      'this map, before we send anyone anywhere. A full dot is a yes we can show you the working '
-      'for. An empty dot means one of three things, and the sentence under it says which: nobody '
-      'publishes the answer, we read it and the answer is no, or nobody of ours has been.</p>'
-      f'{rows}{vouch}{note}'
+      'this map, before we send anyone anywhere &mdash; and a sixth that is not about the craft '
+      'at all. A full dot is a yes we can show you the working for. An empty dot on the five '
+      'means one of two things, and the sentence under it says which: nobody publishes the '
+      'answer, or we read it and the answer is no. The sixth asks whether one of us has been, '
+      'and it is dark on every craft on this map. It sits here rather than inside the other '
+      'five, where it used to take a dot off a question it was never answering.</p>'
+      f'{rows}{note}'
       # the basis belongs with the working it describes, not above the fold: the NAME and
       # the DAY are the accountability, and they stay in the open.
       f'<p class="meta" style="margin:14px 0 0">{mm["check"]}</p>'

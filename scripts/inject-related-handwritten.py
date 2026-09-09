@@ -43,6 +43,19 @@ PINNED = set(MANIFEST.get("pinnedOpen", []))
 
 src = (ROOT / "data/repertoire.js").read_text()
 DISC = json.loads(src[src.index("{", src.index("window.ET_ATLAS")):src.rindex("}") + 1])["disciplines"]
+# The same merge the build does, for the same reason: the sixth answer of the Measure is
+# derived from the checks on a craft's places, and a member's approved vouch lives in
+# data/atlas-vouches.json rather than in repertoire.js. Without this, the day somebody
+# finally stands in a room, eighteen preserved sheets would keep saying nobody has —
+# the generated pages lighting a sixth dot the hand-written ones do not. A hand-written
+# `check` still wins: that is the house's own visit.
+_VOUCH_PATH = ROOT / "data/atlas-vouches.json"
+_VOUCHES = json.loads(_VOUCH_PATH.read_text()) if _VOUCH_PATH.exists() else {}
+for _d in DISC:
+    for _x in _d["destinations"]:
+        if _VOUCHES.get(_x["id"]) and not _x.get("check"):
+            _x["check"] = _VOUCHES[_x["id"]]
+
 UNLOCK = json.loads((ROOT / "data/atlas-unlocked.json").read_text()).get("open") or {}
 OPEN = set(UNLOCK) | PINNED
 
@@ -198,15 +211,21 @@ def measure_block(craft_id):
     Rendered by atlas_hub.measure_html() — the same function the generated pages and
     preview-measure.py use, never a lookalike, so the three cannot drift apart.
 
-    ⛔ THE EVIDENCE CAP IS NOT CHECKED HERE, ON PURPOSE. build-atlas-pages.measure_block()
-    refuses to build at all when a craft's dots exceed what its evidence carries, and
-    re-implementing that judgement in a second place is how two rules that were meant to
-    be one start disagreeing. Run the build first; it is the gate. This only draws.
+    ⛔ THE RULES ARE NOT CHECKED HERE, ON PURPOSE. build-atlas-pages refuses to build at
+    all when a lit dot fails its own rule in MEASURE_RULES, and re-implementing that
+    judgement in a second place is how two rules that were meant to be one start
+    disagreeing. Run the build first; it is the gate. This only draws.
+
+    ⚠ The sixth answer IS computed here, because it is not a judgement — it is a fact
+    about which places carry a signed check, and atlas_hub.stood_in() is the one place
+    that reads it. Passing nothing would have quietly published "nobody has been" on
+    eighteen sheets on the day somebody had.
     """
     mm = MEASURE.get(craft_id)
     if not mm:
         return ""
-    return f"{MEAS_OPEN}\n{atlas_hub.measure_html(mm)}\n{MEAS_CLOSE}\n"
+    stood = atlas_hub.stood_in(DISC_BY_ID[craft_id]) if craft_id in DISC_BY_ID else None
+    return f"{MEAS_OPEN}\n{atlas_hub.measure_html(mm, stood=stood)}\n{MEAS_CLOSE}\n"
 
 
 def adopt_unmarked_measure(text):

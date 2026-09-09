@@ -1,3 +1,147 @@
 {
-  "drafts": {}
+  "drafts": {
+    "wine-and-sommellerie": {
+      "dots": 5,
+      "verdict": "A craft where the qualification travels and the teacher does not, taught in three cities that live off the trade — and an exam you can genuinely fail",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, in the institutional form, and this map already ruled on it: wine's teaching is institutional rather than a master you apprentice under. The bodies are named and so are their lineages — the Wine & Spirit Education Trust from Bermondsey, the Institute of Masters of Wine, the Court of Master Sommeliers, and the CIVB's own school in Bordeaux. No individual is named because the credential belongs to the body, not to the person who taught you for it, and that is the shape of this craft rather than thin research."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open on published dates from Level 1 upward, and the door has a lock on it. The WSET Diploma and the Master of Wine study programme are examined by the awarding body, blind, and people fail them repeatedly — the Master of Wine in particular is famous for it. That is the second half of this question answered better than almost anywhere here: your palate can fail in a way nobody can talk you past."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes. These are classroom cohorts working structured blind-tasting flights together, which is a craft you cannot practise alone — you calibrate against other people's palates or you calibrate against nothing. Napa carries the densest New World cohort of Diploma candidates, and London puts Level 1 students in the same building as the Diploma."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and Bordeaux settles it through the growers rather than the schools. The Union des Grands Crus de Bordeaux, founded in 1973, has 126 member châteaux across Médoc, Pessac-Léognan, Saint-Émilion, Pomerol and Sauternes, runs about 80 events a year worldwide, and put nearly 5,000 wine-trade professionals through the city over four days of En Primeur Week in April 2026. A city that fills for four days because of what is in the barrels is a place the trade belongs to.",
+          "evidence": [
+            {
+              "what": "the Union des Grands Crus de Bordeaux on its members and En Primeur Week",
+              "url": "https://www.ugcb.net/en",
+              "date": "4 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": true,
+          "t": "Yes, and it is the clearest ladder on this map. WSET Level 1 to 4, then the Diploma, then the Master of Wine or the Master Sommelier — published, examined by the awarding body rather than by the school that taught you, and long by design: the Diploma alone runs to years. What it does not show is whether the room above the Diploma is open to you in these three cities, which is a matter of who will pour for you, and nobody publishes that."
+        }
+      ],
+      "ceilingNote": "Five of the six are lit and the sixth is the one nobody can research: the trade and the teaching sit in the same three cities, so a single harvest would answer it.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has sat a WSET course in Bordeaux, London or Napa. The fourth answer is the Union des Grands Crus de Bordeaux's own site, read 4 September 2026 — a growers' body, which sells wine but does not sell the courses on this page. The first is filled on the institution-taught form, on this map's own 6 August 2026 precedent for exactly this craft.\n\n⚠ Amended 9 September 2026, on the ruling that “we have not been” is a separate question: the fifth answer now judges the ladder alone, and whether one of us has stood in a room here is asked as the sixth and derived from the checks on this craft's places rather than written by a grader. This answer had been dark while its own text called the ladder the clearest on the map — the count goes from four to five, and nothing else on this grade moved."
+    },
+    "hatha-and-vinyasa-yoga": {
+      "dots": 2,
+      "verdict": "One school out of the four towns will tell you who teaches, and it is not the one we star — in a craft where the teacher is the entire product, that is the gap to close before you book",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Lit in one town of four, and not the town we send you to. Atmavikasa in Mysore publishes a teachers page naming Yogacharya Venkatesha and Acharye Hema, who describe themselves as independent expert teachers with thirty years of teaching behind them and who carry the trainings — founding a school is not teaching in it, and this is the rarer case where the same two people do both. Rishikesh, which is our pick, names nobody, and neither do Ubud's Yoga Barn and Radiantly Alive or Encinitas's Soul of Yoga. Rishikesh and Mysore also carry lineages, Sivananda and Krishnamacharya, and a lineage is not a teacher. This dot stays dark because the place we point you at cannot yet tell you whose hands you would be in. A two-hundred-hour training is four weeks of one person's attention: find out whose before you pay, and treat a school that will not tell you as an answer."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Wide open, and the widest on this map: two-hundred-hour teacher trainings run continuously in Rishikesh, Mysore, Ubud and Encinitas, residential, with dates published months out. Your hands can ruin it, and in this craft the thing they can ruin is you — this is the discipline where being pushed past your range does lasting damage."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Rishikesh and Ubud both read Legendary above. These are towns where the practice is the local economy, which cuts both ways: there are peers everywhere and there is also a great deal of training sold to people who will never teach."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Nothing published by anybody who is not selling a training. Rishikesh on the Ganges is plainly a town this practice organises itself around — but everything we could find saying so is published by the schools there, and a school's own page is not evidence about its town. This one waits for a festival, a municipal listing, or a body with nothing to sell you."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "No, and their own standards say why. RYT 200 is obtained ‘after completing a 200-hour yoga teacher training registered with Yoga Alliance’; the teaching requirement for it is listed as None; and the cost is a 50 USD one-time application fee plus 65 USD annual membership dues. Yoga Alliance registers you and requires the school to assess you. It does not examine you. That is a register, not a qualification an outside examiner stands behind, and it is worth knowing exactly what you are buying. Read on their Standards for RYT Credentials, 3 September 2026."
+        }
+      ],
+      "ceilingNote": "All six are reachable here, and the room is still the one that matters. Two names came back from a single email; the rest is more of the same work.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. Amended 4 September 2026: Atmavikasa answered a direct question, and its own teachers page, read the same day, names Yogacharya Venkatesha and Acharye Hema as the teachers rather than only as founders — so THE ROOM is no longer empty across the board. It stays dark because Rishikesh is the destination we recommend and it still names no one. A school answering us does not raise its craft's grade; only the recommended room being lit would do that.\n\n⚠ Amended 9 September 2026, on the ruling that “we have not been” is a separate question: the fifth answer now judges the ladder alone, and whether one of us has stood in a room here is asked as the sixth and derived from the checks on this craft's places rather than written by a grader. Neither dot moved and the count stays at two — but both were dark for the wrong reason. The fourth said “we have not been” about a question a guild or a municipality could answer without us; it is dark because nobody outside the schools has published it. The fifth now says what it always meant: Yoga Alliance registers, it does not examine."
+    },
+    "sound-healing": {
+      "dots": 1,
+      "verdict": "The weakest entry on this map, and we would rather say so than dress it up — real cohorts, real certificates, and nothing underneath them that we could check",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Empty in all three places, and there is no honest way to fill it. This map fills this question for a body-taught craft on a named institution with a named lineage — that is how wine and lymphatic drainage are graded. Sound healing has neither: the record's own line on this craft is that there is no single global body, and no individual teacher is named in Kathmandu, the Bay Area or Glastonbury. That is an absence, not a refusal to name."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "This is the one door on the map that does not hold. The dates and the enrolment are real — ten-day trainings in Kathmandu and Pokhara, a 186-hour certificate in Sausalito, diploma routes in the UK — so the first half is a plain yes. The second half is what fails: this question also asks whether your hands can ruin the work, because if they cannot, you are watching a demonstration rather than learning a craft. Nothing you can do to a singing bowl in ten days is wrong in a way anybody could show you. Weigh that against what the certificate costs."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and this is the honest strength here. The trainings are residential and run as cohorts — ten days and nine nights in Pokhara, 186 hours in Sausalito, a year-long programme at CIIS — so there are people learning beside you, and the diploma routes in the UK have assessors above you."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "No, or at least nothing we could establish. Kathmandu has a genuine metal-bowl-making trade in Patan and Bhaktapur going back centuries, and that is a real craft alive in a real place — but it is a metalworking trade, not this practice, and everything published about it that we could find is published by people selling bowls. Sound healing as taught here would make the same sense in any other town, which is what this question is for."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "No, and it is an absence rather than a weak rung: this craft's own certifying line says there is no single global body, so nothing above the certificate has been described by an outside authority. The two diploma routes that exist are issued by the schools that teach them, which is the certificate again under a longer name."
+        }
+      ],
+      "ceilingNote": "The two empty answers in the middle are the ones to weigh: this is a craft where a good recording might genuinely do what a course does.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has attended any of these trainings. This is the lowest count on the Atlas and it deserves saying plainly: nothing here is a fake, the schools are real and the hours are real, and the instrument still cannot find a teacher, a ground, or a way for a student to get it wrong. If that reading is too hard, the place to argue with it is the second answer — and that argument should be had before this grade is signed rather than after.\n\n⚠ Amended 9 September 2026, on the ruling that “we have not been” is a separate question: the fifth answer now judges the ladder alone, and whether one of us has stood in a room here is asked as the sixth and derived from the checks on this craft's places rather than written by a grader. The count stays at one. The fifth answer was carrying our absence and the craft's at once; it now carries only the craft's, and it is still no. The invitation in the paragraph above stands — the second answer is where to argue with this grade."
+    },
+    "cold-exposure-wim-hof-method": {
+      "dots": 3,
+      "verdict": "One method, one family, one certificate that the same company writes and marks — everything here is real and almost all of it comes from a single source, which you should weigh",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Named at the top: Wim Hof himself takes the Module III intensive in the Karkonosze mountains, and Enahm Hof runs the Academy from Amsterdam. That is a named person in his own room, and unusually it is the person the method is named after. Iceland names nobody and is delivered by certified instructors rather than by the Academy."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open and laddered: Fundamentals, then Modules I to III, ending in an in-person intensive. You book it. And the hands can ruin it in a way worth stating plainly — this is cold water and breath retention, the failure modes are real, and every serious page about it says never to practise the breathing in or near water."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Przesieka reads Legendary above and Amsterdam Thriving. The cohorts are the method's whole distribution — thousands of certified instructors worldwide came through these rooms, which is a genuine peer network and also the reason to read the next dot carefully."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "Nothing from anybody who is not selling it. Przesieka is a Karkonosze mountain village whose association with this practice is the method's own — there is no festival, guild, market or listing here published by a third party, and Amsterdam is the company's head office rather than a town organised around a craft. That is what this answer is for, and it is why it is empty."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "No, and the reason is a closed loop rather than an absence. The qualification is a Certified Wim Hof Method Instructor, awarded by the Wim Hof Method Academy: the company teaches the method, defines the method, and certifies the teachers of the method. That is not a criticism — it is one source rather than an outside standard, and you should price it as such."
+        }
+      ],
+      "ceilingNote": "All six are reachable here, and a single February in the Karkonosze would answer two of them at once.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has stood in any of these rooms. ⚠ Amended 9 September 2026, on the ruling that “we have not been” is a separate question: the fifth answer now judges the ladder alone, and whether one of us has stood in a room here is asked as the sixth and derived from the checks on this craft's places rather than written by a grader. The count stays at three. Both dark dots said “we have not been”; neither needed to. The fourth is empty because nobody outside the company has published anything about the place, and the fifth because the certificate is written and marked by the same company — both findings about this craft, which is what these questions ask."
+    }
+  }
 }
