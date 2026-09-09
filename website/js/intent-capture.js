@@ -292,7 +292,9 @@
       var said = craft.indexOf(' · ') > 0 ? craft.split(' · ').join(' in ') : craft;
       var intro = el('p', 'etl-intro');
       intro.innerHTML = 'I\'m <b>Arnaud</b> — I founded EducatedTraveler. If ' + esc(said)
-        + ' is the one you want, write me a note saying so: how you\'d love to learn it, and where.';
+        + ' is the one you want, write me a note saying so: how you\'d love to learn it, and where. '
+        + 'That note is how you join the Circle — the people who have told me which craft they want to learn. '
+        + 'What they ask for decides which craft I open on the Atlas next, and which week I build; none has been built that way yet.';
       form.appendChild(intro);
     }
 
@@ -444,7 +446,7 @@
           '<a href="/portrait" style="color:var(--sea,#7fa8a5)">Open your portrait →</a>';
       } else if (linked) {
         done.innerHTML = 'Your note\'s with me, ' + nameHtml + '. I\'ve sent a sign-in link to <span>' +
-          addrHtml + '</span> — open it and you\'re in, your note already on the wall. ' +
+          addrHtml + '</span> — open it and you\'re in the Circle. Your note is already in front of me. ' +
           'I read every one myself, so give me a day or two.';
       } else {
         done.innerHTML = 'Your note\'s with me, ' + nameHtml + ', and I read every one myself. ' +

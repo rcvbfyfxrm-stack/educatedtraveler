@@ -942,7 +942,7 @@ def opened_band(items):
         '<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap">'
         '<div class="nohead">'
         '<div class="eyebrow">Opened by the Circle</div>'
-        '<h2 class="serif" id="opened-h">The crafts someone asked for, newest first.</h2>'
+        '<h2 class="serif" id="opened-h">The crafts someone wrote me a note about, newest first.</h2>'
         '</div>'
         f'<div class="nocount"><span id="noseen">1 of {n}</span>'
         f'<span class="track"><i id="nofill"></i></span>'
