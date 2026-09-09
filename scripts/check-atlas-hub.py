@@ -519,6 +519,41 @@ for _, _slug, _ in cards:
         if not _f.exists():
             bad(f"{_slug}: the card's photograph is not on disk: {worn[1]}")
 
+# ── 16. no built page carries a control character ─────────────────────────
+# A CSS escape and a Python escape look identical, and only one of them is in charge.
+# `content:"\\2212"` inside build-atlas-pages' CSS f-string was read by PYTHON as the
+# octal escape \\221 plus the digit 2, so 214 pages shipped content:"\\x912" and every open
+# fold printed a stray "2" where the minus sign belonged, from 7 September 2026 until it
+# turned up in a screenshot. Nothing was watching, because nothing renders a page and
+# looks at it — but the fault leaves a fingerprint that is trivial to find: a byte no
+# HTML page has any business containing. This check is cheap, catches the whole class,
+# and would have caught that one the morning it shipped.
+_CTRL = re.compile("[" + "".join(f"{chr(a)}-{chr(b)}" for a, b in
+                                 ((0x01, 0x08), (0x0b, 0x0c), (0x0e, 0x1f), (0x7f, 0x9f))) + "]")
+for _f in sorted((ROOT / "website").rglob("*.html")):
+    _t = _f.read_text(errors="replace")
+    _m = _CTRL.search(_t)
+    if _m:
+        _ctx = _t[max(0, _m.start() - 50):_m.start() + 8].replace("\n", " ")
+        bad(f"{_f.relative_to(ROOT)} carries U+{ord(_m.group(0)):04X}, a control character, "
+            f"after \u2026{_ctx[-48:]!r}. Almost always a Python escape that ate its own "
+            "backslash on the way into the HTML \u2014 write the string raw.")
+
+# ── 17. a craft page that folds carries the CSS that makes it a fold ───────
+# The hand-written sheets are invisible to the generator BY DESIGN, and that keeps
+# costing the same way: on 7 September the Measure and the catalogued places both learned
+# to fold, this repo duly injected both blocks into all eighteen preserved sheets, and the
+# CSS stayed behind in the generator's stylesheet. Eighteen craft pages showed the
+# browser's default triangle beside the identical block that looks right on the other
+# thirteen. Only the Atlas is checked here: website/barcelona.html folds too, with its own
+# right-aligned design and its own correct escape, and it is not this convention.
+for _f in sorted((ROOT / "website/atlas").glob("*.html")):
+    _t = _f.read_text(errors="replace")
+    if 'details class="fold"' in _t and "details.fold > summary" not in _t:
+        bad(f"{_f.name} carries a folded block and none of the CSS for it \u2014 it will "
+            "render the browser's own triangle. A preserved sheet gets its styling from "
+            "inject-related-handwritten.py (et:fold-css), or it does not get it at all.")
+
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:
     print("check-atlas-hub: FAIL")

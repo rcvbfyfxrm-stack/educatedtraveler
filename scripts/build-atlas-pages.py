@@ -1127,17 +1127,8 @@ body {{ font-family:'Inter',system-ui,sans-serif; background:var(--ink); color:v
 .serif {{ font-family:'Fraunces',Georgia,serif; }}
 .mono {{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }}
 a {{ color:inherit; }}
-/* Folded sections. The marker is ours, on the left, so a summary can carry a heading
-   without the browser's triangle landing in the middle of it. */
-details.fold > summary {{ cursor:pointer; list-style:none; position:relative; padding-left:26px; }}
-details.fold > summary::-webkit-details-marker {{ display:none; }}
-details.fold > summary::before {{ content:"+"; position:absolute; left:0; top:1px;
-  font-family:'IBM Plex Mono',monospace; font-size:17px; line-height:1.2; color:var(--sea); opacity:.8; }}
-details.fold[open] > summary::before {{ content:"\2212"; }}
-details.fold > summary:hover::before {{ opacity:1; }}
-details.fold .foldbody {{ margin-top:16px; padding-left:26px; }}
+{atlas_hub.FOLD_CSS}
 {RAIL_CSS}
-@media(max-width:560px){{ details.fold .foldbody {{ padding-left:0; }} }}
 .wrap {{ max-width:880px; margin:0 auto; padding:0 24px; }}
 /* Prose sections keep the page's one spine (880px) and cap the READING MEASURE
    instead of the container — same 62ch as .lead. Narrowing the container is what

@@ -30,6 +30,7 @@ OPEN_MARK, CLOSE_MARK = "<!-- et:related-crafts -->", "<!-- /et:related-crafts -
 SWEEP_OPEN, SWEEP_CLOSE = "<!-- et:sweep -->", "<!-- /et:sweep -->"
 MEAS_OPEN, MEAS_CLOSE = "<!-- et:measure -->", "<!-- /et:measure -->"
 ALSO_OPEN, ALSO_CLOSE = "<!-- et:also-here -->", "<!-- /et:also-here -->"
+FOLD_OPEN, FOLD_CLOSE = "<!-- et:fold-css -->", "<!-- /et:fold-css -->"
 ADOPT = "--adopt" in sys.argv
 e = html.escape
 
@@ -163,6 +164,25 @@ def sweep_block(craft_id):
 MEAS_EYEBROW = "Is this community worth the trip"
 
 
+def fold_css_block():
+    """The styling for `details.fold`, which these sheets carry and have never had.
+
+    ⚠⚠ THE LESSON THIS FILE KEEPS RECORDING, A THIRD TIME. Its own docstring says to ask,
+    every time the generator grows a convention, what that convention does to the
+    hand-written sheets — because they are invisible to the generator BY DESIGN. On
+    7 September 2026 the Measure block and the catalogued-places block both learned to
+    fold, this script duly injected both into all eighteen preserved sheets, and the CSS
+    that makes a fold look like a fold stayed behind in build-atlas-pages' stylesheet.
+    Eighteen craft pages have been showing the browser's default triangle, unindented,
+    beside the identical block rendered properly on the thirteen generated ones.
+
+    Same shape as the related-crafts block above, which carries RAIL_CSS for the same
+    reason: a preserved sheet gets its styling inside the region this script owns, or it
+    does not get it at all.
+    """
+    return f"{FOLD_OPEN}\n<style>{atlas_hub.FOLD_CSS}</style>\n{FOLD_CLOSE}\n"
+
+
 def measure_block(craft_id):
     """The Measure, for a preserved sheet.
 
@@ -268,14 +288,22 @@ for name in sheets:
             skipped.append((name, "already carries a Measure written by hand — "
                                   "re-run with --adopt to let this script own it"))
             meas = ""
-    for om, cm, blk in ((OPEN_MARK, CLOSE_MARK, new_block),
+    for om, cm, blk in ((FOLD_OPEN, FOLD_CLOSE, fold_css_block()),
+                        (OPEN_MARK, CLOSE_MARK, new_block),
                         (ALSO_OPEN, ALSO_CLOSE, also_here_block(name[:-5])),
                         (MEAS_OPEN, MEAS_CLOSE, meas),
                         (SWEEP_OPEN, SWEEP_CLOSE, sweep_block(name[:-5]))):
         if not blk:
             continue
         if om in t2:                         # re-run: replace in place
-            t2 = re.sub(re.escape(om) + r".*?" + re.escape(cm) + r"\n?", blk, t2, flags=re.S)
+            # ⚠⚠ THE REPLACEMENT IS A LAMBDA, NOT THE STRING. re.sub reads its template
+            # for escapes, and three octal digits in it are an octal escape — so the
+            # moment this script started carrying CSS with a `content:"\\2212"` in it,
+            # the substitution turned that into one control character on every sheet it
+            # touched. Same fault as the f-string that started this, in a third dialect.
+            # A lambda hands the text over verbatim and takes re out of the argument.
+            t2 = re.sub(re.escape(om) + r".*?" + re.escape(cm) + r"\n?",
+                        lambda _m: blk, t2, flags=re.S)
             continue
         anchor = '<section class="trust"' if '<section class="trust"' in t2 else "<footer"
         if anchor not in t2:

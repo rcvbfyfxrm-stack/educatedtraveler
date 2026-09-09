@@ -533,6 +533,20 @@ footer{padding:28px 0 48px;font-size:13px;color:var(--faint)}footer a{color:var(
 })();
 </script>
 <!-- /et:related-crafts -->
+<!-- et:fold-css -->
+<style>
+/* Folded sections. The marker is ours, on the left, so a summary can carry a heading
+   without the browser's triangle landing in the middle of it. */
+details.fold > summary { cursor:pointer; list-style:none; position:relative; padding-left:26px; }
+details.fold > summary::-webkit-details-marker { display:none; }
+details.fold > summary::before { content:"+"; position:absolute; left:0; top:1px;
+  font-family:'IBM Plex Mono',monospace; font-size:17px; line-height:1.2; color:var(--sea); opacity:.8; }
+details.fold[open] > summary::before { content:"\2212"; }
+details.fold > summary:hover::before { opacity:1; }
+details.fold .foldbody { margin-top:16px; padding-left:26px; }
+@media(max-width:560px){ details.fold .foldbody { padding-left:0; } }
+</style>
+<!-- /et:fold-css -->
 <footer><div class="wrap"><p style="margin:0 0 14px;font-size:12px;opacity:.9"><a href="mailto:arnaudcallier@pm.me?subject=Atlas%20%E2%80%94%20Being%20a%20chef%20at%20sea&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/atlas/chef-at-sea%29" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">Something here out of date, or plain wrong? Tell me &mdash; corrections go straight to my inbox.</a></p>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/circle">Join the Circle</a>.<br><span style="opacity:.75">Privacy-light, cookieless analytics.</span></div></footer>
 
 <script>

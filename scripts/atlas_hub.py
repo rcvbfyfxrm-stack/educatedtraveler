@@ -352,6 +352,33 @@ def also_here_html(d):
             '</div></details></div></section>')
 
 
+# ── the fold, styled in one place ─────────────────────────────────────────
+# ⚠⚠ RAW STRING, AND THAT IS THE WHOLE POINT. This lived inside build-atlas-pages'
+# CSS f-string as "\2212" and Python read \221 as an OCTAL ESCAPE — so 214 built pages
+# carried content:"\x912" and every open fold printed a stray "2" where the minus sign
+# should be, from 7 September 2026. A CSS escape and a Python escape look identical and
+# only one of them is in charge; a raw string takes Python out of the argument.
+#
+# ⚠ And it lives HERE because the eighteen preserved sheets carry two `details.fold`
+# blocks each — the Measure and the catalogued places, both shipped 7 September — and
+# NONE of the CSS for them: the generator's stylesheet never reaches a hand-written
+# sheet. They had been rendering the browser's default triangle, unindented, beside the
+# same block that looks like this on the generated pages. inject-related-handwritten.py
+# now injects this, the way it already injects RAIL_CSS.
+FOLD_CSS = r"""
+/* Folded sections. The marker is ours, on the left, so a summary can carry a heading
+   without the browser's triangle landing in the middle of it. */
+details.fold > summary { cursor:pointer; list-style:none; position:relative; padding-left:26px; }
+details.fold > summary::-webkit-details-marker { display:none; }
+details.fold > summary::before { content:"+"; position:absolute; left:0; top:1px;
+  font-family:'IBM Plex Mono',monospace; font-size:17px; line-height:1.2; color:var(--sea); opacity:.8; }
+details.fold[open] > summary::before { content:"\2212"; }
+details.fold > summary:hover::before { opacity:1; }
+details.fold .foldbody { margin-top:16px; padding-left:26px; }
+@media(max-width:560px){ details.fold .foldbody { padding-left:0; } }
+"""
+
+
 def measure_html(mm, dots=None, vouch=""):
     """The Measure block itself, from a grade — published or still drafted.
 
@@ -995,12 +1022,16 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
     #    on the place the photographs came from instead — Mysore rather than Rishikesh
     #    on hatha yoga — so the superlative was true of 114 cards and not of two. One
     #    published place per skill is what the page actually keeps.
+    # Lambda, not a template: re.sub reads backslashes in a replacement string, and
+    # three octal digits there become one control character. No backslash in these two
+    # today — but this repo has now been bitten by that in an f-string and in a re.sub
+    # inside one week, and the cure costs nothing.
     t = re.sub(r'<meta property="og:description" content="[^"]*">',
-               f'<meta property="og:description" content="{total} hands-on skills you can go and '
+               lambda _m: f'<meta property="og:description" content="{total} hands-on skills you can go and '
                f'learn, each with one place on earth where its community is alive. {n_open} are '
                f'open in full. A note to Arnaud opens the rest.">', t, count=1)
     t = re.sub(r'<meta name="description" content="[^"]*">',
-               f'<meta name="description" content="The EducatedTraveler Atlas: {total} hands-on '
+               lambda _m: f'<meta name="description" content="The EducatedTraveler Atlas: {total} hands-on '
                f'skills you can go and learn worldwide — learn tango in Buenos Aires, watchmaking '
                f'in the Vallee de Joux, pottery in Mashiko. {n_open} are open in full, with the '
                f'school we\'d send you to. A note to Arnaud opens the rest.">', t, count=1)
