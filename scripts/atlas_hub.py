@@ -229,6 +229,26 @@ def place_line(place, country):
     return f"{place}, {country}"
 
 
+def resting_dest(card):
+    """The destination a card STANDS on: the place a school has photographed if there
+    is one, else the craft's featured place.
+
+    One rule, three readers — the band builder, the browse template's restingPlace()
+    and the gate that checks the band — because a picture is per-DESTINATION and can
+    never travel: Tarifa's water under the word Maui is the same species of lie as
+    composing a place sentence (see school_shot in build-atlas-pages.py). So the card
+    moves to the picture. Photographed first was Arnaud's call, 2026-09-09; the ranked
+    place is still the resting place for the other 114 crafts, and the walk still
+    carries every place either way.
+
+    `card` is an index card: {destId, dests:[{id, rank, shot, ...}]}.
+    """
+    shots = [x for x in card.get("dests", []) if x.get("shot")]
+    if shots:
+        return max(shots, key=lambda x: x.get("rank") or 0)
+    return next((x for x in card.get("dests", []) if x.get("id") == card.get("destId")), None)
+
+
 def walk_places(dests):
     """[(say, where)] for the places a card walks, strongest community first — the same
     order and the same two strings the browse template builds, because the band card is
@@ -970,9 +990,14 @@ def build(analytics, site, total, n_open, generated_at, craft_nav="", opened=(),
     t = t.replace("/browse?skill=", "/atlas/?skill=")
 
     # 2. the counts — computed, never typed. The old ones had rotted to 99.
+    #    og:description used to promise "the one place on earth its community is MOST
+    #    alive", card by card. Since 2026-09-09 a craft a school has photographed rests
+    #    on the place the photographs came from instead — Mysore rather than Rishikesh
+    #    on hatha yoga — so the superlative was true of 114 cards and not of two. One
+    #    published place per skill is what the page actually keeps.
     t = re.sub(r'<meta property="og:description" content="[^"]*">',
                f'<meta property="og:description" content="{total} hands-on skills you can go and '
-               f'learn, each with the one place on earth its community is most alive. {n_open} are '
+               f'learn, each with one place on earth where its community is alive. {n_open} are '
                f'open in full. A note to Arnaud opens the rest.">', t, count=1)
     t = re.sub(r'<meta name="description" content="[^"]*">',
                f'<meta name="description" content="The EducatedTraveler Atlas: {total} hands-on '

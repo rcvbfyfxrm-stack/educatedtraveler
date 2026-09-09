@@ -79,7 +79,12 @@ if html.index(band) < html.index('<main class="studio"'):
         "the rotating card, and the reader goes straight to the catalogue; the "
         "band belongs after it")
 
-cards = re.findall(r'<article class="gcard[^"]*" style="--sc:(#[0-9a-f]{6})"[^>]*>.*?'
+# ⚠ The attribute list is not fixed: a card standing on a place a school has
+# photographed carries `data-shot` and a second custom property in the same style
+# attribute. This pattern used to pin `style="--sc:#xxxxxx"` exactly, so the two
+# photographed cards stopped parsing the day the picture arrived — and the check
+# said the band had lost two crafts rather than that it had stopped reading them.
+cards = re.findall(r'<article class="gcard[^"]*"(?: data-shot)? style="--sc:(#[0-9a-f]{6})[^"]*"[^>]*>.*?'
                    r'href="/atlas/([a-z0-9-]+)".*?'
                    r'<div class="openedon">Opened <b>([^<]+)</b></div>', band, re.S)
 if not cards:
@@ -170,6 +175,19 @@ if re.search(r"open crafts</b>|I opened myself", band):
     bad("the band is claiming counts in its copy again — nothing else on the page "
         "prints these numbers now, and a count nothing corroborates is one that rots")
 
+def _open_tag(hay, frag):
+    """The <article …> tag the fragment starting at `frag` belongs to.
+
+    This was a 120-character window before the fragment, which is a guess about how
+    long an opening tag is. A card standing on a photographed place carries
+    data-shot and a url() in its style attribute and blew straight past it, so the
+    `walks` marker fell outside the window and the gate reported a card that was not
+    marked to walk when it was. Read the tag, do not estimate it.
+    """
+    start = hay.rindex("<article", 0, hay.index(frag))
+    return hay[start:hay.index(">", start) + 1]
+
+
 # ── 8. the number on the card is the length of the list it walks ───────────
 # The cue is written by build-atlas-pages (dests carrying a place); placeWalk()
 # rebuilds that list at runtime from ET_ATLAS by the same rule. Two code paths, one
@@ -183,7 +201,7 @@ for _, _slug, _ in cards:
         bad(f"{_slug}: the card says {cue[1]} places, the index holds {real}")
     elif real > 1 and not cue:
         bad(f"{_slug} is taught in {real} places and its card never says so")
-    elif real > 1 and m and 'walks' not in (band[max(0, band.index(m[0]) - 120):band.index(m[0])]):
+    elif real > 1 and m and 'walks' not in _open_tag(band, m[0]):
         bad(f"{_slug} counts {real} places but its card is not marked to walk them")
 
 # ── 9. the resting line is the written line for the place it sits under ────
@@ -192,7 +210,13 @@ for _, _slug, _ in cards:
     c = _by_slug.get(_slug)
     if not c:
         continue
-    want = (learn_lines.get(c.get("destId", "")) or "").strip() or (c.get("why") or "").strip()
+    # The place the card stands on, by the one rule all three readers share — the
+    # featured place, or the photographed one where a school has sent pictures. Read
+    # the line off data/atlas-extra-sheets.json, never off the index that built the
+    # page, or this checks the build against itself.
+    rest = atlas_hub.resting_dest(c) or {}
+    want = ((learn_lines.get(rest.get("id") or c.get("destId", "")) or "").strip()
+            or (rest.get("why") or c.get("why") or "").strip())
     m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
     got = re.search(r'<p class="cardhook">(.*?)</p>', m[1], re.S) if m else None
     if want and not got:
@@ -457,6 +481,43 @@ else:
             bad(f"{_f.name} lights {_lit} dot(s) and says {_hd.group(1).strip()!r} above "
                 f"them, where the renderer would write {_want_hd!r} — the number and the "
                 "legend have to be the same statement")
+
+# ── 14 · a photographed craft actually wears its photograph ────────────────
+# Four ways this fails silently, all of them seen or one edit away:
+#   · the index carries a picture and the card does not wear it (the whole point of
+#     2026-09-09 — a school sent photographs and the Atlas showed none of them);
+#   · the card wears one and names nobody (photos.by empty: the credit line is the
+#     school's only return, and .shotcredit:empty hides the omission perfectly);
+#   · the file is not on disk, which is a background that never paints and no error;
+#   · the frame on the card is not from the place the card is standing on.
+# Only the band is static HTML, so only the band can be read here; the browse grid
+# below it is drawn by JS from the same index, by the same rule (restingPlace).
+for _, _slug, _ in cards:
+    c = _by_slug.get(_slug)
+    if not c:
+        continue
+    rest = atlas_hub.resting_dest(c) or {}
+    m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
+    if not m:
+        continue
+    tag = _open_tag(band, m[0])
+    worn = re.search(r'--shot:url\(([^)]+)\)', tag)
+    credit = re.search(r'<p class="shotcredit">(?:Photo: )?(.*?)</p>', m[1], re.S)
+    if rest.get("shot"):
+        if not worn:
+            bad(f"{_slug}: {rest['place']} carries a photograph and the card wears none")
+        elif html_mod.unescape(worn[1]) != rest["shot"]:
+            bad(f"{_slug}: the card wears {html_mod.unescape(worn[1])}, and the place it "
+                f"stands on published {rest['shot']}")
+        if not (credit and credit[1].strip()):
+            bad(f"{_slug}: the card wears a photograph and credits nobody")
+    elif worn:
+        bad(f"{_slug}: the card wears {html_mod.unescape(worn[1])} while standing on "
+            f"{rest.get('place') or 'a place'}, which published no photograph")
+    if worn:
+        _f = ROOT / "website" / html_mod.unescape(worn[1]).lstrip("/")
+        if not _f.exists():
+            bad(f"{_slug}: the card's photograph is not on disk: {worn[1]}")
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:

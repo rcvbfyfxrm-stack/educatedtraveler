@@ -137,7 +137,7 @@ window.ET_ATLAS = {
                   "given": "2026-09-06",
                   "by": "Acharya Hema",
                   "thumb": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
-                  "card": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-02-the-door.jpg",
+                  "card": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
                   "items": [
                     {
                       "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-01-the-hall.jpg",
@@ -5267,7 +5267,7 @@ window.ET_ATLAS = {
                 "given": "2026-09-04",
                 "by": "Mathieu",
                 "thumb": "/images/atlas/kitesurfing--tarifa/matos-tarifa-11-instructors-and-students.jpg",
-                "card": "/images/atlas/kitesurfing--tarifa/matos-tarifa-01-down-to-the-water.jpg",
+                "card": "/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg",
                 "items": [
                   {
                     "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-01-down-to-the-water.jpg",

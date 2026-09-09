@@ -2360,9 +2360,10 @@ def index_card(d):
         "tripType": best.get("tripType", ""), "tripLength": best.get("tripLength", ""),
         "lang": best.get("instructionLanguage", ""), "english": best.get("englishTaught") is True,
         "badges": best.get("badges", []),
-        # The resting card stands on the featured place, so it wears that place's
-        # picture or none — never another destination's.
-        "shot": school_shot(best, "card")[0], "shotBy": school_shot(best, "card")[1],
+        # No craft-level picture. It only ever existed for the band card, which now
+        # picks its own resting destination (band_rest) and reads the photograph off
+        # THAT — the featured place is not always the photographed one, and a second
+        # copy of the field here could only ever disagree with the first.
     })
     if r and r.get("destId") == best.get("id") and r.get("stars"):
         card["star"] = {"v": r["stars"], "n": r.get("count"), "src": r.get("source", ""),
@@ -2420,26 +2421,38 @@ _band_slugs.sort(key=lambda s: OPENED[s], reverse=True)
 # band card reads like the card it is. Every craft in this band is open, so `why` is
 # always a published reason-to-go — nothing here can print a sentence the craft's own
 # sheet does not.
-OPENED_BAND = [{"id": s, "name": _by_id[s]["name"], "place": _by_id[s]["place"],
-                "country": _by_id[s]["country"],
-                "color": atlas_hub.WORLD_COLOR.get(_by_id[s]["world"], "#7fa8a5"),
-                "why": _by_id[s].get("why", ""), "blurb": _by_id[s].get("blurb", ""),
-                # the written line for this craft's strongest place, so the band card
-                # at rest says exactly what the first step of its walk says
-                "learn": _by_id[s].get("learn", ""),
-                # how many places the craft is taught in — the card says so, and walks
-                # them under the pointer. Counted off the same dests the index ships,
-                # so the number on the card and the list it walks cannot disagree.
-                "nplaces": sum(1 for x in _by_id[s].get("dests", []) if x.get("place")),
-                # the say line and the short where for each of those places, in walk
-                # order — so the band card carries the same stack the grid builds and
-                # cannot change height, or its words, differently from its neighbour
-                "walk": atlas_hub.walk_places(_by_id[s].get("dests", [])),
-                # the picture the card wears AT REST, which is the featured place's
-                # or none — the walk swaps in the others from PLACES, same as the
-                # lines do, so a band card and a grid card wear the same frame.
-                "shot": _by_id[s].get("shot", ""), "shotBy": _by_id[s].get("shotBy", ""),
-                "opened": pretty_date(OPENED[s])} for s in _band_slugs]
+# Where a band card rests. The featured place, as it always has been — unless a
+# school has sent photographs, and then the place THEY came from, which is the rule
+# restingPlace() follows in the browse template below. The picture cannot travel to
+# another destination (see school_shot); so the card travels to the picture, and both
+# card builders have to move together — or the band and the grid would stand on
+# different places and check 9 would read a line written for the other one.
+def band_item(s):
+    c, r = _by_id[s], (atlas_hub.resting_dest(_by_id[s]) or {})
+    return {"id": s, "name": c["name"],
+            "place": r.get("place", c["place"]),
+            "country": r.get("country", c["country"]),
+            "color": atlas_hub.WORLD_COLOR.get(c["world"], "#7fa8a5"),
+            "why": r.get("why", c.get("why", "")), "blurb": c.get("blurb", ""),
+            # the written line for the place the card rests on, so the band card at
+            # rest says exactly what the first step of its walk says
+            "learn": r.get("learn", c.get("learn", "")),
+            # how many places the craft is taught in — the card says so, and walks
+            # them under the pointer. Counted off the same dests the index ships,
+            # so the number on the card and the list it walks cannot disagree.
+            "nplaces": sum(1 for x in c.get("dests", []) if x.get("place")),
+            # the say line and the short where for each of those places, in walk
+            # order — so the band card carries the same stack the grid builds and
+            # cannot change height, or its words, differently from its neighbour
+            "walk": atlas_hub.walk_places(c.get("dests", [])),
+            # the picture the card wears AT REST: the photograph taken at the place it
+            # is standing on, or none. The walk swaps in the others from PLACES, same
+            # as the lines do, so a band card and a grid card wear the same frame.
+            "shot": r.get("shot", ""), "shotBy": r.get("shotBy", ""),
+            "opened": pretty_date(OPENED[s])}
+
+
+OPENED_BAND = [band_item(s) for s in _band_slugs]
 
 # ---------- a locked craft publishes a description, and nothing else ----------
 # Arnaud, 1 Sep 2026. Locking the PAGE was never enough: the browse card reads this

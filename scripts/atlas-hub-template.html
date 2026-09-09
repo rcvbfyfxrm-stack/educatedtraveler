@@ -244,7 +244,8 @@ select.fin option{background:var(--ink2)}
 .arrow{position:absolute;top:34%;z-index:5;width:42px;height:42px;border-radius:50%;background:rgba(28,24,19,.96);border:1px solid rgba(243,237,226,.28);color:var(--paper);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,border-color .25s,background .25s,transform .2s;font-size:20px;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.55)}.arrow.show{opacity:.95;pointer-events:auto}.railwrap:hover .arrow.show{opacity:1}.arrow:hover{border-color:var(--sea);background:var(--sea);color:#14110d;transform:scale(1.06)}.arrow.l{left:6px}.arrow.r{right:6px}
 @media(max-width:820px){.arrow{display:none}}
 
-/* cards — THE SKILL, then the one place it is most alive, then what it is.
+/* cards — THE SKILL, then the one place it is most alive (or, where a school
+   has sent photographs, the place they came from), then what it is.
    Nothing else. Everything the card used to also carry (the credential pill,
    the lineage, the school, the star, the community dots, the level and trip
    length) is on the sheet the card opens; on 113 cards at once it was noise
@@ -749,7 +750,12 @@ A.forEach(function(d){var w=worldOf(d);
       world:w,discipline:d.discipline,did:d.id,open:!!d.open,
       place:x.place,country:x.country,region:x.region||"",role:x.role||"",rank:x.communityRank||0,
       season:x.bestSeason||"",level:x.level||"",lvl:levelBucket(x.level),
-      tripTier:x.tripTier||0,english:x.englishTaught===true,id:x.id,why:x.why||""});
+      tripTier:x.tripTier||0,english:x.englishTaught===true,id:x.id,why:x.why||"",
+      // The photograph this place's school sent, carried on the row the filtered
+      // grid builds its card from. gcard() has always read x.shot — the row never
+      // had it, so a searched or filtered card could not wear a picture even
+      // standing on the one place that has one.
+      shot:x.shot||"",shotBy:x.shotBy||""});
   });
 });
 // what the craft actually is, in one line — the only body copy a card carries
@@ -888,8 +894,25 @@ function inPull(did,keys){for(var i=0;i<keys.length;i++){if(PULL_HAS[keys[i]]&&P
   DESTS.forEach(function(x){x.hayPull=vocab[x.did]||"";x.hay+=x.hayPull;});
 })();
 
+/* ── where a card rests ───────────────────────────────────────────────────
+   The strongest community, as it always has been — EXCEPT on a craft a school
+   has sent us photographs of, where the card rests on the place the pictures
+   came from. The picture is per-DESTINATION and can never travel: showing
+   Tarifa's water under the word Maui is the same species of lie as composing a
+   place sentence. So the card moves to the picture rather than the picture
+   moving to the card, and the walk still carries every other place.
+   Two crafts have photographs today (Arnaud, 2026-09-09: put them on the card);
+   both are rank 4-5 places, so nothing here promotes a weak place to the front
+   of a card — and if one ever did, the walk says how many places there are. */
+function restingPlace(d){
+  var t=null,shot=null;
+  (d.destinations||[]).forEach(function(x){
+    if(x.shot&&(!shot||(x.communityRank||0)>(shot.communityRank||0)))shot=x;
+    if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});
+  return shot||t;
+}
 var byWorldDisc={};ORDER.forEach(function(w){byWorldDisc[w]=[];});
-A.forEach(function(d){var w=worldOf(d),t=null;(d.destinations||[]).forEach(function(x){if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});byWorldDisc[w].push({d:d,top:t||{}});});
+A.forEach(function(d){var w=worldOf(d);byWorldDisc[w].push({d:d,top:restingPlace(d)||{}});});
 ORDER.forEach(function(w){byWorldDisc[w].sort(function(a,b){return (b.top.communityRank||0)-(a.top.communityRank||0);});});
 /* ── the Circle first ─────────────────────────────────────────────────────
    A craft somebody in the Circle has actually asked for is shown before a
@@ -906,9 +929,29 @@ ORDER.forEach(function(w){byWorldDisc[w].sort(function(a,b){return (b.top.commun
    invent a want: a craft floats up only because a real person named it.
    byWorldDisc keeps its own order untouched — we sort copies. */
 function wanted(craft){var r=(window.ETInterest&&window.ETInterest.get)?window.ETInterest.get(craft):null;return (r&&r.n)||0;}
+/* ── and the photographed ones ahead of that ──────────────────────────────
+   A craft a school has photographed is shown first (Arnaud, 2026-09-09). Same
+   kind of reorder as the Circle's: it moves a card up a list, it does not
+   change a word the card says or a rank underneath it. It is also the only
+   ordering rule on this page a reader can verify with their own eyes — the
+   cards at the front are the ones with a picture on them — so the line above
+   the grid says it in those words. */
+function shotFirst(o){return (o.top&&o.top.shot)?1:0;}
 function craftsInOrder(w){return byWorldDisc[w].slice().sort(function(a,b){
-  return (wanted(b.d.discipline)-wanted(a.d.discipline))||((b.top.communityRank||0)-(a.top.communityRank||0));});}
+  return (shotFirst(b)-shotFirst(a))||(wanted(b.d.discipline)-wanted(a.d.discipline))||((b.top.communityRank||0)-(a.top.communityRank||0));});}
 function countWanted(list,key){var n=0;list.forEach(function(x){if(wanted(key(x)))n++;});return n;}
+function countShots(list,key){var n=0;list.forEach(function(x){if(key(x))n++;});return n;}
+// What the line above the results says the order is. It is written from the list
+// on screen, never typed: a page that names an order it is not in is worse than
+// one that names none.
+function orderLine(nShot,nWanted,tail){
+  var parts=[];
+  if(nShot)parts.push("the crafts a school has photographed first");
+  if(nWanted)parts.push(parts.length?"then the ones someone asked for":"asked-for skills first");
+  if(parts.length&&tail)parts.push(tail);
+  else if(!parts.length&&tail)parts=[tail];
+  return parts.join(" · ");
+}
 // The "Our pick for this craft" badge is gone from the card, and with it the
 // `featured` lookup that drove it. That is not a loss of a recommendation: the
 // pick is named on the craft's own sheet, in full, with the reason. What the
@@ -1268,14 +1311,21 @@ function render(){
   var pick={};
   // NOT DESTS.filter(matchDest): filter passes (item, index, array), and the
   // index would land in matchDest's state argument as a number.
-  DESTS.filter(function(x){return matchDest(x);}).forEach(function(x){var p=pick[x.did];if(!p||x.rank>p.rank)pick[x.did]=x;});
+  // A photographed place wins the card over a stronger one, the same rule
+  // restingPlace() follows in the rails — but only among the rows the filters
+  // actually matched, so a filter that excludes Tarifa takes the picture with it.
+  DESTS.filter(function(x){return matchDest(x);}).forEach(function(x){var p=pick[x.did];
+    if(!p||(x.shot?1:0)>(p.shot?1:0)||((x.shot?1:0)===(p.shot?1:0)&&x.rank>p.rank))pick[x.did]=x;});
+  // Search relevance stays the first key: a query for "pottery" answers with
+  // pottery, photographs or no photographs.
   var list=Object.keys(pick).map(function(k){return pick[k];})
-    .sort(function(a,b){return (qScore(b)-qScore(a))||(wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
+    .sort(function(a,b){return (qScore(b)-qScore(a))||((b.shot?1:0)-(a.shot?1:0))||(wanted(b.discipline)-wanted(a.discipline))||(b.rank-a.rank)||a.discipline.localeCompare(b.discipline);});
   var nw=countWanted(list,function(x){return x.discipline;});
+  var ns=countShots(list,function(x){return x.shot;});
   var nClosed=A.filter(function(d){return !d.open;}).length;
   // The five place-filters only have data for open crafts. The count that used to
   // say so is gone; the closed band below now says it on every view instead.
-  var h='<div class="rhead"><div class="count">Skills</div><div class="sortby">'+(nw?"asked-for skills first, then community strength":"ranked by community strength")+'</div></div>';
+  var h='<div class="rhead"><div class="count">Skills</div><div class="sortby">'+((ns||nw)?orderLine(ns,nw,"then community strength"):"ranked by community strength")+'</div></div>';
   if(!list.length){
     var only=F.q&&!(Object.keys(F.worlds).length||F.craft||Object.keys(F.pulls).length||Object.keys(F.regions).length||F.month||F.minRank||F.role||F.level||F.trip||F.english);
     results.innerHTML=(only
@@ -1369,14 +1419,17 @@ function gcard(x){
 function renderRails(){
   VIEW.cat=null;
   var nw=0;ORDER.forEach(function(w){nw+=countWanted(byWorldDisc[w],function(o){return o.d.discipline;});});
-  var h='<div class="rhead"><div class="count">Skills you can go and learn</div><div class="sortby">'+(nw?"asked-for skills first · open the filter to narrow it":"open the filter to narrow it")+'</div></div>';
+  var ns=0;ORDER.forEach(function(w){ns+=countShots(byWorldDisc[w],shotFirst);});
+  var h='<div class="rhead"><div class="count">Skills you can go and learn</div><div class="sortby">'+orderLine(ns,nw,"open the filter to narrow it")+'</div></div>';
   results.innerHTML=h;
   ORDER.forEach(function(w){var m=WORLDS[w],list=craftsInOrder(w);if(!list.length)return;
     var sec=document.createElement("div");sec.className="shelf";sec.style.setProperty("--sc",m.color);
     sec.innerHTML='<div class="shelf-h" role="button" tabindex="0" aria-label="Open the '+esc(m.label)+' catalogue"><span class="bar"></span><h3 class="serif">'+esc(m.label)+'</h3><span class="more">See all →</span></div>';
     var rw=document.createElement("div");rw.className="railwrap";var rail=document.createElement("div");rail.className="rail";
-    // o.top IS the place the craft's community is strongest in — the card says
-    // where it is most alive, so that is the only place it can honestly print.
+    // o.top IS where the card rests: the place the craft's community is strongest
+    // in, or — on the crafts a school has photographed — the place the pictures
+    // came from. Either way it is a place this craft is published as taught, and
+    // it is the only place the card can honestly print while wearing that frame.
     list.forEach(function(o){
       var wrap=document.createElement("div");
       wrap.innerHTML=cardShell("dcard",m.color,"/atlas/"+o.d.id,o.d.discipline,cardData(worldOf(o.d),o.d,o.top));
@@ -1405,7 +1458,8 @@ function catCard(o,c){
 }
 function renderCatalogue(w){var m=WORLDS[w],list=craftsInOrder(w);VIEW.cat=w;
   var nw=countWanted(list,function(o){return o.d.discipline;});
-  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub">Every skill in this world, each with the place where its community is most alive.'+(nw?' The crafts a member of the Circle has asked for come first.':'')+'</p></div>';
+  var ns=countShots(list,shotFirst);
+  var h='<div class="cathead" style="--sc:'+m.color+'"><button class="backcat" id="backcat">‹ All categories</button><div class="catbar"></div><h2 class="serif catttl">'+esc(m.label)+'</h2><p class="catsub">Every skill in this world, each with the place where its community is most alive.'+(ns?' A craft a school has sent photographs of stands on the place they were taken, and comes first.':'')+(nw?(ns?' Then the crafts a member of the Circle has asked for.':' The crafts a member of the Circle has asked for come first.'):'')+'</p></div>';
   h+='<div class="gridwrap">'+list.map(function(o){return catCard(o,m.color);}).join("")+'</div>';
   results.innerHTML=h;signalRender();
   document.getElementById("backcat").onclick=function(){renderRails();document.getElementById("studio").scrollIntoView({behavior:"smooth"});};
@@ -1809,8 +1863,15 @@ document.addEventListener("click",function(e){
           shotBy:(q(c,".shotcredit")||{}).textContent
                    ? (q(c,".shotcredit").textContent||"").replace(/^Photo:\s*/,"") : ""};
     // begin at the place the card is already showing, so the first move is a move
-    // and not a jump back to the top of a list the reader is already standing in
-    var shown=w?w.textContent:"";i=0;
+    // and not a jump back to the top of a list the reader is already standing in.
+    // ⚠ The VISIBLE line, not the element: .wherealive holds every line the card can
+    // say, one shown and the rest hidden, so its textContent is all of them run
+    // together and the search below matched the first place in the LIST every time.
+    // That was invisible while every card rested on the strongest place — index 0 was
+    // right by accident — and showed up the moment a photographed card rested on a
+    // place further down: the walk jumped to Rishikesh from a card standing in Mysore.
+    var on=w?q(w,".sl.on"):null;
+    var shown=on?on.textContent:(w?w.textContent:"");i=0;
     for(var n=0;n<ps.length;n++){if(shown.indexOf(ps[n].place)>-1){i=n;break;}}
     // and paint it at once: the card is resting on this place already, so the only
     // thing that changes is the title going from the craft's name to what you would
