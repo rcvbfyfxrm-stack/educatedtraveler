@@ -1703,10 +1703,28 @@ for _dd in DISC:
 
 
 def community_pill(x):
+    """communityRank is an INPUT now, not a displayed rating. Migrated 10 Sep 2026.
+
+    It still orders these cards, still orders the comparison table, still picks the
+    place a browse card shows, still feeds the Measure's third question and still
+    drives the closed-place flag. What it no longer does is print itself as a score
+    beside a second five-dot meter on the same page.
+
+    What survives is the WARNING, never the compliment: at rank 2 or lower the label
+    says the community is going or gone, and that is the cell no rival publishes.
+    Above that the meter only ever said we thought well of the place - on a scale
+    where 66 of 85 culinary destinations sat at 4 or 5 and 55 of 85 named no teacher
+    at all. A mark that flatters four places in five is not a rank.
+
+    This is the rule the browse card already applied - `p.rank<=2 && p.label` in
+    scripts/atlas-hub-template.html. All three surfaces agree from here; change one,
+    change the others. NOTE for whoever owns the stretch-link CSS above: its comment
+    still lists "the dots" among the things a reader can press on a card.
+    """
+    if (x.get("communityRank") or 0) > 2:
+        return ""
     col, text = COMMUNITY_TIER.get(x.get("communityLabel"), ("rgba(243,237,226,.78)", (x.get("communityLabel") or "") + " community"))
-    dots = "●" * x["communityRank"] + "○" * (5 - x["communityRank"])
-    return (f'<span style="color:{col};letter-spacing:3px">{dots}</span> '
-            f'<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.1em;'
+    return (f'<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;letter-spacing:.1em;'
             f'text-transform:uppercase;color:{col};font-weight:500">{e(text)}</span>')
 
 def price_is_approx(f):
@@ -2068,7 +2086,8 @@ def dest_card(d, x, link=True, is_best=False):
         if link:
             note = ('<p style="opacity:.9;margin:0 0 12px;color:var(--ember);max-width:62ch">'
                     f'{e(x["closedNote"])}</p>')
-    meta = f'{community_pill(x)} · Season: {e(x["bestSeason"])}'
+    _pill = community_pill(x)
+    meta = f'{_pill} · Season: {e(x["bestSeason"])}' if _pill else f'Season: {e(x["bestSeason"])}'
     if not is_closed(x):
         meta += f' · {e(x["level"])}'
     # ── the school's photograph, behind the card that is already saying this place ──
@@ -2361,7 +2380,7 @@ for d in DISC:
         siblings = [s for s in d["destinations"] if s["id"] != x["id"]]
         sib_html = ""
         if siblings:
-            links = "".join(f'<div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/{s["id"]}">{e(s["place"])}, {e(s["country"])}</a><div class="meta"><span class="dots">{"●"*s["communityRank"]}{"○"*(5-s["communityRank"])}</span> {e(s["communityLabel"])}</div></div>' for s in sorted(siblings, key=lambda s: -s["communityRank"]))
+            links = "".join(f'<div class="card" style="padding:14px 18px"><a class="t" style="text-decoration:none" href="/atlas/{s["id"]}">{e(s["place"])}, {e(s["country"])}</a>{f'<div class="meta">{_sp}</div>' if (_sp := community_pill(s)) else ""}</div>' for s in sorted(siblings, key=lambda s: -s["communityRank"]))
             sib_html = f'<section><div class="wrap"><div class="mono">Same discipline, other sources</div><h2>Also for {e(d["discipline"])}</h2><div class="grid">{links}</div></div></section>'
 
         jsonld = {"@context": "https://schema.org", "@type": "Place",
@@ -2434,7 +2453,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
-<section id="other-places"><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{measure_block(d)}{sweep_block(d)}
+<section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{measure_block(d)}{sweep_block(d)}
 {craft_depth(d)}{in_depth_block(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,

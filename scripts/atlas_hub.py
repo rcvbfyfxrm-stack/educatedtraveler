@@ -231,7 +231,12 @@ _THE = re.compile(r"\b(States|Kingdom|Islands|Netherlands|Republic|Emirates|Phil
 # values are short and unbreakable ("Year-round", "months–years") can be told not to
 # wrap without counting column positions, which change from craft to craft.
 COMPARE_COLS = (
-    ("Community", "tier", lambda x: (x.get("communityLabel") or "").strip()),
+    # ("Community", "tier", ...) removed 10 Sep 2026 - communityRank is an input, not a
+    # displayed rating. This column reprinted it in words ("Legendary / Thriving / Strong")
+    # one block above the cards that had just stopped printing it in dots, which is a half
+    # migration: two meanings behind one mark. The table still ORDERS by rank, and a place
+    # closed to learners is still flagged Gone from `closedToLearners`, which is the real
+    # field rather than rank standing in for it.
     ("Season", "season", lambda x: (x.get("bestSeason") or "").strip()),
     ("Level", "level", lambda x: (x.get("level") or "").strip()),
     ("How long", "howlong", lambda x: (x.get("tripLength") or "").strip()),
