@@ -1,0 +1,105 @@
+{
+  "_comment": "Candidates found by THE HUNT. NOTHING HERE IS PUBLISHED. A candidate enters data/repertoire.js only after validated.on is true — Arnaud's ruling, 10 Sept 2026: only keep the validated one. Until then it exists solely as an unlisted validation page the school itself can check. Every 'weWouldPublish' line must be answerable from a source in 'sources'; every source carries the day it was read.",
+  "_validated_shape": "validated: {on: bool, by: 'the name the person uses', on_date: 'D Month YYYY', how: 'email' | 'whatsapp' | 'call', corrections: 'what they changed, in our words'}",
+  "candidates": [
+    {
+      "id": "sake-brewing--sado-gakkogura",
+      "craft": "Sake brewing",
+      "place": "Sado Island, Niigata, Japan",
+      "school": "Obata Shuzo — Gakkogura",
+      "teacher": null,
+      "weWouldPublish": [
+        "A working sake brewery inside a primary school that closed in 2010 and was converted in 2014.",
+        "Their own condition of entry: anyone may come and make sake provided they can stay on the island at least one week.",
+        "Participants join the brewers; time outside the work is their own.",
+        "Their own page says many people come to Gakkogura, including foreigners."
+      ],
+      "weCouldNotAnswer": [
+        "Are there fixed dates, or is it arranged case by case?",
+        "Is there a cost, and what does it cover?",
+        "Is the teaching in Japanese, or is English possible?",
+        "Who would a visiting chef actually be working beside — can we name them?"
+      ],
+      "sources": [{"what": "Obata Shuzo's own Gakkogura page", "url": "https://www.obata-shuzo.com/home/gakkogura/gakkogura1eng.asp", "read": "10 September 2026"}],
+      "validated": {"on": false}
+    },
+    {
+      "id": "sourdough-baking--vallee-du-jabron",
+      "craft": "Bread and boulangerie",
+      "place": "Noyers-sur-Jabron, Provence, France",
+      "school": "École Internationale de Boulangerie",
+      "teacher": "Thomas Teffri-Chambelland",
+      "weWouldPublish": [
+        "Founded 2005, teaching bread with natural leaven and organic flour.",
+        "Two courses run in French and English: Traditional Sourdough — Theory and Practice, and Panettone, Viennoiserie and Sourdough Bread — Advanced.",
+        "The advanced course is five days, forty hours, and requires at least two years' professional experience in sourdough baking.",
+        "A third course, Heirloom Varieties: Milling and Baking, is for experienced bakers and runs in French only."
+      ],
+      "weCouldNotAnswer": [
+        "What are the 2027 dates for the two English courses?",
+        "What does each cost, and does that include anything beyond tuition?",
+        "How many bakers are in a room at once?",
+        "Who teaches the advanced course — is it Thomas Teffri-Chambelland himself?"
+      ],
+      "sources": [{"what": "the school's own course list", "url": "https://www.ecoleinternationaledeboulangerie.fr/en/trouver-ma-formation", "read": "9 September 2026"}],
+      "validated": {"on": false}
+    },
+    {
+      "id": "koji-fermentation--tokyo-andlab",
+      "craft": "Fermentation",
+      "place": "Tokyo, Japan",
+      "school": "&LAB TOKYO",
+      "teacher": "Chie Ando",
+      "weWouldPublish": [
+        "A four-rung course in koji and fermentation: Basic, Intermediate, Masterclass, and a fourth rung at which you teach it yourself.",
+        "Taught by Chie Ando, in English, and hands-on — students cultivate the koji themselves and make seasonings from it.",
+        "Prices are published: ¥39,500 Basic, ¥120,000 Intermediate, ¥120,000 Advanced, and ¥150,000 for a three-day Basic-plus-Intermediate intensive."
+      ],
+      "weCouldNotAnswer": [
+        "Can a foreign professional chef enrol directly, or is there a prerequisite we have missed?",
+        "What are the dates, and how far ahead do they fill?",
+        "How many people are in a session?"
+      ],
+      "sources": [{"what": "the school's own fermentation course page", "url": "https://www.andlabtokyo.com/en/fermentation", "read": "10 September 2026"}],
+      "validated": {"on": false}
+    },
+    {
+      "id": "fish-butchery--tokyo-jcaa",
+      "craft": "Fish butchery — ikejime and the Tsumoto method",
+      "place": "Tokyo, Japan",
+      "school": "Japan Culinary Arts Academy",
+      "teacher": null,
+      "weWouldPublish": [
+        "A two-day course in the Tsumoto method and ikejime: day one is processing plus the science behind it, day two is rice, filleting for sushi, and finishing the dish for service.",
+        "Taught by professional Japanese chefs with interpreter support, for students who do not speak Japanese."
+      ],
+      "weCouldNotAnswer": [
+        "What does the two-day course cost? We found a figure of USD 6,500 but it belongs to the four-week programme, and we will not attach it to this one.",
+        "When does it run?",
+        "Can we name the chef who teaches it?",
+        "How many students to a bench?"
+      ],
+      "sources": [{"what": "the academy's own course pages", "url": "https://www.japanculinaryarts.com/chef-training-course", "read": "10 September 2026"}],
+      "validated": {"on": false}
+    },
+    {
+      "id": "cheese-affinage--ambierle-mons",
+      "craft": "Cheese and affinage",
+      "place": "Ambierle, France",
+      "school": "Mons Formation",
+      "teacher": "Laurent Mons",
+      "weWouldPublish": [
+        "A training centre created in 2001, directed by Laurent Mons, running four- and five-day professional courses in cheese retail and affinage.",
+        "The affinage teaching happens in the working maturing cellars of Mons Fromager-Affineur, alongside the staff.",
+        "An anglophone partner co-teaches the professional courses in English."
+      ],
+      "weCouldNotAnswer": [
+        "What are the 2026 and 2027 dates? The calendar page we could read still lists sessions from 2020.",
+        "What does a course cost, and how many places are there?",
+        "How should we name the anglophone co-teacher — we have only a first name and will not invent a surname."
+      ],
+      "sources": [{"what": "Mons Formation's own site", "url": "https://www.mons-formation.com/?lang=en", "read": "10 September 2026"}],
+      "validated": {"on": false}
+    }
+  ]
+}
