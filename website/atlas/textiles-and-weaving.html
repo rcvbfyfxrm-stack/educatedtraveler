@@ -114,11 +114,15 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
    were designed for, and nothing has to be traded against anything.
    The fade at the bottom is to --ink2, the card's own ground, so the photograph
    ends in the card rather than against a hard edge. */
-.cardshot { aspect-ratio:16/9; max-height:280px; margin:-22px -24px 18px;
+/* ⚠ width:100% is load-bearing. aspect-ratio + max-height on an auto-width block
+   makes Chrome SHRINK THE WIDTH to keep the ratio once the height cap bites — the
+   band came out 498px wide in an 832px card, a photograph with a gap beside it. A
+   definite width pins the box and lets the cap simply crop the height, which is all
+   it was ever for. */
+.cardshot { width:calc(100% + 48px); aspect-ratio:16/9; max-height:280px; margin:-22px -24px 18px;
   border-radius:10px 10px 0 0;
   background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
   background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }
-@media (max-width:560px) { .cardshot { margin:-18px -18px 14px; } }
 /* The places compared. The first table on this site, and it earns the form: five
    long cards is five scrolls and no comparison, and what a reader is choosing
    between here is when they can go, at what level, for how long and in which

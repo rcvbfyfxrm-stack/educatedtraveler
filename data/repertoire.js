@@ -14426,7 +14426,68 @@ window.ET_ATLAS = {
               "url": "https://www.vsb-bologna.it/en/",
               "course": "Sfoglia: Professional Course with Alessandra Spisni",
               "blurb": "Run by founder and master sfoglina Alessandra Spisni at the only school dedicated to forming sfoglini, this professional course teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of B",
-              "confidence": "medium"
+              "confidence": "medium",
+              "photos": {
+                "given": "2026-09-08",
+                "by": "Roberto",
+                "source": "site",
+                "thumb": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-04-the-tortellino.jpg",
+                "card": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg",
+                "items": [
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-01-the-egg-into-the-well.jpg",
+                      "w": 1000,
+                      "h": 666,
+                      "wide": true,
+                      "alt": "A wide shallow crater of white flour with a ring of whole brown eggs laid all around its rim, one broken yolk already sitting in the middle of the well, and two hands above it cracking another egg so the white runs down into the flour.",
+                      "caption": "Where every sheet starts: a crater of flour, a ring of eggs around it, one yolk already in the well."
+                    },
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg",
+                      "w": 1000,
+                      "h": 666,
+                      "alt": "A sheet of yellow egg pasta folded into three flat layers, sharp in the foreground on a pale wooden bench, with a pair of hands and the blade of a long knife out of focus behind it.",
+                      "caption": "The sfoglia, rolled and folded into three, with the knife waiting behind it. This is the moment before tagliatelle exists."
+                    },
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-03-tagliatelle-cut.jpg",
+                      "w": 1000,
+                      "h": 666,
+                      "alt": "Two hands lifting a fold of freshly cut yellow tagliatelle off a wooden board, the ribbons opening as they rise; the person wears a white apron carrying the school's red roundel, and a hand-crank pasta machine stands out of focus behind.",
+                      "caption": "Cut, then lifted so the ribbons fall open. The apron is the school's own — the red roundel is how VSB signs its work."
+                    },
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-04-the-tortellino.jpg",
+                      "w": 1000,
+                      "h": 666,
+                      "wide": true,
+                      "alt": "A close view of two hands closing a single small tortellino: the square of yellow pasta is wrapped around the tip of one finger and pinched shut by the other hand, against a plain pale background with nothing else in the frame.",
+                      "caption": "One tortellino, closed around a fingertip. If a single photograph has to carry this craft, it is this one — the shape is made on the finger, not in a mould."
+                    },
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-05-the-trays.jpg",
+                      "w": 1000,
+                      "h": 666,
+                      "alt": "Several hundred small closed tortellini spread out in loose rows across a pale wooden board to dry, filling the whole frame, with a bowl and a bench out of focus behind them.",
+                      "caption": "The yield of one morning, drying on the board. The professional course runs 8am to 2pm, Monday to Friday, and attendance is compulsory."
+                    },
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-06-the-mattarelli.jpg",
+                      "w": 666,
+                      "h": 1000,
+                      "alt": "A row of long wooden rolling pins standing on end in a line against a bright window, each hanging from its own bracket on the wall, receding out of focus down the room.",
+                      "caption": "The mattarelli, one to a bracket, down the wall of the room. A sfoglia here is rolled by hand."
+                    },
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-07-the-room.jpg",
+                      "w": 1600,
+                      "h": 899,
+                      "wide": true,
+                      "alt": "The school's empty classroom: long pale wooden work benches down the middle of a tiled floor, each set with a board and a bowl, a row of green cooking ranges along the right wall, and a street window at the far end.",
+                      "caption": "The room with nobody in it: a bench and a board each. Enrolment is not automatic — the school's own course page says you take the three-day sfoglia course first, and the teacher then decides."
+                    }
+                ]
+              }
             },
             {
               "name": "Bologna Cooking School",

@@ -1156,11 +1156,15 @@ section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
    were designed for, and nothing has to be traded against anything.
    The fade at the bottom is to --ink2, the card's own ground, so the photograph
    ends in the card rather than against a hard edge. */
-.cardshot {{ aspect-ratio:16/9; max-height:280px; margin:-22px -24px 18px;
+/* ⚠ width:100% is load-bearing. aspect-ratio + max-height on an auto-width block
+   makes Chrome SHRINK THE WIDTH to keep the ratio once the height cap bites — the
+   band came out 498px wide in an 832px card, a photograph with a gap beside it. A
+   definite width pins the box and lets the cap simply crop the height, which is all
+   it was ever for. */
+.cardshot {{ width:calc(100% + 48px); aspect-ratio:16/9; max-height:280px; margin:-22px -24px 18px;
   border-radius:10px 10px 0 0;
   background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
   background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }}
-@media (max-width:560px) {{ .cardshot {{ margin:-18px -18px 14px; }} }}
 /* The places compared. The first table on this site, and it earns the form: five
    long cards is five scrolls and no comparison, and what a reader is choosing
    between here is when they can go, at what level, for how long and in which
@@ -1467,13 +1471,29 @@ def photo_block(x):
         if "by" in ph and not (ph.get("by") or "").strip():
             raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has an empty photo credit. '
                              "Name the person who sent them, or drop the field.")
-        by = f', sent by {e(ph["by"])}' if ph.get("by") else ""
+        # HOW WE CAME BY THEM, and this is not a detail. Two schools attached files to a
+        # reply; a third wrote "you can take pictures by website" and pointed at its own
+        # gallery. "Sent these" is true of the first two and false of the third, and a
+        # page whose whole claim is that it was checked by hand cannot print a false
+        # sentence about its own provenance to save a branch. `source: "site"` says what
+        # actually happened. Anything else stops the build rather than guessing.
+        src_kind = (ph.get("source") or "sent").strip()
+        if src_kind not in ("sent", "site"):
+            raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has photos.source '
+                             f'{src_kind!r}. It is "sent" (the school attached them) or '
+                             '"site" (the school gave permission to use its own site\'s).')
+        got = (f"{name} sent these when I wrote to ask whether this page described the "
+               "school correctly."
+               if src_kind == "sent" else
+               f"{name} gave me permission to use the photographs on its own website when "
+               "I wrote to ask whether this page described the school correctly.")
+        by = (f', {"sent by" if src_kind == "sent" else "permission given by"} '
+              f'{e(ph["by"])}') if ph.get("by") else ""
         given = f', {e(pretty_date(ph["given"]))}' if ph.get("given") else ""
         blocks.append(
-            f'<div class="mono">Sent by the school</div>'
+            f'<div class="mono">{"Sent by the school" if src_kind == "sent" else "Published by the school"}</div>'
             f'<h2>What a lesson here looks like</h2>'
-            f'<p class="meta" style="margin-bottom:18px;max-width:62ch">{name} sent these when '
-            "I wrote to ask whether this page described the school correctly. They are the "
+            f'<p class="meta" style="margin-bottom:18px;max-width:62ch">{got} They are the '
             "school's own photographs, published with its permission and credited to it — and "
             "they do not move it up the page: where it sits was decided from its own course "
             "pages, before I wrote. Any school on this page can have the same space, on the "
