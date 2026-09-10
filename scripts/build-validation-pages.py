@@ -39,6 +39,65 @@ def token(cid: str) -> str:
     # Deterministic and permanent. Changing this string breaks every link ever sent.
     return hashlib.sha256(("et-validate-v1:" + cid).encode()).hexdigest()[:16]
 
+
+def fingerprint(c) -> str:
+    """A hash of WHAT WE CLAIM, not of the markup.
+
+    Restyling a page must not trip the freeze; changing a sentence a school has
+    already read must. So this covers only the substance: who we say teaches, what
+    we say we would publish, what we admit we could not work out, and the sources
+    we say we read it in.
+    """
+    payload = json.dumps({
+        "craft": c["craft"], "place": c["place"], "school": c["school"],
+        "teacher": c.get("teacher"),
+        "weWouldPublish": c["weWouldPublish"],
+        "weCouldNotAnswer": c.get("weCouldNotAnswer", []),
+        "sources": c.get("sources", []),
+    }, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(payload.encode()).hexdigest()[:16]
+
+
+def freeze_check(c, data_path):
+    """ONCE A LINK HAS BEEN SENT, THE PAGE IT POINTS AT IS FROZEN.
+
+    Arnaud, 10 Sept 2026: "dont modify the one you already sent!" — and he is right
+    in a way that goes past courtesy. A school validates a specific set of sentences.
+    If those sentences can be rewritten afterwards, the validation refers to nothing,
+    and a page somebody vouched for is no longer the page they saw.
+
+    So: set `sent` on a candidate the day the link goes out. From that moment the
+    substance is locked. Editing it does not silently republish — THE BUILD STOPS and
+    names the candidate. To change it anyway you must add an `amendments` entry whose
+    `fingerprint` is the new one, which puts a dated notice ON the page telling the
+    reader it changed since they saw it. You may still correct a page; you may never
+    correct one quietly.
+    """
+    sent = (c.get("sent") or "").strip()
+    if not sent:
+        return None                      # not sent yet: edit freely
+    fp = fingerprint(c)
+    if not c.get("sentFingerprint"):     # first build after it went out: record it
+        c["sentFingerprint"] = fp
+        print(f"  · recorded the sent state of {c['school']} ({fp}) — it is frozen from here")
+        return None
+    if fp == c["sentFingerprint"]:
+        return None                      # unchanged
+    amend = [a for a in (c.get("amendments") or []) if a.get("fingerprint") == fp]
+    if not amend:
+        raise SystemExit(
+            f"\nbuild-validation-pages: {c['school']} has been sent, and what it says has changed.\n"
+            f"  candidate : {c['id']}\n"
+            f"  sent      : {sent}\n"
+            f"  was       : {c['sentFingerprint']}\n"
+            f"  now       : {fp}\n"
+            "  A school validates sentences, not a URL. Rewriting them after the link went out\n"
+            "  makes their answer refer to something that no longer exists.\n"
+            "  Either put the wording back, or amend it in the open by adding to this candidate:\n"
+            f'      "amendments": [{{"on": "<today>", "what": "<what changed, plainly>", "fingerprint": "{fp}"}}]\n'
+            f"  in {data_path}. The page will then say so, dated, above everything else.")
+    return amend[-1]
+
 def e(s): return html.escape(str(s or ""))
 
 CSS = """*{box-sizing:border-box}body{margin:0;background:#0d0b09;color:#f3ede2;
@@ -64,7 +123,7 @@ def mailto(subject, body):
     from urllib.parse import quote
     return f"mailto:{TO}?subject={quote(subject)}&body={quote(body)}"
 
-def page(c):
+def page(c, amend=None):
     name = c["school"]; craft = c["craft"]; place = c["place"]
     lines = "".join(f"<li>{e(x)}</li>" for x in c["weWouldPublish"])
     qs = "".join(f"<li>{e(x)}</li>" for x in c.get("weCouldNotAnswer", []))
@@ -80,6 +139,12 @@ def page(c):
         "This line is wrong:\n\n  (paste the line)\n\nWhat is actually true:\n\n\n"
         "And, if you have a moment, the things we could not work out:\n\n"
         + "".join(f"  - {q}\n" for q in c.get("weCouldNotAnswer", [])) + "\n")
+    amend_html = ""
+    if amend:
+        amend_html = ('<div class="card" style="border-left:3px solid #d28a52">'
+                      '<p class="mono">Changed since you last saw this</p>'
+                      f'<p style="margin:8px 0 0">{e(amend.get("what"))}'
+                      f'<br><span class="src">Amended {e(amend.get("on"))}.</span></p></div>')
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -87,7 +152,7 @@ def page(c):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 <style>{CSS}</style></head><body><div class="wrap">
-<p class="mono">EducatedTraveler · before we publish</p>
+{amend_html}<p class="mono">EducatedTraveler · before we publish</p>
 <h1>{e(name)}</h1>
 <p class="sub">{e(craft)} · {e(place)}</p>
 
@@ -122,19 +187,28 @@ so we have kept every name, address and message off it.</p>
 </footer></div></body></html>"""
 
 def main():
-    data = json.loads((ROOT / "data" / "atlas-candidates.json").read_text(encoding="utf-8"))
+    dp = ROOT / "data" / "atlas-candidates.json"
+    data = json.loads(dp.read_text(encoding="utf-8"))
     OUT.mkdir(parents=True, exist_ok=True)
     pending = published = 0
+    before = json.dumps(data, ensure_ascii=False, sort_keys=True)
     print("validation pages — nothing here is linked from the site")
     for c in data["candidates"]:
+        amend = freeze_check(c, dp)
         t = token(c["id"])
-        (OUT / f"{t}.html").write_text(page(c), encoding="utf-8")
+        (OUT / f"{t}.html").write_text(page(c, amend), encoding="utf-8")
         v = c.get("validated") or {}
         state = "VALIDATED" if v.get("on") else "awaiting"
         if v.get("on"): published += 1
         else: pending += 1
         print(f"  {state:9s} /v/{t}  {c['school']}")
     print(f"  {published} validated (publishable) · {pending} awaiting the school")
+    after = json.dumps(data, ensure_ascii=False, sort_keys=True)
+    if after != before:                  # a first-send fingerprint was recorded
+        dp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    sent = sum(1 for c in data["candidates"] if (c.get("sent") or "").strip())
+    if sent:
+        print(f"  {sent} page(s) frozen because the link has gone out")
     if published == 0:
         print("  · nothing is publishable yet, which is the point: only a validated entry goes on the Atlas")
 
