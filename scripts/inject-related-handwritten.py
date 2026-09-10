@@ -31,6 +31,7 @@ SWEEP_OPEN, SWEEP_CLOSE = "<!-- et:sweep -->", "<!-- /et:sweep -->"
 MEAS_OPEN, MEAS_CLOSE = "<!-- et:measure -->", "<!-- /et:measure -->"
 ALSO_OPEN, ALSO_CLOSE = "<!-- et:also-here -->", "<!-- /et:also-here -->"
 FOLD_OPEN, FOLD_CLOSE = "<!-- et:fold-css -->", "<!-- /et:fold-css -->"
+CMP_OPEN, CMP_CLOSE = "<!-- et:places-table -->", "<!-- /et:places-table -->"
 ADOPT = "--adopt" in sys.argv
 e = html.escape
 
@@ -186,6 +187,25 @@ def fold_css_block():
     return f"{FOLD_OPEN}\n<style>{atlas_hub.FOLD_CSS}</style>\n{FOLD_CLOSE}\n"
 
 
+def places_table_block(slug):
+    """The places compared, for a sheet the generator never regenerates.
+
+    Same table, same rule (a column only when its values actually differ) and the same
+    published strings as a generated sheet — built by the same function, so the two
+    cannot drift. It carries its own <style>, because the generator's stylesheet does
+    not reach these nine sheets: that gap is what left six craft pages rendering the
+    browser's default fold triangle on 7 September.
+    """
+    d = next((x for x in DISC if x["id"] == slug), None)
+    if not d:
+        return ""
+    tbl = atlas_hub.places_table(d)
+    if not tbl:
+        return ""
+    return (f"{CMP_OPEN}\n<style>{atlas_hub.CMP_CSS}</style>\n"
+            f'<div class="wrap">{tbl}</div>\n{CMP_CLOSE}\n')
+
+
 def measure_block(craft_id):
     """The Measure, for a preserved sheet.
 
@@ -291,6 +311,20 @@ for name in sheets:
             skipped.append((name, "already carries a Measure written by hand — "
                                   "re-run with --adopt to let this script own it"))
             meas = ""
+    # The table belongs with the places, not at the foot of the page, so it is placed
+    # against its own anchor — the sheet's "this is not the only place" section — and
+    # skipped rather than misfiled if that section is not there.
+    cmp_blk = places_table_block(name[:-5])
+    if cmp_blk:
+        if CMP_OPEN in t2:
+            t2 = re.sub(re.escape(CMP_OPEN) + r".*?" + re.escape(CMP_CLOSE) + r"\n?",
+                        lambda _m: cmp_blk, t2, flags=re.S)
+        elif 'id="other-places"' in t2:
+            k = t2.index('<div style="border:1px solid var(--line);border-radius:12px',
+                         t2.index('id="other-places"'))
+            t2 = t2[:k] + cmp_blk + t2[k:]
+        else:
+            skipped.append((name, "no places section to put the comparison in"))
     for om, cm, blk in ((FOLD_OPEN, FOLD_CLOSE, fold_css_block()),
                         (OPEN_MARK, CLOSE_MARK, new_block),
                         (ALSO_OPEN, ALSO_CLOSE, also_here_block(name[:-5])),

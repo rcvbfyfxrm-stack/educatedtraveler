@@ -209,6 +209,82 @@ _THE = re.compile(r"\b(States|Kingdom|Islands|Netherlands|Republic|Emirates|Phil
                   r"|Bahamas|Maldives|Gambia)\b")
 
 
+# ── the places, side by side, in the columns that actually differ ─────────
+# A craft's places are not the same trip, and the cards below say so one at a time:
+# five long cards is five scrolls and no comparison. This is the same published
+# fields, aligned, so the choice a reader is actually making — when can I go, at what
+# level, for how long, in which language — is one glance instead of five.
+#
+# THE RULE THAT KEEPS IT HONEST, and it is the whole design: a column is drawn only
+# when its own values hold two or more distinct non-empty strings across this craft's
+# places. A column where every place says the same thing is not a comparison, it is
+# five copies of one fact taking a fifth of the width — so it is not drawn, and the
+# reader can trust that every column they see is a real difference. On Modernist
+# Spanish that leaves season, level, how long and language; on New Basque, four
+# columns for two places; on a craft whose places genuinely match, only the names.
+#
+# Every cell is a PUBLISHED string, printed whole. Nothing is composed, nothing is
+# abbreviated to fit, and a cell with nothing published is empty rather than guessed
+# — including Roses, whose level reads "Nothing is taught here" because that is what
+# the data says about a kitchen that shut in 2011.
+# (label, key, reader) — the key is also the cell's class, so the two columns whose
+# values are short and unbreakable ("Year-round", "months–years") can be told not to
+# wrap without counting column positions, which change from craft to craft.
+COMPARE_COLS = (
+    ("Community", "tier", lambda x: (x.get("communityLabel") or "").strip()),
+    ("Season", "season", lambda x: (x.get("bestSeason") or "").strip()),
+    ("Level", "level", lambda x: (x.get("level") or "").strip()),
+    ("How long", "howlong", lambda x: (x.get("tripLength") or "").strip()),
+    ("Language", "lang", lambda x: "English"
+        if x.get("englishTaught") is True else (x.get("instructionLanguage") or "").strip()),
+)
+
+
+def places_table(d):
+    """Every place of this craft in one row each, in the columns that differ."""
+    rows = sorted([x for x in d["destinations"] if x.get("place")],
+                  key=lambda x: -x["communityRank"])
+    if len(rows) < 2:
+        return ""
+    cols = [(label, key, fn) for label, key, fn in COMPARE_COLS
+            if len({fn(x) for x in rows if fn(x)}) >= 2]
+    if not cols:
+        return ""
+    head = "".join(f'<th scope="col" class="c-{key}">{e(label)}</th>' for label, key, _ in cols)
+    body = ""
+    for x in rows:
+        cells = "".join(f'<td class="c-{key}">{e(fn(x))}</td>' for _, key, fn in cols)
+        body += (f'<tr><th scope="row"><a href="/atlas/{e(x["id"])}">{e(x["place"])}</a>'
+                 f'{" <b class=\"gone\">Gone</b>" if x.get("closedToLearners") else ""}</th>'
+                 f"{cells}</tr>")
+    return ('<div class="cmp" tabindex="0" role="region" aria-label="The places compared">'
+            f'<table><thead><tr><th scope="col">Place</th>{head}</tr></thead>'
+            f"<tbody>{body}</tbody></table></div>")
+
+
+
+# The table's own styling, for the hand-written sheets that never see the generator's
+# stylesheet. That gap cost six craft pages a fold triangle on 7 September; a new
+# convention has to answer "and what does this do to the preserved sheets" in the same
+# commit, so this ships with the block that carries it.
+CMP_CSS = r"""
+.cmp{overflow-x:auto;margin:0 0 26px;border-top:1px solid var(--line)}
+.cmp table{border-collapse:collapse;width:100%;font-size:13.5px}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:10px 18px 10px 0;
+  border-bottom:1px solid var(--line)}
+.cmp thead th{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);font-weight:400;padding-top:14px}
+.cmp tbody th{font-weight:500;white-space:nowrap}
+.cmp .c-season,.cmp .c-howlong,.cmp .c-tier{white-space:nowrap}
+.cmp tbody th a{color:var(--sea);text-decoration:none}
+.cmp tbody th a:hover{text-decoration:underline}
+.cmp td{color:rgba(243,237,226,.78)}
+.cmp .gone{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);font-weight:400;margin-left:6px}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:none}
+"""
+
+
 def resting_dest(card):
     """The destination a card STANDS on: the place a school has photographed if there
     is one, else the craft's featured place.

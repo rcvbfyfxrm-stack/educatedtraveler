@@ -637,6 +637,55 @@ for _f in sorted((ROOT / "website/atlas").glob("*.html")):
             "inject-related-handwritten.py (et:fold-css), or it does not get it at all.")
 
 
+# ── 18 · the places table compares, and only compares ──────────────────────
+# Two ways this fails quietly. A column whose values are all the same is not a
+# comparison — it is one fact printed N times, and the moment one is drawn the whole
+# table stops being trustworthy at a glance. And a table is the easiest place on this
+# site to end up printing something nobody published, because a cell is small and a
+# short paraphrase always fits. So: every column must genuinely vary, and every cell
+# must be a string this place actually publishes.
+_CELL = {"tier": "communityLabel", "season": "bestSeason", "level": "level",
+         "howlong": "tripLength"}
+_open_ids = {c["id"]: c.get("open") for c in crafts}
+_seen18 = 0
+for _d in _disc:
+    if not _open_ids.get(_d["id"]):
+        continue
+    _rows = [x for x in _d["destinations"] if x.get("place")]
+    _f = ROOT / f'website/atlas/{_d["id"]}.html'
+    if len(_rows) < 2 or not _f.exists():
+        continue
+    _h = _f.read_text()
+    _t = re.search(r'<div class="cmp"[^>]*>(.*?)</table>', _h, re.S)
+    if not _t:
+        bad(f'{_d["id"]}: {len(_rows)} places and no table comparing them')
+        continue
+    _seen18 += 1
+    if _h.index(_t.group(0)) < _h.index('id="other-places"'):
+        bad(f'{_d["id"]}: the places table sits outside the places section')
+    _cols = re.findall(r'<th scope="col" class="c-([a-z]+)">', _t.group(1))
+    for _c in _cols:
+        _key = _CELL.get(_c)
+        _vals = ({(x.get(_key) or "").strip() for x in _rows if (x.get(_key) or "").strip()}
+                 if _key else {("English" if x.get("englishTaught") is True
+                                else (x.get("instructionLanguage") or "").strip())
+                               for x in _rows} - {""})
+        if len(_vals) < 2:
+            bad(f'{_d["id"]}: the table draws a "{_c}" column where every place says '
+                f'the same thing ({_vals or "nothing"}) — that is not a comparison')
+    _cells = set(re.findall(r'<td class="c-[a-z]+">([^<]*)</td>', _t.group(1)))
+    _published = {html_mod.escape(v) for x in _rows for v in
+                  [(x.get(k) or "").strip() for k in _CELL.values()]
+                  + ["English" if x.get("englishTaught") is True
+                     else (x.get("instructionLanguage") or "").strip()] if v} | {""}
+    _invented = _cells - _published
+    if _invented:
+        bad(f'{_d["id"]}: the table prints {sorted(_invented)[:3]}, which no place on '
+            "this craft publishes — a cell may only ever carry a published string")
+if not _seen18:
+    bad("check 18 found no places table on any craft sheet — the table or its markup "
+        "moved and this check has gone blind")
+
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:
     print("check-atlas-hub: FAIL")
