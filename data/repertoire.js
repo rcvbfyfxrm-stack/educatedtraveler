@@ -5268,6 +5268,7 @@ window.ET_ATLAS = {
                 "by": "Mathieu",
                 "thumb": "/images/atlas/kitesurfing--tarifa/matos-tarifa-11-instructors-and-students.jpg",
                 "card": "/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg",
+                "focal": "50% 22%",
                 "items": [
                   {
                     "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-01-down-to-the-water.jpg",

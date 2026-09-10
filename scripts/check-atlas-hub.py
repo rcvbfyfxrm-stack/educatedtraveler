@@ -188,21 +188,45 @@ def _open_tag(hay, frag):
     return hay[start:hay.index(">", start) + 1]
 
 
-# ── 8. the number on the card is the length of the list it walks ───────────
-# The cue is written by build-atlas-pages (dests carrying a place); placeWalk()
-# rebuilds that list at runtime from ET_ATLAS by the same rule. Two code paths, one
-# number, and a mismatch stays invisible until somebody watches "3 / 5" walk four.
+# ── 8. the number on the card, and the names printed under it ──────────────
+# The cue says how many places the craft is taught in and the line under it names
+# them. Both are built twice — here in the band (Python) and in cardInner (JS) — from
+# one rule, so this compares what the band actually PRINTS against the index the
+# template reads. Until 2026-09-10 it could only count hidden spans reserved for a
+# hover walk; now it reads the names a reader can see, which is the stronger check.
+# ⚠ html.escape's DEFAULT (quote=True) is right here: atlas_hub's e() is html.escape
+# with quotes on, so the band writes Tain-l&#x27;Hermitage while the template's esc()
+# leaves the apostrophe bare. Copying check 10's quote=False gives six false failures.
 _by_slug = {c["id"]: c for c in crafts}
+_seen8 = 0
 for _, _slug, _ in cards:
     m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
-    cue = re.search(r'<button class="placecue" type="button">(\d+) places', m[1]) if m else None
-    real = sum(1 for d in _by_slug.get(_slug, {}).get("dests", []) if d.get("place"))
-    if cue and int(cue[1]) != real:
-        bad(f"{_slug}: the card says {cue[1]} places, the index holds {real}")
-    elif real > 1 and not cue:
+    c8 = _by_slug.get(_slug, {})
+    real = sum(1 for d in c8.get("dests", []) if d.get("place"))
+    cue = re.search(r'<a class="placecue" href="/atlas/([a-z0-9-]+)#other-places">(\d+) places',
+                    m[1]) if m else None
+    if real > 1 and not cue:
         bad(f"{_slug} is taught in {real} places and its card never says so")
-    elif real > 1 and m and 'walks' not in _open_tag(band, m[0]):
-        bad(f"{_slug} counts {real} places but its card is not marked to walk them")
+    elif cue:
+        _seen8 += 1
+        if cue[1] != _slug:
+            bad(f"{_slug}: the places cue points at /atlas/{cue[1]}, not its own sheet")
+        if int(cue[2]) != real:
+            bad(f"{_slug}: the card says {cue[2]} places, the index holds {real}")
+        if 'walks' not in _open_tag(band, m[0]):
+            bad(f"{_slug} counts {real} places but its card is not marked as having them")
+        # the names themselves, in order, against the one rule both builders follow
+        want = [html_mod.escape(pl) + (f'<b class="gone">{html_mod.escape(lab)}</b>'
+                                       if rk <= 2 and lab else "")
+                for pl, rk, lab in atlas_hub.place_names(c8.get("dests", []))]
+        blk = re.search(r'<p class="cardplaces"[^>]*>(.*?)</p>', m[1], re.S)
+        got = re.findall(r'<span class="pn" role="listitem">(.*?)</span>', blk[1], re.S) if blk else []
+        if got != want:
+            bad(f"{_slug}: the places named on the card are not the craft's places\n"
+                f"      card:  {got}\n      index: {want}")
+if not _seen8:
+    bad("check 8 read no places cue on any band card — the cue or the names moved and "
+        "this check has gone blind. That has happened twice before on this file.")
 
 # ── 9. the resting line is the written line for the place it sits under ────
 learn_lines = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text()).get("learnLines", {})
@@ -242,30 +266,9 @@ for _, _slug, _ in cards:
         bad(f"{_slug}: the band card has no title line — it says nothing about what you "
             f"would learn")
         continue
-    rest = re.findall(r'<span class="sl(?: on)?">(.*?)</span>(?=<span class="sl|$)', got[1], re.S)
-    if not rest or rest[0] != want:
-        bad(f"{_slug}: the band card's resting title is not the craft's name\n"
-            f"      card: {(rest[0] if rest else got[1])[:90]}\n      want: {want[:90]}")
-    # ── 11. the band walks the same words, in the same order, as the grid ──
-    # Both stacks are built from ET_ATLAS by the same rule, in two languages. If they
-    # drift the two cards on one page count the same "3 / 5" against different places,
-    # and only one of them is on the page a check can read.
-    walk = atlas_hub.walk_places(c.get("dests", []))
-    for tag, wants in (("cardsay", [html_mod.escape(sy) or want for sy, _ in walk]),
-                       ("wherealive", ['<span class="in">in</span> ' + html_mod.escape(w)
-                                       for _, w in walk])):
-        blk = re.search(r'<(?:p|div) class="' + tag + r'">(.*?)</(?:p|div)>', m[1], re.S)
-        if not blk:
-            continue
-        sl = re.findall(r'<span class="sl(?: on)?">(.*?)</span>(?=<span class="sl|$)', blk[1], re.S)
-        if len(sl) != len(wants) + 1:
-            bad(f"{_slug}: .{tag} reserves {len(sl)} line(s) for a card that walks "
-                f"{len(wants)} place(s) — it will change height under the pointer")
-        elif sl[1:] != wants:
-            first = next(i for i in range(len(wants)) if sl[1:][i:i + 1] != wants[i:i + 1])
-            bad(f"{_slug}: .{tag} step {first + 1} is not what the index says\n"
-                f"      band:  {sl[1:][first] if first < len(sl) - 1 else '(missing)'}\n"
-                f"      index: {wants[first]}")
+    if got[1].strip() != want:
+        bad(f"{_slug}: the band card's title is not the craft's name\n"
+            f"      card: {got[1].strip()[:90]}\n      want: {want[:90]}")
 
 # ── 5. the colours still mirror the page's own map ─────────────────────────
 tpl = (ROOT / "scripts/atlas-hub-template.html").read_text()
@@ -296,6 +299,30 @@ for _did, _say in _extra.get("sayLines", {}).items():
         if _w and re.search(r"\bin\b[^.]*" + re.escape(_w), _say):
             bad(f"sayLines[{_did}] writes its own place into the title: {_say!r} — the "
                 f"card prints '{_w}' on the next line and would say it twice")
+
+# ── 8b · a closed place is never named with nothing said ───────────────────
+# The card tags a place whose community rank is 2 or lower with its own published
+# rankLabel — which today fires on exactly one destination in the whole Atlas, Roses /
+# Cala Montjoi, where elBulli shut in 2011. That is rank standing in for the real flag:
+# closedToLearners lives in data/repertoire.js and NEVER reaches the browse index, and
+# pushing a new per-place field through index_card, the shim whitelist and both card
+# builders for one destination is three chances to lose it silently — which is exactly
+# how the school photograph went missing the first time. So the proxy stays and its
+# failure is made loud here instead: close a place that ranks above 2 and the build
+# stops, rather than a shut kitchen appearing unmarked in a list of places to go.
+_closed = {x["id"] for d in _disc for x in d.get("destinations", [])
+           if x.get("closedToLearners")}
+for c in crafts:
+    if not c.get("open"):
+        continue
+    dests = [d for d in c.get("dests", []) if d.get("place")]
+    if len(dests) < 2:
+        continue
+    for d in dests:
+        if d["id"] in _closed and (d.get("rank") or 0) > 2:
+            bad(f'{c["id"]} / {d["place"]} is closed to learners but ranks '
+                f'{d.get("rank")}, so the browse card names it with nothing said — '
+                "the tag is keyed to rank <= 2 and this place slips past it")
 
 # ── 12. no sheet card folds its place into its sentence ───────────────────
 # 43 of the 87 written lines already carry their own "in..." or "here", so a second one
@@ -513,6 +540,14 @@ for _, _slug, _ in cards:
                 f"stands on published {rest['shot']}")
         if not (credit and credit[1].strip()):
             bad(f"{_slug}: the card wears a photograph and credits nobody")
+        # ⚠ The focal point is a per-destination field, and atlas-index-shim.js is a
+        # WHITELIST: a field not named there is dropped in silence and the card keeps
+        # rendering — just with the wrong third of the photograph, which is how a
+        # kitesurfer loses his head to a centre crop. Nothing at runtime complains, so
+        # the build does.
+        if rest.get("focal") and f'--focal:{rest["focal"]}' not in tag:
+            bad(f"{_slug}: {rest['place']} publishes a focal point ({rest['focal']}) and "
+                "the card does not carry it — check the shim whitelist first")
     elif worn:
         bad(f"{_slug}: the card wears {html_mod.unescape(worn[1])} while standing on "
             f"{rest.get('place') or 'a place'}, which published no photograph")

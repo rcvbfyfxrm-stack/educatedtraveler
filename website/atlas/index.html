@@ -254,23 +254,24 @@ select.fin option{background:var(--ink2)}
 .dcard{scroll-snap-align:start;flex:0 0 auto;width:clamp(228px,25vw,262px)}
 .dcard::before,.gcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.5;transition:opacity .3s}
 .dcard:hover,.gcard:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));box-shadow:0 18px 40px rgba(0,0,0,.45)}.dcard:hover::before,.gcard:hover::before{opacity:1}
-/* ── a school's photograph behind the card ──────────────────────────────────
-   Only ever on a card standing on the place the photograph came from: the shot
-   is per-DESTINATION and the walk swaps it, so kitesurfing rests on Maui with
-   no picture and puts Tarifa's water up only while it is saying Tarifa.
-   The scrim is heavy on purpose. This is texture under type, not a photograph
-   with words on it — every line on the card has to keep the contrast it had on
-   a flat background, including .wherealive, which is a mid-tone colour at 16.5px
-   and the first thing a picture would drown. The text-shadow is the belt to that
-   brace: photographs vary, and a bright sky must not be able to eat a word. */
-.dcard[data-shot],.gcard[data-shot]{
-  background-image:linear-gradient(180deg,rgba(20,17,13,.78) 0%,rgba(20,17,13,.90) 52%,rgba(20,17,13,.98) 100%),var(--shot);
-  background-size:cover;background-position:center;background-repeat:no-repeat}
-.dcard[data-shot]:hover,.gcard[data-shot]:hover{
-  background-image:linear-gradient(180deg,rgba(20,17,13,.68) 0%,rgba(20,17,13,.86) 52%,rgba(20,17,13,.97) 100%),var(--shot)}
-.dcard[data-shot] .cardsay,.gcard[data-shot] .cardsay,
-.dcard[data-shot] .wherealive,.gcard[data-shot] .wherealive{
-  text-shadow:0 1px 10px rgba(13,11,9,.9),0 1px 2px rgba(13,11,9,.75)}
+/* ── a school's photograph, in its own band ────────────────────────────────
+   It was BEHIND the card until 2026-09-10, under a scrim heavy enough to keep every
+   line legible. Arnaud: "show the photo brighter, readers can't really see it now."
+   The measurement said the obvious fix could not work — rendering the card at six
+   scrim levels and sampling the real composited pixels behind each line showed the
+   sea-coloured .wherealive dropping under 4.5:1 at the FIRST step up in brightness,
+   while the picture was still a ghost. Exactly what the old note here predicted: it
+   is "a mid-tone colour at 16.5px and the first thing a picture would drown."
+   One layer cannot be a photograph and a page background at once. So the picture
+   takes its own space at full brightness, fading into the card's own ground, and
+   every line goes back onto flat ink at the contrast it was designed for. The scrim
+   is deleted and so are the text-shadows that braced the lines against it.
+   16/9 so it scales with the card instead of letterboxing one width and walling
+   another; the card rests on one place now, so the frame never changes under a
+   pointer and the card cannot change height. */
+.cardshot{aspect-ratio:16/9;margin:-17px -17px 14px;border-radius:13px 13px 0 0;
+  background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,var(--ink2) 100%),var(--shot);
+  background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat}
 /* Whose picture it is. Empty on every card that is not wearing one, and the
    :empty rule is what keeps it from printing a blank line on the other 115. */
 .shotcredit{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;
@@ -305,12 +306,12 @@ select.fin option{background:var(--ink2)}
    reader is actually holding in their head: the craft AND where. Craft and place
    are one title again, tight, and the description under them is short enough to
    take in without reading — two lines, not three.
-   And a craft is taught in more than one place. The card can only print one, so
-   resting the pointer on it walks the rest: the place line and the reason under
-   it change together, in the rank order the craft's own sheet uses. Nothing is
-   generated — both lines are the published place and the published reason for
-   that place, the same strings the sheet prints. The card walks a list; it never
-   writes one. See placeWalk() at the foot of this file. */
+   And a craft is taught in more than one place. The card can only STAND in one,
+   so it NAMES them all, at the bottom, at rest — see .cardplaces below. Resting
+   the pointer used to walk them one at a time on a 2.6s timer, which no phone
+   could ever fire and which swapped a title for the identical string on 115 of
+   116 crafts, because only wildlife-photography has hand-written say lines.
+   Nothing is generated either way: every name is the published place string. */
 .cardsay{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:2px;transition:opacity .22s ease}
 .craftname{font:inherit;color:inherit}
 .wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px;transition:opacity .22s ease}
@@ -327,67 +328,38 @@ select.fin option{background:var(--ink2)}
    changes with it. Three lines: a written line runs 74 to 116 characters and on the
    narrowest card that is three lines, so two would cut every one of them. */
 .cardhook{font-size:11.5px;color:var(--muted);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;transition:opacity .22s ease}
-.cardsay.swapping,.wherealive.swapping,.cardhook.swapping{opacity:0}
-/* ── the walk POPS, it does not only dissolve ──────────────────────────────
-   A crossfade is the one transition a reader can miss. At 2.6s apart, a line
-   that fades out and a different line that fades in at the same coordinates
-   reads as the card having been like that the whole time — nothing announced
-   that a new place arrived, so nothing did. The walk is a MOVE, so it moves:
-   the line leaving goes up and out, the line arriving comes up from under it
-   and lands a little past its resting size before settling. That overshoot is
-   the pop, and it is the part that says "another place", not "same place".
-
-   Two easings, not one. Leaving is flat and quick; arriving is longer and
-   overshoots. The same curve both ways makes the card bounce twice a step,
-   which is a toy. Travel is held to 7-9px and scale to 3%: this is 21px
-   Fraunces on a dark ground, and more than that smears while it is in flight.
-
-   .landing is the arriving frame with its transition switched OFF, so the new
-   line can be PUT below where it belongs without animating there, and then
-   released. Without a start state the browser has actually committed there is
-   nothing to travel from and the pop silently does not happen — which is the
-   bug this whole block exists to avoid, so see land() in placeWalk(). */
-.cardsay,.wherealive,.cardhook{transition:opacity .26s ease,transform .34s cubic-bezier(.18,.9,.26,1.24)}
-.cardsay.swapping,.wherealive.swapping,.cardhook.swapping{transform:translateY(-7px);transition:opacity .19s ease,transform .19s ease}
-.cardsay.landing,.wherealive.landing,.cardhook.landing{opacity:0;transform:translateY(9px) scale(.972);transition:none}
-@media(prefers-reduced-motion:reduce){
-  .cardsay,.wherealive,.cardhook{transition:opacity .2s ease}
-  .cardsay.swapping,.wherealive.swapping,.cardhook.swapping,
-  .cardsay.landing,.wherealive.landing,.cardhook.landing{transform:none}
-}
-/* ── press and hold to stay on a place ─────────────────────────────────────
-   2.6 seconds is a reading speed for one line, not for three, and a timer
-   cannot tell which place you actually wanted. Holding the card stops it where
-   it stands: the place under the pointer is the place that stays, until you
-   hold again or leave. Same gesture with a mouse and with a thumb.
-
-   .pressing is the half-second before it takes — the card gives slightly under
-   the press, which is the only reason anyone discovers the gesture exists.
-   .pinned is after: the chip fills in and says "held", because a card that has
-   silently stopped walking is indistinguishable from a card that broke.
-
-   The callout is turned off on the stretched link, or a hold on a phone raises
-   the OS "open link / copy" sheet over the card instead. */
-.dcard.pressing,.gcard.pressing{transform:translateY(-3px) scale(.993)}
-.dcard.pressing,.gcard.pressing,.dcard.pinned,.gcard.pinned{-webkit-user-select:none;user-select:none}
-.walks a.cardlink{-webkit-touch-callout:none}
-.walks.pinned .placecue{border-color:var(--sc);background:color-mix(in srgb,var(--sc) 20%,transparent);color:var(--paper)}
-.walks.pinned .placecue::before{content:"";flex:0 0 auto;width:6px;height:6px;border-radius:1px;background:currentColor}
-/* Only a card with somewhere to walk TO pays for the fixed box. Two lines of place
-   and two of reason, held open, so the card cannot change height under the pointer
-   and shove the row below it around while somebody is reading. */
-/* The stack reserves the tallest line the card can show, so a shorter one leaves the
-   difference somewhere. Bottom-align the title and that space sits under the eyebrow,
-   where it reads as spacing; top-align it and it opens a hole between the title and
-   the place belonging to it, which reads as a bug. */
-.cardsay{display:grid;align-items:end}
-.wherealive{display:grid;align-items:start}
-.cardsay .sl,.wherealive .sl{grid-area:1/1;visibility:hidden}
-.cardsay .sl.on,.wherealive .sl.on{visibility:visible}
-.walks .cardhook{min-height:54px}
-/* Says the card has more than one answer, counts them off while it walks, and
-   opens all of them. z-index clears the stretched .cardlink underneath, which would
-   otherwise swallow the click.
+/* ── every place the craft is taught, named ────────────────────────────────
+   A craft is taught in more than one place and a card can only stand in one. It
+   names them ALL here, at rest, on every device, in the craft's own rank order —
+   the same order and the same published strings the sheet lists under "Where the
+   community gathers", the place the card is standing on included, so the cue above
+   and the names under it are the same number and a reader can count them.
+   Nothing is composed. Each name is the published place string, the separator is
+   CSS, and the only other thing that can appear is a place's own published
+   rankLabel when its community is rank 2 or lower.
+   Three lines, clamped, like the two lines above it. 27 of the 28 multi-place
+   cards fit whole; Windsurfing & Wing-foil is cut visibly and its cue still counts
+   all eight. Nothing here is behind a gesture — a 9px chip nobody found, a louder
+   chip nobody found, a hover popover no phone could ever fire and a full-screen
+   slideshow of four short lines all ended here (Arnaud, 2026-09-10: "the pop up
+   diaporama is not really good"). --muted on --ink2 is 5.65:1 at 11.5px; the tag
+   is deliberately not --faint (2.82:1) — the one honesty mark on the card must not
+   be the faintest thing on it, so it separates by family, size, caps and tracking. */
+.cardplaces{margin:9px 0 0;font-size:11.5px;line-height:1.5;color:var(--muted);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cardplaces .pn+.pn::before{content:" · ";opacity:.5}
+.cardplaces .gone{margin-left:5px;font-family:'IBM Plex Mono',monospace;font-weight:400;
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* Nothing on this page moves on a timer any more. What is left that moves is the
+   card's own hover lift, which was never guarded — the four blocks that used to be
+   here guarded the walk, and they went with it. */
+@media(prefers-reduced-motion:reduce){.dcard,.gcard{transition:none}
+  .dcard:hover,.gcard:hover{transform:none}}
+/* Says how many places the craft is taught in, labels the names printed directly
+   under it, and opens the sheet's own places section. It counted them off while the
+   card walked until 2026-09-10; nothing walks now, and the names are on the card.
+   z-index clears the stretched .cardlink underneath, which would otherwise swallow
+   the click.
 
    It shipped once as 9px at 34% opacity on a near-black card — which is what a
    passive label looks like, and it stayed looking like one after it became the
@@ -395,49 +367,8 @@ select.fin option{background:var(--ink2)}
    control: this is the same pill the badges on this page already use (.trip, .lang,
    .cred), in the craft's own world colour, at a size you can hit with a thumb. */
 .placecue{display:none}
-.walks .placecue{display:inline-flex;align-items:center;gap:7px;position:relative;z-index:3;margin-top:12px;padding:5px 11px;border:1px solid color-mix(in srgb,var(--sc) 38%,transparent);border-radius:99px;background:color-mix(in srgb,var(--sc) 9%,transparent);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--sc);line-height:1.3;transition:border-color .2s,background .2s,color .2s}
+.walks .placecue{display:inline-flex;align-items:center;gap:7px;position:relative;z-index:3;text-decoration:none;margin-top:12px;padding:5px 11px;border:1px solid color-mix(in srgb,var(--sc) 38%,transparent);border-radius:99px;background:color-mix(in srgb,var(--sc) 9%,transparent);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--sc);line-height:1.3;transition:border-color .2s,background .2s,color .2s}
 .walks .placecue:hover,.walks .placecue:focus-visible{border-color:var(--sc);background:color-mix(in srgb,var(--sc) 17%,transparent);color:var(--paper)}
-/* ── the hover popover — every place, without going anywhere ────────────────
-   The panel behind the chip has always held all of this, and nobody found it:
-   a control at the foot of a card is not where a reader is looking when they
-   rest on the title. So resting on the card now SHOWS the list, beside the
-   card, while the card goes on walking it — the row it is walking is lit, so
-   the popover and the card are visibly the same thing rather than two.
-
-   It is pointer-events:none on purpose, and that is not a shortcut. A hoverable
-   panel next to a card inside a horizontally scrolling rail has to decide what
-   happens when the pointer crosses the gap between them, and every answer
-   flickers on some path. This one cannot be pointed at, so there is no gap to
-   cross and no state to lose: it is a preview. The chip still opens the real
-   panel, which is the surface built for reading, and the popover says so.
-
-   Never on a phone and never on a narrow window — there is nowhere beside the
-   card to put it, and a touch device has no rest-the-pointer to trigger it. */
-.cardpop{position:fixed;z-index:150;width:270px;max-height:min(64vh,430px);overflow:hidden;
-  background:rgba(18,15,12,.975);border:1px solid color-mix(in srgb,var(--sc) 32%,var(--line));
-  border-radius:12px;box-shadow:0 22px 54px rgba(0,0,0,.62);padding:0 0 7px;
-  pointer-events:none;opacity:0;transform:translateY(7px) scale(.985);
-  transition:opacity .18s ease,transform .24s cubic-bezier(.18,.9,.26,1.24)}
-.cardpop.on{opacity:1;transform:none}
-.cardpop .ph{display:flex;justify-content:space-between;gap:10px;align-items:baseline;
-  padding:10px 13px 9px;border-bottom:1px solid var(--line);
-  font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase}
-.cardpop .ph b{font-weight:500;color:var(--sc)}
-.cardpop .ph i{font-style:normal;color:var(--faint)}
-.cardpop ol{list-style:none;margin:0;padding:5px 0 0}
-.cardpop li{display:grid;grid-template-columns:20px 1fr;gap:9px;padding:7px 13px;
-  border-left:2px solid transparent;transition:background .18s,border-color .18s}
-.cardpop li .pi{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--faint);
-  padding-top:2px;letter-spacing:.06em}
-/* the research, clamped rather than re-cut — same rule the card holds itself to */
-.cardpop li .pt{font-size:12.5px;line-height:1.36;color:var(--paper);opacity:.72;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.cardpop li .pw{font-size:11px;line-height:1.4;color:var(--muted);margin-top:2px}
-.cardpop li.at{background:color-mix(in srgb,var(--sc) 11%,transparent);
-  border-left-color:var(--sc)}
-.cardpop li.at .pt{opacity:1}
-.cardpop li.at .pi{color:var(--sc)}
-@media(prefers-reduced-motion:reduce){.cardpop{transition:opacity .18s ease;transform:none}}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
 .bestflag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#14110d;font-weight:600;background:linear-gradient(135deg,#d28a52,#e0a877);border-radius:5px;padding:2px 7px;margin-bottom:9px}
@@ -449,75 +380,6 @@ select.fin option{background:var(--ink2)}
 .lang{display:inline-flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sea);border:1px solid rgba(127,168,165,.3);border-radius:99px;padding:3px 8px;line-height:1.2}
 .lang .en{font-weight:600;color:var(--paper)}
 .lang.lang-loc{color:var(--ember);border-color:rgba(210,138,82,.34)}
-/* ── every place, at reading speed ─────────────────────────────────────────
-   The walk under the pointer is a taster: it moves on its own and it moves on.
-   This is the same list with the timer taken off — one place per line, the
-   written sentence at a size you read rather than scan, and the place folded
-   into the end of it where it belongs. Nothing here is new copy: it is the
-   line that is already on the card with its own full stop moved to the far
-   side of the place name. */
-.pmodal{--sc:var(--sea);position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(12px,4vw,40px)}
-.pmodal[hidden]{display:none}
-.pmodal .scrim{position:absolute;inset:0;background:rgba(6,5,4,.78);backdrop-filter:blur(7px);animation:pfade .25s ease both}
-.pmodal .panel{position:relative;display:flex;flex-direction:column;width:min(760px,100%);height:min(78vh,640px);background:var(--ink2);border:1px solid color-mix(in srgb,var(--sc) 30%,var(--line));border-radius:18px;box-shadow:0 40px 90px -20px rgba(0,0,0,.75);overflow:hidden;animation:prise .32s cubic-bezier(.2,.8,.2,1) both}
-.pmodal .panel::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.75}
-@keyframes pfade{from{opacity:0}to{opacity:1}}
-@keyframes prise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.pmodal .scrim,.pmodal .panel{animation:none}}
-.phead{display:flex;align-items:flex-start;gap:16px;padding:24px 26px 18px;border-bottom:1px solid var(--line)}
-.phead .pt{flex:1;min-width:0}
-.phead .peyebrow{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-.phead h2{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(22px,3.4vw,30px);line-height:1.12;letter-spacing:-.01em}
-.phead .pclose{flex:0 0 auto;width:34px;height:34px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:15px;line-height:1;transition:border-color .2s,color .2s}
-.phead .pclose:hover,.phead .pclose:focus-visible{border-color:var(--sc);color:var(--paper)}
-.pmodal :focus{outline:none}
-.pmodal :focus-visible{outline:1px solid color-mix(in srgb,var(--sc) 70%,transparent);outline-offset:3px}
-/* ONE PLACE AT A TIME. The list used to stack all five and scroll; five places are a
-   set you compare, not a page you read, so the panel shows one and you move through
-   them. Scroll-snap does the whole job in CSS: a phone swipes up and down through the
-   places with no touch handler at all, a trackpad and a wheel do the same, and the
-   buttons and arrow keys below just scroll the same track. scroll-snap-stop:always is
-   what makes a fast flick land on the next place instead of sailing past three. */
-.plist{list-style:none;margin:0;padding:0;flex:1;min-height:0;overflow-y:auto;
-  overscroll-behavior:contain;scroll-snap-type:y mandatory;scroll-behavior:smooth;
-  scrollbar-width:none}
-.plist::-webkit-scrollbar{display:none}
-.plist li{scroll-snap-align:start;scroll-snap-stop:always;min-height:100%;
-  display:grid;grid-template-columns:auto 1fr;gap:18px;align-content:center;
-  padding:28px 30px;box-sizing:border-box}
-.plist .pn{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--sc);opacity:.75;padding-top:9px}
-/* the sentence, at a size you read */
-.psay{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(21px,3.1vw,29px);line-height:1.28;color:var(--paper)}
-.pwhere{margin-top:8px;font-size:clamp(16px,2vw,19px);font-weight:500;color:var(--sc);font-style:italic}
-.pwhere .in{font-size:12.5px;font-weight:400;font-style:normal;opacity:.62}
-/* a place nobody has written a line for yet: its own name, and the research it
-   would have been written above — said plainly rather than dressed as a sentence
-   that does not exist */
-.pplain{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(21px,3.1vw,29px);line-height:1.28;color:var(--sc);font-style:italic}
-.pwhy{margin-top:16px;font-size:14px;line-height:1.66;color:var(--muted);max-width:52ch}
-.pfoot{padding:16px 26px 20px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.pfoot .pnote{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
-.pfoot .pgo{font-size:14px;color:var(--sc);border-bottom:1px solid rgba(127,168,165,.35);padding-bottom:2px;transition:border-color .2s}
-.pfoot .pgo:hover{border-color:var(--sea)}
-.pnav{display:flex;align-items:center;gap:13px}
-.pdots{display:flex;gap:7px}
-.pdots button{width:7px;height:7px;padding:0;border-radius:99px;background:var(--sc);opacity:.28;transition:opacity .2s,transform .2s}
-.pdots button[aria-current="true"]{opacity:1;transform:scale(1.5)}
-.pdots button:hover{opacity:.7}
-.pcount{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--faint);min-width:52px}
-.parrow{width:30px;height:30px;border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:12px;line-height:1;transition:border-color .2s,color .2s,opacity .2s}
-.parrow:hover:not(:disabled){border-color:var(--sc);color:var(--paper)}
-.parrow:disabled{opacity:.28}
-/* the swipe is the whole interaction on a phone, so say so once, on the first slide */
-.pswipe{grid-column:1/-1;margin-top:22px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-@media(hover:hover){.pswipe{display:none}}
-@media(prefers-reduced-motion:reduce){.plist{scroll-behavior:auto}}
-body.plocked{overflow:hidden}
-@media(max-width:560px){
-  .phead{padding:19px 18px 15px}.plist{padding:0}.pfoot{padding:14px 18px 17px}
-  .plist li{grid-template-columns:1fr;gap:6px;padding:22px 18px}.plist .pn{padding-top:0}
-  .pfoot{justify-content:center}.pfoot .pgo{order:3;flex:1 0 100%;text-align:center}
-}
 
 /* ── the search bar ────────────────────────────────────────────────────────
    The funnel below answers "I don't know the word for it". This answers the
@@ -673,31 +535,8 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
   <section class="results" id="results"></section>
 </div></div></main>
 
-<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap"><div class="nohead"><div class="eyebrow">Opened by the Circle</div><h2 class="serif" id="opened-h">The crafts someone wrote me a note about, newest first.</h2></div><div class="nocount"><span id="noseen">1 of 28</span><span class="track"><i id="nofill"></i></span><span>all 28 — scroll</span></div><div class="nowrap-rail"><div class="norail" id="norail"><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Wildlife Photography"><a class="cardlink" href="/atlas/wildlife-photography" aria-label="Open the Wildlife Photography skill sheet"></a><div class="openedon">Opened <b>24 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Wildlife Photography</span></span><span class="sl">Learn to work a one-way glass hide</span><span class="sl">Learn to photograph big cats from a camp</span><span class="sl">Learn to sit a bear hide on the Russian border</span><span class="sl">Learn to photograph on foot, four to a group</span><span class="sl">Learn underwater photography as a degree</span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Pusztaszer, Hungary</span><span class="sl"><span class="in">in</span> Hungary</span><span class="sl"><span class="in">in</span> Kenya</span><span class="sl"><span class="in">in</span> Finland</span><span class="sl"><span class="in">in</span> Zambia</span><span class="sl"><span class="in">in</span> the United Kingdom</span></div><p class="craftblurb">Waiting in a hide until the light, the animal and the frame arrive together, and learning to be there — still, ready and unseen — at the moment they do.</p><p class="cardhook">Learn to work a one-way glass hide, on the farm where the technique was invented.</p><p class="shotcredit"></p><button class="placecue" type="button">5 places →</button></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Safari &amp; Wildlife Guiding"><a class="cardlink" href="/atlas/safari-and-wildlife-guiding" aria-label="Open the Safari &amp; Wildlife Guiding skill sheet"></a><div class="openedon">Opened <b>23 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Safari &amp; Wildlife Guiding</span></span><span class="sl">Learn <span class="craftname">Safari &amp; Wildlife Guiding</span></span><span class="sl">Learn <span class="craftname">Safari &amp; Wildlife Guiding</span></span><span class="sl">Learn <span class="craftname">Safari &amp; Wildlife Guiding</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Greater Kruger / Makuleke Concession, South Africa</span><span class="sl"><span class="in">in</span> South Africa</span><span class="sl"><span class="in">in</span> Botswana</span><span class="sl"><span class="in">in</span> Kenya</span></div><p class="craftblurb">Reading spoor, tracking lions on foot and naming every bird, tree and behaviour across unfenced wilderness until the bush itself becomes your language.</p><p class="cardhook">Learn to track dangerous game on foot, living in unfenced camps where the FGASA standard was forged.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard walks" data-shot style="--sc:#94ad86;--shot:url(/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg)" data-craft="Hatha &amp; Vinyasa Yoga"><a class="cardlink" href="/atlas/hatha-and-vinyasa-yoga" aria-label="Open the Hatha &amp; Vinyasa Yoga skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Hatha &amp; Vinyasa Yoga</span></span><span class="sl">Learn <span class="craftname">Hatha &amp; Vinyasa Yoga</span></span><span class="sl">Learn <span class="craftname">Hatha &amp; Vinyasa Yoga</span></span><span class="sl">Learn <span class="craftname">Hatha &amp; Vinyasa Yoga</span></span><span class="sl">Learn <span class="craftname">Hatha &amp; Vinyasa Yoga</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Mysore, India</span><span class="sl"><span class="in">in</span> Rishikesh, India</span><span class="sl"><span class="in">in</span> Ubud, Bali, Indonesia</span><span class="sl"><span class="in">in</span> Mysore, India</span><span class="sl"><span class="in">in</span> Encinitas, California, United States</span></div><p class="craftblurb">The breath-linked flow of posture and stillness that became the world&#x27;s most-practiced moving meditation, rooted on the banks of the Ganges and in the halls of the Mysore Palace.</p><p class="cardhook">Learn the flow in the palace city where Krishnamacharya built vinyasa in the first place.</p><p class="shotcredit">Photo: Atmavikasa Centre of Yogic Sciences</p><button class="placecue" type="button">4 places →</button></article><article class="gcard walks" style="--sc:#cf8f6e" data-craft="Perfumery"><a class="cardlink" href="/atlas/perfumery" aria-label="Open the Perfumery skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Perfumery</span></span><span class="sl">Learn <span class="craftname">Perfumery</span></span><span class="sl">Learn <span class="craftname">Perfumery</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Grasse, France</span><span class="sl"><span class="in">in</span> Grasse, France</span><span class="sl"><span class="in">in</span> Versailles / Paris, France</span></div><p class="craftblurb">Standing at the perfumer&#x27;s organ, hundreds of raw materials at your fingertips, building an invisible architecture of memory one drop at a time.</p><p class="cardhook">Learn the nose in the world capital of perfume, where field, still and perfumer have run unbroken since the 1600s.</p><p class="shotcredit"></p><button class="placecue" type="button">2 places →</button></article><article class="gcard walks" style="--sc:#cf8f6e" data-craft="Photography"><a class="cardlink" href="/atlas/photography" aria-label="Open the Photography skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Photography</span></span><span class="sl">Learn <span class="craftname">Photography</span></span><span class="sl">Learn <span class="craftname">Photography</span></span><span class="sl">Learn <span class="craftname">Photography</span></span><span class="sl">Learn <span class="craftname">Photography</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Paris, France</span><span class="sl"><span class="in">in</span> New York City, United States</span><span class="sl"><span class="in">in</span> Paris, France</span><span class="sl"><span class="in">in</span> Arles, France</span><span class="sl"><span class="in">in</span> London, United Kingdom</span></div><p class="craftblurb">Seeing with light and time, then committing to a single frame, in darkroom and field, until your eye becomes unmistakably your own.</p><p class="cardhook">Learn to see a few streets from where Daguerre announced the medium to the Académie in 1839.</p><p class="shotcredit"></p><button class="placecue" type="button">4 places →</button></article><article class="gcard walks" style="--sc:#cf8f6e" data-craft="Pottery &amp; Ceramics"><a class="cardlink" href="/atlas/pottery-and-ceramics" aria-label="Open the Pottery &amp; Ceramics skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Pottery &amp; Ceramics</span></span><span class="sl">Learn <span class="craftname">Pottery &amp; Ceramics</span></span><span class="sl">Learn <span class="craftname">Pottery &amp; Ceramics</span></span><span class="sl">Learn <span class="craftname">Pottery &amp; Ceramics</span></span><span class="sl">Learn <span class="craftname">Pottery &amp; Ceramics</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Mashiko, Japan</span><span class="sl"><span class="in">in</span> Mashiko, Japan</span><span class="sl"><span class="in">in</span> Jingdezhen, China</span><span class="sl"><span class="in">in</span> Bizen / Seto / Tokoname (Six Ancient Kilns), Japan</span><span class="sl"><span class="in">in</span> St Ives, Cornwall, United Kingdom</span></div><p class="craftblurb">You center wet clay on a spinning wheel and pull a living vessel up out of mud, then trust it to the fire.</p><p class="cardhook">Hamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.</p><p class="shotcredit"></p><button class="placecue" type="button">4 places →</button></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Vipassana &amp; Meditation"><a class="cardlink" href="/atlas/vipassana-and-meditation" aria-label="Open the Vipassana &amp; Meditation skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Vipassana &amp; Meditation</span></span><span class="sl">Learn <span class="craftname">Vipassana &amp; Meditation</span></span><span class="sl">Learn <span class="craftname">Vipassana &amp; Meditation</span></span><span class="sl">Learn <span class="craftname">Vipassana &amp; Meditation</span></span><span class="sl">Learn <span class="craftname">Vipassana &amp; Meditation</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Igatpuri (Dhamma Giri), India</span><span class="sl"><span class="in">in</span> India</span><span class="sl"><span class="in">in</span> Myanmar</span><span class="sl"><span class="in">in</span> Thailand</span><span class="sl"><span class="in">in</span> the USA</span></div><p class="craftblurb">Ten days of noble silence and bare attention to breath and sensation, an unbroken Theravada technique taught exactly as it was 2,500 years ago.</p><p class="cardhook">Learn the ten-day course at the source, in the world headquarters where the modern revival began.</p><p class="shotcredit"></p><button class="placecue" type="button">4 places →</button></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Windsurfing &amp; Wing-foil"><a class="cardlink" href="/atlas/windsurfing-and-wing-foil" aria-label="Open the Windsurfing &amp; Wing-foil skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span><span class="sl">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span><span class="sl">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span><span class="sl">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span><span class="sl">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span><span class="sl">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span><span class="sl">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span><span class="sl">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span><span class="sl">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Karpathos (Afiartis), Greece</span><span class="sl"><span class="in">in</span> Maui (Ho&#x27;okipa &amp; Kanaha), United States</span><span class="sl"><span class="in">in</span> Pozo Izquierdo, Gran Canaria, Spain</span><span class="sl"><span class="in">in</span> Tarifa, Spain</span><span class="sl"><span class="in">in</span> Lo Stagnone / Marsala, Sicily, Italy</span><span class="sl"><span class="in">in</span> Dahab (the Lagoon), Sinai, Egypt</span><span class="sl"><span class="in">in</span> Karpathos (Afiartis), Greece</span><span class="sl"><span class="in">in</span> Santa Monica / Southern California, United States</span><span class="sl"><span class="in">in</span> Naxos (St. George Lagoon), Greece</span></div><p class="craftblurb">Rig a sail to a board and steer by feel through your feet, then graduate to a wing and a foil that lifts you silently clear of the water.</p><p class="cardhook">Sail the strongest, most reliable meltemi in Greece — 25–35 knots for weeks, with a tamer bay to step up from.</p><p class="shotcredit"></p><button class="placecue" type="button">8 places →</button></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="Wine &amp; Sommellerie"><a class="cardlink" href="/atlas/wine-and-sommellerie" aria-label="Open the Wine &amp; Sommellerie skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Wine &amp; Sommellerie</span></span><span class="sl">Learn <span class="craftname">Wine &amp; Sommellerie</span></span><span class="sl">Learn <span class="craftname">Wine &amp; Sommellerie</span></span><span class="sl">Learn <span class="craftname">Wine &amp; Sommellerie</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Bordeaux, France</span><span class="sl"><span class="in">in</span> France</span><span class="sl"><span class="in">in</span> the United Kingdom</span><span class="sl"><span class="in">in</span> the United States</span></div><p class="craftblurb">The disciplined reading of terroir, vintage and varietal in the glass, until your palate can name a wine&#x27;s birthplace blind.</p><p class="cardhook">Learn to taste the terroir that wrote the rulebook, among the classified-growth chateaux.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Ashtanga Yoga"><a class="cardlink" href="/atlas/ashtanga-yoga" aria-label="Open the Ashtanga Yoga skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Ashtanga Yoga</span></span><span class="sl">Learn <span class="craftname">Ashtanga Yoga</span></span><span class="sl">Learn <span class="craftname">Ashtanga Yoga</span></span><span class="sl">Learn <span class="craftname">Ashtanga Yoga</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Mysore (Gokulam), India</span><span class="sl"><span class="in">in</span> India</span><span class="sl"><span class="in">in</span> the United Kingdom</span><span class="sl"><span class="in">in</span> the United States</span></div><p class="craftblurb">The fierce, set-sequence breath-and-movement discipline of Pattabhi Jois, where you earn each posture one practice at a time at dawn.</p><p class="cardhook">Learn the set sequence at dawn in the neighbourhood every authorised Ashtanga teacher on earth traces home.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Cold Exposure (Wim Hof Method)"><a class="cardlink" href="/atlas/cold-exposure-wim-hof-method" aria-label="Open the Cold Exposure (Wim Hof Method) skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Cold Exposure (Wim Hof Method)</span></span><span class="sl">Learn <span class="craftname">Cold Exposure (Wim Hof Method)</span></span><span class="sl">Learn <span class="craftname">Cold Exposure (Wim Hof Method)</span></span><span class="sl">Learn <span class="craftname">Cold Exposure (Wim Hof Method)</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Przesieka, Karkonosze Mountains, Poland</span><span class="sl"><span class="in">in</span> Poland</span><span class="sl"><span class="in">in</span> the Netherlands</span><span class="sl"><span class="in">in</span> Iceland</span></div><p class="craftblurb">A trinity of conscious breathing, deliberate cold and focused mindset that lets ordinary people stride bare-skinned into ice and snow.</p><p class="cardhook">Learn to walk barefoot into snow on Wim Hof&#x27;s own mountain, earning the last module up Mount Sniezka.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Freediving"><a class="cardlink" href="/atlas/freediving" aria-label="Open the Freediving skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Freediving</span></span><span class="sl">Learn <span class="craftname">Freediving</span></span><span class="sl">Learn <span class="craftname">Freediving</span></span><span class="sl">Learn <span class="craftname">Freediving</span></span><span class="sl">Learn <span class="craftname">Freediving</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Apnea Academy / Italian Mediterranean, Italy</span><span class="sl"><span class="in">in</span> Egypt</span><span class="sl"><span class="in">in</span> the Bahamas</span><span class="sl"><span class="in">in</span> Greece</span><span class="sl"><span class="in">in</span> Italy</span></div><p class="craftblurb">Drop on a single breath into the blue, slow your heart, and learn the discipline of going deep on nothing but your lungs and your nerve.</p><p class="cardhook">The Mediterranean that bred Mayol, Maiorca and Pelizzari is where competitive apnea was born, and the Apnea Academy lineage still teaches it at the source.</p><p class="shotcredit"></p><button class="placecue" type="button">4 places →</button></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="French Pastry &amp; Patisserie"><a class="cardlink" href="/atlas/french-pastry-and-patisserie" aria-label="Open the French Pastry &amp; Patisserie skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">French Pastry &amp; Patisserie</span></span><span class="sl">Learn <span class="craftname">French Pastry &amp; Patisserie</span></span><span class="sl">Learn <span class="craftname">French Pastry &amp; Patisserie</span></span><span class="sl">Learn <span class="craftname">French Pastry &amp; Patisserie</span></span><span class="sl">Learn <span class="craftname">French Pastry &amp; Patisserie</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Paris, France</span><span class="sl"><span class="in">in</span> Paris, France</span><span class="sl"><span class="in">in</span> Tain-l&#x27;Hermitage / Lyon, France</span><span class="sl"><span class="in">in</span> Tokyo / Osaka, Japan</span><span class="sl"><span class="in">in</span> New York City, United States</span></div><p class="craftblurb">The lacquered glaze, the tempered ganache, the entremets built layer by mirrored layer — the most exacting sweet craft on earth, learned plaque by plaque.</p><p class="cardhook">Learn to build an entremets at the bench where the CAP Pâtissier was forged.</p><p class="shotcredit"></p><button class="placecue" type="button">4 places →</button></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="Italian Cuisine &amp; Pasta"><a class="cardlink" href="/atlas/italian-cuisine-and-pasta" aria-label="Open the Italian Cuisine &amp; Pasta skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Italian Cuisine &amp; Pasta</span></span><span class="sl">Learn <span class="craftname">Italian Cuisine &amp; Pasta</span></span><span class="sl">Learn <span class="craftname">Italian Cuisine &amp; Pasta</span></span><span class="sl">Learn <span class="craftname">Italian Cuisine &amp; Pasta</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Bologna, Italy</span><span class="sl"><span class="in">in</span> Bologna, Italy</span><span class="sl"><span class="in">in</span> Colorno (Parma), Italy</span><span class="sl"><span class="in">in</span> Forlimpopoli (Emilia-Romagna), Italy</span></div><p class="craftblurb">The art of the rolled sheet and the regional table — hands learning to read dough by touch and build a menu from the land it grows on.</p><p class="cardhook">Learn to roll tortellini by hand from the sfogline who guard the tradition, in the city that gave them to the world.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard walks" style="--sc:#cf8f6e" data-craft="Jewelry &amp; Goldsmithing"><a class="cardlink" href="/atlas/jewelry-and-goldsmithing" aria-label="Open the Jewelry &amp; Goldsmithing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Jewelry &amp; Goldsmithing</span></span><span class="sl">Learn <span class="craftname">Jewelry &amp; Goldsmithing</span></span><span class="sl">Learn <span class="craftname">Jewelry &amp; Goldsmithing</span></span><span class="sl">Learn <span class="craftname">Jewelry &amp; Goldsmithing</span></span><span class="sl">Learn <span class="craftname">Jewelry &amp; Goldsmithing</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Florence, Italy</span><span class="sl"><span class="in">in</span> Italy</span><span class="sl"><span class="in">in</span> the United States</span><span class="sl"><span class="in">in</span> Germany</span><span class="sl"><span class="in">in</span> India</span></div><p class="craftblurb">Sawing, soldering, setting stones and raising metal at the bench until a sketch becomes a wearable object that will be handed down.</p><p class="cardhook">Learn to saw, solder and set stones at the first Italian school for the craft, by the goldsmiths&#x27; bridge.</p><p class="shotcredit"></p><button class="placecue" type="button">4 places →</button></article><article class="gcard walks" data-shot style="--sc:#6fa3a0;--shot:url(/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg)" data-craft="Kitesurfing"><a class="cardlink" href="/atlas/kitesurfing" aria-label="Open the Kitesurfing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Kitesurfing</span></span><span class="sl">Learn <span class="craftname">Kitesurfing</span></span><span class="sl">Learn <span class="craftname">Kitesurfing</span></span><span class="sl">Learn <span class="craftname">Kitesurfing</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Tarifa, Spain</span><span class="sl"><span class="in">in</span> Spain</span><span class="sl"><span class="in">in</span> the Dominican Republic</span><span class="sl"><span class="in">in</span> the United States</span></div><p class="craftblurb">Harness a wind-driven kite and carve, jump and loop across open water, flying between sea and sky on a single board.</p><p class="cardhook">Learn to ride Valdevaqueros in the wind capital of Europe, where it blows some 300 days a year.</p><p class="shotcredit">Photo: Matos Tarifa</p><button class="placecue" type="button">3 places →</button></article><article class="gcard" style="--sc:#94ad86" data-craft="Lymphatic Drainage"><a class="cardlink" href="/atlas/lymphatic-drainage" aria-label="Open the Lymphatic Drainage skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Lymphatic Drainage</span></span><span class="sl">Learn <span class="craftname">Lymphatic Drainage</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Walchsee, Austria</span><span class="sl"><span class="in">in</span> Austria</span></div><p class="craftblurb">The clinical, featherlight touch that treats lymphoedema — a credential a health system reimburses, not a spa detox.</p><p class="cardhook">The Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and the final training week treats real patients, not classmates. A dedicated English-language course runs at the source.</p><p class="shotcredit"></p></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="Modernist Spanish Cuisine"><a class="cardlink" href="/atlas/modernist-spanish-cuisine" aria-label="Open the Modernist Spanish Cuisine skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Modernist Spanish Cuisine</span></span><span class="sl">Learn <span class="craftname">Modernist Spanish Cuisine</span></span><span class="sl">Learn <span class="craftname">Modernist Spanish Cuisine</span></span><span class="sl">Learn <span class="craftname">Modernist Spanish Cuisine</span></span><span class="sl">Learn <span class="craftname">Modernist Spanish Cuisine</span></span><span class="sl">Learn <span class="craftname">Modernist Spanish Cuisine</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> San Sebastián (Donostia), Spain</span><span class="sl"><span class="in">in</span> Barcelona, Spain</span><span class="sl"><span class="in">in</span> Madrid, Spain</span><span class="sl"><span class="in">in</span> Girona, Spain</span><span class="sl"><span class="in">in</span> San Sebastián (Donostia), Spain</span><span class="sl"><span class="in">in</span> Roses / Cala Montjoi (Costa Brava), Spain</span></div><p class="craftblurb">The science-driven vanguard of foams, spherification and deconstruction that Ferran Adrià unleashed from a cove on the Costa Brava and rewired global fine dining.</p><p class="cardhook">Learn the technique with academic rigour by day, and watch it pushed nightly at Mugaritz.</p><p class="shotcredit"></p><button class="placecue" type="button">5 places →</button></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="New Basque Cuisine"><a class="cardlink" href="/atlas/new-basque-cuisine" aria-label="Open the New Basque Cuisine skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">New Basque Cuisine</span></span><span class="sl">Learn <span class="craftname">New Basque Cuisine</span></span><span class="sl">Learn <span class="craftname">New Basque Cuisine</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> San Sebastián (Donostia), Spain</span><span class="sl"><span class="in">in</span> San Sebastián (Donostia), Spain</span><span class="sl"><span class="in">in</span> Errenteria / Lasarte-Oria (Gipuzkoa), Spain</span></div><p class="craftblurb">The 1970s avant-garde revolt that revived Basque tradition through French nouvelle technique — local product worked with intellect and fire.</p><p class="cardhook">Learn where Arzak and Subijana launched the movement, in one of the most starred square kilometres on earth.</p><p class="shotcredit"></p><button class="placecue" type="button">2 places →</button></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Rock Climbing"><a class="cardlink" href="/atlas/rock-climbing" aria-label="Open the Rock Climbing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Rock Climbing</span></span><span class="sl">Learn <span class="craftname">Rock Climbing</span></span><span class="sl">Learn <span class="craftname">Rock Climbing</span></span><span class="sl">Learn <span class="craftname">Rock Climbing</span></span><span class="sl">Learn <span class="craftname">Rock Climbing</span></span><span class="sl">Learn <span class="craftname">Rock Climbing</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Yosemite Valley, United States</span><span class="sl"><span class="in">in</span> Yosemite Valley, United States</span><span class="sl"><span class="in">in</span> Chamonix-Mont-Blanc, France</span><span class="sl"><span class="in">in</span> Kalymnos, Greece</span><span class="sl"><span class="in">in</span> Peak District (Stanage, Sheffield), United Kingdom</span><span class="sl"><span class="in">in</span> Joshua Tree National Park, United States</span></div><p class="craftblurb">Reading stone with your fingertips and trusting your own placements as you move up vertical rock under your own power.</p><p class="cardhook">Learn big-wall craft on the Valley floor, under the granite of El Capitan.</p><p class="shotcredit"></p><button class="placecue" type="button">5 places →</button></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Sailing &amp; Yachtmaster"><a class="cardlink" href="/atlas/sailing-and-yachtmaster" aria-label="Open the Sailing &amp; Yachtmaster skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Sailing &amp; Yachtmaster</span></span><span class="sl">Learn <span class="craftname">Sailing &amp; Yachtmaster</span></span><span class="sl">Learn <span class="craftname">Sailing &amp; Yachtmaster</span></span><span class="sl">Learn <span class="craftname">Sailing &amp; Yachtmaster</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> The Solent (Cowes &amp; Hamble), United Kingdom</span><span class="sl"><span class="in">in</span> the United Kingdom</span><span class="sl"><span class="in">in</span> New Zealand</span><span class="sl"><span class="in">in</span> the British Virgin Islands</span></div><p class="craftblurb">Take command of a yacht offshore, reading wind, tide and stars until the sea answers to your hand on the helm.</p><p class="cardhook">The Solent is where the RYA built its Yachtmaster scheme, and its tidal chaos still forges the most respected ticket afloat, one examined and earned rather than bought.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard" style="--sc:#cf8f6e" data-craft="Self-Sufficiency &amp; Food Preservation"><a class="cardlink" href="/atlas/self-sufficiency" aria-label="Open the Self-Sufficiency &amp; Food Preservation skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Self-Sufficiency &amp; Food Preservation</span></span><span class="sl">Learn <span class="craftname">Self-Sufficiency &amp; Food Preservation</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Almería, Spain</span><span class="sl"><span class="in">in</span> Spain</span></div><p class="craftblurb">The one craft here sold as walking away from everyone — whose own founder said its whole point was to end up needing them. Growing your own food, and keeping it through the winter, is real skill: soil, water, seed, and a preservation craft where a mistake can genuinely poison you.</p><p class="shotcredit"></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Ski-touring &amp; Splitboard"><a class="cardlink" href="/atlas/ski-touring-and-splitboard" aria-label="Open the Ski-touring &amp; Splitboard skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Ski-touring &amp; Splitboard</span></span><span class="sl">Learn <span class="craftname">Ski-touring &amp; Splitboard</span></span><span class="sl">Learn <span class="craftname">Ski-touring &amp; Splitboard</span></span><span class="sl">Learn <span class="craftname">Ski-touring &amp; Splitboard</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Chamonix / Verbier (Haute Route), France / Switzerland</span><span class="sl"><span class="in">in</span> France / Switzerland</span><span class="sl"><span class="in">in</span> the United States</span><span class="sl"><span class="in">in</span> Norway</span></div><p class="craftblurb">Climbing under your own power on skins, then dropping into untracked snow far beyond the resort boundary.</p><p class="cardhook">Learn to earn the Haute Route, first skied in 1903 and still the tour every tourer dreams of.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Sound Healing"><a class="cardlink" href="/atlas/sound-healing" aria-label="Open the Sound Healing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Sound Healing</span></span><span class="sl">Learn <span class="craftname">Sound Healing</span></span><span class="sl">Learn <span class="craftname">Sound Healing</span></span><span class="sl">Learn <span class="craftname">Sound Healing</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Kathmandu / Pokhara, Nepal</span><span class="sl"><span class="in">in</span> Nepal</span><span class="sl"><span class="in">in</span> the USA</span><span class="sl"><span class="in">in</span> the UK</span></div><p class="craftblurb">Tuning the body with gongs, voice and Himalayan bowls, the ancient science of Nada Yoga where vibration becomes medicine.</p><p class="cardhook">Learn bowls and gongs at the Himalayan source, from the makers and Tibetan-rooted healers themselves.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Spearfishing"><a class="cardlink" href="/atlas/spearfishing" aria-label="Open the Spearfishing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Spearfishing</span></span><span class="sl">Learn <span class="craftname">Spearfishing</span></span><span class="sl">Learn <span class="craftname">Spearfishing</span></span><span class="sl">Learn <span class="craftname">Spearfishing</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Côte d&#x27;Azur (Cassis to Antibes), France</span><span class="sl"><span class="in">in</span> the United States</span><span class="sl"><span class="in">in</span> France</span><span class="sl"><span class="in">in</span> Mexico</span></div><p class="craftblurb">Hold your breath, stalk the reef or the open blue, and take a single clean shot, the oldest hunt on Earth done on lungs alone.</p><p class="cardhook">Learn on the coast where sport spearfishing began in the 1920s, and the mask and fins were born with it.</p><p class="shotcredit"></p><button class="placecue" type="button">3 places →</button></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Surfing"><a class="cardlink" href="/atlas/surfing" aria-label="Open the Surfing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Surfing</span></span><span class="sl">Learn <span class="craftname">Surfing</span></span><span class="sl">Learn <span class="craftname">Surfing</span></span><span class="sl">Learn <span class="craftname">Surfing</span></span><span class="sl">Learn <span class="craftname">Surfing</span></span><span class="sl">Learn <span class="craftname">Surfing</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Waikiki, Oahu, United States</span><span class="sl"><span class="in">in</span> Waikiki, Oahu, United States</span><span class="sl"><span class="in">in</span> Ericeira, Portugal</span><span class="sl"><span class="in">in</span> Canggu &amp; Uluwatu, Bali, Indonesia</span><span class="sl"><span class="in">in</span> Peniche, Portugal</span><span class="sl"><span class="in">in</span> Taghazout &amp; Tamraght, Morocco</span></div><p class="craftblurb">Read the ocean, paddle into a moving wall of water and trim along its face in the oldest wave-riding craft on earth.</p><p class="cardhook">Learn on the rolling rights where he&#x27;e nalu began and Duke Kahanamoku carried surfing to the world.</p><p class="shotcredit"></p><button class="placecue" type="button">5 places →</button></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="Sushi &amp; Washoku"><a class="cardlink" href="/atlas/sushi-and-washoku" aria-label="Open the Sushi &amp; Washoku skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Sushi &amp; Washoku</span></span><span class="sl">Learn <span class="craftname">Sushi &amp; Washoku</span></span><span class="sl">Learn <span class="craftname">Sushi &amp; Washoku</span></span><span class="sl">Learn <span class="craftname">Sushi &amp; Washoku</span></span><span class="sl">Learn <span class="craftname">Sushi &amp; Washoku</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Tokyo (Tsukiji / Toyosu), Japan</span><span class="sl"><span class="in">in</span> Tokyo (Tsukiji / Toyosu), Japan</span><span class="sl"><span class="in">in</span> Osaka, Japan</span><span class="sl"><span class="in">in</span> Kyoto, Japan</span><span class="sl"><span class="in">in</span> Los Angeles (Torrance), United States</span></div><p class="craftblurb">The exacting art of edomae sushi and washoku, where a lifetime is spent mastering rice, knife, and the fifth taste at the source of a UNESCO-listed cuisine.</p><p class="cardhook">Learn edomae sushi at its birthplace, training beside the world&#x27;s most demanding fish market.</p><p class="shotcredit"></p><button class="placecue" type="button">4 places →</button></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Thai Massage"><a class="cardlink" href="/atlas/thai-massage" aria-label="Open the Thai Massage skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay"><span class="sl on">Learn <span class="craftname">Thai Massage</span></span><span class="sl">Learn <span class="craftname">Thai Massage</span></span><span class="sl">Learn <span class="craftname">Thai Massage</span></span></p><div class="wherealive"><span class="sl on"><span class="in">in</span> Chiang Mai, Thailand</span><span class="sl"><span class="in">in</span> Chiang Mai, Thailand</span><span class="sl"><span class="in">in</span> Bangkok, Thailand</span></div><p class="craftblurb">An acupressure-and-assisted-yoga floor art where the practitioner walks energy lines along the body with palms, thumbs, elbows, and feet.</p><p class="cardhook">Learn Northern-style Nuad Thai at the source, and walk out with a ministry-recognised certificate.</p><p class="shotcredit"></p><button class="placecue" type="button">2 places →</button></article></div></div><p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet →</a></p></div></section>
+<section class="newopen" id="opened" aria-labelledby="opened-h"><div class="wrap"><div class="nohead"><div class="eyebrow">Opened by the Circle</div><h2 class="serif" id="opened-h">The crafts someone wrote me a note about, newest first.</h2></div><div class="nocount"><span id="noseen">1 of 28</span><span class="track"><i id="nofill"></i></span><span>all 28 — scroll</span></div><div class="nowrap-rail"><div class="norail" id="norail"><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Wildlife Photography"><a class="cardlink" href="/atlas/wildlife-photography" aria-label="Open the Wildlife Photography skill sheet"></a><div class="openedon">Opened <b>24 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Wildlife Photography</span></p><div class="wherealive"><span class="in">in</span> Pusztaszer, Hungary</div><p class="craftblurb">Waiting in a hide until the light, the animal and the frame arrive together, and learning to be there — still, ready and unseen — at the moment they do.</p><p class="cardhook">Learn to work a one-way glass hide, on the farm where the technique was invented.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/wildlife-photography#other-places">5 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Pusztaszer</span><span class="pn" role="listitem">Maasai Mara Conservancies</span><span class="pn" role="listitem">Kuhmo</span><span class="pn" role="listitem">South Luangwa</span><span class="pn" role="listitem">Falmouth</span></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Safari &amp; Wildlife Guiding"><a class="cardlink" href="/atlas/safari-and-wildlife-guiding" aria-label="Open the Safari &amp; Wildlife Guiding skill sheet"></a><div class="openedon">Opened <b>23 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Safari &amp; Wildlife Guiding</span></p><div class="wherealive"><span class="in">in</span> Greater Kruger / Makuleke Concession, South Africa</div><p class="craftblurb">Reading spoor, tracking lions on foot and naming every bird, tree and behaviour across unfenced wilderness until the bush itself becomes your language.</p><p class="cardhook">Learn to track dangerous game on foot, living in unfenced camps where the FGASA standard was forged.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/safari-and-wildlife-guiding#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Greater Kruger / Makuleke Concession</span><span class="pn" role="listitem">Okavango Delta / Mashatu</span><span class="pn" role="listitem">Maasai Mara / Laikipia</span></p></article><article class="gcard walks" data-shot style="--sc:#94ad86;--shot:url(/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg)" data-craft="Hatha &amp; Vinyasa Yoga"><a class="cardlink" href="/atlas/hatha-and-vinyasa-yoga" aria-label="Open the Hatha &amp; Vinyasa Yoga skill sheet"></a><div class="cardshot"></div><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Hatha &amp; Vinyasa Yoga</span></p><div class="wherealive"><span class="in">in</span> Mysore, India</div><p class="craftblurb">The breath-linked flow of posture and stillness that became the world&#x27;s most-practiced moving meditation, rooted on the banks of the Ganges and in the halls of the Mysore Palace.</p><p class="cardhook">Learn the flow in the palace city where Krishnamacharya built vinyasa in the first place.</p><p class="shotcredit">Photo: Atmavikasa Centre of Yogic Sciences</p><a class="placecue" href="/atlas/hatha-and-vinyasa-yoga#other-places">4 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Rishikesh</span><span class="pn" role="listitem">Ubud, Bali</span><span class="pn" role="listitem">Mysore</span><span class="pn" role="listitem">Encinitas, California</span></p></article><article class="gcard walks" style="--sc:#cf8f6e" data-craft="Perfumery"><a class="cardlink" href="/atlas/perfumery" aria-label="Open the Perfumery skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Perfumery</span></p><div class="wherealive"><span class="in">in</span> Grasse, France</div><p class="craftblurb">Standing at the perfumer&#x27;s organ, hundreds of raw materials at your fingertips, building an invisible architecture of memory one drop at a time.</p><p class="cardhook">Learn the nose in the world capital of perfume, where field, still and perfumer have run unbroken since the 1600s.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/perfumery#other-places">2 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Grasse</span><span class="pn" role="listitem">Versailles / Paris</span></p></article><article class="gcard walks" style="--sc:#cf8f6e" data-craft="Photography"><a class="cardlink" href="/atlas/photography" aria-label="Open the Photography skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Photography</span></p><div class="wherealive"><span class="in">in</span> Paris, France</div><p class="craftblurb">Seeing with light and time, then committing to a single frame, in darkroom and field, until your eye becomes unmistakably your own.</p><p class="cardhook">Learn to see a few streets from where Daguerre announced the medium to the Académie in 1839.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/photography#other-places">4 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">New York City</span><span class="pn" role="listitem">Paris</span><span class="pn" role="listitem">Arles</span><span class="pn" role="listitem">London</span></p></article><article class="gcard walks" style="--sc:#cf8f6e" data-craft="Pottery &amp; Ceramics"><a class="cardlink" href="/atlas/pottery-and-ceramics" aria-label="Open the Pottery &amp; Ceramics skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Pottery &amp; Ceramics</span></p><div class="wherealive"><span class="in">in</span> Mashiko, Japan</div><p class="craftblurb">You center wet clay on a spinning wheel and pull a living vessel up out of mud, then trust it to the fire.</p><p class="cardhook">Hamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/pottery-and-ceramics#other-places">4 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Mashiko</span><span class="pn" role="listitem">Jingdezhen</span><span class="pn" role="listitem">Bizen / Seto / Tokoname (Six Ancient Kilns)</span><span class="pn" role="listitem">St Ives, Cornwall</span></p></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Vipassana &amp; Meditation"><a class="cardlink" href="/atlas/vipassana-and-meditation" aria-label="Open the Vipassana &amp; Meditation skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Vipassana &amp; Meditation</span></p><div class="wherealive"><span class="in">in</span> Igatpuri (Dhamma Giri), India</div><p class="craftblurb">Ten days of noble silence and bare attention to breath and sensation, an unbroken Theravada technique taught exactly as it was 2,500 years ago.</p><p class="cardhook">Learn the ten-day course at the source, in the world headquarters where the modern revival began.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/vipassana-and-meditation#other-places">4 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Igatpuri (Dhamma Giri)</span><span class="pn" role="listitem">Yangon</span><span class="pn" role="listitem">Chiang Mai</span><span class="pn" role="listitem">Barre, Massachusetts</span></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Windsurfing &amp; Wing-foil"><a class="cardlink" href="/atlas/windsurfing-and-wing-foil" aria-label="Open the Windsurfing &amp; Wing-foil skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Windsurfing &amp; Wing-foil</span></p><div class="wherealive"><span class="in">in</span> Karpathos (Afiartis), Greece</div><p class="craftblurb">Rig a sail to a board and steer by feel through your feet, then graduate to a wing and a foil that lifts you silently clear of the water.</p><p class="cardhook">Sail the strongest, most reliable meltemi in Greece — 25–35 knots for weeks, with a tamer bay to step up from.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/windsurfing-and-wing-foil#other-places">8 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Maui (Ho&#x27;okipa &amp; Kanaha)</span><span class="pn" role="listitem">Pozo Izquierdo, Gran Canaria</span><span class="pn" role="listitem">Tarifa</span><span class="pn" role="listitem">Lo Stagnone / Marsala, Sicily</span><span class="pn" role="listitem">Dahab (the Lagoon), Sinai</span><span class="pn" role="listitem">Karpathos (Afiartis)</span><span class="pn" role="listitem">Santa Monica / Southern California</span><span class="pn" role="listitem">Naxos (St. George Lagoon)</span></p></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="Wine &amp; Sommellerie"><a class="cardlink" href="/atlas/wine-and-sommellerie" aria-label="Open the Wine &amp; Sommellerie skill sheet"></a><div class="openedon">Opened <b>6 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Wine &amp; Sommellerie</span></p><div class="wherealive"><span class="in">in</span> Bordeaux, France</div><p class="craftblurb">The disciplined reading of terroir, vintage and varietal in the glass, until your palate can name a wine&#x27;s birthplace blind.</p><p class="cardhook">Learn to taste the terroir that wrote the rulebook, among the classified-growth chateaux.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/wine-and-sommellerie#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Bordeaux</span><span class="pn" role="listitem">London</span><span class="pn" role="listitem">Napa Valley</span></p></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Ashtanga Yoga"><a class="cardlink" href="/atlas/ashtanga-yoga" aria-label="Open the Ashtanga Yoga skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Ashtanga Yoga</span></p><div class="wherealive"><span class="in">in</span> Mysore (Gokulam), India</div><p class="craftblurb">The fierce, set-sequence breath-and-movement discipline of Pattabhi Jois, where you earn each posture one practice at a time at dawn.</p><p class="cardhook">Learn the set sequence at dawn in the neighbourhood every authorised Ashtanga teacher on earth traces home.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/ashtanga-yoga#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Mysore (Gokulam)</span><span class="pn" role="listitem">London</span><span class="pn" role="listitem">New York City</span></p></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Cold Exposure (Wim Hof Method)"><a class="cardlink" href="/atlas/cold-exposure-wim-hof-method" aria-label="Open the Cold Exposure (Wim Hof Method) skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Cold Exposure (Wim Hof Method)</span></p><div class="wherealive"><span class="in">in</span> Przesieka, Karkonosze Mountains, Poland</div><p class="craftblurb">A trinity of conscious breathing, deliberate cold and focused mindset that lets ordinary people stride bare-skinned into ice and snow.</p><p class="cardhook">Learn to walk barefoot into snow on Wim Hof&#x27;s own mountain, earning the last module up Mount Sniezka.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/cold-exposure-wim-hof-method#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Przesieka, Karkonosze Mountains</span><span class="pn" role="listitem">Amsterdam</span><span class="pn" role="listitem">Reykjavik &amp; surrounds</span></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Freediving"><a class="cardlink" href="/atlas/freediving" aria-label="Open the Freediving skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Freediving</span></p><div class="wherealive"><span class="in">in</span> Apnea Academy / Italian Mediterranean, Italy</div><p class="craftblurb">Drop on a single breath into the blue, slow your heart, and learn the discipline of going deep on nothing but your lungs and your nerve.</p><p class="cardhook">The Mediterranean that bred Mayol, Maiorca and Pelizzari is where competitive apnea was born, and the Apnea Academy lineage still teaches it at the source.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/freediving#other-places">4 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Dahab (Red Sea)</span><span class="pn" role="listitem">Dean&#x27;s Blue Hole, Long Island</span><span class="pn" role="listitem">Kalamata &amp; the Mani</span><span class="pn" role="listitem">Apnea Academy / Italian Mediterranean</span></p></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="French Pastry &amp; Patisserie"><a class="cardlink" href="/atlas/french-pastry-and-patisserie" aria-label="Open the French Pastry &amp; Patisserie skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">French Pastry &amp; Patisserie</span></p><div class="wherealive"><span class="in">in</span> Paris, France</div><p class="craftblurb">The lacquered glaze, the tempered ganache, the entremets built layer by mirrored layer — the most exacting sweet craft on earth, learned plaque by plaque.</p><p class="cardhook">Learn to build an entremets at the bench where the CAP Pâtissier was forged.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/french-pastry-and-patisserie#other-places">4 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Paris</span><span class="pn" role="listitem">Tain-l&#x27;Hermitage / Lyon</span><span class="pn" role="listitem">Tokyo / Osaka</span><span class="pn" role="listitem">New York City</span></p></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="Italian Cuisine &amp; Pasta"><a class="cardlink" href="/atlas/italian-cuisine-and-pasta" aria-label="Open the Italian Cuisine &amp; Pasta skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Italian Cuisine &amp; Pasta</span></p><div class="wherealive"><span class="in">in</span> Bologna, Italy</div><p class="craftblurb">The art of the rolled sheet and the regional table — hands learning to read dough by touch and build a menu from the land it grows on.</p><p class="cardhook">Learn to roll tortellini by hand from the sfogline who guard the tradition, in the city that gave them to the world.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/italian-cuisine-and-pasta#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Bologna</span><span class="pn" role="listitem">Colorno (Parma)</span><span class="pn" role="listitem">Forlimpopoli (Emilia-Romagna)</span></p></article><article class="gcard walks" style="--sc:#cf8f6e" data-craft="Jewelry &amp; Goldsmithing"><a class="cardlink" href="/atlas/jewelry-and-goldsmithing" aria-label="Open the Jewelry &amp; Goldsmithing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Jewelry &amp; Goldsmithing</span></p><div class="wherealive"><span class="in">in</span> Florence, Italy</div><p class="craftblurb">Sawing, soldering, setting stones and raising metal at the bench until a sketch becomes a wearable object that will be handed down.</p><p class="cardhook">Learn to saw, solder and set stones at the first Italian school for the craft, by the goldsmiths&#x27; bridge.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/jewelry-and-goldsmithing#other-places">4 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Florence</span><span class="pn" role="listitem">Carlsbad / New York</span><span class="pn" role="listitem">Pforzheim</span><span class="pn" role="listitem">Jaipur</span></p></article><article class="gcard walks" data-shot style="--sc:#6fa3a0;--shot:url(/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg);--focal:50% 22%" data-craft="Kitesurfing"><a class="cardlink" href="/atlas/kitesurfing" aria-label="Open the Kitesurfing skill sheet"></a><div class="cardshot"></div><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Kitesurfing</span></p><div class="wherealive"><span class="in">in</span> Tarifa, Spain</div><p class="craftblurb">Harness a wind-driven kite and carve, jump and loop across open water, flying between sea and sky on a single board.</p><p class="cardhook">Learn to ride Valdevaqueros in the wind capital of Europe, where it blows some 300 days a year.</p><p class="shotcredit">Photo: Matos Tarifa</p><a class="placecue" href="/atlas/kitesurfing#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Tarifa</span><span class="pn" role="listitem">Cabarete</span><span class="pn" role="listitem">Maui (Kite Beach, Kanaha)</span></p></article><article class="gcard" style="--sc:#94ad86" data-craft="Lymphatic Drainage"><a class="cardlink" href="/atlas/lymphatic-drainage" aria-label="Open the Lymphatic Drainage skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Lymphatic Drainage</span></p><div class="wherealive"><span class="in">in</span> Walchsee, Austria</div><p class="craftblurb">The clinical, featherlight touch that treats lymphoedema — a credential a health system reimburses, not a spa detox.</p><p class="cardhook">The Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and the final training week treats real patients, not classmates. A dedicated English-language course runs at the source.</p><p class="shotcredit"></p></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="Modernist Spanish Cuisine"><a class="cardlink" href="/atlas/modernist-spanish-cuisine" aria-label="Open the Modernist Spanish Cuisine skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Modernist Spanish Cuisine</span></p><div class="wherealive"><span class="in">in</span> San Sebastián (Donostia), Spain</div><p class="craftblurb">The science-driven vanguard of foams, spherification and deconstruction that Ferran Adrià unleashed from a cove on the Costa Brava and rewired global fine dining.</p><p class="cardhook">Learn the technique with academic rigour by day, and watch it pushed nightly at Mugaritz.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/modernist-spanish-cuisine#other-places">5 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Barcelona</span><span class="pn" role="listitem">Madrid</span><span class="pn" role="listitem">Girona</span><span class="pn" role="listitem">San Sebastián (Donostia)</span><span class="pn" role="listitem">Roses / Cala Montjoi (Costa Brava)<b class="gone">Gone</b></span></p></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="New Basque Cuisine"><a class="cardlink" href="/atlas/new-basque-cuisine" aria-label="Open the New Basque Cuisine skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">New Basque Cuisine</span></p><div class="wherealive"><span class="in">in</span> San Sebastián (Donostia), Spain</div><p class="craftblurb">The 1970s avant-garde revolt that revived Basque tradition through French nouvelle technique — local product worked with intellect and fire.</p><p class="cardhook">Learn where Arzak and Subijana launched the movement, in one of the most starred square kilometres on earth.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/new-basque-cuisine#other-places">2 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">San Sebastián (Donostia)</span><span class="pn" role="listitem">Errenteria / Lasarte-Oria (Gipuzkoa)</span></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Rock Climbing"><a class="cardlink" href="/atlas/rock-climbing" aria-label="Open the Rock Climbing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Rock Climbing</span></p><div class="wherealive"><span class="in">in</span> Yosemite Valley, United States</div><p class="craftblurb">Reading stone with your fingertips and trusting your own placements as you move up vertical rock under your own power.</p><p class="cardhook">Learn big-wall craft on the Valley floor, under the granite of El Capitan.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/rock-climbing#other-places">5 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Yosemite Valley</span><span class="pn" role="listitem">Chamonix-Mont-Blanc</span><span class="pn" role="listitem">Kalymnos</span><span class="pn" role="listitem">Peak District (Stanage, Sheffield)</span><span class="pn" role="listitem">Joshua Tree National Park</span></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Sailing &amp; Yachtmaster"><a class="cardlink" href="/atlas/sailing-and-yachtmaster" aria-label="Open the Sailing &amp; Yachtmaster skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Sailing &amp; Yachtmaster</span></p><div class="wherealive"><span class="in">in</span> The Solent (Cowes &amp; Hamble), United Kingdom</div><p class="craftblurb">Take command of a yacht offshore, reading wind, tide and stars until the sea answers to your hand on the helm.</p><p class="cardhook">The Solent is where the RYA built its Yachtmaster scheme, and its tidal chaos still forges the most respected ticket afloat, one examined and earned rather than bought.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/sailing-and-yachtmaster#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">The Solent (Cowes &amp; Hamble)</span><span class="pn" role="listitem">Auckland</span><span class="pn" role="listitem">Tortola (Nanny Cay)</span></p></article><article class="gcard" style="--sc:#cf8f6e" data-craft="Self-Sufficiency &amp; Food Preservation"><a class="cardlink" href="/atlas/self-sufficiency" aria-label="Open the Self-Sufficiency &amp; Food Preservation skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Self-Sufficiency &amp; Food Preservation</span></p><div class="wherealive"><span class="in">in</span> Almería, Spain</div><p class="craftblurb">The one craft here sold as walking away from everyone — whose own founder said its whole point was to end up needing them. Growing your own food, and keeping it through the winter, is real skill: soil, water, seed, and a preservation craft where a mistake can genuinely poison you.</p><p class="shotcredit"></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Ski-touring &amp; Splitboard"><a class="cardlink" href="/atlas/ski-touring-and-splitboard" aria-label="Open the Ski-touring &amp; Splitboard skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Ski-touring &amp; Splitboard</span></p><div class="wherealive"><span class="in">in</span> Chamonix / Verbier (Haute Route), France / Switzerland</div><p class="craftblurb">Climbing under your own power on skins, then dropping into untracked snow far beyond the resort boundary.</p><p class="cardhook">Learn to earn the Haute Route, first skied in 1903 and still the tour every tourer dreams of.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/ski-touring-and-splitboard#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Chamonix / Verbier (Haute Route)</span><span class="pn" role="listitem">Wasatch (Salt Lake City / Park City)</span><span class="pn" role="listitem">Lyngen Alps</span></p></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Sound Healing"><a class="cardlink" href="/atlas/sound-healing" aria-label="Open the Sound Healing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Sound Healing</span></p><div class="wherealive"><span class="in">in</span> Kathmandu / Pokhara, Nepal</div><p class="craftblurb">Tuning the body with gongs, voice and Himalayan bowls, the ancient science of Nada Yoga where vibration becomes medicine.</p><p class="cardhook">Learn bowls and gongs at the Himalayan source, from the makers and Tibetan-rooted healers themselves.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/sound-healing#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Kathmandu / Pokhara</span><span class="pn" role="listitem">San Francisco / Bay Area</span><span class="pn" role="listitem">Glastonbury / South West England</span></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Spearfishing"><a class="cardlink" href="/atlas/spearfishing" aria-label="Open the Spearfishing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Spearfishing</span></p><div class="wherealive"><span class="in">in</span> Côte d&#x27;Azur (Cassis to Antibes), France</div><p class="craftblurb">Hold your breath, stalk the reef or the open blue, and take a single clean shot, the oldest hunt on Earth done on lungs alone.</p><p class="cardhook">Learn on the coast where sport spearfishing began in the 1920s, and the mask and fins were born with it.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/spearfishing#other-places">3 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Kona, Big Island</span><span class="pn" role="listitem">Côte d&#x27;Azur (Cassis to Antibes)</span><span class="pn" role="listitem">Cabo San Lucas / Sea of Cortez</span></p></article><article class="gcard walks" style="--sc:#6fa3a0" data-craft="Surfing"><a class="cardlink" href="/atlas/surfing" aria-label="Open the Surfing skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Surfing</span></p><div class="wherealive"><span class="in">in</span> Waikiki, Oahu, United States</div><p class="craftblurb">Read the ocean, paddle into a moving wall of water and trim along its face in the oldest wave-riding craft on earth.</p><p class="cardhook">Learn on the rolling rights where he&#x27;e nalu began and Duke Kahanamoku carried surfing to the world.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/surfing#other-places">5 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Waikiki, Oahu</span><span class="pn" role="listitem">Ericeira</span><span class="pn" role="listitem">Canggu &amp; Uluwatu, Bali</span><span class="pn" role="listitem">Peniche</span><span class="pn" role="listitem">Taghazout &amp; Tamraght</span></p></article><article class="gcard walks" style="--sc:#c9a24a" data-craft="Sushi &amp; Washoku"><a class="cardlink" href="/atlas/sushi-and-washoku" aria-label="Open the Sushi &amp; Washoku skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Sushi &amp; Washoku</span></p><div class="wherealive"><span class="in">in</span> Tokyo (Tsukiji / Toyosu), Japan</div><p class="craftblurb">The exacting art of edomae sushi and washoku, where a lifetime is spent mastering rice, knife, and the fifth taste at the source of a UNESCO-listed cuisine.</p><p class="cardhook">Learn edomae sushi at its birthplace, training beside the world&#x27;s most demanding fish market.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/sushi-and-washoku#other-places">4 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Tokyo (Tsukiji / Toyosu)</span><span class="pn" role="listitem">Osaka</span><span class="pn" role="listitem">Kyoto</span><span class="pn" role="listitem">Los Angeles (Torrance)</span></p></article><article class="gcard walks" style="--sc:#94ad86" data-craft="Thai Massage"><a class="cardlink" href="/atlas/thai-massage" aria-label="Open the Thai Massage skill sheet"></a><div class="openedon">Opened <b>5 Aug 2026</b></div><p class="cardsay">Learn <span class="craftname">Thai Massage</span></p><div class="wherealive"><span class="in">in</span> Chiang Mai, Thailand</div><p class="craftblurb">An acupressure-and-assisted-yoga floor art where the practitioner walks energy lines along the body with palms, thumbs, elbows, and feet.</p><p class="cardhook">Learn Northern-style Nuad Thai at the source, and walk out with a ministry-recognised certificate.</p><p class="shotcredit"></p><a class="placecue" href="/atlas/thai-massage#other-places">2 places →</a><p class="cardplaces" role="list" aria-label="Where the community gathers"><span class="pn" role="listitem">Chiang Mai</span><span class="pn" role="listitem">Bangkok</span></p></article></div></div><p class="nomore"><a href="#letter">Write me about a craft that isn’t open yet →</a></p></div></section>
 
-<div class="pmodal" id="pmodal" hidden role="dialog" aria-modal="true" aria-labelledby="pmodal-h">
-  <div class="scrim" data-pclose></div>
-  <div class="panel">
-    <div class="phead">
-      <div class="pt">
-        <div class="peyebrow">Where it is taught</div>
-        <h2 class="serif" id="pmodal-h"></h2>
-      </div>
-      <button class="pclose" type="button" data-pclose aria-label="Close">✕</button>
-    </div>
-    <ul class="plist" id="plist"></ul>
-    <div class="pfoot">
-      <div class="pnav">
-        <div class="pdots" id="pdots"></div>
-        <span class="pcount" id="pcount"></span>
-        <button class="parrow" id="pprev" type="button" aria-label="Previous place">▲</button>
-        <button class="parrow" id="pnext" type="button" aria-label="Next place">▼</button>
-      </div>
-      <span class="pnote" id="pnote" hidden></span>
-      <a class="pgo" id="pgo" href="#">Open the full sheet →</a>
-    </div>
-  </div>
-</div>
 
 <div class="wrap"><section class="letter reveal" id="letter" aria-labelledby="letter-h">
   <div class="lhead">
@@ -793,7 +632,7 @@ A.forEach(function(d){var w=worldOf(d);
       // grid builds its card from. gcard() has always read x.shot — the row never
       // had it, so a searched or filtered card could not wear a picture even
       // standing on the one place that has one.
-      shot:x.shot||"",shotBy:x.shotBy||""});
+      shot:x.shot||"",shotBy:x.shotBy||"",focal:x.focal||""});
   });
 });
 // what the craft actually is, in one line — the only body copy a card carries
@@ -811,27 +650,14 @@ var BLURB={};A.forEach(function(d){BLURB[d.id]=d.blurb||"";});
 // down. See the LEARN_LINES note in build-atlas-pages.py.
 // "the United States", not "United States". A RULE and not a list, so a craft that
 // opens overnight on a country nobody has typed here yet still reads as English.
-function theCountry(c){
-  if(c==="UK"||c==="USA")return "the "+c;
-  return /\b(States|Kingdom|Islands|Netherlands|Republic|Emirates|Philippines|Bahamas|Maldives|Gambia)\b/.test(c)
-    ? "the "+c : c;
-}
 var PLACES={};A.forEach(function(d){
-  var ds=(d.destinations||[]).filter(function(x){return x.place;})
-    .slice().sort(function(a,b){return (b.communityRank||0)-(a.communityRank||0);});
-  // `where` is what the card prints WHILE IT WALKS. The country alone, because the
-  // sentence above it is already specific and "in Kenya" is the half a reader needs
-  // — but a craft taught twice in one country would count "2 / 3" against a line that
-  // never moved, so that craft keeps its towns. Disambiguation, not a claim: both
-  // strings are already published, and the resting card says the town either way.
-  var seen={},dupe=false;
-  ds.forEach(function(x){var c=x.country||"";if(seen[c])dupe=true;seen[c]=1;});
-  PLACES[d.id]=ds.map(function(x){return {place:x.place,country:x.country||"",
-                             line:(x.learn||"").trim()||x.why||"",written:!!(x.learn||"").trim(),
-                             say:(x.say||"").trim(),
-                             shot:x.shot||"",shotBy:x.shotBy||"",
-                             where:(dupe||!x.country)?placeLine(x.place,x.country)
-                                                     :theCountry(x.country)};});
+  // Every place the craft is taught, strongest community first — the sheet's own
+  // order. Two fields the card prints (the name, and the published tier label the
+  // closed cell needs) and one it resolves (the line for the place it rests on).
+  PLACES[d.id]=(d.destinations||[]).filter(function(x){return x.place;})
+    .slice().sort(function(a,b){return (b.communityRank||0)-(a.communityRank||0);})
+    .map(function(x){return {place:x.place,line:(x.learn||"").trim()||x.why||"",
+                             rank:x.communityRank||0,label:x.communityLabel||""};});
 });
 // The line for the place a card is rendered with, so the resting card and the first
 // step of its walk say the same thing about the same place.
@@ -840,10 +666,27 @@ function placeLineFor(did,place,why){
   for(var i=0;i<ps.length;i++){if(ps[i].place===place)return ps[i].line;}
   return why||"";
 }
-function sayLineFor(did,place){
-  var ps=PLACES[did]||[];
-  for(var i=0;i<ps.length;i++){if(ps[i].place===place)return ps[i].say;}
-  return "";
+// Every place the craft is taught, named on the card. The craft's own rank order —
+// the sheet's order — and the place the card is standing on is IN it, so the number
+// on the cue above and the names under it are the same number and a reader can count
+// them. It is deliberately blind to which place the card rests on: the band picks
+// that with resting_dest() and this template with restingPlace(), and those two
+// disagree on five crafts, so a list that left the resting place out would print
+// differently on the two cards on one page.
+//
+// Only published strings. The name is the place's own `place` string, the separator
+// is CSS, and the only thing that ever rides along is a place's own published
+// rankLabel at community rank 2 or lower — the one case (Roses / Cala Montjoi, where
+// elBulli shut in 2011) in which an unmarked name under "Learn X" would be a false
+// picture made of true parts. check 8b fails the build if a closedToLearners place
+// ever ranks above 2, because the browse index cannot carry that flag and rank is
+// standing in for it.
+function placesHTML(did){
+  var ps=PLACES[did]||[];if(ps.length<2)return "";
+  return '<p class="cardplaces" role="list" aria-label="Where the community gathers">'+
+    ps.map(function(p){return '<span class="pn" role="listitem">'+esc(p.place)+
+      ((p.rank<=2&&p.label)?'<b class="gone">'+esc(p.label)+'</b>':"")+'</span>';})
+      .join("")+'</p>';
 }
 // THE CARD'S TITLE. At rest it names the craft — "Learn Wildlife Photography", with
 // "in Pusztaszer, Hungary" on the line under it. The moment a pointer lands, the walk
@@ -859,27 +702,8 @@ function sayLineFor(did,place){
 function sayInner(craft,say){
   return say?esc(say):'Learn <span class="craftname">'+esc(craft)+'</span>';
 }
-// EVERY line the card can ever say is in the card, one of them visible. The grid row
-// is then the height of the tallest, per craft, measured by the browser — so a card
-// cannot grow under the pointer and no line has to be written short enough to fit a
-// number somebody guessed. It replaces a 40-character cap that was already blocking
-// the two best sentences on the sheet. visibility:hidden also keeps the ones that are
-// not showing out of the accessibility tree, so a screen reader hears one line.
-function stack(cls,first,rest){
-  var h='<span class="sl on">'+first+'</span>';
-  rest.forEach(function(x){h+='<span class="sl">'+x+'</span>';});
-  return h;
-}
-function sayHTML(craft,did){
-  var ps=(PLACES[did]||[]),me=sayInner(craft,"");
-  return '<p class="cardsay">'+stack("cardsay",me,ps.length>1?ps.map(function(p){
-    return sayInner(craft,p.say);}):[])+'</p>';
-}
-function whereHTML(place,country,did){
-  var ps=(PLACES[did]||[]),In='<span class="in">in</span> ';
-  return '<div class="wherealive">'+stack("wherealive",In+esc(placeLine(place,country)),
-    ps.length>1?ps.map(function(p){return In+esc(p.where);}):[])+'</div>';
-}
+function sayHTML(craft){return '<p class="cardsay">'+sayInner(craft,"")+'</p>';}
+function whereHTML(place,country){return '<div class="wherealive"><span class="in">in</span> '+esc(placeLine(place,country))+'</div>';}
 
 /* ── WHAT PULLS YOU ───────────────────────────────────────────────────────
    This replaces the search box. A search box asks you to already know the
@@ -1402,7 +1226,8 @@ function placeLine(place,country){
 // has asked for yet, atlas-index-shim.js rewrites it — that is where "a letter to
 // Arnaud opens this one" appears, and it is the only other line a card ever says.
 function cardData(world,disc,t){return {world:world,did:disc.id,craft:disc.discipline,blurb:disc.blurb||"",
-  place:t.place||"",country:t.country||"",why:t.why||"",shot:t.shot||"",shotBy:t.shotBy||""};}
+  place:t.place||"",country:t.country||"",why:t.why||"",shot:t.shot||"",shotBy:t.shotBy||"",
+  focal:t.focal||""};}
 // The hook is the reason to go to the place printed above it. On a craft nobody
 // has asked for there is no published reason to go, and the shim puts the craft's
 // own blurb in that slot instead — true of the card either way, but then it IS
@@ -1423,13 +1248,20 @@ function cardInner(o){
   // full-size line instead, so every card still has exactly one.
   if(!blurb){blurb=hook;hook="";}
   var n=(PLACES[o.did]||[]).length;
-  return sayHTML(o.craft,o.did)+
-    (o.place?whereHTML(o.place,o.country,o.did):'')+
+  // The band. Empty, because the picture is decorative HERE: this same frame is
+  // published at full size with its own alt text and caption on the place page.
+  return (o.shot?'<div class="cardshot"></div>':'')+
+    sayHTML(o.craft)+
+    (o.place?whereHTML(o.place,o.country):'')+
     (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     (hook?'<p class="cardhook">'+esc(hook)+'</p>':'')+
     '<p class="shotcredit">'+(o.shotBy?'Photo: '+esc(o.shotBy):'')+'</p>'+
     '<div class="cfoot"></div>'+
-    (n>1?'<button class="placecue" type="button">'+n+' places →</button>':'');
+    // A link, not a button: it needs no JavaScript, it middle-clicks, it announces a
+    // destination, and it survives #results being rebuilt on every filter change with
+    // nothing to re-bind. It also labels the names printed under it.
+    (n>1?'<a class="placecue" href="/atlas/'+esc(o.did)+'#other-places">'+n+' places →</a>':'')+
+    placesHTML(o.did);
 }
 // The card is an <article>: a stretched link opens the skill sheet, and the one
 // real button on it (write to Arnaud about this craft) keeps its own clicks.
@@ -1438,7 +1270,8 @@ function cardShell(cls,color,href,label,o){
   // url() is left unquoted so this line needs one kind of quote and not three.
   // The build refuses a photo path that is not safe unquoted, so nothing can get here
   // carrying a bracket, a space or a quote of its own.
-  var shot=o.shot?' data-shot style="--sc:'+color+';--shot:url('+esc(o.shot)+')"':' style="--sc:'+color+'"';
+  var shot=o.shot?' data-shot style="--sc:'+color+';--shot:url('+esc(o.shot)+')'+
+    (o.focal?';--focal:'+esc(o.focal):'')+'"':' style="--sc:'+color+'"';
   return '<article class="'+cls+'"'+shot+' data-craft="'+esc(o.craft)+'">'+
     '<a class="cardlink" href="'+esc(href)+'" aria-label="Open the '+esc(label)+' skill sheet"></a>'+
     '<button class="writebtn" type="button" data-write-craft="'+esc(o.craft)+'" data-write-place="'+esc((o.place||"")+(o.country?', '+o.country:""))+'">✎ Write</button>'+
@@ -1452,7 +1285,7 @@ function cardShell(cls,color,href,label,o){
 function gcard(x){
   return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.did,x.discipline,
     {world:x.world,did:x.did,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country,why:x.why||"",
-     shot:x.shot||"",shotBy:x.shotBy||""});
+     shot:x.shot||"",shotBy:x.shotBy||"",focal:x.focal||""});
 }
 function renderRails(){
   VIEW.cat=null;
@@ -1547,465 +1380,9 @@ document.addEventListener("et:atlas-interest",function(e){
   }catch(e){}
 })();
 
-/* ── placeWalk — the card walks its places while the pointer rests on it ─────
-   A craft is taught in more than one place and a card can only print one. So
-   resting on a card walks the rest: the place line and the reason under it move
-   together, because the reason belongs to the place. What the CRAFT is holds
-   still — that sentence is true wherever you go.
 
-   Every line comes out of PLACES, which is the craft's own destination list in
-   the craft's own rank order. Nothing is composed here and nothing is shortened
-   here: a card that rewrote the research in shorter words would be a machine
-   talking. The clamp does the cutting, visibly, as it does at rest.
 
-   Delegated from the document, because the results grid is thrown away and
-   rebuilt on every filter change and per-card listeners would die with it. One
-   timer at a time, because one card is under the pointer at a time. On stop the
-   card is put back to the exact markup its renderer produced — not to the top of
-   the list, which on a filtered card would silently swap the place the filter
-   matched for a different one. */
-/* ── placePanel — every place the craft is taught, at reading speed ─────────
-   The walk under the pointer moves on its own and moves on; this is the same
-   list with the timer taken off. One place per line, the written sentence at a
-   size you read rather than scan, and the place folded into the end of it where
-   it belongs: "…on the farm where the technique was invented in Pusztaszer,
-   Hungary."
 
-   The fold is the only edit made to any sentence here, and it is punctuation:
-   the line's own full stop moves to the far side of the place name. Nothing is
-   rewritten to make room, because the words are not ours to shorten — see the
-   LEARN_LINES note in build-atlas-pages.py for what happens to a claim when a
-   researched sentence gets compressed by somebody in a hurry.
-
-   A place nobody has written a line for yet is not folded into a sentence that
-   does not exist. It gets its own name and the research it would have been
-   written above, said plainly. Fourteen of the hundred places are like this. */
-var placePanel=(function(){
-  var box=document.getElementById("pmodal"),list=document.getElementById("plist"),
-      title=document.getElementById("pmodal-h"),note=document.getElementById("pnote"),
-      go=document.getElementById("pgo"),dots=document.getElementById("pdots"),
-      count=document.getElementById("pcount"),prev=document.getElementById("pprev"),
-      next=document.getElementById("pnext"),back=null,at=0,n=0;
-  if(!box)return {open:function(){},close:function(){},isOpen:function(){return false;}};
-  var open=false;
-  function entry(p,i){
-    var n='<span class="pn">'+(i<9?"0":"")+(i+1)+'</span>';
-    var where=esc(placeLine(p.place,p.country));
-    // What you would be doing here, first and in one sentence, then the place on its
-    // own line — the panel is the card opened out, so it opens on the same shape.
-    //
-    // The place used to be folded into the sentence with its full stop moved past it,
-    // which reads beautifully for a line written to take it and is broken English for
-    // the 43 of 87 that already carry their own "in..." or "here": "...every authorised
-    // Ashtanga teacher on earth traces home in Mysore (Gokulam), India." Nothing is
-    // folded here any more, and nothing needs to be.
-    var hint=i===0?'<p class="pswipe">Swipe up for the next place</p>':"";
-    var lead=p.say||(p.written?p.line:"");
-    if(lead){
-      return '<li>'+n+'<div><p class="psay">'+esc(lead)+'</p>'+
-             '<p class="pwhere"><span class="in">in</span> '+where+'</p>'+
-             // the researched line, only when a say line took the lead off it
-             (p.say&&p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div>'+hint+'</li>';
-    }
-    return '<li>'+n+'<div><p class="pplain">In '+where+'</p>'+
-           (p.line?'<p class="pwhy">'+esc(p.line)+'</p>':'')+'</div>'+hint+'</li>';
-  }
-  // ── the diaporama ───────────────────────────────────────────────────────
-  // Which slide is showing, read off GEOMETRY rather than an IntersectionObserver:
-  // a jump straight to slide 4 never crosses 2 and 3, so an observer leaves them
-  // unreported and the dots lie. Nearest centre is always right, whatever the scroll
-  // did to get there.
-  function current(){
-    var mid=list.scrollTop+list.clientHeight/2,best=0,d=Infinity;
-    for(var i=0;i<list.children.length;i++){
-      var el=list.children[i],
-          top=list.scrollTop+el.getBoundingClientRect().top-list.getBoundingClientRect().top,
-          c=top+el.offsetHeight/2,g=Math.abs(c-mid);
-      if(g<d){d=g;best=i;}
-    }
-    return best;
-  }
-  function mark(i){
-    at=i;
-    count.textContent=(i<9?"0":"")+(i+1)+" / "+(n<10?"0":"")+n;
-    for(var k=0;k<dots.children.length;k++)
-      dots.children[k].setAttribute("aria-current",k===i?"true":"false");
-    prev.disabled=i===0;next.disabled=i===n-1;
-  }
-  // A smooth scroll passes THROUGH the slides between here and there, and the sweep
-  // below reads each one as "the current slide" on the way. Press the arrow twice
-  // quickly and the second press read a rolled-back index and went to the slide you
-  // were already heading for. So the sweep stands down while a move is in flight.
-  var nav=0;
-  function goTo(i){
-    if(i<0||i>=n)return;
-    clearTimeout(nav);nav=setTimeout(function(){nav=0;},420);
-    // scrollTop, not scrollIntoView: the panel is inside a fixed modal and
-    // scrollIntoView walks up the ancestors and shoves the page behind it too.
-    // Measured off the rectangles, because offsetTop is relative to the positioned
-    // .panel rather than the track and would over-scroll by the header's height.
-    list.scrollTop+=list.children[i].getBoundingClientRect().top
-                   -list.getBoundingClientRect().top;
-    mark(i);
-  }
-  // turning a phone changes the slide height, and the reader should still be on the
-  // place they were reading rather than wherever that many pixels now lands
-  addEventListener("resize",function(){
-    if(!open)return;
-    var sb=list.style.scrollBehavior;list.style.scrollBehavior="auto";
-    goTo(at);list.style.scrollBehavior=sb;
-  });
-  var tick=0;
-  list.addEventListener("scroll",function(){
-    if(tick)return;
-    tick=requestAnimationFrame(function(){tick=0;if(nav)return;var i=current();if(i!==at)mark(i);});
-  });
-  prev.onclick=function(){goTo(at-1);};
-  next.onclick=function(){goTo(at+1);};
-
-  // `from` is the control that opened it: where focus goes back to on close, and
-  // which card the panel takes its colour from. Both were read off
-  // document.activeElement first, which is wrong twice over — a programmatic open
-  // never moves focus at all, and Safari does not focus a button on click.
-  function show(did,craft,from){
-    var ps=PLACES[did]||[];
-    if(ps.length<2)return;
-    back=from||null;
-    // the panel is the card, opened out — so it carries the card's world colour
-    var host=from&&from.closest?from.closest(".dcard,.gcard"):null;
-    box.style.setProperty("--sc",(host&&host.style.getPropertyValue("--sc"))||"var(--sea)");
-    title.textContent=craft;
-    list.innerHTML=ps.map(entry).join("");
-    n=ps.length;
-    dots.innerHTML=ps.map(function(p,i){
-      return '<button type="button" aria-label="'+esc(placeLine(p.place,p.country))+'"></button>';
-    }).join("");
-    for(var i=0;i<dots.children.length;i++)dots.children[i].onclick=(function(k){
-      return function(){goTo(k);};})(i);
-    var written=0;ps.forEach(function(p){if(p.written)written++;});
-    // The count moved to the slide counter, so this line has one job left: not
-    // pretending the unwritten places are written. It shows up only when that is true,
-    // rather than being hidden along with the count it used to carry.
-    if(written<ps.length){
-      note.textContent=(ps.length-written)+" not written up yet";
-      note.removeAttribute("hidden");
-    }else note.setAttribute("hidden","");
-    go.setAttribute("href","/atlas/"+did);
-    go.textContent="Open the "+craft+" sheet →";
-    box.removeAttribute("hidden");
-    document.body.classList.add("plocked");
-    open=true;
-    var c=box.querySelector(".pclose");if(c)c.focus();
-    // straight to the first place, with no animation on the way in
-    var sb=list.style.scrollBehavior;list.style.scrollBehavior="auto";
-    list.scrollTop=0;mark(0);
-    requestAnimationFrame(function(){list.style.scrollBehavior=sb;});
-  }
-  function close(){
-    if(!open)return;
-    box.setAttribute("hidden","");
-    document.body.classList.remove("plocked");
-    open=false;
-    if(back&&back.focus)try{back.focus();}catch(e){}
-    back=null;
-  }
-  box.addEventListener("click",function(e){
-    if(e.target.hasAttribute&&e.target.hasAttribute("data-pclose"))close();
-  });
-  document.addEventListener("keydown",function(e){
-    if(!open)return;
-    if(e.key==="Escape"){e.preventDefault();close();return;}
-    // the panel is a set of places you step through, so the arrows step through them
-    // rather than nudging a scrollbar a few pixels
-    if(e.key==="ArrowDown"||e.key==="ArrowRight"||e.key==="PageDown"){
-      e.preventDefault();goTo(at+1);return;}
-    if(e.key==="ArrowUp"||e.key==="ArrowLeft"||e.key==="PageUp"){
-      e.preventDefault();goTo(at-1);return;}
-    if(e.key==="Home"){e.preventDefault();goTo(0);return;}
-    if(e.key==="End"){e.preventDefault();goTo(n-1);return;}
-    // the panel is modal, so the tab ring stays inside it
-    if(e.key!=="Tab")return;
-    var f=box.querySelectorAll("button, [href]");
-    if(!f.length)return;
-    var first=f[0],last=f[f.length-1];
-    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
-    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
-  });
-  return {open:show,close:close,isOpen:function(){return open;}};
-})();
-
-/* One popover, moved and refilled, never one per card: 116 cards would be 116
-   nodes holding stale research the moment a filter runs. It reads PLACES, the
-   same list the walk steps through, so the two cannot say different things. */
-var cardPop=(function(){
-  var el=null,on=false,host=null;
-  function make(){
-    el=document.createElement("div");
-    el.className="cardpop";el.setAttribute("aria-hidden","true");
-    document.body.appendChild(el);
-    return el;
-  }
-  // Beside the card, and on the side where there is room. Clamped into the
-  // viewport rather than allowed to run off it, and never under the fixed nav.
-  function put(){
-    if(!el||!host)return;
-    var r=host.getBoundingClientRect(),w=el.offsetWidth,h=el.offsetHeight,gap=13;
-    var x=r.right+gap;
-    if(x+w>innerWidth-12)x=r.left-gap-w;
-    if(x<12)x=Math.max(12,Math.min(r.left,innerWidth-w-12));
-    var y=r.top+r.height/2-h/2;
-    y=Math.max(74,Math.min(y,innerHeight-h-12));
-    el.style.left=x+"px";el.style.top=y+"px";
-  }
-  function show(card,list,at,colour){
-    if(!matchMedia("(hover:hover) and (min-width:1024px)").matches)return;
-    if(!el)make();
-    host=card;
-    el.style.setProperty("--sc",colour||"var(--sea)");
-    var rows="";
-    for(var n=0;n<list.length;n++){
-      var pl=list[n],lead=pl.say||(pl.written?pl.line:"");
-      // A place nobody has written a line for says its own name and the research
-      // it would have been written above — it does not borrow a neighbour's.
-      rows+='<li'+(n===at?' class="at"':'')+'><span class="pi">'+(n<9?"0":"")+(n+1)+'</span><div>'+
-            (lead?'<p class="pt">'+esc(lead)+'</p><p class="pw">in '+esc(placeLine(pl.place,pl.country))+'</p>'
-                 :'<p class="pt">In '+esc(placeLine(pl.place,pl.country))+'</p>'+
-                  (pl.line?'<p class="pw">'+esc(pl.line)+'</p>':''))+
-            '</div></li>';
-    }
-    el.innerHTML='<div class="ph"><b>'+list.length+' places</b><i data-h>hold to stay</i></div><ol>'+rows+'</ol>';
-    put();
-    // one frame at the start position, or there is nothing for the pop to run from
-    void el.offsetHeight;
-    el.classList.add("on");on=true;
-  }
-  function mark(at){
-    if(!on||!el)return;
-    var ls=el.querySelectorAll("li");
-    for(var n=0;n<ls.length;n++)ls[n].classList.toggle("at",n===at);
-  }
-  function hold(is){
-    if(!on||!el)return;
-    var h=el.querySelector("[data-h]");
-    if(h)h.textContent=is?"held":"hold to stay";
-  }
-  function hide(){
-    if(!el)return;
-    el.classList.remove("on");on=false;host=null;
-  }
-  addEventListener("scroll",function(){if(on)put();},true);
-  addEventListener("resize",function(){if(on)put();});
-  return {show:show,mark:mark,hold:hold,hide:hide};
-})();
-
-// The cue opens it. Delegated, because the grid is rebuilt on every filter change,
-// and the click is stopped short of the stretched .cardlink under the card.
-document.addEventListener("click",function(e){
-  var cue=e.target&&e.target.closest?e.target.closest(".placecue"):null;
-  if(!cue)return;
-  e.preventDefault();e.stopPropagation();
-  var card=cue.closest(".dcard,.gcard");if(!card)return;
-  var a=card.querySelector("a.cardlink"),h=a&&a.getAttribute("href");
-  var did=h?h.split("/atlas/")[1]:"";
-  var nm=card.getAttribute("data-craft")||"";
-  cardPop.hide();
-  if(did)placePanel.open(did,nm||did,cue);
-},true);
-
-(function placeWalk(){
-  var still=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var card=null,list=null,home=null,craft="",i=0,tid=0,fade=0,lead=0;
-  var held=false,press=0,swallow=0,sx=0,sy=0,HOLD=420,popT=0;
-  function q(c,s){return c.querySelector(s);}
-  function shotTo(c,src,by){
-    var cr=q(c,".shotcredit");
-    if(src){c.style.setProperty("--shot","url('"+src+"')");c.setAttribute("data-shot","");}
-    else{c.style.removeProperty("--shot");c.removeAttribute("data-shot");}
-    if(cr)cr.textContent=by?"Photo: "+by:"";
-  }
-  function slug(c){var a=q(c,"a.cardlink"),h=a&&a.getAttribute("href");return h?h.split("/atlas/")[1]:"";}
-  function cue(c,txt){var el=q(c,".placecue");if(el)el.textContent=txt;}
-  // Child 0 of each stack is the resting line; child i+1 is place i. Showing one and
-  // hiding the rest, rather than rewriting the line, is what keeps the card's height
-  // fixed — the row is already as tall as the tallest thing in it.
-  function show(el,n){
-    if(!el)return;
-    var kids=el.children;
-    for(var j=0;j<kids.length;j++)kids[j].classList.toggle("on",j===n);
-  }
-  function paint(){
-    var p=list[i],k=q(card,".cardhook");
-    // A place nobody has written a say line for keeps the craft's name rather than
-    // borrowing the last place's sentence, which would be the card telling a lie.
-    show(q(card,".cardsay"),i+1);
-    show(q(card,".wherealive"),i+1);
-    if(k)k.textContent=p.line||"";
-    // The picture is the one thing on the card that is not a line of type, so it
-    // cannot ride the .cardsay stack. It is swapped here instead, against the same
-    // index — a card standing on a place shows that place's photograph or none.
-    shotTo(card,p.shot,p.shotBy);
-    cue(card,(i+1)+" / "+list.length);
-    cardPop.mark(i);
-  }
-  function dim(on){
-    [".cardsay",".wherealive",".cardhook"].forEach(function(s){
-      var el=q(card,s);if(el)el.classList.toggle("swapping",on);});
-  }
-  // The arriving half of a step. .landing carries transition:none, so adding it
-  // PUTS the new line below where it belongs instead of animating it there, and
-  // the forced read of offsetHeight is what makes the browser commit that as a
-  // real start state. Take it off in the same breath and the line rises into
-  // position and overshoots. Skip the forced read and the three class changes
-  // collapse into one style recalculation with no start state to travel from:
-  // no error, no pop, and nothing to debug. Hence spelling it out here.
-  function land(){
-    [".cardsay",".wherealive",".cardhook"].forEach(function(s){
-      var el=q(card,s);if(!el)return;
-      el.classList.add("landing");
-      el.classList.remove("swapping");
-      void el.offsetHeight;
-      el.classList.remove("landing");
-    });
-  }
-  function step(){
-    if(!card||held||placePanel.isOpen())return;
-    dim(true);
-    fade=setTimeout(function(){
-      if(!card)return;
-      i=(i+1)%list.length;paint();land();
-    },200);
-  }
-  function stop(){
-    clearTimeout(press);clearTimeout(lead);clearTimeout(fade);clearInterval(tid);
-    clearTimeout(popT);
-    press=lead=fade=tid=popT=0;held=false;
-    cardPop.hide();
-    if(!card)return;
-    card.classList.remove("pressing");card.classList.remove("pinned");
-    var y=q(card,".cardsay"),w=q(card,".wherealive"),k=q(card,".cardhook");
-    if(y){y.classList.remove("swapping");show(y,0);}
-    if(w){w.classList.remove("swapping");show(w,0);}
-    if(k){k.classList.remove("swapping");if(home.k!==null)k.innerHTML=home.k;}
-    shotTo(card,home.shot,home.shotBy);
-    cue(card,list.length+" places");
-    card=null;list=null;home=null;craft="";i=0;
-  }
-  function start(c){
-    if(placePanel.isOpen())return;
-    var ps=PLACES[slug(c)];
-    if(!ps||ps.length<2)return;
-    var w=q(c,".wherealive"),k=q(c,".cardhook");
-    card=c;list=ps;craft=c.getAttribute("data-craft")||"";
-    home={k:k?k.innerHTML:null,
-          shot:c.style.getPropertyValue("--shot").replace(/^url\('?|'?\)$/g,""),
-          shotBy:(q(c,".shotcredit")||{}).textContent
-                   ? (q(c,".shotcredit").textContent||"").replace(/^Photo:\s*/,"") : ""};
-    // begin at the place the card is already showing, so the first move is a move
-    // and not a jump back to the top of a list the reader is already standing in.
-    // ⚠ The VISIBLE line, not the element: .wherealive holds every line the card can
-    // say, one shown and the rest hidden, so its textContent is all of them run
-    // together and the search below matched the first place in the LIST every time.
-    // That was invisible while every card rested on the strongest place — index 0 was
-    // right by accident — and showed up the moment a photographed card rested on a
-    // place further down: the walk jumped to Rishikesh from a card standing in Mysore.
-    var on=w?q(w,".sl.on"):null;
-    var shown=on?on.textContent:(w?w.textContent:"");i=0;
-    for(var n=0;n<ps.length;n++){if(shown.indexOf(ps[n].place)>-1){i=n;break;}}
-    // and paint it at once: the card is resting on this place already, so the only
-    // thing that changes is the title going from the craft's name to what you would
-    // be doing HERE. That is the whole point of touching the card, and waiting 2.6s
-    // to show it — on the one place the reader is actually looking at — buried it.
-    // It is also the only thing a reader who has asked for less motion ever sees.
-    paint();
-    popT=setTimeout(function(){
-      if(card===c&&!placePanel.isOpen())
-        cardPop.show(c,ps,i,c.style.getPropertyValue("--sc"));
-    },300);
-    if(still)return;
-    lead=setTimeout(function(){step();tid=setInterval(step,2600);},520);
-  }
-  function enter(c){if(c===card)return;if(card)stop();if(c)start(c);}
-  function near(e){var t=e.target;return t&&t.closest?t.closest(".dcard,.gcard"):null;}
-  document.addEventListener("mouseover",function(e){enter(near(e));});
-  document.addEventListener("mouseout",function(e){
-    if(!card)return;
-    var to=e.relatedTarget;
-    if(to&&card.contains&&card.contains(to))return;
-    stop();
-  });
-  // keyboard reaches the same thing: the stretched link takes focus, the card walks
-  document.addEventListener("focusin",function(e){enter(near(e));});
-  document.addEventListener("focusout",function(e){
-    if(!card)return;
-    var to=e.relatedTarget;
-    if(to&&card.contains(to))return;
-    stop();
-  });
-
-  /* ── hold ───────────────────────────────────────────────────────────────────────
-     Press and keep pressing and the walk stops on the place it is showing.
-     Hold again and it walks on; leave the card and it all resets, because a
-     card nobody is touching has no state worth keeping.
-
-     It pins the place ON SCREEN, not the next one: a hold that lands mid-fade
-     would otherwise stop on a line the reader never saw. So the fade is torn
-     down rather than finished — the swap had not happened yet, and the place
-     under the pointer is the one that was asked for.
-
-     420ms is past a tap and short of feeling stuck. A pointer that travels
-     more than 10px is a drag on the rail, not a hold, and cancels. And a press
-     that became a hold must not also be a click, or letting go opens the craft
-     sheet (the whole card is a stretched <a>) or the places panel (the chip).
-     That is what swallow does — on window in the capture phase, so it runs
-     ahead of both, and on a timer, because an engine that suppresses the click
-     after a long press would otherwise leave it armed for the next real one.
-
-     Nothing here runs for a reader who asked for less motion: that card is not
-     walking, so there is nothing to hold it on. */
-  function pin(on){
-    if(!card)return;
-    held=on;
-    card.classList.toggle("pinned",on);
-    if(on){
-      clearTimeout(lead);clearTimeout(fade);clearInterval(tid);lead=fade=tid=0;
-      [".cardsay",".wherealive",".cardhook"].forEach(function(s){
-        var el=q(card,s);if(el)el.classList.remove("swapping");});
-      cue(card,"held "+(i+1)+" / "+list.length);
-      cardPop.hold(true);
-    }else{
-      cue(card,(i+1)+" / "+list.length);
-      cardPop.hold(false);
-      tid=setInterval(step,2600);
-    }
-  }
-  function unpress(){clearTimeout(press);press=0;if(card)card.classList.remove("pressing");}
-  document.addEventListener("pointerdown",function(e){
-    if(still||e.button)return;
-    var c=near(e);if(!c)return;
-    // a thumb has no hover, so on touch the press is also what starts the walk
-    if(c!==card)enter(c);
-    if(!card)return;
-    sx=e.clientX;sy=e.clientY;
-    clearTimeout(press);
-    card.classList.add("pressing");
-    press=setTimeout(function(){
-      press=0;if(!card)return;
-      card.classList.remove("pressing");
-      swallow=1;setTimeout(function(){swallow=0;},900);
-      pin(!held);
-    },HOLD);
-  });
-  document.addEventListener("pointermove",function(e){
-    if(!press)return;
-    if(Math.abs(e.clientX-sx)>10||Math.abs(e.clientY-sy)>10)unpress();
-  });
-  document.addEventListener("pointerup",unpress);
-  document.addEventListener("pointercancel",unpress);
-  addEventListener("click",function(e){
-    if(!swallow)return;
-    swallow=0;e.preventDefault();e.stopPropagation();
-  },true);
-})();
 
 /* ── the fold decides the layout ───────────────────────────────────────────
    The panel is a <details>, so the only thing that knows whether it is open is

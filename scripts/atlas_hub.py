@@ -33,11 +33,6 @@ TEMPLATE = Path(__file__).resolve().parent / "atlas-hub-template.html"
 # The five worlds, by the colour the page already draws them in. Mirror of the WORLDS
 # map in atlas-hub-template.html — a card in the band must be the same colour as the
 # same card in the grid below it. Checked by scripts/check-atlas-hub.py.
-def _stack(first, rest):
-    return ('<span class="sl on">' + first + "</span>"
-            + "".join(f'<span class="sl">{x}</span>' for x in rest))
-
-
 WORLD_COLOR = {
     "adventure": "#6fa3a0",
     "culinary": "#c9a24a",
@@ -214,21 +209,6 @@ _THE = re.compile(r"\b(States|Kingdom|Islands|Netherlands|Republic|Emirates|Phil
                   r"|Bahamas|Maldives|Gambia)\b")
 
 
-def the_country(c):
-    """"the United States", not "United States". A rule and not a list, so a craft that
-    opens overnight on a country nobody has typed here yet still reads as English."""
-    return "the " + c if c in ("UK", "USA") or _THE.search(c or "") else c
-
-
-def place_line(place, country):
-    """"United States, United States" and "Kyoto, Kyoto" are data, not sentences."""
-    if not place:
-        return country or ""
-    if not country or place == country or country in place:
-        return place
-    return f"{place}, {country}"
-
-
 def resting_dest(card):
     """The destination a card STANDS on: the place a school has photographed if there
     is one, else the craft's featured place.
@@ -238,8 +218,8 @@ def resting_dest(card):
     never travel: Tarifa's water under the word Maui is the same species of lie as
     composing a place sentence (see school_shot in build-atlas-pages.py). So the card
     moves to the picture. Photographed first was Arnaud's call, 2026-09-09; the ranked
-    place is still the resting place for the other 114 crafts, and the walk still
-    carries every place either way.
+    place is still the resting place for the other 114 crafts, and the card names every
+    place either way — see place_names below.
 
     `card` is an index card: {destId, dests:[{id, rank, shot, ...}]}.
     """
@@ -249,26 +229,25 @@ def resting_dest(card):
     return next((x for x in card.get("dests", []) if x.get("id") == card.get("destId")), None)
 
 
-def walk_places(dests):
-    """[(say, where)] for the places a card walks, strongest community first — the same
-    order and the same two strings the browse template builds, because the band card is
-    a .gcard and the walk picks it up off the class exactly as it does a grid one.
+def place_names(dests):
+    """[(place, rank, rankLabel)] for every place a craft is taught in, strongest
+    community first — every one of them, the place the card rests on included, so the
+    number the cue prints and the names under it are the same number in both card
+    builders.
 
-    `where` is the country alone: the sentence above it is already specific, and "in
-    Kenya" is the half a reader needs. But a craft taught twice in ONE country would
-    count "2 / 3" against a line that never moved, so that craft keeps its towns.
-    Disambiguation, not a claim — both strings are already published either way."""
-    ds = sorted([x for x in dests if x.get("place")],
-                key=lambda x: -(x.get("rank") or 0))
-    seen, dupe = set(), False
-    for x in ds:
-        c = x.get("country") or ""
-        if c in seen:
-            dupe = True
-        seen.add(c)
-    return [((x.get("say") or "").strip(),
-             place_line(x["place"], x.get("country") or "") if (dupe or not x.get("country"))
-             else the_country(x["country"])) for x in ds]
+    Deliberately blind to where the card rests: the band picks that with
+    resting_dest() and the browse template with restingPlace(), and those two disagree
+    on five crafts — a list that left the resting place out would print two different
+    lists on the two cards of one page, and only one of them is readable by a check.
+
+    Names only. The 87 researched sentences are on the sheet the cue opens, under this
+    list's own heading, where there is room to read them; a 194px column is wide enough
+    for a name and not for a reason. This replaced walk_places(), which fed a hover
+    timer that no phone could fire.
+    """
+    return [(x["place"], x.get("rank") or 0, x.get("rankLabel") or "")
+            for x in sorted((d for d in dests if d.get("place")),
+                            key=lambda x: -(x.get("rank") or 0))]
 
 
 _WORD = {0: "None", 1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "All five"}
@@ -961,15 +940,19 @@ def opened_band(items):
         # Every line the card can ever say is in the card, one visible — see the stack()
         # note in the template. The band builds it here so the two card builders put the
         # same DOM on the same page; check 10 fails if they stop agreeing.
-        def say_stack(it):
-            me = f'Learn <span class="craftname">{e(it["name"])}</span>'
-            rest = [(e(sy) if sy else me) for sy, _ in (it.get("walk") or [])]
-            return '<p class="cardsay">' + _stack(me, rest) + "</p>"
-
-        def where_stack(it, where):
-            In = '<span class="in">in</span> '
-            rest = [In + e(w) for _, w in (it.get("walk") or [])]
-            return '<div class="wherealive">' + _stack(In + e(where), rest) + "</div>"
+        def places_row(it):
+            """Every place this craft is taught, named — the same rule, the same order
+            and the same published strings as placesHTML() in the browse template. It
+            sits AFTER .placecue in both builders; the gate reads by class and cannot
+            see a wrong slot, so the order is a promise this comment makes."""
+            ps = it.get("places") or []
+            if len(ps) < 2:
+                return ""
+            return ('<p class="cardplaces" role="list" '
+                    'aria-label="Where the community gathers">'
+                    + "".join(f'<span class="pn" role="listitem">{e(pl)}'
+                              + (f'<b class="gone">{e(lab)}</b>' if rk <= 2 and lab else "")
+                              + "</span>" for pl, rk, lab in ps) + "</p>")
 
         blurb = (it.get("blurb") or "").strip()
         # Under the place: the hand-written immersive line for that place when there
@@ -988,20 +971,27 @@ def opened_band(items):
             blurb, hook = hook, ""
         cards.append(
             f'<article class="gcard{" walks" if nplaces > 1 else ""}"'
-            + (f' data-shot style="--sc:{e(it["color"])};--shot:url({e(it["shot"])})"'
+            + (f' data-shot style="--sc:{e(it["color"])};--shot:url({e(it["shot"])})'
+               + (f';--focal:{e(it["focal"])}' if it.get("focal") else "") + '"'
                if it.get("shot") else f' style="--sc:{e(it["color"])}"')
             + f' data-craft="{e(it["name"])}">'
             f'<a class="cardlink" href="/atlas/{e(it["id"])}" aria-label="Open the '
             f'{e(it["name"])} skill sheet"></a>'
-            f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
-            + say_stack(it) + (where_stack(it, where) if where else "")
+            # The band. Empty, because the picture is decorative HERE: the same frame
+            # is published at full size, with alt text and a caption, on the place page.
+            + ('<div class="cardshot"></div>' if it.get("shot") else "")
+            + f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
+            + f'<p class="cardsay">Learn <span class="craftname">{e(it["name"])}</span></p>'
+            + (f'<div class="wherealive"><span class="in">in</span> {e(where)}</div>'
+               if where else "")
             + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
             + (f'<p class="cardhook">{e(hook)}</p>' if hook else "")
             # Whose photograph it is. Emitted empty when there is none, exactly as
             # cardInner() does, so the walk has a node to write into on both builders.
             + f'<p class="shotcredit">{("Photo: " + e(it["shotBy"])) if it.get("shotBy") else ""}</p>'
-            + (f'<button class="placecue" type="button">{nplaces} places →</button>'
-               if nplaces > 1 else "")
+            + (f'<a class="placecue" href="/atlas/{e(it["id"])}#other-places">'
+               f'{nplaces} places →</a>' if nplaces > 1 else "")
+            + places_row(it)
             + "</article>")
     n = len(items)
     return (

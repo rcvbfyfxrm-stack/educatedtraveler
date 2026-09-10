@@ -53,6 +53,9 @@
         // ⚠ This map is a whitelist: a field not named here is dropped, and the
         // card silently loses it. That is how the picture went missing the first time.
         shot: x.shot || "", shotBy: x.shotBy || "",
+        // where to sit the card band's 16/9 crop of that frame, when the photograph
+        // needs it (a subject high in the frame loses its head to a centre crop).
+        focal: x.focal || "",
         // schoolsInfo carries only the NAME the card prints — never a URL, a
         // course, a price or a rating link. The page reads .name and .length.
         schoolsInfo: x.school ? [{ name: x.school }]

@@ -1363,7 +1363,13 @@ def room_block(x, d=None):
 # `card` and `thumb` name which frame does which job; both fall back to the first
 # picture, so a school that sends photographs and picks nothing still works.
 def school_shot(x, key):
-    """(src, school name) for the first school at this destination with photographs."""
+    """(src, school name, focal) for the first school at this destination with photographs.
+
+    `focal` is an optional CSS background-position for the card band — the photograph is
+    cropped to 16/9 there, and a frame whose subject sits high loses it to a centre crop
+    (Matos Tarifa's jump lost the rider's head). Absent on a photograph that centres
+    well, which is most of them.
+    """
     for s_ in x.get("schoolsInfo") or []:
         ph = s_.get("photos") or {}
         items = ph.get("items") or []
@@ -1380,8 +1386,16 @@ def school_shot(x, key):
         if any(ch in src for ch in "()\'\" ,\\") or src.strip() != src:
             raise SystemExit(f'build-atlas-pages: {src!r} is not safe in an unquoted CSS '
                              "url(). Rename the file without brackets, quotes or spaces.")
-        return src, s_["name"]
-    return "", ""
+        focal = (ph.get("focal") or "").strip()
+        # It goes into a style attribute next to a url(); the same characters that
+        # would end that attribute early stop the build here rather than breaking one
+        # card's crop in a browser nobody is looking at.
+        if focal and not re.fullmatch(r"[a-z0-9 .%]+", focal):
+            raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has a photos.focal of '
+                             f'{focal!r}. Only a plain CSS position is allowed here '
+                             '(e.g. "50% 22%", "center", "left top").')
+        return src, s_["name"], focal
+    return "", "", ""
 
 
 # ── photographs a school sent us, credited to it ──────────────────────────
@@ -2004,14 +2018,15 @@ def dest_card(d, x, link=True, is_best=False):
     # few centimetres below; a background there would be the same frame twice in one
     # screen. Same reasoning as `note` above: the craft sheet is where the card is all
     # a reader gets. (Arnaud, 2026-09-10: "i want the yoga card on the yoga skill".)
-    shot, shot_by = school_shot(x, "card") if link else ("", "")
+    shot, shot_by, focal = school_shot(x, "card") if link else ("", "", "")
     credit = f'<p class="shotcredit">Photo: {e(shot_by)}</p>' if shot else ""
     # The band. An empty div because the picture is decorative HERE: this frame is
     # published at full size, with its own alt text and caption, on the place page
     # this card links to — announcing it twice would be noise, not access.
     band = '<div class="cardshot"></div>' if shot else ""
     return (f'<div class="card"{" data-shot" if shot else ""} '
-            f'style="{border}{f"--shot:url({shot});" if shot else ""}">'
+            f'style="{border}{f"--shot:url({shot});" if shot else ""}'
+            f'{f"--focal:{focal};" if focal else ""}">'
             f'{band}{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
             f'{head}'
             f'<div class="meta" style="margin-bottom:{"4px" if community_line(x) else "10px"}">{meta}</div>'
@@ -2357,7 +2372,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
-<section><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{measure_block(d)}{sweep_block(d)}
+<section id="other-places"><div class="wrap"><div class="mono">Ranked by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{measure_block(d)}{sweep_block(d)}
 {craft_depth(d)}{in_depth_block(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
@@ -2431,6 +2446,10 @@ def index_card(d):
             # the picture a card wears while it is standing on THIS place, and who
             # it belongs to. Empty for every place nobody has sent us photographs of.
             "shot": school_shot(x, "card")[0], "shotBy": school_shot(x, "card")[1],
+            # where to sit the 16/9 crop of that frame on the card, when the photograph
+            # needs it. ⚠ Also whitelisted in atlas-index-shim.js — a per-destination
+            # field not named there is silently dropped and the card quietly loses it.
+            "focal": school_shot(x, "card")[2],
         } for x in d["destinations"]]
     else:
         card["dests"] = ([{"id": d["id"], "place": best.get("place", ""),
@@ -2539,14 +2558,16 @@ def band_item(s):
             # them under the pointer. Counted off the same dests the index ships,
             # so the number on the card and the list it walks cannot disagree.
             "nplaces": sum(1 for x in c.get("dests", []) if x.get("place")),
-            # the say line and the short where for each of those places, in walk
-            # order — so the band card carries the same stack the grid builds and
-            # cannot change height, or its words, differently from its neighbour
-            "walk": atlas_hub.walk_places(c.get("dests", [])),
+            # every place this craft is taught, named, strongest community first —
+            # the same rule and the same order placesHTML() uses in the browse
+            # template, so the two card builders print one list and the gate can
+            # compare the names it can actually read against the index
+            "places": atlas_hub.place_names(c.get("dests", [])),
             # the picture the card wears AT REST: the photograph taken at the place it
             # is standing on, or none. The walk swaps in the others from PLACES, same
             # as the lines do, so a band card and a grid card wear the same frame.
             "shot": r.get("shot", ""), "shotBy": r.get("shotBy", ""),
+            "focal": r.get("focal", ""),
             "opened": pretty_date(OPENED[s])}
 
 
