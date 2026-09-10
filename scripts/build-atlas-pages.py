@@ -1145,6 +1145,20 @@ h2 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; mar
 section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
 .card {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; }}
 .card a.t {{ text-decoration:none; }} .card a.t:hover {{ color:var(--sea); }}
+/* A school's photograph behind its own place card. The scrim is heavier than the
+   browse card's on purpose: this card is the full 880px spine, its type runs to
+   62ch, and a picture spread that wide has far more room to eat a line than one
+   behind a 262px card. Everything on it keeps the contrast it had on flat ink,
+   and the two lines that sit highest — the sentence and the place — carry the
+   text-shadow as well, because a bright sky must not be able to eat a word. */
+.card[data-shot] {{ background-image:linear-gradient(180deg,rgba(20,17,13,.86) 0%,rgba(20,17,13,.93) 55%,rgba(20,17,13,.97) 100%),var(--shot);
+  background-size:cover; background-position:center; background-repeat:no-repeat; }}
+.card[data-shot] h2, .card[data-shot] .dwhere {{ text-shadow:0 1px 10px rgba(13,11,9,.9),0 1px 2px rgba(13,11,9,.75); }}
+/* Whose picture it is. Same words as the browse card, and the :empty rule keeps a
+   card with no photograph from printing a blank line. */
+.shotcredit {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em;
+  text-transform:uppercase; opacity:.5; margin:12px 0 0; }}
+.shotcredit:empty {{ display:none; }}
 .dwhere {{ font-size:17px; font-weight:500; color:var(--sea); line-height:1.3; margin:2px 0 10px; }}
 .dwhere .in {{ font-size:13px; font-weight:400; opacity:.62; }}
 .badge {{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; border:1px solid rgba(243,237,226,.18); border-radius:99px; padding:3px 10px; margin:0 6px 6px 0; opacity:.85; }}
@@ -1909,12 +1923,25 @@ def dest_card(d, x, link=True, is_best=False):
     meta = f'{community_pill(x)} · Season: {e(x["bestSeason"])}'
     if not is_closed(x):
         meta += f' · {e(x["level"])}'
-    return (f'<div class="card" style="{border}">{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
+    # ── the school's photograph, behind the card that is already saying this place ──
+    # Same rule as the browse card, for the same reason: the pictures belong to ONE
+    # school in ONE place and cannot travel, so they may only sit under words that
+    # already name that place. On the craft sheet that is exactly this card — the ★ is
+    # elsewhere and it does not matter, the picture goes where it was taken.
+    # link=False is the place's OWN page, which prints the whole set at full size a
+    # few centimetres below; a background there would be the same frame twice in one
+    # screen. Same reasoning as `note` above: the craft sheet is where the card is all
+    # a reader gets. (Arnaud, 2026-09-10: "i want the yoga card on the yoga skill".)
+    shot, shot_by = school_shot(x, "card") if link else ("", "")
+    credit = f'<p class="shotcredit">Photo: {e(shot_by)}</p>' if shot else ""
+    return (f'<div class="card"{" data-shot" if shot else ""} '
+            f'style="{border}{f"--shot:url({shot});" if shot else ""}">'
+            f'{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
             f'{head}'
             f'<div class="meta" style="margin-bottom:10px">{meta}</div>'
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{note}{badges}'
             + (f'{with_whom(d, x)}{sheet_link(d, x)}' if link else "")
-            + f'{check_line(x)}</div>')
+            + f'{check_line(x)}{credit}</div>')
 
 def alts_block(f):
     alts = f.get("alternatives") or []

@@ -519,6 +519,51 @@ for _, _slug, _ in cards:
         if not _f.exists():
             bad(f"{_slug}: the card's photograph is not on disk: {worn[1]}")
 
+# ── 14b · and the craft sheet's place card wears it too ────────────────────
+# The sheet card is built by a different function in a different file from the band
+# card (dest_card in build-atlas-pages.py), so the two can drift apart silently —
+# which is the whole reason check 10 exists for the other pair. Read from the index:
+# every destination that publishes a photograph must wear it on its CRAFT sheet, on
+# the card that already names that place, credited, with the file on disk. The
+# place's OWN page is deliberately not checked here: it prints the whole set at full
+# size instead, and a background there would be the same frame twice in one screen.
+def _sheet_card(html_text, dest_id):
+    """The one <div class="card"> block on a craft sheet that links to this place."""
+    for m in re.finditer(r'<div class="card"[^>]*>', html_text):
+        nxt = html_text.find('<div class="card"', m.end())
+        block = html_text[m.start():nxt if nxt > 0 else len(html_text)]
+        if f'/atlas/{dest_id}"' in block:
+            return html_text[m.start():m.end()], block
+    return "", ""
+
+
+for c in crafts:
+    for x in c.get("dests", []):
+        if not x.get("shot"):
+            continue
+        sheet = ROOT / f'website/atlas/{c["id"]}.html'
+        if not sheet.exists():
+            bad(f'{c["id"]}: {x["place"]} publishes a photograph and the craft sheet is '
+                "not on disk")
+            continue
+        tag, block = _sheet_card(sheet.read_text(), x["id"])
+        if not tag:
+            bad(f'{c["id"]}: no place card for {x["id"]} on the craft sheet — this check '
+                "can no longer read the sheet's cards")
+            continue
+        worn = re.search(r'--shot:url\(([^)]+)\)', tag)
+        if not worn:
+            bad(f'{c["id"]}: {x["place"]} publishes a photograph and its card on the '
+                "craft sheet wears none")
+            continue
+        if html_mod.unescape(worn[1]) != x["shot"]:
+            bad(f'{c["id"]}: the {x["place"]} card wears {html_mod.unescape(worn[1])}, '
+                f'and that place published {x["shot"]}')
+        if not (ROOT / "website" / html_mod.unescape(worn[1]).lstrip("/")).exists():
+            bad(f'{c["id"]}: the {x["place"]} card\'s photograph is not on disk: {worn[1]}')
+        if not re.search(r'<p class="shotcredit">\s*Photo: \S', block):
+            bad(f'{c["id"]}: the {x["place"]} card wears a photograph and credits nobody')
+
 # ── 16. no built page carries a control character ─────────────────────────
 # A CSS escape and a Python escape look identical, and only one of them is in charge.
 # `content:"\\2212"` inside build-atlas-pages' CSS f-string was read by PYTHON as the
@@ -553,6 +598,7 @@ for _f in sorted((ROOT / "website/atlas").glob("*.html")):
         bad(f"{_f.name} carries a folded block and none of the CSS for it \u2014 it will "
             "render the browser's own triangle. A preserved sheet gets its styling from "
             "inject-related-handwritten.py (et:fold-css), or it does not get it at all.")
+
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:
