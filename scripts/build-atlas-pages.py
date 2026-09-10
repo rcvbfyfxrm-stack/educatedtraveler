@@ -1403,7 +1403,14 @@ def room_block(x, d=None):
 # `card` and `thumb` name which frame does which job; both fall back to the first
 # picture, so a school that sends photographs and picks nothing still works.
 def school_shot(x, key):
-    """(src, school name, focal) for the first school at this destination with photographs.
+    """(src, credit, focal) for the first school at this destination with photographs.
+
+    ⚠ `credit` carries the relationship when there is one. A photograph from a school we
+    are in business with is the relationship appearing on a surface, and the disclosure
+    is keyed to the RELATIONSHIP, not to the layout — the craft sheet and the place page
+    print it in full, but a browse card has no room for a paragraph and would otherwise
+    wear our own partner's picture saying nothing. Four words in the credit line is what
+    that surface can afford, and check 14 refuses the build without them.
 
     `focal` is an optional CSS background-position for the card band — the photograph is
     cropped to 16/9 there, and a frame whose subject sits high loses it to a centre crop
@@ -1434,7 +1441,8 @@ def school_shot(x, key):
             raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has a photos.focal of '
                              f'{focal!r}. Only a plain CSS position is allowed here '
                              '(e.g. "50% 22%", "center", "left top").')
-        return src, s_["name"], focal
+        credit = s_["name"] + (" · we work together" if s_.get("etRelationship") else "")
+        return src, credit, focal
     return "", "", ""
 
 

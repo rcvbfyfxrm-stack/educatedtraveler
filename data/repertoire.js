@@ -24100,6 +24100,38 @@ window.ET_ATLAS = {
               "course": "Open courses, private masterclasses & online modules — sous-vide and low-temperature cooking, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen",
               "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. Open group courses run in Spanish; English or French is available as a private course. Listed because the founder met Martin Lippo in person.",
               "confidence": "high",
+              "photos": {
+                "given": "2026-07-30",
+                "by": "Martin Lippo",
+                "source": "sent",
+                "thumb": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
+                "card": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
+                "focal": "50% 45%",
+                "items": [
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
+                      "w": 1066,
+                      "h": 1600,
+                      "alt": "Martin Lippo, in a white chef's jacket with his name embroidered on it, leaning over a steel bench and pouring from a blue-gloved hand into a small container while thick white vapour from liquid nitrogen rolls off the surface and spills toward the camera.",
+                      "caption": "Liquid nitrogen, off the bench and over the edge. This is the toolkit the craft is named for — the technique first, the dish afterwards."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
+                      "w": 1600,
+                      "h": 1200,
+                      "alt": "A studio portrait of Martin Lippo against a plain pale background, in a white chef's jacket embroidered “Martin Lippo” with the Vakuum badge on the sleeve, one hand raised to his chin, looking straight at the camera.",
+                      "caption": "Martin Lippo, who runs Vakuum and teaches it himself. The Atlas names a teacher wherever one can be named; on this craft almost nothing else can."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-03-the-lab.jpg",
+                      "w": 1600,
+                      "h": 900,
+                      "wide": true,
+                      "alt": "The Vakuum kitchen seen through a glass wall with the word Vakuum lettered across it in gold, the room behind full of stainless benches, mixers and rack shelving, with people working at the far side.",
+                      "caption": "The lab behind its own glass. It is a working kitchen with a teaching room inside it, not a demonstration set."
+                    }
+                ]
+              },
               "verify": [
                 "Sous Vide",
                 "386"

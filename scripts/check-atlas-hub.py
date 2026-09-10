@@ -566,6 +566,13 @@ for _, _slug, _ in cards:
         if not _f.exists():
             bad(f"{_slug}: the card's photograph is not on disk: {worn[1]}")
 
+# The eighteen sheets the generator never regenerates. A convention that reaches only
+# the generated pages reaches 98 of 116 crafts, which is how six of them ended up with
+# the browser's default fold triangle in September — so every check below that asserts
+# something about a craft sheet has to know which kind of page it is looking at.
+_preserved = set(json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())["preserve"])
+
+
 # ── 14b · and the craft sheet's place card wears it too ────────────────────
 # The sheet card is built by a different function in a different file from the band
 # card (dest_card in build-atlas-pages.py), so the two can drift apart silently —
@@ -593,7 +600,22 @@ for c in crafts:
             bad(f'{c["id"]}: {x["place"]} publishes a photograph and the craft sheet is '
                 "not on disk")
             continue
-        tag, block = _sheet_card(sheet.read_text(), x["id"])
+        _h = sheet.read_text()
+        # A HAND-WRITTEN sheet has no generated place card to wear it: the generator never
+        # regenerates the eighteen preserved pages. inject-related-handwritten.py puts the
+        # photograph on that sheet's own pick card instead, behind an et:place-photo
+        # marker — so the assertion moves to the marker rather than quietly not applying.
+        if sheet.name in _preserved:
+            if "<!-- et:place-photo -->" not in _h:
+                bad(f'{c["id"]}: {x["place"]} publishes a photograph and the hand-written '
+                    "sheet carries none — run scripts/inject-related-handwritten.py")
+            elif x["shot"] not in _h:
+                bad(f'{c["id"]}: the hand-written sheet wears a different frame from the '
+                    f'one {x["place"]} publishes ({x["shot"]})')
+            elif "pickshotcredit" not in _h:
+                bad(f'{c["id"]}: the hand-written sheet wears a photograph and credits nobody')
+            continue
+        tag, block = _sheet_card(_h, x["id"])
         if not tag:
             bad(f'{c["id"]}: no place card for {x["id"]} on the craft sheet — this check '
                 "can no longer read the sheet's cards")

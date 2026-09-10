@@ -32,6 +32,7 @@ MEAS_OPEN, MEAS_CLOSE = "<!-- et:measure -->", "<!-- /et:measure -->"
 ALSO_OPEN, ALSO_CLOSE = "<!-- et:also-here -->", "<!-- /et:also-here -->"
 FOLD_OPEN, FOLD_CLOSE = "<!-- et:fold-css -->", "<!-- /et:fold-css -->"
 CMP_OPEN, CMP_CLOSE = "<!-- et:places-table -->", "<!-- /et:places-table -->"
+PIC_OPEN, PIC_CLOSE = "<!-- et:place-photo -->", "<!-- /et:place-photo -->"
 ADOPT = "--adopt" in sys.argv
 e = html.escape
 
@@ -187,6 +188,46 @@ def fold_css_block():
     return f"{FOLD_OPEN}\n<style>{atlas_hub.FOLD_CSS}</style>\n{FOLD_CLOSE}\n"
 
 
+def place_photo_block(slug):
+    """The photograph its school sent, on a sheet the generator never regenerates.
+
+    Same rule as everywhere else — the picture belongs to one school in one place, so it
+    may only sit on a surface already naming that place. Here that surface is the sheet's
+    own pick card, which states the relationship two paragraphs below it; the credit
+    carries the short form of the same thing, because a photograph from a school we are
+    in business with IS the relationship appearing on the page.
+
+    Skipped, loudly, if the craft has more than one photographed place: this block has
+    exactly one anchor (the pick card) and cannot say which of two it is standing on.
+    """
+    d = next((x for x in DISC if x["id"] == slug), None)
+    if not d:
+        return ""
+    shots = [(x, s_) for x in d["destinations"] for s_ in (x.get("schoolsInfo") or [])
+             if (s_.get("photos") or {}).get("card")]
+    if not shots:
+        return ""
+    if len(shots) > 1:
+        print(f"    SKIP place photo on {slug} — {len(shots)} photographed places, one anchor")
+        return ""
+    x, s_ = shots[0]
+    ph = s_["photos"]
+    focal = (ph.get("focal") or "").strip()
+    credit = e(s_["name"] + (" \u00b7 we work together" if s_.get("etRelationship") else ""))
+    css = ("<style>"
+           ".pickshot{width:100%;aspect-ratio:16/9;max-height:300px;margin:0 0 16px;"
+           "border-radius:10px;background-size:cover;background-repeat:no-repeat;"
+           "background-position:var(--focal,center);"
+           "background-image:linear-gradient(180deg,rgba(20,17,13,0) 62%,rgba(20,17,13,.55) 100%),var(--shot)}"
+           ".pickshotcredit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;"
+           "text-transform:uppercase;opacity:.5;margin:-8px 0 14px}"
+           "</style>")
+    style = f'--shot:url({e(ph["card"])})' + (f';--focal:{e(focal)}' if focal else "")
+    return (f'{PIC_OPEN}\n{css}'
+            f'<div class="pickshot" style="{style}"></div>'
+            f'<p class="pickshotcredit">Photo: {credit}</p>\n{PIC_CLOSE}\n')
+
+
 def places_table_block(slug):
     """The places compared, for a sheet the generator never regenerates.
 
@@ -314,6 +355,16 @@ for name in sheets:
     # The table belongs with the places, not at the foot of the page, so it is placed
     # against its own anchor — the sheet's "this is not the only place" section — and
     # skipped rather than misfiled if that section is not there.
+    pic_blk = place_photo_block(name[:-5])
+    if pic_blk:
+        if PIC_OPEN in t2:
+            t2 = re.sub(re.escape(PIC_OPEN) + r".*?" + re.escape(PIC_CLOSE) + r"\n?",
+                        lambda _m: pic_blk, t2, flags=re.S)
+        elif '<div class="pick">' in t2:
+            k = t2.index('<div class="pick">') + len('<div class="pick">')
+            t2 = t2[:k] + "\n" + pic_blk + t2[k:]
+        else:
+            skipped.append((name, "no pick card to put the photograph in"))
     cmp_blk = places_table_block(name[:-5])
     if cmp_blk:
         if CMP_OPEN in t2:
