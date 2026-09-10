@@ -444,8 +444,10 @@ if not _ref_legend:
         "has stopped matching and this check is blind")
 else:
     _legend = _ref_legend.group(1)
+    # atlas_hub.MEASURE_MARK, never the string: the eyebrow this used to hunt for came
+    # off the craft page on 10 September 2026 and this check went blind in one commit.
     _measure_pages = sorted(f for f in (ROOT / "website/atlas").glob("*.html")
-                            if "Is this community worth the trip" in f.read_text())
+                            if atlas_hub.MEASURE_MARK in f.read_text())
     if not _measure_pages:
         bad("check 15 found no page carrying a Measure — the heading has changed and this "
             "check is blind")

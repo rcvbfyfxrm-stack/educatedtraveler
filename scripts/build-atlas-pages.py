@@ -1567,6 +1567,71 @@ COMMUNITY_TIER = {
     "Gone":       ("rgba(243,237,226,.45)", "The community is gone"),
 }
 
+# ── what the dots mean, in this town, in words ────────────────────────────
+# Arnaud, 10 September 2026: "I would like to have a small paragraph for each school
+# explaining is the community their is strong."
+#
+# The five dots and a one-word label — LEGENDARY, THRIVING, STRONG — have sat on every
+# place card since the Atlas began with NOTHING UNDER THEM. A reader met "●●●●● LEGENDARY
+# COMMUNITY" and had to take it on faith, which is the one thing this map asks nobody to
+# do. The `why` underneath is a reason to GO; it is not an account of who is already there.
+#
+# ⛔ THIS PARAGRAPH DESCRIBES, IT DOES NOT GRADE. It says what the record already holds
+# about the town and what that rests on — a body, a season, a fleet, a market, a school
+# count — and where the record holds nothing it says so. A second verdict in different
+# words is exactly the "two meanings behind one mark" the Measure's own migration note
+# warns about, and it would be a grade nobody signed.
+#
+# ⚠ Kept in the manifest rather than repertoire.js, beside sayLines and learnLines, for
+# the reason those are: a new per-destination field in repertoire.js is silently dropped
+# by atlas-index-shim.js unless it is added to that whitelist too.
+COMMUNITY_LINES = MANIFEST.get("communityLines", {})
+
+
+def community_line(x):
+    """The paragraph under the dots. Silent when nothing has been written for a place —
+    an absence is honest and a filler sentence is not."""
+    t = (COMMUNITY_LINES.get(x["id"]) or "").strip()
+    if not t:
+        return ""
+    return (f'<p style="margin:0 0 12px;font-size:14.5px;line-height:1.6;color:var(--muted);'
+            f'max-width:62ch">{t}</p>')
+
+
+def _shared_run(a, b, n=8):
+    """The longest run of words two sentences share, if it reaches n. Words only — the
+    punctuation and the capital letter are what a copy-paste changes first."""
+    wa = re.findall(r"[a-z0-9']+", (a or "").lower())
+    wb = set(tuple(w) for w in _windows(re.findall(r"[a-z0-9']+", (b or "").lower()), n))
+    for w in _windows(wa, n):
+        if tuple(w) in wb:
+            return " ".join(w)
+    return ""
+
+
+def _windows(words, n):
+    return [words[i:i + n] for i in range(len(words) - n + 1)] if len(words) >= n else []
+
+
+# The two paragraphs sit four lines apart and answer different questions, so a run of
+# eight words in both means one of them was written by copying the other. The first draft
+# of these did exactly that on all five places, and it reads as padding on a card whose
+# whole argument is that nothing here is padding.
+for _dd in DISC:
+    for _x in _dd["destinations"]:
+        _cl = (MANIFEST.get("communityLines", {}).get(_x["id"]) or "").strip()
+        if not _cl:
+            continue
+        _run = _shared_run(_cl, _x.get("why"))
+        if _run:
+            raise SystemExit(
+                f'build-atlas-pages: the community line on {_x["id"]} repeats its own `why`:\n'
+                f'  "\u2026{_run}\u2026"\n'
+                "  They sit four lines apart on the card. The `why` is the reason to go; the "
+                "community line is how we know who is already there and how far that knowledge "
+                "goes. Say what the other one does not.")
+
+
 def community_pill(x):
     col, text = COMMUNITY_TIER.get(x.get("communityLabel"), ("rgba(243,237,226,.78)", (x.get("communityLabel") or "") + " community"))
     dots = "●" * x["communityRank"] + "○" * (5 - x["communityRank"])
@@ -1949,7 +2014,11 @@ def dest_card(d, x, link=True, is_best=False):
             f'style="{border}{f"--shot:url({shot});" if shot else ""}">'
             f'{band}{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
             f'{head}'
-            f'<div class="meta" style="margin-bottom:10px">{meta}</div>'
+            f'<div class="meta" style="margin-bottom:{"4px" if community_line(x) else "10px"}">{meta}</div>'
+            # the mark, then what it rests on, then the reason to go: a dot with its
+            # sentence directly under it is the shape every other judgement on this map
+            # already uses, and the one the pill has been missing since the beginning.
+            f'{community_line(x)}'
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{note}{badges}'
             + (f'{with_whom(d, x)}{sheet_link(d, x)}' if link else "")
             + f'{check_line(x)}{credit}</div>')

@@ -161,7 +161,10 @@ def sweep_block(craft_id):
             f'</div></details></div></section>\n{SWEEP_CLOSE}\n')
 
 
-MEAS_EYEBROW = "Is this community worth the trip"
+# Was the eyebrow, which the craft page no longer carries. Taken from the renderer for
+# the same reason check 15 now does: a script that spells the sentence it hunts for stops
+# finding anything the day the sentence changes, and says nothing about it.
+MEAS_EYEBROW = atlas_hub.MEASURE_MARK
 
 
 def fold_css_block():

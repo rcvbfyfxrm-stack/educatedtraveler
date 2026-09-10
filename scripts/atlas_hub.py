@@ -294,6 +294,14 @@ MEASURE_QUESTIONS = (
 )
 
 
+# How anything finds a Measure on a built page. It used to be the eyebrow, "Is this
+# community worth the trip" — and when that came off the craft page on 10 September 2026,
+# check 15 went looking for it, found nothing, and reported itself BLIND rather than
+# passing. That is the check behaving well; the fix is that the marker belongs beside the
+# renderer, so a check reads it rather than spelling it.
+MEASURE_MARK = "How this was graded"
+
+
 def _answers_line(dots):
     """The Measure's headline, agreeing with its own number at every count.
 
@@ -424,8 +432,17 @@ def measure_html(mm, dots=None, vouch=""):
             f'{note}</b></p>') if note else ""
     return (
       '<section><div class="wrap">'
-      '<div class="mono">Is this community worth the trip</div>'
-      f'<h2 style="margin-bottom:10px">{_answers_line(dots)}</h2>'
+      # ⛔ NO EYEBROW AND NO COUNT ABOVE THE FOLD (Arnaud, 10 September 2026: "i dont want
+      # this on the skill page: IS THIS COMMUNITY WORTH THE TRIP / Four of the five answers
+      # are yes here"). He is right, and the fault is not the wording. The question was
+      # asked OF A CRAFT, and a craft spans five places — surfing's block announced a
+      # community verdict over Waikiki, Ericeira, Peniche, Bali and Taghazout at once, and
+      # two of its five questions (a cohort beside you, the craft alive in the town) are
+      # questions about A PLACE. Whose community, then? The community reading now lives on
+      # each place card, where a town can answer for itself, and this block goes back to
+      # being what it always was: the method, with a name and a day on it.
+      # ⭐ The count is not deleted, it is moved — it opens the fold, with the meter, beside
+      # the working it summarises. check 15 still reads it there.
       # The old legend said an empty dot "is not a mark against the place". That was true of
       # seventeen of the twenty-one empty dots and false of the other four — the dark first
       # questions on kitesurfing, photography, french pastry and hatha yoga, which are exactly
@@ -434,7 +451,7 @@ def measure_html(mm, dots=None, vouch=""):
       # not checked. It now names all three reasons, and the sentence under each dot says which.
       '<div style="padding:20px 22px;background:var(--ink2);border:1px solid var(--line);'
       'border-left:2px solid var(--sea)">'
-      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'
+
       # a sentence, not a badge: uppercase letterspaced mono is for short labels, and
       # a shouted two-line verdict is a guide awarding a distinction — not us talking.
       f'<p style="font-size:15.5px;line-height:1.55;color:var(--ember);margin:0 0 18px">'
@@ -447,7 +464,9 @@ def measure_html(mm, dots=None, vouch=""):
       # inside the fold exactly as it did outside it.
       '<details class="fold"><summary>'
       '<span class="mono" style="color:var(--sea);font-size:12px;letter-spacing:.12em">'
-      'How this was graded</span></summary><div class="foldbody">'
+      f'{MEASURE_MARK}</span></summary><div class="foldbody">'
+      f'<p style="font-family:\'IBM Plex Mono\',monospace;font-size:13px;letter-spacing:.14em;margin:0 0 4px">{meter}</p>'
+      f'<h2 style="font-size:19px;margin:0 0 12px">{_answers_line(dots)}</h2>'
       '<p class="meta" style="margin:0 0 16px">The same five questions, asked of every craft on '
       'this map, before we send anyone anywhere. A full dot is a yes we can show you the working '
       'for. An empty dot means one of three things, and the sentence under it says which: nobody '
