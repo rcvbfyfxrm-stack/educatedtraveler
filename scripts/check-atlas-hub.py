@@ -339,12 +339,22 @@ _places_by_id = {x["id"]: x for d in _disc for x in d["destinations"]}
 _seen = 0
 for _page in sorted((ROOT / "website/atlas").glob("*.html")):
     _html = _page.read_text()
-    for _h2, _did in re.findall(r'<h2 style="[^"]*">([^<]*)</h2>\s*'
-                                r'<div class="dwhere">.*?/atlas/([a-z0-9-]+)"', _html, re.S):
+    # ⚠ The heading is a LINK since 2026-09-10 — the whole card opens the place, from
+    # this anchor's stretched ::after — so the text is no longer the h2's first child.
+    # The optional group is what keeps this check able to read the page; without it the
+    # pattern matched nothing and the gate said so, which is the only reason you are
+    # reading this instead of a silent pass.
+    for _door, _h2, _did in re.findall(
+            r'<h2 style="[^"]*">(?:<a href="/atlas/([a-z0-9-]+)">)?([^<]*)(?:</a>)?</h2>\s*'
+            r'<div class="dwhere">.*?/atlas/([a-z0-9-]+)"', _html, re.S):
         _x = _places_by_id.get(_did)
         if not _x:
             continue
         _seen += 1
+        # the door and the line under it must open the same place, or the card sends a
+        # reader somewhere it never named
+        if _door and _door != _did:
+            bad(f"{_page.name}: the card headed for {_did} opens /atlas/{_door}")
         _tail = f'{_x["place"]}, {_x["country"]}'
         if html_mod.unescape(_h2).rstrip(". ").endswith(_tail):
             bad(f"{_page.name}: the heading for {_did} folds its own place in — "

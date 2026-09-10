@@ -1143,8 +1143,23 @@ h1 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:clamp(30p
 h2 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; margin-bottom:14px; }}
 .lead {{ font-size:17px; opacity:.78; max-width:62ch; }}
 section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
-.card {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; }}
+.card {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; position:relative; transition:border-color .25s; }}
 .card a.t {{ text-decoration:none; }} .card a.t:hover {{ color:var(--sea); }}
+/* ── the whole card is the door ──────────────────────────────────────────────
+   The heading's link stretches over the card with ::after, so a reader can press
+   anywhere on it — the sentence, the dots, the badges — and land on that place's
+   own sheet. Only the place name was clickable before, which is a 90-character
+   target on a card 700px wide.
+   ONE anchor does it: no invisible second link to tab through, and the accessible
+   name is the sentence itself. Everything else that is genuinely its own
+   destination — the place name, the full-sheet line, a school's URL — sits above
+   the stretch on z-index 2 and still works. */
+.card h2 a {{ color:inherit; text-decoration:none; }}
+.card h2 a:hover {{ color:var(--sea); }}
+.card:hover {{ border-color:color-mix(in srgb, var(--sea) 30%, var(--line)); }}
+.card h2 a::after {{ content:""; position:absolute; inset:0; z-index:1; border-radius:10px; }}
+.card h2 a:focus-visible::after {{ outline:2px solid var(--sea); outline-offset:3px; }}
+.card .dwhere a, .card p a, .card ul a, .card .school-url {{ position:relative; z-index:2; }}
 /* A school's photograph, in its own band at the top of its place card.
    It was BEHIND the card until 2026-09-10, under a scrim heavy enough to keep
    every line legible — and Arnaud's verdict on that was "readers can't really
@@ -2022,8 +2037,14 @@ def dest_card(d, x, link=True, is_best=False):
     # one of the five is a compression of the `why` beneath it.
     written = (SAY_LINES.get(x["id"]) or "").strip() or (LEARN_LINES.get(x["id"]) or "").strip()
     if written and link:
-        # a sentence, not a place name: it needs a headline's leading, not the body's
-        head = (f'<h2 style="margin:6px 0 4px;line-height:1.24">{e(written)}</h2>'
+        # a sentence, not a place name: it needs a headline's leading, not the body's.
+        # And the sentence IS the door (Arnaud, 2026-09-10: "make it so people can click
+        # to open the page not only on the place"). One anchor, on the heading, whose
+        # ::after covers the whole card — so the card is clickable everywhere, the
+        # keyboard gets ONE tab stop rather than a second empty one, and a screen reader
+        # hears the line it is actually opening instead of "link, link, link".
+        head = (f'<h2 style="margin:6px 0 4px;line-height:1.24">'
+                f'<a href="/atlas/{e(x["id"])}">{e(written)}</a></h2>'
                 f'<div class="dwhere"><span class="in">in</span> {place}</div>')
     else:
         head = f'<h2 style="margin:6px 0 4px">{place}</h2>{learn_line(x)}'
