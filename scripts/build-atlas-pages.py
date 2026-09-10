@@ -1145,15 +1145,22 @@ h2 {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; mar
 section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
 .card {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; margin-bottom:14px; }}
 .card a.t {{ text-decoration:none; }} .card a.t:hover {{ color:var(--sea); }}
-/* A school's photograph behind its own place card. The scrim is heavier than the
-   browse card's on purpose: this card is the full 880px spine, its type runs to
-   62ch, and a picture spread that wide has far more room to eat a line than one
-   behind a 262px card. Everything on it keeps the contrast it had on flat ink,
-   and the two lines that sit highest — the sentence and the place — carry the
-   text-shadow as well, because a bright sky must not be able to eat a word. */
-.card[data-shot] {{ background-image:linear-gradient(180deg,rgba(20,17,13,.86) 0%,rgba(20,17,13,.93) 55%,rgba(20,17,13,.97) 100%),var(--shot);
-  background-size:cover; background-position:center; background-repeat:no-repeat; }}
-.card[data-shot] h2, .card[data-shot] .dwhere {{ text-shadow:0 1px 10px rgba(13,11,9,.9),0 1px 2px rgba(13,11,9,.75); }}
+/* A school's photograph, in its own band at the top of its place card.
+   It was BEHIND the card until 2026-09-10, under a scrim heavy enough to keep
+   every line legible — and Arnaud's verdict on that was "readers can't really
+   see it now", which the measurements agreed with: at any scrim light enough to
+   show the room, the sea-coloured place line (a mid-tone at 17px) fell under
+   4.5:1 first, exactly as the browse card's own note predicted. One layer cannot
+   be a photograph and a page background at once. So the picture gets its own
+   space at full brightness, the words go back onto flat ink at the contrast they
+   were designed for, and nothing has to be traded against anything.
+   The fade at the bottom is to --ink2, the card's own ground, so the photograph
+   ends in the card rather than against a hard edge. */
+.cardshot {{ aspect-ratio:16/9; max-height:280px; margin:-22px -24px 18px;
+  border-radius:10px 10px 0 0;
+  background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
+  background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }}
+@media (max-width:560px) {{ .cardshot {{ margin:-18px -18px 14px; }} }}
 /* Whose picture it is. Same words as the browse card, and the :empty rule keeps a
    card with no photograph from printing a blank line. */
 .shotcredit {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em;
@@ -1934,9 +1941,13 @@ def dest_card(d, x, link=True, is_best=False):
     # a reader gets. (Arnaud, 2026-09-10: "i want the yoga card on the yoga skill".)
     shot, shot_by = school_shot(x, "card") if link else ("", "")
     credit = f'<p class="shotcredit">Photo: {e(shot_by)}</p>' if shot else ""
+    # The band. An empty div because the picture is decorative HERE: this frame is
+    # published at full size, with its own alt text and caption, on the place page
+    # this card links to — announcing it twice would be noise, not access.
+    band = '<div class="cardshot"></div>' if shot else ""
     return (f'<div class="card"{" data-shot" if shot else ""} '
             f'style="{border}{f"--shot:url({shot});" if shot else ""}">'
-            f'{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
+            f'{band}{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
             f'{head}'
             f'<div class="meta" style="margin-bottom:10px">{meta}</div>'
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{note}{badges}'
