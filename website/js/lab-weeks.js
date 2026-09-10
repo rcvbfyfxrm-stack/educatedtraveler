@@ -18,7 +18,7 @@ window.LAB_WEEKS = [
     status: 'open',
     teaser: 'Five days in Martin Lippo’s Barcelona laboratory — sous-vide, textures, spheres, foams, liquid nitrogen — 35 hours hands-in, in English, built for working chefs off boats first. You leave with the techniques, a signed certificate, a portfolio shot by his team, and the full recipe dossiers.',
     when: 'October 2026',
-    note: 'Confirmed at 10 paid by 15 September — or everyone is refunded in full. First word goes to the Circle.',
+    note: 'Booking closes 30 September · the week runs, or everyone is refunded in full. First word goes to the Circle.',
     extras: 'Around the five days, optional add-ons are taking shape — among them a three-Michelin-star dinner with a private table and eyes in the kitchen, an open-fire day, and a Barcelona source day — announced once confirmed, nothing sold until it’s booked and real. Stay optional too: a shared cohort apartment with your own private room, or arrange your own.',
     master: 'Martin Lippo',
     dates: '22–26 October 2026',

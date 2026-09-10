@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Learn the modern techniques — five days at Vakuum, Barcelona — EducatedTraveler</title>
-<meta name="description" content="Textures, spherification, liquid nitrogen, foams, sous-vide — the foundations of the new culinary techniques and technologies, worked by hand for 35 hours at Vakuum, Martin Lippo's Barcelona laboratory. 22–26 October 2026, in English, for chefs who already cook for a living. €1,500, VAT included; a €350 deposit takes a seat. Confirmed at 10 seats or every euro refunded.">
+<meta name="description" content="Textures, spherification, liquid nitrogen, foams, sous-vide — the foundations of the new culinary techniques and technologies, worked by hand for 35 hours at Vakuum, Martin Lippo's Barcelona laboratory. 22–26 October 2026, in English, for chefs who already cook for a living. €1,500, VAT included, paid in full — seven seats left. Booking closes 30 September; if the week doesn't run, every euro is refunded.">
 <link rel="canonical" href="https://educatedtraveler.app/barcelona">
 <meta property="og:title" content="Learn the modern techniques — five days at Vakuum, Barcelona, 22–26 October">
-<meta property="og:description" content="Textures, spherification, nitrogen, foams, sous-vide — 35 hours hands-in at Martin Lippo's teaching laboratory, in English, for working professional chefs. €1,500, VAT included; a €350 deposit takes a seat. Confirmed at 10 seats or every euro refunded.">
+<meta property="og:description" content="Textures, spherification, nitrogen, foams, sous-vide — 35 hours hands-in at Martin Lippo's teaching laboratory, in English, for working professional chefs. €1,500, VAT included, paid in full — seven seats left. Booking closes 30 September; if the week doesn't run, every euro is refunded.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://educatedtraveler.app/barcelona">
 <meta property="og:image" content="https://educatedtraveler.app/images/og-barcelona-collab.jpg">
@@ -68,6 +68,9 @@
   @keyframes neonpulse{0%,100%{opacity:1}50%{opacity:.8}}
   @media (prefers-reduced-motion:reduce){.neon .nd{animation:none}}
   body.is-confirmed .neon{display:none}
+  /* Past the booking deadline every seat CTA goes inert rather than vanishing —
+     a chef who followed a link deserves to be told, not to find nothing. */
+  body.is-closed .cta-pay{opacity:.45;pointer-events:none;cursor:default}
   /* the price panel — the number and what it buys, before anyone scrolls */
   .pricecard{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--ember);border-radius:8px;padding:1.2rem 1.4rem;margin:0 0 .8rem}
   .pc-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1.6rem}
@@ -135,9 +138,10 @@
   .cta-pick{align-items:center;gap:.9rem}
   .cta-or{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--softer)}
   .pick-line{font-size:.9rem;color:var(--softer);margin:1.4rem 0 0}
-  /* The Circle's own door. Hidden by default and revealed by js/member-nav.js,
-     which sets data-member on <html> once a session is confirmed. A visitor with
-     JS off sees the ordinary apply route, which is the safe way round. */
+  /* The Circle's own door — revealed by js/member-nav.js, which sets data-member
+     on <html> once a session is confirmed. Nothing on THIS page carries these
+     attributes any more: the seat link went public on 9 Sept 2026. The rules stay
+     because the pattern is shared, and member-nav.js no-ops when nothing matches. */
   [data-member-only]{display:none}
   html[data-member="true"] [data-member-only]{display:block}
   html[data-member="true"] [data-visitor-only]{display:none}
@@ -258,7 +262,7 @@
         <p class="pc-price"><span class="pc-cur">€</span>1,500<span class="pc-vat">VAT included</span></p>
         <div class="pc-what">
           <p class="pc-lead">One seat. Five days, 35 hours, all five techniques, in his lab.</p>
-          <p class="pc-sub">A <b>€350</b> deposit takes one · confirmed at <b>10 seats</b> · room capped at <b>15</b></p>
+          <p class="pc-sub"><span class="seats-line"><b class="seats-n">7</b> seats left · </span><b>€1,500</b> in full takes one</p>
         </div>
       </div>
       <ul class="pc-in">
@@ -274,11 +278,12 @@
     </div>
     <div class="neon" id="neon" role="status">
       <span class="nd" id="neon-days">—</span>
-      <span class="nl">days to confirm the room</span>
-      <span class="nsub">10 seats taken by Tuesday 15 September — or the week doesn't run and every euro is refunded in full.</span>
+      <span class="nl" id="neon-label">days left to book</span>
+      <span class="nsub" id="neon-sub"><span class="seats-line"><b class="seats-n">7</b> seats left · </span>booking closes Wednesday 30 September. After that the room is closed, whatever is left.</span>
     </div>
     <div class="cta-row">
-      <a class="btn btn-primary cta-jump" href="#apply">Take a seat — apply in 2 minutes</a>
+      <a class="btn btn-primary cta-pay" href="/pay">Take your seat — €1,500 &rarr;</a>
+      <a class="btn btn-ghost cta-jump" href="#apply">Talk to me first</a>
       <a class="btn btn-ghost" href="#days">What you'll learn</a>
     </div>
     <p class="follow-line">Not ready to apply? <button type="button" class="follow-btn" data-et-interested data-experience="Lab Week 01 — New culinary techniques &amp; technologies, Barcelona" data-adventure-id="lab-week-01-barcelona">Follow this week &rarr;</button> <span class="follow-sub">first word on seats, dates &amp; add-ons — saved to your account. Free, no obligation.</span></p>
@@ -402,13 +407,14 @@
   <div class="wrap">
     <p class="eyebrow">The honest terms</p>
     <details class="fold" id="terms-fold">
-      <summary><h2>Straight, like a good galley</h2><span class="fold-h">price · deposit · refund · transfer</span></summary>
+      <summary><h2>Straight, like a good galley</h2><span class="fold-h">price · payment · refund · transfer</span></summary>
     <ul class="terms">
       <li><strong>€1,500, VAT included.</strong> That is the whole number for the week itself, and everything in the lab is inside it — the full list is at the top of this page. Flights and where you sleep are separate, and yours. You bring a chef jacket.</li>
-      <li><strong>A €350 deposit takes your seat.</strong> The balance is only asked for once the week is confirmed — never before. Seats go in the order they're taken, deposit or in full; pay in full and you get first refusal on the add-ons.</li>
-      <li><strong>The deposit isn't refundable if you pull out.</strong> Holding a seat means turning someone else away. The one exception is the week itself not running — then every euro comes back, deposits included. And if your October changes, you can pass your seat to another chef.</li>
+      <li><strong>€1,500 in full takes your seat.</strong> One payment, no deposit and no balance to chase later. Seats go in the order they're taken, and paying in full gets you first refusal on the add-ons.</li>
+      <li><strong>Your payment isn't refundable if you pull out.</strong> Holding a seat means turning someone else away. The one exception is the week itself not running — then every euro comes back. And if your October changes, you can pass your seat to another chef.</li>
       <li><strong>You pay EducatedTraveler, and EducatedTraveler handles everything</strong> — the seat, the paperwork, the certificate, the refund if it comes to that. <span class="ml">Martin Lippo</span> brings the knowledge, the lab and the teaching. We're paid out of that price; nothing is added on top.</li>
-      <li><strong>Confirmed the moment 10 seats are taken.</strong> Not there by Tuesday 15 September → the week cancels and every euro is refunded in full — deposits included, said publicly. <strong>Don't buy flights until we announce CONFIRMED.</strong></li>
+      <li><strong>Booking closes Wednesday 30 September.</strong> That is the last day a seat can be taken — after it the room is closed, whatever is left in it.</li>
+      <li><strong>The week runs, or every euro comes back.</strong> If it doesn't run, you are refunded in full — said publicly, and it is the one thing that gets your money back. <strong>Don't buy flights until we announce CONFIRMED.</strong></li>
       <li><strong>After confirmation, seats are transferable, not refundable.</strong> Can't come? Send a chef of comparable calibre in your place, up to 7 days before the week.</li>
       <li><strong>Your boat may fund it.</strong> 65% of yachts hold a crew training budget — averaging €2,567 per crew member per year (Quay Crew, 2024). We can invoice the boat; ask your captain.</li>
       <li><strong>The lab is at Passatge de Centelles, Barcelona.</strong> 55 minutes' flight from Palma, 1h25 from Nice.</li>
@@ -432,25 +438,25 @@
 
 <section id="apply">
   <div class="wrap">
-    <p class="eyebrow">Take a seat</p>
-    <h2>Apply — two minutes, then a call</h2>
+    <p class="eyebrow">Two ways in</p>
+    <h2>Take your seat — or talk to me first</h2>
 
-    <!-- Already in the Circle? Then the call is optional and the seat link is
-         right here. The Circle is what the week is built for, so its members do
-         not queue behind an application to reach the payment page. Revealed by
-         member-nav.js; everyone else reads the three steps below. -->
-    <div class="member-seat" data-member-only>
-      <p class="ms-eyebrow">You're in the Circle</p>
-      <p><strong>You can take your seat now.</strong> No application first — you're already someone I know. Want the call anyway? Write to me and we'll talk before you pay.</p>
-      <p><a class="btn btn-primary" href="/pay">Take your seat &rarr;</a></p>
-      <p class="ms-fine">&euro;350 takes your place in the order, &euro;1,500 in total. Nothing is confirmed until ten seats are paid by 15 September, and every euro comes back if it isn't.</p>
+    <!-- The seat link is public (2026-09-09). It used to be revealed only to
+         Circle members by member-nav.js; the week is now sold in full and a chef
+         who already knows what he wants should not have to queue behind an
+         application to reach the payment page. The three steps below stay for
+         anyone who would rather talk first. -->
+    <div class="member-seat">
+      <p class="ms-eyebrow"><span class="seats-line"><b class="seats-n">7</b> seats left · </span>Take your seat</p>
+      <p><strong>You can take your seat now.</strong> Straight to the payment page — no application first. Want the call before you pay? Write to me and we'll talk.</p>
+      <p><a class="btn btn-primary cta-pay" href="/pay">Take your seat — &euro;1,500 &rarr;</a></p>
+      <p class="ms-fine">&euro;1,500 in full, VAT included — one payment, nothing owed later. Booking closes 30 September, and every euro comes back if the week doesn't run.</p>
     </div>
-    <p class="pick-line" data-visitor-only>In the Circle already? <a href="/you">Sign in</a> and the seat link appears here.</p>
 
     <div class="apply-steps">
       <p><b>1 · Apply — two minutes.</b> Send me five things: your name · boat or freelance · role · if a chef sent you, who · one line on what you want to walk out able to do.</p>
       <p><b>2 · A 15-minute call.</b> Your questions, and me checking the week fits you. Mid-charter? Voice notes work — tell me your watch.</p>
-      <p><b>3 · The payment link.</b> €350 takes your place in the order. Nothing is confirmed until ten seats are paid.</p>
+      <p><b>3 · The payment link.</b> €1,500 in full takes your place in the order.</p>
     </div>
     <p class="pick-line">Both arrive with the five questions already written out.</p>
     <div class="cta-row cta-pick">
@@ -458,7 +464,7 @@
       <span class="cta-or">or</span>
       <a class="btn btn-peer" id="cta-mail" href="#">Email me</a>
     </div>
-    <p class="apply-note">Application first, conversation second, payment last — to EducatedTraveler, who handles everything from there. Email works exactly the same: <a href="mailto:founder@educatedtraveler.app,arnaudcallier@pm.me">founder@educatedtraveler.app</a>.</p>
+    <p class="apply-note">Pay direct, or apply and talk it through first — either way you pay EducatedTraveler, who handles everything from there. Email works exactly the same: <a href="mailto:founder@educatedtraveler.app,arnaudcallier@pm.me">founder@educatedtraveler.app</a>.</p>
   </div>
 </section>
 
@@ -477,7 +483,7 @@
         <p>No honest person promises you a job. For context, from the industry's own guides: Northrop &amp; Johnson's 2026 salary guide runs from about $5,000–6,000 a month for a sole chef under 30 metres to $15,000+ past 80 — and Quay Crew's survey of a hundred-plus head chefs found most already carry Michelin experience: pay follows the food guests remember. Hiring runs on your cooking, checkable training, and word of mouth; the week leaves all of it stronger. The rest is yours.</p>
       </details>
       <details class="fold"><summary><h3>"What if it doesn't fill?"</h3></summary>
-        <p>EducatedTraveler refunds every euro and I'll say so publicly. Confirmed at 10, or refunded after 15 September. Don't buy flights before we call it.</p>
+        <p>EducatedTraveler refunds every euro and I'll say so publicly. If the week doesn't run, you are refunded in full. Don't buy flights before we call it.</p>
       </details>
       <details class="fold"><summary><h3>"I can't confirm my October yet."</h3></summary>
         <p>Take the seat when you can. If your programme changes after we confirm, send a chef of your calibre in your place — up to 7 days out. After confirmation there are no cash refunds; better said here than in the small print.</p>
@@ -503,36 +509,77 @@
 </footer>
 
 <div class="stickybar" id="stickybar">
-  <span class="st-count" id="st-count">€1,500 · a <b>€350</b> deposit takes a seat</span>
+  <span class="st-count" id="st-count">€1,500 in full<span class="seats-line"> · <b class="seats-n">7</b> seats left</span></span>
   <span style="display:flex;gap:.5rem;flex:0 0 auto">
     <a class="btn btn-peer" id="st-mail" href="#" style="padding:.7rem .9rem">Email</a>
-    <a class="btn btn-primary cta-wa" href="#">WhatsApp</a>
+    <a class="btn btn-primary cta-pay" href="/pay" style="padding:.7rem .9rem">Take a seat</a>
   </span>
 </div>
 
 <script>
   /* ============ UPDATE HERE — the only lines to touch ============
-     There is NO public seat counter. Do not add one back without deciding it
-     deliberately: a number on a page has to be re-verified against the ledger
-     every time money lands, and a stale one is a fabricated scarcity number. */
-  /* CONFIRMED flips to true ONLY when 10 seats are verified TAKEN on the
-     ledger — deposits or paid in full, never applications, never interest. */
+     SEATS_LEFT IS PUBLISHED (decision 2026-09-09, reversing the 20 Aug call to
+     keep the count private). It is printed in three places and a reader will
+     believe it, so it must be re-checked against the private ledger every time
+     money lands — a stale number here is fabricated scarcity. Set it to null
+     to take the counter back off the page; the markup falls away with it. */
+  var SEATS_LEFT  = 7;
+  /* THE BOOKING DEADLINE — the last moment a seat can be taken, NOT a
+     confirm-or-refund date (those are separate: the week runs, or everyone is refunded).
+     Change it here and the countdown and the auto-close both follow; the prose
+     dates in the terms, the FAQ, /pay and /booked are hand-written and must be
+     changed with it. */
+  var DEADLINE    = "2026-09-30T23:59:59+02:00";
+  /* CONFIRMED flips to true ONLY when the room is verified TAKEN on the ledger
+     — real payments, never applications, never interest. The threshold is no
+     longer stated in public (10 Sept: it let a reader subtract the seats left
+     and infer how many were sold); it is still the rule for flipping this. */
   var CONFIRMED   = false;
   var WHATSAPP    = "33695903520";     /* Arnaud — intl format, no + */
   var MAIL_TO     = ["founder@educatedtraveler.app", "arnaudcallier@pm.me"];
   /* ================================================================ */
   var CAP = 15;
 
-  // red neon countdown — days to the 15 September decision (true urgency only)
-  var days = Math.max(0, Math.ceil((new Date("2026-09-15T23:59:59+02:00") - new Date()) / 86400000));
+  // red neon countdown — days to the 30 September decision (true urgency only)
+  var msLeft = new Date(DEADLINE) - new Date();
+  var days = Math.max(0, Math.ceil(msLeft / 86400000));
   document.getElementById("neon-days").textContent = days;
-  if (days <= 0) document.getElementById("neon").style.display = "none";
 
-  /* No public seat counter, by decision (2026-08-20). The count lives in the
-     private ledger only — the page states the mechanism (confirms at 10, capped
-     at 15) rather than a running number, so there is nothing here that can go
-     stale between two Tuesdays. Proof of who is coming comes from named chefs,
-     with their permission, not from a tally. */
+  /* "People can book until 30 September, then booking is closed." Past the
+     deadline the page stops offering a seat rather than quietly taking one:
+     every route to /pay becomes an inert Booking closed, and the countdown
+     says so instead of disappearing. The clock is the visitor's, so this is a
+     courtesy stop, not a lock — the real gate is that I stop confirming. */
+  if (msLeft <= 0) {
+    document.body.classList.add("is-closed");
+    document.getElementById("neon-days").textContent = "—";
+    document.getElementById("neon-label").textContent = "booking closed";
+    document.getElementById("neon-sub").textContent =
+      "Booking closed on 30 September 2026. Write to me if you think there is still a way in.";
+    Array.prototype.forEach.call(document.querySelectorAll(".cta-pay"), function (a) {
+      a.removeAttribute("href");
+      a.setAttribute("aria-disabled", "true");
+      a.textContent = "Booking closed";
+    });
+  }
+
+  /* One constant feeds every printed count. The HTML ships with the number
+     already in it so a reader with JS off sees the same figure; this only keeps
+     the three copies from drifting apart when the constant changes. */
+  if (SEATS_LEFT === null) {
+    /* Off-switch: only the counter phrase goes. Each .seats-line wraps the count
+       and its separator and NOTHING else, so the sentence it sits in still reads
+       — the deadline, the price and the confirm-at-10 mechanism all survive.
+       Tested in both directions before shipping. */
+    Array.prototype.forEach.call(document.querySelectorAll(".seats-line"), function (el) {
+      el.style.display = "none";
+    });
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll(".seats-n"), function (el) {
+      el.textContent = SEATS_LEFT;
+    });
+  }
+
   if (CONFIRMED) {
     document.body.classList.add("is-confirmed");
     document.getElementById("st-count").textContent = "Confirmed — \u20ac1,500 · seats to " + CAP + " while they last";

@@ -88,8 +88,8 @@
         <dt>Week</dt><dd>Lab Week 01 — Modernist technique with Martin Lippo</dd>
         <dt>Where</dt><dd>Vakuum · Passatge de Centelles 10–20, 08013 Barcelona</dd>
         <dt>When</dt><dd>Thu 22 – Mon 26 October 2026 · 35 hours</dd>
-        <dt>Sent</dt><dd id="seat-paid"><b>€350</b> · deposit</dd>
-        <dt>Balance</dt><dd id="seat-bal"><b>€1,150</b> · once the week is confirmed</dd>
+        <dt>Sent</dt><dd id="seat-paid"><b>€1,500</b> · in full, VAT included</dd>
+        <dt>Balance</dt><dd id="seat-bal">Nothing — the week is paid</dd>
         <dt>Seat</dt><dd id="seat-name">Recorded in your name</dd>
       </dl>
     </div>
@@ -102,12 +102,12 @@
     <h2>Three things, in this order.</h2>
     <ol class="steps">
       <li><strong>I check the ledger by hand.</strong> Your payment is on its way to me — instantly by Revolut, or by the next working day if you sent a transfer. I reconcile every evening and write to you personally — with your receipt and your name on the room list. If you haven't heard from me within 24 hours, chase me; it means something went wrong on my side, not yours.</li>
-      <li><strong>Nothing is confirmed until ten are paid.</strong> The week runs the moment 10 seats are taken. You'll be the first to know the day we hit it — that's the email that says CONFIRMED.</li>
-      <li><strong id="bal-head">Then the balance, and the logistics.</strong> <span id="bal-line">The €1,150 comes after we confirm, never before — I'll send the link with the CONFIRMED email.</span> Then: where to stay, how to get to Passatge de Centelles, what the days actually look like, and the optional add-ons around the week. Cohort hears first, always.</li>
+      <li><strong>Nothing is confirmed yet.</strong> You'll be the first to know the day it is — that's the email that says CONFIRMED.</li>
+      <li><strong id="bal-head">Then the add-ons, and the logistics.</strong> <span id="bal-line">You paid in full, so you get first refusal on the add-ons around the week — asked before anyone else, once each one is booked and real.</span> Then: where to stay, how to get to Passatge de Centelles, what the days actually look like, and the optional add-ons around the week. Cohort hears first, always.</li>
     </ol>
 
     <div class="flagbox">
-      <strong>Still don't buy flights yet.</strong> Not until I announce CONFIRMED. If we're not at 10 seats by Tuesday 15 September, the week cancels and every euro comes back to you in full — that promise is public, and it covers a deposit exactly as it covers the whole sum.
+      <strong>Still don't buy flights yet.</strong> Not until I announce CONFIRMED. If the week doesn't run, it cancels and every euro comes back to you in full — that promise is public. Booking closed on 30 September, so the room is settled one way or the other soon after.
     </div>
 
     <p>After we confirm, your seat is transferable but not refundable: if your programme turns, send a chef of your calibre in your place, up to 7 days before the week.</p>
@@ -158,16 +158,11 @@
         first.replace(/[<>&]/g, '') + ", you've booked your seat for <em>Martin week</em>.";
       document.getElementById('seat-name').textContent = seat.name;
     }
-    // Paid in full? Then there's no balance to talk about — say so instead of
-    // leaving a €1,150 line sitting there contradicting what they just sent.
-    if (Number(seat.amount) === 1500) {
-      document.getElementById('seat-paid').innerHTML = '<b>€1,500</b> · in full, VAT included';
-      document.getElementById('seat-bal').innerHTML = '<b>Nothing</b> · the week is paid';
-      document.getElementById('bal-head').textContent = 'Then the add-ons, and the logistics.';
-      document.getElementById('bal-line').textContent =
-        'You paid in full, so you get first refusal on the add-ons around the week — ' +
-        'asked before anyone else, once each one is booked and real.';
-    }
+    // The amount used to be a choice (€350 deposit or €1,500), and this block
+    // rewrote the card when someone paid the whole thing. Since 9 Sept 2026 the
+    // seat is sold in full only, so the paid-in-full wording IS the static HTML
+    // and there is nothing left to swap. Someone landing here cold — different
+    // device, private browsing, straight from Revolut — now reads the same page.
   } catch (e) { /* no name, no problem */ }
 
   if (window.plausible) window.plausible('SeatBooked', { props: { week: 'lab-week-01' } });

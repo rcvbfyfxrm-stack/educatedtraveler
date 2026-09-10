@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Take your seat — Lab Week 01, Barcelona — EducatedTraveler</title>
-<meta name="description" content="Payment page for Lab Week 01 — five days with Martin Lippo at Vakuum, Barcelona, 22–26 October 2026. €350 deposit, €1,500 in total. Nothing is confirmed until ten seats are paid by 15 September.">
+<meta name="description" content="Payment page for Lab Week 01 — five days with Martin Lippo at Vakuum, Barcelona, 22–26 October 2026. €1,500, VAT included, paid in full. Booking closes 30 September.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://educatedtraveler.app/pay">
 <link rel="icon" href="/favicon.svg">
@@ -72,7 +72,7 @@
   input[type=text]:focus,input[type=email]:focus{outline:none;border-color:var(--sea)}
   input::placeholder{color:rgba(243,237,226,0.28)}
 
-  /* choose deposit or the whole thing */
+  /* the one price, stated */
   .choice{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem;margin:.5rem 0 0}
   .opt-card{display:block;position:relative;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem;cursor:pointer;font-family:var(--sans);text-transform:none;letter-spacing:normal;margin:0}
   .opt-card:has(input:checked){border-color:var(--ember);background:rgba(210,138,82,.07)}
@@ -147,12 +147,12 @@
 
 <div class="wrap">
   <div class="price">
-    <div class="amt">€<b>350</b></div>
-    <p class="vat">Deposit · your place in the order</p>
+    <div class="amt">€<b>1,500</b></div>
+    <p class="vat">In full · your place in the order</p>
     <dl class="ledger">
       <dt>The week</dt><dd><b>€1,500</b> in total, VAT included — the whole number</dd>
-      <dt>Today</dt><dd><b>€350</b> minimum to book · pay it all now if you'd rather</dd>
-      <dt>Balance</dt><dd><b>€1,150</b>, once the week is confirmed — I send the link with the CONFIRMED email</dd>
+      <dt>Today</dt><dd><b>€1,500</b>, the whole thing · one payment, nothing owed later</dd>
+      <dt>Balance</dt><dd><b>Nothing.</b> There is no deposit and no balance to chase</dd>
     </dl>
     <p class="what">35 hours in the lab with Martin Lippo, in English. Ingredients, tools, nitrogen and dossiers provided. A signed certificate and a portfolio shot by his team. You bring a chef jacket.</p>
   </div>
@@ -163,9 +163,10 @@
     <p class="eyebrow">Read before you pay</p>
     <h2>The conditions. Same ones as the public page.</h2>
     <ul class="terms">
-      <li><strong>Your deposit takes your place in the order.</strong> Nothing is confirmed until ten seats are paid — I write to you the day that happens, and not before. Seats go in the order they're taken — deposit or in full, first 15 in the room. The week runs the moment 10 seats are taken, and nobody is asked for the balance before that.</li>
-      <li><strong>Paid in full? You're asked first on the add-ons.</strong> The three-Michelin-star table is capped small. When the add-ons around the week are booked and real, chefs who paid in full get first refusal — nothing is sold before it's real, that's the house rule.</li>
-      <li><strong>Not there by Tuesday 15 September?</strong> The week cancels and <strong>every euro of your deposit comes back in full</strong> — said publicly, and it applies to €350 exactly as it applies to €1,500.</li>
+      <li><strong>Your payment takes your place in the order.</strong> Seats go in the order they're taken, first 15 in the room. I write to you the day the week is confirmed, and not before.</li>
+      <li><strong>You're asked first on the add-ons.</strong> The three-Michelin-star table is capped small. When the add-ons around the week are booked and real, chefs who paid in full get first refusal — nothing is sold before it's real, that's the house rule.</li>
+      <li><strong>Booking closes Wednesday 30 September.</strong> That is the last day a seat can be taken — after it the room is closed, whatever is left in it.</li>
+      <li><strong>If the week doesn't run,</strong> it cancels and <strong>every euro comes back to you in full</strong> — said publicly.</li>
       <li><strong class="flag">Don't buy flights until we announce CONFIRMED.</strong> I'll write to you the day it happens. Until then, book nothing.</li>
       <li><strong>After confirmation, your seat is transferable, not refundable.</strong> Can't come? Send a chef of comparable calibre in your place, up to 7 days before the week. There are no cash refunds once we confirm — better said here than in small print.</li>
     </ul>
@@ -194,27 +195,23 @@
         <input type="text" id="f-boat" name="boat" placeholder="M/Y name, or where you cook">
       </div>
 
+      <!-- One price, paid in full (9 Sept 2026). The €350/€1,500 chooser that
+           lived here is gone; the amount is a constant in the script below, so
+           there is nothing on this page a payer can set to the wrong number. -->
       <div class="field">
         <label>How much today</label>
         <div class="choice">
-          <label class="opt-card" for="amt-350">
-            <input type="radio" name="amount" id="amt-350" value="350" checked>
-            <p class="on">Deposit</p>
-            <div class="num">€350</div>
-            <p class="fine">Holds your seat. €1,150 later, once we confirm.</p>
-          </label>
-          <label class="opt-card" for="amt-1500">
-            <input type="radio" name="amount" id="amt-1500" value="1500">
+          <label class="opt-card">
             <p class="on">In full</p>
             <div class="num">€1,500</div>
-            <p class="fine">Nothing more to pay — and first refusal on the add-ons.</p>
+            <p class="fine">The whole week, VAT included. Nothing more to pay — and first refusal on the add-ons.</p>
           </label>
         </div>
       </div>
 
       <!-- Revolut caps CARD payments into a personal account (~€250/week,
-           ~€1,000/month, and the exact figure can't be raised). €350 is already
-           over it, so card is not a route to a seat and is not offered. Both
+           ~€1,000/month, and the exact figure can't be raised). €1,500 is far
+           over it, so card is not a route to a seat and is not offered. All
            options below are uncapped. -->
       <div class="field">
         <label>How you'd like to send it</label>
@@ -238,15 +235,15 @@
             <p class="fine">Opens with the amount already filled in. Needs a PayPal account.</p>
           </label>
         </div>
-        <p class="whynot">Card and Apple&nbsp;Pay can't carry these amounts — Revolut caps card payments into my account below €350, and that cap can't be lifted. The routes above aren't affected by it.</p>
+        <p class="whynot">Card and Apple&nbsp;Pay can't carry this amount — Revolut caps card payments into my account far below €1,500, and that cap can't be lifted. The routes above aren't affected by it.</p>
       </div>
 
       <label class="check" for="f-agree">
         <input type="checkbox" id="f-agree" name="agree">
-        <span>I've read the conditions above — <strong>10 seats by 15 September or my deposit comes back in full</strong>, no flights until CONFIRMED, and <strong>transferable but not refundable</strong> once the week is confirmed.</span>
+        <span>I've read the conditions above — <strong>booking closes 30 September</strong>, <strong>every euro comes back in full if the week doesn't run</strong>, no flights until CONFIRMED, and <strong>transferable but not refundable</strong> once the week is confirmed.</span>
       </label>
 
-      <button type="submit" class="btn btn-primary" id="f-go" disabled>Pay the €350 deposit</button>
+      <button type="submit" class="btn btn-primary" id="f-go" disabled>Pay €1,500 in full</button>
       <p class="paynote">The money goes straight to me — there is no processor in between.<br>This site never sees your bank details.</p>
       <div class="msg err" id="f-msg" hidden></div>
     </form>
@@ -260,7 +257,7 @@
         <p>It opens on a page that says <strong>Arnaud C</strong> — that's me, and it's the right one. Two things it asks you for:</p>
         <ol class="hand-steps">
           <li><strong>Type the amount.</strong> Revolut opens at €0 — the number is yours to enter.
-            <div class="copyrow"><span class="copyval" id="hand-amt">350</span><button type="button" class="copybtn" data-copy="hand-amt">Copy</button><span style="font-family:var(--mono);font-size:.66rem;color:var(--softer)">EUR</span></div>
+            <div class="copyrow"><span class="copyval" id="hand-amt">1500</span><button type="button" class="copybtn" data-copy="hand-amt">Copy</button><span style="font-family:var(--mono);font-size:.66rem;color:var(--softer)">EUR</span></div>
           </li>
           <li><strong>Put your name in the Note.</strong> It's how I match the payment to your seat.
             <div class="copyrow"><span class="copyval" id="hand-note" style="font-size:1rem"></span><button type="button" class="copybtn" data-copy="hand-note">Copy</button></div>
@@ -343,17 +340,16 @@
      "Arnaud C", at €0, with a Note field — the payer types the amount, so the
      hand-off panel above spells it out and offers copy buttons.
 
-     If you find that revolut.me/arnaudcallier/350eur prefills the amount
+     If you find that revolut.me/arnaudcallier/1500eur prefills the amount
      (worth 30 seconds on your phone), put the amount-suffixed versions here
      instead and the typing step disappears. */
   var REVOLUT_LINK = "https://revolut.me/arnaudcallier";
-  var REVOLUT_LINK_350  = REVOLUT_LINK;   /* e.g. REVOLUT_LINK + "/350eur"  */
   var REVOLUT_LINK_1500 = REVOLUT_LINK;   /* e.g. REVOLUT_LINK + "/1500eur" */
 
   /* Bank transfer — the rail that works for everyone, and the only one that
      works for a payer without Revolut. A Revolut.Me link caps CARD payments
      received at roughly €250/week and €1,000/month and the figure cannot be
-     raised, so card cannot even carry the €350 deposit. Revolut-to-Revolut
+     raised, so card cannot carry a €1,500 seat. Revolut-to-Revolut
      and ordinary transfers are uncapped.
 
      LEAVE THESE EMPTY until the details are right. While BANK_IBAN is empty
@@ -401,15 +397,15 @@
   var boatEl = document.getElementById('f-boat');
   var hand  = document.getElementById('handoff');
 
-  function amount() {
-    var el = document.querySelector('input[name="amount"]:checked');
-    return el ? parseInt(el.value, 10) : 350;
-  }
+  /* The seat price. One number, one payment — there is no deposit and no
+     balance, so nothing on the page can select a different figure. */
+  var SEAT_PRICE = 1500;
+  function amount() { return SEAT_PRICE; }
   function how() {
     var el = document.querySelector('input[name="how"]:checked');
     return el ? el.value : 'revolut';
   }
-  function linkFor(amt) { return amt === 1500 ? REVOLUT_LINK_1500 : REVOLUT_LINK_350; }
+  function linkFor() { return REVOLUT_LINK_1500; }
   function fail(html) { msg.innerHTML = html; msg.hidden = false; }
 
   // Either hand-off can be shown, and a payer can move between them without
@@ -437,20 +433,11 @@
   if (WHATSAPP) qwa.href = "https://wa.me/" + WHATSAPP + "?text=" + qBody;
   else qwa.style.display = 'none';
 
-  // Button label tracks the chosen amount, so nobody clicks "deposit" and pays 1500.
-  function syncLabel() {
-    var amt = amount();
-    go.textContent = amt === 1500 ? 'Pay €1,500 in full' : 'Pay the €350 deposit';
-  }
-  Array.prototype.forEach.call(document.querySelectorAll('input[name="amount"]'), function (r) {
-    r.addEventListener('change', syncLabel);
-  });
-
   // The button only lights up once the conditions are ticked. Nobody reaches
   // Revolut without having seen the refund line.
   function sync() { go.disabled = !agree.checked; }
   agree.addEventListener('change', sync);
-  sync(); syncLabel();
+  sync();
 
   document.addEventListener('click', function (e) {
     var b = e.target.closest('.copybtn');
