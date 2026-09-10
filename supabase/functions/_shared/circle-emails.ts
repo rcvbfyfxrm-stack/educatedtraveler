@@ -314,14 +314,20 @@ Leave the Circle: ${unsub}`;
 function atlasLetterHtml(unsub: string, name?: string, craft?: string): string {
   const who = esc(name || "").trim();
   const c = esc(craft || "that craft").trim();
+  // The WhatsApp prefill is a URL, so it takes the RAW craft. `c` is already
+  // HTML-escaped and running it through a URL encoder as well would double-escape
+  // an apostrophe or an ampersand in a craft name.
+  const wa = encodeURIComponent((craft || "that craft").trim());
   const body = `
     <p ${LP}>${who ? who + "," : "Hello,"}</p>
-    <p ${LP}>Your note about <strong>${c}</strong> reached me. Thank you for writing it — I read every one myself, and notes like yours decide which craft I open next.</p>
+    <p ${LP}>Your note about <strong>${c}</strong> reached me — thank you for writing it. <strong>This reply is automatic; the answer won't be.</strong> I read every one myself, and notes like yours decide which craft I open next.</p>
+    <p ${LP}>That note is also how you joined the Circle — the people who have told me which craft they want to learn. What they ask for decides which craft I open on the Atlas next, and which week I build; no week has been built that way yet. And whatever I find about ${c} goes up on the Atlas for everyone, not just for you.</p>
     <p ${LP}>There's a sign-in link in your inbox from a moment ago. One click and you're on your own page — no password, ever.</p>
     <p ${LP}>When you're there, fill in the rest. It asks where you're starting from with ${c}, when you could actually go, how long you could give it, how far you'd travel, and where in the world you are.</p>
     <p ${LP}><a href="https://educatedtraveler.app/portrait" style="color:#3f6b67;">educatedtraveler.app/portrait</a></p>
-    <p ${LP}>Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better the week I can build you.</p>
+    <p ${LP}>Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better I can point you at the right one.</p>
     <p ${LP}>When there's a real week worth telling you about, I tell you, and you decide.</p>
+    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note%20about%20${wa}." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
     <p style="margin:0;">— Arnaud</p>`;
   return plainShell({ body, unsub });
@@ -330,9 +336,12 @@ function atlasLetterHtml(unsub: string, name?: string, craft?: string): string {
 function atlasLetterText(unsub: string, name?: string, craft?: string): string {
   const who = (name || "").trim();
   const c = (craft || "that craft").trim();
+  const wa = encodeURIComponent(c);
   return `${who ? who + "," : "Hello,"}
 
-Your note about ${c} reached me. Thank you for writing it — I read every one myself, and notes like yours decide which craft I open next.
+Your note about ${c} reached me — thank you for writing it. This reply is automatic; the answer won't be. I read every one myself, and notes like yours decide which craft I open next.
+
+That note is also how you joined the Circle — the people who have told me which craft they want to learn. What they ask for decides which craft I open on the Atlas next, and which week I build; no week has been built that way yet. And whatever I find about ${c} goes up on the Atlas for everyone, not just for you.
 
 There's a sign-in link in your inbox from a moment ago. One click and you're on your own page — no password, ever.
 
@@ -340,9 +349,12 @@ When you're there, fill in the rest. It asks where you're starting from with ${c
 
 https://educatedtraveler.app/portrait
 
-Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better the week I can build you.
+Five minutes, and none of it is required. I ask because the craft alone isn't enough to aim with — a beginner with two free weeks in October and a cook who's been at it fifteen years belong in very different rooms, with different people. The more of that I have, the better I can point you at the right one.
 
 When there's a real week worth telling you about, I tell you, and you decide.
+
+Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
+https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note%20about%20${wa}.
 
 Talk soon,
 — Arnaud
