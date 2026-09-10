@@ -248,8 +248,8 @@ function welcomePlainHtml(unsub: string): string {
   const body = `
     <p style="margin:0 0 18px 0;font-style:italic;color:#555555;">A skill, a place, a person, your people.</p>
     <p ${LP}>Your note is here. <strong>This reply is automatic — the answer won't be.</strong> I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.</p>
-    <p ${LP}>While you wait, here is what you have joined. The Circle is a note I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.</p>
-    <p ${LP}>So — the note. One place.</p>
+    <p ${LP}>While you wait, here is what you have joined. The Circle is the people who have told me which craft they want to learn. That is all it is, and you are on it now. What the Circle asks for decides which craft I open on the Atlas next, and which week I build; no week has been built that way yet. Whatever I find goes up on the Atlas for everyone, not just for you. And when a place is worth knowing I write about it, the way I am about to.</p>
+    <p ${LP}>So — one place.</p>
     <p ${LP}>In 1924 a young potter named <strong>Shoji Hamada</strong> could have set up anywhere. He had spent three years in England building a pottery beside <strong>Bernard Leach</strong>, he was already good, and the capital was open to him. He chose <strong>Mashiko</strong> — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.</p>
     <p ${LP}>He stayed fifty-four years, until he died there. He fired his pots in climbing kilns built into the hillside, from the clay and the ash and the iron glaze of that valley. And for most of his life he sent them out unsigned — no seal, nothing stamped in the foot. He signed the wooden boxes they travelled in, telling Leach he could not escape the social obligation, but he never signed the pot. Asked why, he said: “If you cannot see who it is by, it is either because the pot is bad, or because you are blind.” Japan made him a Living National Treasure in 1955, the first year the title was given.</p>
     <p ${LP}>The pots were unsigned. The man was never hard to find. He was in that town, at that wheel, and the potters who wanted to learn came and stayed.</p>
@@ -259,7 +259,7 @@ function welcomePlainHtml(unsub: string): string {
     <p ${LP}>I'm Arnaud. Cooking found me in a dishpit in Darwin, when a chef came up short after lunch and put a knife in my hand. Fifteen years travelling since; about ten of them cooking and working on boats. Cooking, sailing, freediving and wine are the ones I can speak for firsthand. Pottery is not, and that is exactly the point — this was never meant to be about me.</p>
     <p ${LP}>There is nothing you need to do now. You have told me the craft, which is normally the question I have to ask, and the rest is my work: finding who really teaches it, and whether a stranger could go and learn there.</p>
     <p ${LP}>I read every note myself, and I answer.</p>
-    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20letter." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
+    <p ${LP}>Hit reply, or message me on <a href="https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note." style="color:#3f6b67;">WhatsApp</a> if that's easier. Both come straight to me, not to an office.</p>
     <p style="margin:28px 0 0 0;">Talk soon,</p>
     <p style="margin:0;">— Arnaud</p>
     <p style="margin:28px 0 0 0;"><strong>P.S.</strong> What I'm doing this month: working through the crafts people have written to me about, one at a time, and finding out who actually teaches them. And if someone came to mind while you were reading — the friend who has been saying for years they'd learn to sail properly if they ever had the time — send them the Atlas page for it.</p>`;
@@ -271,9 +271,9 @@ function welcomeText(unsub: string): string {
 
 Your note is here. This reply is automatic — the answer won't be. I read every one myself, and I will read yours; give me a few days. There is one of me, and I would rather send you something real than something quick.
 
-While you wait, here is what you have joined. The Circle is a note I write when I find a place worth knowing, and a list of what the people in it want to learn. Yours went straight onto that list, and the list is the part that does the work: what you tell me decides which craft I go and check next.
+While you wait, here is what you have joined. The Circle is the people who have told me which craft they want to learn. That is all it is, and you are on it now. What the Circle asks for decides which craft I open on the Atlas next, and which week I build; no week has been built that way yet. Whatever I find goes up on the Atlas for everyone, not just for you. And when a place is worth knowing I write about it, the way I am about to.
 
-So — the note. One place.
+So — one place.
 
 In 1924 a young potter named Shoji Hamada could have set up anywhere. He had spent three years in England building a pottery beside Bernard Leach, he was already good, and the capital was open to him. He chose Mashiko — a country town north of Tokyo — for its clay, its glazes, its plain, useful pots, and for the country life he had learned to want there.
 
@@ -294,7 +294,7 @@ There is nothing you need to do now. You have told me the craft, which is normal
 I read every note myself, and I answer.
 
 Hit reply, or message me on WhatsApp if that's easier. Both come straight to me, not to an office.
-https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20letter.
+https://wa.me/33695903520?text=Arnaud%20-%20I%20just%20wrote%20you%20a%20note.
 
 Talk soon,
 — Arnaud
