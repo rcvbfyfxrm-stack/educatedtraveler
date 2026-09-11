@@ -12,7 +12,10 @@
         "A working sake brewery inside a primary school that closed in 2010 and was converted in 2014.",
         "Their own condition of entry: anyone may come and make sake provided they can stay on the island at least one week.",
         "Participants join the brewers; time outside the work is their own.",
-        "Their own page says many people come to Gakkogura, including foreigners."
+        "Their own page says many people come to Gakkogura, including foreigners.",
+        "Obata Shuzo has brewed MANOTSURU on Sado since 1892.",
+        "The school stood on the hill for the sunset, and closed in 2010 as the island's population fell.",
+        "Their motto is shi-ho-wa-jo, four treasures in harmony: the rice, the water, the brewers and Sado itself."
       ],
       "weCouldNotAnswer": [
         "Are there fixed dates, or is it arranged case by case?",
@@ -20,8 +23,17 @@
         "Is the teaching in Japanese, or is English possible?",
         "Who would a visiting chef actually be working beside — can we name them?"
       ],
-      "sources": [{"what": "Obata Shuzo's own Gakkogura page", "url": "https://www.obata-shuzo.com/home/gakkogura/gakkogura1eng.asp", "read": "10 September 2026"}],
-      "validated": {"on": false}
+      "sources": [
+        {
+          "what": "Obata Shuzo's own Gakkogura page",
+          "url": "https://www.obata-shuzo.com/home/gakkogura/gakkogura1eng.asp",
+          "read": "10 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "The photograph of the old schoolhouse under the cherry blossom, on your Gakkogura page. It says in one frame what a paragraph cannot: a school that became a brewery."
     },
     {
       "id": "sourdough-baking--vallee-du-jabron",
@@ -41,8 +53,17 @@
         "How many bakers are in a room at once?",
         "Who teaches the advanced course — is it Thomas Teffri-Chambelland himself?"
       ],
-      "sources": [{"what": "the school's own course list", "url": "https://www.ecoleinternationaledeboulangerie.fr/en/trouver-ma-formation", "read": "9 September 2026"}],
-      "validated": {"on": false}
+      "sources": [
+        {
+          "what": "the school's own course list",
+          "url": "https://www.ecoleinternationaledeboulangerie.fr/en/trouver-ma-formation",
+          "read": "9 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "Something from inside the bakery — hands, dough, the oven. Your site leads on the landscape, and it is the work we would want a baker to see."
     },
     {
       "id": "koji-fermentation--tokyo-andlab",
@@ -60,8 +81,17 @@
         "What are the dates, and how far ahead do they fill?",
         "How many people are in a session?"
       ],
-      "sources": [{"what": "the school's own fermentation course page", "url": "https://www.andlabtokyo.com/en/fermentation", "read": "10 September 2026"}],
-      "validated": {"on": false}
+      "sources": [
+        {
+          "what": "the school's own fermentation course page",
+          "url": "https://www.andlabtokyo.com/en/fermentation",
+          "read": "10 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "The photograph of the jars on the linen, from the top of your fermentation page."
     },
     {
       "id": "fish-butchery--tokyo-jcaa",
@@ -79,8 +109,17 @@
         "Can we name the chef who teaches it?",
         "How many students to a bench?"
       ],
-      "sources": [{"what": "the academy's own course pages", "url": "https://www.japanculinaryarts.com/chef-training-course", "read": "10 September 2026"}],
-      "validated": {"on": false}
+      "sources": [
+        {
+          "what": "the academy's own course pages",
+          "url": "https://www.japanculinaryarts.com/chef-training-course",
+          "read": "10 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "Something from the bench — a fish being broken down, or a student's hands at work. Your homepage leads on the certification seal, and it is the fish we would want a chef to see."
     },
     {
       "id": "cheese-affinage--ambierle-mons",
@@ -98,8 +137,17 @@
         "What does a course cost, and how many places are there?",
         "How should we name the anglophone co-teacher — we have only a first name and will not invent a surname."
       ],
-      "sources": [{"what": "Mons Formation's own site", "url": "https://www.mons-formation.com/?lang=en", "read": "10 September 2026"}],
-      "validated": {"on": false}
+      "sources": [
+        {
+          "what": "Mons Formation's own site",
+          "url": "https://www.mons-formation.com/?lang=en",
+          "read": "10 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "The black-and-white portrait from the top of your site. If that is Laurent Mons, we would like to say so underneath it."
     }
   ]
 }

@@ -139,6 +139,20 @@ def page(c, amend=None):
         "This line is wrong:\n\n  (paste the line)\n\nWhat is actually true:\n\n\n"
         "And, if you have a moment, the things we could not work out:\n\n"
         + "".join(f"  - {q}\n" for q in c.get("weCouldNotAnswer", [])) + "\n")
+    photo_html = ""
+    if c.get("photoWeWouldAskFor"):
+        pm = mailto(f"A photograph — {name}",
+            f"About the EducatedTraveler entry for {name}.\n\n"
+            "You are welcome to use a photograph:\n\n  (attach it, or send a link)\n\n"
+            "Credit it to:\n\n  (the name you would like under it)\n\n")
+        photo_html = ('<h2>And a photograph, if you would</h2><div class="card">'
+                      f'<p style="margin-top:0">{e(c["photoWeWouldAskFor"])}</p>'
+                      '<p class="src">We will not take one off your website. Photographs are yours, '
+                      'and the only ones on our record are the ones a school chose and sent. You pick '
+                      'it, you tell us how to credit it, and you see where it goes before it goes '
+                      'anywhere. <strong>Sending one does not move you up the record</strong> — '
+                      'nothing does.</p>'
+                      f'<p><a class="btn" href="{pm}">Send a photograph</a></p></div>')
     amend_html = ""
     if amend:
         amend_html = ('<div class="card" style="border-left:3px solid #d28a52">'
@@ -172,7 +186,7 @@ answer them we will say so, with the date.</p></div>
 <h2>Where we read it</h2>
 <div class="card"><ul>{srcs}</ul></div>
 
-<h2>Is it right?</h2>
+{photo_html}<h2>Is it right?</h2>
 <p><a class="btn yes" href="{yes}">This is right</a>
 <a class="btn no" href="{no}">Something here is wrong</a></p>
 <p class="src">There is no edit box on purpose. You tell us what is true and we write the
