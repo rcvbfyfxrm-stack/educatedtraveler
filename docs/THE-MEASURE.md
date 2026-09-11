@@ -156,17 +156,50 @@ and no craft on the map can show a full meter until somebody goes.
 
 ---
 
+## Where it is published — and why that is not the craft page
+
+⛔ **The Measure does not go on a craft page.** Arnaud, 11 September 2026: *"dont put
+[the verdict] / HOW THIS WAS GRADED on the skill page, this relevant only for
+schools/instructor."* It came off all 31 on that day.
+
+The fault was never the wording, and this is the second time it has been said — on
+10 September the eyebrow and the count came off the same block for the same reason. The
+fault is the **unit**. A grade is signed for a craft and worded across every one of its
+places at once: sushi's verdict reads *"we have still not stood at any of these
+counters"*, meaning Tokyo, Kyoto, Osaka and Torrance together. But two of the five
+questions — is there a cohort beside you, is the craft alive in this place — are
+questions about **one town**, and what a traveller is actually choosing is one school,
+one teacher, one room. A craft cannot answer for five towns, and a reader was being
+handed a verdict with no subject.
+
+⭐ **Nothing is ungraded and nothing is deleted.** All 31 signed grades stay in
+`data/atlas-extra-sheets.json`, the build still validates every one of them, the debt
+floor still holds, `sign-measure.py` still signs, `preview-measure.py` still renders one
+exactly as it would ship, and the night check still re-reads every evidence link. The
+renderer is untouched. **The Measure is held, not retired** — the next place it appears
+is a school's own page, where the questions are asked of whoever has to answer them.
+
+⚠ **A per-school grade is graded, never inherited.** The craft grade may not be copied
+down onto its places: it would print Tokyo's page saying we have not stood at these
+counters, about Kyoto. Each school earns its own, against these same rules.
+
+Until then, `check-atlas-hub.py` check 15 holds the line in both directions — it fails
+if any craft page carries the block again, and it fails if the renderer's markup moves
+while no page carries one at all, so it cannot quietly go blind in the gap.
+
+---
+
 ## Where this lives
 
 | | |
 |---|---|
 | The questions | `scripts/atlas_hub.py` → `MEASURE_QUESTIONS` |
-| The renderer | `scripts/atlas_hub.py` → `measure_html()` |
-| The gates | `scripts/build-atlas-pages.py` → `measure_block()` and the validation block |
+| The renderer | `scripts/atlas_hub.py` → `measure_html()` — no caller on a craft page |
+| The gates | `scripts/build-atlas-pages.py` → `measure_gate()` and the validation block |
 | Published grades | `data/atlas-extra-sheets.json` → `measure` |
 | Drafts | `data/atlas-measure-drafts.json` — **never read by the build** |
 | Signing | `scripts/sign-measure.py` · reading a draft: `scripts/preview-measure.py` |
-| The page check | `scripts/check-atlas-hub.py` → check 15 |
+| The page check | `scripts/check-atlas-hub.py` → check 15 — and the ban on craft pages |
 
 Related standards: [the worldwide sweep](ATLAS-SWEEP.md) — where a craft was searched, and
 what it turned down. [The night check](ATLAS-NIGHTCHECK.md) — what the sources still say.

@@ -450,11 +450,19 @@ details.fold .foldbody { margin-top:16px; padding-left:26px; }
 def measure_html(mm, dots=None, vouch=""):
     """The Measure block itself, from a grade — published or still drafted.
 
-    Split out of build-atlas-pages.measure_block() so a draft can be READ in the
-    form it would ship in. The caller does the judging: measure_block() checks the
-    evidence cap first and only then asks for markup, and the preview renders a
-    grade nobody has signed. A preview that drew its own lookalike would be worth
-    nothing — the point of reading a draft is to read the thing that would go up.
+    Split out of build-atlas-pages so a draft can be READ in the form it would ship
+    in. The caller does the judging — measure_gate() checks the evidence cap, and the
+    preview renders a grade nobody has signed. A preview that drew its own lookalike
+    would be worth nothing: the point of reading a draft is to read the thing that
+    would go up.
+
+    ⛔ AND IT HAS NO CALLER ON A CRAFT PAGE (Arnaud, 11 September 2026: "dont put [the
+    verdict] / HOW THIS WAS GRADED on the skill page, this relevant only for
+    schools/instructor"). The reasoning is in build-atlas-pages.measure_gate and in
+    docs/THE-MEASURE.md; what matters here is that this function was NOT changed and
+    NOT deleted. It stays the one renderer, so preview-measure.py still shows a grade
+    exactly as it will ship and check 15 still reads its markup rather than a copy of
+    it — and the day a school's page carries a Measure, it is this that draws it.
     """
     if not mm:
         return ""

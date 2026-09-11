@@ -457,16 +457,26 @@ if _seen_cov != _want_cov:
     bad(f"check 14 inspected {_seen_cov} coverage block(s) but {_want_cov} course(s) carry "
         "coverage — the pattern has stopped matching the page and this check is blind")
 
-# ── 15. the Measure reads the same on every page that carries one ─────────
-# There are more Measures on this site than there are entries in `measure`. One page,
-# modern-new-technique-cuisine.html, carries a Measure block carved by hand in June and
-# sits in `preserve`, so the build never rewrites it and no other check has ever looked
-# at it. Its legend drifted out of step with the renderer's and nothing said a word.
-# So this check reads the built HTML, not the data: every page that carries the block at
-# all, whether generated or hand-written, must ask the same questions, count its own dots
-# correctly, and print the legend the renderer currently prints. The legend is taken by
-# rendering a block through atlas_hub itself — a check that hardcoded the sentence would
-# pass forever while the page and the code parted company.
+# ── 15. the Measure: not on a craft page, and identical wherever it does appear ──
+# Two jobs, and the first one is new on 11 September 2026. Arnaud: "dont put [the
+# verdict] / HOW THIS WAS GRADED on the skill page, this relevant only for
+# schools/instructor" — a grade is signed for a craft but worded across all its places
+# at once, and the thing being chosen is one school in one town. So the block came off
+# all 31 craft pages, and this check is what stops it growing back: twenty-five of them
+# are regenerated and six are hand-written sheets no generator ever rewrites, which is
+# exactly the population where a block returns quietly.
+#
+# The second job is the original one. Every page that DOES carry a Measure — which
+# today is none, and tomorrow is a school's page — must ask the same five questions,
+# count its own dots correctly, and print the legend the renderer currently prints.
+# The legend is taken by rendering a block through atlas_hub itself; a check that
+# hardcoded the sentence would pass forever while the page and the code parted company.
+#
+# ⚠ AND IT MAY NOT GO BLIND WHEN THERE ARE NO PAGES. It did exactly that once — the
+# eyebrow came off the craft page on 10 September and this check found nothing to read.
+# The answer is not to require a page: it is to check the PATTERNS against a reference
+# block rendered here, so the day the renderer's markup moves, this says so with no
+# page carrying one at all.
 _ref_mm = {
     "dots": 1,
     "verdict": "reference",
@@ -478,6 +488,8 @@ _ref_mm = {
                    for i, q in enumerate(atlas_hub.MEASURE_QUESTIONS)],
 }
 _ref = atlas_hub.measure_html(_ref_mm)
+_METER_RE = (r'color:var\(--sea\)">((?:&#9679;)*)</span>'
+             r'<span style="color:var\(--faint\)">((?:&#9675;)*)</span>')
 _ref_legend = re.search(r'<p class="meta" style="margin:0 0 16px">(.*?)</p>', _ref, re.S)
 _n_q = len(atlas_hub.MEASURE_QUESTIONS)
 if not _ref_legend:
@@ -485,15 +497,27 @@ if not _ref_legend:
         "has stopped matching and this check is blind")
 else:
     _legend = _ref_legend.group(1)
+    # The reference block is this check's eyesight: every pattern it will use on a page
+    # is run against a block rendered here FIRST, so an empty site still proves the
+    # renderer has not moved under us. Without this the check has nothing to read the
+    # day no page carries a Measure, which is the day that starts today.
+    for _what, _pat in (("meter", _METER_RE), ("heading", r"<h2[^>]*>([^<]*answers[^<]*)</h2>")):
+        if not re.search(_pat, _ref):
+            bad(f"check 15 cannot read the {_what} in atlas_hub.measure_html output — the "
+                "renderer has changed shape and this check is blind")
+
     # atlas_hub.MEASURE_MARK, never the string: the eyebrow this used to hunt for came
     # off the craft page on 10 September 2026 and this check went blind in one commit.
     _measure_pages = sorted(f for f in (ROOT / "website/atlas").glob("*.html")
                             if atlas_hub.MEASURE_MARK in f.read_text())
-    if not _measure_pages:
-        bad("check 15 found no page carrying a Measure — the heading has changed and this "
-            "check is blind")
     for _f in _measure_pages:
         _h = _f.read_text()
+        # ⛔ A craft page is one with no "--" in its name. The Measure does not go on one.
+        if "--" not in _f.name:
+            bad(f"{_f.name} is a craft page and it carries a Measure. The grade is signed "
+                "for a craft and worded across all of its places at once, and the thing a "
+                "traveller picks is one school in one town — it goes on the school, or it "
+                "does not go up. (build-atlas-pages.measure_gate has the reasoning.)")
         for _q in atlas_hub.MEASURE_QUESTIONS:
             if _h.count(_q) != 1:
                 bad(f"{_f.name} carries a Measure that asks {_q!r} {_h.count(_q)} time(s). "
@@ -503,8 +527,7 @@ else:
             bad(f"{_f.name} prints a Measure legend that is not the one atlas_hub renders. "
                 "A hand-written block has drifted, or the renderer changed and this page "
                 "was not rebuilt.")
-        _m = re.search(r'color:var\(--sea\)">((?:&#9679;)*)</span>'
-                       r'<span style="color:var\(--faint\)">((?:&#9675;)*)</span>', _h)
+        _m = re.search(_METER_RE, _h)
         if not _m:
             bad(f"{_f.name} carries a Measure with no meter this check can read")
             continue

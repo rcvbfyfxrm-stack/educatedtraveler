@@ -475,27 +475,6 @@ def _evidence_cap(d, mm=None):
                  'One visit is one week and one cohort, so the last dot waits for a second.')
 
 
-def _vouch_line(d):
-    """Who has been — split by route, because the gap between the two is the finding."""
-    v = _vouches(d)
-    if not v:
-        return ""
-    mine = [c for _, c in v if c.get("route") == "with-us"]
-    alone = [c for _, c in v if c.get("route") == "direct"]
-    bits = []
-    if mine:
-        bits.append(f'{atlas_hub._WORD.get(len(mine), len(mine)).lower()} on a week we sold')
-    if alone:
-        bits.append(f'{atlas_hub._WORD.get(len(alone), len(alone)).lower()} who went on their own')
-    tail = (" &mdash; " + ", ".join(bits)) if bits else ""
-    n = atlas_hub._WORD.get(len(v), len(v))
-    who = "chef has" if len(v) == 1 else "chefs have"
-    return (f'<p style="margin:0 0 14px;color:var(--muted)">{n} working {who} stood in a room '
-            f'on this craft and signed what they saw{tail}. Their words are on the place\'s '
-            'own page.</p>')
-
-
-
 # ── where else the craft lives: named, and nothing more ────────────────────
 # Arnaud, 2026-09-05: "add all the places possible that could be interested. even if
 # its in one line."
@@ -521,26 +500,40 @@ def also_here_block(d):
     """
     return atlas_hub.also_here_html(d)
 
-def measure_block(d):
-    """The Measure for a craft, if one has been graded AND signed.
+def measure_gate(d):
+    """The evidence cap on a craft's Measure. It still runs; the block no longer draws.
 
-    A craft with no entry shows NO meter — that is an absence, not a zero, and the
-    difference is the whole honesty of the mark. The rendering itself lives in
-    atlas_hub.measure_html() so that scripts/preview-measure.py shows a drafted grade
-    exactly as it would ship, rather than a lookalike of it.
+    ⛔ THE MEASURE DOES NOT GO ON A CRAFT PAGE (Arnaud, 11 September 2026: "dont put
+    [the verdict] / HOW THIS WAS GRADED on the skill page, this relevant only for
+    schools/instructor"). He had already taken the eyebrow and the count off this same
+    block on 10 September, and the fault both times is the UNIT, not the wording: a
+    grade is signed for a CRAFT and worded across every one of its places at once —
+    sushi's verdict says "we have still not stood at any of these counters", meaning
+    Tokyo, Kyoto, Osaka and Torrance together — while the thing a traveller is choosing
+    is one school, in one town, with one teacher in the room. Two of the five questions
+    are place questions already. So the block waits for the surface that can answer it.
+
+    ⭐ NOTHING IS DELETED AND NOTHING IS UNGRADED. All 31 signed grades stay in
+    data/atlas-extra-sheets.json -> measure, sign-measure.py still signs, preview-measure.py still
+    renders one exactly as it would ship, night-check.py still re-reads every evidence
+    link nightly, and atlas_hub.measure_html() is still the single renderer — a
+    per-school Measure is a caller away, not a rebuild.
+
+    ⛔ AND THE CAP STILL FIRES, which is why this is a function and not a deleted line.
+    It refuses to build when a grade claims more dots than its evidence carries. A gate
+    that only ran while the block was visible would have quietly stopped being a gate
+    the moment the block came off.
     """
     mm = MEASURE.get(d["id"])
     if not mm:
-        return ""
-    dots = int(mm["dots"])
-    cap = _evidence_cap(d, mm)[0]
+        return
+    dots, cap = int(mm["dots"]), _evidence_cap(d, mm)[0]
     if dots > cap:
         raise SystemExit(
             f'build-atlas-pages: measure on {d["id"]} claims {dots} dots but the evidence '
             f'only carries {cap}. Nobody has stood in a room here yet, and whether the craft is '
             'alive in its place and whether there is enough there to keep you going are exactly '
             'what a brochure claims. Lower the dots or add the check.')
-    return atlas_hub.measure_html(mm, dots, _vouch_line(d))
 
 def in_depth_block(d):
     """The craft itself, at length. A different thing from the overall, and mostly not
@@ -2508,6 +2501,7 @@ for d in DISC:
 
     title = f'{d["discipline"]} — where to learn it at the source ({len(d["destinations"])} destinations)'
     desc = (d["blurb"][:155] + "…") if len(d["blurb"]) > 156 else d["blurb"]
+    measure_gate(d)            # the cap still refuses an over-claimed grade
     _bid = best_dest_id(d)
     cards = "".join(dest_card(d, x, is_best=(x["id"] == _bid)) for x in sorted(d["destinations"], key=lambda x: -x["communityRank"]))
     cred = f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">{e(d.get("goldCredential",""))}</strong>{" · " + e(d["certBody"]) if d.get("certBody") else ""}</p>' if d.get("goldCredential") else ""
@@ -2516,7 +2510,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
-<section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{reviewed_block(d["id"])}{measure_block(d)}{sweep_block(d)}
+<section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{reviewed_block(d["id"])}{sweep_block(d)}
 {craft_depth(d)}{in_depth_block(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
@@ -3024,7 +3018,9 @@ if _dpath.exists():
               + (f", +{len(_drafts) - 4} more" if len(_drafts) > 4 else ""))
 _graded = len(MEASURE)
 _openn = sum(1 for d in DISC if is_open(d["id"]))
-print(f"  · the Measure: {_graded} of {_openn} open crafts graded and signed")
+print(f"  · the Measure: {_graded} of {_openn} open crafts graded and signed — "
+      "held, not published: the block came off the craft pages on 11 Sept and lands "
+      "next on the school")
 
 if ASSUME_ALL_OPEN:
     print("  !! --assume-all-open: this output is for diffing only. Do not commit it.")
