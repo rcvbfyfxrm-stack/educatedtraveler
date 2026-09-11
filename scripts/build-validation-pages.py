@@ -220,6 +220,21 @@ def main():
     after = json.dumps(data, ensure_ascii=False, sort_keys=True)
     if after != before:                  # a first-send fingerprint was recorded
         dp.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # Prune pages whose candidate is gone — but NEVER one that was sent. A link
+    # already in somebody's inbox must not start 404ing because we changed our mind;
+    # a candidate that was sent and then set aside keeps its page and gets a
+    # withdrawal note instead. Nothing has been sent yet, so this only tidies drafts.
+    live = {token(c["id"]) for c in data["candidates"]}
+    ever_sent = {token(a["id"]) for a in data.get("setAside", []) if (a.get("sent") or "").strip()}
+    for f in sorted(OUT.glob("*.html")):
+        if f.stem in live or f.stem in ever_sent:
+            continue
+        f.unlink()
+        print(f"  pruned    /v/{f.stem}  (set aside, never sent)")
+    for a in data.get("setAside", []):
+        if (a.get("sent") or "").strip():
+            print(f"  ⚠ KEPT     /v/{token(a['id'])}  {a['school']} — set aside AFTER it was sent; "
+                  "the page stays and owes a withdrawal note")
     sent = sum(1 for c in data["candidates"] if (c.get("sent") or "").strip())
     if sent:
         print(f"  {sent} page(s) frozen because the link has gone out")

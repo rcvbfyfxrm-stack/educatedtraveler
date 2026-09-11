@@ -94,34 +94,6 @@
       "photoWeWouldAskFor": "The photograph of the jars on the linen, from the top of your fermentation page."
     },
     {
-      "id": "fish-butchery--tokyo-jcaa",
-      "craft": "Fish butchery — ikejime and the Tsumoto method",
-      "place": "Tokyo, Japan",
-      "school": "Japan Culinary Arts Academy",
-      "teacher": null,
-      "weWouldPublish": [
-        "A two-day course in the Tsumoto method and ikejime: day one is processing plus the science behind it, day two is rice, filleting for sushi, and finishing the dish for service.",
-        "Taught by professional Japanese chefs with interpreter support, for students who do not speak Japanese."
-      ],
-      "weCouldNotAnswer": [
-        "What does the two-day course cost? We found a figure of USD 6,500 but it belongs to the four-week programme, and we will not attach it to this one.",
-        "When does it run?",
-        "Can we name the chef who teaches it?",
-        "How many students to a bench?"
-      ],
-      "sources": [
-        {
-          "what": "the academy's own course pages",
-          "url": "https://www.japanculinaryarts.com/chef-training-course",
-          "read": "10 September 2026"
-        }
-      ],
-      "validated": {
-        "on": false
-      },
-      "photoWeWouldAskFor": "Something from the bench — a fish being broken down, or a student's hands at work. Your homepage leads on the certification seal, and it is the fish we would want a chef to see."
-    },
-    {
       "id": "cheese-affinage--ambierle-mons",
       "craft": "Cheese and affinage",
       "place": "Ambierle, France",
@@ -148,6 +120,19 @@
         "on": false
       },
       "photoWeWouldAskFor": "The black-and-white portrait from the top of your site. If that is Laurent Mons, we would like to say so underneath it."
+    }
+  ],
+  "setAside": [
+    {
+      "id": "fish-butchery--tokyo-jcaa",
+      "school": "Japan Culinary Arts Academy",
+      "craft": "Fish butchery — ikejime and the Tsumoto method",
+      "place": "Tokyo, Japan",
+      "on": "11 September 2026",
+      "by": "Arnaud",
+      "why": "Two days is below the shortest official ladder (7-21 days, Foundation) and the fit checklist forbids an off-spectrum duration as a primary offer. Worse than the length: they name no teacher - their own wording is 'professional Japanese chefs with interpreter support' - and they describe themselves as a culinary school FOR FOREIGNERS, leading on a certification seal. Tokyo's fish craft lives at Toyosu and behind a counter. The credential is the product here, and that is the DNA test failing, not a gap in our research.",
+      "keptBecause": "Recorded rather than deleted. The course is real and it is the only open door to the Tsumoto method we have found. If ikejime ever needs a school-led entry rather than a week, start here and re-read it.",
+      "sent": null
     }
   ]
 }
