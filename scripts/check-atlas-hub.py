@@ -37,6 +37,10 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
   13. the hub carries the static [data-visitor-only] sign-in link to /you AND loads
      member-nav.js to hide it again — the only way a signed-out member gets back
      into their account from the Atlas, and nothing at runtime would miss it.
+  19. a school that read its own page and corrected it is SAID SO on that page,
+      by name and with the day it read it. The record lives in one JSON key and the
+      page is regenerated nightly; a block that silently stops rendering would leave
+      us quietly taking the credit for a correction somebody else made.
   14. the skill ladder and the coverage ticks actually reach the page — the rungs
      and the circles counted off the built HTML against the data they came from,
      because a block that renders its heading and drops its list is the failure
@@ -717,6 +721,30 @@ for _d in _disc:
 if not _seen18:
     bad("check 18 found no places table on any craft sheet — the table or its markup "
         "moved and this check has gone blind")
+
+# ── 19. every review reaches the page it corrected ─────────────────────────
+# A school correcting its own page is the strongest thing on this map and it is one
+# line in one JSON key. If reviewed_block() ever stops rendering — a renamed key, a
+# body template edited around it — the corrections stay on the page and the credit
+# for them quietly disappears. That is the shape of failure this file exists to catch:
+# the page still 200s and still looks finished.
+_reviewed = _extra.get("reviewedBy", {})
+for _pid, _r in sorted(_reviewed.items()):
+    _p19 = ROOT / f"website/atlas/{_pid}.html"
+    if not _p19.exists():
+        bad(f"reviewedBy names {_pid}, and website/atlas/{_pid}.html does not exist")
+        continue
+    _h19 = _p19.read_text()
+    if "Read and corrected by the school" not in _h19:
+        bad(f"{_pid}: a school corrected this page and the page does not say so — "
+            "reviewed_block() is not reaching it")
+        continue
+    for _field in ("school", "date"):
+        if html_mod.escape(_r[_field]) not in _h19:
+            bad(f'{_pid}: the review block is on the page without its {_field} '
+                f'({_r[_field]!r}) — a review with no name or no day is a badge')
+    if _r["what"][:60] not in html_mod.unescape(_h19):
+        bad(f"{_pid}: the review block prints no account of what was corrected")
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:

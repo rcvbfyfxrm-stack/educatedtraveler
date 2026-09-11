@@ -1972,12 +1972,14 @@ window.ET_ATLAS = {
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
-            "Old Medicine Hospital (Thai Massage School Shivagakomarpaj / OMH)",
+            "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
             "ITM - International Training Massage School",
             "Sunshine Massage School",
             "Chetawan (Wat Pho) Thai Traditional Massage School, Chiang Mai branch"
           ],
-          "masters": [],
+          "masters": [
+            "Ajarn Wasan (one of the principal instructors, Old Medicine Hospital)"
+          ],
           "badges": [
             "source",
             "scene",
@@ -1988,7 +1990,7 @@ window.ET_ATLAS = {
             "heritage",
             "lineage"
           ],
-          "why": "The world capital of Northern-style Nuad Thai, where a dense cohort of Thai and foreign students train side by side at the source and walk out with ministry-recognized certificates.",
+          "why": "The world capital of Northern-style Nuad Thai, with a deep community of Thai and international students training at the source through established schools and walking out with ministry-recognized certificates.",
           "bestSeason": "Nov-Feb",
           "level": "Beginner -> Instructor",
           "id": "thai-massage--chiang-mai",
@@ -1997,14 +1999,7 @@ window.ET_ATLAS = {
               "name": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
               "url": "https://www.oldmedicine.org/courses",
               "course": "Thai Massage Foundations & Therapeutic Levels 1-4",
-              "blurb": "Training at the 1962-founded school that is the birthplace of Northern-style Thai massage in Chiang Mai.",
-              "confidence": "high"
-            },
-            {
-              "name": "Old Medicine Hospital (Thai Massage School Shivagakomarpaj / OMH)",
-              "url": "https://www.oldmedicine.org/",
-              "course": "Foundation / Northern-Style Thai Massage certificate courses",
-              "blurb": "A Chiang Mai Thai-massage school founded in 1962 and registered under the Thai Ministry of Education, widely regarded as the source of Northern-style Thai massage, offering multi-day hands-on certificate courses.",
+              "blurb": "Founded in 1962 by Ajarn Sintorn Chaichakan, this is the school Northern-style Thai massage came out of; its 120-150-hour certificate pathways are registered and recognised under the Thai Ministry of Education, and it teaches Thai and international students.",
               "confidence": "high"
             },
             {
@@ -2033,8 +2028,14 @@ window.ET_ATLAS = {
           "tripType": "Deep-dive",
           "tripLength": "2–4 weeks",
           "englishTaught": true,
-          "englishBasis": "Old Medicine Hospital school runs classes in both Thai and English; majority of 20,000+ students international",
+          "englishBasis": "The Old Medicine Hospital school teaches Thai and international students; it says curriculum and language arrangements vary between classes, so ask which one you are booking",
+          "room": {
+            "day": "The massage course starts at 9:00. Before it, Monday to Friday, the school runs a free yoga class from 8:00 to 8:45 — the flexibility, balance, breathing and body awareness the Northern style asks of your own body while you work on somebody else's.",
+            "who": "Thai and international students both. The school is clear that they are not necessarily taught together in every classroom — curriculum and language arrangements vary from course to course, so ask which one you are booking into.",
+            "nearby": "An independent traditional clinic run by Ajarn Wasan's younger sister sits beside the school, outside the curriculum entirely. Khun Kesorn, one of its practitioners, was the last student Ajarn Sintorn taught himself and still works the sequences kept in the school's manuals; P'Aoy trained at the school about 24 years ago and is the one people there ask for. Being worked on by hands like those is how you learn the rhythm, the pressure and the transitions from the other side. A traditional herbal steam room run by Ajarn Wasan's extended family is close by."
+          },
           "lineage": [
+            "Ajarn Sintorn Chaichakan (founder of the Old Medicine Hospital school, 1962)",
             "Chongkol Setthakorn (founder, ITM)",
             "Asokananda / Harald Brust (founder of the Sunshine Network, died 2005)"
           ]
@@ -2094,10 +2095,10 @@ window.ET_ATLAS = {
         "school": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
         "url": "https://www.oldmedicine.org/courses",
         "course": "Thai Massage Foundations & Therapeutic Levels 1-4",
-        "description": "Training at the 1962-founded school that is the birthplace of Northern-style Thai massage in Chiang Mai. The full progression runs four 30-hour (5-day) levels: Foundations Levels 1-2 build the complete core sequence, while Therapeutic Levels 3-4 go into therapy work, herbal compress, and the Sen Sib energy lines. Students practice hands-on in pairs throughout and receive a certificate and lineage pin at each level; several levels are NCBTMB-approved for US continuing-education credit.",
+        "description": "Training at the 1962-founded school that is the birthplace of Northern-style Thai massage in Chiang Mai. The full progression runs four 30-hour (5-day) levels: Foundations Levels 1-2 build the complete core sequence, while Therapeutic Levels 3-4 go into therapy work, herbal compress, and the Sen Sib energy lines. Students practice hands-on in pairs throughout and receive a certificate on completing each level; the Shivagakomarpaj lineage pin is awarded after the full Levels 1-4 programme. Several levels are NCBTMB-approved for US continuing-education credit.",
         "duration": "30 hours (5 days) per level; ~20 days for the full four-level progression",
         "format": "Daytime hands-on classes in small groups at the Chiang Mai school (not residential)",
-        "certification": "Certificate of completion per level in the Shivagakomarpaj lineage; some levels NCBTMB-approved (CEUs)",
+        "certification": "A certificate for each level completed, and the Shivagakomarpaj lineage pin after the full Levels 1-4 programme; some levels NCBTMB-approved (CEUs)",
         "fitsBecause": "Hands-on training at the founding school of Northern Thai massage in Chiang Mai where the lineage originates, learning in pairs within a student community toward recognized certificates.",
         "sessions": [],
         "priceNote": "",

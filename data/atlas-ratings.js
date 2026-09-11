@@ -347,13 +347,13 @@ window.ET_RATINGS = {
   },
   "thai-massage": {
     "destId": "thai-massage--chiang-mai",
-    "school": "Old Medicine Hospital (OMH) Thai Massage School",
+    "school": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
     "place": "Chiang Mai, Thailand",
     "stars": 4.8,
     "count": 181,
     "source": "Google (via Wanderlog)",
     "url": "https://wanderlog.com/place/details/5711104/old-medicine-hospital-thai-massage-school-shivagakomarpaj",
-    "whyPick": "Founded in 1962 by Ajahn Sintorn Chaichakan as the original source of Northern-style Thai massage, the school still teaches the Shivagakomarpaj lineage under his family and issues a recognized completion certificate after its structured courses.",
+    "whyPick": "Founded in 1962 by Ajarn Sintorn Chaichakan as the original source of Northern-style Thai massage, the school still teaches the Shivagakomarpaj lineage in a direct line from him — Ajarn Wasan is one of its principal instructors today — and issues a recognized completion certificate after its structured courses.",
     "destPlace": "Chiang Mai",
     "sources": [
       {

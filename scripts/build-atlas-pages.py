@@ -773,6 +773,55 @@ def disclosure_block(d, section=True):
     return f'<section><div class="wrap">{card}</div></section>' if section else card
 
 
+# ── a school reading its own page, and correcting it ──────────────────────────
+# Wave two asked 47 schools one question: is this page right. The Old Medicine
+# Hospital school in Chiang Mai answered it on 11 September 2026 with six corrections,
+# and this is where that answer is recorded — on the page it changed, under the
+# school's own name, with the day it read it.
+#
+# ⛔ The one rule that keeps it from becoming a badge: a school may correct what a
+# page says ABOUT IT. Correcting a page does not move a place up this map, does not
+# let a school write a line about anybody else, and does not light or unlight a dot on
+# the Measure. If a correction ever changes a grade, the grade gets re-signed by the
+# person whose name is on it — that is what the signature is for.
+#
+# Kept in the manifest rather than in repertoire.js for the reason communityLines is:
+# a new per-destination field there is silently dropped by atlas-index-shim.js unless
+# it is added to that whitelist too, and this one is keyed by PAGE, not by place — a
+# craft sheet gets one as readily as a destination does.
+REVIEWED = MANIFEST.get("reviewedBy", {})
+
+
+def reviewed_block(page_id, section=True):
+    """Who read this page, when, and what they made us change."""
+    r = REVIEWED.get(page_id) or {}
+    if not r:
+        return ""
+    for k in ("school", "date", "what"):
+        if not (r.get(k) or "").strip():
+            raise SystemExit(f"build-atlas-pages: reviewedBy[{page_id!r}] has no {k}. A "
+                             "review carries a name, the day it was read and what it "
+                             "changed — without all three it is a badge, and a badge is "
+                             "the one thing this block must never become.")
+    who = e(r["school"])
+    if r.get("url"):
+        who = (f'<a class="school-url" rel="nofollow noopener" target="_blank" '
+               f'href="{e(r["url"])}">{who} ↗</a>')
+    # A school is an institution; a review is done by a person. Naming them is the
+    # whole value of the block — "the school approved this" with nobody behind it is
+    # the badge again.
+    if r.get("who"):
+        who += f' &middot; read by {e(r["who"])}'
+    card = ('<div class="card" style="border-left:3px solid var(--sea)">'
+            '<div class="mono">Read and corrected by the school</div>'
+            f'<p style="opacity:.86;margin-top:8px;max-width:62ch">{e(r["what"])}</p>'
+            f'<p class="meta" style="margin-top:10px">{who} &middot; read it on '
+            f'{e(r["date"])}. A school corrects what this page says about itself. It does '
+            'not move a place up this map, and it writes nothing about anybody else.</p>'
+            "</div>")
+    return f'<section><div class="wrap">{card}</div></section>' if section else card
+
+
 def learn_line(x):
     """The immersive line, under the place name. Absent until somebody writes it."""
     line = (LEARN_LINES.get(x["id"]) or "").strip()
@@ -1385,6 +1434,12 @@ def room_block(x, d=None):
     if r.get("ratio"): items.append(f'<li><strong style="font-weight:500">Group</strong> — {e(r["ratio"])}</li>')
     if r.get("day"):   items.append(f'<li><strong style="font-weight:500">A normal day</strong> — {e(r["day"])}</li>')
     if r.get("who"):   items.append(f'<li><strong style="font-weight:500">Who comes</strong> — {e(r["who"])}</li>')
+    # What is beside the room and not in the course. Added 11 Sep 2026 for Chiang Mai:
+    # the Old Medicine Hospital school told us its founder's last personal student
+    # still practises in the clinic next door. That is a real reason to go and it is
+    # not a class, so it cannot be a schoolsInfo row — it would inflate the school
+    # count the same school had just asked us to correct.
+    if r.get("nearby"): items.append(f'<li><strong style="font-weight:500">Next door</strong> — {e(r["nearby"])}</li>')
     if not items:
         return ""
     return ('<section><div class="wrap"><div class="mono">What the days are like</div>'
@@ -2413,7 +2468,7 @@ for d in DISC:
 <p class="lead">{e(x['why'])}</p>{_closed_band}
 </div></header>
 <section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
-{disclosure_block(d) if has_relationship(x) else ""}{featured_block(d, x)}
+{reviewed_block(x["id"])}{disclosure_block(d) if has_relationship(x) else ""}{featured_block(d, x)}
 {masters_html}{lineage_html}
 {rating_block(d, x)}{schools_html}{photo_block(x)}
 {room_block(x, d)}
@@ -2461,7 +2516,7 @@ for d in DISC:
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
-<section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{measure_block(d)}{sweep_block(d)}
+<section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{reviewed_block(d["id"])}{measure_block(d)}{sweep_block(d)}
 {craft_depth(d)}{in_depth_block(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
