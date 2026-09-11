@@ -141,18 +141,36 @@ def page(c, amend=None):
         + "".join(f"  - {q}\n" for q in c.get("weCouldNotAnswer", [])) + "\n")
     photo_html = ""
     if c.get("photoWeWouldAskFor"):
-        pm = mailto(f"A photograph — {name}",
+        pm = mailto(f"Photographs — {name}",
             f"About the EducatedTraveler entry for {name}.\n\n"
-            "You are welcome to use a photograph:\n\n  (attach it, or send a link)\n\n"
-            "Credit it to:\n\n  (the name you would like under it)\n\n")
-        photo_html = ('<h2>And a photograph, if you would</h2><div class="card">'
+            "You are welcome to use these:\n\n  (attach them, or send a link)\n\n"
+            "  [ ] the place\n  [ ] whoever teaches\n  [ ] the technique\n"
+            "  [ ] people learning - everyone in shot has agreed\n  [ ] the one move\n\n"
+            "Or: you may use what we have already posted publicly.  [ ] yes\n\n"
+            "Credit them to:\n\n  (the name you would like under them)\n\n")
+        photo_html = ('<h2>And photographs, if you would</h2><div class="card">'
                       f'<p style="margin-top:0">{e(c["photoWeWouldAskFor"])}</p>'
+                      '<p>If you have others, these are the five that would let a chef see what the '
+                      'week actually is — one of each is plenty:</p>'
+                      '<ul>'
+                      '<li><strong>The place.</strong> The building, the room, the town it sits in.</li>'
+                      '<li><strong>Whoever teaches.</strong> At work rather than posed, if there is a choice.</li>'
+                      '<li><strong>The technique.</strong> Hands doing the thing, close.</li>'
+                      '<li><strong>People learning.</strong> The bench with somebody at it. '
+                      '<em>Only if the people in it have agreed</em> — we would rather have no '
+                      'picture than one somebody did not consent to.</li>'
+                      '<li><strong>The one move.</strong> The gesture that <em>is</em> the craft — '
+                      'the thing a stranger would recognise it by.</li>'
+                      '</ul>'
                       '<p class="src">We will not take one off your website. Photographs are yours, '
                       'and the only ones on our record are the ones a school chose and sent. You pick '
-                      'it, you tell us how to credit it, and you see where it goes before it goes '
-                      'anywhere. <strong>Sending one does not move you up the record</strong> — '
+                      'them, you tell us how to credit them, and you see where they go before they go '
+                      'anywhere. <strong>Sending them does not move you up the record</strong> — '
                       'nothing does.</p>'
-                      f'<p><a class="btn" href="{pm}">Send a photograph</a></p></div>')
+                      '<p class="src">If it is easier: tell us we may use what you have already '
+                      'posted, and we will credit it to you and link back. That costs you nothing to '
+                      'find.</p>'
+                      f'<p><a class="btn" href="{pm}">Send photographs</a></p></div>')
     amend_html = ""
     if amend:
         amend_html = ('<div class="card" style="border-left:3px solid #d28a52">'
