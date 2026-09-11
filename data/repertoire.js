@@ -24106,7 +24106,7 @@ window.ET_ATLAS = {
                 "source": "sent",
                 "thumb": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
                 "card": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
-                "focal": "50% 45%",
+                "focal": "50% 78%",
                 "items": [
                     {
                       "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
