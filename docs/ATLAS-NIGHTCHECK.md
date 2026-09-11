@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-10 — 336 published claims re-read against the pages they came from, across 31 open crafts._
+_2026-09-11 — 336 published claims re-read against the pages they came from, across 31 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -10,7 +10,54 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 **Only the server's own answer reaches this list** — a 404, a 410, or a page that no longer carries what we published. A request that never became a response is two sections down and is not a takedown: on 7 September 2026 this section held two entries and both were wrong, one a timeout on our own runner and one a certificate that did not match a hostname.
 
-_none._
+- **modernist-spanish-cuisine · Madrid Fusión — Alimentos de España** — https://www.madridfusion.net/en/
+  - page no longer says: Madrid Fusión — Alimentos de España
+- **ashtanga-yoga · Karnataka Tourism — the state department's own page on Mysuru** — https://www.karnatakatourism.org/destinations/mysuru/
+  - page no longer says: Karnataka Tourism — the state department's own page on Mysuru
+- **jewelry-and-goldsmithing · the Schmuckmuseum Pforzheim, the town's jewellery museum** — https://www.schmuckmuseum.de/en/
+  - page no longer says: the Schmuckmuseum Pforzheim, the town's jewellery museum
+- **kitesurfing · the Global Kitesports Association's own event calendar** — https://gkakiteworldtour.com/events/
+  - page no longer says: the Global Kitesports Association's own event calendar
+- **perfumery · UNESCO, Representative List of the Intangible Cultural Heritage of Humanity, 2018** — https://ich.unesco.org/en/RL/01207
+  - page no longer says: UNESCO, Representative List of the Intangible Cultural Heritage of Humanity, 2018
+- **photography · Paris Photo, at the Grand Palais** — https://www.parisphoto.com/en-gb.html
+  - page no longer says: Paris Photo, at the Grand Palais
+- **freediving · CMAS's own record of the 8th World Championship Freediving Depth** — https://www.cmas.org/freediving-events/8th-cmas-freediving-depth-world-championship.html
+  - page no longer says: CMAS's own record of the 8th World Championship Freediving Depth
+- **pottery-and-ceramics · the Mashiko Tourist Association's own page on the town and its Pottery Fair** — http://www.mashiko-kankou.org/english/mta1/mashikoyaki/toukiiti/tokiichi.htm
+  - page no longer says: the Mashiko Tourist Association's own page on the town and its Pottery Fair
+- **rock-climbing · the National Park Service's own climbing pages for Yosemite** — https://www.nps.gov/yose/planyourvisit/climbing.htm
+  - page no longer says: the National Park Service's own climbing pages for Yosemite
+- **rock-climbing · the Kalymnos guidebook's own route database and public rebolt log** — https://climbkalymnos.com/
+  - page no longer says: the Kalymnos guidebook's own route database and public rebolt log
+- **safari-and-wildlife-guiding · the Maasai Mara Wildlife Conservancies Association on its own membership** — https://maraconservancies.org/about-us/
+  - page no longer says: the Maasai Mara Wildlife Conservancies Association on its own membership
+- **sailing-and-yachtmaster · Cowes Week's own site, on the bicentenary regatta and the 2027 dates** — https://www.cowesweek.co.uk/
+  - page no longer says: Cowes Week's own site, on the bicentenary regatta and the 2027 dates
+- **sailing-and-yachtmaster · the RYA's own contact page, showing its head office at Hamble-le-Rice** — https://www.rya.org.uk/about-us/contact-us/
+  - page no longer says: the RYA's own contact page, showing its head office at Hamble-le-Rice
+- **ski-touring-and-splitboard · the Patrouille des Glaciers, organised by the Swiss Army, on its own races and routes** — https://www.pdg.ch/en/
+  - page no longer says: the Patrouille des Glaciers, organised by the Swiss Army, on its own races and routes
+- **spearfishing · the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round** — https://www.ffpsa.net/coupe-de-france-de-peche-sous-marine-25-avril-2026-resultats-de-la-manche-cote-dazur
+  - page no longer says: the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round
+- **surfing · the World Surf League's own 2026 event page for Peniche** — https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main
+  - page no longer says: the World Surf League's own 2026 event page for Peniche
+- **thai-massage · UNESCO's Representative List entry for Nuad Thai** — https://ich.unesco.org/en/RL/nuad-thai-traditional-thai-massage-01384
+  - page no longer says: UNESCO's Representative List entry for Nuad Thai
+- **thai-massage · UNESCO's Memory of the World entry for the Epigraphic Archives of Wat Pho** — https://www.unesco.org/en/memory-world/epigraphic-archives-wat-pho
+  - page no longer says: UNESCO's Memory of the World entry for the Epigraphic Archives of Wat Pho
+- **wildlife-photography · Kiskunság National Park on the Pusztaszer Landscape Protection Area** — https://www.knp.hu/en/pusztaszer-landscape-protection-area
+  - page no longer says: Kiskunság National Park on the Pusztaszer Landscape Protection Area
+- **wildlife-photography · the Maasai Mara Wildlife Conservancies Association on its own membership** — https://maraconservancies.org/about-us/
+  - page no longer says: the Maasai Mara Wildlife Conservancies Association on its own membership
+- **windsurfing-and-wing-foil · the PWA World Tour's own 2026 calendar** — https://www.pwaworldtour.com/events/2026/
+  - page no longer says: the PWA World Tour's own 2026 calendar
+- **wine-and-sommellerie · the Union des Grands Crus de Bordeaux on its members and En Primeur Week** — https://www.ugcb.net/en
+  - page no longer says: the Union des Grands Crus de Bordeaux on its members and En Primeur Week
+- **yacht-crew-and-stcw · Port Vauban's own site, on its berths and capacity** — https://leportvauban.com/en/
+  - page no longer says: Port Vauban's own site, on its berths and capacity
+- **yacht-crew-and-stcw · Cowes Week's own site, on the bicentenary regatta and the 2027 dates** — https://www.cowesweek.co.uk/
+  - page no longer says: Cowes Week's own site, on the bicentenary regatta and the 2027 dates
 
 ## Gone tonight — the server says the page does not exist
 
@@ -22,31 +69,27 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 1 night, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 2 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- pottery-and-ceramics · Hamada Shoji Memorial Mashiko Sankokan — 1 night — URLError: <urlopen error timed out>
-  - https://mashiko-sankokan.net/
+- sailing-and-yachtmaster · Solent Boat Training — 1 night — URLError: <urlopen error timed out>
+  - https://www.solentboattraining.co.uk/
+- wildlife-photography · Bence Máté's Hides (via NaturesLens) — 1 night — TimeoutError: The read operation timed out
+  - https://natureslens.co.uk/photography-holiday/wildlife-photography-hides-of-hungary/
+- wildlife-photography · NaturesLens — 1 night — TimeoutError: The read operation timed out
+  - https://natureslens.co.uk/photography-holiday/wildlife-photography-hides-of-hungary/
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 1 — Petits fours et gâteaux de voyage — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
+  - https://www.francecompetences.fr/recherche/rncp/38765/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **cold-exposure-wim-hof-method · Innerfire BV** — 1 night, after 6 counted as failing by the older check — https://www.innerfire.nl/
+- **cold-exposure-wim-hof-method · Innerfire BV** — 2 nights, after 6 counted as failing by the older check — https://www.innerfire.nl/
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.innerfire.nl'. (_ssl.c:1010)>
 
 ## Back to normal
 
-- ashtanga-yoga · Stillpoint Yoga London
-- vipassana-and-meditation · Insight Meditation Society (IMS)
-- surfing · Baleal Surf Camp
-- kitesurfing · Laurel Eastman Kiteboarding
-- kitesurfing · GoKite Cabarete
-- jewelry-and-goldsmithing · Le Arti Orafe Jewellery School (LAO)
-- jewelry-and-goldsmithing · Complete Stone Setting Course
-- jewelry-and-goldsmithing · Introduction to Rhino3D for Goldsmithing (CAD.WE1)
-- jewelry-and-goldsmithing · Alchimia Contemporary Jewellery School
-- wine-and-sommellerie · Institute of Masters of Wine
-- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma
+_none._
 
 ## Unreadable, not gone
 
@@ -54,7 +97,6 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
 - ashtanga-yoga · Ashtanga Yoga New York (Eddie Stern) — HTTP 403
-- sound-healing · British Academy of Sound Therapy — HTTP 403
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
 - sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
 - rock-climbing · Kalymnos Primal Climb — HTTP 429
@@ -122,6 +164,7 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - sound-healing · San Francisco / Bay Area · Globe Institute - Sound Healing Center (Sausalito)
 - sound-healing · San Francisco / Bay Area · California Institute of Integral Studies (sound-related programs)
 - sound-healing · Glastonbury / South West England · The College of Sound Healing
+- sound-healing · Glastonbury / South West England · British Academy of Sound Therapy
 - thai-massage · Chiang Mai · Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)
 - thai-massage · Chiang Mai · Introduction to Thai Massage
 - thai-massage · Chiang Mai · One Day Drop-In Pass
@@ -143,6 +186,5 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Apnea Academy / Italian Mediterranean · Apnea Academy (Umberto Pelizzari's school)
 - freediving · Apnea Academy / Italian Mediterranean · Y-40 Deep Joy (Montegrotto Terme)
 - freediving · Dahab (Red Sea) · Freedive Dahab
-- freediving · Dahab (Red Sea) · Dahab Freedivers
 
-_254 in total._
+_255 in total._
