@@ -2715,6 +2715,22 @@ CRAFT_NAV = (
     generated_at=UNLOCK_DATE, craft_nav=CRAFT_NAV,
     opened=OPENED_BAND, n_asked=N_ASKED))
 
+# A hand-written sheet that is not a craft record — the long read behind a craft, say —
+# has no row in DISC, so neither loop above put it in the sitemap. It was published,
+# linked, and invisible to search, which is the same hole the journal had. Discover them
+# the same way: anything in `preserve` that is a real page (it carries the spine) and
+# does not ask to be left out. The redirect stubs carry noindex, so they stay out.
+for _n in sorted(PRESERVE):
+    _f = OUT / _n
+    if not _f.exists():
+        continue
+    _t = _f.read_text(encoding="utf-8", errors="ignore")
+    if 'class="spine"' not in _t or re.search(r'name="robots"[^>]*noindex', _t):
+        continue
+    _u = f"/atlas/{_n[:-5]}"
+    if _u not in urls:
+        urls.append(_u)
+
 # ---------- sitemap + robots ----------
 # Hand-added statics used to be wiped by every rebuild — they live here now.
 # /browse is deliberately absent: it is a redirect, and a redirect has no business
