@@ -1997,6 +1997,66 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
+              "photos": {
+                "given": "2026-09-12",
+                "by": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
+                "source": "site",
+                "thumb": "/images/atlas/thai-massage--chiang-mai/omh-06-the-school-sign.jpg",
+                "card": "/images/atlas/thai-massage--chiang-mai/omh-01-the-correction.jpg",
+                "focal": "50% 50%",
+                "items": [
+                  {
+                    "src": "/images/atlas/thai-massage--chiang-mai/omh-02-the-stretch.jpg",
+                    "w": 960,
+                    "h": 720,
+                    "alt": "Two students on a blue floor mat in a bright classroom: one lies on her back while the other, bent over her, lifts and folds her leg into an assisted stretch, an open course book beside them on the mat.",
+                    "caption": "The assisted stretch on a floor mat, which is the part of Thai massage a table cannot do. Both people here are students: in this school you learn it by taking it as often as by giving it."
+                  },
+                  {
+                    "src": "/images/atlas/thai-massage--chiang-mai/omh-03-the-numbered-foot.jpg",
+                    "w": 1024,
+                    "h": 768,
+                    "alt": "A close view of a thumb pressing into the arch of a bare foot, with four points drawn on the sole in marker and numbered 2, 3, 4 and 5.",
+                    "caption": "The points are numbered in marker, in order, on the foot itself. This is what a teaching school looks like from the inside — the sequence made visible until the hand knows it without looking."
+                  },
+                  {
+                    "src": "/images/atlas/thai-massage--chiang-mai/omh-01-the-correction.jpg",
+                    "w": 2048,
+                    "h": 946,
+                    "wide": true,
+                    "alt": "Seen from above: a student kneeling over a person lying on a blue floor mat presses into their thigh with both hands, while a second pair of hands reaches in from the right and rests on top of hers, guiding the pressure. An open notebook lies on the floor beside them.",
+                    "caption": "Show, watch, support, withdraw. The second pair of hands is the correction being made on the spot, which is the whole reason to learn this in a room and not from a screen."
+                  },
+                  {
+                    "src": "/images/atlas/thai-massage--chiang-mai/omh-04-the-room.jpg",
+                    "w": 1280,
+                    "h": 960,
+                    "alt": "A classroom with blue floor mats laid out in rows, six pairs of students working on each other, an instructor standing at the back, and a whiteboard reading “Thai Massage Course 1”.",
+                    "caption": "Six pairs on the floor, one instructor walking between them, and the course written on the board. People at the next mat, not only a teacher at the front."
+                  },
+                  {
+                    "src": "/images/atlas/thai-massage--chiang-mai/omh-05-the-sen-lines.jpg",
+                    "w": 2500,
+                    "h": 1666,
+                    "alt": "A whiteboard covered in hand-drawn diagrams of the body in red and blue marker, with Sen energy lines traced along the limbs and their names written beside them.",
+                    "caption": "The Sen lines, drawn by hand on the board. The theory is taught as drawing before it is taught as pressure."
+                  },
+                  {
+                    "src": "/images/atlas/thai-massage--chiang-mai/omh-06-the-school-sign.jpg",
+                    "w": 1267,
+                    "h": 1014,
+                    "alt": "A man in the school’s cream and gold uniform shirt standing beside the school’s own sign, which reads “Thai Massage School Shivagakomarpaj” with its opening hours and telephone number.",
+                    "caption": "The school’s own door, in Wua Lai Road. Founded 1962 by Ajarn Sintorn Chaichakan, and still teaching the Northern style it started."
+                  },
+                  {
+                    "src": "/images/atlas/thai-massage--chiang-mai/omh-07-the-compress.jpg",
+                    "w": 1000,
+                    "h": 667,
+                    "alt": "Students standing at a table gathering herbs into cloth and tying them into round compress balls, several finished compresses resting on a woven tray.",
+                    "caption": "Tying the herbal compresses. The students make them before they use them, which is how you learn what is inside one."
+                  }
+                ]
+              },
               "url": "https://www.oldmedicine.org/courses",
               "course": "Thai Massage Foundations & Therapeutic Levels 1-4",
               "blurb": "Founded in 1962 by Ajarn Sintorn Chaichakan, this is the school Northern-style Thai massage came out of; its 120-150-hour certificate pathways are registered and recognised under the Thai Ministry of Education, and it teaches Thai and international students.",

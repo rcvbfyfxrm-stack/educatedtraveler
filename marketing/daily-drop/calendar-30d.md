@@ -227,7 +227,7 @@ The full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebast
 ```
 Chiang Mai is both the birthplace of Thai Massage and its living capital.
 
-The world capital of Northern-style Nuad Thai, where a dense cohort of Thai and foreign students train side by side at the source and walk out with ministry-recognized certificates.
+The world capital of Northern-style Nuad Thai, with a deep community of Thai and international students training at the source through established schools and walking out with ministry-recognized certificates.
 
 Community strength: Legendary. Season: Nov-Feb.
 We map where every craft is truly alive — and introduce you to the school and the people going.
