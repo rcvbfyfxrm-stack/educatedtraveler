@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-11 — 336 published claims re-read against the pages they came from, across 31 open crafts._
+_2026-09-12 — 335 published claims re-read against the pages they came from, across 31 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -40,6 +40,8 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
   - page no longer says: the Patrouille des Glaciers, organised by the Swiss Army, on its own races and routes
 - **spearfishing · the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round** — https://www.ffpsa.net/coupe-de-france-de-peche-sous-marine-25-avril-2026-resultats-de-la-manche-cote-dazur
   - page no longer says: the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round
+- **surfing · Save The Waves on the Ericeira World Surfing Reserve** — https://www.savethewaves.org/ericeira/
+  - page no longer says: Save The Waves on the Ericeira World Surfing Reserve
 - **surfing · the World Surf League's own 2026 event page for Peniche** — https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main
   - page no longer says: the World Surf League's own 2026 event page for Peniche
 - **thai-massage · UNESCO's Representative List entry for Nuad Thai** — https://ich.unesco.org/en/RL/nuad-thai-traditional-thai-massage-01384
@@ -63,28 +65,26 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 A 404 or a 410 on the first evening, which is the one failure worth waking up for: the others are counted and wait for the third night.
 
-_none._
+- wine-and-sommellerie · Université de Bordeaux DUAD (oenology) — HTTP 404 — https://www.isvv.u-bordeaux.fr/fr/diplome-universitaire-daptitude-a-la-degustation-d-u-a-d.html
 
 ## We could not reach these — as much about us as about them
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 2 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 3 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- sailing-and-yachtmaster · Solent Boat Training — 1 night — URLError: <urlopen error timed out>
-  - https://www.solentboattraining.co.uk/
-- wildlife-photography · Bence Máté's Hides (via NaturesLens) — 1 night — TimeoutError: The read operation timed out
+- thai-massage · ITM - International Training Massage School — 1 night — URLError: <urlopen error timed out>
+  - https://www.itmthaimassage.com/
+- wildlife-photography · Bence Máté's Hides (via NaturesLens) — 2 nights — TimeoutError: The read operation timed out
   - https://natureslens.co.uk/photography-holiday/wildlife-photography-hides-of-hungary/
-- wildlife-photography · NaturesLens — 1 night — TimeoutError: The read operation timed out
+- wildlife-photography · NaturesLens — 2 nights — TimeoutError: The read operation timed out
   - https://natureslens.co.uk/photography-holiday/wildlife-photography-hides-of-hungary/
-- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 1 — Petits fours et gâteaux de voyage — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
-  - https://www.francecompetences.fr/recherche/rncp/38765/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **cold-exposure-wim-hof-method · Innerfire BV** — 2 nights, after 6 counted as failing by the older check — https://www.innerfire.nl/
+- **cold-exposure-wim-hof-method · Innerfire BV** — 3 nights, after 6 counted as failing by the older check — https://www.innerfire.nl/
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.innerfire.nl'. (_ssl.c:1010)>
 
 ## Back to normal
@@ -97,6 +97,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
 - ashtanga-yoga · Ashtanga Yoga New York (Eddie Stern) — HTTP 403
+- vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
 - sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
 - rock-climbing · Kalymnos Primal Climb — HTTP 429
@@ -153,7 +154,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - vipassana-and-meditation · Yangon · International Meditation Centre (U Ba Khin tradition)
 - vipassana-and-meditation · Chiang Mai · Wat Ram Poeng (Tapotaram) Northern Insight Meditation Centre
 - vipassana-and-meditation · Chiang Mai · Wat Suan Dok (Monk Chat / meditation retreats)
-- vipassana-and-meditation · Barre, Massachusetts · Insight Meditation Society (IMS)
 - vipassana-and-meditation · Barre, Massachusetts · Barre Center for Buddhist Studies
 - sound-healing · Kathmandu (Budhanilkantha) · Pragya Yoga School
 - sound-healing · Kathmandu (Budhanilkantha) · 4 Days / 20 Hours Basic Level Singing Bowl Sound Healing Training
@@ -168,7 +168,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - thai-massage · Chiang Mai · Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)
 - thai-massage · Chiang Mai · Introduction to Thai Massage
 - thai-massage · Chiang Mai · One Day Drop-In Pass
-- thai-massage · Chiang Mai · Old Medicine Hospital (Thai Massage School Shivagakomarpaj / OMH)
 - thai-massage · Chiang Mai · ITM - International Training Massage School
 - thai-massage · Chiang Mai · Sunshine Massage School
 - thai-massage · Chiang Mai · Chetawan (Wat Pho) Thai Traditional Massage School, Chiang Mai branch
@@ -186,5 +185,7 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Apnea Academy / Italian Mediterranean · Apnea Academy (Umberto Pelizzari's school)
 - freediving · Apnea Academy / Italian Mediterranean · Y-40 Deep Joy (Montegrotto Terme)
 - freediving · Dahab (Red Sea) · Freedive Dahab
+- freediving · Dahab (Red Sea) · Dahab Freedivers
+- freediving · Dahab (Red Sea) · Touchdown Freediving
 
-_255 in total._
+_253 in total._
