@@ -198,7 +198,7 @@ window.ET_ATLAS = {
                       "h": 1093,
                       "alt": "A man in white cotton and no shirt sits with his legs folded and the soles of his feet drawn up and pressed together before his chest, his palms joined above them so that hands and feet mirror each other, against the dark Atmavikasa Yoga Kutira board behind him.",
                       "caption": "Hands and feet in the same gesture, in front of the school's own board. Atmavikasa is not affiliated with Yoga Alliance — it asked for that to be said plainly, on a page where most schools introduce themselves by their registration."
-                    }
+                    }, { "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-09-hall-evening.jpg", "w": 1125, "h": 833, "wide": true, "alt": "The same practice hall in the evening, lit from within: the timber roof in shadow, the three framed portraits along the white wall, and the red floor holding the light." }
                   ]
                 }
             },
