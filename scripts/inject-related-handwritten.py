@@ -33,6 +33,10 @@ ALSO_OPEN, ALSO_CLOSE = "<!-- et:also-here -->", "<!-- /et:also-here -->"
 FOLD_OPEN, FOLD_CLOSE = "<!-- et:fold-css -->", "<!-- /et:fold-css -->"
 CMP_OPEN, CMP_CLOSE = "<!-- et:places-table -->", "<!-- /et:places-table -->"
 PIC_OPEN, PIC_CLOSE = "<!-- et:place-photo -->", "<!-- /et:place-photo -->"
+# ⚠ build-atlas-pages.py draws the places section itself on a sheet carrying this
+# marker — the table AND the photograph ride on the real place cards there, so this
+# script must not also put a copy of either somewhere else on the same page.
+PF_OPEN = "<!-- et:places-first -->"
 e = html.escape
 
 MANIFEST = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text())
@@ -331,6 +335,21 @@ for name in sheets:
     # Before anything is drawn: the Measure comes off, and says so per sheet. It is
     # removed here rather than left to the marker loop because that loop only ever
     # replaces a block with another block — an empty one is skipped, not stripped.
+    if PF_OPEN in t2:
+        # ⚠⚠ REMOVING IS NOT THE SAME AS NOT ADDING — the same trap the Measure walked
+        # into above. Skipping the two blocks leaves whatever this script injected on an
+        # earlier run sitting on the page forever, in the wrong place, next to the real
+        # one. So they come off explicitly, once, and the marker loop never sees them.
+        # ⚠ Unconditional. The generated block draws the table inline and wears the
+        # photograph on the real place card; it never writes either marker. So ANY
+        # marker still on a sheet that carries the block is this script's own older
+        # copy, wherever on the page it sits.
+        for _om, _cm in ((PIC_OPEN, PIC_CLOSE), (CMP_OPEN, CMP_CLOSE)):
+            if _om in t2:
+                t2 = re.sub(re.escape(_om) + r".*?" + re.escape(_cm) + r"\n?",
+                            lambda _m: "", t2, flags=re.S)
+                print(f"    removed this script's own {_om} from {name} — "
+                      "the places block owns it now")
     t2, gone = strip_measure(t2)
     if gone == "UNREMOVABLE":
         skipped.append((name, "carries a Measure this script cannot locate a <section> "
@@ -341,7 +360,8 @@ for name in sheets:
     # The table belongs with the places, not at the foot of the page, so it is placed
     # against its own anchor — the sheet's "this is not the only place" section — and
     # skipped rather than misfiled if that section is not there.
-    pic_blk = place_photo_block(name[:-5])
+    owns_places = PF_OPEN in t2
+    pic_blk = "" if owns_places else place_photo_block(name[:-5])
     if pic_blk:
         if PIC_OPEN in t2:
             t2 = re.sub(re.escape(PIC_OPEN) + r".*?" + re.escape(PIC_CLOSE) + r"\n?",
@@ -351,7 +371,7 @@ for name in sheets:
             t2 = t2[:k] + "\n" + pic_blk + t2[k:]
         else:
             skipped.append((name, "no pick card to put the photograph in"))
-    cmp_blk = places_table_block(name[:-5])
+    cmp_blk = "" if owns_places else places_table_block(name[:-5])
     if cmp_blk:
         if CMP_OPEN in t2:
             t2 = re.sub(re.escape(CMP_OPEN) + r".*?" + re.escape(CMP_CLOSE) + r"\n?",

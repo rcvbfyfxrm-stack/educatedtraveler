@@ -766,6 +766,110 @@ def disclosure_block(d, section=True):
     return f'<section><div class="wrap">{card}</div></section>' if section else card
 
 
+# ── the week we run, on the page of the school we run it with ─────────────────
+# ⛔ A Lab Week is NOT a craft-page block (Arnaud, 13 September 2026: "ne parle pas
+# de la semaine dans la carte… tu parles de la semaine quand les gens cliquent sur
+# l'école de Martin. Et là tu peux parler de la semaine, mais pas dans le skill, ça
+# fait trop vendeur"). The craft page answers "where is this alive in the world";
+# a week we sell inside that answer turns the answer into a pitch. So it lives one
+# click down, on the destination page of the school it actually runs in, where a
+# reader has already chosen the place.
+#
+# ⚠ ONE SOURCE OF TRUTH. website/js/lab-weeks.js says so in its own first line and
+# the homepage and /lab-weeks both read it, so this reads the same file rather than
+# keeping a second copy in the manifest — a second copy is how the date on one page
+# and the date on another stop agreeing. It is JavaScript, so the parse is narrow
+# and it FAILS LOUDLY: a week that stops being readable stops the build instead of
+# quietly vanishing off the page that sells it.
+LAB_WEEKS_JS = ROOT / "website/js/lab-weeks.js"
+
+
+def _lab_weeks():
+    src = LAB_WEEKS_JS.read_text()
+    i = src.find("window.LAB_WEEKS")
+    if i == -1:
+        raise SystemExit("build-atlas-pages: website/js/lab-weeks.js has no window.LAB_WEEKS.")
+    body = src[src.index("[", i):src.index("];", i)]
+    out = []
+    for chunk in re.findall(r"\{(.*?)\n\s*\}", body, re.S):
+        w = {}
+        for k, v in re.findall(r"(\w+)\s*:\s*'((?:[^'\\]|\\.)*)'", chunk):
+            w[k] = v.replace("\\'", "'")
+        for k in re.findall(r"(\w+)\s*:\s*null", chunk):
+            w[k] = None
+        if w.get("id"):
+            out.append(w)
+    if not out:
+        raise SystemExit(
+            "build-atlas-pages: could not read a single week out of website/js/lab-weeks.js.\n"
+            "  That file is the one source of truth for the weeks and this parser is narrow —\n"
+            "  it reads quoted strings and nulls out of object literals. If the file's shape\n"
+            "  changed, fix this parser; do NOT copy the week into the manifest.")
+    return out
+
+
+LAB_WEEKS = _lab_weeks()
+
+LABWEEK_CSS = (
+    ".labweek{border:1px solid var(--line);border-left:3px solid var(--ember);border-radius:14px;"
+    "padding:24px 26px 22px;background:var(--ink2)}"
+    ".labweek .lockup{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 14px;"
+    "font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(19px,2.6vw,24px);line-height:1.1}"
+    ".labweek .lockup i{font-style:normal;color:var(--ember);font-size:.8em;opacity:.9}"
+    ".labweek .lockup .et{color:var(--sea)}"
+    ".labweek .lede{font-size:16px;color:rgba(243,237,226,.88);max-width:62ch;margin:0}"
+    ".labweek .facts{display:flex;flex-wrap:wrap;gap:8px 10px;margin:18px 0 4px}"
+    ".labweek .facts span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;"
+    "color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:6px 13px}"
+    ".labweek .facts b{color:var(--paper);font-weight:500}"
+    ".labweek .btn{display:inline-block;margin-top:16px;padding:12px 24px;border-radius:99px;font-size:14px;"
+    "font-weight:500;color:#14110d;text-decoration:none;"
+    "background:linear-gradient(135deg,var(--sea),var(--ember) 130%)}"
+    ".labweek .btn:hover{filter:brightness(1.05)}"
+    ".labweek .fine{font-size:13px;color:var(--faint);margin:14px 0 0;max-width:62ch}"
+)
+
+
+def lab_week_block(d, x):
+    """The week we run here — on the school's own place page, and nowhere above it.
+
+    Drawn only for a week that is OPEN or CONFIRMED. A `teaser` names no master and
+    no dates by its own file's rule, and a week with nothing settled has no business
+    on a page whose whole claim is that everything on it is checked.
+
+    It says the week is ours and points at the one commercial page; the prices stay
+    there. The disclosure above it on this page already says we are not neutral —
+    this block is the thing being disclosed, so it sits below, never above.
+    """
+    place, craft = x["place"], d["discipline"]
+    w = next((w for w in LAB_WEEKS
+              if w.get("status") in ("open", "confirmed")
+              and (w.get("craft") or "") == craft and (w.get("place") or "") == place), None)
+    if not w:
+        return ""
+    for k in ("master", "dates", "url", "teaser"):
+        if not (w.get(k) or "").strip():
+            raise SystemExit(
+                f'build-atlas-pages: lab week {w["id"]} is "{w["status"]}" and has no {k}.\n'
+                "  An open week names its master, its dates and the page that sells it.")
+    facts = [f'<span><b>{e(place)}</b></span>', f'<span><b>{e(w["dates"])}</b></span>']
+    fine = (f'<p class="fine">{e(w["note"])}</p>' if (w.get("note") or "").strip() else "")
+    return (f'<section><div class="wrap"><style>{LABWEEK_CSS}</style>'
+            '<div class="mono">And once a year, we run a week in it</div>'
+            f'<h2>Lab Week {e(w.get("number") or "")} &mdash; with {e(w["master"])}, here</h2>'
+            '<div class="labweek">'
+            f'<p class="lockup"><span>{e(w["master"])}</span><i>&times;</i>'
+            '<span class="et">EducatedTraveler</span></p>'
+            f'<p class="lede">{e(w["teaser"])}</p>'
+            f'<div class="facts">{"".join(facts)}</div>'
+            f'<a class="btn" href="{e(w["url"])}">See the week &rarr;</a>'
+            f'{fine}'
+            '<p class="fine">This is the one week a year we sell, and the reason the note '
+            'above says we are not a neutral party about this school. Everything else on '
+            'this page is the way in without us.</p>'
+            '</div></div></section>')
+
+
 # ── a school reading its own page, and correcting it ──────────────────────────
 # Wave two asked 47 schools one question: is this page right. The Old Medicine
 # Hospital school in Chiang Mai answered it on 11 September 2026 with six corrections,
@@ -985,8 +1089,23 @@ BADGE_LABELS = {
     "master": "Named masters", "school": "Verified schools", "gold-cred": "Gold credential",
     "heritage": "Heritage", "record": "Record holder", "lineage": "Unbroken lineage",
     "master-lab": "Takes students directly",
+    # ⚠ Walchsee's fourth badge printed as the bare slug "english" the first time a
+    # craft page drew its card — for three years it lived only on a preserved sheet
+    # that never rendered one, so nothing ever read it out loud. dest_card now refuses
+    # a slug it has no label for, rather than printing the slug.
+    "english": "Taught in English",
+    # lifestyle-medicine's one entry. Written out the day its sheet started drawing a
+    # card; the slugs had sat unrendered since the craft was added.
+    "evidence-based": "Evidence-based", "board-recognised": "Board-recognised",
+    "movement": "A movement, not a place",
 }
-ROLE_LABELS = {"source": "Birthplace of the discipline", "scene": "Strong living community", "both": "Birthplace & living capital"}
+ROLE_LABELS = {"source": "Birthplace of the discipline", "scene": "Strong living community",
+               "both": "Birthplace & living capital",
+               # ⚠ lifestyle-medicine's one entry is a country and a professional board.
+               # Filed as "scene", its card printed STRONG LIVING COMMUNITY directly above
+               # its own line saying "there is no local community to weigh… no room here you
+               # could stand in". The label has to be able to say that.
+               "credential": "A credential, not a place"}
 
 e = html.escape
 
@@ -1868,6 +1987,22 @@ def best_dest_id(d):
     # so nothing in the data sets it yet.
     if f.get("withdrawn"):
         return None
+    # ⭐ THE BEST PLACE AND THE BEST COURSE ARE DIFFERENT QUESTIONS, and `featured` only
+    # ever answered the second one. On freediving they have different answers and the
+    # page said so in its own words long before this field existed: `featured` is Apnea
+    # Academy's instructor course in Italy (rank 3, gated on a 4:30 static), while the
+    # sheet's own "where we'd send you" is Dahab (rank 5) — deliberately naming the
+    # WATER and no school, because the syllabus belongs to the agencies and instructors
+    # move between schools. The ribbon on a place card reads "Best place to go", so it
+    # has to be able to answer the place question on its own.
+    # ⚠ Build-time only. It is a craft-level field, so it never travels through
+    # atlas-index-shim.js's per-destination whitelist.
+    if bp := (d.get("bestPlace") or "").strip():
+        if not any(x["id"] == bp for x in dests):
+            raise SystemExit(
+                f'build-atlas-pages: {d["id"]} names bestPlace {bp!r} and no open '
+                "destination on this craft has that id.")
+        return bp
     if f.get("id"):
         for x in dests:
             if x["id"] == f["id"]:
@@ -2079,18 +2214,43 @@ def sheet_link(d, x):
     if len(has) > 1:
         has[-1] = "and " + has[-1]
     what = (", " if len(has) > 2 else " ").join(has)
+    # On a one-place craft the whole entry is further down THIS page, so the door says
+    # so and points at it. Same promise, an honest destination.
+    label = f'The full sheet on {e(x["place"])} &rarr;'
+    target = f'/atlas/{x["id"]}'
     return ('<p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)">'
-            f'<a href="/atlas/{x["id"]}" style="text-decoration:none;font-size:14px;color:var(--sea);'
+            f'<a href="{target}" '
+            'style="text-decoration:none;font-size:14px;color:var(--sea);'
             'border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">'
-            f'The full sheet on {e(x["place"])} &rarr;</a>'
+            f'{label}</a>'
             f'<span class="meta" style="display:block;margin-top:7px">{what.capitalize()}.</span></p>')
 
 
+def role_label(x):
+    """The card's first line. An unnamed role stops the build rather than raising a
+    KeyError three frames down in a template."""
+    try:
+        return ROLE_LABELS[x["role"]]
+    except KeyError:
+        raise SystemExit(
+            f'build-atlas-pages: {x["id"]} has role {x.get("role")!r}, which has no label '
+            f'in ROLE_LABELS ({", ".join(sorted(ROLE_LABELS))}).')
+
+
 def dest_card(d, x, link=True, is_best=False):
-    badges = "".join(f'<span class="badge">{e(BADGE_LABELS.get(b, b))}</span>' for b in x["badges"])
+    # A slug with no label used to print ITSELF — a lowercase "english" sitting in a
+    # row of written labels. Silent, because the four crafts carrying one were all
+    # preserved sheets that never drew a card until 14 Sept 2026.
+    if _unlabelled := [b for b in x["badges"] if b not in BADGE_LABELS]:
+        raise SystemExit(
+            f'build-atlas-pages: {x["id"]} carries badge(s) with no label in '
+            f'BADGE_LABELS: {", ".join(sorted(_unlabelled))}.\n'
+            "  A badge is a written label, not a slug. Name it, or take it off the place.")
+    badges = "".join(f'<span class="badge">{e(BADGE_LABELS[b])}</span>' for b in x["badges"])
     place = f'{e(x["place"])}, {e(x["country"])}'
+    target = f'/atlas/{x["id"]}'
     if link:
-        place = f'<a class="t" href="/atlas/{x["id"]}">{place}</a>'
+        place = f'<a class="t" href="{target}">{place}</a>'
     # THE SENTENCE LEADS, and the place goes on the line under it (Arnaud, 2026-08-31:
     # "instead of putting Pusztaszer, Hungaria put first: Learn to work a one-way glass
     # hide, on the farm where the technique was invented"). Under it, and not folded
@@ -2118,7 +2278,7 @@ def dest_card(d, x, link=True, is_best=False):
         # keyboard gets ONE tab stop rather than a second empty one, and a screen reader
         # hears the line it is actually opening instead of "link, link, link".
         head = (f'<h2 style="margin:6px 0 4px;line-height:1.24">'
-                f'<a href="/atlas/{e(x["id"])}">{e(written)}</a></h2>'
+                f'<a href="{target}">{e(written)}</a></h2>'
                 f'<div class="dwhere"><span class="in">in</span> {place}</div>')
     else:
         head = f'<h2 style="margin:6px 0 4px">{place}</h2>{learn_line(x)}'
@@ -2164,7 +2324,7 @@ def dest_card(d, x, link=True, is_best=False):
     return (f'<div class="card"{" data-shot" if shot else ""} '
             f'style="{border}{f"--shot:url({shot});" if shot else ""}'
             f'{f"--focal:{focal};" if focal else ""}">'
-            f'{band}{ribbon}<div class="mono">{e(ROLE_LABELS[x["role"]])}</div>'
+            f'{band}{ribbon}<div class="mono">{e(role_label(x))}</div>'
             f'{head}'
             f'<div class="meta" style="margin-bottom:{"4px" if community_line(x) else "10px"}">{meta}</div>'
             # the mark, then what it rests on, then the reason to go: a dot with its
@@ -2174,6 +2334,80 @@ def dest_card(d, x, link=True, is_best=False):
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{note}{badges}'
             + (f'{with_whom(d, x)}{sheet_link(d, x)}' if link else "")
             + f'{check_line(x)}{credit}</div>')
+
+# ── the places, at the top of a sheet we never regenerate ─────────────────────
+# ⭐⭐ THE PLACES COME FIRST, and a hand-written sheet has to obey it the same way a
+# generated one does (Arnaud, 11 September 2026, and again on the 13th: "ça va être
+# comme toutes les autres cartes où en premier tu as les endroits où soit c'est le
+# plus vivant, soit ça a été inventé là-bas… et après tu peux développer").
+#
+# The nine preserved sheets are the deepest pages on the Atlas and the ones people
+# land on, and every one of them opened with a single school instead. This draws the
+# generated craft page's opening section — the same table, the same cards, from the
+# same functions — into whichever preserved sheet carries the marker, so the two
+# cannot drift. It carries its own <style>: the generator's stylesheet never reaches
+# these sheets, which is the gap that left six craft pages rendering the browser's
+# default fold triangle in September.
+#
+# ⚠ It is drawn HERE rather than in inject-related-handwritten.py because dest_card
+# and everything under it live in this file. The injector knows: it stands off the
+# photograph and the comparison table on any sheet carrying this marker, because
+# this block already owns both.
+PLACES_FIRST_OPEN = "<!-- et:places-first -->"
+PLACES_FIRST_CLOSE = "<!-- /et:places-first -->"
+
+# Scoped to the section so it cannot reach the sheet's own hand-written cards. Copied
+# from the generated stylesheet on purpose, not imported: a preserved sheet defines its
+# own palette in its own tokens, and these rules are written against those tokens.
+PLACES_FIRST_CSS = (
+    "#other-places .card{background:var(--ink2);border:1px solid var(--line);border-radius:10px;"
+    "padding:22px 24px;margin-bottom:14px;position:relative;transition:border-color .25s}"
+    "#other-places .card:hover{border-color:color-mix(in srgb,var(--sea) 30%,var(--line))}"
+    "#other-places .card h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:24px;"
+    "line-height:1.24;letter-spacing:0;margin:6px 0 4px}"
+    "#other-places .card h2 a,#other-places .card a.t{color:inherit;text-decoration:none}"
+    "#other-places .card h2 a:hover,#other-places .card a.t:hover{color:var(--sea)}"
+    # the whole card is the door: one anchor, stretched. Same rule as a generated sheet.
+    "#other-places .card h2 a::after{content:\"\";position:absolute;inset:0;z-index:1;border-radius:10px}"
+    "#other-places .card h2 a:focus-visible::after{outline:2px solid var(--sea);outline-offset:3px}"
+    "#other-places .card .dwhere a,#other-places .card p a,#other-places .card ul a,"
+    "#other-places .card .school-url{position:relative;z-index:2}"
+    "#other-places .card p{font-size:16px;max-width:62ch}"
+    # ⚠ width:100% is load-bearing — aspect-ratio + max-height on an auto-width block
+    # makes Chrome shrink the WIDTH once the height cap bites.
+    "#other-places .cardshot{width:calc(100% + 48px);aspect-ratio:16/9;max-height:280px;"
+    "margin:-22px -24px 18px;border-radius:10px 10px 0 0;"
+    "background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);"
+    "background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat}"
+    "#other-places .shotcredit{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;"
+    "text-transform:uppercase;opacity:.5;margin:12px 0 0}"
+    "#other-places .shotcredit:empty{display:none}"
+    "#other-places .dwhere{font-size:17px;font-weight:500;color:var(--sea);line-height:1.3;margin:2px 0 10px}"
+    "#other-places .dwhere .in{font-size:13px;font-weight:400;opacity:.62}"
+    "#other-places .badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;"
+    "letter-spacing:.06em;border:1px solid rgba(243,237,226,.18);border-radius:99px;padding:3px 10px;"
+    "margin:0 6px 6px 0;opacity:.85}"
+    "#other-places .meta{font-size:13px;opacity:.6;max-width:62ch}"
+    "#other-places .mono{color:var(--sea);font-size:12px;letter-spacing:.08em}"
+    "#other-places h2.head{font-size:clamp(25px,3.4vw,34px);margin:10px 0 18px}"
+)
+
+
+def places_first_block(d):
+    """The generated craft page's opening section, for a sheet the generator preserves."""
+    dests = sorted(d["destinations"], key=lambda x: -x["communityRank"])
+    if not dests:
+        return ""
+    bid = best_dest_id(d)
+    cards = "".join(dest_card(d, x, is_best=(x["id"] == bid)) for x in dests)
+    return (f"{PLACES_FIRST_OPEN}\n"
+            f"<style>{atlas_hub.CMP_CSS}{PLACES_FIRST_CSS}</style>\n"
+            '<section id="other-places"><div class="wrap">'
+            '<div class="mono">Ordered by community strength &mdash; not by who pays</div>'
+            '<h2 class="head serif">Where the community gathers</h2>'
+            f'{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}'
+            f"</div></section>\n{PLACES_FIRST_CLOSE}\n")
+
 
 def alts_block(f):
     alts = f.get("alternatives") or []
@@ -2463,7 +2697,7 @@ for d in DISC:
 <section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
 {reviewed_block(x["id"])}{disclosure_block(d) if has_relationship(x) else ""}{featured_block(d, x)}
 {masters_html}{lineage_html}
-{rating_block(d, x)}{schools_html}{photo_block(x)}
+{rating_block(d, x)}{schools_html}{lab_week_block(d, x)}{photo_block(x)}
 {room_block(x, d)}
 {credential_section(d, x)}{coverage_block(d, x)}
 <section><div class="wrap">{intent}</div></section>
@@ -2483,10 +2717,26 @@ N_CRAFTS = len(DISC) + len(PRESERVE_SHEET_SLUGS)
 for _s in sorted(PRESERVE_SHEET_SLUGS):
     urls.append(f"/atlas/{_s}")
 
+_places_first_drawn = []
 for d in DISC:
     path = f'/atlas/{d["id"]}'
     urls.append(path)
     if f'{d["id"]}.html' in KEEP:
+        # A preserved sheet is never regenerated — but it can still ask for the one
+        # section whose ORDER is the rule (the places, first). Marker in, block drawn;
+        # no marker, nothing touched. Re-runnable: it replaces its own block.
+        _p = OUT / f'{d["id"]}.html'
+        if _p.exists() and PLACES_FIRST_OPEN in (_txt := _p.read_text()):
+            _blk = places_first_block(d)
+            if not _blk:
+                raise SystemExit(
+                    f'build-atlas-pages: {d["id"]}.html asks for the places block and this '
+                    "craft has no destinations to put in it.")
+            _new = re.sub(re.escape(PLACES_FIRST_OPEN) + r".*?" + re.escape(PLACES_FIRST_CLOSE)
+                          + r"\n?", lambda _m: _blk, _txt, flags=re.S)
+            if _new != _txt:
+                _p.write_text(_new)
+            _places_first_drawn.append(d["id"])
         continue
 
     if not is_open(d["id"]):
@@ -2820,6 +3070,8 @@ n_dest_full = sum(len(d["destinations"]) for d in DISC if is_open(d["id"]) and f
 n_dest_stub = sum(len(d["destinations"]) for d in DISC if not is_open(d["id"]))
 print(f"{len(CARDS)} crafts — {N_OPEN} open, {n_short} short (unlock file dated {UNLOCK_DATE or 'unknown'})")
 print(f"  {n_dest_full} place pages · {n_dest_stub} place stubs · {_kept} pages preserved · browse home rebuilt")
+if _places_first_drawn:
+    print("  places-first drawn into: " + ", ".join(sorted(_places_first_drawn)))
 print(f"  website/js/atlas-index.js written · sitemap.xml: {len(seen_url)} URLs · robots.txt written")
 
 # Rule 10 debt, said out loud on every build. An open sheet with no name and no date on

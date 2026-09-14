@@ -4147,6 +4147,7 @@ window.ET_ATLAS = {
         }
       ],
       "id": "freediving",
+      "bestPlace": "freediving--dahab-red-sea",
       "certShort": "AIDA",
       "featured": {
         "id": "freediving--apnea-academy-italian-mediterranean",
@@ -24449,7 +24450,7 @@ window.ET_ATLAS = {
           "place": "United States",
           "country": "United States",
           "region": "North America",
-          "role": "scene",
+          "role": "credential",
           "communityRank": 4,
           "communityLabel": "A growing movement",
           "schools": [
@@ -24459,8 +24460,7 @@ window.ET_ATLAS = {
           "masters": [],
           "badges": [
             "evidence-based",
-            "board-recognised",
-            "movement"
+            "board-recognised"
           ],
           "why": "The evidence-based, board-recognised home of root-cause care — a fast-growing community of clinicians who treat causes over symptoms. A clinician's credential, built on a real medical board.",
           "bestSeason": "Year-round",
@@ -24489,6 +24489,7 @@ window.ET_ATLAS = {
       "id": "lifestyle-medicine",
       "certShort": "ABLM board",
       "featured": {
+        "withdrawn": true,
         "id": "lifestyle-medicine--united-states",
         "place": "United States",
         "country": "United States",

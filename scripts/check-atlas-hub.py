@@ -628,11 +628,14 @@ for c in crafts:
                 "not on disk")
             continue
         _h = sheet.read_text()
-        # A HAND-WRITTEN sheet has no generated place card to wear it: the generator never
-        # regenerates the eighteen preserved pages. inject-related-handwritten.py puts the
-        # photograph on that sheet's own pick card instead, behind an et:place-photo
-        # marker — so the assertion moves to the marker rather than quietly not applying.
-        if sheet.name in _preserved:
+        # A HAND-WRITTEN sheet USED TO have no generated place card to wear it: the
+        # generator never regenerates the eighteen preserved pages, so
+        # inject-related-handwritten.py put the photograph on that sheet's own pick card
+        # instead, behind an et:place-photo marker — and the assertion moved to the marker.
+        # ⭐ A preserved sheet that now carries the real places block has a real place card,
+        # so it gets the real assertion: the frame, the credit and the file, exactly as a
+        # generated sheet. The marker branch is the fallback for the sheets that do not.
+        if sheet.name in _preserved and not _sheet_card(_h, x["id"])[0]:
             if "<!-- et:place-photo -->" not in _h:
                 bad(f'{c["id"]}: {x["place"]} publishes a photograph and the hand-written '
                     "sheet carries none — run scripts/inject-related-handwritten.py")
