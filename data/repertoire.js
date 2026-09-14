@@ -15030,7 +15030,7 @@ window.ET_ATLAS = {
           "communityRank": 1,
           "communityLabel": "Gone",
           "closedToLearners": true,
-          "closedNote": "elBulli closed on 30 July 2011 and never reopened. What stands in the cove now is elBulli1846, the foundation's museum — a ticket, and a visit of about two and a half hours. There is no course here, no enrolment and nobody teaching: their own site sells a visit. Come for the pilgrimage. For the technique itself, go to Barcelona or San Sebastián.",
+          "closedNote": "elBulli closed on 30 July 2011 and never reopened. What stands in the cove now is elBulli1846, the foundation's museum — a ticket, and a visit of about two and a half hours. There is no course here, no enrolment and nobody teaching: their own site sells a visit. Come for the pilgrimage. For the cuisine itself, go to Barcelona. For the technique on its own, the Basque Culinary Center's avant-garde course is on New culinary techniques & technologies, not on this craft.",
           "schools": [
             "elBulli1846 (elBullifoundation museum & creativity lab)"
           ],
