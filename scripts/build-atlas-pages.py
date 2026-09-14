@@ -3191,6 +3191,28 @@ if SKILL_LADDERS:
     print(f"  · the ladder: {len(SKILL_LADDERS)} craft(s) carry one, {_n_cov} course(s) read "
           f"against it")
 
+# ── a `featured` that names a place the craft no longer has ──────────────────
+# featured_block() renders only when the featured id or place matches a destination, so
+# a pointer left dangling by a move does not crash and does not print anything wrong —
+# it just silently takes the "Best course for this craft" block off the whole craft.
+# Modernist Spanish Cuisine lost its on 14 Sept 2026 when San Sebastián moved to New
+# Basque Cuisine, and nothing said so. Printed rather than raised: which course should
+# replace it is an editorial judgement, and a build must not force one at 04:05.
+_orphan_featured = []
+for _d in DISC:
+    _f = _d.get("featured") or {}
+    if not (_f.get("course") and (_f.get("id") or _f.get("place"))) or _f.get("withdrawn"):
+        continue
+    _ids = {x["id"] for x in _d["destinations"]}
+    _pls = {x["place"] for x in _d["destinations"]}
+    if _f.get("id") not in _ids and _f.get("place") not in _pls:
+        _orphan_featured.append((_d["id"], _f.get("id") or _f.get("place")))
+if _orphan_featured:
+    print(f"  ⚠ {len(_orphan_featured)} craft(s) name a `featured` course at a place they no "
+          "longer have, so no best-course block renders for them:")
+    for _c, _w in _orphan_featured:
+        print(f"      {_c} -> {_w}")
+
 # Which place cards are still missing their immersive line. Printed rather than
 # raised: a craft opens unattended the moment somebody asks for it, and a refusal
 # here would take the nightly build down on exactly that night. Visible, not fatal.

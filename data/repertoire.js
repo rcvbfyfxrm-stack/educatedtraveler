@@ -15115,63 +15115,6 @@ window.ET_ATLAS = {
           "englishTaught": false,
           "englishBasis": "Escola d'Hostaleria de Girona FP Cuina is a Catalan public vocational program (Catalan/Spanish); El Celler de Can Roca stage works in Spanish/Catalan.",
           "instructionLanguage": "Spanish"
-        },
-        {
-          "place": "San Sebastián (Donostia)",
-          "country": "Spain",
-          "region": "Western Europe",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Basque Culinary Center",
-            "Mugaritz (creativity stage)"
-          ],
-          "masters": [
-            "Andoni Luis Aduriz"
-          ],
-          "badges": [
-            "scene",
-            "school",
-            "gold-cred"
-          ],
-          "why": "Where the modernist torch is taught with academic rigor at the Basque Culinary Center and pushed nightly at Mugaritz — pick your depth, from degree to laboratory.",
-          "bestSeason": "May-Oct",
-          "level": "Beginner -> Professional",
-          "id": "modernist-spanish-cuisine--san-sebasti-n-donostia",
-          "schoolsInfo": [
-            {
-              "name": "Basque Culinary Center",
-              "url": "https://www.bculinary.com/en/programas-especializacion",
-              "course": "Avant-Garde Culinary Techniques (Técnicas Culinarias de Vanguardia) — in-person specialisation course",
-              "blurb": "On its Miramón campus above San Sebastián, this gastronomy faculty runs multi-week specialisation courses alongside its degree and master's programmes. The avant-garde one covers the context of the modern chef, the creative process and the techniques themselves with their application on the plate: roughly five weeks (the 2026 edition listed as 25 May to 26 June), Mondays and Tuesdays 15:00-20:30, in Spanish, at 3,320 euros. It is the institutional route into this craft, and the closest thing to a bookable replacement for what Cala Montjoi stopped being in 2011.",
-              "confidence": "high"
-            },
-            {
-              "name": "Basque Culinary Center — Técnicas Culinarias de Vanguardia (online)",
-              "url": "https://www.bculinary.com/es/cursos-online/tecnicas-culinarias-de-vanguardia",
-              "course": "Curso de Especialización Online de Técnicas Culinarias de Vanguardia — 8 ECTS",
-              "blurb": "The same faculty's avant-garde course at a distance: spherification, gelification, fermentation and vacuum cooking, 15 September 2026 to 18 February 2027, one live class a week on Thursdays 16:00-17:30 CEST, capped at 30 students, 2,310 EUR, in Spanish. Taught by Luis Arrufat, a former elBulli pastry chef, with Txema Urda — a named teacher out of the lineage, which the in-person specialisation does not advertise. Checked on bculinary.com, 1 September 2026.",
-              "confidence": "high",
-              "verify": [
-                "2.310",
-                "Arrufat"
-              ]
-            },
-            {
-              "name": "Mugaritz (creativity stage)",
-              "url": "https://www.mugaritz.com/en/",
-              "course": "MACC creativity program (6 months, one-week residency at Mugaritz) / kitchen stage",
-              "blurb": "Mugaritz, just outside San Sebastián in Errenteria, runs the six-month MACC creativity program built around an interdisciplinary teaching team and a one-week residency at the restaurant, alongside its season-long kitchen stage. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "months–years",
-          "englishTaught": false,
-          "englishBasis": "BCC in-person specialization/intensive courses delivered in Spanish; Mugaritz MACC postgraduate (Madrid) runs in Spanish.",
-          "instructionLanguage": "Spanish"
         }
       ],
       "id": "modernist-spanish-cuisine",
@@ -24089,6 +24032,55 @@ window.ET_ATLAS = {
         "confidence": "high"
       },
       "destinations": [
+        {
+          "place": "San Sebastián (Donostia)",
+          "country": "Spain",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Basque Culinary Center"
+          ],
+          "masters": [
+            "Luis Arrufat",
+            "Txema Urda"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "school"
+          ],
+          "why": "The faculty above San Sebastián teaches the toolkit as a graded specialisation rather than a masterclass — five weeks on the Miramón campus, or an eight-ECTS online course taught by a former elBulli pastry chef.",
+          "bestSeason": "May-Jun on campus · Sep-Feb online",
+          "level": "Beginner -> Professional",
+          "id": "modern-new-technique-cuisine--san-sebasti-n-donostia",
+          "schoolsInfo": [
+            {
+              "name": "Basque Culinary Center",
+              "url": "https://www.bculinary.com/en/programas-especializacion",
+              "course": "Avant-Garde Culinary Techniques (Técnicas Culinarias de Vanguardia) — in-person specialisation course",
+              "blurb": "On its Miramón campus above San Sebastián, this gastronomy faculty runs multi-week specialisation courses alongside its degree and master's programmes. The avant-garde one covers the context of the modern chef, the creative process and the techniques themselves with their application on the plate: roughly five weeks (the 2026 edition listed as 25 May to 26 June), Mondays and Tuesdays 15:00-20:30, in Spanish, at 3,320 euros. It is the institutional route into this craft, and the closest thing to a bookable replacement for what Cala Montjoi stopped being in 2011. ⚠ Read the course name. This is Técnicas Culinarias de Vanguardia, the avant-garde specialisation. The same faculty's Perfeccionamiento de Técnicas Culinarias, which appears under New Basque Cuisine, is a different course — classical technique brought to a professional standard, not this toolkit.",
+              "confidence": "high"
+            },
+            {
+              "name": "Basque Culinary Center — Técnicas Culinarias de Vanguardia (online)",
+              "url": "https://www.bculinary.com/es/cursos-online/tecnicas-culinarias-de-vanguardia",
+              "course": "Curso de Especialización Online de Técnicas Culinarias de Vanguardia — 8 ECTS",
+              "blurb": "The same faculty's avant-garde course at a distance: spherification, gelification, fermentation and vacuum cooking, 15 September 2026 to 18 February 2027, one live class a week on Thursdays 16:00-17:30 CEST, capped at 30 students, 2,310 EUR, in Spanish. Taught by Luis Arrufat, a former elBulli pastry chef, with Txema Urda — a named teacher out of the lineage, which the in-person specialisation does not advertise. Checked on bculinary.com, 1 September 2026. It is the online half of the same avant-garde specialisation, and the only entry on this craft that carries university credit.",
+              "confidence": "high",
+              "verify": [
+                "2.310",
+                "Arrufat"
+              ]
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "five weeks, or five months online",
+          "englishTaught": false,
+          "instructionLanguage": "Spanish"
+        },
         {
           "place": "Paris",
           "country": "France",
