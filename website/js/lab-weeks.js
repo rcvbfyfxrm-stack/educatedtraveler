@@ -22,6 +22,11 @@ window.LAB_WEEKS = [
     extras: 'Around the five days, optional add-ons are taking shape — among them a three-Michelin-star dinner with a private table and eyes in the kitchen, an open-fire day, and a Barcelona source day — announced once confirmed, nothing sold until it’s booked and real. Stay optional too: a shared cohort apartment with your own private room, or arrange your own.',
     master: 'Martin Lippo',
     dates: '22–26 October 2026',
+    // The card facts. Kept here rather than written into a page, so the week has one
+    // record and the Atlas cannot quote a length or a cap the launch page disagrees with.
+    hours: '35 hours · in English',
+    certificate: 'Signed certificate',
+    cap: 'Room capped at 15',
     url: '/barcelona'
   },
   {

@@ -852,7 +852,15 @@ def lab_week_block(d, x):
             raise SystemExit(
                 f'build-atlas-pages: lab week {w["id"]} is "{w["status"]}" and has no {k}.\n'
                 "  An open week names its master, its dates and the page that sells it.")
+    # The chips this block carried before the move. Each is drawn only when the week's
+    # own record holds it — a week with nothing settled prints two chips, not five empty
+    # ones. ⛔ The film poster is deliberately NOT restored with them: its line said
+    # "Film coming … The Circle sees it first", and the film has been shot and plays on
+    # /barcelona since. A stale promise is worse than a missing one.
     facts = [f'<span><b>{e(place)}</b></span>', f'<span><b>{e(w["dates"])}</b></span>']
+    for _k in ("hours", "certificate", "cap"):
+        if (w.get(_k) or "").strip():
+            facts.append(f'<span>{e(w[_k])}</span>')
     fine = (f'<p class="fine">{e(w["note"])}</p>' if (w.get("note") or "").strip() else "")
     return (f'<section><div class="wrap"><style>{LABWEEK_CSS}</style>'
             '<div class="mono">And once a year, we run a week in it</div>'
