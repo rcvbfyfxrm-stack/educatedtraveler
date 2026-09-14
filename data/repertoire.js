@@ -14996,7 +14996,7 @@ window.ET_ATLAS = {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
               "course": "Classroom courses and online modules — sous-vide and low temperature, foams, sodas and siphon work, spherification, textures and texturizers, liquid nitrogen",
-              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish and he publishes no price for them; English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026.",
+              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish and he publishes no price for them; English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
               "etRelationship": true,
               "confidence": "high",
               "verify": [
@@ -15175,6 +15175,7 @@ window.ET_ATLAS = {
         }
       ],
       "id": "modernist-spanish-cuisine",
+      "bestPlace": "modernist-spanish-cuisine--barcelona",
       "sweep": {
         "date": "2026-09-01",
         "regions": [
@@ -24160,7 +24161,7 @@ window.ET_ATLAS = {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
               "course": "Open courses, private masterclasses & online modules — sous-vide and low-temperature cooking, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen",
-              "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. Open group courses run in Spanish; English or French is available as a private course. Listed because the founder met Martin Lippo in person.",
+              "blurb": "Martin Lippo's Barcelona laboratory and training school, where the master teaches the avant-garde toolkit hands-on. Open group courses run in Spanish; English or French is available as a private course. Listed because the founder met Martin Lippo in person. Martin Lippo is on two crafts here and this is the one he was listed for — the toolkit itself, taught as technique. He appears again under Modernist Spanish Cuisine, for the Barcelona the elBulli cooks made: same lab, a different question.",
               "confidence": "high",
               "photos": {
                 "given": "2026-07-30",
