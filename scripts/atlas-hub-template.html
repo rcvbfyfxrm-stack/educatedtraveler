@@ -555,7 +555,10 @@ var WORLDS={
   movement:{label:"Movement & Rhythm",short:"Movement",color:"#bf8088"},
   wellness:{label:"Body & Spirit",short:"Body",color:"#94ad86"}
 };
-var ORDER=["adventure","culinary","creative","movement","wellness"];
+// Kitchen & Cellar leads (Arnaud, 15 September 2026). ORDER drives all three surfaces
+// that list the worlds — the filter chips, the catalogue sections and the rails — so
+// one line moves it everywhere and they cannot disagree.
+var ORDER=["culinary","adventure","creative","movement","wellness"];
 function worldOf(d){return MOVE[d.id]?"movement":(WORLDS[d.category]?d.category:"creative");}
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
 // The card decorations this page used to draw — the community dots, the

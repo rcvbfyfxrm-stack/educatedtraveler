@@ -44,39 +44,6 @@
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
   "hubCards": [
     {
-      "id": "japanese-knife-making",
-      "discipline": "Japanese Knife-Making",
-      "category": "creative",
-      "blurb": "The blade that lost its war in 1876 and moved to the kitchen — and the one souvenir you're meant to use until it wears out. In a day at a real fire you hammer the guided steps while a master keeps the dangerous ones, and you carry home a single-bevel knife you helped forge.",
-      "place": "Shimanto",
-      "country": "Japan",
-      "communityRank": 4,
-      "communityLabel": "Thriving",
-      "nDest": 1,
-      "school": "Workshop Kurogane — Nobuya Hayashi",
-      "master": "Mitsunori Okada",
-      "why": "A working forge on the Shimanto river in Tosa blade country, where you forge, grind and harden your own blade in the quench — the part most places keep for themselves.",
-      "english": true,
-      "tripType": "Workshop",
-      "tripLength": "a day to six days"
-    },
-    {
-      "id": "self-sufficiency",
-      "discipline": "Self-Sufficiency & Food Preservation",
-      "category": "creative",
-      "blurb": "The one craft here sold as walking away from everyone — whose own founder said its whole point was to end up needing them. Growing your own food, and keeping it through the winter, is real skill: soil, water, seed, and a preservation craft where a mistake can genuinely poison you.",
-      "place": "Almería",
-      "country": "Spain",
-      "communityRank": 3,
-      "communityLabel": "Growing",
-      "nDest": 1,
-      "school": "Sunseed Desert Technology",
-      "why": "Sunseed isn't a course you attend; it's a small off-grid community you move into — and the living scene is the lesson, not a demonstration of one.",
-      "english": true,
-      "tripType": "Immersion",
-      "tripLength": "a fortnight to years"
-    },
-    {
       "id": "chef-at-sea",
       "discipline": "Being a Chef at Sea",
       "category": "culinary",
@@ -1676,6 +1643,85 @@
       "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has taken STCW at any of these six schools — which is worth stating twice on this craft, because it is the one on the map closest to the founder's own trade and the temptation to grade it from experience rather than from the record is real. The fourth answer rests on two sources read 4 September 2026: Port Vauban's own site and Cowes Week's.",
       "checker": "Arnaud Callier",
       "date": "5 September 2026"
+    },
+    "japanese-knife-making": {
+      "dots": 3,
+      "state": "researched, not checked",
+      "verdict": "A named smith who teaches it himself, in English, on a published date — and a forge in blade country that is not a knife town you can walk around",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, and on the strictest reading of this question. Nobuya Hayashi is not a founder with his name over a door: he teaches the course himself, in English, without an interpreter, and he trained for years under Mitsunori Okada, a tamahagane specialist. The teacher and the man at the fire beside you are the same person, which is the thing this question is actually asking and the thing most forges on this craft cannot answer."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Open, published and priced. A Wednesday-to-Sunday schedule running roughly September to May, bookable by anyone with no experience and no CV, at ¥44,000 for the one-day in 2026 and ¥48,000 for 2027 dates; the six-day tamahagane course runs ¥330,000–440,000 depending on the date. And your hands can ruin it — you forge, grind and quench the blade yourself, and a quench can go wrong in a way a smith can show you. Note what is honestly withheld rather than sold: the master keeps the most dangerous stages and puts the final whetstone edge on."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": false,
+          "t": "Nobody publishes the answer. The workshop advertises no class size, no group cap and no cohort, and we have not asked. A small countryside forge running a one-day course may well put you at the fire alone — which for this craft is arguably the better lesson and still not what this question asks. Until somebody publishes a number or somebody of ours goes, this stays dark."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, and from a body with nothing to sell you. Tosa uchihamono — Tosa forged blades — was designated a traditional craft of Japan on 6 May 1998, and the designated ground is Kochi Prefecture, where this forge stands. Free forging, shaping red-hot steel with no mould, is the designation's own signature, and it is what Hayashi teaches. ⚠ Read the limit with it: the designation names Kochi, Aki, Nankoku, Susaki, Tosashimizu and Kami, not Shimanto Town — and Kochi's tradition is axes, hooks, sickles and hatchets for the mountain and the field, not the kitchen knives Seki and Sakai are known for. The craft belongs to this ground. The town around the forge is not a knife town.",
+          "evidence": [
+            {
+              "what": "TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association",
+              "url": "https://kougeihin.jp/en/craft/0713/",
+              "date": "14 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. There is a real rung above the one-day — the six-day course that smelts its own steel from iron-sand before forging it — but it is the same school's own next course, not a standard somebody outside sets and marks you against. Japan certifies traditional craftsmen, and whether that ladder is reachable from a visitor's day at this fire is not something a booking page can tell you."
+        }
+      ],
+      "ceilingNote": "Three is the ceiling here, not five, and it is our limit rather than the forge's: this is desk research and nobody from EducatedTraveler has stood at that fire. The third answer could light tomorrow on one published number.",
+      "check": "Graded from the entries verified on this page on 17 August 2026, not from a visit. Nobody from EducatedTraveler has been to Shimanto. The fourth answer is new and sourced outside the school: the Traditional Craft Industries Promotion Association's own record of the 1998 designation, read 14 September 2026. The third is dark for want of a published cohort fact, not for a bad one.",
+      "checker": "Arnaud Callier",
+      "date": "15 September 2026"
+    },
+    "self-sufficiency": {
+      "dots": 1,
+      "state": "researched, not checked",
+      "verdict": "A real community doing the real thing, and almost nothing about it is published in the form this instrument asks for — which is what living somewhere, rather than enrolling, actually looks like",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "No, and the page says so first. Sunseed is a collective taught by rotating coordinators; there is no named master and no outside examiner, because there is no certificate for anybody to examine. On any other sheet that is a gap in the research. Here it is the answer: the teacher for this craft is a functioning community, which is the thing Seymour said you were aiming for — and it is still a no to this question."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "Not in the form this asks for. Four ways in are published — a co-learning residency, general and research internships, a six-month European Solidarity Corps placement, staff posts of a year or more — but the internships and the placement are applications rather than bookings, and the residency, the one genuinely open door, publishes neither its length nor its contribution. Their own page does not state them; we have not asked. What is bookable and priced is a Wednesday day visit at 11:00 for €10–20, and a visit is not the craft. Credit where it is due: the page is honest about all of this rather than dressing an application as a course."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, and it is the one question this place answers better than most of the map. Ten to thirty people live on site and the format is residential and shared by construction — you learn by working beside them, not in a room booked for you. The company is not a cohort assembled for a course; it is the household, which is both more and less than this question usually means."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": false,
+          "t": "No, and not as a criticism. Los Molinos del Río Aguas nearly became a ghost town — emptied when the river faltered and a motorway went in overhead — and was brought back from the mid-1980s by this project. The community and the school are the same twenty-odd people, so there is no scene around it to weigh, and we have found nothing published by anybody with nothing to sell about self-sufficiency as a living craft in this valley. The ground is real and the project is real. They are the same thing."
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been, and there is no ladder to read. It is immersion, not a certificate: you pay a modest daily contribution, you give your hands to the work, and you leave with skill and no paper. Whether the place has years in it is exactly the question staff posts of a year or more imply and nothing published can settle."
+        }
+      ],
+      "ceilingNote": "The first, second and fourth are settled noes on the record as it stands, not gaps waiting on a visit. What a visit could move is the fifth — and one published length and contribution would move the second.",
+      "check": "Graded from the entries verified on this page on 20 August 2026, not from a visit. Nobody from EducatedTraveler has been to Los Molinos del Río Aguas. Four of the five are dark and three of those are considered noes rather than absences: no named teacher by the community's own description, no bookable priced course for the immersion itself, and no scene around the project because the project is the scene. Read the page beside this grade — it says all three itself.",
+      "checker": "Arnaud Callier",
+      "date": "15 September 2026"
     }
   },
   "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
@@ -1924,14 +1970,15 @@
     "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write."
   },
   "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
-  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day.",
-  "ladderDebtFloor": 29,
+  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder.",
+  "ladderDebtFloor": 31,
   "ladderDebtKnown": [
     "ashtanga-yoga",
     "cold-exposure-wim-hof-method",
     "freediving",
     "hatha-and-vinyasa-yoga",
     "italian-cuisine-and-pasta",
+    "japanese-knife-making",
     "jewelry-and-goldsmithing",
     "lifestyle-medicine",
     "lymphatic-drainage",
@@ -1944,6 +1991,7 @@
     "rock-climbing",
     "safari-and-wildlife-guiding",
     "sailing-and-yachtmaster",
+    "self-sufficiency",
     "ski-touring-and-splitboard",
     "sound-healing",
     "spearfishing",

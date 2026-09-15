@@ -8,6 +8,105 @@ window.ET_ATLAS = {
   "generatedAt": "2026-06-11",
   "disciplines": [
     {
+      "discipline": "Japanese Knife-Making",
+      "category": "creative",
+      "id": "japanese-knife-making",
+      "blurb": "The blade that lost its war in 1876 and moved to the kitchen — and the one souvenir you're meant to use until it wears out. In a day at a real fire you hammer the guided steps while a master keeps the dangerous ones, and you carry home a single-bevel knife you helped forge.",
+      "destinations": [
+        {
+          "place": "Shimanto",
+          "country": "Japan",
+          "region": "East Asia",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "Workshop Kurogane — Nobuya Hayashi"
+          ],
+          "masters": [
+            "Nobuya Hayashi"
+          ],
+          "badges": [
+            "scene",
+            "master",
+            "school",
+            "master-lab",
+            "english"
+          ],
+          "why": "A working forge on the Shimanto river in Tosa blade country, where you forge, grind and harden your own blade in the quench — the part most places keep for themselves.",
+          "bestSeason": "Sep-May",
+          "level": "Beginner -> Enthusiast",
+          "id": "japanese-knife-making--kurogane-shimanto",
+          "schoolsInfo": [
+            {
+              "name": "Workshop Kurogane — Nobuya Hayashi",
+              "url": "https://www.workshop-kurogane.com/",
+              "course": "One-day knife-forging course, and a six-day tamahagane course",
+              "blurb": "Nobuya Hayashi's working forge on the Shimanto river in Tosa blade country, run in English by Hayashi himself with no interpreter. On the one-day course you forge, grind and harden your own blade in the quench and carry it home the same day; the six-day course starts further back, smelting your own steel from iron-sand. ⚠ A guided day, not an apprenticeship — the master keeps the most dangerous stages and puts the final whetstone edge on, and the one-day uses modern knife steel. ¥44,000 for the one day in 2026, ¥48,000 for 2027 dates; the six-day tamahagane course ¥330,000–440,000 depending on the date, from their own booking page. Checked on workshop-kurogane.com, 17 August 2026.",
+              "confidence": "high",
+              "verify": [
+                "44,000",
+                "Hayashi"
+              ]
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Workshop",
+          "tripLength": "a day to six days",
+          "englishTaught": true,
+          "englishBasis": "Workshop Kurogane runs the course in English, taught by Nobuya Hayashi himself — verified on the workshop's own site, 17 August 2026."
+        }
+      ]
+    },
+    {
+      "discipline": "Self-Sufficiency & Food Preservation",
+      "category": "creative",
+      "id": "self-sufficiency",
+      "blurb": "The one craft here sold as walking away from everyone — whose own founder said its whole point was to end up needing them. Growing your own food, and keeping it through the winter, is real skill: soil, water, seed, and a preservation craft where a mistake can genuinely poison you.",
+      "destinations": [
+        {
+          "place": "Almería",
+          "country": "Spain",
+          "region": "Southern Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Growing",
+          "schools": [
+            "Sunseed Desert Technology"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "master-lab",
+            "english"
+          ],
+          "why": "Sunseed isn't a course you attend; it's a small off-grid community you move into — and the living scene is the lesson, not a demonstration of one.",
+          "bestSeason": "Year-round",
+          "level": "Beginner -> Enthusiast",
+          "id": "self-sufficiency--sunseed-almeria",
+          "schoolsInfo": [
+            {
+              "name": "Sunseed Desert Technology",
+              "url": "https://www.sunseed.org.uk/get-involved",
+              "course": "Co-learning residency, general and research internships, a six-month European Solidarity Corps placement, and staff posts of a year or more",
+              "blurb": "An off-grid community at Los Molinos del Río Aguas in Almería, not a course you attend — ten to thirty people living on solar power and water raised by a ram pump, who teach by letting you work beside them: dryland gardening and soil-building, seed and harvest, sourdough, foraging and putting food up, solar cookers and dryers. English is the community's working language. Four live ways in on their own page, plus Wednesday day visits at 11:00, €10–20. ⚠ The residency's length and contribution are not published — ask them. It is immersion, not a certificate, and there is no single named teacher. Checked on sunseed.org.uk, 20 August 2026.",
+              "confidence": "high",
+              "verify": [
+                "Sunseed",
+                "ram pump"
+              ]
+            }
+          ],
+          "tripTier": 4,
+          "tripType": "Immersion",
+          "tripLength": "a fortnight to years",
+          "englishTaught": true,
+          "englishBasis": "English is the community's working language — on Sunseed's own material and its Global Ecovillage Network profile."
+        }
+      ]
+    },
+    {
       "discipline": "Hatha & Vinyasa Yoga",
       "category": "wellness",
       "certBody": "Yoga Alliance",

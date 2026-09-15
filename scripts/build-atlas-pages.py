@@ -2204,7 +2204,29 @@ def check_line(x):
             f'{e(st)} &middot; {who} &middot; {e(c["date"])}{what}{disc}</p>')
 
 
-def sheet_link(d, x):
+ON_PAGE_ANCHOR = "the-full-entry"
+
+
+def dest_is_stub(x):
+    """True when this place's own URL is a redirect back to the craft page.
+
+    Two one-place crafts (japanese-knife-making, self-sufficiency) were deliberately given
+    redirect stubs instead of place sheets: with a single destination the place page would
+    have repeated the craft page word for word. That decision still holds — and it means a
+    place card on those crafts must NOT wear the usual "The full sheet on X →" door,
+    because that door is a loop: it lands the reader on the page they are already reading.
+
+    Read off the file rather than a list, so a stub that becomes a real page stops being
+    treated as one on the next build with nothing to remember. Size first: a real sheet is
+    tens of kilobytes and a stub is one and a half.
+    """
+    f = OUT / f'{x["id"]}.html'
+    if not f.exists() or f.stat().st_size > 2000:
+        return False
+    return 'http-equiv="refresh"' in f.read_text()
+
+
+def sheet_link(d, x, href=None, on_page=False):
     """The door to a place's own sheet, written as a door.
 
     The place name in the card heading has always been a link and nothing about it
@@ -2234,8 +2256,9 @@ def sheet_link(d, x):
     what = (", " if len(has) > 2 else " ").join(has)
     # On a one-place craft the whole entry is further down THIS page, so the door says
     # so and points at it. Same promise, an honest destination.
-    label = f'The full sheet on {e(x["place"])} &rarr;'
-    target = f'/atlas/{x["id"]}'
+    label = (f'The full entry on {e(x["place"])}, further down this page &darr;' if on_page
+             else f'The full sheet on {e(x["place"])} &rarr;')
+    target = href or f'/atlas/{x["id"]}'
     return ('<p style="margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(243,237,226,.09)">'
             f'<a href="{target}" '
             'style="text-decoration:none;font-size:14px;color:var(--sea);'
@@ -2255,7 +2278,7 @@ def role_label(x):
             f'in ROLE_LABELS ({", ".join(sorted(ROLE_LABELS))}).')
 
 
-def dest_card(d, x, link=True, is_best=False):
+def dest_card(d, x, link=True, is_best=False, href=None, on_page=False):
     # A slug with no label used to print ITSELF — a lowercase "english" sitting in a
     # row of written labels. Silent, because the four crafts carrying one were all
     # preserved sheets that never drew a card until 14 Sept 2026.
@@ -2266,7 +2289,7 @@ def dest_card(d, x, link=True, is_best=False):
             "  A badge is a written label, not a slug. Name it, or take it off the place.")
     badges = "".join(f'<span class="badge">{e(BADGE_LABELS[b])}</span>' for b in x["badges"])
     place = f'{e(x["place"])}, {e(x["country"])}'
-    target = f'/atlas/{x["id"]}'
+    target = href or f'/atlas/{x["id"]}'
     if link:
         place = f'<a class="t" href="{target}">{place}</a>'
     # THE SENTENCE LEADS, and the place goes on the line under it (Arnaud, 2026-08-31:
@@ -2350,7 +2373,7 @@ def dest_card(d, x, link=True, is_best=False):
             # already uses, and the one the pill has been missing since the beginning.
             f'{community_line(x)}'
             f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{note}{badges}'
-            + (f'{with_whom(d, x)}{sheet_link(d, x)}' if link else "")
+            + (f'{with_whom(d, x)}{sheet_link(d, x, href=href, on_page=on_page)}' if link else "")
             + f'{check_line(x)}{credit}</div>')
 
 # ── the places, at the top of a sheet we never regenerate ─────────────────────
@@ -2417,7 +2440,12 @@ def places_first_block(d):
     if not dests:
         return ""
     bid = best_dest_id(d)
-    cards = "".join(dest_card(d, x, is_best=(x["id"] == bid)) for x in dests)
+    cards = []
+    for x in dests:
+        _stub = dest_is_stub(x)
+        cards.append(dest_card(d, x, is_best=(x["id"] == bid),
+                               href=f"#{ON_PAGE_ANCHOR}" if _stub else None, on_page=_stub))
+    cards = "".join(cards)
     return (f"{PLACES_FIRST_OPEN}\n"
             f"<style>{atlas_hub.CMP_CSS}{PLACES_FIRST_CSS}</style>\n"
             '<section id="other-places"><div class="wrap">'
