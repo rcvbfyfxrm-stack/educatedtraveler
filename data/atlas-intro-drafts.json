@@ -1,36 +1,5 @@
 {
-  "_comment": "Drafted place intros. THE BUILD NEVER READS THIS FILE. A draft becomes a published intro only through scripts/sign-intro.py, which stamps the checker and the day — no script may write a checker.",
   "drafts": {
-    "italian-cuisine-and-pasta--bologna": {
-      "text": "You walk under Bologna more than through it: over 62 km of arcades run the length of the city, and they went onto the UNESCO World Heritage list in 2021. It has been a UNESCO Creative City of Music since 2006 as well, which together make a fair summary of the place — a city built to be out in, and loud under cover. The kitchen is guarded harder than the architecture. Mortadella Bologna carries the town's name and is legally made across eight regions — Emilia-Romagna, Piedmont, Lombardy, Veneto, Trento, Tuscany, Marche and Lazio — so the name on a label there is a method rather than an address. Keep an afternoon for the covered walk up to San Luca: about 3600 metres of portico climbing out of the city, on arches some count at 666 and the city itself says are fewer.",
-      "sources": [
-        {
-          "url": "https://www.bolognawelcome.com/en/information/unesco-porticoes-of-bologna-en",
-          "what": "62 km of arcades along the entire urban stretch, Bologna is the City of Porticoes. Named a UNESCO World Heritage Site in 2021",
-          "read": "13 September 2026"
-        },
-        {
-          "url": "https://cittadellamusica.comune.bologna.it/lang/en/documents/bologna-unesco-city-of-music-2006",
-          "what": "In 2006 Bologna became a UNESCO Creative City of Music",
-          "read": "13 September 2026"
-        },
-        {
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52022XC0609(01)",
-          "what": "Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio",
-          "read": "13 September 2026"
-        },
-        {
-          "url": "https://portici.comune.bologna.it/en/la-serie/san-luca/portico-di-san-luca",
-          "what": "the porticoed route winds down about 3600 metres",
-          "read": "13 September 2026"
-        },
-        {
-          "url": "https://portici.comune.bologna.it/en/la-serie/san-luca/portico-di-san-luca",
-          "what": "some say has 666 arches along its route, but actually the number is slightly lower",
-          "read": "13 September 2026"
-        }
-      ]
-    },
     "modern-new-technique-cuisine--barcelona": {
       "text": "La Rambla has had a market on it for nearly eight centuries. La Boqueria as it stands — the iron building, the entrance straight off the promenade — opened in 1840, and its roof was not finished until 1916. For a week spent inside a lab, that is the thing worth knowing: the raw version of everything you are about to do to food is sitting under one roof in the middle of the city. Go early, and go twice. The first visit is the spectacle. The second is the one where you start reading what is actually in season, which is where the rest of it starts to mean something.",
       "sources": [
