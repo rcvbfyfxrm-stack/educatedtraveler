@@ -1,0 +1,220 @@
+{
+  "_comment": "Drafted place intros. THE BUILD NEVER READS THIS FILE. A draft becomes a published intro only through scripts/sign-intro.py, which stamps the checker and the day — no script may write a checker.",
+  "drafts": {
+    "italian-cuisine-and-pasta--bologna": {
+      "text": "You walk under Bologna more than through it: over 62 km of arcades run the length of the city, and they went onto the UNESCO World Heritage list in 2021. It has been a UNESCO Creative City of Music since 2006 as well, which together make a fair summary of the place — a city built to be out in, and loud under cover. The kitchen is guarded harder than the architecture. Mortadella Bologna carries the town's name and is legally made across eight regions — Emilia-Romagna, Piedmont, Lombardy, Veneto, Trento, Tuscany, Marche and Lazio — so the name on a label there is a method rather than an address. Keep an afternoon for the covered walk up to San Luca: about 3600 metres of portico climbing out of the city, on arches some count at 666 and the city itself says are fewer.",
+      "sources": [
+        {
+          "url": "https://www.bolognawelcome.com/en/information/unesco-porticoes-of-bologna-en",
+          "what": "62 km of arcades along the entire urban stretch, Bologna is the City of Porticoes. Named a UNESCO World Heritage Site in 2021",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://cittadellamusica.comune.bologna.it/lang/en/documents/bologna-unesco-city-of-music-2006",
+          "what": "In 2006 Bologna became a UNESCO Creative City of Music",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52022XC0609(01)",
+          "what": "Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://portici.comune.bologna.it/en/la-serie/san-luca/portico-di-san-luca",
+          "what": "the porticoed route winds down about 3600 metres",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://portici.comune.bologna.it/en/la-serie/san-luca/portico-di-san-luca",
+          "what": "some say has 666 arches along its route, but actually the number is slightly lower",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "modern-new-technique-cuisine--barcelona": {
+      "text": "La Rambla has had a market on it for nearly eight centuries. La Boqueria as it stands — the iron building, the entrance straight off the promenade — opened in 1840, and its roof was not finished until 1916. For a week spent inside a lab, that is the thing worth knowing: the raw version of everything you are about to do to food is sitting under one roof in the middle of the city. Go early, and go twice. The first visit is the spectacle. The second is the one where you start reading what is actually in season, which is where the rest of it starts to mean something.",
+      "sources": [
+        {
+          "url": "https://www.meet.barcelona/en/visit-and-love-it/points-interest-city/mercat-de-sant-josep-la-boqueria-92086009447",
+          "what": "La Boqueria opened in 1840, and its roof was completed in 1916",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.meet.barcelona/en/visit-and-love-it/points-interest-city/mercat-de-sant-josep-la-boqueria-92086009447",
+          "what": "With nearly eight centuries of history, the Mercat de Sant Josep",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.meet.barcelona/en/visit-and-love-it/points-interest-city/mercat-de-sant-josep-la-boqueria-92086009447",
+          "what": "La Rambla became increasingly important as a promenade",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "modernist-spanish-cuisine--barcelona": {
+      "text": "Barcelona has a mountain range behind it. Collserola runs to almost 11,000 hectares, and the park declared over it in 1987 covers 8,465 of them — worth knowing on a week where you are indoors all day. The other thing worth timing is the calçot, a winter onion that has held an EU protected name since 31 May 2002 — the kind of protection a region files for something it is still arguing about. Ask when they are coming in before you fix your dates.",
+      "sources": [
+        {
+          "url": "https://www.parcnaturalcollserola.cat/en/",
+          "what": "The Sierra de Collserola, with its almost 11,000 hectares",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.parcnaturalcollserola.cat/en/",
+          "what": "8,465 hectares",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.gov.uk/protected-food-drink-names/calcot-de-valls",
+          "what": "Date of original registration with the EU: 31 May 2002",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.parcnaturalcollserola.cat/en/",
+          "what": "in 1987 the Collserola Park was created",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "sushi-and-washoku--tokyo-tsukiji-toyosu": {
+      "text": "Two markets, and you want both. Toyosu, where the wholesale trade and the tuna auction moved on October 11, 2018, is a working terminal you watch from a corridor above it. Tsukiji is the outer market left behind, and that one you walk into — around 460 shops still trading knives, dried fish, tableware and breakfast. The pair is the honest picture of the city: an industrial machine at one end and a street of specialists at the other, both feeding the same counters. See Toyosu once before dawn. Give Tsukiji a whole morning and an empty bag.",
+      "sources": [
+        {
+          "url": "https://www.gotokyo.org/en/spot/1743/index.html",
+          "what": "The Toyosu Fish Market opened on October 11, 2018",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.gotokyo.org/en/spot/65/index.html",
+          "what": "the outer market remains as lively as ever. It's home to around 460 shops",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "french-pastry-and-patisserie--paris": {
+      "text": "Rungis, the wholesale market Charles de Gaulle opened on March 3, 1969, takes in 26,000 vehicles a day. What you can walk into is the retail end of the same machine: 91 markets across Paris, each one a morning fixture in its own quarter. For a week here that is the routine worth stealing — buy where the quarter buys, at the hour it buys. The raw material behind the pastry makes sense faster that way than from any shop window, and it costs you nothing except getting up.",
+      "sources": [
+        {
+          "url": "https://www.france.fr/en/article/rungis-largest-food-market-world/",
+          "what": "opened by President Charles de Gaulle on March 3, 1969",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.france.fr/en/article/rungis-largest-food-market-world/",
+          "what": "bought in by 26,000 vehicles",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.paris.fr/pages/les-marches-parisiens-2428",
+          "what": "les 91 marchés de Paris",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "organic-farm-to-table-cooking--shanagarry-east-cork": {
+      "text": "Ballycotton, the harbour along the coast from Shanagarry, keeps a black lighthouse on the island off its head — one of only two black lighthouses in Ireland, and reachable only by boat. That is the register of this coast: working rather than scenic, and much more interested in the water than in you. Weather runs a week here more than the calendar does, so treat a clear morning as something to spend rather than something to plan around, keep boots you do not mind ruining, and take the coast road at least once instead of the fast one.",
+      "sources": [
+        {
+          "url": "https://www.greatlighthouses.com/lighthouses/ballycotton/",
+          "what": "A black lighthouse (one of only two in Ireland) it is only accessible by boat",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "french-pastry-and-patisserie--tain-l-hermitage-lyon": {
+      "text": "The hill is the whole town. Hermitage is 137 hectares of terraced vineyard above Tain-l'Hermitage, recognised as an appellation by the I.N.A.O. in 1937 and planted to Syrah, Marsanne and Roussanne. The growers' own story is of a man who came back from a crusade, withdrew to live as a hermit on the granite at the top, and whose neighbours took up winegrowing instead. You can walk it in a morning, and you should: the pitch of that slope explains more about how this stretch of the valley cooks and drinks than a tasting will.",
+      "sources": [
+        {
+          "url": "https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-hermitage",
+          "what": "137 HA Production area",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-hermitage",
+          "what": "1937 Recognition in AOC by the I.N.A.O.",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-hermitage",
+          "what": "Marsanne Roussanne Syrah",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.vins-rhone.com/en/cotes-du-rhone-cru-aoc-hermitage",
+          "what": "he chose to withdraw from the world and live as a hermit at the top of this granite hill",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "modern-new-technique-cuisine--melbourne-lilydale": {
+      "text": "Lilydale is where Melbourne stops and the Yarra Valley starts. The valley was Victoria's first wine-growing district, with a history running back nearly 180 years, and it holds over 90 cellar doors now — which turns the drive out of town into a series of decisions rather than a transfer. Melbourne itself has been a UNESCO Creative City of Literature since 2008, and it rewards the same habit the valley does: the good rooms are the ones you have to be told about. Give the trip a day at each end — the valley in daylight, the city after dark.",
+      "sources": [
+        {
+          "url": "https://www.visityarravalley.com.au/see-and-do/wineries",
+          "what": "over 90 cellar doors to explore. It was also Victoria's first wine-growing district with a history stretching back nearly 180 years",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.unesco.org/en/creative-cities/melbourne",
+          "what": "Category: Literature Member since: 2008",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://www.unesco.org/en/creative-cities/melbourne",
+          "what": "As a Creative City of Literature, Melbourne",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "sushi-and-washoku--los-angeles-torrance": {
+      "text": "Torrance's tie to Japan is formal rather than atmospheric: it is twinned with Kashiwa, holds friendship-city ties with Oshu and Bizen, and runs a Bunka-Sai festival every April — two days of Japanese cultural arts in a California suburb. That is worth knowing before you come, because it sets what surrounds the room you will be standing in. It is not Japan and we would not tell you it is. It is the nearest version of that context with a door a stranger can open.",
+      "sources": [
+        {
+          "url": "https://discovertorrance.com/japanese-culture-in-torrance/",
+          "what": "sister-city relationship with Kashiwa, Japan",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://discovertorrance.com/japanese-culture-in-torrance/",
+          "what": "friendship-city relationships with Oshu, Japan (Shoehei Ohtani's hometown) and Bizen, Japan",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://discovertorrance.com/japanese-culture-in-torrance/",
+          "what": "April This two-day festival honors",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://discovertorrance.com/japanese-culture-in-torrance/",
+          "what": "Bunka-Sai Festival",
+          "read": "13 September 2026"
+        }
+      ]
+    },
+    "modern-new-technique-cuisine--puebla-mexico-city": {
+      "text": "Puebla sits under a live volcano. Popocatépetl stands between the two cities this entry covers — Mexico City at 19 million people and Puebla at 2.6 million — and on a clear morning you see it from the street. The other constant is on the table: the artisanal talavera of Puebla was inscribed on the Representative List of the Intangible Cultural Heritage of Humanity in 2019, which is a plate being protected rather than a recipe. Eat off it while you are here. It changes how the food reads, which is a lesson a technique lab cannot teach you.",
+      "sources": [
+        {
+          "url": "https://science.nasa.gov/earth/earth-observatory/volcanic-activity-at-popocatepetl-87414/",
+          "what": "Popocatépetl sits between two large population centers: Mexico City (19 million) and Puebla (2.6 million)",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/artisanal-talavera-of-puebla-and-tlaxcala-mexico-and-ceramics-of-talavera-de-la-reina-and-el-puente-del-arzobispo-spain-01462",
+          "what": "Artisanal talavera of Puebla and Tlaxcala",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/artisanal-talavera-of-puebla-and-tlaxcala-mexico-and-ceramics-of-talavera-de-la-reina-and-el-puente-del-arzobispo-spain-01462",
+          "what": "Inscribed in 2019",
+          "read": "13 September 2026"
+        },
+        {
+          "url": "https://ich.unesco.org/en/RL/artisanal-talavera-of-puebla-and-tlaxcala-mexico-and-ceramics-of-talavera-de-la-reina-and-el-puente-del-arzobispo-spain-01462",
+          "what": "on the Representative List of the Intangible Cultural Heritage of Humanity",
+          "read": "13 September 2026"
+        }
+      ]
+    }
+  }
+}

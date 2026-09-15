@@ -1056,7 +1056,7 @@ def _clean_source(s):
     s = (s or "").lower()
     return bool(s) and not any(w in s for w in ["via", "aggreg", "not ", "company-wide", "directory", "syncs"])
 
-def rating_block(d, x):
+def rating_block(d, x, wrap=True):
     r = RATINGS.get(d["id"])
     if not r or r.get("destId") != x["id"]:
         return ""
@@ -1082,9 +1082,14 @@ def rating_block(d, x):
     if not (line or why):
         return ""
     head = "Why this school — real and cited, not my opinion dressed up"
+    body = f'{line}<p style="opacity:.82">{e(why)}</p>'
+    if not wrap:
+        # "Why this school" is about ONE school, so it belongs behind that school's own
+        # click rather than in a section of its own. Arnaud, 14 September 2026. The card
+        # already prints the name in its summary, so the h2 goes.
+        return (f'<div class="mono" style="margin:14px 0 6px">{head}</div>{body}')
     return (f'<section><div class="wrap prose"><div class="mono">{head}</div>'
-            f'<h2 style="margin:6px 0 10px">Why {e(school)}</h2>{line}'
-            f'<p style="opacity:.82">{e(why)}</p></div></section>')
+            f'<h2 style="margin:6px 0 10px">Why {e(school)}</h2>{body}</div></section>')
 
 CORES = {
     "wellness": ("Wellness", "Breath, stillness, the body as instrument"),
@@ -1450,7 +1455,7 @@ def intent_form(source, discipline=None, place=None, label=None):
     data += f' data-label="{e(label)}"' if label else ""
     return (f'<form class="intent"{data} data-source="{e(source)}">'
             '<p class="intent-q">Write me a note about this one &mdash; how you&#39;d love to learn '
-            'it, and where. It comes to my own inbox and I read every one myself.</p>'
+            'it, and where.</p>'
             '<p class="intent-fine">If this box never loads, the same note reaches me at '
             '<a href="mailto:arnaudcallier@pm.me" style="color:var(--sea)">arnaudcallier@pm.me</a>.</p>'
             '</form>')
@@ -1564,8 +1569,10 @@ def room_block(x, d=None):
         return ""
     return ('<section><div class="wrap"><div class="mono">What the days are like</div>'
             f'<h2>The room</h2><ul class="clean" style="font-size:14.5px">{"".join(items)}</ul>'
-            '<p class="meta" style="margin-top:10px">Want the rest — a normal day, first hour to last? '
-            'Ask the school; a serious one answers in two minutes.</p></div></section>')
+            '<p class="meta" style="margin-top:10px">This describes the craft as it is taught here, '
+            'not one school — we hold it for the town rather than per room. Want the rest for the one '
+            'you pick, first hour to last? Ask them; a serious school answers in two minutes.</p>'
+            '</div></section>')
 
 # ── a school's photograph, used where the page is standing on that school's place ──
 # The pictures belong to ONE school in ONE place. So they may only ever appear on a
@@ -1761,8 +1768,11 @@ def credential_section(d, x=None):
         return ""
     body = (f'<p style="opacity:.82;font-size:15px;max-width:62ch"><strong style="font-weight:500">{e(d["goldCredential"])}</strong>'
             + (f' · Certifying body: {e(d["certBody"])}' if d.get("certBody") else "") + '</p>'
-            '<p class="meta" style="margin-top:10px">A recognised qualification an outside body stands behind is not the same as a certificate a school prints itself. We name which it is — you should ask the school the same.</p>')
-    return f'<section><div class="wrap prose"><div class="mono">What you walk away with</div><h2>The credential</h2>{body}</div></section>'
+            '<p class="meta" style="margin-top:10px">That is the one an outside body sets and marks, '
+            'which is what separates it from a certificate a school prints itself \u2014 that proves you '
+            'attended. We name which of the two a course actually gives you; ask the school the same '
+            'question before you pay, and judge the answer yourself.</p>')
+    return f'<section><div class="wrap prose"><div class="mono">What you walk away with</div><h2>The credential that counts here</h2>{body}</div></section>'
 
 def coverage_block(d, x):
     """What each course here says it covers, against the craft's ladder.
@@ -2468,7 +2478,7 @@ def future_sessions(f):
     return keep, gone
 
 
-def featured_block(d, x):
+def featured_block(d, x, wrap=True):
     if is_closed(x):
         return ""
     f = d.get("featured") or {}
@@ -2504,13 +2514,356 @@ def featured_block(d, x):
             if f.get("url") else "")
     note = f'<p class="meta" style="margin-top:8px">{e(f["priceNote"])}</p>' if f.get("priceNote") and f.get("priceNote") != "—" else ""
     tag = "Best course · provisional, verifying" if f.get("confidence") == "low" else "Best course for this craft"
+    inner = (f'{desc}<div style="margin-top:12px">{chips}</div>{sessions}{fit}'
+             f'<div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px">{price_html}{link}</div>'
+             f'{note}{alts_block(f)}')
+    if not wrap:
+        # Inside the school's own fold: the card already prints the school, the place and
+        # the course name in its summary, so repeating them here is the redite again.
+        return inner
     return (f'<section><div class="wrap"><div class="mono" style="color:#f0c27a">★ {e(tag)}</div>'
             f'<h2 style="margin:8px 0 4px">{e(f["course"])}</h2>'
             f'<div class="meta">{e(f.get("school",""))} — {e(f.get("place",""))}'
-            f'{", " + e(f["country"]) if f.get("country") else ""}</div>{desc}'
-            f'<div style="margin-top:12px">{chips}</div>{sessions}{fit}'
-            f'<div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:14px">{price_html}{link}</div>'
-            f'{note}{alts_block(f)}</div></section>')
+            f'{", " + e(f["country"]) if f.get("country") else ""}</div>{inner}</div></section>')
+
+
+# ---------- a school is a card you can open ----------
+# Arnaud, 14 September 2026, reading the Tokyo sheet: after the place card he wants
+# "directement… where is it taught", every school with what is specific to it, "un tag
+# et un label comme rising star", the recommended course marked on the school rather
+# than in a section of its own — and who teaches, why this school, and how the days run
+# all moved inside, "dès que quelqu'un clique sur une école".
+#
+# ⛔ THE LIMIT THAT DECIDED THE SHAPE, and it is a data fact, not a design opinion: a
+# school entry holds a name, a url, a course, a blurb and a confidence flag. That is all
+# 919 of them hold. The teachers are recorded against the TOWN, the room and the
+# credential against the CRAFT, and "why this school" exists only for the one featured
+# course. Splitting a town's four names across its four schools would be inventing an
+# attribution — the fault that put Pierre Hermé against FERRANDI and Jiro Ono against
+# counters he teaches at none of. So a card prints what is that school's own, and where
+# the record holds nothing it says so in the card rather than borrowing from the town.
+#
+# The tags are a CLOSED set and every one is earned from a field that already exists.
+# A tag nobody can check is a badge, and a badge is the thing this map does not award.
+SCHOOL_TAGS = (
+    "Best course for this craft",
+    "Best course · provisional, verifying",
+    "Rising star",
+    "We work together",
+    "Read and corrected by the school",
+    "Publicly rated",
+    "Photographs from the school",
+    "Provisional, verifying",
+)
+
+
+def school_tags(d, x, s_, page_id):
+    """Every label this school has earned, in a fixed order. Never a free string."""
+    f = d.get("featured") or {}
+    is_pick = (bool(f.get("school")) and f["school"].strip().lower() == s_["name"].strip().lower()
+               and (f.get("id") == x["id"] or f.get("place") == x["place"]))
+    out = []
+    if is_pick:
+        out.append("Best course · provisional, verifying" if f.get("confidence") == "low"
+                   else "Best course for this craft")
+    if s_.get("risingStar"):
+        rising_star(s_)          # re-runs the `since` guard; a stale tag still stops the build
+        out.append("Rising star")
+    if s_.get("etRelationship"):
+        out.append("We work together")
+    _rv = REVIEWED.get(page_id) or {}
+    if (_rv.get("school") or "").strip().lower() == s_["name"].strip().lower():
+        out.append("Read and corrected by the school")
+    if s_.get("rating") and s_.get("ratingSource"):
+        out.append("Publicly rated")
+    if (s_.get("photos") or {}).get("items"):
+        out.append("Photographs from the school")
+    if s_.get("confidence") == "low" and not is_pick:
+        out.append("Provisional, verifying")
+    for t in out:
+        if t not in SCHOOL_TAGS:
+            raise SystemExit(f"build-atlas-pages: {s_['name']!r} carries a tag that is not in "
+                             f"SCHOOL_TAGS: {t!r}. The set is closed on purpose.")
+    return out, is_pick
+
+
+def school_teachers(s_):
+    """Who teaches THIS course, or the blank said out loud.
+
+    ⛔ Never filled from the destination's `masters`. Those are the town's names and the
+    record does not say which room any of them stands in.
+    """
+    names = [n for n in (s_.get("masters") or []) if str(n).strip()]
+    if names:
+        return ('<p style="margin:0 0 10px"><strong style="font-weight:500">Who teaches it</strong> — '
+                + e(" · ".join(names)) + "</p>")
+    # ⛔ AND NOTHING WHEN THERE IS NOTHING. The first version printed "we have not
+    # established who teaches this course" on every school without the field — and on
+    # Tokyo Sushi Academy that sentence landed directly under a blurb naming seven
+    # instructors and the day it was checked. That is an ASSERTED NEGATIVE, the fault
+    # this standard already carries a public correction for: "failed" requires evidence
+    # of failure, and we had not looked, we had simply not stored it in a field.
+    # Silence is honest here; a sentence claiming a blank we never verified is not.
+    return ""
+
+
+def school_card(d, x, s_, page_id):
+    """One school, closed by default, everything that is its own inside it."""
+    tags, is_pick = school_tags(d, x, s_, page_id)
+    chips = "".join(
+        f'<span class="badge" style="{"color:#f0c27a;border-color:rgba(240,194,122,.42)" if t.startswith("Best course") else ""}">'
+        f'{"★ " if t.startswith("Best course") else ""}{e(t)}</span>' for t in tags)
+
+    _sh = (s_.get("photos") or {})
+    _thumb = ((_sh.get("thumb") or "").strip() or ((_sh.get("items") or [{}])[0].get("src", "")))
+    shot = ""
+    if _thumb:
+        _alt = next((i.get("alt", "") for i in (_sh.get("items") or []) if i["src"] == _thumb), "")
+        if not _alt.strip():
+            raise SystemExit(f'build-atlas-pages: the row thumbnail for {s_["name"]!r} has no alt text.')
+        shot = (f'<img class="schoolshot" src="{e(_thumb)}" alt="{e(_alt)}" '
+                f'width="150" height="150" loading="lazy" decoding="async">')
+
+    head = (f'{shot}<strong style="font-weight:500">{e(s_["name"])}</strong>'
+            + (f'<div style="margin-top:6px">{chips}</div>' if chips else "")
+            + (f'<div class="meta" style="margin-top:6px">{e(s_["course"])}</div>' if s_.get("course") else ""))
+
+    body = (f'<p style="font-size:14.5px;opacity:.82;margin:0 0 12px;max-width:70ch">{e(s_["blurb"])}</p>'
+            if s_.get("blurb") else "")
+    body += school_teachers(s_)
+    if is_pick:
+        # "Why this school" and the whole shape of the course belong to the one school
+        # they were written about, behind its own click.
+        body += rating_block(d, x, wrap=False)
+        body += featured_block(d, x, wrap=False)
+    if s_.get("rating"):
+        rcnt = f' · {s_["ratingCount"]} reviews' if s_.get("ratingCount") else ""
+        rurl = s_.get("ratingUrl") or s_.get("url")
+        src = s_.get("ratingSource", "")
+        cited = (f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(rurl)}">{e(src)} ↗</a>'
+                 if rurl else e(src))
+        body += (f'<div class="meta" style="margin-top:10px"><span class="dots">★</span> '
+                 f'<strong style="font-weight:500">{e(str(s_["rating"]))}/5</strong>{e(rcnt)} on {cited} '
+                 f'<span style="opacity:.7">— verify it yourself</span></div>')
+    if s_.get("verify"):
+        _v = s_["verify"] if isinstance(s_["verify"], list) else [s_["verify"]]
+        body += ('<p class="meta" style="margin-top:10px">Their own page says: '
+                 + " · ".join(f'&ldquo;{e(str(t))}&rdquo;' for t in _v) + "</p>")
+    if s_.get("url"):
+        body += (f'<div style="margin-top:10px"><a class="school-url" rel="nofollow noopener" '
+                 f'target="_blank" href="{e(s_["url"])}">{e(s_["url"])}</a></div>')
+
+    return (f'<li data-school="{e(s_["name"])}" data-craft="{e(d["id"])}" data-dest="{e(x["id"])}">'
+            f'<details class="fold"><summary>{head}</summary>'
+            f'<div class="foldbody">{body}</div></details></li>')
+
+# ---------- the place intro: the town, not the craft ----------
+# Arnaud, 13 September 2026, on the gastronomy ranking: "when talking about a place, a
+# school, I want all the information regarding it — is there a strong community, the part
+# you already checked, but also the culture, the nature, the people, the food, so a reader
+# that wants to learn a special skill has the perfect picture of the place."
+#
+# A destination sheet carried the craft, the school, the teacher, the lineage, the room and
+# the credential, and NOTHING about the town it stands in. That is not an oversight: every
+# other prose field on this map is fenced to the craft on purpose. `why` is the reason to
+# go, a learn line "may say nothing its own why does not already say", a community line is
+# how we know who is already there. Not one of them is allowed to say what the place is
+# LIKE, so not one of them ever did.
+#
+# THE FORM IS HIS TOO, and it is the whole brief: "no details, the main things must be the
+# craft and the school, but just develop a bit more on the vibe there so people can picture
+# it. Dont make beats, I want all to be described in kind of an intro." One paragraph, at
+# the top, and then the page goes back to work.
+#
+# The three prohibitions it inherits from the community line, because they are the same
+# three every time:
+#   IT DESCRIBES, IT DOES NOT GRADE. The Measure is where a judgement with a name on it
+#     lives; a second verdict in different words is a grade nobody signed.
+#   IT MAY NOT RESTATE THE `why` — which prints twice on this page already, once as the
+#     hero lead and once inside the card — nor the community line four lines below it.
+#   A PLACE WITH NO INTRO SHOWS NONE. An absence is honest, a filler sentence is not.
+#
+# And one that is new, because a place description is exactly where it bites:
+#   NO ASSERTED NEGATIVE. "Nothing is open after nine", "there is no scene here" — the
+#     standard already says "failed" requires evidence of failure, and it says so in a
+#     public correction log on chef-at-sea after that precise fault. An absence is written
+#     as an absence, never as a finding.
+PLACE_INTROS = MANIFEST.get("placeIntros", {})
+
+# An intro, not an article. The budget IS the form: he asked for "a bit more on the vibe",
+# and the school still has to own the page this is printed on.
+PLACE_INTRO_MAX_WORDS = 200
+
+# The union of the two houses' banned lists — ET's (CLAUDE.md) and the terroir agent's.
+# Terroir keeps its own because a place description is where this vocabulary breeds: every
+# word here is an adjective doing the job a fact should be doing.
+_INTRO_BANNED = (
+    "transformation", "transformational", "life-changing", "vacation", "holiday",
+    "luxury", "easy", "journey", "curated", "unlock", "elevate", "elevated", "empower",
+    "artisanal", "delicious", "vibrant", "charming", "quaint", "stunning", "breathtaking",
+    "hidden gem", "must-try", "must-see", "iconic", "bustling", "paradise", "unspoilt",
+    "unspoiled", "world-class", "best-kept",
+)
+
+_INTRO_REQUIRED = ("text", "sources", "checker", "date")
+_SOURCE_REQUIRED = ("url", "what", "read")
+
+
+def _intro_hay(d, x, p):
+    """Everything an intro may draw a name or a number from.
+
+    This is where the block departs from every prose field before it, and the departure is
+    the point. A learn line is provenance-checked against the craft row because it may say
+    nothing the craft row does not. An intro about a town's weather, its market and what is
+    eaten there introduces nouns that row cannot contain — by construction, not by sloppiness.
+    So the sources it CITES become its haystack: a name in the prose that appears in neither
+    the record nor a cited source is a name no reader could check, and it does not ship.
+    """
+    return atlas_hub._prov_norm(" ".join([
+        x.get("why", ""), d.get("blurb", ""), x.get("place", ""), x.get("country", ""),
+        x.get("region", ""), x.get("bestSeason", ""), x.get("level", ""),
+        " ".join(x.get("masters") or []), " ".join(x.get("lineage") or []),
+        " ".join((s.get("name") or "") + " " + (s.get("course") or "") + " " + (s.get("blurb") or "")
+                 for s in (x.get("schoolsInfo") or [])),
+        " ".join((src.get("what") or "") + " " + (src.get("url") or "")
+                 for src in (p.get("sources") or [])),
+    ]))
+
+
+def _intro_fail(did, msg):
+    raise SystemExit(f"build-atlas-pages: the place intro on {did} {msg}")
+
+
+_BY_DEST = {x["id"]: (d, x) for d in DISC for x in d["destinations"]}
+
+for _did, _p in sorted(PLACE_INTROS.items()):
+    if _did not in _BY_DEST:
+        raise SystemExit("build-atlas-pages: placeIntros names destinations that do not "
+                         f"exist: {_did}")
+    _d, _x = _BY_DEST[_did]
+    if not isinstance(_p, dict):
+        _intro_fail(_did, "is not an object — it needs text, sources, checker and date.")
+
+    # An intro ships with a name and a day on it, or it does not ship. Same law as a grade:
+    # the checker is the one field no script may ever fill in for a person.
+    _missing = [k for k in _INTRO_REQUIRED if not _p.get(k)]
+    if _missing:
+        _intro_fail(_did, "is missing " + ", ".join(_missing)
+                    + ".\n  An intro ships with its sources, a checker and a date, or it does not ship.")
+    if _grade_day(_p["date"]) is None:
+        _intro_fail(_did, f'has a date this build cannot read: {_p["date"]!r} '
+                    '(expected e.g. "13 September 2026").')
+
+    _text = str(_p["text"]).strip()
+    _words = re.findall(r"[^\s]+", _text)
+    if len(_words) > PLACE_INTRO_MAX_WORDS:
+        _intro_fail(_did, f"runs to {len(_words)} words, over the {PLACE_INTRO_MAX_WORDS} "
+                    "the form allows.\n  It is an intro. The craft and the school own this page.")
+
+    # ⚠ NEVER CENSOR A CITED NAME. The terroir gate learned this by flagging a real
+    # newspaper headline it was quoting. "Artisanal talavera of Puebla and Tlaxcala" is
+    # the name UNESCO inscribed, and refusing it would force a paragraph to misname the
+    # thing it is about. So a banned word is allowed when it also appears in one of this
+    # intro's own source `what` strings — which cannot be invented, because a `what` has
+    # to be readable verbatim on the page it cites and the night check re-reads it.
+    _low = _text.lower()
+    _quoted = " ".join((_s.get("what") or "") for _s in _p["sources"]).lower()
+    for _w in _INTRO_BANNED:
+        _pat = r"(?<![a-z])" + re.escape(_w) + r"(?![a-z])"
+        if re.search(_pat, _low) and not re.search(_pat, _quoted):
+            _intro_fail(_did, f'uses a banned word: "{_w}".\n'
+                        "  Every word on that list is an adjective doing the job a fact should do.\n"
+                        "  (If it is part of a name one of your sources publishes, cite that name.)")
+
+    # The sources, and the one rule that decides whether they are evidence at all.
+    _sell = _selling_hosts(_d)
+    for _src in _p["sources"]:
+        _gone = [k for k in _SOURCE_REQUIRED if not (_src.get(k) or "").strip()]
+        if _gone:
+            _intro_fail(_did, "has a source missing " + ", ".join(_gone)
+                        + ".\n  A source is a url, the fact it carries, and the day it was read.")
+        if not re.match(r"https?://", _src["url"], re.I):
+            _intro_fail(_did, f'has a source that is not a url: {_src["url"]!r}')
+        if _grade_day(_src["read"]) is None:
+            _intro_fail(_did, f'has a source read on a date this build cannot read: {_src["read"]!r}')
+        _h = _host(_src["url"])
+        if _h and _h in _sell:
+            _intro_fail(_did, f'cites {_h}, which sells a course on this craft.\n'
+                        "  A school's own page is not evidence about its town. Cite a market, a\n"
+                        "  festival, a trade body, a state listing — somebody with nothing to sell.")
+
+    # Provenance. Numbers and names come from the record or from a cited source, or they
+    # come from nowhere a reader can follow.
+    _hay = _intro_hay(_d, _x, _p)
+    for _n in re.findall(r"\d[\d,–-]*", _text):
+        _tok = atlas_hub._prov_norm(_n).strip("-")
+        if _tok and _tok not in _hay:
+            _intro_fail(_did, f'asserts a number nothing carries: "{_n}".\n'
+                        "  Put the fact in a source's `what`, or take the number out.")
+    # ⚠ A SENTENCE-INITIAL CAPITAL IS NOT A NAME, and this is the one change the guard
+    # needed to work on prose at all. learn_line_drift() gets away without it because a
+    # learn line is one clause that starts with "Learn" — a word already on the stop list.
+    # A paragraph has five sentences, and "Keep one afternoon for…" would be reported as
+    # an unsourced proper noun called "Keep". So a token that opens a sentence is skipped.
+    # The residual gap is a real name that only ever appears at the start of a sentence,
+    # which is why this guard is a floor under a human read and not a substitute for one.
+    for _m in re.finditer(r"\b[A-Z][\w'’À-ɏ-]{2,}", _text):
+        _w = _m.group(0)
+        _before = _text[:_m.start()].rstrip()
+        if not _before or _before[-1] in ".!?:—":
+            continue
+        _nw = atlas_hub._prov_norm(_w)
+        if _nw in atlas_hub._PROV_STOP:
+            continue
+        if _nw.endswith("'s"):
+            _nw = _nw[:-2]
+        if _nw not in _hay and _nw.rstrip("s") not in _hay:
+            _intro_fail(_did, f'names something nothing carries: "{_w}".\n'
+                        "  Put it in a source's `what`, or take the name out.")
+
+    # The redite check, both ways. The `why` is the reason to GO and prints twice on this
+    # page already; the community line is how we know who is there. An intro that echoes
+    # either is padding on a page whose whole argument is that nothing here is padding.
+    for _other, _what in ((_x.get("why"), "its own `why`"),
+                          (COMMUNITY_LINES.get(_did), "its own community line")):
+        _run = _shared_run(_text, _other)
+        if _run:
+            _intro_fail(_did, f'repeats {_what}:\n  "…{_run}…"\n'
+                        "  Say the thing the other one does not.")
+
+
+def place_intro(x):
+    """The town, in one paragraph, above everything the page says about the craft.
+
+    Silent when nothing has been written for a place. The sources fold underneath because
+    citations belong at the foot and never inside the prose — the paragraph has to read as
+    somebody talking, and a sentence with a link in its middle never does.
+    """
+    p = PLACE_INTROS.get(x["id"])
+    if not p:
+        return ""
+    t = str(p.get("text") or "").strip()
+    if not t:
+        return ""
+    # ⛔ THE SOURCES COME OFF THE PAGE. Arnaud, 14 September 2026: "pas besoin de mettre
+    # 'where this comes from' — supprime ça." They are still REQUIRED in the data, still
+    # refused by the build when missing, still refused when they come from a host selling
+    # the course, and still re-read every night by night-check.py. What changed is that a
+    # reader no longer sees them. ⚠ That is a real loss and it should be said plainly
+    # rather than quietly absorbed: the page now asks to be believed on the paragraph
+    # alone, where before it showed its working. The evidence did not weaken; its
+    # visibility did.
+    return (
+        '<section><div class="wrap">'
+        f'<div class="mono">{atlas_hub.PLACE_INTRO_MARK}</div>'
+        f'<p style="margin:10px 0 0;font-size:16.5px;line-height:1.72;max-width:62ch">{e(t)}</p>'
+        # ⚠ The SOURCES came off; the SIGNATURE does not. "Every check carries its date and
+        # a named checker" is a standing rule, and it was only ever inside that fold by
+        # accident of layout. A dated paragraph with nobody's name on it is a house voice.
+        f'<p class="mono" style="margin:12px 0 0;opacity:.6;font-size:11px">'
+        f'Last checked \u00b7 {e(p["checker"])} \u00b7 {e(p["date"])}</p>'
+        '</div></section>')
+
 
 # ---------- clear the pages we own, keep the ones we don't ----------
 # This used to be shutil.rmtree(OUT). It isn't any more: seven Atlas sheets in here
@@ -2579,39 +2932,7 @@ for d in DISC:
         for s in x.get("schoolsInfo", []) or [{"name": n} for n in x["schools"]]:
             if s["name"].lower() in seen: continue
             seen.add(s["name"].lower())
-            inner = f'<strong style="font-weight:500">{e(s["name"])}</strong>'
-            inner += rising_star(s)
-            # A school that sent pictures gets a face on its own row. It is one of
-            # its own frames, it links to nothing, and it sits beside the name rather
-            # than above the blurb so the row still reads as a list and not a gallery.
-            _sh = (s.get("photos") or {})
-            _thumb = ((_sh.get("thumb") or "").strip()
-                      or ((_sh.get("items") or [{}])[0].get("src", "")))
-            if _thumb:
-                _alt = next((i.get("alt", "") for i in (_sh.get("items") or [])
-                             if i["src"] == _thumb), "")
-                if not _alt.strip():
-                    raise SystemExit(f'build-atlas-pages: the row thumbnail for '
-                                     f'{s["name"]!r} has no alt text.')
-                inner = (f'<img class="schoolshot" src="{e(_thumb)}" alt="{e(_alt)}" '
-                         f'width="150" height="150" loading="lazy" decoding="async">') + inner
-            if s.get("course"): inner += f'<div class="meta">{e(s["course"])}</div>'
-            if s.get("blurb"): inner += f'<div style="font-size:14px;opacity:.75;margin-top:4px">{e(s["blurb"])}</div>'
-            if s.get("rating"):
-                rcnt = f' · {s["ratingCount"]} reviews' if s.get("ratingCount") else ""
-                rurl = s.get("ratingUrl") or s.get("url")
-                src = s.get("ratingSource", "")
-                cited = f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(rurl)}">{e(src)} ↗</a>' if rurl else e(src)
-                inner += (f'<div class="meta" style="margin-top:5px"><span class="dots">★</span> '
-                          f'<strong style="font-weight:500">{e(str(s["rating"]))}/5</strong>{e(rcnt)} on {cited} '
-                          f'<span style="opacity:.7">— verify it yourself</span></div>')
-            if s.get("url"): inner += f'<div style="margin-top:4px"><a class="school-url" rel="nofollow noopener" target="_blank" href="{e(s["url"])}">{e(s["url"])}</a></div>'
-            # data-school is the key a comment is filed under, and it is the school's
-            # NAME — the only stable handle a school has here. Rename a school in the
-            # data and its comments are orphaned, so rename by editing, never by
-            # deleting and re-adding.
-            rows.append(f'<li data-school="{e(s["name"])}" data-craft="{e(d["id"])}" '
-                        f'data-dest="{e(x["id"])}">{inner}</li>')
+            rows.append(school_card(d, x, s, x["id"]))
         if rows:
             feat = d.get("featured") or {}
             if feat.get("confidence") == "low":
@@ -2664,8 +2985,10 @@ for d in DISC:
             # On a closed page these are the people the craft came from, and the heading
             # has to say so: "Masters & lineage" on a page with no teaching reads as a
             # staff list.
-            head = ("Who teaches now", "The people in the room")
-            tail = ""
+            head = ("Named in this town", "The people this craft is known by here")
+            tail = ('<p class="meta" style="margin-top:10px">These names belong to the town. '
+                    'Where we have been able to tie one to a particular school, it is on that '
+                    "school's card above; where we have not, we have not guessed.</p>")
             if is_closed(x):
                 head = ("Who it came from", "The names this place gave the craft")
                 tail = ('<p class="meta" style="margin-top:10px">Named for the lineage, not as '
@@ -2702,10 +3025,10 @@ for d in DISC:
 <h1>{_h1}</h1>
 <p class="lead">{e(x['why'])}</p>{_closed_band}
 </div></header>
-<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
-{reviewed_block(x["id"])}{disclosure_block(d) if has_relationship(x) else ""}{featured_block(d, x)}
+{place_intro(x)}<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
+{reviewed_block(x["id"])}{disclosure_block(d) if has_relationship(x) else ""}
+{schools_html}{lab_week_block(d, x)}{photo_block(x)}
 {masters_html}{lineage_html}
-{rating_block(d, x)}{schools_html}{lab_week_block(d, x)}{photo_block(x)}
 {room_block(x, d)}
 {credential_section(d, x)}{coverage_block(d, x)}
 <section><div class="wrap">{intent}</div></section>
@@ -3186,6 +3509,46 @@ if _lfloor is not None:
         print(f"  ✓ the ladder debt fell to {len(_no_ladder)} — set ladderDebtFloor to "
               f"{len(_no_ladder) + 1} in data/atlas-extra-sheets.json (debt + 1, so one "
               "Circle opening still builds) and it can never drift back up")
+
+# Which open places still have no intro — the town a reader lands on and learns nothing
+# about. Printed every night, and it may never grow.
+_intro_dests = [x["id"] for d in _open_disc for x in d["destinations"]]
+_no_intro = sorted(i for i in _intro_dests if i not in PLACE_INTROS)
+_ifloor = MANIFEST.get("placeIntroDebtFloor")
+# ⚠ THE HEADROOM IS NOT 1 HERE, and that is the whole reason this block is written out
+# instead of copied from the two above. Those count CRAFTS: one craft opens overnight and
+# the debt grows by exactly one, which is what their "debt + 1" absorbs. This one counts
+# DESTINATIONS, and a craft opening at 04:05 brings every one of its places with it —
+# ashtanga would arrive with four, hatha with four. One place of headroom would stop the
+# unattended nightly for everybody on a night nobody had failed at anything, which is the
+# precise failure the ladder floor already walked into on 7 September. So the headroom is
+# the largest number of places any still-locked craft could bring, and the build PRINTS it
+# rather than leaving the next person to guess.
+_intro_headroom = max([len(d["destinations"]) for d in DISC if not is_open(d["id"])] or [1])
+if _no_intro:
+    print(f"  ⚠ the place intro — {len(_no_intro)} of {len(_intro_dests)} open places say "
+          f"nothing about the town: {', '.join(_no_intro[:5])}"
+          + (f", +{len(_no_intro) - 5} more" if len(_no_intro) > 5 else ""))
+if _ifloor is not None:
+    if len(_no_intro) > _ifloor:
+        _newi = [i for i in _no_intro if i not in set(MANIFEST.get("placeIntroDebtKnown", []))]
+        raise SystemExit(
+            f"build-atlas-pages: {len(_no_intro)} open places have no intro, and the floor is "
+            f"{_ifloor}.\n"
+            + (f'  New without one: {", ".join(_newi)}\n' if _newi else "")
+            + "  Write it into data/atlas-extra-sheets.json -> placeIntros, or raise the floor\n"
+              "  deliberately. It is one paragraph about the town, sourced and dated.")
+    # The nudge fires only once the debt has fallen far enough that a new floor would
+    # still leave the headroom below intact — otherwise it would ask, every single
+    # night, for the number it already has.
+    if len(_no_intro) + _intro_headroom < _ifloor:
+        print(f"  ✓ the place intro debt fell to {len(_no_intro)} — set placeIntroDebtFloor to "
+              f"{len(_no_intro) + _intro_headroom} in data/atlas-extra-sheets.json "
+              f"(debt + {_intro_headroom}, the most places any locked craft could bring on one "
+              "night) and it can never drift back up")
+if PLACE_INTROS:
+    print(f"  · the place intro: {len(PLACE_INTROS)} place(s) say what it is like to be there")
+
 _n_cov = sum(len(s) for p in COURSE_COVERAGE.values() for s in p.values())
 if SKILL_LADDERS:
     print(f"  · the ladder: {len(SKILL_LADDERS)} craft(s) carry one, {_n_cov} course(s) read "

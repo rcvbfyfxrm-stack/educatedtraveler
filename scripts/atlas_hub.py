@@ -361,6 +361,11 @@ MEASURE_QUESTIONS = (
 # renderer, so a check reads it rather than spelling it.
 MEASURE_MARK = "How this was graded"
 
+# The eyebrow over a place intro. It lives here, beside the other marker, for the
+# reason that one does: check 15 once went hunting for a string it had been given a
+# copy of, the renderer moved, and the check reported itself blind rather than failing.
+PLACE_INTRO_MARK = "What it is like to be there"
+
 
 def _answers_line(dots):
     """The Measure's headline, agreeing with its own number at every count.

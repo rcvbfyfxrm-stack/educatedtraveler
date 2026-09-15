@@ -190,6 +190,28 @@ def manifest_claims(manifest, open_ids, only=None):
                             "name": ev.get("what", "") or f"evidence for answer {i}",
                             "url": ev["url"],
                             "verify": [ev["what"]] if ev.get("what") else []})
+    # ── the place intros ──────────────────────────────────────────────────────
+    # A place intro is the one block on this map allowed to say something the craft
+    # record does not hold — what the town is like, what is eaten there, what is
+    # behind it. Its sources are therefore not a courtesy at the foot of the page,
+    # they ARE its provenance, and the build refuses a name or a number that none of
+    # them carries. Which means a source that quietly stops saying its thing does not
+    # merely age a citation: it strands a sentence the build already let through.
+    # So every one is re-read, exactly like the Measure's evidence.
+    #
+    # ⚠ The craft id is taken from the destination id, because a destination belongs
+    # to exactly one craft and the open-craft filter is keyed on the craft.
+    for did, pi in (manifest.get("placeIntros") or {}).items():
+        cid = did.split("--")[0]
+        if cid not in open_ids or (only and cid != only):
+            continue
+        for src in pi.get("sources") or []:
+            if not (src.get("url") or "").startswith(("http://", "https://")):
+                continue
+            out.append({"craft": cid, "where": did.split("--")[-1], "what": "place intro",
+                        "name": src.get("what", "") or "a source for the intro",
+                        "url": src["url"],
+                        "verify": [src["what"]] if src.get("what") else []})
     return out
 
 

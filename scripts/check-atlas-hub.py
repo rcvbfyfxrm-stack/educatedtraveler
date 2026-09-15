@@ -772,6 +772,50 @@ for _pid, _r in sorted(_reviewed.items()):
     if _r["what"][:60] not in html_mod.unescape(_h19):
         bad(f"{_pid}: the review block prints no account of what was corrected")
 
+
+# ── 20. every place intro reaches the page it was written for ──────────────
+# The intro is the only block on this map allowed to say something the craft record
+# does not hold, which is exactly why it must not be able to go missing quietly. Two
+# failures are possible and they look identical from outside: the block stops
+# rendering (a renamed key, a body template edited around it) and the page still 200s
+# looking finished; or the renderer drifts and this check goes looking for a string
+# nobody emits any more and passes on an empty set. Check 15 did the second once, and
+# said so out loud rather than passing — the anti-blindness line at the bottom is that
+# lesson, and the marker is read from atlas_hub rather than spelled here.
+_intros = _extra.get("placeIntros", {})
+_seen20 = 0
+for _did, _pi in sorted(_intros.items()):
+    _p20 = ROOT / f"website/atlas/{_did}.html"
+    if not _p20.exists():
+        bad(f"placeIntros names {_did}, and website/atlas/{_did}.html does not exist")
+        continue
+    _h20 = _p20.read_text()
+    if atlas_hub.PLACE_INTRO_MARK not in _h20:
+        bad(f"{_did}: an intro was written for this town and the page does not carry it — "
+            "place_intro() is not reaching it")
+        continue
+    _seen20 += 1
+    _plain20 = html_mod.unescape(_h20)
+    if _pi["text"][:60] not in _plain20:
+        bad(f"{_did}: the intro block is on the page without its own first sentence")
+    for _field in ("checker", "date"):
+        if html_mod.escape(_pi[_field]) not in _h20:
+            bad(f'{_did}: the intro is published without its {_field} ({_pi[_field]!r}) — '
+                "an unsigned paragraph about a place is a house voice with no answerability")
+    # ⚠ The sources came OFF the page on 14 Sept at Arnaud's instruction, so this check no
+    # longer looks for them in the HTML. It asserts the opposite instead: that they are
+    # still in the DATA behind it. The build already refuses an intro with no sources and
+    # night-check.py still re-reads every one — but with nothing visible on the page, this
+    # is the only place left that would notice the evidence quietly going missing.
+    if not (_pi.get("sources") or []):
+        bad(f"{_did}: an intro is published with no sources behind it")
+    for _s20 in _pi.get("sources") or []:
+        if not (_s20.get("url") or "").startswith(("http://", "https://")) or not (_s20.get("what") or "").strip():
+            bad(f"{_did}: a source behind this intro has no url or no fact attached to it")
+if _intros and not _seen20:
+    bad(f"check 20 inspected none of the {len(_intros)} published place intro(s) — "
+        f"it is blind, not passing. Look for {atlas_hub.PLACE_INTRO_MARK!r} in place_intro().")
+
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:
     print("check-atlas-hub: FAIL")
