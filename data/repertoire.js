@@ -4083,7 +4083,7 @@ window.ET_ATLAS = {
               "name": "Apnea Academy (Umberto Pelizzari)",
               "url": "https://apnea.academy/en/instructors/freediver-instructor/",
               "course": "Apnea Academy Freediving Instructor Course",
-              "blurb": "Founded and run by 17-time world-record holder Umberto Pelizzari, the Apnea Academy instructor course is a 7-day intensive of theory and water work: relaxation and breathing technique, respiratory and",
+              "blurb": "Founded and run by 17-time world-record holder Umberto Pelizzari, the Apnea Academy instructor course is a 7-day intensive of theory and water work: relaxation and breathing technique, respiratory and ear physiology, diet, teaching method, psychology and group control, plus static, dynamic and constant/variable-weight apnea, with practical pool and sea sessions led by Pelizzari and senior instructors.",
               "confidence": "medium"
             },
             {
@@ -6129,7 +6129,7 @@ window.ET_ATLAS = {
               "name": "Yosemite Mountaineering School & Guide Service",
               "url": "https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service/",
               "course": "Big Wall Climbing Seminar",
-              "blurb": "An advanced multi-day seminar on the granite of Yosemite Valley that teaches the full big-wall toolkit for objectives like El Capitan: placing camming devices, chocks, pitons, hooks and copperheads, b",
+              "blurb": "An advanced multi-day seminar on the granite of Yosemite Valley that teaches the full big-wall toolkit for objectives like El Capitan: placing camming devices, chocks, pitons, hooks and copperheads, bolt inspection, aid climbing, ascending fixed ropes, organising hanging belays, hauling with pulley systems, leading and cleaning pendulums and bivouac craft.",
               "confidence": "medium"
             },
             {
@@ -9375,7 +9375,7 @@ window.ET_ATLAS = {
               "name": "Mashiko Ceramic Art Club (Mashiko Tougei Club)",
               "url": "http://mashiko-tougei-club.jp/",
               "course": "Pottery accommodation plan (live-in stay) / full-day intensive workshop",
-              "blurb": "A folk-style pottery studio in Mashiko, the town tied to Shoji Hamada and the mingei movement, that runs hands-on classes with unlimited clay and offers live-in stay plans pairing pottery making with ",
+              "blurb": "A folk-style pottery studio in Mashiko, the town tied to Shoji Hamada and the mingei movement, that runs hands-on classes with unlimited clay and offers live-in stay plans pairing pottery making with lodging in Kominka Koki, a 200-300-year-old farmhouse behind the workshop.",
               "confidence": "medium"
             },
             {
@@ -11901,7 +11901,7 @@ window.ET_ATLAS = {
               "name": "Le Arti Orafe Jewellery School (LAO)",
               "url": "https://artiorafe.it/en/courses/courses-goldsmith-school/",
               "course": "Annual Goldsmithing Course (Goldsmithery)",
-              "blurb": "A bench-based program in a Florence goldsmithing school running since 1985, weighted heavily toward practical hours: students saw, solder, file, raise and finish metal, set stones and take a design fr",
+              "blurb": "A bench-based program in a Florence goldsmithing school running since 1985, weighted heavily toward practical hours: students saw, solder, file, raise and finish metal, set stones and take a design from sketch to finished wearable piece.",
               "confidence": "medium"
             },
             {
@@ -14573,7 +14573,7 @@ window.ET_ATLAS = {
               "name": "La Vecchia Scuola Bolognese (Alessandra Spisni)",
               "url": "https://www.vsb-bologna.it/en/",
               "course": "Sfoglia: Professional Course with Alessandra Spisni",
-              "blurb": "Run by founder and master sfoglina Alessandra Spisni at the only school dedicated to forming sfoglini, this professional course teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of B",
+              "blurb": "Run by founder and master sfoglina Alessandra Spisni at the only school dedicated to forming sfoglini, this professional course teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of Bolognese fresh pasta — tortellini, tagliatelle, lasagne and more — worked by hand on the wooden board until dough is read by touch.",
               "confidence": "medium",
               "photos": {
                 "given": "2026-09-08",
@@ -16342,7 +16342,7 @@ window.ET_ATLAS = {
               "name": "L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School)",
               "url": "https://www.ecoleduvindebordeaux.com/en",
               "course": "Intensive Programme (Grand Cru level)",
-              "blurb": "A seven-day, roughly 60-hour intensive run by the Bordeaux wine council in an 18th-century building in the city centre, combining structured tasting technique with three days travelling through the vi",
+              "blurb": "A seven-day, roughly 60-hour intensive run by the Bordeaux wine council in an 18th-century building in the city centre, combining structured tasting technique with three days travelling through the vineyards.",
               "confidence": "medium"
             },
             {
