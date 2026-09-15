@@ -2101,7 +2101,7 @@ window.ET_ATLAS = {
                 "given": "2026-09-12",
                 "by": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
                 "source": "site",
-                "thumb": "/images/atlas/thai-massage--chiang-mai/omh-06-the-school-sign.jpg",
+                "thumb": "/images/atlas/thai-massage--chiang-mai/omh-04-the-room.jpg",
                 "card": "/images/atlas/thai-massage--chiang-mai/omh-01-the-correction.jpg",
                 "focal": "50% 50%",
                 "items": [
@@ -2140,13 +2140,6 @@ window.ET_ATLAS = {
                     "h": 1666,
                     "alt": "A whiteboard covered in hand-drawn diagrams of the body in red and blue marker, with Sen energy lines traced along the limbs and their names written beside them.",
                     "caption": "The Sen lines, drawn by hand on the board. The theory is taught as drawing before it is taught as pressure."
-                  },
-                  {
-                    "src": "/images/atlas/thai-massage--chiang-mai/omh-06-the-school-sign.jpg",
-                    "w": 1267,
-                    "h": 1014,
-                    "alt": "A man in the school’s cream and gold uniform shirt standing beside the school’s own sign, which reads “Thai Massage School Shivagakomarpaj” with its opening hours and telephone number.",
-                    "caption": "The school’s own door, in Wua Lai Road. Founded 1962 by Ajarn Sintorn Chaichakan, and still teaching the Northern style it started."
                   },
                   {
                     "src": "/images/atlas/thai-massage--chiang-mai/omh-07-the-compress.jpg",
@@ -14589,6 +14582,13 @@ window.ET_ATLAS = {
                 "thumb": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-04-the-tortellino.jpg",
                 "card": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg",
                 "items": [
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-08-spisni-at-the-board.jpg",
+                      "w": 1000,
+                      "h": 513,
+                      "alt": "A white-haired woman in an orange top and a white school apron stands behind a long wooden board with both hands resting on a mattarello, looking up and smiling; a second woman in the school's red shirt works at a board behind her, and rows of coloured chef's hats hang on the tiled wall.",
+                      "caption": "Alessandra Spisni, who founded the school, at the board. Photograph from the school's own website, used with its permission."
+                    },
                     {
                       "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-01-the-egg-into-the-well.jpg",
                       "w": 1000,
