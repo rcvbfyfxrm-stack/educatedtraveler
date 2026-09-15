@@ -14952,7 +14952,7 @@ window.ET_ATLAS = {
               "name": "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)",
               "url": "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en",
               "course": "Spanish Cuisine Diploma — the Superior Certificate is the avant-garde one",
-              "blurb": "On the UFV campus at Pozuelo de Alarcón. The avant-garde teaching here is not a short course: it is the last third of the nine-month Spanish Cuisine Diploma, and their own syllabus names it — 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', 'Sous-vide cooking', 'Reinventing & deconstructing classic dishes'. Taught in Spanish with simultaneous English translation through earphones, which no other room on this craft offers. Intakes January, April, July and October; 17,316 EUR for local students, 19,240 EUR for international. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months. Honest note, and it is the reason this is not our pick: Le Cordon Bleu names no chef for this diploma. Everywhere else on this map you can look the teacher up before you pay, and here you cannot — ask who will actually be in the room. Checked on cordonbleu.edu, 1 September 2026.",
+              "blurb": "On the UFV campus at Pozuelo de Alarcón. The avant-garde teaching here is not a short course: it is the last third of the nine-month Spanish Cuisine Diploma, and their own syllabus names it — 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', 'Sous-vide cooking', 'Reinventing & deconstructing classic dishes'. Taught in Spanish with simultaneous English translation through earphones, which no other room on this craft offers. Intakes January, April, July and October; 17,316 EUR for local students, 19,240 EUR for international. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months. ⚠ Honest note, and it is why this craft's first Measure dot stays dark: Le Cordon Bleu names no chef for this diploma. Everywhere else on this map you can look the teacher up before you pay, and here you cannot — ask who will actually be in the room. Checked on cordonbleu.edu, 1 September 2026.",
               "confidence": "high",
               "verify": [
                 "Avant-garde techniques & utensils",
@@ -15002,16 +15002,6 @@ window.ET_ATLAS = {
               "verify": [
                 "Sous Vide",
                 "386"
-              ]
-            },
-            {
-              "name": "Culinary Institute of Barcelona (CIB)",
-              "url": "https://cib.education/cursos-de-cocina/chef-especialista-cocina-molecular",
-              "course": "Curso de Especialización en Técnicas Culinarias Avanzadas (postgrado)",
-              "blurb": "A three-month, 330-hour in-person postgrado in advanced culinary technique, Monday to Friday, taught 'en español y soporte en inglés'. Intakes January, May and September 2027, 9,900-11,000 EUR. Honest note: it is a school programme taught by a faculty — its own page says '+20 profesionales referentes' rather than naming one chef you can look up, which is the opposite of how everything else on this map is chosen. Listed because it is real, bookable and in the same city, not because we would send you there first. Checked on cib.education, 1 September 2026.",
-              "confidence": "high",
-              "verify": [
-                "330 horas"
               ]
             }
           ],
@@ -15177,19 +15167,19 @@ window.ET_ATLAS = {
         "line": "This is the cuisine and the lineage, in the country it came from — learned through a Spanish school or a Spanish kitchen. The technique itself left Spain long ago and is taught in labs from Paris to Melbourne; that is a different craft."
       },
       "featured": {
-        "id": "modernist-spanish-cuisine--san-sebasti-n-donostia",
-        "place": "Donostia-San Sebastián (Gipuzkoa)",
+        "id": "modernist-spanish-cuisine--madrid",
+        "place": "Madrid",
         "country": "Spain",
-        "school": "Basque Culinary Center (Faculty of Gastronomic Sciences)",
-        "url": "https://www.bculinary.com/en/programas-especializacion",
-        "course": "Avant-Garde Culinary Techniques (Técnicas Culinarias de Vanguardia) — in-person specialisation",
-        "description": "The Basque Culinary Center is a faculty of gastronomic sciences, founded in 2011 by a board of Basque chefs, and this is its avant-garde course: the context the modern chef works in, the creative process, and the techniques themselves with their application on the plate. Roughly five weeks — the 2026 edition ran 25 May to 26 June and is finished; the next one is not published yet, so ask — Mondays and Tuesdays 15:00 to 20:30, in Spanish. Why here and not Barcelona, which has the stronger scene: this craft is a cuisine, not a toolkit, and San Sebastián is where it is taught as one, by an institution built for it, with Mugaritz pushing the same thing nightly a few kilometres away. Barcelona is where you go for the technique on its own, and that is a different page.",
-        "duration": "About 5 weeks (2026 edition: 25 May - 26 June)",
-        "format": "In person, on the Miramón campus above San Sebastián; Mondays and Tuesdays 15:00-20:30; taught in Spanish",
-        "certification": "A Basque Culinary Center course completion certificate — a faculty's own paper, not a state qualification",
-        "fitsBecause": "A real, priced, published course in the avant-garde, at the institution the Spanish vanguard built for itself, and nothing about it comes through us. Its weakness, said here rather than left for you to find: like every school on this craft except Vakuum, it does not name the chef who will be in the room. Ask, before you pay.",
+        "school": "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)",
+        "url": "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en",
+        "course": "Spanish Cuisine Diploma — nine months in three certificates, the Superior one avant-garde",
+        "description": "Nine months, thirty weeks, on the Universidad Francisco de Vitoria campus at Pozuelo de Alarcón, in three certificates. The avant-garde is not a bolt-on here, it is the last third, and their own syllabus names it: 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', sous-vide, 'Reinventing & deconstructing classic dishes'. It is taught in Spanish with simultaneous English translation through earphones, which nothing else on this craft offers. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months.",
+        "duration": "9 months (30 weeks), in three certificates",
+        "format": "In person, Pozuelo de Alarcón; Spanish, with simultaneous English translation through earphones",
+        "certification": "Le Cordon Bleu Spanish Cuisine Diploma — Basic, Intermediate and Superior Certificates",
+        "fitsBecause": "It is the only route on this craft that a stranger can actually book AND whose subject is this cuisine: everything else here either teaches the toolkit on its own, which is a different craft, or is a restaurant stage you are picked for. It publishes its dates, its price and its syllabus, and it is the one room on this craft you can sit in without Spanish. ⛔ It is NOT the pick because Le Cordon Bleu is famous. Reputation, age and alumni light nothing on this map — that rule is in docs/THE-MEASURE.md and it cost FERRANDI a dot. It is the pick on what it publishes, and it still names no chef, which is why this craft's first Measure dot stays dark.",
         "sessions": [],
-        "priceNote": "3,320 EUR (2026 edition). Checked on bculinary.com, 1 September 2026.",
+        "priceNote": "EUR 17,316 for local students, EUR 19,240 for international, for the full nine months. Intakes January, April, July and October. Checked on cordonbleu.edu, 14 September 2026.",
         "confidence": "high",
         "alternatives": [
           {
@@ -24132,6 +24122,7 @@ window.ET_ATLAS = {
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
+            "Culinary Institute of Barcelona (CIB)",
             "Vakuum by Martin Lippo"
           ],
           "masters": [
@@ -24149,6 +24140,18 @@ window.ET_ATLAS = {
           "level": "Enthusiast -> Professional",
           "id": "modern-new-technique-cuisine--barcelona",
           "schoolsInfo": [
+          {
+            "name": "Culinary Institute of Barcelona (CIB)",
+            "url": "https://cib.education/cursos-de-cocina/chef-especialista-cocina-molecular",
+            "course": "Curso de Especialización en Técnicas Culinarias Avanzadas: Cocina Molecular, Fuego y Baja Temperatura — 330 hours over three months",
+            "blurb": "A three-month, 330-hour in-person postgrado in advanced culinary technique, Monday to Friday, taught in Spanish with support in English. Its own title says what it is — cocina molecular, fuego y baja temperatura — which is why it sits on this craft and not on Modernist Spanish Cuisine, where it was filed until 14 September 2026. Intakes January, May and September 2027, at 11,000, 9,900 and 10,285 EUR respectively. ⚠ Honest note: it is a school programme taught by a faculty. Its own page says '+20 profesionales referentes en cada materia' and names nobody, so you cannot look up your teacher before you pay — ask who will be in the room. Checked on cib.education, 14 September 2026.",
+            "confidence": "high",
+            "verify": [
+              "Técnicas Culinarias Avanzadas",
+              "330",
+              "profesionales referentes"
+            ]
+          },
             {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
