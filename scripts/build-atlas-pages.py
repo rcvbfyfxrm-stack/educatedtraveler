@@ -1639,10 +1639,16 @@ def school_shot(x, key):
 #
 # The pictures hang off the SCHOOL, never off the place, so the credit cannot
 # drift onto somebody else's work when a destination is re-sorted.
-def photo_block(x):
-    """Photographs supplied by the schools on this place page, credited to each."""
+def photo_block(x, only=None):
+    """Photographs supplied by the schools here, credited to each.
+
+    `only` renders one school's set, unwrapped, for its own card. Arnaud, 15 September
+    2026: the page was naming the same school twice — once as a card and again as a
+    section headed "What a lesson here looks like". The pictures belong to the school,
+    so they go behind its click with everything else that is its own.
+    """
     blocks = []
-    for s_ in x.get("schoolsInfo") or []:
+    for s_ in (([only] if only else []) or x.get("schoolsInfo") or []):
         ph = s_.get("photos") or {}
         items = ph.get("items") or []
         if not items:
@@ -1696,9 +1702,9 @@ def photo_block(x):
               f'{e(ph["by"])}') if ph.get("by") else ""
         given = f', {e(pretty_date(ph["given"]))}' if ph.get("given") else ""
         blocks.append(
-            f'<div class="mono">{"Sent by the school" if src_kind == "sent" else "Published by the school"}</div>'
-            f'<h2>What a lesson here looks like</h2>'
-            f'<p class="meta" style="margin-bottom:18px;max-width:62ch">{got} They are the '
+            f'<div class="mono" style="margin-top:14px">{"Sent by the school" if src_kind == "sent" else "Published by the school"}</div>'
+            + ("" if only else '<h2>What a lesson here looks like</h2>')
+            + f'<p class="meta" style="margin:8px 0 18px;max-width:62ch">{got} They are the '
             "school's own photographs, published with its permission and credited to it — and "
             "they do not move it up the page: where it sits was decided from its own course "
             "pages, before I wrote. Any school on this page can have the same space, on the "
@@ -1708,6 +1714,8 @@ def photo_block(x):
             "Used with permission; all rights remain theirs.</p>")
     if not blocks:
         return ""
+    if only:
+        return "".join(blocks)
     return "".join(f'<section><div class="wrap">{b}</div></section>' for b in blocks)
 
 
@@ -2278,6 +2286,110 @@ def role_label(x):
             f'in ROLE_LABELS ({", ".join(sorted(ROLE_LABELS))}).')
 
 
+# ---------- one headline per place, so no card looks abandoned ----------
+# Arnaud, 15 September 2026: "for each place to go add label, for example the best place
+# to go, but put other tags so the other places shine also and are not abandoned."
+#
+# Only the pick had a headline, so every other place on a craft read as an also-ran. Now
+# each one carries a line saying what IT is, drawn from fields the record already holds.
+#
+# ⛔ THREE RULES KEEP IT FROM BECOMING A SECOND RANKING:
+#   1. A label is ALLOCATED, once per craft, to the place with the strongest claim. Three
+#      places all captioned "Where it began" is what the first version did, and it tells
+#      a reader nothing.
+#   2. A label true of EVERY place on that craft is dropped — the same law the comparison
+#      table runs on: a column whose values never differ is not a comparison.
+#   3. The pick is excluded. It already says "Best place to go"; a second caption on the
+#      same card would be the house talking twice.
+#
+# ⚠ "Taught in English" was in the first draft and came out: 327 of 387 destinations are
+# taught in English, so it distinguished almost nothing. What is worth saying is the
+# INVERSE — the twenty places where the room is not in English — and that is what the
+# language label does now.
+PLACE_LABELS = (
+    "Where it began", "Where the world comes", "Takes students directly",
+    "Teachers we can name", "An unbroken line", "A gold credential", "Record holder",
+    "Most schools listed here", "Year-round", "Heritage",
+    "A mastery track", "An immersion", "A taster", "A first week", "A deep dive",
+)
+_TRIP_LABEL = {"Mastery track": "A mastery track", "Immersion": "An immersion",
+               "Taster": "A taster", "Starter": "A first week", "Deep-dive": "A deep dive"}
+
+
+def _lang_label(x):
+    """Taught in something other than English, or "" — the rare, useful direction."""
+    il = (x.get("instructionLanguage") or "").strip()
+    m = re.match(r"([A-Z][a-z]+)", il)
+    return f"Taught in {m.group(1)}" if m and m.group(1) != "English" else ""
+
+
+_PLACE_LABEL_RULES = [
+    ("Where it began",           lambda s: "source" in s.get("badges", []),     lambda s: s["communityRank"]),
+    ("Where the world comes",    lambda s: "mecca" in s.get("badges", []),      lambda s: s["communityRank"]),
+    ("Takes students directly",  lambda s: "master-lab" in s.get("badges", []), lambda s: s["communityRank"]),
+    (None,                       lambda s: bool(_lang_label(s)),                lambda s: s["communityRank"]),
+    ("Teachers we can name",     lambda s: bool(s.get("masters")),              lambda s: len(s.get("masters") or [])),
+    ("An unbroken line",         lambda s: "lineage" in s.get("badges", []),    lambda s: s["communityRank"]),
+    ("A gold credential",        lambda s: "gold-cred" in s.get("badges", []),  lambda s: s["communityRank"]),
+    ("Record holder",            lambda s: "record" in s.get("badges", []),     lambda s: s["communityRank"]),
+    ("Most schools listed here", lambda s: len(s.get("schoolsInfo") or []) >= 2, lambda s: len(s.get("schoolsInfo") or [])),
+    ("Year-round",               lambda s: "year" in (s.get("bestSeason") or "").lower(), lambda s: s["communityRank"]),
+    ("Heritage",                 lambda s: "heritage" in s.get("badges", []),   lambda s: s["communityRank"]),
+    ("__trip",                   lambda s: s.get("tripType") in _TRIP_LABEL,    lambda s: s["communityRank"]),
+    ("__season",                 lambda s: bool((s.get("bestSeason") or "").strip()), lambda s: s["communityRank"]),
+]
+
+_PLACE_LABEL_CACHE = {}
+
+
+def place_labels(d):
+    """{destination id: headline} for one craft. Deterministic, and never the pick."""
+    if d["id"] in _PLACE_LABEL_CACHE:
+        return _PLACE_LABEL_CACHE[d["id"]]
+    dests = [x for x in d["destinations"] if x.get("place")]
+    pick = best_dest_id(d)
+    out, used = {}, set()
+    # ties break on the id, so a rebuild never reshuffles the captions
+    key = lambda fn: (lambda s: (fn(s), s["id"]))
+    pool0 = [x for x in dests if x["id"] != pick and not x.get("closedToLearners")]
+    for name, ok, rank in _PLACE_LABEL_RULES:
+        pool = [x for x in pool0 if x["id"] not in out and ok(x)]
+        # ⚠ The "true of everyone ⇒ drop" test belongs on the VALUE, not the predicate.
+        # __trip and __season are true of every place by construction — every place has a
+        # season — while the values differ place by place, which is exactly what makes them
+        # worth printing. Applying the flag test to them dropped both rules outright and
+        # left six yacht-crew cards with three blanks. Same law the comparison table runs
+        # on: a column is drawn when its VALUES hold two or more distinct strings.
+        _value_rule = name in ("__trip", "__season")
+        if not pool or (not _value_rule and len([x for x in dests if ok(x)]) == len(dests)):
+            continue
+        if name == "__trip":
+            for x in sorted(pool, key=key(rank), reverse=True):
+                t = _TRIP_LABEL[x["tripType"]]
+                if t not in used:
+                    out[x["id"]] = t
+                    used.add(t)
+            continue
+        if name == "__season":
+            for x in sorted(pool, key=key(rank), reverse=True):
+                w = re.split(r"[,(]", (x.get("bestSeason") or ""), 1)[0].strip()
+                if w and w not in used and "year" not in w.lower():
+                    out[x["id"]] = w
+                    used.add(w)
+            continue
+        x = max(pool, key=key(rank))
+        lab = _lang_label(x) if name is None else name
+        if lab and lab not in used:
+            out[x["id"]] = lab
+            used.add(lab)
+    for lab in out.values():
+        if (not lab.startswith("Taught in ") and lab not in PLACE_LABELS
+                and not re.fullmatch(r"[A-Z][a-z]{2}\s*[–-]\s*[A-Z][a-z]{2}", lab)):
+            raise SystemExit(f"build-atlas-pages: {d['id']} drew a place label that is not in "
+                             f"PLACE_LABELS: {lab!r}. The set is closed on purpose.")
+    _PLACE_LABEL_CACHE[d["id"]] = out
+    return out
+
 def dest_card(d, x, link=True, is_best=False, href=None, on_page=False):
     # A slug with no label used to print ITSELF — a lowercase "english" sitting in a
     # row of written labels. Silent, because the four crafts carrying one were all
@@ -2334,6 +2446,16 @@ def dest_card(d, x, link=True, is_best=False, href=None, on_page=False):
     # link=False is the place's own page, whose hero already carries the note a few
     # centimetres above. Only the craft page, where the card is all a reader gets, needs it.
     note = ""
+    # Every other place gets its own headline in the same slot, quieter than the pick's:
+    # no star, no ember rule down the side. The card then says what this place IS rather
+    # than leaving it to read as the one that lost.
+    if not is_best and not is_closed(x):
+        _pl = place_labels(d).get(x["id"], "")
+        if _pl:
+            ribbon = ('<div style="display:inline-block;font-family:\'IBM Plex Mono\',monospace;'
+                      'font-size:10px;letter-spacing:.14em;text-transform:uppercase;'
+                      'color:var(--sea);border:1px solid var(--line);border-radius:6px;'
+                      f'padding:3px 9px;margin-bottom:10px">{e(_pl)}</div>')
     if is_closed(x):
         ribbon = ('<div style="display:inline-block;font-family:\'IBM Plex Mono\',monospace;font-size:10px;'
                   'letter-spacing:.14em;text-transform:uppercase;color:var(--muted);'
@@ -2585,10 +2707,23 @@ SCHOOL_TAGS = (
 )
 
 
+def _same_school(a, b):
+    """Two spellings of one school. Parenthetical, case and punctuation only."""
+    n = lambda t: re.sub(r"[^a-z0-9]", "", re.sub(r"\(.*?\)", "", (t or "").lower()))
+    return bool(n(a)) and n(a) == n(b)
+
+
 def school_tags(d, x, s_, page_id):
     """Every label this school has earned, in a fixed order. Never a free string."""
     f = d.get("featured") or {}
-    is_pick = (bool(f.get("school")) and f["school"].strip().lower() == s_["name"].strip().lower()
+    # ⚠ NOT an exact string match. The featured course and the school list are written at
+    # different times and drift in how they spell the same school — Bologna is listed as
+    # "La Vecchia Scuola Bolognese (Alessandra Spisni)" and featured as "…(VSB)". An exact
+    # test made the star silently not print on the one school the whole page recommends,
+    # which is the worst kind of failure: the page still looks finished. Audited across the
+    # map: 108 match exactly, 3 only once the parenthetical is dropped. Comparison ignores
+    # a trailing parenthetical, case and punctuation, and nothing looser than that.
+    is_pick = (bool(f.get("school")) and _same_school(f["school"], s_["name"])
                and (f.get("id") == x["id"] or f.get("place") == x["place"]))
     out = []
     if is_pick:
@@ -2677,8 +2812,10 @@ def school_card(d, x, s_, page_id):
         _v = s_["verify"] if isinstance(s_["verify"], list) else [s_["verify"]]
         body += ('<p class="meta" style="margin-top:10px">Their own page says: '
                  + " · ".join(f'&ldquo;{e(str(t))}&rdquo;' for t in _v) + "</p>")
+    body += photo_block(x, only=s_)
     if s_.get("url"):
-        body += (f'<div style="margin-top:10px"><a class="school-url" rel="nofollow noopener" '
+        body += ('<div class="mono" style="margin-top:14px">Contact</div>'
+                 f'<div style="margin-top:6px"><a class="school-url" rel="nofollow noopener" '
                  f'target="_blank" href="{e(s_["url"])}">{e(s_["url"])}</a></div>')
 
     return (f'<li data-school="{e(s_["name"])}" data-craft="{e(d["id"])}" data-dest="{e(x["id"])}">'
@@ -3003,12 +3140,22 @@ for d in DISC:
                 tailnote = ("A lineage, not a staff list. We have not been able to name anyone "
                             "currently teaching here, which is a gap in our work — ask the school "
                             "who will be in the room.")
-            lineage_html = ('<section><div class="wrap"><div class="mono">Where it comes from</div>'
-                            '<h2>The names this craft came through</h2><ul class="clean">'
+            # ⛔ NOT A SECTION OF ITS OWN ANY MORE. Arnaud, 15 September 2026: the place
+            # page was repeating what the craft page already says. But a lineage is
+            # per-DESTINATION data and lives nowhere else — cutting the block outright
+            # deleted "the Bolognese sfogline lineage" from the whole site, which is the
+            # opposite of de-duplicating. A name is MOVED, never deleted. So it becomes
+            # the second half of the town's names, where it answers the same question.
+            lineage_html = ('<div class="mono" style="margin-top:22px">Where it came through</div>'
+                            '<ul class="clean" style="margin-top:8px">'
                             + "".join(f"<li>{e(m)}</li>" for m in lin)
-                            + f'</ul><p class="meta" style="margin-top:10px">{tailnote}</p>'
-                            "</div></section>")
+                            + f'</ul><p class="meta" style="margin-top:10px">{tailnote}</p>')
         masters_html = ""
+        if not x["masters"] and lineage_html:
+            masters_html = ('<section><div class="wrap"><div class="mono">Named in this town</div>'
+                            f'<h2>Where this craft came through here</h2>{lineage_html}'
+                            "</div></section>")
+            lineage_html = ""
         if x["masters"]:
             # On a closed page these are the people the craft came from, and the heading
             # has to say so: "Masters & lineage" on a page with no teaching reads as a
@@ -3024,7 +3171,7 @@ for d in DISC:
             masters_html = (f'<section><div class="wrap"><div class="mono">{head[0]}</div>'
                             f'<h2>{head[1]}</h2><ul class="clean">'
                             + "".join(f"<li>{e(m)}</li>" for m in x["masters"])
-                            + f"</ul>{tail}</div></section>")
+                            + f"</ul>{tail}{lineage_html}</div></section>")
 
         siblings = [s for s in d["destinations"] if s["id"] != x["id"]]
         sib_html = ""
@@ -3053,11 +3200,10 @@ for d in DISC:
 <h1>{_h1}</h1>
 <p class="lead">{e(x['why'])}</p>{_closed_band}
 </div></header>
-{place_intro(x)}<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}{ceiling_line(x, d)}</div></section>
+{place_intro(x)}<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}</div></section>
 {reviewed_block(x["id"])}{disclosure_block(d) if has_relationship(x) else ""}
-{schools_html}{lab_week_block(d, x)}{photo_block(x)}
-{masters_html}{lineage_html}
-{room_block(x, d)}
+{schools_html}{lab_week_block(d, x)}
+{masters_html}
 {credential_section(d, x)}{coverage_block(d, x)}
 <section><div class="wrap">{intent}</div></section>
 {sib_html}"""
@@ -3576,6 +3722,26 @@ if _ifloor is not None:
               "night) and it can never drift back up")
 if PLACE_INTROS:
     print(f"  · the place intro: {len(PLACE_INTROS)} place(s) say what it is like to be there")
+
+
+# The recommended course points at a school by name. Where that name reaches no school on
+# its own destination, the star cannot be drawn on anything and the page recommends a
+# course from nobody. Printed rather than raised: three of these are destinations with an
+# empty school list, which is a research gap and not a build error.
+_orphan_pick = []
+for _d in DISC:
+    _f = _d.get("featured") or {}
+    if not _f.get("school"):
+        continue
+    for _x in _d["destinations"]:
+        if not (_f.get("id") == _x["id"] or _f.get("place") == _x["place"]):
+            continue
+        if not any(_same_school(_f["school"], _s["name"]) for _s in _x.get("schoolsInfo") or []):
+            _orphan_pick.append(f'{_d["id"]} -> {_f["school"]}')
+if _orphan_pick:
+    print(f"  \u26a0 the recommended course names a school its own place does not list, on "
+          f"{len(_orphan_pick)} craft(s): " + ", ".join(_orphan_pick[:4])
+          + (f", +{len(_orphan_pick) - 4} more" if len(_orphan_pick) > 4 else ""))
 
 _n_cov = sum(len(s) for p in COURSE_COVERAGE.values() for s in p.values())
 if SKILL_LADDERS:
