@@ -3728,8 +3728,12 @@ if PLACE_INTROS:
 # its own destination, the star cannot be drawn on anything and the page recommends a
 # course from nobody. Printed rather than raised: three of these are destinations with an
 # empty school list, which is a research gap and not a build error.
+# ⚠ OPEN CRAFTS ONLY (Arnaud, 15 September 2026: "only for the open crafts"). A locked
+# craft draws no place card and no star, so nobody can see the fault — reporting it every
+# night is noise that teaches the reader of this output to skip it. All three of the
+# crafts this caught on 15 Sept were locked.
 _orphan_pick = []
-for _d in DISC:
+for _d in _open_disc:
     _f = _d.get("featured") or {}
     if not _f.get("school"):
         continue
@@ -3742,6 +3746,29 @@ if _orphan_pick:
     print(f"  \u26a0 the recommended course names a school its own place does not list, on "
           f"{len(_orphan_pick)} craft(s): " + ", ".join(_orphan_pick[:4])
           + (f", +{len(_orphan_pick) - 4} more" if len(_orphan_pick) > 4 else ""))
+
+
+# A blurb that stops mid-word, on a craft a reader can actually open. The 31 on the map are
+# a one-off truncation at exactly 200 characters and the lost text lives only on each
+# school's own page — so this is a backlog, printed, never fatal. What it may not do is
+# GROW: a new one stops the build and names itself. Same ratchet as the Measure's.
+_cut_blurbs = sorted(
+    f'{_x["id"]} -> {_s["name"]}'
+    for _d in _open_disc for _x in _d["destinations"] for _s in _x.get("schoolsInfo") or []
+    if (_s.get("blurb") or "").strip()
+    and not _s["blurb"].rstrip().endswith((".", "!", "?", '"', "'", ")")))
+_bfloor = MANIFEST.get("blurbTruncatedFloor")
+if _cut_blurbs:
+    print(f"  \u26a0 {len(_cut_blurbs)} school blurb(s) on open crafts stop mid-sentence: "
+          + ", ".join(b.split(" -> ")[1] for b in _cut_blurbs[:3])
+          + (f", +{len(_cut_blurbs) - 3} more" if len(_cut_blurbs) > 3 else ""))
+if _bfloor is not None and len(_cut_blurbs) > _bfloor:
+    raise SystemExit(
+        f"build-atlas-pages: {len(_cut_blurbs)} truncated blurbs on open crafts, floor is "
+        f"{_bfloor}.\n  " + "\n  ".join(_cut_blurbs)
+        + "\n  Finish the sentence from the school's own page, or raise the floor on purpose.")
+if _bfloor is not None and len(_cut_blurbs) < _bfloor:
+    print(f"  \u2713 truncated blurbs fell to {len(_cut_blurbs)} \u2014 lower blurbTruncatedFloor to match")
 
 _n_cov = sum(len(s) for p in COURSE_COVERAGE.values() for s in p.values())
 if SKILL_LADDERS:
