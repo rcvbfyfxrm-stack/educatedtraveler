@@ -14638,7 +14638,7 @@ window.ET_ATLAS = {
                       "w": 1000,
                       "h": 1246,
                       "alt": "A man in the school's red shirt, white apron and white cap leans over a long wooden board set up outdoors, both hands pushing a mattarello along a sheet of pasta; behind him rises the carved stone front of a Bolognese building, with a crowd watching from the far side.",
-                      "caption": "The same tool and the same sheet, rolled out in the open in front of the city."
+                      "caption": "A student of the school at the mattarello, out in the open in front of the city \u2014 the same tool and the same sheet as on the bench inside."
                     },
                     {
                       "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-10-the-room-working.jpg",
