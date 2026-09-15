@@ -297,7 +297,8 @@ window.ET_ATLAS = {
                       "h": 1093,
                       "alt": "A man in white cotton and no shirt sits with his legs folded and the soles of his feet drawn up and pressed together before his chest, his palms joined above them so that hands and feet mirror each other, against the dark Atmavikasa Yoga Kutira board behind him.",
                       "caption": "Hands and feet in the same gesture, in front of the school's own board. Atmavikasa is not affiliated with Yoga Alliance — it asked for that to be said plainly, on a page where most schools introduce themselves by their registration."
-                    }, { "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-09-hall-evening.jpg", "w": 1125, "h": 833, "wide": true, "alt": "The same practice hall in the evening, lit from within: the timber roof in shadow, the three framed portraits along the white wall, and the red floor holding the light." }
+                    }, { "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-09-hall-evening.jpg", "w": 1125, "h": 833, "wide": true, "alt": "The same practice hall in the evening, lit from within: the timber roof in shadow, the three framed portraits along the white wall, and the red floor holding the light.",
+                      "caption": "The same hall in the evening, lit from within, the red floor still holding the light. The teacher trainings and yoga-therapy intensives here are multi-week and residential — nobody is passing through for a single class." }
                   ]
                 }
             },
@@ -5475,20 +5476,13 @@ window.ET_ATLAS = {
                     "caption": "Before any of it is fun, the kite has to come down and go up again on a crowded beach. The instructor keeps the bar; the student stands at his shoulder and watches it done."
                   },
                   {
-                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-07-strapless.jpg",
-                    "w": 1600,
-                    "h": 1066,
-                    "alt": "A kitesurfer in a Matos Tarifa vest is airborne with a pale surfboard tucked under his feet, shouting towards the camera, two other kites in the sky and the far coast low on the horizon.",
-                    "caption": "Strapless: no bindings, the board held on by the rider's weight alone. It is one of the courses they list, and this is what the far end of it looks like."
-                  },
-                  {
-                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg",
-                    "w": 1284,
-                    "h": 1600,
-                    "alt": "A kitesurfer in a black wetsuit is airborne with knees drawn up and a twin-tip board angled above the water, spray still falling from it, a hazy mountain coast behind.",
-                    "caption": "The mountains on the far side of the frame are Morocco. The strait is what makes the wind here, and the wind is why the school exists."
-                  },
-                  {
+                      "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg",
+                      "w": 1284,
+                      "h": 1600,
+                      "alt": "A kitesurfer in a black wetsuit high above the sea, knees tucked and the board held flat beneath them, lines running up to a kite out of frame.",
+                      "caption": "Airborne, with the board still under control. This is what the third year looks like."
+                    },
+                    {
                     "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-09-grab.jpg",
                     "w": 1276,
                     "h": 1600,
@@ -14640,12 +14634,25 @@ window.ET_ATLAS = {
                       "caption": "The mattarelli, one to a bracket, down the wall of the room. A sfoglia here is rolled by hand."
                     },
                     {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-07-the-room.jpg",
-                      "w": 1600,
-                      "h": 899,
-                      "wide": true,
-                      "alt": "The school's empty classroom: long pale wooden work benches down the middle of a tiled floor, each set with a board and a bowl, a row of green cooking ranges along the right wall, and a street window at the far end.",
-                      "caption": "The room with nobody in it: a bench and a board each. Enrolment is not automatic — the school's own course page says you take the three-day sfoglia course first, and the teacher then decides."
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-09-rolled-in-the-piazza.jpg",
+                      "w": 1000,
+                      "h": 1246,
+                      "alt": "A man in the school's red shirt, white apron and white cap leans over a long wooden board set up outdoors, both hands pushing a mattarello along a sheet of pasta; behind him rises the carved stone front of a Bolognese building, with a crowd watching from the far side.",
+                      "caption": "The same tool and the same sheet, rolled out in the open in front of the city."
+                    },
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-10-the-room-working.jpg",
+                      "w": 1000,
+                      "h": 562,
+                      "alt": "A long teaching kitchen with pale wooden benches in rows, each place set with a bowl of brown eggs and a mound of flour; at the far end three people in the school's red shirts and white caps stand at a demonstration counter in front of the stoves.",
+                      "caption": "The room before a class: a board, a bowl of eggs and a heap of flour at every place."
+                    },
+                    {
+                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-11-balanzoni.jpg",
+                      "w": 1000,
+                      "h": 562,
+                      "alt": "A pale wooden bench with a hand grater, a bowl of brown eggs, a heap of white flour, a white bowl of spinach leaves, and a scatter of green stuffed pasta parcels along the right-hand edge.",
+                      "caption": "Balanzoni: spinach in the dough, and one more shape in the same repertoire."
                     }
                 ]
               }
@@ -24286,6 +24293,55 @@ window.ET_ATLAS = {
                       "wide": true,
                       "alt": "The Vakuum kitchen seen through a glass wall with the word Vakuum lettered across it in gold, the room behind full of stainless benches, mixers and rack shelving, with people working at the far side.",
                       "caption": "The lab behind its own glass. It is a working kitchen with a teaching room inside it, not a demonstration set."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-04-it-starts-on-paper.jpg",
+                      "w": 600,
+                      "h": 900,
+                      "alt": "A man in a white chef's jacket stands beside a paper flipchart marked with a diagram, a pen in his raised hand, talking to people seated at a bench in front of him who are writing in notebooks; shelves of labelled storage boxes fill the wall behind.",
+                      "caption": "It starts on paper. The why comes before the nitrogen."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-05-the-class.jpg",
+                      "w": 1400,
+                      "h": 924,
+                      "alt": "Cooks in white jackets and black kitchen dress sit in two rows at long steel benches with notebooks and water bottles in front of them, facing a man in a white jacket standing at the head of the room beneath a sign reading Vakuum.",
+                      "caption": "Between the benches: the part that gets explained before it gets done."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-06-he-teaches-it-himself.jpg",
+                      "w": 600,
+                      "h": 900,
+                      "alt": "A man in a white chef's jacket stands alone in a laboratory kitchen in front of a tall combi oven, one hand open mid-sentence; two people watch from the foreground with their backs to the camera.",
+                      "caption": "Martin Lippo teaches in the lab himself. It is his own room."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-07-the-bench.jpg",
+                      "w": 633,
+                      "h": 950,
+                      "alt": "Four cooks in white jackets stand shoulder to shoulder along a steel bench, leaning over trays, small bowls and a chopping board, each working with a hand tool; a man in glasses at the left watches the work.",
+                      "caption": "Everybody works. Nobody is sitting down watching."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-08-shown-not-demonstrated.jpg",
+                      "w": 754,
+                      "h": 772,
+                      "alt": "Several cooks in white jackets lean in close together over a steel bench; one in glasses works a small spoon into a metal cup beside a large glass jug of white liquid, a dark-haired woman watching from beside him and another man looking down at the work.",
+                      "caption": "Four pairs of hands over one cup. This is what it looks like when something is being shown."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-09-spherification-at-the-bench.jpg",
+                      "w": 633,
+                      "h": 950,
+                      "alt": "Four cooks in white jackets at a steel bench: one holds a red-capped squeeze bottle over a shallow glass tray, another lifts a small glass of dark liquid to taste, and a syringe and white bowl sit on the bench between them.",
+                      "caption": "Spherification at the bench, with somebody tasting it the moment it is made."
+                    },
+                    {
+                      "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-10-five-spheres.jpg",
+                      "w": 1600,
+                      "h": 900,
+                      "alt": "A hand holds a clear plastic tub of bright yellow liquid in which five large translucent spheres sit, each skinned and holding its shape.",
+                      "caption": "Five spheres in the bath, skinned on contact, thin enough to break on the tongue."
                     }
                 ]
               },
