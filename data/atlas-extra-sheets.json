@@ -2352,10 +2352,86 @@
       ],
       "checker": "Arnaud Callier",
       "date": "15 September 2026"
+    },
+    "ashtanga-yoga--mysore-gokulam": {
+      "text": "You will be in Gokulam before dawn and loose in the city by the afternoon, so the city is worth knowing. Karnataka's tourism department calls Mysuru its Cultural Capital; the palace at the centre draws over six million people annually, and Devaraja Market, going back to the time of Chamaraja Wodeyar IX, is where the everyday version happens. Time it if you can — Mysuru Dasara is celebrated in October, at the very front of the season, and the city turns out for it. Otherwise go to the market early and buy fruit you cannot name.",
+      "sources": [
+        {
+          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
+          "what": "The Cultural Capital Of Karnataka",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
+          "what": "The palace draws over six million people annually",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
+          "what": "Devaraja Market is one of Mysuru",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
+          "what": "Rising from the time of Chamaraja Wodeyar IX",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
+          "what": "Celebrated in October, Mysuru Dasara",
+          "read": "16 September 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "16 September 2026"
+    },
+    "perfumery--grasse": {
+      "text": "The town keeps a Musée International de la Parfumerie, and its gardens are run as a conservatoire de plantes à parfum — a living collection of the plants the trade is built on, which is a different proposition from a museum of bottles. Our own record marks the rose and jasmine harvest as the season here, so when you come decides whether you meet the fields working or resting. Give an evening to the old town above the museum: it is steep, and it is where Grasse stops being an industry and goes back to being a hill town.",
+      "sources": [
+        {
+          "url": "https://www.museesdegrasse.com/mip/presentation",
+          "what": "Musée International de la Parfumerie",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.museesdegrasse.com/mip/presentation",
+          "what": "Un conservatoire de plantes à parfum",
+          "read": "16 September 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "16 September 2026"
+    },
+    "rock-climbing--yosemite-valley": {
+      "text": "Two things about the Valley that are not about the climbing. The park requires bear resistant food containers for anyone overnight in the wilderness, and counterbalance food hangs are no longer legal — how you carry food is a rule here rather than a preference. And the ethic is written down: do not toss anything off a wall even if you mean to collect it later, and do not leave food or water on ledges for future parties. That second one tells you more about the place than the granite does. Read both before you pack.",
+      "sources": [
+        {
+          "url": "https://www.nps.gov/yose/planyourvisit/bears.htm",
+          "what": "Bear resistant food containers",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.nps.gov/yose/planyourvisit/bears.htm",
+          "what": "counterbalance food hangs are no longer legal",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.nps.gov/yose/planyourvisit/climbing.htm",
+          "what": "Don't toss anything off a wall, even if you intend to pick it up later",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.nps.gov/yose/planyourvisit/climbing.htm",
+          "what": "Don't leave food or water at the top or on ledges for future parties",
+          "read": "16 September 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "16 September 2026"
     }
   },
-  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 101 open places with no intro, headroom 6, floor 107 — the number the build itself printed.",
-  "placeIntroDebtFloor": 107,
+  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 98 open places with no intro, headroom 6, floor 104 — the number the build itself printed.",
+  "placeIntroDebtFloor": 104,
   "placeIntroDebtKnown": [
     "ashtanga-yoga--london",
     "ashtanga-yoga--mysore-gokulam",
