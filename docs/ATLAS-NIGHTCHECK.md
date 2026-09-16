@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-15 — 334 published claims re-read against the pages they came from, across 31 open crafts._
+_2026-09-16 — 380 published claims re-read against the pages they came from, across 33 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -69,25 +69,34 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 6 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 7 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- pottery-and-ceramics · Mashiko Ceramics Art Museum / Tougei Messe Mashiko (Ceramic Art Center) — 1 night — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
-  - https://www.mashiko-museum.jp/en/
-- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 1 night — URLError: <urlopen error timed out>
+- jewelry-and-goldsmithing · Indian Institute of Gems & Jewellery (IIGJ Jaipur) — 1 night — TimeoutError: The read operation timed out
+  - https://iigj.org/institutes/jaipur-institute/
+- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 2 nights — URLError: <urlopen error timed out>
   - https://www.taiwa.ac.jp/global/en/kyocho.php
-- sushi-and-washoku · La Carriere Cooking School (since 1931) — 1 night — URLError: <urlopen error timed out>
+- sushi-and-washoku · La Carriere Cooking School (since 1931) — 2 nights — URLError: <urlopen error timed out>
   - https://www.taiwa.ac.jp/lacarriere/en/course/
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — 1 night — IncompleteRead: IncompleteRead(170938 bytes read)
+  - https://www.francecompetences.fr/recherche/rncp/38765/
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 2 — Entremets et petits gâteaux — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
+  - https://www.francecompetences.fr/recherche/rncp/38765/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **cold-exposure-wim-hof-method · Innerfire BV** — 6 nights, after 6 counted as failing by the older check — https://www.innerfire.nl/
+- **cold-exposure-wim-hof-method · Innerfire BV** — 7 nights, after 6 counted as failing by the older check — https://www.innerfire.nl/
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.innerfire.nl'. (_ssl.c:1010)>
+- **perfumery · Musée International de la Parfumerie** — 1 night — https://www.museesdegrasse.com/mip/presentation
+  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
+- **perfumery · Un conservatoire de plantes à parfum** — 1 night — https://www.museesdegrasse.com/mip/presentation
+  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
 
-_none._
+- wildlife-photography · Bence Máté's Hides (via NaturesLens)
+- wildlife-photography · NaturesLens
 
 ## Unreadable, not gone
 
@@ -99,6 +108,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - ashtanga-yoga · Ashtanga Yoga New York (Eddie Stern) — HTTP 403
 - vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
 - sound-healing · British Academy of Sound Therapy — HTTP 403
+- spearfishing · Kona Freedivers — HTTP 429
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
 - sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
 - surfing · Baleal Surf Camp — HTTP 403
@@ -110,6 +120,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - windsurfing-and-wing-foil · HST Windsurfing & Kitesurfing School — HTTP 403
 - windsurfing-and-wing-foil · Action Sports Maui — HTTP 403
 - windsurfing-and-wing-foil · Hawaiian Sailboarding Techniques — HTTP 403
+- windsurfing-and-wing-foil · Spin Out Tarifa — HTTP 429
 - rock-climbing · Kalymnos Primal Climb — HTTP 429
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
 - pottery-and-ceramics · Seto Ceramics and Glass Art Center — HTTP 403
@@ -121,6 +132,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - jewelry-and-goldsmithing · Introduction to Rhino3D for Goldsmithing (CAD.WE1) — HTTP 403
 - jewelry-and-goldsmithing · Alchimia Contemporary Jewellery School — HTTP 403
 - italian-cuisine-and-pasta · Bologna Cooking School — HTTP 403
+- italian-cuisine-and-pasta · Casa Artusi - Scuola di Cucina di Casa Artusi — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School) — HTTP 403
 - wine-and-sommellerie · Introduction to Tasting — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB) — HTTP 403
@@ -206,4 +218,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Kalamata & the Mani · Kalamata Freedivers
 - spearfishing · Antibes, Côte d'Azur · CREPS PACA (Antibes)
 
-_234 in total._
+_231 in total._
