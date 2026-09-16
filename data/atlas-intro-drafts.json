@@ -1,3 +1,24 @@
 {
-  "drafts": {}
+  "drafts": {
+    "self-sufficiency--sunseed-almeria": {
+      "text": "You are moving into a protected semi-desert, and Andalucía's environment department is the one that says so. The valley sits inside the Paraje Natural Karst en Yesos de Sorbas, and the same register lists the Paraje Natural Desierto de Tabernas and the Parque Natural Cabo de Gata-Níjar within reach of it — gypsum karst, desert and a coastal park, none of it landscaped for visitors. Water is the argument in a landscape like this one. Walk the river canyon in your first week; it explains the rest.",
+      "sources": [
+        {
+          "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+          "what": "Paraje Natural Karst en Yesos de Sorbas",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+          "what": "Paraje Natural Desierto de Tabernas",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+          "what": "Parque Natural Cabo de Gata-Níjar",
+          "read": "16 September 2026"
+        }
+      ]
+    }
+  }
 }

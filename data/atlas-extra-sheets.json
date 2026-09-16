@@ -2428,10 +2428,42 @@
       ],
       "checker": "Arnaud Callier",
       "date": "16 September 2026"
+    },
+    "cold-exposure-wim-hof-method--przesieka-karkonosze-mountains": {
+      "text": "The mountain has a weather station and the park publishes it. Karkonoski Park Narodowy puts IMGW readings from the Śnieżka and Szrenica summits on its own front page, next to a live list of closed trails and its cameras in the Karkonosze — which is the practical fact about coming here in winter. Check the closures the night before, not the morning of. And the module is not the only reason to have boots up here.",
+      "sources": [
+        {
+          "url": "https://kpn.gov.pl/",
+          "what": "Karkonoski Park Narodowy",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://kpn.gov.pl/",
+          "what": "Aktualnie zamknięte szlaki",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://kpn.gov.pl/",
+          "what": "Kamery w Karkonoszach",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://kpn.gov.pl/",
+          "what": "IMGW Śnieżka",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://kpn.gov.pl/",
+          "what": "IMGW Szrenica",
+          "read": "16 September 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "16 September 2026"
     }
   },
-  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 98 open places with no intro, headroom 6, floor 104 — the number the build itself printed.",
-  "placeIntroDebtFloor": 104,
+  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did.",
+  "placeIntroDebtFloor": 103,
   "placeIntroDebtKnown": [
     "ashtanga-yoga--london",
     "ashtanga-yoga--mysore-gokulam",
