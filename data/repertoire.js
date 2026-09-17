@@ -15461,21 +15461,60 @@ window.ET_ATLAS = {
                ],
                "read": "2026-09-16"
               },
+              "teachers": {
+               "groups": [
+                [
+                 "Sushi",
+                 [
+                  "島田 文夫"
+                 ]
+                ],
+                [
+                 "Washoku",
+                 [
+                  "太田 浩之",
+                  "伊藤 啓悟"
+                 ]
+                ],
+                [
+                 "Principal",
+                 [
+                  "長谷川 哲也"
+                 ]
+                ],
+                [
+                 "Educational adviser",
+                 [
+                  "奥田 透 (Ginza Kojyu)"
+                 ]
+                ]
+               ],
+               "from": "https://www.sushi-tokyo.jp/teachers",
+               "read": "2026-09-17"
+              },
               "confidence": "high"
             },
             {
               "name": "Tsuji Culinary Institute (Tokyo)",
               "url": "https://www.tsuji.ac.jp/en/college/tokyo/",
               "course": "Culinary Arts Course (1 year) / Applied Culinary Arts and Management Course (2 years)",
-              "blurb": "The Tsujicho Group's Tokyo school, opened in April 2024. It is a general culinary college: Western, Japanese and Chinese cooking, pastry, wagashi and bread, so Japanese cuisine is one genre of six rather than the whole course. Its graduates can go on to the group's French campus near Lyon. Checked on tsuji.ac.jp, 16 September 2026.",
+              "blurb": "The Tsujicho Group's Tokyo school, opened in April 2024. It is a general culinary college, so Japanese cuisine is one of its kitchens rather than the whole course, and sushi comes in the third step of that training: sushi rice, chirashi and pressed sushi. Its graduates can go on to the group's French campus near Lyon. Checked on tsuji.ac.jp, 17 September 2026.",
               "facts": {
                "where": "Koganei, western Tokyo",
                "length": "1 or 2 years",
+               "credential": "The national cook's licence (調理師免許), without an exam, on application after the 1-year course",
                "from": [
                 "https://www.tsuji.ac.jp/en/college/tokyo/",
-                "https://www.tsuji.ac.jp/"
+                "https://www.tsuji.ac.jp/",
+                "https://www.tsuji.ac.jp/college/chorishi_tokyo/basic/"
                ],
-               "read": "2026-09-16"
+               "read": "2026-09-17"
+              },
+              "teachers": {
+               "count": 12,
+               "of": "Japanese-cuisine teachers",
+               "from": "https://www.tsuji.ac.jp/college/chorishi_tokyo/teacher/",
+               "read": "2026-09-17"
               },
               "confidence": "high"
             }

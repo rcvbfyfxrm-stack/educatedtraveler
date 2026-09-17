@@ -1409,6 +1409,9 @@ dl.sfacts dt {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-sp
 dl.sfacts dd {{ font-size:14px; line-height:1.45; margin-top:3px; }}
 .snote {{ font-size:12.5px; color:var(--muted); }}
 .sblurb {{ font-size:15px; opacity:.82; max-width:62ch; }}
+.steach {{ font-size:14px; line-height:1.55; max-width:62ch; margin:0 0 12px; }}
+.steachlab {{ display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--faint); margin-bottom:3px; }}
 details.smore {{ margin-top:12px; }}
 details.smore > summary {{ cursor:pointer; list-style:none; font-family:'IBM Plex Mono',monospace; font-size:11px;
   letter-spacing:.1em; text-transform:uppercase; color:var(--sea); }}
@@ -2792,6 +2795,26 @@ def school_teachers(s_):
     ⛔ Never filled from the destination's `masters`. Those are the town's names and the
     record does not say which room any of them stands in.
     """
+    # `teachers` (17 September 2026, Arnaud on Tokyo: "look better for the names"): what
+    # the school's OWN teacher page says, read on a day, in the form the school prints —
+    # names in kanji stay in kanji, because a romanised given name is a reading we would
+    # be guessing. Either named groups by what each person teaches, or a count with the
+    # page that names them all, when the list is longer than a card can carry.
+    t = s_.get("teachers") or {}
+    if t:
+        if not (t.get("from") and re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(t.get("read", "")))):
+            raise SystemExit(f'build-atlas-pages: {s_["name"]!r} names teachers with no `from` '
+                             "(the school's teacher page) or no `read` (YYYY-MM-DD).")
+        page = (f' <a class="school-url" rel="nofollow noopener" target="_blank" '
+                f'href="{e(t["from"])}">their teacher page ↗</a>')
+        if t.get("groups"):
+            body = " · ".join(f'{e(role)}: {e(", ".join(ns))}' for role, ns in t["groups"])
+            return f'<p class="steach"><span class="steachlab">Who teaches it</span>{body}.{page}</p>'
+        if t.get("count") and t.get("of"):
+            return (f'<p class="steach"><span class="steachlab">Who teaches it</span>'
+                    f'{int(t["count"])} {e(t["of"])}, each named on{page}</p>')
+        raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has `teachers` with neither groups '
+                         "nor a count.")
     names = [n for n in (s_.get("masters") or []) if str(n).strip()]
     if names:
         return ('<p style="margin:0 0 10px"><strong style="font-weight:500">Who teaches it</strong> — '
