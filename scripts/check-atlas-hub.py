@@ -195,45 +195,54 @@ def _open_tag(hay, frag):
     return hay[start:hay.index(">", start) + 1]
 
 
-# ── 8. the number on the card, and the names printed under it ──────────────
-# The cue says how many places the craft is taught in and the line under it names
-# them. Both are built twice — here in the band (Python) and in cardInner (JS) — from
-# one rule, so this compares what the band actually PRINTS against the index the
-# template reads. Until 2026-09-10 it could only count hidden spans reserved for a
-# hover walk; now it reads the names a reader can see, which is the stronger check.
-# ⚠ html.escape's DEFAULT (quote=True) is right here: atlas_hub's e() is html.escape
-# with quotes on, so the band writes Tain-l&#x27;Hermitage while the template's esc()
-# leaves the apostrophe bare. Copying check 10's quote=False gives six false failures.
+# ── 8. the number on the card, and the place it is standing on ─────────────
+# The cue counts the places a reader has NOT been shown — every place but the one the
+# card is standing on — and opens the sheet where they are compared. It is built twice,
+# here in the band (Python) and in cardInner (JS) from one rule, so this compares what
+# the band actually PRINTS against the index the template reads.
+#
+# ⚠ It used to assert the full list of names under the cue, because until 15 Sept 2026
+# the card printed every town. It no longer does (Arnaud: "le premier lieu seulement, et
+# le compte") — five names in a 194px column under a blurb and a reason-to-go is more
+# than a card carries, and the names are on the sheet the cue opens, beside the season,
+# level, length and language that let a reader tell them apart. So this checks the
+# arithmetic instead: the cue's number must be every place BUT the resting one, and the
+# resting one must be the place the card names in .wherealive. Get that wrong and the
+# card either hides a place or counts one twice.
 _by_slug = {c["id"]: c for c in crafts}
 _seen8 = 0
 for _, _slug, _ in cards:
     m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
     c8 = _by_slug.get(_slug, {})
     real = sum(1 for d in c8.get("dests", []) if d.get("place"))
-    cue = re.search(r'<a class="placecue" href="/atlas/([a-z0-9-]+)#other-places">(\d+) places',
-                    m[1]) if m else None
+    cue = re.search(r'<a class="placecue" href="/atlas/([a-z0-9-]+)#other-places">'
+                    r'\+(\d+) other place', m[1]) if m else None
     if real > 1 and not cue:
         bad(f"{_slug} is taught in {real} places and its card never says so")
     elif cue:
         _seen8 += 1
         if cue[1] != _slug:
             bad(f"{_slug}: the places cue points at /atlas/{cue[1]}, not its own sheet")
-        if int(cue[2]) != real:
-            bad(f"{_slug}: the card says {cue[2]} places, the index holds {real}")
+        if int(cue[2]) != real - 1:
+            bad(f"{_slug}: the card offers {cue[2]} other places and the index holds "
+                f"{real} in total, so the cue is counting the place the card is already "
+                "standing on, or missing one")
         if 'walks' not in _open_tag(band, m[0]):
             bad(f"{_slug} counts {real} places but its card is not marked as having them")
-        # the names themselves, in order, against the one rule both builders follow
-        want = [html_mod.escape(pl) + (f'<b class="gone">{html_mod.escape(lab)}</b>'
-                                       if rk <= 2 and lab else "")
-                for pl, rk, lab in atlas_hub.place_names(c8.get("dests", []))]
-        blk = re.search(r'<p class="cardplaces"[^>]*>(.*?)</p>', m[1], re.S)
-        got = re.findall(r'<span class="pn" role="listitem">(.*?)</span>', blk[1], re.S) if blk else []
-        if got != want:
-            bad(f"{_slug}: the places named on the card are not the craft's places\n"
-                f"      card:  {got}\n      index: {want}")
+    # the place the card stands on is the one the index says it rests on — the cue's
+    # arithmetic is only true if this is
+    if m:
+        _rest = atlas_hub.resting_dest(c8) or {}
+        _where = re.search(r'<div class="wherealive"><span class="in">in</span> (.*?)</div>',
+                           m[1], re.S)
+        if _rest.get("place") and not _where:
+            bad(f"{_slug}: the card names no place, and the cue counts from one")
+        elif _where and _rest.get("place") and _rest["place"] not in html_mod.unescape(_where[1]):
+            bad(f"{_slug}: the card stands on {html_mod.unescape(_where[1])!r} and the "
+                f"index rests it on {_rest['place']!r}")
 if not _seen8:
-    bad("check 8 read no places cue on any band card — the cue or the names moved and "
-        "this check has gone blind. That has happened twice before on this file.")
+    bad("check 8 read no places cue on any band card — the cue moved and this check has "
+        "gone blind. That has happened twice before on this file.")
 
 # ── 9. the resting line is the written line for the place it sits under ────
 learn_lines = json.loads((ROOT / "data/atlas-extra-sheets.json").read_text()).get("learnLines", {})
@@ -268,13 +277,18 @@ for _, _slug, _ in cards:
     if not c or not m:
         continue
     got = re.search(r'<p class="cardsay">(.*?)</p>', m[1], re.S)
-    want = f'Learn <span class="craftname">{html_mod.escape(c["name"], quote=False)}</span>'
+    # ⚠ The verb was lifted out of the name on 15 Sept 2026 — set inline and uppercased
+    # the two ran together (LEARNSURFING). Two spans now, and the order is part of the
+    # contract: the verb reads first. The craft's name keeps .craftname so this check
+    # keeps the hook it has always pinned.
+    want = ('<span class="verb">Learn</span>'
+            f'<span class="craftname">{html_mod.escape(c["name"], quote=False)}</span>')
     if not got:
         bad(f"{_slug}: the band card has no title line — it says nothing about what you "
             f"would learn")
         continue
     if got[1].strip() != want:
-        bad(f"{_slug}: the band card's title is not the craft's name\n"
+        bad(f"{_slug}: the band card's title is not the verb and the craft's name\n"
             f"      card: {got[1].strip()[:90]}\n      want: {want[:90]}")
 
 # ── 5. the colours still mirror the page's own map ─────────────────────────
@@ -307,29 +321,42 @@ for _did, _say in _extra.get("sayLines", {}).items():
             bad(f"sayLines[{_did}] writes its own place into the title: {_say!r} — the "
                 f"card prints '{_w}' on the next line and would say it twice")
 
-# ── 8b · a closed place is never named with nothing said ───────────────────
-# The card tags a place whose community rank is 2 or lower with its own published
-# rankLabel — which today fires on exactly one destination in the whole Atlas, Roses /
-# Cala Montjoi, where elBulli shut in 2011. That is rank standing in for the real flag:
-# closedToLearners lives in data/repertoire.js and NEVER reaches the browse index, and
-# pushing a new per-place field through index_card, the shim whitelist and both card
-# builders for one destination is three chances to lose it silently — which is exactly
-# how the school photograph went missing the first time. So the proxy stays and its
-# failure is made loud here instead: close a place that ranks above 2 and the build
-# stops, rather than a shut kitchen appearing unmarked in a list of places to go.
+# ── 8b · a closed place is never somewhere a reader is sent ────────────────
+# Until 15 Sept 2026 the browse card named every town a craft is taught in, and tagged
+# any place ranking 2 or lower with its published rankLabel — a proxy for the real flag,
+# because closedToLearners lives in data/repertoire.js and NEVER reaches the browse
+# index. The card names one place now, so that proxy has no surface left and the risk
+# moved with it. Two things are checked instead, and they are the two that matter:
+#
+#   1. No card RESTS on a closed place. It cannot today — best_dest_id() refuses a
+#      closed destination and resting_dest() falls back to it — but that is two
+#      functions agreeing by habit in different files, and a card standing on a shut
+#      kitchen is the whole failure this check was written for.
+#   2. Every closed destination still says so on the craft page, where the reader now
+#      goes to see the places. dest_card() prints the plainest possible label there,
+#      and if it ever stops, a museum reads as a school again.
 _closed = {x["id"] for d in _disc for x in d.get("destinations", [])
            if x.get("closedToLearners")}
+_CLOSED_MARK = "Where it started · nothing is taught here"
 for c in crafts:
     if not c.get("open"):
         continue
-    dests = [d for d in c.get("dests", []) if d.get("place")]
-    if len(dests) < 2:
+    _rest = atlas_hub.resting_dest(c) or {}
+    if _rest.get("id") in _closed:
+        bad(f'{c["id"]}: the card rests on {_rest.get("place")}, which is closed to '
+            "learners — a card may not stand on a place there is nothing to go to")
+for _d in _disc:
+    _shut = [x for x in _d.get("destinations", []) if x.get("closedToLearners")]
+    if not _shut:
         continue
-    for d in dests:
-        if d["id"] in _closed and (d.get("rank") or 0) > 2:
-            bad(f'{c["id"]} / {d["place"]} is closed to learners but ranks '
-                f'{d.get("rank")}, so the browse card names it with nothing said — '
-                "the tag is keyed to rank <= 2 and this place slips past it")
+    _page = ROOT / f'website/atlas/{_d["id"]}.html'
+    if not _page.exists():
+        continue
+    _h = _page.read_text()
+    for _x in _shut:
+        if f'/atlas/{_x["id"]}' in _h and _CLOSED_MARK not in _h:
+            bad(f'{_d["id"]}: {_x["place"]} is closed to learners and its card on the '
+                "craft page does not say so — it reads as a place you can still go to")
 
 # ── 12. no sheet card folds its place into its sentence ───────────────────
 # 43 of the 87 written lines already carry their own "in..." or "here", so a second one

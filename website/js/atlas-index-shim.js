@@ -38,7 +38,9 @@
         tripTier: x.tripTier || 0, tripType: x.tripType || "", tripLength: x.tripLength || "",
         englishTaught: x.english === true, instructionLanguage: x.lang || "",
         badges: x.badges || [],
-        masters: x.master ? [x.master] : [],
+        // ⛔ `master` no longer reaches the browse index — a teacher's name may not
+        // travel to a skill card. The craft page names them, per place, per school.
+        masters: [],
         why: line,
         // The hand-written sentence for this place. A craft nobody has asked for has
         // none — nobody has done the work behind it yet — and that is why a card with
@@ -67,6 +69,13 @@
       id: c.id,
       discipline: c.name,
       category: c.cat,
+      // ⚠ The WORLD the build resolved, carried through rather than recomputed. `cat` is
+      // the raw data category and the two are not the same answer: world_of() in
+      // build-atlas-pages.py also reads MOVEMENT_IDS and ADVENTURE_IDS, so
+      // wildlife-photography is category "creative" and world "adventure". The template
+      // used to derive it from `cat` alone and painted that one craft teal in the band
+      // and terracotta in the grid — the same card, two colours, on one page.
+      world: c.world || "",
       // A craft nobody has asked for has no credential to claim. The browse card
       // falls back to "Hand-verified" on an empty certShort, and saying that of an
       // unopened craft would be a claim we haven't earned — so it says its state.

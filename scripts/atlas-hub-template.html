@@ -250,7 +250,7 @@ select.fin option{background:var(--ink2)}
    the lineage, the school, the star, the community dots, the level and trip
    length) is on the sheet the card opens; on 113 cards at once it was noise
    in front of the two things a reader is actually choosing between. */
-.dcard,.gcard{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:17px;position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
+.dcard,.gcard{background:var(--ink2);border:1px solid var(--line);border-radius:14px;padding:17px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
 .dcard{scroll-snap-align:start;flex:0 0 auto;width:clamp(228px,25vw,262px)}
 .dcard::before,.gcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--sc);opacity:.5;transition:opacity .3s}
 .dcard:hover,.gcard:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--sc) 45%,var(--line));box-shadow:0 18px 40px rgba(0,0,0,.45)}.dcard:hover::before,.gcard:hover::before{opacity:1}
@@ -277,13 +277,15 @@ select.fin option{background:var(--ink2)}
 .shotcredit{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--faint);margin:9px 0 0}
 .shotcredit:empty{display:none}
+/* the breathing room the chip's own auto margin cannot guarantee */
+.gcard .craftblurb,.gcard .cardhook,.dcard .craftblurb,.dcard .cardhook{margin-bottom:12px}
+.gcard .shotcredit:not(:empty),.dcard .shotcredit:not(:empty){margin-bottom:12px}
 .cred{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(231,181,78,.34);border-radius:99px;padding:4px 9px;margin-bottom:11px;max-width:100%}
 .cred .gem{color:var(--gold)}.cred span.t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .craft{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:20px;line-height:1.1;margin-bottom:7px}
 .srcscene{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sc);margin-bottom:9px}
 .sig{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .sig .dia{opacity:.8;margin-right:3px}
-.masterline{font-size:11.5px;color:var(--muted);font-style:italic;margin:-2px 0 9px;line-height:1.35}
 .where{font-size:12.5px;color:var(--muted);display:flex;gap:7px;flex-wrap:wrap;align-items:center}
 .dots{color:var(--sc);letter-spacing:2px;font-size:11px}
 .metaline{font-size:11px;color:var(--faint);margin-top:7px;display:flex;gap:7px;flex-wrap:wrap}
@@ -306,14 +308,21 @@ select.fin option{background:var(--ink2)}
    reader is actually holding in their head: the craft AND where. Craft and place
    are one title again, tight, and the description under them is short enough to
    take in without reading — two lines, not three.
-   And a craft is taught in more than one place. The card can only STAND in one,
-   so it NAMES them all, at the bottom, at rest — see .cardplaces below. Resting
-   the pointer used to walk them one at a time on a 2.6s timer, which no phone
-   could ever fire and which swapped a title for the identical string on 115 of
-   116 crafts, because only wildlife-photography has hand-written say lines.
-   Nothing is generated either way: every name is the published place string. */
-.cardsay{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:21px;line-height:1.12;color:var(--paper);margin-bottom:2px;transition:opacity .22s ease}
-.craftname{font:inherit;color:inherit}
+   And a craft is taught in more than one place. The card can only STAND in one, and
+   as of 15 Sept 2026 that is the only one it names: the cue counts the rest and opens
+   the sheet where they are compared. It named them all for five days, which was the
+   answer to a hover walk that no phone could fire — and five towns in a 194px column,
+   under a blurb and a reason-to-go, is more than a card carries. Nothing is generated
+   either way: the one name is the published place string. */
+.cardsay{margin-bottom:4px;transition:opacity .22s ease}
+/* The verb, and then the name. The verb is mono, small and letterspaced so it reads as an
+   approach rather than the first word of the title — set inline in capitals the two run
+   together (LEARNSURFING). It takes --sc, which is the only way the craft's world reaches
+   a card: as colour, never as a word. */
+.cardsay .verb{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+  font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--sc);margin-bottom:7px}
+.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:21px;
+  line-height:1.04;letter-spacing:-.005em;text-transform:uppercase;color:var(--paper)}
 .wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px;transition:opacity .22s ease}
 .wherealive .in{font-size:12.5px;font-weight:400;opacity:.62}
 /* What the craft IS — two lines, because this one is read at a glance and a third
@@ -345,11 +354,6 @@ select.fin option{background:var(--ink2)}
    diaporama is not really good"). --muted on --ink2 is 5.65:1 at 11.5px; the tag
    is deliberately not --faint (2.82:1) — the one honesty mark on the card must not
    be the faintest thing on it, so it separates by family, size, caps and tracking. */
-.cardplaces{margin:9px 0 0;font-size:11.5px;line-height:1.5;color:var(--muted);
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.cardplaces .pn+.pn::before{content:" · ";opacity:.5}
-.cardplaces .gone{margin-left:5px;font-family:'IBM Plex Mono',monospace;font-weight:400;
-  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 /* Nothing on this page moves on a timer any more. What is left that moves is the
    card's own hover lift, which was never guarded — the four blocks that used to be
    here guarded the walk, and they went with it. */
@@ -367,7 +371,7 @@ select.fin option{background:var(--ink2)}
    control: this is the same pill the badges on this page already use (.trip, .lang,
    .cred), in the craft's own world colour, at a size you can hit with a thumb. */
 .placecue{display:none}
-.walks .placecue{display:inline-flex;align-items:center;gap:7px;position:relative;z-index:3;text-decoration:none;margin-top:12px;padding:5px 11px;border:1px solid color-mix(in srgb,var(--sc) 38%,transparent);border-radius:99px;background:color-mix(in srgb,var(--sc) 9%,transparent);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--sc);line-height:1.3;transition:border-color .2s,background .2s,color .2s}
+.walks .placecue{display:inline-flex;align-self:flex-start;align-items:center;gap:7px;position:relative;z-index:3;text-decoration:none;margin-top:auto;padding:5px 11px;border:1px solid color-mix(in srgb,var(--sc) 38%,transparent);border-radius:99px;background:color-mix(in srgb,var(--sc) 9%,transparent);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--sc);line-height:1.3;transition:border-color .2s,background .2s,color .2s}
 .walks .placecue:hover,.walks .placecue:focus-visible{border-color:var(--sc);background:color-mix(in srgb,var(--sc) 17%,transparent);color:var(--paper)}
 .cfoot{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.03em;color:var(--faint);line-height:1.55;margin-top:11px}
 .cfoot:empty{display:none}
@@ -559,7 +563,12 @@ var WORLDS={
 // that list the worlds — the filter chips, the catalogue sections and the rails — so
 // one line moves it everywhere and they cannot disagree.
 var ORDER=["culinary","adventure","creative","movement","wellness"];
-function worldOf(d){return MOVE[d.id]?"movement":(WORLDS[d.category]?d.category:"creative");}
+// ⚠ Trust the world the BUILD resolved. world_of() in build-atlas-pages.py reads
+// MOVEMENT_IDS and ADVENTURE_IDS as well as the category, and recomputing from the
+// category alone got wildlife-photography wrong — "creative" here, "adventure" in
+// the band, so one craft wore two spine colours on one page. The old derivation
+// stays as the fallback for a card that reaches us without one.
+function worldOf(d){return (d.world&&WORLDS[d.world])?d.world:(MOVE[d.id]?"movement":(WORLDS[d.category]?d.category:"creative"));}
 function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
 // The card decorations this page used to draw — the community dots, the
 // credential pill, the trip and language badges, the signature chips, the
@@ -646,13 +655,15 @@ function placeLineFor(did,place,why){
 // picture made of true parts. check 8b fails the build if a closedToLearners place
 // ever ranks above 2, because the browse index cannot carry that flag and rank is
 // standing in for it.
-function placesHTML(did){
-  var ps=PLACES[did]||[];if(ps.length<2)return "";
-  return '<p class="cardplaces" role="list" aria-label="Where the community gathers">'+
-    ps.map(function(p){return '<span class="pn" role="listitem">'+esc(p.place)+
-      ((p.rank<=2&&p.label)?'<b class="gone">'+esc(p.label)+'</b>':"")+'</span>';})
-      .join("")+'</p>';
-}
+// ⛔ THE CARD NAMES ONE PLACE (Arnaud, 15 Sept 2026: "le premier lieu seulement, et le
+// compte"). placesHTML() used to print every town a craft is taught in, which was the
+// 10 September answer to a hover panel nobody could fire on a phone. Naming five towns
+// in a 194px column and then a blurb and a reason-to-go is more than a card can carry,
+// and the reader is choosing a CRAFT here, not a town. So the card names the place it is
+// standing on — .wherealive, which it always had — and the cue counts the rest.
+// The names did not go anywhere: they are on the sheet the cue opens, under the heading
+// "Where the community gathers", beside the season, level, length and language that let
+// a reader actually tell them apart.
 // THE CARD'S TITLE. At rest it names the craft — "Learn Wildlife Photography", with
 // "in Pusztaszer, Hungary" on the line under it. The moment a pointer lands, the walk
 // swaps it for what you would actually be DOING in the place the card is standing on:
@@ -664,8 +675,14 @@ function placesHTML(did){
 // craft's name, which is what every card said before this existed. And the place is
 // NEVER written into the say line: the card prints it on the next line and would
 // otherwise say it twice.
+// THE VERB IS LIFTED OUT OF THE NAME (Arnaud, 15 Sept 2026). It used to sit inline —
+// "Learn <name>" — and in capitals that reads as one word: LEARNSURFING, LEARNPERFUMERY.
+// The verb is now its own letterspaced line above, so the craft's name is the only thing
+// set large and the verb is an approach to it, the way "THE ATLAS" sits above the hub's
+// own headline. ⚠ Both card builders emit this and only the band is readable by a gate —
+// change this and change opened_band() in scripts/atlas_hub.py in the same commit.
 function sayInner(craft,say){
-  return say?esc(say):'Learn <span class="craftname">'+esc(craft)+'</span>';
+  return say?esc(say):'<span class="verb">Learn</span><span class="craftname">'+esc(craft)+'</span>';
 }
 function sayHTML(craft){return '<p class="cardsay">'+sayInner(craft,"")+'</p>';}
 function whereHTML(place,country){return '<div class="wherealive"><span class="in">in</span> '+esc(placeLine(place,country))+'</div>';}
@@ -731,12 +748,22 @@ function inPull(did,keys){for(var i=0;i<keys.length;i++){if(PULL_HAS[keys[i]]&&P
    Two crafts have photographs today (Arnaud, 2026-09-09: put them on the card);
    both are rank 4-5 places, so nothing here promotes a weak place to the front
    of a card — and if one ever did, the walk says how many places there are. */
+// ⚠⚠ THE FALLBACK IS OUR PICK, NOT THE TOP RANK — and it has to be, because the sheet
+// this card opens leads with "Best place to go". This used to fall back to the
+// highest-ranked destination while resting_dest() in scripts/atlas_hub.py fell back to
+// `featured`, and the two disagreed on three crafts: photography stood on Paris in the
+// band and New York City in the grid, spearfishing on the Côte d'Azur and Kona. That was
+// survivable while every card also NAMED all its places — the list papered over it. Since
+// 15 Sept 2026 the card names one place and counts the rest, so the disagreement became
+// one craft saying two different towns on one page. One rule, both builders, and the
+// photographed place still wins over both: a picture cannot travel to another place.
 function restingPlace(d){
-  var t=null,shot=null;
+  var t=null,shot=null,pick=null,want=(d.featured||{}).id||"";
   (d.destinations||[]).forEach(function(x){
     if(x.shot&&(!shot||(x.communityRank||0)>(shot.communityRank||0)))shot=x;
+    if(want&&x.id===want)pick=x;
     if(!t||(x.communityRank||0)>(t.communityRank||0))t=x;});
-  return shot||t;
+  return shot||pick||t;
 }
 var byWorldDisc={};ORDER.forEach(function(w){byWorldDisc[w]=[];});
 A.forEach(function(d){var w=worldOf(d);byWorldDisc[w].push({d:d,top:restingPlace(d)||{}});});
@@ -1225,8 +1252,9 @@ function cardInner(o){
     // A link, not a button: it needs no JavaScript, it middle-clicks, it announces a
     // destination, and it survives #results being rebuilt on every filter change with
     // nothing to re-bind. It also labels the names printed under it.
-    (n>1?'<a class="placecue" href="/atlas/'+esc(o.did)+'#other-places">'+n+' places →</a>':'')+
-    placesHTML(o.did);
+    // It counts the OTHERS now, not the total: the card has already named the place it
+    // is standing on, so "5 places" made a reader count the one above it themselves.
+    (n>1?'<a class="placecue" href="/atlas/'+esc(o.did)+'#other-places">+'+(n-1)+' other place'+(n>2?'s':'')+' →</a>':'');
 }
 // The card is an <article>: a stretched link opens the skill sheet, and the one
 // real button on it (write to Arnaud about this craft) keeps its own clicks.

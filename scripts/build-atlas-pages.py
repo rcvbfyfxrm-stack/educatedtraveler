@@ -3575,7 +3575,7 @@ def index_card(d):
             "tripTier": x.get("tripTier", 0), "tripType": x.get("tripType", ""),
             "tripLength": x.get("tripLength", ""), "english": x.get("englishTaught") is True,
             "lang": x.get("instructionLanguage", ""), "badges": x.get("badges", []),
-            "master": (x.get("masters") or [""])[0], "why": x.get("why", ""),
+            "why": x.get("why", ""),
             # the hand-written immersive line for THIS place — the sentence a card
             # shows while it walks. Written above the `why` beside it and gated by
             # learn_line_drift(); the browse page shows it, it never composes one.
@@ -3599,7 +3599,7 @@ def index_card(d):
                            "rank": best.get("communityRank", 0), "rankLabel": "",
                            "season": "", "role": "", "level": "", "tripTier": 0,
                            "tripType": "", "tripLength": "", "english": False, "lang": "",
-                           "badges": [], "master": "", "why": "", "learn": "", "say": "",
+                           "badges": [], "why": "", "learn": "", "say": "",
                            "school": "", "nSchools": 0}]
                         if best else [])
         return card
@@ -3614,7 +3614,6 @@ def index_card(d):
         "why": best.get("why", ""),
         "learn": (LEARN_LINES.get(best.get("id", "")) or "").strip(),
         "say": (SAY_LINES.get(best.get("id", "")) or "").strip(),
-        "master": (best.get("masters") or [""])[0],
         "school": ((best.get("schoolsInfo") or [{}])[0]).get("name", ""),
         "tripType": best.get("tripType", ""), "tripLength": best.get("tripLength", ""),
         "lang": best.get("instructionLanguage", ""), "english": best.get("englishTaught") is True,
@@ -3652,9 +3651,29 @@ for hc in HUB_CARDS:                       # crafts that live only as a hand-wri
                              "tripType": hc.get("tripType", ""),
                              "tripLength": hc.get("tripLength", ""),
                              "english": bool(hc.get("english")), "lang": hc.get("lang", ""),
-                             "badges": [], "master": hc.get("master", ""),
+                             "badges": [],
                              "why": hc.get("why", ""), "school": hc.get("school", ""),
                              "nSchools": 1 if hc.get("school") else 0}]})
+# ⛔ NO TEACHER'S NAME ON A SKILL CARD, and the index may not carry one either (Arnaud,
+# 15 September 2026: "never put a teacher name on the skill card only after once you on
+# the skill you can"). The reason is the photograph's reason: a teacher belongs to ONE
+# school in ONE town, and a craft card spans every place the craft has — naming one
+# attributes a person to the whole craft. The name is published on the craft page, per
+# place, by with_whom().
+#
+# `master` shipped to every visitor in atlas-index.js for thirteen crafts, feeding
+# nothing: .masterline was built for it and its only emitter has been in _archive since
+# July. Dead weight, and a loaded gun — any future card edit could print it without
+# anyone deciding to. It is gone from index_card, and this refuses to let it back,
+# because the file already records `ceiling` and `register` being deleted and regrowing.
+_leaked = sorted({k for c in CARDS for k in c} | {k for c in CARDS for d in c.get("dests", []) for k in d})
+if "master" in _leaked:
+    raise SystemExit(
+        "build-atlas-pages: a `master` key is back in the browse index. A teacher's name "
+        "may not travel to a skill card — it belongs to one school in one town and the "
+        "card spans every place the craft has. Publish it on the craft page instead, "
+        "through with_whom().")
+
 CARDS.sort(key=lambda c: c["name"].lower())
 N_OPEN = sum(1 for c in CARDS if c["open"])
 

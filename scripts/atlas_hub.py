@@ -1034,20 +1034,6 @@ def opened_band(items):
         # Every line the card can ever say is in the card, one visible — see the stack()
         # note in the template. The band builds it here so the two card builders put the
         # same DOM on the same page; check 10 fails if they stop agreeing.
-        def places_row(it):
-            """Every place this craft is taught, named — the same rule, the same order
-            and the same published strings as placesHTML() in the browse template. It
-            sits AFTER .placecue in both builders; the gate reads by class and cannot
-            see a wrong slot, so the order is a promise this comment makes."""
-            ps = it.get("places") or []
-            if len(ps) < 2:
-                return ""
-            return ('<p class="cardplaces" role="list" '
-                    'aria-label="Where the community gathers">'
-                    + "".join(f'<span class="pn" role="listitem">{e(pl)}'
-                              + (f'<b class="gone">{e(lab)}</b>' if rk <= 2 and lab else "")
-                              + "</span>" for pl, rk, lab in ps) + "</p>")
-
         blurb = (it.get("blurb") or "").strip()
         # Under the place: the hand-written immersive line for that place when there
         # is one, the researched reason-to-go when there is not. Same rule and same
@@ -1075,7 +1061,12 @@ def opened_band(items):
             # is published at full size, with alt text and a caption, on the place page.
             + ('<div class="cardshot"></div>' if it.get("shot") else "")
             + f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
-            + f'<p class="cardsay">Learn <span class="craftname">{e(it["name"])}</span></p>'
+            # THE VERB IS LIFTED OUT OF THE NAME. Set inline and in capitals the two
+            # run together — LEARNSURFING — so the verb is its own letterspaced line
+            # above and the craft's name is the only thing set large. Mirrors
+            # sayInner() in the template; change one and change both.
+            + f'<p class="cardsay"><span class="verb">Learn</span>'
+              f'<span class="craftname">{e(it["name"])}</span></p>'
             + (f'<div class="wherealive"><span class="in">in</span> {e(where)}</div>'
                if where else "")
             + (f'<p class="craftblurb">{e(blurb)}</p>' if blurb else "")
@@ -1083,9 +1074,11 @@ def opened_band(items):
             # Whose photograph it is. Emitted empty when there is none, exactly as
             # cardInner() does, so the walk has a node to write into on both builders.
             + f'<p class="shotcredit">{("Photo: " + e(it["shotBy"])) if it.get("shotBy") else ""}</p>'
+            # It counts the OTHERS, not the total: the card has already named the
+            # place it stands on, so "5 places" asked a reader to subtract it.
             + (f'<a class="placecue" href="/atlas/{e(it["id"])}#other-places">'
-               f'{nplaces} places →</a>' if nplaces > 1 else "")
-            + places_row(it)
+               f'+{nplaces - 1} other place{"s" if nplaces > 2 else ""} →</a>'
+               if nplaces > 1 else "")
             + "</article>")
     n = len(items)
     return (
