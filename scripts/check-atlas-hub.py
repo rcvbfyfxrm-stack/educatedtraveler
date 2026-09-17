@@ -86,12 +86,16 @@ if html.index(band) < html.index('<main class="studio"'):
         "the rotating card, and the reader goes straight to the catalogue; the "
         "band belongs after it")
 
-# ⚠ The attribute list is not fixed: a card standing on a place a school has
-# photographed carries `data-shot` and a second custom property in the same style
-# attribute. This pattern used to pin `style="--sc:#xxxxxx"` exactly, so the two
-# photographed cards stopped parsing the day the picture arrived — and the check
-# said the band had lost two crafts rather than that it had stopped reading them.
-cards = re.findall(r'<article class="gcard[^"]*"(?: data-shot)? style="--sc:(#[0-9a-f]{6})[^"]*"[^>]*>.*?'
+# ⚠ The attribute list is not fixed, and this has now bitten TWICE. A card standing on
+# a place a school has photographed carries `data-shot` and a second custom property in
+# the same style attribute; a card wearing a licensed picture of its craft carries
+# `data-illus` and a different one. This pattern used to pin `style="--sc:#xxxxxx"`
+# exactly, so the two photographed cards stopped parsing the day the picture arrived —
+# and the check reported that the band had lost two crafts rather than that it had
+# stopped reading them. It said the same thing about the first craft image on
+# 17 September, which is why the marker is now a list and not a single optional word:
+# ⛔ add the new attribute HERE the moment you add one to either card builder.
+cards = re.findall(r'<article class="gcard[^"]*"(?: data-shot)?(?: data-illus)? style="--sc:(#[0-9a-f]{6})[^"]*"[^>]*>.*?'
                    r'href="/atlas/([a-z0-9-]+)".*?'
                    r'<div class="openedon">Opened <b>([^<]+)</b></div>', band, re.S)
 if not cards:
@@ -692,6 +696,103 @@ for c in crafts:
             bad(f'{c["id"]}: the {x["place"]} card\'s photograph is not on disk: {worn[1]}')
         if not re.search(r'<p class="shotcredit">\s*Photo: \S', block):
             bad(f'{c["id"]}: the {x["place"]} card wears a photograph and credits nobody')
+
+# ── 14c · the licensed craft image, and the line between the two classes ───
+# A card can wear a picture from a SCHOOL (--shot, check 14 above) or a licensed picture
+# of the CRAFT (--illus). They mean opposite things — "this is the room you would walk
+# into" against "this is what the craft looks like, somewhere" — so the failure this
+# guards is not a missing picture but a BLURRED one: the day the two become
+# interchangeable, every school photograph on the Atlas quietly becomes decoration.
+#
+# ⚠ Read in TWO passes, because the band is only the 28 crafts the Circle opened and a
+# craft image may sit on any of the 116. The browse INDEX is generated, static and
+# complete, so every declared image is checked there; the band is then checked for the
+# ones that appear in it, which is the only place the rendered card can be read at all.
+_craft_images = _extra.get("craftImages", {})
+
+# pass 1 — every declared image, against the index both card builders actually read
+_seen_idx = 0
+for _cid, _im in sorted(_craft_images.items()):
+    c = _by_slug.get(_cid)
+    if not c:
+        bad(f"craftImages names {_cid}, and the browse index has no such craft")
+        continue
+    _seen_idx += 1
+    if any(x.get("shot") for x in c.get("dests", [])):
+        bad(f"{_cid}: craftImages gives it a licensed picture and a school here has sent "
+            "its own. The school's room always wins; delete the craftImages entry")
+    # ⚠ atlas-index-shim.js is a WHITELIST and these three are craft-level, a shape it
+    # had never carried before. A field not named there is dropped in silence and the
+    # card renders on without it — which is how the focal point went missing once.
+    if c.get("illus") != _im["src"]:
+        bad(f"{_cid}: craftImages declares {_im['src']} and the browse index carries "
+            f"{c.get('illus') or 'nothing'} — check the shim whitelist first")
+    if c.get("illusBy") != _im["credit"]:
+        bad(f"{_cid}: the index credits {c.get('illusBy') or 'nobody'} and craftImages "
+            f"says {_im['credit']!r}")
+    if (_im.get("focal") or "") != (c.get("illusFocal") or ""):
+        bad(f"{_cid}: craftImages publishes a focal of {_im.get('focal') or 'none'} and "
+            f"the index carries {c.get('illusFocal') or 'none'}")
+    if not (ROOT / "website" / _im["src"].lstrip("/")).exists():
+        bad(f"{_cid}: the licensed picture is not on disk: {_im['src']}")
+    if _im["credit"].strip().lower().startswith("photo:"):
+        bad(f'{_cid}: a licensed picture of the craft is credited with "Photo:", the '
+            "prefix reserved for a photograph a school sent us. Name the maker and the "
+            "licence and stop")
+# and the other direction: an index entry nobody licensed
+for c in crafts:
+    if c.get("illus") and c["id"] not in _craft_images:
+        bad(f'{c["id"]}: the browse index carries the picture {c["illus"]} and craftImages '
+            "declares nothing for this craft — a picture nobody licensed is on the page")
+if _craft_images and not _seen_idx:
+    bad(f"check 14c read none of the {len(_craft_images)} declared craft image(s) in the "
+        "browse index — the index shape moved and this check is blind")
+
+# pass 2 — and the ones in the band actually wear it, on the rendered card
+_seen_band = 0
+for _, _slug, _ in cards:
+    c = _by_slug.get(_slug)
+    if not c:
+        continue
+    m = re.search(r'href="/atlas/' + re.escape(_slug) + r'"(.*?)</article>', band, re.S)
+    if not m:
+        continue
+    tag = _open_tag(band, m[0])
+    worn_shot = re.search(r'--shot:url\(([^)]+)\)', tag)
+    worn_illus = re.search(r'--illus:url\(([^)]+)\)', tag)
+    if worn_shot and worn_illus:
+        bad(f"{_slug}: the card wears a school's photograph AND a licensed picture of the "
+            "craft. One card makes one claim about one picture — the school's always wins")
+    declared = _craft_images.get(_slug)
+    if declared:
+        _seen_band += 1
+        if not worn_illus:
+            bad(f"{_slug}: craftImages declares {declared['src']} and the band card wears "
+                "no picture at all")
+        elif html_mod.unescape(worn_illus[1]) != declared["src"]:
+            bad(f"{_slug}: the band card wears {html_mod.unescape(worn_illus[1])}, and "
+                f"craftImages declares {declared['src']}")
+        if declared.get("focal") and f'--illusfocal:{declared["focal"]}' not in tag:
+            bad(f"{_slug}: craftImages publishes a focal point ({declared['focal']}) and "
+                "the band card does not carry it")
+        _cr = re.search(r'<p class="shotcredit">(.*?)</p>', m[1], re.S)
+        if not (_cr and _cr[1].strip()):
+            bad(f"{_slug}: the card wears a licensed picture and credits nobody. The "
+                "credit IS what makes a licensed picture publishable")
+        elif html_mod.unescape(_cr[1].strip()) != declared["credit"].strip():
+            bad(f"{_slug}: the card credits {html_mod.unescape(_cr[1].strip())!r} and "
+                f"craftImages says {declared['credit'].strip()!r}")
+    elif worn_illus:
+        bad(f"{_slug}: the band card wears {html_mod.unescape(worn_illus[1])} and "
+            "craftImages declares nothing — a picture nobody licensed is on the page")
+# ⚠ An EMPTY craftImages is the normal state today and is NOT a failure: 28 open crafts
+# have no truthful picture of themselves and keep the typographic card, which is a
+# finished state and not a debt. The blindness guard therefore fires only when a craft
+# that IS in the band has declared one and the loop still read nothing.
+_in_band = {s_ for _, s_, _ in cards} & set(_craft_images)
+if _in_band and not _seen_band:
+    bad(f"check 14c read none of the {len(_in_band)} band craft image(s) off the rendered "
+        "card — the attribute or the card markup moved and this check is blind")
 
 # ── 16. no built page carries a control character ─────────────────────────
 # A CSS escape and a Python escape look identical, and only one of them is in charge.

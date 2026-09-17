@@ -76,6 +76,14 @@
       // used to derive it from `cat` alone and painted that one craft teal in the band
       // and terracotta in the grid — the same card, two colours, on one page.
       world: c.world || "",
+      // A licensed picture OF THE CRAFT, for a craft no school has photographed. It is
+      // craft-level and not per-destination precisely because it belongs to the craft
+      // and to nowhere — the opposite of `shot` above, which may only ever appear on
+      // the destination it was taken at. The build refuses one on a craft that has a
+      // school photograph, so a card can never carry both.
+      // ⚠ This map is a WHITELIST, same as the destination shape above: a field not
+      // named here is dropped in silence and the card keeps rendering without it.
+      illus: c.illus || "", illusBy: c.illusBy || "", illusFocal: c.illusFocal || "",
       // A craft nobody has asked for has no credential to claim. The browse card
       // falls back to "Hand-verified" on an empty certShort, and saying that of an
       // unopened craft would be a claim we haven't earned — so it says its state.

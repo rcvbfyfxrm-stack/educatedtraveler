@@ -314,6 +314,110 @@ if _stray_say:
                      + ", ".join(sorted(_stray_say)))
 
 
+# ---------- a licensed picture OF THE CRAFT, where no school has sent one ----------
+# Five of the 34 open crafts wear a photograph. All five came from a school, and all
+# five are keyed to the destination that school stands in — school_shot() above says
+# why that can never travel. The other 29 cards are typographic, and Arnaud's ask on
+# 15 September was that a reader should understand the craft from the card without
+# reading it.
+#
+# So a SECOND and deliberately different class of picture: a licensed image of the
+# CRAFT — Wikimedia, CC, or bought — which belongs to the craft rather than to any one
+# place, and may therefore ride a card wherever that card happens to be standing.
+#
+# ⛔ THE TWO MAY NEVER BE MISTAKEN FOR EACH OTHER. Three things keep them apart:
+#   1. a different element and a different custom property — .craftshot / --illus,
+#      never .cardshot / --shot — drawn quieter, so the eye separates them too;
+#   2. a credit that names its source and its LICENCE and then stops. Never the
+#      "Photo: " prefix, which is reserved for a picture a school sent us: no school
+#      credit has ever carried a licence and no licensed credit carries that prefix,
+#      so the two lines are machine-separable as well as visibly different. ⛔ The
+#      negative form is banned outright — "not shot here", "not ours", "from its own
+#      site". Arnaud, 16 September 2026: a credit names its source and STOPS.
+#   3. the gate below, which refuses a craft image on a craft that already has a
+#      school's photograph. The school's picture always wins; a craft image there is
+#      dead config waiting to rot into a contradiction the day the school withdraws.
+#
+# ⛔ IT MUST BE A PICTURE OF THE CRAFT, NEVER OF A PLACE. A spherified pearl is what
+# modernist technique looks like anywhere on earth. The front door of a school in
+# Paris, under the word Barcelona, is Tarifa's water under the word Maui with extra
+# steps. No gate can look at a photograph, so `alt` is mandatory: somebody has to
+# write down what is actually in the frame before it can ship.
+#
+# ⛔ AND NO IMAGE IS BETTER THAN A GENERIC ONE. A craft with no truthful picture keeps
+# the typographic card, and that is a finished state, not a debt — the photo-triad law
+# of 14 September applied: a weak picture does not fill the slot, it spends it and
+# leaves the argument unmade. Lifestyle Medicine is the case that proves the rule. Its
+# own sheet says it is "a credential, not a place"; a stock plate of vegetables would
+# be the first decorative lie on the Atlas.
+CRAFT_IMAGES = MANIFEST.get("craftImages", {})
+_craft_ids = {d["id"] for d in DISC}
+_photographed = {d["id"] for d in DISC
+                 for x in d["destinations"]
+                 for s_ in (x.get("schoolsInfo") or [])
+                 if (s_.get("photos") or {}).get("items")}
+for _cid, _im in sorted(CRAFT_IMAGES.items()):
+    if _cid not in _craft_ids and _cid not in {h["id"] for h in MANIFEST.get("hubCards", [])}:
+        raise SystemExit(f"build-atlas-pages: craftImages names {_cid}, which is not a craft.")
+    # ⛔ the separation rule, and the only one of these that is about judgement rather
+    # than syntax: a school's own photograph always wins, so a craft image on a
+    # photographed craft is config that can never render and will drift.
+    if _cid in _photographed:
+        raise SystemExit(
+            f"build-atlas-pages: {_cid} has a school's own photograph, and craftImages "
+            "gives it a licensed one too. The school's picture always wins — a craft "
+            "image here can never render, and the day it could it would be showing a "
+            "stranger's frame where a school sent us its own room. Delete the entry.")
+    for _k in ("src", "alt", "credit", "licence", "sourceUrl"):
+        if not (_im.get(_k) or "").strip():
+            raise SystemExit(
+                f"build-atlas-pages: the craft image for {_cid} has no {_k}. A licensed "
+                "picture ships with all five: where the file is, what is in the frame, "
+                "who made it, under what licence, and the page that says so. A licence "
+                "with no source is not checkable, and being checkable is this map's "
+                "whole claim.")
+    _src = _im["src"].strip()
+    # It rides inside an unquoted CSS url(), exactly as a school photograph does —
+    # same single kind of quote on the one line that writes it, so the same characters
+    # stop the build here rather than silently breaking one card in a browser.
+    if any(_ch in _src for _ch in "()'\" ,\\") or _src != _im["src"]:
+        raise SystemExit(f"build-atlas-pages: {_src!r} is not safe in an unquoted CSS "
+                         "url(). Rename the file without brackets, quotes or spaces.")
+    if not (ROOT / "website" / _src.lstrip("/")).exists():
+        raise SystemExit(f"build-atlas-pages: the craft image for {_cid} is not in the "
+                         f"repo: {_src}. A background that never paints raises no error "
+                         "in any browser, which is why this one stops the build.")
+    # ⛔ "Photo: " belongs to a school. Reserving it is what keeps the two credit lines
+    # telling a reader apart at a glance and a gate apart by pattern.
+    if _im["credit"].strip().lower().startswith("photo:"):
+        raise SystemExit(
+            f'build-atlas-pages: the craft image credit for {_cid} starts with "Photo:", '
+            "which is reserved for a photograph a school sent us. A licensed picture "
+            "names its maker and its licence and stops there.")
+    _focal = (_im.get("focal") or "").strip()
+    if _focal and not re.fullmatch(r"[a-z0-9 .%]+", _focal):
+        raise SystemExit(f"build-atlas-pages: the craft image for {_cid} has a focal of "
+                         f"{_focal!r}. Only a plain CSS position is allowed here "
+                         '(e.g. "50% 22%", "center", "left top").')
+
+
+def craft_image(cid):
+    """(src, credit, focal) for the licensed picture of this craft, or three blanks.
+
+    Craft-level on purpose, and the exact opposite of school_shot() one screen up: this
+    picture is of the CRAFT and belongs to nowhere, so it may ride the card wherever
+    the card is standing. Everything above has already refused it on a craft a school
+    has photographed, so the two can never both be true of one card.
+
+    `credit` is printed verbatim and already carries its licence — see the credit law
+    in the block above.
+    """
+    im = CRAFT_IMAGES.get(cid)
+    if not im:
+        return "", "", ""
+    return im["src"].strip(), im["credit"].strip(), (im.get("focal") or "").strip()
+
+
 # ---------- the closed cell: on the record, not a place to learn ----------
 # The Standard asks two questions of every place — is the craft alive there, and can a
 # serious stranger get in — and the CLOSED cell (alive, unreachable) is what proves this
@@ -3720,6 +3824,27 @@ def index_card(d):
 
 
 CARDS = [index_card(d) for d in DISC]
+# The licensed picture OF THE CRAFT, where a craft has one. Craft-level, unlike `shot`
+# down in dests[]: this picture belongs to the craft and to no place, which is the whole
+# difference between the two classes and the reason the photograph has to live per
+# destination while this can sit on the card itself.
+#
+# ⚠ Added ONLY where there is one, unlike almost every other key here. Blanked keys are
+# this file's normal habit — the shim reads a shape and a missing key is a different
+# class of bug from an empty one — but these three are read with `|| ""` on the other
+# side and are empty on all 116 crafts today: carrying them regardless put 4.6 KB of
+# nothing into a file every visitor downloads. The index grows when a craft actually
+# gains a picture, and not before.
+def _add_craft_image(card):
+    src, by, focal = craft_image(card["id"])
+    if not src:
+        return
+    card["illus"] = src
+    card["illusBy"] = by
+    if focal:
+        card["illusFocal"] = focal
+
+
 for hc in HUB_CARDS:                       # crafts that live only as a hand-written sheet
     CARDS.append({"id": hc["id"], "name": hc["discipline"], "cat": hc["category"],
                   "world": world_of(hc["discipline"], hc["category"], hc["id"]),
@@ -3744,6 +3869,12 @@ for hc in HUB_CARDS:                       # crafts that live only as a hand-wri
                              "badges": [],
                              "why": hc.get("why", ""), "school": hc.get("school", ""),
                              "nSchools": 1 if hc.get("school") else 0}]})
+# Every card, generated and hand-written alike, once the list is complete. It used to
+# run twice — once over the generated cards, once over a slice of CARDS taken on the
+# length of DISC for the rest — and a slice keyed to the length of ANOTHER list is
+# exactly the coupling that breaks in silence the day either list changes shape.
+for _c in CARDS:
+    _add_craft_image(_c)
 # ⛔ NO TEACHER'S NAME ON A SKILL CARD, and the index may not carry one either (Arnaud,
 # 15 September 2026: "never put a teacher name on the skill card only after once you on
 # the skill you can"). The reason is the photograph's reason: a teacher belongs to ONE
@@ -3819,6 +3950,11 @@ def band_item(s):
             # as the lines do, so a band card and a grid card wear the same frame.
             "shot": r.get("shot", ""), "shotBy": r.get("shotBy", ""),
             "focal": r.get("focal", ""),
+            # and the licensed picture of the craft, which is craft-level and so is read
+            # off the card rather than off the place the card rests on. Only one of the
+            # two can ever be set — the separation gate in craftImages sees to that.
+            "illus": c.get("illus", ""), "illusBy": c.get("illusBy", ""),
+            "illusFocal": c.get("illusFocal", ""),
             "opened": pretty_date(OPENED[s])}
 
 
@@ -4040,6 +4176,46 @@ if _lfloor is not None:
         # unattended, on a craft nobody had failed at anything.
         print(f"  ✓ the ladder debt fell to {len(_no_ladder)} — set ladderDebtFloor to "
               f"{len(_no_ladder) + 1} in data/atlas-extra-sheets.json (debt + 1, so one "
+              "Circle opening still builds) and it can never drift back up")
+
+# ── the photograph debt, on the same ratchet ─────────────────────────────────
+# What the Atlas actually owes here is a picture from the SCHOOL — the room a reader
+# would be standing in, sent by the people who teach in it. 88 outreach letters have
+# produced five. So the debt counted is open crafts with no school photograph, and a
+# licensed craft image does NOT pay it off: a stranger's frame of the craft is a way
+# to make the card legible, not a school opening its door. Count it as paid and the
+# ratchet would congratulate us for buying stock, and the number would stop meaning
+# anything the day it mattered.
+#
+# It falls only when a school sends pictures, which is the only thing that should
+# move it. The breakdown is printed beside it so the stand-ins stay visible rather
+# than quietly becoming the norm.
+_no_shot = sorted(d["id"] for d in _open_disc if d["id"] not in _photographed)
+_stand_in = [c for c in _no_shot if c in CRAFT_IMAGES]
+_sfloor = MANIFEST.get("schoolShotDebtFloor")
+if _no_shot:
+    print(f"  ⚠ photographs — {len(_no_shot)} of {len(_open_disc)} open crafts have no "
+          f"school photograph ({len(_stand_in)} wearing a licensed picture of the craft, "
+          f"{len(_no_shot) - len(_stand_in)} typographic): {', '.join(_no_shot[:6])}"
+          + (f", +{len(_no_shot) - 6} more" if len(_no_shot) > 6 else ""))
+if _sfloor is not None:
+    if len(_no_shot) > _sfloor:
+        _news = [c for c in _no_shot if c not in set(MANIFEST.get("schoolShotDebtKnown", []))]
+        raise SystemExit(
+            f"build-atlas-pages: {len(_no_shot)} open crafts have no school photograph, and "
+            f"the floor is {_sfloor}.\n"
+            + (f'  New without one: {", ".join(_news)}\n' if _news else "")
+            + "  Ask the school for pictures of the room, the instructor and the students "
+              "(the three legs), add them to schoolsInfo[].photos in data/repertoire.js — "
+              "or, if the craft can carry an honest licensed picture of itself instead, add "
+              "one to craftImages and raise the floor deliberately, because a stand-in does "
+              "not pay this debt.")
+    if len(_no_shot) < _sfloor:
+        # Debt + 1, for the reason the Measure's floor spells out: a Circle opening adds a
+        # craft, and a craft opens without a photograph, so a floor set to exactly its own
+        # debt stops the unattended nightly rebuild on a craft nobody has failed at.
+        print(f"  ✓ the photograph debt fell to {len(_no_shot)} — set schoolShotDebtFloor to "
+              f"{len(_no_shot) + 1} in data/atlas-extra-sheets.json (debt + 1, so one "
               "Circle opening still builds) and it can never drift back up")
 
 # Which open places still have no intro — the town a reader lands on and learns nothing
