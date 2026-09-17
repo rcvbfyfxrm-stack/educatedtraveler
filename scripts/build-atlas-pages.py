@@ -1409,6 +1409,8 @@ dl.sfacts dt {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-sp
 dl.sfacts dd {{ font-size:14px; line-height:1.45; margin-top:3px; }}
 .snote {{ font-size:12.5px; color:var(--muted); }}
 .sblurb {{ font-size:15px; opacity:.82; max-width:62ch; }}
+.sstand {{ font-size:14.5px; max-width:62ch; margin:0 0 10px; padding:10px 14px; border-radius:8px;
+  border-left:2px solid var(--ember); background:rgba(210,138,82,.06); }}
 .steach {{ font-size:14px; line-height:1.55; max-width:62ch; margin:0 0 12px; }}
 .steach .school-url {{ word-break:normal; white-space:nowrap; }}
 .sfoot .school-url {{ word-break:normal; overflow-wrap:anywhere; }}
@@ -2757,6 +2759,11 @@ def _same_school(a, b):
 def school_tags(d, x, s_, page_id):
     """Every label this school has earned, in a fixed order. Never a free string."""
     f = d.get("featured") or {}
+    # ⛔ A craft whose pick has been withdrawn has no pick. The star came off the block and
+    # off the browse card the day `withdrawn` was set; it was still printing on the school's
+    # own card, which is the one place a reader would take it for a live recommendation.
+    if f.get("withdrawn"):
+        f = {}
     # ⚠ NOT an exact string match. The featured course and the school list are written at
     # different times and drift in how they spell the same school — Bologna is listed as
     # "La Vecchia Scuola Bolognese (Alessandra Spisni)" and featured as "…(VSB)". An exact
@@ -2860,6 +2867,40 @@ def school_teachers(s_):
 #
 # ⛔ A FACT CARRIES THE PAGE IT WAS READ ON AND THE DAY. `facts.from` + `facts.read`, or
 # the build stops — a chip with no source is a badge, and this map does not award badges.
+# ⛔ WHAT A SCHOOL'S OWN PAGE SAYS HAS CHANGED (17 September 2026, after reading 237 of
+# them). Some had closed, some no longer run the course we listed, some have lost the
+# domain we link. None of that is a reason to delete the name: a reader who comes looking
+# for it has to find out what happened, and an entry that quietly vanishes teaches nobody.
+# So the card keeps its place and says its standing, in the school's own words where there
+# are any — with the page and the day behind it, like every other fact here.
+#
+# ⛔ And a standing is never inferred. "Closed" means the school says so. A course we can
+# no longer find is "course-gone", not "closed" — the difference is the whole standard:
+# "failed" requires evidence of failure, and a wall is not a grave.
+SCHOOL_STANDING = {
+    "closed":      ("Closed", "#d28a52"),
+    "paused":      ("Closed for now", "#d28a52"),
+    "course-gone": ("This course is not listed now", None),
+    "site-gone":   ("The site we link is no longer theirs", None),
+    "not-here":    ("Not taught in this town", None),
+}
+
+
+def school_standing(s_):
+    st = s_.get("standing") or {}
+    if not st:
+        return None
+    if st.get("state") not in SCHOOL_STANDING:
+        raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has standing '
+                         f'{st.get("state")!r}, which is not one of {sorted(SCHOOL_STANDING)}.')
+    if not ((st.get("what") or "").strip() and st.get("from")
+            and re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(st.get("read", "")))):
+        raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has a standing with no `what`, '
+                         "`from` or `read`. Saying a school has stopped is the strongest claim "
+                         "on this map; it carries the page it was read on and the day.")
+    return st
+
+
 SCHOOL_FACT_KEYS = (
     ("where", "Where"), ("length", "How long"), ("format", "Format"),
     ("language", "Taught in"), ("class", "Class size"), ("credential", "You leave with"),
@@ -2978,12 +3019,22 @@ def distinct_facts(facts_by_school):
 def school_card(d, x, s_, page_id, facts=None, labels=()):
     """One school, open, the same shape as every other school on the page."""
     tags, is_pick = school_tags(d, x, s_, page_id)
+    stand = school_standing(s_)
     tags = tags + [t for t in labels if t not in tags]
     for t in tags:
+        if stand and t == SCHOOL_STANDING[stand["state"]][0]:
+            continue
         if t not in SCHOOL_TAGS:
             raise SystemExit(f"build-atlas-pages: {s_['name']!r} drew a tag outside SCHOOL_TAGS: {t!r}.")
 
+    if stand:
+        tags = [SCHOOL_STANDING[stand["state"]][0]] + [t for t in tags if not t.startswith("Best course")]
+
     def _chip(t):
+        if stand and t == SCHOOL_STANDING[stand["state"]][0]:
+            col = SCHOOL_STANDING[stand["state"]][1]
+            return (f'<span class="stag" style="color:{col};border-color:rgba(210,138,82,.45)">{e(t)}</span>'
+                    if col else f'<span class="stag">{e(t)}</span>')
         if t.startswith("Best course"):
             return f'<span class="stag gold">★ {e(t)}</span>'
         if t == "Rising star":
@@ -3024,6 +3075,11 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
     facts_html = f'<dl class="sfacts">{cells}</dl>' if cells else ""
 
     blurb = f'<p class="sblurb">{e(s_["blurb"])}</p>' if s_.get("blurb") else ""
+    if stand:
+        blurb = (f'<p class="sstand">{e(stand["what"])} '
+                 f'<a class="school-url" rel="nofollow noopener" target="_blank" '
+                 f'href="{e(stand["from"])}">read on their site, {e(pretty_date(stand["read"]))} ↗</a></p>'
+                 + blurb)
     teachers = school_teachers(s_)
 
     more = ""
@@ -3088,10 +3144,16 @@ def schools_list(d, x):
             continue
         seen.add(s["name"].lower())
         schools.append(s)
-    picks = [s for s in schools if school_tags(d, x, s, x["id"])[1]]
-    schools = picks + [s for s in schools if s not in picks]
+    picks = [s for s in schools if school_tags(d, x, s, x["id"])[1] and not school_standing(s)]
+    rest = [s for s in schools if s not in picks and not school_standing(s)]
+    # A school that has closed, or no longer runs what we listed, goes last and is left out
+    # of the comparison: "smallest class here" against a room nobody can book is not a fact
+    # about the town, and the label would read as a recommendation.
+    schools = picks + rest + [s for s in schools if school_standing(s)]
     facts = distinct_facts({s["name"]: school_facts(d, x, s, s in picks) for s in schools})
-    labels = school_labels(facts)
+    labels = school_labels({n: f for n, f in facts.items()
+                            if not school_standing(next(s for s in schools if s["name"] == n))})
+    labels = {s["name"]: labels.get(s["name"], []) for s in schools}
     return schools, [school_card(d, x, s, x["id"], facts=facts[s["name"]], labels=labels[s["name"]])
                      for s in schools]
 

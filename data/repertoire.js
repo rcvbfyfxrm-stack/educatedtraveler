@@ -152,39 +152,8 @@ window.ET_ATLAS = {
               "name": "Parmarth School of Yoga (Parmarth Niketan Ashram)",
               "url": "https://courses.parmarth.org/",
               "course": "200-Hour Yoga Teacher Training Course (YTTC)",
-              "blurb": "A residential teacher-training run inside Parmarth Niketan, the large ashram on the banks of the Ganga in Rishikesh.",
+              "blurb": "A residential teacher training run inside Parmarth Niketan, the large riverside ashram in Rishikesh, covering asana, pranayama, meditation and philosophy, and qualifying graduates to register with Yoga Alliance at RYT-200.",
               "confidence": "medium",
-              "facts": {
-                "where": "Swargashram, Rishikesh",
-                "length": "4 weeks (27 September to 23 October 2026)",
-                "format": "Live-in at the ashram; 3-4 hours of asana daily; no classes Sundays",
-                "language": "English",
-                "credential": "Certificate of Attendance; course certified by Yoga Alliance USA",
-                "from": [
-                  "https://courses.parmarth.org/events/200hr-yoga-teacher-training-course-sep27/"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Main teachers",
-                    [
-                      "Sadhvi Abha Saraswatiji",
-                      "Dr. Indu Sharmaji"
-                    ]
-                  ]
-                ],
-                "from": "https://courses.parmarth.org/events/200hr-yoga-teacher-training-course-sep27/",
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Parmarth Niketan (Parmarth School of Yoga)",
-              "url": "https://courses.parmarth.org/",
-              "course": "Yoga Teacher Training Course (200-Hour YTTC)",
-              "blurb": "A large riverside ashram in Rishikesh whose Parmarth School of Yoga runs a residential 200-hour Yoga Teacher Training Course covering asana, pranayama, meditation and philosophy that qualifies graduates to register at the RYT-200 level with Yoga Alliance.",
-              "confidence": "high",
               "facts": {
                 "where": "Swargashram, Rishikesh",
                 "length": "4 weeks (27 September to 23 October 2026)",
@@ -214,7 +183,7 @@ window.ET_ATLAS = {
               "name": "Sivananda Ashram (Divine Life Society)",
               "url": "https://www.sivanandaonline.org/",
               "course": "Basic Yoga-Vedanta Course (two months, Yoga-Vedanta Forest Academy)",
-              "blurb": "The Rishikesh headquarters ashram of the Divine Life Society, founded by Swami Sivananda in 1936, offering residential study of Hatha yoga, Vedanta and meditation in a traditional ashram setting rather than a commercial teacher-training format.",
+              "blurb": "The Rishikesh headquarters ashram of the Divine Life Society, founded by Swami Sivananda in 1936, offering residential study of Hatha yoga, Vedanta and meditation in a traditional ashram setting rather than a commercial teacher-training format. Its own admission notice says the course is open to Indian citizens (men) only.",
               "confidence": "medium",
               "facts": {
                 "where": "Shivanandanagar, Rishikesh",
@@ -649,7 +618,13 @@ window.ET_ATLAS = {
               "url": "https://ginsengyoga.com/",
               "course": "200-Hour Yoga Teacher Training",
               "blurb": "A San Diego (South Park) yoga studio offering a range of styles and a 200-hour teacher training; note the studio is in San Diego proper rather than Encinitas.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "standing": {
+                "state": "site-gone",
+                "what": "The domain we link no longer serves the school; it now shows an unrelated video site.",
+                "from": "https://ginsengyoga.com/",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 4,
@@ -930,7 +905,13 @@ window.ET_ATLAS = {
               "url": "https://www.yogaplace.co.uk/",
               "course": "Daily morning Mysore-style Ashtanga self-practice (6–9am)",
               "blurb": "A long-running Bethnal Green studio in East London offering traditional Ashtanga in both counted-led and daily morning Mysore self-practice formats alongside Hatha, Iyengar, and Vinyasa classes.",
-              "confidence": "high"
+              "confidence": "high",
+              "standing": {
+                "state": "site-gone",
+                "what": "The domain we link now belongs to a yoga studio in the old St John's Church at Clydach, in Wales.",
+                "from": "https://www.yogaplace.co.uk/",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 3,
@@ -963,10 +944,16 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Ashtanga Yoga New York (Eddie Stern)",
-              "url": "https://classes.eddiestern.com/",
-              "course": "Mysore-style Ashtanga practice at the Broome Street Temple",
-              "blurb": "The lower-Manhattan program of Eddie Stern, a longtime student of Sri K. Pattabhi Jois, teaching Mysore-style Ashtanga and chanting in person at the Broome Street Ganesh Temple and online.",
-              "confidence": "high"
+              "url": "https://eddiestern.com/",
+              "course": "Yoga Sangraha classes (Fundamentals, All Levels, Level 2) at the Broome Street Temple",
+              "blurb": "The lower-Manhattan program of Eddie Stern, a longtime student of Sri K. Pattabhi Jois, teaching Yoga Sangraha, a breath-led practice drawn from the broader Hatha tradition, in person at the Broome Street Ganesh Temple and online.",
+              "confidence": "high",
+              "standing": {
+                "state": "course-gone",
+                "what": "His schedule at the Broome Street Temple now lists Yoga Sangraha classes; the Mysore-style Ashtanga programme we listed is not on it.",
+                "from": "https://eddiestern.com/",
+                "read": "2026-09-17"
+              }
             },
             {
               "name": "Brooklyn Yoga Club",
@@ -1676,7 +1663,13 @@ window.ET_ATLAS = {
               "url": "https://internationalmeditationcentre.org/",
               "course": "10-day Vipassana course (monthly, U Ba Khin Anapana/Vipassana method)",
               "blurb": "The International Meditation Centre, opened in Yangon in 1952 by Sayagyi U Ba Khin, teaches Theravada Vipassana in his tradition through monthly ten-day courses that begin with Anapana before progressing to Vipassana.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "standing": {
+                "state": "site-gone",
+                "what": "The site we link is IMC UK's, in Wiltshire; it gives the Yangan centre only as a contact address on Inya Myaing Road.",
+                "from": "https://internationalmeditationcentre.org/contacts",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 2,
@@ -2152,39 +2145,7 @@ window.ET_ATLAS = {
               "name": "Pragya Yoga School",
               "url": "https://pragyayogaschool.com/details/10-days-50-hours-gong-and-singing-bowl-sound-therapy-training-in-nepal",
               "course": "10 Days / 50 Hours Advanced (Professional) Singing Bowl & Gong Sound Therapy Training",
-              "blurb": "A ten-day professional sound-healing training in Budhanilkantha, Kathmandu, grounded in classical Himalayan and Tibetan practice.",
-              "confidence": "high",
-              "facts": {
-                "where": "Budhanilkantha, Kathmandu",
-                "length": "10 days (50 hours)",
-                "format": "Residential with meals; starts on the 2nd and 15th of each month",
-                "class": "10 students at most",
-                "credential": "A certificate from Pragya Yoga School",
-                "price": "USD 1,000",
-                "priceNote": "shared room, meals included; private AC room USD 1,200",
-                "from": [
-                  "https://pragyayogaschool.com/details/10-days-50-hours-gong-and-singing-bowl-sound-therapy-training-in-nepal"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Sound healing",
-                    [
-                      "Yogesh Pokhrel"
-                    ]
-                  ]
-                ],
-                "from": "https://pragyayogaschool.com/details/10-days-50-hours-gong-and-singing-bowl-sound-therapy-training-in-nepal",
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Pragya Yoga School (singing bowl & sound therapy training)",
-              "url": "https://pragyayogaschool.com/",
-              "course": "10-Day 50-Hour Advanced Gong & Singing Bowl Sound Therapy Training",
-              "blurb": "A Yoga Alliance-registered school in Budhanilkantha, Kathmandu, whose flagship sound offering is a 10-day, 50-hour advanced gong and singing-bowl sound-therapy training grounded in Tibetan and Himalayan practice.",
+              "blurb": "A Yoga Alliance-registered school in Budhanilkantha, Kathmandu, whose flagship sound offering is a ten-day, fifty-hour advanced gong and singing-bowl sound-therapy training grounded in classical Himalayan and Tibetan practice.",
               "confidence": "high",
               "facts": {
                 "where": "Budhanilkantha, Kathmandu",
@@ -4854,41 +4815,9 @@ window.ET_ATLAS = {
             {
               "name": "Apnea Academy (Umberto Pelizzari)",
               "url": "https://apnea.academy/en/instructors/freediver-instructor/",
-              "course": "Apnea Academy Freediving Instructor Course",
+              "course": "Apnea Academy Instructor Course (7 days)",
               "blurb": "Founded and run by 17-time world-record holder Umberto Pelizzari, the Apnea Academy instructor course is a 7-day intensive of theory and water work: relaxation and breathing technique, respiratory and ear physiology, diet, teaching method, psychology and group control, plus static, dynamic and constant/variable-weight apnea, with practical pool and sea sessions led by Pelizzari and senior instructors.",
               "confidence": "medium",
-              "facts": {
-                "where": "Sharm el Sheikh, Egypt",
-                "length": "7 days",
-                "format": "Lectures plus pool and sea sessions; 7-13 November 2026",
-                "language": "English",
-                "credential": "Apnea Academy Instructor, may teach AA levels 1 to 3",
-                "price": "€895",
-                "priceNote": "instructor course; hotel booked separately",
-                "from": [
-                  "https://apnea.academy/en/instructors/freediver-instructor/"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Instructor course",
-                    [
-                      "Umberto Pelizzari"
-                    ]
-                  ]
-                ],
-                "from": "https://apnea.academy/en/instructors/freediver-instructor/",
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Apnea Academy (Umberto Pelizzari's school)",
-              "url": "https://apnea.academy/",
-              "course": "Apnea Academy Instructor Course (7 days)",
-              "blurb": "Apnea Academy is the freediving instruction and research school founded and led by world-champion Umberto Pelizzari, whose flagship 7-day Instructor Course covers physiology, teaching methodology and in-water static, dynamic and depth disciplines.",
-              "confidence": "high",
               "facts": {
                 "where": "Sharm el Sheikh, Egypt",
                 "length": "7 days",
@@ -5508,14 +5437,14 @@ window.ET_ATLAS = {
         "url": "https://www.creps-paca.fr/formation.fiche-BPJEPS-PSS-06",
         "course": "BPJEPS Plongée subaquatique option 'sans scaphandre' (apnée)",
         "description": "France's state-recognized professional diploma for breath-hold disciplines, delivered at the national CREPS center in Antibes on the Côte d'Azur. The program covers freediving, underwater hunting (chasse sous-marine), underwater hiking and target shooting, with training in safety, regulation, physiology and environmental protection alongside in-water practical work in the Mediterranean. It qualifies the holder to professionally lead and teach apnea and spearfishing activities. Aimed at serious practitioners pursuing a career, not casual visitors.",
-        "duration": "6 months (alternating; ~280-819 hours depending on pathway)",
+        "duration": "833 hours (259 at the centre, 574 on placement)",
         "format": "Full-time alternance: center-based instruction plus placement in dive structures",
         "certification": "BPJEPS (French state professional sports diploma), apnea/spearfishing option",
         "fitsBecause": "An immersive, months-long, state-credentialed apnea-and-spearfishing program on the Côte d'Azur, the heart of French Mediterranean spearfishing.",
         "sessions": [],
         "priceNote": "",
         "confidence": "medium",
-        "priceFrom": "€3,696"
+        "priceFrom": "€4,144"
       },
       "alsoHere": [
         {
@@ -6649,14 +6578,14 @@ window.ET_ATLAS = {
         "country": "United States",
         "school": "Hans Hedemann Surf School",
         "url": "https://hhsurf.com/waikiki-multi-day-surf-lesson-packages/",
-        "course": "Week-Long Multi-Day Surf Lesson Package",
+        "course": "Multi Day Surf Lesson Packages (3 or 5 days)",
         "description": "A multi-day package on the gentle Waikiki rollers where surfing was born, run by the school of former pro Hans Hedemann. Each progressive session builds on the last — paddling technique, pop-up and stance, timing, trimming and turning — with board, leash and rash guard provided and instruction scaled to your level. Lessons are taught daily on the same beachboy waves that have served as Waikiki's learning ground for a century. Note: this is a structured lesson package rather than a formal instructor certification course.",
-        "duration": "Week-long package (also 2- and 3-day options)",
+        "duration": "3 or 5 days, one 2-hour session a day",
         "format": "Multi-day, small-group or private; non-residential (Waikiki-based)",
         "certification": "—",
         "fitsBecause": "A multi-day, progressive, hands-on programme on the birthplace beach of modern surfing — at the genuine source even though it is not a certification course.",
         "sessions": [],
-        "priceNote": "",
+        "priceNote": "3-day private package per person; 5 days USD 744",
         "confidence": "medium",
         "alternatives": [
           {
@@ -6679,7 +6608,8 @@ window.ET_ATLAS = {
             "note": "A single shared lesson is a one-off taste, with none of the sustained immersion or relationship the multi-day package offers.",
             "confidence": "high"
           }
-        ]
+        ],
+        "priceFrom": "USD 472"
       },
       "alsoHere": [
         {
@@ -7193,13 +7123,13 @@ window.ET_ATLAS = {
         "course": "Three-Day Learn-to-Rip Kitesurfing Course",
         "description": "A three-day learn-to-kite course at Kanaha (Kite Beach) on Maui, the trade-wind reach where the sport matured. You progress from kite setup, launch, land and safety on land, into water relaunch, body-dragging and waterstart, then riding upwind on the board — all with the instructor on the water alongside you using radio-helmet coaching, and all kite gear, harness and helmet supplied. Run by Maui's oldest water-sports school (operating since 1985).",
         "duration": "3 days",
-        "format": "Small-group / private on-water coaching with radio helmet; non-residential (Kanaha-based)",
-        "certification": "Certificate of completion (school); IKO certification available via Action Sports Maui as an alternative",
+        "format": "Private, one-on-one on-water coaching with radio helmet; non-residential (Kanaha-based)",
+        "certification": "—",
         "fitsBecause": "A multi-day, instructor-on-the-water course at Kanaha, one of the world's defining kite spots, with the rider learning in a busy community of kiters.",
         "sessions": [],
-        "priceNote": "",
+        "priceNote": "Their booking page prices lessons at USD 325 a session; no course total is published.",
         "confidence": "medium",
-        "priceFrom": "USD 897",
+        "priceFrom": null,
         "alternatives": [
           {
             "course": "Private Single Kitesurfing Lesson",
@@ -7334,16 +7264,14 @@ window.ET_ATLAS = {
             {
               "name": "HST Windsurfing & Kitesurfing School",
               "url": "https://hstwindsurfing.com/",
-              "course": "Three-Day Learn-to-Rip kitesurfing course covering kite setup, launch, landing, waterstarting and harness use; progressive multi-level windsurfing lessons also offered",
-              "blurb": "Founded by Alan Cadiz in 1985 and based at Hi-Tech Surf Sports in Kahului, HST teaches windsurfing, kitesurfing and wing foiling for beginner through advanced sailors.",
+              "course": "Progressive windsurfing lessons, from beginner shortboard fundamentals to waterstarting, harness, footstraps and stance",
+              "blurb": "Founded by Alan Cadiz in 1985 and based at Hi-Tech Surf Sports in Kahului, HST teaches windsurfing, kitesurfing and wing foiling for beginner through advanced sailors. It is the same operation that started as Hawaiian Sailboarding Techniques.",
               "confidence": "high",
               "facts": {
                 "where": "Kanaha Beach Park; shop in Kahului",
-                "length": "3 days (Learn-to-Rip kitesurfing course)",
-                "format": "Private lessons, instructor with you on the water",
-                "class": "1 student per instructor",
+                "format": "By appointment, year-round; entry-level class at 9am",
                 "from": [
-                  "https://hstwindsurfing.com/maui-kitesurfing-lessons/",
+                  "https://hstwindsurfing.com/windsurfing-lessons/",
                   "https://hstwindsurfing.com/"
                 ],
                 "read": "2026-09-17"
@@ -7373,33 +7301,6 @@ window.ET_ATLAS = {
                 "from": [
                   "https://actionsportsmaui.com/windsurfing-lessons-maui/"
                 ],
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Hawaiian Sailboarding Techniques",
-              "url": "https://hstwindsurfing.com/",
-              "course": "Progressive windsurfing lessons from beginner shortboard fundamentals to intermediate waterstarting, harness, footstrap and stance training",
-              "blurb": "Hawaiian Sailboarding Techniques, established by Alan Cadiz in 1985, is the same operation that now trades as HST Windsurfing & Kitesurfing School at hstwindsurfing.com.",
-              "confidence": "high",
-              "facts": {
-                "where": "Kanaha Beach Park; shop in Kahului",
-                "format": "By appointment, year-round; entry-level class at 9am",
-                "from": [
-                  "https://hstwindsurfing.com/windsurfing-lessons/"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Founder; teaches windsurfing",
-                    [
-                      "Alan Cadiz"
-                    ]
-                  ]
-                ],
-                "from": "https://hstwindsurfing.com/hst/",
                 "read": "2026-09-17"
               }
             }
@@ -7669,7 +7570,13 @@ window.ET_ATLAS = {
               "url": "https://www.ion-club.net/dahab/windsurf-rental/",
               "course": "VDWS windsurf, wing and kite courses + rental",
               "blurb": "ION Club's Dahab Boarder Center (descended from Club Mistral Dahab, since 1997) sits directly on a flat, sandbank-sheltered lagoon with staff-rigged gear and rescue-boat cover; spendable voucher credit transfers across ION centers worldwide though rental is per-station. No independent public rating verified yet, and the Dahab station may share branding with Fanatic Boarders Dahab — confirm the current operator directly before relying on it.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "standing": {
+                "state": "not-here",
+                "what": "ION Club's own station list for Egypt shows Safaga; there is no Dahab station on it.",
+                "from": "https://www.ion-club.net/windsurf-rental/",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 3,
@@ -7922,41 +7829,16 @@ window.ET_ATLAS = {
             {
               "name": "Yosemite Mountaineering School & Guide Service",
               "url": "https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service/",
-              "course": "Big Wall Climbing Seminar",
-              "blurb": "An advanced multi-day seminar on the granite of Yosemite Valley that teaches the full big-wall toolkit for objectives like El Capitan: placing camming devices, chocks, pitons, hooks and copperheads, bolt inspection, aid climbing, ascending fixed ropes, organising hanging belays, hauling with pulley systems, leading and cleaning pendulums and bivouac craft.",
+              "course": "A rock-climbing lesson series of one-day classes, from the beginner 'Welcome to the Rock' up to the two-day Big Wall Climbing Seminar",
+              "blurb": "Operating in Yosemite Valley since 1969 from Half Dome Village and Tuolumne Meadows, the school caps classes at six students per instructor with most sessions running about seven hours. Its Big Wall Climbing Seminar teaches the full big-wall toolkit on Valley granite: placing camming devices, chocks, pitons and hooks, aid climbing, ascending fixed ropes, hanging belays and hauling.",
               "confidence": "medium",
               "facts": {
                 "where": "Yosemite National Park, California",
-                "length": "2 days (also run as a 1-day seminar)",
-                "format": "Lodging and meals not included",
-                "class": "4 students per instructor at most",
-                "price": "USD 472",
-                "priceNote": "per person in a group of 4; USD 970 for one person alone",
-                "from": [
-                  "https://www.travelyosemite.com/things-to-do/rock-climbing"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "count": 16,
-                "of": "climbing guides",
-                "from": "https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service/guides",
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Yosemite Mountaineering School",
-              "url": "https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service",
-              "course": "A rock-climbing lesson series of one-day classes from the beginner 'Welcome to the Rock' through a two-day Big Wall Climbing Seminar covering aid technique, anchors and haul-bag handling",
-              "blurb": "Operating in Yosemite Valley since 1969 from Half Dome Village and Tuolumne Meadows, the school caps classes at six students per instructor with most sessions running about seven hours.",
-              "confidence": "high",
-              "facts": {
-                "where": "Yosemite National Park, California",
-                "length": "7 hours per class, on average",
+                "length": "7 hours per class, on average; the Big Wall Seminar runs 2 days",
                 "format": "Group classes of at least 2; private rates below that",
                 "class": "6 students per instructor at most; 4 in advanced classes",
                 "price": "USD 240",
-                "priceNote": "from; Welcome to the Rock group rate per person",
+                "priceNote": "from; the Big Wall Seminar is USD 472 per person in a group of 4",
                 "from": [
                   "https://www.travelyosemite.com/things-to-do/rock-climbing"
                 ],
@@ -8196,8 +8078,14 @@ window.ET_ATLAS = {
               "name": "The Climbing Academy (Sheffield)",
               "url": "https://www.theclimbingacademy.com/locations/",
               "course": "Coached climbing sessions / instruction",
-              "blurb": "The Climbing Academy is an indoor bouldering operator with a Sheffield centre offering walk-in bouldering plus tailored coached sessions and instruction, though it does not advertise a multi-day residential gritstone program.",
-              "confidence": "medium"
+              "blurb": "The Climbing Academy is an indoor bouldering operator with centres in Bristol, Glasgow and Chippenham offering walk-in bouldering plus tailored coached sessions and instruction, though it does not advertise a multi-day residential gritstone program.",
+              "confidence": "medium",
+              "standing": {
+                "state": "not-here",
+                "what": "Its centres are in Bristol, Glasgow and Chippenham; the Sheffield centre we listed is not among them.",
+                "from": "https://www.theclimbingacademy.com/locations/",
+                "read": "2026-09-17"
+              }
             },
             {
               "name": "Foundry Climbing Centre",
@@ -9143,7 +9031,7 @@ window.ET_ATLAS = {
         "certification": "—",
         "fitsBecause": "The defining multi-day ski-touring traverse of the Alps, lived hut-to-hut in a small roped team and guided by the historic Chamonix guides' company at the route's birthplace.",
         "sessions": [],
-        "priceNote": "€1,690 (2026, min. 4)",
+        "priceNote": "€1,745 (2027, min. 4)",
         "confidence": "high",
         "alternatives": [
           {
@@ -11568,16 +11456,16 @@ window.ET_ATLAS = {
             {
               "name": "Mashiko Ceramic Art Club (Mashiko Tougei Club)",
               "url": "http://mashiko-tougei-club.jp/",
-              "course": "Pottery accommodation plan (live-in stay) / full-day intensive workshop",
-              "blurb": "A folk-style pottery studio in Mashiko, the town tied to Shoji Hamada and the mingei movement, that runs hands-on classes with unlimited clay and offers live-in stay plans pairing pottery making with lodging in Kominka Koki, a 200-300-year-old farmhouse behind the workshop.",
+              "course": "Half-day and full-day wheel and hand-building classes; live-in pottery stay",
+              "blurb": "A folk-style pottery studio in Mashiko, the town tied to Shoji Hamada and the mingei movement, that runs hands-on classes with unlimited clay, teaches in English on request, and offers live-in stay plans pairing pottery making with lodging in Kominka Koki, a 200-300-year-old farmhouse behind the workshop.",
               "confidence": "medium",
               "facts": {
                 "where": "Mashiko, Tochigi",
-                "length": "1 day, 9am to 4pm",
+                "length": "3 hours (half day) or 1 day (9am to 4pm)",
                 "format": "Wheel throwing under staff guidance, unlimited clay",
                 "language": "Japanese or English (English costs extra)",
-                "price": "¥8,800",
-                "priceNote": "full day, tax incl.; English +¥6,600; firing and shipping extra",
+                "price": "¥5,500",
+                "priceNote": "half day, tax incl.; full day ¥8,800; English +¥3,300",
                 "from": [
                   "https://mashiko-tougei-club.jp/school.html",
                   "https://mashiko-tougei-club.jp/about.html"
@@ -11613,26 +11501,6 @@ window.ET_ATLAS = {
                 "from": [
                   "https://mashiko-sankokan.net/",
                   "https://mashiko-sankokan.net/top/riyou/"
-                ],
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Mashiko Togei Club",
-              "url": "http://mashiko-tougei-club.jp/",
-              "course": "Half-day to full-day wheel and hand-building pottery classes",
-              "blurb": "The Mashiko Togei Club is a relaxed folk-style pottery studio in the Mashiko ceramic town offering three-hour and full-day wheel and hand-building classes, with English-speaking staff and accommodation arranged on request.",
-              "confidence": "medium",
-              "facts": {
-                "where": "Mashiko, Tochigi",
-                "length": "3 hours (half day) or 1 day (9am to 4pm)",
-                "format": "Wheel throwing under staff guidance, unlimited clay",
-                "language": "Japanese or English (English costs extra)",
-                "price": "¥5,500",
-                "priceNote": "half day, tax incl.; full day ¥8,800; English +¥3,300",
-                "from": [
-                  "https://mashiko-tougei-club.jp/school.html",
-                  "https://mashiko-tougei-club.jp/about.html"
                 ],
                 "read": "2026-09-17"
               }
@@ -11847,12 +11715,12 @@ window.ET_ATLAS = {
         "url": "http://mashiko-tougei-club.jp/",
         "course": "Pottery accommodation plan (live-in stay) / full-day intensive workshop",
         "description": "A folk-style pottery studio in Mashiko, the town tied to Shoji Hamada and the mingei movement, that runs hands-on classes with unlimited clay and offers live-in stay plans pairing pottery making with lodging in Kominka Koki, a 200-300-year-old farmhouse behind the workshop. Foreign staff provide English support (for an added fee). Standard classes are a full-day intensive at 7,500 yen and a half-day at 4,800 yen; the multi-day stay is a separate combined accommodation-plus-class package booked direct. Exact stay length and curriculum are not published online and must be confirmed with the studio. (The other Mashiko route, the Mashiko Museum residency, is a ~2-month juried programme for established artists, not for travellers.)",
-        "duration": "Half-day or full-day classes; multi-day live-in stay available (exact length unpublished)",
+        "duration": "Half day (3 hours) or full day, 9am to 4pm; live-in stay priced separately",
         "format": "Studio classes with optional live-in kominka stay, English support available",
         "certification": "None (studio experience, not a diploma/apprenticeship credential)",
         "fitsBecause": "At the source in a working pottery town, with unlimited wheel/hand-building time and a live-in farmhouse stay, English-supported — immersive rather than a one-off taster, though stay length is unconfirmed.",
         "sessions": [],
-        "priceNote": "Classes ~JPY 4,800 (half-day) / JPY 7,500 (full-day); English instruction extra; multi-day stay priced separately",
+        "priceNote": "JPY 5,500 half day, JPY 8,800 full day, tax included; English instruction extra",
         "confidence": "medium",
         "alternatives": [
           {
@@ -13124,7 +12992,13 @@ window.ET_ATLAS = {
               "url": "https://www.magnumphotos.com/event/",
               "course": "Magnum Learn workshops, talks and portfolio reviews",
               "blurb": "The Magnum agency's education arm runs photographer-led workshops, talks and free portfolio reviews, including programming staged in Arles around its general meeting and the Rencontres festival; Arles-specific multi-day courses are occasional rather than fixed.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "standing": {
+                "state": "not-here",
+                "what": "Magnum's own workshop list runs in New York, Cappadocia, Paris, Sofia, Mexico City and online; none in Arles.",
+                "from": "https://www.magnumphotos.com/event/learn-with-magnum/",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 4,
@@ -14741,16 +14615,16 @@ window.ET_ATLAS = {
         "country": "Italy",
         "school": "Le Arti Orafe Jewellery School (LAO)",
         "url": "https://artiorafe.it/en/courses/courses-goldsmith-school/",
-        "course": "Annual Goldsmithing Course (Goldsmithery)",
+        "course": "Academic Goldsmithery First Year",
         "description": "A bench-based program in a Florence goldsmithing school running since 1985, weighted heavily toward practical hours: students saw, solder, file, raise and finish metal, set stones and take a design from sketch to finished wearable piece. Offered in three-month, six-month, annual and two-year formats across goldsmithery, jewellery design and stone-setting, with deliberately limited enrolment for close one-to-one mentoring. Suited to beginners through aspiring professionals who want a full-time workshop immersion rather than short demos.",
-        "duration": "Annual course (full academic year); also 3-month, 6-month and 2-year tracks",
+        "duration": "One academic year; also 3-month, 2-year and 3-year tracks",
         "format": "Full-time, in-workshop, small limited-enrolment groups",
-        "certification": "LAO school diploma / course completion (goldsmithing)",
+        "certification": "Certificate of attendance and results (the LAO Diploma follows the three-year course)",
         "fitsBecause": "Full-time, hands-on bench training in Florence's historic goldsmithing tradition, in a small mentored group leading to a recognized school diploma.",
         "sessions": [
           "Sep 2026"
         ],
-        "priceNote": "",
+        "priceNote": "Academic Goldsmithery First Year, 2026-27",
         "confidence": "medium",
         "alternatives": [
           {
@@ -14773,7 +14647,8 @@ window.ET_ATLAS = {
             "note": "Cheap entry at the source, but a CAD intro is digital and narrow versus hands-at-the-bench immersion.",
             "confidence": "med"
           }
-        ]
+        ],
+        "priceFrom": "€16,000"
       },
       "alsoHere": [
         {
@@ -15318,7 +15193,13 @@ window.ET_ATLAS = {
               "url": "https://molinard.com/en/pages/the-grasse-workshops",
               "course": "Classic Perfume Workshop",
               "blurb": "Molinard is a Grasse perfume house (founded 1849) offering on-site workshops in which a guide walks participants through a fragrance's structure and they blend their own scent from up to 90 essences, though its sessions are short (roughly 20 minutes to one hour) rather than multi-day or residential.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "standing": {
+                "state": "course-gone",
+                "what": "Molinard's Grasse workshops page offers a tailor-made perfume workshop; the harvest-season workshop we listed is not among them.",
+                "from": "https://molinard.com/en/pages/the-grasse-workshops",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 2,
@@ -16389,7 +16270,13 @@ window.ET_ATLAS = {
               "url": "https://www.cordonbleu.edu/tokyo/home/en",
               "course": "Pâtisserie Diploma (Basic, Intermediate, Superior)",
               "blurb": "Tokyo branch of the French institute, temporarily closed until a new campus opens (events and workshops only meanwhile) that adds Japanese elements such as entremets japonais and wagashi to classical French pastry technique.",
-              "confidence": "high"
+              "confidence": "high",
+              "standing": {
+                "state": "paused",
+                "what": "Le Cordon Bleu Japan says it is temporarily closed, running events and workshops until a new campus opens.",
+                "from": "https://www.cordonbleu.edu/tokyo/home/ja",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 5,
@@ -17674,8 +17561,8 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Casa Artusi - Scuola di Cucina di Casa Artusi",
-              "url": "https://ada.casartusi.it/en/academy/the-sfoglia-handmade-fresh-pasta/",
-              "course": "La Sfoglia - handmade fresh pasta course with the Mariette",
+              "url": "https://www.casartusi.it/en/cookery-school/",
+              "course": "Pasta che passione! — typical Italian homemade fresh pasta",
               "blurb": "Set in Pellegrino Artusi's hometown of Forlimpopoli, this gastronomic-culture center's cooking school has the Mariette sfogline teach hand-rolled egg-pasta technique and Romagna classics such as tagliatelle, cappelletti and tortelli to enthusiasts and professionals.",
               "confidence": "high"
             }
@@ -17885,7 +17772,13 @@ window.ET_ATLAS = {
               "url": "https://escuelairizar.com/english/",
               "course": "Two-year Professional Culinary Arts Specialist Diploma",
               "blurb": "San Sebastián cooking school founded in 1992-93 by New Basque Cuisine pioneer Luis Irizar, offering a two-year Professional Culinary Arts Specialist diploma with early industry placements, plus summer courses for amateurs and professionals.",
-              "confidence": "high"
+              "confidence": "high",
+              "standing": {
+                "state": "closed",
+                "what": "The school announced on its own homepage that it is closing its cookery school after 29 years.",
+                "from": "https://escuelairizar.com/",
+                "read": "2026-09-17"
+              }
             },
             {
               "name": "Aiala — Karlos Arguiñano Eskola (Zarautz)",
@@ -18091,7 +17984,7 @@ window.ET_ATLAS = {
               "name": "Le Cordon Bleu Madrid (Universidad Francisco de Vitoria)",
               "url": "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en",
               "course": "Spanish Cuisine Diploma — the Superior Certificate is the avant-garde one",
-              "blurb": "On the UFV campus at Pozuelo de Alarcón. The avant-garde teaching here is not a short course: it is the last third of the nine-month Spanish Cuisine Diploma, and their own syllabus names it — 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', 'Sous-vide cooking', 'Reinventing & deconstructing classic dishes'. Taught in Spanish with simultaneous English translation through earphones, which no other room on this craft offers. Intakes January, April, July and October; 17,316 EUR for local students, 19,240 EUR for international. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months. ⚠ Honest note, and it is why this craft's first Measure dot stays dark: Le Cordon Bleu names no chef for this diploma. Everywhere else on this map you can look the teacher up before you pay, and here you cannot — ask who will actually be in the room. Checked on cordonbleu.edu, 1 September 2026.",
+              "blurb": "On the UFV campus at Pozuelo de Alarcón. The avant-garde teaching here is not a short course: it is the last third of the nine-month Spanish Cuisine Diploma, and their own syllabus names it — 'Avant-garde techniques & utensils, cooking in low temperature, spherifications & varied textures', 'Fundamentals of molecular cuisine', 'Sous-vide cooking', 'Reinventing & deconstructing classic dishes'. Taught in Spanish with simultaneous English translation through earphones, which no other room on this craft offers. Intakes January, April, July and October; 17,316 EUR for local students, 19,240 EUR for international. Worth one question before you commit: ask whether the Superior Certificate can be taken on its own, because the published price is for all nine months. ⚠ Honest note, and it is why this craft's first Measure dot stays dark: Le Cordon Bleu now names the chef instructors for Spanish Cuisine, headed by Natalia Vázquez. Everywhere else on this map you can look the teacher up before you pay, and here you cannot — ask who will actually be in the room. Checked on cordonbleu.edu, 1 September 2026.",
               "confidence": "high",
               "verify": [
                 "Avant-garde techniques & utensils",
@@ -18135,7 +18028,7 @@ window.ET_ATLAS = {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
               "course": "Classroom courses and online modules — sous-vide and low temperature, foams, sodas and siphon work, spherification, textures and texturizers, liquid nitrogen",
-              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish and he publishes no price for them; English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
+              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish and his 2026 classroom sessions are priced from EUR 380 and listed as sold out; English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
               "etRelationship": true,
               "confidence": "high",
               "verify": [
@@ -19575,18 +19468,28 @@ window.ET_ATLAS = {
           "id": "wine-and-sommellerie--bordeaux",
           "schoolsInfo": [
             {
-              "name": "L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School)",
-              "url": "https://www.ecoleduvindebordeaux.com/en",
-              "course": "Intensive Programme (Grand Cru level)",
-              "blurb": "A seven-day, roughly 60-hour intensive run by the Bordeaux wine council in an 18th-century building in the city centre, combining structured tasting technique with three days travelling through the vineyards.",
-              "confidence": "medium"
-            },
-            {
               "name": "L'Ecole du Vin de Bordeaux (CIVB)",
-              "url": "https://www.ecoleduvindebordeaux.com/en/",
-              "course": "Grands Crus / total-immersion tasting courses with vineyard days",
-              "blurb": "Created in 1989 by the Bordeaux Wine Council (CIVB), the Bordeaux Wine School runs tasting workshops from two hours to multi-day formats, including a Grand Crus-level course that pairs classroom tasting of the 65 appellations with several days of travel through the vineyards.",
-              "confidence": "high"
+              "url": "https://www.ecoleduvindebordeaux.com/en",
+              "course": "Tasting workshops, from 2 hours to a full day",
+              "blurb": "Created in 1989 by the Bordeaux Wine Council (CIVB), the Bordeaux Wine School runs tasting workshops at 3 cours du 30 Juillet in the centre of Bordeaux, from two hours to a nine-hour day, and accredits trainers who teach in more than twenty countries.",
+              "confidence": "high",
+              "facts": {
+                "where": "3 cours du 30 Juillet, Bordeaux",
+                "length": "2 to 9 hours",
+                "price": "€180",
+                "priceNote": "the nine-hour tasting day; shorter workshops cost less",
+                "from": [
+                  "https://www.ecoleduvindebordeaux.com/en/contact-us",
+                  "https://www.ecoleduvindebordeaux.com/fr/ateliers-degustations/degustation-mode-demploi-en-journee"
+                ],
+                "read": "2026-09-17"
+              },
+              "standing": {
+                "state": "course-gone",
+                "what": "The seven-day Grand Cru intensive we listed is not in their catalogue: 19 tasting workshops in French, the longest a nine-hour day, and two in English.",
+                "from": "https://www.ecoleduvindebordeaux.com/fr/ateliers-degustations",
+                "read": "2026-09-17"
+              }
             },
             {
               "name": "INSEEC / OMNES Wine & Spirits Institute",
@@ -19675,11 +19578,15 @@ window.ET_ATLAS = {
               "name": "WSET School London",
               "url": "https://www.wsetglobal.com/wset-school-london",
               "course": "WSET Level 1-4 Award/Diploma in Wines (and spirits, sake, beer)",
-              "blurb": "WSET School London is the flagship teaching centre of the Wine & Spirit Education Trust at the International Wine & Spirit Centre on Bermondsey Street, running the full ladder of WSET wine, spirit, sake and beer qualifications from Level 1 through the Level 4 Diploma.",
+              "blurb": "WSET School London is the flagship teaching centre of the Wine & Spirit Education Trust at the International Wine & Spirit Centre on Bermondsey Street, running the full ladder of WSET wine, spirit, sake and beer qualifications from Level 1 through the Level 4 Diploma. The Trust itself, founded in 1969, is the awarding body behind those qualifications, which are taught in more than 70 countries.",
               "confidence": "high",
               "facts": {
                 "where": "Bermondsey Street, London Bridge",
+                "length": "500 hours of study, normally over 18 months to 3 years (Level 4 Diploma)",
+                "format": "Two semesters; evenings, Mondays, Saturdays, blocks or online",
                 "credential": "WSET qualifications, from Level 1 Awards to the Level 4 Diploma",
+                "price": "£2,900",
+                "priceNote": "Level 4 Diploma, per semester in London, two semesters; online £2,150",
                 "from": [
                   "https://www.wsetglobal.com/wset-school-london/about-wset-school-london/where-we-are",
                   "https://www.wsetglobal.com/wset-school-london"
@@ -19690,33 +19597,6 @@ window.ET_ATLAS = {
                 "count": 23,
                 "of": "wine educators (spirits, sake and beer educators listed separately)",
                 "from": "https://www.wsetglobal.com/wset-school-london/about-wset-school-london/our-educators/wine-educators",
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Wine & Spirit Education Trust (HQ, Bermondsey)",
-              "url": "https://www.wsetglobal.com/",
-              "course": "WSET Level 4 Diploma in Wines",
-              "blurb": "The Wine & Spirit Education Trust, established in 1969 and headquartered at 39-45 Bermondsey Street, London, is the awarding body whose qualifications are taught in 70+ countries, culminating in the Level 4 Diploma in Wines spanning between 18 months and three years.",
-              "confidence": "high",
-              "facts": {
-                "where": "Bermondsey Street, London Bridge",
-                "length": "500 hours of study, normally over 18 months to 3 years",
-                "format": "Two semesters; evenings, Mondays, Saturdays, blocks or online",
-                "credential": "WSET Level 4 Diploma in Wines (DipWSET)",
-                "price": "£2,900",
-                "priceNote": "per semester in London, two semesters; online £2,150",
-                "from": [
-                  "https://www.wsetglobal.com/wset-school-london/about-wset-school-london/where-we-are",
-                  "https://www.wsetglobal.com/qualifications/wset-level-4-diploma-in-wines",
-                  "https://www.wsetglobal.com/wset-school-london/wset-courses/wset-level-4-diploma-in-wines"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "count": 13,
-                "of": "Level 4 Diploma in Wines educators at WSET School London",
-                "from": "https://www.wsetglobal.com/wset-school-london/about-wset-school-london/our-educators/level-4-diploma-in-wines-educators",
                 "read": "2026-09-17"
               }
             },
@@ -19863,7 +19743,13 @@ window.ET_ATLAS = {
               "url": "https://www.ciachef.edu/",
               "course": "Accelerated Wine and Beverage Program (30-week certificate)",
               "blurb": "The CIA's St. Helena campus runs a 30-week Accelerated Wine and Beverage certificate at its Rudd Center for Professional Wine Studies, covering sensory evaluation, cellar management, service, and beverage pairing.",
-              "confidence": "high"
+              "confidence": "high",
+              "standing": {
+                "state": "course-gone",
+                "what": "The CIA's programme finder lists one California certificate, in Accelerated Culinary Arts; the 30-week wine and beverage certificate we listed is not among them.",
+                "from": "https://www.ciachef.edu/programs/?_program_level=certificate&_location=california",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 5,
@@ -19901,7 +19787,9 @@ window.ET_ATLAS = {
             "note": "Two-hour beginner tasting at the same school; no winemaking immersion or Grand Cru-level depth.",
             "confidence": "high"
           }
-        ]
+        ],
+        "withdrawn": true,
+        "withdrawnNote": "The seven-day Grand Cru intensive is no longer in the Bordeaux Wine School's catalogue (read 17 September 2026). No course has been picked in its place."
       },
       "alsoHere": [
         {
@@ -27937,9 +27825,15 @@ window.ET_ATLAS = {
             {
               "name": "Sous Vide Australia (The Upper Room)",
               "url": "https://www.sousvideaustralia.com/",
-              "course": "Public sous-vide and low-temperature workshops (e.g. '101 Sous Vide Workshop for the Chef')",
-              "blurb": "A dedicated recipe-development and teaching space near Melbourne run by chef Dale Prentice (22+ years; ex-exec chef Stones of the Yarra Valley), with public workshops for chefs, apprentices and home cooks. Sous-vide / low-temperature focused rather than the full modernist spectrum.",
-              "confidence": "med"
+              "course": "Learn and Feast: bespoke sous-vide training for venue teams in The Upper Room",
+              "blurb": "A dedicated recipe-development and teaching space near Melbourne run by chef Dale Prentice (22+ years; ex-exec chef Stones of the Yarra Valley), with bespoke training for venue kitchen teams. Sous-vide / low-temperature focused rather than the full modernist spectrum.",
+              "confidence": "med",
+              "standing": {
+                "state": "course-gone",
+                "what": "The Upper Room now hosts bespoke training built for a venue's own team; the public workshops we listed are not on the site.",
+                "from": "https://www.sousvideaustralia.com/learn-and-feast",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 5,
