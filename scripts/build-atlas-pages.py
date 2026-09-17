@@ -1410,6 +1410,8 @@ dl.sfacts dd {{ font-size:14px; line-height:1.45; margin-top:3px; }}
 .snote {{ font-size:12.5px; color:var(--muted); }}
 .sblurb {{ font-size:15px; opacity:.82; max-width:62ch; }}
 .steach {{ font-size:14px; line-height:1.55; max-width:62ch; margin:0 0 12px; }}
+.steach .school-url {{ word-break:normal; white-space:nowrap; }}
+.sfoot .school-url {{ word-break:normal; overflow-wrap:anywhere; }}
 .steachlab {{ display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--faint); margin-bottom:3px; }}
 details.smore {{ margin-top:12px; }}
@@ -2808,6 +2810,11 @@ def school_teachers(s_):
         page = (f' <a class="school-url" rel="nofollow noopener" target="_blank" '
                 f'href="{e(t["from"])}">their teacher page ↗</a>')
         if t.get("groups"):
+            # A blurb that already names every one of them says this row already. Tokyo
+            # Sushi Academy's names its seven instructors; a row under it would be the
+            # redite this card was built to remove.
+            if all(n.split(" (")[0] in (s_.get("blurb") or "") for _, ns in t["groups"] for n in ns):
+                return ""
             body = " · ".join(f'{e(role)}: {e(", ".join(ns))}' for role, ns in t["groups"])
             return f'<p class="steach"><span class="steachlab">Who teaches it</span>{body}.{page}</p>'
         if t.get("count") and t.get("of"):
@@ -2874,7 +2881,28 @@ def school_facts(d, x, s_, is_pick):
             raise SystemExit(f'build-atlas-pages: {s_["name"]!r} carries facts with no '
                              "`from` (the school's own pages) or no `read` (YYYY-MM-DD). "
                              "A fact nobody can check is a badge.")
-        return {k: str(f[k]).strip() for k, _ in SCHOOL_FACT_KEYS if str(f.get(k) or "").strip()}
+        out = {k: str(f[k]).strip() for k, _ in SCHOOL_FACT_KEYS if str(f.get(k) or "").strip()}
+        # ⛔ THE SHAPE IS PART OF THE FACT (17 September 2026, when 237 schools were read at
+        # once). The tags compare these strings, so a length that does not start with a
+        # number, a class size that is not a number, or a price the currency toggle cannot
+        # read would silently fall out of every comparison and the card would still look
+        # finished. Each one stops the build instead.
+        _shape = {
+            "length": (lambda v: _weeks(v) is not None and re.match(r"\d", v), "start with a number and a unit"),
+            "class": (lambda v: re.match(r"\d", v), "start with the number"),
+            # One amount, currency first. A currency the toggle cannot convert (MAD, IDR, KES…)
+            # still prints — as the school wrote it, with no conversion offered.
+            "price": (lambda v: len(v) <= 24 and re.search(r"\d", v) and
+                      (parse_money(v) is not None or re.match(r"^([A-Z]{3}\s?|[₹฿₩₱₫]\s?)\d", v)),
+                      "be one amount with its currency"),
+            "where": (lambda v: len(v) <= 40, "be 40 characters or fewer"),
+        }
+        for k, v in out.items():
+            ok, rule = _shape.get(k, (lambda v: True, ""))
+            if not ok(v) or len(v) > 90:
+                raise SystemExit(f'build-atlas-pages: {s_["name"]!r} fact {k}={v!r} must '
+                                 f'{rule or "be 90 characters or fewer"}.')
+        return out
     if not is_pick:
         return {}
     ft = d.get("featured") or {}
@@ -2891,10 +2919,10 @@ def school_facts(d, x, s_, is_pick):
 def _weeks(text):
     """(shortest, longest) in weeks from "5 weeks", "2 or 3 years", or None."""
     m = re.search(r"(\d+(?:\.\d+)?)(?:\s*(?:or|to|–|-)\s*(\d+(?:\.\d+)?))?\s*-?\s*"
-                  r"(day|week|month|year)s?\b", text or "", re.I)
+                  r"(hour|night|day|week|month|year)s?\b", text or "", re.I)
     if not m:
         return None
-    k = {"day": 1 / 7, "week": 1, "month": 52 / 12, "year": 52}[m.group(3).lower()]
+    k = {"hour": 1 / 168, "night": 1 / 7, "day": 1 / 7, "week": 1, "month": 52 / 12, "year": 52}[m.group(3).lower()]
     lo = float(m.group(1)) * k
     return lo, float(m.group(2) or m.group(1)) * k
 
