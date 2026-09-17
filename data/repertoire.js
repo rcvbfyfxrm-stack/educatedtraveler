@@ -15396,6 +15396,21 @@ window.ET_ATLAS = {
                 "Kumiko"
               ],
               "course": "International Sushi Chef Course (5 weeks)",
+              "facts": {
+               "where": "Tsukiji, Chuo-ku",
+               "length": "5 weeks (25 days)",
+               "format": "Monday to Friday, 9:30am to 3:30pm",
+               "language": "Japanese, with an English interpreter",
+               "class": "16 students at most",
+               "credential": "A certificate from the school",
+               "price": "¥880,000",
+               "priceNote": "tax included",
+               "from": [
+                "https://www.sushischool.jp/en/5weeks-total-course",
+                "https://www.sushischool.jp/en/tsa_faq"
+               ],
+               "read": "2026-09-16"
+              },
               "confidence": "high"
             },
             {
@@ -15406,26 +15421,62 @@ window.ET_ATLAS = {
                 "why": "Too new to have a record, and worth watching for exactly that reason: the teacher who carried Tokyo Sushi Academy's English course has opened her own room, for eight people at a time. Nobody has finished the diploma yet. Go now and you are early — and you are one of the people the next reader gets to ask."
               },
               "course": "Sushi Diploma Course — six weeks, three levels, ending in omakase at the counter",
-              "blurb": "New, and the newest thing on this craft: the operating company was established in June 2026 and the school runs out of Otsuka in Bunkyo-ku. What makes it worth naming this early is who is at the front of it. Hiroko Ishii is principal and representative director, and she was one of the two main instructors of Tokyo Sushi Academy's English course — Tokyo Sushi Academy's own video site names 'Hiro sensei and Hiroko sensei' in that role, and she no longer appears on their instructor page. Her route there ran through food science, French cuisine at Le Cordon Bleu Paris, and nine years in Switzerland cooking sushi and teaching it. The course is six weeks in three two-week levels — knife work and shari, then whole-fish butchery and counter service, then anago, hirame, tsumami and the structure of an omakase; the final exam is serving omakase at the counter, and includes a visit to the Tokyo fish market. English instruction, maximum eight students. 1,200,000 JPY tax included for the six weeks, or 420,000 JPY a level, and they help with the student visa for 10,000 JPY. Honest note: it has been open a matter of months and has no alumni to ask. That is a real risk and the reason it is not our pick — but a named teacher with that lineage, in English, in a room of eight, is the strongest new thing on this craft. Checked on jcma.tokyo, 2 September 2026.",
+              "blurb": "New, and the newest thing on this craft: the operating company was established in June 2026 and the school runs out of Otsuka in Bunkyo-ku. What makes it worth naming this early is who is at the front of it. Hiroko Ishii is principal and representative director, and she was one of the two main instructors of Tokyo Sushi Academy's English course — Tokyo Sushi Academy's own video site names 'Hiro sensei and Hiroko sensei' in that role, and she no longer appears on their instructor page. Her route there ran through food science, French cuisine at Le Cordon Bleu Paris, and nine years in Switzerland cooking sushi and teaching it. The three levels are knife work and shari, then whole-fish butchery and counter service, then anago, hirame, tsumami and the structure of an omakase; the final exam is serving omakase at the counter, and includes a visit to the Tokyo fish market. They help with the student visa for 10,000 JPY. Honest note: it has been open a matter of months and has no alumni to ask. That is a real risk and the reason it is not our pick — but a named teacher with that lineage, in English, in a room of eight, is the strongest new thing on this craft. Checked on jcma.tokyo, 2 September 2026.",
               "verify": [
                 "Hiroko Ishii",
                 "Max 8 Students",
                 "English Instruction"
               ],
+              "facts": {
+               "where": "Otsuka, Bunkyo-ku",
+               "length": "6 weeks, in three 2-week levels",
+               "language": "English",
+               "class": "8 students at most",
+               "credential": "Diploma in Professional Sushi Arts",
+               "price": "¥1,200,000",
+               "priceNote": "tax included, or ¥420,000 a level",
+               "from": [
+                "https://jcma.tokyo"
+               ],
+               "read": "2026-09-16"
+              },
               "confidence": "high"
             },
             {
               "name": "Tokyo College of Sushi & Washoku",
               "url": "https://www.sushi-tokyo.jp/foreigner_en",
-              "course": "Washoku & Sushi Chef Course (2 years) / Advanced Chef Course",
-              "blurb": "Tokyo vocational college near Toyosu teaching Edo-mae nigiri and washoku, with multi-year Washoku & Sushi Chef and Advanced Chef courses leading to the government-issued Washoku Chef license.",
+              "course": "Sushi and Washoku Course (2 years) / Sushi and Washoku Advanced Course (3 years)",
+              "blurb": "A cooking college built around sushi and washoku: traditional Edo-mae nigiri and the course cooking of a Japanese restaurant, and in the third year what it takes to open one. International students apply for the April intake. Checked on sushi-tokyo.jp, 16 September 2026.",
+              "verify": ["Sushi and Washoku Course (2 years)", "Sushi and Washoku Advanced Course (3 years)"],
+              "facts": {
+               "where": "Ikejiri, Setagaya-ku",
+               "length": "2 or 3 years",
+               "language": "Japanese: entry asks for proven Japanese and an interview in Japanese",
+               "credential": "Aims at the national cook's licence (調理師免許)",
+               "price": "¥1,600,000",
+               "priceNote": "first year, entrance fee included; ¥1,500,000 a year after, plus materials",
+               "from": [
+                "https://www.sushi-tokyo.jp/foreigner_en",
+                "https://www.sushi-tokyo.jp/guidance_en"
+               ],
+               "read": "2026-09-16"
+              },
               "confidence": "high"
             },
             {
               "name": "Tsuji Culinary Institute (Tokyo)",
               "url": "https://www.tsuji.ac.jp/en/college/tokyo/",
-              "course": "Japanese Culinary Course",
-              "blurb": "Tokyo campus of the Tsujicho Group culinary institute offering a Japanese cuisine course covering core washoku skills including sushi and tempura preparation.",
+              "course": "Culinary Arts Course (1 year) / Applied Culinary Arts and Management Course (2 years)",
+              "blurb": "The Tsujicho Group's Tokyo school, opened in April 2024. It is a general culinary college: Western, Japanese and Chinese cooking, pastry, wagashi and bread, so Japanese cuisine is one genre of six rather than the whole course. Its graduates can go on to the group's French campus near Lyon. Checked on tsuji.ac.jp, 16 September 2026.",
+              "facts": {
+               "where": "Koganei, western Tokyo",
+               "length": "1 or 2 years",
+               "from": [
+                "https://www.tsuji.ac.jp/en/college/tokyo/",
+                "https://www.tsuji.ac.jp/"
+               ],
+               "read": "2026-09-16"
+              },
               "confidence": "high"
             }
           ],
@@ -15584,9 +15635,9 @@ window.ET_ATLAS = {
         "school": "Tokyo Sushi Academy",
         "url": "https://www.sushischool.jp/en/5weeks-total-course",
         "course": "International Sushi Chef Course (5 weeks)",
-        "description": "Japan's first sushi school and the only one teaching professionals in English, Tokyo Sushi Academy runs an intensive five-week course centered on edomae nigiri: shari (sushi rice) preparation, fish cleaning and filleting, sashimi cutting, rolled sushi, and omakase service, with repeated hands-on practice. Students also learn Japanese knife use and maintenance and food-hygiene management. It is built for career-changers and aspiring professional sushi chefs.",
+        "description": "Japan's first sushi school, Tokyo Sushi Academy runs an intensive five-week course centered on edomae nigiri: shari (sushi rice) preparation, fish cleaning and filleting, sashimi cutting, rolled sushi, and omakase service, with repeated hands-on practice. Students also learn Japanese knife use and maintenance and food-hygiene management. It is built for career-changers and aspiring professional sushi chefs.",
         "duration": "5 weeks, intensive",
-        "format": "Full-time, in-person, hands-on, taught in English",
+        "format": "Full-time, in-person, hands-on, taught in Japanese with an English interpreter",
         "certification": "Tokyo Sushi Academy course completion certificate (school certificate; not a government Chorishi license)",
         "fitsBecause": "A full-time, hands-on edomae sushi immersion in Tokyo, taught to professionals in English at the city's pioneering sushi school.",
         "sessions": [],

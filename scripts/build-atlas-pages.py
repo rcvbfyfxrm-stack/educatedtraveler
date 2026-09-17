@@ -1390,6 +1390,37 @@ ul.clean {{ list-style:none; }} ul.clean li {{ padding:10px 0; border-bottom:1px
   border:1px solid var(--line); margin:2px 0 8px 14px; shape-outside:inset(0 round 10px); }}
 @media (max-width:560px) {{ .schoolshot {{ width:66px; height:66px; margin-left:11px; }} }}
 ul.clean li:last-child {{ border-bottom:none; }}
+/* A school is a card, like a place (16 Sept 2026). One column, full spine, the same
+   ground and radius as a place card, so the two read as the same kind of thing. */
+ul.schools {{ list-style:none; display:grid; gap:14px; }}
+li.school {{ background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; }}
+li.school .stags {{ margin:0 0 10px; }}
+.stag {{ display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
+  text-transform:uppercase; border:1px solid var(--line); border-radius:6px; padding:3px 9px; margin:0 6px 6px 0;
+  color:var(--muted); }}
+.stag.gold {{ color:#14110d; font-weight:600; border-color:transparent; background:linear-gradient(135deg,#d28a52,#e0a877); }}
+.stag.ember {{ color:var(--ember); border-color:rgba(210,138,82,.45); }}
+.stag.sea {{ color:var(--sea); border-color:rgba(127,168,165,.4); }}
+.sname {{ font-family:'Fraunces',Georgia,serif; font-weight:400; font-size:24px; line-height:1.24; margin:2px 0 4px; }}
+.scourse {{ font-size:15px; color:var(--sea); margin:0 0 14px; max-width:62ch; }}
+dl.sfacts {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px 18px;
+  margin:0 0 16px; padding:14px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }}
+dl.sfacts dt {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); }}
+dl.sfacts dd {{ font-size:14px; line-height:1.45; margin-top:3px; }}
+.snote {{ font-size:12.5px; color:var(--muted); }}
+.sblurb {{ font-size:15px; opacity:.82; max-width:62ch; }}
+details.smore {{ margin-top:12px; }}
+details.smore > summary {{ cursor:pointer; list-style:none; font-family:'IBM Plex Mono',monospace; font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--sea); }}
+details.smore > summary::-webkit-details-marker {{ display:none; }}
+details.smore > summary::before {{ content:"+ "; }}
+details.smore[open] > summary::before {{ content:"− "; }}
+details.smore > p {{ font-size:14.5px; opacity:.82; max-width:62ch; margin-top:10px; }}
+.sfoot {{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 20px; margin-top:16px; }}
+.svisit {{ font-size:14px; }}
+.srate {{ font-size:13px; color:var(--muted); }}
+.sread {{ font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); margin-top:12px; }}
+@media (max-width:560px) {{ li.school {{ padding:18px 18px; }} dl.sfacts {{ grid-template-columns:1fr 1fr; }} }}
 .school-url {{ font-size:13px; color:var(--sea); text-decoration:none; word-break:break-all; }} .school-url:hover {{ text-decoration:underline; }}
 .cta {{ display:inline-block; margin-top:18px; padding:13px 26px; border-radius:99px; text-decoration:none; color:var(--ink2); font-size:14px; font-weight:400; background:linear-gradient(135deg,var(--sea) 0%,var(--ember) 130%); }}
 .cta:hover {{ opacity:.92; }}
@@ -2494,7 +2525,10 @@ def dest_card(d, x, link=True, is_best=False, href=None, on_page=False):
             # sentence directly under it is the shape every other judgement on this map
             # already uses, and the one the pill has been missing since the beginning.
             f'{community_line(x)}'
-            f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>{note}{badges}'
+            # link=False is the place's own page, whose hero lead IS this sentence, two
+            # centimetres higher. Printed twice on every place page until 16 Sept 2026.
+            + (f'<p style="opacity:.82;margin-bottom:12px">{e(x["why"])}</p>' if link else "")
+            + f'{note}{badges}'
             + (f'{with_whom(d, x)}{sheet_link(d, x, href=href, on_page=on_page)}' if link else "")
             + f'{check_line(x)}{credit}</div>')
 
@@ -2701,9 +2735,11 @@ SCHOOL_TAGS = (
     "Rising star",
     "We work together",
     "Read and corrected by the school",
-    "Publicly rated",
     "Photographs from the school",
     "Provisional, verifying",
+    # What this school is, next to the others in the same town — see school_labels().
+    "Taught in English", "Smallest class here", "Shortest course here",
+    "Longest training here", "Aims at a national licence",
 )
 
 
@@ -2737,8 +2773,8 @@ def school_tags(d, x, s_, page_id):
     _rv = REVIEWED.get(page_id) or {}
     if (_rv.get("school") or "").strip().lower() == s_["name"].strip().lower():
         out.append("Read and corrected by the school")
-    if s_.get("rating") and s_.get("ratingSource"):
-        out.append("Publicly rated")
+    # ⚠ "Publicly rated" came off, 16 September 2026: the card prints the rating itself
+    # two centimetres below, so the chip was the same fact said twice.
     if (s_.get("photos") or {}).get("items"):
         out.append("Photographs from the school")
     if s_.get("confidence") == "low" and not is_pick:
@@ -2770,12 +2806,141 @@ def school_teachers(s_):
     return ""
 
 
-def school_card(d, x, s_, page_id):
-    """One school, closed by default, everything that is its own inside it."""
+# ---------- a school is a card, like a place (16 September 2026) ----------
+# Arnaud, on the Tokyo sheet: "present the schools for each place of each skill like the
+# places cards … dont make it repetitive like it is now quoting school twice etc.. put
+# both at the same and each with its uniqueness tags, and informations."
+#
+# What the fold did wrong, measured on that page: the pick printed FOUR descriptions of
+# one school (its blurb, "why this school", the course description and a fit line, three
+# of them saying "Japan's first sushi school"), its address twice (a Visit link and a
+# Contact link), and its teachers three times (the blurb, "their own page says", and the
+# town's names below). The other three schools were a name and one grey line. So:
+#
+#   · every school is the same open card, at the same size, in the same order of parts;
+#   · the facts a reader compares on — where, how long, in what language, how many in
+#     the room, what you leave with, what it costs — sit in one labelled row, and a fact
+#     that is IDENTICAL on every school in the town is dropped (the comparison table's
+#     law: a column that never differs is not a comparison);
+#   · what makes a school unlike the others in its town is a TAG, allocated from those
+#     facts and only when exactly one school holds it — never typed by hand;
+#   · the prose is printed once. The fit line and "why this school" came off the card:
+#     the facts row now says what they summarised. The course's own description stays,
+#     one click down, because it is the only place the syllabus is written.
+#
+# ⛔ A FACT CARRIES THE PAGE IT WAS READ ON AND THE DAY. `facts.from` + `facts.read`, or
+# the build stops — a chip with no source is a badge, and this map does not award badges.
+SCHOOL_FACT_KEYS = (
+    ("where", "Where"), ("length", "How long"), ("format", "Format"),
+    ("language", "Taught in"), ("class", "Class size"), ("credential", "You leave with"),
+    ("price", "Price"),
+)
+_FACT_META = {"priceNote", "read", "from"}
+
+
+def school_facts(d, x, s_, is_pick):
+    """{key: text} for one school. Its own `facts` first; the pick falls back to the
+    featured course, which is the same record the old fold printed as chips."""
+    f = s_.get("facts") or {}
+    if f:
+        bad = set(f) - {k for k, _ in SCHOOL_FACT_KEYS} - _FACT_META
+        if bad:
+            raise SystemExit(f'build-atlas-pages: {s_["name"]!r} has facts the card cannot '
+                             f'label: {sorted(bad)}. The keys are SCHOOL_FACT_KEYS, closed.')
+        if not (re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(f.get("read", ""))) and f.get("from")):
+            raise SystemExit(f'build-atlas-pages: {s_["name"]!r} carries facts with no '
+                             "`from` (the school's own pages) or no `read` (YYYY-MM-DD). "
+                             "A fact nobody can check is a badge.")
+        return {k: str(f[k]).strip() for k, _ in SCHOOL_FACT_KEYS if str(f.get(k) or "").strip()}
+    if not is_pick:
+        return {}
+    ft = d.get("featured") or {}
+    out = {}
+    if ft.get("duration"):
+        out["length"] = ft["duration"]
+    if ft.get("format"):
+        out["format"] = ft["format"]
+    if ft.get("certification") not in (None, "", "—"):
+        out["credential"] = ft["certification"]
+    return out
+
+
+def _weeks(text):
+    """(shortest, longest) in weeks from "5 weeks", "2 or 3 years", or None."""
+    m = re.search(r"(\d+(?:\.\d+)?)(?:\s*(?:or|to|–|-)\s*(\d+(?:\.\d+)?))?\s*-?\s*"
+                  r"(day|week|month|year)s?\b", text or "", re.I)
+    if not m:
+        return None
+    k = {"day": 1 / 7, "week": 1, "month": 52 / 12, "year": 52}[m.group(3).lower()]
+    lo = float(m.group(1)) * k
+    return lo, float(m.group(2) or m.group(1)) * k
+
+
+_SCHOOL_LABEL_RULES = (
+    # name, value of a school (None = does not publish it), holder test over all values
+    ("Taught in English",
+     lambda fa: (fa.get("language") or None) and bool(re.match(r"english\b", fa["language"], re.I)),
+     lambda v, vals: v is True and any(o is False for o in vals)),
+    ("Smallest class here",
+     lambda fa: int(m.group(0)) if (m := re.search(r"\d+", fa.get("class") or "")) else None,
+     lambda v, vals: v == min(o for o in vals if o is not None)),
+    ("Shortest course here",
+     lambda fa: (w[0] if (w := _weeks(fa.get("length"))) else None),
+     lambda v, vals: v == min(o for o in vals if o is not None)),
+    ("Longest training here",
+     lambda fa: (w[1] if (w := _weeks(fa.get("length"))) else None),
+     lambda v, vals: v == max(o for o in vals if o is not None)),
+    ("Aims at a national licence",
+     lambda fa: (fa.get("credential") or None) and bool(re.search(r"licen[cs]e", fa["credential"], re.I)),
+     lambda v, vals: v is True and any(o is False for o in vals)),
+)
+
+
+def school_labels(facts_by_school):
+    """{school name: [labels]}. A label goes to a school only when it is the ONE school in
+    this town it is true of, and at least two schools publish the fact it is read from —
+    "smallest class" against nobody is not a comparison."""
+    out = {n: [] for n in facts_by_school}
+    for name, value, holds in _SCHOOL_LABEL_RULES:
+        vals = {n: value(fa) for n, fa in facts_by_school.items()}
+        known = [v for v in vals.values() if v is not None]
+        if len(known) < 2:
+            continue
+        holders = [n for n, v in vals.items() if v is not None and holds(v, known)]
+        if len(holders) == 1:
+            out[holders[0]].append(name)
+    return out
+
+
+def distinct_facts(facts_by_school):
+    """Drop, from every card, a fact that reads the same on every school in the town."""
+    if len(facts_by_school) < 2:
+        return facts_by_school
+    for key, _ in SCHOOL_FACT_KEYS:
+        vals = [fa.get(key) for fa in facts_by_school.values()]
+        if all(vals) and len({v.strip().lower() for v in vals}) == 1:
+            for fa in facts_by_school.values():
+                fa.pop(key, None)
+    return facts_by_school
+
+
+def school_card(d, x, s_, page_id, facts=None, labels=()):
+    """One school, open, the same shape as every other school on the page."""
     tags, is_pick = school_tags(d, x, s_, page_id)
-    chips = "".join(
-        f'<span class="badge" style="{"color:#f0c27a;border-color:rgba(240,194,122,.42)" if t.startswith("Best course") else ""}">'
-        f'{"★ " if t.startswith("Best course") else ""}{e(t)}</span>' for t in tags)
+    tags = tags + [t for t in labels if t not in tags]
+    for t in tags:
+        if t not in SCHOOL_TAGS:
+            raise SystemExit(f"build-atlas-pages: {s_['name']!r} drew a tag outside SCHOOL_TAGS: {t!r}.")
+
+    def _chip(t):
+        if t.startswith("Best course"):
+            return f'<span class="stag gold">★ {e(t)}</span>'
+        if t == "Rising star":
+            return f'<span class="stag ember">{e(t)}</span>'
+        if t in _SCHOOL_LABELS:
+            return f'<span class="stag sea">{e(t)}</span>'
+        return f'<span class="stag">{e(t)}</span>'
+    chips = "".join(_chip(t) for t in tags)
 
     _sh = (s_.get("photos") or {})
     _thumb = ((_sh.get("thumb") or "").strip() or ((_sh.get("items") or [{}])[0].get("src", "")))
@@ -2787,40 +2952,98 @@ def school_card(d, x, s_, page_id):
         shot = (f'<img class="schoolshot" src="{e(_thumb)}" alt="{e(_alt)}" '
                 f'width="150" height="150" loading="lazy" decoding="async">')
 
-    head = (f'{shot}<strong style="font-weight:500">{e(s_["name"])}</strong>'
-            + (f'<div style="margin-top:6px">{chips}</div>' if chips else "")
-            + (f'<div class="meta" style="margin-top:6px">{e(s_["course"])}</div>' if s_.get("course") else ""))
+    facts = dict(facts if facts is not None else school_facts(d, x, s_, is_pick))
+    ft = d.get("featured") or {}
+    own = s_.get("facts") or {}
+    # The price: the school's own fact, or the pick's "from" — never "price on request",
+    # which is a claim about the school we did not check.
+    price_html = ""
+    if facts.get("price"):
+        price_html = money_html(facts.pop("price"))
+        if own.get("priceNote"):
+            price_html += f' <span class="snote">{e(own["priceNote"])}</span>'
+    elif is_pick and (ps := price_start(ft)) and ps != "Donation-based":
+        price_html = ("about " if price_is_approx(ft) else "from ") + money_html(ps)
+    elif is_pick and ps == "Donation-based":
+        price_html = "Donation-based"
+    cells = "".join(f'<div><dt>{lab}</dt><dd>{e(facts[k])}</dd></div>'
+                    for k, lab in SCHOOL_FACT_KEYS if facts.get(k))
+    if price_html:
+        cells += f'<div><dt>Price</dt><dd>{price_html}</dd></div>'
+    facts_html = f'<dl class="sfacts">{cells}</dl>' if cells else ""
 
-    body = (f'<p style="font-size:14.5px;opacity:.82;margin:0 0 12px;max-width:70ch">{e(s_["blurb"])}</p>'
-            if s_.get("blurb") else "")
-    body += school_teachers(s_)
+    blurb = f'<p class="sblurb">{e(s_["blurb"])}</p>' if s_.get("blurb") else ""
+    teachers = school_teachers(s_)
+
+    more = ""
     if is_pick:
-        # "Why this school" and the whole shape of the course belong to the one school
-        # they were written about, behind its own click.
-        body += rating_block(d, x, wrap=False)
-        body += featured_block(d, x, wrap=False)
-    if s_.get("rating"):
-        rcnt = f' · {s_["ratingCount"]} reviews' if s_.get("ratingCount") else ""
-        rurl = s_.get("ratingUrl") or s_.get("url")
-        src = s_.get("ratingSource", "")
-        cited = (f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(rurl)}">{e(src)} ↗</a>'
-                 if rurl else e(src))
-        body += (f'<div class="meta" style="margin-top:10px"><span class="dots">★</span> '
-                 f'<strong style="font-weight:500">{e(str(s_["rating"]))}/5</strong>{e(rcnt)} on {cited} '
-                 f'<span style="opacity:.7">— verify it yourself</span></div>')
-    if s_.get("verify"):
-        _v = s_["verify"] if isinstance(s_["verify"], list) else [s_["verify"]]
-        body += ('<p class="meta" style="margin-top:10px">Their own page says: '
-                 + " · ".join(f'&ldquo;{e(str(t))}&rdquo;' for t in _v) + "</p>")
-    body += photo_block(x, only=s_)
-    if s_.get("url"):
-        body += ('<div class="mono" style="margin-top:14px">Contact</div>'
-                 f'<div style="margin-top:6px"><a class="school-url" rel="nofollow noopener" '
-                 f'target="_blank" href="{e(s_["url"])}">{e(s_["url"])}</a></div>')
+        _future, _gone = future_sessions(ft)
+        sessions = ("" if not (_future or _gone) else
+                    '<p class="meta" style="margin-top:8px">'
+                    + ("Next sessions: " + e(" · ".join(_future[:4])) if _future else
+                       "The dates we hold for this one have all run. Ask the school for the "
+                       "next intake — and tell me what they say.") + "</p>")
+        body = (f'<p>{e(ft["description"])}</p>' if ft.get("description") else "") + sessions + alts_block(ft)
+        if body:
+            more += f'<details class="smore"><summary>What the course covers</summary>{body}</details>'
+    photos = photo_block(x, only=s_)
+    if photos:
+        more += f'<details class="smore"><summary>Photographs from the school</summary>{photos}</details>'
 
-    return (f'<li data-school="{e(s_["name"])}" data-craft="{e(d["id"])}" data-dest="{e(x["id"])}">'
-            f'<details class="fold"><summary>{head}</summary>'
-            f'<div class="foldbody">{body}</div></details></li>')
+    # The rating: the school's own, or the pick's cited sources. One line, never a section.
+    rates = []
+    if s_.get("rating"):
+        rurl = s_.get("ratingUrl") or s_.get("url")
+        rates.append((s_["rating"], s_.get("ratingCount"), s_.get("ratingSource", ""), rurl))
+    if is_pick:
+        r = RATINGS.get(d["id"]) or {}
+        if r.get("destId") == x["id"]:
+            srcs = r.get("sources")
+            if srcs is None:
+                srcs = ([{"source": r["source"], "stars": r["stars"], "count": r.get("count"), "url": r["url"]}]
+                        if r.get("stars") and r.get("url") and _clean_source(r.get("source")) else [])
+            rates += [(s["stars"], s.get("count"), s["source"], s["url"])
+                      for s in srcs if s.get("stars") and s.get("url")]
+    rating_html = "".join(
+        f'<span class="srate"><span class="dots">★</span> {e(str(st))}/5'
+        f'{f" · {e(str(c))} reviews" if c else ""} on '
+        + (f'<a class="school-url" rel="nofollow noopener" target="_blank" href="{e(u)}">{e(src)} ↗</a>' if u else e(src))
+        + "</span>" for st, c, src, u in rates)
+
+    # ONE address. The pick links its course page, where you would book; every other
+    # school its own url.
+    href = (ft.get("url") if is_pick and ft.get("url") else s_.get("url"))
+    visit = (f'<a class="school-url svisit" rel="nofollow noopener" target="_blank" href="{e(href)}">'
+             f'Visit {e(s_["name"])} ↗</a>') if href else ""
+    foot = (f'<div class="sfoot">{visit}{rating_html}</div>' if (visit or rating_html) else "")
+    read = (f'<p class="sread">Facts read on the school\'s own pages, {e(pretty_date(own["read"]))}.</p>'
+            if own.get("read") else "")
+
+    return (f'<li class="school" data-school="{e(s_["name"])}" data-craft="{e(d["id"])}" data-dest="{e(x["id"])}">'
+            + (f'<div class="stags">{chips}</div>' if chips else "")
+            + f'<h3 class="sname">{shot}{e(s_["name"])}</h3>'
+            + (f'<div class="scourse">{e(s_["course"])}</div>' if s_.get("course") else "")
+            + f'{facts_html}{teachers}{blurb}{more}{foot}{read}</li>')
+
+
+_SCHOOL_LABELS = {r[0] for r in _SCHOOL_LABEL_RULES}
+
+
+def schools_list(d, x):
+    """The schools of one town as cards: the pick first, then the record's own order."""
+    seen, schools = set(), []
+    for s in x.get("schoolsInfo", []) or [{"name": n} for n in x["schools"]]:
+        if s["name"].lower() in seen:
+            continue
+        seen.add(s["name"].lower())
+        schools.append(s)
+    picks = [s for s in schools if school_tags(d, x, s, x["id"])[1]]
+    schools = picks + [s for s in schools if s not in picks]
+    facts = distinct_facts({s["name"]: school_facts(d, x, s, s in picks) for s in schools})
+    labels = school_labels(facts)
+    return schools, [school_card(d, x, s, x["id"], facts=facts[s["name"]], labels=labels[s["name"]])
+                     for s in schools]
+
 
 # ---------- the place intro: the town, not the craft ----------
 # Arnaud, 13 September 2026, on the gastronomy ranking: "when talking about a place, a
@@ -3091,13 +3314,7 @@ for d in DISC:
         urls.append(path)
 
         schools_html = ""
-        infos = {s["name"]: s for s in x.get("schoolsInfo", [])}
-        rows = []
-        seen = set()
-        for s in x.get("schoolsInfo", []) or [{"name": n} for n in x["schools"]]:
-            if s["name"].lower() in seen: continue
-            seen.add(s["name"].lower())
-            rows.append(school_card(d, x, s, x["id"]))
+        _schools, rows = schools_list(d, x)
         if rows:
             feat = d.get("featured") or {}
             if feat.get("confidence") == "low":
@@ -3113,9 +3330,9 @@ for d in DISC:
                          "you can book, and nothing here paid to be listed.</p>")
                 schools_html = ('<section><div class="wrap"><div class="mono">What is actually there</div>'
                                 f'<h2>On the site today</h2>{vnote}'
-                                f'<ul class="clean">{"".join(rows)}</ul></div></section>')
+                                f'<ul class="schools">{"".join(rows)}</ul></div></section>')
             else:
-                schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="clean">{"".join(rows)}</ul></div></section>'
+                schools_html = f'<section><div class="wrap"><div class="mono">Where it is taught — hand-verified</div><h2>Schools in {e(x["place"])}</h2>{vnote}<ul class="schools">{"".join(rows)}</ul></div></section>'
 
         # Two questions, two sections. A destination with a lineage and no living teacher
         # now says exactly that, instead of printing a dead man under a heading the reader
@@ -3151,12 +3368,21 @@ for d in DISC:
                             + "".join(f"<li>{e(m)}</li>" for m in lin)
                             + f'</ul><p class="meta" style="margin-top:10px">{tailnote}</p>')
         masters_html = ""
-        if not x["masters"] and lineage_html:
+        # ⛔ A NAME A SCHOOL CARD ALREADY PRINTS IS NOT PRINTED AGAIN (16 September 2026).
+        # Tokyo listed its four teachers under "The people this craft is known by here"
+        # directly below the two cards that name all four, with their rooms. The name is
+        # not deleted — it is on the card, on this page, attached to the school it teaches
+        # at, which is more than the list could say. Only the unplaced ones stay listed.
+        # Read off the cards as drawn — blurb, course, photo credits and all — so what is
+        # tested is what a reader sees, not the fields it was drawn from.
+        _on_cards = html.unescape(re.sub(r"<[^>]+>", " ", "".join(rows)))
+        town_names = [m for m in x["masters"] if m not in _on_cards]
+        if not town_names and lineage_html:
             masters_html = ('<section><div class="wrap"><div class="mono">Named in this town</div>'
                             f'<h2>Where this craft came through here</h2>{lineage_html}'
                             "</div></section>")
             lineage_html = ""
-        if x["masters"]:
+        if town_names:
             # On a closed page these are the people the craft came from, and the heading
             # has to say so: "Masters & lineage" on a page with no teaching reads as a
             # staff list.
@@ -3170,7 +3396,7 @@ for d in DISC:
                         "teachers — nobody on this list teaches here.</p>")
             masters_html = (f'<section><div class="wrap"><div class="mono">{head[0]}</div>'
                             f'<h2>{head[1]}</h2><ul class="clean">'
-                            + "".join(f"<li>{e(m)}</li>" for m in x["masters"])
+                            + "".join(f"<li>{e(m)}</li>" for m in town_names)
                             + f"</ul>{tail}{lineage_html}</div></section>")
 
         siblings = [s for s in d["destinations"] if s["id"] != x["id"]]

@@ -41,6 +41,9 @@ still looks finished, and is wrong. That is the failure mode this file exists fo
       by name and with the day it read it. The record lives in one JSON key and the
       page is regenerated nightly; a block that silently stops rendering would leave
       us quietly taking the credit for a correction somebody else made.
+  21. a place page says each thing once: every school is an open card with its own
+      heading, the place's reason to go prints once, and a name a school card already
+      carries is not listed again under the town's names.
   14. the skill ladder and the coverage ticks actually reach the page — the rungs
      and the circles counted off the built HTML against the data they came from,
      because a block that renders its heading and drops its list is the failure
@@ -815,6 +818,45 @@ for _did, _pi in sorted(_intros.items()):
 if _intros and not _seen20:
     bad(f"check 20 inspected none of the {len(_intros)} published place intro(s) — "
         f"it is blind, not passing. Look for {atlas_hub.PLACE_INTRO_MARK!r} in place_intro().")
+
+# ── 21. a place page says each thing once ─────────────────────────────────
+# Arnaud, 16 September 2026, on the Tokyo sheet: "dont make it repetitive like it is now
+# quoting school twice etc." What had repeated, and what this reads off the BUILT page:
+#   · a school was a fold, and the pick's fold printed four descriptions of it — a school
+#     is now an open card (li.school) and never sits inside a <details>;
+#   · the place's `why` printed as the hero's lead AND inside the place card below it;
+#   · a teacher named on a school card was listed again under the town's names.
+_seen21 = 0
+for _p21 in sorted((ROOT / "website/atlas").glob("*--*.html")):
+    _h21 = _p21.read_text()
+    if "data-dest=" not in _h21:
+        continue
+    _seen21 += 1
+    _body21 = re.sub(r"<script\b.*?</script>", "", _h21.split("<body", 1)[-1], flags=re.S)
+    _lis = re.findall(r"<li\b[^>]*\bdata-school=\"([^\"]*)\"[^>]*>", _body21)
+    for _tag in re.findall(r"<li\b[^>]*\bdata-school=[^>]*>", _body21):
+        if 'class="school"' not in _tag:
+            bad(f"{_p21.name}: a school is listed as something other than a card: {_tag[:90]}")
+    if re.search(r"<details[^>]*>\s*<summary>\s*<strong[^>]*>", _body21) and _lis:
+        bad(f"{_p21.name}: a school is folded again — the card is open by design (check 21)")
+    for _n in set(_lis):
+        _heads = _body21.count(f'<h3 class="sname">{_n}</h3>') + len(
+            re.findall(r'<h3 class="sname"><img[^>]*>' + re.escape(_n) + "</h3>", _body21))
+        if _heads != 1:
+            bad(f"{_p21.name}: {html_mod.unescape(_n)!r} is headed {_heads} times, not once")
+    _lead = re.search(r'<p class="lead">(.*?)</p>', _body21, re.S)
+    if _lead and _body21.count(_lead.group(1)) != 1:
+        bad(f"{_p21.name}: the place's reason to go prints {_body21.count(_lead.group(1))} times")
+    _town = re.search(r"The people this craft is known by here</h2><ul class=\"clean\">(.*?)</ul>", _body21, re.S)
+    if _town:
+        _cards21 = "".join(re.findall(r'<li class="school".*?</li>(?=<li class="school"|</ul>)', _body21, re.S))
+        for _m21 in re.findall(r"<li>(.*?)</li>", _town.group(1)):
+            if _m21 in _cards21:
+                bad(f"{_p21.name}: {html_mod.unescape(_m21)!r} is on a school card and listed again "
+                    "under the town's names")
+if not _seen21:
+    bad("check 21 inspected no place page — it is blind, not passing. Look for data-dest= "
+        "on the school cards in build-atlas-pages.school_card().")
 
 # ── verdict ────────────────────────────────────────────────────────────────
 if fails:
