@@ -347,7 +347,8 @@
     "rock-climbing--kalymnos": "Learn to lead outdoors on an island with 4,216 bolted routes on it",
     "surfing--canggu-and-uluwatu-bali": "Learn where most of the world's beginners stand up, and stay for the reefs",
     "surfing--taghazout-and-tamraght": "Learn through the winter, three hours from Europe, with people from the village",
-    "french-pastry-and-patisserie--barcelona": "Learn modern pastry in English, ten days at the bench, in the city whose pastry guild has run its own school for fifty years."
+    "french-pastry-and-patisserie--barcelona": "Learn modern pastry in English, ten days at the bench, in the city whose pastry guild has run its own school for fifty years.",
+    "safari-and-wildlife-guiding--zululand-hluhluwe-imfolozi": "Learn to guide on foot in the wilderness where the walking trail was invented, and qualify on the same ground."
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
@@ -1153,14 +1154,14 @@
       "date": "5 September 2026"
     },
     "safari-and-wildlife-guiding": {
-      "dots": 3,
-      "verdict": "The longest courses on this map, on ground owned by the people who live on it — and not one trainer named across three countries",
+      "dots": 4,
+      "verdict": "The longest courses on this map, on ground owned by the people who live on it — and the school we send you to does name the people who teach them",
       "state": "researched, not checked",
       "conditions": [
         {
           "n": "Is there a teacher, and can we name them?",
-          "on": false,
-          "t": "Empty in all three places. EcoTraining, Bhejane and Nature Guide Training all run FGASA-accredited courses and none of them names an instructor on this page; the Koiyaki Guiding School, which trains young Maasai in their own conservancy, names nobody either. In a craft where you learn to walk up on dangerous game, who is carrying the rifle beside you is not a detail. Ask for the name and the trails-guide qualification of the person leading your walks."
+          "on": true,
+          "t": "EcoTraining — the school this craft recommends, and so the one that has to answer — names its instructors on its own Meet the Team page, twelve of them, read 17 September 2026. Nature Guide Training names Lee Gutteridge, its owner and trainer. African Guide Academy names four trainers in the Okavango. Two rooms still name nobody: Bhejane in Zululand and the Koiyaki Guiding School, which trains young Maasai in their own conservancy. In a craft where you learn to walk up on dangerous game, who is carrying the rifle beside you is not a detail — ask for the name and the trails-guide qualification of whoever leads your walks."
         },
         {
           "n": "Can a stranger get in, on a date you can book?",
@@ -1191,9 +1192,9 @@
         }
       ],
       "ceilingNote": "All five are reachable here: this craft cannot be taught anywhere but on this ground, so one course could answer the last one.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been on any of these courses. The fourth answer is the Maasai Mara Wildlife Conservancies Association's own membership page, read 4 September 2026; the Makuleke settlement is South African public record from 1998 and is stated without a link because the judgment's host refused the page on both days of reading.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been on any of these courses. The fourth answer is the Maasai Mara Wildlife Conservancies Association's own membership page, read 4 September 2026; the Makuleke settlement is South African public record from 1998 and is stated without a link because the judgment's host refused the page on both days of reading. Amended 18 September 2026, and the first answer changed from no to yes: when this was signed on 5 September none of these schools named an instructor, and three of them do now — EcoTraining twelve, Nature Guide Training its owner, African Guide Academy four — read on their own pages on 17 September 2026. The verdict line said 'not one trainer named across three countries' and that is no longer true. A fourth place was added the same week: Zululand, where the walking trail was invented and where the one school named nobody.",
       "checker": "Arnaud Callier",
-      "date": "5 September 2026"
+      "date": "18 September 2026"
     },
     "sailing-and-yachtmaster": {
       "dots": 3,
@@ -2150,7 +2151,8 @@
     "lifestyle-medicine--united-states": "⚠ This entry is a country and a board, not a town, so there is no local community to weigh. What exists is a professional college of clinicians joined by a credential rather than by an address — real, and distributed. There is no room here you could stand in.",
     "wine-and-sommellerie--bordeaux": "The growers settle this one, not the schools: the Union des Grands Crus, founded in 1973, has 126 member châteaux and put nearly five thousand trade professionals through the city over four days of En Primeur Week in April 2026. A town that fills for four days because of what is in the barrels belongs to the trade. Four schools work in it, one of them the growers' own.",
     "modern-new-technique-cuisine--san-sebasti-n-donostia": "Two courses at one faculty, and only the online one names who teaches it — Luis Arrufat, out of elBulli's pastry section, with Txema Urda. That room is capped at thirty and meets once a week; what the campus room holds is not published anywhere. Nobody of ours has been.",
-    "french-pastry-and-patisserie--barcelona": "Two schools, and they are not the same animal: the guild's own, whose three-level year runs September to June and which has been teaching for fifty years, and a private academy in Hospitalet that flies visiting chefs in for ten-day intensives taught in English. The guild is the city's own pastry trade body, and the woman who directs its school came up through it as a student."
+    "french-pastry-and-patisserie--barcelona": "Two schools, and they are not the same animal: the guild's own, whose three-level year runs September to June and which has been teaching for fifty years, and a private academy in Hospitalet that flies visiting chefs in for ten-day intensives taught in English. The guild is the city's own pastry trade body, and the woman who directs its school came up through it as a student.",
+    "safari-and-wildlife-guiding--zululand-hluhluwe-imfolozi": "One school has its base camp here, and FGASA's own list of delivery partners is where we found it rather than its own site. What is older than the school is the trail: the Wilderness Leadership School has been walking people into this wilderness since the late 1950s, and the two men who started it are named below. Nobody teaching here today is named on any page we can find, which is the gap to ask about before you book."
   },
   "_placeIntros_comment": "One paragraph about the TOWN, at the top of a place page, above everything that page says about the craft. Arnaud, 13 September 2026: \"when talking about a place, a school, I want all the information regarding it — is there a strong community, the part you already checked, but also the culture, the nature, the people, the food\", and on the form: \"no details, the main things must be the craft and the school, but just develop a bit more on the vibe there so people can picture it. Dont make beats, I want all to be described in kind of an intro.\" ⛔ IT DESCRIBES, IT DOES NOT GRADE — the Measure is where a judgement with a name on it lives, and a second verdict in different words is a grade nobody signed. ⛔ IT MAY NOT RESTATE THE `why`, which already prints twice on that page, nor the community line under the dots; the build refuses a run of eight words shared with either. ⛔ NO ASSERTED NEGATIVE — \"nothing is open after nine\" is a claim, and \"failed\" requires evidence of failure. An absence is written as an absence. ⭐ Every number and every name in the text must be traceable to the destination's own record or to one of this intro's own sources, and the build refuses the ones that are not — this is the only prose on the map allowed to introduce facts the craft row does not hold, so its sources ARE its provenance. A source on a host that sells a course on this craft is refused: a school's own page is not evidence about its town. Keyed by destination id. text/sources/checker/date are all required; each source needs url, what and read. A place with no intro shows none — an absence is honest, a filler sentence is not. Rendered by place_intro() in scripts/build-atlas-pages.py, re-read nightly by night-check.py.",
   "placeIntros": {

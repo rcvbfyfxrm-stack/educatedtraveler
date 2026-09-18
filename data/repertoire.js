@@ -10315,114 +10315,6 @@ window.ET_ATLAS = {
       "blurb": "Reading spoor, tracking lions on foot and naming every bird, tree and behaviour across unfenced wilderness until the bush itself becomes your language.",
       "destinations": [
         {
-          "place": "Greater Kruger / Makuleke Concession",
-          "country": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "role": "both",
-          "communityRank": 5,
-          "communityLabel": "Legendary",
-          "schools": [
-            "EcoTraining",
-            "Bhejane Nature Training",
-            "Nature Guide Training (NGT)"
-          ],
-          "masters": [],
-          "badges": [
-            "source",
-            "scene",
-            "mecca",
-            "school",
-            "gold-cred"
-          ],
-          "why": "This is where the FGASA gold standard was forged, where you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and certify at the source.",
-          "bestSeason": "May-Sep (dry season)",
-          "level": "Beginner -> Professional Field Guide / Trails Guide",
-          "id": "safari-and-wildlife-guiding--greater-kruger-makuleke-concession",
-          "schoolsInfo": [
-            {
-              "name": "EcoTraining",
-              "url": "https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/",
-              "course": "55-day Field Guide Course",
-              "blurb": "An immersive, residential 55-day course split between at least two remote bush camps, including Greater Kruger and the Makuleke Concession.",
-              "confidence": "high",
-              "facts": {
-                "where": "Two bush camps, e.g. Makuleke (Kruger)",
-                "length": "55 days",
-                "format": "Residential, split between at least two remote wilderness camps",
-                "credential": "FGASA Nature Site Guide NQF2 and CATHSSETA NQF2 qualification",
-                "from": [
-                  "https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/",
-                  "https://www.ecotraining.co.za/course-calendar/"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "count": 12,
-                "of": "EcoTraining instructors across its camps",
-                "from": "https://www.ecotraining.co.za/about-ecotraining/meet-the-team/",
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Bhejane Nature Training",
-              "url": "https://www.bhejanenaturetraining.com/",
-              "course": "FGASA Nature Guide Course | Career Development Programme",
-              "blurb": "A FGASA-endorsed training provider in northern KwaZulu-Natal running a residential one-year Professional Nature Guide programme that bundles the FGASA NQF2 Field Guide qualification with the Apprentice Trails Guide course across multiple wilderness camps.",
-              "confidence": "high",
-              "facts": {
-                "where": "Kuleni Game Park, Hluhluwe",
-                "format": "Intakes January and August; meals and lodging on course days",
-                "credential": "Bhejane Professional Nature Guide Certificate, FGASA NQF 2 and more",
-                "from": [
-                  "https://www.bhejanenaturetraining.com/contact-bhejane-nature-training/",
-                  "https://www.bhejanenaturetraining.com/nature-guide-career-development-programme-cdp/"
-                ],
-                "read": "2026-09-17"
-              },
-              "standing": {
-                "state": "not-here",
-                "what": "Bhejane trains at Kuleni Game Park in Hluhluwe, in KwaZulu-Natal — not in the Greater Kruger area this page covers. Its FGASA programme is real and its camps are its own; they are simply in another part of South Africa.",
-                "from": "https://www.bhejanenaturetraining.com/contact-bhejane-nature-training/",
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Nature Guide Training (NGT)",
-              "url": "https://www.natureguidetraining.com/our-courses/fgasa-field-guide-nqf2-course/",
-              "course": "FGASA Field Guide (NQF2) Course",
-              "blurb": "A FGASA-accredited provider running a 60-day residential Field Guide course in the Greater Kruger area that delivers the FGASA Apprentice Field Guide / NQF2 qualification plus a CyberTracker Track and Sign certificate.",
-              "confidence": "medium",
-              "facts": {
-                "where": "Greater Kruger Area",
-                "length": "60 days",
-                "format": "Residential in bush camps; farmhouse rooms, meals cooked in camp",
-                "credential": "FGASA Nature Site Guide NQF2; CyberTracker Track and Sign certificate",
-                "from": [
-                  "https://www.natureguidetraining.com/our-courses/fgasa-field-guide-nqf2-course/"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Owner and trainer",
-                    [
-                      "Lee Gutteridge"
-                    ]
-                  ]
-                ],
-                "from": "https://www.natureguidetraining.com/about-us/our-team/",
-                "read": "2026-09-17"
-              }
-            }
-          ],
-          "tripTier": 5,
-          "tripType": "Mastery track",
-          "tripLength": "months–years",
-          "englishTaught": true,
-          "englishBasis": "EcoTraining 55-day Field Guide Course requires ability to communicate effectively in spoken/written English; taught in English"
-        },
-        {
           "place": "Okavango Delta / Mashatu",
           "country": "Botswana",
           "region": "Sub-Saharan Africa",
@@ -10528,7 +10420,6 @@ window.ET_ATLAS = {
           "level": "Beginner -> Professional Guide (KPSGA)",
           "id": "safari-and-wildlife-guiding--maasai-mara-laikipia",
           "schoolsInfo": [
-            
             {
               "name": "EcoTraining (Mara camp)",
               "url": "https://www.ecotraining.co.za/",
@@ -10542,6 +10433,137 @@ window.ET_ATLAS = {
           "tripLength": "months–years",
           "englishTaught": true,
           "englishBasis": "EcoTraining Kenya Field Guide course taught in English; Kenya guiding instruction is in English (official language)"
+        },
+        {
+          "place": "Greater Kruger / Makuleke Concession",
+          "country": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "EcoTraining",
+            "Nature Guide Training (NGT)"
+          ],
+          "masters": [],
+          "badges": [
+            "source",
+            "scene",
+            "mecca",
+            "school",
+            "gold-cred"
+          ],
+          "why": "This is where the FGASA gold standard was forged, where you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and certify at the source.",
+          "bestSeason": "May-Sep (dry season)",
+          "level": "Beginner -> Professional Field Guide / Trails Guide",
+          "id": "safari-and-wildlife-guiding--greater-kruger-makuleke-concession",
+          "schoolsInfo": [
+            {
+              "name": "EcoTraining",
+              "url": "https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/",
+              "course": "55-day Field Guide Course",
+              "blurb": "An immersive, residential 55-day course split between at least two remote bush camps, including Greater Kruger and the Makuleke Concession.",
+              "confidence": "high",
+              "facts": {
+                "where": "Two bush camps, e.g. Makuleke (Kruger)",
+                "length": "55 days",
+                "format": "Residential, split between at least two remote wilderness camps",
+                "credential": "FGASA Nature Site Guide NQF2 and CATHSSETA NQF2 qualification",
+                "from": [
+                  "https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/",
+                  "https://www.ecotraining.co.za/course-calendar/"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "count": 12,
+                "of": "EcoTraining instructors across its camps",
+                "from": "https://www.ecotraining.co.za/about-ecotraining/meet-the-team/",
+                "read": "2026-09-17"
+              }
+            },
+            {
+              "name": "Nature Guide Training (NGT)",
+              "url": "https://www.natureguidetraining.com/our-courses/fgasa-field-guide-nqf2-course/",
+              "course": "FGASA Field Guide (NQF2) Course",
+              "blurb": "A FGASA-accredited provider running a 60-day residential Field Guide course in the Greater Kruger area that delivers the FGASA Apprentice Field Guide / NQF2 qualification plus a CyberTracker Track and Sign certificate.",
+              "confidence": "medium",
+              "facts": {
+                "where": "Greater Kruger Area",
+                "length": "60 days",
+                "format": "Residential in bush camps; farmhouse rooms, meals cooked in camp",
+                "credential": "FGASA Nature Site Guide NQF2; CyberTracker Track and Sign certificate",
+                "from": [
+                  "https://www.natureguidetraining.com/our-courses/fgasa-field-guide-nqf2-course/"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Owner and trainer",
+                    [
+                      "Lee Gutteridge"
+                    ]
+                  ]
+                ],
+                "from": "https://www.natureguidetraining.com/about-us/our-team/",
+                "read": "2026-09-17"
+              }
+            }
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years",
+          "englishTaught": true,
+          "englishBasis": "EcoTraining 55-day Field Guide Course requires ability to communicate effectively in spoken/written English; taught in English"
+        },
+        {
+          "place": "Zululand (Hluhluwe & iMfolozi)",
+          "country": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "role": "source",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Bhejane Nature Training"
+          ],
+          "masters": [],
+          "lineage": [
+            "Ian Player",
+            "Magqubu Ntombela"
+          ],
+          "badges": [
+            "source",
+            "school",
+            "heritage"
+          ],
+          "why": "The walking trail was invented on this ground: by 1958 half of iMfolozi had been proclaimed a wilderness area — the first in Africa, enterable only on foot, on horseback or by canoe — and guides have been taking people into it on foot ever since.",
+          "bestSeason": "May-Sep (dry season); intakes January and August",
+          "level": "Beginner -> Professional Field Guide",
+          "id": "safari-and-wildlife-guiding--zululand-hluhluwe-imfolozi",
+          "schoolsInfo": [
+            {
+              "name": "Bhejane Nature Training",
+              "url": "https://www.bhejanenaturetraining.com/",
+              "course": "FGASA Nature Guide Course | Career Development Programme",
+              "blurb": "A FGASA-endorsed training provider in northern KwaZulu-Natal, started in 2009, whose base camp sits on Kuleni Game Park at Hluhluwe. Its one-year Professional Nature Guide programme bundles the FGASA NQF2 Field Guide qualification with the Apprentice Trails Guide course, taught across several wilderness camps. Checked on bhejanenaturetraining.com and FGASA's own partner list, 17 September 2026.",
+              "confidence": "high",
+              "facts": {
+                "where": "Kuleni Game Park, Hluhluwe",
+                "format": "Intakes January and August; meals and lodging on course days",
+                "credential": "Bhejane Professional Nature Guide Certificate, FGASA NQF 2 and more",
+                "from": [
+                  "https://www.bhejanenaturetraining.com/contact-bhejane-nature-training/",
+                  "https://www.bhejanenaturetraining.com/nature-guide-career-development-programme-cdp/"
+                ],
+                "read": "2026-09-17"
+              }
+            }
+          ],
+          "tripTier": 5,
+          "tripType": "Mastery track",
+          "tripLength": "months–years"
         }
       ],
       "id": "safari-and-wildlife-guiding",
