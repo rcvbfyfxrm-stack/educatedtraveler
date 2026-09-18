@@ -4783,7 +4783,7 @@ window.ET_ATLAS = {
       },
       "destinations": [
         {
-          "place": "Apnea Academy / Italian Mediterranean",
+          "place": "The Italian Mediterranean",
           "country": "Italy",
           "region": "Mediterranean",
           "role": "source",
@@ -10377,6 +10377,12 @@ window.ET_ATLAS = {
                   "https://www.bhejanenaturetraining.com/contact-bhejane-nature-training/",
                   "https://www.bhejanenaturetraining.com/nature-guide-career-development-programme-cdp/"
                 ],
+                "read": "2026-09-17"
+              },
+              "standing": {
+                "state": "not-here",
+                "what": "Bhejane trains at Kuleni Game Park in Hluhluwe, in KwaZulu-Natal — not in the Greater Kruger area this page covers. Its FGASA programme is real and its camps are its own; they are simply in another part of South Africa.",
+                "from": "https://www.bhejanenaturetraining.com/contact-bhejane-nature-training/",
                 "read": "2026-09-17"
               }
             },
@@ -16351,6 +16357,119 @@ window.ET_ATLAS = {
           "tripLength": "months–years",
           "englishTaught": true,
           "englishBasis": "native-English country"
+        },
+        {
+          "place": "Barcelona",
+          "country": "Spain",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "El Món Dolç de Claudia (International Pastry Academy)",
+            "Escola de Pastisseria del Gremi de Barcelona (EPGB)"
+          ],
+          "masters": [
+            "Saray Ruiz"
+          ],
+          "badges": [
+            "scene",
+            "school",
+            "english"
+          ],
+          "why": "Modern pastry taught in English, ten days at a time, in a city whose pastry guild has run its own school for fifty years — and the one academy on this map that built a course for chefs cooking at sea.",
+          "bestSeason": "Sep-Jun for the guild year; intensives most months",
+          "level": "Beginner -> working pastry chef",
+          "id": "french-pastry-and-patisserie--barcelona",
+          "schoolsInfo": [
+            {
+              "name": "El Món Dolç de Claudia (International Pastry Academy)",
+              "url": "https://www.elmondolcdeclaudia.com/en/147-intensive-courses",
+              "course": "Modern Pastry In-Person Intensive Course (10 days)",
+              "blurb": "A professional pastry academy founded in 2012 and run out of Hospitalet de Llobregat, which says in its own words that training yacht chefs is one of its most valued specialisations, and that it built its ten-day intensive for people cooking at sea. The course is eighty hours at the bench across ten days, taught in English, working through around fifty finished products and more than a hundred and fifty sub-recipes — entremets, individual cakes, plated and catering desserts, vegan desserts, bonbons — and it is taught by visiting chefs who change with each session rather than by one resident teacher. Ask which chefs are booked for your dates before you pay. Checked on elmondolcdeclaudia.com, 17 September 2026.",
+              "confidence": "high",
+              "facts": {
+                "where": "Hospitalet de Llobregat, Barcelona",
+                "length": "10 days (80 teaching hours)",
+                "format": "9am to 6pm, with two days off mid-course",
+                "language": "English",
+                "credential": "A diploma from the academy, signed by the chefs",
+                "price": "€4,800",
+                "priceNote": "tax included; breakfast, coffee and a set of moulds included",
+                "from": [
+                  "https://www.elmondolcdeclaudia.com/en/courses/3214-modern-pastry-in-person-intensive-course-from-0710-to-181026.html",
+                  "https://www.elmondolcdeclaudia.com/en/content/4-about-us"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Chefs on the October 2026 intensive",
+                    [
+                      "Lana Orlova Bauer",
+                      "Dorian Zonca",
+                      "Toni Vera",
+                      "Marike van Beurden",
+                      "David Vidal"
+                    ]
+                  ]
+                ],
+                "from": "https://www.elmondolcdeclaudia.com/en/courses/3214-modern-pastry-in-person-intensive-course-from-0710-to-181026.html",
+                "read": "2026-09-17"
+              },
+              "verify": [
+                "training yacht chefs",
+                "80 hours of training distributed over 10 days"
+              ]
+            },
+            {
+              "name": "Escola de Pastisseria del Gremi de Barcelona (EPGB)",
+              "url": "https://www.escoladepastisseria.cat/xef-de-pastisseria/",
+              "course": "Curs anual de Xef de Pastisseria (three levels)",
+              "blurb": "The Barcelona pastry guild's own school, on Plaça Pons i Clerc in the Born. Its Xef de Pastisseria course is an annual one, September to June, in three levels: the basics of artisan pastry, then classical work, then the creative year. Saray Ruiz has directed it since 2024 — the first woman to run the school in its fifty years — and the three other full-time teachers came up through it as students. Outside pastry chefs come in to give masterclasses. Checked on escoladepastisseria.cat, 17 September 2026.",
+              "confidence": "high",
+              "facts": {
+                "where": "Plaça Pons i Clerc 2, Barcelona",
+                "length": "1 year per level, September to June, in three levels",
+                "format": "Mornings, or mornings and afternoons, depending on the level",
+                "from": [
+                  "https://www.escoladepastisseria.cat/xef-de-pastisseria/",
+                  "https://www.escoladepastisseria.cat/equip/"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Director",
+                    [
+                      "Saray Ruiz"
+                    ]
+                  ],
+                  [
+                    "Teachers",
+                    [
+                      "Adrián Ruiz",
+                      "Lluïsa Estrada",
+                      "Laia Almirall"
+                    ]
+                  ]
+                ],
+                "from": "https://www.escoladepastisseria.cat/equip/",
+                "read": "2026-09-17"
+              },
+              "verify": [
+                "Saray Ruiz",
+                "Curs anual"
+              ]
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "2–4 weeks",
+          "englishTaught": true,
+          "englishBasis": "El Món Dolç de Claudia's ten-day Modern Pastry Intensive is taught in English — its own course page says 'In English', read 17 September 2026."
         }
       ],
       "id": "french-pastry-and-patisserie",
@@ -16403,11 +16522,6 @@ window.ET_ATLAS = {
           "place": "Turin",
           "country": "Italy",
           "note": "Gianduja, chocolate and a confectionery tradition with its own technical schools."
-        },
-        {
-          "place": "Barcelona",
-          "country": "Spain",
-          "note": "A modern Spanish pastry scene that has been exporting technique for twenty years."
         },
         {
           "place": "London",
@@ -19432,6 +19546,7 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Wine & Sommellerie",
+      "bestPlace": "wine-and-sommellerie--bordeaux",
       "category": "culinary",
       "certBody": "WSET (Wine & Spirit Education Trust) / Court of Master Sommeliers",
       "goldCredential": "WSET Level 4 Diploma in Wines (and beyond, the Master of Wine / Master Sommelier title)",
@@ -19762,34 +19877,20 @@ window.ET_ATLAS = {
       "id": "wine-and-sommellerie",
       "certShort": "WSET",
       "featured": {
-        "id": "wine-and-sommellerie--bordeaux",
-        "place": "Bordeaux",
-        "country": "France",
-        "school": "L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School)",
-        "url": "https://www.ecoleduvindebordeaux.com/en",
-        "course": "Intensive Programme (Grand Cru level)",
-        "description": "A seven-day, roughly 60-hour intensive run by the Bordeaux wine council in an 18th-century building in the city centre, combining structured tasting technique with three days travelling through the vineyards. You taste across the 65 appellations, study the classified growths of Medoc, Sauternes, Graves and Saint-Emilion, and learn appellation, vintage and food-and-wine pairing alongside a small group. Tutors are working winegrowers, oenologists and cellar masters; the programme is available in English. Suited to serious enthusiasts and trade entrants building toward formal wine study.",
-        "duration": "7 days (approx. 60 hours)",
-        "format": "Full-time, small-group; city-based with vineyard travel days (accommodation not included)",
-        "certification": "Bordeaux Wine School certificate of completion (preparation toward WSET-level study)",
-        "fitsBecause": "Multi-day full-time study at the institutional source of Bordeaux wine, taught by working growers and oenologists with hands-in-the-vineyard days.",
+        "id": "wine-and-sommellerie--london",
+        "place": "London",
+        "country": "United Kingdom",
+        "school": "WSET School London",
+        "url": "https://www.wsetglobal.com/wset-school-london",
+        "course": "WSET Level 4 Diploma in Wines (DipWSET)",
+        "description": "Five hundred hours of study over two semesters at the International Wine & Spirit Centre on Bermondsey Street, taught in English by educators the school names, and examined by the body whose qualifications the trade measures by. It is the rung below the Master of Wine, and it is a classroom qualification rather than a harvest: you taste blind in cohorts, you sit written papers, and people resit them. The tasting school in Bordeaux no longer runs anything longer than a nine-hour day, which is why the recommendation moved here.",
+        "duration": "500 hours of study, normally 18 months to 3 years",
+        "format": "Two semesters; evenings, Mondays, Saturdays, blocks or online",
+        "certification": "WSET Level 4 Diploma in Wines (DipWSET)",
+        "priceFrom": "£2,900",
+        "priceNote": "per semester in London, two semesters; online £2,150",
         "sessions": [],
-        "priceNote": "",
-        "confidence": "medium",
-        "alternatives": [
-          {
-            "course": "Introduction to Tasting",
-            "duration": "2 hours",
-            "format": "In-person workshop",
-            "priceFrom": "€45",
-            "url": "https://www.ecoleduvindebordeaux.com/en/tasting-workshops",
-            "fit": "Intro",
-            "note": "Two-hour beginner tasting at the same school; no winemaking immersion or Grand Cru-level depth.",
-            "confidence": "high"
-          }
-        ],
-        "withdrawn": true,
-        "withdrawnNote": "The seven-day Grand Cru intensive is no longer in the Bordeaux Wine School's catalogue (read 17 September 2026). No course has been picked in its place."
+        "confidence": "high"
       },
       "alsoHere": [
         {
