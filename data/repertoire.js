@@ -2296,7 +2296,7 @@ window.ET_ATLAS = {
           "englishBasis": "native-English country"
         },
         {
-          "place": "Glastonbury / South West England",
+          "place": "England",
           "country": "UK",
           "region": "Western Europe",
           "role": "scene",
@@ -2312,7 +2312,7 @@ window.ET_ATLAS = {
             "school",
             "gold-cred"
           ],
-          "why": "Britain's recognized diploma route, where long-running training bodies anchor a serious practitioner community across the country's most spiritual landscapes.",
+          "why": "Britain's two long-running sound-therapy bodies teach here: a professional diploma run with a university on the south coast, and a voice-practitioner diploma taught by tutors around the country. Neither is in Glastonbury, where this entry used to point.",
           "bestSeason": "Apr-Sep",
           "level": "Beginner -> Practitioner Diploma",
           "id": "sound-healing--glastonbury-south-west-england",
@@ -8033,88 +8033,6 @@ window.ET_ATLAS = {
           "englishBasis": "Both instructors publish English-language sites and teach an international clientele; Joe Fratianni is American-certified and Simon Montmory's course pages are written in English."
         },
         {
-          "place": "Peak District (Stanage, Sheffield)",
-          "country": "United Kingdom",
-          "region": "Western Europe",
-          "role": "scene",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Plas y Brenin (National Outdoor Centre)",
-            "The Climbing Academy (Sheffield)",
-            "Foundry Climbing Centre"
-          ],
-          "masters": [],
-          "badges": [
-            "heritage",
-            "scene"
-          ],
-          "why": "On Stanage's coarse gritstone, where Puttrell and the Victorians pioneered British crag climbing, you learn footwork and jamming on the rock that built a national style.",
-          "bestSeason": "Apr-Oct",
-          "level": "Beginner -> Instructor",
-          "id": "rock-climbing--peak-district-stanage-sheffield",
-          "schoolsInfo": [
-            {
-              "name": "Plas y Brenin (National Outdoor Centre)",
-              "url": "https://pyb.co.uk/climb/",
-              "course": "Rock Improver - 5 Day",
-              "blurb": "Plas y Brenin is the National Outdoor Centre for England and Wales (based in Snowdonia) offering residential rock-climbing courses, including a five-day Rock Improver course covering ropework, safety and on-rock mileage.",
-              "confidence": "high",
-              "facts": {
-                "where": "Capel Curig, Conwy, North Wales",
-                "length": "5 days",
-                "format": "Residential with catering, or non-residential",
-                "class": "4 students per instructor, then 2",
-                "price": "£779",
-                "priceNote": "non-residential; £1,129 residential; 19 October 2026 course",
-                "from": [
-                  "https://pyb.co.uk/course/rock-improver-5-day/",
-                  "https://booking.pyb.co.uk/courses/rock-improver-5-day/?book"
-                ],
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "The Climbing Academy (Sheffield)",
-              "url": "https://www.theclimbingacademy.com/locations/",
-              "course": "Coached climbing sessions / instruction",
-              "blurb": "The Climbing Academy is an indoor bouldering operator with centres in Bristol, Glasgow and Chippenham offering walk-in bouldering plus tailored coached sessions and instruction, though it does not advertise a multi-day residential gritstone program.",
-              "confidence": "medium",
-              "standing": {
-                "state": "not-here",
-                "what": "Its centres are in Bristol, Glasgow and Chippenham; the Sheffield centre we listed is not among them.",
-                "from": "https://www.theclimbingacademy.com/locations/",
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Foundry Climbing Centre",
-              "url": "https://www.foundryclimbing.com/adult-climbing",
-              "course": "Learn to Lead course",
-              "blurb": "The Foundry Climbing Centre in Sheffield, the UK's first dedicated indoor climbing centre (opened 1991), offers structured adult courses including Introduction to Climbing and a progressive Learn to Lead lead-climbing course.",
-              "confidence": "high",
-              "facts": {
-                "where": "Mowbray Street, Sheffield",
-                "length": "2 hours per group session",
-                "format": "Fridays, 7pm to 9pm; private sessions of 2, 3 or 6 hours",
-                "class": "4 participants at most",
-                "price": "£25",
-                "priceNote": "per person, Friday group session; private sessions from £75",
-                "from": [
-                  "https://www.foundryclimbing.com/location-opening-times-accessibility",
-                  "https://www.foundryclimbing.com/adult-climbing"
-                ],
-                "read": "2026-09-17"
-              }
-            }
-          ],
-          "tripTier": 2,
-          "tripType": "Starter",
-          "tripLength": "about a week",
-          "englishTaught": true,
-          "englishBasis": "native-English country"
-        },
-        {
           "place": "Joshua Tree National Park",
           "country": "United States",
           "region": "North America",
@@ -8202,6 +8120,114 @@ window.ET_ATLAS = {
           "tripLength": "2–4 weeks",
           "englishTaught": true,
           "englishBasis": "native-English country"
+        },
+        {
+          "place": "Peak District (Stanage, Sheffield)",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Thriving",
+          "schools": [
+            "The Climbing Academy (Sheffield)",
+            "Foundry Climbing Centre"
+          ],
+          "masters": [],
+          "badges": [
+            "heritage",
+            "scene"
+          ],
+          "why": "On Stanage's coarse gritstone, where Puttrell and the Victorians pioneered British crag climbing, you learn footwork and jamming on the rock that built a national style.",
+          "bestSeason": "Apr-Oct",
+          "level": "Beginner -> Instructor",
+          "id": "rock-climbing--peak-district-stanage-sheffield",
+          "schoolsInfo": [
+            {
+              "name": "The Climbing Academy (Sheffield)",
+              "url": "https://www.theclimbingacademy.com/locations/",
+              "course": "Coached climbing sessions / instruction",
+              "blurb": "The Climbing Academy is an indoor bouldering operator with centres in Bristol, Glasgow and Chippenham offering walk-in bouldering plus tailored coached sessions and instruction, though it does not advertise a multi-day residential gritstone program.",
+              "confidence": "medium",
+              "standing": {
+                "state": "not-here",
+                "what": "Its centres are in Bristol, Glasgow and Chippenham; the Sheffield centre we listed is not among them.",
+                "from": "https://www.theclimbingacademy.com/locations/",
+                "read": "2026-09-17"
+              }
+            },
+            {
+              "name": "Foundry Climbing Centre",
+              "url": "https://www.foundryclimbing.com/adult-climbing",
+              "course": "Learn to Lead course",
+              "blurb": "The Foundry Climbing Centre in Sheffield, the UK's first dedicated indoor climbing centre (opened 1991), offers structured adult courses including Introduction to Climbing and a progressive Learn to Lead lead-climbing course.",
+              "confidence": "high",
+              "facts": {
+                "where": "Mowbray Street, Sheffield",
+                "length": "2 hours per group session",
+                "format": "Fridays, 7pm to 9pm; private sessions of 2, 3 or 6 hours",
+                "class": "4 participants at most",
+                "price": "£25",
+                "priceNote": "per person, Friday group session; private sessions from £75",
+                "from": [
+                  "https://www.foundryclimbing.com/location-opening-times-accessibility",
+                  "https://www.foundryclimbing.com/adult-climbing"
+                ],
+                "read": "2026-09-17"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
+        },
+        {
+          "place": "Eryri (Snowdonia), North Wales",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Plas y Brenin (National Outdoor Centre)"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school"
+          ],
+          "why": "The national outdoor centre for England and Wales sits at Capel Curig in the middle of Eryri, and teaches climbing from its own door — five days on the rock at two students to an instructor, residential if you want it.",
+          "bestSeason": "Apr-Oct for rock; the centre runs year-round",
+          "level": "Beginner -> advanced",
+          "id": "rock-climbing--eryri-snowdonia-north-wales",
+          "schoolsInfo": [
+            {
+              "name": "Plas y Brenin (National Outdoor Centre)",
+              "url": "https://pyb.co.uk/climb/",
+              "course": "Rock Improver - 5 Day",
+              "blurb": "Plas y Brenin is the National Outdoor Centre for England and Wales (based in Snowdonia) offering residential rock-climbing courses, including a five-day Rock Improver course covering ropework, safety and on-rock mileage.",
+              "confidence": "high",
+              "facts": {
+                "where": "Capel Curig, Conwy, North Wales",
+                "length": "5 days",
+                "format": "Residential with catering, or non-residential",
+                "class": "4 students per instructor, then 2",
+                "price": "£779",
+                "priceNote": "non-residential; £1,129 residential; 19 October 2026 course",
+                "from": [
+                  "https://pyb.co.uk/course/rock-improver-5-day/",
+                  "https://booking.pyb.co.uk/courses/rock-improver-5-day/?book"
+                ],
+                "read": "2026-09-17"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Starter",
+          "tripLength": "about a week",
+          "englishTaught": true,
+          "englishBasis": "Plas y Brenin publishes and runs its courses in English (pyb.co.uk, read 17 September 2026)."
         }
       ],
       "id": "rock-climbing",
@@ -19802,7 +19828,7 @@ window.ET_ATLAS = {
             "school",
             "gold-cred"
           ],
-          "why": "The densest New World cohort of WSET candidates and winemakers learns here, where UC Davis science meets a valley built entirely around the craft.",
+          "why": "The densest New World cohort of WSET candidates learns here, in a valley built entirely around the craft — classroom days and tastings in Napa itself, with the Diploma studied online and examined here.",
           "bestSeason": "Mar-Nov",
           "level": "Beginner -> Diploma / Enology",
           "id": "wine-and-sommellerie--napa-valley",
@@ -19872,6 +19898,12 @@ window.ET_ATLAS = {
                   ]
                 ],
                 "from": "https://cpe.ucdavis.edu/areas-study/winemaking/instructor-bios",
+                "read": "2026-09-17"
+              },
+              "standing": {
+                "state": "not-here",
+                "what": "The department is at UC Davis, an hour from the valley, and this certificate is taught online in five courses — nothing about it happens in Napa.",
+                "from": "https://cpe.ucdavis.edu/certificate-program/winemaking-certificate-program",
                 "read": "2026-09-17"
               }
             },
