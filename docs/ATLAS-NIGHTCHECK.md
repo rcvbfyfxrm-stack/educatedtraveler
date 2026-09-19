@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-18 — 378 published claims re-read against the pages they came from, across 33 open crafts._
+_2026-09-19 — 378 published claims re-read against the pages they came from, across 33 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -12,6 +12,8 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 - **self-sufficiency · Sunseed Desert Technology** — https://www.sunseed.org.uk/get-involved
   - page no longer says: ram pump
+- **organic-farm-to-table-cooking · Farm to Fork** — https://www.ballymaloecookeryschool.ie/courses/farm-to-fork
+  - HTTP 404
 - **modernist-spanish-cuisine · Madrid Fusión — Alimentos de España** — https://www.madridfusion.net/en/
   - page no longer says: Madrid Fusión — Alimentos de España
 - **ashtanga-yoga · Karnataka Tourism — the state department's own page on Mysuru** — https://www.karnatakatourism.org/destinations/mysuru/
@@ -42,8 +44,6 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
   - page no longer says: the Patrouille des Glaciers, organised by the Swiss Army, on its own races and routes
 - **spearfishing · the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round** — https://www.ffpsa.net/coupe-de-france-de-peche-sous-marine-25-avril-2026-resultats-de-la-manche-cote-dazur
   - page no longer says: the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round
-- **surfing · Save The Waves on the Ericeira World Surfing Reserve** — https://www.savethewaves.org/ericeira/
-  - page no longer says: Save The Waves on the Ericeira World Surfing Reserve
 - **surfing · the World Surf League's own 2026 event page for Peniche** — https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main
   - page no longer says: the World Surf League's own 2026 event page for Peniche
 - **thai-massage · UNESCO's Representative List entry for Nuad Thai** — https://ich.unesco.org/en/RL/nuad-thai-traditional-thai-massage-01384
@@ -64,8 +64,6 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
   - page no longer says: Cowes Week's own site, on the bicentenary regatta and the 2027 dates
 - **japanese-knife-making · TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association** — https://kougeihin.jp/en/craft/0713/
   - page no longer says: TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association
-- **italian-cuisine-and-pasta · Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio** — https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52022XC0609(01)
-  - page no longer says: Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio
 
 ## Gone tonight — the server says the page does not exist
 
@@ -77,57 +75,68 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- hatha-and-vinyasa-yoga · Atmavikasa Centre of Yogic Sciences — 2 nights — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+- hatha-and-vinyasa-yoga · Atmavikasa Centre of Yogic Sciences — 3 nights — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
   - https://www.atmavikasayoga.in/
-- sound-healing · Pokhara Yoga School and Retreat Center — 9 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 10 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- thai-massage · ITM - International Training Massage School — 1 night — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
-  - https://www.itmthaimassage.com/
-- surfing · Canggu Bali Surf Lesson (Odysseys Surf School) — 1 night — URLError: <urlopen error timed out>
-  - https://surflessoncanggu.com/
-- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 1 — Petits fours et gâteaux de voyage — 2 nights — IncompleteRead: IncompleteRead(179130 bytes read)
-  - https://www.francecompetences.fr/recherche/rncp/38765/
+- surfing · Peniche Surf Camp — 1 night — TimeoutError: The read operation timed out
+  - https://www.penichesurfcamp.com/
+- photography · Rencontres d'Arles workshops — 1 night — URLError: <urlopen error timed out>
+  - https://www.rencontres-arles.com/en/photo-workshops-and-photo-folio-review
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **cold-exposure-wim-hof-method · Innerfire BV** — 9 nights, after 6 counted as failing by the older check — https://www.innerfire.nl/
+- **cold-exposure-wim-hof-method · Innerfire BV** — 10 nights, after 6 counted as failing by the older check — https://www.innerfire.nl/
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.innerfire.nl'. (_ssl.c:1010)>
-- **perfumery · Musée International de la Parfumerie** — 3 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 4 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 3 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 4 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
 
-- kitesurfing · the IKO Kiteboarder levels
-- kitesurfing · the IKO Kiteboarder levels — Level 1 — Discovery
-- kitesurfing · the IKO Kiteboarder levels — Level 2 — Intermediate
-- kitesurfing · the IKO Kiteboarder levels — Level 3 — Independent
-- kitesurfing · the IKO Kiteboarder levels — Level 4 — Advanced
-- modern-new-technique-cuisine · Category: Literature Member since: 2008
-- modern-new-technique-cuisine · As a Creative City of Literature, Melbourne
+- italian-cuisine-and-pasta · Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio
 
 ## Unreadable, not gone
 
 These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not a school that closed. Never escalated, because a check that cries wolf gets muted. If one matters, open it in a browser; that is the only way to know.
 
+- hatha-and-vinyasa-yoga · The Yoga Barn — HTTP 403
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
+- ashtanga-yoga · Stillpoint Yoga London — HTTP 403
+- vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
+- sound-healing · British Academy of Sound Therapy — HTTP 403
 - spearfishing · Kona Freedivers — HTTP 429
+- spearfishing · Blue Water Hunter Spearfishing — HTTP 403
 - sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
+- surfing · Baleal Surf Camp — HTTP 403
+- kitesurfing · HST Windsurfing & Kitesurfing School — HTTP 403
+- kitesurfing · Private Single Kitesurfing Lesson — HTTP 403
+- kitesurfing · Action Sports Maui — HTTP 403
+- kitesurfing · Laurel Eastman Kiteboarding — HTTP 403
+- kitesurfing · GoKite Cabarete — HTTP 403
+- windsurfing-and-wing-foil · HST Windsurfing & Kitesurfing School — HTTP 403
+- windsurfing-and-wing-foil · Action Sports Maui — HTTP 403
 - windsurfing-and-wing-foil · Spin Out Tarifa — HTTP 429
 - rock-climbing · Kalymnos Primal Climb — HTTP 429
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
 - photography · Magnum Photos workshops (Arles) — HTTP 403
 - photography · London College of Communication (UAL) — HTTP 403
 - photography · Central Saint Martins (UAL) — HTTP 403
+- jewelry-and-goldsmithing · Le Arti Orafe Jewellery School (LAO) — HTTP 403
 - jewelry-and-goldsmithing · Complete Stone Setting Course — HTTP 403
 - jewelry-and-goldsmithing · Introduction to Rhino3D for Goldsmithing (CAD.WE1) — HTTP 403
+- jewelry-and-goldsmithing · Alchimia Contemporary Jewellery School — HTTP 403
+- italian-cuisine-and-pasta · Bologna Cooking School — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB) — HTTP 403
+- wine-and-sommellerie · Institute of Masters of Wine — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
 - modern-new-technique-cuisine · Sous Vide Australia (The Upper Room) — HTTP 429
+- wildlife-photography · Paul Goldstein Photo Safaris / Kicheche Camps — HTTP 403
 - wildlife-photography · Falmouth University — HTTP 403
+- surfing · Save The Waves on the Ericeira World Surfing Reserve — HTTP 403
 
 
 
@@ -137,6 +146,7 @@ Informational, never escalated. A rejected place going offline is usually the re
 
 - modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
 - modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
+- modern-new-technique-cuisine · Modernist Cuisine Lab (Nathan Myhrvold) — HTTP 403
 
 ## Claims with nothing to verify against
 
@@ -150,14 +160,12 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - hatha-and-vinyasa-yoga · Mysore · Indea Yoga
 - hatha-and-vinyasa-yoga · Mysore · Atmavikasa Centre of Yogic Sciences
 - hatha-and-vinyasa-yoga · Mysore · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- hatha-and-vinyasa-yoga · Ubud, Bali · The Yoga Barn
 - hatha-and-vinyasa-yoga · Ubud, Bali · Radiantly Alive
 - hatha-and-vinyasa-yoga · Ubud, Bali · Ubud Yoga Centre
 - hatha-and-vinyasa-yoga · Encinitas, California · Soul of Yoga
 - ashtanga-yoga · Mysore (Gokulam) · Sharath Yoga Centre (SYC)
 - ashtanga-yoga · Mysore (Gokulam) · K. Pattabhi Jois Ashtanga Yoga Shala (Saraswathi Jois)
 - ashtanga-yoga · Mysore (Gokulam) · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- ashtanga-yoga · London · Stillpoint Yoga London
 - ashtanga-yoga · London · Astanga Yoga London (AYL)
 - ashtanga-yoga · London · Yoga Place
 - ashtanga-yoga · New York City · Ashtanga Yoga New York (Eddie Stern)
@@ -169,7 +177,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - vipassana-and-meditation · Yangon · International Meditation Centre (U Ba Khin tradition)
 - vipassana-and-meditation · Chiang Mai · Wat Ram Poeng (Tapotaram) Northern Insight Meditation Centre
 - vipassana-and-meditation · Chiang Mai · Wat Suan Dok (Monk Chat / meditation retreats)
-- vipassana-and-meditation · Barre, Massachusetts · Insight Meditation Society (IMS)
 - vipassana-and-meditation · Barre, Massachusetts · Barre Center for Buddhist Studies
 - sound-healing · Kathmandu (Budhanilkantha) · Pragya Yoga School
 - sound-healing · Kathmandu (Budhanilkantha) · 4 Days / 20 Hours Basic Level Singing Bowl Sound Healing Training
@@ -178,8 +185,7 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - sound-healing · Kathmandu / Pokhara · Pokhara Yoga School and Retreat Center
 - sound-healing · San Francisco / Bay Area · Globe Institute - Sound Healing Center (Sausalito)
 - sound-healing · San Francisco / Bay Area · California Institute of Integral Studies (sound-related programs)
-- sound-healing · Glastonbury / South West England · The College of Sound Healing
-- sound-healing · Glastonbury / South West England · British Academy of Sound Therapy
+- sound-healing · England · The College of Sound Healing
 - thai-massage · Chiang Mai · Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)
 - thai-massage · Chiang Mai · Introduction to Thai Massage
 - thai-massage · Chiang Mai · One Day Drop-In Pass
@@ -202,5 +208,9 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Dahab (Red Sea) · Dahab Freedivers
 - freediving · Dahab (Red Sea) · Touchdown Freediving
 - freediving · Dean's Blue Hole, Long Island · Vertical Blue (William Trubridge)
+- freediving · Kalamata & the Mani · Kalamata Freedivers
+- spearfishing · Antibes, Côte d'Azur · CREPS PACA (Antibes)
+- spearfishing · Côte d'Azur (Cassis to Antibes) · FFESSM-affiliated pêche sous-marine clubs (Côte d'Azur)
+- spearfishing · Côte d'Azur (Cassis to Antibes) · regional CMAS spearfishing clubs
 
-_245 in total._
+_227 in total._
