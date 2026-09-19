@@ -323,75 +323,96 @@ window.ET_ATLAS = {
               "course": "Authentic Hatha Yoga Teachers Training / Back-Bending Intensive (multi-week residential)",
               "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school. Yogacharya Venkatesha and Acharya Hema founded it and still teach it, which their own teachers page says plainly. Multi-week residential teacher trainings and yoga-therapy intensives, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
               "confidence": "high",
-                "photos": {
-                  "given": "2026-09-06",
-                  "by": "Acharya Hema",
-                  "thumb": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
-                  "card": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
-                  "items": [
-                    {
-                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-01-the-hall.jpg",
-                      "w": 1108,
-                      "h": 691,
-                      "wide": true,
-                      "alt": "The school's empty practice hall: a high timber roof over a white gable wall hung with three framed pictures — a painted Buddha, the black Atmavikasa Yoga Kutira board and a portrait of Swami Vivekananda — a brass figure on a shelf below the centre board, and a dark polished red floor.",
-                      "caption": "This is the hall with nobody in it. A painted Buddha, the school's own board, a portrait of Vivekananda, a lamp on the floor beneath them — for a room where all the work is physical, almost nothing in it is equipment."
-                    },
-                    {
-                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-02-the-door.jpg",
-                      "w": 1123,
-                      "h": 1287,
-                      "alt": "The entrance seen from the garden gate: a tiled roof over bamboo-panelled walls, a white doorway standing open onto darkness, a pair of sandals on the terracotta-tiled path at the threshold, a bicycle against the wall beside the door, hibiscus and frangipani overhead, and a small notice half hidden by leaves.",
-                      "caption": "The door stands open onto the dark of the hall, sandals left at the threshold and a bicycle against the wall. The school has taught here since 1987, in its own words with “absolutely zero advertisements or promotions”."
-                    },
-                    {
-                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-08-flowers.jpg",
-                      "w": 1123,
-                      "h": 1109,
-                      "alt": "A floor covered end to end by an enormous mandala laid entirely in flower petals, in concentric rings of marigold yellow, deep red, orange, white and pale green, with oil lamps burning in it, and a wooden stand at the far end carrying a garlanded figure above a framed photograph.",
-                      "caption": "A whole floor given over to petals — marigold, rose, orange, white — with the lamps lit and a garlanded photograph at the head of it. Not everything here is a class: the centre also runs Yoga Aranya, a planting of more than a thousand trees where it intends to build a shala."
-                    },
-                    {
-                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
-                      "w": 1123,
-                      "h": 987,
-                      "wide": true,
-                      "alt": "About twenty practitioners lie face down on coloured mats across a dark red floor, all lifting chest, arms and legs clear of the ground at once in the locust pose, below the black Atmavikasa Yoga Kutira board, while a man in a white shirt stands at the far right, hands together, watching.",
-                      "caption": "A full room in salabhasana, the locust, the whole floor lifting at the same moment. Venkatesha is not on a mat at the front — he is at the wall by the bamboo screen, hands together, watching."
-                    },
-                    {
-                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-04-watching.jpg",
-                      "w": 1119,
-                      "h": 729,
-                      "wide": true,
-                      "alt": "A practitioner holds a headstand on a red mat in the hall, legs straight above them and clasped hands on the floor, while Venkatesha stands at the left with a thin pointer stick held down at his side, watching; two others stand at the right with their backs to the camera.",
-                      "caption": "The stick is a pointer, held down at his side. A headstand is being held in the middle of the room and most of the room has stopped its own work to watch it; nobody in this frame is being pushed or pulled into the shape."
-                    },
-                    {
-                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-05-the-fold.jpg",
-                      "w": 1027,
-                      "h": 673,
-                      "wide": true,
-                      "alt": "A deep seated forward fold seen from the side at floor level: the practitioner's chest and face lie flat along his straight legs, his back one arc, both arms reaching past his feet, and behind him, out of focus, a bronze Nataraja — Shiva dancing in a ring of flame.",
-                      "caption": "Paschimottanasana, from floor level, which is where the shape can be judged: the chest lies along the legs and the back is one long arc rather than a hinge at the hips. The school's reputation is built on back-bending — this is the same spine going the other way."
-                    },
-                    {
-                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-06-venkatesha.jpg",
-                      "w": 1123,
-                      "h": 981,
-                      "alt": "A warm sepia photograph of Yogacharya Venkatesha lying face down on a pale tiled floor, chin and chest to the ground, both arms folded behind his back with the hands drawn up together high between his shoulder blades, his head turned slightly, his eyes open and his expression calm.",
-                      "caption": "Yogacharya Venkatesha, who founded the centre and still teaches in it. He and Acharya Hema have taught in Mysore since 1987, and they are still the two names on the teaching."
-                    },
-                    {
-                      "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-07-hands-and-feet.jpg",
-                      "w": 1123,
-                      "h": 1093,
-                      "alt": "A man in white cotton and no shirt sits with his legs folded and the soles of his feet drawn up and pressed together before his chest, his palms joined above them so that hands and feet mirror each other, against the dark Atmavikasa Yoga Kutira board behind him.",
-                      "caption": "Hands and feet in the same gesture, in front of the school's own board. Atmavikasa is not affiliated with Yoga Alliance — it asked for that to be said plainly, on a page where most schools introduce themselves by their registration."
-                    }, { "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-09-hall-evening.jpg", "w": 1125, "h": 833, "wide": true, "alt": "The same practice hall in the evening, lit from within: the timber roof in shadow, the three framed portraits along the white wall, and the red floor holding the light.",
-                      "caption": "The same hall in the evening, lit from within, the red floor still holding the light. The teacher trainings and yoga-therapy intensives here are multi-week and residential — nobody is passing through for a single class." }
-                  ]
-                }
+              "photos": {
+                "given": "2026-09-06",
+                "by": "Acharya Hema",
+                "thumb": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
+                "card": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
+                "items": [
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-01-the-hall.jpg",
+                    "w": 1108,
+                    "h": 691,
+                    "wide": true,
+                    "alt": "The school's empty practice hall: a high timber roof over a white gable wall hung with three framed pictures — a painted Buddha, the black Atmavikasa Yoga Kutira board and a portrait of Swami Vivekananda — a brass figure on a shelf below the centre board, and a dark polished red floor.",
+                    "caption": "This is the hall with nobody in it. A painted Buddha, the school's own board, a portrait of Vivekananda, a lamp on the floor beneath them — for a room where all the work is physical, almost nothing in it is equipment."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-02-the-door.jpg",
+                    "w": 1123,
+                    "h": 1287,
+                    "alt": "The entrance seen from the garden gate: a tiled roof over bamboo-panelled walls, a white doorway standing open onto darkness, a pair of sandals on the terracotta-tiled path at the threshold, a bicycle against the wall beside the door, hibiscus and frangipani overhead, and a small notice half hidden by leaves.",
+                    "caption": "The door stands open onto the dark of the hall, sandals left at the threshold and a bicycle against the wall. The school has taught here since 1987, in its own words with “absolutely zero advertisements or promotions”."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-08-flowers.jpg",
+                    "w": 1123,
+                    "h": 1109,
+                    "alt": "A floor covered end to end by an enormous mandala laid entirely in flower petals, in concentric rings of marigold yellow, deep red, orange, white and pale green, with oil lamps burning in it, and a wooden stand at the far end carrying a garlanded figure above a framed photograph.",
+                    "caption": "A whole floor given over to petals — marigold, rose, orange, white — with the lamps lit and a garlanded photograph at the head of it. Not everything here is a class: the centre also runs Yoga Aranya, a planting of more than a thousand trees where it intends to build a shala."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-03-the-room-working.jpg",
+                    "w": 1123,
+                    "h": 987,
+                    "wide": true,
+                    "alt": "About twenty practitioners lie face down on coloured mats across a dark red floor, all lifting chest, arms and legs clear of the ground at once in the locust pose, below the black Atmavikasa Yoga Kutira board, while a man in a white shirt stands at the far right, hands together, watching.",
+                    "caption": "A full room in salabhasana, the locust, the whole floor lifting at the same moment. Venkatesha is not on a mat at the front — he is at the wall by the bamboo screen, hands together, watching."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-04-watching.jpg",
+                    "w": 1119,
+                    "h": 729,
+                    "wide": true,
+                    "alt": "A practitioner holds a headstand on a red mat in the hall, legs straight above them and clasped hands on the floor, while Venkatesha stands at the left with a thin pointer stick held down at his side, watching; two others stand at the right with their backs to the camera.",
+                    "caption": "The stick is a pointer, held down at his side. A headstand is being held in the middle of the room and most of the room has stopped its own work to watch it; nobody in this frame is being pushed or pulled into the shape."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-05-the-fold.jpg",
+                    "w": 1027,
+                    "h": 673,
+                    "wide": true,
+                    "alt": "A deep seated forward fold seen from the side at floor level: the practitioner's chest and face lie flat along his straight legs, his back one arc, both arms reaching past his feet, and behind him, out of focus, a bronze Nataraja — Shiva dancing in a ring of flame.",
+                    "caption": "Paschimottanasana, from floor level, which is where the shape can be judged: the chest lies along the legs and the back is one long arc rather than a hinge at the hips. The school's reputation is built on back-bending — this is the same spine going the other way."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-06-venkatesha.jpg",
+                    "w": 1123,
+                    "h": 981,
+                    "alt": "A warm sepia photograph of Yogacharya Venkatesha lying face down on a pale tiled floor, chin and chest to the ground, both arms folded behind his back with the hands drawn up together high between his shoulder blades, his head turned slightly, his eyes open and his expression calm.",
+                    "caption": "Yogacharya Venkatesha, who founded the centre and still teaches in it. He and Acharya Hema have taught in Mysore since 1987, and they are still the two names on the teaching."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-07-hands-and-feet.jpg",
+                    "w": 1123,
+                    "h": 1093,
+                    "alt": "A man in white cotton and no shirt sits with his legs folded and the soles of his feet drawn up and pressed together before his chest, his palms joined above them so that hands and feet mirror each other, against the dark Atmavikasa Yoga Kutira board behind him.",
+                    "caption": "Hands and feet in the same gesture, in front of the school's own board. Atmavikasa is not affiliated with Yoga Alliance — it asked for that to be said plainly, on a page where most schools introduce themselves by their registration."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-09-hall-evening.jpg",
+                    "w": 1125,
+                    "h": 833,
+                    "wide": true,
+                    "alt": "The same practice hall in the evening, lit from within: the timber roof in shadow, the three framed portraits along the white wall, and the red floor holding the light.",
+                    "caption": "The same hall in the evening, lit from within, the red floor still holding the light. The teacher trainings and yoga-therapy intensives here are multi-week and residential — nobody is passing through for a single class."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-10-bound-backbend.jpg",
+                    "w": 1125,
+                    "h": 1092,
+                    "alt": "A man lying face down on a pale tiled floor in a bound backbend: the arms are folded up behind the back with the palms pressed together between the shoulder blades, the chest and chin lifted clear of the floor. The photograph is toned sepia.",
+                    "caption": "Venkatesha again, prone, the arms bound behind the back. Sent in the sepia you see it in."
+                  },
+                  {
+                    "src": "/images/atlas/hatha-and-vinyasa-yoga--mysore/atmavikasa-11-flowers-being-laid.jpg",
+                    "w": 1125,
+                    "h": 833,
+                    "alt": "The practice hall with a flower mandala half laid across its floor in concentric bands of marigold, rose, purple and white. A person kneels at the near edge with their back to the camera, setting petals by hand. Behind them a small shrine stands between two shuttered windows, and rope-and-timber props hang on the far wall.",
+                    "caption": "The same floor being made. Somebody is on their knees laying it petal by petal, which is the part the finished picture does not show."
+                  }
+                ]
+              }
             },
             {
               "name": "Sthalam 8 Ashtanga Yoga Vedanta Centre",
@@ -2736,6 +2757,13 @@ window.ET_ATLAS = {
                     "h": 667,
                     "alt": "Students standing at a table gathering herbs into cloth and tying them into round compress balls, several finished compresses resting on a woven tray.",
                     "caption": "Tying the herbal compresses. The students make them before they use them, which is how you learn what is inside one."
+                  },
+                  {
+                    "src": "/images/atlas/thai-massage--chiang-mai/omh-06-the-school-sign.jpg",
+                    "w": 1267,
+                    "h": 1014,
+                    "alt": "A man in a cream Thai shirt with a gold sash over one shoulder stands beside the school's sign at its entrance. The sign reads Thai Massage School Shivagakomarpaj, open daily 08.30 am to 04.00 pm, with a telephone number, an email address and the school's website.",
+                    "caption": "The sign at the door, with the hours and the number on it. From the school's own site, which is what it gave permission to use."
                   }
                 ]
               },
@@ -6899,13 +6927,13 @@ window.ET_ATLAS = {
                     "caption": "Before any of it is fun, the kite has to come down and go up again on a crowded beach. The instructor keeps the bar; the student stands at his shoulder and watches it done."
                   },
                   {
-                      "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg",
-                      "w": 1284,
-                      "h": 1600,
-                      "alt": "A kitesurfer in a black wetsuit high above the sea, knees tucked and the board held flat beneath them, lines running up to a kite out of frame.",
-                      "caption": "Airborne, with the board still under control. This is what the third year looks like."
-                    },
-                    {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-08-jump.jpg",
+                    "w": 1284,
+                    "h": 1600,
+                    "alt": "A kitesurfer in a black wetsuit high above the sea, knees tucked and the board held flat beneath them, lines running up to a kite out of frame.",
+                    "caption": "Airborne, with the board still under control. This is what the third year looks like."
+                  },
+                  {
                     "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-09-grab.jpg",
                     "w": 1276,
                     "h": 1600,
@@ -6925,6 +6953,13 @@ window.ET_ATLAS = {
                     "h": 1600,
                     "alt": "Six people in wetsuits stand on the sand in front of a Matos Tarifa flag, several making a shaka sign, two boards on the ground and a third held upright, kites in the sky behind them.",
                     "caption": "Instructors and students together at the end of a session, in front of the school's own flag. Who teaches is a question this Atlas asks of every school; this is Matos Tarifa answering it with a photograph."
+                  },
+                  {
+                    "src": "/images/atlas/kitesurfing--tarifa/matos-tarifa-07-strapless.jpg",
+                    "w": 1600,
+                    "h": 1066,
+                    "alt": "A kitesurfer in the air above the sea, knees drawn up, holding the bar with one hand while a strapless surfboard stays pressed under his bare feet. Two other kites fly further off and a long low coast lies on the horizon.",
+                    "caption": "Strapless, off the water, with the far shore of the strait behind. One of the ten pictures the school sent."
                   }
                 ]
               },
@@ -17578,78 +17613,85 @@ window.ET_ATLAS = {
                 "thumb": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-04-the-tortellino.jpg",
                 "card": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg",
                 "items": [
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-08-spisni-at-the-board.jpg",
-                      "w": 1000,
-                      "h": 513,
-                      "alt": "A white-haired woman in an orange top and a white school apron stands behind a long wooden board with both hands resting on a mattarello, looking up and smiling; a second woman in the school's red shirt works at a board behind her, and rows of coloured chef's hats hang on the tiled wall.",
-                      "caption": "Alessandra Spisni, who founded the school, at the board. Photograph from the school's own website, used with its permission."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-01-the-egg-into-the-well.jpg",
-                      "w": 1000,
-                      "h": 666,
-                      "wide": true,
-                      "alt": "A wide shallow crater of white flour with a ring of whole brown eggs laid all around its rim, one broken yolk already sitting in the middle of the well, and two hands above it cracking another egg so the white runs down into the flour.",
-                      "caption": "Where every sheet starts: a crater of flour, a ring of eggs around it, one yolk already in the well."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg",
-                      "w": 1000,
-                      "h": 666,
-                      "alt": "A sheet of yellow egg pasta folded into three flat layers, sharp in the foreground on a pale wooden bench, with a pair of hands and the blade of a long knife out of focus behind it.",
-                      "caption": "The sfoglia, rolled and folded into three, with the knife waiting behind it. This is the moment before tagliatelle exists."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-03-tagliatelle-cut.jpg",
-                      "w": 1000,
-                      "h": 666,
-                      "alt": "Two hands lifting a fold of freshly cut yellow tagliatelle off a wooden board, the ribbons opening as they rise; the person wears a white apron carrying the school's red roundel, and a hand-crank pasta machine stands out of focus behind.",
-                      "caption": "Cut, then lifted so the ribbons fall open. The apron is the school's own — the red roundel is how VSB signs its work."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-04-the-tortellino.jpg",
-                      "w": 1000,
-                      "h": 666,
-                      "wide": true,
-                      "alt": "A close view of two hands closing a single small tortellino: the square of yellow pasta is wrapped around the tip of one finger and pinched shut by the other hand, against a plain pale background with nothing else in the frame.",
-                      "caption": "One tortellino, closed around a fingertip. If a single photograph has to carry this craft, it is this one — the shape is made on the finger, not in a mould."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-05-the-trays.jpg",
-                      "w": 1000,
-                      "h": 666,
-                      "alt": "Several hundred small closed tortellini spread out in loose rows across a pale wooden board to dry, filling the whole frame, with a bowl and a bench out of focus behind them.",
-                      "caption": "The yield of one morning, drying on the board. The professional course runs 8am to 2pm, Monday to Friday, and attendance is compulsory."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-06-the-mattarelli.jpg",
-                      "w": 666,
-                      "h": 1000,
-                      "alt": "A row of long wooden rolling pins standing on end in a line against a bright window, each hanging from its own bracket on the wall, receding out of focus down the room.",
-                      "caption": "The mattarelli, one to a bracket, down the wall of the room. A sfoglia here is rolled by hand."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-09-rolled-in-the-piazza.jpg",
-                      "w": 1000,
-                      "h": 1246,
-                      "alt": "A man in the school's red shirt, white apron and white cap leans over a long wooden board set up outdoors, both hands pushing a mattarello along a sheet of pasta; behind him rises the carved stone front of a Bolognese building, with a crowd watching from the far side.",
-                      "caption": "A student of the school at the mattarello, out in the open in front of the city \u2014 the same tool and the same sheet as on the bench inside."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-10-the-room-working.jpg",
-                      "w": 1000,
-                      "h": 562,
-                      "alt": "A long teaching kitchen with pale wooden benches in rows, each place set with a bowl of brown eggs and a mound of flour; at the far end three people in the school's red shirts and white caps stand at a demonstration counter in front of the stoves.",
-                      "caption": "The room before a class: a board, a bowl of eggs and a heap of flour at every place."
-                    },
-                    {
-                      "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-11-balanzoni.jpg",
-                      "w": 1000,
-                      "h": 562,
-                      "alt": "A pale wooden bench with a hand grater, a bowl of brown eggs, a heap of white flour, a white bowl of spinach leaves, and a scatter of green stuffed pasta parcels along the right-hand edge.",
-                      "caption": "Balanzoni: spinach in the dough, and one more shape in the same repertoire."
-                    }
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-08-spisni-at-the-board.jpg",
+                    "w": 1000,
+                    "h": 513,
+                    "alt": "A white-haired woman in an orange top and a white school apron stands behind a long wooden board with both hands resting on a mattarello, looking up and smiling; a second woman in the school's red shirt works at a board behind her, and rows of coloured chef's hats hang on the tiled wall.",
+                    "caption": "Alessandra Spisni, who founded the school, at the board. Photograph from the school's own website, used with its permission."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-01-the-egg-into-the-well.jpg",
+                    "w": 1000,
+                    "h": 666,
+                    "wide": true,
+                    "alt": "A wide shallow crater of white flour with a ring of whole brown eggs laid all around its rim, one broken yolk already sitting in the middle of the well, and two hands above it cracking another egg so the white runs down into the flour.",
+                    "caption": "Where every sheet starts: a crater of flour, a ring of eggs around it, one yolk already in the well."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg",
+                    "w": 1000,
+                    "h": 666,
+                    "alt": "A sheet of yellow egg pasta folded into three flat layers, sharp in the foreground on a pale wooden bench, with a pair of hands and the blade of a long knife out of focus behind it.",
+                    "caption": "The sfoglia, rolled and folded into three, with the knife waiting behind it. This is the moment before tagliatelle exists."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-03-tagliatelle-cut.jpg",
+                    "w": 1000,
+                    "h": 666,
+                    "alt": "Two hands lifting a fold of freshly cut yellow tagliatelle off a wooden board, the ribbons opening as they rise; the person wears a white apron carrying the school's red roundel, and a hand-crank pasta machine stands out of focus behind.",
+                    "caption": "Cut, then lifted so the ribbons fall open. The apron is the school's own — the red roundel is how VSB signs its work."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-04-the-tortellino.jpg",
+                    "w": 1000,
+                    "h": 666,
+                    "wide": true,
+                    "alt": "A close view of two hands closing a single small tortellino: the square of yellow pasta is wrapped around the tip of one finger and pinched shut by the other hand, against a plain pale background with nothing else in the frame.",
+                    "caption": "One tortellino, closed around a fingertip. If a single photograph has to carry this craft, it is this one — the shape is made on the finger, not in a mould."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-05-the-trays.jpg",
+                    "w": 1000,
+                    "h": 666,
+                    "alt": "Several hundred small closed tortellini spread out in loose rows across a pale wooden board to dry, filling the whole frame, with a bowl and a bench out of focus behind them.",
+                    "caption": "The yield of one morning, drying on the board. The professional course runs 8am to 2pm, Monday to Friday, and attendance is compulsory."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-06-the-mattarelli.jpg",
+                    "w": 666,
+                    "h": 1000,
+                    "alt": "A row of long wooden rolling pins standing on end in a line against a bright window, each hanging from its own bracket on the wall, receding out of focus down the room.",
+                    "caption": "The mattarelli, one to a bracket, down the wall of the room. A sfoglia here is rolled by hand."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-09-rolled-in-the-piazza.jpg",
+                    "w": 1000,
+                    "h": 1246,
+                    "alt": "A man in the school's red shirt, white apron and white cap leans over a long wooden board set up outdoors, both hands pushing a mattarello along a sheet of pasta; behind him rises the carved stone front of a Bolognese building, with a crowd watching from the far side.",
+                    "caption": "A student of the school at the mattarello, out in the open in front of the city — the same tool and the same sheet as on the bench inside."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-10-the-room-working.jpg",
+                    "w": 1000,
+                    "h": 562,
+                    "alt": "A long teaching kitchen with pale wooden benches in rows, each place set with a bowl of brown eggs and a mound of flour; at the far end three people in the school's red shirts and white caps stand at a demonstration counter in front of the stoves.",
+                    "caption": "The room before a class: a board, a bowl of eggs and a heap of flour at every place."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-11-balanzoni.jpg",
+                    "w": 1000,
+                    "h": 562,
+                    "alt": "A pale wooden bench with a hand grater, a bowl of brown eggs, a heap of white flour, a white bowl of spinach leaves, and a scatter of green stuffed pasta parcels along the right-hand edge.",
+                    "caption": "Balanzoni: spinach in the dough, and one more shape in the same repertoire."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-07-the-room.jpg",
+                    "w": 1600,
+                    "h": 899,
+                    "alt": "The school's teaching room seen from a bare wooden board in the foreground: a row of white-framed tables each set with a pale board, a mound of flour and a small bowl, long rolling pins hanging in a rack on the tiled wall, and at the back four people in red aprons and white caps working at a bench beside a green cooking island.",
+                    "caption": "The room set up before a class — a board, a mound of flour and a bowl at each place, and the rolling pins on the wall behind."
+                  }
                 ]
               },
               "facts": {
