@@ -1049,14 +1049,6 @@ def opened_band(items):
         # line instead, so every card still has exactly one.
         if not blurb:
             blurb, hook = hook, ""
-        # ⛔ "Photo: " is reserved for a picture a school sent us. A licensed image prints
-        # its maker and its LICENCE and stops there — a credit names its source and says
-        # nothing about itself (Arnaud, 16 Sept 2026), and the build refuses a craft
-        # credit that starts with the reserved prefix.
-        _credit = ('<p class="shotcredit">'
-                   + (("Photo: " + e(it["shotBy"])) if it.get("shotBy")
-                      else (e(it["illusBy"]) if it.get("illusBy") else ""))
-                   + '</p>')
         cards.append(
             f'<article class="gcard{" walks" if nplaces > 1 else ""}"'
             + (f' data-shot style="--sc:{e(it["color"])};--shot:url({e(it["shot"])})'
@@ -1075,13 +1067,11 @@ def opened_band(items):
             f'{e(it["name"])} skill sheet"></a>'
             # The band. Empty, because the picture is decorative HERE: the same frame
             # is published at full size, with alt text and a caption, on the place page.
-            # ⛔ THE CREDIT RIDES THE PICTURE, not the foot of the card — Arnaud, 19 Sept
-            # 2026: under the chip it read as legal small print closing a poster. It cannot
-            # be deleted (CC BY and CC BY-SA require attribution, and a school's name is
-            # the only thing it gets back), so it sits on the bottom of its own frame,
-            # where the veil is already dark. Mirrors cardInner() exactly.
-            + ('<div class="cardshot">' + _credit + '</div>' if it.get("shot")
-               else ('<div class="craftshot">' + _credit + '</div>' if it.get("illus") else ""))
+            # ⛔ NO CREDIT ON THE CARD (Arnaud, 22 Sept 2026). The attribution CC BY and
+            # CC BY-SA require is printed at the foot of the craft sheet this card opens,
+            # by craft_picture_credit() — see the note in cardInner(). Mirrors it exactly.
+            + ('<div class="cardshot"></div>' if it.get("shot")
+               else ('<div class="craftshot"></div>' if it.get("illus") else ""))
             + f'<div class="openedon">Opened <b>{e(it["opened"])}</b></div>'
             # THE VERB IS LIFTED OUT OF THE NAME. Set inline and in capitals the two
             # run together — LEARNSURFING — so the verb is its own letterspaced line

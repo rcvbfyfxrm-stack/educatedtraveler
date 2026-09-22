@@ -401,6 +401,45 @@ for _cid, _im in sorted(CRAFT_IMAGES.items()):
                          '(e.g. "50% 22%", "center", "left top").')
 
 
+# The deed each licence name points at. A CC credit that names a licence without linking
+# to it asks a reader to take the licence on trust, which is the opposite of the point.
+LICENCE_URL = {
+    "CC0": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "CC BY 2.0": "https://creativecommons.org/licenses/by/2.0/",
+    "CC BY 3.0": "https://creativecommons.org/licenses/by/3.0/",
+    "CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
+    "CC BY-SA 2.0": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "CC BY-SA 3.0": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
+}
+
+
+def craft_picture_credit(cid):
+    """The attribution line for the licensed picture this craft's CARD wears.
+
+    ⛔ IT LIVES HERE BECAUSE THE CARD NO LONGER CARRIES IT. Arnaud, 22 September 2026:
+    "ne met pas de credit sur les images du skill card". CC BY and CC BY-SA still require
+    attribution — but §3(a)(2) lets it be satisfied "in any reasonable manner based on the
+    medium", explicitly including a link to a resource that carries it. The card is one
+    stretched link to this page, so this page is that resource. Take this line away and 20
+    of the 22 pictures are published with no attribution at all, which is a breach, not a
+    tidier card.
+
+    ⚠ The picture is not shown on this page. That is fine — the obligation follows the
+    PUBLICATION, and the card that publishes it opens this page in one click.
+    """
+    im = CRAFT_IMAGES.get(cid)
+    if not im:
+        return ""
+    lic, url = im["licence"], LICENCE_URL.get(im["licence"], "")
+    lic_html = (f'<a href="{e(url)}" target="_blank" rel="noopener license">{e(lic)}</a>'
+                if url else e(lic))
+    return ('<p class="piccredit">The picture on this craft&#39;s card: '
+            f'{e(im["credit"].split(" · ")[0])} &middot; {lic_html} &middot; '
+            f'<a href="{e(im["sourceUrl"])}" target="_blank" rel="noopener">'
+            'the file on Wikimedia Commons</a></p>')
+
+
 def craft_image(cid):
     """(src, credit, focal) for the licensed picture of this craft, or three blanks.
 
@@ -1350,6 +1389,12 @@ def page(title, desc, canonical_path, body, breadcrumbs=None, jsonld=None,
         '" style="color:var(--sea);text-decoration:none;border-bottom:1px solid rgba(127,168,165,.3)">'
         'Something here out of date? Tell me &mdash; corrections go straight to my inbox.</a></p>'
     )
+    # The licensed picture this craft's card wears is credited here, because the card
+    # itself no longer carries a credit (Arnaud, 22 Sept 2026) and a CC BY / BY-SA
+    # picture may not be published with no attribution anywhere. Derived from the path,
+    # so every craft page gets it without a caller having to remember.
+    _cid = canonical_path.strip("/").split("/")[-1] if canonical_path.startswith("/atlas/") else ""
+    pic_credit = craft_picture_credit(_cid)
     crumbs = ""
     if breadcrumbs:
         items = [{"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u} for i, (n, u) in enumerate(breadcrumbs)]
@@ -1548,6 +1593,9 @@ details.smore > p {{ font-size:14.5px; opacity:.82; max-width:62ch; margin-top:1
 .intent-msg {{ font-size:13.5px; margin-top:10px; }} .intent-msg.ok {{ color:var(--sea); }} .intent-msg.err {{ color:#e0915f; }}
 .intent-fine {{ font-size:12px; opacity:.5; margin-top:8px; }}
 footer {{ padding:40px 0 60px; font-size:13px; color:rgba(243,237,226,.62); }}
+.piccredit {{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.04em;
+  color:rgba(243,237,226,.42); margin:0 0 14px; line-height:1.6; }}
+.piccredit a {{ color:rgba(243,237,226,.58); }}
 footer a {{ color:var(--sea); }}
 .cur-toggle {{ position:fixed; right:14px; bottom:14px; z-index:60; display:flex; align-items:center; gap:6px;
   background:rgba(20,17,13,.92); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:99px; padding:5px 7px 5px 12px; box-shadow:0 8px 24px rgba(0,0,0,.4); }}
@@ -1567,7 +1615,7 @@ footer a {{ color:var(--sea); }}
 {body}
 {TRUST_HTML}
 {tail_scripts}
-<footer><div class="wrap">{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<footer><div class="wrap">{pic_credit}{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 {CUR_TOGGLE}
 <script>{RAIL_JS}</script>
 </body>
@@ -4181,6 +4229,42 @@ if _lfloor is not None:
         print(f"  ✓ the ladder debt fell to {len(_no_ladder)} — set ladderDebtFloor to "
               f"{len(_no_ladder) + 1} in data/atlas-extra-sheets.json (debt + 1, so one "
               "Circle opening still builds) and it can never drift back up")
+
+# ── the picture credit reaches the HAND-WRITTEN sheets too ───────────────────
+# page() prints it for every sheet the generator writes. Three crafts carrying a licensed
+# picture — freediving, pottery-and-ceramics and sailing-and-yachtmaster — are hand-written
+# sheets it never regenerates, and their footers are their own. So the credit is injected,
+# the way inject-related-handwritten.py injects its blocks.
+#
+# ⛔ This is not tidiness. CC BY and CC BY-SA require attribution, the card no longer
+# carries any (Arnaud, 22 Sept 2026), and these three pages are where the obligation now
+# lands. Without this they would be the only three pictures on the Atlas published with no
+# attribution anywhere — and check 14c fails the build if that ever happens again.
+_PIC_CSS = (".piccredit{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;"
+            "color:rgba(243,237,226,.42);margin:0 0 14px;line-height:1.6}"
+            ".piccredit a{color:rgba(243,237,226,.58)}")
+_injected = 0
+for _cid in sorted(CRAFT_IMAGES):
+    _pg = ROOT / f"website/atlas/{_cid}.html"
+    if not _pg.is_file():
+        continue
+    _h = _pg.read_text()
+    if '<p class="piccredit">' in _h:
+        continue                                   # page() already wrote it
+    _line = craft_picture_credit(_cid)
+    _anchor = '<footer><div class="wrap">'
+    if _anchor not in _h:
+        raise SystemExit(
+            f"build-atlas-pages: {_cid}.html carries a licensed picture and has no "
+            f"{_anchor!r} to credit it in. Add the credit by hand, or the picture is "
+            "published with no attribution anywhere.")
+    _h = _h.replace(_anchor, _anchor + _line, 1)
+    if ".piccredit{" not in _h:
+        _h = _h.replace("</style>", _PIC_CSS + "</style>", 1)
+    _pg.write_text(_h)
+    _injected += 1
+if _injected:
+    print(f"  ✓ picture credit injected into {_injected} hand-written sheet(s)")
 
 # ── the photograph debt, on the same ratchet ─────────────────────────────────
 # What the Atlas actually owes here is a picture from the SCHOOL — the room a reader

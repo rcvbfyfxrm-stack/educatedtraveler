@@ -602,15 +602,18 @@ for _, _slug, _ in cards:
         continue
     tag = _open_tag(band, m[0])
     worn = re.search(r'--shot:url\(([^)]+)\)', tag)
-    credit = re.search(r'<p class="shotcredit">(?:Photo: )?(.*?)</p>', m[1], re.S)
     if rest.get("shot"):
         if not worn:
             bad(f"{_slug}: {rest['place']} carries a photograph and the card wears none")
         elif html_mod.unescape(worn[1]) != rest["shot"]:
             bad(f"{_slug}: the card wears {html_mod.unescape(worn[1])}, and the place it "
                 f"stands on published {rest['shot']}")
-        if not (credit and credit[1].strip()):
-            bad(f"{_slug}: the card wears a photograph and credits nobody")
+        # ⚠ THE CARD NO LONGER CREDITS ANYONE, by decision (Arnaud, 22 Sept 2026) — so
+        # this check no longer asks it to. The school's credit did not disappear: 14b
+        # below asserts it on the place card of the craft sheet, which is where a reader
+        # who wants to know whose room it is now finds out. ⛔ Do not "restore" this arm
+        # without moving the credit back onto the card first, or the build fails on a
+        # decision rather than on a defect.
         # ⚠ The focal point is a per-destination field, and atlas-index-shim.js is a
         # WHITELIST: a field not named there is dropped in silence and the card keeps
         # rendering — just with the wrong third of the photograph, which is how a
@@ -775,13 +778,31 @@ for _, _slug, _ in cards:
         if declared.get("focal") and f'--illusfocal:{declared["focal"]}' not in tag:
             bad(f"{_slug}: craftImages publishes a focal point ({declared['focal']}) and "
                 "the band card does not carry it")
-        _cr = re.search(r'<p class="shotcredit">(.*?)</p>', m[1], re.S)
-        if not (_cr and _cr[1].strip()):
-            bad(f"{_slug}: the card wears a licensed picture and credits nobody. The "
-                "credit IS what makes a licensed picture publishable")
-        elif html_mod.unescape(_cr[1].strip()) != declared["credit"].strip():
-            bad(f"{_slug}: the card credits {html_mod.unescape(_cr[1].strip())!r} and "
-                f"craftImages says {declared['credit'].strip()!r}")
+        # ⛔ THE ATTRIBUTION MOVED, IT DID NOT GO. The card carries no credit any more
+        # (Arnaud, 22 Sept 2026), so CC BY and CC BY-SA are satisfied the way §3(a)(2)
+        # allows — on the page the card links to. This is the check that keeps that true:
+        # 20 of the 22 pictures are under a licence that REQUIRES attribution, and if
+        # craft_picture_credit() ever stops printing, they are published with none at all.
+        # Nothing at runtime complains about that. The build does.
+        _sheet = ROOT / f"website/atlas/{_slug}.html"
+        if not _sheet.is_file():
+            bad(f"{_slug}: carries a licensed picture and has no craft page to credit it on")
+        else:
+            _h = _sheet.read_text()
+            _pc = re.search(r'<p class="piccredit">(.*?)</p>', _h, re.S)
+            if not _pc:
+                bad(f"{_slug}: the card wears a licensed picture and the craft page credits "
+                    "nobody — CC BY and CC BY-SA are not satisfied anywhere on this site")
+            else:
+                _maker = declared["credit"].split(" · ")[0].strip()
+                if html_mod.escape(_maker, quote=False) not in _pc[1]:
+                    bad(f"{_slug}: the craft page's picture credit does not name {_maker!r}")
+                if html_mod.escape(declared["licence"], quote=False) not in _pc[1]:
+                    bad(f"{_slug}: the craft page's picture credit does not name the licence "
+                        f"({declared['licence']})")
+                if declared["sourceUrl"] not in _h:
+                    bad(f"{_slug}: the craft page's picture credit does not link the source "
+                        "file — a licence with no checkable source is not checkable")
     elif worn_illus:
         bad(f"{_slug}: the band card wears {html_mod.unescape(worn_illus[1])} and "
             "craftImages declares nothing — a picture nobody licensed is on the page")

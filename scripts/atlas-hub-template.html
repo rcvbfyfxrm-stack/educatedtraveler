@@ -294,27 +294,15 @@ select.fin option{background:var(--ink2)}
   background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,var(--ink2) 100%),var(--illus);
   background-size:cover;background-position:var(--illusfocal,center);background-repeat:no-repeat;
   filter:saturate(.92)}
-/* Whose picture it is. Empty on every card that is not wearing one, and the
-   :empty rule is what keeps it from printing a blank line on the other 115. */
-.shotcredit{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--faint);margin:9px 0 0}
-.shotcredit:empty{display:none}
-/* On a card the credit sits ON the picture, at its bottom edge, where both frames already
-   fade into the card's own ground — so it needs no plate of its own. It is the one thing a
-   school gets back for sending photographs and the one thing a CC licence requires, so it
-   is never deleted; it is made quiet. Arnaud, 19 Sept: at the foot of the card it read as
-   legal small print closing a poster.
-   ⚠ Specificity is deliberate: the .gcard rule that used to space a body credit still
-   matches a nested one and would push it out of the frame. */
-.cardshot,.craftshot{position:relative}
-.gcard .cardshot .shotcredit,.gcard .craftshot .shotcredit,
-.dcard .cardshot .shotcredit,.dcard .craftshot .shotcredit{position:absolute;
-  left:17px;right:17px;bottom:6px;margin:0;font-size:8px;letter-spacing:.06em;
-  line-height:1.35;color:rgba(243,237,226,.52);text-shadow:0 1px 4px rgba(20,17,13,.95);
-  /* ⛔ IT WRAPS, IT DOES NOT TRUNCATE. On one line with an ellipsis the first credit on
-     the page read "PHOTO: VAKUUM BY MARTIN LIPPO · WE WORK …" — and "· we work together"
-     is the partnership disclosure, which may never be cut. Two lines, then clamp. */
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+/* ⛔ .shotcredit IS GONE FROM THIS PAGE. The browse card carried it at its foot, then on
+   the frame, and on 22 September 2026 Arnaud took it off the card entirely. The rules that
+   styled it are deleted rather than left behind, because dead CSS on this file has twice
+   been mistaken for live CSS and edited.
+   ⚠ The attribution did NOT go with it: craft_picture_credit() in build-atlas-pages.py
+   prints the maker, the licence and the source file at the foot of the craft sheet the
+   card opens, and check 14c fails the build if it ever stops. A school's photograph is
+   credited on its own place page, which check 14b holds. The class still exists on THOSE
+   pages and is styled there — do not re-add it here expecting it to appear. */
 /* the breathing room the chip's own auto margin cannot guarantee */
 .gcard .craftblurb,.gcard .cardhook,.dcard .craftblurb,.dcard .cardhook{margin-bottom:12px}
 .cred{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(231,181,78,.34);border-radius:99px;padding:4px 9px;margin-bottom:11px;max-width:100%}
@@ -1294,14 +1282,18 @@ function cardInner(o){
   var n=(PLACES[o.did]||[]).length;
   // The band. Empty, because the picture is decorative HERE: this same frame is
   // published at full size with its own alt text and caption on the place page.
-  // ⛔ THE CREDIT RIDES THE PICTURE. It used to sit at the foot of the card, under the
-  // chip, where Arnaud found it "really bad" (19 Sept 2026) — a line of legal small print
-  // closing a card that is otherwise a poster. It cannot be deleted: CC BY and CC BY-SA
-  // require attribution, and a school's name is the only thing it gets back. So it moves
-  // onto the bottom of the frame it belongs to, small and quiet, on the veil that is
-  // already dark there. Both builders put it in the same place — change one, change both.
-  var credit='<p class="shotcredit">'+(o.shotBy?'Photo: '+esc(o.shotBy):(o.illusBy?esc(o.illusBy):''))+'</p>';
-  return (o.shot?'<div class="cardshot">'+credit+'</div>':(o.illus?'<div class="craftshot">'+credit+'</div>':''))+
+  // ⛔ NO CREDIT ON THE CARD. Arnaud, 22 September 2026: "ne met pas de credit sur les
+  // images du skill card". It sat at the foot of the card, then on the frame, and neither
+  // survived him looking at it — a line of small print is not what a poster ends on.
+  //
+  // ⚠ THAT DOES NOT MAKE THE PICTURES UNATTRIBUTED, and it must not be allowed to. CC BY
+  // and CC BY-SA require attribution; §3(a)(2) lets it be given "in any reasonable manner
+  // based on the medium", a link to a page carrying it included. The card is one stretched
+  // link to the craft sheet, and craft_picture_credit() in build-atlas-pages.py prints the
+  // maker, the licence and the source file at the foot of that sheet. Remove that and 20
+  // of the 22 pictures become a breach — this line is the only reason removing it here is
+  // allowed at all. A school's photograph is credited on its own place page the same way.
+  return (o.shot?'<div class="cardshot"></div>':(o.illus?'<div class="craftshot"></div>':''))+
     sayHTML(o.craft)+
     (o.place?whereHTML(o.place,o.country):'')+
     (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
