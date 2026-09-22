@@ -278,30 +278,45 @@ select.fin option{background:var(--ink2)}
    has photographed yet. It belongs to the craft and to no place, which is exactly why
    it may ride a card that is standing anywhere, and exactly why it may not look like
    the school's.
-   ⚠ THE SEPARATOR IS THE FRAME, NOT THE TONE. The first attempt kept .cardshot's
-   geometry and only pulled the saturation and brightness back, and rendered side by
-   side in Kitchen & Cellar the two were indistinguishable at a glance — which is the
-   precise failure this class exists to prevent, arriving on its first render.
-   So the difference is structural and cannot be missed: a school's photograph BLEEDS
-   to the card's top corners, a window cut into the card, because you could walk into
-   that room. A licensed picture of the craft sits INSET, all four corners rounded,
-   hairlined in the world's own colour, shorter — a plate laid on the card, not a view
-   out of it. The tone step stays on top of that, but it is no longer doing the work.
-   The credit under it names a licence, which no school credit ever does. See
-   CRAFT_IMAGES in build-atlas-pages.py for the three rules that hold the two apart. */
-.craftshot{aspect-ratio:2/1;margin:0 0 15px;border-radius:9px;
-  background-image:var(--illus);
+   ⚠⚠ ARNAUD OVERRULED THE FRAME, 19 September 2026, with both versions in front of him:
+   "make the photo be as big as the card". So a licensed picture now wears the SAME
+   geometry as a school's photograph — full width, bled to the top corners, the card
+   reading as a poster rather than a card with a picture on it.
+   ⛔ Which means the visual separator is gone, and the line between the two classes is
+   now held by the CREDIT alone: a school's says "Photo: <school>", a licensed one says
+   "<maker> · <licence>", and no school credit has ever carried a licence.
+   ⚠ The first attempt at this class separated them by TONE alone — saturation and
+   brightness — and side by side in Kitchen & Cellar the two were indistinguishable at a
+   glance. A light tone step survives below, but it is NOT doing the work and must not be
+   relied on. If the two ever need telling apart by eye again, take the frame back: it is
+   the only thing that ever worked. See CRAFT_IMAGES in build-atlas-pages.py. */
+.craftshot{aspect-ratio:16/9;margin:-17px -17px 14px;border-radius:13px 13px 0 0;
+  background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,var(--ink2) 100%),var(--illus);
   background-size:cover;background-position:var(--illusfocal,center);background-repeat:no-repeat;
-  border:1px solid color-mix(in srgb,var(--sc) 30%,var(--line));
-  filter:saturate(.72) brightness(.88) contrast(.96)}
+  filter:saturate(.92)}
 /* Whose picture it is. Empty on every card that is not wearing one, and the
    :empty rule is what keeps it from printing a blank line on the other 115. */
 .shotcredit{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--faint);margin:9px 0 0}
 .shotcredit:empty{display:none}
+/* On a card the credit sits ON the picture, at its bottom edge, where both frames already
+   fade into the card's own ground — so it needs no plate of its own. It is the one thing a
+   school gets back for sending photographs and the one thing a CC licence requires, so it
+   is never deleted; it is made quiet. Arnaud, 19 Sept: at the foot of the card it read as
+   legal small print closing a poster.
+   ⚠ Specificity is deliberate: the .gcard rule that used to space a body credit still
+   matches a nested one and would push it out of the frame. */
+.cardshot,.craftshot{position:relative}
+.gcard .cardshot .shotcredit,.gcard .craftshot .shotcredit,
+.dcard .cardshot .shotcredit,.dcard .craftshot .shotcredit{position:absolute;
+  left:17px;right:17px;bottom:6px;margin:0;font-size:8px;letter-spacing:.06em;
+  line-height:1.35;color:rgba(243,237,226,.52);text-shadow:0 1px 4px rgba(20,17,13,.95);
+  /* ⛔ IT WRAPS, IT DOES NOT TRUNCATE. On one line with an ellipsis the first credit on
+     the page read "PHOTO: VAKUUM BY MARTIN LIPPO · WE WORK …" — and "· we work together"
+     is the partnership disclosure, which may never be cut. Two lines, then clamp. */
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 /* the breathing room the chip's own auto margin cannot guarantee */
 .gcard .craftblurb,.gcard .cardhook,.dcard .craftblurb,.dcard .cardhook{margin-bottom:12px}
-.gcard .shotcredit:not(:empty),.dcard .shotcredit:not(:empty){margin-bottom:12px}
 .cred{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(231,181,78,.34);border-radius:99px;padding:4px 9px;margin-bottom:11px;max-width:100%}
 .cred .gem{color:var(--gold)}.cred span.t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .craft{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:20px;line-height:1.1;margin-bottom:7px}
@@ -341,10 +356,13 @@ select.fin option{background:var(--ink2)}
    approach rather than the first word of the title — set inline in capitals the two run
    together (LEARNSURFING). It takes --sc, which is the only way the craft's world reaches
    a card: as colour, never as a word. */
-.cardsay .verb{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
-  font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--sc);margin-bottom:7px}
-.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:21px;
-  line-height:1.04;letter-spacing:-.005em;text-transform:uppercase;color:var(--paper)}
+.cardsay .verb{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--sc);margin-bottom:8px}
+/* ⭐ Bigger and heavier, 19 Sept 2026 — Arnaud asked for "big bolder police text". This is
+   the one line the whole card is for, and on a poster it is the thing you read from across
+   the room. 700 is as far as Fraunces goes before the counters close at this size. */
+.craftname{display:block;font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:25px;
+  line-height:1.0;letter-spacing:-.012em;text-transform:uppercase;color:var(--paper)}
 .wherealive{font-size:16.5px;font-weight:500;color:var(--sc);line-height:1.28;margin-bottom:10px;transition:opacity .22s ease}
 .wherealive .in{font-size:12.5px;font-weight:400;opacity:.62}
 /* What the craft IS — two lines, because this one is read at a glance and a third
@@ -1276,16 +1294,18 @@ function cardInner(o){
   var n=(PLACES[o.did]||[]).length;
   // The band. Empty, because the picture is decorative HERE: this same frame is
   // published at full size with its own alt text and caption on the place page.
-  return (o.shot?'<div class="cardshot"></div>':(o.illus?'<div class="craftshot"></div>':''))+
+  // ⛔ THE CREDIT RIDES THE PICTURE. It used to sit at the foot of the card, under the
+  // chip, where Arnaud found it "really bad" (19 Sept 2026) — a line of legal small print
+  // closing a card that is otherwise a poster. It cannot be deleted: CC BY and CC BY-SA
+  // require attribution, and a school's name is the only thing it gets back. So it moves
+  // onto the bottom of the frame it belongs to, small and quiet, on the veil that is
+  // already dark there. Both builders put it in the same place — change one, change both.
+  var credit='<p class="shotcredit">'+(o.shotBy?'Photo: '+esc(o.shotBy):(o.illusBy?esc(o.illusBy):''))+'</p>';
+  return (o.shot?'<div class="cardshot">'+credit+'</div>':(o.illus?'<div class="craftshot">'+credit+'</div>':''))+
     sayHTML(o.craft)+
     (o.place?whereHTML(o.place,o.country):'')+
     (blurb?'<p class="craftblurb">'+esc(blurb)+'</p>':'')+
     (hook?'<p class="cardhook">'+esc(hook)+'</p>':'')+
-    // ⛔ "Photo: " is reserved for a picture a school sent us. A licensed picture of
-    // the craft prints its maker and its LICENCE and stops — a credit names its source
-    // and says nothing about itself (Arnaud, 16 Sept 2026). The build refuses a craft
-    // image credit that starts with the reserved prefix, so the two lines stay apart.
-    '<p class="shotcredit">'+(o.shotBy?'Photo: '+esc(o.shotBy):(o.illusBy?esc(o.illusBy):''))+'</p>'+
     '<div class="cfoot"></div>'+
     // A link, not a button: it needs no JavaScript, it middle-clicks, it announces a
     // destination, and it survives #results being rebuilt on every filter change with
