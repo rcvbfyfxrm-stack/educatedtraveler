@@ -2986,6 +2986,10 @@ SCHOOL_STANDING = {
     "paused":      ("Closed for now", "#d28a52"),
     "course-gone": ("This course is not listed now", None),
     "site-gone":   ("The site we link is no longer theirs", None),
+    # ⚠ Not the same as site-gone: the domain answers nobody at all. Atmavikasa's stopped
+    # resolving at every public resolver in September 2026 — and it is the school that
+    # asked us to publish that address.
+    "site-down":   ("Their site is not answering", None),
     "not-here":    ("Not taught in this town", None),
 }
 

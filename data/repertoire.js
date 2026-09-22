@@ -412,6 +412,12 @@ window.ET_ATLAS = {
                     "caption": "The same floor being made. Somebody is on their knees laying it petal by petal, which is the part the finished picture does not show."
                   }
                 ]
+              },
+              "standing": {
+                "state": "site-down",
+                "what": "The address the school asked us to publish stopped resolving: no record at any public resolver on 21 September 2026. Its email still works, and the photographs on this page came from it.",
+                "from": "https://www.atmavikasayoga.in/",
+                "read": "2026-09-21"
               }
             },
             {
@@ -776,7 +782,28 @@ window.ET_ATLAS = {
               ],
               "url": "https://sharathyogacentre.com/",
               "course": "Mysore-style Ashtanga study at SYC (regular classes)",
-              "confidence": "medium"
+              "confidence": "medium",
+              "facts": {
+                "where": "Hebbal Industrial Area, Srirangapatna",
+                "format": "In person only; students arrange their own food and lodging",
+                "from": [
+                  "https://sharathyogacentre.com/the-shala/",
+                  "https://sharathyogacentre.com/frequently-asked-questions/"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Primary Series",
+                    [
+                      "Shraddha Jois"
+                    ]
+                  ]
+                ],
+                "from": "https://sharathyogacentre.com/shraddha-jois/",
+                "read": "2026-09-17"
+              }
             },
             {
               "name": "K. Pattabhi Jois Ashtanga Yoga Shala (Saraswathi Jois)",
@@ -812,7 +839,38 @@ window.ET_ATLAS = {
               "url": "https://s8ayvc.com/",
               "course": "Ashtanga Vinyasa Yoga Teacher Training",
               "blurb": "A Mysore centre led by Ajay Kumar teaching daily Mysore-style Ashtanga Vinyasa practice, Vedanta and meditation alongside a five-week residential Yoga Teacher Training program with on-site accommodation.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Chamarajapuram, Mysore",
+                "length": "5 weeks",
+                "format": "Two intakes a year; on-site rooms for accepted students",
+                "class": "12 students at most",
+                "credential": "A manual and certificate after two practical tests",
+                "from": [
+                  "https://www.s8ayvc.com/contact",
+                  "https://www.s8ayvc.com/training"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Founder & Principal Teacher",
+                    [
+                      "Ajay Kumar"
+                    ]
+                  ],
+                  [
+                    "Teachers",
+                    [
+                      "Naga Mahadeva",
+                      "Sudheera H.M"
+                    ]
+                  ]
+                ],
+                "from": "https://www.s8ayvc.com/teacher",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 4,
@@ -3915,14 +3973,76 @@ window.ET_ATLAS = {
               "url": "https://www.wimhofmethod.com/wim-hof-expeditions",
               "course": "Wim Hof Winter Expedition",
               "blurb": "The Winter Expedition is a week-long training camp led by Wim Hof in the Karkonosze region around Karpacz, Poland, combining breathing sessions, cold training in natural streams, and a culminating climb of a snowy mountain peak.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Copperhill Mountain Lodge, Åre, Sweden",
+                "length": "5 days (6 to 11 December)",
+                "format": "Residential: 5 nights in a mountain hotel, all meals included",
+                "language": "English",
+                "class": "200 participants at most, in groups of about 20-30",
+                "price": "€2,999",
+                "priceNote": "6-11 December edition in Sweden",
+                "from": [
+                  "https://activities.wimhofmethod.com/activities/winter-expedition-sweden-2026/71912",
+                  "https://www.wimhofmethod.com/wim-hof-expeditions"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Leads the expedition, with a team of instructors",
+                    [
+                      "Wim Hof"
+                    ]
+                  ]
+                ],
+                "from": "https://activities.wimhofmethod.com/activities/winter-expedition-sweden-2026/71912",
+                "read": "2026-09-17"
+              },
+              "standing": {
+                "state": "not-here",
+                "what": "The only Winter Expedition on the calendar is at Copperhill Mountain Lodge in Åre, Sweden.",
+                "from": "https://activities.wimhofmethod.com/activities/winter-expedition-sweden-2026/71912",
+                "read": "2026-09-17"
+              }
             },
             {
               "name": "Wim Hof Method Travel",
               "url": "https://www.wimhofmethod.com/experience-wim-hof",
               "course": "Wim Hof Method Travel week-long programs",
               "blurb": "Wim Hof Method Travel offers official week-long, in-person training programs combining breathing technique, cold exposure, and mindset work at locations such as the WHM Center in the French Alps.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "facts": {
+                "where": "Aspres-sur-Buëch, southern French Alps",
+                "length": "6 days",
+                "format": "Residential, at the centre's 1800s house",
+                "language": "English (5-11 Feb) or French (15-21 Feb, 25-31 Jul)",
+                "price": "€1,999.80",
+                "priceNote": "5-11 Feb English edition; French editions €1,760",
+                "from": [
+                  "https://www.wimhofmethod.com/whm-center-france"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "WHM Travel instructor",
+                    [
+                      "Leandre Omeir"
+                    ]
+                  ]
+                ],
+                "from": "https://www.wimhofmethod.com/whm-center-france",
+                "read": "2026-09-17"
+              },
+              "standing": {
+                "state": "not-here",
+                "what": "The travel week runs from the method's own centre at Aspres-sur-Buëch, in the southern French Alps.",
+                "from": "https://www.wimhofmethod.com/whm-center-france",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 2,
@@ -3961,14 +4081,43 @@ window.ET_ATLAS = {
               "url": "https://www.wimhofmethod.com/academy",
               "course": "Wim Hof Method Fundamentals Instructor Training (Certified WHM Instructor)",
               "blurb": "The official training arm of the Wim Hof Method, offering a multi-module instructor certification covering breathing, cold exposure, and mindset that has graduated over 1,200 Certified WHM Instructors since 2013.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Poland, Mexico or Australia (Module III)",
+                "length": "5 days in person, after two online video modules",
+                "format": "Modules I and II online; Module III in person, with assessment",
+                "credential": "Wim Hof Fundamentals Instructor certification",
+                "from": [
+                  "https://www.wimhofmethod.com/academy"
+                ],
+                "read": "2026-09-17"
+              },
+              "standing": {
+                "state": "not-here",
+                "what": "Module III, the only part you attend in person, is held in Poland, Mexico or Australia. Nothing of it happens in Amsterdam, where the academy is run from.",
+                "from": "https://www.wimhofmethod.com/academy",
+                "read": "2026-09-17"
+              }
             },
             {
               "name": "Innerfire BV",
-              "url": "https://www.innerfire.nl/",
-              "course": "Wim Hof Method Instructor Certification (Module II)",
+              "url": "https://www.wimhofmethod.com/academy",
+              "course": "Module II – Instructor Video Course (online)",
               "blurb": "The Amsterdam-based company founded by Enahm Hof that owns the Wim Hof Method and is the sole body authorized to grant its instructor certifications, delivering the teacher-training module that produces Certified WHM Instructors.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "format": "Online video course (Module II of three)",
+                "from": [
+                  "https://www.wimhofmethod.com/academy"
+                ],
+                "read": "2026-09-17"
+              },
+              "standing": {
+                "state": "not-here",
+                "what": "Module II is an online video course; there is no room to sit in here.",
+                "from": "https://www.wimhofmethod.com/academy",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 2,
@@ -18194,7 +18343,40 @@ window.ET_ATLAS = {
                 "Avant-garde techniques & utensils",
                 "17,316",
                 "simultaneous translation"
-              ]
+              ],
+              "facts": {
+                "where": "Pozuelo de Alarcón, Madrid",
+                "length": "9 months (30 weeks), in three certificates",
+                "format": "2 demonstrations and 2 practicals a week, 3 hours each",
+                "language": "Spanish, with English simultaneous translation by earphones",
+                "credential": "Spanish Cuisine Diploma: Basic, Intermediate, Superior certificates",
+                "price": "€17,316",
+                "priceNote": "full diploma, local students; international students €19,240",
+                "from": [
+                  "https://www.cordonbleu.edu/madrid/spanish-cuisine-diploma/en"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Head Chef of Spanish Cuisine Programmes",
+                    [
+                      "Natalia Vázquez"
+                    ]
+                  ],
+                  [
+                    "Spanish Cuisine chef instructors",
+                    [
+                      "David Vela",
+                      "Manuel Lucas",
+                      "Diego Muñoz"
+                    ]
+                  ]
+                ],
+                "from": "https://www.cordonbleu.edu/madrid/meet-chefs-instructor/en",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 5,
@@ -18238,7 +18420,34 @@ window.ET_ATLAS = {
               "verify": [
                 "Sous Vide",
                 "386"
-              ]
+              ],
+              "facts": {
+                "where": "Passatge de Centelles, Barcelona",
+                "format": "Classroom in Barcelona; online video modules, 8 months' access",
+                "language": "Spanish; English or French only as a private course",
+                "credential": "Online: course certificate signed by Chef Martin Lippo",
+                "price": "€580",
+                "from": [
+                  "https://martinlippo.com/en/contact/",
+                  "https://martinlippo.com/en/course-category/classroom-courses/foams-sodas-and-works-with-siphon-course/",
+                  "https://martinlippo.com/en/classroom-courses/",
+                  "https://martinlippo.com/en/course/full-online-course-pack-foams-carbonation-and-siphon-techniques/",
+                  "https://martinlippo.com/en/online-courses/"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Chef",
+                    [
+                      "Martin Lippo"
+                    ]
+                  ]
+                ],
+                "from": "https://martinlippo.com/en/course/full-online-course-pack-foams-carbonation-and-siphon-techniques/",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 3,
@@ -29300,8 +29509,33 @@ window.ET_ATLAS = {
               "name": "Edward Selfe Photo Safaris",
               "url": "https://www.edwardselfephotosafaris.com/photographic-safaris",
               "course": "Set-departure and private photographic safaris — maximum 4 participants",
-              "blurb": "Selfe has lived in the Luangwa Valley since 2009 and holds both of South Luangwa's guiding qualifications, with fifteen years guiding and photographing across the continent. Groups usually cap at four (occasionally six), with 'practical technical and artistic guidance throughout' and one-to-one coaching on private trips. Note the scheduled departures currently published range across Uganda, the Mara, Serengeti, Botswana and Tanzania rather than Luangwa itself.",
-              "confidence": "high on his credentials, teaching and group size; prices and dates verified on his own booking page but the published set departures are 2028 and cost USD 16,000-32,000 per person"
+              "blurb": "Selfe has lived in the Luangwa Valley since 2009 and holds both of South Luangwa's guiding qualifications, with fifteen years guiding and photographing across the continent. Groups usually cap at four (occasionally six), with 'practical technical and artistic guidance throughout' and one-to-one coaching on private trips. Note the scheduled departures currently published range across Uganda, the Mara, Serengeti, Botswana and Tanzania with South Luangwa returning in the Two Valley safari of 2029.",
+              "confidence": "high on his credentials, teaching and group size; prices and dates verified on his own booking page but the published set departures are 2028 and cost USD 16,000-32,000 per person",
+              "facts": {
+                "where": "Eastern and Southern Africa",
+                "length": "8 to 18 nights, depending on the safari",
+                "format": "Small groups guided from one vehicle; 2026-27 fully booked",
+                "class": "4 guests at most (occasionally 6)",
+                "price": "USD 18,500",
+                "priceNote": "from, per person; Two Valley safari with South Luangwa, 2029",
+                "from": [
+                  "https://www.edwardselfephotosafaris.com/photographic-safaris",
+                  "https://www.edwardselfephotosafaris.com/about"
+                ],
+                "read": "2026-09-17"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Photographic guide",
+                    [
+                      "Edward Selfe"
+                    ]
+                  ]
+                ],
+                "from": "https://www.edwardselfephotosafaris.com/about",
+                "read": "2026-09-17"
+              }
             }
           ],
           "tripTier": 3,
