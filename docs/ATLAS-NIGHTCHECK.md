@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-21 — 378 published claims re-read against the pages they came from, across 33 open crafts._
+_2026-09-22 — 378 published claims re-read against the pages they came from, across 33 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -73,36 +73,32 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 A 404 or a 410 on the first evening, which is the one failure worth waking up for: the others are counted and wait for the third night.
 
-_none._
+- safari-and-wildlife-guiding · EcoTraining — HTTP 404 — https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/
 
 ## We could not reach these — as much about us as about them
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- hatha-and-vinyasa-yoga · Atmavikasa Centre of Yogic Sciences — 5 nights — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+- hatha-and-vinyasa-yoga · Atmavikasa Centre of Yogic Sciences — 6 nights — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
   - https://www.atmavikasayoga.in/
-- sound-healing · Pokhara Yoga School and Retreat Center — 12 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 13 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- pottery-and-ceramics · Hamada Shoji Memorial Mashiko Sankokan — 1 night — URLError: <urlopen error timed out>
-  - https://mashiko-sankokan.net/
-- pottery-and-ceramics · Bizen Pottery Traditional and Contemporary Art Museum — 1 night — URLError: <urlopen error timed out>
-  - https://bizen-moa.jp/
-- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 2 nights — URLError: <urlopen error timed out>
+- modernist-spanish-cuisine · El Celler de Can Roca (stage program) — 1 night — TimeoutError: The read operation timed out
+  - https://cellercanroca.com/en/
+- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 3 nights — URLError: <urlopen error timed out>
   - https://www.taiwa.ac.jp/global/en/kyocho.php
-- sushi-and-washoku · La Carriere Cooking School (since 1931) — 2 nights — URLError: <urlopen error timed out>
+- sushi-and-washoku · La Carriere Cooking School (since 1931) — 3 nights — URLError: <urlopen error timed out>
   - https://www.taiwa.ac.jp/lacarriere/en/course/
-- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — 2 nights — IncompleteRead: IncompleteRead(170938 bytes read)
   - https://www.francecompetences.fr/recherche/rncp/38765/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **cold-exposure-wim-hof-method · Innerfire BV** — 12 nights, after 6 counted as failing by the older check — https://www.innerfire.nl/
-  - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.innerfire.nl'. (_ssl.c:1010)>
-- **perfumery · Musée International de la Parfumerie** — 6 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 7 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 6 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 7 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
@@ -118,7 +114,6 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - ashtanga-yoga · Stillpoint Yoga London — HTTP 403
 - vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
 - sound-healing · British Academy of Sound Therapy — HTTP 403
-- freediving · Touchdown Freediving — HTTP 403
 - spearfishing · Kona Freedivers — HTTP 429
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
 - sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
@@ -141,7 +136,6 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - jewelry-and-goldsmithing · Introduction to Rhino3D for Goldsmithing (CAD.WE1) — HTTP 403
 - jewelry-and-goldsmithing · Alchimia Contemporary Jewellery School — HTTP 403
 - italian-cuisine-and-pasta · Bologna Cooking School — HTTP 403
-- italian-cuisine-and-pasta · Casa Artusi - Scuola di Cucina di Casa Artusi — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB) — HTTP 403
 - wine-and-sommellerie · Institute of Masters of Wine — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
@@ -157,7 +151,9 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 Informational, never escalated. A rejected place going offline is usually the reason it was rejected. What would matter here is the opposite — one coming back — and no status code can tell you that.
 
 - modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
+- modernist-spanish-cuisine · Paco Roncero Taller — URLError: <urlopen error [Errno 104] Connection reset by peer>
 - modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
+- modern-new-technique-cuisine · El Celler de Can Roca — URLError: <urlopen error timed out>
 - modern-new-technique-cuisine · Modernist Cuisine Lab (Nathan Myhrvold) — HTTP 403
 
 ## Claims with nothing to verify against
@@ -218,11 +214,11 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · The Italian Mediterranean · Y-40 Deep Joy (Montegrotto Terme)
 - freediving · Dahab (Red Sea) · Freedive Dahab
 - freediving · Dahab (Red Sea) · Dahab Freedivers
+- freediving · Dahab (Red Sea) · Touchdown Freediving
 - freediving · Dean's Blue Hole, Long Island · Vertical Blue (William Trubridge)
 - freediving · Kalamata & the Mani · Kalamata Freedivers
 - spearfishing · Antibes, Côte d'Azur · CREPS PACA (Antibes)
 - spearfishing · Côte d'Azur (Cassis to Antibes) · FFESSM-affiliated pêche sous-marine clubs (Côte d'Azur)
 - spearfishing · Côte d'Azur (Cassis to Antibes) · regional CMAS spearfishing clubs
-- spearfishing · Kona, Big Island · Top Shot Spearfishing
 
-_225 in total._
+_227 in total._
