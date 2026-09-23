@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-22 — 378 published claims re-read against the pages they came from, across 33 open crafts._
+_2026-09-23 — 378 published claims re-read against the pages they came from, across 33 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -68,42 +68,41 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
   - page no longer says: Cowes Week's own site, on the bicentenary regatta and the 2027 dates
 - **japanese-knife-making · TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association** — https://kougeihin.jp/en/craft/0713/
   - page no longer says: TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association
+- **italian-cuisine-and-pasta · Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio** — https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52022XC0609(01)
+  - page no longer says: Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio
 
 ## Gone tonight — the server says the page does not exist
 
 A 404 or a 410 on the first evening, which is the one failure worth waking up for: the others are counted and wait for the third night.
 
-- safari-and-wildlife-guiding · EcoTraining — HTTP 404 — https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/
+_none._
 
 ## We could not reach these — as much about us as about them
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- hatha-and-vinyasa-yoga · Atmavikasa Centre of Yogic Sciences — 6 nights — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+- hatha-and-vinyasa-yoga · Atmavikasa Centre of Yogic Sciences — 7 nights — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
   - https://www.atmavikasayoga.in/
-- sound-healing · Pokhara Yoga School and Retreat Center — 13 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 14 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- modernist-spanish-cuisine · El Celler de Can Roca (stage program) — 1 night — TimeoutError: The read operation timed out
-  - https://cellercanroca.com/en/
-- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 3 nights — URLError: <urlopen error timed out>
+- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 4 nights — URLError: <urlopen error timed out>
   - https://www.taiwa.ac.jp/global/en/kyocho.php
-- sushi-and-washoku · La Carriere Cooking School (since 1931) — 3 nights — URLError: <urlopen error timed out>
+- sushi-and-washoku · La Carriere Cooking School (since 1931) — 4 nights — URLError: <urlopen error timed out>
   - https://www.taiwa.ac.jp/lacarriere/en/course/
-- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — 2 nights — IncompleteRead: IncompleteRead(170938 bytes read)
-  - https://www.francecompetences.fr/recherche/rncp/38765/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **perfumery · Musée International de la Parfumerie** — 7 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 8 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 7 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 8 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
 
-_none._
+- modern-new-technique-cuisine · Category: Literature Member since: 2008
+- modern-new-technique-cuisine · As a Creative City of Literature, Melbourne
 
 ## Unreadable, not gone
 
@@ -116,7 +115,6 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - sound-healing · British Academy of Sound Therapy — HTTP 403
 - spearfishing · Kona Freedivers — HTTP 429
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
-- sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
 - surfing · Baleal Surf Camp — HTTP 403
 - kitesurfing · HST Windsurfing & Kitesurfing School — HTTP 403
 - kitesurfing · Private Single Kitesurfing Lesson — HTTP 403
@@ -151,9 +149,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 Informational, never escalated. A rejected place going offline is usually the reason it was rejected. What would matter here is the opposite — one coming back — and no status code can tell you that.
 
 - modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
-- modernist-spanish-cuisine · Paco Roncero Taller — URLError: <urlopen error [Errno 104] Connection reset by peer>
 - modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
-- modern-new-technique-cuisine · El Celler de Can Roca — URLError: <urlopen error timed out>
 - modern-new-technique-cuisine · Modernist Cuisine Lab (Nathan Myhrvold) — HTTP 403
 
 ## Claims with nothing to verify against
@@ -221,4 +217,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - spearfishing · Côte d'Azur (Cassis to Antibes) · FFESSM-affiliated pêche sous-marine clubs (Côte d'Azur)
 - spearfishing · Côte d'Azur (Cassis to Antibes) · regional CMAS spearfishing clubs
 
-_227 in total._
+_228 in total._
