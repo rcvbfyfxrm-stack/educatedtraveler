@@ -319,7 +319,7 @@ window.ET_ATLAS = {
             },
             {
               "name": "Atmavikasa Centre of Yogic Sciences",
-              "url": "https://www.atmavikasayoga.in/",
+              "url": "https://atmavikasa.yoga",
               "course": "Authentic Hatha Yoga Teachers Training / Back-Bending Intensive (multi-week residential)",
               "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school. Yogacharya Venkatesha and Acharya Hema founded it and still teach it, which their own teachers page says plainly. Multi-week residential teacher trainings and yoga-therapy intensives, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
               "confidence": "high",
@@ -413,11 +413,19 @@ window.ET_ATLAS = {
                   }
                 ]
               },
-              "standing": {
-                "state": "site-down",
-                "what": "The address the school asked us to publish stopped resolving: no record at any public resolver on 21 September 2026. Its email still works, and the photographs on this page came from it.",
-                "from": "https://www.atmavikasayoga.in/",
-                "read": "2026-09-21"
+              "verify": [
+                "We are not a Yoga Studio"
+              ],
+              "facts": {
+                "where": "Yoga Kutira, Mysore",
+                "length": "6 weeks (the teachers programme runs 17 January to 27 February 2027)",
+                "format": "Four dated programmes across 2026-27, by application",
+                "class": "18 members at most, usually about 15",
+                "from": [
+                  "https://atmavikasa.yoga/our-trainings-201819",
+                  "https://atmavikasa.yoga/home-2"
+                ],
+                "read": "2026-09-24"
               }
             },
             {
