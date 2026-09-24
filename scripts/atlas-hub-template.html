@@ -269,7 +269,12 @@ select.fin option{background:var(--ink2)}
    16/9 so it scales with the card instead of letterboxing one width and walling
    another; the card rests on one place now, so the frame never changes under a
    pointer and the card cannot change height. */
-.cardshot{aspect-ratio:16/9;margin:-17px -17px 14px;border-radius:13px 13px 0 0;
+/* ⭐ 4/3, not 16/9 — Arnaud, 24 Sept 2026, choosing between two renders: the picture
+   takes half the card rather than a third, which is what makes it read as a poster
+   instead of a card with a picture on it. .craftshot below moves with it: the two
+   classes have worn the same geometry since the frame separator was overruled, and
+   letting their heights drift apart would put that separator back by accident. */
+.cardshot{aspect-ratio:4/3;margin:-17px -17px 14px;border-radius:13px 13px 0 0;
   background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,var(--ink2) 100%),var(--shot);
   background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat}
 /* ⛔ THE SECOND CLASS OF PICTURE, AND IT MUST NEVER READ AS THE FIRST.
@@ -290,7 +295,7 @@ select.fin option{background:var(--ink2)}
    glance. A light tone step survives below, but it is NOT doing the work and must not be
    relied on. If the two ever need telling apart by eye again, take the frame back: it is
    the only thing that ever worked. See CRAFT_IMAGES in build-atlas-pages.py. */
-.craftshot{aspect-ratio:16/9;margin:-17px -17px 14px;border-radius:13px 13px 0 0;
+.craftshot{aspect-ratio:4/3;margin:-17px -17px 14px;border-radius:13px 13px 0 0;
   background-image:linear-gradient(180deg,rgba(20,17,13,0) 58%,var(--ink2) 100%),var(--illus);
   background-size:cover;background-position:var(--illusfocal,center);background-repeat:no-repeat;
   filter:saturate(.92)}
