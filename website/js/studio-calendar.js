@@ -4,6 +4,17 @@
 window.ET_DAILY_DROP = [
   {
     "day": 1,
+    "core": "creative",
+    "discipline": "Pottery & Ceramics",
+    "place": "Mashiko, Japan",
+    "atlasUrl": "https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko",
+    "clipBrief": "30-60s wordless process: hands + material of Pottery & Ceramics, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Mashiko Ceramic Art Club (Mashiko Tougei Club)",
+    "footageUrl": "http://mashiko-tougei-club.jp/",
+    "caption": "This is where Pottery & Ceramics was born.\n\nHamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.\n\nCommunity strength: Legendary. Season: Apr-Nov (spring & autumn pottery fairs).\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko\n\n#crafttok #processvideo #handmade #mashiko #potteryceramics"
+  },
+  {
+    "day": 2,
     "core": "wellness",
     "discipline": "Hatha & Vinyasa Yoga",
     "place": "Rishikesh, India",
@@ -14,7 +25,7 @@ window.ET_DAILY_DROP = [
     "caption": "Rishikesh is both the birthplace of Hatha & Vinyasa Yoga and its living capital.\n\nEarn your RYT-200 where the Ganges meets the Himalaya, shoulder to shoulder with a global cohort in the city the practice itself calls its capital.\n\nCommunity strength: Legendary. Season: Sep-Apr.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/hatha-and-vinyasa-yoga--rishikesh\n\n#breathwork #yogatok #learnbydoing #rishikesh #hathavinyasayoga"
   },
   {
-    "day": 2,
+    "day": 3,
     "core": "adventure",
     "discipline": "Freediving",
     "place": "Dahab (Red Sea), Egypt",
@@ -23,17 +34,6 @@ window.ET_DAILY_DROP = [
     "footageSource": "Freedive Dahab",
     "footageUrl": "https://freedivedahab.com/",
     "caption": "The strongest Freediving community on earth gathers in Dahab (Red Sea).\n\nFlat, deep and warm all year, the current-free Blue Hole is the global base where the world's freedivers go to find depth and find their cohort.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/freediving--dahab-red-sea\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #dahabredsea #freediving"
-  },
-  {
-    "day": 3,
-    "core": "creative",
-    "discipline": "Pottery & Ceramics",
-    "place": "Mashiko, Japan",
-    "atlasUrl": "https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko",
-    "clipBrief": "30-60s wordless process: hands + material of Pottery & Ceramics, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Mashiko Ceramic Art Club (Mashiko Tougei Club)",
-    "footageUrl": "http://mashiko-tougei-club.jp/",
-    "caption": "This is where Pottery & Ceramics was born.\n\nHamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.\n\nCommunity strength: Legendary. Season: Apr-Nov (spring & autumn pottery fairs).\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko\n\n#crafttok #processvideo #handmade #mashiko #potteryceramics"
   },
   {
     "day": 4,
@@ -48,6 +48,17 @@ window.ET_DAILY_DROP = [
   },
   {
     "day": 5,
+    "core": "creative",
+    "discipline": "Photography",
+    "place": "New York City, United States",
+    "atlasUrl": "https://educatedtraveler.app/atlas/photography--new-york-city",
+    "clipBrief": "30-60s wordless process: hands + material of Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "International Center of Photography (ICP)",
+    "footageUrl": "https://www.icp.org/school/oyc",
+    "caption": "The strongest Photography community on earth gathers in New York City.\n\nICP's one-year certificate and the world's deepest editorial scene make this the place to find a real cohort and a working photographer's market.\n\nCommunity strength: Legendary. Season: Aug-May.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/photography--new-york-city\n\n#crafttok #processvideo #handmade #newyorkcity #photography"
+  },
+  {
+    "day": 6,
     "core": "wellness",
     "discipline": "Ashtanga Yoga",
     "place": "Mysore (Gokulam), India",
@@ -58,7 +69,7 @@ window.ET_DAILY_DROP = [
     "caption": "This is where Ashtanga Yoga was born.\n\nThe Gokulam neighbourhood where the method was born and the lineage still holds, the one place every authorised Ashtanga teacher on Earth traces home.\n\nCommunity strength: Legendary. Season: Oct-Mar.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/ashtanga-yoga--mysore-gokulam\n\n#breathwork #yogatok #learnbydoing #mysoregokulam #ashtangayoga"
   },
   {
-    "day": 6,
+    "day": 7,
     "core": "adventure",
     "discipline": "Sailing & Yachtmaster",
     "place": "The Solent (Cowes & Hamble), United Kingdom",
@@ -67,17 +78,6 @@ window.ET_DAILY_DROP = [
     "footageSource": "UKSA (United Kingdom Sailing Academy), Cowes",
     "footageUrl": "https://uksa.org/course/professional-yachtmaster-offshore/",
     "caption": "The Solent (Cowes & Hamble) is both the birthplace of Sailing & Yachtmaster and its living capital.\n\nThe Solent is where the RYA built its Yachtmaster scheme, and its tidal chaos still forges the most respected ticket afloat, one examined and earned rather than bought.\n\nCommunity strength: Legendary. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-solent-cowes-and-hamble\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #thesolentcoweshamble #sailingyachtmaster"
-  },
-  {
-    "day": 7,
-    "core": "creative",
-    "discipline": "Photography",
-    "place": "New York City, United States",
-    "atlasUrl": "https://educatedtraveler.app/atlas/photography--new-york-city",
-    "clipBrief": "30-60s wordless process: hands + material of Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "International Center of Photography (ICP)",
-    "footageUrl": "https://www.icp.org/school/oyc",
-    "caption": "The strongest Photography community on earth gathers in New York City.\n\nICP's one-year certificate and the world's deepest editorial scene make this the place to find a real cohort and a working photographer's market.\n\nCommunity strength: Legendary. Season: Aug-May.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/photography--new-york-city\n\n#crafttok #processvideo #handmade #newyorkcity #photography"
   },
   {
     "day": 8,
@@ -92,6 +92,17 @@ window.ET_DAILY_DROP = [
   },
   {
     "day": 9,
+    "core": "creative",
+    "discipline": "Jewelry & Goldsmithing",
+    "place": "Florence, Italy",
+    "atlasUrl": "https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence",
+    "clipBrief": "30-60s wordless process: hands + material of Jewelry & Goldsmithing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Le Arti Orafe Jewellery School (LAO)",
+    "footageUrl": "https://artiorafe.it/en/courses/courses-goldsmith-school/",
+    "caption": "Florence is both the birthplace of Jewelry & Goldsmithing and its living capital.\n\nIn the city of the goldsmiths' bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.\n\nCommunity strength: Legendary. Season: Sep-Jun.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence\n\n#crafttok #processvideo #handmade #florence #jewelrygoldsmithing"
+  },
+  {
+    "day": 10,
     "core": "wellness",
     "discipline": "Vipassana & Meditation",
     "place": "Igatpuri (Dhamma Giri), India",
@@ -102,7 +113,7 @@ window.ET_DAILY_DROP = [
     "caption": "Igatpuri (Dhamma Giri) is both the birthplace of Vipassana & Meditation and its living capital.\n\nThe world headquarters of Goenka Vipassana and one of the largest meditation centres on Earth, where the modern revival was born and the gold-standard 10-day course is taught at the source.\n\nCommunity strength: Legendary. Season: Oct-Mar.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/vipassana-and-meditation--igatpuri-dhamma-giri\n\n#breathwork #yogatok #learnbydoing #igatpuridhammagiri #vipassanameditation"
   },
   {
-    "day": 10,
+    "day": 11,
     "core": "adventure",
     "discipline": "Surfing",
     "place": "Waikiki, Oahu, United States",
@@ -111,17 +122,6 @@ window.ET_DAILY_DROP = [
     "footageSource": "Hans Hedemann Surf School",
     "footageUrl": "https://hhsurf.com/waikiki-multi-day-surf-lesson-packages/",
     "caption": "This is where Surfing was born.\n\nHe'e nalu was born on these rolling rights, and to learn at the source where Duke Kahanamoku carried surfing to the world is the pilgrimage every surfer owes the sea.\n\nCommunity strength: Legendary. Season: Year-round (summer south swell for learners).\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/surfing--waikiki-oahu\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #waikikioahu #surfing"
-  },
-  {
-    "day": 11,
-    "core": "creative",
-    "discipline": "Jewelry & Goldsmithing",
-    "place": "Florence, Italy",
-    "atlasUrl": "https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence",
-    "clipBrief": "30-60s wordless process: hands + material of Jewelry & Goldsmithing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Le Arti Orafe Jewellery School (LAO)",
-    "footageUrl": "https://artiorafe.it/en/courses/courses-goldsmith-school/",
-    "caption": "Florence is both the birthplace of Jewelry & Goldsmithing and its living capital.\n\nIn the city of the goldsmiths' bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.\n\nCommunity strength: Legendary. Season: Sep-Jun.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence\n\n#crafttok #processvideo #handmade #florence #jewelrygoldsmithing"
   },
   {
     "day": 12,
@@ -136,6 +136,17 @@ window.ET_DAILY_DROP = [
   },
   {
     "day": 13,
+    "core": "creative",
+    "discipline": "Perfumery",
+    "place": "Grasse, France",
+    "atlasUrl": "https://educatedtraveler.app/atlas/perfumery--grasse",
+    "clipBrief": "30-60s wordless process: hands + material of Perfumery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Grasse Institute of Perfumery (GIP)",
+    "footageUrl": "https://www.grasse-perfumery.com/who-we-are/",
+    "caption": "This is where Perfumery was born.\n\nThe world capital of perfume, where the UNESCO-listed know-how of fields, distillery and the nose has flowed unbroken since the 1600s.\n\nCommunity strength: Legendary. Season: May-Oct (rose & jasmine harvest).\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/perfumery--grasse\n\n#crafttok #processvideo #handmade #grasse #perfumery"
+  },
+  {
+    "day": 14,
     "core": "wellness",
     "discipline": "Thai Massage",
     "place": "Chiang Mai, Thailand",
@@ -146,7 +157,7 @@ window.ET_DAILY_DROP = [
     "caption": "Chiang Mai is both the birthplace of Thai Massage and its living capital.\n\nThe world capital of Northern-style Nuad Thai, with a deep community of Thai and international students training at the source through established schools and walking out with ministry-recognized certificates.\n\nCommunity strength: Legendary. Season: Nov-Feb.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/thai-massage--chiang-mai\n\n#breathwork #yogatok #learnbydoing #chiangmai #thaimassage"
   },
   {
-    "day": 14,
+    "day": 15,
     "core": "adventure",
     "discipline": "Kitesurfing",
     "place": "Tarifa, Spain",
@@ -155,17 +166,6 @@ window.ET_DAILY_DROP = [
     "footageSource": "Freeride Tarifa",
     "footageUrl": "https://freeridetarifa.com/",
     "caption": "The strongest Kitesurfing community on earth gathers in Tarifa.\n\nThe wind capital of Europe funnels Levante and Poniente over Valdevaqueros some 300 days a year, a regular GKA Kite World Tour stop where every school flies the IKO standard.\n\nCommunity strength: Legendary. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/kitesurfing--tarifa\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #tarifa #kitesurfing"
-  },
-  {
-    "day": 15,
-    "core": "creative",
-    "discipline": "Perfumery",
-    "place": "Grasse, France",
-    "atlasUrl": "https://educatedtraveler.app/atlas/perfumery--grasse",
-    "clipBrief": "30-60s wordless process: hands + material of Perfumery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Grasse Institute of Perfumery (GIP)",
-    "footageUrl": "https://www.grasse-perfumery.com/who-we-are/",
-    "caption": "This is where Perfumery was born.\n\nThe world capital of perfume, where the UNESCO-listed know-how of fields, distillery and the nose has flowed unbroken since the 1600s.\n\nCommunity strength: Legendary. Season: May-Oct (rose & jasmine harvest).\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/perfumery--grasse\n\n#crafttok #processvideo #handmade #grasse #perfumery"
   },
   {
     "day": 16,
@@ -180,6 +180,17 @@ window.ET_DAILY_DROP = [
   },
   {
     "day": 17,
+    "core": "creative",
+    "discipline": "Wildlife Photography",
+    "place": "Pusztaszer, Hungary",
+    "atlasUrl": "https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer",
+    "clipBrief": "30-60s wordless process: hands + material of Wildlife Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Bence Máté's Hides",
+    "footageUrl": "https://www.bencemateshides.com/",
+    "caption": "This is where Wildlife Photography was born.\n\nOne-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.\n\nCommunity strength: Legendary. Season: Apr-Aug.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer\n\n#crafttok #processvideo #handmade #pusztaszer #wildlifephotography"
+  },
+  {
+    "day": 18,
     "core": "wellness",
     "discipline": "Cold Exposure (Wim Hof Method)",
     "place": "Przesieka, Karkonosze Mountains, Poland",
@@ -190,7 +201,7 @@ window.ET_DAILY_DROP = [
     "caption": "This is where Cold Exposure (Wim Hof Method) was born.\n\nWim Hof's own mountain training ground, where the legendary Winter Expedition and final instructor module are earned barefoot in the snow up Mount Sniezka.\n\nCommunity strength: Legendary. Season: Dec-Mar.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/cold-exposure-wim-hof-method--przesieka-karkonosze-mountains\n\n#breathwork #yogatok #learnbydoing #przesiekakarkonoszemountains #coldexposurewimhofmethod"
   },
   {
-    "day": 18,
+    "day": 19,
     "core": "adventure",
     "discipline": "Windsurfing & Wing-foil",
     "place": "Maui (Ho'okipa & Kanaha), United States",
@@ -199,17 +210,6 @@ window.ET_DAILY_DROP = [
     "footageSource": "HST Windsurfing & Kitesurfing School",
     "footageUrl": "https://hstwindsurfing.com/",
     "caption": "The strongest Windsurfing & Wing-foil community on earth gathers in Maui (Ho'okipa & Kanaha).\n\nHo'okipa is the global temple of wave-sailing and home of the Aloha Classic, while Kanaha's flatwater nursery makes Maui the one place a beginner and a world champion share the same launch.\n\nCommunity strength: Legendary. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/windsurfing-and-wing-foil--maui-ho-okipa-and-kanaha\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #mauihookipakanaha #windsurfingwingfoil"
-  },
-  {
-    "day": 19,
-    "core": "creative",
-    "discipline": "Wildlife Photography",
-    "place": "Pusztaszer, Hungary",
-    "atlasUrl": "https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer",
-    "clipBrief": "30-60s wordless process: hands + material of Wildlife Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Bence Máté's Hides",
-    "footageUrl": "https://www.bencemateshides.com/",
-    "caption": "This is where Wildlife Photography was born.\n\nOne-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.\n\nCommunity strength: Legendary. Season: Apr-Aug.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer\n\n#crafttok #processvideo #handmade #pusztaszer #wildlifephotography"
   },
   {
     "day": 20,
@@ -224,6 +224,17 @@ window.ET_DAILY_DROP = [
   },
   {
     "day": 21,
+    "core": "creative",
+    "discipline": "Japanese Knife-Making",
+    "place": "Shimanto, Japan",
+    "atlasUrl": "https://educatedtraveler.app/atlas/japanese-knife-making",
+    "clipBrief": "30-60s wordless process: hands + material of Japanese Knife-Making, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Workshop Kurogane — Nobuya Hayashi",
+    "footageUrl": "https://www.workshop-kurogane.com/",
+    "caption": "The strongest Japanese Knife-Making community on earth gathers in Shimanto.\n\nA working forge on the Shimanto river in Tosa blade country, where you forge, grind and harden your own blade in the quench — the part most places keep for themselves.\n\nCommunity strength: Thriving. Season: Sep-May.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/japanese-knife-making\n\n#crafttok #processvideo #handmade #shimanto #japaneseknifemaking"
+  },
+  {
+    "day": 22,
     "core": "wellness",
     "discipline": "Lymphatic Drainage",
     "place": "Walchsee, Austria",
@@ -234,7 +245,7 @@ window.ET_DAILY_DROP = [
     "caption": "This is where Lymphatic Drainage was born.\n\nThe Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and the final training week treats real patients, not classmates. A dedicated English-language course runs at the source.\n\nCommunity strength: The source. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/lymphatic-drainage\n\n#breathwork #yogatok #learnbydoing #walchsee #lymphaticdrainage"
   },
   {
-    "day": 22,
+    "day": 23,
     "core": "adventure",
     "discipline": "Rock Climbing",
     "place": "Yosemite Valley, United States",
@@ -245,18 +256,29 @@ window.ET_DAILY_DROP = [
     "caption": "Yosemite Valley is both the birthplace of Rock Climbing and its living capital.\n\nEl Capitan's granite is the planet's bucket-list wall, and the Valley floor is where big-wall craft is still taught and tested by the people pushing it.\n\nCommunity strength: Legendary. Season: Apr-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/rock-climbing--yosemite-valley\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #yosemitevalley #rockclimbing"
   },
   {
-    "day": 23,
+    "day": 24,
     "core": "culinary",
     "discipline": "Wine & Sommellerie",
     "place": "Bordeaux, France",
     "atlasUrl": "https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux",
     "clipBrief": "30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School)",
+    "footageSource": "L'Ecole du Vin de Bordeaux (CIVB)",
     "footageUrl": "https://www.ecoleduvindebordeaux.com/en",
     "caption": "Bordeaux is both the birthplace of Wine & Sommellerie and its living capital.\n\nStand at the source among classified-growth chateaux, where the city of wine itself teaches you to taste the terroir that wrote the rulebook.\n\nCommunity strength: Legendary. Season: May-Oct.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux\n\n#foodtok #cookingclass #learnbydoing #bordeaux #winesommellerie"
   },
   {
-    "day": 24,
+    "day": 25,
+    "core": "creative",
+    "discipline": "Self-Sufficiency & Food Preservation",
+    "place": "Almería, Spain",
+    "atlasUrl": "https://educatedtraveler.app/atlas/self-sufficiency",
+    "clipBrief": "30-60s wordless process: hands + material of Self-Sufficiency & Food Preservation, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
+    "footageSource": "Sunseed Desert Technology",
+    "footageUrl": "https://www.sunseed.org.uk/get-involved",
+    "caption": "The strongest Self-Sufficiency & Food Preservation community on earth gathers in Almería.\n\nSunseed isn't a course you attend; it's a small off-grid community you move into — and the living scene is the lesson, not a demonstration of one.\n\nCommunity strength: Growing. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/self-sufficiency\n\n#crafttok #processvideo #handmade #almera #selfsufficiencyfoodprese"
+  },
+  {
+    "day": 26,
     "core": "wellness",
     "discipline": "Sound Healing",
     "place": "Kathmandu / Pokhara, Nepal",
@@ -267,7 +289,7 @@ window.ET_DAILY_DROP = [
     "caption": "This is where Sound Healing was born.\n\nThe Himalayan home of singing-bowl craft and Nada Yoga, where you learn bowls and gongs at the source from the makers and Tibetan-rooted sound healers.\n\nCommunity strength: Thriving. Season: Oct-Nov, Mar-Apr.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/sound-healing--kathmandu-pokhara\n\n#breathwork #yogatok #learnbydoing #kathmandupokhara #soundhealing"
   },
   {
-    "day": 25,
+    "day": 27,
     "core": "adventure",
     "discipline": "Ski-touring & Splitboard",
     "place": "Wasatch (Salt Lake City / Park City), United States",
@@ -278,29 +300,18 @@ window.ET_DAILY_DROP = [
     "caption": "Wasatch (Salt Lake City / Park City) is both the birthplace of Ski-touring & Splitboard and its living capital.\n\nThe splitboard was born in Utah's Wasatch in 1991, and the range's light powder and dense AIARE cohort make it the home of human-powered riding.\n\nCommunity strength: Legendary. Season: Dec-Apr.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/ski-touring-and-splitboard--wasatch-salt-lake-city-park-city\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #wasatchsaltlakecityparkcity #skitouringsplitboard"
   },
   {
-    "day": 26,
+    "day": 28,
     "core": "culinary",
     "discipline": "New culinary techniques & technologies",
     "place": "Barcelona, Spain",
     "atlasUrl": "https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona",
     "clipBrief": "30-60s wordless process: hands + material of New culinary techniques & technologies, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "Vakuum by Martin Lippo",
-    "footageUrl": "https://martinlippo.com/en/",
+    "footageSource": "Culinary Institute of Barcelona (CIB)",
+    "footageUrl": "https://cib.education/cursos-de-cocina/chef-especialista-tecnicas-culinarias-avanzadas",
     "caption": "The strongest New culinary techniques & technologies community on earth gathers in Barcelona.\n\nCatalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can still enrol with a master rather than apply for a stage, at Martin Lippo's Vakuum lab.\n\nCommunity strength: Legendary. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona\n\n#foodtok #cookingclass #learnbydoing #barcelona #newculinarytechniquestec"
   },
   {
-    "day": 27,
-    "core": "wellness",
-    "discipline": "Lifestyle Medicine",
-    "place": "United States, United States",
-    "atlasUrl": "https://educatedtraveler.app/atlas/lifestyle-medicine",
-    "clipBrief": "30-60s wordless process: hands + material of Lifestyle Medicine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "American College of Lifestyle Medicine (ACLM) & the ABLM board",
-    "footageUrl": "https://lifestylemedicine.org/",
-    "caption": "The strongest Lifestyle Medicine community on earth gathers in United States.\n\nThe evidence-based, board-recognised home of root-cause care — a fast-growing community of clinicians who treat causes over symptoms. A clinician's credential, built on a real medical board.\n\nCommunity strength: A growing movement. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/lifestyle-medicine\n\n#breathwork #yogatok #learnbydoing #unitedstates #lifestylemedicine"
-  },
-  {
-    "day": 28,
+    "day": 29,
     "core": "adventure",
     "discipline": "Safari & Wildlife Guiding",
     "place": "Greater Kruger / Makuleke Concession, South Africa",
@@ -311,7 +322,7 @@ window.ET_DAILY_DROP = [
     "caption": "Greater Kruger / Makuleke Concession is both the birthplace of Safari & Wildlife Guiding and its living capital.\n\nThis is where the FGASA gold standard was forged, where you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and certify at the source.\n\nCommunity strength: Legendary. Season: May-Sep (dry season).\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding"
   },
   {
-    "day": 29,
+    "day": 30,
     "core": "culinary",
     "discipline": "Organic Farm-to-Table Cooking",
     "place": "Shanagarry, East Cork, Ireland",
@@ -320,16 +331,5 @@ window.ET_DAILY_DROP = [
     "footageSource": "Ballymaloe Cookery School, Organic Farm and Gardens",
     "footageUrl": "https://www.ballymaloecookeryschool.ie/",
     "caption": "The strongest Organic Farm-to-Table Cooking community on earth gathers in Shanagarry, East Cork.\n\nA cookery school that sits inside its own 100-acre organic farm at Kinoith, about four kilometres from Ballymaloe House. The vegetables, eggs, milk and meat used in the morning kitchens come off the land outside the door — and the afternoon demonstration is still given by the people whose names are on the school.\n\nCommunity strength: Legendary. Season: Year-round — the 12-week certificate starts in January, April and September.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork\n\n#foodtok #cookingclass #learnbydoing #shanagarryeastcork #organicfarmtotablecookin"
-  },
-  {
-    "day": 30,
-    "core": "adventure",
-    "discipline": "Yacht Crew & STCW",
-    "place": "Antibes, France",
-    "atlasUrl": "https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes",
-    "clipBrief": "30-60s wordless process: hands + material of Yacht Crew & STCW, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
-    "footageSource": "bluewater, Antibes",
-    "footageUrl": "https://www.bluewateryachting.com/crew-training",
-    "caption": "The strongest Yacht Crew & STCW community on earth gathers in Antibes.\n\nAntibes is where the Mediterranean's crew actually get hired — the schools, the agencies and the crew houses sit inside the same square kilometre, so the training and the dock are the same walk.\n\nCommunity strength: Legendary. Season: Feb–May, before the Med season.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes\n\n#adventuretravel #skillsnotsouvenirs #learnbydoing #antibes #yachtcrewstcw"
   }
 ];

@@ -2,7 +2,25 @@
 
 One clip a day. Same format every day. Every clip points at one atlas page.
 
-## Day 1 — Hatha & Vinyasa Yoga · Rishikesh, India  `[wellness]`
+## Day 1 — Pottery & Ceramics · Mashiko, Japan  `[creative]`
+- **Atlas page:** https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko
+- **Footage:** Mashiko Ceramic Art Club (Mashiko Tougei Club) — http://mashiko-tougei-club.jp/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Pottery & Ceramics, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+This is where Pottery & Ceramics was born.
+
+Hamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.
+
+Community strength: Legendary. Season: Apr-Nov (spring & autumn pottery fairs).
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko
+
+#crafttok #processvideo #handmade #mashiko #potteryceramics
+```
+
+## Day 2 — Hatha & Vinyasa Yoga · Rishikesh, India  `[wellness]`
 - **Atlas page:** https://educatedtraveler.app/atlas/hatha-and-vinyasa-yoga--rishikesh
 - **Footage:** Parmarth School of Yoga (Parmarth Niketan Ashram) — https://courses.parmarth.org/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Hatha & Vinyasa Yoga, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -20,7 +38,7 @@ The full page: https://educatedtraveler.app/atlas/hatha-and-vinyasa-yoga--rishik
 #breathwork #yogatok #learnbydoing #rishikesh #hathavinyasayoga
 ```
 
-## Day 2 — Freediving · Dahab (Red Sea), Egypt  `[adventure]`
+## Day 3 — Freediving · Dahab (Red Sea), Egypt  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/freediving--dahab-red-sea
 - **Footage:** Freedive Dahab — https://freedivedahab.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Freediving, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -36,24 +54,6 @@ We map where every craft is truly alive — and introduce you to the school and 
 The full page: https://educatedtraveler.app/atlas/freediving--dahab-red-sea
 
 #adventuretravel #skillsnotsouvenirs #learnbydoing #dahabredsea #freediving
-```
-
-## Day 3 — Pottery & Ceramics · Mashiko, Japan  `[creative]`
-- **Atlas page:** https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko
-- **Footage:** Mashiko Ceramic Art Club (Mashiko Tougei Club) — http://mashiko-tougei-club.jp/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Pottery & Ceramics, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-This is where Pottery & Ceramics was born.
-
-Hamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.
-
-Community strength: Legendary. Season: Apr-Nov (spring & autumn pottery fairs).
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko
-
-#crafttok #processvideo #handmade #mashiko #potteryceramics
 ```
 
 ## Day 4 — French Pastry & Patisserie · Paris, France  `[culinary]`
@@ -74,7 +74,25 @@ The full page: https://educatedtraveler.app/atlas/french-pastry-and-patisserie--
 #foodtok #cookingclass #learnbydoing #paris #frenchpastrypatisserie
 ```
 
-## Day 5 — Ashtanga Yoga · Mysore (Gokulam), India  `[wellness]`
+## Day 5 — Photography · New York City, United States  `[creative]`
+- **Atlas page:** https://educatedtraveler.app/atlas/photography--new-york-city
+- **Footage:** International Center of Photography (ICP) — https://www.icp.org/school/oyc (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+The strongest Photography community on earth gathers in New York City.
+
+ICP's one-year certificate and the world's deepest editorial scene make this the place to find a real cohort and a working photographer's market.
+
+Community strength: Legendary. Season: Aug-May.
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/photography--new-york-city
+
+#crafttok #processvideo #handmade #newyorkcity #photography
+```
+
+## Day 6 — Ashtanga Yoga · Mysore (Gokulam), India  `[wellness]`
 - **Atlas page:** https://educatedtraveler.app/atlas/ashtanga-yoga--mysore-gokulam
 - **Footage:** Sharath Yoga Centre (SYC) — https://sharathyogacentre.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Ashtanga Yoga, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -92,7 +110,7 @@ The full page: https://educatedtraveler.app/atlas/ashtanga-yoga--mysore-gokulam
 #breathwork #yogatok #learnbydoing #mysoregokulam #ashtangayoga
 ```
 
-## Day 6 — Sailing & Yachtmaster · The Solent (Cowes & Hamble), United Kingdom  `[adventure]`
+## Day 7 — Sailing & Yachtmaster · The Solent (Cowes & Hamble), United Kingdom  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-solent-cowes-and-hamble
 - **Footage:** UKSA (United Kingdom Sailing Academy), Cowes — https://uksa.org/course/professional-yachtmaster-offshore/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Sailing & Yachtmaster, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -108,24 +126,6 @@ We map where every craft is truly alive — and introduce you to the school and 
 The full page: https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-solent-cowes-and-hamble
 
 #adventuretravel #skillsnotsouvenirs #learnbydoing #thesolentcoweshamble #sailingyachtmaster
-```
-
-## Day 7 — Photography · New York City, United States  `[creative]`
-- **Atlas page:** https://educatedtraveler.app/atlas/photography--new-york-city
-- **Footage:** International Center of Photography (ICP) — https://www.icp.org/school/oyc (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-The strongest Photography community on earth gathers in New York City.
-
-ICP's one-year certificate and the world's deepest editorial scene make this the place to find a real cohort and a working photographer's market.
-
-Community strength: Legendary. Season: Aug-May.
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/photography--new-york-city
-
-#crafttok #processvideo #handmade #newyorkcity #photography
 ```
 
 ## Day 8 — Italian Cuisine & Pasta · Bologna, Italy  `[culinary]`
@@ -146,7 +146,25 @@ The full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bol
 #foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta
 ```
 
-## Day 9 — Vipassana & Meditation · Igatpuri (Dhamma Giri), India  `[wellness]`
+## Day 9 — Jewelry & Goldsmithing · Florence, Italy  `[creative]`
+- **Atlas page:** https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence
+- **Footage:** Le Arti Orafe Jewellery School (LAO) — https://artiorafe.it/en/courses/courses-goldsmith-school/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Jewelry & Goldsmithing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+Florence is both the birthplace of Jewelry & Goldsmithing and its living capital.
+
+In the city of the goldsmiths' bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.
+
+Community strength: Legendary. Season: Sep-Jun.
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence
+
+#crafttok #processvideo #handmade #florence #jewelrygoldsmithing
+```
+
+## Day 10 — Vipassana & Meditation · Igatpuri (Dhamma Giri), India  `[wellness]`
 - **Atlas page:** https://educatedtraveler.app/atlas/vipassana-and-meditation--igatpuri-dhamma-giri
 - **Footage:** Dhamma Giri - Vipassana International Academy — https://giri.vridhamma.org/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Vipassana & Meditation, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -164,7 +182,7 @@ The full page: https://educatedtraveler.app/atlas/vipassana-and-meditation--igat
 #breathwork #yogatok #learnbydoing #igatpuridhammagiri #vipassanameditation
 ```
 
-## Day 10 — Surfing · Waikiki, Oahu, United States  `[adventure]`
+## Day 11 — Surfing · Waikiki, Oahu, United States  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/surfing--waikiki-oahu
 - **Footage:** Hans Hedemann Surf School — https://hhsurf.com/waikiki-multi-day-surf-lesson-packages/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Surfing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -180,24 +198,6 @@ We map where every craft is truly alive — and introduce you to the school and 
 The full page: https://educatedtraveler.app/atlas/surfing--waikiki-oahu
 
 #adventuretravel #skillsnotsouvenirs #learnbydoing #waikikioahu #surfing
-```
-
-## Day 11 — Jewelry & Goldsmithing · Florence, Italy  `[creative]`
-- **Atlas page:** https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence
-- **Footage:** Le Arti Orafe Jewellery School (LAO) — https://artiorafe.it/en/courses/courses-goldsmith-school/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Jewelry & Goldsmithing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-Florence is both the birthplace of Jewelry & Goldsmithing and its living capital.
-
-In the city of the goldsmiths' bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.
-
-Community strength: Legendary. Season: Sep-Jun.
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence
-
-#crafttok #processvideo #handmade #florence #jewelrygoldsmithing
 ```
 
 ## Day 12 — New Basque Cuisine · San Sebastián (Donostia), Spain  `[culinary]`
@@ -218,7 +218,25 @@ The full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebast
 #foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine
 ```
 
-## Day 13 — Thai Massage · Chiang Mai, Thailand  `[wellness]`
+## Day 13 — Perfumery · Grasse, France  `[creative]`
+- **Atlas page:** https://educatedtraveler.app/atlas/perfumery--grasse
+- **Footage:** Grasse Institute of Perfumery (GIP) — https://www.grasse-perfumery.com/who-we-are/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Perfumery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+This is where Perfumery was born.
+
+The world capital of perfume, where the UNESCO-listed know-how of fields, distillery and the nose has flowed unbroken since the 1600s.
+
+Community strength: Legendary. Season: May-Oct (rose & jasmine harvest).
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/perfumery--grasse
+
+#crafttok #processvideo #handmade #grasse #perfumery
+```
+
+## Day 14 — Thai Massage · Chiang Mai, Thailand  `[wellness]`
 - **Atlas page:** https://educatedtraveler.app/atlas/thai-massage--chiang-mai
 - **Footage:** Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH) — https://www.oldmedicine.org/courses (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Thai Massage, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -236,7 +254,7 @@ The full page: https://educatedtraveler.app/atlas/thai-massage--chiang-mai
 #breathwork #yogatok #learnbydoing #chiangmai #thaimassage
 ```
 
-## Day 14 — Kitesurfing · Tarifa, Spain  `[adventure]`
+## Day 15 — Kitesurfing · Tarifa, Spain  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/kitesurfing--tarifa
 - **Footage:** Freeride Tarifa — https://freeridetarifa.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Kitesurfing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -252,24 +270,6 @@ We map where every craft is truly alive — and introduce you to the school and 
 The full page: https://educatedtraveler.app/atlas/kitesurfing--tarifa
 
 #adventuretravel #skillsnotsouvenirs #learnbydoing #tarifa #kitesurfing
-```
-
-## Day 15 — Perfumery · Grasse, France  `[creative]`
-- **Atlas page:** https://educatedtraveler.app/atlas/perfumery--grasse
-- **Footage:** Grasse Institute of Perfumery (GIP) — https://www.grasse-perfumery.com/who-we-are/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Perfumery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-This is where Perfumery was born.
-
-The world capital of perfume, where the UNESCO-listed know-how of fields, distillery and the nose has flowed unbroken since the 1600s.
-
-Community strength: Legendary. Season: May-Oct (rose & jasmine harvest).
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/perfumery--grasse
-
-#crafttok #processvideo #handmade #grasse #perfumery
 ```
 
 ## Day 16 — Modernist Spanish Cuisine · Barcelona, Spain  `[culinary]`
@@ -290,7 +290,25 @@ The full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--bar
 #foodtok #cookingclass #learnbydoing #barcelona #modernistspanishcuisine
 ```
 
-## Day 17 — Cold Exposure (Wim Hof Method) · Przesieka, Karkonosze Mountains, Poland  `[wellness]`
+## Day 17 — Wildlife Photography · Pusztaszer, Hungary  `[creative]`
+- **Atlas page:** https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer
+- **Footage:** Bence Máté's Hides — https://www.bencemateshides.com/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Wildlife Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+This is where Wildlife Photography was born.
+
+One-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.
+
+Community strength: Legendary. Season: Apr-Aug.
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer
+
+#crafttok #processvideo #handmade #pusztaszer #wildlifephotography
+```
+
+## Day 18 — Cold Exposure (Wim Hof Method) · Przesieka, Karkonosze Mountains, Poland  `[wellness]`
 - **Atlas page:** https://educatedtraveler.app/atlas/cold-exposure-wim-hof-method--przesieka-karkonosze-mountains
 - **Footage:** Wim Hof Method Academy — https://www.wimhofmethod.com/academy (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Cold Exposure (Wim Hof Method), cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -308,7 +326,7 @@ The full page: https://educatedtraveler.app/atlas/cold-exposure-wim-hof-method--
 #breathwork #yogatok #learnbydoing #przesiekakarkonoszemountains #coldexposurewimhofmethod
 ```
 
-## Day 18 — Windsurfing & Wing-foil · Maui (Ho'okipa & Kanaha), United States  `[adventure]`
+## Day 19 — Windsurfing & Wing-foil · Maui (Ho'okipa & Kanaha), United States  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/windsurfing-and-wing-foil--maui-ho-okipa-and-kanaha
 - **Footage:** HST Windsurfing & Kitesurfing School — https://hstwindsurfing.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Windsurfing & Wing-foil, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -324,24 +342,6 @@ We map where every craft is truly alive — and introduce you to the school and 
 The full page: https://educatedtraveler.app/atlas/windsurfing-and-wing-foil--maui-ho-okipa-and-kanaha
 
 #adventuretravel #skillsnotsouvenirs #learnbydoing #mauihookipakanaha #windsurfingwingfoil
-```
-
-## Day 19 — Wildlife Photography · Pusztaszer, Hungary  `[creative]`
-- **Atlas page:** https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer
-- **Footage:** Bence Máté's Hides — https://www.bencemateshides.com/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Wildlife Photography, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-This is where Wildlife Photography was born.
-
-One-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.
-
-Community strength: Legendary. Season: Apr-Aug.
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/wildlife-photography--pusztaszer
-
-#crafttok #processvideo #handmade #pusztaszer #wildlifephotography
 ```
 
 ## Day 20 — Sushi & Washoku · Osaka, Japan  `[culinary]`
@@ -362,7 +362,25 @@ The full page: https://educatedtraveler.app/atlas/sushi-and-washoku--osaka
 #foodtok #cookingclass #learnbydoing #osaka #sushiwashoku
 ```
 
-## Day 21 — Lymphatic Drainage · Walchsee, Austria  `[wellness]`
+## Day 21 — Japanese Knife-Making · Shimanto, Japan  `[creative]`
+- **Atlas page:** https://educatedtraveler.app/atlas/japanese-knife-making
+- **Footage:** Workshop Kurogane — Nobuya Hayashi — https://www.workshop-kurogane.com/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Japanese Knife-Making, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+The strongest Japanese Knife-Making community on earth gathers in Shimanto.
+
+A working forge on the Shimanto river in Tosa blade country, where you forge, grind and harden your own blade in the quench — the part most places keep for themselves.
+
+Community strength: Thriving. Season: Sep-May.
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/japanese-knife-making
+
+#crafttok #processvideo #handmade #shimanto #japaneseknifemaking
+```
+
+## Day 22 — Lymphatic Drainage · Walchsee, Austria  `[wellness]`
 - **Atlas page:** https://educatedtraveler.app/atlas/lymphatic-drainage
 - **Footage:** Dr. Vodder Akademie & Wittlinger Therapiezentrum — https://www.vodderakademie.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Lymphatic Drainage, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -380,7 +398,7 @@ The full page: https://educatedtraveler.app/atlas/lymphatic-drainage
 #breathwork #yogatok #learnbydoing #walchsee #lymphaticdrainage
 ```
 
-## Day 22 — Rock Climbing · Yosemite Valley, United States  `[adventure]`
+## Day 23 — Rock Climbing · Yosemite Valley, United States  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/rock-climbing--yosemite-valley
 - **Footage:** Yosemite Mountaineering School & Guide Service — https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Rock Climbing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -398,9 +416,9 @@ The full page: https://educatedtraveler.app/atlas/rock-climbing--yosemite-valley
 #adventuretravel #skillsnotsouvenirs #learnbydoing #yosemitevalley #rockclimbing
 ```
 
-## Day 23 — Wine & Sommellerie · Bordeaux, France  `[culinary]`
+## Day 24 — Wine & Sommellerie · Bordeaux, France  `[culinary]`
 - **Atlas page:** https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux
-- **Footage:** L'Ecole du Vin de Bordeaux (CIVB Bordeaux Wine School) — https://www.ecoleduvindebordeaux.com/en (licensed/reposted with credit — see OUTREACH.md)
+- **Footage:** L'Ecole du Vin de Bordeaux (CIVB) — https://www.ecoleduvindebordeaux.com/en (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
@@ -416,7 +434,25 @@ The full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux
 #foodtok #cookingclass #learnbydoing #bordeaux #winesommellerie
 ```
 
-## Day 24 — Sound Healing · Kathmandu / Pokhara, Nepal  `[wellness]`
+## Day 25 — Self-Sufficiency & Food Preservation · Almería, Spain  `[creative]`
+- **Atlas page:** https://educatedtraveler.app/atlas/self-sufficiency
+- **Footage:** Sunseed Desert Technology — https://www.sunseed.org.uk/get-involved (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Self-Sufficiency & Food Preservation, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+The strongest Self-Sufficiency & Food Preservation community on earth gathers in Almería.
+
+Sunseed isn't a course you attend; it's a small off-grid community you move into — and the living scene is the lesson, not a demonstration of one.
+
+Community strength: Growing. Season: Year-round.
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/self-sufficiency
+
+#crafttok #processvideo #handmade #almera #selfsufficiencyfoodprese
+```
+
+## Day 26 — Sound Healing · Kathmandu / Pokhara, Nepal  `[wellness]`
 - **Atlas page:** https://educatedtraveler.app/atlas/sound-healing--kathmandu-pokhara
 - **Footage:** Pragya Yoga School — https://pragyayogaschool.com/details/10-days-50-hours-gong-and-singing-bowl-sound-therapy-training-in-nepal (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Sound Healing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -434,7 +470,7 @@ The full page: https://educatedtraveler.app/atlas/sound-healing--kathmandu-pokha
 #breathwork #yogatok #learnbydoing #kathmandupokhara #soundhealing
 ```
 
-## Day 25 — Ski-touring & Splitboard · Wasatch (Salt Lake City / Park City), United States  `[adventure]`
+## Day 27 — Ski-touring & Splitboard · Wasatch (Salt Lake City / Park City), United States  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/ski-touring-and-splitboard--wasatch-salt-lake-city-park-city
 - **Footage:** Utah Mountain Adventures — https://www.utahmountainadventures.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Ski-touring & Splitboard, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -452,9 +488,9 @@ The full page: https://educatedtraveler.app/atlas/ski-touring-and-splitboard--wa
 #adventuretravel #skillsnotsouvenirs #learnbydoing #wasatchsaltlakecityparkcity #skitouringsplitboard
 ```
 
-## Day 26 — New culinary techniques & technologies · Barcelona, Spain  `[culinary]`
+## Day 28 — New culinary techniques & technologies · Barcelona, Spain  `[culinary]`
 - **Atlas page:** https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona
-- **Footage:** Vakuum by Martin Lippo — https://martinlippo.com/en/ (licensed/reposted with credit — see OUTREACH.md)
+- **Footage:** Culinary Institute of Barcelona (CIB) — https://cib.education/cursos-de-cocina/chef-especialista-tecnicas-culinarias-avanzadas (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of New culinary techniques & technologies, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
@@ -470,25 +506,7 @@ The full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--
 #foodtok #cookingclass #learnbydoing #barcelona #newculinarytechniquestec
 ```
 
-## Day 27 — Lifestyle Medicine · United States, United States  `[wellness]`
-- **Atlas page:** https://educatedtraveler.app/atlas/lifestyle-medicine
-- **Footage:** American College of Lifestyle Medicine (ACLM) & the ABLM board — https://lifestylemedicine.org/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Lifestyle Medicine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-The strongest Lifestyle Medicine community on earth gathers in United States.
-
-The evidence-based, board-recognised home of root-cause care — a fast-growing community of clinicians who treat causes over symptoms. A clinician's credential, built on a real medical board.
-
-Community strength: A growing movement. Season: Year-round.
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/lifestyle-medicine
-
-#breathwork #yogatok #learnbydoing #unitedstates #lifestylemedicine
-```
-
-## Day 28 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
+## Day 29 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession
 - **Footage:** EcoTraining — https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Safari & Wildlife Guiding, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -506,7 +524,7 @@ The full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--g
 #adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding
 ```
 
-## Day 29 — Organic Farm-to-Table Cooking · Shanagarry, East Cork, Ireland  `[culinary]`
+## Day 30 — Organic Farm-to-Table Cooking · Shanagarry, East Cork, Ireland  `[culinary]`
 - **Atlas page:** https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork
 - **Footage:** Ballymaloe Cookery School, Organic Farm and Gardens — https://www.ballymaloecookeryschool.ie/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Organic Farm-to-Table Cooking, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -522,22 +540,4 @@ We map where every craft is truly alive — and introduce you to the school and 
 The full page: https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork
 
 #foodtok #cookingclass #learnbydoing #shanagarryeastcork #organicfarmtotablecookin
-```
-
-## Day 30 — Yacht Crew & STCW · Antibes, France  `[adventure]`
-- **Atlas page:** https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes
-- **Footage:** bluewater, Antibes — https://www.bluewateryachting.com/crew-training (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Yacht Crew & STCW, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-The strongest Yacht Crew & STCW community on earth gathers in Antibes.
-
-Antibes is where the Mediterranean's crew actually get hired — the schools, the agencies and the crew houses sit inside the same square kilometre, so the training and the dock are the same walk.
-
-Community strength: Legendary. Season: Feb–May, before the Med season.
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/yacht-crew-and-stcw--antibes
-
-#adventuretravel #skillsnotsouvenirs #learnbydoing #antibes #yachtcrewstcw
 ```
