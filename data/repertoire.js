@@ -10798,7 +10798,7 @@ window.ET_ATLAS = {
         "format": "Residential at remote bush camps; small student groups, full-time",
         "certification": "FGASA Nature Site Guide (NQF2) / EcoTraining Field Guide qualification (CATHSSETA)",
         "fitsBecause": "Fully residential, weeks-long, community camp life learning to guide at the source in Greater Kruger, leading to a recognized FGASA credential.",
-        "sessions": ["2026-09-14", "2026-10-12"],
+        "sessions": ["2026-10-12", "2027-02-14", "2027-10-18"],
         "priceNote": "",
         "confidence": "high",
         "alternatives": [
