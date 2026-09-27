@@ -10678,7 +10678,7 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "EcoTraining",
-              "url": "https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/",
+              "url": "https://www.ecotraining.co.za/course-calendar/",
               "course": "55-day Field Guide Course",
               "blurb": "An immersive, residential 55-day course split between at least two remote bush camps, including Greater Kruger and the Makuleke Concession.",
               "confidence": "high",
@@ -10791,7 +10791,7 @@ window.ET_ATLAS = {
         "place": "Greater Kruger / Makuleke Concession (multi-camp)",
         "country": "South Africa",
         "school": "EcoTraining",
-        "url": "https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/",
+        "url": "https://www.ecotraining.co.za/course-calendar/",
         "course": "55-day Field Guide Course",
         "description": "An immersive, residential 55-day course split between at least two remote bush camps, including Greater Kruger and the Makuleke Concession. Students live in camp and learn the full field-guide syllabus: planning and leading game drives and walks, navigation, radio procedure, ecology, geology, weather, and identification of mammals, birds, reptiles, amphibians and fish, with daily practical guiding. On enrolment you are registered with FGASA and CATHSSETA. It leads to the EcoTraining/FGASA Nature Site Guide (NQF2) qualification, the entry credential for a professional field guide; a follow-on Trails Guide course adds the on-foot dangerous-game endorsement.",
         "duration": "55 days",
