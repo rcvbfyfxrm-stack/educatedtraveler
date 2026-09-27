@@ -90,8 +90,15 @@ jobs:
         run: |
           git config user.name  "et-atlas"
           git config user.email "atlas@educatedtraveler.app"
-          git add data/atlas-unlocked.json data/atlas-vouches.json \
-                  website/atlas website/js/atlas-index.js \
-                  website/sitemap.xml website/robots.txt marketing website/js/studio-calendar.js 2>/dev/null || true
-          git commit -m "atlas: rebuild — open crafts follow the letters" || { echo "nothing changed"; exit 0; }
+          # One path at a time, and only if it exists: the vouch file does not until the
+          # first vouch lands, and one missing path made git refuse the whole add — which
+          # `2>/dev/null || true` hid, so every rebuild from 8 to 27 Sept read "nothing
+          # changed" and threw its pages away.
+          for p in data/atlas-unlocked.json data/atlas-vouches.json \
+                   website/atlas website/js/atlas-index.js \
+                   website/sitemap.xml website/robots.txt marketing website/js/studio-calendar.js; do
+            if [ -e "$p" ]; then git add -- "$p"; fi
+          done
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git commit -m "atlas: rebuild — open crafts follow the letters"
           git push
