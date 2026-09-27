@@ -508,7 +508,7 @@ The full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--
 
 ## Day 29 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
 - **Atlas page:** https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession
-- **Footage:** EcoTraining — https://www.ecotraining.co.za/courses-experiences/55-day-field-guide-course/ (licensed/reposted with credit — see OUTREACH.md)
+- **Footage:** EcoTraining — https://www.ecotraining.co.za/course-calendar/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Safari & Wildlife Guiding, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
