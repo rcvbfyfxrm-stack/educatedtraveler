@@ -48,13 +48,23 @@ if not OPEN:
 # pick: round-robin cores, best rank first, one dest per discipline
 pools = {}
 _skipped = 0
+_nohook = []
 for d in DATA["disciplines"]:
     if d["id"] not in OPEN:
         _skipped += 1
         continue
-    best = max(d["destinations"], key=lambda x: (x["communityRank"], x["role"] == "both"))
+    # A clip needs a hook, and a hook is written per role. A place held for another
+    # reason (Lifestyle Medicine's only entry is a "credential", a certifying body, not
+    # a place the craft lives) has no line to open on — left out, named, never guessed.
+    dests = [x for x in d["destinations"] if x["role"] in HOOKS]
+    if not dests:
+        _nohook.append(d["discipline"])
+        continue
+    best = max(dests, key=lambda x: (x["communityRank"], x["role"] == "both"))
     pools.setdefault(d["category"], []).append((d, best))
 print(f"{_skipped} craft(s) skipped — not open on the Atlas yet")
+if _nohook:
+    print(f"{len(_nohook)} open craft(s) left out — no hook for their place's role: {', '.join(_nohook)}")
 for c in pools:
     pools[c].sort(key=lambda t: -t[1]["communityRank"])
 
