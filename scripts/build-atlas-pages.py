@@ -338,11 +338,18 @@ if _stray_say:
 #      school's photograph. The school's picture always wins; a craft image there is
 #      dead config waiting to rot into a contradiction the day the school withdraws.
 #
-# ⛔ IT MUST BE A PICTURE OF THE CRAFT, NEVER OF A PLACE. A spherified pearl is what
-# modernist technique looks like anywhere on earth. The front door of a school in
-# Paris, under the word Barcelona, is Tarifa's water under the word Maui with extra
-# steps. No gate can look at a photograph, so `alt` is mandatory: somebody has to
-# write down what is actually in the frame before it can ship.
+# ⛔ IT MUST BE TAKEN WHERE THE CARD STANDS. Arnaud, 27 September 2026: "make sure the
+# photo on the skill card of the Atlas matches the location of the card." This map
+# used to say the opposite — a picture of the craft "belongs nowhere" and may ride any
+# card — and 16 of the 22 pictures were of somewhere else: yoga in Bali under the word
+# Mysore, a Namibian farm under Greater Kruger, a Californian surfer under Waikiki. A
+# reader cannot tell a picture of the craft from a picture of the town, so every card
+# reads as the second. Every entry therefore names `takenAt`, the destination id the
+# picture was taken at, and the build refuses it unless that is the destination the
+# card rests on. The browse template hides the picture when a filter moves the card to
+# another town. No gate can look at a photograph, so `alt` is mandatory and `takenAt`
+# is only as good as the evidence on the Commons page: check the description,
+# categories or coordinates before writing it, never the title alone.
 #
 # ⛔ AND NO IMAGE IS BETTER THAN A GENERIC ONE. A craft with no truthful picture keeps
 # the typographic card, and that is a finished state, not a debt — the photo-triad law
@@ -368,12 +375,13 @@ for _cid, _im in sorted(CRAFT_IMAGES.items()):
             "gives it a licensed one too. The school's picture always wins — a craft "
             "image here can never render, and the day it could it would be showing a "
             "stranger's frame where a school sent us its own room. Delete the entry.")
-    for _k in ("src", "alt", "credit", "licence", "sourceUrl"):
+    for _k in ("src", "alt", "credit", "licence", "sourceUrl", "takenAt"):
         if not (_im.get(_k) or "").strip():
             raise SystemExit(
                 f"build-atlas-pages: the craft image for {_cid} has no {_k}. A licensed "
-                "picture ships with all five: where the file is, what is in the frame, "
-                "who made it, under what licence, and the page that says so. A licence "
+                "picture ships with all six: where the file is, what is in the frame, "
+                "who made it, under what licence, the page that says so, and the place "
+                "it was taken. A licence "
                 "with no source is not checkable, and being checkable is this map's "
                 "whole claim.")
     _src = _im["src"].strip()
@@ -443,18 +451,20 @@ def craft_picture_credit(cid):
 def craft_image(cid):
     """(src, credit, focal) for the licensed picture of this craft, or three blanks.
 
-    Craft-level on purpose, and the exact opposite of school_shot() one screen up: this
-    picture is of the CRAFT and belongs to nowhere, so it may ride the card wherever
-    the card is standing. Everything above has already refused it on a craft a school
-    has photographed, so the two can never both be true of one card.
+    Keyed by craft, but taken at ONE place, the same as school_shot() one screen up:
+    the card wears it only while it rests on `takenAt`. Everything above has already
+    refused it on a craft a school has photographed, so the two can never both be true
+    of one card.
 
     `credit` is printed verbatim and already carries its licence — see the credit law
-    in the block above.
+    in the block above. `takenAt` is the destination the picture was taken at; the
+    card may wear it only while it stands there (see _add_craft_image).
     """
     im = CRAFT_IMAGES.get(cid)
     if not im:
-        return "", "", ""
-    return im["src"].strip(), im["credit"].strip(), (im.get("focal") or "").strip()
+        return "", "", "", ""
+    return (im["src"].strip(), im["credit"].strip(), (im.get("focal") or "").strip(),
+            im["takenAt"].strip())
 
 
 # ---------- the closed cell: on the record, not a place to learn ----------
@@ -3876,10 +3886,9 @@ def index_card(d):
 
 
 CARDS = [index_card(d) for d in DISC]
-# The licensed picture OF THE CRAFT, where a craft has one. Craft-level, unlike `shot`
-# down in dests[]: this picture belongs to the craft and to no place, which is the whole
-# difference between the two classes and the reason the photograph has to live per
-# destination while this can sit on the card itself.
+# The licensed picture OF THE CRAFT, where a craft has one. It sits on the card rather
+# than down in dests[] beside `shot`, but it was taken at ONE place, `illusAt`, and the
+# card wears it only while it stands there.
 #
 # ⚠ Added ONLY where there is one, unlike almost every other key here. Blanked keys are
 # this file's normal habit — the shim reads a shape and a missing key is a different
@@ -3888,10 +3897,20 @@ CARDS = [index_card(d) for d in DISC]
 # nothing into a file every visitor downloads. The index grows when a craft actually
 # gains a picture, and not before.
 def _add_craft_image(card):
-    src, by, focal = craft_image(card["id"])
+    src, by, focal, at = craft_image(card["id"])
     if not src:
         return
+    # ⛔ the picture has to have been taken where the card stands — the same function
+    # the band builder, the browse template and check 14c read, so the four agree.
+    rest = atlas_hub.resting_dest(card) or {}
+    if at != rest.get("id"):
+        raise SystemExit(
+            f"build-atlas-pages: the craft image for {card['id']} was taken at {at}, and "
+            f"the card stands on {rest.get('id') or 'no place'}. A picture under another "
+            "town's name is the lie this map exists to refuse: find one taken there, or "
+            "delete the entry and let the card go typographic.")
     card["illus"] = src
+    card["illusAt"] = at
     card["illusBy"] = by
     if focal:
         card["illusFocal"] = focal
@@ -4243,15 +4262,31 @@ if _lfloor is not None:
 _PIC_CSS = (".piccredit{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;"
             "color:rgba(243,237,226,.42);margin:0 0 14px;line-height:1.6}"
             ".piccredit a{color:rgba(243,237,226,.58)}")
+#
+# ⚠ A credit already on the sheet is REPLACED, not kept: the picture behind it can change
+# (27 Sept 2026, every picture re-sourced at the card's own place), and a kept line would
+# credit the old maker under the new frame. A sheet whose craft no longer has a picture
+# loses the line, or it would credit a picture nobody is shown.
+_PIC_RE = re.compile(r'<p class="piccredit">.*?</p>', re.S)
 _injected = 0
+for _pg in sorted((ROOT / "website/atlas").glob("*.html")):
+    if _pg.stem in CRAFT_IMAGES:
+        continue
+    _h = _pg.read_text()
+    if '<p class="piccredit">' in _h:
+        _pg.write_text(_PIC_RE.sub("", _h))
+        print(f"  ✓ picture credit removed from {_pg.name} — its craft no longer has a picture")
 for _cid in sorted(CRAFT_IMAGES):
     _pg = ROOT / f"website/atlas/{_cid}.html"
     if not _pg.is_file():
         continue
     _h = _pg.read_text()
-    if '<p class="piccredit">' in _h:
-        continue                                   # page() already wrote it
     _line = craft_picture_credit(_cid)
+    if '<p class="piccredit">' in _h:
+        _new = _PIC_RE.sub(lambda _m: _line, _h, count=1)
+        if _new != _h:
+            _pg.write_text(_new)
+        continue                                   # page() wrote it, or it is now current
     _anchor = '<footer><div class="wrap">'
     if _anchor not in _h:
         raise SystemExit(

@@ -18425,6 +18425,87 @@ window.ET_ATLAS = {
               "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish and his 2026 classroom sessions are priced from EUR 380 and listed as sold out; English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
               "etRelationship": true,
               "confidence": "high",
+              "photos": {
+                "given": "2026-07-30",
+                "by": "Martin Lippo",
+                "source": "sent",
+                "thumb": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
+                "card": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-10-five-spheres.jpg",
+                "focal": "50% 50%",
+                "items": [
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-01-the-nitrogen.jpg",
+                    "w": 1066,
+                    "h": 1600,
+                    "alt": "Martin Lippo, in a white chef's jacket with his name embroidered on it, leaning over a steel bench and pouring from a blue-gloved hand into a small container while thick white vapour from liquid nitrogen rolls off the surface and spills toward the camera.",
+                    "caption": "Liquid nitrogen, off the bench and over the edge. The technique first, the dish afterwards."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-02-martin-lippo.jpg",
+                    "w": 1600,
+                    "h": 1200,
+                    "alt": "A studio portrait of Martin Lippo against a plain pale background, in a white chef's jacket embroidered “Martin Lippo” with the Vakuum badge on the sleeve, one hand raised to his chin, looking straight at the camera.",
+                    "caption": "Martin Lippo, who runs Vakuum and teaches it himself."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-03-the-lab.jpg",
+                    "w": 1600,
+                    "h": 900,
+                    "wide": true,
+                    "alt": "The Vakuum kitchen seen through a glass wall with the word Vakuum lettered across it in gold, the room behind full of stainless benches, mixers and rack shelving, with people working at the far side.",
+                    "caption": "The lab behind its own glass. It is a working kitchen with a teaching room inside it, not a demonstration set."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-04-it-starts-on-paper.jpg",
+                    "w": 600,
+                    "h": 900,
+                    "alt": "A man in a white chef's jacket stands beside a paper flipchart marked with a diagram, a pen in his raised hand, talking to people seated at a bench in front of him who are writing in notebooks; shelves of labelled storage boxes fill the wall behind.",
+                    "caption": "It starts on paper. The why comes before the nitrogen."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-05-the-class.jpg",
+                    "w": 1400,
+                    "h": 924,
+                    "alt": "Cooks in white jackets and black kitchen dress sit in two rows at long steel benches with notebooks and water bottles in front of them, facing a man in a white jacket standing at the head of the room beneath a sign reading Vakuum.",
+                    "caption": "Between the benches: the part that gets explained before it gets done."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-06-he-teaches-it-himself.jpg",
+                    "w": 600,
+                    "h": 900,
+                    "alt": "A man in a white chef's jacket stands alone in a laboratory kitchen in front of a tall combi oven, one hand open mid-sentence; two people watch from the foreground with their backs to the camera.",
+                    "caption": "Martin Lippo teaches in the lab himself. It is his own room."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-07-the-bench.jpg",
+                    "w": 633,
+                    "h": 950,
+                    "alt": "Four cooks in white jackets stand shoulder to shoulder along a steel bench, leaning over trays, small bowls and a chopping board, each working with a hand tool; a man in glasses at the left watches the work.",
+                    "caption": "Everybody works. Nobody is sitting down watching."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-08-shown-not-demonstrated.jpg",
+                    "w": 754,
+                    "h": 772,
+                    "alt": "Several cooks in white jackets lean in close together over a steel bench; one in glasses works a small spoon into a metal cup beside a large glass jug of white liquid, a dark-haired woman watching from beside him and another man looking down at the work.",
+                    "caption": "Four pairs of hands over one cup. This is what it looks like when something is being shown."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-09-spherification-at-the-bench.jpg",
+                    "w": 633,
+                    "h": 950,
+                    "alt": "Four cooks in white jackets at a steel bench: one holds a red-capped squeeze bottle over a shallow glass tray, another lifts a small glass of dark liquid to taste, and a syringe and white bowl sit on the bench between them.",
+                    "caption": "Spherification at the bench, with somebody tasting it the moment it is made."
+                  },
+                  {
+                    "src": "/images/atlas/modern-new-technique-cuisine--barcelona/vakuum-10-five-spheres.jpg",
+                    "w": 1600,
+                    "h": 900,
+                    "alt": "A hand holds a clear plastic tub of bright yellow liquid in which five large translucent spheres sit, each skinned and holding its shape.",
+                    "caption": "Five spheres in the bath, skinned on contact, thin enough to break on the tongue."
+                  }
+                ]
+              },
               "verify": [
                 "Sous Vide",
                 "386"

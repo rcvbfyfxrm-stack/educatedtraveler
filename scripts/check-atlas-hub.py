@@ -738,6 +738,16 @@ for _cid, _im in sorted(_craft_images.items()):
             f"the index carries {c.get('illusFocal') or 'none'}")
     if not (ROOT / "website" / _im["src"].lstrip("/")).exists():
         bad(f"{_cid}: the licensed picture is not on disk: {_im['src']}")
+    # ⛔ taken where the card stands (Arnaud, 27 Sept 2026). The index must carry the
+    # place so the template can drop the picture when a filter moves the card's town.
+    _rest = (atlas_hub.resting_dest(c) or {}).get("id")
+    if not _im.get("takenAt") or _im.get("takenAt") != _rest:
+        bad(f"{_cid}: the licensed picture was taken at {_im.get('takenAt') or 'nowhere'} "
+            f"and the card stands on {_rest or 'no place'} — a picture under another "
+            "town's name")
+    if c.get("illusAt") != _im.get("takenAt"):
+        bad(f"{_cid}: craftImages says the picture was taken at {_im.get('takenAt')} and "
+            f"the index carries {c.get('illusAt') or 'nothing'} — check the shim whitelist")
     if _im["credit"].strip().lower().startswith("photo:"):
         bad(f'{_cid}: a licensed picture of the craft is credited with "Photo:", the '
             "prefix reserved for a photograph a school sent us. Name the maker and the "
@@ -795,7 +805,7 @@ for _, _slug, _ in cards:
                     "nobody — CC BY and CC BY-SA are not satisfied anywhere on this site")
             else:
                 _maker = declared["credit"].split(" · ")[0].strip()
-                if html_mod.escape(_maker, quote=False) not in _pc[1]:
+                if _maker not in html_mod.unescape(_pc[1]):
                     bad(f"{_slug}: the craft page's picture credit does not name {_maker!r}")
                 if html_mod.escape(declared["licence"], quote=False) not in _pc[1]:
                     bad(f"{_slug}: the craft page's picture credit does not name the licence "

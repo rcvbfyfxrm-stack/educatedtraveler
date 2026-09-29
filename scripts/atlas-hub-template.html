@@ -644,14 +644,18 @@ A.forEach(function(d){var w=worldOf(d);
 });
 // what the craft actually is, in one line — the only body copy a card carries
 var BLURB={};A.forEach(function(d){BLURB[d.id]=d.blurb||"";});
-// The licensed picture of the craft, keyed by craft — three maps beside BLURB and for
-// the same reason: a filtered row is per-destination, and this picture is not. A region
-// filter moves the card's city; it must not move the picture, because the picture was
-// never of a city. Empty for the 5 crafts a school has photographed and for every craft
-// that has no honest image yet — and the second of those is a finished state, not a gap
-// to fill with stock. See CRAFT_IMAGES in build-atlas-pages.py.
-var ILLUS={},ILLUSBY={},ILLUSFOCAL={};
-A.forEach(function(d){ILLUS[d.id]=d.illus||"";ILLUSBY[d.id]=d.illusBy||"";ILLUSFOCAL[d.id]=d.illusFocal||"";});
+// The licensed picture of the craft, keyed by craft, and the destination it was TAKEN
+// AT. A card wears it only while it stands on that destination (illusFor): a region
+// filter that moves the card's city takes the picture away, because a picture under
+// another town's name reads as that town. Empty for the crafts a school has
+// photographed and for every craft that has no honest image yet — and the second of
+// those is a finished state, not a gap to fill with stock. See CRAFT_IMAGES in
+// build-atlas-pages.py.
+var ILLUS={},ILLUSBY={},ILLUSFOCAL={},ILLUSAT={};
+A.forEach(function(d){ILLUS[d.id]=d.illus||"";ILLUSBY[d.id]=d.illusBy||"";ILLUSFOCAL[d.id]=d.illusFocal||"";ILLUSAT[d.id]=d.illusAt||"";});
+function illusFor(did,destId){
+  return (ILLUS[did]&&destId&&ILLUSAT[did]===destId)
+    ?{illus:ILLUS[did],illusBy:ILLUSBY[did],illusFocal:ILLUSFOCAL[did]}:{illus:"",illusBy:"",illusFocal:""};}
 // Every place a craft is taught, strongest community first — the list a card walks
 // while the pointer rests on it. Same field, same order the sheet itself uses; the
 // card is reading the sheet out loud, not deciding anything.
@@ -1258,13 +1262,13 @@ function placeLine(place,country){
 // The .cfoot ships empty and stays invisible on an open craft. On a craft nobody
 // has asked for yet, atlas-index-shim.js rewrites it — that is where "a letter to
 // Arnaud opens this one" appears, and it is the only other line a card ever says.
-// illus/illusBy/illusFocal come off the DISCIPLINE, not off t: a licensed picture of
-// the craft belongs to the craft and to nowhere, which is the whole difference between
-// it and the school photograph beside it here. Only one of the two can ever be set —
-// the build refuses a craft image on a craft a school has photographed.
-function cardData(world,disc,t){return {world:world,did:disc.id,craft:disc.discipline,blurb:disc.blurb||"",
+// illus/illusBy/illusFocal come through illusFor(): the licensed picture was taken at
+// one place, and the card wears it only while t is that place. Only one of it and the
+// school photograph can ever be set — the build refuses a craft image on a craft a
+// school has photographed.
+function cardData(world,disc,t){var il=illusFor(disc.id,t.id);return {world:world,did:disc.id,craft:disc.discipline,blurb:disc.blurb||"",
   place:t.place||"",country:t.country||"",why:t.why||"",shot:t.shot||"",shotBy:t.shotBy||"",
-  focal:t.focal||"",illus:disc.illus||"",illusBy:disc.illusBy||"",illusFocal:disc.illusFocal||""};}
+  focal:t.focal||"",illus:il.illus,illusBy:il.illusBy,illusFocal:il.illusFocal};}
 // The hook is the reason to go to the place printed above it. On a craft nobody
 // has asked for there is no published reason to go, and the shim puts the craft's
 // own blurb in that slot instead — true of the card either way, but then it IS
@@ -1336,12 +1340,12 @@ function cardShell(cls,color,href,label,o){
 // x is the destination the filters actually matched, so the hook is the reason to
 // go THERE — a region filter moves the card's city and the sentence under it moves
 // with it, rather than leaving the strongest place's reason under a different town.
-function gcard(x){
+function gcard(x){var il=illusFor(x.did,x.id);
   return cardShell("gcard",WORLDS[x.world].color,"/atlas/"+x.did,x.discipline,
     {world:x.world,did:x.did,craft:x.discipline,blurb:BLURB[x.did]||"",place:x.place,country:x.country,why:x.why||"",
      shot:x.shot||"",shotBy:x.shotBy||"",focal:x.focal||"",
-     // craft-level, so a filtered row moving the card's city never moves the picture
-     illus:ILLUS[x.did]||"",illusBy:ILLUSBY[x.did]||"",illusFocal:ILLUSFOCAL[x.did]||""});
+     // taken at one place: a filtered row that moves the card's city drops the picture
+     illus:il.illus,illusBy:il.illusBy,illusFocal:il.illusFocal});
 }
 function renderRails(){
   VIEW.cat=null;
