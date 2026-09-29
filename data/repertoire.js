@@ -20633,7 +20633,6 @@ window.ET_ATLAS = {
           "communityLabel": "Strong",
           "schools": [
             "Ethiopian Coffee Training Center (Jimma / Addis)",
-            "Tomoca Coffee training",
             "SCA-affiliated cupping labs (Addis Ababa)"
           ],
           "masters": [],
@@ -20651,7 +20650,7 @@ window.ET_ATLAS = {
               "name": "African Coffee Campus",
               "url": "https://africancoffeecampus.ambrellaluxurysafaris.com/",
               "course": "Immersive Coffee Program (bean-to-cup)",
-              "blurb": "A multi-week bean-to-cup program that opens with hands-on work on coffee farms in the Kaffa region - cultivation, harvesting and processing with local producers - then moves to Addis Ababa for intensi",
+              "blurb": "A multi-week bean-to-cup program that opens with hands-on work on coffee farms in the Kaffa region - cultivation, harvesting and processing with local producers - then moves to Addis Ababa for intensive professional training across the four SCA disciplines: Barista Skills, Green Coffee, Sensory Skills and Roasting. When we read its page on 27 September 2026, the latest session it listed started on 28 February 2026, the technical weeks were placed at a partner facility, with Yoya Coffee Academy given as an example, and no trainer was named.",
               "confidence": "medium"
             },
             {
@@ -20660,13 +20659,6 @@ window.ET_ATLAS = {
               "course": "Coffee Training Center professional program (processing, cupping, roasting, brewing)",
               "blurb": "Established under Ethiopia's Coffee and Tea Authority with UNIDO and Illycaffe support in Addis Ababa, the Coffee Training Center has brewing, roasting and sensory labs and trains professionals across post-harvest processing, cupping, grading, roasting and brewing.",
               "confidence": "high"
-            },
-            {
-              "name": "Tomoca Coffee training",
-              "url": "https://www.tomocacoffeeafrica.com/about-us/",
-              "course": "",
-              "blurb": "Tomoca is Ethiopia's first coffee roaster, founded in Addis Ababa in 1953, and runs an internal training academy for its staff, but a public multi-day barista/cupping immersion course open to outside students could not be verified.",
-              "confidence": "low"
             },
             {
               "name": "SCA-affiliated cupping labs (Addis Ababa)",
@@ -20723,9 +20715,13 @@ window.ET_ATLAS = {
             {
               "name": "Axil Coffee Roasters / The Espresso Academy",
               "url": "https://axilcoffee.com.au/pages/training",
-              "course": "Espresso Standards, Advanced Barista and Latte Art courses capped at small class sizes",
-              "blurb": "Axil Coffee Roasters runs The Espresso Academy in Melbourne with small-capacity barista courses from introductory Espresso Standards to an Advanced Barista program led by industry professionals including a World Barista Championship winner.",
-              "confidence": "high"
+              "course": "Barista Standards, Advanced Barista, Latte Art and Filter Coffee courses, 2 to 2.5 hours each, capped at four to six students",
+              "blurb": "Axil Coffee Roasters runs The Espresso Academy in Melbourne: short courses from the introductory Barista Standards (2.5 hours) to Advanced Barista (2 hours), with latte art and filter coffee alongside, each limited to four to six students.",
+              "confidence": "high",
+              "verify": [
+                "Max 5 per class",
+                "Advanced Latte Art"
+              ]
             },
             {
               "name": "St. ALi training",
@@ -20760,8 +20756,7 @@ window.ET_ATLAS = {
           "badges": [
             "scene",
             "school",
-            "gold-cred",
-            "master"
+            "gold-cred"
           ],
           "why": "Europe's specialty-coffee command centre, where world-champion roasters run SCA courses and the densest pro cohort sharpens its craft.",
           "bestSeason": "Year-round",
@@ -20839,9 +20834,50 @@ window.ET_ATLAS = {
           "englishBasis": "native-English country"
         }
       ],
+      "sweep": {
+        "date": "2026-09-27",
+        "regions": [
+          "Western Europe",
+          "Southern Europe & Mediterranean",
+          "Nordic & Baltic",
+          "North America",
+          "Latin America & Caribbean",
+          "Sub-Saharan Africa",
+          "South & Southeast Asia",
+          "East Asia",
+          "Oceania"
+        ],
+        "rejected": [
+          {
+            "name": "Tomoca Coffee",
+            "place": "Addis Ababa, Ethiopia",
+            "url": "https://www.tomocacoffeeafrica.com/about-us/",
+            "why": "Ethiopia's first coffee roaster, founded in Addis Ababa in 1953. It was listed here as a school with no course named. Its own About page speaks of developing its employees' skills; when we read it on 27 September 2026 we found no course a visitor can join."
+          },
+          {
+            "name": "Coffee Collective — Espresso Course",
+            "place": "Copenhagen, Denmark",
+            "url": "https://coffeecollective.dk/pages/course/espresso-course",
+            "why": "Three hours, and in its own words “an introduction to espresso artistry—not professional barista training.” Not the course this page is for."
+          },
+          {
+            "name": "Project Origin — Origin Trips",
+            "place": "Coffee origins, run from Australia",
+            "url": "https://projectorigin.coffee/origin-trips/",
+            "why": "Green-coffee sourcing trips for roasters: the application asks how many kilos you roast a week. A buying trip, not a course."
+          },
+          {
+            "name": "Mondo del Caffè — Origin Experience, Colombia",
+            "place": "Colombia",
+            "url": "https://mondodelcaffe.de/en/products/origin-experience-kolumbien-2026-barista-reise",
+            "why": "The only dated trip on the page ran from 28 February to 7 March 2026, and no later date was listed when we read it on 27 September 2026."
+          }
+        ]
+      },
       "id": "coffee-and-barista",
       "certShort": "SCA",
       "featured": {
+        "withdrawn": true,
         "id": "coffee-and-barista--yirgacheffe-addis-ababa",
         "place": "Kaffa region & Addis Ababa",
         "country": "Ethiopia",
@@ -20861,8 +20897,8 @@ window.ET_ATLAS = {
     {
       "discipline": "Mixology & Bartending",
       "category": "culinary",
-      "certBody": "European Bartender School (EBS) / BarSmarts / WSET (Spirits)",
-      "goldCredential": "EBS International Bartender Certificate (and the WSET Level 3 Award in Spirits)",
+      "certBody": "WSET (Wine & Spirit Education Trust)",
+      "goldCredential": "WSET Level 3 Award in Spirits — examined in person by WSET: a closed-book theory paper and a blind tasting. It examines what you know about spirits, not your work behind the bar.",
       "blurb": "Building balanced cocktails with speed and precision behind a real bar, from classics to your own signature builds.",
       "destinations": [
         {
@@ -20894,7 +20930,7 @@ window.ET_ATLAS = {
               "name": "Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron)",
               "url": "https://cantineroscuba.org.cu/",
               "course": "No standing week-long public course; cantinero training is free, resident-only, and the tourist-facing option is a short cocktail workshop at the Museo del Ron",
-              "blurb": "The Asociacion de Cantineros de Cuba (founded 1924) runs the cantinero tradition, where trainees learn 150-200 cocktails from memory over roughly six months before an exam, but its courses are free an",
+              "blurb": "The Asociacion de Cantineros de Cuba (founded 1924) runs the cantinero tradition, where trainees learn 150-200 cocktails from memory over roughly six months before an exam, but its courses are free and reserved for members with permanent residency in Cuba, not sold to travelers.",
               "confidence": "low"
             },
             {
@@ -21002,7 +21038,13 @@ window.ET_ATLAS = {
               "url": "https://www.barsmarts.com/",
               "course": "BarSmarts (Basics and Professional)",
               "blurb": "BarSmarts is an online bartender education program created by Pernod Ricard USA with Beverage Alcohol Resource, offering Basics and Professional tiers covering spirits knowledge, cocktail technique and service, with a flat registration fee and a completion certificate.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "standing": {
+                "state": "not-here",
+                "what": "Their own FAQ: “BarSmarts is an online bartender education program.” Both levels we listed, Basics and Professional, are taken online.",
+                "from": "https://www.barsmarts.com/",
+                "read": "2026-09-27"
+              }
             },
             {
               "name": "European Bartender School New York",
@@ -21027,8 +21069,9 @@ window.ET_ATLAS = {
         }
       ],
       "id": "mixology-and-bartending",
-      "certShort": "European Bartender School",
+      "certShort": "WSET (Spirits)",
       "featured": {
+        "withdrawn": true,
         "id": "mixology-and-bartending--havana",
         "place": "Havana",
         "country": "Cuba",

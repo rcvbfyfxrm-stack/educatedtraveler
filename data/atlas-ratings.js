@@ -1122,20 +1122,13 @@ window.ET_RATINGS = {
     "destId": "mixology-and-bartending--havana",
     "school": "Asociacion de Cantineros de Cuba / Havana Club Rum Museum (Museo del Ron)",
     "place": "Havana, Cuba",
-    "stars": 3.8,
-    "count": 1509,
-    "source": "Tripadvisor",
-    "url": "https://www.tripadvisor.com/Attraction_Review-g147271-d1771483-Reviews-Museo_del_Ron_Havana_Club-Havana_Ciudad_de_la_Habana_Province_Cuba.html",
+    "stars": null,
+    "count": null,
+    "source": "",
+    "url": "",
     "whyPick": "The associated Asociacion de Cantineros de Cuba traces to the Club de Cantineros founded in 1924, is a member of the International Bartenders Association, and crowned Cuba's first world-champion bartender (Sergio Serrano Rivero, Seville 2003); reviewers of its Museo del Ron home praise the guided walk through rum-production history and the cocktail/rum tasting at the end.",
     "destPlace": "Havana",
-    "sources": [
-      {
-        "source": "TripAdvisor",
-        "stars": 3.8,
-        "count": 1509,
-        "url": "https://www.tripadvisor.com/Attraction_Review-g147271-d1771483-Reviews-Museo_del_Ron_Havana_Club-Havana_Ciudad_de_la_Habana_Province_Cuba.html"
-      }
-    ]
+    "sources": []
   },
   "tea-and-tea-ceremony": {
     "destId": "tea-and-tea-ceremony--hangzhou-fujian",

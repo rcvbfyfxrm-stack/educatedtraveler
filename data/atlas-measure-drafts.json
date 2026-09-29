@@ -1,3 +1,86 @@
 {
-  "drafts": {}
+  "drafts": {
+    "coffee-and-barista": {
+      "dots": 2,
+      "verdict": "A craft with a published ladder that every school on this page teaches to — and not yet a room on it where we can name who teaches you",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Not yet. We withdrew the pick on 27 September 2026 — its own page listed no session after one starting 28 February 2026 and named no trainer — and no school left on this page names its trainer on the pages we read. The Specialty Coffee Association publishes the syllabus these schools teach to; a syllabus is not a teacher."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "Not established from dates. Prufrock in London publishes its SCA course prices, £275 to £715 for the three barista levels, and Axil in Melbourne publishes prices and class caps, but neither page we read on 27 September 2026 showed a dated intake."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, where a school says so: Axil's Espresso Academy in Melbourne limits its barista, latte art and filter courses to four to six students, on its own training page read 27 September 2026."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, in Melbourne. Daily Coffee News reported on 21 October 2025 that Jack Simpson, who has held roles with Melbourne-based Axil Coffee for seven years, won the 2025 World Barista Championship in Milan. A city whose working baristas win the world title is a place the craft is practised at the top — whoever teaches the course you book.",
+          "evidence": [
+            {
+              "what": "Daily Coffee News on the 2025 World Barista Championship",
+              "url": "https://dailycoffeenews.com/2025/10/21/jack-simpson-of-australia-is-the-2025-world-barista-champion/",
+              "date": "27 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The SCA's ladder is public — Foundation, Intermediate and Professional in five areas, with its diplomas above them — but only somebody who climbed part of it here can say the room above the course is real."
+        }
+      ],
+      "ceilingNote": "The first two are research owed: a school that names its trainer and prints its dates lights them. The fifth waits for somebody to go.",
+      "check": "Drafted 27 September 2026 from the pages read that day for the barista hunt, not from a visit. Nobody from EducatedTraveler has stood at any of these machines. The fourth answer rests on Daily Coffee News, trade press that sells no course on this page."
+    },
+    "mixology-and-bartending": {
+      "dots": 1,
+      "verdict": "A craft that lives in the great bars of London and New York and is taught, on this page, by schools that do not name who teaches — and the one credential an outside body examines is about spirits, not the work behind the bar",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Not on this page. No school listed names who teaches its bar course on the pages we read, and there is no pick any more: the Havana course we used to point to is, in our own words, not a course a traveller can join. Dale DeGroff is named in New York, but we have not read a page that puts him in the room at any school listed beside him. WSET examines its Level 3 Award in Spirits itself, in person — an outside examiner for spirits knowledge, not for the bar."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "Not established. Havana's cantinero training is, as our record holds it, free and for Cuban residents only. In London and New York we did not read a dated intake on 27 September 2026; The Spirit Lab publishes its prices, £799 for five days and £999 for four, and takes dates through booking."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": false,
+          "t": "Not established from a class size a school publishes. Reviews of The Spirit Lab mention a small group, and a review is not a cohort fact."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, in London and New York, and the evidence is the bars rather than the schools. The World's 50 Best Bars list, read on its own site on 27 September 2026, places Connaught Bar, Satan's Whiskers and Scarfes Bar in London, and Superbueno, Sip & Guzzle, Double Chicken Please and Overstory in New York, in its top fifty. A list says the craft is worked in these cities every night; it says nothing about who will teach you.",
+          "evidence": [
+            {
+              "what": "The World's 50 Best Bars, places 1 to 50, on its own site",
+              "url": "https://www.theworlds50best.com/bars/list/1-50",
+              "date": "27 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. WSET's spirits awards run from Level 1 to Level 3 and are examined, but they are a ladder in spirits knowledge; whether the rooms above a course here would keep a chef learning for years is something only somebody who went can say."
+        }
+      ],
+      "ceilingNote": "The first three are research owed, not verdicts: a school that names its teacher, prints its dates and publishes its class size lights them. The fifth waits for somebody to go.",
+      "check": "Drafted 27 September 2026 from the pages read that day for the mixology hunt, not from a visit. Nobody from EducatedTraveler has stood behind any of these bars. The fourth answer rests on The World's 50 Best Bars list, which ranks bars and sells no course on this page."
+    }
+  }
 }

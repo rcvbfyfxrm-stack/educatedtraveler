@@ -120,6 +120,246 @@
         "on": false
       },
       "photoWeWouldAskFor": "The black-and-white portrait from the top of your site. If that is Laurent Mons, we would like to say so underneath it."
+    },
+    {
+      "id": "mixology-and-bartending--madrid-house-of-mixology",
+      "craft": "Mixology & Bartending",
+      "place": "Madrid, Spain",
+      "school": "House of Mixology",
+      "teacher": "Luis Inchaurraga",
+      "weWouldPublish": [
+        "A bar-school in Madrid, teaching bartenders since 2012.",
+        "Cocktail Pairing: five days in Madrid, at most 11 students, €1,250. The next date on the course page is 5 October 2026.",
+        "The course is Luis Inchaurraga's own system for pairing a cocktail with a dish, taught through six pairings created to explain it step by step — how aroma, taste, memory, context, trigeminal sensations and temperature work together.",
+        "Barman Completo: five days, at most five students, €1,950, with a start listed on 26 October 2026.",
+        "Both courses are held in what the school calls a real bar-school, and its own words for the method are that you will not study theory in isolation."
+      ],
+      "weCouldNotAnswer": [
+        "Is the bar-school a bar that serves the public, or a teaching bar?",
+        "Is any course taught in English, or with translation?",
+        "Does Luis teach every day of Cocktail Pairing himself?",
+        "What are the 2027 dates?"
+      ],
+      "sources": [
+        {
+          "what": "the school's own Cocktail Pairing page",
+          "url": "https://www.houseofmixology.com/formaciones/cocktail-pairing/",
+          "read": "27 September 2026"
+        },
+        {
+          "what": "the school's own Barman Completo page",
+          "url": "https://www.houseofmixology.com/formaciones/barman-completo/",
+          "read": "27 September 2026"
+        },
+        {
+          "what": "the school's home page",
+          "url": "https://www.houseofmixology.com/",
+          "read": "27 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      }
+    },
+    {
+      "id": "mixology-and-bartending--hyde-park-bar-5-day",
+      "craft": "Mixology & Bartending",
+      "place": "Hyde Park, New York, United States",
+      "school": "BAR 5-Day Program® (Beverage Alcohol Resource)",
+      "teacher": "BAR's founding members, at least two in every module",
+      "weWouldPublish": [
+        "The BAR 5-Day Program®: five days on distilled spirits and mixology, held once a year at the Culinary Institute of America in Hyde Park, New York.",
+        "The next one runs 1 to 5 February 2027. The fee is $4,450, and scholarships exist through various companies and programmes.",
+        "Entry is by application: up to 65 people are accepted each year, most of them working bartenders, beverage directors and others in the trade.",
+        "Every module includes a blind tasting of spirits and, from the third lesson on, the preparation of cocktails and their ingredients.",
+        "Its FAQ guarantees that at least two of the founding members — Dale DeGroff, Doug Frost, Steve Olson, F. Paul Pacult, Andy Seymour and David Wondrich — teach or are present guiding each module.",
+        "The exam gives three results: BAR Certified, BAR Ready, and BAR Ready with Distinction for the top 5 percent.",
+        "BAR also announces a BAR Advanced Web Series as coming soon; the five days at Hyde Park are the in-person course."
+      ],
+      "weCouldNotAnswer": [
+        "Which of the founding members will be teaching in February 2027?",
+        "Would you accept a professional chef, rather than a bartender?",
+        "What does the fee cover beyond tuition?"
+      ],
+      "sources": [
+        {
+          "what": "BAR's own page for the 5-Day Program",
+          "url": "https://beveragealcoholresource.com/bar-5-day-program/",
+          "read": "27 September 2026"
+        },
+        {
+          "what": "BAR's own FAQ",
+          "url": "https://beveragealcoholresource.com/faqs/",
+          "read": "27 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      }
+    },
+    {
+      "id": "mixology-and-bartending--rome-jerry-thomas-educational",
+      "craft": "Mixology & Bartending",
+      "place": "Rome, Italy",
+      "school": "Jerry Thomas Educational — Campari Academy",
+      "teacher": "Michele Garofalo",
+      "weWouldPublish": [
+        "House of Classic: four days, 28 hours, on the history and technique of mixed drinks from the late 1700s to now — punch, sling and julep, Prohibition, tiki and the modern revival. €750 plus VAT. Next session 19 to 22 October 2026. Taught by Michele Garofalo.",
+        "Bar Lab & Innovation Program: five days, 35 hours, on bar techniques taken from modernist cooking and molecular pastry — acidifying and sweetening, clarifying and carbonating, smoking, dehydrating and freeze-drying, textures, fermentation, distillation and an ice programme. €850 plus VAT. Next session 30 November to 4 December 2026.",
+        "The Bar Lab is taught by the Jerry Thomas Educational trainers Michele Garofalo, Simone Onorati and Gregory Camillo.",
+        "Jerry Thomas Educational is the bartending school that grew out of the Jerry Thomas Speakeasy, and teaches these courses in Rome with Campari Academy. Campari Academy carries the name of the spirits producer Campari, and we would say so beside the entry."
+      ],
+      "weCouldNotAnswer": [
+        "Is any course taught in English, or can it be followed with translation?",
+        "The Bar Lab page gives five days in one week and also says the course will last four months. Which is it?",
+        "How many places are there in each session?",
+        "What are the 2027 dates?"
+      ],
+      "sources": [
+        {
+          "what": "the House of Classic course page",
+          "url": "https://www.campariacademy.com/it-it/training/corsi/house-of-classic/",
+          "read": "27 September 2026"
+        },
+        {
+          "what": "the Bar Lab & Innovation Program course page",
+          "url": "https://www.campariacademy.com/it-it/training/corsi/bar-lab-innovation-program/",
+          "read": "27 September 2026"
+        },
+        {
+          "what": "Campari Academy on the Jerry Thomas Educational partnership",
+          "url": "https://www.campariacademy.com/it-it/inspiration/jerry-thomas-educational-campari-academy/",
+          "read": "27 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      }
+    },
+    {
+      "id": "mixology-and-bartending--milan-campari-academy",
+      "craft": "Mixology & Bartending",
+      "place": "Sesto San Giovanni (Milan), Italy",
+      "school": "Campari Academy",
+      "teacher": "Giovanni Vecchio",
+      "weWouldPublish": [
+        "Bar Training – Evolution: 40 hours in person at Campari Academy in Sesto San Giovanni, on the history of mixing, advanced product knowledge, ice, speed, and the drinks from punch and pre-Prohibition to tiki, modern classics and low-alcohol.",
+        "Each student has a bar station set up with professional equipment.",
+        "Ten places, €690. Next session 12 to 16 October 2026. Open to people who have not taken the Roots course first.",
+        "Taught by Giovanni Vecchio.",
+        "Campari Academy carries the name of the spirits producer Campari, and we would say so beside the entry."
+      ],
+      "weCouldNotAnswer": [
+        "Is any course taught in English?",
+        "Is the room in Sesto San Giovanni a working bar, or a training centre?",
+        "What are the 2027 dates?"
+      ],
+      "sources": [
+        {
+          "what": "the Bar Training – Evolution course page",
+          "url": "https://www.campariacademy.com/it-it/training/corsi/be-bartender-2-0-2/",
+          "read": "27 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      }
+    },
+    {
+      "id": "coffee-and-barista--copenhagen-coffeemind",
+      "craft": "Coffee & Barista",
+      "place": "Hvidovre (Copenhagen), Denmark",
+      "school": "CoffeeMind Academy",
+      "teacher": "Morten Münchow",
+      "weWouldPublish": [
+        "A roasting and sensory school at Hvidovre, on the edge of Copenhagen, with six makes of roaster in the room: Aillio Bullet R1, Coffee-Tech Silon, Ikawa Pro, Loring 1 kg, Probatino and Stronghold S7 Pro.",
+        "SCA Roasting Intermediate: 5 to 7 January 2027, three days hands-on, €1,200, taught by Morten Münchow.",
+        "SCA Roasting Professional + Sensory Performance: 23 to 26 February 2027, €1,600, taught by Morten Münchow. The last run was six days — two of e-learning and four on site — with a sensory skills assessment taken from Ida Steen's research.",
+        "Morten Münchow was the lead creator of the SCA Roasting curriculum from 2013 to 2018.",
+        "CoffeeMind also sells e-learning courses; we would say which part of a course is on site and which is online."
+      ],
+      "weCouldNotAnswer": [
+        "In what language are the on-site days taught?",
+        "How many students are in the room for each course?",
+        "Does the February 2027 course keep the six-day format, with two days online?"
+      ],
+      "sources": [
+        {
+          "what": "CoffeeMind's own course listing",
+          "url": "https://coffee-mind.com/",
+          "read": "27 September 2026"
+        },
+        {
+          "what": "the page for the September 2026 run of the Roasting Professional course",
+          "url": "https://coffee-mind.com/events/sca-roasting-professional-sensory-performance-7-10-september-2026/",
+          "read": "27 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      }
+    },
+    {
+      "id": "coffee-and-barista--florence-espresso-academy",
+      "craft": "Coffee & Barista",
+      "place": "Florence, Italy",
+      "school": "Espresso Academy",
+      "teacher": "Simone Celli and Marco Cremonese",
+      "weWouldPublish": [
+        "The One Week Coffee Route: seven days in Florence, a different SCA area each day — sensory, basic barista, advanced barista, brewing, coffee-shop management, green coffee and roasting — held in English, 10 a.m. to 5.30 p.m.",
+        "At the end of each day you can sit the SCA exam for that area.",
+        "Dates: 9 to 15 October 2026, 5 to 11 November 2026, and 11 to 17 January 2027.",
+        "Each day can be taken on its own — barista, two days, €265; roasting, brewing, tasting and green coffee €199 each; management €130. Four days or more bring the whole route to €1,080 instead of €1,191.",
+        "Their trainer page names Simone Celli as trainer for the barista, brewing and latte art courses, and Marco Cremonese as an SCA Authorized Trainer for roasting, tasting and green coffee."
+      ],
+      "weCouldNotAnswer": [
+        "Who teaches each day of the route in Florence — one trainer, or a different one each day?",
+        "How many students are in a group?",
+        "Where in Florence are the courses held, and is it a working roastery?"
+      ],
+      "sources": [
+        {
+          "what": "the One Week Coffee Route page",
+          "url": "https://www.espressoacademy.it/en/our-courses/five-days-coffee-route/",
+          "read": "27 September 2026"
+        },
+        {
+          "what": "the school's trainer team page",
+          "url": "https://www.espressoacademy.it/en/enjoy-the-school/our-trainer-team/",
+          "read": "27 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      }
+    },
+    {
+      "id": "coffee-and-barista--san-rafael-boot-coffee",
+      "craft": "Coffee & Barista",
+      "place": "San Rafael, California, United States",
+      "school": "Boot Coffee Campus",
+      "teacher": "Willem Boot",
+      "weWouldPublish": [
+        "Q Grader training and exam: 6 to 11 December 2026 at Boot Coffee Campus in San Rafael, California — three days of training, then three days of examination.",
+        "The upcoming programme is taught by lead Q instructor Willem Boot.",
+        "The exam is 19 tests, cupping and scoring among them. A failed test can be retaken without repeating the course, usually up to twice during the week.",
+        "The Q Grader certification, created by the Coffee Quality Institute, is valid for three years and is renewed by a calibration of three cupping trials."
+      ],
+      "weCouldNotAnswer": [
+        "What does the course cost, and what does the fee cover?",
+        "How many places are there?",
+        "Do you still run trips to origin, and when is the next one?"
+      ],
+      "sources": [
+        {
+          "what": "the Q Grader course page",
+          "url": "https://bootcoffee.com/events/q-grader-training-and-exam/",
+          "read": "27 September 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      }
     }
   ],
   "setAside": [
