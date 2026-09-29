@@ -27932,7 +27932,7 @@ window.ET_ATLAS = {
         "school": "Vakuum by Martin Lippo",
         "url": "https://martinlippo.com/en/",
         "course": "Open courses, private masterclasses & online modules in modernist technique",
-        "description": "Martin Lippo, an Argentine chef in Barcelona since 2000 and a pioneer of sous-vide and low-temperature cooking, runs Vakuum, a dedicated laboratory and training school. It teaches the full modernist toolkit hands-on — sous-vide, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen — through in-person intensives and a deep online curriculum.",
+        "description": "Martin Lippo, an Argentine chef in Barcelona since 2000 and known for his work with liquid nitrogen, runs Vakuum, a dedicated laboratory and training school. It teaches the full modernist toolkit hands-on — sous-vide, foams/sodas/siphon, spherification, textures and hydrocolloids, liquid nitrogen — through in-person intensives and a deep online curriculum.",
         "duration": "2-day intensives and longer modular tracks",
         "format": "in-person + online",
         "certification": "Vakuum certificate of attendance",
