@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-09-29 — 378 published claims re-read against the pages they came from, across 33 open crafts._
+_2026-09-30 — 378 published claims re-read against the pages they came from, across 33 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -83,55 +83,45 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 20 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 21 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- kitesurfing · HST Windsurfing & Kitesurfing School — 1 night — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
-  - https://hstwindsurfing.com/maui-kitesurfing-lessons/
-- kitesurfing · Action Sports Maui — 1 night — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
-  - https://actionsportsmaui.com/kiteboarding-lessons-maui/
-- pottery-and-ceramics · Mashiko Ceramics Art Museum / Tougei Messe Mashiko (Ceramic Art Center) — 1 night — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
-  - https://www.mashiko-museum.jp/en/
-- pottery-and-ceramics · Hamada Shoji Memorial Mashiko Sankokan — 1 night — URLError: <urlopen error timed out>
-  - https://mashiko-sankokan.net/
-- pottery-and-ceramics · Bizen Pottery Traditional and Contemporary Art Museum — 1 night — URLError: <urlopen error timed out>
-  - https://bizen-moa.jp/
-- photography · Rencontres d'Arles workshops — 1 night — URLError: <urlopen error timed out>
-  - https://www.rencontres-arles.com/en/photo-workshops-and-photo-folio-review
-- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 1 night — URLError: <urlopen error timed out>
-  - https://www.taiwa.ac.jp/global/en/kyocho.php
-- sushi-and-washoku · La Carriere Cooking School (since 1931) — 1 night — URLError: <urlopen error timed out>
-  - https://www.taiwa.ac.jp/lacarriere/en/course/
+- thai-massage · ITM - International Training Massage School — 1 night — URLError: <urlopen error timed out>
+  - https://www.itmthaimassage.com/
+- surfing · Canggu Bali Surf Lesson (Odysseys Surf School) — 1 night — URLError: <urlopen error [Errno -3] Temporary failure in name resolution>
+  - https://surflessoncanggu.com/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **perfumery · Musée International de la Parfumerie** — 14 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 15 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 14 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 15 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
 
-- photography · École Nationale Supérieure de la Photographie (ENSP)
+_none._
 
 ## Unreadable, not gone
 
 These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not a school that closed. Never escalated, because a check that cries wolf gets muted. If one matters, open it in a browser; that is the only way to know.
 
-- hatha-and-vinyasa-yoga · Rishikesh Yog Peeth — HTTP 403
-- hatha-and-vinyasa-yoga · Yoga Niketan Ashram — HTTP 403
+- hatha-and-vinyasa-yoga · The Yoga Barn — HTTP 403
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
+- ashtanga-yoga · Stillpoint Yoga London — HTTP 403
+- vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
 - spearfishing · Blue Water Hunter Spearfishing — HTTP 403
 - sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
 - windsurfing-and-wing-foil · Spin Out Tarifa — HTTP 429
-- rock-climbing · Kalymnos Primal Climb — HTTP 429
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
 - photography · Magnum Photos workshops (Arles) — HTTP 403
 - photography · London College of Communication (UAL) — HTTP 403
 - photography · Central Saint Martins (UAL) — HTTP 403
+- jewelry-and-goldsmithing · Le Arti Orafe Jewellery School (LAO) — HTTP 403
+- jewelry-and-goldsmithing · Complete Stone Setting Course — HTTP 403
+- jewelry-and-goldsmithing · Introduction to Rhino3D for Goldsmithing (CAD.WE1) — HTTP 403
 - italian-cuisine-and-pasta · Bologna Cooking School — HTTP 403
-- italian-cuisine-and-pasta · Casa Artusi - Scuola di Cucina di Casa Artusi — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB) — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
 - modern-new-technique-cuisine · Sous Vide Australia (The Upper Room) — HTTP 429
@@ -153,16 +143,16 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - hatha-and-vinyasa-yoga · Rishikesh · Parmarth School of Yoga (Parmarth Niketan Ashram)
 - hatha-and-vinyasa-yoga · Rishikesh · Yoga Therapy: Diabetes (residential short course)
 - hatha-and-vinyasa-yoga · Rishikesh · Sivananda Ashram (Divine Life Society)
+- hatha-and-vinyasa-yoga · Rishikesh · Rishikesh Yog Peeth
+- hatha-and-vinyasa-yoga · Rishikesh · Yoga Niketan Ashram
 - hatha-and-vinyasa-yoga · Mysore · Indea Yoga
 - hatha-and-vinyasa-yoga · Mysore · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- hatha-and-vinyasa-yoga · Ubud, Bali · The Yoga Barn
 - hatha-and-vinyasa-yoga · Ubud, Bali · Radiantly Alive
 - hatha-and-vinyasa-yoga · Ubud, Bali · Ubud Yoga Centre
 - hatha-and-vinyasa-yoga · Encinitas, California · Soul of Yoga
 - ashtanga-yoga · Mysore (Gokulam) · Sharath Yoga Centre (SYC)
 - ashtanga-yoga · Mysore (Gokulam) · K. Pattabhi Jois Ashtanga Yoga Shala (Saraswathi Jois)
 - ashtanga-yoga · Mysore (Gokulam) · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- ashtanga-yoga · London · Stillpoint Yoga London
 - ashtanga-yoga · London · Astanga Yoga London (AYL)
 - ashtanga-yoga · London · Yoga Place
 - ashtanga-yoga · New York City · Ashtanga Yoga New York (Eddie Stern)
@@ -174,7 +164,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - vipassana-and-meditation · Yangon · International Meditation Centre (U Ba Khin tradition)
 - vipassana-and-meditation · Chiang Mai · Wat Ram Poeng (Tapotaram) Northern Insight Meditation Centre
 - vipassana-and-meditation · Chiang Mai · Wat Suan Dok (Monk Chat / meditation retreats)
-- vipassana-and-meditation · Barre, Massachusetts · Insight Meditation Society (IMS)
 - vipassana-and-meditation · Barre, Massachusetts · Barre Center for Buddhist Studies
 - sound-healing · Kathmandu (Budhanilkantha) · Pragya Yoga School
 - sound-healing · Kathmandu (Budhanilkantha) · 4 Days / 20 Hours Basic Level Singing Bowl Sound Healing Training
@@ -210,5 +199,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Kalamata & the Mani · Kalamata Freedivers
 - spearfishing · Antibes, Côte d'Azur · CREPS PACA (Antibes)
 - spearfishing · Côte d'Azur (Cassis to Antibes) · FFESSM-affiliated pêche sous-marine clubs (Côte d'Azur)
+- spearfishing · Côte d'Azur (Cassis to Antibes) · regional CMAS spearfishing clubs
 
-_242 in total._
+_240 in total._
