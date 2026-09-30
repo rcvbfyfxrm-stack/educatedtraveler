@@ -17778,14 +17778,6 @@ window.ET_ATLAS = {
                     "caption": "Alessandra Spisni, who founded the school, at the board. Photograph from the school's own website, used with its permission."
                   },
                   {
-                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-01-the-egg-into-the-well.jpg",
-                    "w": 1000,
-                    "h": 666,
-                    "wide": true,
-                    "alt": "A wide shallow crater of white flour with a ring of whole brown eggs laid all around its rim, one broken yolk already sitting in the middle of the well, and two hands above it cracking another egg so the white runs down into the flour.",
-                    "caption": "Where every sheet starts: a crater of flour, a ring of eggs around it, one yolk already in the well."
-                  },
-                  {
                     "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-02-the-sfoglia-folded.jpg",
                     "w": 1000,
                     "h": 666,
@@ -17829,13 +17821,6 @@ window.ET_ATLAS = {
                     "caption": "A student of the school at the mattarello, out in the open in front of the city — the same tool and the same sheet as on the bench inside."
                   },
                   {
-                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-10-the-room-working.jpg",
-                    "w": 1000,
-                    "h": 562,
-                    "alt": "A long teaching kitchen with pale wooden benches in rows, each place set with a bowl of brown eggs and a mound of flour; at the far end three people in the school's red shirts and white caps stand at a demonstration counter in front of the stoves.",
-                    "caption": "The room before a class: a board, a bowl of eggs and a heap of flour at every place."
-                  },
-                  {
                     "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-11-balanzoni.jpg",
                     "w": 1000,
                     "h": 562,
@@ -17843,11 +17828,18 @@ window.ET_ATLAS = {
                     "caption": "Balanzoni: spinach in the dough, and one more shape in the same repertoire."
                   },
                   {
-                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-07-the-room.jpg",
-                    "w": 1600,
-                    "h": 899,
-                    "alt": "The school's teaching room seen from a bare wooden board in the foreground: a row of white-framed tables each set with a pale board, a mound of flour and a small bowl, long rolling pins hanging in a rack on the tiled wall, and at the back four people in red aprons and white caps working at a bench beside a green cooking island.",
-                    "caption": "The room set up before a class — a board, a mound of flour and a bowl at each place, and the rolling pins on the wall behind."
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-12-the-boards-laid-out.jpg",
+                    "w": 562,
+                    "h": 1000,
+                    "alt": "Looking down a long pale wooden board, a heap of white flour on it and a white bowl of brown eggs beyond, with more boards set the same way further down the room and a red-and-white skirted counter at the back.",
+                    "caption": "The boards set before a lesson: flour and eggs at every place. Sent by the school in September 2026."
+                  },
+                  {
+                    "src": "/images/atlas/italian-cuisine-and-pasta--bologna/vsb-13-hands-on-the-mattarello.jpg",
+                    "w": 750,
+                    "h": 1000,
+                    "alt": "Close on two hands pressing a long wooden mattarello across a yellow sheet of pasta on a wooden board, the school's mark stamped into the end of the pin, and a second pair of hands rolling at the next board behind, out of focus.",
+                    "caption": "Both hands on the mattarello, pushing the sheet out across the board. Sent by the school in September 2026."
                   }
                 ]
               },
