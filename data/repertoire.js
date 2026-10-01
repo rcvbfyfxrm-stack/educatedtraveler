@@ -19099,7 +19099,7 @@ window.ET_ATLAS = {
               "name": "Haru Cooking Class",
               "url": "https://www.kyoto-cooking-class.com/",
               "course": "Japanese Vegetarian Cooking / Japanese Non-vegetarian Cooking",
-              "blurb": "A small home-kitchen class near Shimogamo Shrine for up to eight guests, Haru teaches Kyoto-style washoku with a vegetarian course or a non-vegetarian course with wagyu.",
+              "blurb": "A small cooking class near Shimogamo Shrine for up to eight guests. Taro is a home cook who teaches Kyoto-style washoku from his home kitchen, with wagyu as a treat.",
               "confidence": "high",
               "facts": {
                 "where": "North-east of the Imperial Palace",
@@ -28856,7 +28856,7 @@ window.ET_ATLAS = {
               "url": "https://www.flyingfishonline.com/stcw/",
               "course": "STCW Basic Safety Training",
               "confidence": "high",
-              "blurb": "At 124 High Street. MCA and RYA approved, running two-week deckhand and steward/ess routes with the STCW modules built in. Publishes no email address — the way in is the contact form on its site.",
+              "blurb": "At 124 High Street. MCA and RYA approved, running two-week deckhand and steward/ess routes with the STCW modules built in.",
               "facts": {
                 "where": "Cowes Yacht Haven, Cowes",
                 "length": "6 days (five and a half, Monday lunchtime to Saturday)",

@@ -157,6 +157,8 @@
           "read": "27 September 2026"
         }
       ],
+      "sent": "2026-09-30",
+      "sentFingerprint": "b8b7517556210130",
       "validated": {
         "on": false
       }
@@ -193,6 +195,8 @@
           "read": "27 September 2026"
         }
       ],
+      "sent": "2026-09-30",
+      "sentFingerprint": "733796d5607f426f",
       "validated": {
         "on": false
       }
@@ -232,6 +236,8 @@
           "read": "27 September 2026"
         }
       ],
+      "sent": "2026-09-30",
+      "sentFingerprint": "28176c7c1044a53d",
       "validated": {
         "on": false
       }
@@ -261,6 +267,8 @@
           "read": "27 September 2026"
         }
       ],
+      "sent": "2026-09-30",
+      "sentFingerprint": "49851bb0682466ab",
       "validated": {
         "on": false
       }
@@ -295,6 +303,8 @@
           "read": "27 September 2026"
         }
       ],
+      "sent": "2026-09-30",
+      "sentFingerprint": "37d28241b4d36ae8",
       "validated": {
         "on": false
       }
@@ -329,6 +339,8 @@
           "read": "27 September 2026"
         }
       ],
+      "sent": "2026-09-30",
+      "sentFingerprint": "43ab4368e27d89b1",
       "validated": {
         "on": false
       }
@@ -338,23 +350,32 @@
       "craft": "Coffee & Barista",
       "place": "San Rafael, California, United States",
       "school": "Boot Coffee Campus",
-      "teacher": "Willem Boot",
+      "teacher": "Valerian Hrala",
       "weWouldPublish": [
-        "Q Grader training and exam: 6 to 11 December 2026 at Boot Coffee Campus in San Rafael, California — three days of training, then three days of examination.",
-        "The upcoming programme is taught by lead Q instructor Willem Boot.",
-        "The exam is 19 tests, cupping and scoring among them. A failed test can be retaken without repeating the course, usually up to twice during the week.",
-        "The Q Grader certification, created by the Coffee Quality Institute, is valid for three years and is renewed by a calibration of three cupping trials."
+        "SCA Q Grader course and exams: 6 to 11 December 2026 at Boot Coffee Campus in San Rafael, California. Six days, with the exams taken during the course rather than after it.",
+        "The December course is taught by Valerian Hrala, director of Boot Coffee Campus and a cupper with more than fifteen years' experience.",
+        "The exam is nine tests, eight practical and one written. Each may be taken twice during the week; a test still failed after the second attempt means taking the whole course again.",
+        "The certificate is the Specialty Coffee Association's Q Grader. It is valid for three years and renewed by retaking some of the exams before it runs out.",
+        "Boot's trips to Panama and Ethiopia are not open courses. Now and then they run as an experience tailored to a small group or to one person."
       ],
       "weCouldNotAnswer": [
         "What does the course cost, and what does the fee cover?",
-        "How many places are there?",
-        "Do you still run trips to origin, and when is the next one?"
+        "How many places are there?"
       ],
       "sources": [
         {
           "what": "the Q Grader course page",
-          "url": "https://bootcoffee.com/events/q-grader-training-and-exam/",
-          "read": "27 September 2026"
+          "url": "https://bootcoffee.com/q-grader-course/",
+          "read": "1 October 2026"
+        }
+      ],
+      "sent": "2026-09-30",
+      "sentFingerprint": "02a64d986f142f98",
+      "amendments": [
+        {
+          "on": "1 October 2026",
+          "what": "The school corrected two things on 30 September 2026. The December course is taught by Valerian Hrala, the campus director, not by Willem Boot. And the trips to Panama and Ethiopia are not open courses: they run now and then for a small group or one person, which answers our question about trips to origin. We also rewrote the course, exam and certificate lines from the course page the school pointed us to. It describes the Specialty Coffee Association's current Q Grader, not the older programme on the page we had read before.",
+          "fingerprint": "6b00d04fd05a5e2a"
         }
       ],
       "validated": {
