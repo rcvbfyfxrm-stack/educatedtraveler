@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-10-02 — 378 published claims re-read against the pages they came from, across 33 open crafts._
+_2026-10-03 — 378 published claims re-read against the pages they came from, across 33 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -87,16 +87,16 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 23 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 24 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **perfumery · Musée International de la Parfumerie** — 17 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 18 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 17 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 18 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
@@ -122,6 +122,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - kitesurfing · GoKite Cabarete — HTTP 403
 - windsurfing-and-wing-foil · HST Windsurfing & Kitesurfing School — HTTP 403
 - windsurfing-and-wing-foil · Action Sports Maui — HTTP 403
+- windsurfing-and-wing-foil · Spin Out Tarifa — HTTP 429
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
 - photography · Magnum Photos workshops (Arles) — HTTP 403
 - photography · London College of Communication (UAL) — HTTP 403
@@ -214,4 +215,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - spearfishing · Côte d'Azur (Cassis to Antibes) · regional CMAS spearfishing clubs
 - spearfishing · Kona, Big Island · Kona Freedivers
 
-_229 in total._
+_228 in total._
