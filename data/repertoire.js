@@ -20619,6 +20619,7 @@ window.ET_ATLAS = {
     },
     {
       "discipline": "Coffee & Barista",
+      "bestPlace": "coffee-and-barista--melbourne",
       "category": "culinary",
       "certBody": "SCA (Specialty Coffee Association)",
       "goldCredential": "SCA Coffee Skills Diploma (Barista, Brewing, Sensory, Roasting, Green Coffee modules)",
@@ -20887,6 +20888,36 @@ window.ET_ATLAS = {
                 ],
                 "from": "https://bootcoffee.com/q-grader-course/",
                 "read": "2026-10-01"
+              },
+              "photos": {
+                "given": "2026-10-01",
+                "by": "Valerian",
+                "thumb": "/images/atlas/coffee-and-barista--san-rafael/boot-01-the-cupping-counter.jpg",
+                "card": "/images/atlas/coffee-and-barista--san-rafael/boot-01-the-cupping-counter.jpg",
+                "items": [
+                  {
+                    "src": "/images/atlas/coffee-and-barista--san-rafael/boot-01-the-cupping-counter.jpg",
+                    "w": 1200,
+                    "h": 800,
+                    "wide": true,
+                    "alt": "Three students at a granite cupping counter. A young woman spoons from a row of white cupping bowls on a blue tray, a woman in glasses watches beside her, and a young man in a cap bends low over his own bowls in the foreground. A coffee roaster and its steel ducting stand behind them.",
+                    "caption": "The cupping counter, mid-session: a row of bowls each, and a roaster at the back of the room."
+                  },
+                  {
+                    "src": "/images/atlas/coffee-and-barista--san-rafael/boot-02-head-down-over-the-bowls.jpg",
+                    "w": 1200,
+                    "h": 800,
+                    "alt": "A man in a green cap and glasses leans right down over three white cupping bowls on a black tray, a spoon in his hand. Behind him a woman sips from a spoon over her own bowls.",
+                    "caption": "Head down over the bowls, spoon in hand."
+                  },
+                  {
+                    "src": "/images/atlas/coffee-and-barista--san-rafael/boot-03-the-aroma-vial.jpg",
+                    "w": 1200,
+                    "h": 800,
+                    "alt": "A woman in a mustard top holds a small glass vial under her nose, eyes half closed, between two other students at the counter.",
+                    "caption": "Smelling an aroma vial: training the nose is part of the work."
+                  }
+                ]
               }
             }
           ],

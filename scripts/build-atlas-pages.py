@@ -688,6 +688,24 @@ def measure_gate(d):
             'alive in its place and whether there is enough there to keep you going are exactly '
             'what a brochure claims. Lower the dots or add the check.')
 
+def craft_intro(d):
+    """A short paragraph under the lead: where the craft was born and how alive it is
+    in the world. Hand-written in data/atlas-extra-sheets.json -> craftIntros, with its
+    sources printed under it. Nothing renders where nothing is written."""
+    ci = MANIFEST.get("craftIntros", {}).get(d["id"])
+    if not ci:
+        return ""
+    for k in ("p", "sources"):
+        if not ci.get(k):
+            raise SystemExit(f"build-atlas-pages: craftIntros[{d['id']!r}] has no {k}. "
+                             "A paragraph about where a craft came from prints its sources.")
+    srcs = " · ".join(
+        f'<a class="lk" href="{e(s_["url"])}" target="_blank" rel="noopener">{e(s_["what"])}</a>'
+        f', read {e(s_["read"])}' for s_ in ci["sources"])
+    return (f'<p style="opacity:.85;font-size:16px;max-width:62ch;margin-top:14px">{e(ci["p"])}</p>'
+            f'<p class="meta" style="margin-top:6px">Sources: {srcs}</p>')
+
+
 def in_depth_block(d):
     """The craft itself, at length. A different thing from the overall, and mostly not
     written yet.
@@ -2211,8 +2229,6 @@ def best_dest_id(d):
     # plausible name (law 4). Set `"withdrawn": true` on a craft's `featured`
     # block to use it; which crafts deserve it is a judgement, not a default,
     # so nothing in the data sets it yet.
-    if f.get("withdrawn"):
-        return None
     # ⭐ THE BEST PLACE AND THE BEST COURSE ARE DIFFERENT QUESTIONS, and `featured` only
     # ever answered the second one. On freediving they have different answers and the
     # page said so in its own words long before this field existed: `featured` is Apnea
@@ -2229,6 +2245,11 @@ def best_dest_id(d):
                 f'build-atlas-pages: {d["id"]} names bestPlace {bp!r} and no open '
                 "destination on this craft has that id.")
         return bp
+    # A withdrawn COURSE declines the course question only; a bestPlace above still
+    # answers the place question (coffee, 4 Oct 2026: the course pick was withdrawn,
+    # Melbourne is where Arnaud sends you).
+    if f.get("withdrawn"):
+        return None
     if f.get("id"):
         for x in dests:
             if x["id"] == f["id"]:
@@ -3768,7 +3789,7 @@ for d in DISC:
     body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / {e(CORES[d['category']][0])}</div>
 <h1>{e(d['discipline'])}</h1>
-<p class="lead">{e(d['blurb'])}</p>{cred}{sibling_line(d)}{depth_link(d)}
+<p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>
 <section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{reviewed_block(d["id"])}{sweep_block(d)}
 {craft_depth(d)}{in_depth_block(d)}

@@ -255,8 +255,32 @@
       "capoeira"
     ]
   },
+  "_craftIntros_comment": "One short paragraph per craft, under the lead on the craft page: where the craft was born and how alive it is in the world today. Arnaud, 4 Oct 2026 (coffee): 'present the skill in a small paragraph to say where it was born and how alive it is worldwide.' Every claim carries a source with the day it was read; rendered by craft_intro() in scripts/build-atlas-pages.py.",
+  "craftIntros": {
+    "coffee-and-barista": {
+      "p": "Every arabica coffee grown in the world comes from one place: the montane rainforests of south-western Ethiopia, where the plant still grows wild. The craft of the cup travelled from there and it is very much alive. The Specialty Coffee Association, whose diploma is the credential this page counts, was formed in 2017 when the American and European associations joined. And the 2025 World Barista Championship in Milan brought competitors from more than fifty countries; it was won by Jack Simpson of Axil Coffee Roasters in Melbourne.",
+      "sources": [
+        {
+          "what": "Evolutionary Applications (2013), on the wild Coffea arabica gene pool",
+          "url": "https://doi.org/10.1111/j.1752-4571.2012.00285.x",
+          "read": "4 October 2026"
+        },
+        {
+          "what": "the Specialty Coffee Association's About page",
+          "url": "https://sca.coffee/about",
+          "read": "4 October 2026"
+        },
+        {
+          "what": "Sprudge on the 2025 World Barista Championship",
+          "url": "https://sprudge.com/australias-jack-simpson-wins-the-2025-world-barista-championship-456528.html",
+          "read": "4 October 2026"
+        }
+      ]
+    }
+  },
   "_learnLines_comment": "The immersive line under the place name on every craft page's place card, keyed by DESTINATION id. Hand-written, for the same reason craftFamilies is hand-grouped: every attempt to compose one from the craft blurb plus the destination's `why` read as a machine talking. And compressing a researched sentence is exactly where a claim quietly changes — 'the most photographed big-cat ground on earth' is NOT 'where the most big cats are', and only one of those is true. RULE: a line here may say nothing its own `why` does not already say. Where a destination is a heritage source with no vouched school, or is an experts-only spot, the line must NOT begin 'Learn to' — it would promise teaching that is not there. A missing line is fine: the card simply shows none. See LEARN_LINES in build-atlas-pages.py.",
   "learnLines": {
+    "coffee-and-barista--melbourne": "Learn it in the world's most obsessive specialty-coffee culture, in the city that turned the flat white into an art form.",
     "ashtanga-yoga--mysore-gokulam": "Learn the set sequence at dawn in the neighbourhood every authorised Ashtanga teacher on earth traces home.",
     "ashtanga-yoga--london": "Learn to hold a six-mornings-a-week self-practice in Europe's strongest daily Mysore room.",
     "ashtanga-yoga--new-york-city": "Learn the full series at dawn beside a cohort that has practised it together for decades.",
