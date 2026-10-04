@@ -690,20 +690,18 @@ def measure_gate(d):
 
 def craft_intro(d):
     """A short paragraph under the lead: where the craft was born and how alive it is
-    in the world. Hand-written in data/atlas-extra-sheets.json -> craftIntros, with its
-    sources printed under it. Nothing renders where nothing is written."""
+    in the world. Hand-written in data/atlas-extra-sheets.json -> craftIntros. Every fact
+    in it must have its source in the data, but the sources are NOT printed: Arnaud,
+    4 Oct 2026, "Don't put sources in the intro." The paragraph is the first read on the
+    craft and has to carry itself. Nothing renders where nothing is written."""
     ci = MANIFEST.get("craftIntros", {}).get(d["id"])
     if not ci:
         return ""
     for k in ("p", "sources"):
         if not ci.get(k):
             raise SystemExit(f"build-atlas-pages: craftIntros[{d['id']!r}] has no {k}. "
-                             "A paragraph about where a craft came from prints its sources.")
-    srcs = " · ".join(
-        f'<a class="lk" href="{e(s_["url"])}" target="_blank" rel="noopener">{e(s_["what"])}</a>'
-        f', read {e(s_["read"])}' for s_ in ci["sources"])
-    return (f'<p style="opacity:.85;font-size:16px;max-width:62ch;margin-top:14px">{e(ci["p"])}</p>'
-            f'<p class="meta" style="margin-top:6px">Sources: {srcs}</p>')
+                             "A paragraph about where a craft came from keeps its sources in the data.")
+    return f'<p style="opacity:.85;font-size:16px;max-width:62ch;margin-top:14px">{e(ci["p"])}</p>'
 
 
 def in_depth_block(d):
@@ -1527,7 +1525,10 @@ section {{ padding:44px 0; border-bottom:1px solid var(--line); }}
    band came out 498px wide in an 832px card, a photograph with a gap beside it. A
    definite width pins the box and lets the cap simply crop the height, which is all
    it was ever for. */
-.cardshot {{ width:calc(100% + 48px); aspect-ratio:16/9; max-height:280px; margin:-22px -24px 18px;
+/* max-height 280 -> 460: Arnaud, 4 Oct 2026, on the Boot cupping photo: "too zoomed in".
+   At 280px a 3:2 frame in an 880px band kept barely half its height and cut the
+   students' heads off. 460 keeps ~85% of it; a phone never reaches the cap. */
+.cardshot {{ width:calc(100% + 48px); aspect-ratio:16/9; max-height:460px; margin:-22px -24px 18px;
   border-radius:10px 10px 0 0;
   background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
   background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }}
@@ -2762,7 +2763,7 @@ PLACES_FIRST_CSS = (
     "#other-places .card p{font-size:16px;max-width:62ch}"
     # ⚠ width:100% is load-bearing — aspect-ratio + max-height on an auto-width block
     # makes Chrome shrink the WIDTH once the height cap bites.
-    "#other-places .cardshot{width:calc(100% + 48px);aspect-ratio:16/9;max-height:280px;"
+    "#other-places .cardshot{width:calc(100% + 48px);aspect-ratio:16/9;max-height:460px;"
     "margin:-22px -24px 18px;border-radius:10px 10px 0 0;"
     "background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);"
     "background-size:cover;background-position:var(--focal,center);background-repeat:no-repeat}"

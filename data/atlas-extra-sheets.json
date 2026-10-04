@@ -258,7 +258,7 @@
   "_craftIntros_comment": "One short paragraph per craft, under the lead on the craft page: where the craft was born and how alive it is in the world today. Arnaud, 4 Oct 2026 (coffee): 'present the skill in a small paragraph to say where it was born and how alive it is worldwide.' Every claim carries a source with the day it was read; rendered by craft_intro() in scripts/build-atlas-pages.py.",
   "craftIntros": {
     "coffee-and-barista": {
-      "p": "Every arabica coffee grown in the world comes from one place: the montane rainforests of south-western Ethiopia, where the plant still grows wild. The craft of the cup travelled from there and it is very much alive. The Specialty Coffee Association, whose diploma is the credential this page counts, was formed in 2017 when the American and European associations joined. And the 2025 World Barista Championship in Milan brought competitors from more than fifty countries; it was won by Jack Simpson of Axil Coffee Roasters in Melbourne.",
+      "p": "Coffee begins wild. Arabica still grows untended under the canopy of the mountain forests of south-western Ethiopia. By the late 1400s Sufi communities in Yemen were brewing it to stay awake through the night prayers; in 1554 Istanbul opened its first coffeehouse; and in Milan after the war, Achille Gaggia’s lever machine pushed water through the grounds hard enough to raise a crema, and espresso as we drink it began. The craft is most alive today at the two ends of that road. In Ethiopia the cup is still made from scratch every day: green beans roasted in a pan in front of the guests, ground by hand, poured in three rounds. And in Melbourne, in a country whose cafés were strong enough that Starbucks closed 61 of its 84 Australian stores in 2008, Jack Simpson of Axil Coffee Roasters won the 2025 World Barista Championship against competitors from more than fifty countries.",
       "sources": [
         {
           "what": "Evolutionary Applications (2013), on the wild Coffea arabica gene pool",
@@ -266,13 +266,28 @@
           "read": "4 October 2026"
         },
         {
-          "what": "the Specialty Coffee Association's About page",
-          "url": "https://sca.coffee/about",
+          "what": "Sprudge on the 2025 World Barista Championship",
+          "url": "https://sprudge.com/australias-jack-simpson-wins-the-2025-world-barista-championship-456528.html",
           "read": "4 October 2026"
         },
         {
-          "what": "Sprudge on the 2025 World Barista Championship",
-          "url": "https://sprudge.com/australias-jack-simpson-wins-the-2025-world-barista-championship-456528.html",
+          "what": "Wikipedia, History of coffee (Yemen Sufi communities; Istanbul 1554)",
+          "url": "https://en.wikipedia.org/wiki/History_of_coffee",
+          "read": "4 October 2026"
+        },
+        {
+          "what": "Gaggia, our history (the 1947 lever-piston patent)",
+          "url": "https://www.gaggia.com/our-history/",
+          "read": "4 October 2026"
+        },
+        {
+          "what": "Wikipedia, Coffee ceremony of Ethiopia and Eritrea",
+          "url": "https://en.wikipedia.org/wiki/Coffee_ceremony_of_Ethiopia_and_Eritrea",
+          "read": "4 October 2026"
+        },
+        {
+          "what": "Australian Food News on the 2008 Starbucks closures",
+          "url": "https://www.ausfoodnews.com.au/?p=777",
           "read": "4 October 2026"
         }
       ]
@@ -378,6 +393,11 @@
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
+    "coffee-and-barista--melbourne": "Learn the flat white where it became an art form",
+    "coffee-and-barista--london": "Learn the full SCA ladder beside Europe's densest pro cohort",
+    "coffee-and-barista--portland": "Learn to run an espresso bar in five days, in the heart of American third-wave coffee",
+    "coffee-and-barista--san-rafael": "Learn to cup like a Q Grader: nine exams in six days",
+    "coffee-and-barista--yirgacheffe-addis-ababa": "Taste coffee where it began, at a ceremony still held every day",
     "wildlife-photography--pusztaszer": "Learn to work a one-way glass hide",
     "wildlife-photography--kuhmo": "Learn to sit a bear hide on the Russian border",
     "wildlife-photography--maasai-mara-conservancies": "Learn to photograph big cats from a camp",

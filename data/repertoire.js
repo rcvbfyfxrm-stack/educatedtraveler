@@ -20639,8 +20639,7 @@ window.ET_ATLAS = {
           "communityRank": 3,
           "communityLabel": "Strong",
           "schools": [
-            "Ethiopian Coffee Training Center (Jimma / Addis)",
-            "SCA-affiliated cupping labs (Addis Ababa)"
+            "Ethiopian Coffee Training Center (Jimma / Addis)"
           ],
           "masters": [],
           "badges": [
@@ -20648,9 +20647,9 @@ window.ET_ATLAS = {
             "heritage",
             "lineage"
           ],
-          "why": "The literal birthplace of coffee, where the bean was first discovered and the ceremony still runs daily, the ultimate origin pilgrimage for anyone serious about the craft.",
+          "why": "The birthplace of coffee, where arabica still grows wild in the mountain forests and the ceremony still runs daily, the origin pilgrimage for anyone serious about the craft.",
           "bestSeason": "Oct-Feb",
-          "level": "Beginner -> Q Grader path",
+          "level": "Beginner -> SCA modules",
           "id": "coffee-and-barista--yirgacheffe-addis-ababa",
           "schoolsInfo": [
             {
@@ -20666,13 +20665,6 @@ window.ET_ATLAS = {
               "course": "Coffee Training Center professional program (processing, cupping, roasting, brewing)",
               "blurb": "Established under Ethiopia's Coffee and Tea Authority with UNIDO and Illycaffe support in Addis Ababa, the Coffee Training Center has brewing, roasting and sensory labs and trains professionals across post-harvest processing, cupping, grading, roasting and brewing.",
               "confidence": "high"
-            },
-            {
-              "name": "SCA-affiliated cupping labs (Addis Ababa)",
-              "url": "https://coffeecraftacademy.org/",
-              "course": "SCA Coffee Skills barista, brewing and sensory courses",
-              "blurb": "Coffee Craft Academy is an Addis Ababa specialty-coffee training center offering expert-led SCA-aligned barista, cupping and brewing courses with first-hand access to fresh Ethiopian coffee, representative of the city's SCA-affiliated cupping labs.",
-              "confidence": "medium"
             }
           ],
           "tripTier": 3,
@@ -20942,6 +20934,12 @@ window.ET_ATLAS = {
           "Oceania"
         ],
         "rejected": [
+          {
+            "name": "Coffee Craft Academy",
+            "place": "Addis Ababa, Ethiopia",
+            "url": "https://coffeecraftacademy.org/",
+            "why": "Listed here as an Addis Ababa school for SCA barista, brewing and sensory courses. On 4 October 2026 its web address no longer existed: the domain is not registered. A school we cannot reach is not one we can send anyone to."
+          },
           {
             "name": "Tomoca Coffee",
             "place": "Addis Ababa, Ethiopia",

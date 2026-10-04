@@ -113,7 +113,10 @@ section { padding:44px 0; border-bottom:1px solid var(--line); }
    band came out 498px wide in an 832px card, a photograph with a gap beside it. A
    definite width pins the box and lets the cap simply crop the height, which is all
    it was ever for. */
-.cardshot { width:calc(100% + 48px); aspect-ratio:16/9; max-height:280px; margin:-22px -24px 18px;
+/* max-height 280 -> 460: Arnaud, 4 Oct 2026, on the Boot cupping photo: "too zoomed in".
+   At 280px a 3:2 frame in an 880px band kept barely half its height and cut the
+   students' heads off. 460 keeps ~85% of it; a phone never reaches the cap. */
+.cardshot { width:calc(100% + 48px); aspect-ratio:16/9; max-height:460px; margin:-22px -24px 18px;
   border-radius:10px 10px 0 0;
   background-image:linear-gradient(180deg,rgba(20,17,13,0) 60%,var(--ink2) 100%),var(--shot);
   background-size:cover; background-position:var(--focal,center); background-repeat:no-repeat; }

@@ -403,8 +403,11 @@ for _page in sorted((ROOT / "website/atlas").glob("*.html")):
         if _line and html_mod.unescape(_h2) != _line:
             bad(f"{_page.name}: the heading for {_did} is not that place's written line\n"
                 f"      page:    {html_mod.unescape(_h2)[:90]}\n      written: {_line[:90]}")
+# a say line heads a card on its own too (4 Oct 2026: four coffee places carry a say
+# line and no learn line), so both count
 _want_heads = sum(1 for _d in _disc for _x in _d["destinations"]
-                  if (learn_lines.get(_x["id"]) or "").strip())
+                  if (_say_lines.get(_x["id"]) or "").strip()
+                  or (learn_lines.get(_x["id"]) or "").strip())
 if _seen != _want_heads:
     bad(f"check 12 inspected {_seen} sheet heading(s) but {_want_heads} places carry a "
         f"written line — the pattern has stopped matching the page and this check is blind")
