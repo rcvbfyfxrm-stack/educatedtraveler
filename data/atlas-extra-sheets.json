@@ -1874,6 +1874,49 @@
       "check": "Graded from the entries verified on this page on 20 August 2026, not from a visit. Nobody from EducatedTraveler has been to Los Molinos del Río Aguas. Four of the five are dark and three of those are considered noes rather than absences: no named teacher by the community's own description, no bookable priced course for the immersion itself, and no scene around the project because the project is the scene. Read the page beside this grade — it says all three itself.",
       "checker": "Arnaud Callier",
       "date": "15 September 2026"
+    },
+    "coffee-and-barista": {
+      "dots": 2,
+      "verdict": "A craft with a published ladder that every school on this page teaches to — and not yet a room on it where we can name who teaches you",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": false,
+          "t": "Not on the pick, because there is no pick. We withdrew it on 27 September 2026 — its own page listed no session after one starting 28 February 2026 and named no trainer. One school on this page does name its teacher now: Boot Coffee Campus in San Rafael says on its Q Grader course page, read 1 October 2026, that Valerian Hrala teaches the December course. This dot rests on the course we recommend, and until one is named again it stays dark."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "Not established. Boot Coffee Campus publishes its Q Grader course for 6 to 11 December 2026, read 1 October 2026, but no price. Prufrock in London publishes its SCA course prices, £275 to £715 for the three barista levels, and Axil in Melbourne publishes prices and class caps, but neither page we read on 27 September 2026 showed a dated intake. A date and a price on the same course light it."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes, where a school says so: Axil's Espresso Academy in Melbourne limits its barista, latte art and filter courses to four to six students, on its own training page read 27 September 2026."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, in Melbourne. Daily Coffee News reported on 21 October 2025 that Jack Simpson, who has held roles with Melbourne-based Axil Coffee for seven years, won the 2025 World Barista Championship in Milan. A city whose working baristas win the world title is a place the craft is practised at the top — whoever teaches the course you book.",
+          "evidence": [
+            {
+              "what": "Daily Coffee News on the 2025 World Barista Championship",
+              "url": "https://dailycoffeenews.com/2025/10/21/jack-simpson-of-australia-is-the-2025-world-barista-champion/",
+              "date": "27 September 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Nobody of ours has been. The SCA's ladder is public — Foundation, Intermediate and Professional in five areas, with its diplomas above them — but only somebody who climbed part of it here can say the room above the course is real."
+        }
+      ],
+      "ceilingNote": "The first two are research owed: a school that names its trainer and prints its dates lights them. The fifth waits for somebody to go.",
+      "check": "Drafted 27 September 2026 from the pages read that day for the barista hunt, not from a visit. Nobody from EducatedTraveler has stood at any of these machines. The fourth answer rests on Daily Coffee News, trade press that sells no course on this page. Revised 4 October 2026: the first two answers now say what Boot Coffee Campus publishes; no dot moved.",
+      "checker": "Arnaud Callier",
+      "date": "4 October 2026"
     }
   },
   "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
@@ -2734,13 +2777,13 @@
   "blurbTruncatedFloor": 0,
   "_reviewedBy_comment": "A school that read its own page and corrected it. Keyed by the page id — a craft id or a place id. school/date/what are required; url is optional. Rendered by reviewed_block() in scripts/build-atlas-pages.py and gated by check 19. Correcting a page is not a favour returned: it moves nothing up this map.",
   "reviewedBy": {
-  "coffee-and-barista--san-rafael": {
-        "school": "Boot Coffee Campus",
-        "url": "https://bootcoffee.com/",
-        "date": "30 September 2026",
-        "what": "Boot Coffee read this page before it went up and corrected it: the December Q Grader course is taught by Valerian Hrala, the campus director, not by Willem Boot, and the trips to Panama and Ethiopia are not open courses but run now and then for a small group or one person.",
-        "who": "Willem Boot"
-      },
+    "coffee-and-barista--san-rafael": {
+      "school": "Boot Coffee Campus",
+      "url": "https://bootcoffee.com/",
+      "date": "30 September 2026",
+      "what": "Boot Coffee read this page before it went up and corrected it: the December Q Grader course is taught by Valerian Hrala, the campus director, not by Willem Boot, and the trips to Panama and Ethiopia are not open courses but run now and then for a small group or one person.",
+      "who": "Willem Boot"
+    },
     "thai-massage": {
       "school": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
       "url": "https://www.oldmedicine.org/",
