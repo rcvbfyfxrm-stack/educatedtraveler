@@ -20824,6 +20824,63 @@ window.ET_ATLAS = {
           "tripLength": "about a week",
           "englishTaught": true,
           "englishBasis": "native-English country"
+        },
+        {
+          "place": "San Rafael",
+          "country": "United States",
+          "region": "North America",
+          "role": "scene",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Boot Coffee Campus"
+          ],
+          "masters": [
+            "Valerian Hrala"
+          ],
+          "badges": [
+            "scene"
+          ],
+          "why": "The Specialty Coffee Association's Q Grader, the cupping certificate, taught in six days at Boot Coffee Campus, with all nine exams sat inside the week.",
+          "bestSeason": "December (the Q Grader course)",
+          "level": "Q Grader",
+          "id": "coffee-and-barista--san-rafael",
+          "schoolsInfo": [
+            {
+              "name": "Boot Coffee Campus",
+              "url": "https://bootcoffee.com/q-grader-course/",
+              "course": "SCA Q Grader course and exams",
+              "blurb": "Boot Coffee Campus in San Rafael runs the Specialty Coffee Association's Q Grader course: six days, with the exams taken during the course rather than after it. There are nine tests, eight practical and one written, and each may be taken twice during the week; a test still failed after the second attempt means taking the whole course again. The certificate is valid for three years and renewed by retaking some of the exams before it runs out. Boot's trips to Panama and Ethiopia are not open courses: now and then they run as an experience tailored to a small group or to one person.",
+              "confidence": "high",
+              "facts": {
+                "where": "San Rafael, California",
+                "length": "6 days (6 to 11 December 2026)",
+                "format": "Nine exams taken during the course: eight practical, one written, two attempts each",
+                "credential": "SCA Q Grader, valid three years",
+                "from": [
+                  "https://bootcoffee.com/q-grader-course/"
+                ],
+                "read": "2026-10-01"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches the December course",
+                    [
+                      "Valerian Hrala"
+                    ]
+                  ]
+                ],
+                "from": "https://bootcoffee.com/q-grader-course/",
+                "read": "2026-10-01"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Certification",
+          "tripLength": "six days",
+          "englishTaught": true,
+          "englishBasis": "native-English country"
         }
       ],
       "sweep": {

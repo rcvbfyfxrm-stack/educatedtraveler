@@ -39,7 +39,8 @@
     "pottery-and-ceramics",
     "sailing-and-yachtmaster",
     "self-sufficiency",
-    "yacht-crew-and-stcw"
+    "yacht-crew-and-stcw",
+    "coffee-and-barista"
   ],
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
   "hubCards": [
@@ -2592,8 +2593,8 @@
       "date": "16 September 2026"
     }
   },
-  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did.",
-  "placeIntroDebtFloor": 103,
+  "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did.",
+  "placeIntroDebtFloor": 111,
   "placeIntroDebtKnown": [
     "ashtanga-yoga--london",
     "ashtanga-yoga--mysore-gokulam",
@@ -2709,6 +2710,13 @@
   "blurbTruncatedFloor": 0,
   "_reviewedBy_comment": "A school that read its own page and corrected it. Keyed by the page id — a craft id or a place id. school/date/what are required; url is optional. Rendered by reviewed_block() in scripts/build-atlas-pages.py and gated by check 19. Correcting a page is not a favour returned: it moves nothing up this map.",
   "reviewedBy": {
+  "coffee-and-barista--san-rafael": {
+        "school": "Boot Coffee Campus",
+        "url": "https://bootcoffee.com/",
+        "date": "30 September 2026",
+        "what": "Boot Coffee read this page before it went up and corrected it: the December Q Grader course is taught by Valerian Hrala, the campus director, not by Willem Boot, and the trips to Panama and Ethiopia are not open courses but run now and then for a small group or one person.",
+        "who": "Willem Boot"
+      },
     "thai-massage": {
       "school": "Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)",
       "url": "https://www.oldmedicine.org/",

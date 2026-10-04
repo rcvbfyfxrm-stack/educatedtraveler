@@ -379,7 +379,11 @@
         }
       ],
       "validated": {
-        "on": false
+        "on": true,
+        "by": "Willem Boot",
+        "on_date": "30 September 2026",
+        "how": "email",
+        "corrections": "The December course is taught by Valerian Hrala, not Willem Boot; the Panama and Ethiopia trips are tailored, not open courses."
       }
     }
   ],
