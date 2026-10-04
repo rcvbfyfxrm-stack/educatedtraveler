@@ -12270,8 +12270,23 @@ window.ET_ATLAS = {
               "name": "Workshop Kurogane (Nobuya Hayashi)",
               "url": "https://www.workshop-kurogane.com/",
               "course": "6-Day Tamahagane & Knife Course",
-              "blurb": "A six-day residential bladesmithing course on the Shimanto River in rural Kochi: three days of traditional tatara iron-making, smelting and refining steel from beach-sand magnetite, followed by three ",
-              "confidence": "high"
+              "blurb": "A six-day residential bladesmithing course on the Shimanto River in rural Kochi: three days of traditional tatara iron-making, smelting and refining steel from beach-sand magnetite, followed by three days forging a knife from the tamahagane the participant helped produce.",
+              "confidence": "high",
+              "facts": {
+                "where": "Shimanto River, Kochi (Shikoku)",
+                "language": "English and Japanese",
+                "from": [
+                  "https://www.workshop-kurogane.com/faq",
+                  "https://www.workshop-kurogane.com/"
+                ],
+                "read": "2026-10-01"
+              },
+              "standing": {
+                "state": "not-here",
+                "what": "Their own FAQ: “Workshop Kurogane is situated in Kochi Prefecture on Shikoku Island, along the Shimanto River.” Nothing of the course happens in Seki.",
+                "from": "https://www.workshop-kurogane.com/faq",
+                "read": "2026-10-01"
+              }
             },
             {
               "name": "Seki Traditional Swordsmith Museum (forging demonstrations & study)",
@@ -12298,8 +12313,7 @@ window.ET_ATLAS = {
           "tripTier": 2,
           "tripType": "Starter",
           "tripLength": "about a week",
-          "englishTaught": true,
-          "englishBasis": "Workshop Kurogane states 'Classes are available in English and Japanese' and runs English-led knife/tamahagane workshops."
+          "englishTaught": null
         },
         {
           "place": "Texarkana, Texas (Bill Moran School)",
