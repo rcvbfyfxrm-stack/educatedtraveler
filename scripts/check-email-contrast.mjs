@@ -18,6 +18,7 @@ const FILES = [
   "supabase/functions/_shared/circle-emails.ts",
   "supabase/functions/concierge-send/index.ts",
   "supabase/functions/notify-lead/index.ts",
+  "supabase/functions/week-answers/sheet.ts",
   "supabase/functions/notify-portrait/index.ts",
   "supabase/functions/notify/index.ts",
   "supabase/functions/notify-instructor-application/index.ts",

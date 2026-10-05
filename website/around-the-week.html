@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0d0b09">
+<title>Around the five days — Lab Week 01, Barcelona — EducatedTraveler</title>
+<meta name="description" content="For the chefs on Lab Week 01 with Martín Lippo, Barcelona, 22–26 October 2026: what the room could do around the five days. Tick what you would come to.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://educatedtraveler.app/around-the-week">
+<link rel="icon" href="/favicon.svg">
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Warm-Dark Editorial lock — same tokens as /barcelona, /pay and /booked.
+     This page is sent by hand to the chefs of the week. It sells nothing and
+     takes no money: it lists what the room could do around the lab hours and
+     asks who would come. Unlisted on purpose (noindex, not in the sitemap).
+
+     Rulings of 25 Sept 2026 applied here: nothing sits before the h1, the
+     headline is paper only, and ember means one thing — what is not arranged
+     yet. Sea carries everything else. */
+  :root{
+    --ink:#0d0b09; --ink-2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --ember-soft:#e0a877;
+    --line:rgba(243,237,226,0.09); --soft:rgba(243,237,226,0.72); --softer:rgba(243,237,226,0.5);
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16.5px;line-height:1.65}
+  ::selection{background:var(--sea);color:var(--ink)}
+  a{color:var(--sea)}
+  a:hover{color:var(--paper)}
+  .skip{position:absolute;left:-999px;top:0;background:var(--paper);color:var(--ink);padding:.6rem 1rem;border-radius:0 0 6px 0;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}
+  .skip:focus{left:0;z-index:5}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 1.4rem}
+  .topbar{border-bottom:1px solid var(--line);background:var(--ink-2)}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.7rem;padding-bottom:.7rem}
+  .wordmark{font-family:var(--serif);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em;color:var(--paper);text-decoration:none}
+  .wordmark b{font-weight:300;color:var(--sea)}
+  .topbar a.back{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--softer);text-decoration:none}
+  .topbar a.back:hover{color:var(--sea)}
+
+  header{padding:3.4rem 0 2rem;border-bottom:1px solid var(--line)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,6vw,3.1rem);line-height:1.05;margin:0 0 1rem;letter-spacing:-.01em;text-wrap:balance}
+  .dates{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:0 0 1.3rem;line-height:1.9;max-width:none}
+  .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.02rem,2.4vw,1.22rem);color:var(--soft);max-width:34em;margin:0 0 1rem}
+
+  section{padding:2.4rem 0 1rem;border-bottom:1px solid var(--line)}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,3.4vw,1.7rem);line-height:1.15;margin:0 0 1rem;color:var(--paper);text-wrap:balance}
+  legend{padding:0;max-width:100%}
+  p{margin:.85rem 0;max-width:62ch;color:var(--soft)}
+  p strong{color:var(--paper)}
+  fieldset{border:0;margin:0;padding:0;min-width:0}
+
+  /* one thing the room could do — the whole card is the tick */
+  .pick{display:flex;gap:.95rem;align-items:flex-start;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;padding:1.05rem 1.15rem;margin:.85rem 0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:rgba(127,168,165,.18)}
+  .pick:hover{border-color:rgba(127,168,165,.4)}
+  .pick:has(input:checked){border-color:var(--sea)}
+  /* a drawn box, not the browser's: the native one is a white square on this ink */
+  .pick input{appearance:none;-webkit-appearance:none;display:grid;place-content:center;margin:.2rem 0 0;width:22px;height:22px;flex:0 0 auto;border:1.5px solid var(--sea);border-radius:4px;background:transparent;cursor:pointer}
+  .pick input::before{content:"";width:12px;height:12px;transform:scale(0);background:var(--ink);clip-path:polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0,43% 62%)}
+  .pick input:checked{background:var(--sea)}
+  .pick input:checked::before{transform:scale(1)}
+  .pick input:focus-visible{outline:2px solid var(--paper);outline-offset:3px}
+  .pick .body{display:block;min-width:0}
+  .pick .at{display:block;font-family:var(--mono);font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;color:var(--sea);line-height:1.6}
+  .pick .what{display:block;font-family:var(--serif);font-weight:600;font-size:1.2rem;line-height:1.25;color:var(--paper);margin:.2rem 0 .4rem}
+  .pick .say,.pick .facts{display:block;font-size:.95rem;line-height:1.55;color:var(--soft)}
+  .pick .facts{margin-top:.4rem}
+  .pick.plain{align-items:center}
+  .pick.plain .what{font-family:var(--sans);font-weight:500;font-size:1rem;margin:0}
+  /* the gap: said on every line that is not arranged, in the one colour kept for it */
+  .state{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ember);margin-top:.65rem;line-height:1.5}
+  .state i{flex:0 0 auto;width:.64rem;height:.64rem;border:1.5px solid var(--ember);border-radius:50%}
+
+  /* form */
+  form{margin:0}
+  .field{margin:0 0 1rem}
+  .field label{display:block;font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 .4rem}
+  .field label .opt{text-transform:none;letter-spacing:.02em;color:var(--softer)}
+  input[type=text],input[type=email],textarea{width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;color:var(--paper);font-family:var(--sans);font-size:1rem;line-height:1.5;padding:.85rem 1rem}
+  textarea{min-height:6.5rem;resize:vertical}
+  input[type=text]:focus,input[type=email]:focus,textarea:focus{outline:none;border-color:var(--sea);box-shadow:0 0 0 3px rgba(127,168,165,.28)}
+  [aria-invalid=true]{border-color:var(--paper) !important}
+  input::placeholder,textarea::placeholder{color:rgba(243,237,226,0.34)}
+
+  .btn{display:block;width:100%;text-align:center;font-family:var(--mono);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:0;border-radius:6px;padding:1.15rem 1.5rem;cursor:pointer;touch-action:manipulation}
+  .btn-primary{background:var(--paper);color:var(--ink);font-weight:500}
+  .btn-primary:hover:not(:disabled){background:#ffffff}
+  .btn-primary:disabled{background:var(--ink-2);color:var(--softer);border:1px solid var(--line);cursor:not-allowed}
+  .btn-ghost{border:1px solid var(--line);color:var(--paper);background:none}
+  .btn-ghost:hover{border-color:var(--sea)}
+  .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.3rem 0 .4rem}
+  .cta-row .btn{display:inline-block;width:auto;padding:.9rem 1.4rem;font-size:.78rem}
+  .fine{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;line-height:1.9;color:var(--softer);margin:1rem 0 0;max-width:none}
+  .msg{font-size:.92rem;border-radius:6px;padding:.85rem 1rem;margin:1rem 0 0;background:var(--ink-2);border:1px solid var(--sea);color:var(--paper)}
+  .panel{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--sea);border-radius:6px;padding:1.4rem 1.5rem;margin:.4rem 0 1.4rem}
+  .panel h2{margin-bottom:.6rem;overflow-wrap:anywhere}
+  .panel ul{margin:.6rem 0;padding-left:1.2rem;color:var(--paper)}
+  .panel li{margin:.25rem 0}
+  .preview-tag{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ember)}
+  [hidden]{display:none !important}
+
+  footer{padding:2.4rem 0 3rem}
+  footer .sig{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--soft);margin:0 0 .8rem}
+  footer p{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;line-height:2;color:var(--softer);max-width:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the page</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="/" translate="no">EDUCATED<b>TRAVELER</b></a>
+    <a class="back" href="/barcelona">The week in full &rarr;</a>
+  </div>
+</div>
+
+<main id="main">
+<header>
+  <div class="wrap">
+    <h1>Around the five days.</h1>
+    <p class="dates">Lab Week 01 with Martín Lippo · Vakuum, Barcelona · 22–26 October 2026</p>
+    <p class="sub">The lab takes the days, 10:00 to 14:00 and 15:00 to 18:00. This page is what the room could do with the rest: one table the night before, and seven things in and around Barcelona.</p>
+    <p><strong>None of it is arranged yet.</strong> Tick what you would come to. I will arrange the ones the room wants and the places can give us. A tick commits you to nothing, and you pay each place yourself.</p>
+  </div>
+</header>
+
+<form id="aform" novalidate>
+
+<section>
+  <div class="wrap">
+    <fieldset>
+      <legend><h2>First, two dates.</h2></legend>
+      <p>Two of the visits need daytime hours, and the lab has every day from Thursday to Monday. That leaves the day before and the day after.</p>
+      <label class="pick plain" for="d-wed">
+        <input type="checkbox" id="d-wed" name="date" value="in-wed-21" data-label="Wednesday 21 October">
+        <span class="body"><span class="what">I am in Barcelona on Wednesday 21 October</span></span>
+      </label>
+      <label class="pick plain" for="d-tue">
+        <input type="checkbox" id="d-tue" name="date" value="in-tue-27" data-label="Tuesday 27 October">
+        <span class="body"><span class="what">I am in Barcelona on Tuesday 27 October</span></span>
+      </label>
+    </fieldset>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <fieldset>
+      <legend><h2>The night before.</h2></legend>
+      <label class="pick" for="p-first">
+        <input type="checkbox" id="p-first" name="pick" value="first-table" data-label="The night before: one table, one set menu" aria-labelledby="t-first" aria-describedby="s-first">
+        <span class="body">
+          <span class="at">Wednesday 21 October · evening</span>
+          <span class="what" id="t-first">One table, one set menu</span>
+          <span class="say" id="s-first">So the room meets before the lab does. One table for all of us and a set menu, at Bar Brutal in El Born if they can take us. The price follows when they have answered.</span>
+          <span class="state"><i aria-hidden="true"></i>Not arranged yet</span>
+        </span>
+      </label>
+    </fieldset>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <fieldset>
+      <legend><h2>Around the lab hours.</h2></legend>
+      <p>Seven things. Each says when it can happen and what it costs, as far as the place itself publishes it.</p>
+
+      <label class="pick" for="p-boqueria">
+        <input type="checkbox" id="p-boqueria" name="pick" value="boqueria" data-label="La Boqueria at 08:00" aria-labelledby="t-boqueria" aria-describedby="s-boqueria f-boqueria">
+        <span class="body">
+          <span class="at">A weekday morning · 08:00, at the lab for 10:00</span>
+          <span class="what" id="t-boqueria">La Boqueria, as it opens</span>
+          <span class="say" id="s-boqueria">A walk through the market while the stalls set up, and breakfast at one of its bars.</span>
+          <span class="facts" id="f-boqueria">Open Monday to Saturday, from 08:00. The walk costs nothing; breakfast is yours. <a href="https://www.boqueria.barcelona/home" target="_blank" rel="noopener">boqueria.barcelona</a></span>
+          <span class="state"><i aria-hidden="true"></i>Not arranged yet</span>
+        </span>
+      </label>
+
+      <label class="pick" for="p-gresca">
+        <input type="checkbox" id="p-gresca" name="pick" value="gresca" data-label="Dinner at Gresca" aria-labelledby="t-gresca" aria-describedby="s-gresca f-gresca">
+        <span class="body">
+          <span class="at">An evening · from 20:00</span>
+          <span class="what" id="t-gresca">Dinner at Gresca</span>
+          <span class="say" id="s-gresca">Plates to share on Carrer de Provença, at the counter that faces the kitchen if they can give it to us.</span>
+          <span class="facts" id="f-gresca">Most plates are €15 to €32 on its menu. <a href="https://gresca.rest" target="_blank" rel="noopener">gresca.rest</a></span>
+          <span class="state"><i aria-hidden="true"></i>Not arranged yet</span>
+        </span>
+      </label>
+
+      <label class="pick" for="p-lasarte">
+        <input type="checkbox" id="p-lasarte" name="pick" value="lasarte" data-label="Dinner at Lasarte" aria-labelledby="t-lasarte" aria-describedby="s-lasarte f-lasarte">
+        <span class="body">
+          <span class="at">Wednesday to Saturday night only</span>
+          <span class="what" id="t-lasarte">Dinner at Lasarte</span>
+          <span class="say" id="s-lasarte">Three Michelin stars, in the Monument Hotel. Whether it can take a group that week is a real question, so tell me first if you would pay for it.</span>
+          <span class="facts" id="f-lasarte">The tasting menu is €345 a head, before wine. Closed Sunday, Monday and Tuesday. <a href="https://www.restaurantlasarte.com" target="_blank" rel="noopener">restaurantlasarte.com</a></span>
+          <span class="state"><i aria-hidden="true"></i>To be confirmed</span>
+        </span>
+      </label>
+
+      <label class="pick" for="p-wine">
+        <input type="checkbox" id="p-wine" name="pick" value="wine-night" data-label="A Catalan wine night" aria-labelledby="t-wine" aria-describedby="s-wine f-wine">
+        <span class="body">
+          <span class="at">An evening</span>
+          <span class="what" id="t-wine">A Catalan wine night</span>
+          <span class="say" id="s-wine">Catalan wines, and how to pair them with Spanish cooking, poured by a sommelier. The one I want to ask is Gresca's.</span>
+          <span class="facts" id="f-wine">No price yet.</span>
+          <span class="state"><i aria-hidden="true"></i>To be confirmed</span>
+        </span>
+      </label>
+
+      <label class="pick" for="p-martinez">
+        <input type="checkbox" id="p-martinez" name="pick" value="martinez" data-label="Rice at Martínez, on Montjuïc" aria-labelledby="t-martinez" aria-describedby="s-martinez f-martinez">
+        <span class="body">
+          <span class="at">Sunday 25 or Monday 26 October · evening</span>
+          <span class="what" id="t-martinez">Rice at Martínez, on Montjuïc</span>
+          <span class="say" id="s-martinez">Rice dishes on the hill, with the city and the port below. Open every day.</span>
+          <span class="facts" id="f-martinez">Most rice dishes are €24 to €30 a head on its menu. Its menu with starters, dessert, wine and coffee is €62. For twelve or more it offers group menus, from €93. <a href="https://martinezbarcelona.com" target="_blank" rel="noopener">martinezbarcelona.com</a></span>
+          <span class="state"><i aria-hidden="true"></i>Not arranged yet</span>
+        </span>
+      </label>
+
+      <label class="pick" for="p-100chef">
+        <input type="checkbox" id="p-100chef" name="pick" value="100chef" data-label="The 100%Chef showroom" aria-labelledby="t-100chef" aria-describedby="s-100chef f-100chef">
+        <span class="body">
+          <span class="at">Wednesday 21 or Tuesday 27 October · daytime</span>
+          <span class="what" id="t-100chef">The 100%Chef showroom</span>
+          <span class="say" id="s-100chef">The people who make tools and ingredients for modern cooking, at their lab in Vilassar de Dalt, about 25&nbsp;km north-east of Barcelona.</span>
+          <span class="facts" id="f-100chef">It receives professionals on weekdays, by appointment, at no charge. The ride there is ours to split. <a href="https://100x100chef.com/en/contact/" target="_blank" rel="noopener">100x100chef.com</a></span>
+          <span class="state"><i aria-hidden="true"></i>Not arranged yet</span>
+        </span>
+      </label>
+
+      <label class="pick" for="p-recaredo">
+        <input type="checkbox" id="p-recaredo" name="pick" value="recaredo" data-label="Recaredo, in the Penedès" aria-labelledby="t-recaredo" aria-describedby="s-recaredo f-recaredo">
+        <span class="body">
+          <span class="at">Wednesday 21 or Tuesday 27 October · daytime</span>
+          <span class="what" id="t-recaredo">Recaredo, in the Penedès</span>
+          <span class="say" id="s-recaredo">A family house in Sant Sadurní d'Anoia that makes long-aged Corpinnat sparkling wines. Two hours in the cellar, with a tasting.</span>
+          <span class="facts" id="f-recaredo">€42 a head, by appointment. About 45 minutes from Barcelona by car. <a href="https://www.recaredo.com/en/visitas-recaredo/" target="_blank" rel="noopener">recaredo.com</a></span>
+          <span class="state"><i aria-hidden="true"></i>Not arranged yet</span>
+        </span>
+      </label>
+    </fieldset>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div id="answer">
+      <h2>Your answer.</h2>
+      <div class="field">
+        <label for="f-words">Anything I should know <span class="opt">— optional</span></label>
+        <textarea id="f-words" name="words" autocomplete="off" maxlength="1500" placeholder="A night you cannot do, something you do not eat, a place I missed."></textarea>
+      </div>
+      <div class="field">
+        <label for="f-name">Your name</label>
+        <input type="text" id="f-name" name="name" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" aria-describedby="f-msg" required>
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" name="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="254" aria-describedby="f-msg" placeholder="Where I write to you about the week" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="f-go" disabled>Send my answer</button>
+      <noscript>
+        <p class="msg">This button needs JavaScript. Without it, send me what you would come to, directly:
+          <a href="https://wa.me/33695903520?text=Hi%20Arnaud%20%E2%80%94%20around%20the%20five%20days%20in%20Barcelona%2C%20I%20would%20come%20to%3A%20">WhatsApp</a> or
+          <a href="mailto:founder@educatedtraveler.app,arnaudcallier@pm.me?subject=Around%20the%20five%20days%20%E2%80%94%20my%20answer">email</a>.</p>
+      </noscript>
+      <div class="msg" id="f-msg" role="alert" hidden></div>
+
+      <div class="msg" id="fallback" role="alert" hidden>
+        <strong>That did not go through.</strong> Your answer is still on this page. Press the button again, or send it to me directly. Both of these carry everything you ticked:
+        <div class="cta-row">
+          <a class="btn btn-ghost" id="fb-wa" href="#">WhatsApp it to me</a>
+          <a class="btn btn-ghost" id="fb-mail" href="#">Email it to me</a>
+        </div>
+      </div>
+
+      <p class="fine">This goes to me and to nobody else. <a href="/privacy">What I keep, and why</a>.<br>
+        Opening days and prices read on each place's own site on 5 October 2026 · Arnaud Callier</p>
+    </div>
+
+    <div class="panel" id="done" tabindex="-1" hidden>
+      <p class="preview-tag" id="done-preview" hidden>Preview — nothing was sent</p>
+      <h2 id="done-head">Sent.</h2>
+      <p id="done-lead">Your answer is on its way to me.</p>
+      <ul id="done-list"></ul>
+      <p>A tick is not a reservation. Nothing is held in your name and nothing is owed. I will write to you once something is arranged.</p>
+      <p>Changed your mind? Send it again and the new answer replaces this one.</p>
+      <div class="cta-row">
+        <button type="button" class="btn btn-ghost" id="done-again">Change my answer</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</form>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="sig">A skill, a place, a person, your people.</p>
+    <p>EDUCATEDTRAVELER · LAB WEEK 01 · ORGANISED AND SOLD BY EDUCATEDTRAVELER · TAUGHT BY MARTÍN LIPPO AT VAKUUM, BARCELONA</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* The answer goes to ONE place: the week-answers edge function, which keeps
+     it and emails Arnaud. It never touches the Circle table, so answering here
+     signs nobody up to anything and sends the chef no email.
+
+     If that call fails for any reason the answer is not lost: it stays on the
+     page, and the chef is handed it as a ready-written WhatsApp or email. */
+  var WEEK = 'lab-week-01-barcelona';
+  var MAIL_TO = ['founder@educatedtraveler.app', 'arnaudcallier@pm.me'];
+  var WHATSAPP = '33695903520';
+  var STASH = 'et_around_lab_week_01';
+
+  var form = document.getElementById('aform');
+  var go = document.getElementById('f-go');
+  var msg = document.getElementById('f-msg');
+  var fallback = document.getElementById('fallback');
+  var answer = document.getElementById('answer');
+  var done = document.getElementById('done');
+  var nameEl = document.getElementById('f-name');
+  var mailEl = document.getElementById('f-email');
+  var wordsEl = document.getElementById('f-words');
+
+  function boxes(kind) {
+    return Array.prototype.slice.call(form.querySelectorAll('input[name="' + kind + '"]'));
+  }
+
+  // ?test=1 marks the answer as a test: it is stored apart and never counted.
+  var TEST = false;
+  try { TEST = new URLSearchParams(window.location.search).get('test') === '1'; } catch (e) {}
+
+  // A chef who paid on this browser already typed these on /pay.
+  try {
+    var seat = JSON.parse(localStorage.getItem('et_seat_lippo') || '{}');
+    if (seat.name && !nameEl.value) nameEl.value = seat.name;
+    if (seat.email && !mailEl.value) mailEl.value = seat.email;
+  } catch (e) { /* private browsing: they type it */ }
+
+  // An unsent answer from an earlier visit is put back, ticks and all.
+  try {
+    var kept = JSON.parse(localStorage.getItem(STASH) || 'null');
+    if (kept && kept.week === WEEK) {
+      var on = {};
+      (kept.answers || []).concat(kept.dates || []).forEach(function (a) { if (a.answer === 'yes') on[a.id] = true; });
+      boxes('pick').concat(boxes('date')).forEach(function (b) { b.checked = !!on[b.value]; });
+      if (kept.name) nameEl.value = kept.name;
+      if (kept.email) mailEl.value = kept.email;
+      if (kept.note) wordsEl.value = kept.note;
+    }
+  } catch (e) {}
+
+  function read(kind) {
+    return boxes(kind).map(function (b) {
+      return { id: b.value, label: b.getAttribute('data-label'), answer: b.checked ? 'yes' : 'no' };
+    });
+  }
+  function collect() {
+    return {
+      v: 1, week: WEEK, test: TEST,
+      name: nameEl.value.trim(), email: mailEl.value.trim(),
+      answers: read('pick'), dates: read('date'),
+      note: wordsEl.value.trim()
+    };
+  }
+  function yes(list) {
+    return list.filter(function (a) { return a.answer === 'yes'; }).map(function (a) { return a.label; });
+  }
+  // The same answer as plain text, for the hand-sent routes.
+  function asText(p) {
+    var picks = yes(p.answers), days = yes(p.dates);
+    var lines = ['Around the five days — my answer', 'Name: ' + p.name, 'Email: ' + p.email, ''];
+    lines.push(picks.length ? 'I would come to:' : 'I would come to: none of them.');
+    picks.forEach(function (l) { lines.push('- ' + l); });
+    lines.push('', days.length ? 'In Barcelona on: ' + days.join(', ') : 'In Barcelona on neither Wednesday 21 nor Tuesday 27.');
+    if (p.note) lines.push('', p.note);
+    return lines.join('\n');
+  }
+
+  function fail(text, field) {
+    msg.textContent = text; msg.hidden = false;
+    if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
+  }
+
+  function showFallback(p) {
+    var body = encodeURIComponent(asText(p));
+    document.getElementById('fb-wa').href = 'https://wa.me/' + WHATSAPP + '?text=' + body;
+    document.getElementById('fb-mail').href = 'mailto:' + MAIL_TO.join(',') +
+      '?subject=' + encodeURIComponent('Around the five days — my answer') + '&body=' + body;
+    fallback.hidden = false;
+    fallback.scrollIntoView({ block: 'center' });
+    if (window.plausible) window.plausible('AroundFailed', { props: { week: 'lab-week-01' } });
+  }
+
+  function showDone(p, preview) {
+    var picks = yes(p.answers), days = yes(p.dates);
+    var first = p.name.split(/\s+/)[0];
+    document.getElementById('done-preview').hidden = !preview;
+    document.getElementById('done-head').textContent = (preview ? 'Not sent' : 'Sent') + (first ? ', ' + first : '') + '.';
+    document.getElementById('done-lead').textContent = preview
+      ? 'This is a preview copy of the page, so the answer below went nowhere.'
+      : (picks.length ? 'Your answer is on its way to me. You ticked:' : 'Your answer is on its way to me. You ticked none of them, and that is an answer too.');
+    var list = document.getElementById('done-list');
+    list.textContent = '';
+    picks.forEach(function (l) { var li = document.createElement('li'); li.textContent = l; list.appendChild(li); });
+    if (days.length) {
+      var li = document.createElement('li');
+      li.textContent = 'In Barcelona on ' + days.join(' and ');
+      list.appendChild(li);
+    }
+    list.hidden = !list.children.length;
+    answer.hidden = true;
+    done.hidden = false;
+    done.focus();
+    done.scrollIntoView({ block: 'start' });
+    if (!preview && window.plausible) window.plausible('AroundSent', { props: { week: 'lab-week-01' } });
+  }
+
+  // A draft is kept on this device as they go, so following "The week in full"
+  // and coming back, or a failed send, loses nothing. Cleared once it is sent.
+  function keep() {
+    try { localStorage.setItem(STASH, JSON.stringify(collect())); } catch (err) { /* private browsing */ }
+  }
+  form.addEventListener('change', keep);
+  form.addEventListener('input', keep);
+
+  document.getElementById('done-again').addEventListener('click', function () {
+    done.hidden = true;
+    answer.hidden = false;
+    window.scrollTo(0, 0);
+  });
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    msg.hidden = true;
+    fallback.hidden = true;
+
+    var p = collect();
+    nameEl.removeAttribute('aria-invalid');
+    mailEl.removeAttribute('aria-invalid');
+    if (!p.name) { fail('I need your name, to know whose answer this is.', nameEl); return; }
+    if (!/^[^\s<>"',;@]+@[^\s<>"',;@]+\.[^\s<>"',;@]+$/.test(p.email)) {
+      fail('That email does not look right. It is how I write back to you.', mailEl); return;
+    }
+
+    keep();
+    var label = go.textContent;
+    go.disabled = true;
+    go.textContent = 'Sending…';
+
+    // supabase-config.js fakes every table write off the production hostname,
+    // but a function call is not a table write and would go out for real. So
+    // this page asks first, and off production it calls nothing at all.
+    var live = (typeof window.etIsProd === 'function')
+      ? window.etIsProd()
+      : /^(www\.)?educatedtraveler\.app$/.test(window.location.hostname);
+
+    var outcome = 'failed';
+    if (!live) {
+      outcome = 'preview';
+    } else {
+      try {
+        var sb = window.supabaseClient;
+        if (sb && sb.functions) {
+          var res = await Promise.race([
+            sb.functions.invoke('week-answers', { body: p }),
+            new Promise(function (r) { setTimeout(function () { r({ timeout: true }); }, 20000); })
+          ]);
+          // "Sent" is only said when the function says the email was accepted.
+          if (res && !res.timeout && !res.error && res.data && res.data.ok === true) outcome = 'sent';
+        }
+      } catch (err) { outcome = 'failed'; }
+    }
+
+    go.disabled = false;
+    go.textContent = label;
+
+    if (outcome === 'failed') { showFallback(p); return; }
+    try { localStorage.removeItem(STASH); } catch (err) {}
+    showDone(p, outcome === 'preview');
+  });
+
+  // The button ships disabled, so a browser without JavaScript shows the
+  // <noscript> line instead of a button that does nothing. It is switched on
+  // here, last, once the handler above is bound — never before.
+  go.disabled = false;
+})();
+</script>
+<!-- Loaded after the page script on purpose: the form works, and falls back to a
+     hand-sent answer, even if this library is slow or blocked. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+
+</body>
+</html>
