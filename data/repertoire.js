@@ -11567,7 +11567,7 @@ window.ET_ATLAS = {
           "place": "Mashiko",
           "country": "Japan",
           "region": "East Asia",
-          "role": "source",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -11581,14 +11581,12 @@ window.ET_ATLAS = {
             "Tatsuzo Shimaoka (Living National Treasure, Mashiko, died 2007)"
           ],
           "badges": [
-            "source",
             "scene",
-            "mecca",
             "master",
             "heritage",
             "lineage"
           ],
-          "why": "Hamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.",
+          "why": "Hamada settled here in 1924, in a town making everyday pots since 1853, and from here he became a founding figure of the mingei folk-craft movement; the kilns still fire.",
           "bestSeason": "Apr-Nov (spring & autumn pottery fairs)",
           "level": "Beginner -> Apprentice",
           "id": "pottery-and-ceramics--mashiko",
@@ -18144,7 +18142,7 @@ window.ET_ATLAS = {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
               "course": "Classroom courses and online modules — sous-vide and low temperature, foams, sodas and siphon work, spherification, textures and texturizers, liquid nitrogen",
-              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish and his 2026 classroom sessions are priced from EUR 380 and listed as sold out; English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
+              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish; when we read his site on 5 October 2026, the sessions it listed, priced from EUR 380, were 2025 dates marked out of stock, with no 2026 classroom date shown. English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
               "etRelationship": true,
               "confidence": "high",
               "photos": {
@@ -28213,7 +28211,7 @@ window.ET_ATLAS = {
           "place": "Walchsee",
           "country": "Austria",
           "region": "Europe",
-          "role": "source",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "The source",
           "schools": [
@@ -28225,30 +28223,28 @@ window.ET_ATLAS = {
             "Dr. Emil Vodder (Wittlinger lineage)"
           ],
           "badges": [
-            "source",
             "lineage",
-            "school",
-            "english"
+            "school"
           ],
-          "why": "The Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and the final training week treats real patients, not classmates. A dedicated English-language course runs at the source.",
+          "why": "The Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and in the final training week students treat its patients, not classmates. The 180-hour course is taught in German, to health professionals.",
           "bestSeason": "Year-round",
           "level": "Licensed professionals",
           "id": "lymphatic-drainage--walchsee",
           "schoolsInfo": [
             {
               "name": "Dr. Vodder Akademie & Wittlinger Therapiezentrum",
-              "url": "https://www.vodderakademie.com/",
-              "course": "Manual Lymph Drainage (Dr. Vodder Method), 180 hrs — incl. a dedicated English-language course",
-              "blurb": "Two 2-week blocks; the final week treats real clinic patients. Certificate: Dr. Vodder Academy/School International.",
+              "url": "https://www.vodderakademie.com/kurs/manuelle-lymphdrainage-nach-dr-vodder-ml-in-walchsee.html",
+              "course": "Manual Lymph Drainage (Dr. Vodder Method), 180 hrs, in German, for health professionals",
+              "blurb": "Two two-week blocks at €895 each, the next from 9 November 2026; in the final week students treat patients of the lymphoedema clinic in the same house. Open to doctors, physiotherapists, masseurs and other qualified therapists. The English route is Level I and Level II with Vodder teachers in your own country; Walchsee itself holds a two-day English review course, 16–17 June 2027, for therapists already certified. Read on the academy's own pages, 5 October 2026.",
               "confidence": "high"
             }
           ],
           "tripTier": 3,
           "tripType": "Deep-dive",
           "tripLength": "2×2 weeks",
-          "instructionLanguage": "German + English course",
-          "englishTaught": true,
-          "englishBasis": "Dedicated English-language course at Walchsee (official course language English); online theory in several languages."
+          "instructionLanguage": "German",
+          "englishTaught": false,
+          "englishBasis": "The full course at Walchsee is taught in German (academy course page, read 5 October 2026); English Level I and II run with Vodder teachers abroad, and Walchsee's English class is a review for certified therapists."
         }
       ],
       "id": "lymphatic-drainage",
@@ -28260,9 +28256,9 @@ window.ET_ATLAS = {
         "school": "Dr. Vodder Akademie & Wittlinger Therapiezentrum",
         "url": "https://www.vodderakademie.com/",
         "course": "Manual Lymph Drainage (Dr. Vodder Method) — Basic + Therapy",
-        "description": "The academy that has carried Vodder's method since the early 1970s, on a Tyrolean lake beside its own lymphoedema clinic — where the final week is spent treating real patients. A dedicated English-language course runs at the source.",
+        "description": "The academy that has carried Vodder's method since the early 1970s, on a Tyrolean lake beside its own lymphoedema clinic — where the final week is spent treating real patients. The 180-hour course is taught in German, to health professionals.",
         "duration": "180 hours (two 2-week blocks)",
-        "format": "In-person at the source; theory online in several languages",
+        "format": "In person at Walchsee, in German: two two-week blocks",
         "certification": "Dr. Vodder Academy/School International certificate",
         "fitsBecause": "Source, a living clinical scene, and patients in the curriculum — and English-accessible, so you never trade the real thing for a language you speak.",
         "sessions": [],
@@ -29185,7 +29181,7 @@ window.ET_ATLAS = {
           "place": "Pusztaszer",
           "country": "Hungary",
           "region": "Eastern Europe",
-          "role": "source",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -29200,7 +29196,6 @@ window.ET_ATLAS = {
             "Bence Máté"
           ],
           "badges": [
-            "source",
             "master",
             "master-lab",
             "record"
