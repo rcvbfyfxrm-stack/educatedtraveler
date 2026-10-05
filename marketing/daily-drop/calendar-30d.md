@@ -488,22 +488,22 @@ The full page: https://educatedtraveler.app/atlas/ski-touring-and-splitboard--wa
 #adventuretravel #skillsnotsouvenirs #learnbydoing #wasatchsaltlakecityparkcity #skitouringsplitboard
 ```
 
-## Day 28 — New culinary techniques & technologies · Barcelona, Spain  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona
-- **Footage:** Culinary Institute of Barcelona (CIB) — https://cib.education/cursos-de-cocina/chef-especialista-tecnicas-culinarias-avanzadas (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of New culinary techniques & technologies, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 28 — Coffee & Barista · Melbourne, Australia  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/coffee-and-barista--melbourne
+- **Footage:** Melbourne Coffee Academy — https://www.melbournecoffeeacademy.com.au/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Coffee & Barista, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-The strongest New culinary techniques & technologies community on earth gathers in Barcelona.
+The strongest Coffee & Barista community on earth gathers in Melbourne.
 
-Catalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can still enrol with a master rather than apply for a stage, at Martin Lippo's Vakuum lab.
+The world's most obsessive specialty-coffee culture, where SCA-certified baristas are forged in the city that turned the flat white into an art form.
 
 Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona
+The full page: https://educatedtraveler.app/atlas/coffee-and-barista--melbourne
 
-#foodtok #cookingclass #learnbydoing #barcelona #newculinarytechniquestec
+#foodtok #cookingclass #learnbydoing #melbourne #coffeebarista
 ```
 
 ## Day 29 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
@@ -524,20 +524,20 @@ The full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--g
 #adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding
 ```
 
-## Day 30 — Organic Farm-to-Table Cooking · Shanagarry, East Cork, Ireland  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork
-- **Footage:** Ballymaloe Cookery School, Organic Farm and Gardens — https://www.ballymaloecookeryschool.ie/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Organic Farm-to-Table Cooking, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 30 — New culinary techniques & technologies · Barcelona, Spain  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona
+- **Footage:** Culinary Institute of Barcelona (CIB) — https://cib.education/cursos-de-cocina/chef-especialista-tecnicas-culinarias-avanzadas (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of New culinary techniques & technologies, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-The strongest Organic Farm-to-Table Cooking community on earth gathers in Shanagarry, East Cork.
+The strongest New culinary techniques & technologies community on earth gathers in Barcelona.
 
-A cookery school that sits inside its own 100-acre organic farm at Kinoith, about four kilometres from Ballymaloe House. The vegetables, eggs, milk and meat used in the morning kitchens come off the land outside the door — and the afternoon demonstration is still given by the people whose names are on the school.
+Catalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can still enrol with a master rather than apply for a stage, at Martin Lippo's Vakuum lab.
 
-Community strength: Legendary. Season: Year-round — the 12-week certificate starts in January, April and September.
+Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/organic-farm-to-table-cooking--shanagarry-east-cork
+The full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona
 
-#foodtok #cookingclass #learnbydoing #shanagarryeastcork #organicfarmtotablecookin
+#foodtok #cookingclass #learnbydoing #barcelona #newculinarytechniquestec
 ```
