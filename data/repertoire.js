@@ -20632,48 +20632,6 @@ window.ET_ATLAS = {
       },
       "destinations": [
         {
-          "place": "Yirgacheffe / Addis Ababa",
-          "country": "Ethiopia",
-          "region": "Sub-Saharan Africa",
-          "role": "source",
-          "communityRank": 3,
-          "communityLabel": "Strong",
-          "schools": [
-            "Ethiopian Coffee Training Center (Jimma / Addis)"
-          ],
-          "masters": [],
-          "badges": [
-            "source",
-            "heritage",
-            "lineage"
-          ],
-          "why": "The birthplace of coffee, where arabica still grows wild in the mountain forests and the ceremony still runs daily, the origin pilgrimage for anyone serious about the craft.",
-          "bestSeason": "Oct-Feb",
-          "level": "Beginner -> SCA modules",
-          "id": "coffee-and-barista--yirgacheffe-addis-ababa",
-          "schoolsInfo": [
-            {
-              "name": "African Coffee Campus",
-              "url": "https://africancoffeecampus.ambrellaluxurysafaris.com/",
-              "course": "Immersive Coffee Program (bean-to-cup)",
-              "blurb": "A multi-week bean-to-cup program that opens with hands-on work on coffee farms in the Kaffa region - cultivation, harvesting and processing with local producers - then moves to Addis Ababa for intensive professional training across the four SCA disciplines: Barista Skills, Green Coffee, Sensory Skills and Roasting. When we read its page on 27 September 2026, the latest session it listed started on 28 February 2026, the technical weeks were placed at a partner facility, with Yoya Coffee Academy given as an example, and no trainer was named.",
-              "confidence": "medium"
-            },
-            {
-              "name": "Ethiopian Coffee Training Center (Jimma / Addis)",
-              "url": "https://ctc.et/",
-              "course": "Coffee Training Center professional program (processing, cupping, roasting, brewing)",
-              "blurb": "Established under Ethiopia's Coffee and Tea Authority with UNIDO and Illycaffe support in Addis Ababa, the Coffee Training Center has brewing, roasting and sensory labs and trains professionals across post-harvest processing, cupping, grading, roasting and brewing.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "African Coffee Campus is an international, SCA-certified immersive program marketed to global coffee lovers; SCA courses run in English"
-        },
-        {
           "place": "Melbourne",
           "country": "Australia",
           "region": "Oceania",
@@ -20934,6 +20892,12 @@ window.ET_ATLAS = {
           "Oceania"
         ],
         "rejected": [
+          {
+            "name": "Yirgacheffe / Addis Ababa, as a place on this page",
+            "place": "Ethiopia",
+            "url": "https://doi.org/10.1111/j.1752-4571.2012.00285.x",
+            "why": "Coffee was born here: arabica still grows wild in the forests of south-western Ethiopia. The barista's craft was not; espresso was born in Italy. A place earns a card here for the craft, not the bean, and no school here met our standard: the pick, African Coffee Campus, listed no session after one starting 28 February 2026 and named no trainer, and the Ethiopian Coffee Training Center showed no public course dates when we read it on 27 September 2026. Taken off the map on 4 October 2026."
+          },
           {
             "name": "Coffee Craft Academy",
             "place": "Addis Ababa, Ethiopia",

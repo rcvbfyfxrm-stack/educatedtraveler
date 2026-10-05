@@ -8,6 +8,7 @@
   ],
   "preserve": [
     "avant-garde-and-modernist-technique--barcelona.html",
+    "coffee-and-barista--yirgacheffe-addis-ababa.html",
     "avant-garde-and-modernist-technique--melbourne-lilydale.html",
     "avant-garde-and-modernist-technique--puebla-mexico-city.html",
     "avant-garde-and-modernist-technique.html",
@@ -258,7 +259,7 @@
   "_craftIntros_comment": "One short paragraph per craft, under the lead on the craft page: where the craft was born and how alive it is in the world today. Arnaud, 4 Oct 2026 (coffee): 'present the skill in a small paragraph to say where it was born and how alive it is worldwide.' Every claim carries a source with the day it was read; rendered by craft_intro() in scripts/build-atlas-pages.py.",
   "craftIntros": {
     "coffee-and-barista": {
-      "p": "Coffee begins wild. Arabica still grows untended under the canopy of the mountain forests of south-western Ethiopia. By the late 1400s Sufi communities in Yemen were brewing it to stay awake through the night prayers; in 1554 Istanbul opened its first coffeehouse; and in Milan after the war, Achille Gaggia’s lever machine pushed water through the grounds hard enough to raise a crema, and espresso as we drink it began. The craft is most alive today at the two ends of that road. In Ethiopia the cup is still made from scratch every day: green beans roasted in a pan in front of the guests, ground by hand, poured in three rounds. And in Melbourne, in a country whose cafés were strong enough that Starbucks closed 61 of its 84 Australian stores in 2008, Jack Simpson of Axil Coffee Roasters won the 2025 World Barista Championship against competitors from more than fifty countries.",
+      "p": "Coffee the plant comes from the mountain forests of south-western Ethiopia, where arabica still grows wild. The barista’s craft was born much later, and in Italy. In 1884 Angelo Moriondo of Turin patented the machine that led to espresso; at the start of the twentieth century the Milanese inventor Luigi Bezzera built one that made a single cup to order; and in Milan in 1947 Achille Gaggia’s lever pushed water through the grounds hard enough to raise a crema. That cup is espresso, and the person who pulls it is the barista. Today the craft is most alive in Melbourne, in a country whose cafés were strong enough that Starbucks closed 61 of its 84 Australian stores in 2008, and where Jack Simpson of Axil Coffee Roasters won the 2025 World Barista Championship against competitors from more than fifty countries.",
       "sources": [
         {
           "what": "Evolutionary Applications (2013), on the wild Coffea arabica gene pool",
@@ -271,18 +272,13 @@
           "read": "4 October 2026"
         },
         {
-          "what": "Wikipedia, History of coffee (Yemen Sufi communities; Istanbul 1554)",
+          "what": "Wikipedia, History of coffee (Moriondo 1884; Bezzera)",
           "url": "https://en.wikipedia.org/wiki/History_of_coffee",
           "read": "4 October 2026"
         },
         {
           "what": "Gaggia, our history (the 1947 lever-piston patent)",
           "url": "https://www.gaggia.com/our-history/",
-          "read": "4 October 2026"
-        },
-        {
-          "what": "Wikipedia, Coffee ceremony of Ethiopia and Eritrea",
-          "url": "https://en.wikipedia.org/wiki/Coffee_ceremony_of_Ethiopia_and_Eritrea",
           "read": "4 October 2026"
         },
         {
@@ -397,7 +393,6 @@
     "coffee-and-barista--london": "Learn the full SCA ladder beside Europe's densest pro cohort",
     "coffee-and-barista--portland": "Learn to run an espresso bar in five days, in the heart of American third-wave coffee",
     "coffee-and-barista--san-rafael": "Learn to cup like a Q Grader: nine exams in six days",
-    "coffee-and-barista--yirgacheffe-addis-ababa": "Taste coffee where it began, at a ceremony still held every day",
     "wildlife-photography--pusztaszer": "Learn to work a one-way glass hide",
     "wildlife-photography--kuhmo": "Learn to sit a bear hide on the Russian border",
     "wildlife-photography--maasai-mara-conservancies": "Learn to photograph big cats from a camp",
@@ -2681,7 +2676,7 @@
     }
   },
   "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did.",
-  "placeIntroDebtFloor": 111,
+  "placeIntroDebtFloor": 110,
   "placeIntroDebtKnown": [
     "ashtanga-yoga--london",
     "ashtanga-yoga--mysore-gokulam",
