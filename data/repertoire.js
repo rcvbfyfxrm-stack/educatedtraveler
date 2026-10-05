@@ -1584,7 +1584,7 @@ window.ET_ATLAS = {
       "category": "wellness",
       "certBody": "Vipassana Research Institute (Goenka / U Ba Khin tradition); Theravada monastic lineages",
       "goldCredential": "Completed 10-day silent course (prerequisite to serve/assist), then long-courses and Assistant Teacher appointment in the Goenka tradition",
-      "blurb": "Ten days of noble silence and bare attention to breath and sensation, an unbroken Theravada technique taught exactly as it was 2,500 years ago.",
+      "blurb": "Ten days of noble silence and bare attention to breath and sensation, in a Theravada tradition revived in Burma and carried to the world by S. N. Goenka.",
       "destinations": [
         {
           "place": "Igatpuri (Dhamma Giri)",
@@ -2202,7 +2202,7 @@ window.ET_ATLAS = {
       "category": "wellness",
       "certBody": "No single global body; recognized diplomas via College of Sound Healing (UK), Globe Institute (state-approved, USA); Nada Yoga tradition",
       "goldCredential": "Practitioner / Sound Therapist Diploma (College of Sound Healing) or Sound Healing & Therapy Certificate (Globe Institute)",
-      "blurb": "Tuning the body with gongs, voice and Himalayan bowls, the ancient science of Nada Yoga where vibration becomes medicine.",
+      "blurb": "Tuning the body with gongs, voice and Himalayan bowls, a practice that leans on the old Nada Yoga idea of listening inward to sound.",
       "destinations": [
         {
           "place": "Kathmandu / Pokhara",
@@ -2223,7 +2223,7 @@ window.ET_ATLAS = {
             "heritage",
             "mecca"
           ],
-          "why": "The Himalayan home of singing-bowl craft and Nada Yoga, where you learn bowls and gongs at the source from the makers and Tibetan-rooted sound healers.",
+          "why": "Singing bowls are made and sold in Nepal today, and Kathmandu schools teach bowls and gongs in ten-day sound-therapy trainings.",
           "bestSeason": "Oct-Nov, Mar-Apr",
           "level": "Beginner -> Certified Sound Healer",
           "id": "sound-healing--kathmandu-pokhara",
@@ -4063,7 +4063,7 @@ window.ET_ATLAS = {
           "place": "Amsterdam",
           "country": "Netherlands",
           "region": "Western Europe",
-          "role": "both",
+          "role": "scene",
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
@@ -4074,12 +4074,11 @@ window.ET_ATLAS = {
             "Enahm Hof"
           ],
           "badges": [
-            "source",
             "school",
             "gold-cred",
             "scene"
           ],
-          "why": "The Dutch home base where the Method was built and the Academy is run, issuing the only globally recognized WHM credential.",
+          "why": "The Netherlands is where Wim Hof grew up and built his method, and Innerfire, the Dutch company behind it, grants its instructor certification; the in-person modules are held in Poland, Mexico and Australia.",
           "bestSeason": "Year-round",
           "level": "Fundamentals -> Certified instructor",
           "id": "cold-exposure-wim-hof-method--amsterdam",
@@ -5415,7 +5414,7 @@ window.ET_ATLAS = {
             "source",
             "heritage"
           ],
-          "why": "Modern sport spearfishing was invented on this French-Italian Mediterranean coast in the 1920s, and the mask, fins and snorkel were all born here from the hunt.",
+          "why": "Modern sport spearfishing took off on this French-Italian Mediterranean coast in the 1920s, and the hunt helped bring in the modern mask, fins and snorkel.",
           "bestSeason": "May-Oct",
           "level": "Beginner -> Competition",
           "id": "spearfishing--c-te-d-azur-cassis-to-antibes",
@@ -5897,7 +5896,7 @@ window.ET_ATLAS = {
             "gold-cred",
             "heritage"
           ],
-          "why": "The Solent is where the RYA built its Yachtmaster scheme, and its tidal chaos still forges the most respected ticket afloat, one examined and earned rather than bought.",
+          "why": "The RYA runs the Yachtmaster scheme from Hamble, on the Solent, and the water's tidal chaos still forges a ticket examined and earned rather than bought.",
           "bestSeason": "Apr-Oct",
           "level": "Beginner -> Instructor",
           "id": "sailing-and-yachtmaster--the-solent-cowes-and-hamble",
@@ -6379,7 +6378,7 @@ window.ET_ATLAS = {
             "mecca",
             "heritage"
           ],
-          "why": "Europe's only World Surfing Reserve protects seven breaks along a single 4km coast, drawing the continent's densest surf cohort to a town that breathes salt and wax year-round.",
+          "why": "Europe's first World Surfing Reserve, named in 2011, protects about five kilometres of coast and draws a deep surf cohort to a town that breathes salt and wax year-round.",
           "bestSeason": "Sep-May (Jun-Sep for beginners)",
           "level": "Beginner -> Advanced",
           "id": "surfing--ericeira",
@@ -6986,7 +6985,7 @@ window.ET_ATLAS = {
             "school",
             "gold-cred"
           ],
-          "why": "The wind capital of Europe funnels Levante and Poniente over Valdevaqueros some 300 days a year, a regular GKA Kite World Tour stop where every school flies the IKO standard.",
+          "why": "The wind capital of Europe funnels Levante and Poniente over Valdevaqueros some 300 days a year, and every school here flies the IKO standard.",
           "bestSeason": "Apr-Oct",
           "level": "Beginner -> Instructor",
           "id": "kitesurfing--tarifa",
@@ -8013,7 +8012,7 @@ window.ET_ATLAS = {
             "scene",
             "record"
           ],
-          "why": "El Capitan's granite is the planet's bucket-list wall, and the Valley floor is where big-wall craft is still taught and tested by the people pushing it.",
+          "why": "El Capitan's granite is the wall climbers everywhere know by name, and the Valley floor is where big-wall craft is still taught and tested by the people pushing it.",
           "bestSeason": "Apr-Oct",
           "level": "Beginner -> Big-wall",
           "id": "rock-climbing--yosemite-valley",
@@ -8986,7 +8985,7 @@ window.ET_ATLAS = {
             "heritage",
             "gold-cred"
           ],
-          "why": "The Chamonix-to-Zermatt Haute Route, first skied in 1903, is the original multi-day ski tour and still the pilgrimage every tourer dreams of earning.",
+          "why": "The Chamonix-to-Zermatt Haute Route, first completed on skis in 1911, is the classic hut-to-hut ski tour, and still the one tourers most want to earn.",
           "bestSeason": "Mar-Apr",
           "level": "Intermediate -> Expert",
           "id": "ski-touring-and-splitboard--chamonix-verbier-haute-route",
@@ -9058,7 +9057,7 @@ window.ET_ATLAS = {
             "scene",
             "gold-cred"
           ],
-          "why": "The splitboard was born in Utah's Wasatch in 1991, and the range's light powder and dense AIARE cohort make it the home of human-powered riding.",
+          "why": "In 1991 Brett Kobernik brought a splitboard prototype to Voilé in Salt Lake City, which began selling it in 1994, and the Wasatch's light powder and dense AIARE cohort make it a home of human-powered riding.",
           "bestSeason": "Dec-Apr",
           "level": "Beginner -> Pro avalanche",
           "id": "ski-touring-and-splitboard--wasatch-salt-lake-city-park-city",
@@ -9152,7 +9151,7 @@ window.ET_ATLAS = {
             "scene",
             "mecca"
           ],
-          "why": "Skinning from fjord to summit under the midnight sun, Lyngen is the Arctic's bucket-list ski-touring scene where lines drop straight to the sea.",
+          "why": "Skinning from fjord to summit under the midnight sun, Lyngen is the Arctic's great ski-touring scene, where lines drop straight to the sea.",
           "bestSeason": "Mar-May",
           "level": "Intermediate -> Expert",
           "id": "ski-touring-and-splitboard--lyngen-alps",
@@ -18154,7 +18153,7 @@ window.ET_ATLAS = {
             "master",
             "mecca"
           ],
-          "why": "The triple-starred laboratories of Berasategui and Mugaritz ring San Sebastián — stage here and you stand inside the kitchens where the avant-garde keeps reinventing itself.",
+          "why": "Martín Berasategui's three-starred kitchen and Mugaritz's laboratory ring San Sebastián — stage here and you stand inside the kitchens where the avant-garde keeps reinventing itself.",
           "bestSeason": "Apr-Oct",
           "level": "Intermediate -> Professional",
           "id": "new-basque-cuisine--errenteria-lasarte-oria-gipuzkoa",
@@ -28114,7 +28113,7 @@ window.ET_ATLAS = {
             "mecca",
             "master-lab"
           ],
-          "why": "Catalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can still enrol with a master rather than apply for a stage, at Martin Lippo's Vakuum lab.",
+          "why": "Catalonia is where the Adrià revolution began, and Barcelona the rare city where you can still enrol with a master rather than apply for a stage, at Martin Lippo's Vakuum lab.",
           "bestSeason": "Year-round",
           "level": "Enthusiast -> Professional",
           "id": "modern-new-technique-cuisine--barcelona",
@@ -29426,7 +29425,7 @@ window.ET_ATLAS = {
             "master-lab",
             "record"
           ],
-          "why": "One-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.",
+          "why": "One-way glass hide photography was pioneered here by Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — from his family's house by the wetlands at the edge of Pusztaszer.",
           "bestSeason": "Apr-Aug",
           "level": "Beginner -> Professional",
           "id": "wildlife-photography--pusztaszer",

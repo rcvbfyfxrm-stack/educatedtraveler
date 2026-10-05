@@ -88,7 +88,7 @@ window.ET_EXPERIENCES = [
                 { name: 'Freedive Physiology Lectures', desc: 'Understand the mammalian dive reflex, blood shift, and the science behind your limits' }
             ],
             addOns: [
-                { name: 'Blue Hole Deep Dive Experience', desc: 'Guided freedive to the arch at 56m with safety team — a bucket-list dive', price: '+$400' },
+                { name: 'Blue Hole Deep Dive Experience', desc: 'Guided freedive to the arch at 56m with safety team', price: '+$400' },
                 { name: 'Private Depth Coaching', desc: 'One-on-one sessions with a competitive freediver to break through your plateau', price: '+$500' },
                 { name: 'Underwater Photography Package', desc: 'Professional photos and video of your deepest dives — yours to keep', price: '+$300' },
                 { name: 'Sinai Hiking & Snorkeling', desc: 'Full-day adventure combining mountain trails and hidden reef snorkeling on rest days', price: '+$150' }
