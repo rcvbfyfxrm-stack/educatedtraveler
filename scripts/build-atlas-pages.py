@@ -690,7 +690,10 @@ def measure_gate(d):
 
 def craft_intro(d):
     """A short paragraph under the lead: where the craft was born and how alive it is
-    in the world. Hand-written in data/atlas-extra-sheets.json -> craftIntros. Every fact
+    in the world. On the craft page AND on every place page of the craft (Arnaud,
+    5 Oct 2026: "make sure all the skills open have this intro on every pages") — a
+    reader who lands on a place from a search meets the craft's story first. Never on a
+    locked craft's page, which says WHAT a craft is and nothing about WHERE. Hand-written in data/atlas-extra-sheets.json -> craftIntros. Every fact
     in it must have its source in the data, but the sources are NOT printed: Arnaud,
     4 Oct 2026, "Don't put sources in the intro." The paragraph is the first read on the
     craft and has to carry itself. Nothing renders where nothing is written."""
@@ -1644,7 +1647,7 @@ footer a {{ color:var(--sea); }}
 {body}
 {TRUST_HTML}
 {tail_scripts}
-<footer><div class="wrap">{pic_credit}{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Catalogue of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
+<footer><div class="wrap">{pic_credit}{report_link}<p style="opacity:.82;margin:0 0 16px;max-width:60ch;line-height:1.7;">One page of a larger map. <a href="/atlas/" style="color:var(--sea);">Wander the rest of the Atlas</a> for the other crafts and where they're alive, and read <a href="/letters/" style="color:var(--sea);">Founder&#39;s Notes</a>. <a href="/circle" style="color:var(--sea);">The Circle</a> is the people who have told me which craft they want to learn; what it asks for decides which craft I open on the Atlas next, and which week I build. No week has been built that way yet. <a href="/circle" style="color:var(--sea);">Write me a note.</a></p><div class="et-foot-nav" style="display:flex;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 16px;"><a href="/atlas/" style="color:var(--sea);text-decoration:none;">Atlas of Skills</a><a href="/letters/" style="color:var(--sea);text-decoration:none;">Founder&#39;s Notes</a><a href="/lab-weeks" style="color:var(--sea);text-decoration:none;">Lab Weeks</a><a href="/about" style="color:var(--sea);text-decoration:none;">Meet the founder of EducatedTraveler</a><a href="/circle" style="color:var(--sea);text-decoration:none;">The Circle</a><a href="/you" data-visitor-only style="color:var(--sea);text-decoration:none;">Already in? Sign in</a></div>EducatedTraveler — we connect you to the skill, the place, the person, and your people — then get out of the way. <a href="/#circle">Join the Circle</a>.<br><span style="opacity:.75">We use privacy-light, cookieless analytics — no personal data, no tracking cookies.</span></div></footer>
 {CUR_TOGGLE}
 <script>{RAIL_JS}</script>
 </body>
@@ -1708,7 +1711,7 @@ def short_sheet(d, total):
     # page that exists because the research is not published yet.
     alive = ""
     return f"""<header class="hero"><div class="wrap">
-<div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / {e(CORES[d['category']][0])}</div>
+<div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / {e(CORES[d['category']][0])}</div>
 <p style="margin:16px 0 0"><span class="notyet">Not open yet</span> <span class="opensby">&mdash; a note to Arnaud opens it</span></p>
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{alive}
@@ -2741,6 +2744,11 @@ def dest_card(d, x, link=True, is_best=False, href=None, on_page=False):
 # and everything under it live in this file. The injector knows: it stands off the
 # photograph and the comparison table on any sheet carrying this marker, because
 # this block already owns both.
+# The craft intro on a preserved sheet: same mechanism, a marker pair the hand-written
+# page carries in its hero and this build fills from craftIntros (5 Oct 2026: "all the
+# skills open have this intro on every page" — eight open crafts are hand-written).
+CRAFT_INTRO_OPEN = "<!-- et:craft-intro -->"
+CRAFT_INTRO_CLOSE = "<!-- /et:craft-intro -->"
 PLACES_FIRST_OPEN = "<!-- et:places-first -->"
 PLACES_FIRST_CLOSE = "<!-- /et:places-first -->"
 
@@ -3723,9 +3731,9 @@ for d in DISC:
             source=f'atlas:{x["id"]}', discipline=d["id"], place=x["id"],
             label=f'{d["discipline"]} · {x["place"]}')
         body = f"""<header class="hero"><div class="wrap">
-<div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
+<div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / <a href="/atlas/{d['id']}" style="text-decoration:none">{e(d['discipline'])}</a></div>
 <h1>{_h1}</h1>
-<p class="lead">{e(x['why'])}</p>{_closed_band}
+<p class="lead">{e(x['why'])}</p>{_closed_band}{craft_intro(d)}
 </div></header>
 {place_intro(x)}<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}</div></section>
 {reviewed_block(x["id"])}{disclosure_block(d) if has_relationship(x) else ""}
@@ -3758,6 +3766,12 @@ for d in DISC:
         # section whose ORDER is the rule (the places, first). Marker in, block drawn;
         # no marker, nothing touched. Re-runnable: it replaces its own block.
         _p = OUT / f'{d["id"]}.html'
+        if _p.exists() and CRAFT_INTRO_OPEN in (_ci_txt := _p.read_text()):
+            _ci_new = re.sub(re.escape(CRAFT_INTRO_OPEN) + r".*?" + re.escape(CRAFT_INTRO_CLOSE),
+                             lambda _m: CRAFT_INTRO_OPEN + craft_intro(d) + CRAFT_INTRO_CLOSE,
+                             _ci_txt, flags=re.S)
+            if _ci_new != _ci_txt:
+                _p.write_text(_ci_new)
         if _p.exists() and PLACES_FIRST_OPEN in (_txt := _p.read_text()):
             _blk = places_first_block(d)
             if not _blk:
@@ -3788,7 +3802,7 @@ for d in DISC:
     cards = "".join(dest_card(d, x, is_best=(x["id"] == _bid)) for x in sorted(d["destinations"], key=lambda x: -x["communityRank"]))
     cred = f'<p class="meta" style="margin-top:10px">Gold credential: <strong style="opacity:.9">{e(d.get("goldCredential",""))}</strong>{" · " + e(d["certBody"]) if d.get("certBody") else ""}</p>' if d.get("goldCredential") else ""
     body = f"""<header class="hero"><div class="wrap">
-<div class="mono"><a href="/atlas/" style="text-decoration:none">Catalogue of Skills</a> / {e(CORES[d['category']][0])}</div>
+<div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / {e(CORES[d['category']][0])}</div>
 <h1>{e(d['discipline'])}</h1>
 <p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{cred}{sibling_line(d)}{depth_link(d)}
 </div></header>

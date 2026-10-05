@@ -17044,10 +17044,50 @@ window.ET_ATLAS = {
       "blurb": "Temper, mould, enrobe and conch — the alchemy of turning bitter cacao into glossy bonbons that snap clean and melt at body heat.",
       "destinations": [
         {
+          "place": "Brussels / Wieze",
+          "country": "Belgium",
+          "region": "Western Europe",
+          "role": "both",
+          "communityRank": 5,
+          "communityLabel": "Legendary",
+          "schools": [
+            "Callebaut Chocolate Academy (Wieze)"
+          ],
+          "masters": [
+            "Pierre Marcolini"
+          ],
+          "badges": [
+            "source",
+            "scene",
+            "school",
+            "gold-cred",
+            "record",
+            "lineage"
+          ],
+          "why": "The filled praline was invented in Brussels in 1912, and Callebaut’s Chocolate Academy has taught on the grounds of its largest factory, at Wieze, since 1988. The Academy has announced a renovation closure from November 2026 to April 2027, so confirm your date with them before you book.",
+          "bestSeason": "Year-round",
+          "level": "Beginner -> Competition",
+          "id": "chocolate-and-confectionery--brussels-wieze",
+          "schoolsInfo": [
+            {
+              "name": "Callebaut Chocolate Academy (Wieze)",
+              "url": "https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses/chocolate-fundamentals-1",
+              "course": "Chocolate Fundamentals: three hands-on days, a class of twelve, in English",
+              "blurb": "Barry Callebaut’s Chocolate Academy on the grounds of its largest factory, at Wieze, teaching since 1988. Chocolate Fundamentals is three practical days, 9:00 to 17:00, for a class of twelve, open to a home baker or an aspiring chocolatier: tempering, then bonbons and tablets. When we read its pages on 5 October 2026 it listed 25 to 27 January 2027 at €900, lunch included. The same pages also announce that the Academy is closed for renovation from November 2026 to April 2027, so confirm the date with them before you book.",
+              "confidence": "high"
+            }
+          ],
+          "tripTier": 1,
+          "tripType": "Taster",
+          "tripLength": "three days",
+          "englishTaught": true,
+          "englishBasis": "Callebaut’s own course page for Chocolate Fundamentals at Wieze lists the course in English (read 5 October 2026)."
+        },
+        {
           "place": "Tain-l'Hermitage",
           "country": "France",
           "region": "Western Europe",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -17059,12 +17099,11 @@ window.ET_ATLAS = {
           ],
           "badges": [
             "scene",
-            "mecca",
             "school",
             "gold-cred",
             "master"
           ],
-          "why": "Valrhona's home valley — temper grand-cru couverture at the atelier that taught the world how French fine chocolate is made.",
+          "why": "Valrhona’s home in the Drôme, where its own school has trained professional chefs in chocolate since 1989.",
           "bestSeason": "Year-round",
           "level": "Beginner -> Professional",
           "id": "chocolate-and-confectionery--tain-l-hermitage",
@@ -17098,99 +17137,6 @@ window.ET_ATLAS = {
           "englishBasis": "Ecole Chocolat Professional Chocolatier Program in France (Tain-l'Hermitage residency) is 'delivered in English'"
         },
         {
-          "place": "Brussels / Wieze",
-          "country": "Belgium",
-          "region": "Western Europe",
-          "role": "both",
-          "communityRank": 5,
-          "communityLabel": "Legendary",
-          "schools": [
-            "Callebaut Chocolate Academy (Wieze)",
-            "Cacao Barry Chocolate Academy"
-          ],
-          "masters": [
-            "Pierre Marcolini"
-          ],
-          "badges": [
-            "source",
-            "scene",
-            "mecca",
-            "school",
-            "gold-cred",
-            "record",
-            "lineage"
-          ],
-          "why": "The filled praline was invented in Brussels and the World Chocolate Masters is run from here — Belgium is the bench every chocolatier dreams of.",
-          "bestSeason": "Year-round",
-          "level": "Beginner -> Competition",
-          "id": "chocolate-and-confectionery--brussels-wieze",
-          "schoolsInfo": [
-            {
-              "name": "Callebaut Chocolate Academy (Wieze)",
-              "url": "https://www.callebaut.com/en/callebaut-chocolate-academy/locations/belgium-wieze",
-              "course": "In-person courses (Chocolate Fundamentals, Chocolate Next Level, Art of Modern Patisserie)",
-              "blurb": "Barry Callebaut's flagship Chocolate Academy on the grounds of its largest factory in Wieze, running multi-day in-person courses from Chocolate Fundamentals to advanced patisserie taught by Callebaut chefs and guest Chocolate Ambassadors.",
-              "confidence": "high"
-            },
-            {
-              "name": "Cacao Barry Chocolate Academy",
-              "url": "https://www.cacao-barry.com/en/chocolate-academy",
-              "course": "In-person chocolate courses and workshops",
-              "blurb": "The Cacao Barry-branded arm of Barry Callebaut's Chocolate Academy network, delivering seminars, demonstrations and hands-on practical workshops on chocolate technique, recipes and trends taught by professional chefs.",
-              "confidence": "medium"
-            }
-          ],
-          "tripTier": 1,
-          "tripType": "Taster",
-          "tripLength": "a weekend",
-          "englishTaught": true,
-          "englishBasis": "Callebaut Chocolate Academy Wieze hosts international guest-chef courses incl. English-delivered programs (e.g. Ecole Chocolat residency at Wieze)"
-        },
-        {
-          "place": "Zurich / Broc",
-          "country": "Switzerland",
-          "region": "Western Europe",
-          "role": "source",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Richemont Fachschule Luzern",
-            "Maison Cailler (Broc) workshops"
-          ],
-          "masters": [],
-          "badges": [
-            "source",
-            "school",
-            "heritage",
-            "lineage"
-          ],
-          "why": "Birthplace of conching and milk chocolate — Switzerland is where the smooth-melt revolution began and the lineage runs unbroken.",
-          "bestSeason": "Year-round",
-          "level": "Beginner -> Professional",
-          "id": "chocolate-and-confectionery--zurich-broc",
-          "schoolsInfo": [
-            {
-              "name": "Richemont Fachschule Luzern",
-              "url": "https://richemont.swiss/",
-              "course": "Confectionery course with Campus Week at the Richemont Craft School, Lucerne",
-              "blurb": "The Swiss bakery, pastry and confiserie competence centre in Lucerne (operating since 1945) runs professional confectionery training combining self-study with an on-site Campus Week of hands-on instruction.",
-              "confidence": "high"
-            },
-            {
-              "name": "Maison Cailler (Broc) workshops",
-              "url": "https://www.cailler.ch/en/visit-maison-cailler/cailler-experiences/book-workshop",
-              "course": "Chocolatier atelier workshop",
-              "blurb": "Cailler's chocolate factory in Broc, La Gruyère, offers chocolatier atelier workshops where small groups learn tempering, conching and ganache and make their own chocolates, though these are roughly 90-minute sessions rather than a multi-day course.",
-              "confidence": "medium"
-            }
-          ],
-          "tripTier": 1,
-          "tripType": "Taster",
-          "tripLength": "a weekend",
-          "englishTaught": true,
-          "englishBasis": "Richemont 'Swiss Artisan Excellence' confectionery/chocolate courses (with Campus Week in Lucerne) are held in English"
-        },
-        {
           "place": "Paris",
           "country": "France",
           "region": "Western Europe",
@@ -17209,7 +17155,7 @@ window.ET_ATLAS = {
             "school",
             "master"
           ],
-          "why": "The bean-to-bar capital of the bonbon — a thriving cohort of chocolatiers and a Chocolate Academy in the heart of the city.",
+          "why": "École Bellouet, founded in 1989 by Meilleurs Ouvriers de France, teaches a three-day bonbon course to working pastry chefs, in French.",
           "bestSeason": "Sep-Jun",
           "level": "Beginner -> Professional",
           "id": "chocolate-and-confectionery--paris",
@@ -17218,14 +17164,14 @@ window.ET_ATLAS = {
               "name": "Callebaut Chocolate Academy Paris",
               "url": "https://www.callebaut.com/en/callebaut-chocolate-academy/locations/france-paris",
               "course": "In-person hands-on chocolate masterclasses",
-              "blurb": "Barry Callebaut's Paris training centre runs hands-on, chef-led chocolate masterclasses for artisans and pastry professionals, from introductory to advanced levels.",
+              "blurb": "Barry Callebaut’s Chocolate Academy for France is at Meulan, about 40 km west of Paris, not in the city. Its masterclasses are for artisans and pastry professionals; when we read its page on 5 October 2026 it published no dates, only an address to ask for the schedule.",
               "confidence": "medium"
             },
             {
               "name": "École Bellouet Conseil",
               "url": "https://bellouetparis.com/en",
-              "course": "Three-day professional pastry, viennoiserie and chocolate workshops",
-              "blurb": "Founded in 1989 in Paris's 15th arrondissement by Meilleurs Ouvriers de France, this school runs three-day professional workshops in pastry, viennoiserie and chocolate, plus longer extended programs.",
+              "course": "Chocolate Bonbons – Enrobing & Moulding: three days, 24 hours, 2 to 12 people, in French",
+              "blurb": "Founded in 1989 in Paris’s 15th arrondissement by Meilleurs Ouvriers de France. Its bonbon course is three hands-on days for pastry chefs, bakers and restaurateurs with basic pastry knowledge, taught in French, at €1,580. When we read its pages on 5 October 2026 the session running that week was the last one listed.",
               "confidence": "high"
             }
           ],
@@ -17254,16 +17200,16 @@ window.ET_ATLAS = {
             "school",
             "master-lab"
           ],
-          "why": "Master chocolatier Melissa Coppel runs one of the world's most sought-after bonbon and bean-to-bar schools — small, hands-on, and built entirely around her own confectionery craft.",
+          "why": "Master chocolatier Melissa Coppel teaches in her own school: classes of at most fourteen, entirely hands-on, from ganache to moulded and enrobed bonbons.",
           "bestSeason": "Year-round",
           "level": "Intermediate -> Professional",
           "id": "chocolate-and-confectionery--las-vegas",
           "schoolsInfo": [
             {
               "name": "Melissa Coppel Chocolate & Pastry School",
-              "url": "https://school.melissacoppel.com/school-courses/",
-              "course": "2-8 day hands-on intensives — bonbons, bean-to-bar, ganache, enrobing, spraying, panning (max 14)",
-              "blurb": "Founded in 2016 by Colombian-born master chocolatier Melissa Coppel, a dedicated school whose courses (e.g. a 6-day Chocolate Bootcamp) are 100% hands-on with open public booking. A confectionery hub rather than a cacao-origin.",
+              "url": "https://school.melissacoppel.com/classes/march-2027-chocolate-bootcamp/",
+              "course": "Chocolate Bootcamp: five hands-on days with Melissa Coppel, at most 14 students",
+              "blurb": "Melissa Coppel’s own school in Las Vegas. Its Chocolate Bootcamp is five days, 9:00 to 17:00, “100% hands-on”, for at most fourteen adults: ganache formulation, moulded and enrobed bonbons on an enrober with a cooling tunnel, panning and spraying. When we read its page on 5 October 2026 the next one ran 8 to 12 March 2027, at $2,900, booked directly on the page.",
               "confidence": "high"
             }
           ],
@@ -17272,44 +17218,6 @@ window.ET_ATLAS = {
           "tripLength": "about a week",
           "englishTaught": true,
           "englishBasis": "native-English country"
-        },
-        {
-          "place": "Caracas",
-          "country": "Venezuela",
-          "region": "Americas",
-          "role": "source",
-          "communityRank": 3,
-          "communityLabel": "Strong",
-          "schools": [
-            "Cacao de Origen"
-          ],
-          "masters": [
-            "Maria Fernanda Di Giacobbe"
-          ],
-          "badges": [
-            "source",
-            "master",
-            "school",
-            "heritage",
-            "master-lab"
-          ],
-          "why": "At the source of Venezuelan criollo cacao, Maria Fernanda Di Giacobbe — winner of the inaugural Basque Culinary World Prize — runs a bean-to-bar lab built on training chocolate-makers 'from the seed.'",
-          "bestSeason": "Year-round",
-          "level": "Beginner -> Professional",
-          "id": "chocolate-and-confectionery--caracas",
-          "schoolsInfo": [
-            {
-              "name": "Cacao de Origen",
-              "url": "https://cacaodeorigenvenezuela.com/",
-              "course": "Bean-to-bar lab: tastings, weekly public talks, bonbon workshops and a 5-day cacao-to-chocolate course",
-              "blurb": "Founded 2013 by chocolatier Maria Fernanda Di Giacobbe (2016 Basque Culinary World Prize), a teaching lab at cacao origin that has trained thousands. Booking is by email/phone and Venezuela travel is a real logistical hurdle — confirm directly.",
-              "confidence": "med"
-            }
-          ],
-          "tripTier": 2,
-          "tripType": "Starter",
-          "tripLength": "about a week",
-          "englishTaught": null
         }
       ],
       "id": "chocolate-and-confectionery",
@@ -17352,6 +17260,36 @@ window.ET_ATLAS = {
             "fit": "Taster",
             "note": "A short hands-on workshop in the same town; a brief taste, not professional chocolatier training.",
             "confidence": "med"
+          }
+        ],
+        "withdrawn": true
+      },
+      "sweep": {
+        "date": "2026-10-05",
+        "regions": [
+          "Western Europe",
+          "North America",
+          "Latin America & Caribbean"
+        ],
+        "bounded": "This was a check of the places already on this page, not a worldwide search: every school was read on its own site on 5 October 2026.",
+        "rejected": [
+          {
+            "name": "Zurich / Broc, as a place on this page",
+            "place": "Switzerland",
+            "url": "https://en.wikipedia.org/wiki/Conching",
+            "why": "Listed as the birthplace of conching and milk chocolate, but those were Bern (Rodolphe Lindt’s conche, 1879) and Vevey (Daniel Peter’s milk chocolate, 1875), not Zurich or Broc. And no school here met our standard: Maison Cailler runs short visitor workshops, and the Richemont school in Lucerne listed no dated chocolate course when we read it on 5 October 2026. Taken off the map that day."
+          },
+          {
+            "name": "Caracas, as a place on this page",
+            "place": "Venezuela",
+            "url": "https://cacaodeorigenvenezuela.com/",
+            "why": "Venezuela grows fine criollo cacao, but cacao is the raw material, not the chocolatier’s craft, which was born in Europe. Cacao de Origen is a serious training project, yet when we read it on 5 October 2026 it listed no dated course a traveller could book. Taken off the map that day."
+          },
+          {
+            "name": "Cacao Barry Chocolate Academy",
+            "place": "Brussels / Wieze, Belgium",
+            "url": "https://www.cacao-barry.com/en/chocolate-academy",
+            "why": "Listed as a school at Wieze, but its page is a general one for a network of academies, not a course in this place."
           }
         ]
       }

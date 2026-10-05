@@ -9,6 +9,8 @@
   "preserve": [
     "avant-garde-and-modernist-technique--barcelona.html",
     "coffee-and-barista--yirgacheffe-addis-ababa.html",
+    "chocolate-and-confectionery--zurich-broc.html",
+    "chocolate-and-confectionery--caracas.html",
     "avant-garde-and-modernist-technique--melbourne-lilydale.html",
     "avant-garde-and-modernist-technique--puebla-mexico-city.html",
     "avant-garde-and-modernist-technique.html",
@@ -41,7 +43,8 @@
     "sailing-and-yachtmaster",
     "self-sufficiency",
     "yacht-crew-and-stcw",
-    "coffee-and-barista"
+    "coffee-and-barista",
+    "chocolate-and-confectionery"
   ],
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
   "hubCards": [
@@ -287,6 +290,921 @@
           "read": "4 October 2026"
         }
       ]
+    },
+    "chocolate-and-confectionery": {
+      "p": "Chocolate as a drink is Mesoamerica’s gift: on Mexico’s Pacific coast people were drinking it, bitter and frothy, by 1900 BC. The chocolatier’s craft came much later, and in Europe. In Vevey in 1875 Daniel Peter, helped by Henri Nestlé, brought milk chocolate to market. In Bern in 1879 Rodolphe Lindt invented the conche, which warms and stirs chocolate for days until the grit is gone. Then in Brussels in 1912 Jean Neuhaus II made the first filled chocolate bonbons, the pralines. Today the craft is most alive in Belgium, which in 2012 counted 500 chocolatiers and 2,000 chocolate shops, one for every 5,500 people, and where Antwerp hosts the 2026 World Chocolate Masters final, the first ever held outside Paris.",
+      "sources": [
+        {
+          "what": "Wikipedia, History of chocolate",
+          "url": "https://en.wikipedia.org/wiki/History_of_chocolate",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Daniel Peter",
+          "url": "https://en.wikipedia.org/wiki/Daniel_Peter",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Conching",
+          "url": "https://en.wikipedia.org/wiki/Conching",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Lindt & Sprüngli",
+          "url": "https://en.wikipedia.org/wiki/Lindt_%26_Spr%C3%BCngli",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Neuhaus (chocolatier)",
+          "url": "https://en.wikipedia.org/wiki/Neuhaus_(chocolatier)",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Focus on Belgium (Belgian Federal Public Service Foreign Affairs), 'Did you know Belgium produces over 220,000 tons of chocolate every year?' (page dated 07/01/2016)",
+          "url": "https://focusonbelgium.be/en/facts/did-you-know-belgium-produces-over-220000-tons-chocolate-every-year",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "World Chocolate Masters (official), 'The World Chocolate Masters selects Antwerp and historic Handelsbeurs for 2026 Grand Final'",
+          "url": "https://www.worldchocolatemasters.com/world-chocolate-masters-selects-antwerp-and-historic-handelsbeurs-2026-grand-final",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Paris Match Belgique, 8 Sept 2026, on the WCM 2026 final",
+          "url": "https://www.parismatch.be/lifestyle/food/2026/09/08/historique-la-grande-finale-de-la-plus-grande-competition-mondiale-de-chocolat-se-deroulera-pour-la-toute-premiere-fois-bientot-en-belgique-XZXPXYQ5LNBD3BVCBPXC7GA3LY/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "japanese-knife-making": {
+      "p": "Japan’s great knife towns grew out of tobacco and lost swords. The Portuguese brought tobacco to Japan in the mid-sixteenth century, and in the latter half of that century the smiths of Sakai began forging small knives to cut the leaf. The Tokugawa shogunate later granted their blades an official mark of quality. In the mid-Edo period the deba appeared, and many other cooks’ knives followed. Then on 28 March 1876 the Haitōrei edict banned most people from carrying swords in public, and many swordsmiths turned to kitchen cutlery to survive. Today the craft is most alive in Sakai, whose forged blades, Japan’s crafts association says, are most of the knives Japanese professional chefs use, and in Tosa, where a land survey of 1590 already counted 399 blacksmiths and the forges still work.",
+      "sources": [
+        {
+          "what": "Japan traditional crafts association (kougeihin.jp), Sakai Uchihamono",
+          "url": "https://kougeihin.jp/en/craft/0710",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Search summary of Sakai International Promotion Council and others (corroborating late-16th-century tobacco knives)",
+          "url": "https://sakai-ipc.jp/en/local_industry/blade.html",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Haitō Edict",
+          "url": "https://en.wikipedia.org/wiki/Haitōrei_Edict",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Japan traditional crafts association (kougeihin.jp), Tosa Uchihamono",
+          "url": "https://kougeihin.jp/en/craft/0713/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "thai-massage": {
+      "p": "Thai healers honour Jīvaka, remembered in Buddhist scripture as the Buddha’s physician, but that is devotion, not a documented birth. The record begins at the court of Ayutthaya, where law from the reign of King Borommatrailokkanat, 1448 to 1488, names a high-ranking Department of Massage Physicians. Then in the 1830s, as King Rama III restored Wat Pho in Bangkok, some fifty court scholars carved the temple’s medical knowledge in stone, including sixty plaques mapping the body’s pressure points. Today the craft is most alive in Bangkok. Wat Pho opened Thailand’s first ministry-approved school of Thai medicine in 1955, its pavilions are still massage classrooms, and in 2019 UNESCO inscribed Nuad Thai as heritage of humanity.",
+      "sources": [
+        {
+          "what": "Wikipedia, Thai massage (History)",
+          "url": "https://en.wikipedia.org/wiki/Thai_massage",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Wat Pho",
+          "url": "https://en.wikipedia.org/wiki/Wat_Pho",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "UNESCO Intangible Cultural Heritage, Nuad Thai",
+          "url": "https://ich.unesco.org/en/RL/nuad-thai-traditional-thai-massage-01384",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "kitesurfing": {
+      "p": "Kitesurfing was born in Brittany. On 16 November 1984 Bruno and Dominique Legaignoux, brothers from Quimper, filed a patent for an inflatable-framed propulsive wing: a kite with an air-filled leading edge that floats when it falls into the sea. In the United States Cory Roeseler was chasing the same idea, and his KiteSki went on sale in 1994. In 1996 Manu Bertin and Laird Hamilton showed the new sport off the coast of Maui, and the first competition was held there in September 1998. Today it is most alive on Brazil’s Ceará coast, where the 2025 GKA freestyle world titles were decided at Taíba, the women’s won by the Brazilian Bruna Kajiya, and where the tour’s 2026 final was set for October.",
+      "sources": [
+        {
+          "what": "French Wikipedia, Kitesurf",
+          "url": "https://fr.wikipedia.org/wiki/Kitesurf",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "IKSURFMAG, Who Invented Kitesurfing?",
+          "url": "https://www.iksurfmag.com/?p=196136",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Kiteboarding",
+          "url": "https://en.wikipedia.org/wiki/Kiteboarding",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Diário do Nordeste, GKA 2026 freestyle final at Ilha do Guajiru",
+          "url": "https://diariodonordeste.verdesmares.com.br/jogada/ilha-do-guajiru-recebe-final-do-mundial-de-kitesurf-freestyle-em-outubro-1.3790672",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "GKA Kite World Tour, 2026 season announcement",
+          "url": "https://www.gkakiteworldtour.com/kite-season-set-for-big-year-with-three-new-destinations-joining-old-favourites-over-11-events-on-four-continents",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "photography": {
+      "p": "The first photograph was made in France. Between June and July 1827, at his estate of Le Gras in Saint-Loup-de-Varennes, Nicéphore Niépce fixed the view from an upper window on a plate coated with bitumen. It is the oldest surviving photograph made with a camera. In 1829 he went into partnership with Louis Daguerre, and on 19 August 1839 Daguerre’s process was presented to the academies in Paris and given by the French state free to the world, except in Britain, where Daguerre had patented it. In England that same year Henry Fox Talbot showed his paper photographs, and in 1841 his calotype brought the negative from which many prints can be made. Today the craft is most alive in Arles, whose Rencontres, founded in 1970, drew a record 175,000 visitors in 2025.",
+      "sources": [
+        {
+          "what": "Wikipedia, View from the Window at Le Gras",
+          "url": "https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Nicéphore Niépce",
+          "url": "https://en.wikipedia.org/wiki/Nicéphore_Niépce",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Daguerreotype",
+          "url": "https://en.wikipedia.org/wiki/Daguerreotype",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Henry Fox Talbot",
+          "url": "https://en.wikipedia.org/wiki/Henry_Fox_Talbot",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Rencontres d'Arles",
+          "url": "https://en.wikipedia.org/wiki/Rencontres_d%27Arles",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "L'Œil de la Photographie, Arles 2025: Disobedient Images",
+          "url": "https://loeildelaphotographie.com/en/arles-2025-disobedient-images/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Phototrend on the Rencontres d’Arles (175,000 visitors in 2025)",
+          "url": "https://phototrend.fr/2026/06/rencontres-arles-2026/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "modernist-spanish-cuisine": {
+      "p": "This cuisine’s most famous kitchen stood in a cove. ElBulli stood above Cala Montjoi, near Roses on the Costa Brava. Ferran Adrià joined its kitchen in 1984 and took full charge in 1987, and from there came the foams and the spherification it made famous. Restaurant magazine’s list named it the best restaurant in the world five times, in 2002 and every year from 2006 to 2009. It served its last meals in 2011, closing on 30 July, and became a foundation for creative cooking. Its cooks carried the work on. Today the craft is most alive in Barcelona, where three of them, Oriol Castro, Eduard Xatruch and Mateu Casañas, opened Disfrutar in December 2014; in 2024 it was named the world’s best restaurant.",
+      "sources": [
+        {
+          "what": "Wikipedia, El Bulli",
+          "url": "https://en.wikipedia.org/wiki/El_Bulli",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Disfrutar",
+          "url": "https://en.wikipedia.org/wiki/Disfrutar",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Restaurant Online (William Reed, publisher of the 50 Best), 6 June 2024",
+          "url": "https://www.restaurantonline.co.uk/Article/2024/06/06/Barcelona-s-Disfrutar-named-The-World-s-Best-Restaurant",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "yacht-crew-and-stcw": {
+      "p": "This trade has no single birthplace, but its rulebook has a birthday. On 7 July 1978 governments meeting at what is now the International Maritime Organization adopted the STCW Convention, the first to set basic requirements for the training, certification and watchkeeping of seafarers on an international level. It came into force on 28 April 1984, was overhauled in 1995 and brought up to date at Manila in 2010. Its basic training has four parts: personal survival techniques, fire prevention and firefighting, elementary first aid, and personal safety and social responsibilities. Today one of the trade’s busiest hubs is Antibes, home of the Professional Yachting Association, run by yachting professionals since 1991, which gave its membership as 11,518 at the start of 2026.",
+      "sources": [
+        {
+          "what": "IMO, International Convention on Standards of Training, Certification and Watchkeeping for Seafarers (STCW)",
+          "url": "https://www.imo.org/en/ourwork/humanelement/pages/stcw-conv-link.aspx",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "US Code of Federal Regulations, 46 CFR 11.302 (basic training under STCW)",
+          "url": "https://www.law.cornell.edu/cfr/text/46/11.302",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Professional Yachting Association, home page",
+          "url": "https://www.pya.org/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "self-sufficiency": {
+      "p": "Keeping food through the winter is older than any book, but the craft of sealing it safely has a birthplace. Nicolas Appert began experimenting in 1795, and in 1804 his works at Massy, near Paris, became the world’s first food-bottling factory. In 1810 the French state paid him 12,000 francs and he published The Art of Preserving Animal and Vegetable Substances. The modern case for growing all of it yourself was made from a smallholding near Orford in Suffolk, where John Seymour wrote The Fat of the Land in 1961, then The Complete Book of Self-Sufficiency in 1976. Today it is lived daily at Sunseed, in the village of Los Molinos in Almería: a solar-powered, food-growing project that turns forty in 2026.",
+      "sources": [
+        {
+          "what": "Wikipedia, Nicolas Appert",
+          "url": "https://en.wikipedia.org/wiki/Nicolas_Appert",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, John Seymour (author)",
+          "url": "https://en.wikipedia.org/wiki/John_Seymour_(author)",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Sunseed Desert Technology, home page",
+          "url": "https://www.sunseed.org.uk/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "cold-exposure-wim-hof-method": {
+      "p": "This craft is young, and it has one author. Wim Hof was born in Sittard, in the Netherlands, in 1959; at seventeen he felt a sudden urge to jump into the freezing water of a park canal, and his routine of breathing and ice grew from there. In 2014 doctors at Radboud University Medical Center in Nijmegen published a trial: twelve volunteers trained for ten days in his breathing, meditation and ice-water immersion produced far more adrenaline and had fewer flu-like symptoms after a dose of bacterial toxin. The breathing is never done in water, because practitioners have drowned. The method is most alive in Przesieka, in Poland’s Karkonosze mountains, at the guesthouse where, the Wim Hof Method says, all its teacher trainings have been held.",
+      "sources": [
+        {
+          "what": "Wikipedia, Wim Hof",
+          "url": "https://en.wikipedia.org/wiki/Wim_Hof",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Kox et al., PNAS 2014, abstract via Europe PMC (PMID 24799686)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/24799686/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wim Hof Method official activities page, Travel Przesieka",
+          "url": "https://activities.wimhofmethod.com/activities/travel-przesieka-lulu-berton/72594",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wim Hof Method, Travels & Expeditions",
+          "url": "https://wimhofmethod.com/travels-expeditions",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "windsurfing-and-wing-foil": {
+      "p": "The sailboard has two American beginnings. In 1964 Newman Darby of Pennsylvania built a rudderless board with a pivoting sail. The version that spread came from Santa Monica, California, where Jim Drake and Hoyle Schweitzer founded Windsurfing International in 1968 and were granted a joint patent for the rig in 1970; by 1984 it was an Olympic sport. The wing is newer. Tony Logosz of Slingshot tested his first wing prototypes in the Columbia Gorge in 2011, Flash Austin tried handheld wings on foils in Maui in 2018, and by 2019 they were on sale. Maui is where windsurfing is most alive today, and where the wing was first tried on a foil. At Ho’okipa the Aloha Classic closes the world wave tour each autumn; in 2025, its 41st edition, Marc Paré left as world champion for the first time.",
+      "sources": [
+        {
+          "what": "Wikipedia, Windsurfing",
+          "url": "https://en.wikipedia.org/wiki/Windsurfing",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Wingfoiling",
+          "url": "https://en.wikipedia.org/wiki/Wingfoiling",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "surf-magazin.de, Aloha Classic 2025 report",
+          "url": "https://www.surf-magazin.de/en/windsurfing/scene-and-events/pwa-wwt-world-tour-marc-pare-and-sarah-quita-offringa-are-world-champions-aloha-champions-make-history/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "jewelry-and-goldsmithing": {
+      "p": "People were hammering gold into ornaments long before anyone wrote. Near Varna, on Bulgaria’s Black Sea coast, a cemetery dated to about 4500 BC held some three thousand gold objects, the oldest gold jewellery yet found. Renaissance Florence made the goldsmith’s bench a school for artists: Filippo Brunelleschi was apprenticed as a goldsmith at fifteen and became a master in 1398. In 1593 Grand Duke Ferdinando I cleared the butchers and fishmongers off the Ponte Vecchio and forbade any trade on it but precious metals. Florence is where that bench is still most visibly alive: the bridge is home only to small jewellers, and through some workshop windows you can still watch goldsmiths making pieces by hand.",
+      "sources": [
+        {
+          "what": "Wikipedia, Varna Necropolis",
+          "url": "https://en.wikipedia.org/wiki/Varna_Necropolis",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Filippo Brunelleschi",
+          "url": "https://en.wikipedia.org/wiki/Filippo_Brunelleschi",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Italia.it (Italian national tourism board), Florentine jewellery on the Ponte Vecchio",
+          "url": "https://www.italia.it/en/tuscany/florence/things-to-do/florentine-jewerly-in-ponte-vecchio",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "sushi-and-washoku": {
+      "p": "Sushi began as a way to keep fish, not to serve it: fish packed in rice to preserve it, first in Southeast Asia, possibly in the Mekong basin, long before it reached Japan. The craft a sushi chef practises was born in Edo, today’s Tokyo. Hanaya Yohei is believed to have invented nigiri, the hand-pressed form, around 1824, and edomae, fish from Edo Bay, is still a by-word for sushi done properly. In 2013 UNESCO inscribed washoku, the wider Japanese food culture, on its list of intangible heritage. Tokyo is where the craft is most alive today. In October 2018 the city moved its fish trade from Tsukiji to Toyosu, which opened as the largest wholesale fish market in the world.",
+      "sources": [
+        {
+          "what": "Wikipedia, Sushi",
+          "url": "https://en.wikipedia.org/wiki/Sushi",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "UNESCO Intangible Cultural Heritage, Washoku",
+          "url": "https://ich.unesco.org/en/RL/washoku-traditional-dietary-cultures-of-the-japanese-notably-for-the-celebration-of-new-year-00869",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Toyosu Market",
+          "url": "https://en.wikipedia.org/wiki/Toyosu_Market",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "organic-farm-to-table-cooking": {
+      "p": "Cooking from the field outside the door took shape as a deliberate craft in two kitchens. In 1964 Myrtle Allen opened a restaurant in the dining room of Ballymaloe House in East Cork, changing her menu every day with what was in season. In 1971 Alice Waters opened Chez Panisse in Berkeley, California, building direct ties with local growers, and it became one of the places the farm-to-table movement started. Ballymaloe is where the craft is still most alive as a school. Darina Allen and her brother Rory O’Connell started the Ballymaloe Cookery School in 1983 at Kinoith, about four kilometres from the house, and it still teaches inside its own 100-acre organic farm.",
+      "sources": [
+        {
+          "what": "Wikipedia, Myrtle Allen",
+          "url": "https://en.wikipedia.org/wiki/Myrtle_Allen",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Chez Panisse",
+          "url": "https://en.wikipedia.org/wiki/Chez_Panisse",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Ballymaloe Cookery School",
+          "url": "https://en.wikipedia.org/wiki/Ballymaloe_Cookery_School",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Ballymaloe Cookery School, home page",
+          "url": "https://www.ballymaloecookeryschool.ie/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "hatha-and-vinyasa-yoga": {
+      "p": "Haṭha yoga was written down long before it reached a studio. Its earliest substantial text, the Amṛtasiddhi, dates from around the eleventh century, and in the fifteenth Svātmārāma gathered the older teachings into the Haṭha Yoga Pradīpikā. The flow came later, and in Mysore. Engaged by Maharaja Krishna Raja Wadiyar IV in 1926, Tirumalai Krishnamacharya opened a yoga school in the Jaganmohan Palace in 1933 and is widely credited with joining breath to movement; two of his students, K. Pattabhi Jois and B. K. S. Iyengar, went on to found Ashtanga vinyasa yoga and Iyengar Yoga. Today the practice is most alive in Rishikesh, where Parmarth Niketan, on the bank of the Ganges, expected nearly 1,200 people from nearly 80 nations at its International Yoga Festival in March 2026.",
+      "sources": [
+        {
+          "what": "Wikipedia, Hatha yoga",
+          "url": "https://en.wikipedia.org/wiki/Hatha_yoga",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Tirumalai Krishnamacharya",
+          "url": "https://en.wikipedia.org/wiki/Tirumalai_Krishnamacharya",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "International Yoga Festival (Parmarth Niketan), 2026 announcement",
+          "url": "https://internationalyogafestival.org/international-yoga-festival-iyf-at-parmarth-niketan-rishikesh-all-set-to-welcome-nearly-1200-participants-and-more-than-25-ambassadors-yoga-lovers-from-nearly-80-nations/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Parmarth Niketan",
+          "url": "https://en.wikipedia.org/wiki/Parmarth_Niketan",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "freediving": {
+      "p": "Long before it was a sport, sponge divers rode a stone weight, the skandalopetra, as deep as thirty metres on one breath. The sport of going deep was born in Italy. In 1949, off Capri, Raimondo Bucher descended to 29 metres before a commission, and in 1950, answering a challenge from the Neapolitan Underwater Club, he reached 30 metres, the first official freediving world record. Enzo Maiorca of Syracuse reached 50 metres in 1961, and his rivalry with Jacques Mayol inspired the film The Big Blue. Today the sport’s deepest divers still gather each July at Dean’s Blue Hole in the Bahamas, 202 metres deep, for William Trubridge’s Vertical Blue, where in 2025 Alenka Artnik equalled the deepest dive ever made by a woman, 123 metres on a monofin.",
+      "sources": [
+        {
+          "what": "Wikipedia, Freediving (history)",
+          "url": "https://en.wikipedia.org/wiki/Freediving",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Raimondo Bucher",
+          "url": "https://en.wikipedia.org/wiki/Raimondo_Bucher",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Enzo Maiorca",
+          "url": "https://en.wikipedia.org/wiki/Enzo_Maiorca",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Dean's Blue Hole",
+          "url": "https://en.wikipedia.org/wiki/Dean%27s_Blue_Hole",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Vertical Blue",
+          "url": "https://en.wikipedia.org/wiki/Vertical_Blue",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "DIVERNET, 'Freedivers Jerald & Artnik worldbeaters in Bahamas'",
+          "url": "https://divernet.com/scuba-news/freediving/freedivers-jerald-artnik-worldbeaters-in-bahamas/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "rock-climbing": {
+      "p": "Rock climbing as a sport was born in Europe in the second half of the nineteenth century. In 1864 gymnasts from Bad Schandau climbed the Falkenstein in Saxon Switzerland, and in June 1886 Walter Parry Haskett Smith climbed Napes Needle in the Lake District, the ascent widely taken as the start of the sport in Britain. The big-wall craft grew up later, in Yosemite. Warren Harding’s team finished the Nose of El Capitan in 1958, after some 47 days of climbing spread over two seasons, and Lynn Hill climbed it free in 1993. That granite is still where the limits move. In January 2015 Tommy Caldwell and Kevin Jorgeson freed the Dawn Wall after 19 days, and on 3 June 2017 Alex Honnold climbed Freerider alone and without a rope, in 3 hours and 56 minutes.",
+      "sources": [
+        {
+          "what": "Wikipedia, History of rock climbing",
+          "url": "https://en.wikipedia.org/wiki/History_of_rock_climbing",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Napes Needle",
+          "url": "https://en.wikipedia.org/wiki/Napes_Needle",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, El Capitan",
+          "url": "https://en.wikipedia.org/wiki/El_Capitan",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Dawn Wall",
+          "url": "https://en.wikipedia.org/wiki/Dawn_Wall",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Free solo climbing",
+          "url": "https://en.wikipedia.org/wiki/Free_solo_climbing",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "perfumery": {
+      "p": "One of the oldest perfumers known by name is a woman. Around 1200 BC a cuneiform tablet from Assur records Tapputi, head of the palace perfumers, distilling flowers, myrrh and balsam with oil and water. The perfumer’s craft as Europe knows it grew up in Grasse, in Provence, a town of tanners. Since at least the sixteenth century its people have grown and processed perfume plants and composed fragrant blends, and in 1614 the king recognised its new guild of glovers-perfumers. It is still most alive there. In 2018 UNESCO inscribed the perfume skills of the Pays de Grasse, from the field to the art of composition, and about sixty companies in and around the town employ 3,500 people.",
+      "sources": [
+        {
+          "what": "Wikipedia, Tapputi",
+          "url": "https://en.wikipedia.org/wiki/Tapputi",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "UNESCO Intangible Cultural Heritage, skills related to perfume in Pays de Grasse",
+          "url": "https://ich.unesco.org/en/RL/the-skills-related-to-perfume-in-pays-de-grasse-the-cultivation-of-perfume-plants-the-knowledge-and-processing-of-natural-raw-materials-and-the-art-of-perfume-composition-01207",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Grasse",
+          "url": "https://en.wikipedia.org/wiki/Grasse",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "wine-and-sommellerie": {
+      "p": "The word is French. In Middle French a sommelier was the court official in charge of moving supplies, and the name probably goes back to the driver of a pack animal. The examined craft, naming a wine by its taste and proving it before examiners, was born in Britain: the first Master of Wine examinations were held in 1953, and the first Master Sommelier examination followed in 1969. London is still where its examiners are based. The Institute of Masters of Wine works from there, and since that first exam only some five hundred people have earned the title. In Bermondsey, the Wine & Spirit Education Trust, founded in 1969, saw 134,000 candidates take its qualifications in 2023/24.",
+      "sources": [
+        {
+          "what": "Wikipedia, Sommelier",
+          "url": "https://en.wikipedia.org/wiki/Sommelier",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Institute of Masters of Wine",
+          "url": "https://en.wikipedia.org/wiki/Institute_of_Masters_of_Wine",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Court of Master Sommeliers",
+          "url": "https://en.wikipedia.org/wiki/Court_of_Master_Sommeliers",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Institute of Masters of Wine, About us",
+          "url": "https://www.mastersofwine.org/about-us/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "WSET news, 'Rise in number of Diploma students as WSET celebrates 55th anniversary' (2024)",
+          "url": "https://www.wsetglobal.com/news-events/news/2024/rise-in-number-of-diploma-students-as-wset-celebrates-55th-anniversary",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "wildlife-photography": {
+      "p": "Among the first to make a craft of wildlife photography were two farmers’ sons from Thwaite, in Yorkshire’s Swaledale. In 1892 Cherry Kearton made the first photograph ever taken of a bird’s nest with eggs, and with his brother Richard he learned that the camera had to disappear: they worked from inside a hollow ox in 1900 and a stuffed sheep in 1901. The hide is still the heart of the craft, and its modern form was born at the edge of Pusztaszer, in Hungary, by the wetlands. There, in the spring of 2005, Bence Máté began photographing from behind one-way glass, so shy animals are not disturbed. He is the only photographer to have won the Wildlife Photographer of the Year grand prize as both a young and an adult entrant.",
+      "sources": [
+        {
+          "what": "Wikipedia, Richard Kearton (covers both brothers)",
+          "url": "https://en.wikipedia.org/wiki/Richard_Kearton",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Bence Máté",
+          "url": "https://en.wikipedia.org/wiki/Bence_M%C3%A1t%C3%A9",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "ashtanga-yoga": {
+      "p": "Ashtanga yoga was born in Mysore, in southern India. On 11 August 1933 Tirumalai Krishnamacharya opened a yoga school in a wing of the city’s Jaganmohan Palace, and among his students was K. Pattabhi Jois, who had first met him at twelve. Krishnamacharya said the sequences came from an old text, the Yoga Korunta, later eaten by ants; that is legend, and Jois’s own son said Krishnamacharya created them. Jois opened his institute in Mysore in 1948. After the Belgian André Van Lysebeth trained with him in 1964 and printed his address in a book, Westerners began to come, and they still do. For the 2026 season at Sharath Yoga Centre, the family’s shala on the edge of Mysore, demand was such that places were allotted at random.",
+      "sources": [
+        {
+          "what": "Wikipedia, Tirumalai Krishnamacharya",
+          "url": "https://en.wikipedia.org/wiki/Tirumalai_Krishnamacharya",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, K. Pattabhi Jois",
+          "url": "https://en.wikipedia.org/wiki/K._Pattabhi_Jois",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Ashtanga vinyasa yoga",
+          "url": "https://en.wikipedia.org/wiki/Ashtanga_vinyasa_yoga",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Sharath Yoga Centre, Mysore (official site)",
+          "url": "https://sharathyogacentre.com/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, R. Sharath Jois",
+          "url": "https://en.wikipedia.org/wiki/R._Sharath_Jois",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "spearfishing": {
+      "p": "People have speared fish since the Palaeolithic, but the sport of hunting on one breath took off in the 1920s on the Mediterranean coast of France and Italy, by swimmers wearing only watertight goggles. It helped bring in the modern diving mask, fins and snorkel; the Frenchman Louis de Corlieu, who had shown a first prototype to naval officers in 1914, patented his swimfins in April 1933. In Antibes, the American writer Guy Gilpatric hunted the same water and in 1938 published The Compleat Goggler, held to be the first full guide to the sport; he drew Jacques-Yves Cousteau and Hans Hass into it. Today the craft is most alive where its champions come from: at the 2025 World Championship in Brazil, Tahiti’s Dell Lamartinière and Taina Orth won both individual titles, and Spain took the men’s team gold.",
+      "sources": [
+        {
+          "what": "Wikipedia, Spearfishing",
+          "url": "https://en.wikipedia.org/wiki/Spearfishing",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Swimfin",
+          "url": "https://en.wikipedia.org/wiki/Swimfin",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Guy Gilpatric",
+          "url": "https://en.wikipedia.org/wiki/Guy_Gilpatric",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Apnea Passion magazine, 2025 World Championship report",
+          "url": "https://apneapassion.com/news-and-advices/competitions-and-events/tahiti-x-3-world-spearfishing-champion-and-spain/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "CMAS, 2025 World Championship event page and results archive",
+          "url": "https://www.cmas.org/spearfishing/results.html",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "ski-touring-and-splitboard": {
+      "p": "The oldest skis yet found, in northern Russia, are some eight thousand years old, and in 1555 Olaus Magnus described the skis of the Sámi, one of them lined with animal skin for grip. Touring as a mountain craft grew up later, in the Alps. In 1911 skiers first completed the Haute Route, the high-hut route between Chamonix and Zermatt. The splitboard that caught on came from Utah: in 1991 Brett Kobernik took a crude prototype to Voilé, a Salt Lake City ski maker, and in 1994 they began selling it. The Alps are still where the craft is most alive: in February 2026 ski mountaineering, touring’s racing form, made its Olympic debut at Bormio, in Italy.",
+      "sources": [
+        {
+          "what": "Wikipedia, History of skiing",
+          "url": "https://en.wikipedia.org/wiki/History_of_skiing",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Haute Route",
+          "url": "https://en.wikipedia.org/wiki/Haute_Route",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Splitboard",
+          "url": "https://en.wikipedia.org/wiki/Splitboard",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Alf Engen Ski Museum, 'Split Decision: Birth of the Splitboard'",
+          "url": "https://snowsportsmuseum.org/split-decision-birth-of-the-splitboard/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "SLUG Magazine, Voilé and the Splitboard",
+          "url": "https://www.slugmag.com/?p=6346",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Ski mountaineering at the 2026 Winter Olympics",
+          "url": "https://en.wikipedia.org/wiki/Ski_mountaineering_at_the_2026_Winter_Olympics",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Ski mountaineering",
+          "url": "https://en.wikipedia.org/wiki/Ski_mountaineering",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "french-pastry-and-patisserie": {
+      "p": "French pâtisserie as an exacting trade took its shape in Paris. In 1798 Marie-Antoine Carême, a Parisian boy, began his apprenticeship at Sylvain Bailly’s pâtisserie on the rue Vivienne. He built sugar centrepieces modelled on temples and pyramids, built croquembouches and refined the vol-au-vent, and in 1815 published Le Pâtissier royal parisien. In France the maître pâtissier is still a title earned through apprenticeship and a written exam. Today the craft is most alive in Japan as much as in France. At the World Pastry Cup, held every two years in Lyon since 1989, France has won eight golds, but Japan won in 2023 and again in 2025, when Masanori Hata, Yuji Matoba and Ryu Miyazaki beat France into second.",
+      "sources": [
+        {
+          "what": "Wikipedia, Marie-Antoine Carême",
+          "url": "https://en.wikipedia.org/wiki/Marie-Antoine_Car%C3%AAme",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Pâtisserie",
+          "url": "https://en.wikipedia.org/wiki/P%C3%A2tisserie",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Coupe du Monde de la Pâtisserie",
+          "url": "https://en.wikipedia.org/wiki/Coupe_du_Monde_de_la_P%C3%A2tisserie",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "modern-new-technique-cuisine": {
+      "p": "Count Rumford described cooking at low heat in 1799, but the modern kitchen toolkit came into the restaurant in France and Catalonia. In 1974, at the Troisgros restaurant in Roanne, the chef Georges Pralus cooked foie gras under vacuum and found it kept its shape, its fat and a better texture: sous-vide had reached the restaurant kitchen. In 1988 the physicist Nicholas Kurti and the chemist Hervé This named the science behind such work ‘molecular and physical gastronomy’. Then on the Costa Brava, Ferran and Albert Adrià’s team at elBulli brought alginate spheres into the restaurant, and their Texturas line sold gums such as xanthan to chefs. Today the craft is most alive in Catalonia. In Barcelona, Disfrutar, opened in 2014 by three chefs who met at elBulli, was named the best restaurant in the world in 2024.",
+      "sources": [
+        {
+          "what": "Wikipedia, Sous vide",
+          "url": "https://en.wikipedia.org/wiki/Sous_vide",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Molecular gastronomy",
+          "url": "https://en.wikipedia.org/wiki/Molecular_gastronomy",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Spherification",
+          "url": "https://en.wikipedia.org/wiki/Spherification",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, El Bulli",
+          "url": "https://en.wikipedia.org/wiki/El_Bulli",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Disfrutar",
+          "url": "https://en.wikipedia.org/wiki/Disfrutar",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "vipassana-and-meditation": {
+      "p": "The word comes from the Pali texts of early Buddhism, where a meditator is told to sit beneath a tree and simply watch the breath. But the ten-day course taught today was shaped in Burma. There, meditation practice was revived in the 1700s by the monk Medawi, and Ledi Sayadaw (1846–1923) opened it to lay people as well as monks. The lay teacher Sayagyi U Ba Khin trained S. N. Goenka for fourteen years, and in 1969 Goenka began teaching in India. Today the craft is most alive at Dhamma Giri in Igatpuri, which held its first ten-day course in October 1976 and now seats around 600 students in each one, at the head of a tradition now taught at hundreds of centres around the world.",
+      "sources": [
+        {
+          "what": "Wikipedia, Vipassanā",
+          "url": "https://en.wikipedia.org/wiki/Vipassan%C4%81",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Ledi Sayadaw",
+          "url": "https://en.wikipedia.org/wiki/Ledi_Sayadaw",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Vipassana movement",
+          "url": "https://en.wikipedia.org/wiki/Vipassana_movement",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, S. N. Goenka",
+          "url": "https://en.wikipedia.org/wiki/S._N._Goenka",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Vipassana Research Institute / dhamma.org, About Goenka",
+          "url": "https://www.dhamma.org/en/about/goenka",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Dhamma Giri official site (Vipassana International Academy), 'Dhamma Giri Today'",
+          "url": "https://giri.vridhamma.org/node/7",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "sailing-and-yachtmaster": {
+      "p": "The word yacht is Dutch: a jacht was a light, fast sailing vessel of the Dutch Republic. When Charles II was restored to the English throne in 1660 he was given one, and the first recorded yacht race followed in 1661. The skipper’s ticket came later. In 1938, at the Admiralty’s request, Britain’s Board of Trade began examining Yachtmasters, and in 1973 the Royal Yachting Association issued its first certificate. Today the craft is most alive on the Solent. The RYA has run the scheme from Hamble since 2003, and Cowes Week, first raced in 1826, still puts some 450 boats on the start line. By its fiftieth year, 336 centres in 37 countries taught it, and just over half of those examined each year were not British.",
+      "sources": [
+        {
+          "what": "Wikipedia, Yacht",
+          "url": "https://en.wikipedia.org/wiki/Yacht",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Yachting Monthly, 'The history of the RYA Yachtmaster scheme as it turns 50'",
+          "url": "https://www.yachtingmonthly.com/specials/the-history-of-the-rya-yachtmaster-scheme-as-it-turns-50-96360",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Royal Yachting Association",
+          "url": "https://en.wikipedia.org/wiki/Royal_Yachting_Association",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "World Sailing news, 'RYA Announce Historic Move' (20 Dec 2002)",
+          "url": "https://www.sailing.org/2002/12/20/rya-announce-historic-move/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Cowes Week",
+          "url": "https://en.wikipedia.org/wiki/Cowes_Week",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "safari-and-wildlife-guiding": {
+      "p": "Guiding people on foot through wild country, to watch animals rather than shoot them, has one of its first grounds in South Africa. By 1958 half of South Africa’s iMfolozi Game Reserve was proclaimed a wilderness area, among the first official wilderness areas in Africa. In 1959 Ian Player and the game tracker Magqubu Ntombela led the first official Natal Parks Board trail into it, and the trails they began are still walked today. Today the craft is most alive in South Africa, where the Field Guides Association of Southern Africa, founded in 1990 and based in Hoedspruit, sets the standards guides train and are assessed against. In 2024 it helped found a sister association for East Africa, built on those same standards.",
+      "sources": [
+        {
+          "what": "Wilderness Leadership School (founded by Ian Player), About",
+          "url": "https://www.wildernesstrails.org.za/about",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Ian Player",
+          "url": "https://en.wikipedia.org/wiki/Ian_Player",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "FGASA, 'FGASA turns 35: a legacy of guiding excellence'",
+          "url": "https://www.fgasa.co.za/fgasa-turns-35-a-legacy-of-guiding-excellence",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "FGASA press release, 4 September 2024, Field Guides Association of East Africa",
+          "url": "https://fgasa.co.za/wp-content/uploads/2024/09/FGASA-announces-its-partnership-and-establishment-of-the-Field-Guides-Association-of-East-Africa-FGAEA_Revised.pdf",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "italian-cuisine-and-pasta": {
+      "p": "Nobody can name the first plate of pasta, and the old story that Marco Polo brought it from China is a myth. One of the earliest firm records on Italian soil comes from 1154, when the geographer al-Idrisi described buildings at Trabia, in Sicily, making vast quantities of itriyya, strands of dough dried before cooking and shipped everywhere. One Italian table came later. In 1891 Pellegrino Artusi of Forlimpopoli, unable to find a publisher, paid to print his own book of recipes gathered from across the regions. Today Bologna guards the craft most closely: its Chamber of Commerce has kept a gold sample of the cooked tagliatella, eight millimetres wide, since 1972, and in a country whose cooking UNESCO added to the intangible heritage of humanity in 2025.",
+      "sources": [
+        {
+          "what": "Wikipedia, Pasta (History section, citing Dickie, Delizia!, and Serventi & Sabban)",
+          "url": "https://en.wikipedia.org/wiki/Pasta",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Pellegrino Artusi",
+          "url": "https://en.wikipedia.org/wiki/Pellegrino_Artusi",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Camera di Commercio di Bologna, press review 17 Feb 2023 ('Sua maestà la tagliatella')",
+          "url": "https://www.bo.camcom.gov.it/sites/default/files/comunicazione/comunicati/2023/CameradiCommercioBologna17022023.pdf",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Tagliatelle",
+          "url": "https://en.wikipedia.org/wiki/Tagliatelle",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "UNESCO Intangible Cultural Heritage, 'Italian cooking, between sustainability and biocultural diversity'",
+          "url": "https://ich.unesco.org/en/USL/italian-cooking-between-sustainability-and-biocultural-diversity-02093",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "lymphatic-drainage": {
+      "p": "Manual lymphatic drainage has two named inventors. In the early 1930s the Danish doctors Emil and Estrid Vodder were working on the French Riviera with patients who had chronic colds and enlarged lymph nodes. In 1932 they began to study the lymph system and to develop gentle hand techniques to move lymph, and in 1936 they showed the method in Paris. It took deep root in the German-speaking world. In Walchsee, in the Tyrol, Günther and Hildegard Wittlinger worked with Emil Vodder to bring it to Austria more than fifty years ago, and their academy and clinic still teach and treat there. Across the border, Germany’s statutory health insurance pays for it, and since October 2024 a doctor treating staged lymphoedema can leave the physiotherapist to set the length of each session.",
+      "sources": [
+        {
+          "what": "Wikipedia, Manual lymphatic drainage",
+          "url": "https://en.wikipedia.org/wiki/Manual_lymphatic_drainage",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Emil Vodder",
+          "url": "https://en.wikipedia.org/wiki/Emil_Vodder",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Dr. Vodder Akademie, Walchsee (official site)",
+          "url": "http://www.vodderakademie.com/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Kassenärztliche Bundesvereinigung (KBV), Praxisnachrichten 26 Sept 2024",
+          "url": "https://www.kbv.de/praxis/tools-und-services/praxisnachrichten/2024/09-26/Praxen%20k%C3%B6nnen%20manuelle%20Lymphdrainage%20ohne%20Zeitvorgabe%20verordnen",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "G-BA, Heilmittel-Richtlinie amendment on Manuelle Lymphdrainage (18 April 2024)",
+          "url": "https://www.g-ba.de/downloads/39-261-6560/2024-04-18_HeilM-RL_Manuelle-Lymphdrainage-weitere-Aenderungen.pdf",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "sound-healing": {
+      "p": "Sound as a path inward is old. The Nadabindu Upanishad, a Sanskrit yoga text some scholars date to around the start of the Common Era, tells the yogi to listen for an inner sound, first like the ocean or thunder, then finer, to a single note. The singing bowl is younger than its story. Scholars find no credible record of Tibetans playing bowls this way; the first written mention is a 1972 album, Tibetan Bells, by the American musicians Henry Wolff and Nancy Hennings. Sound healing as a profession grew up in the West after that. The British Academy of Sound Therapy, which says it was Britain’s first, opened in 2000, and the Globe Institute in Sausalito, California, calls itself the only state-approved college of sound healing in the United States.",
+      "sources": [
+        {
+          "what": "Wikipedia, Nadabindu Upanishad (citing Flood, Beck, Feuerstein)",
+          "url": "https://en.wikipedia.org/wiki/Nadabindu_Upanishad",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Nada yoga",
+          "url": "https://en.wikipedia.org/wiki/Nada_yoga",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Tricycle magazine, Samuel M. Grimes, 'Tibetan Singing Bowls', 4 March 2020",
+          "url": "https://tricycle.org/article/tibetan-singing-bowls/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Stephen Jones (ethnomusicologist) blog, 'Unpacking Tibetan singing bowls', 29 April 2020",
+          "url": "https://stephenjones.blog/2020/04/29/tibetan-singing-bowls/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "British Academy of Sound Therapy, About us (own page)",
+          "url": "https://www.britishacademyofsoundtherapy.com/about-us/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Globe Institute / Sound Healing Center, home page (own page)",
+          "url": "https://www.soundhealingcenter.com/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "surfing": {
+      "p": "Surfing was born among the Polynesians, and in Hawaii it ran deep through life, faith and rank. Hawaiians called it heʻe nalu, wave sliding. The first European account comes from Captain Cook’s 1769 voyage, when Joseph Banks watched Tahitians ride the surf on the stern of an old canoe. In the summer of 1914–15 the Hawaiian Olympic swimming champion Duke Kahanamoku rode a board at Freshwater and Manly in Sydney, and the craft took root on another continent. Today Hawaii still crowns the season: the World Surf League’s Championship Tour ends each December with the Pipe Masters on Oahu’s North Shore. In Europe the tour stops at Supertubos in Peniche, Portugal, and Ericeira, just down the coast, became Europe’s first World Surfing Reserve in 2011.",
+      "sources": [
+        {
+          "what": "Wikipedia, History of surfing",
+          "url": "https://en.wikipedia.org/wiki/History_of_surfing",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "World Surf League, 2026 Championship Tour schedule",
+          "url": "https://www.worldsurfleague.com/events/2026/ct?all=1",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Save The Waves Coalition, Ericeira World Surfing Reserve",
+          "url": "https://www.savethewaves.org/ericeira/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "pottery-and-ceramics": {
+      "p": "The oldest pots anyone has found come from Xianrendong Cave in Jiangxi, southern China. Hunter-gatherers fired them about 20,000 years ago and cooked in them, perhaps boiling clams and snails, some ten thousand years before farming reached the region. The wheel came far later; many scholars credit the Sumerians of Mesopotamia, and a stone potter’s wheel from Ur is dated to about 3129 BC. The same province is where the craft is most alive today. Jingdezhen made porcelain from the Song dynasty to the Qing, and its imperial kilns served the court. In July 2026 its handicraft porcelain sites became the first World Heritage site themed on porcelain, and the city counts more than 60,000 jingpiao, makers who moved there, thousands of them from more than 60 countries.",
+      "sources": [
+        {
+          "what": "Sci.News on Wu et al., 'Early Pottery at 20,000 Years Ago in Xianrendong Cave, China', Science 2012",
+          "url": "https://www.sci.news/archaeology/article00448.html",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Potter's wheel",
+          "url": "https://en.wikipedia.org/wiki/Potter%27s_wheel",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wikipedia, Jingdezhen",
+          "url": "https://en.wikipedia.org/wiki/Jingdezhen",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Henan provincial government (English), report on UNESCO inscription, 25 July 2026",
+          "url": "https://english.henan.gov.cn/2026/07-25/3379103.html",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "China Daily / chinaservicesinfo, 'China's porcelain hub is a global kiln', 13 August 2026",
+          "url": "https://ich.chinaservicesinfo.com/s/202608/13/WS6a7d2a9b498e23165e071e43/chinas-porcelain-hub-is-a-global-kiln.html",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "new-basque-cuisine": {
+      "p": "Basque cooks have always worked from the market and the grill, but the new Basque kitchen has a birth year. In 1976 a young Juan Mari Arzak sat at a gastronomy round table in Madrid, where Paul Bocuse said the key was market cooking. Two months later Arzak and Pedro Subijana were in Bocuse’s kitchen in Lyon, learning nouvelle cuisine at the stove. That December, back home, the group held its first meeting at the Jaizubia restaurant in Hondarribia, and Nueva Cocina Vasca had begun. It is still most alive around San Sebastián. In the 2026 Michelin Guide, three of Spain’s sixteen three-star restaurants stand there: Arzak, Subijana’s Akelaŕe on Mount Igeldo, and Martín Berasategui in nearby Lasarte-Oria.",
+      "sources": [
+        {
+          "what": "Deia (Bilbao daily), 'Nueva Cocina Vasca: las cenas que dieron origen a un movimiento', 21 April 2022",
+          "url": "https://www.deia.eus/gastronomia/2022/04/21/nueva-cocina-vasca-cenas-movimiento-1706012.html",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Basque Culture (Etxepare Basque Institute), Food",
+          "url": "https://basqueculture.eus/en/the-land-of-basque/food",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Michelin Guide, all starred restaurants in Spain 2026",
+          "url": "https://guide.michelin.com/es/es/articulo/michelin-guide-ceremony/todos-los-restaurantes-con-estrellas-michelin-en-espana-2026",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Akelarre, own site",
+          "url": "https://www.akelarre.net/en/",
+          "read": "5 October 2026"
+        }
+      ]
+    },
+    "lifestyle-medicine": {
+      "p": "Lifestyle medicine has no ancient birthplace. The idea that daily habits shape health is as old as Hippocrates, but the name and the institutions are American and recent. In 1991 Ernst Wynder of the American Health Foundation in New York, who had spoken out against cigarettes since 1950, titled a paper “Listen to nature: the challenge of lifestyle medicine”. James Rippe published a textbook called Lifestyle Medicine in 1999, and the American College of Lifestyle Medicine held its first general meeting in 2004. The United States is still its centre. Its board began certifying in 2017 with 221 US physicians, and by 2022 counted 2,445 diplomates.",
+      "sources": [
+        {
+          "what": "Lippman, Kelly, Ornish, Katz et al., 'Foundations of Lifestyle Medicine and its Evolution', Mayo Clinic Proceedings: Innovations, Quality & Outcomes, 2024 (PMC10831813, read via Europe PMC full text)",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10831813/",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Wynder EL, 'Listen to nature. The challenge of lifestyle medicine', Sozial- und Präventivmedizin 36:137-146 (1991), PDF",
+          "url": "https://www.ssph-journal.org/journals/international-journal-of-public-health/articles/10.1007/bf01352692/full",
+          "read": "5 October 2026"
+        },
+        {
+          "what": "Obituary of Ernst L. Wynder, Sozial- und Präventivmedizin 45 (2000) 61-63",
+          "url": "https://www.ssph-journal.org/journals/international-journal-of-public-health/articles/10.1007/bf01624613/full",
+          "read": "5 October 2026"
+        }
+      ]
     }
   },
   "_learnLines_comment": "The immersive line under the place name on every craft page's place card, keyed by DESTINATION id. Hand-written, for the same reason craftFamilies is hand-grouped: every attempt to compose one from the craft blurb plus the destination's `why` read as a machine talking. And compressing a researched sentence is exactly where a claim quietly changes — 'the most photographed big-cat ground on earth' is NOT 'where the most big cats are', and only one of those is true. RULE: a line here may say nothing its own `why` does not already say. Where a destination is a heritage source with no vouched school, or is an experts-only spot, the line must NOT begin 'Learn to' — it would promise teaching that is not there. A missing line is fine: the card simply shows none. See LEARN_LINES in build-atlas-pages.py.",
@@ -389,6 +1307,10 @@
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
+    "chocolate-and-confectionery--brussels-wieze": "Learn to temper chocolate and make bonbons and tablets, three hands-on days in a class of twelve",
+    "chocolate-and-confectionery--las-vegas": "Learn to formulate ganache and make moulded and enrobed bonbons, five hands-on days with Melissa Coppel",
+    "chocolate-and-confectionery--tain-l-hermitage": "Valrhona’s own school, where professional chefs train in chocolate",
+    "chocolate-and-confectionery--paris": "A three-day bonbon course for working pastry chefs, taught in French",
     "coffee-and-barista--melbourne": "Learn the flat white where it became an art form",
     "coffee-and-barista--london": "Learn the full SCA ladder beside Europe's densest pro cohort",
     "coffee-and-barista--portland": "Learn to run an espresso bar in five days, in the heart of American third-wave coffee",
@@ -2180,9 +3102,11 @@
     "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write."
   },
   "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
-  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder.",
-  "ladderDebtFloor": 31,
+  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder. 5 Oct 2026: raised 31 -> 32 when Arnaud opened chocolate-and-confectionery by hand; coffee-and-barista (opened 4 Oct) and chocolate added to ladderDebtKnown. Neither has a published ladder yet.",
+  "ladderDebtFloor": 32,
   "ladderDebtKnown": [
+    "coffee-and-barista",
+    "chocolate-and-confectionery",
     "ashtanga-yoga",
     "cold-exposure-wim-hof-method",
     "freediving",
