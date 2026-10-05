@@ -123,7 +123,7 @@ window.ET_ATLAS = {
           "place": "Rishikesh",
           "country": "India",
           "region": "South Asia",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -138,7 +138,6 @@ window.ET_ATLAS = {
           ],
           "badges": [
             "scene",
-            "mecca",
             "lineage",
             "heritage",
             "gold-cred"
@@ -776,7 +775,7 @@ window.ET_ATLAS = {
             "lineage",
             "heritage"
           ],
-          "why": "The Gokulam neighbourhood where the method was born and the lineage still holds, the one place every authorised Ashtanga teacher on Earth traces home.",
+          "why": "Mysore, where the method was born in 1933, and Gokulam, where the Jois family shalas still teach — the one place every authorised Ashtanga teacher on Earth traces home.",
           "bestSeason": "Oct-Mar",
           "level": "Intermediate -> Authorised Teacher",
           "id": "ashtanga-yoga--mysore-gokulam",
@@ -1590,7 +1589,7 @@ window.ET_ATLAS = {
           "place": "Igatpuri (Dhamma Giri)",
           "country": "India",
           "region": "South Asia",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -1603,14 +1602,12 @@ window.ET_ATLAS = {
             "S. N. Goenka (lineage of Sayagyi U Ba Khin)"
           ],
           "badges": [
-            "source",
             "scene",
-            "mecca",
             "gold-cred",
             "lineage",
             "school"
           ],
-          "why": "The world headquarters of Goenka Vipassana and one of the largest meditation centres on Earth, where the modern revival was born and the gold-standard 10-day course is taught at the source.",
+          "why": "The world headquarters of Goenka Vipassana and one of the largest meditation centres on Earth, where the ten-day course has been taught since 1976.",
           "bestSeason": "Oct-Mar",
           "level": "Beginner -> Assistant Teacher",
           "id": "vipassana-and-meditation--igatpuri-dhamma-giri",
@@ -1748,8 +1745,8 @@ window.ET_ATLAS = {
             {
               "name": "International Meditation Centre (U Ba Khin tradition)",
               "url": "https://internationalmeditationcentre.org/",
-              "course": "10-day Vipassana course (monthly, U Ba Khin Anapana/Vipassana method)",
-              "blurb": "The International Meditation Centre, opened in Yangon in 1952 by Sayagyi U Ba Khin, teaches Theravada Vipassana in his tradition through monthly ten-day courses that begin with Anapana before progressing to Vipassana.",
+              "course": "10-day Vipassana course (U Ba Khin Anapana/Vipassana method)",
+              "blurb": "The International Meditation Centre, opened in Yangon in 1952 by Sayagyi U Ba Khin, teaches Theravada Vipassana in his tradition through ten-day courses that begin with Anapana before progressing to Vipassana; its newsletter listed Yangon courses for 7–17 August and 13–23 November 2026.",
               "confidence": "medium",
               "standing": {
                 "state": "site-gone",
@@ -2208,7 +2205,7 @@ window.ET_ATLAS = {
           "place": "Kathmandu / Pokhara",
           "country": "Nepal",
           "region": "South Asia",
-          "role": "source",
+          "role": "scene",
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
@@ -2218,10 +2215,8 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
-            "source",
             "lineage",
-            "heritage",
-            "mecca"
+            "heritage"
           ],
           "why": "Singing bowls are made and sold in Nepal today, and Kathmandu schools teach bowls and gongs in ten-day sound-therapy trainings.",
           "bestSeason": "Oct-Nov, Mar-Apr",
@@ -2744,7 +2739,7 @@ window.ET_ATLAS = {
           "place": "Chiang Mai",
           "country": "Thailand",
           "region": "Southeast Asia",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -2757,16 +2752,14 @@ window.ET_ATLAS = {
             "Ajarn Wasan (one of the principal instructors, Old Medicine Hospital)"
           ],
           "badges": [
-            "source",
             "scene",
-            "mecca",
             "master",
             "school",
             "gold-cred",
             "heritage",
             "lineage"
           ],
-          "why": "The world capital of Northern-style Nuad Thai, with a deep community of Thai and international students training at the source through established schools and walking out with ministry-recognized certificates.",
+          "why": "The home of Northern-style Nuad Thai, whose Old Medicine Hospital school dates from 1962: a deep community of Thai and international students trains here through established schools and leaves with ministry-recognised certificates.",
           "bestSeason": "Nov-Feb",
           "level": "Beginner -> Instructor",
           "id": "thai-massage--chiang-mai",
@@ -3920,24 +3913,20 @@ window.ET_ATLAS = {
           "place": "Przesieka, Karkonosze Mountains",
           "country": "Poland",
           "region": "Eastern Europe",
-          "role": "source",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
-            "Wim Hof Method Academy (Module III, Przesieka)",
-            "Official Wim Hof Winter Expedition",
             "Wim Hof Method Travel"
           ],
           "masters": [
             "Wim Hof"
           ],
           "badges": [
-            "source",
-            "mecca",
             "master",
             "gold-cred"
           ],
-          "why": "Wim Hof's own mountain training ground, where the legendary Winter Expedition and final instructor module are earned barefoot in the snow up Mount Sniezka.",
+          "why": "Wim Hof’s own mountain training ground, where for years the method’s teacher trainings were held, barefoot in the snow below Mount Sniezka.",
           "bestSeason": "Dec-Mar",
           "level": "Beginner -> Certified instructor",
           "id": "cold-exposure-wim-hof-method--przesieka-karkonosze-mountains",
@@ -3946,7 +3935,7 @@ window.ET_ATLAS = {
               "name": "Wim Hof Method Academy",
               "url": "https://www.wimhofmethod.com/academy",
               "course": "WHM Instructor Academy - Module III – Fundamentals Instructor Training (in-person)",
-              "blurb": "The official instructor-certification pathway culminates in a multi-day in-person intensive held at the Academy base in Przesieka, in the Karkonosze mountains where Wim Hof trains.",
+              "blurb": "The Academy’s in-person Module III, the last step to certification, is held in Poland, Mexico and Australia. The last Przesieka session we found ran 5–9 December 2025, and no later date there was listed when we read on 5 October 2026.",
               "confidence": "medium",
               "facts": {
                 "where": "Poland, Mexico or Australia",
@@ -3960,66 +3949,10 @@ window.ET_ATLAS = {
               }
             },
             {
-              "name": "Wim Hof Method Academy (Module III, Przesieka)",
-              "url": "https://www.wimhofmethod.com/academy",
-              "course": "WHM Instructor Academy Module III – Fundamentals Instructor Training (formerly Master Module)",
-              "blurb": "The official Wim Hof Method instructor-certification track culminates in the five-day, in-person Module III Fundamentals Instructor Training held in Przesieka, Poland, where candidates do repeated ice baths, breath holds, and cold swims and are evaluated teaching practice sessions before being certified.",
-              "confidence": "high",
-              "facts": {
-                "where": "Poland, Mexico or Australia",
-                "length": "5 days in person, after two online video modules",
-                "format": "Modules I and II online; Module III in person, with assessment",
-                "credential": "Wim Hof Fundamentals Instructor certification",
-                "from": [
-                  "https://www.wimhofmethod.com/academy"
-                ],
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Official Wim Hof Winter Expedition",
-              "url": "https://www.wimhofmethod.com/wim-hof-expeditions",
-              "course": "Wim Hof Winter Expedition",
-              "blurb": "The Winter Expedition is a week-long training camp led by Wim Hof in the Karkonosze region around Karpacz, Poland, combining breathing sessions, cold training in natural streams, and a culminating climb of a snowy mountain peak.",
-              "confidence": "high",
-              "facts": {
-                "where": "Copperhill Mountain Lodge, Åre, Sweden",
-                "length": "5 days (6 to 11 December)",
-                "format": "Residential: 5 nights in a mountain hotel, all meals included",
-                "language": "English",
-                "class": "200 participants at most, in groups of about 20-30",
-                "price": "€2,999",
-                "priceNote": "6-11 December edition in Sweden",
-                "from": [
-                  "https://activities.wimhofmethod.com/activities/winter-expedition-sweden-2026/71912",
-                  "https://www.wimhofmethod.com/wim-hof-expeditions"
-                ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Leads the expedition, with a team of instructors",
-                    [
-                      "Wim Hof"
-                    ]
-                  ]
-                ],
-                "from": "https://activities.wimhofmethod.com/activities/winter-expedition-sweden-2026/71912",
-                "read": "2026-09-17"
-              },
-              "standing": {
-                "state": "not-here",
-                "what": "The only Winter Expedition on the calendar is at Copperhill Mountain Lodge in Åre, Sweden.",
-                "from": "https://activities.wimhofmethod.com/activities/winter-expedition-sweden-2026/71912",
-                "read": "2026-09-17"
-              }
-            },
-            {
               "name": "Wim Hof Method Travel",
-              "url": "https://www.wimhofmethod.com/experience-wim-hof",
-              "course": "Wim Hof Method Travel week-long programs",
-              "blurb": "Wim Hof Method Travel offers official week-long, in-person training programs combining breathing technique, cold exposure, and mindset work at locations such as the WHM Center in the French Alps.",
+              "url": "https://activities.wimhofmethod.com/activities/travel-przesieka-denilson-zanotto/71119",
+              "course": "WHM Travel week at Przesieka",
+              "blurb": "An official week of breathing, cold and mindset work at Przesieka. The one we found, 25–31 October 2026 with Denilson Zanotto, from €1,090, was sold out when we read it on 5 October 2026.",
               "confidence": "medium",
               "facts": {
                 "where": "Aspres-sur-Buëch, southern French Alps",
@@ -5185,8 +5118,7 @@ window.ET_ATLAS = {
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
-            "Vertical Blue (William Trubridge)",
-            "Blue Hole Freediving"
+            "Vertical Blue (William Trubridge)"
           ],
           "masters": [
             "William Trubridge (Vertical Blue)"
@@ -5232,13 +5164,6 @@ window.ET_ATLAS = {
                 "from": "https://verticalblue.net/",
                 "read": "2026-09-17"
               }
-            },
-            {
-              "name": "Blue Hole Freediving",
-              "url": "",
-              "course": "",
-              "blurb": "",
-              "confidence": "low"
             }
           ],
           "tripTier": 1,
@@ -5469,8 +5394,7 @@ window.ET_ATLAS = {
           "communityLabel": "Thriving",
           "schools": [
             "Kona Freedivers",
-            "Top Shot Spearfishing",
-            "Blue Water Hunter Spearfishing"
+            "Top Shot Spearfishing"
           ],
           "masters": [],
           "badges": [
@@ -5549,13 +5473,6 @@ window.ET_ATLAS = {
                 "from": "https://topshotspearfishing.com/",
                 "read": "2026-09-17"
               }
-            },
-            {
-              "name": "Blue Water Hunter Spearfishing",
-              "url": "https://www.tripadvisor.com/Attraction_Review-g60872-d5221195-Reviews-Blue_Water_Hunter_Spearfishing_Charters-Kailua_Kona_Island_of_Hawaii_Hawaii.html",
-              "course": "Guided reef and blue-water spearfishing charters",
-              "blurb": "Blue Water Hunter is a Kailua-Kona spearfishing and freediving shop and charter operation offering guided reef and blue-water dives with an in-water instructor alongside each diver.",
-              "confidence": "medium"
             }
           ],
           "tripTier": 1,
@@ -5878,7 +5795,7 @@ window.ET_ATLAS = {
           "place": "The Solent (Cowes & Hamble)",
           "country": "United Kingdom",
           "region": "Western Europe",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -5889,9 +5806,7 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
-            "source",
             "scene",
-            "mecca",
             "school",
             "gold-cred",
             "heritage"
@@ -6168,7 +6083,10 @@ window.ET_ATLAS = {
         "format": "Residential at the Cowes campus (shared accommodation when ashore), full-time, group-based",
         "certification": "RYA Yachtmaster Offshore (Sail) Certificate of Competence, with commercial endorsement capability; plus stacked RYA/STCW certificates",
         "fitsBecause": "A genuinely residential, months-long, community programme on the Solent — the spiritual home of British yacht racing — ending in a recognised professional Certificate of Competence.",
-        "sessions": ["2026-10-05", "2026-11-09"],
+        "sessions": [
+          "2026-10-05",
+          "2026-11-09"
+        ],
         "priceNote": "~£14,500 residential (£13,640 course-only)",
         "confidence": "high",
         "alternatives": [
@@ -6472,8 +6390,7 @@ window.ET_ATLAS = {
           "communityLabel": "Thriving",
           "schools": [
             "Baleal Surf Camp",
-            "Peniche Surf Camp",
-            "Surfcamp Peniche (Maktub)"
+            "Peniche Surf Camp"
           ],
           "masters": [],
           "badges": [
@@ -6545,13 +6462,6 @@ window.ET_ATLAS = {
                 ],
                 "read": "2026-09-17"
               }
-            },
-            {
-              "name": "Surfcamp Peniche (Maktub)",
-              "url": "",
-              "course": "",
-              "blurb": "",
-              "confidence": "low"
             }
           ],
           "tripTier": 3,
@@ -6869,7 +6779,7 @@ window.ET_ATLAS = {
           "place": "Maui (Kite Beach, Kanaha)",
           "country": "United States",
           "region": "Oceania",
-          "role": "source",
+          "role": "scene",
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
@@ -6879,8 +6789,6 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
-            "source",
-            "mecca",
             "heritage"
           ],
           "why": "Maui's North Shore is where modern kiteboarding was proven and pushed in the late '90s, and Kanaha's reliable trades still draw the riders who write the sport's playbook.",
@@ -6892,7 +6800,7 @@ window.ET_ATLAS = {
               "name": "HST Windsurfing & Kitesurfing School",
               "url": "https://hstwindsurfing.com/maui-kitesurfing-lessons/",
               "course": "Three-Day Learn-to-Rip Kitesurfing Course",
-              "blurb": "A three-day learn-to-kite course at Kanaha (Kite Beach) on Maui, the trade-wind reach where the sport matured.",
+              "blurb": "A three-day private, one-on-one course at Kanaha (Kite Beach) for kitesurfers who already ride and want to progress fast; beginners start with HST’s separate Discover Kitesurfing lesson.",
               "confidence": "medium",
               "facts": {
                 "where": "Kanaha Beach Park, Kahului",
@@ -7999,7 +7907,7 @@ window.ET_ATLAS = {
           "place": "Yosemite Valley",
           "country": "United States",
           "region": "North America",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -8008,7 +7916,6 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
-            "mecca",
             "scene",
             "record"
           ],
@@ -8320,7 +8227,6 @@ window.ET_ATLAS = {
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
-            "The Climbing Academy (Sheffield)",
             "Foundry Climbing Centre"
           ],
           "masters": [],
@@ -8333,19 +8239,6 @@ window.ET_ATLAS = {
           "level": "Beginner -> Instructor",
           "id": "rock-climbing--peak-district-stanage-sheffield",
           "schoolsInfo": [
-            {
-              "name": "The Climbing Academy (Sheffield)",
-              "url": "https://www.theclimbingacademy.com/locations/",
-              "course": "Coached climbing sessions / instruction",
-              "blurb": "The Climbing Academy is an indoor bouldering operator with centres in Bristol, Glasgow and Chippenham offering walk-in bouldering plus tailored coached sessions and instruction, though it does not advertise a multi-day residential gritstone program.",
-              "confidence": "medium",
-              "standing": {
-                "state": "not-here",
-                "what": "Its centres are in Bristol, Glasgow and Chippenham; the Sheffield centre we listed is not among them.",
-                "from": "https://www.theclimbingacademy.com/locations/",
-                "read": "2026-09-17"
-              }
-            },
             {
               "name": "Foundry Climbing Centre",
               "url": "https://www.foundryclimbing.com/adult-climbing",
@@ -9043,7 +8936,7 @@ window.ET_ATLAS = {
           "place": "Wasatch (Salt Lake City / Park City)",
           "country": "United States",
           "region": "North America",
-          "role": "both",
+          "role": "source",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -9064,9 +8957,9 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Utah Mountain Adventures",
-              "url": "https://www.utahmountainadventures.com/",
-              "course": "Ski & Splitboard Mountaineering Camp (3-Day)",
-              "blurb": "Wasatch-based since 1993, Utah Mountain Adventures runs a 3-day Ski & Splitboard Mountaineering Camp that teaches ice-axe and crampon use, anchors, rappelling, and couloir ascent and descent on Wasatch objectives such as Wolverine Cirque and the Pfeifferhorn.",
+              "url": "https://www.utahmountainadventures.com/courses/splitboard-efficiency/",
+              "course": "Splitboard Efficiency (2 days)",
+              "blurb": "Wasatch-based since 1993, Utah Mountain Adventures teaches splitboard technique in the field; its two-day Splitboard Efficiency course was listed for 6–7 February 2027 at $529 plus tax when we read it on 5 October 2026.",
               "confidence": "high",
               "facts": {
                 "where": "Cottonwood Canyons, Salt Lake City",
@@ -10655,7 +10548,7 @@ window.ET_ATLAS = {
           "place": "Greater Kruger / Makuleke Concession",
           "country": "South Africa",
           "region": "Sub-Saharan Africa",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -10664,13 +10557,11 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
-            "source",
             "scene",
-            "mecca",
             "school",
             "gold-cred"
           ],
-          "why": "This is where the FGASA gold standard was forged, where you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and certify at the source.",
+          "why": "Here you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and you train toward FGASA certification, the standard South Africa’s field guides are assessed against.",
           "bestSeason": "May-Sep (dry season)",
           "level": "Beginner -> Professional Field Guide / Trails Guide",
           "id": "safari-and-wildlife-guiding--greater-kruger-makuleke-concession",
@@ -10755,7 +10646,7 @@ window.ET_ATLAS = {
             "school",
             "heritage"
           ],
-          "why": "The walking trail was invented on this ground: by 1958 half of iMfolozi had been proclaimed a wilderness area — the first in Africa, enterable only on foot, on horseback or by canoe — and guides have been taking people into it on foot ever since.",
+          "why": "South Africa’s walking trails began on this ground: by 1958 half of iMfolozi had been proclaimed a wilderness area, among the first in Africa, enterable only on foot, on horseback or by canoe, and guides have been taking people into it on foot ever since.",
           "bestSeason": "May-Sep (dry season); intakes January and August",
           "level": "Beginner -> Professional Field Guide",
           "id": "safari-and-wildlife-guiding--zululand-hluhluwe-imfolozi",
@@ -10797,7 +10688,11 @@ window.ET_ATLAS = {
         "format": "Residential at remote bush camps; small student groups, full-time",
         "certification": "FGASA Nature Site Guide (NQF2) / EcoTraining Field Guide qualification (CATHSSETA)",
         "fitsBecause": "Fully residential, weeks-long, community camp life learning to guide at the source in Greater Kruger, leading to a recognized FGASA credential.",
-        "sessions": ["2026-10-12", "2027-02-14", "2027-10-18"],
+        "sessions": [
+          "2026-10-12",
+          "2027-02-14",
+          "2027-10-18"
+        ],
         "priceNote": "",
         "confidence": "high",
         "alternatives": [
@@ -11758,79 +11653,10 @@ window.ET_ATLAS = {
           "englishBasis": "Mashiko Ceramic Art Club (Tougei Club) has English-speaking/foreign staff and offers classes for English speakers"
         },
         {
-          "place": "Bizen / Seto / Tokoname (Six Ancient Kilns)",
-          "country": "Japan",
-          "region": "East Asia",
-          "role": "source",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Bizen Pottery Traditional and Contemporary Art Museum",
-            "Seto Ceramics and Glass Art Center",
-            "Tokoname Ceramics Hall"
-          ],
-          "masters": [],
-          "badges": [
-            "source",
-            "heritage",
-            "lineage"
-          ],
-          "why": "A thousand unbroken years of fire across Japan's Six Ancient Kilns, Japan-Heritage clay towns where wood-firing was never a revival, only a continuation.",
-          "bestSeason": "Mar-Nov",
-          "level": "Beginner -> Advanced",
-          "id": "pottery-and-ceramics--bizen-seto-tokoname-six-ancient-kilns",
-          "schoolsInfo": [
-            {
-              "name": "Bizen Pottery Traditional and Contemporary Art Museum",
-              "url": "https://bizen-moa.jp/",
-              "course": "Bizen ware viewing and local hands-on pottery experiences",
-              "blurb": "The Bizen-ware museum at Imbe (reopened in 2025 as the Bizen City Museum of Art) holding traditional and contemporary Bizen pieces including Living National Treasure works, serving as the cultural anchor for the Imbe potting village where studios offer wood-fired Bizen lessons; it is a museum rather than a formal multi-day school.",
-              "confidence": "medium",
-              "facts": {
-                "where": "Imbe, Bizen",
-                "format": "Museum, open 9am to 5pm, closed Mondays",
-                "from": [
-                  "https://bizen-moa.jp/access/"
-                ],
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Seto Ceramics and Glass Art Center",
-              "url": "http://www.seto-cul.jp/scga/e/program_e.html",
-              "course": "Seto International Ceramic & Glass Art Exchange Program",
-              "blurb": "A Seto City ceramics and glass facility with exhibition, studio and exchange buildings that runs a seasonal international ceramic and glass arts exchange residency alongside hands-on pottery and glass studio sessions.",
-              "confidence": "high",
-              "facts": {
-                "where": "Minaminakanokiri-cho, Seto",
-                "format": "By invitation, in two seasons",
-                "class": "4 invited artists per programme",
-                "from": [
-                  "https://www.seto-cul.jp/new-century/access.html",
-                  "http://www.seto-cul.jp/scga/e/program_e.html"
-                ],
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Tokoname Ceramics Hall",
-              "url": "http://www.tokoname.or.jp/",
-              "course": "Tokoname ware hands-on pottery experience",
-              "blurb": "The Tokoname ceramics centre on the town's Pottery Footpath, displaying local Tokoname ware and offering visitor pottery and painting experiences; it functions as a cultural hall and short-experience venue rather than a residential school.",
-              "confidence": "medium"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "Tokoname and Bizen hands-on pottery experiences are conducted in English with English-speaking guides/instruction for tourists"
-        },
-        {
           "place": "Jingdezhen",
           "country": "China",
           "region": "East Asia",
-          "role": "source",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -11840,13 +11666,11 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
-            "source",
             "scene",
-            "mecca",
             "heritage",
             "lineage"
           ],
-          "why": "The Porcelain Capital that fired the emperors' kilns for a millennium, where you join the densest cohort of ceramicists on Earth at the true source of porcelain.",
+          "why": "The Porcelain Capital that fired the emperors’ kilns for centuries, where more than 60,000 makers have moved to work, thousands of them from more than 60 countries.",
           "bestSeason": "Sep-Nov (cooler firing season)",
           "level": "Beginner -> Master",
           "id": "pottery-and-ceramics--jingdezhen",
@@ -12044,7 +11868,22 @@ window.ET_ATLAS = {
           "country": "Australia",
           "note": "A small town that hosts one of the ceramics world's main international gatherings."
         }
-      ]
+      ],
+      "sweep": {
+        "date": "2026-10-05",
+        "regions": [
+          "East Asia"
+        ],
+        "rejected": [
+          {
+            "name": "Bizen / Seto / Tokoname (Six Ancient Kilns), as a place on this page",
+            "place": "Japan",
+            "url": "https://bizen-moa.jp/",
+            "why": "Listed as a birthplace, but the oldest pots yet found come from Xianrendong Cave in China, about 20,000 years ago. What these towns offer a visitor is museums and short pottery experiences, not a course that meets our standard, as their own pages describe them on 5 October 2026. Taken off the map that day."
+          }
+        ],
+        "bounded": "This was a check of the places already on this page, not a worldwide search: each one was read on its own site on 5 October 2026."
+      }
     },
     {
       "discipline": "Woodworking & Joinery",
@@ -14546,7 +14385,7 @@ window.ET_ATLAS = {
           "place": "Florence",
           "country": "Italy",
           "region": "Mediterranean",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -14557,12 +14396,10 @@ window.ET_ATLAS = {
             "Gio Carbone (LAO founder)"
           ],
           "badges": [
-            "source",
             "scene",
             "heritage",
             "school",
-            "master",
-            "mecca"
+            "master"
           ],
           "why": "In the city of the goldsmiths' bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.",
           "bestSeason": "Sep-Jun",
@@ -14571,7 +14408,7 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Le Arti Orafe Jewellery School (LAO)",
-              "url": "https://artiorafe.it/en/courses/courses-goldsmith-school/",
+              "url": "https://artiorafe.it/en/courses/goldsmithery/",
               "course": "Academic Goldsmithery First Year",
               "blurb": "A bench-based program in a Florence goldsmithing school running since 1985, weighted heavily toward practical hours: students saw, solder, file, raise and finish metal, set stones and take a design from sketch to finished wearable piece.",
               "confidence": "medium",
@@ -14681,7 +14518,7 @@ window.ET_ATLAS = {
                 "read": "2026-09-17"
               }
             },
-                        {
+            {
               "name": "Studio Jewelers (New York)",
               "url": "https://studiojewelersltd.com/",
               "course": "Comprehensive Jewelry Training (720 hours)",
@@ -14815,16 +14652,14 @@ window.ET_ATLAS = {
           "place": "Jaipur",
           "country": "India",
           "region": "South Asia",
-          "role": "both",
+          "role": "scene",
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
-            "Indian Institute of Gems & Jewellery (IIGJ Jaipur)",
-            "lapidary & meenakari ateliers of Johari Bazaar"
+            "Indian Institute of Gems & Jewellery (IIGJ Jaipur)"
           ],
           "masters": [],
           "badges": [
-            "source",
             "scene",
             "heritage",
             "lineage"
@@ -14850,13 +14685,6 @@ window.ET_ATLAS = {
                 ],
                 "read": "2026-09-17"
               }
-            },
-            {
-              "name": "lapidary & meenakari ateliers of Johari Bazaar",
-              "url": "",
-              "course": "",
-              "blurb": "",
-              "confidence": "low"
             }
           ],
           "tripTier": 5,
@@ -15417,8 +15245,8 @@ window.ET_ATLAS = {
             {
               "name": "Cinquième Sens",
               "url": "https://www.cinquiemesens.com",
-              "course": "Fragrance School Grasse – 2 Weeks",
-              "blurb": "Cinquième Sens is a perfumery training center (founded 1976) with classrooms in Grasse and Paris that runs 5- and 10-day Summer School sessions covering raw-material olfaction and hands-on formulation work using its Olfactorium perfume-organ.",
+              "course": "Perfumery courses in Grasse, from initiation to professional training",
+              "blurb": "Cinquième Sens is a perfumery training centre, founded in 1976, with classrooms in Grasse and Paris; its calendar lists Grasse sessions from a one-day initiation upward. Its two-week Fragrance School runs in Paris.",
               "confidence": "medium",
               "facts": {
                 "where": "Grasse",
@@ -16248,7 +16076,7 @@ window.ET_ATLAS = {
             "heritage",
             "lineage"
           ],
-          "why": "This is the source: stand at the bench where the CAP Pâtissier was forged and earn the diploma the rest of the world measures itself against.",
+          "why": "Carême learned his trade here in 1798, and Paris benches still teach the classical repertoire toward the CAP Pâtissier, the French state diploma of the trade.",
           "bestSeason": "Sep-Jun",
           "level": "Beginner -> MOF",
           "id": "french-pastry-and-patisserie--paris",
@@ -16438,7 +16266,7 @@ window.ET_ATLAS = {
               "name": "École Nationale Supérieure de la Pâtisserie (ENSP, Yssingeaux)",
               "url": "https://www.ecoleducasse.com/en/campus-en/ecole-nationale-superieure-de-patisserie",
               "course": "French Pastry Arts Diploma",
-              "blurb": "ENSP is a pastry, bakery, chocolate, and confectionery school housed in the Château de Montbarnier at Yssingeaux with on-site student accommodation, whose residential French Pastry Arts Diploma covers traditional and modern French pastry techniques.",
+              "blurb": "ENSP is a pastry, bakery, chocolate, and confectionery school housed in the Château de Montbarnier at Yssingeaux with on-site student accommodation, whose residential French Pastry Arts Diploma covers traditional and modern French pastry techniques. Yssingeaux is about two hours south-west of Lyon.",
               "confidence": "high",
               "facts": {
                 "where": "Château de Montbarnier, Yssingeaux",
@@ -16494,8 +16322,7 @@ window.ET_ATLAS = {
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
-            "Tsuji Culinary Institute (Osaka)",
-            "Le Cordon Bleu Tokyo"
+            "Tsuji Culinary Institute (Osaka)"
           ],
           "masters": [],
           "badges": [
@@ -16521,19 +16348,6 @@ window.ET_ATLAS = {
                 "from": [
                   "https://www.tsuji.ac.jp/en/college/osaka/"
                 ],
-                "read": "2026-09-17"
-              }
-            },
-            {
-              "name": "Le Cordon Bleu Tokyo",
-              "url": "https://www.cordonbleu.edu/tokyo/home/en",
-              "course": "Pâtisserie Diploma (Basic, Intermediate, Superior)",
-              "blurb": "Tokyo branch of the French institute, temporarily closed until a new campus opens (events and workshops only meanwhile) that adds Japanese elements such as entremets japonais and wagashi to classical French pastry technique.",
-              "confidence": "high",
-              "standing": {
-                "state": "paused",
-                "what": "Le Cordon Bleu Japan says it is temporarily closed, running events and workshops until a new campus opens.",
-                "from": "https://www.cordonbleu.edu/tokyo/home/ja",
                 "read": "2026-09-17"
               }
             }
@@ -17681,12 +17495,11 @@ window.ET_ATLAS = {
           "place": "Bologna",
           "country": "Italy",
           "region": "Mediterranean",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
-            "La Vecchia Scuola Bolognese (VSB, Alessandra Spisni)",
-            "Bologna Cooking School"
+            "La Vecchia Scuola Bolognese (VSB, Alessandra Spisni)"
           ],
           "masters": [
             "Alessandra Spisni"
@@ -17695,9 +17508,7 @@ window.ET_ATLAS = {
             "the Bolognese sfogline lineage"
           ],
           "badges": [
-            "source",
             "scene",
-            "mecca",
             "master",
             "heritage",
             "lineage",
@@ -17821,16 +17632,6 @@ window.ET_ATLAS = {
                 "from": "https://www.vsb-bologna.it/en/e-shop/courses/professional/sfoglia-professional-course-with-alessandra-spisni",
                 "read": "2026-09-17"
               }
-            },
-            {
-              "name": "Bologna Cooking School",
-              "course": "Hands-on Bolognese fresh-pasta class — tagliatelle, tortellini, tortelloni, by hand",
-              "blurb": "A long-running, very highly rated hands-on school in central Bologna — an accessible way into the city's fresh-pasta repertoire alongside VSB's sfoglina training.",
-              "url": "https://www.tripadvisor.com/Attraction_Review-g187801-d1464270-Reviews-Bologna_Cooking_School-Bologna_Province_of_Bologna_Emilia_Romagna.html",
-              "rating": "4.8",
-              "ratingCount": 133,
-              "ratingSource": "TripAdvisor",
-              "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g187801-d1464270-Reviews-Bologna_Cooking_School-Bologna_Province_of_Bologna_Emilia_Romagna.html"
             }
           ],
           "tripTier": 3,
@@ -17838,43 +17639,6 @@ window.ET_ATLAS = {
           "tripLength": "2–4 weeks",
           "englishTaught": true,
           "englishBasis": "Bologna Cooking School hands-on fresh-pasta classes run in English for international visitors; VSB/Spisni professional course is Italian."
-        },
-        {
-          "place": "Forlimpopoli (Emilia-Romagna)",
-          "country": "Italy",
-          "region": "Mediterranean",
-          "role": "source",
-          "communityRank": 3,
-          "communityLabel": "Strong",
-          "schools": [
-            "Casa Artusi — Scuola di Cucina di Casa Artusi"
-          ],
-          "masters": [],
-          "lineage": [
-            "Pellegrino Artusi lineage"
-          ],
-          "badges": [
-            "source",
-            "heritage",
-            "lineage"
-          ],
-          "why": "The birthplace of Pellegrino Artusi, whose 1891 book first unified Italian home cooking — learn at the living center devoted to la cucina di casa where the canon was written.",
-          "bestSeason": "Mar-Oct",
-          "level": "Beginner -> Advanced amateur",
-          "id": "italian-cuisine-and-pasta--forlimpopoli-emilia-romagna",
-          "schoolsInfo": [
-            {
-              "name": "Casa Artusi - Scuola di Cucina di Casa Artusi",
-              "url": "https://www.casartusi.it/en/cookery-school/",
-              "course": "Pasta che passione! — typical Italian homemade fresh pasta",
-              "blurb": "Set in Pellegrino Artusi's hometown of Forlimpopoli, this gastronomic-culture center's cooking school has the Mariette sfogline teach hand-rolled egg-pasta technique and Romagna classics such as tagliatelle, cappelletti and tortelli to enthusiasts and professionals.",
-              "confidence": "high"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": null
         },
         {
           "place": "Colorno (Parma)",
@@ -18009,7 +17773,22 @@ window.ET_ATLAS = {
           "country": "Italy",
           "note": "Its own pasta shapes, breads and pastoral cooking, closer to an island tradition than an Italian one."
         }
-      ]
+      ],
+      "sweep": {
+        "date": "2026-10-05",
+        "regions": [
+          "Southern Europe & Mediterranean"
+        ],
+        "rejected": [
+          {
+            "name": "Forlimpopoli (Emilia-Romagna), as a place on this page",
+            "place": "Italy",
+            "url": "https://www.casartusi.it/en/cookery-school/",
+            "why": "Listed as the birthplace, but Artusi lived in Florence and printed his 1891 book there; Forlimpopoli is his hometown. Casa Artusi’s pasta classes run about two to five hours, with no dated longer course when we read its pages on 5 October 2026, so no school here met our standard. Taken off the map that day."
+          }
+        ],
+        "bounded": "This was a check of the places already on this page, not a worldwide search: each one was read on its own site on 5 October 2026."
+      }
     },
     {
       "discipline": "New Basque Cuisine",
@@ -18786,19 +18565,19 @@ window.ET_ATLAS = {
               ],
               "course": "International Sushi Chef Course (5 weeks)",
               "facts": {
-               "where": "Tsukiji, Chuo-ku",
-               "length": "5 weeks (25 days)",
-               "format": "Monday to Friday, 9:30am to 3:30pm",
-               "language": "Japanese, with an English interpreter",
-               "class": "16 students at most",
-               "credential": "A certificate from the school",
-               "price": "¥880,000",
-               "priceNote": "tax included",
-               "from": [
-                "https://www.sushischool.jp/en/5weeks-total-course",
-                "https://www.sushischool.jp/en/tsa_faq"
-               ],
-               "read": "2026-09-16"
+                "where": "Tsukiji, Chuo-ku",
+                "length": "5 weeks (25 days)",
+                "format": "Monday to Friday, 9:30am to 3:30pm",
+                "language": "Japanese, with an English interpreter",
+                "class": "16 students at most",
+                "credential": "A certificate from the school",
+                "price": "¥880,000",
+                "priceNote": "tax included",
+                "from": [
+                  "https://www.sushischool.jp/en/5weeks-total-course",
+                  "https://www.sushischool.jp/en/tsa_faq"
+                ],
+                "read": "2026-09-16"
               },
               "confidence": "high"
             },
@@ -18817,17 +18596,17 @@ window.ET_ATLAS = {
                 "English Instruction"
               ],
               "facts": {
-               "where": "Otsuka, Bunkyo-ku",
-               "length": "6 weeks, in three 2-week levels",
-               "language": "English",
-               "class": "8 students at most",
-               "credential": "Diploma in Professional Sushi Arts",
-               "price": "¥1,200,000",
-               "priceNote": "tax included, or ¥420,000 a level",
-               "from": [
-                "https://jcma.tokyo"
-               ],
-               "read": "2026-09-16"
+                "where": "Otsuka, Bunkyo-ku",
+                "length": "6 weeks, in three 2-week levels",
+                "language": "English",
+                "class": "8 students at most",
+                "credential": "Diploma in Professional Sushi Arts",
+                "price": "¥1,200,000",
+                "priceNote": "tax included, or ¥420,000 a level",
+                "from": [
+                  "https://jcma.tokyo"
+                ],
+                "read": "2026-09-16"
               },
               "confidence": "high"
             },
@@ -18836,50 +18615,53 @@ window.ET_ATLAS = {
               "url": "https://www.sushi-tokyo.jp/foreigner_en",
               "course": "Sushi and Washoku Course (2 years) / Sushi and Washoku Advanced Course (3 years)",
               "blurb": "A cooking college built around sushi and washoku: traditional Edo-mae nigiri and the course cooking of a Japanese restaurant, and in the third year what it takes to open one. International students apply for the April intake. Checked on sushi-tokyo.jp, 16 September 2026.",
-              "verify": ["Sushi and Washoku Course (2 years)", "Sushi and Washoku Advanced Course (3 years)"],
+              "verify": [
+                "Sushi and Washoku Course (2 years)",
+                "Sushi and Washoku Advanced Course (3 years)"
+              ],
               "facts": {
-               "where": "Ikejiri, Setagaya-ku",
-               "length": "2 or 3 years",
-               "language": "Japanese: entry asks for proven Japanese and an interview in Japanese",
-               "credential": "Aims at the national cook's licence (調理師免許)",
-               "price": "¥1,600,000",
-               "priceNote": "first year, entrance fee included; ¥1,500,000 a year after, plus materials",
-               "from": [
-                "https://www.sushi-tokyo.jp/foreigner_en",
-                "https://www.sushi-tokyo.jp/guidance_en"
-               ],
-               "read": "2026-09-16"
+                "where": "Ikejiri, Setagaya-ku",
+                "length": "2 or 3 years",
+                "language": "Japanese: entry asks for proven Japanese and an interview in Japanese",
+                "credential": "Aims at the national cook's licence (調理師免許)",
+                "price": "¥1,600,000",
+                "priceNote": "first year, entrance fee included; ¥1,500,000 a year after, plus materials",
+                "from": [
+                  "https://www.sushi-tokyo.jp/foreigner_en",
+                  "https://www.sushi-tokyo.jp/guidance_en"
+                ],
+                "read": "2026-09-16"
               },
               "teachers": {
-               "groups": [
-                [
-                 "Sushi",
-                 [
-                  "島田 文夫"
-                 ]
+                "groups": [
+                  [
+                    "Sushi",
+                    [
+                      "島田 文夫"
+                    ]
+                  ],
+                  [
+                    "Washoku",
+                    [
+                      "太田 浩之",
+                      "伊藤 啓悟"
+                    ]
+                  ],
+                  [
+                    "Principal",
+                    [
+                      "長谷川 哲也"
+                    ]
+                  ],
+                  [
+                    "Educational adviser",
+                    [
+                      "奥田 透 (Ginza Kojyu)"
+                    ]
+                  ]
                 ],
-                [
-                 "Washoku",
-                 [
-                  "太田 浩之",
-                  "伊藤 啓悟"
-                 ]
-                ],
-                [
-                 "Principal",
-                 [
-                  "長谷川 哲也"
-                 ]
-                ],
-                [
-                 "Educational adviser",
-                 [
-                  "奥田 透 (Ginza Kojyu)"
-                 ]
-                ]
-               ],
-               "from": "https://www.sushi-tokyo.jp/teachers",
-               "read": "2026-09-17"
+                "from": "https://www.sushi-tokyo.jp/teachers",
+                "read": "2026-09-17"
               },
               "confidence": "high"
             },
@@ -18889,21 +18671,21 @@ window.ET_ATLAS = {
               "course": "Culinary Arts Course (1 year) / Applied Culinary Arts and Management Course (2 years)",
               "blurb": "The Tsujicho Group's Tokyo school, opened in April 2024. It is a general culinary college, so Japanese cuisine is one of its kitchens rather than the whole course, and sushi comes in the third step of that training: sushi rice, chirashi and pressed sushi. Its graduates can go on to the group's French campus near Lyon. Checked on tsuji.ac.jp, 17 September 2026.",
               "facts": {
-               "where": "Koganei, western Tokyo",
-               "length": "1 or 2 years",
-               "credential": "National cook's licence (調理師免許), without an exam, after the 1-year course",
-               "from": [
-                "https://www.tsuji.ac.jp/en/college/tokyo/",
-                "https://www.tsuji.ac.jp/",
-                "https://www.tsuji.ac.jp/college/chorishi_tokyo/basic/"
-               ],
-               "read": "2026-09-17"
+                "where": "Koganei, western Tokyo",
+                "length": "1 or 2 years",
+                "credential": "National cook's licence (調理師免許), without an exam, after the 1-year course",
+                "from": [
+                  "https://www.tsuji.ac.jp/en/college/tokyo/",
+                  "https://www.tsuji.ac.jp/",
+                  "https://www.tsuji.ac.jp/college/chorishi_tokyo/basic/"
+                ],
+                "read": "2026-09-17"
               },
               "teachers": {
-               "count": 12,
-               "of": "Japanese-cuisine teachers",
-               "from": "https://www.tsuji.ac.jp/college/chorishi_tokyo/teacher/",
-               "read": "2026-09-17"
+                "count": 12,
+                "of": "Japanese-cuisine teachers",
+                "from": "https://www.tsuji.ac.jp/college/chorishi_tokyo/teacher/",
+                "read": "2026-09-17"
               },
               "confidence": "high"
             }
@@ -18918,7 +18700,7 @@ window.ET_ATLAS = {
           "place": "Osaka",
           "country": "Japan",
           "region": "East Asia",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -18927,7 +18709,6 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
-            "source",
             "school",
             "gold-cred",
             "heritage",
@@ -18986,7 +18767,7 @@ window.ET_ATLAS = {
           "place": "Kyoto",
           "country": "Japan",
           "region": "East Asia",
-          "role": "both",
+          "role": "scene",
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
@@ -19893,7 +19674,7 @@ window.ET_ATLAS = {
           "place": "Bordeaux",
           "country": "France",
           "region": "Western Europe",
-          "role": "both",
+          "role": "scene",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -19903,12 +19684,10 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
-            "source",
             "scene",
-            "mecca",
             "heritage"
           ],
-          "why": "Stand at the source among classified-growth chateaux, where the city of wine itself teaches you to taste the terroir that wrote the rulebook.",
+          "why": "Among the classified-growth châteaux, the University of Bordeaux’s tasting diploma runs from September to May, and the city of wine teaches you to taste the terroir that wrote the rulebook.",
           "bestSeason": "May-Oct",
           "level": "Beginner -> Oenologist",
           "id": "wine-and-sommellerie--bordeaux",
@@ -19960,7 +19739,7 @@ window.ET_ATLAS = {
             },
             {
               "name": "Université de Bordeaux DUAD (oenology)",
-              "url": "https://www.isvv.u-bordeaux.fr/fr/diplome-universitaire-daptitude-a-la-degustation-d-u-a-d.html",
+              "url": "https://formations-isvv.u-bordeaux.fr/d-u-a-d-diplome-universitaire-daptitude-a-la-degustation.html",
               "course": "Diplome Universitaire d'Aptitude a la Degustation (DUAD)",
               "blurb": "Run by the University of Bordeaux's Institut des Sciences de la Vigne et du Vin (ISVV), the DUAD is a long-running university tasting diploma of 177.5 hours across four modules from September to May, open to enthusiasts and professionals with a baccalaureate.",
               "confidence": "high",
@@ -19999,7 +19778,7 @@ window.ET_ATLAS = {
           "place": "London",
           "country": "United Kingdom",
           "region": "Western Europe",
-          "role": "scene",
+          "role": "both",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -20010,12 +19789,12 @@ window.ET_ATLAS = {
           ],
           "masters": [],
           "badges": [
+            "source",
             "scene",
             "school",
-            "gold-cred",
-            "mecca"
+            "gold-cred"
           ],
-          "why": "The global standard is set here: WSET runs its flagship school in Bermondsey and the Master of Wine title is born in this city, so this is where the world's wine credentials are earned, not bought.",
+          "why": "The examined craft was born in Britain, and London is where it is still set: the Institute of Masters of Wine works from here, and WSET runs its flagship school in Bermondsey, so this is where wine credentials are earned, not bought.",
           "bestSeason": "Sep-Jun",
           "level": "Beginner -> Master of Wine",
           "id": "wine-and-sommellerie--london",
@@ -20145,7 +19924,7 @@ window.ET_ATLAS = {
               "name": "UC Davis Department of Viticulture & Enology",
               "url": "https://cpe.ucdavis.edu/certificate-program/winemaking-certificate-program",
               "course": "Winemaking Certificate Program (Continuing and Professional Education)",
-              "blurb": "The university research department whose Continuing and Professional Education arm runs a Winemaking Certificate built on the chemistry and microbiology of production winemaking, taught by its faculty and industry experts.",
+              "blurb": "The university research department whose Continuing and Professional Education arm runs a Winemaking Certificate built on the chemistry and microbiology of production winemaking, taught by its faculty and industry experts. The department is in Davis, about an hour’s drive from Napa, not in the valley itself.",
               "confidence": "high",
               "facts": {
                 "where": "Online",
@@ -29123,7 +28902,7 @@ window.ET_ATLAS = {
           "place": "Shanagarry, East Cork",
           "country": "Ireland",
           "region": "Western Europe",
-          "role": "scene",
+          "role": "both",
           "communityRank": 5,
           "communityLabel": "Legendary",
           "schools": [
@@ -29136,6 +28915,7 @@ window.ET_ATLAS = {
             "Rachel Allen"
           ],
           "badges": [
+            "source",
             "scene",
             "school",
             "master",
@@ -29488,7 +29268,7 @@ window.ET_ATLAS = {
           "place": "Kuhmo",
           "country": "Finland",
           "region": "Nordic & Baltic",
-          "role": "source",
+          "role": "scene",
           "communityRank": 4,
           "communityLabel": "Thriving",
           "schools": [
@@ -29498,12 +29278,11 @@ window.ET_ATLAS = {
             "Lassi Rautiainen"
           ],
           "badges": [
-            "source",
             "master",
             "master-lab",
             "lineage"
           ],
-          "why": "Photo-hide tourism was effectively invented here. Lassi Rautiainen has been photographing these bears since the 1970s and taking others to them since 1988, and around twenty individual brown bears still work the bog in front of his hides — along with wolves and wolverines.",
+          "why": "Lassi Rautiainen has been photographing these bears since the 1970s and taking others to them since 1988, and around twenty individual brown bears still work the bog in front of his hides — along with wolves and wolverines.",
           "bestSeason": "Apr-Aug (evenings and nights); Sep-Mar (daytime)",
           "level": "Beginner -> Professional",
           "id": "wildlife-photography--kuhmo",
