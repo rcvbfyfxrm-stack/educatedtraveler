@@ -2040,9 +2040,9 @@
         }
       ],
       "ceilingNote": "Four is the ceiling here, not five: the fourth answer is a settled no. Where the craft is alive is a question this method has already answered by travelling well.",
-      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been to Walchsee. The first condition is filled on the institution-taught form — a named body with a named lineage — on the precedent this map set for wine on 6 August 2026, not because an individual was found. The fourth is a considered no rather than an unanswered question, which is why this craft's ceiling is four.",
+      "check": "Graded from the entries already verified on this page, not from a visit. Nobody from EducatedTraveler has been to Walchsee. The first condition is filled on the institution-taught form — a named body with a named lineage — on the precedent this map set for wine on 6 August 2026, not because an individual was found. The fourth is a considered no rather than an unanswered question, which is why this craft's ceiling is four. Amended 5 October 2026: the second answer used to say a dedicated English-language course runs at the source. The academy's own pages say the course at Walchsee is taught in German, to health professionals, and that the English Level I and II run with Vodder teachers in your own country. The answer now says so; no dot moved.",
       "checker": "Arnaud Callier",
-      "date": "5 September 2026"
+      "date": "6 October 2026"
     },
     "modern-new-technique-cuisine": {
       "dots": 3,
@@ -2855,6 +2855,49 @@
       "check": "Drafted 27 September 2026 from the pages read that day for the barista hunt, not from a visit. Nobody from EducatedTraveler has stood at any of these machines. The fourth answer rests on Daily Coffee News, trade press that sells no course on this page. Revised 4 October 2026: the first two answers now say what Boot Coffee Campus publishes; no dot moved.",
       "checker": "Arnaud Callier",
       "date": "4 October 2026"
+    },
+    "chocolate-and-confectionery": {
+      "dots": 4,
+      "verdict": "A bench craft with two doors a stranger can book, one with a teacher who puts her name on it — and no rung above the course that anyone outside the schools sets",
+      "state": "researched, not checked",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes, at one of the two courses we point to. Melissa Coppel teaches her own five-day Chocolate Bootcamp in Las Vegas, on the course page read 5 October 2026. At Wieze, Callebaut's course page names no trainer, though the academy lists its resident chefs; there is no single pick on this page, and only the Las Vegas course names who stands in the room."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": true,
+          "t": "Yes. Melissa Coppel's Bootcamp runs 8 to 12 March 2027 at $2,900, booked directly on the page; Callebaut's Chocolate Fundamentals at Wieze lists 25 to 27 January 2027 at €900, though the same pages announce a renovation closure from November 2026 to April 2027, so that date needs confirming. Both read 5 October 2026. Tempering is the test: chocolate that is out of temper blooms and will not snap, and you will see it."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": true,
+          "t": "Yes: at most fourteen students in the Las Vegas Bootcamp and a class of twelve at Wieze, on the schools' own course pages, read 5 October 2026."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Yes, in Belgium. Belgium's own foreign ministry counts 500 chocolatiers and 2,000 chocolate shops in the country in 2012, one shop for every 5,500 people. That is a craft practised in the street, not only taught in a school. It answers for Brussels and Wieze, not for Las Vegas.",
+          "evidence": [
+            {
+              "what": "Focus on Belgium (Belgian Federal Public Service Foreign Affairs), on Belgian chocolate",
+              "url": "https://focusonbelgium.be/en/facts/did-you-know-belgium-produces-over-220000-tons-chocolate-every-year",
+              "date": "5 October 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "We read it and the answer is no. Each school issues its own certificate, and the competition ladder above them, the World Chocolate Masters, is organised by Callebaut, which also runs the Wieze academy: a body that teaches, certifies and judges is not an outside standard. And nobody of ours has been."
+        }
+      ],
+      "ceilingNote": "Four is the most a desk can give here. The fifth waits for a rung set by somebody outside the schools, and for somebody of ours to stand at the bench.",
+      "check": "Drafted 6 October 2026 from the schools' own course pages and the Belgian foreign ministry's figures, all read 5 October 2026, not from a visit. Nobody from EducatedTraveler has tempered chocolate in either room.",
+      "checker": "Arnaud Callier",
+      "date": "6 October 2026"
     }
   },
   "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
