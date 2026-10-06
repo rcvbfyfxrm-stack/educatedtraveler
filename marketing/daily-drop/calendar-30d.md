@@ -9,9 +9,9 @@ One clip a day. Same format every day. Every clip points at one atlas page.
 - **Caption:**
 
 ```
-This is where Pottery & Ceramics was born.
+The strongest Pottery & Ceramics community on earth gathers in Mashiko.
 
-Hamada planted the mingei flame here in 1924 and the kilns still breathe, making this the source where folk-pottery became a way of life.
+Hamada settled here in 1924, in a town making everyday pots since 1853, and from here he became a founding figure of the mingei folk-craft movement; the kilns still fire.
 
 Community strength: Legendary. Season: Apr-Nov (spring & autumn pottery fairs).
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -27,7 +27,7 @@ The full page: https://educatedtraveler.app/atlas/pottery-and-ceramics--mashiko
 - **Caption:**
 
 ```
-Rishikesh is both the birthplace of Hatha & Vinyasa Yoga and its living capital.
+The strongest Hatha & Vinyasa Yoga community on earth gathers in Rishikesh.
 
 Earn your RYT-200 where the Ganges meets the Himalaya, shoulder to shoulder with a global cohort in the city the practice itself calls its capital.
 
@@ -65,7 +65,7 @@ The full page: https://educatedtraveler.app/atlas/freediving--dahab-red-sea
 ```
 Paris is both the birthplace of French Pastry & Patisserie and its living capital.
 
-This is the source: stand at the bench where the CAP Pâtissier was forged and earn the diploma the rest of the world measures itself against.
+Carême learned his trade here in 1798, and Paris benches still teach the classical repertoire toward the CAP Pâtissier, the French state diploma of the trade.
 
 Community strength: Legendary. Season: Sep-Jun.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -101,7 +101,7 @@ The full page: https://educatedtraveler.app/atlas/photography--new-york-city
 ```
 This is where Ashtanga Yoga was born.
 
-The Gokulam neighbourhood where the method was born and the lineage still holds, the one place every authorised Ashtanga teacher on Earth traces home.
+Mysore, where the method was born in 1933, and Gokulam, where the Jois family shalas still teach — the one place every authorised Ashtanga teacher on Earth traces home.
 
 Community strength: Legendary. Season: Oct-Mar.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -117,9 +117,9 @@ The full page: https://educatedtraveler.app/atlas/ashtanga-yoga--mysore-gokulam
 - **Caption:**
 
 ```
-The Solent (Cowes & Hamble) is both the birthplace of Sailing & Yachtmaster and its living capital.
+The strongest Sailing & Yachtmaster community on earth gathers in The Solent (Cowes & Hamble).
 
-The Solent is where the RYA built its Yachtmaster scheme, and its tidal chaos still forges the most respected ticket afloat, one examined and earned rather than bought.
+The RYA runs the Yachtmaster scheme from Hamble, on the Solent, and the water's tidal chaos still forges a ticket examined and earned rather than bought.
 
 Community strength: Legendary. Season: Apr-Oct.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -128,32 +128,32 @@ The full page: https://educatedtraveler.app/atlas/sailing-and-yachtmaster--the-s
 #adventuretravel #skillsnotsouvenirs #learnbydoing #thesolentcoweshamble #sailingyachtmaster
 ```
 
-## Day 8 — Italian Cuisine & Pasta · Bologna, Italy  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
-- **Footage:** La Vecchia Scuola Bolognese (Alessandra Spisni) — https://www.vsb-bologna.it/en/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Italian Cuisine & Pasta, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 8 — Chocolate & Confectionery · Brussels / Wieze, Belgium  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze
+- **Footage:** Callebaut Chocolate Academy (Wieze) — https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses/chocolate-fundamentals-1 (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Chocolate & Confectionery, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-Bologna is both the birthplace of Italian Cuisine & Pasta and its living capital.
+Brussels / Wieze is both the birthplace of Chocolate & Confectionery and its living capital.
 
-The world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.
+The filled praline was invented in Brussels in 1912, and Callebaut’s Chocolate Academy has taught on the grounds of its largest factory, at Wieze, since 1988. The Academy has announced a renovation closure from November 2026 to April 2027, so confirm your date with them before you book.
 
 Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
+The full page: https://educatedtraveler.app/atlas/chocolate-and-confectionery--brussels-wieze
 
-#foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta
+#foodtok #cookingclass #learnbydoing #brusselswieze #chocolateconfectionery
 ```
 
 ## Day 9 — Jewelry & Goldsmithing · Florence, Italy  `[creative]`
 - **Atlas page:** https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--florence
-- **Footage:** Le Arti Orafe Jewellery School (LAO) — https://artiorafe.it/en/courses/courses-goldsmith-school/ (licensed/reposted with credit — see OUTREACH.md)
+- **Footage:** Le Arti Orafe Jewellery School (LAO) — https://artiorafe.it/en/courses/goldsmithery/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Jewelry & Goldsmithing, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-Florence is both the birthplace of Jewelry & Goldsmithing and its living capital.
+The strongest Jewelry & Goldsmithing community on earth gathers in Florence.
 
 In the city of the goldsmiths' bridge, you learn at LAO, the first Italian school dedicated to the craft, surrounded by the bench tradition the Renaissance perfected.
 
@@ -171,9 +171,9 @@ The full page: https://educatedtraveler.app/atlas/jewelry-and-goldsmithing--flor
 - **Caption:**
 
 ```
-Igatpuri (Dhamma Giri) is both the birthplace of Vipassana & Meditation and its living capital.
+The strongest Vipassana & Meditation community on earth gathers in Igatpuri (Dhamma Giri).
 
-The world headquarters of Goenka Vipassana and one of the largest meditation centres on Earth, where the modern revival was born and the gold-standard 10-day course is taught at the source.
+The world headquarters of Goenka Vipassana and one of the largest meditation centres on Earth, where the ten-day course has been taught since 1976.
 
 Community strength: Legendary. Season: Oct-Mar.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -200,22 +200,22 @@ The full page: https://educatedtraveler.app/atlas/surfing--waikiki-oahu
 #adventuretravel #skillsnotsouvenirs #learnbydoing #waikikioahu #surfing
 ```
 
-## Day 12 — New Basque Cuisine · San Sebastián (Donostia), Spain  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
-- **Footage:** Basque Culinary Center — https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of New Basque Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 12 — Italian Cuisine & Pasta · Bologna, Italy  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
+- **Footage:** La Vecchia Scuola Bolognese (Alessandra Spisni) — https://www.vsb-bologna.it/en/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Italian Cuisine & Pasta, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.
+The strongest Italian Cuisine & Pasta community on earth gathers in Bologna.
 
-The cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.
+The world's only school dedicated to training professional sfoglini — roll tortellini and tagliatelle by hand in the city that gave them to the planet, taught by the women who guard the tradition.
 
-Community strength: Legendary. Season: May-Oct.
+Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
+The full page: https://educatedtraveler.app/atlas/italian-cuisine-and-pasta--bologna
 
-#foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine
+#foodtok #cookingclass #learnbydoing #bologna #italiancuisinepasta
 ```
 
 ## Day 13 — Perfumery · Grasse, France  `[creative]`
@@ -236,22 +236,22 @@ The full page: https://educatedtraveler.app/atlas/perfumery--grasse
 #crafttok #processvideo #handmade #grasse #perfumery
 ```
 
-## Day 14 — Thai Massage · Chiang Mai, Thailand  `[wellness]`
-- **Atlas page:** https://educatedtraveler.app/atlas/thai-massage--chiang-mai
-- **Footage:** Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH) — https://www.oldmedicine.org/courses (licensed/reposted with credit — see OUTREACH.md)
+## Day 14 — Thai Massage · Bangkok, Thailand  `[wellness]`
+- **Atlas page:** https://educatedtraveler.app/atlas/thai-massage--bangkok
+- **Footage:** Wat Pho Thai Traditional Medical and Massage School (Watpo TTM) — https://watpomassage.com/en (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Thai Massage, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-Chiang Mai is both the birthplace of Thai Massage and its living capital.
+Bangkok is both the birthplace of Thai Massage and its living capital.
 
-The world capital of Northern-style Nuad Thai, with a deep community of Thai and international students training at the source through established schools and walking out with ministry-recognized certificates.
+Train at Wat Pho, the temple that codified Thai massage and opened the nation's first state-recognized school in 1955, earning the credential the whole industry trusts.
 
 Community strength: Legendary. Season: Nov-Feb.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/thai-massage--chiang-mai
+The full page: https://educatedtraveler.app/atlas/thai-massage--bangkok
 
-#breathwork #yogatok #learnbydoing #chiangmai #thaimassage
+#breathwork #yogatok #learnbydoing #bangkok #thaimassage
 ```
 
 ## Day 15 — Kitesurfing · Tarifa, Spain  `[adventure]`
@@ -263,7 +263,7 @@ The full page: https://educatedtraveler.app/atlas/thai-massage--chiang-mai
 ```
 The strongest Kitesurfing community on earth gathers in Tarifa.
 
-The wind capital of Europe funnels Levante and Poniente over Valdevaqueros some 300 days a year, a regular GKA Kite World Tour stop where every school flies the IKO standard.
+The wind capital of Europe funnels Levante and Poniente over Valdevaqueros some 300 days a year, and every school here flies the IKO standard.
 
 Community strength: Legendary. Season: Apr-Oct.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -272,22 +272,22 @@ The full page: https://educatedtraveler.app/atlas/kitesurfing--tarifa
 #adventuretravel #skillsnotsouvenirs #learnbydoing #tarifa #kitesurfing
 ```
 
-## Day 16 — Modernist Spanish Cuisine · Barcelona, Spain  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/modernist-spanish-cuisine--barcelona
-- **Footage:** Vakuum by Martin Lippo — https://martinlippo.com/en/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 16 — New Basque Cuisine · San Sebastián (Donostia), Spain  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
+- **Footage:** Basque Culinary Center — https://www.bculinary.com/en/programas-especializacion/perfeccionamiento-de-tecnicas-culinarias (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of New Basque Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-The strongest Modernist Spanish Cuisine community on earth gathers in Barcelona.
+San Sebastián (Donostia) is both the birthplace of New Basque Cuisine and its living capital.
 
-Where the elBulli cooks actually landed. Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024, and the diaspora around it makes this the densest scene the cuisine has — denser than the city we would actually send you to learn it in.
+The cradle of Nueva Cocina Vasca and one of the most Michelin-starred square kilometres on earth — study where Arzak and Subijana launched the movement, inside its founding university.
 
-Community strength: Legendary. Season: Year-round.
+Community strength: Legendary. Season: May-Oct.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--barcelona
+The full page: https://educatedtraveler.app/atlas/new-basque-cuisine--san-sebasti-n-donostia
 
-#foodtok #cookingclass #learnbydoing #barcelona #modernistspanishcuisine
+#foodtok #cookingclass #learnbydoing #sansebastindonostia #newbasquecuisine
 ```
 
 ## Day 17 — Wildlife Photography · Pusztaszer, Hungary  `[creative]`
@@ -297,9 +297,9 @@ The full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--bar
 - **Caption:**
 
 ```
-This is where Wildlife Photography was born.
+The strongest Wildlife Photography community on earth gathers in Pusztaszer.
 
-One-way glass hide photography was invented here. Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — built over 25 hides on the family farm, and the technique the rest of the world copies started in this soil.
+One-way glass hide photography was pioneered here by Bence Máté — the only person to hold both Young Wildlife Photographer of the Year and Wildlife Photographer of the Year — from his family's house by the wetlands at the edge of Pusztaszer.
 
 Community strength: Legendary. Season: Apr-Aug.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -315,9 +315,9 @@ The full page: https://educatedtraveler.app/atlas/wildlife-photography--pusztasz
 - **Caption:**
 
 ```
-This is where Cold Exposure (Wim Hof Method) was born.
+The strongest Cold Exposure (Wim Hof Method) community on earth gathers in Przesieka, Karkonosze Mountains.
 
-Wim Hof's own mountain training ground, where the legendary Winter Expedition and final instructor module are earned barefoot in the snow up Mount Sniezka.
+Wim Hof’s own mountain training ground, where for years the method’s teacher trainings were held, barefoot in the snow below Mount Sniezka.
 
 Community strength: Legendary. Season: Dec-Mar.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -344,22 +344,22 @@ The full page: https://educatedtraveler.app/atlas/windsurfing-and-wing-foil--mau
 #adventuretravel #skillsnotsouvenirs #learnbydoing #mauihookipakanaha #windsurfingwingfoil
 ```
 
-## Day 20 — Sushi & Washoku · Osaka, Japan  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/sushi-and-washoku--osaka
-- **Footage:** Tsuji Culinary Institute (Abeno, Tsujicho Group) — https://www.tsuji.ac.jp/en/college/osaka/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Sushi & Washoku, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 20 — Modernist Spanish Cuisine · Barcelona, Spain  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/modernist-spanish-cuisine--barcelona
+- **Footage:** Vakuum by Martin Lippo — https://martinlippo.com/en/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Modernist Spanish Cuisine, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-Osaka is both the birthplace of Sushi & Washoku and its living capital.
+The strongest Modernist Spanish Cuisine community on earth gathers in Barcelona.
 
-Japan's most established culinary academy sits in the nation's kitchen, where the one-year Japanese Culinary Course readies you for the National Chef's License.
+Where the elBulli cooks actually landed. Disfrutar, opened by three chefs out of that kitchen, was named the world's best restaurant in 2024, and the diaspora around it makes this the densest scene the cuisine has — denser than the city we would actually send you to learn it in.
 
-Community strength: Legendary. Season: Apr-Nov.
+Community strength: Legendary. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/sushi-and-washoku--osaka
+The full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--barcelona
 
-#foodtok #cookingclass #learnbydoing #osaka #sushiwashoku
+#foodtok #cookingclass #learnbydoing #barcelona #modernistspanishcuisine
 ```
 
 ## Day 21 — Japanese Knife-Making · Shimanto, Japan  `[creative]`
@@ -382,14 +382,14 @@ The full page: https://educatedtraveler.app/atlas/japanese-knife-making
 
 ## Day 22 — Lymphatic Drainage · Walchsee, Austria  `[wellness]`
 - **Atlas page:** https://educatedtraveler.app/atlas/lymphatic-drainage
-- **Footage:** Dr. Vodder Akademie & Wittlinger Therapiezentrum — https://www.vodderakademie.com/ (licensed/reposted with credit — see OUTREACH.md)
+- **Footage:** Dr. Vodder Akademie & Wittlinger Therapiezentrum — https://www.vodderakademie.com/kurs/manuelle-lymphdrainage-nach-dr-vodder-ml-in-walchsee.html (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Lymphatic Drainage, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-This is where Lymphatic Drainage was born.
+The strongest Lymphatic Drainage community on earth gathers in Walchsee.
 
-The Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and the final training week treats real patients, not classmates. A dedicated English-language course runs at the source.
+The Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and in the final training week students treat its patients, not classmates. The 180-hour course is taught in German, to health professionals.
 
 Community strength: The source. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -405,9 +405,9 @@ The full page: https://educatedtraveler.app/atlas/lymphatic-drainage
 - **Caption:**
 
 ```
-Yosemite Valley is both the birthplace of Rock Climbing and its living capital.
+The strongest Rock Climbing community on earth gathers in Yosemite Valley.
 
-El Capitan's granite is the planet's bucket-list wall, and the Valley floor is where big-wall craft is still taught and tested by the people pushing it.
+El Capitan's granite is the wall climbers everywhere know by name, and the Valley floor is where big-wall craft is still taught and tested by the people pushing it.
 
 Community strength: Legendary. Season: Apr-Oct.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -416,22 +416,22 @@ The full page: https://educatedtraveler.app/atlas/rock-climbing--yosemite-valley
 #adventuretravel #skillsnotsouvenirs #learnbydoing #yosemitevalley #rockclimbing
 ```
 
-## Day 24 — Wine & Sommellerie · Bordeaux, France  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux
-- **Footage:** L'Ecole du Vin de Bordeaux (CIVB) — https://www.ecoleduvindebordeaux.com/en (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+## Day 24 — Sushi & Washoku · Tokyo (Tsukiji / Toyosu), Japan  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu
+- **Footage:** Tokyo Sushi Academy — https://www.sushischool.jp/instrutorsandstaff (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Sushi & Washoku, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-Bordeaux is both the birthplace of Wine & Sommellerie and its living capital.
+This is where Sushi & Washoku was born.
 
-Stand at the source among classified-growth chateaux, where the city of wine itself teaches you to taste the terroir that wrote the rulebook.
+This is edomae sushi at its birthplace, where you train beside the world's most demanding fish market and earn your skills the way the masters did.
 
-Community strength: Legendary. Season: May-Oct.
+Community strength: Legendary. Season: Year-round (peak Mar-May, Sep-Nov).
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--bordeaux
+The full page: https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsukiji-toyosu
 
-#foodtok #cookingclass #learnbydoing #bordeaux #winesommellerie
+#foodtok #cookingclass #learnbydoing #tokyotsukijitoyosu #sushiwashoku
 ```
 
 ## Day 25 — Self-Sufficiency & Food Preservation · Almería, Spain  `[creative]`
@@ -459,9 +459,9 @@ The full page: https://educatedtraveler.app/atlas/self-sufficiency
 - **Caption:**
 
 ```
-This is where Sound Healing was born.
+The strongest Sound Healing community on earth gathers in Kathmandu / Pokhara.
 
-The Himalayan home of singing-bowl craft and Nada Yoga, where you learn bowls and gongs at the source from the makers and Tibetan-rooted sound healers.
+Singing bowls are made and sold in Nepal today, and Kathmandu schools teach bowls and gongs in ten-day sound-therapy trainings.
 
 Community strength: Thriving. Season: Oct-Nov, Mar-Apr.
 We map where every craft is truly alive — and introduce you to the school and the people going.
@@ -470,25 +470,61 @@ The full page: https://educatedtraveler.app/atlas/sound-healing--kathmandu-pokha
 #breathwork #yogatok #learnbydoing #kathmandupokhara #soundhealing
 ```
 
-## Day 27 — Ski-touring & Splitboard · Wasatch (Salt Lake City / Park City), United States  `[adventure]`
-- **Atlas page:** https://educatedtraveler.app/atlas/ski-touring-and-splitboard--wasatch-salt-lake-city-park-city
-- **Footage:** Utah Mountain Adventures — https://www.utahmountainadventures.com/ (licensed/reposted with credit — see OUTREACH.md)
+## Day 27 — Ski-touring & Splitboard · Chamonix / Verbier (Haute Route), France / Switzerland  `[adventure]`
+- **Atlas page:** https://educatedtraveler.app/atlas/ski-touring-and-splitboard--chamonix-verbier-haute-route
+- **Footage:** Compagnie des Guides de Chamonix — https://www.chamonix-guides.com/en/activities/details/ski-touring-haute-route-chamonix-zermatt-6-days (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Ski-touring & Splitboard, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
 
 ```
-Wasatch (Salt Lake City / Park City) is both the birthplace of Ski-touring & Splitboard and its living capital.
+This is where Ski-touring & Splitboard was born.
 
-The splitboard was born in Utah's Wasatch in 1991, and the range's light powder and dense AIARE cohort make it the home of human-powered riding.
+The Chamonix-to-Zermatt Haute Route, first completed on skis in 1911, is the classic hut-to-hut ski tour, and still the one tourers most want to earn.
 
-Community strength: Legendary. Season: Dec-Apr.
+Community strength: Legendary. Season: Mar-Apr.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/ski-touring-and-splitboard--wasatch-salt-lake-city-park-city
+The full page: https://educatedtraveler.app/atlas/ski-touring-and-splitboard--chamonix-verbier-haute-route
 
-#adventuretravel #skillsnotsouvenirs #learnbydoing #wasatchsaltlakecityparkcity #skitouringsplitboard
+#adventuretravel #skillsnotsouvenirs #learnbydoing #chamonixverbierhauteroute #skitouringsplitboard
 ```
 
-## Day 28 — Coffee & Barista · Melbourne, Australia  `[culinary]`
+## Day 28 — Wine & Sommellerie · London, United Kingdom  `[culinary]`
+- **Atlas page:** https://educatedtraveler.app/atlas/wine-and-sommellerie--london
+- **Footage:** WSET School London — https://www.wsetglobal.com/wset-school-london (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Wine & Sommellerie, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+London is both the birthplace of Wine & Sommellerie and its living capital.
+
+The examined craft was born in Britain, and London is where it is still set: the Institute of Masters of Wine works from here, and WSET runs its flagship school in Bermondsey, so this is where wine credentials are earned, not bought.
+
+Community strength: Legendary. Season: Sep-Jun.
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/wine-and-sommellerie--london
+
+#foodtok #cookingclass #learnbydoing #london #winesommellerie
+```
+
+## Day 29 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
+- **Atlas page:** https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession
+- **Footage:** EcoTraining — https://www.ecotraining.co.za/course-calendar/ (licensed/reposted with credit — see OUTREACH.md)
+- **Clip:** 30-60s wordless process: hands + material of Safari & Wildlife Guiding, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
+- **Caption:**
+
+```
+The strongest Safari & Wildlife Guiding community on earth gathers in Greater Kruger / Makuleke Concession.
+
+Here you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and you train toward FGASA certification, the standard South Africa’s field guides are assessed against.
+
+Community strength: Legendary. Season: May-Sep (dry season).
+We map where every craft is truly alive — and introduce you to the school and the people going.
+The full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession
+
+#adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding
+```
+
+## Day 30 — Coffee & Barista · Melbourne, Australia  `[culinary]`
 - **Atlas page:** https://educatedtraveler.app/atlas/coffee-and-barista--melbourne
 - **Footage:** Melbourne Coffee Academy — https://www.melbournecoffeeacademy.com.au/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Coffee & Barista, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
@@ -504,40 +540,4 @@ We map where every craft is truly alive — and introduce you to the school and 
 The full page: https://educatedtraveler.app/atlas/coffee-and-barista--melbourne
 
 #foodtok #cookingclass #learnbydoing #melbourne #coffeebarista
-```
-
-## Day 29 — Safari & Wildlife Guiding · Greater Kruger / Makuleke Concession, South Africa  `[adventure]`
-- **Atlas page:** https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession
-- **Footage:** EcoTraining — https://www.ecotraining.co.za/course-calendar/ (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of Safari & Wildlife Guiding, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-Greater Kruger / Makuleke Concession is both the birthplace of Safari & Wildlife Guiding and its living capital.
-
-This is where the FGASA gold standard was forged, where you live in unfenced wilderness camps until tracking dangerous game on foot is second nature, and certify at the source.
-
-Community strength: Legendary. Season: May-Sep (dry season).
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/safari-and-wildlife-guiding--greater-kruger-makuleke-concession
-
-#adventuretravel #skillsnotsouvenirs #learnbydoing #greaterkrugermakulekeconcession #safariwildlifeguiding
-```
-
-## Day 30 — New culinary techniques & technologies · Barcelona, Spain  `[culinary]`
-- **Atlas page:** https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona
-- **Footage:** Culinary Institute of Barcelona (CIB) — https://cib.education/cursos-de-cocina/chef-especialista-tecnicas-culinarias-avanzadas (licensed/reposted with credit — see OUTREACH.md)
-- **Clip:** 30-60s wordless process: hands + material of New culinary techniques & technologies, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
-- **Caption:**
-
-```
-The strongest New culinary techniques & technologies community on earth gathers in Barcelona.
-
-Catalonia is the world capital of avant-garde cuisine — the Adria revolution's home turf — and the rare city where you can still enrol with a master rather than apply for a stage, at Martin Lippo's Vakuum lab.
-
-Community strength: Legendary. Season: Year-round.
-We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/modern-new-technique-cuisine--barcelona
-
-#foodtok #cookingclass #learnbydoing #barcelona #newculinarytechniquestec
 ```
