@@ -20672,59 +20672,6 @@ window.ET_ATLAS = {
       "blurb": "Building balanced cocktails with speed and precision behind a real bar, from classics to your own signature builds.",
       "destinations": [
         {
-          "place": "Havana",
-          "country": "Cuba",
-          "region": "Caribbean",
-          "role": "source",
-          "communityRank": 4,
-          "communityLabel": "Thriving",
-          "schools": [
-            "Club de Cantineros de Cuba",
-            "Havana Club Rum Museum bartending experiences"
-          ],
-          "masters": [],
-          "lineage": [
-            "Cantineros de Cuba lineage"
-          ],
-          "badges": [
-            "source",
-            "heritage",
-            "lineage"
-          ],
-          "why": "The birthplace of the daiquiri and mojito, where the legendary Cantineros guild has guarded the rum-cocktail craft for a century, an origin pilgrimage in every shake.",
-          "bestSeason": "Nov-Apr",
-          "level": "Beginner -> Cantinero",
-          "id": "mixology-and-bartending--havana",
-          "schoolsInfo": [
-            {
-              "name": "Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron)",
-              "url": "https://cantineroscuba.org.cu/",
-              "course": "No standing week-long public course; cantinero training is free, resident-only, and the tourist-facing option is a short cocktail workshop at the Museo del Ron",
-              "blurb": "The Asociacion de Cantineros de Cuba (founded 1924) runs the cantinero tradition, where trainees learn 150-200 cocktails from memory over roughly six months before an exam, but its courses are free and reserved for members with permanent residency in Cuba, not sold to travelers.",
-              "confidence": "low"
-            },
-            {
-              "name": "Club de Cantineros de Cuba",
-              "url": "",
-              "course": "Cantinero cocktail school training (historic six-month program)",
-              "blurb": "The Havana bartenders' guild founded in 1924, historically known for a cocktail school whose trainees had to master 150-200 cocktails from memory and pass an exam, though it has no verifiable current public enrollment website.",
-              "confidence": "low"
-            },
-            {
-              "name": "Havana Club Rum Museum bartending experiences",
-              "url": "https://www.havanaclubmuseum.com/en/experiences/",
-              "course": "Cocktail-making workshop with a Cuban bartender (Bartender Apprentice experience)",
-              "blurb": "The Havana Club Rum Museum in Habana Vieja offers short rum-tasting and cocktail-making workshops led by a Cuban bartender, an introductory hands-on experience rather than a multi-day certification program.",
-              "confidence": "medium"
-            }
-          ],
-          "tripTier": 3,
-          "tripType": "Deep-dive",
-          "tripLength": "2–4 weeks",
-          "englishTaught": true,
-          "englishBasis": "Havana Club Rum Museum cocktail-making workshops/experiences are offered in English among other languages"
-        },
-        {
           "place": "London",
           "country": "United Kingdom",
           "region": "Western Europe",
@@ -20733,16 +20680,14 @@ window.ET_ATLAS = {
           "communityLabel": "Legendary",
           "schools": [
             "European Bartender School London",
-            "The Spirit Lab",
-            "WSET School London (Spirits)"
+            "The Spirit Lab"
           ],
           "masters": [],
           "badges": [
             "scene",
-            "mecca",
             "school"
           ],
-          "why": "Home to more of the world's most awarded cocktail bars than anywhere else, this is the densest scene on Earth to sharpen the modern craft and earn your certificate.",
+          "why": "Two of the world's top ten bars on The World's 50 Best Bars 2025, and four of its top fifty, are in London; The Spirit Lab teaches a five-day course in a working development bar on Marylebone High Street.",
           "bestSeason": "Year-round",
           "level": "Beginner -> Professional bartender",
           "id": "mixology-and-bartending--london",
@@ -20751,21 +20696,14 @@ window.ET_ATLAS = {
               "name": "European Bartender School London",
               "url": "https://www.barschool.net/barschools/london",
               "course": "International Bartender Course",
-              "blurb": "European Bartender School is an international bartending academy founded in 1999 whose London campus near Tower Bridge runs a four-week, full-time, hands-on International Bartender Course covering mixology, flair, speed and service, ending in an internationally recognised EBS certificate.",
+              "blurb": "The London campus of an international bartending chain, near Tower Bridge, teaching the same four-week International Bartender Course it sells in some forty cities: six hours a day, mostly behind the bar, ending in a test and the school's own certificate. When we read its booking pages on 6 October 2026 the next London course ran 26 October to 20 November 2026, at €2,355. No teacher is named, and no class size is published.",
               "confidence": "high"
             },
             {
               "name": "The Spirit Lab",
-              "url": "https://www.spiritlablondon.com/",
-              "course": "Professional Bartending Course",
-              "blurb": "The Spirit Lab is a Marylebone-based bartending academy founded in 2014 that delivers practical multi-day professional bartending and mixology courses with WSET-linked qualifications and small-group hands-on tuition behind a working bar.",
-              "confidence": "high"
-            },
-            {
-              "name": "WSET School London (Spirits)",
-              "url": "https://www.wsetglobal.com/wset-school-london/wset-courses/wset-level-3-award-in-spirits",
-              "course": "WSET Level 3 Award in Spirits",
-              "blurb": "WSET School London is the flagship campus of the Wine & Spirit Education Trust, and its Level 3 Award in Spirits is a classroom course with tutored tastings of 58 spirits aimed at bartenders and drinks professionals, finishing in an internationally recognised qualification.",
+              "url": "https://www.spiritlablondon.com/international-mixology-course/",
+              "course": "International Mixology Course (Level 1): five days, at most 12 students",
+              "blurb": "A Marylebone bartending school that teaches in a working development bar at 93 Marylebone High Street. Its International Mixology Course is five days, Monday to Friday 9am to 4pm, for at most twelve students, at £799 plus VAT: more than forty IBA cocktails, with WSET Level 1 Spirits and a practical diploma. When we read it on 6 October 2026 the next dates were 19 October and 9 November 2026, then from 4 January 2027. Its pages name no teacher; they speak of instructors who have worked in London's top venues.",
               "confidence": "high"
             }
           ],
@@ -20779,14 +20717,10 @@ window.ET_ATLAS = {
           "place": "New York City",
           "country": "United States",
           "region": "North America",
-          "role": "scene",
+          "role": "source",
           "communityRank": 5,
           "communityLabel": "Legendary",
-          "schools": [
-            "BarSmarts (Pernod Ricard / Beverage Alcohol Resource)",
-            "European Bartender School New York",
-            "Columbia Bartending Agency & School"
-          ],
+          "schools": [],
           "masters": [
             "Dale DeGroff (\"King Cocktail\")"
           ],
@@ -20794,43 +20728,15 @@ window.ET_ATLAS = {
             "Audrey Saunders (Pegu Club lineage)"
           ],
           "badges": [
+            "source",
             "scene",
-            "mecca",
             "master"
           ],
-          "why": "Where Dale DeGroff reignited the cocktail craft at the Rainbow Room, the densest scene on Earth to find your people behind the stick.",
+          "why": "Where the bartender's craft was first written down, in Jerry Thomas's 1862 guide, and where Dale DeGroff reignited it at the Rainbow Room.",
           "bestSeason": "Year-round",
           "level": "Beginner -> Master mixologist",
           "id": "mixology-and-bartending--new-york-city",
-          "schoolsInfo": [
-            {
-              "name": "BarSmarts (Pernod Ricard / Beverage Alcohol Resource)",
-              "url": "https://www.barsmarts.com/",
-              "course": "BarSmarts (Basics and Professional)",
-              "blurb": "BarSmarts is an online bartender education program created by Pernod Ricard USA with Beverage Alcohol Resource, offering Basics and Professional tiers covering spirits knowledge, cocktail technique and service, with a flat registration fee and a completion certificate.",
-              "confidence": "medium",
-              "standing": {
-                "state": "not-here",
-                "what": "Their own FAQ: “BarSmarts is an online bartender education program.” Both levels we listed, Basics and Professional, are taken online.",
-                "from": "https://www.barsmarts.com/",
-                "read": "2026-09-27"
-              }
-            },
-            {
-              "name": "European Bartender School New York",
-              "url": "https://www.barschool.net/barschools/new-york",
-              "course": "International Bartender Course",
-              "blurb": "European Bartender School's New York campus in East Williamsburg, Brooklyn, runs an intensive four-week International Bartender Course of hands-on training for beginners and working bartenders, leading to the internationally recognised EBS certificate.",
-              "confidence": "high"
-            },
-            {
-              "name": "Columbia Bartending Agency & School",
-              "url": "https://columbiabartending.com/",
-              "course": "School of Mixology Certification Class",
-              "blurb": "The Columbia Bartending Agency and School of Mixology is a student-run school operating at Columbia University since 1965 that teaches public mixology classes using real alcohol, covering bar setup, classic and contemporary drinks and service, with a certificate awarded on passing a performance and written exam.",
-              "confidence": "high"
-            }
-          ],
+          "schoolsInfo": [],
           "tripTier": 2,
           "tripType": "Starter",
           "tripLength": "about a week",
@@ -20867,6 +20773,42 @@ window.ET_ATLAS = {
             "fit": "Taster",
             "note": "90-minute tourist workshop making two cocktails; not the cantinero craft training or any sustained community immersion.",
             "confidence": "med"
+          }
+        ]
+      },
+      "bestPlace": "mixology-and-bartending--london",
+      "sweep": {
+        "date": "2026-10-06",
+        "regions": [
+          "Western Europe",
+          "North America",
+          "Latin America & Caribbean"
+        ],
+        "bounded": "This was a check of the places already on this page, not a worldwide search: every school was read on its own site on 6 October 2026.",
+        "rejected": [
+          {
+            "name": "Havana, as a place on this page",
+            "place": "Cuba",
+            "url": "https://cantineroscuba.org.cu/",
+            "why": "Havana gave the world the daiquiri and the mojito, and its Cantineros association, founded in 1924, still trains Cuban bartenders. But single drinks and the rum in them are not the craft's birthplace: the bartender's craft was first set down in New York, in Jerry Thomas's 1862 guide. The association's training is for its own members, with no public course a traveller can book, and the only door open to visitors is a short museum workshop. Taken off the map on 6 October 2026."
+          },
+          {
+            "name": "European Bartender School New York",
+            "place": "New York City, United States",
+            "url": "https://www.barschool.net/barschools",
+            "why": "Its New York page now redirects to the school list, and its booking pages showed no New York dates on 6 October 2026."
+          },
+          {
+            "name": "Columbia Bartending Agency & School",
+            "place": "New York City, United States",
+            "url": "https://columbiabartending.com/join-session/",
+            "why": "A student-run agency whose mixology classes are taught by former participants; on 6 October 2026 its own page said the Fall 2026 workshops were delayed, with no date."
+          },
+          {
+            "name": "BarSmarts",
+            "place": "New York City, United States",
+            "url": "https://www.barsmarts.com/",
+            "why": "An online bartender programme; its only in-person part is a short practical test for people who finished the online course. Not a course in this place."
           }
         ]
       }
