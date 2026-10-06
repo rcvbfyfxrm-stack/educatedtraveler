@@ -117,7 +117,10 @@
   .split:has(.pill input:checked) > .print::after,
   #s-first:has(#p-first-gresca:checked) .t1::after,
   #s-first:has(#p-first-brutal:checked) .t2::after,
-  #s-first:has(#p-first-ultra:checked) .t3::after{transform:scale(1) rotate(-12deg)}
+  #s-first:has(#p-first-ultra:checked) .t3::after,
+  #s-dinner:has(#p-dinner-gresca:checked) .t1::after,
+  #s-dinner:has(#p-dinner-ultra:checked) .t2::after,
+  #s-dinner:has(#p-dinner-brutal:checked) .t3::after{transform:scale(1) rotate(-12deg)}
   html.js .print{opacity:0;transform:translateY(-18px) rotate(calc(var(--r) - 6deg));transition:opacity .5s ease-out,transform .85s cubic-bezier(.2,.9,.25,1.08)}
   html.js .print.in{opacity:1;transform:rotate(var(--r))}
   html.js .print:not(.blank) .film::after{opacity:1;transition:opacity 2.2s ease-out .3s}
@@ -244,18 +247,18 @@
       <h1 id="h1">Around the five days.</h1>
       <p class="dates">Lab Week 01 with Martín Lippo · Vakuum, Barcelona · 22–26 October 2026</p>
       <p class="sub">First, I'd like to check whether you'd be interested in a few things around the week.</p>
-      <p>The lab takes the days, 10:00 to 14:00 and 15:00 to 18:00. Around it, I'd like to offer you one table on the 21st, the day before, and seven things in and around Barcelona. Tick what you'd come to and I'll organise the ones the room wants. You pay each place directly.</p>
+      <p>The lab takes the days, 10:00 to 14:00 and 15:00 to 18:00. Around it, I'd like to offer you one table on the 21st, the day before, and eight things in and around Barcelona. Tick what you'd come to and I'll organise the ones the room wants. You pay each place directly.</p>
       <p class="hint">Scroll &darr;</p>
     </div>
   </div>
 </section>
 
 <section class="slide" id="s-dates" aria-labelledby="h-dates">
-  <span class="num">01 / 10</span>
+  <span class="num">01 / 11</span>
   <div class="wrap">
     <fieldset>
       <legend><h2 id="h-dates">First, two dates.</h2></legend>
-      <p class="say">Two of the visits need daytime hours, and the lab has every day from Thursday to Monday. That leaves the day before and the day after.</p>
+      <p class="say">The first table is on Wednesday 21, the day before the lab. The 100%Chef visit and the Recaredo tasting are on Tuesday 27, the day after.</p>
       <div class="pills">
         <label class="pill" for="d-wed">
           <input type="checkbox" id="d-wed" name="date" value="in-wed-21" data-label="Wednesday 21 October">
@@ -271,12 +274,12 @@
 </section>
 
 <section class="slide" id="s-first" aria-labelledby="t-first">
-  <span class="num">02 / 10</span>
+  <span class="num">02 / 11</span>
   <div class="wrap split">
     <div class="trio" aria-hidden="true">
       <figure class="print t1" style="--r:-6deg"><span class="film"><img src="/images/around/gresca-print.jpg" width="1000" height="1000" alt="" loading="lazy" decoding="async"></span><figcaption>Gresca</figcaption></figure>
       <figure class="print t2" style="--r:2deg"><span class="film"><img src="/images/around/brutal-print.jpg" width="1000" height="1000" alt="" loading="lazy" decoding="async"></span><figcaption>Bar Brutal</figcaption></figure>
-      <figure class="print t3 blank" style="--r:7deg"><span class="film"></span><figcaption>Ultramarinos Marín</figcaption></figure>
+      <figure class="print t3" style="--r:7deg"><span class="film"><img src="/images/around/ultramarinos-print.jpg" width="1000" height="1000" alt="" loading="lazy" decoding="async"></span><figcaption>Ultramarinos Marín</figcaption></figure>
     </div>
     <div class="reveal">
       <p class="at">Wednesday 21 October · the day before</p>
@@ -302,7 +305,7 @@
 </section>
 
 <section class="slide flip" id="s-boqueria" aria-labelledby="t-boqueria">
-  <span class="num">03 / 10</span>
+  <span class="num">03 / 11</span>
   <div class="wrap split">
     <figure class="print" style="--r:2.5deg">
       <span class="film"><img src="/images/around/boqueria-print.jpg" width="1000" height="1000" alt="A juice and fruit stall at La Boqueria, Barcelona" loading="lazy" decoding="async"></span>
@@ -322,29 +325,59 @@
   </div>
 </section>
 
-<section class="slide" id="s-gresca" aria-labelledby="t-gresca">
-  <span class="num">04 / 10</span>
+<section class="slide" id="s-dinner" aria-labelledby="t-dinner">
+  <span class="num">04 / 11</span>
   <div class="wrap split">
-    <figure class="print" style="--r:-2deg">
-      <span class="film"><img src="/images/around/gresca-print.jpg" width="1000" height="1000" alt="An open kitchen seen from the counter: cooks at the stoves, plates and a wine glass on the counter" loading="lazy" decoding="async"></span>
-      <figcaption>Gresca, from the counter</figcaption>
+    <div class="trio" aria-hidden="true">
+      <figure class="print t1" style="--r:-5deg"><span class="film"><img src="/images/around/gresca-print.jpg" width="1000" height="1000" alt="" loading="lazy" decoding="async"></span><figcaption>Gresca</figcaption></figure>
+      <figure class="print t2" style="--r:3deg"><span class="film"><img src="/images/around/ultramarinos-print.jpg" width="1000" height="1000" alt="" loading="lazy" decoding="async"></span><figcaption>Ultramarinos</figcaption></figure>
+      <figure class="print t3" style="--r:8deg"><span class="film"><img src="/images/around/brutal-print.jpg" width="1000" height="1000" alt="" loading="lazy" decoding="async"></span><figcaption>Bar Brutal</figcaption></figure>
+    </div>
+    <div class="reveal">
+      <p class="at">One evening, Thursday to Saturday</p>
+      <h2 id="t-dinner">Dinner out</h2>
+      <p class="say" id="s-dinner-say">One evening in the week, dinner together at one of three. Tick the ones you'd come to.</p>
+      <div class="pills" role="group" aria-labelledby="t-dinner">
+        <label class="pill tall" for="p-dinner-gresca">
+          <input type="checkbox" id="p-dinner-gresca" name="pick" value="dinner-gresca" data-label="Dinner out: Gresca, from 20:00">
+          <span class="two">Gresca · from 20:00<small>Rafa Peña's game and offal, in half portions; most plates €15–32</small></span>
+        </label>
+        <label class="pill tall" for="p-dinner-ultra">
+          <input type="checkbox" id="p-dinner-ultra" name="pick" value="dinner-ultramarinos" data-label="Dinner out: Ultramarinos Marín, from 19:30">
+          <span class="two">Ultramarinos Marín · from 19:30<small>A counter for twelve facing the grill; fish and meat sold by weight</small></span>
+        </label>
+        <label class="pill tall" for="p-dinner-brutal">
+          <input type="checkbox" id="p-dinner-brutal" name="pick" value="dinner-brutal" data-label="Dinner out: Bar Brutal, from 19:00">
+          <span class="two">Bar Brutal · from 19:00<small>More than 2,000 wines; the menu changes too often to publish</small></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide flip" id="s-vermut" aria-labelledby="t-vermut">
+  <span class="num">05 / 11</span>
+  <div class="wrap split">
+    <figure class="print" style="--r:2.5deg">
+      <span class="film"><img src="/images/around/vermut-print.jpg" width="1000" height="1000" alt="Glasses of vermut, a bowl of olives and a basket of crisps on a bar table" loading="lazy" decoding="async"></span>
+      <figcaption>Vermut, olives, crisps<small>Alzinous · <b>CC BY-SA 3.0</b></small></figcaption>
     </figure>
     <div class="reveal">
-      <p class="at">An evening · from 20:00</p>
-      <h2 id="t-gresca">Dinner at Gresca</h2>
-      <p class="say" id="s-gresca-say">Plates to share on Carrer de Provença, at the counter that faces the kitchen.</p>
-      <p class="learn" id="l-gresca"><span>Worth knowing</span>Rafa Peña's kitchen is known for game and offal, in half portions to share. From the counter you watch every plate leave the pass.</p>
-      <ul class="chips" id="f-gresca"><li>From 20:00</li><li>Most plates €15–32</li><li><a href="https://gresca.rest" target="_blank" rel="noopener">gresca.rest ↗</a></li></ul>
-      <label class="pill" for="p-gresca">
-        <input type="checkbox" id="p-gresca" name="pick" value="gresca" data-label="Dinner at Gresca" aria-labelledby="t-gresca" aria-describedby="s-gresca-say l-gresca f-gresca">
+      <p class="at">An evening</p>
+      <h2 id="t-vermut">A night of vermut and tapas</h2>
+      <p class="say" id="s-vermut-say">Vermut and small plates, the way Barcelona does it: from one bar to the next.</p>
+      <p class="learn" id="l-vermut"><span>Worth knowing</span>Fer el vermut: vermouth from the tap, with olives, anchovies and crisps. In Barcelona it is a ritual, usually before Sunday lunch.</p>
+      <ul class="chips" id="f-vermut"><li>You pay as you go</li></ul>
+      <label class="pill" for="p-vermut">
+        <input type="checkbox" id="p-vermut" name="pick" value="vermut" data-label="A night of vermut and tapas" aria-labelledby="t-vermut" aria-describedby="s-vermut-say l-vermut f-vermut">
         <span>I would come to this</span>
       </label>
     </div>
   </div>
 </section>
 
-<section class="slide flip" id="s-lasarte" aria-labelledby="t-lasarte">
-  <span class="num">05 / 10</span>
+<section class="slide" id="s-lasarte" aria-labelledby="t-lasarte">
+  <span class="num">06 / 11</span>
   <div class="wrap split">
     <figure class="print" style="--r:3deg">
       <span class="film"><img src="/images/around/lasarte-print.jpg" width="1000" height="1000" alt="Casa Enric Batlló on Passeig de Gràcia, the building that now houses the Monument Hotel" loading="lazy" decoding="async"></span>
@@ -364,8 +397,8 @@
   </div>
 </section>
 
-<section class="slide" id="s-wine" aria-labelledby="t-wine">
-  <span class="num">06 / 10</span>
+<section class="slide flip" id="s-wine" aria-labelledby="t-wine">
+  <span class="num">07 / 11</span>
   <div class="wrap split">
     <figure class="print blank" style="--r:-2.5deg">
       <span class="film" aria-hidden="true"></span>
@@ -384,8 +417,8 @@
   </div>
 </section>
 
-<section class="slide flip" id="s-martinez" aria-labelledby="t-martinez">
-  <span class="num">07 / 10</span>
+<section class="slide" id="s-martinez" aria-labelledby="t-martinez">
+  <span class="num">08 / 11</span>
   <div class="wrap split">
     <figure class="print" style="--r:2deg">
       <span class="film"><img src="/images/around/martinez-print.jpg" width="1000" height="1000" alt="Port Vell and the city at night, seen from Montjuïc" loading="lazy" decoding="async"></span>
@@ -405,15 +438,15 @@
   </div>
 </section>
 
-<section class="slide" id="s-100chef" aria-labelledby="t-100chef">
-  <span class="num">08 / 10</span>
+<section class="slide flip" id="s-100chef" aria-labelledby="t-100chef">
+  <span class="num">09 / 11</span>
   <div class="wrap split">
-    <figure class="print blank" style="--r:-3deg">
-      <span class="film" aria-hidden="true"></span>
-      <figcaption>No photograph yet</figcaption>
+    <figure class="print" style="--r:-3deg">
+      <span class="film"><img src="/images/around/100chef-print.jpg" width="1000" height="1000" alt="A chef loading a 100%Chef stone grinder" loading="lazy" decoding="async"></span>
+      <figcaption>100%Chef, Vilassar de Dalt<small>Photograph · 100%Chef</small></figcaption>
     </figure>
     <div class="reveal">
-      <p class="at">Wednesday 21 or Tuesday 27 October · daytime</p>
+      <p class="at">Tuesday 27 October · daytime</p>
       <h2 id="t-100chef">The 100%Chef showroom</h2>
       <p class="say" id="s-100chef-say">The people who make tools and ingredients for modern cooking, at their lab in Vilassar de Dalt, about 25&nbsp;km north-east of Barcelona.</p>
       <p class="learn" id="l-100chef"><span>Worth knowing</span>Their lab develops texturisers and tools for modern kitchens, and Martín's own site lists them as a partner.</p>
@@ -426,15 +459,15 @@
   </div>
 </section>
 
-<section class="slide flip" id="s-recaredo" aria-labelledby="t-recaredo">
-  <span class="num">09 / 10</span>
+<section class="slide" id="s-recaredo" aria-labelledby="t-recaredo">
+  <span class="num">10 / 11</span>
   <div class="wrap split">
     <figure class="print" style="--r:2.5deg">
       <span class="film"><img src="/images/around/recaredo-print.jpg" width="1000" height="1000" alt="A vine beside the Recaredo stone marker, in its vineyard at Sant Sadurní d'Anoia" loading="lazy" decoding="async"></span>
       <figcaption>Recaredo's vineyard, Sant Sadurní<small>LanderBlazquez · <b>CC BY-SA 4.0</b></small></figcaption>
     </figure>
     <div class="reveal">
-      <p class="at">Wednesday 21 or Tuesday 27 October · daytime</p>
+      <p class="at">Tuesday 27 October · daytime</p>
       <h2 id="t-recaredo">Recaredo, in the Penedès</h2>
       <p class="say" id="s-recaredo-say">A family house in Sant Sadurní d'Anoia. Two hours in the cellar, with a tasting.</p>
       <p class="learn" id="l-recaredo"><span>Worth knowing</span>Its sparkling wines age for years on their lees. In 2019 the house left the Cava name to join Corpinnat.</p>
@@ -448,7 +481,7 @@
 </section>
 
 <section class="slide form" id="send" aria-labelledby="h-answer">
-  <span class="num">10 / 10</span>
+  <span class="num">11 / 11</span>
   <div class="wrap">
     <div id="answer">
       <h2 id="h-answer">Your answer.</h2>
@@ -498,11 +531,13 @@
     </div>
 
     <div class="credits">
-      <p>Four photographs are from Wikimedia Commons, cropped square:
+      <p>Five photographs are from Wikimedia Commons, cropped square:
         <a href="https://commons.wikimedia.org/wiki/File:Mercat_de_la_Boqueria_(53359199531).jpg" target="_blank" rel="noopener">La Boqueria</a> · Jorge Franganillo · CC BY 2.0 —
         <a href="https://commons.wikimedia.org/wiki/File:Casa_Enric_Batll%C3%B3.jpg" target="_blank" rel="noopener">Casa Enric Batlló</a> · Pere López · CC BY-SA 3.0 —
         <a href="https://commons.wikimedia.org/wiki/File:Port-Vell-Night.JPG" target="_blank" rel="noopener">Port Vell at night</a> · Jopsens · CC BY-SA 3.0 —
-        <a href="https://commons.wikimedia.org/wiki/File:VINYA_RECAREDO.jpg" target="_blank" rel="noopener">Recaredo's vineyard</a> · LanderBlazquez · CC BY-SA 4.0.</p>
+        <a href="https://commons.wikimedia.org/wiki/File:VINYA_RECAREDO.jpg" target="_blank" rel="noopener">Recaredo's vineyard</a> · LanderBlazquez · CC BY-SA 4.0 —
+        <a href="https://commons.wikimedia.org/wiki/File:Vermut.jpg" target="_blank" rel="noopener">Vermut</a> · Alzinous · CC BY-SA 3.0.
+        The photographs of 100%Chef and of Ultramarinos Marín are theirs.</p>
       <p class="sig">A skill, a place, a person, your people.</p>
       <p class="foot">EDUCATEDTRAVELER · LAB WEEK 01 · ORGANISED AND SOLD BY EDUCATEDTRAVELER · TAUGHT BY MARTÍN LIPPO AT VAKUUM, BARCELONA</p>
     </div>
@@ -643,9 +678,9 @@
   }
   count();
 
-  // The chip never covers the button it counts: while any tick sits in the
-  // bottom band of the screen, it steps aside.
-  var pills = Array.prototype.slice.call(document.querySelectorAll('.pill'));
+  // The chip never covers what it sits over: while any tick or row of tags is
+  // in the bottom band of the screen, it steps aside.
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.pill, .chips'));
   var bandIO = null, bandT = 0;
   function band() {
     if (!('IntersectionObserver' in window)) return;
