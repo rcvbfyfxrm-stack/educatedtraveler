@@ -10,6 +10,7 @@
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://educatedtraveler.app/around-the-week">
 <link rel="icon" href="/favicon.svg">
+<script>document.documentElement.className += ' js';</script>
 <script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,11 +21,11 @@
      takes no money: it lists what the room could do around the lab hours and
      asks who would come. Unlisted on purpose (noindex, not in the sitemap).
 
-     One place per screen, scrolled through like slides. Where there is an
-     openly licensed photograph of the place it fills the screen and the words
-     sit on it; where there is none, the screen is type on ink. Rulings of
-     25 Sept 2026 applied: nothing before the h1, headline in paper, ember means
-     one thing only — what is not arranged yet. Sea carries everything else. */
+     One place per screen, scrolled through like slides, each with its photograph
+     as a polaroid print laid on the table. A place with no photograph gets a
+     print that has not developed: the blank, published. Rulings of 25 Sept 2026
+     applied: nothing before the h1, headline in paper, ember means one thing
+     only — what is not arranged yet. Sea carries everything else. */
   :root{
     --ink:#0d0b09; --ink-2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --ember:#d28a52; --ember-soft:#e0a877;
     --line:rgba(243,237,226,0.09); --soft:rgba(243,237,226,0.72); --softer:rgba(243,237,226,0.5);
@@ -33,10 +34,10 @@
   }
   *{box-sizing:border-box}
   html{scroll-snap-type:y mandatory}
-  /* a short window cannot hold a whole screen of text: let it scroll freely there */
-  @media (max-height:640px){html{scroll-snap-type:y proximity}}
+  /* a short window cannot hold a whole screen: let it scroll freely there */
+  @media (max-height:740px){html{scroll-snap-type:y proximity}}
   @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-  body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16.5px;line-height:1.6}
+  body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16.5px;line-height:1.6;overflow-x:hidden}
   ::selection{background:var(--sea);color:var(--ink)}
   a{color:var(--sea)}
   a:hover{color:var(--paper)}
@@ -44,8 +45,8 @@
   .skip{position:absolute;left:-999px;top:0;background:var(--paper);color:var(--ink);padding:.6rem 1rem;border-radius:0 0 6px 0;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;z-index:9}
   .skip:focus{left:0}
 
-  .topbar{position:fixed;top:0;left:0;right:0;z-index:5;background:linear-gradient(to bottom,rgba(13,11,9,.78),rgba(13,11,9,0))}
-  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.75rem;padding-bottom:1.2rem}
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:5;background:linear-gradient(to bottom,rgba(13,11,9,.92),rgba(13,11,9,0))}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.75rem;padding-bottom:1.2rem;max-width:1100px}
   .wordmark{font-family:var(--serif);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em;color:var(--paper);text-decoration:none}
   .wordmark b{font-weight:300;color:var(--sea)}
   .topbar a.back{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);text-decoration:none}
@@ -53,14 +54,15 @@
   .wrap{width:100%;max-width:680px;margin:0 auto;padding:0 1.4rem}
 
   /* ── a screen ── */
-  .slide{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate;border-bottom:1px solid var(--line)}
-  .slide > .wrap{padding-top:4.6rem;padding-bottom:5.4rem}
-  .slide .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-  .slide .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(13,11,9,.94) 0%,rgba(13,11,9,.78) 34%,rgba(13,11,9,.22) 64%,rgba(13,11,9,.06) 100%)}
-  .num{position:absolute;top:3.4rem;right:1.4rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--softer);z-index:1}
-  .credit{position:absolute;top:3.4rem;left:1.4rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;color:var(--softer);z-index:1;max-width:58%;line-height:1.6}
-  .credit b{font-weight:400;white-space:nowrap}
-  @media (min-width:760px){.num,.credit{top:3.6rem}}
+  .slide{position:relative;min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid var(--line)}
+  .slide > .wrap{padding-top:4.2rem;padding-bottom:5.2rem}
+  .num{position:absolute;top:3.4rem;right:1.4rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--softer)}
+  .split{display:grid;gap:1.7rem}
+  @media (min-width:900px){
+    .slide > .wrap.split{max-width:1060px;grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:4.5rem;align-items:center}
+    .slide.flip > .wrap.split{grid-template-columns:minmax(0,1fr) minmax(0,400px)}
+    .slide.flip .print{order:2}
+  }
 
   h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,8vw,4.2rem);line-height:1;margin:0 0 1rem;letter-spacing:-.015em;text-wrap:balance}
   .dates{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:0 0 1.1rem;line-height:1.9}
@@ -78,10 +80,49 @@
   /* the gap, in the one colour kept for it */
   .state{display:flex;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ember);margin:.9rem 0 0;line-height:1.5}
   .state i{flex:0 0 auto;width:.7rem;height:.7rem;border:1.5px solid var(--ember);border-radius:50%}
-  .ring{width:2.2rem;height:2.2rem;border:2px solid var(--ember);border-radius:50%;margin:0 0 1.1rem}
+
+  /* ── the print ── a polaroid: paper frame, square picture, a thick strip below
+     with the place written on it. It lands on the table as its screen arrives,
+     and the picture develops from dark. Both only when motion is welcome. */
+  .print{--r:-3deg;margin:0;width:min(58vw,28svh,300px);justify-self:center;background:var(--paper);padding:11px 11px 0;border-radius:2px;
+         box-shadow:0 24px 44px -22px rgba(0,0,0,.95),0 3px 9px rgba(0,0,0,.45);transform:rotate(var(--r))}
+  @media (min-width:900px){.print{width:min(400px,52svh)}}
+  .film{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:#2a2621}
+  .film img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .film::after{content:"";position:absolute;inset:0;background:#2e2923;opacity:0;pointer-events:none}
+  .print figcaption{font-family:var(--serif);font-style:italic;font-size:1.06rem;line-height:1.25;color:#2c231a;padding:.75rem .15rem 1.1rem;min-height:4.4rem}
+  .print figcaption small{display:block;margin-top:.3rem;font-family:var(--mono);font-style:normal;font-size:.62rem;letter-spacing:.05em;line-height:1.5;color:#6b625a}
+  /* a place with no photograph: the print never develops, and carries the gap */
+  .print.blank .film::before{content:"";position:absolute;left:50%;top:50%;width:22%;aspect-ratio:1/1;transform:translate(-50%,-50%);border:2px solid var(--ember);border-radius:50%}
+  html.js .print{opacity:0;transform:translateY(-18px) rotate(calc(var(--r) - 6deg));transition:opacity .5s ease-out,transform .85s cubic-bezier(.2,.9,.25,1.08)}
+  html.js .print.in{opacity:1;transform:rotate(var(--r))}
+  html.js .print:not(.blank) .film::after{opacity:1;transition:opacity 2.2s ease-out .3s}
+  html.js .print.in .film::after{opacity:0}
+  @media (prefers-reduced-motion:reduce){
+    html.js .print,html.js .print.in{opacity:1;transform:rotate(var(--r));transition:none}
+    html.js .print:not(.blank) .film::after{opacity:0;transition:none}
+  }
+
+  /* the cover: a few prints dropped on the table */
+  .pile{position:relative;width:100%;height:min(58vw,250px);margin:0 0 1.4rem}
+  .pile .print{position:absolute;width:min(38vw,180px)}
+  .pile .print figcaption{font-size:.92rem;min-height:3.1rem;padding:.55rem .1rem .75rem}
+  .pile .p1{left:0;top:16px;z-index:1}
+  .pile .p2{left:30%;top:0;z-index:2;transition-delay:.12s}
+  .pile .p3{left:58%;top:22px;z-index:3;transition-delay:.24s}
+  .pile .p4{display:none}
+  @media (min-width:900px){
+    .slide > .wrap.cover{max-width:1100px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,500px);gap:3.5rem;align-items:center}
+    .pile{order:2;height:640px;margin:0}
+    .pile .print{width:230px}
+    .pile .p1{left:0;top:20px;z-index:1}
+    .pile .p2{left:232px;top:0;z-index:2}
+    .pile .p4{display:block;left:14px;top:322px;z-index:3;transition-delay:.36s}
+    .pile .p3{left:250px;top:318px;z-index:4}
+  }
 
   /* the tick: a pill, and the box inside it is the real checkbox */
-  .pill{display:inline-flex;align-items:center;gap:.8rem;margin:1.2rem 0 0;padding:.85rem 1.3rem .85rem 1rem;border:1.5px solid var(--sea);border-radius:999px;background:rgba(13,11,9,.45);color:var(--paper);font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;min-height:48px;touch-action:manipulation;-webkit-tap-highlight-color:rgba(127,168,165,.18)}
+  .pill{display:inline-flex;align-items:center;gap:.8rem;margin:1.2rem 0 0;padding:.85rem 1.3rem .85rem 1rem;border:1.5px solid var(--sea);border-radius:999px;background:transparent;color:var(--paper);font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;min-height:48px;touch-action:manipulation;-webkit-tap-highlight-color:rgba(127,168,165,.18)}
   .pill:hover{border-color:var(--paper)}
   .pill:has(input:checked){background:var(--sea);border-color:var(--sea);color:var(--ink)}
   .pill input{appearance:none;-webkit-appearance:none;display:grid;place-content:center;margin:0;width:22px;height:22px;flex:0 0 auto;border:1.5px solid var(--sea);border-radius:4px;background:transparent;cursor:pointer}
@@ -145,15 +186,20 @@
 <main id="main">
 
 <section class="slide" id="s-cover" aria-labelledby="h1">
-  <img class="bg" src="/images/around/cover-900.jpg" srcset="/images/around/cover-900.jpg 900w, /images/around/cover-1800.jpg 1800w" sizes="100vw" width="1800" height="1350" alt="Port Vell and the Barceloneta, seen from the Miramar gardens on Montjuïc" fetchpriority="high" decoding="async">
-  <div class="scrim" aria-hidden="true"></div>
-  <span class="credit">Photograph · Enfo · <b>CC BY-SA 3.0</b></span>
-  <div class="wrap">
-    <h1 id="h1">Around the five days.</h1>
-    <p class="dates">Lab Week 01 with Martín Lippo · Vakuum, Barcelona · 22–26 October 2026</p>
-    <p class="sub">The lab takes the days, 10:00 to 14:00 and 15:00 to 18:00. This page is what the room could do with the rest: one table the night before, and seven things in and around Barcelona.</p>
-    <p><strong>None of it is arranged yet.</strong> Tick what you would come to. I will arrange the ones the room wants and the places can give us. A tick commits you to nothing, and you pay each place yourself.</p>
-    <p class="hint">Scroll &darr;</p>
+  <div class="wrap cover">
+    <div class="pile" aria-hidden="true">
+      <figure class="print p1" style="--r:-8deg"><span class="film"><img src="/images/around/brutal-print.jpg" width="1000" height="1000" alt="" fetchpriority="high" decoding="async"></span><figcaption>Bar Brutal</figcaption></figure>
+      <figure class="print p2" style="--r:3deg"><span class="film"><img src="/images/around/gresca-print.jpg" width="1000" height="1000" alt="" fetchpriority="high" decoding="async"></span><figcaption>Gresca</figcaption></figure>
+      <figure class="print p3" style="--r:10deg"><span class="film"><img src="/images/around/boqueria-print.jpg" width="1000" height="1000" alt="" decoding="async"></span><figcaption>La Boqueria</figcaption></figure>
+      <figure class="print p4" style="--r:-5deg"><span class="film"><img src="/images/around/recaredo-print.jpg" width="1000" height="1000" alt="" decoding="async"></span><figcaption>Recaredo</figcaption></figure>
+    </div>
+    <div>
+      <h1 id="h1">Around the five days.</h1>
+      <p class="dates">Lab Week 01 with Martín Lippo · Vakuum, Barcelona · 22–26 October 2026</p>
+      <p class="sub">The lab takes the days, 10:00 to 14:00 and 15:00 to 18:00. This page is what the room could do with the rest: one table the night before, and seven things in and around Barcelona.</p>
+      <p><strong>None of it is arranged yet.</strong> Tick what you would come to. I will arrange the ones the room wants and the places can give us. A tick commits you to nothing, and you pay each place yourself.</p>
+      <p class="hint">Scroll &darr;</p>
+    </div>
   </div>
 </section>
 
@@ -179,136 +225,168 @@
 
 <section class="slide" id="s-first" aria-labelledby="t-first">
   <span class="num">02 / 10</span>
-  <div class="wrap">
-    <div class="ring" aria-hidden="true"></div>
-    <p class="at">The night before · Wednesday 21 October · evening</p>
-    <h2 id="t-first">One table, one set menu</h2>
-    <p class="say" id="s-first-say">So the room meets before the lab does. One table for all of us and a set menu, at Bar Brutal in El Born if they can take us. The price follows when they have answered.</p>
-    <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
-    <label class="pill" for="p-first">
-      <input type="checkbox" id="p-first" name="pick" value="first-table" data-label="The night before: one table, one set menu" aria-labelledby="t-first" aria-describedby="s-first-say">
-      <span>I would come to this</span>
-    </label>
+  <div class="wrap split">
+    <figure class="print" style="--r:-3deg">
+      <span class="film"><img src="/images/around/brutal-print.jpg" width="1000" height="1000" alt="Bar Brutal at night on Carrer de la Princesa, its red neon sign above the door, bicycles in the foreground" loading="lazy" decoding="async"></span>
+      <figcaption>Bar Brutal, Carrer de la Princesa</figcaption>
+    </figure>
+    <div>
+      <p class="at">The night before · Wednesday 21 October · evening</p>
+      <h2 id="t-first">One table, one set menu</h2>
+      <p class="say" id="s-first-say">So the room meets before the lab does. One table for all of us and a set menu, at Bar Brutal in El Born if they can take us. The price follows when they have answered.</p>
+      <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
+      <label class="pill" for="p-first">
+        <input type="checkbox" id="p-first" name="pick" value="first-table" data-label="The night before: one table, one set menu" aria-labelledby="t-first" aria-describedby="s-first-say">
+        <span>I would come to this</span>
+      </label>
+    </div>
   </div>
 </section>
 
-<section class="slide" id="s-boqueria" aria-labelledby="t-boqueria">
-  <img class="bg" src="/images/around/boqueria-900.jpg" srcset="/images/around/boqueria-900.jpg 900w, /images/around/boqueria-1800.jpg 1800w" sizes="100vw" width="1800" height="1200" alt="A juice and fruit stall at La Boqueria, Barcelona" loading="lazy" decoding="async">
-  <div class="scrim" aria-hidden="true"></div>
-  <span class="credit">Photograph · Jorge Franganillo · <b>CC BY 2.0</b></span>
+<section class="slide flip" id="s-boqueria" aria-labelledby="t-boqueria">
   <span class="num">03 / 10</span>
-  <div class="wrap">
-    <p class="at">A weekday morning · 08:00, at the lab for 10:00</p>
-    <h2 id="t-boqueria">La Boqueria, as it opens</h2>
-    <p class="say" id="s-boqueria-say">A walk through the market while the stalls set up, and breakfast at one of its bars.</p>
-    <p class="facts" id="f-boqueria">Open Monday to Saturday, from 08:00. The walk costs nothing; breakfast is yours. <a href="https://www.boqueria.barcelona/home" target="_blank" rel="noopener">boqueria.barcelona</a></p>
-    <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
-    <label class="pill" for="p-boqueria">
-      <input type="checkbox" id="p-boqueria" name="pick" value="boqueria" data-label="La Boqueria at 08:00" aria-labelledby="t-boqueria" aria-describedby="s-boqueria-say f-boqueria">
-      <span>I would come to this</span>
-    </label>
+  <div class="wrap split">
+    <figure class="print" style="--r:2.5deg">
+      <span class="film"><img src="/images/around/boqueria-print.jpg" width="1000" height="1000" alt="A juice and fruit stall at La Boqueria, Barcelona" loading="lazy" decoding="async"></span>
+      <figcaption>La Boqueria<small>Jorge Franganillo · CC BY 2.0</small></figcaption>
+    </figure>
+    <div>
+      <p class="at">A weekday morning · 08:00, at the lab for 10:00</p>
+      <h2 id="t-boqueria">La Boqueria, as it opens</h2>
+      <p class="say" id="s-boqueria-say">A walk through the market while the stalls set up, and breakfast at one of its bars.</p>
+      <p class="facts" id="f-boqueria">Open Monday to Saturday, from 08:00. The walk costs nothing; breakfast is yours. <a href="https://www.boqueria.barcelona/home" target="_blank" rel="noopener">boqueria.barcelona</a></p>
+      <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
+      <label class="pill" for="p-boqueria">
+        <input type="checkbox" id="p-boqueria" name="pick" value="boqueria" data-label="La Boqueria at 08:00" aria-labelledby="t-boqueria" aria-describedby="s-boqueria-say f-boqueria">
+        <span>I would come to this</span>
+      </label>
+    </div>
   </div>
 </section>
 
 <section class="slide" id="s-gresca" aria-labelledby="t-gresca">
   <span class="num">04 / 10</span>
-  <div class="wrap">
-    <div class="ring" aria-hidden="true"></div>
-    <p class="at">An evening · from 20:00</p>
-    <h2 id="t-gresca">Dinner at Gresca</h2>
-    <p class="say" id="s-gresca-say">Plates to share on Carrer de Provença, at the counter that faces the kitchen if they can give it to us.</p>
-    <p class="facts" id="f-gresca">Most plates are €15 to €32 on its menu. <a href="https://gresca.rest" target="_blank" rel="noopener">gresca.rest</a></p>
-    <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
-    <label class="pill" for="p-gresca">
-      <input type="checkbox" id="p-gresca" name="pick" value="gresca" data-label="Dinner at Gresca" aria-labelledby="t-gresca" aria-describedby="s-gresca-say f-gresca">
-      <span>I would come to this</span>
-    </label>
+  <div class="wrap split">
+    <figure class="print" style="--r:-2deg">
+      <span class="film"><img src="/images/around/gresca-print.jpg" width="1000" height="1000" alt="An open kitchen seen from the counter: cooks at the stoves, plates and a wine glass on the counter" loading="lazy" decoding="async"></span>
+      <figcaption>Gresca, from the counter</figcaption>
+    </figure>
+    <div>
+      <p class="at">An evening · from 20:00</p>
+      <h2 id="t-gresca">Dinner at Gresca</h2>
+      <p class="say" id="s-gresca-say">Plates to share on Carrer de Provença, at the counter that faces the kitchen if they can give it to us.</p>
+      <p class="facts" id="f-gresca">Most plates are €15 to €32 on its menu. <a href="https://gresca.rest" target="_blank" rel="noopener">gresca.rest</a></p>
+      <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
+      <label class="pill" for="p-gresca">
+        <input type="checkbox" id="p-gresca" name="pick" value="gresca" data-label="Dinner at Gresca" aria-labelledby="t-gresca" aria-describedby="s-gresca-say f-gresca">
+        <span>I would come to this</span>
+      </label>
+    </div>
   </div>
 </section>
 
-<section class="slide" id="s-lasarte" aria-labelledby="t-lasarte">
-  <img class="bg" src="/images/around/lasarte-900.jpg" srcset="/images/around/lasarte-900.jpg 900w, /images/around/lasarte-1800.jpg 1800w" sizes="100vw" width="1731" height="1800" alt="Casa Enric Batlló on Passeig de Gràcia, the building of the Monument Hotel" loading="lazy" decoding="async" style="object-position:center 30%">
-  <div class="scrim" aria-hidden="true"></div>
-  <span class="credit">Photograph · Pere López · <b>CC BY-SA 3.0</b></span>
+<section class="slide flip" id="s-lasarte" aria-labelledby="t-lasarte">
   <span class="num">05 / 10</span>
-  <div class="wrap">
-    <p class="at">Wednesday to Saturday night only</p>
-    <h2 id="t-lasarte">Dinner at Lasarte</h2>
-    <p class="say" id="s-lasarte-say">Three Michelin stars, in the Monument Hotel. Whether it can take a group that week is a real question, so tell me first if you would pay for it.</p>
-    <p class="facts" id="f-lasarte">The tasting menu is €345 a head, before wine. Closed Sunday, Monday and Tuesday. <a href="https://www.restaurantlasarte.com" target="_blank" rel="noopener">restaurantlasarte.com</a></p>
-    <p class="state"><i aria-hidden="true"></i>To be confirmed</p>
-    <label class="pill" for="p-lasarte">
-      <input type="checkbox" id="p-lasarte" name="pick" value="lasarte" data-label="Dinner at Lasarte" aria-labelledby="t-lasarte" aria-describedby="s-lasarte-say f-lasarte">
-      <span>I would come to this</span>
-    </label>
+  <div class="wrap split">
+    <figure class="print" style="--r:3deg">
+      <span class="film"><img src="/images/around/lasarte-print.jpg" width="1000" height="1000" alt="Casa Enric Batlló on Passeig de Gràcia, the building that now houses the Monument Hotel" loading="lazy" decoding="async"></span>
+      <figcaption>Casa Enric Batlló, now the Monument Hotel<small>Pere López · CC BY-SA 3.0</small></figcaption>
+    </figure>
+    <div>
+      <p class="at">Wednesday to Saturday night only</p>
+      <h2 id="t-lasarte">Dinner at Lasarte</h2>
+      <p class="say" id="s-lasarte-say">Three Michelin stars, in the Monument Hotel. Whether it can take a group that week is a real question, so tell me first if you would pay for it.</p>
+      <p class="facts" id="f-lasarte">The tasting menu is €345 a head, before wine. Closed Sunday, Monday and Tuesday. <a href="https://www.restaurantlasarte.com" target="_blank" rel="noopener">restaurantlasarte.com</a></p>
+      <p class="state"><i aria-hidden="true"></i>To be confirmed</p>
+      <label class="pill" for="p-lasarte">
+        <input type="checkbox" id="p-lasarte" name="pick" value="lasarte" data-label="Dinner at Lasarte" aria-labelledby="t-lasarte" aria-describedby="s-lasarte-say f-lasarte">
+        <span>I would come to this</span>
+      </label>
+    </div>
   </div>
 </section>
 
 <section class="slide" id="s-wine" aria-labelledby="t-wine">
   <span class="num">06 / 10</span>
-  <div class="wrap">
-    <div class="ring" aria-hidden="true"></div>
-    <p class="at">An evening</p>
-    <h2 id="t-wine">A Catalan wine night</h2>
-    <p class="say" id="s-wine-say">Catalan wines, and how to pair them with Spanish cooking, poured by a sommelier. The one I want to ask is Gresca's.</p>
-    <p class="facts" id="f-wine">No price yet.</p>
-    <p class="state"><i aria-hidden="true"></i>To be confirmed</p>
-    <label class="pill" for="p-wine">
-      <input type="checkbox" id="p-wine" name="pick" value="wine-night" data-label="A Catalan wine night" aria-labelledby="t-wine" aria-describedby="s-wine-say f-wine">
-      <span>I would come to this</span>
-    </label>
+  <div class="wrap split">
+    <figure class="print blank" style="--r:-2.5deg">
+      <span class="film" aria-hidden="true"></span>
+      <figcaption>No photograph yet</figcaption>
+    </figure>
+    <div>
+      <p class="at">An evening</p>
+      <h2 id="t-wine">A Catalan wine night</h2>
+      <p class="say" id="s-wine-say">Catalan wines, and how to pair them with Spanish cooking, poured by a sommelier. The one I want to ask is Gresca's.</p>
+      <p class="facts" id="f-wine">No price yet.</p>
+      <p class="state"><i aria-hidden="true"></i>To be confirmed</p>
+      <label class="pill" for="p-wine">
+        <input type="checkbox" id="p-wine" name="pick" value="wine-night" data-label="A Catalan wine night" aria-labelledby="t-wine" aria-describedby="s-wine-say f-wine">
+        <span>I would come to this</span>
+      </label>
+    </div>
   </div>
 </section>
 
-<section class="slide" id="s-martinez" aria-labelledby="t-martinez">
-  <img class="bg" src="/images/around/martinez-900.jpg" srcset="/images/around/martinez-900.jpg 900w, /images/around/martinez-1800.jpg 1800w" sizes="100vw" width="1800" height="1200" alt="Port Vell and the city at night, seen from Montjuïc" loading="lazy" decoding="async">
-  <div class="scrim" aria-hidden="true"></div>
-  <span class="credit">Photograph · Jopsens · <b>CC BY-SA 3.0</b></span>
+<section class="slide flip" id="s-martinez" aria-labelledby="t-martinez">
   <span class="num">07 / 10</span>
-  <div class="wrap">
-    <p class="at">Sunday 25 or Monday 26 October · evening</p>
-    <h2 id="t-martinez">Rice at Martínez, on Montjuïc</h2>
-    <p class="say" id="s-martinez-say">Rice dishes on the hill, with the city and the port below. Open every day.</p>
-    <p class="facts" id="f-martinez">Most rice dishes are €24 to €30 a head on its menu. Its menu with starters, dessert, wine and coffee is €62. For twelve or more it offers group menus, from €93. <a href="https://martinezbarcelona.com" target="_blank" rel="noopener">martinezbarcelona.com</a></p>
-    <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
-    <label class="pill" for="p-martinez">
-      <input type="checkbox" id="p-martinez" name="pick" value="martinez" data-label="Rice at Martínez, on Montjuïc" aria-labelledby="t-martinez" aria-describedby="s-martinez-say f-martinez">
-      <span>I would come to this</span>
-    </label>
+  <div class="wrap split">
+    <figure class="print" style="--r:2deg">
+      <span class="film"><img src="/images/around/martinez-print.jpg" width="1000" height="1000" alt="Port Vell and the city at night, seen from Montjuïc" loading="lazy" decoding="async"></span>
+      <figcaption>Port Vell from Montjuïc<small>Jopsens · CC BY-SA 3.0</small></figcaption>
+    </figure>
+    <div>
+      <p class="at">Sunday 25 or Monday 26 October · evening</p>
+      <h2 id="t-martinez">Rice at Martínez, on Montjuïc</h2>
+      <p class="say" id="s-martinez-say">Rice dishes on the hill, with the city and the port below. Open every day.</p>
+      <p class="facts" id="f-martinez">Most rice dishes are €24 to €30 a head on its menu. Its menu with starters, dessert, wine and coffee is €62. For twelve or more it offers group menus, from €93. <a href="https://martinezbarcelona.com" target="_blank" rel="noopener">martinezbarcelona.com</a></p>
+      <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
+      <label class="pill" for="p-martinez">
+        <input type="checkbox" id="p-martinez" name="pick" value="martinez" data-label="Rice at Martínez, on Montjuïc" aria-labelledby="t-martinez" aria-describedby="s-martinez-say f-martinez">
+        <span>I would come to this</span>
+      </label>
+    </div>
   </div>
 </section>
 
 <section class="slide" id="s-100chef" aria-labelledby="t-100chef">
   <span class="num">08 / 10</span>
-  <div class="wrap">
-    <div class="ring" aria-hidden="true"></div>
-    <p class="at">Wednesday 21 or Tuesday 27 October · daytime</p>
-    <h2 id="t-100chef">The 100%Chef showroom</h2>
-    <p class="say" id="s-100chef-say">The people who make tools and ingredients for modern cooking, at their lab in Vilassar de Dalt, about 25&nbsp;km north-east of Barcelona.</p>
-    <p class="facts" id="f-100chef">It receives professionals on weekdays, by appointment, at no charge. The ride there is ours to split. <a href="https://100x100chef.com/en/contact/" target="_blank" rel="noopener">100x100chef.com</a></p>
-    <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
-    <label class="pill" for="p-100chef">
-      <input type="checkbox" id="p-100chef" name="pick" value="100chef" data-label="The 100%Chef showroom" aria-labelledby="t-100chef" aria-describedby="s-100chef-say f-100chef">
-      <span>I would come to this</span>
-    </label>
+  <div class="wrap split">
+    <figure class="print blank" style="--r:-3deg">
+      <span class="film" aria-hidden="true"></span>
+      <figcaption>No photograph yet</figcaption>
+    </figure>
+    <div>
+      <p class="at">Wednesday 21 or Tuesday 27 October · daytime</p>
+      <h2 id="t-100chef">The 100%Chef showroom</h2>
+      <p class="say" id="s-100chef-say">The people who make tools and ingredients for modern cooking, at their lab in Vilassar de Dalt, about 25&nbsp;km north-east of Barcelona.</p>
+      <p class="facts" id="f-100chef">It receives professionals on weekdays, by appointment, at no charge. The ride there is ours to split. <a href="https://100x100chef.com/en/contact/" target="_blank" rel="noopener">100x100chef.com</a></p>
+      <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
+      <label class="pill" for="p-100chef">
+        <input type="checkbox" id="p-100chef" name="pick" value="100chef" data-label="The 100%Chef showroom" aria-labelledby="t-100chef" aria-describedby="s-100chef-say f-100chef">
+        <span>I would come to this</span>
+      </label>
+    </div>
   </div>
 </section>
 
-<section class="slide" id="s-recaredo" aria-labelledby="t-recaredo">
-  <img class="bg" src="/images/around/recaredo-900.jpg" srcset="/images/around/recaredo-900.jpg 900w, /images/around/recaredo-1800.jpg 1800w" sizes="100vw" width="1800" height="1200" alt="A vine beside the Recaredo stone marker, in its vineyard at Sant Sadurní d'Anoia" loading="lazy" decoding="async">
-  <div class="scrim" aria-hidden="true"></div>
-  <span class="credit">Photograph · LanderBlazquez · <b>CC BY-SA 4.0</b></span>
+<section class="slide flip" id="s-recaredo" aria-labelledby="t-recaredo">
   <span class="num">09 / 10</span>
-  <div class="wrap">
-    <p class="at">Wednesday 21 or Tuesday 27 October · daytime</p>
-    <h2 id="t-recaredo">Recaredo, in the Penedès</h2>
-    <p class="say" id="s-recaredo-say">A family house in Sant Sadurní d'Anoia that makes long-aged Corpinnat sparkling wines. Two hours in the cellar, with a tasting.</p>
-    <p class="facts" id="f-recaredo">€42 a head, by appointment. About 45 minutes from Barcelona by car. <a href="https://www.recaredo.com/en/visitas-recaredo/" target="_blank" rel="noopener">recaredo.com</a></p>
-    <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
-    <label class="pill" for="p-recaredo">
-      <input type="checkbox" id="p-recaredo" name="pick" value="recaredo" data-label="Recaredo, in the Penedès" aria-labelledby="t-recaredo" aria-describedby="s-recaredo-say f-recaredo">
-      <span>I would come to this</span>
-    </label>
+  <div class="wrap split">
+    <figure class="print" style="--r:2.5deg">
+      <span class="film"><img src="/images/around/recaredo-print.jpg" width="1000" height="1000" alt="A vine beside the Recaredo stone marker, in its vineyard at Sant Sadurní d'Anoia" loading="lazy" decoding="async"></span>
+      <figcaption>Recaredo's vineyard, Sant Sadurní<small>LanderBlazquez · CC BY-SA 4.0</small></figcaption>
+    </figure>
+    <div>
+      <p class="at">Wednesday 21 or Tuesday 27 October · daytime</p>
+      <h2 id="t-recaredo">Recaredo, in the Penedès</h2>
+      <p class="say" id="s-recaredo-say">A family house in Sant Sadurní d'Anoia that makes long-aged Corpinnat sparkling wines. Two hours in the cellar, with a tasting.</p>
+      <p class="facts" id="f-recaredo">€42 a head, by appointment. About 45 minutes from Barcelona by car. <a href="https://www.recaredo.com/en/visitas-recaredo/" target="_blank" rel="noopener">recaredo.com</a></p>
+      <p class="state"><i aria-hidden="true"></i>Not arranged yet</p>
+      <label class="pill" for="p-recaredo">
+        <input type="checkbox" id="p-recaredo" name="pick" value="recaredo" data-label="Recaredo, in the Penedès" aria-labelledby="t-recaredo" aria-describedby="s-recaredo-say f-recaredo">
+        <span>I would come to this</span>
+      </label>
+    </div>
   </div>
 </section>
 
@@ -363,8 +441,7 @@
     </div>
 
     <div class="credits">
-      <p>Photographs, via Wikimedia Commons:
-        <a href="https://commons.wikimedia.org/wiki/File:El_port_vell_des_de_Miramar,_Ones.jpg" target="_blank" rel="noopener">Port Vell from Miramar</a> · Enfo · CC BY-SA 3.0 —
+      <p>Four photographs are from Wikimedia Commons, cropped square:
         <a href="https://commons.wikimedia.org/wiki/File:Mercat_de_la_Boqueria_(53359199531).jpg" target="_blank" rel="noopener">La Boqueria</a> · Jorge Franganillo · CC BY 2.0 —
         <a href="https://commons.wikimedia.org/wiki/File:Casa_Enric_Batll%C3%B3.jpg" target="_blank" rel="noopener">Casa Enric Batlló</a> · Pere López · CC BY-SA 3.0 —
         <a href="https://commons.wikimedia.org/wiki/File:Port-Vell-Night.JPG" target="_blank" rel="noopener">Port Vell at night</a> · Jopsens · CC BY-SA 3.0 —
@@ -380,6 +457,22 @@
 
 <a class="chip" id="chip" href="#send" hidden><span id="chip-n">0 ticked</span><span class="sep">·</span><span>Send my answer &darr;</span></a>
 
+<script>
+(function () {
+  /* The prints land and develop as their screen arrives. On its own, ahead of
+     the form script, so nothing the form does can leave a print invisible. */
+  var prints = Array.prototype.slice.call(document.querySelectorAll('.print'));
+  function show(p) { p.classList.add('in'); }
+  if ('IntersectionObserver' in window) {
+    var pio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { show(e.target); pio.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    prints.forEach(function (p) { pio.observe(p); });
+  } else {
+    prints.forEach(show);
+  }
+})();
+</script>
 <script>
 (function () {
   /* The answer goes to ONE place: the week-answers edge function, which keeps
@@ -469,7 +562,8 @@
     var n = boxes('pick').filter(function (b) { return b.checked; }).length;
     chipN.textContent = n + ' ticked';
   }
-  function placeChip() { chip.hidden = onCover || onLast || answer.hidden; }
+  var inBand = [];
+  function placeChip() { chip.hidden = onCover || onLast || answer.hidden || inBand.length > 0; }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -483,6 +577,28 @@
     onCover = false; placeChip();
   }
   count();
+
+  // The chip never covers the button it counts: while any tick sits in the
+  // bottom band of the screen, it steps aside.
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.pill'));
+  var bandIO = null, bandT = 0;
+  function band() {
+    if (!('IntersectionObserver' in window)) return;
+    if (bandIO) bandIO.disconnect();
+    inBand = [];
+    var top = Math.max(0, window.innerHeight - 96);
+    bandIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        var i = inBand.indexOf(e.target);
+        if (e.isIntersecting && i < 0) inBand.push(e.target);
+        if (!e.isIntersecting && i >= 0) inBand.splice(i, 1);
+      });
+      placeChip();
+    }, { rootMargin: '-' + top + 'px 0px 0px 0px' });
+    pills.forEach(function (q) { bandIO.observe(q); });
+  }
+  band();
+  window.addEventListener('resize', function () { clearTimeout(bandT); bandT = setTimeout(band, 200); });
 
   function fail(text, field) {
     msg.textContent = text; msg.hidden = false;
