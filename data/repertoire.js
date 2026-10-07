@@ -5921,7 +5921,20 @@ window.ET_ATLAS = {
               "url": "https://www.yacht-school.co.uk/",
               "course": "RYA Yachtmaster Prep & Exam (5-day)",
               "blurb": "Based at Hamble Point Marina on the River Hamble, this RYA centre runs a 5-day Yachtmaster Coastal/Offshore prep and exam course on its fleet of cruising yachts.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Hamble Point Marina, Hamble",
+                "length": "5 days minimum",
+                "format": "Prep aboard with an RYA instructor, then a 1–2 day exam by an independent examiner",
+                "class": "4 students maximum aboard",
+                "credential": "RYA Yachtmaster Offshore Certificate of Competence, on passing the exam",
+                "price": "£1,375",
+                "priceNote": "Low season, per person; you live aboard for the course",
+                "from": [
+                  "https://www.yacht-school.co.uk/blog/Course/rya-yachtmaster-offshore-preparation-exam/"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "Solent Boat Training",
@@ -7812,7 +7825,19 @@ window.ET_ATLAS = {
               "blurb": "Rated 4.3/5 on TripAdvisor (49 reviews). A St. George lagoon windsurf center offering rental and lessons for all levels on current/new gear, within walking distance of Naxos Town on shallow, flat, side/onshore water ideal for learning.",
               "rating": "TripAdvisor 4.3/5 (49 reviews)",
               "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g580192-d1485497-Reviews-Naxos_Surf_Club-Naxos_Town_Naxos_Cyclades_South_Aegean.html",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Laguna, Agios Georgios beach, Naxos",
+                "length": "4 hours",
+                "format": "Supervised lessons in shallow, flat lagoon water; theory, safety and handling",
+                "class": "6 maximum per group",
+                "price": "€250",
+                "priceNote": "4-hour beginner package, private; €150/person in a group of 4–6",
+                "from": [
+                  "https://www.naxos-surf.com/learn-windsurf/"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 3,
