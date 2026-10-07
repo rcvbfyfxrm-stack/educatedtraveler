@@ -29563,8 +29563,75 @@ window.ET_ATLAS = {
               "name": "Anchor & Apron",
               "url": "https://www.anchorandapron.co/training",
               "course": "Yacht Chef Training — two weeks, with three days and nights aboard a catamaran",
-              "blurb": "Two weeks with Cara Whiteman and Amber Colle, working yacht chefs who teach it themselves and publish their own backgrounds. Galley management, provisioning, menus, etiquette and deck duties — plus three days and nights aboard a catamaran. No experience needed. It does not produce a Ship's Cook Certificate; STCW and a medical are separate, compulsory and not included; and no school can promise a job — theirs says a first boat \"could take 2 weeks to 3 months.\" The exact venue goes to students two weeks before the course starts. The 2–16 May 2027 run is sold out on their own page, and a second, 30 May – 13 June 2027, is announced there as launching soon. Checked on anchorandapron.co, 7 October 2026.",
+              "blurb": "Two weeks with Cara Whiteman and Amber Colle, working yacht chefs who teach it themselves and publish their own backgrounds. Galley management, provisioning, menus, etiquette and deck duties — plus three days and nights aboard a catamaran. No experience needed. It does not produce a Ship's Cook Certificate; STCW and a medical are separate, compulsory and not included; and no school can promise a job — theirs says a first boat \"could take 2 weeks to 3 months.\" The school is about twenty minutes from Palma; the exact venue goes to students two weeks before the course starts. The 2–16 May 2027 run is sold out, and the school is launching a second, 30 May – 13 June 2027. Both advanced weeks it is running now are full, and the next is in May 2027. A place is held with an €800 deposit, and the rest is paid in instalments. Checked on anchorandapron.co, 7 October 2026, and with the school by email, 6 October 2026.",
               "confidence": "high",
+              "photos": {
+                "given": "2026-10-06",
+                "by": "Amber",
+                "source": "sent",
+                "thumb": "/images/atlas/chef-at-sea--mallorca/aa-02-the-catamaran.jpg",
+                "card": "/images/atlas/chef-at-sea--mallorca/aa-01-plating-in-the-galley.jpg",
+                "focal": "50% 72%",
+                "items": [
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-01-plating-in-the-galley.jpg",
+                    "w": 900,
+                    "h": 1600,
+                    "alt": "A chef in the school's striped denim apron, sunglasses pushed up on her head, bends over the galley counter of a catamaran finishing six plates of roast chicken on a red sauce; the boat's saloon windows and the water outside sit behind her.",
+                    "caption": "Six plates out of a boat's galley, off Mallorca."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-02-the-catamaran.jpg",
+                    "w": 900,
+                    "h": 1600,
+                    "alt": "A white sailing catamaran at anchor in a turquoise cove, seen from above, with two more sailing boats moored behind it and a wooded headland lined with houses beyond.",
+                    "caption": "The catamaran, at anchor off Mallorca. Three days and nights aboard are part of the course."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-03-the-teaching-kitchen.jpg",
+                    "w": 1600,
+                    "h": 1069,
+                    "wide": true,
+                    "alt": "A bright kitchen with two rows of steel benches and portable induction hobs; five women in the school's striped aprons work at them, one piping onto a plate in the foreground, with a tall fridge, a wall clock and a window onto a garden behind.",
+                    "caption": "The teaching kitchen ashore."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-04-breaking-down-a-fish.jpg",
+                    "w": 1200,
+                    "h": 1600,
+                    "alt": "A student in a navy T-shirt and striped apron fillets a white fish on a green board at a steel bench, a tray of whole fish beside her, while two more students in the same aprons stand behind with their arms folded, watching her knife.",
+                    "caption": "Breaking down a fish, with the next two waiting their turn."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-05-a-lesson-on-deck.jpg",
+                    "w": 900,
+                    "h": 1600,
+                    "alt": "Four people sit in a circle on the foredeck of a catamaran in the sun, notebooks and water bottles between them; one in a sun hat has her back to the camera, the hillside houses of a Mallorca bay behind the boat.",
+                    "caption": "A lesson on the foredeck, notebooks out."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-06-a-plate-over-the-water.jpg",
+                    "w": 1200,
+                    "h": 1600,
+                    "alt": "A hand holds a white plate out over deep blue water: seared rare tuna under a green herb sauce, grilled broccolini, a crumbled white cheese and a golden fried square, in a pool of olive oil.",
+                    "caption": "Lunch held out over the side, off Mallorca's south-west coast."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-07-two-in-the-school-aprons.jpg",
+                    "w": 1069,
+                    "h": 1600,
+                    "alt": "Two smiling women in matching navy T-shirts and the school's striped denim aprons stand side by side in a cobbled courtyard in front of a pale stone house with green shutters, holding a wooden board of small plated canapés between them.",
+                    "caption": "Canapés out to the courtyard, in the school's own aprons."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-08-the-house.jpg",
+                    "w": 1200,
+                    "h": 1600,
+                    "alt": "A garden seen from above in early morning: a swimming pool with stone steps, a lawn where a few people stretch on mats, sun loungers along a path, and a line of cypresses and palms against wooded hills.",
+                    "caption": "The house where these courses were taught, about twenty minutes from Palma. Its exact address goes to students two weeks before."
+                  }
+                ]
+              },
               "facts": {
                 "where": "Mallorca; venue sent 2 weeks ahead",
                 "length": "2 weeks",

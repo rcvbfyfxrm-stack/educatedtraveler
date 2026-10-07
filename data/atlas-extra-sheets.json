@@ -3892,6 +3892,13 @@
   "blurbTruncatedFloor": 0,
   "_reviewedBy_comment": "A school that read its own page and corrected it. Keyed by the page id — a craft id or a place id. school/date/what are required; url is optional. Rendered by reviewed_block() in scripts/build-atlas-pages.py and gated by check 19. Correcting a page is not a favour returned: it moves nothing up this map.",
   "reviewedBy": {
+  "chef-at-sea--mallorca": {
+    "school": "Anchor & Apron",
+    "url": "https://www.anchorandapron.co/",
+    "date": "6 October 2026",
+    "what": "Amber, at Anchor & Apron, read this page and corrected it. The May 2027 two weeks is sold out and the school is launching a second, 30 May to 13 June 2027. The advanced weeks running now are full and the next is in May 2027. A place is held with an €800 deposit, then the rest in instalments. And the school is about twenty minutes from Palma. The rest, she wrote, is all correct.",
+    "who": "Amber"
+  },
     "coffee-and-barista--san-rafael": {
       "school": "Boot Coffee Campus",
       "url": "https://bootcoffee.com/",
