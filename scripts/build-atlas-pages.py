@@ -1989,6 +1989,44 @@ def depth_link(d):
             'give you, and what the days are like. The places come first.</span></p>')
 
 
+def in_depth_page(d):
+    """The essay, on a page of its own.
+
+    Arnaud, 2026-09-11, on /atlas/modern-new-technique-cuisine: "this is an in-depth
+    analyse of the skill. That should be on another page… not on the landing page after
+    clicking on the skill card." And 2026-10-07, on the eight sheets still drawn by hand:
+    "make sure all the skills card look like the new update… you can add link for a more
+    in depth but in a separate page." So a hand-written essay moves WHOLE to
+    <craft>-in-depth.html (preserved, never regenerated), the craft page is drawn here
+    like every other, and these two doors are the way between them. Keyed on the file
+    being in `preserve`, so there is no door to a page that does not exist.
+    """
+    return f'{d["id"]}-in-depth.html' in PRESERVE
+
+
+def in_depth_page_link(d):
+    """Under the lead: the way to the essay."""
+    if not in_depth_page(d):
+        return ""
+    return (f'<p style="margin-top:16px"><a href="/atlas/{d["id"]}-in-depth" style="text-decoration:none;'
+            'font-size:14px;color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);'
+            'padding-bottom:2px">The craft in depth &rarr;</a>'
+            '<span class="meta" style="display:block;margin-top:7px">Where it came from, what is true '
+            'and what is sold, on its own page. The places come first.</span></p>')
+
+
+def in_depth_page_door(d):
+    """After the places: the same door, for whoever read down this far."""
+    if not in_depth_page(d):
+        return ""
+    return ('<section><div class="wrap prose"><div class="mono">The long read</div>'
+            f'<h2><a href="/atlas/{d["id"]}-in-depth" style="text-decoration:none">'
+            f'{e(d["discipline"])} in depth &rarr;</a></h2>'
+            '<p class="meta" style="margin-top:8px">Its history, what nobody tells you, what is true '
+            'and what is sold, what to read next, and how we checked it. A page of its own.</p>'
+            '</div></section>')
+
+
 def credential_section(d, x=None):
     # goldCredential is a CRAFT field printed on every destination page of that craft,
     # so a page where nothing is taught must not print "what you walk away with".
@@ -3804,10 +3842,10 @@ for d in DISC:
     body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / {e(CORES[d['category']][0])}</div>
 <h1>{e(d['discipline'])}</h1>
-<p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{cred}{sibling_line(d)}{depth_link(d)}
+<p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{cred}{sibling_line(d)}{in_depth_page_link(d)}{depth_link(d)}
 </div></header>
 <section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{reviewed_block(d["id"])}{sweep_block(d)}
-{craft_depth(d)}{in_depth_block(d)}
+{craft_depth(d)}{in_depth_block(d)}{in_depth_page_door(d)}
 {related_block(d["id"])}"""
     (OUT / f'{d["id"]}.html').write_text(page(title, desc, path, body,
         breadcrumbs=[("Atlas", "/atlas/"), (d["discipline"], path)]))

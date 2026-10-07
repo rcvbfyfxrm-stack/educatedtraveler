@@ -29511,6 +29511,155 @@ window.ET_ATLAS = {
           "note": "A man-made wetland that became one of Asia's great bird sites, worked on foot or by rickshaw."
         }
       ]
+    },
+    {
+      "discipline": "Being a Chef at Sea",
+      "category": "culinary",
+      "id": "chef-at-sea",
+      "blurb": "Nobody's country decides whether you're qualified to cook at sea — the flag on the transom does, and it usually asks for less than the schools do. A trade, not a tradition: no master, no workshop, no line of teachers. It passes between chefs who overlap for a season, aboard.",
+      "certBody": "Maritime and Coastguard Agency (UK) — elsewhere, your vessel's flag",
+      "goldCredential": "Ship's Cook Certificate of Competency (UK MCA) — the document no flag will argue with",
+      "certShort": "Ship's Cook CoC",
+      "bestPlace": "chef-at-sea--mallorca",
+      "featured": {
+        "id": "chef-at-sea--mallorca",
+        "place": "Mallorca",
+        "country": "Spain",
+        "school": "Anchor & Apron",
+        "url": "https://www.anchorandapron.co/training",
+        "course": "Yacht Chef Training",
+        "description": "Two weeks with Cara Whiteman and Amber Colle, working yacht chefs who teach it themselves: galley management, provisioning, menus, etiquette and deck duties — plus three days and nights aboard a catamaran.",
+        "duration": "Two weeks",
+        "format": "In person in Mallorca, with three days and nights aboard a catamaran",
+        "certification": "None — it does not produce a Ship's Cook Certificate",
+        "fitsBecause": "Two working yacht chefs who came off the boats to teach their own trade, under their own names, on published dates — and the time aboard is the part almost no classroom has.",
+        "sessions": [],
+        "priceNote": "€3,950 all-in for two weeks",
+        "confidence": "high"
+      },
+      "destinations": [
+        {
+          "place": "Mallorca",
+          "country": "Spain",
+          "region": "Mediterranean",
+          "role": "scene",
+          "communityRank": 4,
+          "communityLabel": "Strong",
+          "schools": [
+            "Anchor & Apron"
+          ],
+          "masters": [],
+          "badges": [
+            "scene",
+            "school",
+            "english"
+          ],
+          "why": "Palma is one of the ports where the Mediterranean's crew are actually hired, from spring — and here two working yacht chefs teach their own trade, with three days and nights aboard a catamaran.",
+          "bestSeason": "Spring",
+          "level": "Beginner -> First boat",
+          "id": "chef-at-sea--mallorca",
+          "schoolsInfo": [
+            {
+              "name": "Anchor & Apron",
+              "url": "https://www.anchorandapron.co/training",
+              "course": "Yacht Chef Training — two weeks, with three days and nights aboard a catamaran",
+              "blurb": "Two weeks with Cara Whiteman and Amber Colle, working yacht chefs who teach it themselves and publish their own backgrounds. Galley management, provisioning, menus, etiquette and deck duties — plus three days and nights aboard a catamaran. No experience needed. It does not produce a Ship's Cook Certificate; STCW and a medical are separate, compulsory and not included; and no school can promise a job — theirs says a first boat \"could take 2 weeks to 3 months.\" The exact venue goes to students two weeks before the course starts. The 2–16 May 2027 run is sold out on their own page, and a second, 30 May – 13 June 2027, is announced there as launching soon. Checked on anchorandapron.co, 7 October 2026.",
+              "confidence": "high",
+              "facts": {
+                "where": "Mallorca; venue sent 2 weeks ahead",
+                "length": "2 weeks",
+                "format": "Galley teaching, then 3 days and nights aboard",
+                "language": "English",
+                "credential": "None — not a Ship's Cook Certificate",
+                "price": "€3,950",
+                "priceNote": "all-in: accommodation, meals and transfers; flights out",
+                "from": [
+                  "https://www.anchorandapron.co/training"
+                ],
+                "read": "2026-10-07"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Yacht chefs who teach it",
+                    [
+                      "Cara Whiteman",
+                      "Amber Colle"
+                    ]
+                  ]
+                ],
+                "from": "https://www.anchorandapron.co/",
+                "read": "2026-10-07"
+              }
+            }
+          ],
+          "tripTier": 3,
+          "tripType": "Deep-dive",
+          "tripLength": "two weeks",
+          "englishTaught": true,
+          "englishBasis": "The school teaches and publishes in English."
+        },
+        {
+          "place": "London",
+          "country": "United Kingdom",
+          "region": "Western Europe",
+          "role": "credential",
+          "communityRank": 3,
+          "communityLabel": "Strong",
+          "schools": [
+            "Leiths School of Food and Wine"
+          ],
+          "masters": [],
+          "badges": [
+            "school",
+            "gold-cred",
+            "english"
+          ],
+          "why": "Not where the craft lives — where the ticket is earned: the MCA's Assessment in Marine Cookery, one of four things it wants before it issues the Ship's Cook Certificate of Competency, and it only counts at a centre the MCA has approved.",
+          "bestSeason": "Year-round",
+          "level": "Working chefs -> Ship's Cook CoC",
+          "id": "chef-at-sea--london",
+          "schoolsInfo": [
+            {
+              "name": "Leiths School of Food and Wine",
+              "url": "https://leiths.com/explore/professional-development/assessment-in-marine-cookery-course/",
+              "course": "Assessment in Marine Cookery — three days",
+              "blurb": "Three days: a written theory examination and two practical cookery assessments. The certificate itself comes from the MCA, not from Leiths — form MSF 4395. Open to over-18s with competent spoken and written English and numeracy and a professional-kitchen track record, which Leiths asks to see before you book — so it is closed to a career-changer with no kitchen behind them. The other approved centres on the last list we found (summer 2023) are in Glasgow, Stranraer and Westhill, Aberdeenshire — confirm a centre's current approval with the MCA at mlc@mcga.gov.uk before you pay anyone. Checked on leiths.com, 7 October 2026.",
+              "confidence": "high",
+              "facts": {
+                "where": "Central London",
+                "length": "3 days",
+                "format": "Written theory exam + two practical assessments",
+                "language": "English",
+                "credential": "Assessment toward the MCA Ship's Cook CoC",
+                "price": "£1,045",
+                "priceNote": "including VAT; dates published into 2027",
+                "from": [
+                  "https://leiths.com/explore/professional-development/assessment-in-marine-cookery-course/"
+                ],
+                "read": "2026-10-07"
+              }
+            }
+          ],
+          "tripTier": 2,
+          "tripType": "Certification",
+          "tripLength": "three days",
+          "englishTaught": true,
+          "englishBasis": "Leiths requires competent spoken and written English to sit the assessment."
+        }
+      ],
+      "alsoHere": [
+        {
+          "place": "Antibes",
+          "country": "France",
+          "note": "Where the Mediterranean's crew are actually hired, from spring — the dock to stand on before you buy anything."
+        },
+        {
+          "place": "Fort Lauderdale",
+          "country": "United States",
+          "note": "Where the trade gathers from autumn, when the fleet crosses to the Caribbean."
+        }
+      ]
     }
   ],
   "enrichedAt": "2026-06-11",

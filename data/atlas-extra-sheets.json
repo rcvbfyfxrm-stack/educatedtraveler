@@ -17,22 +17,18 @@
     "avant-garde-and-modernist-technique--melbourne-lilydale.html",
     "avant-garde-and-modernist-technique--puebla-mexico-city.html",
     "avant-garde-and-modernist-technique.html",
-    "chef-at-sea.html",
-    "freediving.html",
-    "japanese-knife-making--kurogane-shimanto.html",
-    "japanese-knife-making.html",
-    "lifestyle-medicine--united-states.html",
-    "lifestyle-medicine.html",
-    "lymphatic-drainage--walchsee.html",
-    "lymphatic-drainage.html",
     "modern-new-technique-cuisine-in-depth.html",
     "modern-new-technique-cuisine.html",
     "modernist-spanish-cuisine--san-sebasti-n-donostia.html",
-    "pottery-and-ceramics.html",
     "sailing-and-yachtmaster--uksa-cowes.html",
-    "sailing-and-yachtmaster.html",
-    "self-sufficiency--sunseed-almeria.html",
-    "self-sufficiency.html"
+    "freediving-in-depth.html",
+    "japanese-knife-making-in-depth.html",
+    "lifestyle-medicine-in-depth.html",
+    "lymphatic-drainage-in-depth.html",
+    "pottery-and-ceramics-in-depth.html",
+    "sailing-and-yachtmaster-in-depth.html",
+    "self-sufficiency-in-depth.html",
+    "chef-at-sea-in-depth.html"
   ],
   "pinnedOpen": [
     "chef-at-sea",
@@ -51,22 +47,7 @@
     "mixology-and-bartending"
   ],
   "_hubCards_comment": "Only for crafts that exist as a hand-written sheet but have no record in data/repertoire.js, so the browse home can show them a card. Every field transcribed verbatim from the sheet itself — nothing invented.",
-  "hubCards": [
-    {
-      "id": "chef-at-sea",
-      "discipline": "Being a Chef at Sea",
-      "category": "culinary",
-      "blurb": "Nobody's country decides whether you're qualified to cook at sea — the flag on the transom does, and it usually asks for less than the schools do. A trade, not a tradition: no master, no workshop, no line of teachers. It passes between chefs who overlap for a season, aboard.",
-      "place": "Mallorca",
-      "country": "Spain",
-      "nDest": 1,
-      "school": "Anchor & Apron — Cara Whiteman & Amber Colle",
-      "why": "Two experienced yacht chefs who came off the boats to teach their own trade, on published dates, with three days and nights aboard a catamaran. The craft has no lineage to inherit — this is people who do the job, teaching it.",
-      "english": true,
-      "tripType": "Assessment, orientation, or paperwork alone",
-      "tripLength": "three days to two weeks, or no travel at all"
-    }
-  ],
+  "hubCards": [],
   "_craftFamilies_comment": "Curated adjacency for the 'Close to this on the map' block on every craft page. Hand-grouped on purpose: a scored similarity pass paired Muay Thai with Thai massage on the word 'Thai'. A craft may sit in several families; the builder takes one from each in turn. Every craft must be in at least one family or the build stops.",
   "craftFamilies": {
     "From the land": [
@@ -1346,7 +1327,23 @@
     "surfing--taghazout-and-tamraght": "Learn through the winter, three hours from Europe, with people from the village",
     "french-pastry-and-patisserie--barcelona": "Learn modern pastry in English, ten days at the bench, in the city whose pastry guild has run its own school for fifty years.",
     "safari-and-wildlife-guiding--zululand-hluhluwe-imfolozi": "Learn to guide on foot in the wilderness where South Africa’s walking trails began, and qualify on the same ground.",
-    "rock-climbing--eryri-snowdonia-north-wales": "Learn to climb from the door of the national outdoor centre, five days on the rock with two of you to an instructor."
+    "rock-climbing--eryri-snowdonia-north-wales": "Learn to climb from the door of the national outdoor centre, five days on the rock with two of you to an instructor.",
+    "japanese-knife-making--kurogane-shimanto": "Learn to forge, grind and harden your own blade in the quench, at a working forge on the Shimanto river.",
+    "self-sufficiency--sunseed-almeria": "Learn it by moving into a small off-grid community, where the living scene is the lesson.",
+    "freediving--apnea-academy-italian-mediterranean": "Learn apnea at the source, in the Mediterranean that bred Mayol, Maiorca and Pelizzari.",
+    "freediving--dahab-red-sea": "Learn to find depth in the current-free Blue Hole, flat, deep and warm all year, where the world's freedivers find their cohort.",
+    "freediving--dean-s-blue-hole-long-island": "A 202m shaft steps from the beach, where Trubridge's Vertical Blue is held and world records fall.",
+    "freediving--kalamata-and-the-mani": "Learn on the Mediterranean's premier competition depth-line, in the bay that hosted the 2024 CMAS Depth World Championship.",
+    "sailing-and-yachtmaster--the-solent-cowes-and-hamble": "Learn to earn the Yachtmaster in the Solent's tidal chaos, where the RYA runs the scheme.",
+    "sailing-and-yachtmaster--auckland": "Learn full Yachtmaster Ocean theory in the southern summer, while the north freezes.",
+    "sailing-and-yachtmaster--tortola-nanny-cay": "Learn passage-making aboard, among line-of-sight islands and steady trades, with a cohort drawn from every continent.",
+    "pottery-and-ceramics--mashiko": "Learn at the wheel in the town where Hamada settled in 1924, and where the kilns still fire.",
+    "pottery-and-ceramics--jingdezhen": "Learn porcelain in the Porcelain Capital, beside more than 60,000 makers who moved there to work.",
+    "pottery-and-ceramics--st-ives-cornwall": "Learn studio pottery where Bernard Leach and Shoji Hamada founded the tradition in 1920.",
+    "lymphatic-drainage--walchsee": "Learn the Vodder method beside a working lymphoedema clinic, and treat its patients in the final week — in German, for health professionals.",
+    "lifestyle-medicine--united-states": "A clinician's credential, built on a real medical board, for care that treats causes over symptoms.",
+    "chef-at-sea--mallorca": "Learn the galley from two working yacht chefs, with three days and nights aboard a catamaran, in a port where crew are hired.",
+    "chef-at-sea--london": "Where the ticket is earned: the MCA's Assessment in Marine Cookery, at a centre the MCA has approved."
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
@@ -1459,8 +1456,8 @@
       "takenAt": "wine-and-sommellerie--bordeaux"
     }
   },
-  "_schoolShotDebt_comment": "What the Atlas owes here is a picture from the SCHOOL — the room a reader would be standing in, sent by the people who teach in it. 88 outreach letters have produced five. So this counts open crafts with NO school photograph, and a licensed craft image does not pay it off: a stranger's frame of the craft makes a card legible, it is not a school opening its door. Count a stand-in as paid and the ratchet congratulates us for buying stock. Same shape as ladderDebtFloor: printed every build, never allowed to grow, and the floor sits at debt + 1 so one Circle opening still builds unattended. 6 Oct 2026: raised 28 -> 29 when Arnaud opened mixology-and-bartending by hand; neither it nor chocolate-and-confectionery has a school photograph yet.",
-  "schoolShotDebtFloor": 29,
+  "_schoolShotDebt_comment": "What the Atlas owes here is a picture from the SCHOOL — the room a reader would be standing in, sent by the people who teach in it. 88 outreach letters have produced five. So this counts open crafts with NO school photograph, and a licensed craft image does not pay it off: a stranger's frame of the craft makes a card legible, it is not a school opening its door. Count a stand-in as paid and the ratchet congratulates us for buying stock. Same shape as ladderDebtFloor: printed every build, never allowed to grow, and the floor sits at debt + 1 so one Circle opening still builds unattended. 6 Oct 2026: raised 28 -> 29 when Arnaud opened mixology-and-bartending by hand; neither it nor chocolate-and-confectionery has a school photograph yet. 7 Oct 2026: raised 29 -> 30 — chef-at-sea moved from hubCards into disciplines, so the census caught up with a craft that never had a photograph. Nothing lost one. Anchor & Apron has not been asked for pictures yet.",
+  "schoolShotDebtFloor": 30,
   "schoolShotDebtKnown": [
     "chocolate-and-confectionery",
     "mixology-and-bartending",
@@ -1490,7 +1487,8 @@
     "wildlife-photography",
     "windsurfing-and-wing-foil",
     "wine-and-sommellerie",
-    "yacht-crew-and-stcw"
+    "yacht-crew-and-stcw",
+    "chef-at-sea"
   ],
   "_measure_comment": "The Measure — the per-craft answer to the promise the trust block already makes: what we check before we send you anywhere. Five questions on the five dots, asked in the same words and the same order on every craft, because a legend a reader has to relearn is not a legend (the build refuses any other wording — see MEASURE_QUESTIONS in scripts/atlas_hub.py). The instrument's own shorthand — the room, the door, the bench, the ground, the stretch — stays in THE-MEASURE-META-PROMPT.md and never reaches a reader: on the page we ask the question rather than name it. Rendered only for crafts listed here; a craft with no entry shows no meter, which is an absence and not a zero. Desk research stops at three — whether a craft is alive in its place, and whether there is enough there to keep you going, are exactly what a brochure claims, and only somebody standing in the room settles them. Never write a line that ranks one craft against another, and never borrow a restaurant guide's award language: we report what we found and hand the reader the decision.",
   "measure": {
@@ -2999,9 +2997,11 @@
     "stood in it": 4,
     "twoOrReturn": 5
   },
-  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day.",
-  "measureDebtFloor": 1,
-  "measureDebtKnown": [],
+  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day. ⚠ 7 Oct 2026: floor 1 -> 2, the counted set grew, nothing lost a grade — chef-at-sea moved from hubCards into disciplines so its page could be drawn like every other craft, and it has never been graded. One craft of headroom kept. ⛔ Arnaud signs its grade: sign-measure.py chef-at-sea --as \"Arnaud Callier\"; then lower this back to 1.",
+  "measureDebtFloor": 2,
+  "measureDebtKnown": [
+    "chef-at-sea"
+  ],
   "_skillLadders_comment": "The ladder a craft is climbed by — ALWAYS somebody else's published standard, adopted and cited, never ours. 112 of 113 crafts carry a certBody and a goldCredential, so the ladder usually exists in public; where no body publishes one, the craft goes in laddersNotPublished and shows no ladder, because an invented rung is this map awarding itself an authority it does not have. A rung is the unit a course is ticked against, and the body's own skills are printed under it as what the rung means: IKO lists 46 skills across four levels and a kite school's page says 'we take you to Level 2', so ticking skills would have measured what a school writes on its website. url + read + verify on the ladder and on every rung, because night-check.py re-reads all of them.",
   "skillLadders": {
     "kitesurfing": {
@@ -3235,8 +3235,8 @@
     "photography": "Its own certifying line on this map reads 'ICP / Spéos / no universal body (portfolio + diploma)'. There is no ladder to adopt: photography is judged on a portfolio, and inventing rungs for it would be us awarding ourselves a standard nobody asked us to write."
   },
   "_laddersNotPublished_comment": "Crafts where NO body publishes a ladder — declared, so the debt count does not treat them as work owed and nobody quietly writes rungs for them later. The reason is the craft's own certBody saying so.",
-  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder. 5 Oct 2026: raised 31 -> 32 when Arnaud opened chocolate-and-confectionery by hand; coffee-and-barista (opened 4 Oct) and chocolate added to ladderDebtKnown. Neither has a published ladder yet. 6 Oct 2026: raised 32 -> 33 when Arnaud opened mixology-and-bartending by hand.",
-  "ladderDebtFloor": 33,
+  "_ladderDebt_comment": "The ratchet, same as measureDebtFloor: the archive of crafts with no ladder is printed, not fatal, but it MAY NOT GROW. Lower the floor whenever it falls, so it can never drift back up. ladderDebtKnown lists the crafts the floor was set around, so a NEW craft without a ladder is named in the failure message instead of all of them. ⚠ THE FLOOR IS DEBT+1, NOT DEBT, AND THAT IS DELIBERATE — the same reasoning as measureDebtFloor, which this comment used to contradict. It read 'A craft opening without one stops the build and names itself', which is precisely the failure the Measure floor was raised from 0 to 1 to avoid: atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. On 5 Sept 2026 the floor was 28 and the debt was exactly 28 — the next craft the Circle asked for would have taken the whole Atlas rebuild down until somebody found it a published ladder. One craft of headroom still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night. Set it to the debt exactly only if you would rather the build stop and force the ladder that day. ⚠⚠ 15 Sept 2026: the floor went 29 -> 31 — the only time it has moved UP, and the reason matters. japanese-knife-making and self-sufficiency did not acquire a debt that day; they had never had a ladder, and they had never been COUNTED, because they lived in hubCards instead of disciplines. Moving them into the data made the census catch up with a debt that already existed. The ratchet still forbids the debt growing from here: two more ungraded arrivals stop the build and name themselves. ⛔ Raising this floor is legitimate ONLY when the counted set grows, never when a craft that was already counted loses its ladder. 5 Oct 2026: raised 31 -> 32 when Arnaud opened chocolate-and-confectionery by hand; coffee-and-barista (opened 4 Oct) and chocolate added to ladderDebtKnown. Neither has a published ladder yet. 6 Oct 2026: raised 32 -> 33 when Arnaud opened mixology-and-bartending by hand. 7 Oct 2026: raised 33 -> 34 for the same reason as 15 Sept — chef-at-sea moved from hubCards into disciplines (Arnaud: 'make sure all the skills card look like the new update… chef at sea its still the old version'), so the census caught up with a debt it already had. No body publishes a ladder for cooking at sea that we have read; the MCA's Ship's Cook Certificate is a ticket, not a ladder.",
+  "ladderDebtFloor": 34,
   "ladderDebtKnown": [
     "mixology-and-bartending",
     "coffee-and-barista",
@@ -3270,7 +3270,8 @@
     "wildlife-photography",
     "windsurfing-and-wing-foil",
     "wine-and-sommellerie",
-    "yacht-crew-and-stcw"
+    "yacht-crew-and-stcw",
+    "chef-at-sea"
   ],
   "_communityLines_comment": "The paragraph under the five community dots on a place card. Arnaud, 10 September 2026: 'I would like to have a small paragraph for each school explaining is the community their is strong.' The dots and the one-word label have sat on every card since the beginning with NOTHING UNDER THEM, and the `why` beside them is a reason to go rather than an account of who is already there. ⛔ THESE DESCRIBE, THEY DO NOT GRADE — they say what the record already holds about the town and what it rests on, and where the record holds nothing they say so out loud. A second verdict in different words would be a grade nobody signed, and the Measure is where a judgement with a name on it lives. Keyed by destination id. A place with no line simply shows none: an absence is honest, a filler sentence is not. ⭐⭐ AND IT MAY NOT RESTATE THE `why`. The two sit four lines apart on the card and they answer different questions: the `why` is the reason to GO, this is HOW WE KNOW who is already there and how far that knowledge goes. The first draft of these repeated the `why` almost sentence for sentence — Ericeira's reserve twice, Bali's ladder twice — which is the redite the house voice cuts on sight. Say the thing the `why` does not: who designated it, when, whether they sell anything, how many rooms are running, and what nobody has established. The build refuses a line sharing a long verbatim run with its `why`.",
   "communityLines": {

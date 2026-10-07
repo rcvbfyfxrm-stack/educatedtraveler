@@ -28,8 +28,8 @@ SELF = Path(__file__).resolve()          # this file quotes every banned string
 # The ONLY visible "letter"s allowed on the site. Both are quoted facts: renaming
 # them would falsify a source, which is the one thing ET cannot afford.
 ALLOWED = {
-    "covering letter":   ("website/atlas/chef-at-sea.html", 1),        # what Leiths asks an applicant for
-    "Doctor of Letters": ("website/atlas/lymphatic-drainage.html", 2), # Emil Vodder's real art-history title
+    "covering letter":   ("website/atlas/chef-at-sea-in-depth.html", 1), # what Leiths asks an applicant for
+    "Doctor of Letters": ("website/atlas/lymphatic-drainage-in-depth.html", 2), # Emil Vodder's real art-history title
 }
 
 TAGS   = re.compile(r"<[^>]*>")
