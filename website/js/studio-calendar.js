@@ -227,22 +227,22 @@ window.ET_DAILY_DROP = [
     "core": "creative",
     "discipline": "Japanese Knife-Making",
     "place": "Shimanto, Japan",
-    "atlasUrl": "https://educatedtraveler.app/atlas/japanese-knife-making",
+    "atlasUrl": "https://educatedtraveler.app/atlas/japanese-knife-making--kurogane-shimanto",
     "clipBrief": "30-60s wordless process: hands + material of Japanese Knife-Making, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
     "footageSource": "Workshop Kurogane — Nobuya Hayashi",
     "footageUrl": "https://www.workshop-kurogane.com/",
-    "caption": "The strongest Japanese Knife-Making community on earth gathers in Shimanto.\n\nA working forge on the Shimanto river in Tosa blade country, where you forge, grind and harden your own blade in the quench — the part most places keep for themselves.\n\nCommunity strength: Thriving. Season: Sep-May.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/japanese-knife-making\n\n#crafttok #processvideo #handmade #shimanto #japaneseknifemaking"
+    "caption": "The strongest Japanese Knife-Making community on earth gathers in Shimanto.\n\nA working forge on the Shimanto river in Tosa blade country, where you forge, grind and harden your own blade in the quench — the part most places keep for themselves.\n\nCommunity strength: Thriving. Season: Sep-May.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/japanese-knife-making--kurogane-shimanto\n\n#crafttok #processvideo #handmade #shimanto #japaneseknifemaking"
   },
   {
     "day": 22,
     "core": "wellness",
     "discipline": "Lymphatic Drainage",
     "place": "Walchsee, Austria",
-    "atlasUrl": "https://educatedtraveler.app/atlas/lymphatic-drainage",
+    "atlasUrl": "https://educatedtraveler.app/atlas/lymphatic-drainage--walchsee",
     "clipBrief": "30-60s wordless process: hands + material of Lymphatic Drainage, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
     "footageSource": "Dr. Vodder Akademie & Wittlinger Therapiezentrum",
     "footageUrl": "https://www.vodderakademie.com/kurs/manuelle-lymphdrainage-nach-dr-vodder-ml-in-walchsee.html",
-    "caption": "The strongest Lymphatic Drainage community on earth gathers in Walchsee.\n\nThe Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and in the final training week students treat its patients, not classmates. The 180-hour course is taught in German, to health professionals.\n\nCommunity strength: The source. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/lymphatic-drainage\n\n#breathwork #yogatok #learnbydoing #walchsee #lymphaticdrainage"
+    "caption": "The strongest Lymphatic Drainage community on earth gathers in Walchsee.\n\nThe Vodder method carried to a Tyrolean lake since the early 1970s, beside a working lymphoedema clinic — and in the final training week students treat its patients, not classmates. The 180-hour course is taught in German, to health professionals.\n\nCommunity strength: The source. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/lymphatic-drainage--walchsee\n\n#breathwork #yogatok #learnbydoing #walchsee #lymphaticdrainage"
   },
   {
     "day": 23,
@@ -271,11 +271,11 @@ window.ET_DAILY_DROP = [
     "core": "creative",
     "discipline": "Self-Sufficiency & Food Preservation",
     "place": "Almería, Spain",
-    "atlasUrl": "https://educatedtraveler.app/atlas/self-sufficiency",
+    "atlasUrl": "https://educatedtraveler.app/atlas/self-sufficiency--sunseed-almeria",
     "clipBrief": "30-60s wordless process: hands + material of Self-Sufficiency & Food Preservation, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.",
     "footageSource": "Sunseed Desert Technology",
     "footageUrl": "https://www.sunseed.org.uk/get-involved",
-    "caption": "The strongest Self-Sufficiency & Food Preservation community on earth gathers in Almería.\n\nSunseed isn't a course you attend; it's a small off-grid community you move into — and the living scene is the lesson, not a demonstration of one.\n\nCommunity strength: Growing. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/self-sufficiency\n\n#crafttok #processvideo #handmade #almera #selfsufficiencyfoodprese"
+    "caption": "The strongest Self-Sufficiency & Food Preservation community on earth gathers in Almería.\n\nSunseed isn't a course you attend; it's a small off-grid community you move into — and the living scene is the lesson, not a demonstration of one.\n\nCommunity strength: Growing. Season: Year-round.\nWe map where every craft is truly alive — and introduce you to the school and the people going.\nThe full page: https://educatedtraveler.app/atlas/self-sufficiency--sunseed-almeria\n\n#crafttok #processvideo #handmade #almera #selfsufficiencyfoodprese"
   },
   {
     "day": 26,

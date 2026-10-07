@@ -363,7 +363,7 @@ The full page: https://educatedtraveler.app/atlas/modernist-spanish-cuisine--bar
 ```
 
 ## Day 21 — Japanese Knife-Making · Shimanto, Japan  `[creative]`
-- **Atlas page:** https://educatedtraveler.app/atlas/japanese-knife-making
+- **Atlas page:** https://educatedtraveler.app/atlas/japanese-knife-making--kurogane-shimanto
 - **Footage:** Workshop Kurogane — Nobuya Hayashi — https://www.workshop-kurogane.com/ (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Japanese Knife-Making, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
@@ -375,13 +375,13 @@ A working forge on the Shimanto river in Tosa blade country, where you forge, gr
 
 Community strength: Thriving. Season: Sep-May.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/japanese-knife-making
+The full page: https://educatedtraveler.app/atlas/japanese-knife-making--kurogane-shimanto
 
 #crafttok #processvideo #handmade #shimanto #japaneseknifemaking
 ```
 
 ## Day 22 — Lymphatic Drainage · Walchsee, Austria  `[wellness]`
-- **Atlas page:** https://educatedtraveler.app/atlas/lymphatic-drainage
+- **Atlas page:** https://educatedtraveler.app/atlas/lymphatic-drainage--walchsee
 - **Footage:** Dr. Vodder Akademie & Wittlinger Therapiezentrum — https://www.vodderakademie.com/kurs/manuelle-lymphdrainage-nach-dr-vodder-ml-in-walchsee.html (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Lymphatic Drainage, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
@@ -393,7 +393,7 @@ The Vodder method carried to a Tyrolean lake since the early 1970s, beside a wor
 
 Community strength: The source. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/lymphatic-drainage
+The full page: https://educatedtraveler.app/atlas/lymphatic-drainage--walchsee
 
 #breathwork #yogatok #learnbydoing #walchsee #lymphaticdrainage
 ```
@@ -435,7 +435,7 @@ The full page: https://educatedtraveler.app/atlas/sushi-and-washoku--tokyo-tsuki
 ```
 
 ## Day 25 — Self-Sufficiency & Food Preservation · Almería, Spain  `[creative]`
-- **Atlas page:** https://educatedtraveler.app/atlas/self-sufficiency
+- **Atlas page:** https://educatedtraveler.app/atlas/self-sufficiency--sunseed-almeria
 - **Footage:** Sunseed Desert Technology — https://www.sunseed.org.uk/get-involved (licensed/reposted with credit — see OUTREACH.md)
 - **Clip:** 30-60s wordless process: hands + material of Self-Sufficiency & Food Preservation, cut to the most tactile seconds, END on the finished object / the moment of competence. Ambient sound only. No talking, no text walls; one caption card max.
 - **Caption:**
@@ -447,7 +447,7 @@ Sunseed isn't a course you attend; it's a small off-grid community you move into
 
 Community strength: Growing. Season: Year-round.
 We map where every craft is truly alive — and introduce you to the school and the people going.
-The full page: https://educatedtraveler.app/atlas/self-sufficiency
+The full page: https://educatedtraveler.app/atlas/self-sufficiency--sunseed-almeria
 
 #crafttok #processvideo #handmade #almera #selfsufficiencyfoodprese
 ```
