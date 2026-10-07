@@ -25,7 +25,7 @@
      arrows. Each card flashes as it comes to the middle, and its picture
      develops from dark. Ticking a card stamps it. Rulings of 25 Sept 2026
      applied: nothing before the h1, headline in paper, ember kept for one thing
-     only — the ring on a print with no photograph. Sea carries everything else
+     only — the preview tag (every card now has its photograph). Sea carries everything else
      (a deeper sea on the paper of the cards, for contrast). */
   :root{
     --ink:#0d0b09; --ink-2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --sea-deep:#2f5754; --ember:#d28a52;
@@ -80,12 +80,15 @@
   .film{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;background:#2a2621}
   .film img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   /* the first dinner: three places on one print */
-  .film.three{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--paper)}
-  .film.three span{position:relative;overflow:hidden;background:#2a2621}
+  .film.three{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:var(--paper)}
+  .film.three > span{position:relative;overflow:hidden;background:#2a2621}
+  .film.three .a{grid-row:1 / 3}
+  .film.three i{position:absolute;left:0;right:0;bottom:0;padding:1.4rem .55rem .45rem;background:linear-gradient(to top,rgba(13,11,9,.82),rgba(13,11,9,0));
+                font-family:var(--mono);font-style:normal;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);line-height:1.3}
   /* develop: a dark veil that lifts; flash: a white burst over it */
   .film::after{content:"";position:absolute;inset:0;background:#2e2923;opacity:0;pointer-events:none;z-index:2}
   .film::before{content:"";position:absolute;inset:0;background:#fffdf8;opacity:0;pointer-events:none;z-index:3}
-  html.js .card:not(.blank):not(.lit) .film::after{opacity:.78}
+  html.js .card:not(.lit) .film::after{opacity:.78}
   html.js .card.lit .film::after{animation:develop 2s ease-out .15s both}
   html.js .card.flash .film::before{animation:flash .9s ease-out both}
   @keyframes develop{from{opacity:.78}to{opacity:0}}
@@ -110,9 +113,6 @@
   .card .tables{list-style:none;margin:.75rem 0 0;padding:0}
   .card .tables li{padding:.45rem 0;border-top:1px solid rgba(44,35,26,.16);font-size:.86rem;line-height:1.4;color:var(--on-paper-soft)}
   .card .tables li b{display:block;font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--on-paper)}
-  /* a place with no photograph: the print never develops, and carries the ring */
-  .card.blank .film::after{content:none}
-  .card.blank .ring{position:absolute;left:50%;top:50%;width:22%;aspect-ratio:1/1;transform:translate(-50%,-50%);border:2px solid var(--ember);border-radius:50%}
 
   /* ticked: the card gets a stamp */
   .card::after{content:"✓";position:absolute;top:-13px;left:-13px;width:42px;height:42px;border-radius:50%;background:var(--sea);color:var(--ink);font:600 22px/42px var(--sans);text-align:center;transform:scale(0) rotate(-24deg);transition:transform .38s cubic-bezier(.2,.9,.3,1.45);box-shadow:0 6px 14px -6px rgba(0,0,0,.85);pointer-events:none;z-index:4}
@@ -144,6 +144,20 @@
   .arrow:hover:not(:disabled){background:var(--paper);border-color:var(--paper);color:var(--ink)}
   .arrow:active:not(:disabled){transform:scale(.94)}
   .arrow:disabled{opacity:.3;cursor:default}
+  /* on the sides of the middle card, level with its picture */
+  .arrow.side{position:absolute;z-index:5;top:calc(34px + 12px + (var(--cw) - 24px) * .375);transform:translateY(-50%);
+              background:var(--paper);border-color:var(--paper);color:var(--ink);box-shadow:0 10px 24px -10px rgba(0,0,0,.9)}
+  .arrow.side:hover:not(:disabled){background:#fff;border-color:#fff}
+  .arrow.side:active:not(:disabled){transform:translateY(-50%) scale(.94)}
+  .arrow.side:disabled{opacity:0;pointer-events:none}
+  .arrow.prev{left:max(6px,calc(50% - var(--cw) / 2 - 27px))}
+  .arrow.next{right:max(6px,calc(50% - var(--cw) / 2 - 27px))}
+  @media (min-width:900px){
+    .arrow.side{width:62px;height:62px;font-size:1.5rem}
+    .arrow.prev{left:calc(50% - var(--cw) / 2 - 96px)}
+    .arrow.next{right:calc(50% - var(--cw) / 2 - 96px)}
+  }
+  html:not(.js) .arrow.side{display:none}
   .count{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;color:var(--soft);min-width:5.5em;text-align:center}
   .count b{color:var(--paper);font-weight:500}
   .dots{display:flex;justify-content:center;gap:.15rem;margin:.7rem 0 0}
@@ -234,12 +248,12 @@
   <div class="track" id="track" tabindex="0">
 
     <article class="card" id="c-first" style="--r:-2.5deg" aria-roledescription="slide" aria-labelledby="t-first">
-      <span class="film three" aria-hidden="true">
-        <span><img src="/images/around/ultramarinos-print.jpg" width="1000" height="1000" alt="" fetchpriority="high" decoding="async"></span>
-        <span><img src="/images/around/gresca-print.jpg" width="1000" height="1000" alt="" fetchpriority="high" decoding="async"></span>
-        <span><img src="/images/around/brutal-print.jpg" width="1000" height="1000" alt="" fetchpriority="high" decoding="async"></span>
+      <span class="film three">
+        <span class="a"><img src="/images/around/ultramarinos-print.jpg" width="1000" height="1000" alt="The wood-fired grill at Ultramarinos Marín" fetchpriority="high" decoding="async"><i>Ultramarinos Marín</i></span>
+        <span class="b"><img src="/images/around/gresca-front.jpg" width="800" height="600" alt="Gresca's green front on carrer de Provença" fetchpriority="high" decoding="async"><i>Gresca</i></span>
+        <span class="c"><img src="/images/around/brutal-front.jpg" width="800" height="600" alt="Bar Brutal's red awning and neon sign on carrer de la Princesa" fetchpriority="high" decoding="async"><i>Bar Brutal</i></span>
       </span>
-      <p class="cap">Ultramarinos Marín · Gresca · Bar Brutal</p>
+      <p class="cap">Three tables, one dinner<small>Gresca · Pere prlpz · CC BY-SA 4.0 — Ultramarinos Marín and Bar Brutal · their own</small></p>
       <div class="body">
         <p class="at">The night before the lab, or the first evening of the week</p>
         <h2 id="t-first">The first dinner</h2>
@@ -295,26 +309,26 @@
     </article>
 
     <article class="card" id="c-lasarte" style="--r:2.5deg" aria-roledescription="slide" aria-labelledby="t-lasarte">
-      <span class="film"><img src="/images/around/lasarte-print.jpg" width="1000" height="1000" alt="Casa Enric Batlló on Passeig de Gràcia, the building that now houses the Monument Hotel" loading="lazy" decoding="async"></span>
-      <p class="cap">Casa Enric Batlló, now the Monument Hotel<small>Pere López · CC BY-SA 3.0</small></p>
+      <span class="film"><img src="/images/around/lasarte-dish.jpg" width="1200" height="900" alt="Two cubes of foie gras and smoked eel mille-feuille with a caramelised top, on a white plate" loading="lazy" decoding="async"></span>
+      <p class="cap">Foie gras and smoked eel mille-feuille<small>Photograph · Martín Berasategui</small></p>
       <div class="body">
         <p class="at">Wednesday to Saturday night</p>
         <h2 id="t-lasarte">Lasarte, three Michelin stars</h2>
-        <p class="say" id="s-lasarte-say">Dinner in the Monument Hotel, then behind the scenes: into the kitchen, with the chef.</p>
-        <p class="learn" id="l-lasarte"><span>Worth knowing</span>It is Martín Berasategui's three-star house in Barcelona, with Paolo Casagrande as head chef.</p>
+        <p class="say" id="s-lasarte-say">Dinner in the Monument Hotel. Afterwards, we can go behind the scenes and have a look in the kitchen, with the chef.</p>
+        <p class="learn" id="l-lasarte"><span>Worth knowing</span>It is Martín Berasategui's three-star house in Barcelona, with Paolo Casagrande as head chef. His foie gras and smoked eel mille-feuille, first made in 1993, is on Lasarte's lunch menu.</p>
         <ul class="chips" id="f-lasarte"><li>Tasting menu €345, before wine</li><li>Closed Sunday to Tuesday</li><li><a href="https://www.restaurantlasarte.com" target="_blank" rel="noopener">restaurantlasarte.com ↗</a></li></ul>
         <div class="tickrow">
           <label class="pill" for="p-lasarte">
-            <input type="checkbox" id="p-lasarte" name="pick" value="lasarte" data-label="Lasarte: dinner, then the kitchen with the chef" aria-labelledby="t-lasarte" aria-describedby="s-lasarte-say l-lasarte f-lasarte">
+            <input type="checkbox" id="p-lasarte" name="pick" value="lasarte" data-label="Lasarte: dinner, then behind the scenes in the kitchen" aria-labelledby="t-lasarte" aria-describedby="s-lasarte-say l-lasarte f-lasarte">
             <span>I would come to this</span>
           </label>
         </div>
       </div>
     </article>
 
-    <article class="card blank" id="c-wine" style="--r:-2deg" aria-roledescription="slide" aria-labelledby="t-wine">
-      <span class="film" aria-hidden="true"><span class="ring"></span></span>
-      <p class="cap">No photograph yet</p>
+    <article class="card" id="c-wine" style="--r:-2deg" aria-roledescription="slide" aria-labelledby="t-wine">
+      <span class="film"><img src="/images/around/wine-print.jpg" width="1200" height="900" alt="Red wine being poured into a glass, between a glass of white and an empty one" loading="lazy" decoding="async"></span>
+      <p class="cap">A pour of red<small>James Petts · CC BY-SA 2.0</small></p>
       <div class="body">
         <p class="at">An evening</p>
         <h2 id="t-wine">A Catalan wine night</h2>
@@ -385,10 +399,10 @@
 
   </div>
 
+  <button type="button" class="arrow side prev" id="prev" aria-label="Previous" aria-controls="track">&larr;</button>
+  <button type="button" class="arrow side next" id="next" aria-label="Next" aria-controls="track">&rarr;</button>
   <div class="ctrl">
-    <button type="button" class="arrow" id="prev" aria-label="Previous" aria-controls="track">&larr;</button>
     <span class="count" id="count" aria-live="polite"><b>01</b> / 08</span>
-    <button type="button" class="arrow" id="next" aria-label="Next" aria-controls="track">&rarr;</button>
   </div>
   <div class="dots" id="dots"></div>
   <p class="tally"><a href="#send"><span id="chip-n">0 ticked</span><span class="sep">·</span><span>Send my answer &darr;</span></a></p>
@@ -452,13 +466,14 @@
     </div>
 
     <div class="credits">
-      <p>Five photographs are from Wikimedia Commons, cropped square:
-        <a href="https://commons.wikimedia.org/wiki/File:Mercat_de_la_Boqueria_(53359199531).jpg" target="_blank" rel="noopener">La Boqueria</a> · Jorge Franganillo · CC BY 2.0 —
-        <a href="https://commons.wikimedia.org/wiki/File:Casa_Enric_Batll%C3%B3.jpg" target="_blank" rel="noopener">Casa Enric Batlló</a> · Pere López · CC BY-SA 3.0 —
-        <a href="https://commons.wikimedia.org/wiki/File:Port-Vell-Night.JPG" target="_blank" rel="noopener">Port Vell at night</a> · Jopsens · CC BY-SA 3.0 —
-        <a href="https://commons.wikimedia.org/wiki/File:VINYA_RECAREDO.jpg" target="_blank" rel="noopener">Recaredo's vineyard</a> · LanderBlazquez · CC BY-SA 4.0 —
-        <a href="https://commons.wikimedia.org/wiki/File:Vermut.jpg" target="_blank" rel="noopener">Vermut</a> · Alzinous · CC BY-SA 3.0.
-        The photographs of 100%Chef and of Ultramarinos Marín are theirs.</p>
+      <p>Six photographs are from Wikimedia Commons, cropped:
+        <a href="https://commons.wikimedia.org/wiki/File:Restaurant_Gresca.jpg" target="_blank" rel="noopener">Gresca</a> · Pere prlpz · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> —
+        <a href="https://commons.wikimedia.org/wiki/File:Mercat_de_la_Boqueria_(53359199531).jpg" target="_blank" rel="noopener">La Boqueria</a> · Jorge Franganillo · <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener">CC BY 2.0</a> —
+        <a href="https://commons.wikimedia.org/wiki/File:Vermut.jpg" target="_blank" rel="noopener">Vermut</a> · Alzinous · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a> —
+        <a href="https://commons.wikimedia.org/wiki/File:D%C3%A9gustation_d%27un_vin_rouge.jpg" target="_blank" rel="noopener">A pour of red</a> · James Petts · <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a> —
+        <a href="https://commons.wikimedia.org/wiki/File:Port-Vell-Night.JPG" target="_blank" rel="noopener">Port Vell at night</a> · Jopsens · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a> —
+        <a href="https://commons.wikimedia.org/wiki/File:VINYA_RECAREDO.jpg" target="_blank" rel="noopener">Recaredo's vineyard</a> · LanderBlazquez · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.
+        The photographs of Ultramarinos Marín, Bar Brutal and 100%Chef are theirs; the mille-feuille is Martín Berasategui's.</p>
       <p class="sig">A skill, a place, a person, your people.</p>
       <p class="foot">EDUCATEDTRAVELER · LAB WEEK 01 · ORGANISED AND SOLD BY EDUCATEDTRAVELER · TAUGHT BY MARTÍN LIPPO AT VAKUUM, BARCELONA</p>
     </div>
