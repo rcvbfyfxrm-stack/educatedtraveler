@@ -18,7 +18,6 @@
     "avant-garde-and-modernist-technique--puebla-mexico-city.html",
     "avant-garde-and-modernist-technique.html",
     "modern-new-technique-cuisine-in-depth.html",
-    "modern-new-technique-cuisine.html",
     "modernist-spanish-cuisine--san-sebasti-n-donostia.html",
     "sailing-and-yachtmaster--uksa-cowes.html",
     "freediving-in-depth.html",
@@ -1343,7 +1342,12 @@
     "lymphatic-drainage--walchsee": "Learn the Vodder method beside a working lymphoedema clinic, and treat its patients in the final week — in German, for health professionals.",
     "lifestyle-medicine--united-states": "A clinician's credential, built on a real medical board, for care that treats causes over symptoms.",
     "chef-at-sea--mallorca": "Learn the galley from two working yacht chefs, with three days and nights aboard a catamaran, in a port where crew are hired.",
-    "chef-at-sea--london": "Where the ticket is earned: the MCA's Assessment in Marine Cookery, at a centre the MCA has approved."
+    "chef-at-sea--london": "Where the ticket is earned: the MCA's Assessment in Marine Cookery, at a centre the MCA has approved.",
+    "modern-new-technique-cuisine--barcelona": "Learn the toolkit from a master you can actually enrol with, at Martin Lippo's Vakuum lab, where the Adrià revolution began.",
+    "modern-new-technique-cuisine--san-sebasti-n-donostia": "Learn the toolkit as a graded specialisation: five weeks on the Miramón campus, or eight ECTS online with a former elBulli pastry chef.",
+    "modern-new-technique-cuisine--paris": "Learn the modernist toolkit inside the classical one, four days in the country where sous-vide was worked out.",
+    "modern-new-technique-cuisine--puebla-mexico-city": "Learn techno-emotional cuisine at the academy Miguel Angel Cepeda has run since 2009, the closest thing in the Americas to a European modernist lab.",
+    "modern-new-technique-cuisine--melbourne-lilydale": "Learn sous-vide and low-temperature cooking in chef Dale Prentice's dedicated teaching lab."
   },
   "_sayLines_comment": "The FIRST line a card says, keyed by DESTINATION id. Where learnLines is the researched sentence, this is the card's own title: 'Learn to photograph big cats from a camp' with 'in Kenya' on the line under it. At rest a card names the craft — 'Learn Wildlife Photography in Pusztaszer, Hungary' — and while it walks its places this replaces the craft's name with what you would actually be doing in THAT one. Write it against the destination's WHOLE record, not just its `why`: schoolsInfo carries the course and the school's own blurb, which is where 'one-way glass', 'on the Russian border' and 'four to a group' come from. Three rules. It may say nothing that record does not already say (gated by learn_line_drift). Where there is no vouched school it must not begin 'Learn to' — that would promise teaching that is not there. And it never carries the place: the card prints the place on the next line and would say it twice. Length is free — the card reserves the height of the longest line it can ever show — but short is the point of the line. A missing line is fine: the card keeps naming the craft. See SAY_LINES in build-atlas-pages.py.",
   "sayLines": {
