@@ -3329,7 +3329,8 @@ def school_card(d, x, s_, page_id, facts=None, labels=()):
             more += f'<details class="smore"><summary>What the course covers</summary>{body}</details>'
     photos = photo_block(x, only=s_)
     if photos:
-        more += f'<details class="smore"><summary>Photographs from the school</summary>{photos}</details>'
+        # open by default — ruling 5, 25 Sept 2026; Arnaud, 7 Oct: "i dont see all the photo on the page"
+        more += f'<details class="smore" open><summary>Photographs from the school</summary>{photos}</details>'
 
     # The rating: the school's own, or the pick's cited sources. One line, never a section.
     rates = []
@@ -3774,10 +3775,10 @@ for d in DISC:
 <p class="lead">{e(x['why'])}</p>{_closed_band}{craft_intro(d)}
 </div></header>
 {place_intro(x)}<section><div class="wrap">{dest_card(d, x, link=False, is_best=(x["id"] == best_dest_id(d)))}</div></section>
-{reviewed_block(x["id"])}{disclosure_block(d) if has_relationship(x) else ""}
+{disclosure_block(d) if has_relationship(x) else ""}
 {schools_html}{lab_week_block(d, x)}
 {masters_html}
-{credential_section(d, x)}{coverage_block(d, x)}
+{credential_section(d, x)}{coverage_block(d, x)}{reviewed_block(x["id"])}
 <section><div class="wrap">{intent}</div></section>
 {sib_html}"""
         # saveable=False: skill-save.js hooks form.intent[data-discipline], which only
