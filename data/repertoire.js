@@ -1073,7 +1073,13 @@ window.ET_ATLAS = {
               "url": "",
               "course": "",
               "blurb": "A Brooklyn Ashtanga initiative co-founded in the Pattabhi Jois lineage by Eddie Stern; no standalone official website could be verified (active social presence only), so details are unconfirmed.",
-              "confidence": "low"
+              "confidence": "low",
+              "standing": {
+                "state": "course-gone",
+                "what": "Brooklyn Yoga Club has no site of its own — brooklynyogaclub.com is for sale — and Eddie Stern's own schedule lists his classes at the Broome Street Temple in Manhattan, with nothing in Brooklyn.",
+                "from": "https://eddiestern.com/",
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 3,
@@ -5371,7 +5377,7 @@ window.ET_ATLAS = {
           "communityLabel": "Strong",
           "schools": [
             "FFESSM-affiliated pêche sous-marine clubs (Côte d'Azur)",
-            "regional CMAS spearfishing clubs"
+            "Estérel Sea School"
           ],
           "masters": [],
           "badges": [
@@ -5421,11 +5427,36 @@ window.ET_ATLAS = {
               }
             },
             {
-              "name": "regional CMAS spearfishing clubs",
-              "url": "https://www.cmas.org/",
-              "course": "",
-              "blurb": "CMAS (World Confederation of Underwater Activities) is the international body whose standards underpin FFESSM-affiliated spearfishing and freediving certifications offered by regional Côte d'Azur clubs, though no single named regional CMAS spearfishing school could be verified.",
-              "confidence": "low"
+              "name": "Estérel Sea School",
+              "url": "https://www.esterelseaschool.com/",
+              "course": "Pêche sous-marine: PSM 1 / PSM 2 / PSM 3 practitioner levels (2-day course), plus initiation and perfectionnement half-days",
+              "blurb": "A spearfishing and freediving school run out of Port Santa Lucia in Saint-Raphaël by Jean-Michel Annibal, a state-qualified instructor who holds the FFESSM spearfishing monitor grade. He teaches from a 5.5 m RIB along the Estérel coast, from the red rocks of Anthéor and the Dramont to Cap Camarat, and runs the FFESSM PSM levels over two days. Checked on esterelseaschool.com, 7 October 2026.",
+              "confidence": "high",
+              "facts": {
+                "where": "Saint-Raphaël, Port Santa Lucia",
+                "length": "2 days",
+                "format": "From a 5.5 m RIB along the Estérel coast, Anthéor and Dramont to Cap Camarat",
+                "class": "4 to 6 trainees on the boat",
+                "credential": "FFESSM PSM 1, 2 or 3 level; school is FFESSM-approved (agrément 3383176C)",
+                "price": "€380",
+                "priceNote": "2-day PSM level course; FFESSM licence (€50) not included; gear hire €20",
+                "from": [
+                  "https://www.esterelseaschool.com/"
+                ],
+                "read": "2026-10-07"
+              },
+              "teachers": {
+                "groups": [
+                  [
+                    "Teaches it",
+                    [
+                      "Jean-Michel Annibal"
+                    ]
+                  ]
+                ],
+                "from": "https://www.esterelseaschool.com/",
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 5,
