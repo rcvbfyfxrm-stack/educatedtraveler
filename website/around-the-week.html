@@ -189,7 +189,7 @@
   fieldset{border:0;margin:0 0 1.6rem;padding:0;min-width:0}
   legend{padding:0;max-width:100%;font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
   .say{font-size:1rem;line-height:1.55;color:var(--soft);max-width:52ch;margin:.4rem 0 0}
-  fieldset .pill{display:flex;width:100%}
+  fieldset .pill{display:flex;width:100%;margin-top:.7rem}
   .field{margin:0 0 1rem}
   .field label{display:block;font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 .4rem}
   .field label .opt{text-transform:none;letter-spacing:.02em;color:var(--softer)}
@@ -239,7 +239,7 @@
     <h1 id="h1">Around the five days.</h1>
     <p class="dates">Lab Week 01 with Martín Lippo · Vakuum, Barcelona · 22–26 October 2026</p>
     <p class="sub">First, I'd like to check whether you'd be interested in a few things around the week.</p>
-    <p>The lab takes the days, 10:00 to 14:00 and 15:00 to 18:00. Around it, I'd like to offer you a first dinner together and seven more things in and around Barcelona. Tick what you'd come to and I'll organise the ones the room wants. You pay each place directly.</p>
+    <p>The lab takes the days, 10:00 to 14:00 and 15:00 to 18:00. Around it, I'd like to offer you a first dinner together on the 21st, the night before, and seven more things in and around Barcelona. Tick what you'd come to and I'll organise the ones the room wants. You pay each place directly.</p>
     <p class="hint">Swipe, or use the arrows &rarr;</p>
   </div>
 </section>
@@ -255,7 +255,7 @@
       </span>
       <p class="cap">Three tables, one dinner<small>Gresca · Pere prlpz · CC BY-SA 4.0 — Ultramarinos Marín and Bar Brutal · their own</small></p>
       <div class="body">
-        <p class="at">The night before the lab, or the first evening of the week</p>
+        <p class="at">Wednesday 21 October · the night before the lab</p>
         <h2 id="t-first">The first dinner</h2>
         <p class="say" id="s-first-say">One table for all of us and one set menu, so the room meets properly. I've been in touch with all three and we'll go to the one that fits us best.</p>
         <ul class="tables" id="f-first">
@@ -265,7 +265,7 @@
         </ul>
         <div class="tickrow">
           <label class="pill" for="p-first">
-            <input type="checkbox" id="p-first" name="pick" value="first-dinner" data-label="The first dinner (Ultramarinos Marín, Gresca or Bar Brutal)" aria-labelledby="t-first" aria-describedby="s-first-say f-first">
+            <input type="checkbox" id="p-first" name="pick" value="first-dinner" data-label="The first dinner, Wednesday 21 (Ultramarinos Marín, Gresca or Bar Brutal)" aria-labelledby="t-first" aria-describedby="s-first-say f-first">
             <span>I would come to this</span>
           </label>
         </div>
@@ -413,8 +413,12 @@
     <div id="answer">
       <h2 class="big" id="h-answer">Your answer.</h2>
       <fieldset>
-        <legend>One date</legend>
-        <p class="say">The 100%Chef visit and the Recaredo tasting are on Tuesday 27, the day after the lab.</p>
+        <legend>Two dates</legend>
+        <p class="say">The first dinner is on Wednesday 21, the night before the lab. The 100%Chef visit and the Recaredo tasting are on Tuesday 27, the day after.</p>
+        <label class="pill" for="d-wed">
+          <input type="checkbox" id="d-wed" name="date" value="in-wed-21" data-label="Wednesday 21 October">
+          <span>I am in Barcelona on Wednesday 21 October</span>
+        </label>
         <label class="pill" for="d-tue">
           <input type="checkbox" id="d-tue" name="date" value="in-tue-27" data-label="Tuesday 27 October">
           <span>I am in Barcelona on Tuesday 27 October</span>
@@ -675,7 +679,7 @@
     var lines = ['Around the five days — my answer', 'Name: ' + p.name, 'Email: ' + p.email, ''];
     lines.push(picks.length ? 'I would come to:' : 'I would come to: none of them.');
     picks.forEach(function (l) { lines.push('- ' + l); });
-    lines.push('', days.length ? 'In Barcelona on: ' + days.join(', ') : 'Not in Barcelona on Tuesday 27.');
+    lines.push('', days.length ? 'In Barcelona on: ' + days.join(', ') : 'In Barcelona on neither Wednesday 21 nor Tuesday 27.');
     if (p.note) lines.push('', p.note);
     return lines.join('\n');
   }
