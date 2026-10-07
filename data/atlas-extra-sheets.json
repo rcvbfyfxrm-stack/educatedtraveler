@@ -2985,6 +2985,49 @@
       "check": "Redrafted 6 October 2026 from the schools' own pages and the World's 50 Best Bars list, all read that day, not from a visit. Nobody from EducatedTraveler has worked a shift behind either city's bars. Replaces the 27 September draft: Havana is off the page and New York carries no school.",
       "checker": "Arnaud Callier",
       "date": "6 October 2026"
+    },
+    "chef-at-sea": {
+      "dots": 2,
+      "state": "researched, not checked",
+      "verdict": "Two working chefs you can name, in a port where the trade is actually hired — and almost everything past the fortnight is learned aboard, which no page can grade for you",
+      "conditions": [
+        {
+          "n": "Is there a teacher, and can we name them?",
+          "on": true,
+          "t": "Yes. Anchor & Apron is taught by Cara Whiteman and Amber Colle, working yacht chefs who came off the boats to teach their own trade, and who name themselves on their own site — read 7 October 2026. There is no master in this craft to name instead: it is a trade, not a tradition, and it passes between chefs who overlap for a season, aboard."
+        },
+        {
+          "n": "Can a stranger get in, on a date you can book?",
+          "on": false,
+          "t": "Not today. The door is genuinely open — no experience needed, €3,950 all-in, published dates — but on 7 October 2026 their own page shows the 2–16 May 2027 fortnight as sold out, and the next one, 30 May – 13 June 2027, only as launching soon. One opened date moves this. The MCA assessment at Leiths in London does have dates you can book into 2027, but only with a professional kitchen behind you, so it is not a stranger's door."
+        },
+        {
+          "n": "Will there be other people learning beside you?",
+          "on": false,
+          "t": "Not established. Anchor & Apron does not publish a group size, and nobody from EducatedTraveler has sat in a session. The real community in this craft is the fleet, not the cohort — and the fleet is a workplace, not a class."
+        },
+        {
+          "n": "Is the craft alive in this place, or is the school the only thing here?",
+          "on": true,
+          "t": "Alive. Palma is one of the four ports where this trade is actually hired: the Mediterranean's crew from spring, with the boats, the agencies and the chefs coming off a season and going on standing on the same quay. Dockwalk, the crew trade's own magazine, lists seven crew recruitment agencies in Palma and calls it \"the perfect place to connect with yacht recruiters who can help you land your next position.\" The school is not the only thing here — the dock is the bigger part of it.",
+          "evidence": [
+            {
+              "what": "Dockwalk — yacht crew recruitment agencies in Palma",
+              "url": "https://www.dockwalk.com/jobs/yacht-crew-recruitment-agencies-palma",
+              "date": "7 October 2026"
+            }
+          ]
+        },
+        {
+          "n": "Is there enough here to keep you learning for years?",
+          "on": false,
+          "t": "Not from a school. The fortnight is an orientation, and the only published step after it is a one-week advanced course for chefs already working. The years in this craft are learned aboard, season by season, under whoever runs the next galley — real, but nothing a desk can check or a page can promise."
+        }
+      ],
+      "ceilingNote": "Desk research stops at three, and this sits under it. The second moves the moment a 2027 date opens for booking; the third and fifth wait on somebody standing in the room — or on a season aboard.",
+      "check": "Graded from the Chef at Sea page and its in-depth sheet (researched 22 and 31 August 2026), and from Anchor & Apron's and Leiths' own pages re-read on 7 October 2026 — not from a visit. Nobody from EducatedTraveler has stood in either room or spoken to a teacher.",
+      "checker": "Arnaud Callier",
+      "date": "7 October 2026"
     }
   },
   "_measureCaps_comment": "How far the evidence lets a craft's dots go. THE GROUND and THE STRETCH cannot be answered from a website, so desk research stops at three. One person who was actually there lifts it — but one visit is one week and one cohort, so five is held back for a place that held up more than once. Arnaud, 2 Sept 2026: one vouch for now. To let a single visit go all the way to five, change stood-in/vouched to 5 here; nothing else moves. ⭐ 3 Sept 2026: 'public evidence on the place' lifts the desk cap to four when the FOURTH condition is carried by a source that is not selling the course — a guild, a festival, a market, a trade body, a listing. Arnaud: 'most of the places the craft is alive their.' The build computes every host that sells a course on the craft and refuses evidence from any of them, and the FIFTH condition is still uncappable from a desk: a ladder proves the rungs exist, not that the room above you is worth years.",
@@ -2997,11 +3040,9 @@
     "stood in it": 4,
     "twoOrReturn": 5
   },
-  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day. ⚠ 7 Oct 2026: floor 1 -> 2, the counted set grew, nothing lost a grade — chef-at-sea moved from hubCards into disciplines so its page could be drawn like every other craft, and it has never been graded. One craft of headroom kept. ⛔ Arnaud signs its grade: sign-measure.py chef-at-sea --as \"Arnaud Callier\"; then lower this back to 1.",
-  "measureDebtFloor": 2,
-  "measureDebtKnown": [
-    "chef-at-sea"
-  ],
+  "_measureDebt_comment": "Arnaud, 2 Sept 2026: 'make it the standard of ET any skill sheet that comes out.' These crafts opened before the Measure existed; failing on them would only get the rule deleted, so the archive is a printed backlog. But the debt MAY NOT GROW — a new sheet with no grade pushes the count past the floor and stops the build. Grade one, lower the floor, and it can never drift back up. measureDebtKnown lists the crafts the floor was set around, so a NEW ungraded craft can be named in the failure message. ⭐ 5 Sept 2026: the backlog reached ZERO — all 31 open crafts are graded and signed. ⚠ THE FLOOR IS 1, NOT 0, AND THAT IS DELIBERATE. atlas-build.yml runs refresh-unlocked.mjs and build-atlas-pages.py in the SAME job, so a craft can open unattended at 04:05 on a night nobody is awake. At a floor of 0 that opening fails the build and the whole Atlas stops rebuilding until somebody grades it — the exact failure the learnLines comment refuses to accept for the same reason. A floor of 1 still forbids the debt from growing (two ungraded crafts stop the build) and still prints the warning every night, while letting one newly-asked-for craft wait for its grade instead of taking the site's nightly rebuild down with it. Set it to 0 only if you would rather the build stop and force the grade that day. ⚠ 7 Oct 2026: floor 1 -> 2, the counted set grew, nothing lost a grade — chef-at-sea moved from hubCards into disciplines so its page could be drawn like every other craft, and it has never been graded. One craft of headroom kept. ⛔ Arnaud signs its grade: sign-measure.py chef-at-sea --as \"Arnaud Callier\"; then lower this back to 1. 7 October 2026: chef-at-sea signed by Arnaud Callier (2 of 5); floor back 2 -> 1.",
+  "measureDebtFloor": 1,
+  "measureDebtKnown": [],
   "_skillLadders_comment": "The ladder a craft is climbed by — ALWAYS somebody else's published standard, adopted and cited, never ours. 112 of 113 crafts carry a certBody and a goldCredential, so the ladder usually exists in public; where no body publishes one, the craft goes in laddersNotPublished and shows no ladder, because an invented rung is this map awarding itself an authority it does not have. A rung is the unit a course is ticked against, and the body's own skills are printed under it as what the rung means: IKO lists 46 skills across four levels and a kite school's page says 'we take you to Level 2', so ticking skills would have measured what a school writes on its website. url + read + verify on the ladder and on every rung, because night-check.py re-reads all of them.",
   "skillLadders": {
     "kitesurfing": {
