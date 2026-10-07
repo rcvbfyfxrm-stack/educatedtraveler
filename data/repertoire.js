@@ -29968,9 +29968,9 @@ window.ET_ATLAS = {
                 "given": "2026-10-06",
                 "by": "Amber",
                 "source": "sent",
-                "thumb": "/images/atlas/chef-at-sea--mallorca/aa-02-the-catamaran.jpg",
-                "card": "/images/atlas/chef-at-sea--mallorca/aa-01-plating-in-the-galley.jpg",
-                "focal": "50% 72%",
+                "thumb": "/images/atlas/chef-at-sea--mallorca/aa-06-a-plate-over-the-water.jpg",
+                "card": "/images/atlas/chef-at-sea--mallorca/aa-03-the-teaching-kitchen.jpg",
+                "focal": "50% 45%",
                 "items": [
                   {
                     "src": "/images/atlas/chef-at-sea--mallorca/aa-01-plating-in-the-galley.jpg",
@@ -30028,6 +30028,48 @@ window.ET_ATLAS = {
                     "h": 1600,
                     "alt": "A garden seen from above in early morning: a swimming pool with stone steps, a lawn where a few people stretch on mats, sun loungers along a path, and a line of cypresses and palms against wooded hills.",
                     "caption": "The house where these courses were taught, about twenty minutes from Palma. Its exact address goes to students two weeks before."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-09-breakfast.jpg",
+                    "w": 1069,
+                    "h": 1600,
+                    "alt": "Two poached eggs under hollandaise on toasted sourdough with spinach and smoked salmon, cracked pepper and a sprig of dill, on a black plate.",
+                    "caption": "Breakfast, plated."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-10-dessert.jpg",
+                    "w": 1069,
+                    "h": 1600,
+                    "alt": "A ridged cream dome on a black plate, with a lace tuile leaning on it, cubes of mango, rosettes of piped cream and small white pearls.",
+                    "caption": "Dessert, plated."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-11-four-at-sea.jpg",
+                    "w": 1200,
+                    "h": 1600,
+                    "alt": "Four women in the school's striped denim aprons stand arm in arm on the stern of a boat, laughing, with a bay and wooded hills behind them.",
+                    "caption": "Four of them, in the school's aprons, at sea."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-12-on-the-lines.jpg",
+                    "w": 1024,
+                    "h": 1535,
+                    "alt": "Two people lean over the bow rail of a catamaran working a blue line, one in a cap with her hair tied back, the other in a wide-brimmed hat and a white shirt, boats and a wooded shore behind.",
+                    "caption": "On the lines at the bow. Deck duties are part of the course."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-13-cooking-by-the-pool.jpg",
+                    "w": 1024,
+                    "h": 1535,
+                    "alt": "Three people at an outdoor table by a pool: a man in a black T-shirt stirs a pan with a spatula while two women in aprons lean in, steel bowls in front of them and cypresses and palms behind.",
+                    "caption": "Cooking outside, by the pool."
+                  },
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-14-at-the-bench.jpg",
+                    "w": 1200,
+                    "h": 1600,
+                    "alt": "Four people in striped aprons at a steel bench under a stone wall: a man in a black hoodie explains, a woman listens with her hands clasped, another smiles, and a third works a board with recipes and knives laid out.",
+                    "caption": "A lesson at the bench."
                   }
                 ]
               },
