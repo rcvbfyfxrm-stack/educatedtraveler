@@ -42,12 +42,27 @@ window.ET_ATLAS = {
               "name": "Workshop Kurogane — Nobuya Hayashi",
               "url": "https://www.workshop-kurogane.com/",
               "course": "One-day knife-forging course, and a six-day tamahagane course",
-              "blurb": "Nobuya Hayashi's working forge on the Shimanto river in Tosa blade country, run in English by Hayashi himself with no interpreter. On the one-day course you forge, grind and harden your own blade in the quench and carry it home the same day; the six-day course starts further back, smelting your own steel from iron-sand. ⚠ A guided day, not an apprenticeship — the master keeps the most dangerous stages and puts the final whetstone edge on, and the one-day uses modern knife steel. ¥44,000 for the one day in 2026, ¥48,000 for 2027 dates; the six-day tamahagane course ¥330,000–440,000 depending on the date, from their own booking page. Checked on workshop-kurogane.com, 17 August 2026.",
+              "blurb": "Nobuya Hayashi's working forge on the Shimanto river in Tosa blade country, run in English by Hayashi himself with no interpreter. On the one-day course you forge, grind and harden your own blade in the quench and the school sharpens it afterwards and posts it to you — their own FAQ says the knife is not finished by the end of the day; the six-day course starts further back, smelting your own steel from iron-sand. ⚠ A guided day, not an apprenticeship — the master keeps the most dangerous stages and puts the final whetstone edge on, and the one-day uses modern knife steel. ¥44,000 for the one day in 2026, ¥48,000 for 2027 dates; the six-day tamahagane course ¥330,000–440,000 depending on the date, from their own booking page. Checked on workshop-kurogane.com, 17 August 2026.",
               "confidence": "high",
               "verify": [
                 "44,000",
                 "Hayashi"
-              ]
+              ],
+              "facts": {
+                "where": "Shimanto River, Kochi, Shikoku",
+                "length": "1 day",
+                "format": "Hands-on: forge, grind and heat-treat one knife in modern blue paper steel",
+                "language": "English and Japanese",
+                "price": "¥44,000",
+                "priceNote": "One-day course, 2026 dates; handle and shipping included. 2027 dates ¥48,000",
+                "from": [
+                  "https://www.workshop-kurogane.com/",
+                  "https://www.workshop-kurogane.com/courses",
+                  "https://www.workshop-kurogane.com/faq",
+                  "https://www.workshop-kurogane.com/service-page/one-day-knife-making-workshop-2026"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 2,
@@ -95,7 +110,19 @@ window.ET_ATLAS = {
               "verify": [
                 "Sunseed",
                 "ram pump"
-              ]
+              ],
+              "facts": {
+                "where": "Off-grid village 7 km from Sorbas",
+                "length": "2 weeks minimum (a full month preferred)",
+                "format": "Hands-on work across eight departments; 4 h a day, 5 days a week",
+                "language": "English (Spanish encouraged)",
+                "priceNote": "€80 deposit to confirm a place; the contribution itself is pay-what-you-can",
+                "from": [
+                  "https://www.sunseed.org.uk/get-involved/co-learning-residency-program",
+                  "https://www.sunseed.org.uk/practical-information"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 4,
@@ -2368,7 +2395,13 @@ window.ET_ATLAS = {
               "url": "https://www.ciis.edu/",
               "course": "Sound, Voice, and Music Healing Certificate",
               "blurb": "An accredited San Francisco university whose Sound, Voice and Music in the Healing Arts certificate, created by Silvia Nakkach, is a year-long program integrating voice work, music and sound for healing within an academic setting.",
-              "confidence": "high"
+              "confidence": "high",
+              "standing": {
+                "state": "course-gone",
+                "what": "CIIS now speaks of the certificate in the past tense: Silvia Nakkach \"was the creator, director, and core instructor\" of it, and no page for it is listed.",
+                "from": "https://www.ciis.edu/profiles/silvia-nakkach",
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 3,
@@ -4090,7 +4123,13 @@ window.ET_ATLAS = {
               "url": "https://activities.wimhofmethod.com/wim-hof-method-instructors-europe",
               "course": "Multi-day Wim Hof Method nature tours, South Iceland (3-day and 7-day)",
               "blurb": "The official Wim Hof Method activities directory lists certified Iceland instructors such as Andri Einarsson running breathwork and cold-exposure sessions and 3-day and 7-day nature tours through South Iceland.",
-              "confidence": "high"
+              "confidence": "high",
+              "standing": {
+                "state": "course-gone",
+                "what": "The official directory lists Andri Einarsson in Reykjavík, Iceland, but his profile shows no Iceland activities and no 3-day or 7-day South Iceland tours.",
+                "from": "https://activities.wimhofmethod.com/instructors/vilhjalmureinarsson",
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 2,
@@ -5368,7 +5407,18 @@ window.ET_ATLAS = {
               "url": "https://peche.ffessm.fr/",
               "course": "FFESSM pêche sous-marine training and licences",
               "blurb": "The FFESSM (French federation for underwater study and sport) runs a national pêche sous-marine commission and affiliated Côte d'Azur clubs that deliver spearfishing licences and training on Mediterranean spots between Cassis and Antibes.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "facts": {
+                "where": "FFESSM clubs, PACA region",
+                "format": "Club training with certified instructors and supervised sea outings",
+                "credential": "FFESSM pêche sous-marine levels PSM 1, 2 and 3; licence counts as fishing permit",
+                "from": [
+                  "https://peche.ffessm.fr/ou-apprendre-pratiquer",
+                  "https://peche.ffessm.fr/regions",
+                  "https://www.ffessm-sud.fr/peche-sous-marine"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "regional CMAS spearfishing clubs",
@@ -7954,7 +8004,13 @@ window.ET_ATLAS = {
               "url": "https://www.alpineinstitute.com/",
               "course": "Private and custom guided rock climbing trips; the catalogued Aid Climbing and Big Wall Techniques course runs at Red Rock Canyon, Nevada and Index, Washington rather than in Yosemite Valley",
               "blurb": "Founded in 1975, the Institute offers Yosemite climbing only through private custom trips and does not advertise a scheduled Yosemite Valley rock climbing program, with its catalogued big wall course held elsewhere.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "standing": {
+                "state": "course-gone",
+                "what": "A site search for Yosemite returns no Yosemite program; the Aid Climbing and Big Wall Techniques course lists its location as WA, NV.",
+                "from": "https://www.alpineinstitute.com/?s=yosemite",
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 3,
@@ -10535,7 +10591,21 @@ window.ET_ATLAS = {
               "url": "https://www.ecotraining.co.za/",
               "course": "7- or 14-day Masai Mara EcoQuest Course",
               "blurb": "A field-guide training provider whose Maasai Mara camp in the Enonkishu Conservancy runs a 7- or 14-day EcoQuest course.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Wild Bandas, Enonkishu Conservancy",
+                "length": "7 days (a 14-day version is also offered)",
+                "format": "Game drives, guided nature walks, tracking and trailing, astronomy sessions",
+                "language": "English",
+                "price": "US$2,660",
+                "priceNote": "7-day Maasai Mara EcoQuest; no date listed after 1–7 Sept 2026",
+                "from": [
+                  "https://www.ecotraining.co.za/courses-experiences/masai-mara-ecoquest/",
+                  "https://www.ecotraining.co.za/camp/masai-mara-wild-bandas-kenya/",
+                  "https://www.ecotraining.co.za/course-calendar/"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 5,
@@ -16885,7 +16955,21 @@ window.ET_ATLAS = {
               "url": "https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses/chocolate-fundamentals-1",
               "course": "Chocolate Fundamentals: three hands-on days, a class of twelve, in English",
               "blurb": "Barry Callebaut’s Chocolate Academy on the grounds of its largest factory, at Wieze, teaching since 1988. Chocolate Fundamentals is three practical days, 9:00 to 17:00, for a class of twelve, open to a home baker or an aspiring chocolatier: tempering, then bonbons and tablets. When we read its pages on 5 October 2026 it listed 25 to 27 January 2027 at €900, lunch included. The same pages also announce that the Academy is closed for renovation from November 2026 to April 2027, so confirm the date with them before you book.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Wieze, Belgium (Lebbeke-Wieze)",
+                "length": "3 days",
+                "format": "Hands-on; practical sessions with essential theory, 9:00 to 17:00, lunch at 12:00",
+                "language": "English",
+                "class": "12",
+                "price": "€900",
+                "priceNote": "Chocolate Fundamentals, 25–27 Jan 2027; lunch and all drinks during the course included",
+                "from": [
+                  "https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses/chocolate-fundamentals-1",
+                  "https://www.callebaut.com/en/callebaut-chocolate-academy/locations/belgium-wieze"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 1,
@@ -16924,21 +17008,60 @@ window.ET_ATLAS = {
               "url": "https://www.ecolechocolat.com/en/french-chocolate.html",
               "course": "Professional Chocolatier Program in France (Tain-l'Hermitage residency)",
               "blurb": "A one-week residency (six nights) built around three full days of hands-on training at L'École Valrhona in Tain-l'Hermitage, Valrhona's home in the Drôme.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "L'Ecole Valrhona, Tain l'Hermitage",
+                "length": "1 week (six nights)",
+                "format": "Hands-on at L'Ecole Valrhona, 3 full class days; Paris chocolatier tour",
+                "language": "English",
+                "class": "12 maximum (8 minimum to run)",
+                "credential": "Ecole Chocolat Certificate of Achievement",
+                "from": [
+                  "https://www.ecolechocolat.com/en/french-chocolate.html"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "L'École Valrhona",
               "url": "https://www.valrhona.com/en/l-ecole-valrhona/our-professional-classes/professional-classes",
               "course": "Professional chocolate training courses (Tain-l'Hermitage)",
               "blurb": "Valrhona's professional training school, founded in 1989 at its Drôme headquarters, offering two- and three-day vocational courses in chocolate, pastry, baking, ice cream and plated desserts for working pastry chefs and chocolatiers.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Tain-l'Hermitage, Drôme",
+                "length": "2–3 days",
+                "format": "Short hands-on vocational courses for pastry and chocolate professionals",
+                "language": "English",
+                "from": [
+                  "https://www.valrhona.com/en/l-ecole-valrhona/our-professional-classes/professional-classes",
+                  "https://www.valrhona.com/en/l-ecole-valrhona/discover-l-ecole-valrhona/presentation-of-l-ecole-valrhona",
+                  "https://dam.valrhona.com/m/5bad49bc56d55aba/"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "Cité du Chocolat Valrhona (workshops)",
               "url": "https://citeduchocolat.com/en/workshops",
               "course": "Hands-on pastry and chocolate-making workshops",
-              "blurb": "Valrhona's 2,000 m² interactive chocolate discovery centre on the site of its historic Tain-l'Hermitage factory, offering short 30-minute to 2-hour hands-on pastry and chocolate workshops led by a Valrhona pastry chef.",
-              "confidence": "high"
+              "blurb": "Valrhona's 2,000 m² interactive chocolate discovery centre on the site of its historic Tain-l'Hermitage factory, offering hands-on pastry and chocolate classes from two hours to two days, led by a Valrhona pastry chef — taught in French, with English only for groups of ten or more.",
+              "confidence": "high",
+              "facts": {
+                "where": "Cité du Chocolat, Tain-l'Hermitage",
+                "length": "2 hours (half-day to 2-day classes also offered)",
+                "format": "Hands-on with Valrhona pastry chef instructors; you make the recipe start to finish",
+                "language": "French",
+                "class": "8 to 10 people",
+                "price": "€60",
+                "priceNote": "2-hour pastry workshop, gift-voucher price; half day €120, one day with lunch €235",
+                "from": [
+                  "https://citeduchocolat.com/en/experience/pastry-making-at-the-gourmet-school",
+                  "https://citeduchocolat.com/en/you-are/a-pastry-enthusiast",
+                  "https://citeduchocolat.tickeasy.com/fr-FR/produits?famille=2509765867450400280"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 2,
@@ -16976,14 +17099,37 @@ window.ET_ATLAS = {
               "url": "https://www.callebaut.com/en/callebaut-chocolate-academy/locations/france-paris",
               "course": "In-person hands-on chocolate masterclasses",
               "blurb": "Barry Callebaut’s Chocolate Academy for France is at Meulan, about 40 km west of Paris, not in the city. Its masterclasses are for artisans and pastry professionals; when we read its page on 5 October 2026 it published no dates, only an address to ask for the schedule.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "facts": {
+                "where": "Meulan (78250)",
+                "format": "In person, at the Academy; for artisans and professionals",
+                "from": [
+                  "https://www.callebaut.com/en/callebaut-chocolate-academy/locations/france-paris",
+                  "https://www.callebaut.com/en/callebaut-chocolate-academy/courses/in-person-courses"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "École Bellouet Conseil",
               "url": "https://bellouetparis.com/en",
-              "course": "Chocolate Bonbons – Enrobing & Moulding: three days, 24 hours, 2 to 12 people, in French",
-              "blurb": "Founded in 1989 in Paris’s 15th arrondissement by Meilleurs Ouvriers de France. Its bonbon course is three hands-on days for pastry chefs, bakers and restaurateurs with basic pastry knowledge, taught in French, at €1,580. When we read its pages on 5 October 2026 the session running that week was the last one listed.",
-              "confidence": "high"
+              "course": "Bonbons Chocolat : Gamme & Technologie: three days, 24 hours, 8 to 12 people, in French or English",
+              "blurb": "Founded in 1989 in Paris’s 15th arrondissement by Meilleurs Ouvriers de France. Its bonbon course is three hands-on days for professionals who already have basic chocolate work, taught in French or English depending on the session, at €1,580; it replaced the enrobing course, which lists no sessions now. Read on its own pages, 7 October 2026: sessions run into October 2027.",
+              "confidence": "high",
+              "facts": {
+                "where": "École Bellouet, rue Lecourbe, Paris 15e",
+                "length": "3 days",
+                "format": "24 hours over 3 days; Monday 9:00 to 18:00, then 8:30 to 17:30",
+                "language": "French and English, depending on the session",
+                "class": "12 maximum (8 minimum)",
+                "price": "€1,580",
+                "priceNote": "Incl. VAT (€1,316.67 excl. VAT); 2027 sessions 25–27 Jan, 1–3 Feb, 18–20 Oct",
+                "from": [
+                  "https://bellouetparis.com/fr/stages/bonbons-chocolat-gamme-et-technologie",
+                  "https://bellouetparis.com/fr/stages/bonbons-chocolat-enrobage-machine"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 4,
@@ -17021,7 +17167,20 @@ window.ET_ATLAS = {
               "url": "https://school.melissacoppel.com/classes/march-2027-chocolate-bootcamp/",
               "course": "Chocolate Bootcamp: five hands-on days with Melissa Coppel, at most 14 students",
               "blurb": "Melissa Coppel’s own school in Las Vegas. Its Chocolate Bootcamp is five days, 9:00 to 17:00, “100% hands-on”, for at most fourteen adults: ganache formulation, moulded and enrobed bonbons on an enrober with a cooling tunnel, panning and spraying. When we read its page on 5 October 2026 the next one ran 8 to 12 March 2027, at $2,900, booked directly on the page.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "9001 W Sahara Ave, Las Vegas",
+                "length": "5 days",
+                "format": "100% hands-on, in person; 9:00 am to about 5:00 pm",
+                "class": "14 maximum",
+                "credential": "Digital diploma certifying completion",
+                "price": "US$2,900",
+                "priceNote": "March 2027 Bootcamp (8-12 March); breakfast, lunch, recipe book, apron included",
+                "from": [
+                  "https://school.melissacoppel.com/classes/march-2027-chocolate-bootcamp/"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 2,
@@ -17940,14 +18099,26 @@ window.ET_ATLAS = {
               "url": "https://www.mugaritz.com/en/",
               "course": "Kitchen stage / culinary internship at Mugaritz (Errenteria)",
               "blurb": "Andoni Luis Aduriz's two-Michelin-star restaurant in Errenteria runs a multi-month kitchen stage where selected cooks work the line and rotate through its research-and-development team that builds each season's menu. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-              "confidence": "high"
+              "confidence": "high",
+              "standing": {
+                "state": "course-gone",
+                "what": "Mugaritz's own site lists no kitchen stage or internship; its only programme is the Mugaritz Creativity Program, 'A 6-month program at Madrid Culinary Campus (MACC), including a one-week residency at Mugaritz'.",
+                "from": "https://www.mugaritz.com/en/programa-creatividad-mugaritz/",
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "Martín Berasategui (restaurant stage)",
               "url": "https://www.martinberasategui.com/en/inicio",
               "course": "Restaurant stage / práctica at the Lasarte-Oria flagship ('Work with us')",
               "blurb": "The three-Michelin-star flagship in Lasarte-Oria takes on stagiaires through its 'Work with us' channel, placing experienced cooks in the kitchen brigade of Martín Berasategui's original restaurant. Honest note: this is a competitive restaurant stage you apply for, not an open course you can book — listed for the lineage, not as a class.",
-              "confidence": "high"
+              "confidence": "high",
+              "standing": {
+                "state": "course-gone",
+                "what": "The 'Work with us' page is a plain job application form (areas: FHO, Kitchen, Sommelier; attach CV) and never mentions a stage or práctica.",
+                "from": "https://www.martinberasategui.com/en/trabaja-con-nosotros",
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 4,
@@ -18301,7 +18472,21 @@ window.ET_ATLAS = {
               "confidence": "high",
               "verify": [
                 "museum of the restaurant"
-              ]
+              ],
+              "facts": {
+                "where": "Cala Montjoi, Roses (Girona)",
+                "length": "2.5 hours",
+                "format": "Museum visit with free multimedia guide; or small-group guided tour",
+                "language": "Spanish, Catalan and English",
+                "price": "€27.50",
+                "priceNote": "General visit ticket, 2026 season; guided tour €47.50; parking +€8.50",
+                "from": [
+                  "https://elbullifoundation.com/elbulli1846/en/plan-your-visit/",
+                  "https://elbullifoundation.com/elbulli1846/en/faqs/",
+                  "https://elbullifoundation.com/elbulli1846/en/where-we-are/"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 0,
@@ -20374,14 +20559,39 @@ window.ET_ATLAS = {
               "url": "https://www.melbournecoffeeacademy.com.au/",
               "course": "Hands-on barista courses across skill levels at three Melbourne locations (CBD, Scoresby, Ringwood)",
               "blurb": "Melbourne Coffee Academy is a specialty-coffee training provider running small-group, hands-on barista courses for beginners through professionals across three Melbourne sites including a CBD flagship.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Melbourne CBD, Scoresby or Ringwood",
+                "length": "2.5 hours",
+                "format": "Hands-on, small focused classes; espresso theory, milk steaming, latte art",
+                "class": "4 maximum",
+                "credential": "Certificate of Achievement (independent, not nationally recognised)",
+                "priceNote": "$180 for Basic Espresso, the entry course; unlimited coffee and milk, printed course material",
+                "from": [
+                  "https://www.melbournecoffeeacademy.com.au/",
+                  "https://www.melbournecoffeeacademy.com.au/barista-courses-melbourne",
+                  "https://www.melbournecoffeeacademy.com.au/basic-espresso",
+                  "https://www.melbournecoffeeacademy.com.au/faq"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "Genovese Coffee (SCA Barista Skills)",
               "url": "https://www.genovese.com.au/learn/",
               "course": "SCA Barista Skills Foundation, Intermediate and Professional (up to 3 days) at an SCA Premier Training Campus",
               "blurb": "Genovese Coffee is a long-established Melbourne roaster whose Coburg training centre is a certified SCA Premier Training Campus delivering the SCA Barista Skills ladder from Foundation through a three-day Professional course, plus SCA Sensory Skills.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "length": "1 day (Foundation) to 3 days (Professional)",
+                "format": "Hands-on; SCA courses scheduled on request, usually weekdays",
+                "class": "6 maximum",
+                "credential": "SCA Coffee Skills certificate; credit towards SCA Diplomas",
+                "from": [
+                  "https://genovese.com.au/learn/"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "Axil Coffee Roasters / The Espresso Academy",
@@ -20392,14 +20602,30 @@ window.ET_ATLAS = {
               "verify": [
                 "Max 5 per class",
                 "Advanced Latte Art"
-              ]
+              ],
+              "facts": {
+                "where": "Melbourne (The Espresso Academy)",
+                "length": "2.5 hours",
+                "format": "Hands-on, in person: dosing, tamping, extraction, milk texturing",
+                "from": [
+                  "https://axilcoffee.com.au/pages/training",
+                  "https://axilcoffee.com.au/products/espresso-standards-1"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "St. ALi training",
               "url": "https://stali.com.au/",
               "course": "Coffee education spanning hands-on barista training initiatives and a structured coffee-tasting/cupping course",
               "blurb": "St. ALi is a Melbourne specialty-coffee brand whose education work spans hands-on barista training initiatives and a structured coffee-tasting course covering cupping, roasting, origin and processing.",
-              "confidence": "low"
+              "confidence": "low",
+              "standing": {
+                "state": "course-gone",
+                "what": "stali.com.au lists no barista or cupping course: its 'LEARN' menu holds only 'Recipes' and 'Brew Guide', and no class is for sale.",
+                "from": "https://stali.com.au/",
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 1,
@@ -20439,21 +20665,65 @@ window.ET_ATLAS = {
               "url": "https://www.prufrocktraining.com/",
               "course": "SCA Coffee Skills Program (Barista Skills Foundation, Intermediate, Professional)",
               "blurb": "A dedicated training centre below Prufrock Coffee on Leather Lane whose SCA-accredited trainers teach the full Coffee Skills Program with Foundation, Intermediate, and Professional modules and exams in barista, brewing, and sensory skills.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "23-25 Leather Lane, London EC1N",
+                "length": "7 hours",
+                "format": "Online theory first, then a 4-hour hands-on session at the centre",
+                "class": "6 maximum",
+                "credential": "SCA Certificate, on passing the SCA exam",
+                "price": "£275",
+                "priceNote": "SCA Barista Skills Foundation; SCA enrolment fee of €50 extra, paid to the SCA",
+                "from": [
+                  "https://www.prufrocktraining.com/",
+                  "https://www.prufrocktraining.com/collections/professional-sca-courses-london",
+                  "https://www.prufrocktraining.com/products/sca-barista-skills-foundation-london",
+                  "https://www.prufrocktraining.com/pages/sca-coffee-skills-program-london"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "London School of Coffee",
               "url": "https://londonschoolofcoffee.com/",
               "course": "SCA Coffee Skills Program / Diploma courses (Barista Foundation to Professional)",
               "blurb": "An SCA Premier Training Campus in London delivering the full ladder of SCA Coffee Skills modules from Barista Foundation through Professional, taught and examined by Authorized SCA Trainers.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Wandsworth, London SW18",
+                "length": "1 day",
+                "format": "Morning theory; afternoon practical skills and exam; 9:30 to 15:30",
+                "class": "8 maximum",
+                "credential": "SCA Barista Foundation (practical + written exam); points toward the SCA Diploma",
+                "price": "£285",
+                "priceNote": "SCA Barista Foundation; SCA student exam fee €50 (£45) extra, paid to the SCA",
+                "from": [
+                  "https://londonschoolofcoffee.com/",
+                  "https://londonschoolofcoffee.com/products/sca-basic-barista",
+                  "https://londonschoolofcoffee.com/pages/frequently-asked-questions"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "Square Mile Coffee Roasters training",
               "url": "https://shop.squaremilecoffee.com/pages/events",
-              "course": "Roastery workshops and brewing/tasting events at its East London roastery",
-              "blurb": "An East London specialty roaster that runs guided tasting sessions, hands-on brewing workshops, and roastery tours rather than full SCA certification, partnering with the Prufrock training centre for structured courses.",
-              "confidence": "medium"
+              "course": "Roastery Tour and Tasting at its East London roastery",
+              "blurb": "An East London specialty roaster that runs a roastery tour and tasting rather than courses, and sends hands-on and SCA training to the Prufrock training centre.",
+              "confidence": "medium",
+              "facts": {
+                "where": "Roastery, Blackhorse Lane, London E17",
+                "length": "1.5 hours",
+                "format": "Guided roastery tour, then learning to set up a cupping",
+                "class": "16 maximum",
+                "price": "£35",
+                "priceNote": "Roastery Tour and Tasting, per person; morning or afternoon sessions",
+                "from": [
+                  "https://shop.squaremilecoffee.com/pages/events-coffee-london",
+                  "https://shop.squaremilecoffee.com/products/coffee-tasting-event"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 4,
@@ -20488,14 +20758,33 @@ window.ET_ATLAS = {
               "url": "https://www.stumptowncoffee.com/",
               "course": "Wholesale partner barista courses and workshops at the Portland training facility",
               "blurb": "A Portland roaster whose home roasting facility houses a training space offering experiential barista courses and workshops, delivered in person and virtually mainly for wholesale partners rather than as an open public credential.",
-              "confidence": "medium"
+              "confidence": "medium",
+              "standing": {
+                "state": "course-gone",
+                "what": "Training is described only as a service for wholesale partners, and the training page no longer loads — nothing here a traveller can book.",
+                "from": "https://www.stumptowncoffee.com/pages/wholesale",
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "American Barista & Coffee School",
               "url": "https://coffeebusiness.com/abc-workshops/",
-              "course": "Five-Day Comprehensive coffee business and barista workshop",
-              "blurb": "A Portland coffee school (Bellissimo) running a five-day comprehensive workshop for cafe owners and managers that combines business lectures with hands-on espresso-lab training, plus a 2.5-day intensive barista course.",
-              "confidence": "high"
+              "course": "Barista & Business Workshop, one full day",
+              "blurb": "A Portland coffee school (Bellissimo) running a one-day Barista & Business Workshop for cafe owners and managers that combines business systems with hands-on espresso training. Its overview page still describes two- and three-day intensives; the booking page lists the one day.",
+              "confidence": "high",
+              "facts": {
+                "where": "Session Room, 321 NE Davis St, Portland",
+                "length": "1 day",
+                "format": "Hands-on, in person: espresso, milk steaming, latte art, brewing, business systems",
+                "credential": "Training manual and one month of OnlineBaristaTraining.com access",
+                "price": "US$995",
+                "priceNote": "Barista & Business Workshop, 14 Nov 2026; $350 deposit option",
+                "from": [
+                  "https://coffeebusiness.com/abc-workshops/",
+                  "https://coffeebusiness.com/product/abc-barista-workshop/"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 2,
@@ -20697,14 +20986,42 @@ window.ET_ATLAS = {
               "url": "https://www.barschool.net/barschools/london",
               "course": "International Bartender Course",
               "blurb": "The London campus of an international bartending chain, near Tower Bridge, teaching the same four-week International Bartender Course it sells in some forty cities: six hours a day, mostly behind the bar, ending in a test and the school's own certificate. When we read its booking pages on 6 October 2026 the next London course ran 26 October to 20 November 2026, at €2,355. No teacher is named, and no class size is published.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Tower Bridge Business Complex, SE16",
+                "length": "4 weeks",
+                "format": "Mon-Fri 9:00-15:00; 80% practical training, 20% masterclasses",
+                "language": "English",
+                "credential": "EBS bartending certificate, after a final test",
+                "price": "€2,355",
+                "priceNote": "London, 26 Oct-20 Nov 2026 (English); same price for 2027 dates",
+                "from": [
+                  "https://www.barschool.net/barschools/london",
+                  "https://www.barschool.net/courses/international-bartender-course",
+                  "https://booking.barschool.net/ie/en/book/course-details?type=4-week-international&school=london"
+                ],
+                "read": "2026-10-07"
+              }
             },
             {
               "name": "The Spirit Lab",
               "url": "https://www.spiritlablondon.com/international-mixology-course/",
               "course": "International Mixology Course (Level 1): five days, at most 12 students",
               "blurb": "A Marylebone bartending school that teaches in a working development bar at 93 Marylebone High Street. Its International Mixology Course is five days, Monday to Friday 9am to 4pm, for at most twelve students, at £799 plus VAT: more than forty IBA cocktails, with WSET Level 1 Spirits and a practical diploma. When we read it on 6 October 2026 the next dates were 19 October and 9 November 2026, then from 4 January 2027. Its pages name no teacher; they speak of instructors who have worked in London's top venues.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "93 Marylebone High Street, London",
+                "length": "5 days",
+                "format": "Intensive, Monday to Friday 9am to 4pm, theory and practice in a working bar",
+                "class": "12 maximum",
+                "credential": "WSET Level 1 Award in Spirits + Spirit Lab Practical Diploma",
+                "price": "£799",
+                "priceNote": "Plus VAT; 2026 starts 19 Oct, 9 Nov; 2027 starts 4 Jan, 18 Jan",
+                "from": [
+                  "https://www.spiritlablondon.com/international-mixology-course/"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 4,
@@ -28178,7 +28495,20 @@ window.ET_ATLAS = {
               "url": "https://www.vodderakademie.com/kurs/manuelle-lymphdrainage-nach-dr-vodder-ml-in-walchsee.html",
               "course": "Manual Lymph Drainage (Dr. Vodder Method), 180 hrs, in German, for health professionals",
               "blurb": "Two two-week blocks at €895 each, the next from 9 November 2026; in the final week students treat patients of the lymphoedema clinic in the same house. Open to doctors, physiotherapists, masseurs and other qualified therapists. The English route is Level I and Level II with Vodder teachers in your own country; Walchsee itself holds a two-day English review course, 16–17 June 2027, for therapists already certified. Read on the academy's own pages, 5 October 2026.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Walchsee, Tyrol",
+                "length": "4 weeks (180 hours, 2 x 2-week blocks)",
+                "format": "Mon-Fri 08:30-17:30; basic then therapy course, patients in final week",
+                "credential": "Final exam; once passed, billable to German social insurers",
+                "price": "€895",
+                "priceNote": "Per course part (two parts); includes textbook, bandage set, online access",
+                "from": [
+                  "https://www.vodderakademie.com/kurs/manuelle-lymphdrainage-nach-dr-vodder-ml-in-walchsee.html",
+                  "https://www.vodderakademie.com/manuelle-lymphdrainage/englischsprachiger-kurs.html"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 3,
@@ -28278,7 +28608,20 @@ window.ET_ATLAS = {
               "url": "https://lifestylemedicine.org/",
               "course": "Lifestyle Medicine training + ABLM Diplomate certification",
               "blurb": "Evidence-based six-pillar training; board certification built on an existing medical board cert. Not open to the public.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "where": "Prometric testing center of your choice",
+                "format": "Proctored exam, up to 4 hours; prerequisites: 30 h approved course + 20 h events",
+                "credential": "ABLM/IBLM diplomate (physicians); ACLM/IBLM certification (master's/PhD)",
+                "price": "US$1,499",
+                "priceNote": "Non-member physician certification fee, plus $299 non-refundable registration fee",
+                "from": [
+                  "https://ablm.org/",
+                  "https://ablm.org/eligibility-prerequisites/",
+                  "https://ablm.org/registration-process/"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 2,
