@@ -9131,7 +9131,17 @@ window.ET_ATLAS = {
               "url": "https://www.americanavalancheinstitute.com/",
               "course": "Professional Avalanche Training 1 (Pro 1)",
               "blurb": "The American Avalanche Institute, which teaches Avalanche Level 1 courses in the Wasatch, runs the 5-day Pro 1 professional training that coaches and evaluates the observation, snowpack, and risk-management skills required to contribute to an operational avalanche program.",
-              "confidence": "high"
+              "confidence": "high",
+              "facts": {
+                "length": "5 days in the field, after an evening Zoom session",
+                "format": "Field days from the trailhead, 7:30 to 5; student-led tours; field and written exams",
+                "class": "6 students per instructor",
+                "credential": "Professional Avalanche Training 1 (Pro 1), pass/fail",
+                "from": [
+                  "https://www.americanavalancheinstitute.com/"
+                ],
+                "read": "2026-10-07"
+              }
             }
           ],
           "tripTier": 1,
