@@ -58,6 +58,10 @@
   .dates{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:0 0 1.1rem;line-height:1.9}
   .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,3vw,1.45rem);line-height:1.4;color:var(--paper);max-width:30em;margin:0 0 .9rem}
   p{margin:.7rem 0;max-width:62ch;color:var(--soft)}
+  .hi{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);border:1px solid var(--sea);border-radius:999px;display:inline-block;padding:.45rem .9rem;margin:0 0 1rem}
+  .me{font-size:.98rem;color:var(--soft);margin:0 0 1.2rem}
+  .me b{color:var(--paper);font-weight:500}
+  .linkish{background:none;border:0;padding:0;font:inherit;color:var(--sea);text-decoration:underline;cursor:pointer}
   .hint{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--softer);margin:1.2rem 0 0}
 
   /* ── the reel ── one card in the middle, its neighbours peeking in */
@@ -238,6 +242,7 @@
   <div class="wrap">
     <h1 id="h1">Around the five days.</h1>
     <p class="dates">Lab Week 01 with Martín Lippo · Vakuum, Barcelona · 22–26 October 2026</p>
+    <p class="hi" id="hi" hidden></p>
     <p class="sub">First, I'd like to check whether you'd be interested in a few things around the week.</p>
     <p>The lab takes the days, 10:00 to 14:00 and 15:00 to 18:00. Around it, I'd like to offer you a first dinner together on the 21st, the night before, and seven more things in and around Barcelona. Tick what you'd come to and I'll organise the ones the room wants. You pay each place directly.</p>
     <p class="hint">Swipe, or use the arrows &rarr;</p>
@@ -428,6 +433,8 @@
         <label for="f-words">Anything I should know <span class="opt">— optional</span></label>
         <textarea id="f-words" name="words" autocomplete="off" maxlength="1500" placeholder="A night you cannot do, something you do not eat, a place I missed."></textarea>
       </div>
+      <p class="me" id="me" hidden>Answering as <b id="me-name"></b> · <span id="me-mail"></span>. <button type="button" class="linkish" id="me-not">Not you?</button></p>
+      <div id="who-fields">
       <div class="field">
         <label for="f-name">Your name</label>
         <input type="text" id="f-name" name="name" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" aria-describedby="f-msg" required>
@@ -435,6 +442,7 @@
       <div class="field">
         <label for="f-email">Email</label>
         <input type="email" id="f-email" name="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="254" placeholder="Where I write to you about the week" aria-describedby="f-msg" required>
+      </div>
       </div>
 
       <button type="submit" class="btn btn-primary" id="f-go" disabled>Send my answer</button>
@@ -657,6 +665,45 @@
   } catch (e) {}
   if (window.__aroundMarkDots) window.__aroundMarkDots();
 
+  // A personal link (?c=…, sent by hand to each chef) carries their name and
+  // email, so they only tick and send. It is not a secret, only a convenience:
+  // anyone can still type any name. Once read it is kept on this device with the
+  // draft and taken out of the address bar.
+  var me = document.getElementById('me');
+  var who = null;
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var c = params.get('c');
+    if (c) {
+      var bin = atob(c.replace(/-/g, '+').replace(/_/g, '/'));
+      var j = JSON.parse(new TextDecoder().decode(Uint8Array.from(bin, function (ch) { return ch.charCodeAt(0); })));
+      if (j && typeof j.n === 'string' && typeof j.e === 'string' && j.n.trim() && j.e.indexOf('@') > 0) {
+        who = { name: j.n.trim().slice(0, 80), email: j.e.trim().slice(0, 254) };
+      }
+      params.delete('c');
+      var q = params.toString();
+      history.replaceState(null, '', window.location.pathname + (q ? '?' + q : '') + window.location.hash);
+    }
+  } catch (e) { who = null; }
+  if (who) {
+    nameEl.value = who.name;
+    mailEl.value = who.email;
+    document.getElementById('me-name').textContent = who.name;
+    document.getElementById('me-mail').textContent = who.email;
+    me.hidden = false;
+    document.getElementById('who-fields').hidden = true;
+    var hi = document.getElementById('hi');
+    hi.textContent = 'For ' + who.name.split(/\s+/)[0] + ' · your details are in';
+    hi.hidden = false;
+    keep();
+  }
+  document.getElementById('me-not').addEventListener('click', function () {
+    me.hidden = true;
+    document.getElementById('who-fields').hidden = false;
+    nameEl.value = ''; mailEl.value = '';
+    nameEl.focus();
+  });
+
   function read(kind) {
     return boxes(kind).map(function (b) {
       return { id: b.value, label: b.getAttribute('data-label'), answer: b.checked ? 'yes' : 'no' };
@@ -693,6 +740,7 @@
 
   function fail(text, field) {
     msg.textContent = text; msg.hidden = false;
+    if (field) { document.getElementById('who-fields').hidden = false; me.hidden = true; }
     if (field) { field.setAttribute('aria-invalid', 'true'); field.focus(); }
   }
 
