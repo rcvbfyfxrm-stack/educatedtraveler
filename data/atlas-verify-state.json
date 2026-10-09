@@ -276,7 +276,7 @@
         "note": "counted as a failing claim before this check told a transport error from a page that moved",
         "moved": "2026-09-10"
       },
-      "unreachable": 31
+      "unreachable": 32
     },
     "sound-healing|Globe Institute - Sound Healing Center (Sausalito)": {
       "failing": 0,
@@ -948,7 +948,9 @@
       "failing": 0,
       "url": "https://mashiko-sankokan.net/",
       "last_seen": "2026-10-09",
-      "last_status": 200
+      "last_status": 0,
+      "why": "URLError: <urlopen error timed out>",
+      "unreachable": 1
     },
     "pottery-and-ceramics|Mashiko Togei Club": {
       "failing": 0,
@@ -1515,7 +1517,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>",
-      "insecure": 3
+      "insecure": 4
     },
     "wildlife-photography|Full service package, per night": {
       "failing": 0,
@@ -1523,7 +1525,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>",
-      "insecure": 3
+      "insecure": 4
     },
     "wildlife-photography|Private low-angle hide, per night": {
       "failing": 0,
@@ -1531,7 +1533,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>",
-      "insecure": 3
+      "insecure": 4
     },
     "wildlife-photography|Bence Máté's Hides": {
       "failing": 0,
@@ -1551,7 +1553,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>",
-      "insecure": 3
+      "insecure": 4
     },
     "wildlife-photography|Paul Goldstein Photo Safaris / Kicheche Camps": {
       "failing": 0,
@@ -1830,11 +1832,10 @@
       "last_status": 200
     },
     "surfing|Save The Waves on the Ericeira World Surfing Reserve": {
-      "failing": 16,
+      "failing": 0,
       "url": "https://www.savethewaves.org/ericeira/",
       "last_seen": "2026-10-09",
-      "last_status": 202,
-      "why": "no longer says: Save The Waves on the Ericeira World Surfing Reserve"
+      "last_status": 202
     },
     "rock-climbing|Kalymnos Primal Climb": {
       "failing": 0,
@@ -1891,11 +1892,17 @@
       "last_status": 200
     },
     "italian-cuisine-and-pasta|Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio": {
-      "failing": 20,
+      "failing": 0,
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52022XC0609(01)",
       "last_seen": "2026-10-09",
       "last_status": 202,
-      "why": "no longer says: Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio"
+      "why": "unreadable: a bot wall answered, not the page",
+      "misfiled": {
+        "nights": 20,
+        "as": "no longer says: Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio",
+        "note": "counted as a failing claim before this check told a bot wall from a page that changed",
+        "moved": "2026-10-09"
+      }
     },
     "italian-cuisine-and-pasta|the porticoed route winds down about 3600 metres": {
       "failing": 0,
@@ -2086,7 +2093,7 @@
     },
     "ashtanga-yoga|The palace draws over six million people annually": {
       "failing": 0,
-      "url": "https://www.karnatakatourism.org/destinations/mysuru/",
+      "url": "https://karnatakatourism.org/en/destinations/mysuru/",
       "last_seen": "2026-10-09",
       "last_status": 200
     },
@@ -2117,7 +2124,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>",
-      "insecure": 25
+      "insecure": 26
     },
     "perfumery|Un conservatoire de plantes à parfum": {
       "failing": 0,
@@ -2125,7 +2132,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>",
-      "insecure": 25
+      "insecure": 26
     },
     "rock-climbing|Bear resistant food containers": {
       "failing": 0,
@@ -2209,7 +2216,9 @@
       "failing": 0,
       "url": "https://www.escoladepastisseria.cat/xef-de-pastisseria/",
       "last_seen": "2026-10-09",
-      "last_status": 200
+      "last_status": 0,
+      "why": "URLError: <urlopen error timed out>",
+      "unreachable": 1
     },
     "italian-cuisine-and-pasta|Bologna Cooking School": {
       "failing": 0,
@@ -2349,7 +2358,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "unreachable": 4
+      "unreachable": 5
     },
     "mixology-and-bartending|Cocktail-making workshop": {
       "failing": 0,
@@ -2357,7 +2366,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>",
-      "unreachable": 4
+      "unreachable": 5
     },
     "mixology-and-bartending|The Spirit Lab": {
       "failing": 0,
@@ -2406,8 +2415,80 @@
       "url": "https://www.ballymaloecookeryschool.ie/farm-school",
       "last_seen": "2026-10-09",
       "last_status": 200
+    },
+    "modern-new-technique-cuisine|as Victoria's oldest winegrowing region, the Yarra Valley has a long history of winemaking": {
+      "failing": 0,
+      "url": "https://www.visityarravalley.com.au/see-and-do/wineries",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "modern-new-technique-cuisine|the birthplace of Victorian wine": {
+      "failing": 0,
+      "url": "https://wineyarravalley.com.au/",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "modern-new-technique-cuisine|170-year legacy": {
+      "failing": 0,
+      "url": "https://wineyarravalley.com.au/",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "modern-new-technique-cuisine|Over eighty wineries span the Yarra Valley": {
+      "failing": 0,
+      "url": "https://wineyarravalley.com.au/",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "ashtanga-yoga|Cultural capital of Karnataka": {
+      "failing": 0,
+      "url": "https://karnatakatourism.org/en/destinations/mysuru/",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "ashtanga-yoga|Stroll through the vibrant Devaraja Market, famous for fresh local flowers, traditional incense sticks, sandalwood products, and spices": {
+      "failing": 0,
+      "url": "https://karnatakatourism.org/en/destinations/mysuru/",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "ashtanga-yoga|Under the Wodeyars from 1399 to Independence": {
+      "failing": 0,
+      "url": "https://karnatakatourism.org/en/destinations/mysuru/",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "ashtanga-yoga|Mysuru Dasara celebrations": {
+      "failing": 0,
+      "url": "https://karnatakatourism.org/en/destinations/mysuru/",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "ashtanga-yoga|October 11, to Wednesday, October 21, 2026": {
+      "failing": 0,
+      "url": "https://mysoredasara.gov.in/",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "self-sufficiency|Paraje Natural Karst en Yesos de Sorbas": {
+      "failing": 0,
+      "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "self-sufficiency|Paraje Natural Desierto de Tabernas": {
+      "failing": 0,
+      "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+      "last_seen": "2026-10-09",
+      "last_status": 200
+    },
+    "self-sufficiency|Parque Natural Cabo de Gata-Níjar": {
+      "failing": 0,
+      "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+      "last_seen": "2026-10-09",
+      "last_status": 200
     }
   },
   "checked_at": "2026-10-09",
-  "checked": 414
+  "checked": 421
 }
