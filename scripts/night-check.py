@@ -112,6 +112,10 @@ NETWORK_SUSPECT = (0.2, 8)
 # otherwise, and that asymmetry is deliberate: the cost of calling our own bad night
 # somebody's closed school is a school taken off the map, and the cost the other way is
 # one line in a report that nobody had to act on.
+# What a bot wall says when it answers with a 2xx instead of a 403 (lower-cased, after norm()).
+_WALL = ("verify that you're not a robot", "enable javascript and then reload", "just a moment",
+         "checking your browser", "performing security verification", "additional verification required",
+         "attention required! | cloudflare")
 _INSECURE = ("SSLCertVerificationError", "CERTIFICATE_VERIFY_FAILED", "certificate verify failed",
              "SSLError", "SSLEOFError", "SSLV3_ALERT", "TLSV1_ALERT", "WRONG_VERSION_NUMBER",
              "UNSAFE_LEGACY_RENEGOTIATION")
@@ -330,6 +334,13 @@ def check_one(c, timeout):
         r["ok"] = False
         return r
     text = norm(_html.unescape(_ANYTAG.sub(" ", _TAGS.sub(" ", body))))
+    # A wall that answers 2xx. EUR-Lex returns HTTP 202 and a page saying only "we need
+    # to verify that you're not a robot — enable JavaScript", and from 19 September to
+    # 9 October 2026 that counted as the regulation no longer naming its regions. A page
+    # that is nothing but a challenge is unreadable, whatever the status code says.
+    if len(text) < 2500 and any(w in text for w in _WALL):
+        r["ok"], r["blocked"] = False, True
+        return r
     r["missing"] = [v for v in c["verify"] if norm(v) not in text]
     # Still missing: look on the other pages this entry cites (see `alt` in claims()).
     # Only a readable alternative page can rescue a string; a wall or a 404 cannot.
@@ -384,6 +395,16 @@ def main():
             continue
         if r.get("blocked"):
             blocked.append(r)
+            # A count this entry gathered while the wall was read as a changed page is
+            # moved aside, the way the transport branch does it below: the morning build
+            # reads `failing` from this file, and a wall must not keep an alarm alive.
+            st = entries.get(f'{r["craft"]}|{r["name"]}')
+            if st and st.get("failing"):
+                st["misfiled"] = {"nights": st["failing"], "as": st.get("why", ""),
+                                  "note": "counted as a failing claim before this check told "
+                                          "a bot wall from a page that changed",
+                                  "moved": today}
+                st["failing"], st["why"] = 0, "unreadable: a bot wall answered, not the page"
             continue
         key = f'{r["craft"]}|{r["name"]}'
         st = entries.setdefault(key, {"failing": 0, "url": r["url"]})
