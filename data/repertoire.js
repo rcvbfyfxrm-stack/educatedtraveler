@@ -105,11 +105,11 @@ window.ET_ATLAS = {
               "name": "Sunseed Desert Technology",
               "url": "https://www.sunseed.org.uk/get-involved",
               "course": "Co-learning residency, general and research internships, a six-month European Solidarity Corps placement, and staff posts of a year or more",
-              "blurb": "An off-grid community at Los Molinos del Río Aguas in Almería, not a course you attend — ten to thirty people living on solar power and water raised by a ram pump, who teach by letting you work beside them: dryland gardening and soil-building, seed and harvest, sourdough, foraging and putting food up, solar cookers and dryers. English is the community's working language. Four live ways in on their own page, plus Wednesday day visits at 11:00, €10–20. ⚠ The residency's length and contribution are not published — ask them. It is immersion, not a certificate, and there is no single named teacher. Checked on sunseed.org.uk, 20 August 2026.",
+              "blurb": "An off-grid community at Los Molinos del Río Aguas in Almería, not a course you attend — ten to thirty people living on solar power, who teach by letting you work beside them: dryland gardening and soil-building, seed and harvest, sourdough, foraging and putting food up, solar cookers and dryers. English can be used, though Spanish is encouraged. Four ways in on their own page, plus Wednesday day visits at 11:00, €10–20. The residency is two weeks at least, pay what you can with an €80 deposit — and it is fully booked for 2026, with applications reopening in February 2027. It is immersion, not a certificate, and there is no single named teacher. Checked on sunseed.org.uk, 8 October 2026.",
               "confidence": "high",
               "verify": [
                 "Sunseed",
-                "ram pump"
+                "co-learning"
               ],
               "facts": {
                 "where": "Off-grid village 7 km from Sorbas",
@@ -182,14 +182,14 @@ window.ET_ATLAS = {
               "confidence": "medium",
               "facts": {
                 "where": "Swargashram, Rishikesh",
-                "length": "4 weeks (27 September to 23 October 2026)",
+                "length": "4 weeks (the autumn 2026 run ends 23 October; no later date is listed yet)",
                 "format": "Live-in at the ashram; 3-4 hours of asana daily; no classes Sundays",
                 "language": "English",
                 "credential": "Certificate of Attendance; course certified by Yoga Alliance USA",
                 "from": [
                   "https://courses.parmarth.org/events/200hr-yoga-teacher-training-course-sep27/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -208,19 +208,19 @@ window.ET_ATLAS = {
             {
               "name": "Sivananda Ashram (Divine Life Society)",
               "url": "https://www.sivanandaonline.org/",
-              "course": "Basic Yoga-Vedanta Course (two months, Yoga-Vedanta Forest Academy)",
+              "course": "Basic Yoga-Vedanta Course (two months, Yoga-Vedanta Forest Academy; next 1 March to 29 April 2027)",
               "blurb": "The Rishikesh headquarters ashram of the Divine Life Society, founded by Swami Sivananda in 1936, offering residential study of Hatha yoga, Vedanta and meditation in a traditional ashram setting rather than a commercial teacher-training format. Its own admission notice says the course is open to Indian citizens (men) only.",
               "confidence": "medium",
               "facts": {
                 "where": "Shivanandanagar, Rishikesh",
-                "length": "2 months (2 September to 31 October 2026)",
+                "length": "2 months (1 March to 29 April 2027; apply by 15 January 2027)",
                 "format": "Residential; double room or dormitory, vegetarian meals",
                 "language": "English",
                 "class": "40 students at most",
                 "from": [
                   "https://www.sivanandaonline.org/?cmd=displayrightsection&section_id=1710&parent=1707&format=html"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             },
             {
@@ -327,14 +327,14 @@ window.ET_ATLAS = {
               "confidence": "high",
               "facts": {
                 "where": "Bogadi, Mysuru",
-                "length": "4 weeks (e.g. 1 to 28 September 2026)",
+                "length": "4 weeks (e.g. 2 to 28 November 2026)",
                 "format": "Full-time, up to 12 hours a day in class, 5am to 9:30pm",
                 "credential": "Bharatha Yoga (IYT250+) and Yoga Alliance RYS 200 certificates",
                 "from": [
                   "https://bharatha.org/contact-us/",
                   "https://bharatha.org/hatha-yoga-teacher-training/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "count": 9,
@@ -346,8 +346,8 @@ window.ET_ATLAS = {
             {
               "name": "Atmavikasa Centre of Yogic Sciences",
               "url": "https://atmavikasa.yoga",
-              "course": "Authentic Hatha Yoga Teachers Training / Back-Bending Intensive (multi-week residential)",
-              "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school. Yogacharya Venkatesha and Acharya Hema founded it and still teach it, which their own teachers page says plainly. Multi-week residential teacher trainings and yoga-therapy intensives, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
+              "course": "Authentic Hatha Yoga Teachers Training and dated immersions (multi-week; no accommodation provided)",
+              "blurb": "A Mysore centre for old-school classical Hatha yoga, deliberately non-Westernised and run more like a temple than a school. Yogacharya Venkatesha and Acharya Hema founded it and still teach it, which their own teachers page says plainly. Multi-week teacher trainings and yoga-therapy intensives — you arrange your own lodging —, known for a back-bending and no-injury methodology. Not affiliated with Yoga Alliance, which the school asks to be said plainly.",
               "confidence": "high",
               "photos": {
                 "given": "2026-09-06",
@@ -463,7 +463,7 @@ window.ET_ATLAS = {
               "facts": {
                 "where": "Chamarajapuram, Mysore",
                 "length": "5 weeks",
-                "format": "Two intakes a year; stay available in the shala's 11 rooms",
+                "format": "Two intakes a year (next 5 Jan–8 Feb 2027); stay in the shala's 11 rooms",
                 "class": "12 students at most",
                 "credential": "A manual and certificate on completion, after two practical tests",
                 "from": [
@@ -809,7 +809,7 @@ window.ET_ATLAS = {
           "schoolsInfo": [
             {
               "name": "Sharath Yoga Centre (SYC)",
-              "blurb": "Read this before you plan a trip around it: R. Sharath Jois, the grandson of Pattabhi Jois who gave the shala its name and its authority, died on 11 November 2024 at 53, of a heart attack while hiking with students during a United States tour. The shala continues and their own site says so plainly — 'we tragically and unexpectedly lost our Sharathji' — with Shruthi Jois and Shraddha Jois now named alongside the teaching staff. Two things follow that a reader should have. Authorisation and Certification were his to give, and what those words mean now is a question for the shala rather than for us. And access is by lottery: registration for the 2026 season is closed, and students are 'Selection of Students will be done randomly by algorithm to match our shala capacity', with confirmations sent by 2 August. Checked on sharathyogacentre.com, 3 September 2026.",
+              "blurb": "Read this before you plan a trip around it: R. Sharath Jois, the grandson of Pattabhi Jois who gave the shala its name and its authority, died on 12 November 2024, at 53, in Virginia on a teaching tour — the shala's own dates and words. The shala continues and their own site says so plainly — 'we tragically and unexpectedly lost our Sharathji' — with Shruthi Jois and Shraddha Jois now named alongside the teaching staff. Two things follow that a reader should have. Authorisation and Certification were his to give, and what those words mean now is a question for the shala rather than for us. And access is by lottery: registration for the 2026 season is closed, and students are 'Selection of Students will be done randomly by algorithm to match our shala capacity', with confirmations sent by 2 August. Checked on sharathyogacentre.com, 8 October 2026.",
               "verify": [
                 "Sharath",
                 "algorithm"
@@ -877,7 +877,7 @@ window.ET_ATLAS = {
               "facts": {
                 "where": "Chamarajapuram, Mysore",
                 "length": "5 weeks",
-                "format": "Two intakes a year; on-site rooms for accepted students",
+                "format": "Two intakes a year (next 5 Jan–8 Feb 2027); on-site rooms for accepted students",
                 "class": "12 students at most",
                 "credential": "A manual and certificate after two practical tests",
                 "from": [
@@ -968,7 +968,7 @@ window.ET_ATLAS = {
               "name": "Astanga Yoga London (AYL)",
               "url": "https://www.astangayogalondon.com/",
               "course": "Daily Mysore-style Astanga self-practice program led by Hamish Hendry",
-              "blurb": "A central London shala led by KPJAYI-authorised teacher Hamish Hendry, running a daily morning-to-evening Mysore-style self-practice program plus monthly led primary series and philosophy classes.",
+              "blurb": "A central London shala led by Hamish Hendry, certified to teach Ashtanga since 2001, running a daily morning-to-evening Mysore-style self-practice program plus a monthly led primary series.",
               "confidence": "high",
               "facts": {
                 "where": "Drummond Street, near Euston",
@@ -1649,7 +1649,7 @@ window.ET_ATLAS = {
               "name": "Dhamma Giri - Vipassana International Academy",
               "url": "https://giri.vridhamma.org/",
               "course": "10-Day Vipassana Course (Goenka tradition)",
-              "blurb": "A ten-day residential silent course at Dhamma Giri, one of the world's largest Vipassana centres and the headquarters of S.N.",
+              "blurb": "A ten-day residential silent course at Dhamma Giri, one of the world's largest Vipassana centres and the main centre of the global Vipassana organisation, teaching as taught by S.N. Goenka.",
               "confidence": "high",
               "facts": {
                 "where": "Igatpuri",
@@ -1779,7 +1779,7 @@ window.ET_ATLAS = {
               "name": "International Meditation Centre (U Ba Khin tradition)",
               "url": "https://internationalmeditationcentre.org/",
               "course": "10-day Vipassana course (U Ba Khin Anapana/Vipassana method)",
-              "blurb": "The International Meditation Centre, opened in Yangon in 1952 by Sayagyi U Ba Khin, teaches Theravada Vipassana in his tradition through ten-day courses that begin with Anapana before progressing to Vipassana; its newsletter listed Yangon courses for 7–17 August and 13–23 November 2026.",
+              "blurb": "The International Meditation Centre, opened in Yangon in 1952 by Sayagyi U Ba Khin, teaches Theravada Vipassana in his tradition through ten-day courses that begin with Anapana before progressing to Vipassana; its dates page lists Yangon courses for 13–23 November 2026 and 8–18 January 2027.",
               "confidence": "medium",
               "standing": {
                 "state": "site-gone",
@@ -1863,8 +1863,8 @@ window.ET_ATLAS = {
             {
               "name": "Wat Suan Dok (Monk Chat / meditation retreats)",
               "url": "https://www.monkchat.net/",
-              "course": "Two-day residential meditation retreat for foreigners (MCU Monk Chat)",
-              "blurb": "Wat Suan Dok in Chiang Mai, through the Mahachulalongkornrajavidyalaya University Monk Chat programme, offers English-language Buddhism conversations and short residential meditation retreats for foreigners, including a weekly two-day course and a longer three-day course at month's end.",
+              "course": "Two-day meditation retreat (MCU Monk Chat), monthly",
+              "blurb": "Wat Suan Dok in Chiang Mai, through the Mahachulalongkornrajavidyalaya University Monk Chat programme, offers English-language Buddhism conversations and short residential meditation retreats for foreigners, including a two-day retreat on the Tuesday and Wednesday of the last week of each month (October to December 2026), plus half-day and one-day sessions weekly.",
               "confidence": "medium",
               "facts": {
                 "where": "Wat Suan Dok, Suthep Road, Chiang Mai",
@@ -2292,7 +2292,7 @@ window.ET_ATLAS = {
               "name": "Himalayan Yoga Academy / Himalayan Yoga Nepal",
               "url": "https://himalayanyoganepal.com/",
               "course": "Singing Bowl Advance Course – 10 Days 9 Nights (Level 1 & Level 2)",
-              "blurb": "A Yoga Alliance-registered school operating in Nepal since 2008 that offers a 10-day, 40-hour advanced Nada Chikitsa singing-bowl and sound-healing training combining theory, hands-on practice and meditation toward a sound-healer certification.",
+              "blurb": "A Yoga Alliance-registered school operating in Nepal since 2007 that offers a 10-day, 40-hour advanced Nada Chikitsa singing-bowl and sound-healing training combining theory, hands-on practice and meditation toward a sound-healer certification.",
               "confidence": "high",
               "facts": {
                 "where": "Raniban Road, Kathmandu",
@@ -2461,7 +2461,6 @@ window.ET_ATLAS = {
                     [
                       "Anita Das",
                       "Lucia Guerin",
-                      "Chris Headland",
                       "Ruby Larimar",
                       "Helen Smith"
                     ]
@@ -2481,12 +2480,12 @@ window.ET_ATLAS = {
                 "where": "Univ. of Chichester, Bognor Regis",
                 "format": "Home study, online classes, 1 classroom module; or fully online",
                 "credential": "Professional Diploma in Group Sound Therapy, Dip. GST (BAST)",
-                "price": "£1,718",
-                "priceNote": "general fee; instalment plan available",
+                "price": "£1,847",
+                "priceNote": "general fee; early bird £1,712 until 30 June 2027; instalment plan available",
                 "from": [
                   "https://britishacademyofsoundtherapy.com/event/group-sound-therapy-training"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -2902,7 +2901,7 @@ window.ET_ATLAS = {
               "confidence": "high",
               "facts": {
                 "where": "Chang Puek Road Soi 4, Chiang Mai",
-                "length": "390 hours, e.g. 4 January to 20 March 2026",
+                "length": "390 hours, e.g. 10 January to 26 March 2027",
                 "format": "Levels I-IV with regular students, plus 4 weeks of teacher training",
                 "language": "English; the teaching staff are stated to be fluent in it",
                 "credential": "Certified Advanced Practitioner and Teacher (CAPT)",
@@ -2913,7 +2912,7 @@ window.ET_ATLAS = {
                   "https://www.itmthaimassage.com/about.php",
                   "https://www.itmthaimassage.com/courses.php"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -3056,7 +3055,7 @@ window.ET_ATLAS = {
               "name": "Chetawan Thai Traditional Massage School",
               "url": "https://watpomassage.com/en/course/professional/679eede29f79e7dd6e00aca1",
               "course": "Professional Thai Massage Therapy I (200 Hrs.)",
-              "blurb": "The Wat Pho school's purpose-built professional branch in Nonthaburi/Salaya near Bangkok, it teaches a 200-hour, five-week Professional Thai Massage Therapy course that issues the same nationally recognized Wat Pho certificate.",
+              "blurb": "The Wat Pho school's professional branch at Salaya, in Nakhon Pathom west of Bangkok, it teaches a 200-hour, five-week Professional Thai Massage Therapy course that issues the same nationally recognized Wat Pho certificate.",
               "confidence": "high",
               "facts": {
                 "where": "Chetawan Health School, Salaya",
@@ -3991,37 +3990,30 @@ window.ET_ATLAS = {
               "name": "Wim Hof Method Travel",
               "url": "https://activities.wimhofmethod.com/activities/travel-przesieka-denilson-zanotto/71119",
               "course": "WHM Travel week at Przesieka",
-              "blurb": "An official week of breathing, cold and mindset work at Przesieka. The one we found, 25–31 October 2026 with Denilson Zanotto, from €1,090, was sold out when we read it on 5 October 2026.",
+              "blurb": "An official week of breathing, cold and mindset work at Przesieka. The one we found, 25–31 October 2026 with Denilson Zanotto, at €1,199, was sold out when we read it on 8 October 2026.",
               "confidence": "medium",
               "facts": {
-                "where": "Aspres-sur-Buëch, southern French Alps",
-                "length": "6 days",
-                "format": "Residential, at the centre's 1800s house",
-                "language": "English (5-11 Feb) or French (15-21 Feb, 25-31 Jul)",
-                "price": "€1,999.80",
-                "priceNote": "5-11 Feb English edition; French editions €1,760",
+                "where": "Rony Villa, Bukowy Gaj, Przesieka",
+                "length": "6 nights, 25 to 31 October 2026",
+                "format": "Residential, in a house for 22 near Wim Hof's own, by the Przesieka falls",
+                "price": "€1,199",
+                "priceNote": "25–31 Oct 2026 week sold out; next 2–7 February 2027 with Lulu Berton, €1,980",
                 "from": [
-                  "https://www.wimhofmethod.com/whm-center-france"
+                  "https://activities.wimhofmethod.com/activities/travel-przesieka-denilson-zanotto/71119"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
                   [
-                    "WHM Travel instructor",
+                    "WHM instructor leading the week",
                     [
-                      "Leandre Omeir"
+                      "Denilson Zanotto"
                     ]
                   ]
                 ],
-                "from": "https://www.wimhofmethod.com/whm-center-france",
-                "read": "2026-09-17"
-              },
-              "standing": {
-                "state": "not-here",
-                "what": "The travel week runs from the method's own centre at Aspres-sur-Buëch, in the southern French Alps.",
-                "from": "https://www.wimhofmethod.com/whm-center-france",
-                "read": "2026-09-17"
+                "from": "https://activities.wimhofmethod.com/activities/travel-przesieka-denilson-zanotto/71119",
+                "read": "2026-10-08"
               }
             }
           ],
@@ -5078,16 +5070,16 @@ window.ET_ATLAS = {
               "name": "Dahab Freedivers",
               "url": "https://www.dahabfreedivers.com/",
               "course": "AIDA Instructor Course (requires AIDA 4)",
-              "blurb": "Dahab Freedivers is an AIDA freediving school in Dahab running courses from AIDA 1 through the AIDA Instructor Course, plus a 4-week non-certifying Master Program with multiple coaching sessions weekly.",
+              "blurb": "Dahab Freedivers is an AIDA freediving school in Dahab running courses from AIDA 1 through the AIDA Instructor Course, plus longer training packages and personalised coaching for those who stay.",
               "confidence": "high",
               "facts": {
                 "where": "Red Sea Relax Resort, Dahab",
                 "format": "Classroom theory; sea at Lighthouse and Blue Hole; 25 m pool",
-                "price": "€1,600",
+                "price": "€1,400",
                 "from": [
                   "https://www.dahabfreedivers.com/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -5593,12 +5585,12 @@ window.ET_ATLAS = {
                 "format": "Daily at 8am and 1pm; boat, captain, guide, gear and drinks",
                 "language": "Mainly English, French on request",
                 "price": "USD 200",
-                "priceNote": "per diver, minimum 2 divers, tax incl.; 1 diver alone USD 400",
+                "priceNote": "per diver on the tour page; their home page says from USD 350; minimum 2 divers",
                 "from": [
                   "https://spearfishingbaja.mx/",
                   "https://spearfishingbaja.mx/semi-private-reef/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -5905,15 +5897,15 @@ window.ET_ATLAS = {
               "confidence": "high",
               "facts": {
                 "where": "West Cowes, Isle of Wight",
-                "length": "16 weeks (122 days, 70 days at sea)",
+                "length": "16 weeks (126 days, 70 days at sea)",
                 "format": "Residential option: shared bunk rooms on site when not at sea",
                 "credential": "RYA/MCA Yachtmaster Offshore (Sail), plus STCW Basic Safety",
                 "price": "£13,640",
-                "priceNote": "course only, to Jan 2027 starts; £14,500 residential",
+                "priceNote": "course only, 4 Jan 2027 start; £14,500 residential; £14,050 from 15 Feb 2027",
                 "from": [
                   "https://uksa.org/course/professional-yachtmaster-offshore/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             },
             {
@@ -5980,13 +5972,13 @@ window.ET_ATLAS = {
                 "where": "Premier Gosport Marina, Gosport",
                 "length": "18 weeks, continuous",
                 "format": "Live aboard Bavaria training yachts for the full 18 weeks",
-                "credential": "RYA Yachtmaster; exam and certificate fees included",
+                "credential": "RYA Yachtmaster; their page says both that the exam fee is covered and that it is not",
                 "price": "£12,750",
-                "priceNote": "from; tuition, materials, exam fees included; RYA application extra",
+                "priceNote": "from; tuition and materials; RYA licence fee £60 extra; ask about the exam fee",
                 "from": [
                   "https://commodore-yachting.com/sailing-courses/rya-practical-courses/rya-yachtmaster-fast-track/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -6096,7 +6088,7 @@ window.ET_ATLAS = {
               "name": "Horizon Sailing School",
               "url": "https://horizonsailingschool.com/",
               "course": "Zero To Hero",
-              "blurb": "Horizon Sailing School at Nanny Cay, Tortola is an American Sailing-certified school whose RYA Yachtmaster instructors teach ASA 101 through 114 aboard chartered monohulls and catamarans across the BVI cruising grounds.",
+              "blurb": "Horizon Sailing School at Nanny Cay, Tortola is an American Sailing-certified school whose instructors — one of them RYA Yachtmaster-qualified — teach ASA 101 through 114 aboard chartered monohulls and catamarans across the BVI cruising grounds.",
               "confidence": "high",
               "facts": {
                 "where": "Nanny Cay Marina, Tortola",
@@ -6142,14 +6134,15 @@ window.ET_ATLAS = {
                 "class": "4 trainees at most",
                 "credential": "ASA 101, 103 and 104 (ASA 114 can be added)",
                 "price": "USD 3,595",
+                "priceNote": "monohull, low season 15 May–15 Nov; USD 3,995 high season; catamaran USD 4,495",
                 "from": [
                   "https://www.swainsailing.com/",
                   "https://www.swainsailing.com/fast-track-to-bareboating"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
-                "count": 9,
+                "count": 10,
                 "of": "instructors and charter captains",
                 "from": "https://www.swainsailing.com/instructors",
                 "read": "2026-09-17"
@@ -6173,14 +6166,11 @@ window.ET_ATLAS = {
         "url": "https://uksa.org/course/professional-yachtmaster-offshore/",
         "course": "Professional Yachtmaster Offshore",
         "description": "A 16-week residential programme that takes trainees from novice to commercially-endorsed Yachtmaster on the Solent. It mixes classroom theory, navigation and radar simulator work, and roughly 70 days afloat (minimum 2,500 tidal miles) aboard a Farr 65 ocean racer and Jeanneau cruising yachts, covering passage planning, engineering, sea survival and seamanship. Along the way trainees stack RYA Day Skipper, Coastal Skipper, VHF radio, radar, diesel engine and STCW Basic Safety certificates, then sit the RYA Yachtmaster Offshore exam.",
-        "duration": "16 weeks (113 days, ~70 afloat)",
+        "duration": "16 weeks (126 days, ~70 afloat)",
         "format": "Residential at the Cowes campus (shared accommodation when ashore), full-time, group-based",
         "certification": "RYA Yachtmaster Offshore (Sail) Certificate of Competence, with commercial endorsement capability; plus stacked RYA/STCW certificates",
         "fitsBecause": "A genuinely residential, months-long, community programme on the Solent — the spiritual home of British yacht racing — ending in a recognised professional Certificate of Competence.",
-        "sessions": [
-          "2026-10-05",
-          "2026-11-09"
-        ],
+        "sessions": ["2027-01-04", "2027-02-15"],
         "priceNote": "~£14,500 residential (£13,640 course-only)",
         "confidence": "high",
         "alternatives": [
@@ -6733,21 +6723,21 @@ window.ET_ATLAS = {
             {
               "name": "Surf Berbere (Taghazout)",
               "url": "https://surfberbere.com/",
-              "course": "Surf school packages by level, and a four-week course to a Level 1 ISA surf instructor and lifeguard qualification",
-              "blurb": "On the seafront of the fishing village itself, running packages split by experience — under four weeks' surfing, improver, and experienced — alongside the instructor route, which is the rung above the holiday and the reason this town is on the map twice.",
+              "course": "Surf school packages by level, and a Level 1 ISA surf instructor course — its page says twelve weeks and lists no run after 2023",
+              "blurb": "On the seafront of the fishing village itself, running packages for beginners, surf-and-yoga, and experienced surfers, alongside the instructor route, which is the rung above the holiday and the reason this town is on the map twice.",
               "confidence": "high",
               "facts": {
                 "where": "Hash Point seafront, Taghazout",
-                "length": "4 weeks (Surf Instructor Course)",
+                "length": "12 weeks (Surf Instructor Course, per its page; last dated runs 2022–23)",
                 "format": "Residential; surfing 9am to 4.30pm, coaching 6 days a week",
                 "credential": "ISA Level 1 instructor assessment and SLSGB Lifesavers",
                 "price": "£4,750",
-                "priceNote": "4-week instructor course, all inclusive; flights and insurance extra",
+                "priceNote": "instructor course, all inclusive; flights and insurance extra; no current date listed",
                 "from": [
                   "https://surfberbere.com/about-us/",
                   "https://surfberbere.com/packages-courses/surf-instructor-course/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -6902,12 +6892,12 @@ window.ET_ATLAS = {
                 "format": "Private lessons; kite gear, radio helmet and harness included",
                 "class": "1 student per instructor (all lessons private)",
                 "price": "USD 325",
-                "priceNote": "printed 'per session' on the booking calendar",
+                "priceNote": "booking page prints USD 325 a session, and lower down USD 299 (USD 897 for three)",
                 "from": [
                   "https://hstwindsurfing.com/maui-kitesurfing-lessons/",
                   "https://fareharbor.com/embeds/book/hstwindsurfing/items/60244/calendar/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -7032,7 +7022,7 @@ window.ET_ATLAS = {
               "name": "Matos Tarifa",
               "url": "https://matos-tarifa.com/en/",
               "course": "IKO kitesurf courses, beginner to advanced",
-              "blurb": "A Tarifa kite school whose instructors are certified by the IKO and the Andalusian Sailing Federation, teaching every level from first discovery to advanced coaching with radio helmets, and running progression and Tiki kite camps year round.",
+              "blurb": "A Tarifa kite school whose instructors are certified by the IKO and the Andalusian Sailing Federation, teaching every level from first discovery to advanced coaching with radio helmets, with lessons year round and progression and Tiki kite camps on dated weeks.",
               "confidence": "high",
               "photos": {
                 "given": "2026-09-04",
@@ -7154,7 +7144,7 @@ window.ET_ATLAS = {
               "name": "Subcielo Kite School",
               "url": "https://www.subcielokiteschooltarifa.com/en/",
               "course": "IKO-certified group, semi-private and private kitesurf courses",
-              "blurb": "Operating in Tarifa for over 20 years from the Valdevaqueros beach, this IKO-certified school offers group, semi-private and private courses with an IKO certificate on completion.",
+              "blurb": "Founded in 2010 by instructors teaching since 2005, on the Valdevaqueros beach, this IKO-certified school offers group, semi-private and private courses with an IKO certificate on completion.",
               "confidence": "high",
               "facts": {
                 "where": "Camping Valdevaqueros, Tarifa",
@@ -7244,7 +7234,7 @@ window.ET_ATLAS = {
               "name": "Laurel Eastman Kiteboarding",
               "url": "https://laureleastman.com/",
               "course": "Beginner-to-independent kiteboarding lessons taught over multiple days by IKO-certified instructors, in private or small-group format",
-              "blurb": "Founded by professional kiteboarder Laurel Eastman, the school operates beachside at the Millennium Resort & Spa on Cabarete Bay with IKO-certified instructors and Ozone and Core rental equipment.",
+              "blurb": "Founded by professional kiteboarder Laurel Eastman, the school operates beachside at the Millennium Resort & Spa on Cabarete Bay with IKO-certified instructors and Ozone, Mystic and Slingshot rental equipment.",
               "confidence": "high",
               "facts": {
                 "where": "Millennium Resort, Cabarete",
@@ -7283,7 +7273,7 @@ window.ET_ATLAS = {
             {
               "name": "GoKite Cabarete",
               "url": "https://gokitecabarete.com/",
-              "course": "IKO Assistant and Instructor certification course training participants to teach kitesurfing from beginner to independent level",
+              "course": "IKO Assistant and Instructor certification course (last announced for February 2019; no current date published)",
               "blurb": "Based at the Extreme Hotel on Kite Beach, this locally owned school offers IKO courses, kids' kite camps and hydrofoiling lessons in addition to its instructor-training program.",
               "confidence": "high",
               "facts": {
@@ -7320,7 +7310,7 @@ window.ET_ATLAS = {
         "certification": "—",
         "fitsBecause": "A multi-day, instructor-on-the-water course at Kanaha, one of the world's defining kite spots, with the rider learning in a busy community of kiters.",
         "sessions": [],
-        "priceNote": "Their booking page prices lessons at USD 325 a session; no course total is published.",
+        "priceNote": "Their booking page prints USD 325 a session in its headline and USD 299 a session (USD 897 for the three days) in the description.",
         "confidence": "medium",
         "priceFrom": null,
         "alternatives": [
@@ -7608,13 +7598,13 @@ window.ET_ATLAS = {
               "confidence": "high",
               "facts": {
                 "where": "Valdevaqueros beach, 10 km from Tarifa",
-                "format": "Daily from 11am; open 23 March to 8 November 2026",
+                "format": "Daily from 11am; opening hours 11:00 to 18:30",
                 "class": "2 students at most (private or semi-private)",
                 "from": [
                   "https://www.tarifaspinout.com/",
                   "https://www.tarifaspinout.com/windsurf-foil-wingsurf-foil-courses"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -7743,7 +7733,7 @@ window.ET_ATLAS = {
               "name": "Harry Nass Dahab",
               "url": "https://www.harry-nass.com/en/windsurfing-lessons-dahab/",
               "course": "Windsurf courses + weekly/monthly rental with free gear-size swapping",
-              "blurb": "Rated 4.5/5 on TripAdvisor (118 reviews, Harry Nass Windsurf & Kite Centres). Operating since 1999 and VDWS-certified, it runs the largest windsurf fleet in Dahab (~250 JP boards / ~250 Neil Pryde rigs) across two centres, with a beginner-safe shallow lagoon you can walk back through and a free shuttle boat between sites; awarded Best Windsurfing & Kite Centre by the Egyptian Ministry of Tourism (2011).",
+              "blurb": "Rated 4.5/5 on TripAdvisor (118 reviews, Harry Nass Windsurf & Kite Centres). Operating since 1999 and VDWS-certified, it calls itself the largest JP/Neil Pryde centre in Egypt (~250 JP boards / ~250 Neil Pryde rigs) across two centres, with a beginner-safe shallow lagoon you can walk back through and a free shuttle boat between sites; awarded Best Windsurfing & Kite Centre by the Egyptian Ministry of Tourism (2011).",
               "rating": "TripAdvisor 4.5/5 (118 reviews)",
               "ratingUrl": "https://www.tripadvisor.com/Attraction_Review-g297549-d9826270-Reviews-Harry_Nass_Windsurf_Kite_Centres-Hurghada_Red_Sea_and_Sinai.html",
               "confidence": "high",
@@ -8034,7 +8024,7 @@ window.ET_ATLAS = {
               "name": "Yosemite Mountaineering School & Guide Service",
               "url": "https://www.travelyosemite.com/things-to-do/yosemite-mountaineering-school-guide-service/",
               "course": "A rock-climbing lesson series of one-day classes, from the beginner 'Welcome to the Rock' up to the two-day Big Wall Climbing Seminar",
-              "blurb": "Operating in Yosemite Valley since 1969 from Half Dome Village and Tuolumne Meadows, the school caps classes at six students per instructor with most sessions running about seven hours. Its Big Wall Climbing Seminar teaches the full big-wall toolkit on Valley granite: placing camming devices, chocks, pitons and hooks, aid climbing, ascending fixed ropes, hanging belays and hauling.",
+              "blurb": "Operating in Yosemite Valley since 1969 from Curry Village and Tuolumne Meadows, the school caps classes at six students per instructor with most sessions running about seven hours. Its Big Wall Climbing Seminar teaches the full big-wall toolkit on Valley granite: placing camming devices, chocks, pitons and hooks, aid climbing, ascending fixed ropes, hanging belays and hauling.",
               "confidence": "medium",
               "facts": {
                 "where": "Yosemite National Park, California",
@@ -8136,12 +8126,14 @@ window.ET_ATLAS = {
                 "length": "728 hours over 21 weeks, spread across 4 years at least",
                 "format": "Training blocks of 3 to 5 weeks per unit, plus tutored practice",
                 "credential": "State diploma of high-mountain guide (level 6, bac+3)",
-                "price": "€17,694.50",
+                "price": "€16,487.70",
+                "priceNote": "training fee on the school's May 2025 fee sheet; lodging and meals extra",
                 "from": [
                   "https://www.ensm.sports.gouv.fr/ensa/",
-                  "https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/"
+                  "https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/",
+                "https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/05/Fiche-de-presentation-Guide-de-Haute-montagne.pdf"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -8401,7 +8393,7 @@ window.ET_ATLAS = {
             {
               "name": "Plas y Brenin (National Outdoor Centre)",
               "url": "https://pyb.co.uk/climb/",
-              "course": "Rock Improver - 5 Day",
+              "course": "Rock Improver - 5 Day (booked as 'Outdoor Climbing progression - 5 days')",
               "blurb": "Plas y Brenin is the National Outdoor Centre for England and Wales (based in Snowdonia) offering residential rock-climbing courses, including a five-day Rock Improver course covering ropework, safety and on-rock mileage.",
               "confidence": "high",
               "facts": {
@@ -8410,12 +8402,12 @@ window.ET_ATLAS = {
                 "format": "Residential with catering, or non-residential",
                 "class": "4 students per instructor, then 2",
                 "price": "£779",
-                "priceNote": "non-residential; £1,129 residential; 19 October 2026 course",
+                "priceNote": "non-residential; £1,129 residential; the 19 Oct 2026 run is full; 2027 runs £675 / £1,025",
                 "from": [
                   "https://pyb.co.uk/course/rock-improver-5-day/",
-                  "https://booking.pyb.co.uk/courses/rock-improver-5-day/?book"
+                  "https://booking.pyb.co.uk/courses/outdoor-climbing-progression-5-days/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -9026,12 +9018,13 @@ window.ET_ATLAS = {
                 "length": "21 weeks of training spread over at least 4 years",
                 "format": "Blocks of 3 to 5 weeks per unit, at ENSA and in huts",
                 "credential": "State diploma, alpinisme - guide de haute montagne (level 6)",
-                "price": "€17,694.50",
-                "priceNote": "2026 total training fees; lodging and meals extra",
+                "price": "€16,487.70",
+                "priceNote": "training fee on the school's May 2025 fee sheet; lodging and meals extra",
                 "from": [
-                  "https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/"
+                  "https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/",
+                "https://www.ensm.sports.gouv.fr/wp-content/uploads/2025/05/Fiche-de-presentation-Guide-de-Haute-montagne.pdf"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -9070,7 +9063,7 @@ window.ET_ATLAS = {
             {
               "name": "Utah Mountain Adventures",
               "url": "https://www.utahmountainadventures.com/courses/splitboard-efficiency/",
-              "course": "Splitboard Efficiency (2 days)",
+              "course": "Ski & Splitboard Mountaineering Camp (3 days); also a 2-day Splitboard Efficiency course",
               "blurb": "Wasatch-based since 1993, Utah Mountain Adventures teaches splitboard technique in the field; its two-day Splitboard Efficiency course was listed for 6–7 February 2027 at $529 plus tax when we read it on 5 October 2026.",
               "confidence": "high",
               "facts": {
@@ -9115,7 +9108,6 @@ window.ET_ATLAS = {
                     "Guides",
                     [
                       "Willie Benegas",
-                      "Todd Passey",
                       "Winslow Passey",
                       "Erik Fullmer",
                       "Joseph Hobby"
@@ -11891,13 +11883,13 @@ window.ET_ATLAS = {
                 "where": "Higher Stennack, St Ives",
                 "length": "1 year, as a series of workshops",
                 "format": "Workshops across the year for intermediate potters",
-                "class": "8 potters, in two cohorts",
-                "price": "£5,200",
-                "priceNote": "2026 course, sold out; £1,000 deposit on booking",
+                "class": "5 potters",
+                "price": "£5,460",
+                "priceNote": "2026-27 course, sold out; £900 deposit on booking",
                 "from": [
-                  "https://shop.leachpottery.com/product/the-leach-year-2026/"
+                  "https://shop.leachpottery.com/product/the-leach-year-2026-2027/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -12961,7 +12953,7 @@ window.ET_ATLAS = {
               "confidence": "high",
               "facts": {
                 "where": "8 rue Jules Vallès, Paris 11e",
-                "length": "9 months, September 2026 to May 2027",
+                "length": "9 months, September 2027 to May 2028",
                 "format": "Full-time, 4 to 5 days a week depending on timetables",
                 "language": "English only",
                 "credential": "Spéos School Certificate",
@@ -12970,7 +12962,7 @@ window.ET_ATLAS = {
                 "from": [
                   "https://speos-photo.com/en/1-year-photography-programs/professional/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "count": 30,
@@ -13196,7 +13188,7 @@ window.ET_ATLAS = {
             {
               "name": "Rencontres d'Arles workshops",
               "url": "https://www.rencontres-arles.com/en/photo-workshops-and-photo-folio-review",
-              "course": "Photo Workshops (spring and summer, 1-5 days)",
+              "course": "Photo Workshops (spring and summer, 1-5 days; the 2026 season has run, 2027 not yet published)",
               "blurb": "The summer photography festival's year-round workshop programme in Arles, offering around 30 four-to-five-day summer and shorter weekend workshops led by professional photographers, plus Photo Folio portfolio reviews during opening week.",
               "confidence": "high",
               "facts": {
@@ -13227,9 +13219,9 @@ window.ET_ATLAS = {
               "confidence": "medium",
               "standing": {
                 "state": "not-here",
-                "what": "Magnum's own workshop list runs in New York, Cappadocia, Paris, Sofia, Mexico City and online; none in Arles.",
+                "what": "Magnum's own workshop list runs in Cappadocia, Paris, Sofia, Mexico City, Bangkok and online; none in Arles.",
                 "from": "https://www.magnumphotos.com/event/learn-with-magnum/",
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -13274,12 +13266,12 @@ window.ET_ATLAS = {
                 "format": "Full-time, about 40 hours a week including teaching",
                 "language": "English",
                 "credential": "BA (Hons) Photography degree",
-                "price": "£30,890",
-                "priceNote": "per year, international fee; £9,790 home fee; Sept 2026 entry",
+                "price": "£31,510",
+                "priceNote": "per year, international fee; £10,050 home fee; Sept 2027 entry",
                 "from": [
                   "https://www.arts.ac.uk/subjects/photography/undergraduate/ba-hons-photography-lcc"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -13402,9 +13394,7 @@ window.ET_ATLAS = {
         "format": "Full-time, classroom + studio, 4-5 days/week, intensive in-person",
         "certification": "Spéos School Certificate (professional program)",
         "fitsBecause": "An immersive year-long, at-the-source program in Paris taught entirely in English that an international learner can actually enroll in.",
-        "sessions": [
-          "2026-09"
-        ],
+        "sessions": ["2027-09"],
         "priceNote": "€18,950 (EU/France) / €20,950 (international)",
         "confidence": "high",
         "alternatives": [
@@ -14842,9 +14832,7 @@ window.ET_ATLAS = {
         "format": "Full-time, in-workshop, small limited-enrolment groups",
         "certification": "Certificate of attendance and results (the LAO Diploma follows the three-year course)",
         "fitsBecause": "Full-time, hands-on bench training in Florence's historic goldsmithing tradition, in a small mentored group leading to a recognized school diploma.",
-        "sessions": [
-          "Sep 2026"
-        ],
+        "sessions": ["Oct 2026"],
         "priceNote": "Academic Goldsmithery First Year, 2026-27",
         "confidence": "medium",
         "alternatives": [
@@ -15348,7 +15336,7 @@ window.ET_ATLAS = {
               "name": "Grasse Institute of Perfumery (GIP)",
               "url": "https://www.grasse-perfumery.com/who-we-are/",
               "course": "International Technical Degree in Fragrance Creation and Sensory Evaluation — 18 months, in English, twelve places",
-              "blurb": "The school publishes its faculty, which is rarer in this craft than the teaching itself: Jean-Claude Ellena, listed as 'Senior Perfumer – Ex Hermes' and the house's in-house perfumer for twelve years, teaches here, alongside senior perfumers Marianne Nawrocki and Joëlle Lerioux Patris and a bench of working perfumers. Eighteen months in total — twelve in the centre from January to December, then a six-month internship. 13,500 EUR plus a 150 EUR testing fee, and the working language is English. Twelve places a year, applications between 1 January and 1 July for the following year. Checked on grasse-perfumery.com, 2 September 2026.",
+              "blurb": "The school publishes its faculty, which is rarer in this craft than the teaching itself: Jean-Claude Ellena, listed as 'Senior Perfumer – Ex Hermes' and the house's in-house perfumer for twelve years, teaches here, alongside senior perfumers Marianne Nawrocki and Joëlle Lerioux Patris and a bench of working perfumers. Eighteen months in total — twelve in the centre from January to December, then a six-month internship. 13,500 EUR plus a 150 EUR testing fee, and the working language is English. Twelve places a year, applications between 1 January and 1 July for the following year — so the window for January 2027 has closed. Checked on grasse-perfumery.com, 8 October 2026.",
               "verify": [
                 "Jean-Claude ELLENA",
                 "Marianne NAWROCKI"
@@ -15380,7 +15368,7 @@ window.ET_ATLAS = {
               "name": "Cinquième Sens",
               "url": "https://www.cinquiemesens.com",
               "course": "Perfumery courses in Grasse, from initiation to professional training",
-              "blurb": "Cinquième Sens is a perfumery training centre, founded in 1976, with classrooms in Grasse and Paris; its calendar lists Grasse sessions from a one-day initiation upward. Its two-week Fragrance School runs in Paris.",
+              "blurb": "Cinquième Sens is a perfumery training centre, founded in 1976, with classrooms in Grasse and Paris; its calendar lists short Grasse sessions (a two-day initiation in November 2026), while the one- and two-week Fragrance School currently has dates only in Paris.",
               "confidence": "medium",
               "facts": {
                 "where": "Grasse",
@@ -15456,7 +15444,7 @@ window.ET_ATLAS = {
               "name": "ISIPCA",
               "url": "https://www.isipca.fr/en/formations/perfume/art-french-perfumery",
               "course": "Art of Perfumery \"à la française\" (Summer School) — 10 days, 70 hours",
-              "blurb": "The school behind the state-recognised diploma also runs a ten-day, seventy-hour summer school, open to anyone over 18 — students of science, art or literature, and professionals topping up. Three sessions in 2026: 29 June to 10 July and 3 to 14 August at 3,560 EUR, 13 to 24 July at 3,400 EUR (that one skips 14 July). The price excludes lunch. Honest note, and it is the reason this destination does not carry a named teacher: ISIPCA names no perfumer on either the course page or its own teams page. Ask who will be in the room before you book — Grasse publishes its faculty and this does not. Checked on isipca.fr, 2 September 2026.",
+              "blurb": "The school behind the state-recognised diploma also runs a ten-day, seventy-hour summer school, open to anyone over 18 — students of science, art or literature, and professionals topping up. Three sessions ran in 2026 — 29 June to 10 July and one in August at 3,560 EUR, 13 to 24 July at 3,400 EUR — and the 2027 dates were not yet published when we read it; registration opens in January. The price excludes lunch. Honest note, and it is the reason this destination does not carry a named teacher: ISIPCA names no perfumer on either the course page or its own teams page. Ask who will be in the room before you book — Grasse publishes its faculty and this does not. Checked on isipca.fr, 8 October 2026.",
               "verify": [
                 "70 hours",
                 "3,560"
@@ -15465,25 +15453,25 @@ window.ET_ATLAS = {
               "facts": {
                 "where": "ISIPCA campus, Versailles",
                 "length": "10 days (70 hours)",
-                "format": "Full-time, in person; three sessions, June to August 2026",
+                "format": "Full-time, in person; the 2026 sessions have run, 2027 dates not yet published",
                 "price": "€3,560",
                 "priceNote": "per session; €3,400 for 13-24 July; lunch not included",
                 "from": [
                   "https://www.isipca.fr/en/formations/perfume/art-french-perfumery"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             },
             {
               "name": "Cinquième Sens",
               "url": "https://www.cinquiemesens.com",
               "course": "Fragrance School Paris – 2 Weeks",
-              "blurb": "Cinquième Sens is a perfumery training center (founded 1976) with a Paris classroom that runs 5- and 10-day Summer School sessions combining olfactory study of raw materials with hands-on formulation exercises.",
+              "blurb": "Cinquième Sens is a perfumery training center (founded 1976) with a Paris classroom that runs one- and two-week 'Fragrance School Paris' sessions, next in January 2027, combining olfactory study of raw materials with hands-on formulation exercises.",
               "confidence": "medium",
               "facts": {
                 "where": "18 rue de Monttessuy, Paris 7e",
                 "length": "2 weeks (63 hours), or 1 week (31.5 hours)",
-                "format": "In person, half theory and half practice; next 23 Aug-3 Sep 2027",
+                "format": "In person, half theory and half practice; next 11-22 Jan 2027, then 23 Aug-3 Sep 2027",
                 "language": "English (fluent English is a prerequisite)",
                 "credential": "Training certificate from the school",
                 "price": "€6,048",
@@ -15492,7 +15480,7 @@ window.ET_ATLAS = {
                   "https://www.cinquiemesens.com/professionnels/formations/catalogue/formation/25/immersion-dans-lunivers-de-la-parfumerie-sesion-a-b/",
                   "https://www.cinquiemesens.com/professionnels/formations/catalogue/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             },
             {
@@ -16278,7 +16266,7 @@ window.ET_ATLAS = {
               "name": "École Bellouet Conseil",
               "url": "https://bellouetparis.com/en",
               "course": "Programme Excellence Bellouet Paris (12 cours / 48 jours)",
-              "blurb": "École Bellouet Conseil is a Paris professional pastry school founded in 1989 in the 15th arrondissement, offering a three-month long-duration pastry course interspersed with internships alongside shorter advanced workshops for working chefs.",
+              "blurb": "École Bellouet Conseil is a Paris professional pastry school founded in 1989 in the 15th arrondissement, offering a 48-day Excellence programme in twelve courses, taken at your own pace with one company internship, alongside shorter advanced workshops for working chefs.",
               "confidence": "high",
               "facts": {
                 "where": "Rue Lecourbe, Paris 15e",
@@ -16400,7 +16388,7 @@ window.ET_ATLAS = {
               "name": "École Nationale Supérieure de la Pâtisserie (ENSP, Yssingeaux)",
               "url": "https://www.ecoleducasse.com/en/campus-en/ecole-nationale-superieure-de-patisserie",
               "course": "French Pastry Arts Diploma",
-              "blurb": "ENSP is a pastry, bakery, chocolate, and confectionery school housed in the Château de Montbarnier at Yssingeaux with on-site student accommodation, whose residential French Pastry Arts Diploma covers traditional and modern French pastry techniques. Yssingeaux is about two hours south-west of Lyon.",
+              "blurb": "ENSP is a pastry, bakery, chocolate, and confectionery school housed in the Château de Montbarnier at Yssingeaux with on-site student accommodation, whose residential French Pastry Arts Diploma covers traditional and modern French pastry techniques. Yssingeaux is about 90 minutes from Lyon.",
               "confidence": "high",
               "facts": {
                 "where": "Château de Montbarnier, Yssingeaux",
@@ -16424,8 +16412,8 @@ window.ET_ATLAS = {
             {
               "name": "Institut Paul Bocuse",
               "url": "https://www.ecoledecuisine.institutpaulbocuse.com/patisserie-passion.html",
-              "course": "Pâtisserie & Passion (3-week program)",
-              "blurb": "Institut Paul Bocuse (now Institut Lyfe) is a culinary and hospitality school in Écully near Lyon whose three-week Pâtisserie & Passion program combines pastry demonstrations and hands-on practice under its pastry chef.",
+              "course": "Pâtisserie & Passion (3-week program; last listed session December 2025, no new date yet)",
+              "blurb": "Institut Paul Bocuse (now Institut Lyfe) is a culinary school teaching at place Bellecour in central Lyon, whose three-week Pâtisserie & Passion program combines pastry demonstrations and hands-on practice under its pastry chef.",
               "confidence": "high",
               "facts": {
                 "where": "Place Bellecour, Lyon",
@@ -16473,7 +16461,7 @@ window.ET_ATLAS = {
               "name": "Tsuji Culinary Institute (Osaka)",
               "url": "https://www.tsuji.ac.jp/en/college/osaka/",
               "course": "Confectionery Arts and Management Course (2-Year Program)",
-              "blurb": "Japan's oldest professional culinary institute, founded in Osaka in 1960, offering a two-year patisserie course that combines fundamentals in Western sweets, bread and wagashi with an optional study-abroad period at its French campus near Lyon.",
+              "blurb": "Japan's largest culinary and confectionery institute by its own description, founded in Osaka in 1960, offering a two-year patisserie course that combines fundamentals in Western sweets, bread and wagashi with an optional study-abroad period at its French campus near Lyon.",
               "confidence": "high",
               "facts": {
                 "where": "Osaka",
@@ -17155,7 +17143,7 @@ window.ET_ATLAS = {
             "school",
             "master"
           ],
-          "why": "École Bellouet, founded in 1989 by Meilleurs Ouvriers de France, teaches a three-day bonbon course to working pastry chefs, in French.",
+          "why": "École Bellouet, founded in 1989 by Meilleurs Ouvriers de France, teaches a three-day bonbon course to working pastry chefs, in French or English depending on the session.",
           "bestSeason": "Sep-Jun",
           "level": "Beginner -> Professional",
           "id": "chocolate-and-confectionery--paris",
@@ -17746,7 +17734,7 @@ window.ET_ATLAS = {
               "name": "La Vecchia Scuola Bolognese (Alessandra Spisni)",
               "url": "https://www.vsb-bologna.it/en/",
               "course": "Sfoglia: Professional Course with Alessandra Spisni",
-              "blurb": "Run by founder and master sfoglina Alessandra Spisni at the only school dedicated to forming sfoglini, this professional course teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of Bolognese fresh pasta — tortellini, tagliatelle, lasagne and more — worked by hand on the wooden board until dough is read by touch.",
+              "blurb": "Certified by founder and master sfoglina Alessandra Spisni and led by Stefania Spisni, this professional course — admission after the three-day Sfoglia course and the instructor's approval, and marked sold out on 8 October 2026 — teaches the hand-rolled egg sheet (sfoglia) and the full repertoire of Bolognese fresh pasta — tortellini, tagliatelle, lasagne and more — worked by hand on the wooden board until dough is read by touch.",
               "confidence": "medium",
               "photos": {
                 "given": "2026-09-08",
@@ -18379,7 +18367,7 @@ window.ET_ATLAS = {
               "name": "Vakuum by Martin Lippo",
               "url": "https://martinlippo.com/en/",
               "course": "Classroom courses and online modules — sous-vide and low temperature, foams, sodas and siphon work, spherification, textures and texturizers, liquid nitrogen",
-              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish; when we read his site on 5 October 2026, the sessions it listed, priced from EUR 380, were 2025 dates marked out of stock, with no 2026 classroom date shown. English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
+              "blurb": "Martin Lippo's own laboratory and training school in Barcelona, where he teaches the modernist toolkit hands-on. Enrolment is open to anyone — no CV, no invitation, no stage to win. The classroom courses run in Spanish; when we read his site on 8 October 2026, every classroom session it listed, priced from EUR 380, had already run — the last in May 2026 — with no new date shown. English or French is a private course, quoted by email. The online modules are in English at EUR 80-95, or EUR 386 for the full foams pack. Checked on martinlippo.com, 1 September 2026. He is here for the city rather than for the technique. The same lab is the pick under New culinary techniques & technologies, which is where the toolkit itself is the subject — if it is the tools you want rather than the movement, start there.",
               "etRelationship": true,
               "confidence": "high",
               "photos": {
@@ -18963,7 +18951,7 @@ window.ET_ATLAS = {
             "heritage",
             "lineage"
           ],
-          "why": "Japan's most established culinary academy sits in the nation's kitchen, where the one-year Japanese Culinary Course readies you for the National Chef's License.",
+          "why": "Japan's most established culinary academy sits in the nation's kitchen, where the one-year Japanese Culinary Course is the ground for the National Chef's Licence — sat after two years in a kitchen, not on graduation.",
           "bestSeason": "Apr-Nov",
           "level": "Beginner -> Professional",
           "id": "sushi-and-washoku--osaka",
@@ -19136,7 +19124,7 @@ window.ET_ATLAS = {
             "school",
             "master-lab"
           ],
-          "why": "The strongest single-named-master sushi school outside Japan — Osaka-trained master Andy Matsuda teaches a full professional course hands-on near Los Angeles.",
+          "why": "The sushi school Osaka-trained master Andy Matsuda founded near Los Angeles still lists its full professional course; he died in 2026 and the site has not said who teaches it now.",
           "bestSeason": "Year-round",
           "level": "Beginner -> Professional",
           "id": "sushi-and-washoku--los-angeles-torrance",
@@ -19145,7 +19133,7 @@ window.ET_ATLAS = {
               "name": "Sushi Chef Institute",
               "url": "https://sushischool.net/",
               "course": "2-month Professional Course — rice, nigiri, sashimi, rolls, fish/shellfish prep, knife maintenance",
-              "blurb": "Founded in 2002 by master chef Andy Matsuda (Kobe-born, five-year Osaka apprenticeship, Yosei-kai member). A dedicated, openly enrollable sushi school — authoritative, though in California rather than at the source in Japan.",
+              "blurb": "Founded in 2002 by master chef Andy Matsuda (1956–2026; Kobe-born, five-year Osaka apprenticeship, Yosei-kai member). His own page now carries his dates, and the site does not yet say who teaches the course — ask before you book. A dedicated, openly enrollable sushi school — authoritative, though in California rather than at the source in Japan.",
               "confidence": "high",
               "facts": {
                 "where": "Van Ness Avenue, Torrance",
@@ -19156,18 +19144,6 @@ window.ET_ATLAS = {
                 "from": [
                   "https://sushischool.net/professional-course/"
                 ],
-                "read": "2026-09-17"
-              },
-              "teachers": {
-                "groups": [
-                  [
-                    "Instructor",
-                    [
-                      "Chef Andy Matsuda"
-                    ]
-                  ]
-                ],
-                "from": "https://sushischool.net/about-sci/",
                 "read": "2026-09-17"
               }
             }
@@ -19944,19 +19920,19 @@ window.ET_ATLAS = {
             {
               "name": "L'Ecole du Vin de Bordeaux (CIVB)",
               "url": "https://www.ecoleduvindebordeaux.com/en",
-              "course": "Tasting workshops, from 2 hours to a full day",
-              "blurb": "Created in 1989 by the Bordeaux Wine Council (CIVB), the Bordeaux Wine School runs tasting workshops at 3 cours du 30 Juillet in the centre of Bordeaux, from two hours to a nine-hour day, and accredits trainers who teach in more than twenty countries.",
+              "course": "Tasting workshops, from 90 minutes to a full day",
+              "blurb": "Created in 1989 by the Bordeaux Wine Council (CIVB), the Bordeaux Wine School runs tasting workshops at 3 cours du 30 Juillet in the centre of Bordeaux, from ninety minutes to a nine-hour day, and accredits trainers who teach in more than twenty countries.",
               "confidence": "high",
               "facts": {
                 "where": "3 cours du 30 Juillet, Bordeaux",
-                "length": "2 to 9 hours",
+                "length": "1.5 to 9 hours",
                 "price": "€180",
                 "priceNote": "the nine-hour tasting day; shorter workshops cost less",
                 "from": [
                   "https://www.ecoleduvindebordeaux.com/en/contact-us",
                   "https://www.ecoleduvindebordeaux.com/fr/ateliers-degustations/degustation-mode-demploi-en-journee"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "standing": {
                 "state": "course-gone",
@@ -20056,7 +20032,7 @@ window.ET_ATLAS = {
               "confidence": "high",
               "facts": {
                 "where": "Bermondsey Street, London Bridge",
-                "length": "500 hours of study, normally over 18 months to 3 years (Level 4 Diploma)",
+                "length": "500 hours of study, about 125 taught; 10 to 30 months by format (Level 4)",
                 "format": "Two semesters; evenings, Mondays, Saturdays, blocks or online",
                 "credential": "WSET qualifications, from Level 1 Awards to the Level 4 Diploma",
                 "price": "£2,900",
@@ -20065,10 +20041,10 @@ window.ET_ATLAS = {
                   "https://www.wsetglobal.com/wset-school-london/about-wset-school-london/where-we-are",
                   "https://www.wsetglobal.com/wset-school-london"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
-                "count": 23,
+                "count": 24,
                 "of": "wine educators (spirits, sake and beer educators listed separately)",
                 "from": "https://www.wsetglobal.com/wset-school-london/about-wset-school-london/our-educators/wine-educators",
                 "read": "2026-09-17"
@@ -20249,7 +20225,7 @@ window.ET_ATLAS = {
         "url": "https://www.wsetglobal.com/wset-school-london",
         "course": "WSET Level 4 Diploma in Wines (DipWSET)",
         "description": "Five hundred hours of study over two semesters at the International Wine & Spirit Centre on Bermondsey Street, taught in English by educators the school names, and examined by the body whose qualifications the trade measures by. It is the rung below the Master of Wine, and it is a classroom qualification rather than a harvest: you taste blind in cohorts, you sit written papers, and people resit them. The tasting school in Bordeaux no longer runs anything longer than a nine-hour day, which is why the recommendation moved here.",
-        "duration": "500 hours of study, normally 18 months to 3 years",
+        "duration": "500 hours of study, 10 to 30 months depending on format",
         "format": "Two semesters; evenings, Mondays, Saturdays, blocks or online",
         "certification": "WSET Level 4 Diploma in Wines (DipWSET)",
         "priceFrom": "£2,900",
@@ -20899,14 +20875,14 @@ window.ET_ATLAS = {
               "teachers": {
                 "groups": [
                   [
-                    "Teaches the December course",
+                    "Lead trainer",
                     [
                       "Valerian Hrala"
                     ]
                   ]
                 ],
-                "from": "https://bootcoffee.com/q-grader-course/",
-                "read": "2026-10-01"
+                "from": "https://bootcoffee.com/our-team/",
+                "read": "2026-10-08"
               },
               "photos": {
                 "given": "2026-10-01",
@@ -21042,7 +21018,7 @@ window.ET_ATLAS = {
             "scene",
             "school"
           ],
-          "why": "Two of the world's top ten bars on The World's 50 Best Bars 2025, and four of its top fifty, are in London; The Spirit Lab teaches a five-day course in a working development bar on Marylebone High Street.",
+          "why": "Three of The World's 50 Best Bars 2026 are in London, the Connaught Bar among its top ten; The Spirit Lab teaches a five-day course in a working development bar on Marylebone High Street.",
           "bestSeason": "Year-round",
           "level": "Beginner -> Professional bartender",
           "id": "mixology-and-bartending--london",
@@ -28033,7 +28009,7 @@ window.ET_ATLAS = {
         "certification": "Vakuum certificate of attendance",
         "fitsBecause": "It is a master-led avant-garde lab with genuine open enrolment and an unusually complete curriculum — the clearest fit for learning the technique at the source.",
         "sessions": [],
-        "priceNote": "He publishes no price for the classroom courses. They run in Spanish; English or French is a private course, quoted by email. The online modules are listed separately below. Checked on martinlippo.com, 31 August 2026.",
+        "priceNote": "His Spanish course pages print the classroom prices (the sous-vide course €580); the courses run in Spanish, and English or French is a private course, quoted by email. The online modules are listed separately below. Checked on martinlippo.com, 8 October 2026.",
         "confidence": "high"
       },
       "destinations": [
@@ -28057,7 +28033,7 @@ window.ET_ATLAS = {
             "school"
           ],
           "why": "The faculty above San Sebastián teaches the toolkit as a graded specialisation rather than a masterclass — five weeks on the Miramón campus, or an eight-ECTS online course taught by a former elBulli pastry chef.",
-          "bestSeason": "May-Jun on campus · Sep-Feb online",
+          "bestSeason": "May-Jun on campus · Feb-Jul online",
           "level": "Beginner -> Professional",
           "id": "modern-new-technique-cuisine--san-sebasti-n-donostia",
           "schoolsInfo": [
@@ -28101,7 +28077,7 @@ window.ET_ATLAS = {
               "name": "Basque Culinary Center — Técnicas Culinarias de Vanguardia (online)",
               "url": "https://www.bculinary.com/es/cursos-online/tecnicas-culinarias-de-vanguardia",
               "course": "Curso de Especialización Online de Técnicas Culinarias de Vanguardia — 8 ECTS",
-              "blurb": "The same faculty's avant-garde course at a distance: spherification, gelification, fermentation and vacuum cooking, 15 September 2026 to 18 February 2027, one live class a week on Thursdays 16:00-17:30 CEST, capped at 30 students, 2,310 EUR, in Spanish. Taught by Luis Arrufat, a former elBulli pastry chef, with Txema Urda — a named teacher out of the lineage, which the in-person specialisation does not advertise. Checked on bculinary.com, 1 September 2026. It is the online half of the same avant-garde specialisation, and one of two entries on this craft carrying ECTS credit (the in-person course is 6 ECTS).",
+              "blurb": "The same faculty's avant-garde course at a distance: spherification, gelification, fermentation and vacuum cooking, 23 February to 22 July 2027, one live class a week on Thursdays 16:00-17:30 CEST, capped at 30 students, 2,310 EUR, in Spanish. Taught by Luis Arrufat, a former elBulli pastry chef, with Txema Urda — a named teacher out of the lineage, which the in-person specialisation does not advertise. Checked on bculinary.com, 8 October 2026. It is the online half of the same avant-garde specialisation, and one of two entries on this craft carrying ECTS credit (the in-person course is 6 ECTS).",
               "confidence": "high",
               "verify": [
                 "2.310",
@@ -28109,7 +28085,7 @@ window.ET_ATLAS = {
               ],
               "facts": {
                 "where": "Online",
-                "length": "8 ECTS, 16 Sept 2026 to Feb 2027, about 12 hours a week",
+                "length": "8 ECTS, 23 Feb to 22 July 2027, about 12 hours a week",
                 "format": "Online; live class Thursdays 4pm-5:30pm CEST, recorded",
                 "language": "Spanish",
                 "class": "30 students at most",
@@ -28118,7 +28094,7 @@ window.ET_ATLAS = {
                 "from": [
                   "https://www.bculinary.com/es/cursos-online/tecnicas-culinarias-de-vanguardia"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -28339,7 +28315,7 @@ window.ET_ATLAS = {
               "facts": {
                 "where": "Passatge Centelles, Barcelona",
                 "length": "2 days, 14 hours (sous-vide course)",
-                "format": "10am-2pm and 3pm-6pm; each classroom course runs once a year",
+                "format": "10am-2pm and 3pm-6pm; the 2026 classroom dates have run, new dates pending",
                 "language": "Spanish; English or French only as a private course",
                 "credential": "Certificate of attendance signed by Martin Lippo",
                 "price": "€580",
@@ -28347,7 +28323,7 @@ window.ET_ATLAS = {
                   "https://martinlippo.com/curso/cocina-al-vacio-y-baja-temperatura/",
                   "https://martinlippo.com/en/classroom-courses/"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -28851,14 +28827,14 @@ window.ET_ATLAS = {
               "blurb": "At L'Hippocampe, 19 Avenue Thiers. MCA and RYA approved, and also IAMI/GUEST — so the interior route is taught to a real standard rather than treated as an afterthought.",
               "facts": {
                 "where": "L'Hippocampe, 19 Av Thiers, Antibes",
-                "length": "5 days, e.g. 12-16 October 2026",
+                "length": "5 days, e.g. 26-30 October 2026",
                 "language": "English",
                 "price": "€1,150",
                 "priceNote": "classes to February 2027; €1.180,00 from March 2027",
                 "from": [
                   "https://www.yachtcrewtraining.com/products/stcw-basic-safety-training?currency=EUR"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               }
             }
           ],
@@ -28983,7 +28959,7 @@ window.ET_ATLAS = {
               "url": "https://www.flyingfishonline.com/stcw/",
               "course": "STCW Basic Safety Training",
               "confidence": "high",
-              "blurb": "At 124 High Street. MCA and RYA approved, running two-week deckhand and steward/ess routes with the STCW modules built in.",
+              "blurb": "At 124 High Street. MCA and RYA approved, running 15-day deckhand and two-week steward/ess routes with the STCW modules built in.",
               "facts": {
                 "where": "Cowes Yacht Haven, Cowes",
                 "length": "6 days (five and a half, Monday lunchtime to Saturday)",
@@ -29074,7 +29050,7 @@ window.ET_ATLAS = {
               "url": "https://www.maritimeskillsacademy.com/",
               "course": "STCW Basic Safety Training",
               "confidence": "high",
-              "blurb": "Part of the Viking Maritime Group, at Menzies Road. Purpose-built survival pool, fire ground and lifeboat centre, with approvals from the MCA, the Bahamas Maritime Authority and the Nautical Institute.",
+              "blurb": "Part of the Viking Maritime Group, at Menzies Road. Purpose-built survival pool, fire ground and lifeboat centre, with approvals from the MCA, the Bahamas Maritime Authority and the International Association of Maritime Institutions.",
               "facts": {
                 "where": "Menzies Road, Whitfield, Dover",
                 "length": "5 days",
@@ -29289,13 +29265,13 @@ window.ET_ATLAS = {
                 "length": "12 weeks, 5 days a week",
                 "format": "Cooking 4 mornings a week; demonstrations in the afternoons",
                 "credential": "Certificate graded Distinction, Highly Commended or Pass",
-                "price": "€17,495",
-                "priceNote": "September 2026 intake; €17,695 for January 2027",
+                "price": "€17,695",
+                "priceNote": "January 2027 intake (waiting list); €17,850 for April 2027",
                 "from": [
                   "https://www.ballymaloecookeryschool.ie/certificate-cookery-course/12-week-certificate-course-overview",
                   "https://www.ballymaloecookeryschool.ie/certificate-cookery-course/course-outline"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -29358,7 +29334,6 @@ window.ET_ATLAS = {
         "certification": "Ballymaloe Cookery School Certificate (Distinction / Highly Commended / Pass)",
         "fitsBecause": "The farm is not a field trip here — it is the larder. The produce, dairy and meat come off the same 100 acres, the growers work alongside the cooks, and the founders still run the demonstrations themselves.",
         "sessions": [
-          "21 September 2026 – 11 December 2026 · €17,495",
           "4 January 2027 – 27 March 2027 · €17,695",
           "19 April 2027 – 9 July 2027 · €17,850"
         ],
@@ -29366,18 +29341,6 @@ window.ET_ATLAS = {
         "priceNote": "Fees are the school's own published figure for each intake, above. Accommodation — cottages on the farm or nearby — is arranged and paid separately. You go to the school directly: we take no commission and we are not part of the transaction.",
         "confidence": "high",
         "alternatives": [
-          {
-            "course": "Farm to Fork",
-            "duration": "2½ days",
-            "format": "Non-residential, 9am–2pm",
-            "school": "Ballymaloe Cookery School",
-            "place": "Shanagarry",
-            "url": "https://www.ballymaloecookeryschool.ie/courses/farm-to-fork",
-            "priceFrom": "€935",
-            "fit": "Shorter",
-            "note": "A tour of the organic farm, gardens, dairy and glasshouses, three demonstrations and two hands-on kitchen sessions, with the milking and the picking included — the whole idea in miniature, and none of the depth of the certificate.",
-            "confidence": "high"
-          },
           {
             "course": "A Week of Practical Homesteading",
             "duration": "1 week",
@@ -29391,7 +29354,7 @@ window.ET_ATLAS = {
             "confidence": "high"
           },
           {
-            "course": "Organic Farm School one-day courses — living soil, keeping hens, beekeeping, seed-saving, orchards",
+            "course": "Organic Farm School one-day courses — seed-saving, composting, beekeeping, orchards, cheesemaking",
             "duration": "1 day",
             "format": "Non-residential",
             "school": "Ballymaloe Organic Farm School",
@@ -29628,7 +29591,7 @@ window.ET_ATLAS = {
             "master-lab",
             "lineage"
           ],
-          "why": "Lassi Rautiainen has been photographing these bears since the 1970s and taking others to them since 1988, and around twenty individual brown bears still work the bog in front of his hides — along with wolves and wolverines.",
+          "why": "Lassi Rautiainen has been photographing these bears since the 1970s and taking others to them since 1991, and around twenty individual brown bears still work the bog in front of his hides — along with wolves and wolverines.",
           "bestSeason": "Apr-Aug (evenings and nights); Sep-Mar (daytime)",
           "level": "Beginner -> Professional",
           "id": "wildlife-photography--kuhmo",
@@ -29759,11 +29722,11 @@ window.ET_ATLAS = {
               "name": "Edward Selfe Photo Safaris",
               "url": "https://www.edwardselfephotosafaris.com/photographic-safaris",
               "course": "Set-departure and private photographic safaris — maximum 4 participants",
-              "blurb": "Selfe has lived in the Luangwa Valley since 2009 and holds both of South Luangwa's guiding qualifications, with fifteen years guiding and photographing across the continent. Groups usually cap at four (occasionally six), with 'practical technical and artistic guidance throughout' and one-to-one coaching on private trips. Note the scheduled departures currently published range across Uganda, the Mara, Serengeti, Botswana and Tanzania with South Luangwa returning in the Two Valley safari of 2029.",
+              "blurb": "Selfe has lived in the Luangwa Valley since 2009 and holds both of South Luangwa's guiding qualifications, with fifteen years guiding and photographing across the continent. Groups usually cap at four (occasionally six), with 'practical technical and artistic guidance throughout' and one-to-one coaching on private trips. Note the scheduled departures currently published range across Uganda, the Mara, Serengeti, Botswana and Tanzania with South Luangwa returning on a 2028 Kafue-and-Luangwa safari and the Two Valley safari of 2029.",
               "confidence": "high on his credentials, teaching and group size; prices and dates verified on his own booking page but the published set departures are 2028 and cost USD 16,000-32,000 per person",
               "facts": {
                 "where": "Eastern and Southern Africa",
-                "length": "8 to 18 nights, depending on the safari",
+                "length": "9 to 21 nights, depending on the safari",
                 "format": "Small groups guided from one vehicle; 2026-27 fully booked",
                 "class": "4 guests at most (occasionally 6)",
                 "price": "USD 18,500",
@@ -29772,7 +29735,7 @@ window.ET_ATLAS = {
                   "https://www.edwardselfephotosafaris.com/photographic-safaris",
                   "https://www.edwardselfephotosafaris.com/about"
                 ],
-                "read": "2026-09-17"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [
@@ -30087,14 +30050,13 @@ window.ET_ATLAS = {
                 "where": "Mallorca; venue sent 2 weeks ahead",
                 "length": "2 weeks",
                 "format": "Galley teaching, then 3 days and nights aboard",
-                "language": "English",
                 "credential": "None — not a Ship's Cook Certificate",
                 "price": "€3,950",
-                "priceNote": "all-in: accommodation, meals and transfers; flights out",
+                "priceNote": "accommodation, meals and villa transfers in; flights and airport transfers out",
                 "from": [
                   "https://www.anchorandapron.co/training"
                 ],
-                "read": "2026-10-07"
+                "read": "2026-10-08"
               },
               "teachers": {
                 "groups": [

@@ -176,9 +176,17 @@ def manifest_claims(manifest, open_ids, only=None):
     # unlocked stays full. Decay is the wedge; this is the claim class the
     # decay-catcher was pointed away from.
     #
-    # `what` carries the question number so the report says which answer is at risk,
-    # and `verify` is the evidence's own `what` string — the thing we said that page
-    # showed. If the page no longer says it, the dot no longer stands.
+    # `what` carries the question number so the report says which answer is at risk.
+    #
+    # ⚠ An evidence entry's `what` is a LABEL — "Cowes Week's own site, on the
+    # bicentenary regatta and the 2027 dates" — written by us about the page, not
+    # copied from it. From 8 September to 7 October 2026 this check searched every
+    # evidence page for its own label, so all 24 of them "failed" every night from the
+    # day they were added, the job went red thirty nights running, and the two claims
+    # that had really changed were buried under them. A label can never be found on a
+    # page. So the evidence is verified only where it carries its own `verify` quotes;
+    # otherwise it is re-read for reachability alone and reported as thin, which is
+    # the truth of what we hold on it.
     for cid, mm in (manifest.get("measure") or {}).items():
         if cid not in open_ids or (only and cid != only):
             continue
@@ -189,7 +197,7 @@ def manifest_claims(manifest, open_ids, only=None):
                 out.append({"craft": cid, "where": "", "what": f"measure q{i}",
                             "name": ev.get("what", "") or f"evidence for answer {i}",
                             "url": ev["url"],
-                            "verify": [ev["what"]] if ev.get("what") else []})
+                            "verify": list(ev.get("verify") or [])})
     # ── the place intros ──────────────────────────────────────────────────────
     # A place intro is the one block on this map allowed to say something the craft
     # record does not hold — what the town is like, what is eaten there, what is
@@ -238,9 +246,21 @@ def claims(disc, open_ids, only=None):
         for x in d["destinations"]:
             for sch in x.get("schoolsInfo") or []:
                 if sch.get("url"):
+                    # A school's verify strings were read somewhere on ITS pages — the
+                    # Visit link, or the pages its facts and teachers cite. EPGB's
+                    # "Saray Ruiz" sits on /equip/, which facts.from names, and failed
+                    # twenty nights against the course page the Visit link points at.
+                    # So a string missing from the primary page is looked for on every
+                    # page the entry itself cites before it counts as gone.
+                    alt = []
+                    for blk in (sch.get("facts"), sch.get("teachers"), sch.get("standing")):
+                        fr = (blk or {}).get("from")
+                        for u in ([fr] if isinstance(fr, str) else (fr or [])):
+                            if str(u).startswith(("http://", "https://")) and u != sch["url"] and u not in alt:
+                                alt.append(u)
                     out.append({"craft": d["id"], "where": x["place"], "what": "school",
                                 "name": sch["name"], "url": sch["url"],
-                                "verify": sch.get("verify") or []})
+                                "verify": sch.get("verify") or [], "alt": alt})
         for r in (d.get("sweep") or {}).get("rejected") or []:
             if r.get("url"):
                 out.append({"craft": d["id"], "where": r.get("place", ""), "what": "rejected",
@@ -311,6 +331,16 @@ def check_one(c, timeout):
         return r
     text = norm(_html.unescape(_ANYTAG.sub(" ", _TAGS.sub(" ", body))))
     r["missing"] = [v for v in c["verify"] if norm(v) not in text]
+    # Still missing: look on the other pages this entry cites (see `alt` in claims()).
+    # Only a readable alternative page can rescue a string; a wall or a 404 cannot.
+    for u in (c.get("alt") or []) if r["missing"] else []:
+        st2, _, body2 = fetch(u, timeout)
+        if st2 != 200 or body2.startswith("__ERR__"):
+            continue
+        text2 = norm(_html.unescape(_ANYTAG.sub(" ", _TAGS.sub(" ", body2))))
+        r["missing"] = [v for v in r["missing"] if norm(v) not in text2]
+        if not r["missing"]:
+            break
     r["ok"] = not r["missing"]
     return r
 
