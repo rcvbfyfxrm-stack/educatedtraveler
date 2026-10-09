@@ -3537,12 +3537,27 @@
       "date": "15 September 2026"
     },
     "modern-new-technique-cuisine--melbourne-lilydale": {
-      "text": "Lilydale is where Melbourne stops and the Yarra Valley starts. The valley was Victoria's first wine-growing district, with a history running back nearly 180 years, and it holds over 90 cellar doors now — which turns the drive out of town into a series of decisions rather than a transfer. Melbourne itself has been a UNESCO Creative City of Literature since 2008, and it rewards the same habit the valley does: the good rooms are the ones you have to be told about. Give the trip a day at each end — the valley in daylight, the city after dark.",
+      "text": "Lilydale is where Melbourne stops and the Yarra Valley starts. The valley is Victoria's oldest wine-growing region — the regional wine body calls it the birthplace of Victorian wine, with a 170-year legacy — and over eighty wineries work it now, which turns the drive out of town into a series of decisions rather than a transfer. Melbourne itself has been a UNESCO Creative City of Literature since 2008, and it rewards the same habit the valley does: the good rooms are the ones you have to be told about. Give the trip a day at each end — the valley in daylight, the city after dark.",
       "sources": [
         {
           "url": "https://www.visityarravalley.com.au/see-and-do/wineries",
-          "what": "over 90 cellar doors to explore. It was also Victoria's first wine-growing district with a history stretching back nearly 180 years",
-          "read": "13 September 2026"
+          "what": "as Victoria's oldest winegrowing region, the Yarra Valley has a long history of winemaking",
+          "read": "8 October 2026"
+        },
+        {
+          "url": "https://wineyarravalley.com.au/",
+          "what": "the birthplace of Victorian wine",
+          "read": "8 October 2026"
+        },
+        {
+          "url": "https://wineyarravalley.com.au/",
+          "what": "170-year legacy",
+          "read": "8 October 2026"
+        },
+        {
+          "url": "https://wineyarravalley.com.au/",
+          "what": "Over eighty wineries span the Yarra Valley",
+          "read": "8 October 2026"
         },
         {
           "url": "https://www.unesco.org/en/creative-cities/melbourne",
@@ -3556,7 +3571,7 @@
         }
       ],
       "checker": "Arnaud Callier",
-      "date": "15 September 2026"
+      "date": "9 October 2026"
     },
     "modern-new-technique-cuisine--puebla-mexico-city": {
       "text": "Puebla sits under a live volcano. Popocatépetl stands between the two cities this entry covers — Mexico City at 19 million people and Puebla at 2.6 million — and on a clear morning you see it from the street. The other constant is on the table: the artisanal talavera of Puebla was inscribed on the Representative List of the Intangible Cultural Heritage of Humanity in 2019, which is a plate being protected rather than a recipe. Eat off it while you are here. It changes how the food reads, which is a lesson a technique lab cannot teach you.",
@@ -3669,36 +3684,41 @@
       "date": "15 September 2026"
     },
     "ashtanga-yoga--mysore-gokulam": {
-      "text": "You will be in Gokulam before dawn and loose in the city by the afternoon, so the city is worth knowing. Karnataka's tourism department calls Mysuru its Cultural Capital; the palace at the centre draws over six million people annually, and Devaraja Market, going back to the time of Chamaraja Wodeyar IX, is where the everyday version happens. Time it if you can — Mysuru Dasara is celebrated in October, at the very front of the season, and the city turns out for it. Otherwise go to the market early and buy fruit you cannot name.",
+      "text": "You will be in Gokulam before dawn and loose in the city by the afternoon, so the city is worth knowing. Karnataka's tourism department calls Mysuru its Cultural Capital; the palace at the centre draws over six million people annually, and Devaraja Market — flowers, incense, sandalwood and spices, in a city the Wodeyars ruled from 1399 to Independence — is where the everyday version happens. Time it if you can — Mysuru Dasara runs 11 to 21 October in 2026, at the very front of the season, and the city turns out for it. Otherwise go to the market early and buy fruit you cannot name.",
       "sources": [
         {
-          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
-          "what": "The Cultural Capital Of Karnataka",
-          "read": "16 September 2026"
+          "url": "https://karnatakatourism.org/en/destinations/mysuru/",
+          "what": "Cultural capital of Karnataka",
+          "read": "8 October 2026"
         },
         {
-          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
+          "url": "https://karnatakatourism.org/en/destinations/mysuru/",
           "what": "The palace draws over six million people annually",
-          "read": "16 September 2026"
+          "read": "8 October 2026"
         },
         {
-          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
-          "what": "Devaraja Market is one of Mysuru",
-          "read": "16 September 2026"
+          "url": "https://karnatakatourism.org/en/destinations/mysuru/",
+          "what": "Stroll through the vibrant Devaraja Market, famous for fresh local flowers, traditional incense sticks, sandalwood products, and spices",
+          "read": "8 October 2026"
         },
         {
-          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
-          "what": "Rising from the time of Chamaraja Wodeyar IX",
-          "read": "16 September 2026"
+          "url": "https://karnatakatourism.org/en/destinations/mysuru/",
+          "what": "Under the Wodeyars from 1399 to Independence",
+          "read": "8 October 2026"
         },
         {
-          "url": "https://www.karnatakatourism.org/destinations/mysuru/",
-          "what": "Celebrated in October, Mysuru Dasara",
-          "read": "16 September 2026"
+          "url": "https://karnatakatourism.org/en/destinations/mysuru/",
+          "what": "Mysuru Dasara celebrations",
+          "read": "8 October 2026"
+        },
+        {
+          "url": "https://mysoredasara.gov.in/",
+          "what": "October 11, to Wednesday, October 21, 2026",
+          "read": "8 October 2026"
         }
       ],
       "checker": "Arnaud Callier",
-      "date": "16 September 2026"
+      "date": "9 October 2026"
     },
     "perfumery--grasse": {
       "text": "The town keeps a Musée International de la Parfumerie, and its gardens are run as a conservatoire de plantes à parfum — a living collection of the plants the trade is built on, which is a different proposition from a museum of bottles. Our own record marks the rose and jasmine harvest as the season here, so when you come decides whether you meet the fields working or resting. Give an evening to the old town above the museum: it is steep, and it is where Grasse stops being an industry and goes back to being a hill town.",
@@ -3775,6 +3795,28 @@
       ],
       "checker": "Arnaud Callier",
       "date": "16 September 2026"
+    },
+    "self-sufficiency--sunseed-almeria": {
+      "text": "You are moving into a protected semi-desert, and Andalucía's environment department is the one that says so. The valley sits inside the Paraje Natural Karst en Yesos de Sorbas, and the same register lists the Paraje Natural Desierto de Tabernas and the Parque Natural Cabo de Gata-Níjar within reach of it — gypsum karst, desert and a coastal park, none of it landscaped for visitors. Water is the argument in a landscape like this one. Walk the river canyon in your first week; it explains the rest.",
+      "sources": [
+        {
+          "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+          "what": "Paraje Natural Karst en Yesos de Sorbas",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+          "what": "Paraje Natural Desierto de Tabernas",
+          "read": "16 September 2026"
+        },
+        {
+          "url": "https://www.juntadeandalucia.es/medioambiente/portal/areas-tematicas/espacios-protegidos",
+          "what": "Parque Natural Cabo de Gata-Níjar",
+          "read": "16 September 2026"
+        }
+      ],
+      "checker": "Arnaud Callier",
+      "date": "9 October 2026"
     }
   },
   "_placeIntroDebtFloor_comment": "The ratchet on the place intro, same shape as measureDebtFloor and ladderDebtFloor: the debt is printed every night, it may never grow, and lowering the floor is a one-line edit that can never drift back up. ⚠ THE HEADROOM IS NOT 1 HERE and that is the one difference from the other two. They count CRAFTS, so a craft opening overnight costs exactly one and their 'debt + 1' absorbs it. This counts DESTINATIONS, and a craft opening at 04:05 brings all of its places at once — the largest locked craft currently carries six. A floor with one place of headroom would stop the unattended nightly for everybody on a night nobody had failed at anything, which is the precise failure the ladder floor walked into on 7 September. The build prints the headroom rather than leaving it to be guessed. Today: 97 open places with no intro, headroom 6, floor 103 — the number the build itself printed. ⭐ 4 Oct 2026: raised to 111 because the COUNTED SET GREW, not the debt — Arnaud opened Coffee & Barista by hand (pinnedOpen), which brought its five places in at once (London, Melbourne, Portland, San Rafael, Yirgacheffe). 105 with no intro + headroom 6. Intros are his to sign; none was written for these. ⚠ 8 of the open places are PRESERVED redirect stubs (self-sufficiency--sunseed-almeria, japanese-knife-making--kurogane-shimanto, lymphatic-drainage--walchsee and others) — the build never writes those pages, so an intro signed for one renders nowhere and check 20 fails. They need inject-related-handwritten.py, like the places table did.",
