@@ -276,7 +276,7 @@
         "note": "counted as a failing claim before this check told a transport error from a page that moved",
         "moved": "2026-09-10"
       },
-      "unreachable": 30
+      "unreachable": 31
     },
     "sound-healing|Globe Institute - Sound Healing Center (Sausalito)": {
       "failing": 0,
@@ -498,9 +498,7 @@
       "failing": 0,
       "url": "https://uksa.org/course/professional-yachtmaster-offshore/",
       "last_seen": "2026-10-09",
-      "last_status": 0,
-      "why": "TimeoutError: The read operation timed out",
-      "unreachable": 1
+      "last_status": 200
     },
     "sailing-and-yachtmaster|RYA Day Skipper Practical": {
       "failing": 0,
@@ -1517,7 +1515,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>",
-      "insecure": 2
+      "insecure": 3
     },
     "wildlife-photography|Full service package, per night": {
       "failing": 0,
@@ -1525,7 +1523,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>",
-      "insecure": 2
+      "insecure": 3
     },
     "wildlife-photography|Private low-angle hide, per night": {
       "failing": 0,
@@ -1533,7 +1531,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>",
-      "insecure": 2
+      "insecure": 3
     },
     "wildlife-photography|Bence Máté's Hides": {
       "failing": 0,
@@ -1553,7 +1551,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>",
-      "insecure": 2
+      "insecure": 3
     },
     "wildlife-photography|Paul Goldstein Photo Safaris / Kicheche Camps": {
       "failing": 0,
@@ -1682,32 +1680,28 @@
       "last_status": 200
     },
     "modernist-spanish-cuisine|Madrid Fusión — Alimentos de España": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.madridfusion.net/en/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Madrid Fusión — Alimentos de España"
+      "last_status": 200
     },
     "ashtanga-yoga|Karnataka Tourism — the state department's own page on Mysuru": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.karnatakatourism.org/destinations/mysuru/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Karnataka Tourism — the state department's own page on Mysuru"
+      "last_status": 200
     },
     "jewelry-and-goldsmithing|the Schmuckmuseum Pforzheim, the town's jewellery museum": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.schmuckmuseum.de/en/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Schmuckmuseum Pforzheim, the town's jewellery museum"
+      "last_status": 200
     },
     "kitesurfing|the Global Kitesports Association's own event calendar": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://gkakiteworldtour.com/events/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Global Kitesports Association's own event calendar"
+      "last_status": 200
     },
     "new-basque-cuisine|San Sebastián Gastronomika": {
       "failing": 0,
@@ -1716,144 +1710,124 @@
       "last_status": 200
     },
     "perfumery|UNESCO, Representative List of the Intangible Cultural Heritage of Humanity, 2018": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://ich.unesco.org/en/RL/01207",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: UNESCO, Representative List of the Intangible Cultural Heritage of Humanity, 2018"
+      "last_status": 200
     },
     "photography|Paris Photo, at the Grand Palais": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.parisphoto.com/en-gb.html",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Paris Photo, at the Grand Palais"
+      "last_status": 200
     },
     "freediving|CMAS's own record of the 8th World Championship Freediving Depth": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.cmas.org/freediving-events/8th-cmas-freediving-depth-world-championship.html",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: CMAS's own record of the 8th World Championship Freediving Depth"
+      "last_status": 200
     },
     "pottery-and-ceramics|the Mashiko Tourist Association's own page on the town and its Pottery Fair": {
-      "failing": 31,
+      "failing": 0,
       "url": "http://www.mashiko-kankou.org/english/mta1/mashikoyaki/toukiiti/tokiichi.htm",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Mashiko Tourist Association's own page on the town and its Pottery Fair"
+      "last_status": 200
     },
     "rock-climbing|the National Park Service's own climbing pages for Yosemite": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.nps.gov/yose/planyourvisit/climbing.htm",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the National Park Service's own climbing pages for Yosemite"
+      "last_status": 200
     },
     "rock-climbing|the Kalymnos guidebook's own route database and public rebolt log": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://climbkalymnos.com/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Kalymnos guidebook's own route database and public rebolt log"
+      "last_status": 200
     },
     "safari-and-wildlife-guiding|the Maasai Mara Wildlife Conservancies Association on its own membership": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://maraconservancies.org/about-us/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Maasai Mara Wildlife Conservancies Association on its own membership"
+      "last_status": 200
     },
     "sailing-and-yachtmaster|Cowes Week's own site, on the bicentenary regatta and the 2027 dates": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.cowesweek.co.uk/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Cowes Week's own site, on the bicentenary regatta and the 2027 dates"
+      "last_status": 200
     },
     "sailing-and-yachtmaster|the RYA's own contact page, showing its head office at Hamble-le-Rice": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.rya.org.uk/about-us/contact-us/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the RYA's own contact page, showing its head office at Hamble-le-Rice"
+      "last_status": 200
     },
     "ski-touring-and-splitboard|the Patrouille des Glaciers, organised by the Swiss Army, on its own races and routes": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.pdg.ch/en/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Patrouille des Glaciers, organised by the Swiss Army, on its own races and routes"
+      "last_status": 200
     },
     "spearfishing|the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.ffpsa.net/coupe-de-france-de-peche-sous-marine-25-avril-2026-resultats-de-la-manche-cote-dazur",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Fédération Française de Pêche Sportive en Apnée on its own Côte d'Azur cup round"
+      "last_status": 200
     },
     "surfing|the World Surf League's own 2026 event page for Peniche": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.worldsurfleague.com/events/2026/ct/445/meo-rip-curl-pro-portugal/main",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the World Surf League's own 2026 event page for Peniche"
+      "last_status": 200
     },
     "thai-massage|UNESCO's Representative List entry for Nuad Thai": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://ich.unesco.org/en/RL/nuad-thai-traditional-thai-massage-01384",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: UNESCO's Representative List entry for Nuad Thai"
+      "last_status": 200
     },
     "thai-massage|UNESCO's Memory of the World entry for the Epigraphic Archives of Wat Pho": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.unesco.org/en/memory-world/epigraphic-archives-wat-pho",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: UNESCO's Memory of the World entry for the Epigraphic Archives of Wat Pho"
+      "last_status": 200
     },
     "wildlife-photography|Kiskunság National Park on the Pusztaszer Landscape Protection Area": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.knp.hu/en/pusztaszer-landscape-protection-area",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Kiskunság National Park on the Pusztaszer Landscape Protection Area"
+      "last_status": 200
     },
     "wildlife-photography|the Maasai Mara Wildlife Conservancies Association on its own membership": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://maraconservancies.org/about-us/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Maasai Mara Wildlife Conservancies Association on its own membership"
+      "last_status": 200
     },
     "windsurfing-and-wing-foil|the PWA World Tour's own 2026 calendar": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.pwaworldtour.com/events/2026/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the PWA World Tour's own 2026 calendar"
+      "last_status": 200
     },
     "wine-and-sommellerie|the Union des Grands Crus de Bordeaux on its members and En Primeur Week": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.ugcb.net/en",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: the Union des Grands Crus de Bordeaux on its members and En Primeur Week"
+      "last_status": 200
     },
     "yacht-crew-and-stcw|Port Vauban's own site, on its berths and capacity": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://leportvauban.com/en/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Port Vauban's own site, on its berths and capacity"
+      "last_status": 200
     },
     "yacht-crew-and-stcw|Cowes Week's own site, on the bicentenary regatta and the 2027 dates": {
-      "failing": 31,
+      "failing": 0,
       "url": "https://www.cowesweek.co.uk/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Cowes Week's own site, on the bicentenary regatta and the 2027 dates"
+      "last_status": 200
     },
     "surfing|Save The Waves on the Ericeira World Surfing Reserve": {
       "failing": 16,
@@ -1887,11 +1861,10 @@
       "last_status": 200
     },
     "self-sufficiency|Sunseed Desert Technology": {
-      "failing": 24,
+      "failing": 0,
       "url": "https://www.sunseed.org.uk/get-involved",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: ram pump"
+      "last_status": 200
     },
     "modern-new-technique-cuisine|Culinary Institute of Barcelona (CIB)": {
       "failing": 0,
@@ -1900,11 +1873,10 @@
       "last_status": 200
     },
     "japanese-knife-making|TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association": {
-      "failing": 24,
+      "failing": 0,
       "url": "https://kougeihin.jp/en/craft/0713/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association"
+      "last_status": 200
     },
     "italian-cuisine-and-pasta|62 km of arcades along the entire urban stretch, Bologna is the City of Porticoes. Named a UNESCO World Heritage Site in 2021": {
       "failing": 0,
@@ -1919,7 +1891,7 @@
       "last_status": 200
     },
     "italian-cuisine-and-pasta|Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio": {
-      "failing": 19,
+      "failing": 20,
       "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52022XC0609(01)",
       "last_seen": "2026-10-09",
       "last_status": 202,
@@ -1998,7 +1970,7 @@
       "last_status": 200
     },
     "modern-new-technique-cuisine|over 90 cellar doors to explore. It was also Victoria's first wine-growing district with a history stretching back nearly 180 years": {
-      "failing": 8,
+      "failing": 9,
       "url": "https://www.visityarravalley.com.au/see-and-do/wineries",
       "last_seen": "2026-10-09",
       "last_status": 200,
@@ -2119,21 +2091,21 @@
       "last_status": 200
     },
     "ashtanga-yoga|Devaraja Market is one of Mysuru": {
-      "failing": 10,
+      "failing": 11,
       "url": "https://www.karnatakatourism.org/destinations/mysuru/",
       "last_seen": "2026-10-09",
       "last_status": 200,
       "why": "no longer says: Devaraja Market is one of Mysuru"
     },
     "ashtanga-yoga|Rising from the time of Chamaraja Wodeyar IX": {
-      "failing": 10,
+      "failing": 11,
       "url": "https://www.karnatakatourism.org/destinations/mysuru/",
       "last_seen": "2026-10-09",
       "last_status": 200,
       "why": "no longer says: Rising from the time of Chamaraja Wodeyar IX"
     },
     "ashtanga-yoga|Celebrated in October, Mysuru Dasara": {
-      "failing": 10,
+      "failing": 11,
       "url": "https://www.karnatakatourism.org/destinations/mysuru/",
       "last_seen": "2026-10-09",
       "last_status": 200,
@@ -2145,7 +2117,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>",
-      "insecure": 24
+      "insecure": 25
     },
     "perfumery|Un conservatoire de plantes à parfum": {
       "failing": 0,
@@ -2153,7 +2125,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>",
-      "insecure": 24
+      "insecure": 25
     },
     "rock-climbing|Bear resistant food containers": {
       "failing": 0,
@@ -2228,18 +2200,16 @@
       "last_status": 200
     },
     "french-pastry-and-patisserie|El Món Dolç de Claudia (International Pastry Academy)": {
-      "failing": 22,
+      "failing": 0,
       "url": "https://www.elmondolcdeclaudia.com/en/147-intensive-courses",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: training yacht chefs"
+      "last_status": 200
     },
     "french-pastry-and-patisserie|Escola de Pastisseria del Gremi de Barcelona (EPGB)": {
-      "failing": 22,
+      "failing": 0,
       "url": "https://www.escoladepastisseria.cat/xef-de-pastisseria/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Saray Ruiz"
+      "last_status": 200
     },
     "italian-cuisine-and-pasta|Bologna Cooking School": {
       "failing": 0,
@@ -2314,11 +2284,10 @@
       "last_status": 200
     },
     "coffee-and-barista|Daily Coffee News on the 2025 World Barista Championship": {
-      "failing": 5,
+      "failing": 0,
       "url": "https://dailycoffeenews.com/2025/10/21/jack-simpson-of-australia-is-the-2025-world-barista-champion/",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Daily Coffee News on the 2025 World Barista Championship"
+      "last_status": 200
     },
     "chocolate-and-confectionery|L'École Valrhona (via École Chocolat residential program)": {
       "failing": 0,
@@ -2380,7 +2349,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [Errno 111] Connection refused>",
-      "unreachable": 3
+      "unreachable": 4
     },
     "mixology-and-bartending|Cocktail-making workshop": {
       "failing": 0,
@@ -2388,7 +2357,7 @@
       "last_seen": "2026-10-09",
       "last_status": 0,
       "why": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>",
-      "unreachable": 3
+      "unreachable": 4
     },
     "mixology-and-bartending|The Spirit Lab": {
       "failing": 0,
@@ -2409,33 +2378,36 @@
       "last_status": 200
     },
     "chocolate-and-confectionery|Focus on Belgium (Belgian Federal Public Service Foreign Affairs), on Belgian chocolate": {
-      "failing": 3,
+      "failing": 0,
       "url": "https://focusonbelgium.be/en/facts/did-you-know-belgium-produces-over-220000-tons-chocolate-every-year",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: Focus on Belgium (Belgian Federal Public Service Foreign Affairs), on Belgian chocolate"
+      "last_status": 200
     },
     "mixology-and-bartending|The World's 50 Best Bars 2025, the official list": {
-      "failing": 3,
+      "failing": 0,
       "url": "https://www.the50.com/bars/list/1-50",
       "last_seen": "2026-10-09",
-      "last_status": 200,
-      "why": "no longer says: The World's 50 Best Bars 2025, the official list"
+      "last_status": 200
     },
     "chef-at-sea|Dockwalk — yacht crew recruitment agencies in Palma": {
-      "failing": 3,
+      "failing": 0,
       "url": "https://www.dockwalk.com/jobs/yacht-crew-recruitment-agencies-palma",
       "last_seen": "2026-10-09",
-      "last_status": 202,
-      "why": "no longer says: Dockwalk — yacht crew recruitment agencies in Palma"
+      "last_status": 202
     },
     "spearfishing|Estérel Sea School": {
       "failing": 0,
       "url": "https://www.esterelseaschool.com/",
       "last_seen": "2026-10-09",
       "last_status": 200
+    },
+    "organic-farm-to-table-cooking|Organic Farm School one-day courses — seed-saving, composting, beekeeping, orchards, cheesemaking": {
+      "failing": 0,
+      "url": "https://www.ballymaloecookeryschool.ie/farm-school",
+      "last_seen": "2026-10-09",
+      "last_status": 200
     }
   },
   "checked_at": "2026-10-09",
-  "checked": 415
+  "checked": 414
 }
