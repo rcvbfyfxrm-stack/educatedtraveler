@@ -111,13 +111,39 @@ h2{font-family:Fraunces,Georgia,serif;font-size:19px;margin:34px 0 10px;font-wei
 .card{background:#14110d;border:1px solid rgba(243,237,226,.13);border-radius:10px;padding:20px 22px;margin:14px 0}
 ul{margin:10px 0;padding-left:20px}li{margin:8px 0}
 .q li{color:#d28a52}
-a{color:#7fa8a5}
+a{color:#7fa8a5;overflow-wrap:anywhere}
 .btn{display:inline-block;border:1px solid rgba(243,237,226,.3);border-radius:8px;
 padding:13px 20px;margin:8px 10px 8px 0;text-decoration:none;color:#f3ede2;font-size:15px}
 .btn.yes{border-color:#7fa8a5}.btn.no{border-color:#d28a52}
 .src{font-size:13.5px;color:rgba(243,237,226,.7)}
 footer{margin-top:44px;border-top:1px solid rgba(243,237,226,.13);padding-top:18px;
-font-size:13px;color:rgba(243,237,226,.55)}"""
+font-size:13px;color:rgba(243,237,226,.55)}
+.atlas{--ink2:#14110d;--line:rgba(243,237,226,0.09);--sea:#7fa8a5;--ember:#d28a52;--muted:rgba(243,237,226,0.56);--faint:rgba(243,237,226,0.34)}
+.atlas ul.schools{list-style:none;padding:0;margin:14px 0;display:grid;gap:14px}
+.atlas li.school{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:22px 24px;margin:0}
+.atlas .schoolshot{float:right;width:92px;height:92px;object-fit:cover;border-radius:10px;border:1px solid var(--line);margin:2px 0 8px 14px}
+.atlas .stags{margin:0 0 10px}
+.atlas .stag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:6px;padding:3px 9px;margin:0 6px 6px 0;color:var(--muted)}
+.atlas .sname{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:24px;line-height:1.24;margin:2px 0 4px}
+.atlas .scourse{font-size:15px;color:var(--sea);margin:0 0 14px;max-width:62ch}
+.atlas dl.sfacts{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px 18px;margin:0 0 16px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);clear:both}
+.atlas dl.sfacts dt{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.atlas dl.sfacts dd{font-size:14px;line-height:1.45;margin:3px 0 0}
+.atlas .sblurb{font-size:15px;opacity:.82;max-width:62ch}
+.atlas .meta{font-size:13.5px;color:var(--muted)}
+.atlas details.smore{margin-top:12px}
+.atlas details.smore>summary{cursor:pointer;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sea)}
+.atlas details.smore>summary::-webkit-details-marker{display:none}
+.atlas details.smore>summary::before{content:"+ "}
+.atlas details.smore[open]>summary::before{content:"− "}
+.atlas .shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px 14px;align-items:start}
+.atlas .shots figure{margin:0}
+.atlas .shots figure.wide{grid-column:1/-1}
+.atlas .shots img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:var(--ink2)}
+.atlas .shots figcaption{font-size:13px;opacity:.6;margin-top:8px;line-height:1.55}
+.atlas .sfoot{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px}
+.atlas .school-url{font-size:14px;color:var(--sea)}
+@media (max-width:560px){.atlas li.school{padding:18px}.atlas dl.sfacts{grid-template-columns:1fr 1fr}.atlas .schoolshot{width:66px;height:66px;margin-left:11px}}"""
 
 def mailto(subject, body):
     from urllib.parse import quote
@@ -128,6 +154,7 @@ def page(c, amend=None):
     lines = "".join(f"<li>{e(x)}</li>" for x in c["weWouldPublish"])
     qs = "".join(f"<li>{e(x)}</li>" for x in c.get("weCouldNotAnswer", []))
     srcs = "".join(f'<li class="src">{e(s["what"])} — <a href="{e(s["url"])}">{e(s["url"])}</a>, read {e(s["read"])}</li>'
+                   if s.get("url") else f'<li class="src">{e(s["what"])}</li>'   # a source with no page: an email, a call
                    for s in c.get("sources", []))
     teacher = f'<p class="mono">Teacher we would name: {e(c["teacher"])}</p>' if c.get("teacher") else \
               '<p class="mono">We name no teacher — we could not establish one</p>'
@@ -171,6 +198,54 @@ def page(c, amend=None):
                       'posted, and we will credit it to you and link back. That costs you nothing to '
                       'find.</p>'
                       f'<p><a class="btn" href="{pm}">Send photographs</a></p></div>')
+    card = c.get("cardPreview") or {}
+    if card:
+        # THE CARD AS IT WOULD STAND ON THE ATLAS — the school-card markup and styles of
+        # build-atlas-pages.py, so a school sees its own photographs where they would go,
+        # with the same credit and provenance lines, before anything is published.
+        ph = card.get("photos") or {}
+        items = ph.get("items") or []
+        for im in items:
+            if not (ROOT / "website" / im["src"].lstrip("/")).exists():
+                raise SystemExit(f"build-validation-pages: {name} lists a photograph not in the repo: {im['src']}")
+            if not (im.get("alt") or "").strip():
+                raise SystemExit(f"build-validation-pages: {im['src']} has no alt text.")
+        shot = (f'<img class="schoolshot" src="/{e(items[0]["src"])}" alt="{e(items[0]["alt"])}" '
+                'width="150" height="150" loading="lazy" decoding="async">') if items else ""
+        cells = "".join(f'<div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k, v in card.get("facts", []))
+        figs = "".join(
+            f'<figure{" class=\"wide\"" if im.get("wide") else ""}><img src="/{e(im["src"])}" alt="{e(im["alt"])}" '
+            f'width="{int(im["w"])}" height="{int(im["h"])}" loading="lazy" decoding="async">'
+            + (f'<figcaption>{e(im["caption"])}</figcaption>' if im.get("caption") else "") + '</figure>'
+            for im in items)
+        photos = ""
+        if items:
+            photos = ('<details class="smore" open><summary>Photographs from the school</summary>'
+                      '<div class="mono" style="margin-top:14px">Sent by the school</div>'
+                      f'<p class="meta" style="margin:8px 0 18px;max-width:62ch">{e(name)} sent these when I wrote '
+                      "to ask whether this page described the school correctly. They are the school's own "
+                      "photographs, published with its permission and credited to it — and they do not move "
+                      "it up the page: where it sits was decided from its own course pages, before I wrote. "
+                      "Any school on this page can have the same space, on the same terms.</p>"
+                      + (f'<p class="meta" style="margin:0 0 18px;max-width:62ch">{e(ph["note"])}</p>' if ph.get("note") else "")
+                      + f'<div class="shots">{figs}</div>'
+                      f'<p class="meta" style="margin-top:14px">Photographs: {e(ph.get("credit") or name)}'
+                      f'{", sent by " + e(ph["by"]) if ph.get("by") else ""}'
+                      f'{", " + e(ph["given"]) if ph.get("given") else ""}. Used with permission; all rights remain theirs.</p>'
+                      '</details>')
+        visit = (f'<div class="sfoot"><a class="school-url svisit" rel="nofollow noopener" target="_blank" href="{e(card['url'])}">Visit {e(name)} ↗</a></div>'
+                 if card.get("url") else "")
+        photo_html += ('<h2>How it would look on the Atlas</h2>'
+                       '<p class="src" style="margin-top:0">The card as it would stand on the Mixology page, '
+                       'photographs included. Nothing here is published. If a photograph should not be used, '
+                       'or the credit is wrong, say so and it comes off.</p>'
+                       '<div class="atlas"><ul class="schools"><li class="school">'
+                       + (f'<div class="stags">{"".join(f"<span class=\"stag\">{e(t)}</span>" for t in card.get("tags", []))}</div>' if card.get("tags") else "")
+                       + f'<h3 class="sname">{shot}{e(name)}</h3>'
+                       + (f'<div class="scourse">{e(card["course"])}</div>' if card.get("course") else "")
+                       + (f'<dl class="sfacts">{cells}</dl>' if cells else "")
+                       + (f'<p class="sblurb">{e(card["blurb"])}</p>' if card.get("blurb") else "")
+                       + photos + visit + '</li></ul></div>')
     amend_html = ""
     if amend:
         amend_html = ('<div class="card" style="border-left:3px solid #d28a52">'

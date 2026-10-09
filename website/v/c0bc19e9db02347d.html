@@ -15,13 +15,39 @@ h2{font-family:Fraunces,Georgia,serif;font-size:19px;margin:34px 0 10px;font-wei
 .card{background:#14110d;border:1px solid rgba(243,237,226,.13);border-radius:10px;padding:20px 22px;margin:14px 0}
 ul{margin:10px 0;padding-left:20px}li{margin:8px 0}
 .q li{color:#d28a52}
-a{color:#7fa8a5}
+a{color:#7fa8a5;overflow-wrap:anywhere}
 .btn{display:inline-block;border:1px solid rgba(243,237,226,.3);border-radius:8px;
 padding:13px 20px;margin:8px 10px 8px 0;text-decoration:none;color:#f3ede2;font-size:15px}
 .btn.yes{border-color:#7fa8a5}.btn.no{border-color:#d28a52}
 .src{font-size:13.5px;color:rgba(243,237,226,.7)}
 footer{margin-top:44px;border-top:1px solid rgba(243,237,226,.13);padding-top:18px;
-font-size:13px;color:rgba(243,237,226,.55)}</style></head><body><div class="wrap">
+font-size:13px;color:rgba(243,237,226,.55)}
+.atlas{--ink2:#14110d;--line:rgba(243,237,226,0.09);--sea:#7fa8a5;--ember:#d28a52;--muted:rgba(243,237,226,0.56);--faint:rgba(243,237,226,0.34)}
+.atlas ul.schools{list-style:none;padding:0;margin:14px 0;display:grid;gap:14px}
+.atlas li.school{background:var(--ink2);border:1px solid var(--line);border-radius:10px;padding:22px 24px;margin:0}
+.atlas .schoolshot{float:right;width:92px;height:92px;object-fit:cover;border-radius:10px;border:1px solid var(--line);margin:2px 0 8px 14px}
+.atlas .stags{margin:0 0 10px}
+.atlas .stag{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:6px;padding:3px 9px;margin:0 6px 6px 0;color:var(--muted)}
+.atlas .sname{font-family:Fraunces,Georgia,serif;font-weight:400;font-size:24px;line-height:1.24;margin:2px 0 4px}
+.atlas .scourse{font-size:15px;color:var(--sea);margin:0 0 14px;max-width:62ch}
+.atlas dl.sfacts{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px 18px;margin:0 0 16px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);clear:both}
+.atlas dl.sfacts dt{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.atlas dl.sfacts dd{font-size:14px;line-height:1.45;margin:3px 0 0}
+.atlas .sblurb{font-size:15px;opacity:.82;max-width:62ch}
+.atlas .meta{font-size:13.5px;color:var(--muted)}
+.atlas details.smore{margin-top:12px}
+.atlas details.smore>summary{cursor:pointer;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sea)}
+.atlas details.smore>summary::-webkit-details-marker{display:none}
+.atlas details.smore>summary::before{content:"+ "}
+.atlas details.smore[open]>summary::before{content:"− "}
+.atlas .shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px 14px;align-items:start}
+.atlas .shots figure{margin:0}
+.atlas .shots figure.wide{grid-column:1/-1}
+.atlas .shots img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:var(--ink2)}
+.atlas .shots figcaption{font-size:13px;opacity:.6;margin-top:8px;line-height:1.55}
+.atlas .sfoot{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px}
+.atlas .school-url{font-size:14px;color:var(--sea)}
+@media (max-width:560px){.atlas li.school{padding:18px}.atlas dl.sfacts{grid-template-columns:1fr 1fr}.atlas .schoolshot{width:66px;height:66px;margin-left:11px}}</style></head><body><div class="wrap">
 <p class="mono">EducatedTraveler · before we publish</p>
 <h1>Obata Shuzo — Gakkogura</h1>
 <p class="sub">Sake brewing · Sado Island, Niigata, Japan</p>
