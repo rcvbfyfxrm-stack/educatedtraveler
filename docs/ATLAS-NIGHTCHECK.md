@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-10-09 — 421 published claims re-read against the pages they came from, across 37 open crafts._
+_2026-10-10 — 421 published claims re-read against the pages they came from, across 37 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -22,54 +22,70 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 32 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 33 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- pottery-and-ceramics · Hamada Shoji Memorial Mashiko Sankokan — 1 night — URLError: <urlopen error timed out>
-  - https://mashiko-sankokan.net/
-- french-pastry-and-patisserie · Escola de Pastisseria del Gremi de Barcelona (EPGB) — 1 night — URLError: <urlopen error timed out>
-  - https://www.escoladepastisseria.cat/xef-de-pastisseria/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 5 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 6 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 5 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
+- mixology-and-bartending · Cocktail-making workshop — 6 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
   - https://www.havanaclubmuseum.com/en/experiences/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **wildlife-photography · Shared photo hide, per night** — 4 nights — https://www.wildfinland.org/prices.html
+- **wildlife-photography · Shared photo hide, per night** — 5 nights — https://www.wildfinland.org/prices.html
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>
-- **wildlife-photography · Full service package, per night** — 4 nights — https://www.wildfinland.org/prices.html
+- **wildlife-photography · Full service package, per night** — 5 nights — https://www.wildfinland.org/prices.html
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>
-- **wildlife-photography · Private low-angle hide, per night** — 4 nights — https://www.wildfinland.org/prices.html
+- **wildlife-photography · Private low-angle hide, per night** — 5 nights — https://www.wildfinland.org/prices.html
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>
-- **wildlife-photography · Wildlife Safaris Finland** — 4 nights — https://www.wildfinland.org/
+- **wildlife-photography · Wildlife Safaris Finland** — 5 nights — https://www.wildfinland.org/
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>
-- **perfumery · Musée International de la Parfumerie** — 26 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 27 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 26 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 27 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
 
-- surfing · Save The Waves on the Ericeira World Surfing Reserve
+_none._
 
 ## Unreadable, not gone
 
 These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not a school that closed. Never escalated, because a check that cries wolf gets muted. If one matters, open it in a browser; that is the only way to know.
 
+- hatha-and-vinyasa-yoga · The Yoga Barn — HTTP 403
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
+- ashtanga-yoga · Stillpoint Yoga London — HTTP 403
+- vipassana-and-meditation · Insight Meditation Society (IMS) — HTTP 403
+- sound-healing · British Academy of Sound Therapy — HTTP 403
+- sailing-and-yachtmaster · Hamble Point Sailing School — HTTP 403
+- surfing · Baleal Surf Camp — HTTP 403
+- kitesurfing · HST Windsurfing & Kitesurfing School — HTTP 403
+- kitesurfing · Private Single Kitesurfing Lesson — HTTP 403
+- kitesurfing · Action Sports Maui — HTTP 403
+- kitesurfing · Laurel Eastman Kiteboarding — HTTP 403
+- kitesurfing · GoKite Cabarete — HTTP 403
+- windsurfing-and-wing-foil · HST Windsurfing & Kitesurfing School — HTTP 403
+- windsurfing-and-wing-foil · Action Sports Maui — HTTP 403
 - windsurfing-and-wing-foil · Naxos Surf Club — HTTP 403
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
 - photography · Magnum Photos workshops (Arles) — HTTP 403
 - photography · London College of Communication (UAL) — HTTP 403
 - photography · Central Saint Martins (UAL) — HTTP 403
+- jewelry-and-goldsmithing · Le Arti Orafe Jewellery School (LAO) — HTTP 403
+- jewelry-and-goldsmithing · Complete Stone Setting Course — HTTP 403
+- jewelry-and-goldsmithing · Introduction to Rhino3D for Goldsmithing (CAD.WE1) — HTTP 403
+- jewelry-and-goldsmithing · Le Arti Orafe Jewellery School (LAO) — HTTP 403
+- jewelry-and-goldsmithing · Alchimia Contemporary Jewellery School — HTTP 403
 - wine-and-sommellerie · L'Ecole du Vin de Bordeaux (CIVB) — HTTP 403
+- wine-and-sommellerie · Institute of Masters of Wine — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
 - mixology-and-bartending · European Bartender School London — HTTP 403
+- wildlife-photography · Paul Goldstein Photo Safaris / Kicheche Camps — HTTP 403
 - wildlife-photography · Falmouth University — HTTP 403
+- surfing · Save The Waves on the Ericeira World Surfing Reserve — HTTP 403
 - chef-at-sea · Dockwalk — yacht crew recruitment agencies in Palma — HTTP 202
-- italian-cuisine-and-pasta · Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio — HTTP 202
 
 
 
@@ -77,13 +93,13 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 
 Informational, never escalated. A rejected place going offline is usually the reason it was rejected. What would matter here is the opposite — one coming back — and no status code can tell you that.
 
-- pottery-and-ceramics · Bizen / Seto / Tokoname (Six Ancient Kilns), as a place on this page — URLError: <urlopen error timed out>
-- modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error timed out>
+- modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
 - coffee-and-barista · Yirgacheffe / Addis Ababa, as a place on this page — HTTP 403
 - coffee-and-barista · Coffee Craft Academy — URLError: <urlopen error [Errno -2] Name or service not known>
 - mixology-and-bartending · Havana, as a place on this page — URLError: <urlopen error [Errno 111] Connection refused>
 - mixology-and-bartending · European Bartender School New York — HTTP 403
-- modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error timed out>
+- modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
+- modern-new-technique-cuisine · Modernist Cuisine Lab (Nathan Myhrvold) — HTTP 403
 
 ## Claims with nothing to verify against
 
@@ -96,14 +112,12 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - hatha-and-vinyasa-yoga · Rishikesh · Yoga Niketan Ashram
 - hatha-and-vinyasa-yoga · Mysore · Indea Yoga
 - hatha-and-vinyasa-yoga · Mysore · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- hatha-and-vinyasa-yoga · Ubud, Bali · The Yoga Barn
 - hatha-and-vinyasa-yoga · Ubud, Bali · Radiantly Alive
 - hatha-and-vinyasa-yoga · Ubud, Bali · Ubud Yoga Centre
 - hatha-and-vinyasa-yoga · Encinitas, California · Soul of Yoga
 - ashtanga-yoga · Mysore (Gokulam) · Sharath Yoga Centre (SYC)
 - ashtanga-yoga · Mysore (Gokulam) · K. Pattabhi Jois Ashtanga Yoga Shala (Saraswathi Jois)
 - ashtanga-yoga · Mysore (Gokulam) · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- ashtanga-yoga · London · Stillpoint Yoga London
 - ashtanga-yoga · London · Astanga Yoga London (AYL)
 - ashtanga-yoga · London · Yoga Place
 - ashtanga-yoga · New York City · Ashtanga Yoga New York (Eddie Stern)
@@ -115,7 +129,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - vipassana-and-meditation · Yangon · International Meditation Centre (U Ba Khin tradition)
 - vipassana-and-meditation · Chiang Mai · Wat Ram Poeng (Tapotaram) Northern Insight Meditation Centre
 - vipassana-and-meditation · Chiang Mai · Wat Suan Dok (Monk Chat / meditation retreats)
-- vipassana-and-meditation · Barre, Massachusetts · Insight Meditation Society (IMS)
 - vipassana-and-meditation · Barre, Massachusetts · Barre Center for Buddhist Studies
 - sound-healing · Kathmandu (Budhanilkantha) · Pragya Yoga School
 - sound-healing · Kathmandu (Budhanilkantha) · 4 Days / 20 Hours Basic Level Singing Bowl Sound Healing Training
@@ -125,7 +138,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - sound-healing · San Francisco / Bay Area · Globe Institute - Sound Healing Center (Sausalito)
 - sound-healing · San Francisco / Bay Area · California Institute of Integral Studies (sound-related programs)
 - sound-healing · England · The College of Sound Healing
-- sound-healing · England · British Academy of Sound Therapy
 - thai-massage · Chiang Mai · Old Medicine Hospital Thai Massage School Shivagakomarpaj (OMH)
 - thai-massage · Chiang Mai · Introduction to Thai Massage
 - thai-massage · Chiang Mai · One Day Drop-In Pass
@@ -149,5 +161,9 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Kalamata & the Mani · Kalamata Freedivers
 - spearfishing · Antibes, Côte d'Azur · CREPS PACA (Antibes)
 - spearfishing · Côte d'Azur (Cassis to Antibes) · FFESSM-affiliated pêche sous-marine clubs (Côte d'Azur)
+- spearfishing · Côte d'Azur (Cassis to Antibes) · Estérel Sea School
+- spearfishing · Kona, Big Island · Kona Freedivers
+- spearfishing · Kona, Big Island · Top Shot Spearfishing
+- spearfishing · Cabo San Lucas / Sea of Cortez · Spearfishing Baja (Cabo San Lucas)
 
-_295 in total._
+_274 in total._
