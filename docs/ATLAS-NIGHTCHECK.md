@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-10-10 — 421 published claims re-read against the pages they came from, across 37 open crafts._
+_2026-10-11 — 421 published claims re-read against the pages they came from, across 37 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -22,28 +22,48 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 33 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- hatha-and-vinyasa-yoga · Sivananda Ashram (Divine Life Society) — 1 night — URLError: <urlopen error timed out>
+  - https://www.sivanandaonline.org/
+- vipassana-and-meditation · Chanmyay Yeiktha Meditation Centre — 1 night — URLError: <urlopen error timed out>
+  - https://chanmyaysayadaw.org/
+- sound-healing · Pokhara Yoga School and Retreat Center — 34 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 6 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- sound-healing · Globe Institute - Sound Healing Center (Sausalito) — 1 night — URLError: <urlopen error timed out>
+  - https://soundhealingcenter.com/
+- surfing · Hans Hedemann Surf School — 1 night — URLError: <urlopen error timed out>
+  - https://hhsurf.com/waikiki-multi-day-surf-lesson-packages/
+- surfing · Canggu Bali Surf Lesson (Odysseys Surf School) — 1 night — URLError: <urlopen error timed out>
+  - https://surflessoncanggu.com/
+- chocolate-and-confectionery · Melissa Coppel Chocolate & Pastry School — 1 night — URLError: <urlopen error timed out>
+  - https://school.melissacoppel.com/classes/march-2027-chocolate-bootcamp/
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 7 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 6 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
+- mixology-and-bartending · Cocktail-making workshop — 7 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
   - https://www.havanaclubmuseum.com/en/experiences/
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
+  - https://www.francecompetences.fr/recherche/rncp/38765/
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 2 — Entremets et petits gâteaux — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
+  - https://www.francecompetences.fr/recherche/rncp/38765/
+- jewelry-and-goldsmithing · the Schmuckmuseum Pforzheim, the town's jewellery museum — 1 night — URLError: <urlopen error timed out>
+  - https://www.schmuckmuseum.de/en/
+- safari-and-wildlife-guiding · the Maasai Mara Wildlife Conservancies Association on its own membership — 1 night — URLError: <urlopen error timed out>
+  - https://maraconservancies.org/about-us/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **wildlife-photography · Shared photo hide, per night** — 5 nights — https://www.wildfinland.org/prices.html
+- **wildlife-photography · Shared photo hide, per night** — 6 nights — https://www.wildfinland.org/prices.html
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>
-- **wildlife-photography · Full service package, per night** — 5 nights — https://www.wildfinland.org/prices.html
+- **wildlife-photography · Full service package, per night** — 6 nights — https://www.wildfinland.org/prices.html
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>
-- **wildlife-photography · Private low-angle hide, per night** — 5 nights — https://www.wildfinland.org/prices.html
+- **wildlife-photography · Private low-angle hide, per night** — 6 nights — https://www.wildfinland.org/prices.html
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>
-- **wildlife-photography · Wildlife Safaris Finland** — 5 nights — https://www.wildfinland.org/
+- **wildlife-photography · Wildlife Safaris Finland** — 6 nights — https://www.wildfinland.org/
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.wildfinland.org'. (_ssl.c:1010)>
-- **perfumery · Musée International de la Parfumerie** — 27 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 28 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 27 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 28 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
@@ -93,6 +113,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 
 Informational, never escalated. A rejected place going offline is usually the reason it was rejected. What would matter here is the opposite — one coming back — and no status code can tell you that.
 
+- chocolate-and-confectionery · Caracas, as a place on this page — URLError: <urlopen error timed out>
 - modernist-spanish-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
 - coffee-and-barista · Yirgacheffe / Addis Ababa, as a place on this page — HTTP 403
 - coffee-and-barista · Coffee Craft Academy — URLError: <urlopen error [Errno -2] Name or service not known>
