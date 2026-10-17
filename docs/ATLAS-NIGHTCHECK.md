@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-10-16 — 421 published claims re-read against the pages they came from, across 37 open crafts._
+_2026-10-17 — 421 published claims re-read against the pages they came from, across 37 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -22,24 +22,28 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 39 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 40 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 12 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- new-basque-cuisine · Escuela de Cocina Luis Irizar — 1 night — URLError: <urlopen error timed out>
+  - https://escuelairizar.com/english/
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 13 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 12 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
+- mixology-and-bartending · Cocktail-making workshop — 13 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
   - https://www.havanaclubmuseum.com/en/experiences/
-- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — 1 night — IncompleteRead: IncompleteRead(215994 bytes read)
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — 2 nights — IncompleteRead: IncompleteRead(179130 bytes read)
   - https://www.francecompetences.fr/recherche/rncp/38765/
-- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 1 — Petits fours et gâteaux de voyage — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 1 — Petits fours et gâteaux de voyage — 2 nights — IncompleteRead: IncompleteRead(207802 bytes read)
+  - https://www.francecompetences.fr/recherche/rncp/38765/
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — Bloc 2 — Entremets et petits gâteaux — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
   - https://www.francecompetences.fr/recherche/rncp/38765/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **perfumery · Musée International de la Parfumerie** — 33 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 34 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 33 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 34 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
