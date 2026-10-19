@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-10-18 — 421 published claims re-read against the pages they came from, across 37 open crafts._
+_2026-10-19 — 421 published claims re-read against the pages they came from, across 37 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -10,7 +10,8 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 **Only the server's own answer reaches this list** — a 404, a 410, or a page that no longer carries what we published. A request that never became a response is two sections down and is not a takedown: on 7 September 2026 this section held two entries and both were wrong, one a timeout on our own runner and one a certificate that did not match a hostname.
 
-_none._
+- **wine-and-sommellerie · Université de Bordeaux DUAD (oenology)** — https://formations-isvv.u-bordeaux.fr/d-u-a-d-diplome-universitaire-daptitude-a-la-degustation.html
+  - HTTP 503
 
 ## Gone tonight — the server says the page does not exist
 
@@ -22,24 +23,26 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 41 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- ashtanga-yoga · Ashtanga Yoga New York (Eddie Stern) — 1 night — URLError: <urlopen error timed out>
+  - https://eddiestern.com/
+- sound-healing · Pokhara Yoga School and Retreat Center — 42 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 1 night — URLError: <urlopen error timed out>
-  - https://www.taiwa.ac.jp/global/en/kyocho.php
-- sushi-and-washoku · La Carriere Cooking School (since 1931) — 1 night — URLError: <urlopen error timed out>
-  - https://www.taiwa.ac.jp/lacarriere/en/course/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 14 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- perfumery · Cinquième Sens — 1 night — TimeoutError: The read operation timed out
+  - https://www.cinquiemesens.com
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 15 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 14 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
+- mixology-and-bartending · Cocktail-making workshop — 15 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
   - https://www.havanaclubmuseum.com/en/experiences/
+- french-pastry-and-patisserie · the CAP Pâtissier, the French state diploma — 1 night — IncompleteRead: IncompleteRead(179130 bytes read)
+  - https://www.francecompetences.fr/recherche/rncp/38765/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **perfumery · Musée International de la Parfumerie** — 35 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 36 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 35 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 36 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
@@ -82,6 +85,7 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - wildlife-photography · Falmouth University — HTTP 403
 - surfing · Save The Waves on the Ericeira World Surfing Reserve — HTTP 403
 - chef-at-sea · Dockwalk — yacht crew recruitment agencies in Palma — HTTP 202
+- italian-cuisine-and-pasta · Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio — HTTP 202
 
 
 
