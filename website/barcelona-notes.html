@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0d0b09">
+<title>Your note on the week — Lab Week 01, Barcelona — EducatedTraveler</title>
+<meta name="description" content="For the chefs of Lab Week 01 with Martín Lippo, Barcelona, 22–26 October 2026: your note on the week.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://educatedtraveler.app/barcelona-notes">
+<link rel="icon" href="/favicon.svg">
+<script>document.documentElement.className += ' js';</script>
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Warm-Dark Editorial lock — same tokens as /barcelona and /around-the-week.
+     Sent by hand to the chefs of Lab Week 01 once the week is over. It asks
+     for their note on the week: four taps against ET's three promises (and
+     the bubble), three short lines, one free note, one private box, and
+     consent to show it. Unlisted on purpose (noindex, not in the sitemap).
+     Every question can be skipped; only name and email are needed.
+
+     The questions follow the survey evidence in the review folder's
+     EVIDENCE.md: item-specific answers, every option labelled in words, one
+     idea per question, ~3 minutes, a peak-moment question, a bigger box with
+     one line on why it matters, and a private box beside the public note. */
+  :root{
+    --ink:#0d0b09; --ink-2:#14110d; --paper:#f3ede2; --sea:#7fa8a5; --sea-deep:#2f5754; --ember:#d28a52;
+    --line:rgba(243,237,226,0.09); --soft:rgba(243,237,226,0.72); --softer:rgba(243,237,226,0.5);
+    --on-paper:#1f1913; --on-paper-soft:#4a4038;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+  body{margin:0;background:var(--ink);color:var(--paper);font-family:var(--sans);font-size:16.5px;line-height:1.6;overflow-x:hidden}
+  ::selection{background:var(--sea);color:var(--ink)}
+  a{color:var(--sea)}
+  a:hover{color:var(--paper)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
+  .skip{position:absolute;left:-999px;top:0;background:var(--paper);color:var(--ink);padding:.6rem 1rem;border-radius:0 0 6px 0;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;z-index:9}
+  .skip:focus{left:0}
+
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:.85rem;padding-bottom:.6rem;max-width:1100px}
+  .wordmark{font-family:var(--serif);font-size:clamp(14px,1.6vw,16px);letter-spacing:.16em;color:var(--paper);text-decoration:none}
+  .wordmark b{font-weight:300;color:var(--sea)}
+  .wrap{width:100%;max-width:680px;margin:0 auto;padding:0 1.4rem}
+
+  /* ── the opening ── */
+  .open{padding:2.2rem 0 .4rem}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2.4rem,8vw,4.2rem);line-height:1;margin:0 0 1rem;letter-spacing:-.015em;text-wrap:balance}
+  .dates{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:0 0 1.1rem;line-height:1.9}
+  .sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,3vw,1.45rem);line-height:1.4;color:var(--paper);max-width:30em;margin:0 0 .9rem}
+  p{margin:.7rem 0;max-width:62ch;color:var(--soft)}
+  .hi{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);border:1px solid var(--sea);border-radius:999px;display:inline-block;padding:.45rem .9rem;margin:0 0 1rem}
+  .promises{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0 .4rem;padding:0;list-style:none}
+  .promises li{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--paper);border-bottom:1px solid var(--sea);padding:0 .1rem .15rem}
+  .me{font-size:.98rem;color:var(--soft);margin:0 0 1.2rem}
+  .me b{color:var(--paper);font-weight:500}
+  .linkish{background:none;border:0;padding:0;font:inherit;color:var(--sea);text-decoration:underline;cursor:pointer}
+
+  /* ── the questions ── */
+  .part{padding:2.6rem 0 0;border-top:1px solid var(--line);margin-top:2.4rem}
+  .step{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin:0 0 .2rem}
+  h2.big{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,6vw,3rem);line-height:1.05;margin:.3rem 0 .7rem;color:var(--paper);letter-spacing:-.01em}
+  fieldset{border:0;margin:0 0 2.2rem;padding:0;min-width:0}
+  legend{padding:0;max-width:100%}
+  .promise{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:0 0 .35rem}
+  .ask{display:block;font-family:var(--serif);font-size:clamp(1.25rem,3.6vw,1.6rem);line-height:1.25;color:var(--paper);margin:0 0 .3rem;text-wrap:balance}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.9rem}
+  @media (max-width:420px){.opts{grid-template-columns:1fr}}
+  .pill{display:flex;align-items:center;gap:.8rem;padding:.85rem 1.1rem .85rem 1rem;border:1.5px solid var(--sea);border-radius:999px;background:transparent;color:var(--paper);font-family:var(--sans);font-size:.98rem;line-height:1.3;cursor:pointer;min-height:52px;touch-action:manipulation;-webkit-tap-highlight-color:rgba(127,168,165,.18);transition:background .18s,color .18s,border-color .18s}
+  .pill:hover{border-color:var(--paper)}
+  .pill:has(input:checked){background:var(--sea);border-color:var(--sea);color:var(--ink)}
+  .pill input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;margin:0;border:1.5px solid currentColor;border-radius:50%;display:grid;place-content:center;background:transparent}
+  .pill input[type=checkbox]{border-radius:5px}
+  .pill input::before{content:"";width:10px;height:10px;transform:scale(0);background:var(--ink);border-radius:50%;transition:transform .15s}
+  .pill input[type=checkbox]::before{border-radius:0;width:12px;height:12px;clip-path:polygon(14% 44%,0 65%,50% 100%,100% 16%,80% 0,43% 62%)}
+  .pill input:checked{background:var(--paper);border-color:var(--paper)}
+  .pill input:checked::before{transform:scale(1)}
+  .pill input:focus-visible{outline:2px solid var(--paper);outline-offset:3px}
+  .pill:has(input:checked) input:focus-visible{outline-color:var(--ink)}
+  .clear{margin:.6rem 0 0;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+  .consent .pill{border-radius:14px;align-items:flex-start;padding:1rem 1.1rem}
+  .consent .pill input{margin-top:.1rem}
+
+  .field{margin:0 0 1.6rem}
+  .field label{display:block;font-family:var(--serif);font-size:clamp(1.15rem,3.2vw,1.4rem);line-height:1.3;color:var(--paper);margin:0 0 .25rem}
+  .field .say{font-size:.95rem;line-height:1.5;color:var(--soft);margin:0 0 .6rem}
+  .field .opt{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--softer)}
+  .field.small label{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+  input[type=text],input[type=email],textarea{width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:6px;color:var(--paper);font-family:var(--sans);font-size:1rem;line-height:1.5;padding:.85rem 1rem}
+  textarea{min-height:6rem;resize:vertical}
+  textarea.long{min-height:15rem;font-family:var(--serif);font-size:1.08rem;line-height:1.7}
+  input:focus,textarea:focus{outline:none;border-color:var(--sea);box-shadow:0 0 0 3px rgba(127,168,165,.28)}
+  [aria-invalid=true]{border-color:var(--paper) !important}
+  input::placeholder,textarea::placeholder{color:rgba(243,237,226,0.34)}
+  .at{position:relative}
+  .at span{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--soft);pointer-events:none}
+  .at input{padding-left:2rem}
+  .private{border-left:2px dashed var(--ember);padding-left:1rem}
+
+  /* ── the sticker ── a polaroid of the chef, drawn live from what they type.
+     Same paper print as the cards on /around-the-week. */
+  figure{margin:0}
+  .sticker-wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.6rem;align-items:center;margin:.6rem 0 1.4rem}
+  @media (max-width:560px){.sticker-wrap{grid-template-columns:1fr}}
+  .sticker{position:relative;width:min(100%,300px);background:linear-gradient(165deg,#f8f3e8,#efe7d8);color:var(--on-paper);padding:12px 12px 14px;border-radius:3px;transform:rotate(-2deg);
+           box-shadow:0 0 0 5px #fbf8f1,0 0 0 6px rgba(0,0,0,.18),0 24px 44px -18px rgba(0,0,0,.95),0 3px 0 rgba(0,0,0,.2);margin:1.3rem auto .9rem}
+  .sticker::before{content:"";position:absolute;left:50%;top:-13px;width:92px;height:24px;transform:translateX(-50%) rotate(1.5deg);background:rgba(127,168,165,.58);border-radius:1px;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+  .sticker .film{position:relative;aspect-ratio:1;background:#1a1612;display:grid;place-content:center;overflow:hidden}
+  .sticker .film img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}
+  .sticker .film .initials{font-family:var(--serif);font-style:italic;font-size:3.4rem;color:rgba(243,237,226,.38)}
+  @media (prefers-reduced-motion:no-preference){
+    .sticker .film img.develop{animation:develop 1.6s cubic-bezier(.3,.6,.3,1) both}
+    @keyframes develop{0%{opacity:.15;filter:brightness(.25) contrast(1.4) sepia(.5)}45%{opacity:1;filter:brightness(.55) contrast(1.2) sepia(.3)}100%{filter:none}}
+  }
+  .sticker .cap{padding:12px 4px 0}
+  .sticker .cap b{display:block;font-family:var(--serif);font-weight:600;font-size:1.22rem;line-height:1.15;color:var(--on-paper);letter-spacing:-.01em;overflow-wrap:anywhere}
+  .sticker .cap small{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sea-deep);margin-top:.3rem;overflow-wrap:anywhere}
+  .sticker .cap i{display:block;font-family:var(--serif);font-style:italic;font-size:.98rem;line-height:1.35;color:var(--on-paper-soft);margin-top:.35rem}
+  .sticker .cap i:empty,.sticker .cap q:empty,.sticker .cap small:empty{display:none}
+  .sticker .cap q{display:block;font-family:var(--serif);font-size:.92rem;line-height:1.4;color:var(--on-paper);margin-top:.65rem;padding-top:.55rem;border-top:1px solid rgba(31,25,19,.14);quotes:"\201C" "\201D"}
+  .sticker .cap .foot{display:block;font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(74,64,56,.75);margin-top:.8rem}
+  .done-sticker{margin:1.4rem 0 .4rem}
+  .photo-ctl{position:relative;display:flex;flex-direction:column;gap:.6rem;min-width:200px}
+  .photo-ctl .btn{padding:.9rem 1.2rem;font-size:.74rem;width:100%}
+  .photo-ctl input[type=file]{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none}
+  .private .opt{color:var(--ember)}
+
+  .btn{display:block;width:100%;text-align:center;font-family:var(--mono);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:0;border-radius:6px;padding:1.15rem 1.5rem;cursor:pointer;touch-action:manipulation}
+  .btn-primary{background:var(--paper);color:var(--ink);font-weight:500}
+  .btn-primary:hover:not(:disabled){background:#ffffff}
+  .btn-primary:disabled{background:var(--ink-2);color:var(--softer);border:1px solid var(--line);cursor:not-allowed}
+  .btn-ghost{border:1px solid var(--line);color:var(--paper);background:none}
+  .btn-ghost:hover{border-color:var(--sea)}
+  .cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin:1.3rem 0 .4rem}
+  .cta-row .btn{display:inline-block;width:auto;padding:.9rem 1.4rem;font-size:.78rem}
+  .fine{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;line-height:1.9;color:var(--softer);margin:1rem 0 0;max-width:none}
+  .msg{font-size:.92rem;border-radius:6px;padding:.85rem 1rem;margin:1rem 0 0;background:var(--ink-2);border:1px solid var(--sea);color:var(--paper)}
+  .panel{background:var(--ink-2);border:1px solid var(--line);border-top:2px solid var(--sea);border-radius:6px;padding:1.4rem 1.5rem;margin:2.4rem 0 1.4rem}
+  .panel h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,4vw,2rem);margin:0 0 .6rem;overflow-wrap:anywhere}
+  .preview-tag{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ember)}
+  .progress{position:sticky;top:0;z-index:5;height:3px;background:var(--line)}
+  .progress i{display:block;height:100%;width:0;background:var(--sea);transition:width .3s}
+  [hidden]{display:none !important}
+
+  .credits{border-top:1px solid var(--line);margin-top:2.4rem;padding-top:1.2rem;padding-bottom:2.4rem}
+  .sig{font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--soft);margin:0 0 .6rem}
+  .foot{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;line-height:2;color:var(--softer);max-width:none;margin:0}
+</style>
+</head>
+<body>
+<a class="skip" href="#f-note">Skip to your note</a>
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="/" translate="no">EDUCATED<b>TRAVELER</b></a>
+  </div>
+</div>
+
+<form id="nform" novalidate>
+<main id="main">
+<div class="wrap">
+
+  <section class="open">
+    <p class="hi" id="hi" hidden></p>
+    <p class="dates">Lab Week 01 · Vakuum, Barcelona · <span style="white-space:nowrap">22–26 October 2026</span></p>
+    <h1>Five days in a bubble.</h1>
+    <p class="sub">Thank you for being in that room.</p>
+    <p>Before the week fades into the next charter, I'd like your honest read of it. It takes about three minutes, mostly taps, and you can skip any question.</p>
+    <p>EducatedTraveler makes three promises. Tell me whether this week kept them. An honest answer helps me more than a kind word.</p>
+    <ul class="promises"><li>a person</li><li>a place</li><li>your people</li></ul>
+  </section>
+
+  <section class="part" aria-labelledby="h-taps">
+    <p class="step">Part one · four taps</p>
+    <h2 class="big" id="h-taps">Did the week keep its promises?</h2>
+
+    <fieldset data-q="person">
+      <legend><span class="promise">1 · A person</span><span class="ask">How much of the teaching came from Martín himself?</span></legend>
+      <div class="opts">
+        <label class="pill"><input type="radio" name="person" value="all"><span>All of it</span></label>
+        <label class="pill"><input type="radio" name="person" value="most"><span>Most of it</span></label>
+        <label class="pill"><input type="radio" name="person" value="half"><span>About half</span></label>
+        <label class="pill"><input type="radio" name="person" value="little"><span>Little of it</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset data-q="place">
+      <legend><span class="promise">2 · A place</span><span class="ask">How much did learning in his own lab change the week, compared with a course anywhere else?</span></legend>
+      <div class="opts">
+        <label class="pill"><input type="radio" name="place" value="a-lot"><span>A lot</span></label>
+        <label class="pill"><input type="radio" name="place" value="somewhat"><span>Somewhat</span></label>
+        <label class="pill"><input type="radio" name="place" value="a-little"><span>A little</span></label>
+        <label class="pill"><input type="radio" name="place" value="not-at-all"><span>Not at all</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset data-q="people">
+      <legend><span class="promise">3 · Your people</span><span class="ask">How would you describe the room now?</span></legend>
+      <div class="opts">
+        <label class="pill"><input type="radio" name="people" value="friends"><span>Friends I'll keep</span></label>
+        <label class="pill"><input type="radio" name="people" value="colleagues"><span>Good colleagues</span></label>
+        <label class="pill"><input type="radio" name="people" value="beside"><span>People I worked beside</span></label>
+        <label class="pill"><input type="radio" name="people" value="no-connect"><span>I didn't really connect</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset data-q="bubble">
+      <legend><span class="promise">4 · The bubble</span><span class="ask">During the five days, how much did everything else drop away?</span></legend>
+      <div class="opts">
+        <label class="pill"><input type="radio" name="bubble" value="completely"><span>Completely</span></label>
+        <label class="pill"><input type="radio" name="bubble" value="mostly"><span>Mostly</span></label>
+        <label class="pill"><input type="radio" name="bubble" value="now-and-then"><span>Now and then</span></label>
+        <label class="pill"><input type="radio" name="bubble" value="not-at-all"><span>Not at all</span></label>
+      </div>
+    </fieldset>
+  </section>
+
+  <section class="part" aria-labelledby="h-words">
+    <p class="step">Part two · in your words</p>
+    <h2 class="big" id="h-words">What stays with you.</h2>
+
+    <div class="field">
+      <label for="f-moment">The moment you'll remember</label>
+      <p class="say">One line is enough.</p>
+      <input type="text" id="f-moment" name="moment" maxlength="300" autocomplete="off" placeholder="The first pearls dropping into the bath…">
+    </div>
+
+    <div class="field">
+      <label for="f-tech">One technique you'll put on a plate on board</label>
+      <input type="text" id="f-tech" name="technique" maxlength="300" autocomplete="off" placeholder="And for whom, if you know">
+    </div>
+
+    <fieldset data-q="again">
+      <legend><span class="promise">Next time</span><span class="ask">Another Lab Week?</span></legend>
+      <div class="opts">
+        <label class="pill"><input type="radio" name="again" value="yes-first"><span>Yes, tell me first</span></label>
+        <label class="pill"><input type="radio" name="again" value="if-craft"><span>If the craft is right</span></label>
+        <label class="pill"><input type="radio" name="again" value="probably-not"><span>Probably not</span></label>
+      </div>
+    </fieldset>
+
+    <div class="field">
+      <label for="f-note">Your note</label>
+      <p class="say">Take your time. The next room is built from what you write here.</p>
+      <textarea id="f-note" name="note" class="long" maxlength="4000" placeholder="Anything at all: the lab, Martín, the room, the city, what you take back on board."></textarea>
+    </div>
+
+    <div class="field private">
+      <label for="f-change">One thing to change for the next room <span class="opt">· only I read this</span></label>
+      <p class="say">It never goes on a page.</p>
+      <textarea id="f-change" name="change" maxlength="2000" placeholder="What would have made it better?"></textarea>
+    </div>
+  </section>
+
+  <section class="part" aria-labelledby="h-show" id="send">
+    <p class="step">Part three · your name on it</p>
+    <h2 class="big" id="h-show">Can I show it?</h2>
+    <p>I'd like to put the room's notes on the Lab Week page, each with its writer's Instagram, so the next chefs read the week from the people who were in it. Only if you say yes.</p>
+
+    <div class="field">
+      <label for="f-who">Who you are, in a line</label>
+      <p class="say">As you'd say it to a chef you just met. It sits under your name.</p>
+      <input type="text" id="f-who" name="who" maxlength="160" autocomplete="off" placeholder="Yacht chef on a 50 m motor yacht, Med season">
+    </div>
+
+    <div class="field small">
+      <label for="f-ig">Your Instagram</label>
+      <div class="at"><span>@</span><input type="text" id="f-ig" name="ig" maxlength="80" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="yourhandle"></div>
+    </div>
+
+    <div class="field">
+      <label for="f-photo">A photo of you, for your sticker</label>
+      <p class="say">From the week or any other day. This is your sticker as it would sit on the page; it changes as you type.</p>
+      <div class="sticker-wrap">
+        <figure class="sticker" id="sticker">
+          <div class="film"><span class="initials" id="st-init" aria-hidden="true">?</span><img id="st-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Your photo, as it will show" hidden></div>
+          <figcaption class="cap"><b id="st-name">Your name</b><small id="st-handle"></small><i id="st-who"></i><q id="st-moment"></q><span class="foot">Lab Week 01 · Vakuum, Barcelona · October 2026</span></figcaption>
+        </figure>
+        <div class="photo-ctl">
+          <input type="file" id="f-photo" accept="image/*" tabindex="-1" aria-hidden="true">
+          <button type="button" class="btn btn-ghost" id="photo-pick">Add a photo</button>
+          <button type="button" class="btn btn-ghost" id="photo-turn" hidden>Rotate it</button>
+          <button type="button" class="btn btn-ghost" id="photo-drop" hidden>Take it off</button>
+          <p class="fine" id="photo-note" style="margin:0">It is shrunk on your phone before it leaves it.</p>
+        </div>
+      </div>
+    </div>
+
+    <fieldset class="consent">
+      <legend class="promise">On the Lab Week page</legend>
+      <div class="opts" style="grid-template-columns:1fr">
+        <label class="pill"><input type="checkbox" id="f-show" name="show"><span>You can show my note, my moment, my sticker and my Instagram</span></label>
+        <label class="pill"><input type="checkbox" id="f-photos" name="photos"><span>Photos of me from the week can go there too</span></label>
+      </div>
+      <p class="fine" style="margin-top:.7rem">Leave both empty and everything stays between us.</p>
+    </fieldset>
+
+    <p class="me" id="me" hidden>Sending as <b id="me-name"></b> · <span id="me-mail"></span>. <button type="button" class="linkish" id="me-not">Not you?</button></p>
+    <div id="who-fields">
+      <div class="field small">
+        <label for="f-name">Your name</label>
+        <input type="text" id="f-name" name="name" autocomplete="name" autocapitalize="words" spellcheck="false" maxlength="80" aria-describedby="f-msg" required>
+      </div>
+      <div class="field small">
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" name="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="254" aria-describedby="f-msg" required>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="f-go" disabled>Send my note</button>
+    <noscript>
+      <p class="msg">This button needs JavaScript. Without it, send me your note directly:
+        <a href="https://wa.me/33695903520?text=Hi%20Arnaud%2C%20my%20note%20on%20the%20Barcelona%20week%3A%20">WhatsApp</a> or
+        <a href="mailto:founder@educatedtraveler.app,arnaudcallier@pm.me?subject=My%20note%20on%20the%20Barcelona%20week">email</a>.</p>
+    </noscript>
+    <div class="msg" id="f-msg" role="alert" hidden></div>
+
+    <div class="msg" id="fallback" role="alert" hidden>
+      <strong>That did not go through.</strong> Your note is still on this page. Press the button again, or send it to me directly. Both carry everything you wrote; if you added a photo, send it on WhatsApp too:
+      <div class="cta-row">
+        <a class="btn btn-ghost" id="fb-wa" href="#">WhatsApp it to me</a>
+        <a class="btn btn-ghost" id="fb-mail" href="#">Email it to me</a>
+      </div>
+    </div>
+
+    <p class="fine">This goes to me and nobody else. Nothing goes on a page unless you tick it above, and you can ask me to take it down at any time. <a href="/privacy">What I keep, and why</a>.</p>
+  </section>
+
+  <div class="panel" id="done" tabindex="-1" hidden>
+    <p class="preview-tag" id="done-preview" hidden>Preview — nothing was sent</p>
+    <h2 id="done-head">Thank you.</h2>
+    <p id="done-lead">Your note is on its way to me. I read every one myself.</p>
+    <div class="done-sticker" id="done-sticker"></div>
+    <p id="done-show"></p>
+    <p>In about a month I'll ask you one more short question: what you have actually cooked since.</p>
+    <p>Want to change something? Send it again and the new note replaces this one.</p>
+    <div class="cta-row"><button type="button" class="btn btn-ghost" id="done-again">Change my note</button></div>
+  </div>
+
+  <div class="credits">
+    <p class="sig">A skill, a place, a person, your people.</p>
+    <p class="foot">EDUCATEDTRAVELER · LAB WEEK 01 · ORGANISED BY EDUCATEDTRAVELER · TAUGHT BY MARTÍN LIPPO AT VAKUUM, BARCELONA</p>
+  </div>
+
+</div>
+</main>
+</form>
+
+<script>
+(function () {
+  /* The note goes to ONE place: the week-notes edge function, which keeps it
+     and emails Arnaud. It never touches the Circle and publishes nothing.
+     If the call fails, the note stays on the page and the chef is handed it
+     as a ready-written WhatsApp or email. */
+  var WEEK = 'lab-week-01-barcelona';
+  var MAIL_TO = ['founder@educatedtraveler.app', 'arnaudcallier@pm.me'];
+  var WHATSAPP = '33695903520';
+  var STASH = 'et_notes_lab_week_01';
+  var QS = ['person', 'place', 'people', 'bubble', 'again'];
+
+  var form = document.getElementById('nform');
+  var go = document.getElementById('f-go');
+  var msg = document.getElementById('f-msg');
+  var fallback = document.getElementById('fallback');
+  var done = document.getElementById('done');
+  var main = document.querySelector('main .wrap');
+  var $ = function (id) { return document.getElementById(id); };
+  var nameEl = $('f-name'), mailEl = $('f-email'), igEl = $('f-ig');
+  var TEXT = { who: $('f-who'), moment: $('f-moment'), technique: $('f-tech'), note: $('f-note'), change: $('f-change') };
+  // The photo lives here only, never in the stash: it is big, and a reload
+  // simply asks for it again.
+  var PHOTO = { data: '', base: null, turn: 0 };
+  var stImg = $('st-img'), stInit = $('st-init');
+  var BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+
+  var TEST = false;
+  try { TEST = new URLSearchParams(window.location.search).get('test') === '1'; } catch (e) {}
+
+  function picked(q) {
+    var r = form.querySelector('input[name="' + q + '"]:checked');
+    return r ? r.value : '';
+  }
+  function labelOf(q) {
+    var r = form.querySelector('input[name="' + q + '"]:checked');
+    return r ? r.parentNode.textContent.trim() : '';
+  }
+  function collect() {
+    var answers = {};
+    QS.forEach(function (q) { var v = picked(q); if (v) answers[q] = v; });
+    return {
+      v: 1, week: WEEK, test: TEST,
+      name: nameEl.value.trim(), email: mailEl.value.trim(),
+      ig: igEl.value.trim().replace(/^@+/, ''),
+      who: TEXT.who.value.trim(),
+      photo: PHOTO.data,
+      answers: answers,
+      moment: TEXT.moment.value.trim(), technique: TEXT.technique.value.trim(),
+      note: TEXT.note.value.trim(), change: TEXT.change.value.trim(),
+      show: $('f-show').checked, photos: $('f-photos').checked
+    };
+  }
+  function keep() { try { var p = collect(); p.photo = ''; localStorage.setItem(STASH, JSON.stringify(p)); } catch (e) {} }
+
+  // ── the sticker ──
+  function sticker() {
+    var handle = igEl.value.trim().replace(/^@+/, ''), name = nameEl.value.trim();
+    $('st-name').textContent = name || 'Your name';
+    $('st-handle').textContent = handle ? '@' + handle : '';
+    $('st-who').textContent = TEXT.who.value.trim();
+    $('st-moment').textContent = TEXT.moment.value.trim();
+    stInit.textContent = name ? name.split(/\s+/).map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase() : '?';
+  }
+  function decode(file) {
+    var viaBitmap = (window.createImageBitmap)
+      ? createImageBitmap(file, { imageOrientation: 'from-image' }).catch(function () { return null; })
+      : Promise.resolve(null);
+    return viaBitmap.then(function (bmp) {
+      if (bmp) return bmp;
+      return new Promise(function (res, rej) {
+        var im = new Image(), u = URL.createObjectURL(file);
+        im.onload = function () { URL.revokeObjectURL(u); res(im); };
+        im.onerror = function () { URL.revokeObjectURL(u); rej(new Error('decode')); };
+        im.src = u;
+      });
+    });
+  }
+  // Shrunk on the device to 1000px on the long side, so a 4 MB phone photo
+  // leaves it as a few hundred KB. The phone's own rotation is honoured.
+  function shrink(file) {
+    return decode(file).then(function (src) {
+      var w = src.naturalWidth || src.width, h = src.naturalHeight || src.height;
+      if (!w || !h) throw new Error('empty');
+      var k = Math.min(1, 1000 / Math.max(w, h));
+      var c = document.createElement('canvas'); c.width = Math.round(w * k); c.height = Math.round(h * k);
+      c.getContext('2d').drawImage(src, 0, 0, c.width, c.height);
+      if (src.close) src.close();
+      return c;
+    });
+  }
+  function render() {
+    var turn = $('photo-turn'), drop = $('photo-drop');
+    if (!PHOTO.base) {
+      PHOTO.data = ''; stImg.hidden = true; stImg.src = BLANK; stInit.hidden = false;
+      turn.hidden = true; drop.hidden = true; $('photo-pick').textContent = 'Add a photo';
+      return;
+    }
+    var b = PHOTO.base, odd = PHOTO.turn % 2 === 1;
+    var c = document.createElement('canvas'); c.width = odd ? b.height : b.width; c.height = odd ? b.width : b.height;
+    var g = c.getContext('2d');
+    g.translate(c.width / 2, c.height / 2); g.rotate(PHOTO.turn * Math.PI / 2); g.drawImage(b, -b.width / 2, -b.height / 2);
+    // Under the function's limit whatever the photo: a grainy one that stays
+    // big at 1000px is encoded again smaller, up to three times.
+    var out = c.toDataURL('image/jpeg', 0.82), tries = 0;
+    while (out.length > 700000 && tries < 3) {
+      tries++;
+      if (tries > 1) {
+        var d = document.createElement('canvas'); d.width = Math.round(c.width * 0.8); d.height = Math.round(c.height * 0.8);
+        d.getContext('2d').drawImage(c, 0, 0, d.width, d.height); c = d;
+      }
+      out = c.toDataURL('image/jpeg', 0.66);
+    }
+    PHOTO.data = out; stImg.src = out; stImg.hidden = false; stInit.hidden = true;
+    stImg.classList.remove('develop'); void stImg.offsetWidth; stImg.classList.add('develop');
+    turn.hidden = false; drop.hidden = false; $('photo-pick').textContent = 'Another photo';
+  }
+  $('photo-pick').addEventListener('click', function () { $('f-photo').click(); });
+  $('f-photo').addEventListener('change', function () {
+    var file = this.files && this.files[0];
+    if (!file) return;
+    var note = $('photo-note');
+    note.textContent = 'Opening it…';
+    shrink(file).then(function (c) {
+      PHOTO.base = c; PHOTO.turn = 0; render();
+      note.textContent = 'It is shrunk on your phone before it leaves it.';
+    }).catch(function () {
+      note.textContent = 'That photo did not open here. Try another one, or a screenshot of it.';
+    });
+    this.value = '';
+  });
+  $('photo-turn').addEventListener('click', function () { PHOTO.turn = (PHOTO.turn + 1) % 4; render(); });
+  $('photo-drop').addEventListener('click', function () { PHOTO.base = null; PHOTO.turn = 0; render(); });
+
+  // A tap on the chosen option again clears it: every question can be skipped.
+  // Only the input's own click is read (a click on its label also dispatches one).
+  form.addEventListener('click', function (e) {
+    var input = e.target;
+    if (!input || input.type !== 'radio') return;
+    if (input.dataset.was === '1') {
+      input.checked = false; input.dataset.was = '0'; keep(); bar();
+      return;
+    }
+    form.querySelectorAll('input[name="' + input.name + '"]').forEach(function (r) { r.dataset.was = '0'; });
+    input.dataset.was = '1';
+  });
+
+  // How far along: the five taps and the note.
+  function bar() {
+    var n = QS.filter(picked).length + (TEXT.note.value.trim() ? 1 : 0) + (TEXT.moment.value.trim() ? 1 : 0);
+    $('bar').style.width = Math.round(100 * n / 7) + '%';
+  }
+
+  // An unsent note from an earlier visit is put back.
+  try {
+    var kept = JSON.parse(localStorage.getItem(STASH) || 'null');
+    if (kept && kept.week === WEEK) {
+      QS.forEach(function (q) {
+        var v = kept.answers && kept.answers[q];
+        var r = v && form.querySelector('input[name="' + q + '"][value="' + v.replace(/[^a-z-]/g, '') + '"]');
+        if (r) { r.checked = true; r.dataset.was = '1'; }
+      });
+      Object.keys(TEXT).forEach(function (k) { if (kept[k]) TEXT[k].value = kept[k]; });
+      if (kept.ig) igEl.value = kept.ig;
+      if (kept.name) nameEl.value = kept.name;
+      if (kept.email) mailEl.value = kept.email;
+      $('f-show').checked = kept.show === true;
+      $('f-photos').checked = kept.photos === true;
+    }
+  } catch (e) {}
+
+  // A personal link (?c=…, sent by hand to each chef) carries their name, email
+  // and the Instagram handle Arnaud has for them. Not a secret, a convenience:
+  // read once, kept with the draft, taken out of the address bar.
+  var me = $('me'), who = null;
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var c = params.get('c');
+    if (c) {
+      var bin = atob(c.replace(/-/g, '+').replace(/_/g, '/'));
+      var j = JSON.parse(new TextDecoder().decode(Uint8Array.from(bin, function (ch) { return ch.charCodeAt(0); })));
+      // A link may carry no email (sent by hand on WhatsApp): then the name
+      // and handle are filled in and the chef adds the email.
+      if (j && typeof j.n === 'string' && j.n.trim()) {
+        var e = (typeof j.e === 'string' && j.e.indexOf('@') > 0) ? j.e.trim().slice(0, 254) : '';
+        who = { name: j.n.trim().slice(0, 80), email: e, ig: typeof j.i === 'string' ? j.i.slice(0, 40) : '' };
+      }
+      params.delete('c');
+      var q = params.toString();
+      history.replaceState(null, '', window.location.pathname + (q ? '?' + q : '') + window.location.hash);
+    }
+  } catch (e) { who = null; }
+  if (who) {
+    nameEl.value = who.name; mailEl.value = who.email;
+    if (who.ig && !igEl.value) igEl.value = who.ig;
+    var hi = $('hi'), first = who.name.split(/\s+/)[0];
+    if (who.email) {
+      $('me-name').textContent = who.name; $('me-mail').textContent = who.email;
+      me.hidden = false; $('who-fields').hidden = true;
+      hi.textContent = 'For ' + first + ' · your details are in';
+    } else {
+      hi.textContent = 'For ' + first + ' · add your email at the end';
+    }
+    hi.hidden = false;
+    keep();
+  }
+  $('me-not').addEventListener('click', function () {
+    me.hidden = true; $('who-fields').hidden = false;
+    nameEl.value = ''; mailEl.value = ''; nameEl.focus();
+  });
+
+  form.addEventListener('change', function () { keep(); bar(); sticker(); });
+  form.addEventListener('input', function () { keep(); bar(); sticker(); });
+  bar(); sticker();
+
+  function asText(p) {
+    var lines = ['My note on the Barcelona week', 'Name: ' + p.name, 'Email: ' + p.email];
+    if (p.who) lines.push('Who: ' + p.who);
+    if (p.ig) lines.push('Instagram: @' + p.ig);
+    lines.push('');
+    var names = { person: 'A person', place: 'A place', people: 'Your people', bubble: 'The bubble', again: 'Another Lab Week' };
+    QS.forEach(function (q) { lines.push(names[q] + ': ' + (labelOf(q) || 'skipped')); });
+    if (p.moment) lines.push('', 'The moment I will remember: ' + p.moment);
+    if (p.technique) lines.push('A technique for on board: ' + p.technique);
+    if (p.note) lines.push('', p.note);
+    if (p.change) lines.push('', 'One thing to change (private): ' + p.change);
+    lines.push('', 'Show my note and Instagram: ' + (p.show ? 'yes' : 'no') + ' · photos of me: ' + (p.photos ? 'yes' : 'no'));
+    return lines.join('\n');
+  }
+
+  function fail(text, field) {
+    msg.textContent = text; msg.hidden = false;
+    $('who-fields').hidden = false; me.hidden = true;
+    field.setAttribute('aria-invalid', 'true'); field.focus();
+  }
+  function showFallback(p) {
+    var body = encodeURIComponent(asText(p));
+    $('fb-wa').href = 'https://wa.me/' + WHATSAPP + '?text=' + body;
+    $('fb-mail').href = 'mailto:' + MAIL_TO.join(',') + '?subject=' + encodeURIComponent('My note on the Barcelona week') + '&body=' + body;
+    fallback.hidden = false;
+    fallback.scrollIntoView({ block: 'center' });
+    if (window.plausible) window.plausible('NotesFailed', { props: { week: 'lab-week-01' } });
+  }
+  function showDone(p, preview) {
+    var first = p.name.split(/\s+/)[0];
+    $('done-preview').hidden = !preview;
+    $('done-head').textContent = (preview ? 'Not sent' : 'Thank you') + (first ? ', ' + first : '') + '.';
+    $('done-lead').textContent = preview ? 'This is a preview copy of the page, so your note went nowhere.' : 'Your note is on its way to me. I read every one myself.';
+    $('done-show').textContent = p.show
+      ? 'You said I can show it' + (p.photo ? ', sticker and all' : '') + (p.ig ? ', with @' + p.ig : '') + '. I will send you the page before it goes up.'
+      : 'You kept it between us' + (p.photo ? ', photo included' : '') + '. It stays that way.';
+    Array.prototype.forEach.call(main.querySelectorAll('section'), function (s) { s.hidden = true; });
+    // The last thing they see is their own sticker.
+    $('done-sticker').appendChild($('sticker'));
+    done.hidden = false; done.focus(); done.scrollIntoView({ block: 'start' });
+    if (!preview && window.plausible) window.plausible('NotesSent', { props: { week: 'lab-week-01' } });
+  }
+  $('done-again').addEventListener('click', function () {
+    document.querySelector('.sticker-wrap').insertBefore($('sticker'), document.querySelector('.photo-ctl'));
+    done.hidden = true;
+    Array.prototype.forEach.call(main.querySelectorAll('section'), function (s) { s.hidden = false; });
+    $('send').scrollIntoView({ block: 'start' });
+  });
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    msg.hidden = true; fallback.hidden = true;
+    var p = collect();
+    nameEl.removeAttribute('aria-invalid'); mailEl.removeAttribute('aria-invalid'); igEl.removeAttribute('aria-invalid');
+    if (!p.name) { fail('I need your name, to know whose note this is.', nameEl); return; }
+    if (!/^[^\s<>"',;@]+@[^\s<>"',;@]+\.[^\s<>"',;@]+$/.test(p.email)) { fail('That email does not look right. It is how I write back to you.', mailEl); return; }
+    var handle = p.ig.replace(/^https?:\/\/(www\.)?instagram\.com\//i, '').replace(/[/?#].*$/, '');
+    if (handle && !/^[A-Za-z0-9._]{1,30}$/.test(handle)) {
+      msg.textContent = 'That Instagram name has a character Instagram does not allow. Letters, numbers, dots and underscores only.';
+      msg.hidden = false; igEl.setAttribute('aria-invalid', 'true'); igEl.focus(); return;
+    }
+    p.ig = handle;
+    keep();
+    var label = go.textContent;
+    go.disabled = true; go.textContent = 'Sending…';
+
+    // Off the production hostname this page calls nothing at all.
+    var live = (typeof window.etIsProd === 'function') ? window.etIsProd()
+      : /^(www\.)?educatedtraveler\.app$/.test(window.location.hostname);
+    var outcome = 'failed';
+    if (!live) {
+      outcome = 'preview';
+    } else {
+      try {
+        var sb = window.supabaseClient;
+        if (sb && sb.functions) {
+          var res = await Promise.race([
+            sb.functions.invoke('week-notes', { body: p }),
+            new Promise(function (r) { setTimeout(function () { r({ timeout: true }); }, 20000); })
+          ]);
+          // "Thank you" is only said when the function says the email was accepted.
+          if (res && !res.timeout && !res.error && res.data && res.data.ok === true) outcome = 'sent';
+        }
+      } catch (err) { outcome = 'failed'; }
+    }
+    go.disabled = false; go.textContent = label;
+    if (outcome === 'failed') { showFallback(p); return; }
+    try { localStorage.removeItem(STASH); } catch (err) {}
+    showDone(p, outcome === 'preview');
+  });
+
+  // Switched on last, once the handler is bound.
+  go.disabled = false;
+})();
+</script>
+<!-- Loaded after the page script on purpose: the form still falls back to a
+     hand-sent note if this library is slow or blocked. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+</body>
+</html>
