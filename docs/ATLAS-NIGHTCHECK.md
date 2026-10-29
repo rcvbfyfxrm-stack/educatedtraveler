@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-10-28 — 421 published claims re-read against the pages they came from, across 37 open crafts._
+_2026-10-29 — 421 published claims re-read against the pages they came from, across 37 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -10,10 +10,6 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 **Only the server's own answer reaches this list** — a 404, a 410, or a page that no longer carries what we published. A request that never became a response is two sections down and is not a takedown: on 7 September 2026 this section held two entries and both were wrong, one a timeout on our own runner and one a certificate that did not match a hostname.
 
-- **rock-climbing · ENSA (École Nationale de Ski et d'Alpinisme)** — https://www.ensm.sports.gouv.fr/ensa/
-  - HTTP 503
-- **ski-touring-and-splitboard · ENSA (École Nationale de Ski et d'Alpinisme)** — https://www.ensm.sports.gouv.fr/ensa/
-  - HTTP 503
 - **japanese-knife-making · TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association** — https://kougeihin.jp/en/craft/0713/
   - HTTP 503
 
@@ -27,52 +23,64 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- hatha-and-vinyasa-yoga · Rishikesh Yog Peeth — 1 night — URLError: <urlopen error [Errno 101] Network is unreachable>
-  - https://www.rishikeshyogpeeth.com/
-- hatha-and-vinyasa-yoga · Yoga Niketan Ashram — 1 night — URLError: <urlopen error [Errno 101] Network is unreachable>
-  - https://www.yoganiketanashram.org/
-- hatha-and-vinyasa-yoga · Indea Yoga — 1 night — URLError: <urlopen error timed out>
-  - https://indeayoga.com/
-- sound-healing · Pokhara Yoga School and Retreat Center — 51 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 52 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- sailing-and-yachtmaster · UKSA (United Kingdom Sailing Academy), Cowes — 1 night — TimeoutError: The read operation timed out
-  - https://uksa.org/course/professional-yachtmaster-offshore/
-- sailing-and-yachtmaster · RYA Day Skipper Practical — 1 night — TimeoutError: The read operation timed out
-  - https://uksa.org/course/rya-day-skipper/
-- sailing-and-yachtmaster · RYA Day Skipper Shorebased Theory — 1 night — TimeoutError: The read operation timed out
+- sailing-and-yachtmaster · RYA Day Skipper Shorebased Theory — 2 nights — TimeoutError: The read operation timed out
   - https://uksa.org/course/rya-day-skipper-shorebased/
-- windsurfing-and-wing-foil · Karpathos Surf Club — 1 night — URLError: <urlopen error [Errno 101] Network is unreachable>
-  - https://karpathosurf.com/
-- safari-and-wildlife-guiding · Nature Guide Training (NGT) — 1 night — URLError: <urlopen error [Errno 101] Network is unreachable>
-  - https://www.natureguidetraining.com/our-courses/fgasa-field-guide-nqf2-course/
-- jewelry-and-goldsmithing · Indian Institute of Gems & Jewellery (IIGJ Jaipur) — 1 night — URLError: <urlopen error timed out>
-  - https://iigj.org/institutes/jaipur-institute/
-- wine-and-sommellerie · Université de Bordeaux DUAD (oenology) — 7 nights, after 5 counted as failing by the older check — URLError: <urlopen error timed out>
+- sailing-and-yachtmaster · Auckland Sailing School — 1 night — URLError: <urlopen error timed out>
+  - https://aucklandsailingschool.com/
+- surfing · Ericeira Surf Camp — 1 night — URLError: <urlopen error timed out>
+  - https://ericeirasurfcamp.com/
+- wine-and-sommellerie · Université de Bordeaux DUAD (oenology) — 8 nights, after 5 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://formations-isvv.u-bordeaux.fr/d-u-a-d-diplome-universitaire-daptitude-a-la-degustation.html
-- coffee-and-barista · African Coffee Campus — 1 night — URLError: <urlopen error timed out>
-  - https://africancoffeecampus.ambrellaluxurysafaris.com/
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 24 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- coffee-and-barista · Genovese Coffee (SCA Barista Skills) — 1 night — URLError: <urlopen error timed out>
+  - https://www.genovese.com.au/learn/
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 25 nights — URLError: <urlopen error timed out>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 24 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
+- mixology-and-bartending · Cocktail-making workshop — 25 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
   - https://www.havanaclubmuseum.com/en/experiences/
+- chocolate-and-confectionery · Focus on Belgium (Belgian Federal Public Service Foreign Affairs), on Belgian chocolate — 1 night — URLError: <urlopen error [Errno 101] Network is unreachable>
+  - https://focusonbelgium.be/en/facts/did-you-know-belgium-produces-over-220000-tons-chocolate-every-year
+- modern-new-technique-cuisine · the birthplace of Victorian wine — 1 night — URLError: <urlopen error timed out>
+  - https://wineyarravalley.com.au/
+- modern-new-technique-cuisine · 170-year legacy — 1 night — URLError: <urlopen error timed out>
+  - https://wineyarravalley.com.au/
+- modern-new-technique-cuisine · Over eighty wineries span the Yarra Valley — 1 night — URLError: <urlopen error timed out>
+  - https://wineyarravalley.com.au/
+- cold-exposure-wim-hof-method · Karkonoski Park Narodowy — 1 night — URLError: <urlopen error timed out>
+  - https://kpn.gov.pl/
+- cold-exposure-wim-hof-method · Aktualnie zamknięte szlaki — 1 night — URLError: <urlopen error timed out>
+  - https://kpn.gov.pl/
+- cold-exposure-wim-hof-method · Kamery w Karkonoszach — 1 night — URLError: <urlopen error timed out>
+  - https://kpn.gov.pl/
+- cold-exposure-wim-hof-method · IMGW Śnieżka — 1 night — URLError: <urlopen error timed out>
+  - https://kpn.gov.pl/
+- cold-exposure-wim-hof-method · IMGW Szrenica — 1 night — URLError: <urlopen error timed out>
+  - https://kpn.gov.pl/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **perfumery · Musée International de la Parfumerie** — 45 nights — https://www.museesdegrasse.com/mip/presentation
+- **coffee-and-barista · African Coffee Campus** — 6 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
+  - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1010)>
+- **perfumery · Musée International de la Parfumerie** — 46 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 45 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 46 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
 
-_none._
+- rock-climbing · ENSA (École Nationale de Ski et d'Alpinisme)
+- ski-touring-and-splitboard · ENSA (École Nationale de Ski et d'Alpinisme)
+- modern-new-technique-cuisine · Category: Literature Member since: 2008
+- modern-new-technique-cuisine · As a Creative City of Literature, Melbourne
 
 ## Unreadable, not gone
 
 These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not a school that closed. Never escalated, because a check that cries wolf gets muted. If one matters, open it in a browser; that is the only way to know.
 
+- hatha-and-vinyasa-yoga · The Yoga Barn — HTTP 403
 - hatha-and-vinyasa-yoga · Ginseng Yoga — HTTP 403
 - windsurfing-and-wing-foil · Naxos Surf Club — HTTP 403
 - ski-touring-and-splitboard · American Avalanche Institute courses — HTTP 403
@@ -110,7 +118,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - hatha-and-vinyasa-yoga · Rishikesh · Yoga Niketan Ashram
 - hatha-and-vinyasa-yoga · Mysore · Indea Yoga
 - hatha-and-vinyasa-yoga · Mysore · Sthalam 8 Ashtanga Yoga Vedanta Centre
-- hatha-and-vinyasa-yoga · Ubud, Bali · The Yoga Barn
 - hatha-and-vinyasa-yoga · Ubud, Bali · Radiantly Alive
 - hatha-and-vinyasa-yoga · Ubud, Bali · Ubud Yoga Centre
 - hatha-and-vinyasa-yoga · Encinitas, California · Soul of Yoga
@@ -163,5 +170,6 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - freediving · Kalamata & the Mani · Kalamata Freedivers
 - spearfishing · Antibes, Côte d'Azur · CREPS PACA (Antibes)
 - spearfishing · Côte d'Azur (Cassis to Antibes) · FFESSM-affiliated pêche sous-marine clubs (Côte d'Azur)
+- spearfishing · Côte d'Azur (Cassis to Antibes) · Estérel Sea School
 
-_295 in total._
+_294 in total._
