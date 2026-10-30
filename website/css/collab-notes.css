@@ -36,3 +36,8 @@
 .cn-more p{margin:0 0 1rem;color:rgba(243,237,226,.72);font-size:1rem;line-height:1.55;max-width:56ch}
 .cn-more a.cn-btn{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.95rem 1.5rem;background:linear-gradient(100deg,#7fa8a5,#d28a52);color:#0d0b09;font-weight:500}
 .cn-more a.cn-btn:hover,.cn-more a.cn-btn:focus-visible{background:#e0a877;outline:none}
+.cn-feed{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.9rem;margin:1.6rem 0 .8rem}
+@media (max-width:760px){.cn-feed{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cn-feed a{display:block;text-decoration:none}
+.cn-feed img{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;display:block;border-radius:6px;border:1px solid rgba(243,237,226,.09)}
+.cn-feed a:hover img,.cn-feed a:focus-visible img{border-color:#7fa8a5}
