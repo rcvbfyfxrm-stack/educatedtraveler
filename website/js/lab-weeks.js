@@ -1,5 +1,5 @@
-// Lab Weeks — single source of truth for launch cards (homepage + /lab-weeks).
-// A Lab Week is the Atlas come true: a named master, his own lab, open enrolment,
+// Collaborations — single source of truth for launch cards (homepage + /collaborations).
+// A collaboration is the Atlas come true: a named master, his own lab, open enrolment,
 // at the source. Strategy lock: no prices here — the numbers live on the one
 // commercial page each open Lab Week links to.
 //
@@ -15,18 +15,15 @@ window.LAB_WEEKS = [
     craft: 'New culinary techniques & technologies',
     place: 'Barcelona',
     world: 'Kitchen & Cellar',
-    status: 'open',
-    teaser: 'Five days in Martin Lippo’s Barcelona laboratory — sous-vide, textures, spheres, foams, liquid nitrogen — 35 hours hands-in, in English, built for working chefs off boats first. You leave with the techniques, a signed certificate, a portfolio shot by his team, and the full recipe dossiers.',
+    status: 'done',
+    teaser: 'Five days in Martin Lippo’s Barcelona laboratory — textures, spheres, liquid nitrogen, foams, sous-vide — 35 hours hands-in, in English, for working chefs. The week is over; the chefs who were in the room wrote about it.',
     when: 'October 2026',
-    note: 'Booking closes 30 September · the week runs, or everyone is refunded in full. First word goes to the Circle.',
-    extras: 'Around the five days, optional add-ons are taking shape — among them a three-Michelin-star dinner with a private table and eyes in the kitchen, an open-fire day, and a Barcelona source day — announced once confirmed, nothing sold until it’s booked and real. Stay optional too: a shared cohort apartment with your own private room, or arrange your own.',
+    note: 'Done. Their notes are on the page.',
     master: 'Martin Lippo',
     dates: '22–26 October 2026',
     // The card facts. Kept here rather than written into a page, so the week has one
     // record and the Atlas cannot quote a length or a cap the launch page disagrees with.
     hours: '35 hours · in English',
-    certificate: 'Signed certificate',
-    cap: 'Room capped at 15',
     url: '/barcelona'
   },
   {
@@ -47,17 +44,18 @@ window.LAB_WEEKS = [
 (function () {
   function card(w) {
     var open = w.status === 'open' || w.status === 'confirmed';
+    var done = w.status === 'done';
     var head =
       '<div class="flex items-baseline justify-between gap-4 mb-4">' +
-        '<p class="eyebrow">Lab Week ' + w.number + (w.place ? ' · ' + w.place : '') + '</p>' +
+        '<p class="eyebrow">Collaboration ' + w.number + (w.place ? ' · ' + w.place : '') + '</p>' +
         '<p class="font-mono text-[10px] uppercase tracking-[0.25em] ' + (open ? '' : 'text-paper-faint') + '"' +
           (open ? ' style="color:var(--ember)"' : '') + '>' +
           (w.status === 'confirmed' ? 'Confirmed — it runs' :
            w.status === 'open' ? 'Doors open' :
-           w.status === 'done' ? 'Delivered' : w.when) +
+           w.status === 'done' ? 'Done · October 2026' : w.when) +
         '</p>' +
       '</div>';
-    var lock = (open && w.master)
+    var lock = ((open || done) && w.master)
       ? '<p class="font-serif text-lg md:text-xl mb-2" style="color:var(--paper)">' + w.master +
         ' <span style="color:var(--ember)">&times;</span> <span style="color:var(--sea)">EducatedTraveler</span></p>'
       : '';
@@ -65,13 +63,13 @@ window.LAB_WEEKS = [
       w.craft +
       '</h3>';
     var body = '<p class="text-paper-muted text-sm leading-relaxed mb-4">' +
-      (open && w.dates ? w.teaser + ' <span class="text-paper">' + w.dates + '.</span>' : w.teaser) + '</p>';
+      ((open || done) && w.dates ? w.teaser + ' <span class="text-paper">' + w.dates + '.</span>' : w.teaser) + '</p>';
     var extras = w.extras
       ? '<p class="text-paper-faint text-xs mt-4 pt-4" style="border-top:1px solid rgba(243,237,226,0.09)">' + w.extras + '</p>'
       : '';
-    if (open && w.url) {
+    if ((open || done) && w.url) {
       // whole card is the link
-      var cta = '<span class="btn-primary inline-block px-7 py-3 rounded-full text-sm">See the week →</span>';
+      var cta = '<span class="btn-primary inline-block px-7 py-3 rounded-full text-sm">' + (done ? 'Read what the chefs said →' : 'See the week →') + '</span>';
       return '<a href="' + w.url + '" class="panel p-7 md:p-9 text-left reveal in block" style="text-decoration:none;color:inherit;cursor:pointer">' +
         head + lock + title + body + cta + extras + '</a>';
     }

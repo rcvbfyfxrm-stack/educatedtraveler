@@ -1,0 +1,38 @@
+/* Collaboration notes — stickers and the tally. Literal colours on purpose:
+   three different pages (custom CSS, Tailwind, the landing page) load this file
+   and none of them share variable names. Generated markup comes from
+   scripts/build-collab-notes.py; edit scripts/collab-notes/*.json, not the pages. */
+.cn-tally{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(243,237,226,.09);border:1px solid rgba(243,237,226,.09);border-radius:8px;overflow:hidden;margin:1.4rem 0 .6rem}
+.cn-tally>div{background:#14110d;padding:1rem 1rem .9rem}
+.cn-tally b{display:block;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.9rem;line-height:1;color:#d28a52;letter-spacing:-.01em}
+.cn-tally span{display:block;font-family:'Inter',system-ui,sans-serif;font-size:.84rem;line-height:1.4;color:rgba(243,237,226,.72);margin-top:.45rem}
+.cn-count{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,237,226,.5);margin:.4rem 0 1.8rem}
+.cn-list{display:grid;gap:2.6rem;margin:1.4rem 0 1rem}
+.cn-card{display:grid;grid-template-columns:260px minmax(0,1fr);gap:2rem;align-items:start}
+@media (max-width:640px){.cn-card{grid-template-columns:1fr;gap:1.4rem}}
+.cn-sticker{position:relative;margin:0;width:min(100%,260px);background:linear-gradient(165deg,#f8f3e8,#efe7d8);color:#1f1913;padding:12px 12px 14px;border-radius:3px;box-shadow:0 14px 34px -14px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.35);transform:rotate(-1.8deg)}
+.cn-card:nth-child(even) .cn-sticker{transform:rotate(1.4deg)}
+.cn-sticker::before{content:"";position:absolute;left:50%;top:-13px;width:92px;height:24px;transform:translateX(-50%) rotate(1.5deg);background:rgba(127,168,165,.58);border-radius:1px;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.cn-film{aspect-ratio:1;background:#1a1612;overflow:hidden}
+.cn-film img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.cn-sticker figcaption{padding:12px 4px 0}
+.cn-sticker b{display:block;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.2rem;line-height:1.15;color:#1f1913;letter-spacing:-.01em;overflow-wrap:anywhere}
+.cn-sticker small{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#2f5754;margin-top:.3rem;overflow-wrap:anywhere}
+.cn-sticker small a{color:inherit;text-decoration:none}
+.cn-sticker small a:hover{text-decoration:underline}
+.cn-sticker i{display:block;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:.96rem;line-height:1.35;color:#4a4038;margin-top:.35rem}
+.cn-sticker .cn-foot{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(74,64,56,.75);margin-top:.8rem}
+.cn-words .cn-k{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:#d28a52;margin:0 0 .35rem}
+.cn-words .cn-moment{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.35rem;line-height:1.3;color:#f3ede2;margin:0 0 1.3rem}
+.cn-words blockquote{margin:0;padding:0;border:0}
+.cn-words blockquote p{font-family:'Fraunces',Georgia,serif;font-size:1.12rem;line-height:1.55;color:rgba(243,237,226,.92);margin:0 0 .8rem}
+.cn-words blockquote.cn-only p{font-size:1.5rem;font-style:italic;line-height:1.35;color:#f3ede2}
+.cn-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2.2rem 1.6rem;margin:1.8rem 0 .4rem}
+.cn-mini{margin:0}
+.cn-mini .cn-sticker{width:min(100%,240px)}
+.cn-mini .cn-line{font-family:'Fraunces',Georgia,serif;font-size:1rem;line-height:1.45;color:rgba(243,237,226,.9);margin:1rem 0 0;max-width:30ch}
+.cn-more{margin:2.4rem 0 .4rem;padding:1.6rem 1.5rem;border:1px solid rgba(243,237,226,.09);border-left:3px solid #d28a52;border-radius:10px;background:#14110d}
+.cn-more h3{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.35rem;line-height:1.2;margin:0 0 .5rem;color:#f3ede2}
+.cn-more p{margin:0 0 1rem;color:rgba(243,237,226,.72);font-size:1rem;line-height:1.55;max-width:56ch}
+.cn-more a.cn-btn{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.95rem 1.5rem;background:linear-gradient(100deg,#7fa8a5,#d28a52);color:#0d0b09;font-weight:500}
+.cn-more a.cn-btn:hover,.cn-more a.cn-btn:focus-visible{background:#e0a877;outline:none}

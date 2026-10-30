@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborations — the Atlas come true | EducatedTraveler</title>
+
+    <meta name="description" content="A collaboration is one week, at the source, in a master's own workshop — open enrolment, honest numbers, and the people chasing the same craft. The Atlas is the map; collaborations are the map come true. The first one has run. Here is what the chefs said.">
+    <link rel="canonical" href="https://educatedtraveler.app/collaborations">
+    <meta property="og:title" content="Collaborations — the Atlas come true">
+    <meta property="og:description" content="One week, at the source, in a master's own workshop. The first has run; the chefs wrote about it.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://educatedtraveler.app/collaborations">
+    <meta property="og:image" content="https://educatedtraveler.app/images/logo-et-full.png">
+    <meta property="og:site_name" content="EducatedTraveler">
+
+    <link rel="stylesheet" href="/css/collab-notes.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sea:   { soft: '#7fa8a5', mid: '#5b8a89', deep: '#38595b' },
+                        ember: { soft: '#e0a877', mid: '#d28a52', deep: '#b06a36' },
+                        paper: { DEFAULT: '#f3ede2', muted: 'rgba(243,237,226,0.56)', faint: 'rgba(243,237,226,0.34)' },
+                        ink:   { DEFAULT: '#0d0b09', 2: '#14110d', 3: '#1c1813' },
+                    },
+                    fontFamily: {
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        sans:  ['Inter', 'system-ui', 'sans-serif'],
+                        mono:  ['IBM Plex Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --ink: #0d0b09; --ink-2: #14110d; --paper: #f3ede2;
+            --sea: #7fa8a5; --ember: #d28a52; --line: rgba(243,237,226,0.09);
+        }
+        * { -webkit-font-smoothing: antialiased; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--ink); color: var(--paper); overflow-x: hidden; }
+        ::selection { background: rgba(210,138,82,0.30); }
+        .font-serif { font-family: 'Fraunces', Georgia, serif; }
+        .font-mono  { font-family: 'IBM Plex Mono', monospace; }
+        body::before {
+            content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            background:
+                radial-gradient(900px 600px at 18% -5%, rgba(127,168,165,0.10), transparent 60%),
+                radial-gradient(800px 600px at 92% 8%, rgba(210,138,82,0.08), transparent 55%);
+        }
+        .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--sea); }
+        .rule-top { border-top: 1px solid var(--line); }
+        .panel { background: rgba(243,237,226,0.022); border: 1px solid var(--line); border-radius: 14px;
+            transition: border-color .35s ease, background .35s ease; }
+        .panel:hover { border-color: rgba(127,168,165,0.28); background: rgba(243,237,226,0.035); }
+        .btn-primary { background: linear-gradient(135deg, var(--sea) 0%, var(--ember) 130%); color: #14110d; font-weight: 500;
+            transition: transform .3s ease, box-shadow .3s ease, filter .3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(127,168,165,0.22); filter: brightness(1.04); }
+        .btn-ghost { border: 1px solid rgba(243,237,226,0.18); color: var(--paper); transition: background .3s ease, border-color .3s ease; }
+        .btn-ghost:hover { background: rgba(243,237,226,0.05); border-color: rgba(243,237,226,0.32); }
+        .link-quiet { color: var(--paper); opacity: .56; transition: opacity .25s ease, color .25s ease; }
+        .link-quiet:hover { opacity: 1; color: var(--sea); }
+        .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        .intent input { background: rgba(243,237,226,0.04); border: 1px solid rgba(243,237,226,0.16); color: var(--paper); }
+        .intent input:focus { outline: none; border-color: rgba(127,168,165,0.5); }
+        .intent-msg.ok { color: var(--sea); }
+        .intent-msg.err { color: var(--ember); }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(13,11,9,0.72); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line);">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <span class="font-serif tracking-[0.16em] text-sm">EDUCATED<span class="text-sea-soft">TRAVELER</span></span>
+            </a>
+            <div class="flex items-center gap-7">
+                <a href="/circle" class="text-sm" style="padding:8px 18px;border-radius:999px;border:1px solid var(--line);color:var(--paper);text-decoration:none;">Join the Circle</a>
+            </div>
+            <button id="menu-btn" style="display:none" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.6" d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden" style="border-top: 1px solid var(--line);">
+            <div class="px-6 py-2">
+                <a href="/circle" class="block py-3" style="color:var(--sea)">Join the Circle</a>
+                <a href="/you" class="block py-3 text-sm text-paper-muted" data-visitor-only>Already in? Sign in</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="px-6 pt-36 pb-16">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="eyebrow mb-6 reveal in">The Atlas is the map</p>
+            <h1 class="font-serif font-light text-4xl md:text-6xl leading-[1.06] tracking-tight mb-7 reveal in">
+                Collaborations are the map <span class="italic text-paper-muted">come true.</span>
+            </h1>
+            <p class="text-lg text-paper-muted leading-relaxed max-w-2xl mx-auto reveal in">
+                A few times a year I take one place on the Atlas and open the door for real: days at the source, in a master's own workshop, with a small room of people chasing the same craft. The first one ran in October, in Barcelona, and this is the page they all live on.
+            </p>
+        </div>
+    </section>
+
+    <!-- HOW A LAB WEEK WORKS -->
+    <section class="py-20 px-6 rule-top">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <p class="eyebrow mb-4">The standard</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">Every collaboration clears the same bar.</h2>
+                <p class="text-paper-muted max-w-2xl mx-auto">All four, or it doesn't run:</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5 mb-12">
+                <div class="panel p-7 reveal">
+                    <div class="mb-4" style="width:34px;height:2px;background:var(--sea);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">A named master</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">A real person with a record you can check yourself — who actually teaches the week, every day, in person.</p>
+                </div>
+                <div class="panel p-7 reveal">
+                    <div class="mb-4" style="width:34px;height:2px;background:var(--ember);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">Their own workshop</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">The master's own lab, bench or kitchen — a room built for teaching, not a rented corner of somewhere else.</p>
+                </div>
+                <div class="panel p-7 reveal">
+                    <div class="mb-4" style="width:34px;height:2px;background:var(--ember);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">Open enrolment</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">Anyone serious can take a chair. Nothing to win, no one you need to know. The opposite of the gatekept stage.</p>
+                </div>
+                <div class="panel p-7 reveal">
+                    <div class="mb-4" style="width:34px;height:2px;background:var(--sea);border-radius:2px;"></div>
+                    <h3 class="font-serif text-xl font-light mb-2">At the source</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed">In the place where the craft is most alive — because who you meet there matters as much as what you learn.</p>
+                </div>
+            </div>
+            <div class="max-w-2xl mx-auto text-center reveal">
+                <p class="text-paper-muted leading-relaxed mb-3">And one rule about the numbers: <span class="text-paper">they're published from day one.</span> Every collaboration states its minimum out loud. If enough people take a chair, it runs; if not, it doesn't — and everyone is repaid in full. No invented scarcity, no "almost gone". The only clock is the decision date, published from the first day and never moved.</p>
+                <p class="text-paper-faint text-sm">You leave with the work in your hands, a certificate that says exactly what it should — attendance and the work you presented, verified if anyone ever asks us — and the cohort itself: people worth knowing, met at the bench.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE LAB WEEKS -->
+    <section id="weeks" class="py-20 px-6 rule-top">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10 reveal">
+                <p class="eyebrow mb-4">The collaborations</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight">The first one is done.</h2>
+            </div>
+            <!-- Static fallback: replaced by js/lab-weeks.js when it renders.
+                 Guarantees the first collaboration and its link are visible even if JS never runs. -->
+            <div class="grid gap-6" data-lab-weeks>
+                <a href="/barcelona" class="panel p-7 md:p-9 text-left reveal in block" style="text-decoration:none;color:inherit">
+                    <p class="eyebrow mb-3">Collaboration 01 · Barcelona · Done · October 2026</p>
+                    <h3 class="font-serif font-light text-2xl md:text-3xl tracking-tight mb-3">Martin Lippo · Vakuum · 22–26 October 2026</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed mb-4">Five days of modernist technique in his own laboratory — 35 hours hands-in, in English, for working chefs. The week is over. The five days, and what the chefs wrote about them, are on one page.</p>
+                    <span class="btn-primary inline-block px-7 py-3 rounded-full text-sm">Read what the chefs said →</span>
+                </a>
+            </div>
+            <div class="mt-12 reveal in">
+                <p class="eyebrow mb-3">From the room</p>
+                <h3 class="font-serif font-light text-2xl md:text-3xl tracking-tight mb-2">What the chefs wrote.</h3>
+                <p class="text-paper-muted text-sm leading-relaxed" style="max-width:56ch">Their words and their photos, shown because each of them said yes.</p>
+<!--collab-notes:strip-->
+<div class="cn-strip"><figure class="cn-mini"><figure class="cn-sticker"><div class="cn-film"><img src="/images/collab/lab-week-01/mariola.jpg" alt="Mariola Cid Acorral in chef whites and a blue apron, smiling, in a professional kitchen" loading="lazy"></div><figcaption><b>Mariola Cid Acorral</b><small><a href="https://www.instagram.com/lolacidcorral/" rel="noopener">@lolacidcorral</a></small><span class="cn-foot">Collaboration 01 · Vakuum, Barcelona · October 2026</span></figcaption></figure><p class="cn-line">&ldquo;Everything amazing!! Best host best Master.&rdquo;</p></figure><figure class="cn-mini"><figure class="cn-sticker"><div class="cn-film"><img src="/images/collab/lab-week-01/renata.jpg" alt="Renata Sullivan in chef whites at the Vakuum bench, lifting a pink sphere out of a liquid nitrogen bath with tongs" loading="lazy"></div><figcaption><b>Renata Sullivan</b><small><a href="https://www.instagram.com/renata.sullivan/" rel="noopener">@renata.sullivan</a></small><i>Freelance yacht chef/private chef</i><span class="cn-foot">Collaboration 01 · Vakuum, Barcelona · October 2026</span></figcaption></figure><p class="cn-line">&ldquo;I left the course viewing food completely differently.&rdquo;</p></figure><figure class="cn-mini"><figure class="cn-sticker"><div class="cn-film"><img src="/images/collab/lab-week-01/mykhailo.jpg" alt="Mykhailo, a bearded chef, photographed from below in a yacht saloon" loading="lazy"></div><figcaption><b>Mykhailo</b><small><a href="https://www.instagram.com/sailingwithchef/" rel="noopener">@sailingwithchef</a></small><span class="cn-foot">Collaboration 01 · Vakuum, Barcelona · October 2026</span></figcaption></figure><p class="cn-line">&ldquo;Martin clearly loves what he does and tries to give as much info as possible, love it&rdquo;</p></figure></div>
+<!--/collab-notes:strip-->
+                <p class="mt-6"><a href="/barcelona#notes" style="color:var(--sea)">Read all their notes &rarr;</a></p>
+            </div>
+            <div class="cn-more">
+                <h3>Want more of these?</h3>
+                <p>The next collaboration is not announced. It is chosen by the Circle, and the Circle hears first. One note joins it, free, and you can leave in one click.</p>
+                <a class="cn-btn" href="/circle">Join the Circle, hear first &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TELL US WHAT PULLS YOU -->
+    <section id="interest" class="py-20 px-6 rule-top">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="reveal">
+                <p class="eyebrow mb-4">Shape the next one</p>
+                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">What would you cross an ocean to learn?</h2>
+                <p class="text-paper-muted mb-9 leading-relaxed">These weeks are chosen by the Circle, not by a calendar. Write me a note about the craft you'd actually give a week of your life to — why it pulls at you, and how you'd want to learn it — and you'll be the first I write to when a master opens that door. No funnel, no noise: first word.</p>
+            </div>
+            <!-- The sheet is rendered by /js/intent-capture.js, which replaces what's
+                 inside this form. What stays here is the fallback for a visitor whose
+                 scripts never arrive: the same letter, one page away. -->
+            <form class="intent panel p-6 md:p-8 reveal" data-source="lab-weeks">
+                <p class="intent-q">Write me a note about the craft you'd give a week of your life to.</p>
+                <p class="intent-fine text-xs text-paper-faint mt-4"><a href="/circle" class="underline" style="color:var(--sea)">Write it here →</a></p>
+                <p class="intent-msg text-sm mt-4" hidden></p>
+            </form>
+            <!-- OUTSIDE the form on purpose: intent-capture.js replaces the form's
+                 innerHTML wholesale, and this line has to be the one thing that
+                 survives a script that never arrives. member-nav.js hides it once a
+                 session is found. -->
+            <p class="text-xs text-paper-faint mt-4 text-center" data-visitor-only>Already in? <a href="/you" class="underline" style="color:var(--sea)">Sign in →</a></p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-14 rule-top">
+    <p style="margin:0 0 12px;font-size:13px"><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20Collaborations&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/collaborations%29" style="color:var(--sea);text-decoration:none;opacity:.85">Something wrong on this page? Tell me.</a></p>
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-serif tracking-[0.16em] mb-1">EDUCATED<span class="text-sea-soft">TRAVELER</span></p>
+                    <p class="text-paper-muted text-sm">A skill, a place, a person, your people.</p>
+                    <p class="text-paper-faint text-[11px] font-mono tracking-[0.25em] mt-2">TANS FADE, SKILLS LAST</p>
+                </div>
+                <!-- Four places to go, then — set apart — the two ways to reach a
+                     person. They were in one undifferentiated row, which made the
+                     inbox look like a menu item. -->
+                <div class="flex flex-col items-center md:items-end gap-3">
+                    <div class="flex items-center gap-6 flex-wrap justify-center">
+                        <a href="/atlas/" class="link-quiet text-sm">Atlas of Skills</a>
+                        <a href="/collaborations" class="link-quiet text-sm">Collaborations</a>
+                        <a href="/letters/" class="link-quiet text-sm">Founder&#39;s Notes</a>
+                        <a href="/about" class="link-quiet text-sm">The Story</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.instagram.com/arnaudcallier/" target="_blank" rel="noopener"
+                           class="link-quiet font-mono text-[11px] tracking-[0.14em] uppercase flex items-center gap-2">
+                            <svg class="w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="flex:0 0 auto"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            @arnaudcallier
+                        </a>
+                        <span class="text-paper-faint text-[11px]">&middot;</span>
+                        <a href="mailto:arnaudcallier@pm.me" class="link-quiet font-mono text-[11px] tracking-[0.14em] uppercase">Write to me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mb = document.getElementById('menu-btn'), mm = document.getElementById('mobile-menu');
+        if (mb && mm) mb.addEventListener('click', () => {
+            const open = !mm.classList.contains('hidden');
+            mm.classList.toggle('hidden');
+            mb.setAttribute('aria-expanded', String(!open));
+        });
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-config.js"></script>
+    <script src="/js/member-nav.js" defer></script>
+    <script src="/js/lab-weeks.js"></script>
+    <script defer src="/js/intent-capture.js"></script>
+</body>
+</html>

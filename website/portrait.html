@@ -1402,7 +1402,7 @@
     var w = (culinary && open) ? open : (next || open);
     if(!w){
       slot.innerHTML='<div class="cm"><div class="k">The next week is being chosen</div>'+
-        '<div class="t">Lab Weeks</div><a href="/lab-weeks">See what’s coming &rarr;</a></div>';
+        '<div class="t">Lab Weeks</div><a href="/collaborations">See what’s coming &rarr;</a></div>';
       return;
     }
     var head = (w===open)
@@ -1413,7 +1413,7 @@
       '<div class="t">'+esc2(w.craft)+'</div>'+
       (line ? '<div class="s" style="margin-top:2px">'+line+'</div>' : '')+
       '<div class="s">'+esc2(w.teaser||'')+'</div>'+
-      '<a href="'+esc2(w.url||'/lab-weeks')+'">'+(w.url?'See the week':'See what’s coming')+' &rarr;</a></div>';
+      '<a href="'+esc2(w.url||'/collaborations')+'">'+(w.url?'See the week':'See what’s coming')+' &rarr;</a></div>';
   }
 
   async function prefill(){
@@ -1443,7 +1443,7 @@
 <footer style="text-align:center;padding:42px 22px 48px;border-top:1px solid rgba(243,237,226,0.08);position:relative;z-index:1;">
     <p style="margin:0 0 12px;font-size:13px"><a href="mailto:arnaudcallier@pm.me?subject=Site%20%E2%80%94%20the%20portrait&amp;body=What%20looked%20wrong%3A%0A%0A%0A%28page%3A%20https%3A//educatedtraveler.app/portrait%29" style="color:var(--sea);text-decoration:none;opacity:.85">Something wrong on this page? Tell me.</a></p>
   <a href="/atlas/" class="et-foot-link">Atlas of Skills</a>
-  <a href="/lab-weeks" class="et-foot-link">Lab Weeks</a>
+  <a href="/collaborations" class="et-foot-link">Collaborations</a>
   <a href="/about" class="et-foot-link">The Story</a>
   <a href="/letters/" class="et-foot-link">Founder&#39;s Notes</a>
 </footer>
