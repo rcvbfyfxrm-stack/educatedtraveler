@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- DRAFT 30 Oct 2026. NOT PUBLISHED. Remove the noindex line below only when Arnaud ships it.
+     OPEN BEFORE SHIP:
+     1. Hiroko confirms in writing: three weeks 1-19 Mar 2027, all of week three in, the Toyosu Saturday, the minimum of six.
+     2. Toyosu open on Sat 6 Mar 2027 (2027 calendar not published when this was written).
+     3. Her bio re-read live on jcma.tokyo (it 403s to fetch; use Chrome).
+     4. NO PRICE anywhere, on purpose (Arnaud, 30 Oct).
+     5. The first table and the last dinner are written as commitments (ET pays, as in Barcelona). Everything else around
+        the weeks carries a status tag. The bladesmith week is not on the page: nothing agreed, no dates.
+     6. The interest form writes to launch_waitlist, source collab:tokyo-2027 (same mechanism as the Atlas pages).
+        At ship: copy images/tokyo/ to website/images/tokyo/ and change src="/images/tokyo/" to src="/images/tokyo/".
+     7. Run keel over the copy, then glass the live URL. -->
+<meta name="robots" content="noindex">
+<title>Learn omakase counter service in Tokyo — EducatedTraveler</title>
+<meta name="description" content="Learn omakase counter service in front of your guests. Three weeks in Tokyo, 1 to 19 March 2027, for yacht chefs and private chefs. Hands on, in English, taught by Hiroko Ishii.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0b09;--paper:#f3ede2;--muted:rgba(243,237,226,.64);--faint:rgba(243,237,226,.4);--sea:#7fa8a5;--ember:#d28a52;--line:rgba(243,237,226,.11)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.6;background:var(--ink);color:var(--paper);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 600px at 15% -5%,rgba(127,168,165,.10),transparent 60%),radial-gradient(800px 600px at 95% 6%,rgba(210,138,82,.08),transparent 55%)}
+a{color:inherit}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+.mono{font-family:'IBM Plex Mono',monospace}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--sea)}
+nav{position:sticky;top:0;z-index:20;background:rgba(13,11,9,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-family:'Fraunces',serif;letter-spacing:.16em;font-size:13px;text-decoration:none}
+.brand b{font-weight:400;color:var(--sea)}
+.pill{font-size:13px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);text-decoration:none}
+.pill:hover{border-color:rgba(127,168,165,.5)}
+.hero{padding:96px 0 56px}
+h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(36px,7vw,62px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 24px}
+h1 em{font-style:italic;color:var(--ember)}
+.lede{font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:600px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:30px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.facts b{color:var(--paper);font-weight:500}
+.quiet{margin-top:26px;padding-left:14px;border-left:2px solid var(--ember);font-size:14.5px;color:var(--muted);max-width:560px}
+.quiet b{color:var(--paper);font-weight:500}
+.cta{display:inline-block;margin-top:26px;padding:13px 26px;border-radius:999px;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#14110d;font-weight:500;text-decoration:none;font-size:15px}
+.cta:hover{filter:brightness(1.06)}
+section{padding:60px 0;border-top:1px solid var(--line)}
+h2{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(28px,5vw,42px);line-height:1.1;letter-spacing:-.015em;margin:12px 0 20px}
+p{margin:0 0 14px;color:var(--muted);max-width:620px}
+p strong{color:var(--paper);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;max-width:720px}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.02em;padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--paper)}
+.figs{display:grid;grid-template-columns:5fr 6fr;gap:14px;margin-top:28px;align-items:start}
+.figs figure{margin:0}
+.figs img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.figs figcaption{font-size:12.5px;color:var(--faint);margin-top:8px}
+.credit{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--faint);margin-top:14px}
+.wk{margin-top:40px}
+.wk-h{display:flex;align-items:baseline;gap:16px;padding-bottom:10px;border-bottom:1px solid rgba(243,237,226,.22)}
+.wk-h .n{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ember)}
+.wk-h h3{font-family:'Fraunces',serif;font-weight:400;font-size:22px}
+.row{display:grid;grid-template-columns:92px 1fr;gap:2px 20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.row .d{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--ember);padding-top:5px}
+.row h4{font-family:'Fraunces',serif;font-weight:400;font-size:19px;margin-bottom:4px}
+.row p{font-size:14.5px;margin:0;max-width:none}
+.tag{display:inline-block;margin-left:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--faint);vertical-align:middle}
+.tag.arr{color:var(--sea);border-color:rgba(127,168,165,.45)}
+.note{font-size:13.5px;color:var(--faint);margin-top:14px}
+.who{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.card{padding:20px;border:1px solid var(--line);border-radius:14px;background:rgba(243,237,226,.022)}
+.card .k{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea);margin-bottom:8px;display:block}
+.card ul{list-style:none}
+.card li{font-size:14.5px;color:var(--muted);padding:6px 0;border-top:1px solid var(--line)}
+.card li:first-child{border-top:0}
+.intent-row{display:flex;flex-wrap:wrap;gap:10px}
+.intent-input{flex:1 1 240px;min-width:0;padding:13px 16px;border-radius:999px;background:rgba(243,237,226,.05);border:1px solid rgba(243,237,226,.18);color:var(--paper);font:inherit;font-size:15px}
+.intent-input:focus{outline:none;border-color:rgba(127,168,165,.6)}
+.intent-go{padding:13px 26px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#14110d;font:inherit;font-weight:500;font-size:15px}
+.intent-go:disabled{opacity:.6;cursor:default}
+.intent-msg{margin-top:14px;font-size:15px}
+.intent-msg.ok{color:var(--sea)}
+.intent-msg.err{color:var(--ember)}
+.intent-fine{margin-top:12px;font-size:12.5px;color:var(--faint)}
+.terms{list-style:none;margin-top:6px}
+.terms li{padding:12px 0;border-top:1px solid var(--line);color:var(--muted);max-width:620px;font-size:15px}
+.terms li:first-child{border-top:0}
+.terms b{color:var(--paper);font-weight:500}
+footer{padding:36px 0 70px;border-top:1px solid var(--line);font-size:13px;color:var(--faint)}
+button.pill{background:none;color:inherit;font-family:inherit;cursor:pointer}
+button.cta{border:0;cursor:pointer;font-family:inherit}
+dialog#raise{margin:auto;width:min(92vw,520px);padding:34px 30px 28px;color:var(--paper);background:linear-gradient(180deg,#17130f,#0d0b09);border:1px solid rgba(127,168,165,.35);border-radius:20px;box-shadow:0 40px 120px rgba(0,0,0,.7),0 0 0 1px rgba(210,138,82,.12);overflow:auto;max-height:92vh}
+dialog#raise::backdrop{background:rgba(8,6,5,.72);backdrop-filter:blur(7px)}
+dialog#raise[open]{animation:pop .28s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+dialog#raise::before{content:"";position:absolute;left:30px;right:30px;top:0;height:2px;background:linear-gradient(90deg,var(--sea),var(--ember));border-radius:2px}
+dialog#raise h2{margin:14px 0 14px;font-size:clamp(32px,7vw,44px)}
+dialog#raise h2 em{font-style:italic;color:var(--ember)}
+dialog#raise p{font-size:15px}
+dialog#raise .intent{margin-top:6px}
+dialog#raise .intent-row{flex-direction:column}
+dialog#raise .intent-input{flex:none;width:100%;padding:15px 18px;font-size:16px}
+dialog#raise .intent-go{width:100%;padding:15px;font-size:16px}
+dialog#raise .intent-input:focus{border-color:var(--sea);box-shadow:0 0 0 3px rgba(127,168,165,.18)}
+dialog#raise .x{position:absolute;top:12px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--muted);font-size:20px;line-height:1;cursor:pointer}
+dialog#raise .x:hover{color:var(--paper);border-color:rgba(243,237,226,.3)}
+dialog#raise .step[hidden]{display:none}
+dialog#raise .learn[hidden]{display:none}
+dialog#raise fieldset{border:0;margin:18px 0 0}
+dialog#raise legend{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sea);margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer}
+.opt span{display:block;padding:9px 16px;border:1px solid rgba(243,237,226,.2);border-radius:999px;font-size:14px;color:var(--muted);transition:border-color .2s,background .2s,color .2s}
+.opt:hover span{border-color:rgba(243,237,226,.4);color:var(--paper)}
+.opt input:checked+span{border-color:var(--ember);background:rgba(210,138,82,.28);color:var(--paper);box-shadow:inset 0 0 0 1px var(--ember)}
+.opt input:focus-visible+span{box-shadow:0 0 0 3px rgba(127,168,165,.3)}
+dialog#raise .learn{display:block;margin-top:20px;font-size:13.5px;color:var(--muted)}
+dialog#raise .learn i{font-style:normal;color:var(--faint)}
+dialog#raise .learn input{display:block;width:100%;margin-top:8px;padding:12px 16px;border-radius:12px;background:rgba(243,237,226,.05);border:1px solid rgba(243,237,226,.18);color:var(--paper);font:inherit;font-size:15px}
+dialog#raise .learn input:focus{outline:none;border-color:var(--sea)}
+dialog#raise [data-next]{width:100%;margin-top:18px;padding:15px;font-size:16px;border-radius:999px;border:0;cursor:pointer;background:linear-gradient(135deg,var(--sea),var(--ember) 130%);color:#14110d;font-family:inherit;font-weight:500}
+dialog#raise .hint{font-size:13px;color:var(--faint);margin:0 0 10px}
+dialog#raise .need{color:var(--ember);margin:12px 0 0;font-size:13px}
+dialog#raise .intent-fine a{color:var(--sea)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.three h3{font-family:'Fraunces',serif;font-weight:400;font-size:24px;margin:6px 0 8px}
+.three p{font-size:14.5px;margin:0}
+.three .num{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--ember)}
+.three>div{padding-top:16px;border-top:1px solid rgba(243,237,226,.22)}
+.done{list-style:none;margin-top:8px;max-width:680px}
+.done li{padding:13px 0 13px 28px;position:relative;border-top:1px solid var(--line);color:var(--paper);font-size:16px}
+.done li:first-child{border-top:0}
+.done li::before{content:"";position:absolute;left:2px;top:21px;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ember)}
+.by{display:flex;align-items:center;gap:16px;margin:0 0 26px}
+.by .av{flex:none;width:72px;height:72px;border-radius:50%;overflow:hidden;border:1px solid rgba(243,237,226,.3);display:block}
+.by .av img{display:block;width:150%;max-width:none;height:auto;margin:-24px 0 0 -29px}
+.by .lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--sea)}
+.by .nm{display:block;font-family:'Fraunces',serif;font-size:clamp(26px,4.4vw,34px);line-height:1.15;color:var(--paper)}
+.by .rl{display:block;font-size:13.5px;color:var(--muted);margin-top:2px}
+@media(max-width:640px){.three{grid-template-columns:1fr}.who,.figs{grid-template-columns:1fr}.row{grid-template-columns:1fr}.hero{padding-top:64px}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
+  <button type="button" class="pill" data-open>I am interested</button>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Collaboration 02 · Tokyo · for yacht and private chefs</div>
+  <h1>Learn omakase counter service <em>in front of your guests.</em></h1>
+  <div class="by">
+    <span class="av"><img src="/images/tokyo/hiroko.jpg" width="900" height="1350" alt="Hiroko Ishii" loading="eager"></span>
+    <div><span class="lbl">Taught by</span><span class="nm">Hiroko Ishii</span><span class="rl">Founder, Japan Culinary Masters Academy, Tokyo</span></div>
+  </div>
+  <p class="lede">Three weeks in Tokyo. Rice, the knife, the fish, and the order of a full omakase, with your hands, in English. You finish by standing behind the counter and serving.</p>
+  <div class="facts">
+    <span><b>Mon 1 – Fri 19 March 2027</b></span>
+    <span><b>Otsuka, Tokyo</b>, in English</span>
+    <span><b>From six chefs</b></span>
+  </div>
+  <p class="quiet"><b>Not on sale yet.</b> The programme is being finished with Hiroko. Raise your hand and you hear first.</p>
+  <button type="button" class="cta" data-open>I am interested</button>
+</div></header>
+
+<section><div class="wrap">
+  <div class="eyebrow">What you learn</div>
+  <h2>Run the counter,<br>not just the fish.</h2>
+  <p>Guests ask for omakase. A counter, a handful of guests, one piece at a time, nothing to hide behind. It rests on rice, a knife and timing, and none of that comes from a video. So the three weeks go in three steps.</p>
+  <div class="three">
+    <div><span class="num">01</span><h3>Make it</h3><p>Cook and season the rice. Form nigiri. Sharpen and use the yanagiba and deba. Break down whole fish, with the skin off by the knife. Do ikejime. Age a bream. Cure with kelp.</p></div>
+    <div><span class="num">02</span><h3>Build it</h3><p>See how a full omakase is put together: the order of the pieces, the timing, what is prepared ahead and what is done in front of the guest.</p></div>
+    <div><span class="num">03</span><h3>Serve it</h3><p>Stand behind the counter and serve, piece by piece, to the other chefs. Then sit on the other side. Turn and turn about, with a sushi chef watching.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">What you come out with</div>
+  <h2>By the last day you will have done this.</h2>
+  <ul class="done">
+    <li>Cooked sushi rice and formed nigiri, every week.</li>
+    <li>Broken down a whole fish with the yanagiba and the deba, and a whole salmon, a whole yellowtail and a block of tuna.</li>
+    <li>Done ikejime on a sea bream, if you chose to.</li>
+    <li>Aged a bream for four days and tasted it against a fresh one.</li>
+    <li>Made the tamago on the pan you will use at work, and sharpened your own knives.</li>
+    <li>Rolled hosomaki, futomaki and inside-out rolls, and made tempura and simmered fish.</li>
+    <li>Served an omakase counter, and sat as a guest at the others’.</li>
+    <li>Spent three weeks beside chefs who work on boats and in private houses.</li>
+  </ul>
+  <div class="chips">
+    <span class="chip">rice</span><span class="chip">nigiri</span><span class="chip">yanagiba</span><span class="chip">deba</span><span class="chip">sanmai-oroshi</span><span class="chip">ikejime</span><span class="chip">ageing</span><span class="chip">kombu-jime</span><span class="chip">zuke</span><span class="chip">tamago</span><span class="chip">hosomaki</span><span class="chip">futomaki</span><span class="chip">temaki</span><span class="chip">tuna</span><span class="chip">abalone</span><span class="chip">tempura</span><span class="chip">dashi</span><span class="chip">knife sharpening</span><span class="chip">counter service</span>
+  </div>
+</div></section>
+
+
+
+<section><div class="wrap">
+  <div class="eyebrow">The three weeks</div>
+  <h2>Week one builds your hands.<br>Week two builds the counter.<br>Week three goes deeper.</h2>
+  <p>Monday to Friday, 9:30 to 15:00 in three sessions. Through the weeks the chefs take turns serving each other, one behind the counter and the others in front, so everyone practises both sides. Then the room is yours until 17:00, with Hiroko in it. Weekends free.</p>
+
+  <div class="wk">
+    <div class="wk-h"><span class="n">Week one</span><h3>1 – 5 March</h3></div>
+    <div class="row"><div class="d">MON 1</div><div>
+      <h4>Rice, and the first nigiri</h4>
+      <p>Cook the rice, season it with sushi vinegar, form the first nigiri. The rice is most of what you taste, so it comes first and comes back on day two. Nikiri soy and ponzu. Knife check, and sharpening: she insists on it.</p></div></div>
+    <div class="row"><div class="d">TUE 2</div><div>
+      <h4>The yanagiba, and nori</h4>
+      <p>Rice again, until it is steady. The yanagiba: slicing fish for sushi in one pull. Nori, and the first hosomaki.</p></div></div>
+    <div class="row"><div class="d">WED 3</div><div>
+      <h4>The deba, shrimp, dashi</h4>
+      <p>The deba knife and three ways with shrimp. Nigiri from them, and miso soup from their heads. Basic dashi.</p></div></div>
+    <div class="row"><div class="d">THU 4</div><div>
+      <h4>A whole fish, and the tamago</h4>
+      <p>Horse mackerel in three pieces, sanmai-oroshi, and the skin off with the knife. Nigiri and sashimi from it, a tartare, sangayaki. Then the egg omelette, made by every chef on the non-stick pan you will use at work.</p></div></div>
+    <div class="row"><div class="d">FRI 5</div><div>
+      <h4>A bench day</h4>
+      <p>Hiroko is filling it, now that the market has moved to Saturday morning.</p></div></div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="n">Week two</span><h3>8 – 12 March</h3></div>
+    <div class="row"><div class="d">MON 8</div><div>
+      <h4>Salmon, scallop, squid</h4>
+      <p>Each from fresh or from frozen, since frozen is what a boat gets. Nigiri with each, the inside-out roll, nanban-zuke. Katsuramuki, the long peel of daikon, and a sashimi plate of three.</p></div></div>
+    <div class="row"><div class="d">TUE 9</div><div>
+      <h4>Ageing and curing</h4>
+      <p>Sea bream aged four days, tasted against fresh. Yushimo, hot water on the skin. Kombu-jime, fish cured between sheets of kelp. Gizzard shad and mackerel. Conger eel, shown by Hiroko.</p></div></div>
+    <div class="row"><div class="d">WED 10</div><div>
+      <h4>Tuna</h4>
+      <p>A block broken down. Zuke, tuna marinated in soy. Slicing for sushi and for sashimi. A tuna plate: nigiri, a mid-thick roll, a hand roll. Then the hot side: chawanmushi, tofu made from scratch, age-dashi, nasu no nibitashi.</p></div></div>
+    <div class="row"><div class="d">THU 11</div><div>
+      <h4>The counter starts</h4>
+      <p>Simmered octopus. What is made ahead for a service, and in what order. Hiroko serves a full service. Then your first turn.</p></div></div>
+    <div class="row"><div class="d">FRI 12</div><div>
+      <h4>Three services</h4>
+      <p>Three chefs behind the counter, each serving three guests. The rest sit, eat and judge. Then swap. Everyone takes both sides.</p></div></div>
+  </div>
+
+  <div class="wk">
+    <div class="wk-h"><span class="n">Week three</span><h3>15 – 19 March</h3></div>
+    <div class="row"><div class="d">MON 15</div><div>
+      <h4>Flounder and horse mackerel</h4>
+      <p>Flounder. Horse mackerel in two pieces, and aji fry. Sugata-zukuri: sashimi served in the shape of the fish.</p></div></div>
+    <div class="row"><div class="d">TUE 16</div><div>
+      <h4>Whole salmon, whole yellowtail</h4>
+      <p>From the fish to the piece. Saikyo-miso marinated fish for the grill.</p></div></div>
+    <div class="row"><div class="d">WED 17</div><div>
+      <h4>Shellfish</h4>
+      <p>Abalone. Squid and cuttlefish. Ark shell, geoduck, surf clam. Monkfish liver.</p></div></div>
+    <div class="row"><div class="d">THU 18</div><div>
+      <h4>Rolls and rice</h4>
+      <p>Futomaki and its fillings: shiitake, kanpyo, oboro. Softshell crab roll. Inari. Vegan sushi. Gari made from scratch.</p></div></div>
+    <div class="row"><div class="d">FRI 19</div><div>
+      <h4>Tempura, and simmered fish</h4>
+      <p>Tempura. Nitsuke. Saba no miso-ni, mackerel simmered in miso. Then the last night.</p></div></div>
+  </div>
+  <p class="note">Week three is built from Hiroko’s own list of what two weeks leave out. The order of its days is ours for now; she sets the final one.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">An extra day, if you want it</div>
+  <h2>Sushi for 12 guests. <span class="tag">asked of Hiroko</span></h2>
+  <p>The counter serves six, in the evening, piece by piece. Most weeks the ask is different: sushi for lunch, twelve guests at a table, and you still have dinner to cook. One more day, outside the three weeks, to learn to serve that.</p>
+  <div class="three">
+    <div><span class="num">TEMAKI</span><h3>Hand rolls</h3><p>Nori, rice and a filling, made in front of the guests and eaten within seconds. No plating.</p></div>
+    <div><span class="num">CHIRASHI</span><h3>The bowl</h3><p>Sushi rice with the fish laid over it, one bowl per guest. Nothing to form by hand.</p></div>
+    <div><span class="num">OSHIZUSHI</span><h3>Pressed sushi</h3><p>Pressed in a box and cut. It can be made ahead and carried to the table.</p></div>
+  </div>
+  <p class="note">Priced separately, not part of the three weeks. The day is set with Hiroko once she has agreed.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Who teaches it</div>
+  <h2>Hiroko Ishii.</h2>
+  <p>Hiroko founded Japan Culinary Masters Academy in Otsuka, Tokyo, and teaches sushi there in English. A degree in food science, Le Cordon Bleu in Paris, the Tokyo Sushi Academy, then nine years as a sushi chef and instructor in Switzerland, 2009 to 2018.</p>
+  <p>She wrote this schedule herself, for yacht chefs. She is in the room every day, and stays until 17:00 for anyone who wants to keep practising. Check her at <a href="https://jcma.tokyo/">jcma.tokyo</a>.</p>
+  <div class="figs">
+    <figure><img src="/images/tokyo/hiroko.jpg" width="900" height="1350" alt="Hiroko Ishii in her whites, standing in the school" loading="lazy"><figcaption>Hiroko Ishii</figcaption></figure>
+    <figure><img src="/images/tokyo/the-room.jpg" width="900" height="1201" alt="The classroom: a long stainless bench, a counter with stools, windows on the street" loading="lazy"><figcaption>The classroom. A bench to cook at, a counter to serve from.</figcaption></figure>
+  </div>
+  <p class="credit">Photographs · Japan Culinary Masters Academy, Tokyo.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">Around the three weeks</div>
+  <h2>Where strangers become friends.</h2>
+  <p>In Barcelona the chefs arrived as strangers and left as a group. Their notes are on the <a href="/collaborations">collaborations page</a>. It happened at the table and on the walks as much as at the bench, so Tokyo gets the same care around the lessons.</p>
+  <p>The first table and the last dinner are on us. The rest is marked for what it is: being arranged, or still an idea.</p>
+
+  <div class="wk">
+    <div class="row"><div class="d">SUN 28 FEB</div><div>
+      <h4>The first table</h4>
+      <p>One long table the night before day one. A plate and a drink, no speeches, no round of introductions. You walk into Monday already knowing four names.</p></div></div>
+    <div class="row"><div class="d">3 WEEKS</div><div>
+      <h4>One roof <span class="tag">idea</span></h4>
+      <p>A place near the school where chefs stay together, each in a room of their own. People who share a kitchen at breakfast do not need introducing. Otherwise you book your own.</p></div></div>
+    <div class="row"><div class="d">SAT 6 MAR</div><div>
+      <h4>Toyosu at dawn <span class="tag arr">being arranged</span></h4>
+      <p>The fish market with Hiroko: the tuna auction, then breakfast at the stalls behind the famous queues, which serve the same fish without the wait. Ikejime on a sea bream, your own, if you want to. Nobody is made to.</p></div></div>
+    <div class="row"><div class="d">A NIGHT</div><div>
+      <h4>Sake <span class="tag">idea</span></h4>
+      <p>A tasting with food, with someone who knows it. Sake is brewed in the cold months, so March is the end of the season.</p></div></div>
+    <div class="row"><div class="d">A WEEKEND</div><div>
+      <h4>A wasabi farm in Izu <span class="tag">idea</span></h4>
+      <p>A day out of Tokyo to where wasabi grows in running spring water. Pulled, grated, eaten. Most of us have only ever had the paste.</p></div></div>
+    <div class="row"><div class="d">A NIGHT</div><div>
+      <h4>A tempura or soba counter <span class="tag">idea</span></h4>
+      <p>Sushi is one of the Edo counter crafts. Tempura and soba are two more. An evening at a counter for each, to see how a room built around one thing does it.</p></div></div>
+    <div class="row"><div class="d">SAT 13 MAR</div><div>
+      <h4>Kappabashi <span class="tag arr">being arranged</span></h4>
+      <p>Tokyo’s kitchen-tool street, with Hiroko. Knives, pans, the small tools you only find here.</p></div></div>
+    <div class="row"><div class="d">A NIGHT</div><div>
+      <h4>Dinner at a counter, with Hiroko <span class="tag">idea</span></h4>
+      <p>The whole class at a sushi counter she chooses. To sit on the other side, watch a room that does this every night, and ask her about it over the pieces.</p></div></div>
+    <div class="row"><div class="d">A NIGHT</div><div>
+      <h4>The tuna night <span class="tag arr">being arranged</span></h4>
+      <p>A whole bluefin of around 30 kg, taken apart by a tuna wholesaler with the long knife, while Hiroko explains each cut for working chefs. With sake. She is asking her supplier how to do it.</p></div></div>
+    <div class="row"><div class="d">FRI 19 MAR</div><div>
+      <h4>The last night</h4>
+      <p>A long dinner, all of us, with the roles swapped one last time. The people you cooked for, and who cooked for you, around one table.</p></div></div>
+  </div>
+</div></section>
+
+<section id="interested"><div class="wrap">
+  <div class="eyebrow">Who it is for</div>
+  <h2>Cooks who cook for a living,<br>and have been asked for sushi.</h2>
+  <div class="who">
+    <div class="card"><span class="k">Yes, if you</span><ul>
+      <li>Cook on a yacht or in a private house, now or soon</li>
+      <li>Have been asked for omakase, or sushi for the table, and want to do it properly</li>
+      <li>Can be in Tokyo for all three weeks, 1 to 19 March 2027. It is three weeks or nothing</li>
+      <li>Will cook, correct and be corrected beside other chefs</li></ul></div>
+    <div class="card"><span class="k">Not this one, if you</span><ul>
+      <li>Have never cooked professionally. Everyone in the room does it for a living</li>
+      <li>Want to watch. Here the hands do the work</li></ul></div>
+  </div>
+  <button type="button" class="cta" data-open>I am interested</button>
+  <noscript><p style="margin-top:20px"><a href="/circle">Join the Circle to hear first</a></p></noscript>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">The honest terms</div>
+  <h2>Straight, like a good galley.</h2>
+  <ul class="terms">
+    <li><b>Nothing is on sale.</b> The programme comes first. Those who raised a hand hear everything in writing before anything is asked of them.</li>
+    <li><b>Three weeks, as one programme.</b> It is built to be done whole, so there is no two-week version.</li>
+    <li><b>It runs from six chefs.</b> Hiroko’s number, to keep the counter practice real. Below six it does not run, and nobody pays for a week that does not happen.</li>
+    <li><b>You can go direct.</b> Hiroko teaches at her own school; her courses are on <a href="https://jcma.tokyo/">jcma.tokyo</a>. What we add is the room of working cooks, the third week built for them, and everything around the lessons.</li>
+    <li><b>A plan, not a promise.</b> Where it says “being arranged” or “idea”, that is what it is.</li>
+  </ul>
+</div></section>
+
+<footer><div class="wrap">
+  EducatedTraveler · <a href="/">The Atlas</a> · <a href="/collaborations">Collaborations</a>
+</div></footer>
+
+<dialog id="raise" aria-labelledby="raise-t">
+  <button type="button" class="x" aria-label="Close" data-close>&times;</button>
+  <form class="intent" data-discipline="sushi-and-washoku" data-place="tokyo-omakase-2027" data-label="Tokyo omakase sushi, March 2027" data-source="collab:tokyo-2027">
+    <div class="step" data-step="1">
+      <div class="eyebrow">Tokyo · 1 of 3</div>
+      <h2 id="raise-t">Tell us <em>about you.</em></h2>
+      <fieldset><legend>You are</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="role" value="yacht chef"><span>Yacht chef</span></label>
+          <label class="opt"><input type="radio" name="role" value="private chef"><span>Private chef</span></label>
+          <label class="opt"><input type="radio" name="role" value="restaurant chef"><span>Restaurant chef</span></label>
+          <label class="opt"><input type="radio" name="role" value="other"><span>Something else</span></label>
+        </div></fieldset>
+      <fieldset><legend>Is three weeks too long?</legend>
+        <p class="hint">1 to 19 March 2027. It is three weeks or nothing: the programme is built as one.</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="weeks" value="3 weeks ok"><span>No, I can do three weeks</span></label>
+          <label class="opt"><input type="radio" name="weeks" value="3 weeks too long"><span>Too long for me</span></label>
+          <label class="opt"><input type="radio" name="weeks" value="not sure"><span>Not sure yet</span></label>
+        </div></fieldset>
+      <label class="learn" data-long hidden><span>How long could you do? <i>Optional</i></span>
+        <input type="text" name="maxlong" maxlength="60" placeholder="Two weeks, ten days"></label>
+      <p class="need" hidden>Pick what you are, and whether three weeks works.</p>
+      <button type="button" class="intent-go" data-next>Next</button>
+    </div>
+    <div class="step" data-step="2" hidden>
+      <div class="eyebrow">Tokyo · 2 of 3</div>
+      <h2>What would you <em>add?</em></h2>
+      <fieldset><legend>An extra day</legend>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="addon" value="sushi for 12 guests (extra day)"><span>Sushi for 12 guests</span></label>
+        </div></fieldset>
+      <fieldset><legend>Around the weeks, you would join</legend>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="act" value="toyosu"><span>Toyosu fish market at dawn</span></label>
+          <label class="opt"><input type="checkbox" name="act" value="wasabi farm"><span>Wasabi farm in Izu</span></label>
+          <label class="opt"><input type="checkbox" name="act" value="sake"><span>Sake tasting</span></label>
+          <label class="opt"><input type="checkbox" name="act" value="tuna night"><span>Whole bluefin tuna night</span></label>
+          <label class="opt"><input type="checkbox" name="act" value="counter dinner"><span>Dinner at a sushi counter with Hiroko</span></label>
+          <label class="opt"><input type="checkbox" name="act" value="tempura/soba counter"><span>Tempura or soba counter</span></label>
+          <label class="opt"><input type="checkbox" name="act" value="kappabashi"><span>Kappabashi, the kitchen-tool street</span></label>
+        </div></fieldset>
+      <label class="learn"><span>What would you most like to learn? <i>Optional</i></span>
+        <input type="text" name="learn" maxlength="140" placeholder="Rice, the knife, the counter, anything"></label>
+      <button type="button" class="intent-go" data-next>Next</button>
+      <p class="intent-fine"><a href="#" data-back>Back</a></p>
+    </div>
+    <div class="step" data-step="3" hidden>
+      <div class="eyebrow">Tokyo · 3 of 3</div>
+      <h2>Where do we <em>write?</em></h2>
+      <p>You hear first, when the programme is final.</p>
+      <div class="intent-row"><input type="email" name="email" required placeholder="you@email.com" class="intent-input" aria-label="Your email" autocomplete="email"><button type="submit" class="intent-go">I am interested</button></div>
+      <p class="intent-msg" hidden></p>
+      <p class="intent-fine">Nothing to pay, nothing to confirm. It tells us who is coming. <a href="#" data-back>Back</a></p>
+    </div>
+  </form>
+</dialog>
+
+<script defer data-domain="educatedtraveler.app" src="https://plausible.io/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script src="/js/intent-capture.js" defer></script>
+<script>
+(function(){
+  var d=document.getElementById('raise'); if(!d||!d.showModal) return;
+  var f=d.querySelector('form'), steps=[].slice.call(d.querySelectorAll('.step')), need=d.querySelector('.need'), cur=1;
+  function show(n){cur=n;steps.forEach(function(st){st.hidden=+st.dataset.step!==n;});var t=steps[n-1].querySelector('input:not([type=radio]):not([type=checkbox]),input[type=radio]');if(t)setTimeout(function(){t.focus()},60);}
+  function val(n){var c=f.querySelector('input[name='+n+']:checked');return c?c.value:'';}
+  function all(n){return [].map.call(f.querySelectorAll('input[name='+n+']:checked'),function(i){return i.value;});}
+  document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){d.showModal();if(!f.querySelector('.intent-msg.ok'))show(1);});});
+  d.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){d.close();});});
+  d.addEventListener('click',function(e){if(e.target===d)d.close();});
+  d.querySelectorAll('[data-next]').forEach(function(b){b.addEventListener('click',function(){
+    if(cur===1&&(!val('role')||!val('weeks'))){need.hidden=false;return;} need.hidden=true; show(cur+1);});});
+  d.querySelectorAll('[data-back]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();show(cur-1);});});
+  f.querySelectorAll('input[name=role],input[name=weeks]').forEach(function(r){r.addEventListener('change',function(){
+    need.hidden=true; f.querySelector('[data-long]').hidden=val('weeks')!=='3 weeks too long';});});
+  var msg=f.querySelector('.intent-msg'), s3=steps[2], h2b=s3.querySelector('h2'), lead=s3.querySelector('p');
+  var thanks='You\u2019re in. We write to you first, when the programme is final.';
+  new MutationObserver(function(){
+    if(!msg.classList.contains('ok')||msg.textContent===thanks)return;
+    msg.textContent=thanks; h2b.innerHTML='Thank <em>you.</em>'; lead.hidden=true;
+  }).observe(msg,{childList:true,attributes:true,characterData:true,subtree:true});
+  // The saving script stores the form label with the email, so the answers ride on it.
+  function clean(v,n){return (v||'').replace(/\s+/g,' ').replace(/\|/g,'/').trim().slice(0,n);}
+  f.addEventListener('submit',function(){
+    var parts=['Tokyo omakase sushi, March 2027','role: '+val('role'),'3 weeks: '+val('weeks').replace('3 weeks ','')];
+    var ml=clean(f.querySelector('input[name=maxlong]').value,60); if(ml&&val('weeks')==='3 weeks too long')parts.push('could do: '+ml);
+    var ad=all('addon'); if(ad.length)parts.push('addon: '+ad.join(', '));
+    var ac=all('act'); if(ac.length)parts.push('would join: '+ac.join(', '));
+    var lr=clean(f.querySelector('input[name=learn]').value,140); if(lr)parts.push('wants: '+lr);
+    f.dataset.label=parts.join(' | ');
+  },true);
+})();
+</script>
+</body>
+</html>
