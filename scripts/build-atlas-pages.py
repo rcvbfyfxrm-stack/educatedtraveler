@@ -2004,6 +2004,20 @@ def in_depth_page(d):
     return f'{d["id"]}-in-depth.html' in PRESERVE
 
 
+def before_aboard_block(d):
+    """Craft card: the few things to hold before going aboard, then the door to the in-depth page."""
+    ba = d.get("beforeAboard")
+    if not ba:
+        return ""
+    lis = "".join(f'<li style="margin:6px 0"><strong style="font-weight:500">{e(a)}.</strong> '
+                  f'<span style="opacity:.82">{e(t)}</span></li>' for a, t in ba["items"])
+    door = (f'<a href="/atlas/{d["id"]}-in-depth#need" style="text-decoration:none;font-size:14px;'
+            f'color:var(--sea);border-bottom:1px solid rgba(127,168,165,.32);padding-bottom:2px">'
+            f'{e(ba["door"])} &rarr;</a>') if in_depth_page(d) and ba.get("door") else ""
+    return (f'<div style="margin-top:20px;max-width:62ch"><div class="mono">{e(ba["heading"])}</div>'
+            f'<ul style="margin:8px 0 10px;padding-left:18px;font-size:15px;line-height:1.5">{lis}</ul>{door}</div>')
+
+
 def in_depth_page_link(d):
     """Under the lead: the way to the essay."""
     if not in_depth_page(d):
@@ -3843,7 +3857,7 @@ for d in DISC:
     body = f"""<header class="hero"><div class="wrap">
 <div class="mono"><a href="/atlas/" style="text-decoration:none">Atlas of Skills</a> / {e(CORES[d['category']][0])}</div>
 <h1>{e(d['discipline'])}</h1>
-<p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{cred}{sibling_line(d)}{in_depth_page_link(d)}{depth_link(d)}
+<p class="lead">{e(d['blurb'])}</p>{craft_intro(d)}{cred}{before_aboard_block(d)}{sibling_line(d)}{in_depth_page_link(d)}{depth_link(d)}
 </div></header>
 <section id="other-places"><div class="wrap"><div class="mono">Ordered by community strength — not by who pays</div><h2 style="margin-bottom:18px">Where the community gathers</h2>{atlas_hub.places_table(d)}{cards}{disclosure_block(d, section=False)}{intent_form(source=f'atlas:{d["id"]}', discipline=d["id"], label=d["discipline"])}</div></section>{also_here_block(d)}{reviewed_block(d["id"])}{sweep_block(d)}
 {craft_depth(d)}{in_depth_block(d)}{in_depth_page_door(d)}

@@ -29892,6 +29892,28 @@ window.ET_ATLAS = {
       "certBody": "Maritime and Coastguard Agency (UK) — elsewhere, your vessel's flag",
       "goldCredential": "Ship's Cook Certificate of Competency (UK MCA) — the document no flag will argue with",
       "certShort": "Ship's Cook CoC",
+      "beforeAboard": {
+              "heading": "Before you go aboard",
+              "items": [
+                      [
+                              "ENG1 medical",
+                              "Valid for up to two years."
+                      ],
+                      [
+                              "STCW Basic Safety",
+                              "About five days at an approved centre, refreshed every five years."
+                      ],
+                      [
+                              "Food safety, level 2 at least",
+                              "The UK MCA accepts it taught in a classroom or a live online class, not self-paced."
+                      ],
+                      [
+                              "Ship's cook papers, only if the yacht needs them",
+                              "Ten or more crew on longer passages, and the number is your flag's. The MCA certificate, or Cayman's recognition if you already cook professionally."
+                      ]
+              ],
+              "door": "Which one, and what to send"
+      },
       "bestPlace": "chef-at-sea--mallorca",
       "featured": {
         "id": "chef-at-sea--mallorca",
