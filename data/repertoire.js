@@ -29964,9 +29964,16 @@ window.ET_ATLAS = {
                 "by": "Amber",
                 "source": "sent",
                 "thumb": "/images/atlas/chef-at-sea--mallorca/aa-06-a-plate-over-the-water.jpg",
-                "card": "/images/atlas/chef-at-sea--mallorca/aa-03-the-teaching-kitchen.jpg",
-                "focal": "50% 45%",
+                "card": "/images/atlas/chef-at-sea--mallorca/aa-15-the-work-in-three-frames.jpg",
+                "focal": "50% 50%",
                 "items": [
+                  {
+                    "src": "/images/atlas/chef-at-sea--mallorca/aa-15-the-work-in-three-frames.jpg",
+                    "w": 1920,
+                    "h": 1080,
+                    "alt": "Three frames side by side. Left: a chef in the school's striped denim apron plating roast chicken on the counter of a catamaran galley. Middle: a plate of sliced beef with a green sauce, polenta and herbs held over deep blue water. Right: four women in the same aprons laughing on the deck of a boat, a wooded cove behind them.",
+                    "caption": "Plating in a boat's galley, a plate over the water, and the four who cooked it. Three frames from the school's own photographs, set side by side."
+                  },
                   {
                     "src": "/images/atlas/chef-at-sea--mallorca/aa-01-plating-in-the-galley.jpg",
                     "w": 900,
