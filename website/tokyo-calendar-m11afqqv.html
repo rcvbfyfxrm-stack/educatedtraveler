@@ -70,7 +70,22 @@ html,body{margin:0}
 .lunch.sp{visibility:hidden}
 .lunch{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--faint);padding:3px 0;background:repeating-linear-gradient(135deg,transparent 0 6px,var(--line) 6px 7px);border-top:1px solid var(--line)}
 .mod{position:relative;padding:6px 8px;border-radius:8px;border:1px solid var(--line);border-left:4px solid var(--faint);background:var(--cell);font-size:14px;line-height:1.4;cursor:grab;color:var(--fg);text-align:left;font-family:inherit;width:100%;display:block;overflow-wrap:anywhere}
-.mod{box-shadow:0 1px 0 rgba(40,32,22,.06)}
+.mod{box-shadow:0 1px 0 rgba(40,32,22,.06);padding-right:32px}
+.mod:not(.conf){border-style:dashed}
+.mod .cf{position:absolute;top:6px;right:6px;width:19px;height:19px;border-radius:50%;border:1.5px solid var(--faint);display:grid;place-items:center;cursor:pointer;background:var(--surface);padding:0}
+.mod:not(.conf) .cf{opacity:0}
+.mod:not(.conf):hover .cf,.mod .cf:focus-visible{opacity:1}
+.mod.conf .cf{background:var(--agreed);border-color:var(--agreed)}
+.mod.conf .cf::after{content:"";width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.mod.conf{cursor:pointer}
+@media (hover:none){.mod:not(.conf) .cf{opacity:.65}}
+.f-conf .mod:not(.conf){opacity:.18}
+.f-open .mod.conf{opacity:.18}
+.counts{font-size:13px;color:var(--muted)}
+.counts b{color:var(--agreed);font-weight:600}
+.chk{display:flex!important;grid-template-columns:none;align-items:flex-start;gap:10px;margin-bottom:12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--raise);cursor:pointer}
+.chk input{width:18px;height:18px;margin-top:2px;accent-color:var(--agreed)}
+.chk span{font-family:var(--body)!important;font-size:14px!important;letter-spacing:0!important;text-transform:none!important;color:var(--fg)!important}
 .mod:hover{border-color:var(--line-strong);background:#fff}
 .mod:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .mod.hiroko{border-left-color:var(--hiroko)} .mod.proposed{border-left-color:var(--proposed)} .mod.agreed{border-left-color:var(--agreed)}
@@ -125,7 +140,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   <div class="eyebrow">Tokyo · 1 – 19 March 2027</div>
   <h1>Your three weeks, <em>on one calendar.</em></h1>
   <ol class="how">
-    <li><b>Click a block</b> to change its words, its time, or its day.</li>
+    <li><b>Click a block</b> to change its words, time or day. Click its <b>tick</b> to confirm it: a confirmed block is locked until you reopen it.</li>
     <li><b>Drag a block</b> to another day or period. Drag a day's title to swap two days. On a phone, tap a block and choose the day.</li>
     <li><b>Everything saves by itself.</b> When you are finished, press <b>Send to Arnaud</b>.</li>
   </ol>
@@ -137,8 +152,11 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
       <span><i class="sw proposed"></i>Proposed</span>
       <span><i class="sw agreed"></i>Agreed</span>
       <span><i class="sw idea"></i>Idea by night</span>
+      <span class="counts">Tick = confirmed and locked · dashed = still open</span>
     </div>
     <div class="right">
+      <span class="counts" id="counts"></span>
+      <div class="seg" role="group" aria-label="Show"><button type="button" id="f-all" aria-pressed="true">All</button><button type="button" id="f-conf" aria-pressed="false">Confirmed</button><button type="button" id="f-open" aria-pressed="false">Still open</button></div>
       <div class="seg" role="group" aria-label="View"><button type="button" id="v-cal" aria-pressed="true">Calendar</button><button type="button" id="v-list" aria-pressed="false">Day by day</button></div>
       <span class="saved" id="saved">Loading…</span>
       <button type="button" class="btn primary" id="send-top">Send to Arnaud</button>
@@ -174,6 +192,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
     <label class="f"><span>Colour</span><select id="d-status"><option value="hiroko">From Hiroko</option><option value="proposed">Proposed</option><option value="agreed">Agreed</option></select></label>
     <label class="f"><span>Kind</span><select id="d-kind"><option value="class">Class</option><option value="idea">Idea by night / outing</option></select></label>
   </div>
+  <label class="f chk"><input type="checkbox" id="d-conf"><span>Confirmed: this block is settled, and cannot be dragged by accident</span></label>
   <label class="f"><span>Note for Arnaud</span><textarea id="d-note" rows="2" placeholder="Anything he should know"></textarea></label>
   <div class="dlgfoot"><button type="button" class="btn danger" id="d-del">Delete</button><button type="button" class="btn primary" id="d-done">Done</button></div>
 </dialog>
@@ -205,11 +224,12 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   ];
   var ALLDAYS=[];WEEKS.forEach(function(w){w.days.forEach(function(k){ALLDAYS.push(dinfo(k));});});
   var SLOTS=[['p1','9:30 – 11:00','Morning'],['p2','11:15 – 12:30','Midday'],['p3','13:30 – 15:00','Afternoon'],['eve','Evening','Evening']];
-  var FIELDS=['id','text','note','time','status','kind','day','slot','order','at','by','deleted'];
+  var FIELDS=['id','text','note','time','status','kind','day','slot','order','at','by','deleted','confirmed'];
   var el=function(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
   var $=function(id){return document.getElementById(id);};
   var weeksEl=$('weeks'),trayMods=$('tray-mods'),tray=$('tray'),savedEl=$('saved'),noticeEl=$('notice'),dlg=$('dlg'),sdlg=$('sdlg');
-  var BASE=JSON.parse($('baseline').textContent),BASEBY={};BASE.forEach(function(m){BASEBY[m.id]=m;});
+  function norm(m){if(m.confirmed===undefined)m.confirmed=(m.status==='hiroko'||m.status==='agreed');return m;}
+  var BASE=JSON.parse($('baseline').textContent),BASEBY={};BASE.forEach(function(m){norm(m);BASEBY[m.id]=m;});
   var docs={},dirty=false,ver=0,inflight=false,timer=null,retry=0,editing=null,dragId=null,dragDay=null,sentAt='';
   function setSaved(t,c){savedEl.textContent=t;savedEl.className='saved '+(c||'');}
   function showNotice(t){noticeEl.textContent=t;noticeEl.hidden=!t;}
@@ -222,7 +242,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   function where(m){return m.day?(dinfo(m.day).label+', '+slotLabel(m.slot)):'not placed yet';}
   function inSlot(day,slot){return Object.keys(docs).filter(function(id){return !docs[id].deleted&&docs[id].day===day&&docs[id].slot===slot;}).sort(function(a,b){return (docs[a].order||0)-(docs[b].order||0);});}
   function trayIds(){return Object.keys(docs).filter(function(id){return !docs[id].deleted&&!docs[id].day;}).sort(function(a,b){return (docs[a].order||0)-(docs[b].order||0);});}
-  function mods(){return Object.keys(docs).map(function(id){var m={};FIELDS.forEach(function(f){m[f]=docs[id][f];});m.at=m.at||'';m.by=m.by||'';m.deleted=!!m.deleted;return m;});}
+  function mods(){return Object.keys(docs).map(function(id){var m={};FIELDS.forEach(function(f){m[f]=docs[id][f];});m.at=m.at||'';m.by=m.by||'';m.deleted=!!m.deleted;m.confirmed=!!m.confirmed;return m;});}
 
   /* ---------- key ---------- */
   var mw=/[#&]w=(arnaud|hiroko)/.exec(location.hash||''),WHO='hiroko';
@@ -248,10 +268,18 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   $('v-cal').addEventListener('click',function(){setView('cal');});
   $('v-list').addEventListener('click',function(){setView('list');});
 
+  function setFilter(f){document.body.classList.toggle('f-conf',f==='conf');document.body.classList.toggle('f-open',f==='open');['all','conf','open'].forEach(function(x){$('f-'+x).setAttribute('aria-pressed',String(x===f));});}
+  ['all','conf','open'].forEach(function(x){$('f-'+x).addEventListener('click',function(){setFilter(x);});});
+
   /* ---------- render ---------- */
   function chip(id){
     var m=docs[id],b=el('div','mod '+(m.kind==='idea'?'idea ':'')+(m.status||'proposed'));
-    b.tabIndex=0;b.setAttribute('role','button');b.dataset.id=id;b.draggable=true;
+    b.tabIndex=0;b.setAttribute('role','button');b.dataset.id=id;b.draggable=!m.confirmed;
+    if(m.confirmed)b.classList.add('conf');
+    var cf=el('button','cf');cf.type='button';cf.title=m.confirmed?'Confirmed. Click the tick to reopen it so it can be moved.':'Click to confirm this block';cf.setAttribute('aria-label',m.confirmed?'Confirmed. Reopen this block':'Confirm this block');
+    cf.addEventListener('click',function(e){e.stopPropagation();patch(id,{confirmed:!docs[id].confirmed},true);});
+    cf.addEventListener('keydown',function(e){e.stopPropagation();});
+    b.appendChild(cf);
     if(m.time){var tm=el('span','tm');tm.textContent=m.time;b.appendChild(tm);}
     if(m.by&&m.by!==WHO&&m.at&&m.at>LAST){b.appendChild(el('span','nw','new from '+who(m.by)));}
     var t=el('span');t.textContent=m.text||'Untitled';b.appendChild(t);
@@ -270,6 +298,8 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
     zone.addEventListener('drop',function(e){if(!dragId)return;e.preventDefault();e.stopPropagation();zone.classList.remove('over');moveTo(dragId,day,slot,insertBefore(box,e.clientY));});
   }
   function render(){
+    var live=Object.keys(docs).filter(function(id){return !docs[id].deleted;}),k=live.filter(function(id){return docs[id].confirmed;}).length;
+    $('counts').innerHTML='<b>'+k+'</b> confirmed · '+(live.length-k)+' still open';
     weeksEl.innerHTML='';trayMods.innerHTML='';
     trayIds().forEach(function(id){trayMods.appendChild(chip(id));});
     if(!tray._dz){dropZone(tray,'','',trayMods);tray._dz=true;}
@@ -310,7 +340,10 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
     list.forEach(function(x,i){var o=docs[x].order,d=docs[x].day,sl=docs[x].slot;if(x===id){docs[x].day=day;docs[x].slot=day?slot:'';}docs[x].order=i+1;if(x===id||o!==docs[x].order||d!==docs[x].day||sl!==docs[x].slot)stamp(x);});
     changed();
   }
-  function swapDays(a,b){Object.keys(docs).forEach(function(id){if(docs[id].deleted)return;var d=docs[id].day;if(d===a){docs[id].day=b;stamp(id);}else if(d===b){docs[id].day=a;stamp(id);}});changed();}
+  function swapDays(a,b){
+    var lockedDay=Object.keys(docs).some(function(id){var m=docs[id];return !m.deleted&&m.confirmed&&(m.day===a||m.day===b);});
+    if(lockedDay){toast('One of these days has confirmed blocks. Reopen them first (click their tick) to swap the days.');return;}
+    Object.keys(docs).forEach(function(id){if(docs[id].deleted)return;var d=docs[id].day;if(d===a){docs[id].day=b;stamp(id);}else if(d===b){docs[id].day=a;stamp(id);}});changed();}
   function newId(){return 'n'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
   function addMod(day,slot){
     var eve=slot==='eve',id=newId();
@@ -325,11 +358,12 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   function openEdit(id){
     var m=docs[id];if(!m)return;editing=id;
     $('dlg-meta').textContent=m.at?('Last changed'+(who(m.by)?' by '+who(m.by):'')+', '+nice(m.at)):'';
-    T.value=m.text||'';TM.value=m.time||'';N.value=m.note||'';ST.value=m.status||'proposed';KD.value=m.kind||'class';dDay.value=m.day||'';dSlot.value=m.slot||'p1';
+    $('d-conf').checked=!!m.confirmed;T.value=m.text||'';TM.value=m.time||'';N.value=m.note||'';ST.value=m.status||'proposed';KD.value=m.kind||'class';dDay.value=m.day||'';dSlot.value=m.slot||'p1';
     DEL.textContent='Delete';delete DEL.dataset.sure;
     if(!dlg.open)dlg.showModal();
     setTimeout(function(){T.focus();T.select();},40);
   }
+  $('d-conf').addEventListener('change',function(){if(editing)patch(editing,{confirmed:$('d-conf').checked},true);});
   T.addEventListener('input',function(){if(editing)patch(editing,{text:T.value});});
   TM.addEventListener('input',function(){if(editing)patch(editing,{time:TM.value});});
   N.addEventListener('input',function(){if(editing)patch(editing,{note:N.value});});
@@ -390,6 +424,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
       if(b.status!==c.status)out.push('Changed the colour of "'+c.text+'" to '+c.status+w);
       if(b.kind!==c.kind)out.push('Changed "'+c.text+'" to a '+(c.kind==='idea'?'night idea':'class')+w);
       if((b.note||'')!==(c.note||''))out.push('Changed the note on "'+c.text+'"'+w);
+      if(!!b.confirmed!==!!c.confirmed)out.push((c.confirmed?'Confirmed "':'Reopened "')+c.text+'"'+w);
     });
     Object.keys(docs).forEach(function(id){if(!BASEBY[id]&&!docs[id].deleted)out.push('Added "'+docs[id].text+'" ('+where(docs[id])+')'+by(docs[id]));});
     return out.slice(0,80);
@@ -397,7 +432,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
 
   /* ---------- two people editing: take the later change of each block ---------- */
   function adopt(list){
-    var next={};list.forEach(function(m){next[m.id]=m;});
+    var next={};list.forEach(function(m){next[m.id]=norm(m);});
     Object.keys(docs).forEach(function(id){var l=docs[id],sv=next[id];if(!sv||(l.at||'')>(sv.at||''))next[id]=l;});
     docs=next;
   }
@@ -452,12 +487,12 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
       // a copy kept on this device that is newer than the saved one (she closed the page before it saved)
       if(list&&local&&local.at&&r.savedAt&&local.at>r.savedAt&&local.mods&&local.mods.length){list=local.mods;dirty=true;ver++;}
       if(!list){list=(local&&local.mods&&local.mods.length)?local.mods:BASE;dirty=true;ver++;}
-      docs={};list.forEach(function(m){docs[m.id]=m;});
+      docs={};list.forEach(function(m){docs[m.id]=norm(m);});
       if(r.sentAt){sentAt=r.sentAt;$('sent-line').textContent='Last sent to Arnaud on '+nice(r.sentAt)+'.';}
       render();
       if(dirty){setSaved('Saving…','busy');timer=setTimeout(doSave,600);}else setSaved('Saved','live');
     }).catch(function(e){
-      var list=(local&&local.mods&&local.mods.length)?local.mods:BASE;docs={};list.forEach(function(m){docs[m.id]=m;});
+      var list=(local&&local.mods&&local.mods.length)?local.mods:BASE;docs={};list.forEach(function(m){docs[m.id]=norm(m);});
       render();dirty=true;ver++;setSaved('Not saved yet','bad');
       showNotice('The saved copy cannot be reached right now, so this is the copy kept on this device. Your changes will be saved as soon as the connection is back. Please keep this page open until it says Saved.');
       timer=setTimeout(doSave,4000);
