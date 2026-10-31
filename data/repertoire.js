@@ -28748,6 +28748,23 @@ window.ET_ATLAS = {
       },
       "id": "yacht-crew-and-stcw",
       "certShort": "STCW",
+      "beforeAboard": {
+              "heading": "Before you pay for a course",
+              "items": [
+                      [
+                              "ENG1 medical",
+                              "Given by an MCA-approved doctor, valid for up to two years. Other flags take their own approved medicals, so ask which one the yacht's flag accepts."
+                      ],
+                      [
+                              "STCW Basic Safety",
+                              "Survival, fire fighting, first aid and personal safety, with security awareness alongside. About five days, refreshed every five years."
+                      ],
+                      [
+                              "Only if the job asks",
+                              "Crowd management and crisis management if the yacht carries passengers. Designated security duties if you are given security tasks."
+                      ]
+              ]
+      },
       "destinations": [
         {
           "place": "Antibes",
