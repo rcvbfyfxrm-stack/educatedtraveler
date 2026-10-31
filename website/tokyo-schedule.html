@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Tokyo schedule · for Hiroko</title>
+<!-- Private page. Arnaud sends Hiroko Ishii the link, which carries a secret key after the #.
+     Unlisted on purpose: noindex, not in the sitemap, linked from nowhere. The key is never in this file. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* A working calendar, not a brochure: three week rows of day columns, each day cut into the three class periods, lunch, and an evening row. Modules are small chips you drag between cells. Night ideas get their own colour. */
+:root{
+  --bg:#0e0c0a; --surface:#16130f; --cell:#1b1713; --raise:#24201a; --line:rgba(241,235,224,.12); --line-strong:rgba(241,235,224,.3);
+  --fg:#f1ebe0; --muted:rgba(241,235,224,.68); --faint:rgba(241,235,224,.44);
+  --accent:#e0955c; --accent-ink:#1a120b; --hiroko:#86b0ad; --proposed:#e0955c; --agreed:#95c48f; --idea:#a99bf0; --idea-bg:rgba(169,155,240,.14); --warn:#e5b44c;
+  --display:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:14.5px;line-height:1.5;padding-block:26px 90px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1280px;margin:0 auto;min-width:0}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--hiroko)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.06;letter-spacing:-.015em;margin:10px 0 10px;text-wrap:balance}
+h1 em{font-style:italic;color:var(--accent)}
+.brief{max-width:760px;color:var(--muted);margin:0 0 6px}
+.brief b{color:var(--fg);font-weight:500}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between;margin:18px 0 8px;padding:9px 14px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:11px;height:11px;border-radius:3px;border:2px solid var(--faint)}
+.sw.hiroko{border-color:var(--hiroko)} .sw.proposed{border-color:var(--proposed)} .sw.agreed{border-color:var(--agreed)} .sw.idea{border-color:var(--idea);background:var(--idea-bg)}
+.right{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.saved{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.saved.live{color:var(--agreed)} .saved.busy{color:var(--accent)} .saved.bad{color:var(--warn)}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:999px;overflow:hidden}
+.seg button{font:inherit;font-size:12.5px;color:var(--muted);background:transparent;border:0;padding:5px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.notice{margin:10px 0;padding:11px 14px;border:1px solid var(--line-strong);border-radius:10px;color:var(--muted);font-size:14px}
+.hint{font-size:12.5px;color:var(--faint);margin:6px 2px 0}
+.tray{margin-top:16px;padding:12px 14px;border:1px dashed var(--line-strong);border-radius:12px;background:var(--surface)}
+.tray.over,.slot.over{outline:2px dashed var(--accent);outline-offset:-2px}
+.tray h2{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.tray .mods{display:flex;flex-wrap:wrap;gap:8px}
+.tray .mods .mod{flex:0 1 300px}
+.weekblock{margin-top:30px}
+.weekblock>h2{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line-strong);font-family:var(--display);font-weight:400;font-size:24px}
+.weekblock>h2 small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) repeat(2,minmax(0,.66fr));grid-template-rows:auto repeat(5,auto);column-gap:8px;row-gap:0}
+.grid.pre{grid-template-columns:repeat(2,minmax(0,1fr));max-width:560px}
+.day{display:grid;grid-row:span 6;grid-template-rows:subgrid;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.day.wend{background:transparent;border-style:dashed}
+.dh{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:8px 10px;background:var(--raise);cursor:grab;border-bottom:1px solid var(--line);user-select:none}
+.dh.over{outline:2px dashed var(--accent);outline-offset:-2px}
+.dh b{font-family:var(--mono);font-size:12px;letter-spacing:.08em;font-weight:500}
+.dh span{font-size:11px;color:var(--faint)}
+.slot{position:relative;padding:6px 7px 7px;border-top:1px solid var(--line);min-height:54px;display:flex;flex-direction:column;gap:5px}
+.slot:first-of-type{border-top:0}
+.slot.eve{background:var(--idea-bg);border-top:1px solid var(--line-strong);min-height:52px}
+.sl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);display:flex;justify-content:space-between;align-items:center}
+.sl.eve{color:var(--idea)}
+.lunch.sp{visibility:hidden}
+.lunch{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--faint);padding:3px 0;background:repeating-linear-gradient(135deg,transparent 0 6px,var(--line) 6px 7px);border-top:1px solid var(--line)}
+.mod{position:relative;padding:6px 8px;border-radius:8px;border:1px solid var(--line);border-left:4px solid var(--faint);background:var(--cell);font-size:12.5px;line-height:1.38;cursor:grab;color:var(--fg);text-align:left;font-family:inherit;width:100%;display:block;overflow-wrap:anywhere}
+.mod:hover{border-color:var(--line-strong)}
+.mod:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.mod.hiroko{border-left-color:var(--hiroko)} .mod.proposed{border-left-color:var(--proposed)} .mod.agreed{border-left-color:var(--agreed)}
+.mod.idea{border-color:var(--idea);border-left:4px solid var(--idea);background:var(--idea-bg)}
+.mod.dragging{opacity:.4}
+.mod .tm{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--accent);margin-bottom:1px}
+.mod.idea .tm{color:var(--idea)}
+.mod .nt{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--warn);margin-left:6px;vertical-align:middle}
+.mod .nw{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:0 5px;border-radius:99px;margin-right:6px;vertical-align:1px}
+.addbtn{align-self:flex-start;font:inherit;font-size:11.5px;color:var(--faint);background:transparent;border:1px dashed var(--line-strong);border-radius:99px;padding:1px 9px;cursor:pointer;opacity:.0}
+.slot:hover .addbtn,.slot:focus-within .addbtn,.addbtn:focus-visible{opacity:1}
+.eve .addbtn{color:var(--idea);border-color:var(--idea)}
+@media (hover:none){.addbtn{opacity:1}}
+.agenda .grid,.agenda .grid.pre{grid-template-columns:1fr;grid-template-rows:none;row-gap:8px;max-width:none}
+.agenda .day{display:flex;flex-direction:column;grid-row:auto}
+.agenda .lunch.sp{display:none}
+.agenda .slot{display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px 12px;align-items:start;min-height:0}
+.agenda .slot .sl{grid-column:1;flex-direction:column;align-items:flex-start;gap:4px;padding-top:6px}
+.agenda .slot .col{grid-column:2;display:flex;flex-direction:column;gap:5px;min-width:0}
+.col{display:flex;flex-direction:column;gap:5px;min-width:0}
+.btn{font:inherit;font-size:13px;color:var(--fg);background:transparent;border:1px solid var(--line-strong);border-radius:999px;padding:6px 13px;cursor:pointer}
+.btn:hover{border-color:var(--fg)} .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:500}
+.btn.danger{color:var(--warn);border-color:var(--warn)}
+dialog{width:min(94vw,560px);margin:auto;padding:22px;color:var(--fg);background:var(--surface);border:1px solid var(--line-strong);border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(5,4,3,.6)}
+dialog h3{font-family:var(--display);font-weight:400;font-size:22px;margin:0 0 12px}
+.f{display:grid;gap:4px;margin-bottom:12px}
+.f>span{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+dialog textarea,dialog select,dialog input[type=text]{width:100%;font:inherit;color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+dialog textarea{resize:vertical;min-height:84px;line-height:1.5}
+dialog textarea:focus,dialog select:focus,dialog input[type=text]:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.dlgfoot{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;margin-top:6px}
+.meta{font-size:12px;color:var(--faint);margin:0 0 10px}
+@media (max-width:980px){.grid,.grid.pre{grid-template-columns:1fr;grid-template-rows:none;row-gap:8px;max-width:none}.day{display:flex;flex-direction:column;grid-row:auto}.lunch.sp{display:none}.slot{display:grid;grid-template-columns:96px minmax(0,1fr);gap:6px 12px;align-items:start;min-height:0}.slot .sl{grid-column:1;flex-direction:column;align-items:flex-start;gap:4px;padding-top:6px}.slot .col{grid-column:2}.two{grid-template-columns:1fr}}
+@media (max-width:520px){.slot,.agenda .slot{grid-template-columns:1fr}.slot .col,.agenda .slot .col{grid-column:1}.slot .sl,.agenda .slot .sl{flex-direction:row;padding-top:0}}
+
+.bar .btn.primary{padding:7px 16px}
+.finish{margin-top:40px;padding:22px;border:1px solid var(--line-strong);border-radius:14px;background:var(--surface);display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between}
+.finish p{margin:0;max-width:560px;color:var(--muted)}
+.finish b{color:var(--fg);font-weight:500}
+.lock{margin:60px auto;max-width:520px;text-align:center;color:var(--muted)}
+.lock h2{font-family:var(--display);font-weight:400;font-size:28px;color:var(--fg);margin:0 0 8px}
+.toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;max-width:min(92vw,520px);padding:11px 16px;border-radius:12px;background:var(--fg);color:var(--bg);font-size:14px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+dialog input[type=email]{width:100%;font:inherit;color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+</style>
+</head>
+<body>
+<div class="wrap" id="app" hidden>
+  <div class="eyebrow">Tokyo · 1 – 19 March 2027</div>
+  <h1>Your three weeks, <em>on one calendar.</em></h1>
+  <p class="brief"><b>Click a block to change it. Drag it to another day or period.</b> Drag a day's title onto another day to swap the two days. <b>Every change saves by itself.</b> You can close this page and come back to the same link: it will all be here.</p>
+  <p class="brief">Violet is for <b>ideas by night</b>. Lunch is included each class day. On a phone, tap a block and choose its day and period. When you are finished, press <b>Send to Arnaud</b>.</p>
+
+  <div class="bar" role="status">
+    <div class="legend" aria-label="Colours">
+      <span><i class="sw hiroko"></i>From Hiroko</span>
+      <span><i class="sw proposed"></i>Proposed</span>
+      <span><i class="sw agreed"></i>Agreed</span>
+      <span><i class="sw idea"></i>Idea by night</span>
+    </div>
+    <div class="right">
+      <div class="seg" role="group" aria-label="View"><button type="button" id="v-cal" aria-pressed="true">Calendar</button><button type="button" id="v-list" aria-pressed="false">Day by day</button></div>
+      <span class="saved" id="saved">Loading…</span>
+      <button type="button" class="btn primary" id="send-top">Send to Arnaud</button>
+    </div>
+  </div>
+  <div id="notice" class="notice" hidden></div>
+
+  <div class="tray" id="tray" data-day="" data-slot="">
+    <h2><span>Not placed yet</span><span><button type="button" class="btn" id="add-tray">+ Add a block</button></span></h2>
+    <div class="mods" id="tray-mods"></div>
+    <p class="hint">Drag a block from here onto a day, or onto here to put it aside.</p>
+  </div>
+
+  <div id="weeks"></div>
+
+  <div class="finish">
+    <p><b>Finished?</b> Send it to Arnaud. He gets an email with the whole schedule and everything you changed. You can keep editing afterwards and send again.</p>
+    <button type="button" class="btn primary" id="send-bottom">Send to Arnaud</button>
+  </div>
+  <p class="hint" id="sent-line"></p>
+</div>
+
+<div class="lock" id="lock" hidden>
+  <h2>This page opens with a private link.</h2>
+  <p>Arnaud sent you the link for this calendar. Please open it from his message. If you cannot find it, ask him to send it again.</p>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <h3 id="dlg-t">Edit block</h3>
+  <p class="meta" id="dlg-meta"></p>
+  <label class="f"><span>What happens</span><textarea id="d-text" rows="3"></textarea></label>
+  <label class="f"><span>Time <i style="text-transform:none;letter-spacing:0">(optional, for example 6:00 or 9:30 – 11:00)</i></span><input type="text" id="d-time" maxlength="40" placeholder="Leave empty to use the period's time" style="width:100%;font:inherit;color:var(--fg);background:var(--raise);border:1px solid var(--line);border-radius:9px;padding:9px 11px"></label>
+  <div class="two">
+    <label class="f"><span>Day</span><select id="d-day"></select></label>
+    <label class="f"><span>Period</span><select id="d-slot"></select></label>
+  </div>
+  <div class="two">
+    <label class="f"><span>Colour</span><select id="d-status"><option value="hiroko">From Hiroko</option><option value="proposed">Proposed</option><option value="agreed">Agreed</option></select></label>
+    <label class="f"><span>Kind</span><select id="d-kind"><option value="class">Class</option><option value="idea">Idea by night / outing</option></select></label>
+  </div>
+  <label class="f"><span>Note for Arnaud</span><textarea id="d-note" rows="2" placeholder="Anything he should know"></textarea></label>
+  <div class="dlgfoot"><button type="button" class="btn danger" id="d-del">Delete</button><button type="button" class="btn primary" id="d-done">Done</button></div>
+</dialog>
+
+<dialog id="sdlg" aria-labelledby="sdlg-t">
+  <h3 id="sdlg-t">Send to Arnaud</h3>
+  <p class="meta" id="s-sum"></p>
+  <label class="f"><span>A message for him <i style="text-transform:none;letter-spacing:0">(optional)</i></span><textarea id="s-msg" rows="4" placeholder="Anything you want him to know about the schedule"></textarea></label>
+  <label class="f"><span>Your email <i style="text-transform:none;letter-spacing:0">(optional, so he can reply to you)</i></span><input type="email" id="s-mail" maxlength="200" placeholder="you@example.com" autocomplete="email"></label>
+  <p class="meta" id="s-err" style="color:var(--warn)" hidden></p>
+  <div class="dlgfoot"><button type="button" class="btn" id="s-cancel">Not yet</button><button type="button" class="btn primary" id="s-go">Send to Arnaud</button></div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script type="application/json" id="baseline">[{"id":"m01","text":"The first table: one long table the night before day one, a plate and a drink, no speeches","note":"","time":"","status":"proposed","kind":"idea","day":"2027-02-28","slot":"eve","order":1},{"id":"m02","text":"Orientation, distribution of materials, classroom explanation","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-01","slot":"p1","order":1},{"id":"m03","text":"About Japanese rice, how to prepare sushi rice, sushi vinegar","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-01","slot":"p2","order":1},{"id":"m04","text":"Basic steps for making nigiri sushi","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-01","slot":"p3","order":1},{"id":"m05","text":"Nikiri soy sauce, ponzu","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-01","slot":"p3","order":2},{"id":"m06","text":"Knife check for those who brought their own, and knife sharpening","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-01","slot":"p3","order":3},{"id":"m07","text":"Review for making sushi rice","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-02","slot":"p1","order":1},{"id":"m08","text":"About the yanagiba knife, how to slice fish for sushi, basic nigiri technique","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-02","slot":"p2","order":1},{"id":"m09","text":"About nori seaweed, how to make hosomaki","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-02","slot":"p3","order":1},{"id":"m10","text":"Inari sushi","note":"Added by Arnaud from your list of what the first two weeks do not cover. Move it anywhere.","time":"","status":"proposed","kind":"class","day":"2027-03-02","slot":"p3","order":2},{"id":"m11","text":"Deba knife, preparing 3 different kinds of shrimp","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-03","slot":"p1","order":1},{"id":"m12","text":"Nigiri, shrimp head miso soup","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-03","slot":"p2","order":1},{"id":"m13","text":"About basic dashi","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-03","slot":"p3","order":1},{"id":"m14","text":"Hosomaki practice","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-03","slot":"p3","order":2},{"id":"m15","text":"Making gari, pickled ginger","note":"Added by Arnaud from your list.","time":"","status":"proposed","kind":"class","day":"2027-03-03","slot":"p3","order":3},{"id":"m16","text":"Basic filleting technique with horse mackerel (sanmai-oroshi), taking the skin off with the knife","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-04","slot":"p1","order":1},{"id":"m17","text":"Nigiri, sashimi roll, namero (tartare) and sangayaki with horse mackerel","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-04","slot":"p2","order":1},{"id":"m18","text":"Egg omelette (tamago), made by every chef on the non-stick tamagoyaki pan","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-04","slot":"p3","order":1},{"id":"m19","text":"Nigiri from the egg omelette","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-04","slot":"p3","order":2},{"id":"m20","text":"Horse mackerel filleted in two pieces, and aji fry","note":"From your list. Friday was your Toyosu day, which has moved to Saturday 13 March, so this day is free for the list.","time":"","status":"proposed","kind":"class","day":"2027-03-05","slot":"p1","order":1},{"id":"m21","text":"Sugata-zukuri: sashimi served in the shape of the fish","note":"From your list.","time":"","status":"proposed","kind":"class","day":"2027-03-05","slot":"p2","order":1},{"id":"m22","text":"Small counter practice: the chefs serve nigiri to each other","note":"You offered a small counter practice at the end of the first week.","time":"","status":"proposed","kind":"class","day":"2027-03-05","slot":"p3","order":1},{"id":"m23","text":"Kappabashi, the kitchen-tool street, as a group with Hiroko","note":"","time":"","status":"proposed","kind":"idea","day":"2027-03-06","slot":"p1","order":1},{"id":"m24","text":"Salmon: a whole salmon, the fillet and the pieces","note":"Your day says salmon fillet. Arnaud added the whole salmon from your list.","time":"","status":"proposed","kind":"class","day":"2027-03-08","slot":"p1","order":1},{"id":"m25","text":"Scallop and squid preparation, from scratch or from frozen prepared packages","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-08","slot":"p1","order":2},{"id":"m26","text":"Nigiri with salmon, scallop and squid","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-08","slot":"p2","order":1},{"id":"m27","text":"Hosomaki, and inside-out roll with salmon","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-08","slot":"p2","order":2},{"id":"m28","text":"Other inside-out rolls","note":"From your list.","time":"","status":"proposed","kind":"class","day":"2027-03-08","slot":"p2","order":3},{"id":"m29","text":"Nanban-zuke","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-08","slot":"p3","order":1},{"id":"m30","text":"Katsuramuki with daikon","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-08","slot":"p3","order":2},{"id":"m31","text":"Sashimi plate (san-ten-mori)","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-08","slot":"p3","order":3},{"id":"m32","text":"Sea bream: compare aged (4 days) and non-aged","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-09","slot":"p1","order":1},{"id":"m33","text":"Yushimo","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-09","slot":"p1","order":2},{"id":"m34","text":"Kombu-jime technique","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-09","slot":"p1","order":3},{"id":"m35","text":"Anago (conger eel) preparation, demo only","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-09","slot":"p2","order":1},{"id":"m36","text":"Nigiri and sashimi with sea bream","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-09","slot":"p2","order":2},{"id":"m37","text":"Flounder","note":"From your list. This may be too much for one day.","time":"","status":"proposed","kind":"class","day":"2027-03-09","slot":"p2","order":3},{"id":"m38","text":"Gizzard shad and mackerel preparation (demo only for the mackerel)","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-09","slot":"p3","order":1},{"id":"m39","text":"Tuna block breakdown","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-10","slot":"p1","order":1},{"id":"m40","text":"Zuke prep","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-10","slot":"p1","order":2},{"id":"m41","text":"Tuna slicing technique for sushi and sashimi","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-10","slot":"p1","order":3},{"id":"m42","text":"Tuna plate: nigiri, mid-thick roll, sashimi, hand roll","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-10","slot":"p2","order":1},{"id":"m43","text":"Chawanmushi","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-10","slot":"p3","order":1},{"id":"m44","text":"Tofu making, age-dashi tofu","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-10","slot":"p3","order":2},{"id":"m45","text":"Nasu no nibitashi","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-10","slot":"p3","order":3},{"id":"m46","text":"Simmering octopus","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-11","slot":"p1","order":1},{"id":"m47","text":"Futomaki and preparation of ingredients (shiitake, kanpyo, oboro)","note":"Techniques now come first, and the last days are for serving at the bar, as you asked. So your list of extra techniques is spread over the days before it. Please move anything where it teaches best.","time":"","status":"proposed","kind":"class","day":"2027-03-11","slot":"p2","order":1},{"id":"m48","text":"Softshell crab roll","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-11","slot":"p3","order":1},{"id":"m49","text":"Vegan sushi","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-11","slot":"p3","order":2},{"id":"m50","text":"Sake night in Hiroko's classroom, with the whole class","note":"Added by Arnaud. Is this the right evening, and who would lead the tasting?","time":"","status":"proposed","kind":"idea","day":"2027-03-11","slot":"eve","order":1},{"id":"m51","text":"Whole yellowtail","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-12","slot":"p1","order":1},{"id":"m52","text":"Saikyo-miso marinated fish for the grill","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-12","slot":"p2","order":1},{"id":"m53","text":"Monkfish liver","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-12","slot":"p2","order":2},{"id":"m54","text":"Tempura","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-12","slot":"p3","order":1},{"id":"m55","text":"Toyosu fish market: tour","note":"Agreed with Arnaud: the market on Saturday 13 March, with the ikejime demonstration and practice, and breakfast there. Meeting time to be set.","time":"","status":"agreed","kind":"class","day":"2027-03-13","slot":"p1","order":1},{"id":"m56","text":"Ikejime demonstration, then each chef who wants to practises it on a sea bream","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-13","slot":"p1","order":2},{"id":"m57","text":"Breakfast at the market","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-13","slot":"p2","order":1},{"id":"m58","text":"Abalone","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-15","slot":"p1","order":1},{"id":"m59","text":"Squid / cuttlefish","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-15","slot":"p1","order":2},{"id":"m60","text":"Shellfish: ark shell (akagai), geoduck (mirugai), surf clam (hokkigai)","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-15","slot":"p2","order":1},{"id":"m61","text":"Simmered fish: nitsuke, saba no miso-ni","note":"","time":"","status":"proposed","kind":"class","day":"2027-03-15","slot":"p3","order":1},{"id":"m62","text":"Sushi bar prep: what is made ahead, and in what order","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-16","slot":"p1","order":1},{"id":"m63","text":"Sushi bar demonstration: Hiroko serves a full service","note":"","time":"","status":"hiroko","kind":"class","day":"2027-03-16","slot":"p2","order":1},{"id":"m64","text":"Time to repeat any technique the chefs ask for","note":"The last technique day. Is there anything you would like to add before the bar days?","time":"","status":"proposed","kind":"class","day":"2027-03-16","slot":"p3","order":1},{"id":"m65","text":"Sushi bar prep","note":"Your request: the last days are for serving at the bar, chefs serving other chefs. Arnaud has made it three days. Two would also work.","time":"","status":"agreed","kind":"class","day":"2027-03-17","slot":"p1","order":1},{"id":"m66","text":"Sushi bar practice 1: chefs serve chefs","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-17","slot":"p2","order":1},{"id":"m67","text":"Sushi bar practice 2","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-17","slot":"p3","order":1},{"id":"m68","text":"Sushi bar prep","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-18","slot":"p1","order":1},{"id":"m69","text":"Sushi bar practice 3","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-18","slot":"p2","order":1},{"id":"m70","text":"Sushi bar practice 4","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-18","slot":"p3","order":1},{"id":"m71","text":"Prep for the final service","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-19","slot":"p1","order":1},{"id":"m72","text":"The final service: every chef serves a full omakase at the counter, the others as guests","note":"","time":"","status":"agreed","kind":"class","day":"2027-03-19","slot":"p2","order":1},{"id":"m73","text":"The last night: a long dinner for everyone","note":"","time":"","status":"proposed","kind":"idea","day":"2027-03-19","slot":"eve","order":1},{"id":"m74","text":"Show stoppers: presenting the sushi on a yacht, and how to put it into practice aboard","note":"An idea Hiroko mentioned, which Arnaud has noted. Where would it fit best?","time":"","status":"proposed","kind":"idea","day":"","slot":"","order":1},{"id":"m75","text":"A wasabi farm in Izu, for a weekend day","note":"Is there a farm you would recommend?","time":"","status":"proposed","kind":"idea","day":"","slot":"","order":2},{"id":"m76","text":"A tempura or soba counter, for an evening","note":"Which counter would you take the class to?","time":"","status":"proposed","kind":"idea","day":"","slot":"","order":3},{"id":"m77","text":"Dinner at a sushi counter, with Hiroko, for an evening","note":"Which counter, and which evening?","time":"","status":"proposed","kind":"idea","day":"","slot":"","order":4},{"id":"m78","text":"The whole bluefin tuna night, with sake","note":"Waiting for your tuna supplier on date and tuna.","time":"","status":"proposed","kind":"idea","day":"","slot":"","order":5},{"id":"m79","text":"Sushi for 12 guests: temaki, chirashi, oshizushi. One extra day outside the three weeks","note":"Is this possible, and on which day?","time":"","status":"proposed","kind":"idea","day":"","slot":"","order":6}]</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script>
+(function(){
+  var FN='tokyo-schedule';
+  var MON=['Jan','Feb','Mar'],WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  function dkey(y,m,d){return y+'-'+String(m).padStart(2,'0')+'-'+String(d).padStart(2,'0');}
+  function dinfo(k){var p=k.split('-').map(Number),dt=new Date(Date.UTC(p[0],p[1]-1,p[2]));return {key:k,wd:dt.getUTCDay(),d:p[2],m:p[1],label:WD[dt.getUTCDay()]+' '+p[2]+' '+MON[p[1]-1],short:WD[dt.getUTCDay()].toUpperCase()+' '+p[2]};}
+  var WEEKS=[
+    {name:'Before the course',range:'The weekend before',pre:true,days:['2027-02-27','2027-02-28']},
+    {name:'Week one',range:'1 – 7 March',days:[1,2,3,4,5,6,7].map(function(d){return dkey(2027,3,d);})},
+    {name:'Week two',range:'8 – 14 March',days:[8,9,10,11,12,13,14].map(function(d){return dkey(2027,3,d);})},
+    {name:'Week three',range:'15 – 21 March',days:[15,16,17,18,19,20,21].map(function(d){return dkey(2027,3,d);})}
+  ];
+  var ALLDAYS=[];WEEKS.forEach(function(w){w.days.forEach(function(k){ALLDAYS.push(dinfo(k));});});
+  var SLOTS=[['p1','9:30 – 11:00','Morning'],['p2','11:15 – 12:30','Midday'],['p3','13:30 – 15:00','Afternoon'],['eve','Evening','Evening']];
+  var FIELDS=['id','text','note','time','status','kind','day','slot','order'];
+  var el=function(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+  var $=function(id){return document.getElementById(id);};
+  var weeksEl=$('weeks'),trayMods=$('tray-mods'),tray=$('tray'),savedEl=$('saved'),noticeEl=$('notice'),dlg=$('dlg'),sdlg=$('sdlg');
+  var BASE=JSON.parse($('baseline').textContent),BASEBY={};BASE.forEach(function(m){BASEBY[m.id]=m;});
+  var docs={},KEY='',dirty=false,ver=0,inflight=false,timer=null,retry=0,editing=null,dragId=null,dragDay=null,sentAt='';
+  function setSaved(t,c){savedEl.textContent=t;savedEl.className='saved '+(c||'');}
+  function showNotice(t){noticeEl.textContent=t;noticeEl.hidden=!t;}
+  function toast(t){var e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true;},5000);}
+  function hhmm(){var d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');}
+  function nice(iso){try{return new Date(iso).toLocaleString(undefined,{weekday:'short',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});}catch(e){return '';}}
+  function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+  function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  function slotLabel(s){for(var i=0;i<SLOTS.length;i++)if(SLOTS[i][0]===s)return s==='eve'?'evening':SLOTS[i][1];return '';}
+  function where(m){return m.day?(dinfo(m.day).label+', '+slotLabel(m.slot)):'not placed yet';}
+  function inSlot(day,slot){return Object.keys(docs).filter(function(id){return docs[id].day===day&&docs[id].slot===slot;}).sort(function(a,b){return (docs[a].order||0)-(docs[b].order||0);});}
+  function trayIds(){return Object.keys(docs).filter(function(id){return !docs[id].day;}).sort(function(a,b){return (docs[a].order||0)-(docs[b].order||0);});}
+  function mods(){return Object.keys(docs).map(function(id){var m={};FIELDS.forEach(function(f){m[f]=docs[id][f];});return m;});}
+
+  /* ---------- key ---------- */
+  var mk=/[#&]k=([A-Za-z0-9_-]{16,128})/.exec(location.hash||'');
+  if(mk){KEY=mk[1];lsSet('tokyo-schedule-key',KEY);}else{KEY=lsGet('tokyo-schedule-key')||'';}
+
+  /* ---------- the server ---------- */
+  function call(body){
+    var sb=window.supabaseClient;if(!sb)return Promise.reject(new Error('offline'));
+    body.key=KEY;
+    return sb.functions.invoke(FN,{body:body}).then(function(r){
+      if(r.error)throw r.error;
+      if(r.data&&r.data.error){var e=new Error(r.data.error);e.code=r.data.error;throw e;}
+      return r.data;
+    });
+  }
+
+  /* ---------- view ---------- */
+  function setView(v){var list=v==='list';document.body.classList.toggle('agenda',list);$('v-cal').setAttribute('aria-pressed',String(!list));$('v-list').setAttribute('aria-pressed',String(list));lsSet('tokyo-schedule-view',v);}
+  setView(lsGet('tokyo-schedule-view')||'cal');
+  $('v-cal').addEventListener('click',function(){setView('cal');});
+  $('v-list').addEventListener('click',function(){setView('list');});
+
+  /* ---------- render ---------- */
+  function chip(id){
+    var m=docs[id],b=el('div','mod '+(m.kind==='idea'?'idea ':'')+(m.status||'proposed'));
+    b.tabIndex=0;b.setAttribute('role','button');b.dataset.id=id;b.draggable=true;
+    if(m.time){var tm=el('span','tm');tm.textContent=m.time;b.appendChild(tm);}
+    var t=el('span');t.textContent=m.text||'Untitled';b.appendChild(t);
+    if(m.note){var dot=el('span','nt');dot.title='Has a note';b.appendChild(dot);}
+    b.addEventListener('click',function(){openEdit(id);});
+    b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openEdit(id);}});
+    b.addEventListener('dragstart',function(e){dragId=id;dragDay=null;e.dataTransfer.setData('text/plain','mod:'+id);e.dataTransfer.effectAllowed='move';setTimeout(function(){b.classList.add('dragging');},0);});
+    b.addEventListener('dragend',function(){dragId=null;b.classList.remove('dragging');clearOver();});
+    return b;
+  }
+  function clearOver(){document.querySelectorAll('.over').forEach(function(x){x.classList.remove('over');});}
+  function insertBefore(container,y){var kids=[].slice.call(container.querySelectorAll('.mod:not(.dragging)'));for(var i=0;i<kids.length;i++){var r=kids[i].getBoundingClientRect();if(y<r.top+r.height/2)return kids[i].dataset.id;}return null;}
+  function dropZone(zone,day,slot,box){
+    zone.addEventListener('dragover',function(e){if(!dragId)return;e.preventDefault();e.dataTransfer.dropEffect='move';zone.classList.add('over');});
+    zone.addEventListener('dragleave',function(e){if(!zone.contains(e.relatedTarget))zone.classList.remove('over');});
+    zone.addEventListener('drop',function(e){if(!dragId)return;e.preventDefault();e.stopPropagation();zone.classList.remove('over');moveTo(dragId,day,slot,insertBefore(box,e.clientY));});
+  }
+  function render(){
+    weeksEl.innerHTML='';trayMods.innerHTML='';
+    trayIds().forEach(function(id){trayMods.appendChild(chip(id));});
+    if(!tray._dz){dropZone(tray,'','',trayMods);tray._dz=true;}
+    WEEKS.forEach(function(W){
+      var blk=el('section','weekblock');blk.appendChild(el('h2',null,W.name+' <small>'+W.range+'</small>'));
+      var g=el('div','grid'+(W.pre?' pre':''));
+      W.days.forEach(function(k){
+        var inf=dinfo(k),wend=inf.wd===0||inf.wd===6,col=el('div','day'+(wend?' wend':''));
+        var dh=el('div','dh','<b>'+inf.short+'</b><span>'+MON[inf.m-1]+'</span>');dh.draggable=true;dh.dataset.day=k;dh.title='Drag onto another day to swap the two days';
+        dh.addEventListener('dragstart',function(e){dragDay=k;dragId=null;e.dataTransfer.setData('text/plain','day:'+k);e.dataTransfer.effectAllowed='move';});
+        dh.addEventListener('dragend',function(){dragDay=null;clearOver();});
+        dh.addEventListener('dragover',function(e){if(!dragDay||dragDay===k)return;e.preventDefault();dh.classList.add('over');});
+        dh.addEventListener('dragleave',function(){dh.classList.remove('over');});
+        dh.addEventListener('drop',function(e){if(!dragDay||dragDay===k)return;e.preventDefault();dh.classList.remove('over');swapDays(dragDay,k);});
+        col.appendChild(dh);
+        SLOTS.forEach(function(S){
+          if(S[0]==='p3')col.appendChild(wend?el('div','lunch sp','&nbsp;'):el('div','lunch','Lunch · included'));
+          var cell=el('div','slot'+(S[0]==='eve'?' eve':'')),lab=el('div','sl'+(S[0]==='eve'?' eve':''));
+          lab.textContent=S[0]==='eve'?'Evening':(wend?S[2]:S[1]);
+          var box=el('div','col');inSlot(k,S[0]).forEach(function(id){box.appendChild(chip(id));});
+          var add=el('button','addbtn',S[0]==='eve'?'+ idea':'+');add.type='button';add.setAttribute('aria-label','Add a block to '+inf.label+', '+(S[0]==='eve'?'evening':S[1]));
+          add.addEventListener('click',function(){addMod(k,S[0]);});box.appendChild(add);
+          cell.appendChild(lab);cell.appendChild(box);dropZone(cell,k,S[0],box);col.appendChild(cell);
+        });
+        g.appendChild(col);
+      });
+      blk.appendChild(g);weeksEl.appendChild(blk);
+    });
+  }
+
+  /* ---------- editing ---------- */
+  function changed(){render();markDirty();}
+  function patch(id,p,rerender){Object.assign(docs[id],p);if(rerender)render();markDirty();}
+  function maxOrder(day,slot){return (day?inSlot(day,slot):trayIds()).reduce(function(m,id){return Math.max(m,docs[id].order||0);},0);}
+  function moveTo(id,day,slot,beforeId){
+    var list=(day?inSlot(day,slot):trayIds()).filter(function(x){return x!==id;});
+    var idx=beforeId?list.indexOf(beforeId):-1;if(idx<0)idx=list.length;list.splice(idx,0,id);
+    list.forEach(function(x,i){if(x===id){docs[x].day=day;docs[x].slot=day?slot:'';}docs[x].order=i+1;});
+    changed();
+  }
+  function swapDays(a,b){Object.keys(docs).forEach(function(id){var d=docs[id].day;if(d===a)docs[id].day=b;else if(d===b)docs[id].day=a;});changed();}
+  function newId(){return 'n'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+  function addMod(day,slot){
+    var eve=slot==='eve',id=newId();
+    docs[id]={id:id,text:eve?'New idea':'New block',note:'',time:'',status:'proposed',kind:eve?'idea':'class',day:day||'',slot:slot||'',order:maxOrder(day,slot)+1};
+    changed();openEdit(id);
+  }
+  $('add-tray').addEventListener('click',function(){addMod('','');});
+
+  var dDay=$('d-day'),dSlot=$('d-slot'),T=$('d-text'),TM=$('d-time'),N=$('d-note'),ST=$('d-status'),KD=$('d-kind'),DEL=$('d-del');
+  dDay.innerHTML='<option value="">Not placed yet</option>'+ALLDAYS.map(function(d){return '<option value="'+d.key+'">'+d.label+'</option>';}).join('');
+  dSlot.innerHTML=SLOTS.map(function(s){return '<option value="'+s[0]+'">'+(s[0]==='eve'?'Evening':s[1]+' ('+s[2].toLowerCase()+')')+'</option>';}).join('');
+  function openEdit(id){
+    var m=docs[id];if(!m)return;editing=id;
+    $('dlg-meta').textContent='';
+    T.value=m.text||'';TM.value=m.time||'';N.value=m.note||'';ST.value=m.status||'proposed';KD.value=m.kind||'class';dDay.value=m.day||'';dSlot.value=m.slot||'p1';
+    DEL.textContent='Delete';delete DEL.dataset.sure;
+    if(!dlg.open)dlg.showModal();
+    setTimeout(function(){T.focus();T.select();},40);
+  }
+  T.addEventListener('input',function(){if(editing)patch(editing,{text:T.value});});
+  TM.addEventListener('input',function(){if(editing)patch(editing,{time:TM.value});});
+  N.addEventListener('input',function(){if(editing)patch(editing,{note:N.value});});
+  ST.addEventListener('change',function(){if(editing)patch(editing,{status:ST.value},true);});
+  KD.addEventListener('change',function(){if(editing)patch(editing,{kind:KD.value},true);});
+  function place(){
+    if(!editing)return;var day=dDay.value,slot=dSlot.value;if(day&&!slot)slot='p1';
+    var others=(day?inSlot(day,slot):trayIds()).filter(function(x){return x!==editing;});
+    patch(editing,{day:day,slot:day?slot:'',order:others.reduce(function(m,x){return Math.max(m,docs[x].order||0);},0)+1},true);
+  }
+  dDay.addEventListener('change',place);dSlot.addEventListener('change',place);
+  DEL.addEventListener('click',function(){
+    if(!editing)return;
+    if(DEL.dataset.sure){var id=editing;editing=null;dlg.close();delete docs[id];changed();}
+    else{DEL.dataset.sure='1';DEL.textContent='Sure? Delete';setTimeout(function(){if(DEL.dataset.sure){delete DEL.dataset.sure;DEL.textContent='Delete';}},3500);}
+  });
+  $('d-done').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('close',function(){editing=null;render();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+
+  /* ---------- saving: every change, kept on this device at once and on the server within a moment ---------- */
+  function backup(){lsSet('tokyo-schedule-state',JSON.stringify({at:new Date().toISOString(),mods:mods()}));}
+  function markDirty(){
+    dirty=true;ver++;backup();setSaved('Saving…','busy');
+    clearTimeout(timer);timer=setTimeout(doSave,1200);
+  }
+  function doSave(){
+    if(!dirty||inflight)return;if(!KEY)return;
+    var myVer=ver;inflight=true;
+    call({action:'save',mods:mods()}).then(function(r){
+      inflight=false;retry=0;
+      if(ver===myVer){dirty=false;setSaved('Saved '+hhmm(),'live');}
+      else{clearTimeout(timer);timer=setTimeout(doSave,300);}
+    }).catch(function(e){
+      inflight=false;
+      if(e&&e.code==='bad_key'){lock();return;}
+      retry++;var wait=Math.min(30000,2000*Math.pow(2,retry));
+      setSaved('Not saved yet. Trying again…','bad');showNotice('The saved copy cannot be reached right now. Your changes are kept on this device and will be saved as soon as the connection is back. Please keep this page open until it says Saved.');
+      clearTimeout(timer);timer=setTimeout(doSave,wait);
+    });
+  }
+  window.addEventListener('beforeunload',function(e){if(dirty){e.preventDefault();e.returnValue='';}});
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'&&dirty){clearTimeout(timer);doSave();}});
+  var _ds=doSave;doSave=function(){_ds();};
+
+  /* ---------- what changed since the first version ---------- */
+  function changes(){
+    var out=[];
+    Object.keys(BASEBY).forEach(function(id){
+      var b=BASEBY[id],c=docs[id];
+      if(!c){out.push('Deleted "'+b.text+'"');return;}
+      if(b.text!==c.text)out.push('Renamed "'+b.text+'" to "'+c.text+'"');
+      if(b.day!==c.day||b.slot!==c.slot)out.push('Moved "'+c.text+'" from '+where(b)+' to '+where(c));
+      if((b.time||'')!==(c.time||''))out.push('Set the time of "'+c.text+'" to '+(c.time||'nothing'));
+      if(b.status!==c.status)out.push('Changed the colour of "'+c.text+'" to '+c.status);
+      if(b.kind!==c.kind)out.push('Changed "'+c.text+'" to a '+(c.kind==='idea'?'night idea':'class'));
+      if((b.note||'')!==(c.note||''))out.push('Changed the note on "'+c.text+'"');
+    });
+    Object.keys(docs).forEach(function(id){if(!BASEBY[id])out.push('Added "'+docs[id].text+'" ('+where(docs[id])+')');});
+    return out.slice(0,80);
+  }
+
+  /* ---------- sending ---------- */
+  function openSend(){
+    var n=changes().length;
+    $('s-sum').textContent=n?(n+(n===1?' change':' changes')+' since the first version will be in the email.'):'No changes since the first version. He will still get the schedule.';
+    $('s-err').hidden=true;$('s-mail').value=lsGet('tokyo-schedule-mail')||'';
+    $('s-go').disabled=false;$('s-go').textContent='Send to Arnaud';
+    sdlg.showModal();
+  }
+  $('send-top').addEventListener('click',openSend);$('send-bottom').addEventListener('click',openSend);
+  $('s-cancel').addEventListener('click',function(){sdlg.close();});
+  sdlg.addEventListener('click',function(e){if(e.target===sdlg)sdlg.close();});
+  $('s-go').addEventListener('click',function(){
+    var btn=$('s-go'),err=$('s-err');btn.disabled=true;btn.textContent='Sending…';err.hidden=true;
+    var mail=$('s-mail').value.trim();if(mail)lsSet('tokyo-schedule-mail',mail);
+    call({action:'send',mods:mods(),changes:changes(),message:$('s-msg').value,email:mail}).then(function(r){
+      sdlg.close();dirty=false;sentAt=r.sentAt||new Date().toISOString();
+      $('sent-line').textContent='Sent to Arnaud on '+nice(sentAt)+'.';
+      toast('Sent. Arnaud has your schedule.');setSaved('Saved and sent','live');showNotice('');
+    }).catch(function(e){
+      btn.disabled=false;btn.textContent='Try again';err.hidden=false;
+      err.textContent=(e&&e.code==='bad_key')?'This link is not recognised. Please open the link Arnaud sent you.':'It could not be sent just now. Your work is saved. Please try again in a moment.';
+    });
+  });
+
+  /* ---------- start ---------- */
+  function lock(){$('app').hidden=true;$('lock').hidden=false;}
+  function start(){
+    if(!KEY){lock();return;}
+    $('app').hidden=false;
+    var keep=lsGet('tokyo-schedule-state'),local=null;try{local=keep?JSON.parse(keep):null;}catch(e){}
+    call({action:'load'}).then(function(r){
+      var list=r.state;
+      if(!list||!list.length){list=null;}
+      // a copy kept on this device that is newer than the saved one (she closed the page before it saved)
+      if(list&&local&&local.at&&r.savedAt&&local.at>r.savedAt&&local.mods&&local.mods.length){list=local.mods;dirty=true;ver++;}
+      if(!list){list=(local&&local.mods&&local.mods.length)?local.mods:BASE;dirty=true;ver++;}
+      docs={};list.forEach(function(m){docs[m.id]=m;});
+      if(r.sentAt){sentAt=r.sentAt;$('sent-line').textContent='Last sent to Arnaud on '+nice(r.sentAt)+'.';}
+      render();
+      if(dirty){setSaved('Saving…','busy');timer=setTimeout(doSave,600);}else setSaved('Saved','live');
+    }).catch(function(e){
+      if(e&&e.code==='bad_key'){lock();return;}
+      var list=(local&&local.mods&&local.mods.length)?local.mods:BASE;docs={};list.forEach(function(m){docs[m.id]=m;});
+      render();dirty=true;ver++;setSaved('Not saved yet','bad');
+      showNotice('The saved copy cannot be reached right now, so this is the copy kept on this device. Your changes will be saved as soon as the connection is back. Please keep this page open until it says Saved.');
+      timer=setTimeout(doSave,4000);
+    });
+  }
+  start();
+})();
+</script>
+</body>
+</html>
