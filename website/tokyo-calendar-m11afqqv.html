@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Tokyo schedule · for Hiroko</title>
-<!-- Private page. Arnaud sends Hiroko Ishii the link, which carries a secret key after the #.
-     Unlisted on purpose: noindex, not in the sitemap, linked from nowhere. The key is never in this file. -->
+<!-- Unlisted page for Hiroko Ishii and Arnaud: noindex, not in the sitemap, an unguessable address, linked from nowhere.
+     There is no key: whoever has the address can use it. The tokyo-schedule function limits saves and sends. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -150,11 +150,6 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   <p class="hint" id="sent-line"></p>
 </div>
 
-<div class="lock" id="lock" hidden>
-  <h2>This page opens with a private link.</h2>
-  <p>Arnaud sent you the link for this calendar. Please open it from his message. If you cannot find it, ask him to send it again.</p>
-</div>
-
 <dialog id="dlg" aria-labelledby="dlg-t">
   <h3 id="dlg-t">Edit block</h3>
   <p class="meta" id="dlg-meta"></p>
@@ -204,7 +199,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   var $=function(id){return document.getElementById(id);};
   var weeksEl=$('weeks'),trayMods=$('tray-mods'),tray=$('tray'),savedEl=$('saved'),noticeEl=$('notice'),dlg=$('dlg'),sdlg=$('sdlg');
   var BASE=JSON.parse($('baseline').textContent),BASEBY={};BASE.forEach(function(m){BASEBY[m.id]=m;});
-  var docs={},KEY='',dirty=false,ver=0,inflight=false,timer=null,retry=0,editing=null,dragId=null,dragDay=null,sentAt='';
+  var docs={},dirty=false,ver=0,inflight=false,timer=null,retry=0,editing=null,dragId=null,dragDay=null,sentAt='';
   function setSaved(t,c){savedEl.textContent=t;savedEl.className='saved '+(c||'');}
   function showNotice(t){noticeEl.textContent=t;noticeEl.hidden=!t;}
   function toast(t){var e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(function(){e.hidden=true;},5000);}
@@ -219,8 +214,6 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   function mods(){return Object.keys(docs).map(function(id){var m={};FIELDS.forEach(function(f){m[f]=docs[id][f];});m.at=m.at||'';m.by=m.by||'';m.deleted=!!m.deleted;return m;});}
 
   /* ---------- key ---------- */
-  var mk=/[#&]k=([A-Za-z0-9_-]{16,128})/.exec(location.hash||'');
-  if(mk){KEY=mk[1];lsSet('tokyo-schedule-key',KEY);}else{KEY=lsGet('tokyo-schedule-key')||'';}
   var mw=/[#&]w=(arnaud|hiroko)/.exec(location.hash||''),WHO='hiroko';
   if(mw){WHO=mw[1];lsSet('tokyo-schedule-who',WHO);}else{WHO=lsGet('tokyo-schedule-who')==='arnaud'?'arnaud':'hiroko';}
   var LAST=lsGet('tokyo-schedule-visit-'+WHO)||'';
@@ -231,7 +224,6 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   /* ---------- the server ---------- */
   function call(body){
     var sb=window.supabaseClient;if(!sb)return Promise.reject(new Error('offline'));
-    body.key=KEY;
     return sb.functions.invoke(FN,{body:body}).then(function(r){
       if(r.error)throw r.error;
       if(r.data&&r.data.error){var e=new Error(r.data.error);e.code=r.data.error;throw e;}
@@ -354,7 +346,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
     clearTimeout(timer);timer=setTimeout(doSave,1200);
   }
   function doSave(){
-    if(!dirty||inflight)return;if(!KEY)return;
+    if(!dirty||inflight)return;
     var myVer=ver;inflight=true;
     call({action:'save',mods:mods()}).then(function(r){
       inflight=false;retry=0;
@@ -363,7 +355,6 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
       else{clearTimeout(timer);timer=setTimeout(doSave,300);}
     }).catch(function(e){
       inflight=false;
-      if(e&&e.code==='bad_key'){lock();return;}
       retry++;var wait=Math.min(30000,2000*Math.pow(2,retry));
       setSaved('Not saved yet. Trying again…','bad');showNotice('The saved copy cannot be reached right now. Your changes are kept on this device and will be saved as soon as the connection is back. Please keep this page open until it says Saved.');
       clearTimeout(timer);timer=setTimeout(doSave,wait);
@@ -401,7 +392,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   }
   function sig(){return JSON.stringify(Object.keys(docs).sort().map(function(id){return docs[id];}));}
   function poll(){
-    if(document.visibilityState!=='visible'||dirty||inflight||dlg.open||sdlg.open||dragId||dragDay||!KEY||$('app').hidden)return;
+    if(document.visibilityState!=='visible'||dirty||inflight||dlg.open||sdlg.open||dragId||dragDay||$('app').hidden)return;
     call({action:'load'}).then(function(r){
       if(!r.state||dirty||inflight||dlg.open||dragId||dragDay)return;
       var before=sig();adopt(r.state);
@@ -430,14 +421,12 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
       toast('Sent. Arnaud has your schedule.');setSaved('Saved and sent','live');showNotice('');
     }).catch(function(e){
       btn.disabled=false;btn.textContent='Try again';err.hidden=false;
-      err.textContent=(e&&e.code==='bad_key')?'This link is not recognised. Please open the link Arnaud sent you.':'It could not be sent just now. Your work is saved. Please try again in a moment.';
+      err.textContent=(e&&e.code==='too_soon')?'A schedule was sent a moment ago. Your work is saved. Please wait a few minutes and send again.':'It could not be sent just now. Your work is saved. Please try again in a moment.';
     });
   });
 
   /* ---------- start ---------- */
-  function lock(){$('app').hidden=true;$('lock').hidden=false;}
   function start(){
-    if(!KEY){lock();return;}
     $('app').hidden=false;
     if(WHO==='arnaud'){
       $('send-top').hidden=true;$('send-bottom').hidden=true;
@@ -456,7 +445,6 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
       render();
       if(dirty){setSaved('Saving…','busy');timer=setTimeout(doSave,600);}else setSaved('Saved','live');
     }).catch(function(e){
-      if(e&&e.code==='bad_key'){lock();return;}
       var list=(local&&local.mods&&local.mods.length)?local.mods:BASE;docs={};list.forEach(function(m){docs[m.id]=m;});
       render();dirty=true;ver++;setSaved('Not saved yet','bad');
       showNotice('The saved copy cannot be reached right now, so this is the copy kept on this device. Your changes will be saved as soon as the connection is back. Please keep this page open until it says Saved.');
