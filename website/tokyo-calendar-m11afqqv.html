@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Tokyo schedule · for Hiroko</title>
+<title>Hiroko Ishii × EducatedTraveler · Tokyo calendar</title>
 <!-- Unlisted page for Hiroko Ishii and Arnaud: noindex, not in the sitemap, an unguessable address, linked from nowhere.
      There is no key: whoever has the address can use it. The tokyo-schedule function limits saves and sends. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px
 h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.06;letter-spacing:-.015em;margin:10px 0 10px;text-wrap:balance}
 h1 em{font-style:italic;color:var(--accent)}
 html,body{margin:0}
+[hidden]{display:none!important}
 .how{padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 14px;counter-reset:s}
 .how li{counter-increment:s;position:relative;padding:14px 14px 14px 52px;background:var(--surface);border:1px solid var(--line);border-radius:12px;font-size:15px;color:var(--muted);line-height:1.45}
 .how li::before{content:counter(s);position:absolute;left:14px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--mono);font-size:14px;display:grid;place-items:center}
@@ -81,6 +82,9 @@ html,body{margin:0}
 @media (hover:none){.mod:not(.conf) .cf{opacity:.65}}
 .f-conf .mod:not(.conf){opacity:.18}
 .f-open .mod.conf{opacity:.18}
+.ntlabel{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);cursor:pointer}
+.ntlabel input{accent-color:var(--agreed);width:16px;height:16px}
+.ntstatus{font-size:12.5px;color:var(--faint);margin:4px 2px 0}
 .counts{font-size:13px;color:var(--muted)}
 .counts b{color:var(--agreed);font-weight:600}
 .chk{display:flex!important;grid-template-columns:none;align-items:flex-start;gap:10px;margin-bottom:12px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--raise);cursor:pointer}
@@ -138,7 +142,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
 <body>
 <div class="wrap" id="app" hidden>
   <div class="eyebrow">Tokyo · 1 – 19 March 2027</div>
-  <h1>Your three weeks, <em>on one calendar.</em></h1>
+  <h1>Hiroko Ishii × EducatedTraveler, <em>on one calendar.</em></h1>
   <ol class="how">
     <li><b>Click a block</b> to change its words, time or day. Click its <b>tick</b> to confirm it: a confirmed block is locked until you reopen it.</li>
     <li><b>Drag a block</b> to another day or period. Drag a day's title to swap two days. On a phone, tap a block and choose the day.</li>
@@ -155,6 +159,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
       <span class="counts">Tick = confirmed and locked · dashed = still open</span>
     </div>
     <div class="right">
+      <label class="ntlabel" id="nt-wrap" hidden><input type="checkbox" id="nt-on"> Email Hiroko about my changes</label>
       <span class="counts" id="counts"></span>
       <div class="seg" role="group" aria-label="Show"><button type="button" id="f-all" aria-pressed="true">All</button><button type="button" id="f-conf" aria-pressed="false">Confirmed</button><button type="button" id="f-open" aria-pressed="false">Still open</button></div>
       <div class="seg" role="group" aria-label="View"><button type="button" id="v-cal" aria-pressed="true">Calendar</button><button type="button" id="v-list" aria-pressed="false">Day by day</button></div>
@@ -163,6 +168,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
     </div>
   </div>
   <div id="notice" class="notice" hidden></div>
+  <p class="ntstatus" id="nt-status" hidden></p>
 
   <div class="tray" id="tray" data-day="" data-slot="">
     <h2><span>Not placed yet</span><span><button type="button" class="btn" id="add-tray">+ Add a block</button></span></h2>
@@ -248,6 +254,20 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   var mw=/[#&]w=(arnaud|hiroko)/.exec(location.hash||''),WHO='hiroko';
   if(mw){WHO=mw[1];lsSet('tokyo-schedule-who',WHO);}else{WHO=lsGet('tokyo-schedule-who')==='arnaud'?'arnaud':'hiroko';}
   var LAST=lsGet('tokyo-schedule-visit-'+WHO)||'';
+  var mk=/[#&]k=([A-Za-z0-9_-]{16,128})/.exec(location.hash||''),KEY=(WHO==='arnaud'&&mk)?mk[1]:'';
+  var NOTIFY_MS=window.__notifyMs||300000,nTimer=null,notifyOn=lsGet('tokyo-notify')!=='off';
+  function ntStatus(t){var e=$('nt-status');e.textContent=t||'';e.hidden=!t;}
+  function armNotify(ms){if(!KEY||!notifyOn)return;clearTimeout(nTimer);nTimer=setTimeout(doNotify,ms||NOTIFY_MS);ntStatus('Hiroko will be emailed about your changes a few minutes after you stop editing.');}
+  function doNotify(){
+    nTimer=null;if(!KEY||!notifyOn)return;
+    if(dirty||inflight){nTimer=setTimeout(doNotify,20000);return;}
+    call({action:'notify',key:KEY}).then(function(r){
+      if(r&&r.notified){ntStatus('');toast('Hiroko was emailed about '+r.notified+(r.notified===1?' change.':' changes.'));}
+      else if(r&&r.skipped==='hiroko_not_started'){ntStatus('Hiroko has not started editing yet, so she has not been emailed. She will be once she has.');}
+      else if(r&&r.skipped==='too_soon'){ntStatus('Hiroko was emailed a short while ago. She will hear about these changes soon.');nTimer=setTimeout(doNotify,31*60000);}
+      else ntStatus('');
+    }).catch(function(){ntStatus('Hiroko could not be emailed just now. It will be tried again.');nTimer=setTimeout(doNotify,NOTIFY_MS);});
+  }
   function touchVisit(){lsSet('tokyo-schedule-visit-'+WHO,new Date().toISOString());}
   function stamp(id){docs[id].at=new Date().toISOString();docs[id].by=WHO;}
   function who(by){return by==='arnaud'?'Arnaud':by==='hiroko'?'Hiroko':'';}
@@ -388,6 +408,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   function backup(){lsSet('tokyo-schedule-state',JSON.stringify({at:new Date().toISOString(),mods:mods()}));}
   function markDirty(){
     dirty=true;ver++;backup();setSaved('Saving…','busy');
+    if(WHO==='arnaud')armNotify();
     clearTimeout(timer);timer=setTimeout(doSave,1200);
   }
   function doSave(){
@@ -407,7 +428,7 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   }
   window.addEventListener('beforeunload',function(e){if(dirty){e.preventDefault();e.returnValue='';}});
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){touchVisit();if(dirty){clearTimeout(timer);doSave();}}});
-  window.addEventListener('pagehide',touchVisit);
+  window.addEventListener('pagehide',function(){touchVisit();if(nTimer&&KEY&&notifyOn&&!dirty&&typeof SUPABASE_URL!=='undefined'&&typeof SUPABASE_ANON_KEY!=='undefined'){try{fetch(SUPABASE_URL+'/functions/v1/tokyo-schedule',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json',Authorization:'Bearer '+SUPABASE_ANON_KEY,apikey:SUPABASE_ANON_KEY},body:JSON.stringify({action:'notify',key:KEY})});}catch(e){}}});
   var _ds=doSave;doSave=function(){_ds();};
 
   /* ---------- what changed since the first version ---------- */
@@ -475,13 +496,15 @@ dialog input[type=email]:focus{outline:2px solid var(--accent);outline-offset:1p
   function start(){
     $('app').hidden=false;
     if(WHO==='arnaud'){
+      if(KEY){$('nt-wrap').hidden=false;$('nt-on').checked=notifyOn;$('nt-on').addEventListener('change',function(){notifyOn=$('nt-on').checked;lsSet('tokyo-notify',notifyOn?'on':'off');if(notifyOn){armNotify();}else{clearTimeout(nTimer);ntStatus('Hiroko will not be emailed about your changes.');}});}
       $('send-top').hidden=true;$('send-bottom').hidden=true;
       document.querySelector('.how li:nth-child(3)').innerHTML='<b>Everything saves by itself.</b> Hiroko sees your changes when she opens her address.';
-      document.querySelector('.finish p').innerHTML='<b>You are editing as Arnaud.</b> Hiroko sees your changes the next time she opens her link, marked "new from Arnaud". Her edits appear here within a few seconds, marked in the same way.';
+      document.querySelector('.finish p').innerHTML='<b>You are editing as Arnaud.</b> Hiroko sees your changes marked "new from Arnaud". If the switch at the top is on, she is also emailed a short list a few minutes after you stop editing. Her edits appear here within a few seconds.';
       document.querySelector('.eyebrow').textContent='Tokyo · 1 – 19 March 2027 · editing as Arnaud';
     }
     var keep=lsGet('tokyo-schedule-state'),local=null;try{local=keep?JSON.parse(keep):null;}catch(e){}
-    call({action:'load'}).then(function(r){
+    call(KEY?{action:'load',wantPending:true,key:KEY}:{action:'load'}).then(function(r){
+      if(KEY&&r&&r.pending>0)armNotify(60000);
       var list=r.state;
       if(!list||!list.length){list=null;}
       // a copy kept on this device that is newer than the saved one (she closed the page before it saved)
