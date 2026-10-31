@@ -91,6 +91,7 @@
         .cx-cue { margin-top: 3rem; height: 46px; display: flex; justify-content: center; }
         .cx-cue span { width: 1px; height: 46px; background: linear-gradient(var(--sea), transparent); animation: cxcue 2.2s ease-in-out infinite; transform-origin: top; }
         @keyframes cxcue { 0% { transform: scaleY(0); opacity: 0 } 40% { opacity: 1 } 100% { transform: scaleY(1); opacity: 0 } }
+        .cx-chap, .cx-hero { overflow-x: hidden; overflow-x: clip; }
         .cx-chap { border-top: 1px solid var(--line); scroll-margin-top: 64px; }
         .cx-bleed { position: relative; height: min(78vh, 640px); overflow: hidden; display: flex; align-items: flex-end; }
         .cx-bleed img { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; will-change: transform; }
@@ -144,6 +145,7 @@
         .reveal.from-left { transform: translateX(-34px); }
         .reveal.from-right { transform: translateX(34px); }
         .reveal.in.from-left, .reveal.in.from-right { transform: none; }
+        @media (max-width: 720px) { .reveal.from-left { transform: translateX(-16px); } .reveal.from-right { transform: translateX(16px); } }
         @media (prefers-reduced-motion: reduce) {
             .reveal, .reveal.from-left, .reveal.from-right { opacity: 1 !important; transform: none !important; transition: none !important; }
             .cx-bleed img { top: 0; height: 100%; transform: none !important; }
