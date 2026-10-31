@@ -79,7 +79,86 @@
         .intent input:focus { outline: none; border-color: rgba(127,168,165,0.5); }
         .intent-msg.ok { color: var(--sea); }
         .intent-msg.err { color: var(--ember); }
+
+        /* ---- collaborations story: scroll reveal ---- */
+        #cx-progress { position: fixed; top: 64px; left: 0; height: 2px; width: 100%; transform: scaleX(0); transform-origin: 0 50%; background: linear-gradient(90deg, var(--sea), var(--ember)); z-index: 49; pointer-events: none; }
+        .cx-hero { padding-top: 9.5rem; padding-bottom: 4rem; }
+        .cx-index { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 3rem auto 0; max-width: 560px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+        .cx-index a { background: var(--ink-2); padding: 1.1rem .8rem; text-decoration: none; color: var(--paper); font-family: 'Fraunces', Georgia, serif; font-size: 1.05rem; transition: background .3s ease; display: block; }
+        .cx-index a:hover { background: #1c1813; }
+        .cx-index i { display: block; font-family: 'IBM Plex Mono', monospace; font-style: normal; font-size: 10px; letter-spacing: .3em; color: var(--ember); margin-bottom: .4rem; }
+        .cx-index small { display: block; font-family: 'Inter', sans-serif; font-size: .72rem; color: rgba(243,237,226,.5); margin-top: .2rem; }
+        .cx-cue { margin-top: 3rem; height: 46px; display: flex; justify-content: center; }
+        .cx-cue span { width: 1px; height: 46px; background: linear-gradient(var(--sea), transparent); animation: cxcue 2.2s ease-in-out infinite; transform-origin: top; }
+        @keyframes cxcue { 0% { transform: scaleY(0); opacity: 0 } 40% { opacity: 1 } 100% { transform: scaleY(1); opacity: 0 } }
+        .cx-chap { border-top: 1px solid var(--line); scroll-margin-top: 64px; }
+        .cx-bleed { position: relative; height: min(78vh, 640px); overflow: hidden; display: flex; align-items: flex-end; }
+        .cx-bleed img { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; will-change: transform; }
+        .cx-bleed-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,11,9,.35) 0%, rgba(13,11,9,.15) 35%, rgba(13,11,9,.94) 100%); }
+        .cx-bleed-text { position: relative; width: 100%; padding-bottom: 3rem; }
+        .cx-twin { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3rem; align-items: center; }
+        @media (max-width: 720px) { .cx-twin { grid-template-columns: 1fr; gap: 1.8rem; } }
+        .cx-portrait { margin: 0; }
+        .cx-portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 40% 20%; border-radius: 6px; display: block; }
+        .cx-portrait figcaption { font-family: 'IBM Plex Mono', monospace; font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(243,237,226,.45); margin-top: .7rem; }
+        .cx-facts { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 420px; gap: 1px; margin: 4rem 0 2rem; background: var(--line); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        
+        .cx-facts div { background: var(--ink-2); padding: 1.5rem 1rem 1.3rem; }
+        .cx-facts b { display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 300; font-size: 2.8rem; line-height: 1; color: var(--ember); }
+        .cx-facts span { display: block; font-size: .8rem; color: rgba(243,237,226,.62); margin-top: .5rem; line-height: 1.35; }
+        .cx-chips { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; margin: 0; }
+        .cx-chips li { font-family: 'IBM Plex Mono', monospace; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; padding: .55rem 1rem; border: 1px solid rgba(127,168,165,.35); border-radius: 999px; color: var(--sea); }
+        .cx-chips li:nth-child(2) { transition-delay: .08s } .cx-chips li:nth-child(3) { transition-delay: .16s } .cx-chips li:nth-child(4) { transition-delay: .24s } .cx-chips li:nth-child(5) { transition-delay: .32s }
+        .cx-voices { background: linear-gradient(180deg, var(--ink-2), var(--ink)); padding: 5rem 0 5.5rem; border-top: 1px solid var(--line); }
+        .cx-voice { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 3rem; align-items: center; margin-bottom: 5rem; }
+        .cx-voice.flip { grid-template-columns: minmax(0, 1fr) 260px; }
+        .cx-voice.flip .cn-sticker { order: 2; }
+        @media (max-width: 720px) { .cx-voice, .cx-voice.flip { grid-template-columns: 1fr; gap: 1.8rem; margin-bottom: 3.6rem; } .cx-voice.flip .cn-sticker { order: 0; } }
+        .cx-voice .cn-sticker { margin: 0; }
+        .cx-words blockquote.cn-only p { font-size: 1.6rem; }
+        .cx-duo { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: 3rem; align-items: center; margin-top: 5rem; }
+        @media (max-width: 720px) { .cx-duo { grid-template-columns: 1fr; gap: 1.8rem; } }
+        .cx-duo img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 6px; display: block; }
+        .cx-duo figure { margin: 0; }
+        .cx-coming { background: radial-gradient(800px 500px at 85% 10%, rgba(210,138,82,.09), transparent 60%); }
+        .cx-card { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: rgba(243,237,226,.022); transition: border-color .35s ease, transform .35s ease; }
+        .cx-card:hover { border-color: rgba(210,138,82,.4); transform: translateY(-3px); }
+        @media (max-width: 720px) { .cx-card { grid-template-columns: 1fr; } }
+        .cx-card-img { position: relative; min-height: 340px; }
+        .cx-card-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+        .cx-stamp { position: absolute; left: 1rem; top: 1rem; font-family: 'IBM Plex Mono', monospace; font-size: .64rem; letter-spacing: .24em; text-transform: uppercase; color: #14110d; background: var(--ember); padding: .45rem .8rem; border-radius: 3px; transform: rotate(-3deg); }
+        .cx-card-body { padding: 2.2rem 2rem; }
+        .cx-dl { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1.4rem; margin: 0 0 1.4rem; padding: 1.1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .cx-dl dt { font-family: 'IBM Plex Mono', monospace; font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(243,237,226,.4); margin: 0 0 .2rem; }
+        .cx-dl dd { margin: 0; font-size: .92rem; color: var(--paper); }
+        .cx-steps { list-style: none; padding: 0; margin: 3.5rem 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+        @media (max-width: 720px) { .cx-steps { grid-template-columns: 1fr; } }
+        .cx-steps li { padding: 1.4rem 0 0; border-top: 2px solid var(--sea); }
+        .cx-steps li:nth-child(2) { border-color: var(--ember); transition-delay: .1s } .cx-steps li:nth-child(3) { transition-delay: .2s }
+        .cx-steps i { display: block; font-family: 'IBM Plex Mono', monospace; font-style: normal; font-size: 10px; letter-spacing: .3em; color: rgba(243,237,226,.4); margin-bottom: .5rem; }
+        .cx-steps b { display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 1.4rem; margin-bottom: .5rem; }
+        .cx-steps span { font-size: .88rem; line-height: 1.55; color: var(--paper-muted, rgba(243,237,226,.56)); }
+        .cx-credit { font-size: .7rem; color: rgba(243,237,226,.34); margin-top: 2rem; }
+        .cx-honest { border: 1px solid var(--line); border-left: 3px solid var(--ember); border-radius: 12px; background: var(--ink-2); padding: 2rem 1.8rem; }
+        /* directional reveals: only when JS is present, so no-JS readers see everything */
+        .reveal.from-left { transform: translateX(-34px); }
+        .reveal.from-right { transform: translateX(34px); }
+        .reveal.in.from-left, .reveal.in.from-right { transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .reveal.from-left, .reveal.from-right { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .cx-bleed img { top: 0; height: 100%; transform: none !important; }
+            .cx-cue span { animation: none; opacity: .6; transform: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        .cx-bond { max-width: 640px; margin: 5rem auto 0; text-align: center; }
+        .cx-bq { margin: 0 0 1.8rem; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 1.15rem; line-height: 1.5; color: var(--paper); padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .cx-bq cite { display: block; font-style: normal; font-family: 'IBM Plex Mono', monospace; font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ember); margin-top: .6rem; }
+        .cx-veil { display: flex; justify-content: center; gap: 14px; margin: 0 0 2rem; }
+        .cx-veil span { width: 54px; height: 70px; border-radius: 4px; border: 1px solid rgba(243,237,226,.18); background: linear-gradient(160deg, rgba(243,237,226,.08), rgba(243,237,226,.015)); transform: rotate(-4deg); }
+        .cx-veil span:nth-child(2) { transform: rotate(1deg) translateY(-6px); border-color: rgba(210,138,82,.5); } .cx-veil span:nth-child(3) { transform: rotate(5deg); }
     </style>
+    <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -89,101 +168,182 @@
             <a href="/" class="flex items-center gap-3">
                 <span class="font-serif tracking-[0.16em] text-sm">EDUCATED<span class="text-sea-soft">TRAVELER</span></span>
             </a>
-            <div class="flex items-center gap-7">
+            <div class="hidden md:flex items-center gap-7">
+                <a href="/atlas/" class="link-quiet text-sm" title="The free record of where skills are still taught at the source">Atlas of Skills</a>
+                <a href="/collaborations" class="text-sm" aria-current="page" style="color:var(--sea);text-decoration:none;">Collaborations</a>
+                <a href="/about" class="link-quiet text-sm" title="Who is behind this, and why">The Story</a>
                 <a href="/circle" class="text-sm" style="padding:8px 18px;border-radius:999px;border:1px solid var(--line);color:var(--paper);text-decoration:none;">Join the Circle</a>
             </div>
-            <button id="menu-btn" style="display:none" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
+            <button id="menu-btn" class="md:hidden p-2 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="1.6" d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden" style="border-top: 1px solid var(--line);">
             <div class="px-6 py-2">
+                <a href="/atlas/" class="block py-3 text-sm text-paper-muted">Atlas of Skills</a>
+                <a href="/collaborations" class="block py-3 text-sm" style="color:var(--sea)">Collaborations</a>
+                <a href="/about" class="block py-3 text-sm text-paper-muted">The Story</a>
                 <a href="/circle" class="block py-3" style="color:var(--sea)">Join the Circle</a>
                 <a href="/you" class="block py-3 text-sm text-paper-muted" data-visitor-only>Already in? Sign in</a>
             </div>
         </div>
     </nav>
 
+    <div id="cx-progress" aria-hidden="true"></div>
+
     <!-- HERO -->
-    <section class="px-6 pt-36 pb-16">
+    <section class="cx-hero px-6">
         <div class="max-w-3xl mx-auto text-center">
-            <p class="eyebrow mb-6 reveal in">The Atlas is the map</p>
-            <h1 class="font-serif font-light text-4xl md:text-6xl leading-[1.06] tracking-tight mb-7 reveal in">
-                Collaborations are the map <span class="italic text-paper-muted">come true.</span>
+            <p class="eyebrow mb-6 reveal">Collaborations</p>
+            <h1 class="font-serif font-light text-4xl md:text-6xl leading-[1.06] tracking-tight mb-7 reveal">
+                A master&rsquo;s own room, <span class="italic text-paper-muted">opened for a few days.</span>
             </h1>
-            <p class="text-lg text-paper-muted leading-relaxed max-w-2xl mx-auto reveal in">
-                A few times a year I take one place on the Atlas and open the door for real: days at the source, in a master's own workshop, with a small room of people chasing the same craft. The first one ran in October, in Barcelona, and this is the page they all live on.
-            </p>
+            <p class="text-lg text-paper-muted leading-relaxed max-w-2xl mx-auto reveal">
+                One has run. The next is being prepared.</p>
+            <nav class="cx-index reveal" aria-label="On this page">
+                <a href="#done"><i>01</i>Done<small>Barcelona</small></a>
+                <a href="#coming"><i>02</i>Coming<small>Next</small></a>
+                <a href="#what"><i>03</i>What it is<small>The standard</small></a>
+            </nav>
+            <p class="cx-cue reveal" aria-hidden="true"><span></span></p>
         </div>
     </section>
 
-    <!-- HOW A LAB WEEK WORKS -->
-    <section class="py-20 px-6 rule-top">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12 reveal">
-                <p class="eyebrow mb-4">The standard</p>
-                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight mb-4">Every collaboration clears the same bar.</h2>
-                <p class="text-paper-muted max-w-2xl mx-auto">All four, or it doesn't run:</p>
+    <!-- 01 DONE: Barcelona -->
+    <section id="done" class="cx-chap">
+        <div class="cx-bleed" data-parallax>
+            <img src="/images/lippo/lab-glass.jpg" alt="Looking through the glass wall of the Vakuum laboratory in Barcelona: a room of chefs at tables, Martin Lippo standing at the far end teaching" loading="lazy" width="2000" height="1125">
+            <div class="cx-bleed-veil"></div>
+            <div class="cx-bleed-text max-w-4xl mx-auto px-6">
+                <p class="eyebrow mb-3 reveal">Collaboration 01 &middot; Done</p>
+                <h2 class="font-serif font-light text-4xl md:text-6xl tracking-tight leading-[1.05] reveal">Barcelona. <span class="italic">Five days at Vakuum.</span></h2>
             </div>
-            <div class="grid sm:grid-cols-2 gap-5 mb-12">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 py-16 md:py-24">
+            <div class="cx-twin">
+                <figure class="cx-portrait reveal from-left"><img src="/images/lippo/martin.jpg" alt="Martín Lippo in his chef jacket, smiling, one fist at his chin" loading="lazy" width="1400" height="1050"><figcaption>Martín Lippo &middot; Vakuum</figcaption></figure>
+                <div class="reveal from-right">
+                    <p class="eyebrow mb-4">Martin Lippo &middot; 22&ndash;26 October 2026</p>
+                    <p class="font-serif text-2xl md:text-3xl font-light leading-snug mb-4">Working chefs at his bench, in his own laboratory.</p>
+                    <p class="text-paper-muted leading-relaxed">Thirty-five hours, in English: textures, spherification, liquid nitrogen, foams and sous-vide, with their own hands.</p>
+                </div>
+            </div>
+
+            <div class="cx-facts">
+                <div class="reveal"><b data-count="5">5</b><span>days</span></div>
+                <div class="reveal"><b data-count="35">35</b><span>hours, hands in</span></div>
+                
+            </div>
+
+            <ul class="cx-chips" aria-label="What the five days covered">
+                <li class="reveal">Textures</li><li class="reveal">Spherification</li><li class="reveal">Liquid nitrogen</li><li class="reveal">Foams</li><li class="reveal">Sous-vide</li>
+            </ul>
+        </div>
+
+        <!-- the chefs -->
+        <div class="cx-voices">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-14 reveal">
+                    <p class="eyebrow mb-4">From the room</p>
+                    <h3 class="font-serif font-light text-3xl md:text-5xl tracking-tight mb-4">What the chefs wrote.</h3>
+                    <p class="text-paper-muted text-sm leading-relaxed mx-auto" style="max-width:52ch">Shown because each said yes. Nothing edited, mistakes included.</p>
+                </div>
+
+                <article class="cx-voice">
+                    <figure class="cn-sticker reveal from-left"><div class="cn-film"><img src="/images/collab/lab-week-01/renata.jpg" alt="Renata Sullivan in chef whites at the Vakuum bench, lifting a pink sphere out of a liquid nitrogen bath with tongs" loading="lazy"></div><figcaption><b>Renata Sullivan</b><small><a href="https://www.instagram.com/renata.sullivan/" rel="noopener">@renata.sullivan</a></small><i>Freelance yacht chef/private chef</i><span class="cn-foot">Collaboration 01 &middot; Vakuum, Barcelona &middot; October 2026</span></figcaption></figure>
+                    <div class="cn-words cx-words reveal from-right">
+                        <p class="cn-k">What they will remember</p>
+                        <p class="cn-moment">The new way I look at food</p>
+                        <blockquote><p>It was such a wonderful expirience from the lab, to the material to the group bonding and meals together. Not only do I feel like I&rsquo;ve learned so much but also like I was traveling with a group almost.</p><p>Martin was incredible in the way he delivered information and is extremely knowledgeable. I left the course viewing food completely differently.</p></blockquote>
+                    </div>
+                </article>
+
+                <article class="cx-voice flip">
+                    <figure class="cn-sticker reveal from-right"><div class="cn-film"><img src="/images/collab/lab-week-01/mariola.jpg" alt="Mariola Cid Acorral in chef whites and a blue apron, smiling, in a professional kitchen" loading="lazy"></div><figcaption><b>Mariola Cid Acorral</b><small><a href="https://www.instagram.com/lolacidcorral/" rel="noopener">@lolacidcorral</a></small><i>Private jet catering chef</i><span class="cn-foot">Collaboration 01 &middot; Vakuum, Barcelona &middot; October 2026</span></figcaption></figure>
+                    <div class="cn-words cx-words reveal from-left">
+                        <p class="cn-k">What they will remember</p>
+                        <p class="cn-moment">The experience.</p>
+                        <blockquote><p>Everything amazing!! Best host best Master. Maybe just have an itinerary in advance for next lab. Otherwise everything was amazing.</p></blockquote>
+                    </div>
+                </article>
+
+                <article class="cx-voice">
+                    <figure class="cn-sticker reveal from-left"><div class="cn-film"><img src="/images/collab/lab-week-01/mykhailo.jpg" alt="Mykhailo, a bearded chef, photographed from below in a yacht saloon" loading="lazy"></div><figcaption><b>Mykhailo</b><small><a href="https://www.instagram.com/sailingwithchef/" rel="noopener">@sailingwithchef</a></small><span class="cn-foot">Collaboration 01 &middot; Vakuum, Barcelona &middot; October 2026</span></figcaption></figure>
+                    <div class="cn-words cx-words reveal from-right">
+                        <p class="cn-k">In their words</p>
+                        <blockquote class="cn-only"><p>Martin clearly loves what he does and tries to give as much info as possible, love it</p></blockquote>
+                    </div>
+                </article>
+
+                <div class="cn-tally reveal" style="margin-top:3.4rem">
+                    <div><b>3 of 3</b><span>said most or all of the teaching came from Martin himself</span></div>
+                    <div><b>3 of 3</b><span>said learning in his own lab changed the week a lot</span></div>
+                    <div><b>3 of 3</b><span>call the room friends they will keep</span></div>
+                    <div><b>3 of 3</b><span>said everything else dropped away, completely or mostly</span></div>
+                    <div><b>3 of 3</b><span>want another collaboration, and want to hear first</span></div>
+                </div>
+                <p class="cn-count reveal">3 notes in so far &middot; 9 chefs were asked to write one &middot; this page grows as the rest arrive</p>
+
+                <div class="cx-bond reveal">
+                    <p class="eyebrow mb-3">Around the five days</p>
+                    <p class="font-serif text-2xl md:text-3xl font-light leading-snug mb-4">The evenings tied the room together.</p>
+                    <p class="text-paper-muted leading-relaxed mb-5">After the lab hours the chefs ate and drank together: meals, a vermut and tapas night, dinners out. By the end, strangers were a group.</p>
+                    <blockquote class="cx-bq">&ldquo;The group bonding and meals together&hellip; like I was traveling with a group almost.&rdquo;<cite>Renata Sullivan</cite></blockquote>
+                    <a href="/barcelona#notes" class="btn-primary inline-block px-7 py-3 rounded-full text-sm" style="text-decoration:none">Read all their notes &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 COMING: teaser (the next collaboration is private until Arnaud says so) -->
+    <section id="coming" class="cx-chap cx-coming">
+        <div class="max-w-3xl mx-auto px-6 py-24 md:py-32 text-center">
+            <p class="eyebrow mb-4 reveal">Collaboration 02 &middot; Being prepared</p>
+            <h2 class="font-serif font-light text-4xl md:text-6xl tracking-tight leading-[1.05] mb-6 reveal">Another door, <span class="italic">about to open.</span></h2>
+            <div class="cx-veil reveal" aria-hidden="true"><span></span><span></span><span></span></div>
+            <p class="text-paper-muted leading-relaxed mx-auto mb-8 reveal" style="max-width:48ch">A new master, a new craft, another room. Not announced yet. Leave your name and you hear first, before anyone else.</p>
+            <a href="/circle" class="btn-primary inline-block px-7 py-3 rounded-full text-sm reveal" style="text-decoration:none">Keep me posted &rarr;</a>
+        </div>
+    </section>
+
+    <!-- 03 WHAT IT IS -->
+    <section id="what" class="cx-chap">
+        <div class="max-w-4xl mx-auto px-6 py-20 md:py-28">
+            <div class="text-center mb-14 reveal">
+                <p class="eyebrow mb-4">What a collaboration is</p>
+                <h2 class="font-serif font-light text-3xl md:text-5xl tracking-tight leading-[1.08] mb-6">The Atlas is the map. <span class="italic text-paper-muted">Collaborations are the map come true.</span></h2>
+                <p class="text-paper-muted leading-relaxed mx-auto" style="max-width:56ch">A few times a year I open one place on the Atlas for real: days in a master&rsquo;s own workshop, with a small room chasing the same craft. All four, or it doesn&rsquo;t run.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5 mb-14">
                 <div class="panel p-7 reveal">
                     <div class="mb-4" style="width:34px;height:2px;background:var(--sea);border-radius:2px;"></div>
                     <h3 class="font-serif text-xl font-light mb-2">A named master</h3>
-                    <p class="text-paper-muted text-sm leading-relaxed">A real person with a record you can check yourself — who actually teaches the week, every day, in person.</p>
+                    <p class="text-paper-muted text-sm leading-relaxed">A real person with a record you can check, who teaches every day, in person.</p>
                 </div>
                 <div class="panel p-7 reveal">
                     <div class="mb-4" style="width:34px;height:2px;background:var(--ember);border-radius:2px;"></div>
                     <h3 class="font-serif text-xl font-light mb-2">Their own workshop</h3>
-                    <p class="text-paper-muted text-sm leading-relaxed">The master's own lab, bench or kitchen — a room built for teaching, not a rented corner of somewhere else.</p>
+                    <p class="text-paper-muted text-sm leading-relaxed">Their own lab, bench or kitchen, built for teaching.</p>
                 </div>
                 <div class="panel p-7 reveal">
                     <div class="mb-4" style="width:34px;height:2px;background:var(--ember);border-radius:2px;"></div>
                     <h3 class="font-serif text-xl font-light mb-2">Open enrolment</h3>
-                    <p class="text-paper-muted text-sm leading-relaxed">Anyone serious can take a chair. Nothing to win, no one you need to know. The opposite of the gatekept stage.</p>
+                    <p class="text-paper-muted text-sm leading-relaxed">Anyone serious can take a chair. Nothing to win.</p>
                 </div>
                 <div class="panel p-7 reveal">
                     <div class="mb-4" style="width:34px;height:2px;background:var(--sea);border-radius:2px;"></div>
                     <h3 class="font-serif text-xl font-light mb-2">At the source</h3>
-                    <p class="text-paper-muted text-sm leading-relaxed">In the place where the craft is most alive — because who you meet there matters as much as what you learn.</p>
+                    <p class="text-paper-muted text-sm leading-relaxed">Where the craft is most alive, and the people are.</p>
                 </div>
             </div>
-            <div class="max-w-2xl mx-auto text-center reveal">
-                <p class="text-paper-muted leading-relaxed mb-3">And one rule about the numbers: <span class="text-paper">they're published from day one.</span> Every collaboration states its minimum out loud. If enough people take a chair, it runs; if not, it doesn't — and everyone is repaid in full. No invented scarcity, no "almost gone". The only clock is the decision date, published from the first day and never moved.</p>
-                <p class="text-paper-faint text-sm">You leave with the work in your hands, a certificate that says exactly what it should — attendance and the work you presented, verified if anyone ever asks us — and the cohort itself: people worth knowing, met at the bench.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- THE LAB WEEKS -->
-    <section id="weeks" class="py-20 px-6 rule-top">
-        <div class="max-w-3xl mx-auto">
-            <div class="text-center mb-10 reveal">
-                <p class="eyebrow mb-4">The collaborations</p>
-                <h2 class="font-serif font-light text-3xl md:text-4xl tracking-tight">The first one is done.</h2>
-            </div>
-            <!-- Static fallback: replaced by js/lab-weeks.js when it renders.
-                 Guarantees the first collaboration and its link are visible even if JS never runs. -->
-            <div class="grid gap-6" data-lab-weeks>
-                <a href="/barcelona" class="panel p-7 md:p-9 text-left reveal in block" style="text-decoration:none;color:inherit">
-                    <p class="eyebrow mb-3">Collaboration 01 · Barcelona · Done · October 2026</p>
-                    <h3 class="font-serif font-light text-2xl md:text-3xl tracking-tight mb-3">Martin Lippo · Vakuum · 22–26 October 2026</h3>
-                    <p class="text-paper-muted text-sm leading-relaxed mb-4">Five days of modernist technique in his own laboratory — 35 hours hands-in, in English, for working chefs. The week is over. The five days, and what the chefs wrote about them, are on one page.</p>
-                    <span class="btn-primary inline-block px-7 py-3 rounded-full text-sm">Read what the chefs said →</span>
-                </a>
-            </div>
-            <div class="mt-12 reveal in">
-                <p class="eyebrow mb-3">From the room</p>
-                <h3 class="font-serif font-light text-2xl md:text-3xl tracking-tight mb-2">What the chefs wrote.</h3>
-                <p class="text-paper-muted text-sm leading-relaxed" style="max-width:56ch">Their words and their photos, shown because each of them said yes.</p>
-<!--collab-notes:strip-->
-<div class="cn-strip"><figure class="cn-mini"><figure class="cn-sticker"><div class="cn-film"><img src="/images/collab/lab-week-01/mariola.jpg" alt="Mariola Cid Acorral in chef whites and a blue apron, smiling, in a professional kitchen" loading="lazy"></div><figcaption><b>Mariola Cid Acorral</b><small><a href="https://www.instagram.com/lolacidcorral/" rel="noopener">@lolacidcorral</a></small><i>Private jet catering chef</i><span class="cn-foot">Collaboration 01 · Vakuum, Barcelona · October 2026</span></figcaption></figure><p class="cn-line">&ldquo;Everything amazing!! Best host best Master.&rdquo;</p></figure><figure class="cn-mini"><figure class="cn-sticker"><div class="cn-film"><img src="/images/collab/lab-week-01/renata.jpg" alt="Renata Sullivan in chef whites at the Vakuum bench, lifting a pink sphere out of a liquid nitrogen bath with tongs" loading="lazy"></div><figcaption><b>Renata Sullivan</b><small><a href="https://www.instagram.com/renata.sullivan/" rel="noopener">@renata.sullivan</a></small><i>Freelance yacht chef/private chef</i><span class="cn-foot">Collaboration 01 · Vakuum, Barcelona · October 2026</span></figcaption></figure><p class="cn-line">&ldquo;I left the course viewing food completely differently.&rdquo;</p></figure><figure class="cn-mini"><figure class="cn-sticker"><div class="cn-film"><img src="/images/collab/lab-week-01/mykhailo.jpg" alt="Mykhailo, a bearded chef, photographed from below in a yacht saloon" loading="lazy"></div><figcaption><b>Mykhailo</b><small><a href="https://www.instagram.com/sailingwithchef/" rel="noopener">@sailingwithchef</a></small><span class="cn-foot">Collaboration 01 · Vakuum, Barcelona · October 2026</span></figcaption></figure><p class="cn-line">&ldquo;Martin clearly loves what he does and tries to give as much info as possible, love it&rdquo;</p></figure></div>
-<!--/collab-notes:strip-->
-                <p class="mt-6"><a href="/barcelona#notes" style="color:var(--sea)">Read all their notes &rarr;</a></p>
-            </div>
-            <div class="cn-more">
-                <h3>Want to know when the next one opens?</h3>
-                <p>The next collaboration is not announced yet. Leave your name and I write to you first, when it is real. Free, and you can leave in one click.</p>
-                <a class="cn-btn" href="/circle">Keep me posted &rarr;</a>
+            <div class="cx-honest reveal">
+                <p class="eyebrow mb-3">One rule about the numbers</p>
+                <p class="font-serif text-xl md:text-2xl font-light leading-snug mb-4">They are published from day one.</p>
+                <p class="text-paper-muted leading-relaxed mb-3">Every collaboration states its minimum out loud. Enough chairs, it runs; if not, everyone is repaid in full. No invented scarcity, and a decision date that never moves.</p>
+                <p class="text-paper-faint text-sm leading-relaxed">You leave with the work in your hands, a certificate that says exactly what it should, and a cohort worth knowing.</p>
             </div>
         </div>
     </section>
@@ -261,7 +421,34 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="/js/supabase-config.js"></script>
     <script src="/js/member-nav.js" defer></script>
-    <script src="/js/lab-weeks.js"></script>
     <script defer src="/js/intent-capture.js"></script>
+
+    <script>
+    (function () {
+        var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var els = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); }
+        else {
+            var io = new IntersectionObserver(function (es) {
+                es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+            }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+            els.forEach(function (e) { io.observe(e); });
+        }
+        var bar = document.getElementById('cx-progress');
+        var par = document.querySelector('[data-parallax] img');
+        var tick = false;
+        function frame() {
+            tick = false;
+            var d = document.documentElement, max = d.scrollHeight - innerHeight;
+            if (bar && max > 0) bar.style.transform = 'scaleX(' + Math.min(1, scrollY / max) + ')';
+            if (par && !reduce) {
+                var r = par.parentNode.getBoundingClientRect();
+                if (r.bottom > 0 && r.top < innerHeight) par.style.transform = 'translateY(' + (r.top * -0.12).toFixed(1) + 'px)';
+            }
+        }
+        addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(frame); } }, { passive: true });
+        addEventListener('resize', frame); frame();
+    })();
+    </script>
 </body>
 </html>

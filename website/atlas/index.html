@@ -35,7 +35,8 @@ nav.top .row{max-width:1320px;margin:0 auto;padding:0 clamp(16px,3.4vw,38px);hei
 nav.top .brand{font-family:'Fraunces',Georgia,serif;font-size:17px;letter-spacing:.14em}.brand b{color:var(--sea);font-weight:400}
 nav.top .links{display:flex;gap:24px;align-items:center}.links a{font-size:14px;opacity:.62;transition:opacity .25s,color .25s}.links a:hover{opacity:1;color:var(--sea)}
 nav.top .join{opacity:1!important;border:1px solid rgba(243,237,226,.2);padding:7px 15px;border-radius:99px}.join:hover{border-color:var(--sea)}
-@media(max-width:820px){nav.top .links a:not(.join){display:none}}
+nav.top .links a.here{opacity:1;color:var(--sea)}
+@media(max-width:820px){nav.top .row{flex-wrap:wrap;height:auto;padding-top:9px;padding-bottom:5px;row-gap:2px}nav.top .brand{order:1}nav.top .join{order:2;padding:6px 13px;font-size:13px}nav.top .links{order:3;width:100%;justify-content:space-between;gap:10px;padding:2px 0 4px}nav.top .links a{font-size:13px}.hero{padding-top:112px!important}}
 
 /* hero + the rosette */
 .hero{padding:92px 0 36px;position:relative;overflow:hidden}
@@ -527,7 +528,8 @@ footer{border-top:1px solid var(--line);padding:34px 0 60px;font-size:13px;color
 <!-- built 2026-10-31 · 37 of 116 crafts open · states from data/atlas-unlocked.json -->
 <nav class="top"><div class="row">
   <a class="brand" href="/">EDUCATED<b>TRAVELER</b></a>
-  <div class="links"><a class="join" href="/circle" title="The people who have told me which craft they want to learn. One note joins it, free.">Join the Circle</a></div>
+  <div class="links" aria-label="Site"><a class="here" href="/atlas/" aria-current="page" title="The free record of where skills are still taught at the source">Atlas of Skills</a><a href="/collaborations" title="A week built with a master, in their own working room">Collaborations</a><a href="/about" title="Who is behind this, and why">The Story</a></div>
+  <a class="join" href="/circle" title="The people who have told me which craft they want to learn. One note joins it, free.">Join the Circle</a>
 </div></nav>
 
 <header class="hero">
