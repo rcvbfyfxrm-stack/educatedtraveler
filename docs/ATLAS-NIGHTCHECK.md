@@ -1,6 +1,6 @@
 # Atlas night check
 
-_2026-10-31 — 421 published claims re-read against the pages they came from, across 37 open crafts._
+_2026-11-01 — 421 published claims re-read against the pages they came from, across 37 open crafts._
 
 This file is written by `scripts/night-check.py`. It is **not a check** in the sense rule 10 means: no name, no visit, no judgement. It is a machine noticing that a page moved. Nothing here has been changed on the site — that is Arnaud's call, every time.
 
@@ -10,6 +10,12 @@ Three nights is past a bad evening. Re-verify by hand and either re-date the ent
 
 **Only the server's own answer reaches this list** — a 404, a 410, or a page that no longer carries what we published. A request that never became a response is two sections down and is not a takedown: on 7 September 2026 this section held two entries and both were wrong, one a timeout on our own runner and one a certificate that did not match a hostname.
 
+- **kitesurfing · the IKO Kiteboarder levels** — https://d8.ikointl.com/courses
+  - page no longer says: Kiteboarder; Instructor
+- **kitesurfing · the IKO Kiteboarder levels — Level 3 — Independent** — https://d8.ikointl.com/course/kiteboarder/independent
+  - page no longer says: Ride upwind; Self-rescue and pack down in deep water
+- **kitesurfing · the IKO Kiteboarder levels — Level 4 — Advanced** — https://d8.ikointl.com/course/kiteboarder/advanced
+  - page no longer says: Jump with a grab; Board recovery
 - **japanese-knife-making · TOSA Uchihamono (Forged Blades) — Traditional Craft Industries Promotion Association** — https://kougeihin.jp/en/craft/0713/
   - HTTP 503
 
@@ -23,33 +29,40 @@ _none._
 
 Timed out, no DNS, or the connection was refused. Nothing came back, so there is nothing here about the school: the runner's own network fails this way, and has. Never escalated, never a reason to take an entry down. Open one in a browser — that is the only thing that settles it.
 
-- sound-healing · Pokhara Yoga School and Retreat Center — 54 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
+- sound-healing · Pokhara Yoga School and Retreat Center — 55 nights, after 6 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://www.pokharayogaschoolandretreatcenter.com/
-- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 2 nights — URLError: <urlopen error timed out>
+- sushi-and-washoku · Kyoto Culinary Art College (Taiwa Gakuen) — 3 nights — URLError: <urlopen error timed out>
   - https://www.taiwa.ac.jp/global/en/kyocho.php
-- sushi-and-washoku · La Carriere Cooking School (since 1931) — 2 nights — URLError: <urlopen error timed out>
+- sushi-and-washoku · La Carriere Cooking School (since 1931) — 3 nights — URLError: <urlopen error timed out>
   - https://www.taiwa.ac.jp/lacarriere/en/course/
-- wine-and-sommellerie · Université de Bordeaux DUAD (oenology) — 10 nights, after 5 counted as failing by the older check — URLError: <urlopen error timed out>
+- wine-and-sommellerie · Université de Bordeaux DUAD (oenology) — 11 nights, after 5 counted as failing by the older check — URLError: <urlopen error timed out>
   - https://formations-isvv.u-bordeaux.fr/d-u-a-d-diplome-universitaire-daptitude-a-la-degustation.html
-- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 27 nights — URLError: <urlopen error [Errno 111] Connection refused>
+- mixology-and-bartending · Asociacion de Cantineros de Cuba (Cuban Bartenders Association) / Havana Club Rum Museum (Museo del Ron) — 28 nights — URLError: <urlopen error [Errno 111] Connection refused>
   - https://cantineroscuba.org.cu/
-- mixology-and-bartending · Cocktail-making workshop — 27 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
+- mixology-and-bartending · Cocktail-making workshop — 28 nights — URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>
   - https://www.havanaclubmuseum.com/en/experiences/
+- wildlife-photography · Kiskunság National Park on the Pusztaszer Landscape Protection Area — 1 night — TimeoutError: The read operation timed out
+  - https://www.knp.hu/en/pusztaszer-landscape-protection-area
+- french-pastry-and-patisserie · opened by President Charles de Gaulle on March 3, 1969 — 1 night — TimeoutError: The read operation timed out
+  - https://www.france.fr/en/article/rungis-largest-food-market-world/
+- french-pastry-and-patisserie · bought in by 26,000 vehicles — 1 night — TimeoutError: The read operation timed out
+  - https://www.france.fr/en/article/rungis-largest-food-market-world/
 
 ## Their certificate does not match — an editorial call, not a death
 
 The server answered; its certificate is issued for another name, so a visitor meets a full-page browser warning before they meet the school. The door is open and the sign on it is broken. Whether an entry can stand behind a wall a reader has to click through is a judgement with a name on it, and it is not this script's.
 
-- **coffee-and-barista · African Coffee Campus** — 8 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
+- **coffee-and-barista · African Coffee Campus** — 9 nights — https://africancoffeecampus.ambrellaluxurysafaris.com/
   - URLError: <urlopen error [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1010)>
-- **perfumery · Musée International de la Parfumerie** — 48 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Musée International de la Parfumerie** — 49 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
-- **perfumery · Un conservatoire de plantes à parfum** — 48 nights — https://www.museesdegrasse.com/mip/presentation
+- **perfumery · Un conservatoire de plantes à parfum** — 49 nights — https://www.museesdegrasse.com/mip/presentation
   - URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>
 
 ## Back to normal
 
-- kitesurfing · Subcielo Kite School
+- kitesurfing · the IKO Kiteboarder levels — Level 1 — Discovery
+- kitesurfing · the IKO Kiteboarder levels — Level 2 — Intermediate
 
 ## Unreadable, not gone
 
@@ -82,7 +95,9 @@ These answered with a 401, 403, 429 or 451 — a firewall refusing a script, not
 - wine-and-sommellerie · Institute of Masters of Wine — HTTP 403
 - wine-and-sommellerie · UC Davis Department of Viticulture & Enology — HTTP 403
 - mixology-and-bartending · European Bartender School London — HTTP 403
+- wildlife-photography · Paul Goldstein Photo Safaris / Kicheche Camps — HTTP 403
 - wildlife-photography · Falmouth University — HTTP 403
+- surfing · Save The Waves on the Ericeira World Surfing Reserve — HTTP 403
 - chef-at-sea · Dockwalk — yacht crew recruitment agencies in Palma — HTTP 202
 - italian-cuisine-and-pasta · Emilia-Romagna, Piedmont, Lombardy, Veneto, Province of Trento, Tuscany, Marche and Lazio — HTTP 202
 
@@ -98,6 +113,7 @@ Informational, never escalated. A rejected place going offline is usually the re
 - mixology-and-bartending · Havana, as a place on this page — URLError: <urlopen error [Errno 111] Connection refused>
 - mixology-and-bartending · European Bartender School New York — HTTP 403
 - modern-new-technique-cuisine · Espai Sucre — URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'espaisucre.com'. (_ssl.c:1010)>
+- modern-new-technique-cuisine · Modernist Cuisine Lab (Nathan Myhrvold) — HTTP 403
 
 ## Claims with nothing to verify against
 
@@ -164,4 +180,4 @@ These resolve, and that is all we know: no `verify` strings, so the page could h
 - spearfishing · Kona, Big Island · Top Shot Spearfishing
 - spearfishing · Cabo San Lucas / Sea of Cortez · Spearfishing Baja (Cabo San Lucas)
 
-_277 in total._
+_275 in total._
