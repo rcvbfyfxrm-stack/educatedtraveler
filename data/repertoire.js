@@ -19420,7 +19420,7 @@ window.ET_ATLAS = {
               "name": "Seasons of My Heart (Susana Trilling)",
               "url": "https://www.seasonsofmyheart.com/food-tours/mexico/oaxaca/chefs-intensive",
               "course": "6-Day Chef's Intensive",
-              "blurb": "Led by Chef Kaelin Ulrich Trilling at Susana Trilling's long-running Oaxaca school, this six-day intensive pairs morning visits to local markets, artisans and producers with afternoon hands-on kitchen",
+              "blurb": "Led by Chef Kaelin Ulrich Trilling at Susana Trilling's long-running Oaxaca school, this six-day intensive pairs morning visits to local markets, artisans and producers with afternoon hands-on kitchen sessions.",
               "confidence": "high"
             },
             {
@@ -19428,7 +19428,18 @@ window.ET_ATLAS = {
               "url": "https://casacrespo.com/cooking-classes/",
               "course": "Oaxacan cooking class with market tour / Moles class",
               "blurb": "Oaxaca City cooking school run by chef Oscar Carrizosa focused solely on Oaxacan cuisine, teaching daily market-tour classes covering tortillas, ancestral salsas and mole using produce from his own Mixteca farm.",
-              "confidence": "medium"
+              "confidence": "high",
+              "facts": {
+                "length": "4 hours",
+                "format": "Market tour, then cooking in the chef's home",
+                "language": "English",
+                "price": "1,350 MXN",
+                "priceNote": "Public class, Tuesday to Sunday from 10:00. Shorter classes on moles, salsas, chocolate and pre-Hispanic cooking",
+                "from": [
+                  "https://casacrespo.com/cooking-classes/"
+                ],
+                "read": "2026-11-04"
+              }
             },
             {
               "name": "El Sabor Zapoteco (Teotitlan del Valle)",
@@ -19503,7 +19514,8 @@ window.ET_ATLAS = {
           "communityLabel": "Strong",
           "schools": [
             "Los Dos Cooking School (David Sterling legacy, now Chef Mario Canul)",
-            "La Tradicion Cooking Experiences"
+            "La Tradicion Cooking Experiences",
+            "México Lindo Cooking (Chef Alejandra Kauachi)"
           ],
           "masters": [],
           "badges": [
@@ -19529,6 +19541,30 @@ window.ET_ATLAS = {
               "course": "",
               "blurb": "A Merida Yucatecan cooking-experience offering could not be verified to a single official school and site of this exact name, as searches surfaced multiple generic market-tour cooking classes instead.",
               "confidence": "low"
+            },
+            {
+              "name": "México Lindo Cooking (Chef Alejandra Kauachi)",
+              "url": "https://www.mexicolindocooking.com/",
+              "course": "Traditional Mexican cooking classes, 5½ hours; a 6-hour class with the market in Valladolid",
+              "blurb": "Chef Alejandra Kauachi's school, from a family of Mexican and Lebanese cooks. Two kitchens: one on the Ruta de los Cenotes road in Puerto Morelos, on the Caribbean coast in Quintana Roo, the other five minutes outside Valladolid, in Yucatán, where the class starts at the market. The menus are cooked from scratch: salsas, handmade tortillas, tamales, and a Yucatán menu with pork in pibil sauce. The school also lists Rosalía Chay, a Maya cook in her home village of Yaxunah, as a featured chef.",
+              "confidence": "medium",
+              "facts": {
+                "where": "Puerto Morelos and Valladolid",
+                "length": "5½ to 6 hours",
+                "format": "Hands-on class, one menu cooked from scratch, eaten together at the end",
+                "from": [
+                  "https://www.mexicolindocooking.com/"
+                ],
+                "read": "2026-11-04"
+              },
+              "teachers": {
+                "groups": [
+                  ["Your host", ["Alejandra Kauachi"]],
+                  ["Featured chefs", ["Claudia", "Rosalía Chay (Yaxunah)"]]
+                ],
+                "from": "https://www.mexicolindocooking.com/",
+                "read": "2026-11-04"
+              }
             }
           ],
           "tripTier": 3,
