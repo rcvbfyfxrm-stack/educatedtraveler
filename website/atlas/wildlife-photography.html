@@ -158,8 +158,20 @@ ul.clean { list-style:none; } ul.clean li { padding:10px 0; border-bottom:1px so
 ul.clean li:last-child { border-bottom:none; }
 /* A school is a card, like a place (16 Sept 2026). One column, full spine, the same
    ground and radius as a place card, so the two read as the same kind of thing. */
-ul.schools { list-style:none; display:grid; gap:14px; }
-li.school { background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; }
+/* ⚠ A CSS GRID item is NOT like a flex one: its default min-width is `auto`, which
+   resolves to its CONTENT's min-content size — so an implicit column sized `auto`
+   (the default) can grow past the container to fit one long unbroken word, pushing
+   the whole page into a horizontal scroll. An explicit minmax(0,1fr) track says the
+   column may shrink to 0 before it grows; min-width:0 on the item says the same for
+   the box itself. A documented, intermittent 12px overflow on this card (glass FAILs
+   on it some runs, PASSes on others — not reproducible on demand, consistent with a
+   font-swap-timing race, not a fixed piece of content) is the exact shape this fixes:
+   whatever the proximate cause on a given run, the grid can no longer grow past the
+   phone to accommodate it. overflow-wrap is the matching safety net on the card
+   itself — a last resort, only when a genuinely unbroken run of characters would
+   otherwise overflow; it does not touch how normal multi-word text wraps. */
+ul.schools { list-style:none; display:grid; grid-template-columns:minmax(0,1fr); gap:14px; }
+li.school { background:var(--ink2); border:1px solid var(--line); border-radius:10px; padding:22px 24px; min-width:0; overflow-wrap:anywhere; }
 li.school .stags { margin:0 0 10px; }
 .stag { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em;
   text-transform:uppercase; border:1px solid var(--line); border-radius:6px; padding:3px 9px; margin:0 6px 6px 0;
