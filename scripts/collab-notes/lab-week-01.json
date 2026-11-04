@@ -2,6 +2,11 @@
   "week": "lab-week-01-barcelona",
   "title": "Collaboration 01 · Barcelona",
   "invited": 9,
+  "pull": [
+    {"id": "jaimee", "text": "Everyone was there because they were truly interested in learning."},
+    {"id": "renata", "text": "I left the course viewing food completely differently."},
+    {"id": "paul", "text": "It was amazing to learn from Martin and meet like minded talented chefs, such a wealth of knowledge to share between us."}
+  ],
   "notes": [
     {
       "id": "mariola",
