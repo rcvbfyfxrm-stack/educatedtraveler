@@ -41,3 +41,5 @@
 .cn-feed a{display:block;text-decoration:none}
 .cn-feed img{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;display:block;border-radius:6px;border:1px solid rgba(243,237,226,.09)}
 .cn-feed a:hover img,.cn-feed a:focus-visible img{border-color:#7fa8a5}
+.cn-film.cn-none{display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#2a231c,#14110d)}
+.cn-film.cn-none span{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:300;font-size:7rem;line-height:1;color:rgba(243,237,226,.62)}
