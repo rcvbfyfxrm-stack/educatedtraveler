@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Hear it first — Educated Traveler</title>
+<meta name="description" content="Barcelona with Martin Lippo is done. Something is taking shape in Tokyo. Hear it first.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0b09;--paper:#f3ede2;--muted:rgba(243,237,226,.62);--sea:#7fa8a5;--ember:#d28a52;--line:rgba(243,237,226,.14)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 16px/1.55 Inter,system-ui,sans-serif}
+main{max-width:520px;margin:0 auto;padding:44px 16px 64px}
+h1{font:300 clamp(30px,8vw,42px)/1.1 Fraunces,Georgia,serif;margin:0 0 12px}
+.lede{color:var(--muted);margin:0 0 14px}
+.lede em{color:var(--paper);font-style:normal}
+a{color:var(--sea)}
+.links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 18px}
+.voices,.ig{background:none;border:0;padding:0;color:var(--sea);font:500 15px Inter,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.martin{display:block;width:100%;margin:0 0 30px;background:none;color:var(--paper);border:1px solid var(--line);border-radius:6px;padding:13px 14px;font:500 15px Inter,sans-serif;text-align:left;cursor:pointer}
+.martin[aria-pressed="true"]{border-color:var(--ember);background:rgba(210,138,82,.12)}
+.martin[aria-pressed="true"]::after{content:" · noted";color:var(--ember)}
+.steps{display:flex;gap:6px;margin:0 0 18px}
+.steps span{height:3px;flex:1;background:var(--line);border-radius:2px}
+.steps span.on{background:var(--ember)}
+form{display:grid;gap:18px}
+.step{display:grid;gap:18px}
+.step[hidden]{display:none}
+label{display:grid;gap:6px;font-size:14px;color:var(--muted)}
+input{font:inherit;color:var(--paper);background:rgba(243,237,226,.05);border:1px solid var(--line);border-radius:6px;padding:13px 12px;width:100%}
+input:focus{outline:2px solid var(--sea);outline-offset:1px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.consent input{width:auto;margin-top:4px}
+.go{font:600 16px Inter,sans-serif;background:var(--ember);color:#1a0f06;border:0;border-radius:6px;padding:15px 20px;cursor:pointer;width:100%}
+.go:disabled{opacity:.6;cursor:default}
+.back{background:none;border:0;color:var(--muted);font:400 14px Inter,sans-serif;padding:4px 0;justify-self:start;text-decoration:underline;cursor:pointer}
+.hello{font:italic 300 21px/1.35 Fraunces,Georgia,serif;margin:0}
+.err{color:#f0a38a;font-size:14px;display:none}
+.fine{font-size:13px;color:var(--muted);margin:0}
+#done{display:none}
+#done h2{font:300 28px/1.15 Fraunces,Georgia,serif;margin:0 0 12px}
+
+/* the chefs' notes, in a sheet over the form so nothing typed is lost */
+dialog{border:0;padding:0;background:var(--ink);color:var(--paper);width:min(520px,100vw);max-height:88vh;border-radius:12px 12px 0 0;margin:auto auto 0;border-top:1px solid var(--line)}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+@media (min-width:600px){dialog{margin:auto;border-radius:12px;border:1px solid var(--line)}}
+.sheet{padding:20px 16px 24px;overflow:auto;max-height:88vh}
+.sheet-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 4px}
+.sheet h2{font:300 24px/1.2 Fraunces,Georgia,serif;margin:0}
+.x{background:none;border:0;color:var(--muted);font:400 26px/1 Inter,sans-serif;cursor:pointer;padding:0 4px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+.v{display:grid;grid-template-columns:52px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.v img,.v .ini{width:52px;height:52px;border-radius:50%;object-fit:cover;background:#1a1612;display:grid;place-items:center;font:300 22px Fraunces,Georgia,serif;color:var(--muted)}
+.v q{font:italic 300 18px/1.4 Fraunces,Georgia,serif;display:block;margin:0 0 6px}
+.v q::before{content:"\201C"}.v q::after{content:"\201D"}
+.v .who{font-size:13px;color:var(--muted)}
+.sub a,.who a{color:var(--sea)}
+.film{margin:0 0 16px}
+.film video{width:100%;height:auto;display:block;border-radius:8px;background:#1a1612;aspect-ratio:16/9}
+.cap{font-size:12.5px;color:var(--muted);margin:6px 0 0}
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 0 20px;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.strip figure{margin:0;flex:0 0 42%;scroll-snap-align:start}
+.strip img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px;display:block;background:#1a1612}
+.strip figcaption{font-size:12.5px;color:var(--muted);margin-top:5px}
+.vh3{font:300 20px/1.2 Fraunces,Georgia,serif;margin:4px 0 10px}
+.sheet .back-to{margin:18px 0 0;width:100%}
+.more{display:block;font-size:14px;margin-top:14px;text-align:center}
+</style>
+</head>
+<body>
+<main>
+
+<div id="join">
+  <h1>More is bubbling.</h1>
+  <p class="lede">The week with Martin Lippo in Barcelona is done. Next, something is taking shape in <em>Tokyo</em>. Leave your name and you'll hear first.</p>
+  <div class="links">
+    <button type="button" class="voices" id="openv">What the chefs said about Barcelona</button>
+    <a class="ig" href="https://www.instagram.com/educatedtraveler.app/" target="_blank" rel="noopener">@educatedtraveler.app on Instagram</a>
+  </div>
+  <button type="button" class="martin" id="martin" aria-pressed="false">I'd come to another week with Martin</button>
+
+  <div class="steps" aria-hidden="true"><span class="on" id="s1"></span><span id="s2"></span></div>
+
+  <form id="f" novalidate>
+    <div class="step" id="step1">
+      <label>Your name
+        <input id="name" maxlength="60" autocomplete="name" required>
+      </label>
+      <label>Where are you working?
+        <input id="where" maxlength="80" placeholder="A boat, a restaurant, a city" autocomplete="organization" required>
+      </label>
+      <div class="err" id="err1" role="alert"></div>
+      <button type="button" class="go" id="next">Next</button>
+    </div>
+
+    <div class="step" id="step2" hidden>
+      <p class="hello" id="hello">Thank you.</p>
+      <label>Your email
+        <input id="email" type="email" placeholder="you@wherever.com" autocomplete="email" required>
+      </label>
+      <label class="consent"><input type="checkbox" id="consent">
+        <span>You may write to me at this address. One click to leave, any time.</span></label>
+      <div class="err" id="err2" role="alert"></div>
+      <button type="submit" class="go" id="go">Enlarge the Circle</button>
+      <button type="button" class="back" id="back">Back</button>
+      <p class="fine">Free. I read every note myself.</p>
+    </div>
+  </form>
+</div>
+
+<div id="done" role="status">
+  <h2 id="doneh">You're in the Circle.</h2>
+  <p id="donenews">When there is news on Tokyo, you'll hear it first.</p>
+  <p>Meanwhile: <a href="https://www.instagram.com/educatedtraveler.app/" target="_blank" rel="noopener">@educatedtraveler.app on Instagram</a></p>
+  <p>A sign-in link is on its way to <strong id="doneemail"></strong>. Not there in a few minutes? Check spam.</p>
+</div>
+
+</main>
+
+<dialog id="voices" aria-labelledby="vh">
+  <div class="sheet">
+    <div class="sheet-h">
+      <h2 id="vh">Five days at Martin Lippo's bench</h2>
+      <button type="button" class="x" id="closev" aria-label="Close">&times;</button>
+    </div>
+    <p class="sub">Vakuum, his lab in Barcelona, 22–26 October 2026. A room of working chefs, thirty-five hours, the foundations of the new culinary techniques. <a href="https://www.instagram.com/vakuum_by_martin_lippo/" target="_blank" rel="noopener">@vakuum_by_martin_lippo</a></p>
+
+    <div class="film">
+      <video controls preload="none" playsinline poster="/video/lippo/poster-presentation.jpg" width="1280" height="720">
+        <source src="/video/lippo/lippo-presentation-web.mp4" type="video/mp4">
+      </video>
+      <p class="cap">Martin on the week, filmed at Vakuum. 69 seconds.</p>
+    </div>
+
+    <h3 class="vh3">In the lab</h3>
+    <div class="strip" aria-label="The group in the lab">
+      <figure><img src="/images/collab/lab-week-01/week/bench-nitrogen-bowl.jpg" alt="A chef lifting a frozen piece out of liquid nitrogen fog while Martin Lippo points" loading="lazy"><figcaption>Nitrogen</figcaption></figure>
+      <figure><img src="/images/collab/lab-week-01/week/bench-spheres.jpg" alt="Martin Lippo dropping a sphere into the bath while chefs lean in, laughing" loading="lazy"><figcaption>Spheres</figcaption></figure>
+      <figure><img src="/images/collab/lab-week-01/week/bench-blender.jpg" alt="Martin Lippo watching two chefs blend at the bench" loading="lazy"><figcaption>At the bench</figcaption></figure>
+      <figure><img src="/images/collab/lab-week-01/week/bench-vacuum.jpg" alt="Chefs gathered round Martin Lippo at the vacuum machine" loading="lazy"><figcaption>Vacuum</figcaption></figure>
+      <figure><img src="/images/collab/lab-week-01/week/bench-gels.jpg" alt="Two chefs and Martin Lippo over sheets of orange and red gels" loading="lazy"><figcaption>Gels</figcaption></figure>
+      <figure><img src="/images/collab/lab-week-01/week/bench-siphon.jpg" alt="A chef working a siphon while the others watch" loading="lazy"><figcaption>Siphon</figcaption></figure>
+    </div>
+    <h3 class="vh3">After the lab</h3>
+    <div class="strip" aria-label="The group after the lab">
+      <figure><img src="/images/collab/lab-week-01/week/evening-terrace.jpg" alt="Lunch on a terrace, the chefs along a long red table, smiling" loading="lazy"><figcaption>Lunch on the terrace</figcaption></figure>
+      <figure><img src="/images/collab/lab-week-01/week/evening-paella.jpg" alt="Dinner around a paella, arms in the air" loading="lazy"><figcaption>Paella night</figcaption></figure>
+      <figure><img src="/images/collab/lab-week-01/week/evening-bar.jpg" alt="The group at a pavement bar table in Barcelona at night" loading="lazy"><figcaption>Out in Barcelona</figcaption></figure>
+    </div>
+
+    <h3 class="vh3">In their words</h3>
+
+    <!-- Verbatim from scripts/collab-notes/lab-week-01.json (the "line" field), all ticked "show". -->
+    <div class="v"><img src="/images/collab/lab-week-01/renata.jpg" alt="" loading="lazy"><div><q>I left the course viewing food completely differently.</q><span class="who">Renata Sullivan · Freelance yacht chef / private chef · <a href="https://www.instagram.com/renata.sullivan/" target="_blank" rel="noopener">@renata.sullivan</a></span></div></div>
+    <div class="v"><span class="ini" aria-hidden="true">J</span><div><q>Learning from Martin has forever changed the way I view food, its history, and its future</q><span class="who">Jaimee Kivell · Yacht chef · <a href="https://www.instagram.com/hotstufcomingthrough/" target="_blank" rel="noopener">@hotstufcomingthrough</a></span></div></div>
+    <div class="v"><img src="/images/collab/lab-week-01/paul.jpg" alt="" loading="lazy"><div><q>It was amazing to learn from Martin and meet like minded talented chefs, such a wealth of knowledge to share between us.</q><span class="who">Paul Kavanagh · Yacht chef · <a href="https://www.instagram.com/open_waters2017/" target="_blank" rel="noopener">@open_waters2017</a></span></div></div>
+    <div class="v"><img src="/images/collab/lab-week-01/mykhailo.jpg" alt="" loading="lazy"><div><q>Martin clearly loves what he does and tries to give as much info as possible, love it</q><span class="who">Mykhailo · <a href="https://www.instagram.com/sailingwithchef/" target="_blank" rel="noopener">@sailingwithchef</a></span></div></div>
+    <div class="v"><img src="/images/collab/lab-week-01/mariola.jpg" alt="" loading="lazy"><div><q>Everything amazing!! Best host best Master.</q><span class="who">Mariola Cid Acorral · Private jet catering chef · <a href="https://www.instagram.com/lolacidcorral/" target="_blank" rel="noopener">@lolacidcorral</a></span></div></div>
+    <div class="v"><img src="/images/collab/lab-week-01/luigi.jpg" alt="" loading="lazy"><div><q>The good energy</q><span class="who">Luigi Fumarola · Yacht chef on 87m · <a href="https://www.instagram.com/yachtchef/" target="_blank" rel="noopener">@yachtchef</a></span></div></div>
+
+    <button type="button" class="martin" id="martin2" aria-pressed="false" style="margin:18px 0 0">I'd come to another week with Martin</button>
+    <button type="button" class="go back-to" id="backv">Back to sign up</button>
+    <a class="more" href="/barcelona" target="_blank" rel="noopener">The whole week, with every note</a>
+  </div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/js/supabase-config.js"></script>
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var SOURCE='circle-whatsapp-first';
+
+  // The notes open over the form: nothing typed is lost, no page change.
+  var dlg=$('voices');
+  function closeV(){dlg.close()}
+  $('openv').addEventListener('click',function(){
+    if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+    if(window.plausible) window.plausible('FirstVoicesOpened');
+  });
+  $('closev').addEventListener('click',closeV);
+  $('backv').addEventListener('click',closeV);
+  dlg.addEventListener('click',function(e){if(e.target===dlg) closeV()});
+
+  // "Another week with Martin": one toggle, mirrored in the page and the pop-up,
+  // recorded with the sign-up (it rides in the same row).
+  var wantsMartin=false;
+  function setMartin(v){
+    wantsMartin=v;
+    ['martin','martin2'].forEach(function(id){$(id).setAttribute('aria-pressed', v?'true':'false')});
+    if(v && window.plausible) window.plausible('FirstMartinAgain');
+  }
+  $('martin').addEventListener('click',function(){setMartin(!wantsMartin)});
+  $('martin2').addEventListener('click',function(){setMartin(!wantsMartin)});
+
+  function validEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e)}
+  function show(id,msg){var e=$(id);e.textContent=msg;e.style.display='block'}
+  function hide(id){$(id).style.display='none'}
+  function first(n){return n.split(/\s+/)[0]}
+
+  function toStep2(){
+    var name=$('name').value.trim(), where=$('where').value.trim();
+    hide('err1');
+    if(!name){show('err1','Your name, please.');$('name').focus();return}
+    if(!where){show('err1','Where are you working?');$('where').focus();return}
+    $('hello').textContent='Thank you, '+first(name)+'.';
+    $('step1').hidden=true; $('step2').hidden=false;
+    $('s2').classList.add('on');
+    $('email').focus();
+  }
+  $('next').addEventListener('click',toStep2);
+  $('step1').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();toStep2()}});
+  $('back').addEventListener('click',function(){
+    $('step2').hidden=true; $('step1').hidden=false; $('s2').classList.remove('on'); $('name').focus();
+  });
+
+  $('f').addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    if($('step2').hidden) return;
+    var name=$('name').value.trim(), where=$('where').value.trim(), email=$('email').value.trim();
+    hide('err2');
+    if(!validEmail(email)){show('err2','I need a real address to write to.');$('email').focus();return}
+    if(!$('consent').checked){show('err2','Tick the box so I can write to you.');$('consent').focus();return}
+
+    var btn=$('go'), label=btn.textContent; btn.disabled=true; btn.textContent='One moment…';
+
+    // Same contract as /circle and join.html: kind:'profile' + kind:'dream'.
+    var payload = {
+      email: email,
+      source: SOURCE,
+      interests: [ {kind:'profile', name:name, region:null},
+                   {kind:'dream', text:'Works at: '+where+'\nCame from the WhatsApp note (Barcelona done, Tokyo teased). Wants to hear first.'
+                      + (wantsMartin ? '\nWould come to another week with Martin Lippo.' : '')} ]
+    };
+    if(wantsMartin) payload.interests.push({kind:'collab-interest', teacher:'martin-lippo'});
+
+    try{
+      var sb=window.supabaseClient; if(!sb) throw new Error('no connection');
+      var r=await sb.from('launch_waitlist').insert(payload);
+      if(r && r.error) throw r.error;
+      if(window.plausible) window.plausible('CircleWhatsappFirst');
+    }catch(e){
+      console.error('[Circle] insert failed',e);
+      btn.disabled=false; btn.textContent=label;
+      show('err2','Could not save that just now. Try again, or write to arnaudcallier@pm.me.');
+      return;
+    }
+
+    try{
+      await sb.auth.signInWithOtp({email:email, options:{emailRedirectTo:location.origin+'/portrait', shouldCreateUser:true}});
+    }catch(e){ console.error('[Circle] link failed',e) }
+
+    if(wantsMartin) $('donenews').textContent="When there is news on Tokyo, or another week with Martin, you'll hear it first.";
+    $('doneemail').textContent=email;
+    $('doneh').textContent="You're in the Circle, "+first(name)+".";
+    $('join').style.display='none'; $('done').style.display='block';
+    window.scrollTo(0,0);
+  });
+})();
+</script>
+</body>
+</html>
