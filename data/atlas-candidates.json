@@ -480,6 +480,40 @@
         "how": "email",
         "corrections": "The December course is taught by Valerian Hrala, not Willem Boot; the Panama and Ethiopia trips are tailored, not open courses."
       }
+    },
+    {
+      "id": "viennoiserie--rouen-inbp",
+      "craft": "Viennoiserie",
+      "place": "Rouen, Normandy, France",
+      "school": "INBP — Institut National de la Boulangerie Pâtisserie",
+      "teacher": "Olivier Magne",
+      "weWouldPublish": [
+        "Short professional courses in bread and viennoiserie, taught in Rouen by named bakers, many of them Meilleurs Ouvriers de France.",
+        "Mes viennoiseries, with Olivier Magne, MOF: three days, 21 hours, about fifteen products, 16 to 18 November 2026.",
+        "Ten participants, twelve at most. The only prerequisite is a basic knowledge of bakery and pastry.",
+        "The 2026 price is €1,338 including VAT."
+      ],
+      "weCouldNotAnswer": [
+        "Is any course taught in English, or with an interpreter, for a chef who does not speak French?",
+        "What are the 2027 dates for Olivier Magne's viennoiserie course?",
+        "Does Olivier Magne teach the whole course himself, all three days?"
+      ],
+      "sources": [
+        {
+          "what": "the INBP page for Mes viennoiseries 2026",
+          "url": "https://www.inbp.com/fiche/mes-viennoiseries-2026/",
+          "read": "4 November 2026"
+        },
+        {
+          "what": "the INBP list of short bakery courses",
+          "url": "https://www.inbp.com/stages-courts-boulangerie/",
+          "read": "4 November 2026"
+        }
+      ],
+      "validated": {
+        "on": false
+      },
+      "photoWeWouldAskFor": "A photograph from inside the Rouen teaching bakery during a course: hands, laminated dough, a tray of viennoiserie out of the oven."
     }
   ],
   "setAside": [
