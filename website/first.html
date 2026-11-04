@@ -8,40 +8,98 @@
 <meta name="description" content="Barcelona with Martin Lippo is done. Something is taking shape in Tokyo. Hear it first.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0d0b09;--paper:#f3ede2;--muted:rgba(243,237,226,.62);--sea:#7fa8a5;--ember:#d28a52;--line:rgba(243,237,226,.14)}
+:root{--ink:#0d0b09;--ink-2:#14110d;--paper:#f3ede2;--muted:rgba(243,237,226,.66);--softer:rgba(243,237,226,.5);--sea:#7fa8a5;--ember:#d28a52;--ember-soft:#e0a877;--line:rgba(243,237,226,.12);
+  --serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
 *{box-sizing:border-box}
-body{margin:0;background:var(--ink);color:var(--paper);font:400 16px/1.55 Inter,system-ui,sans-serif}
-main{max-width:520px;margin:0 auto;padding:44px 16px 64px}
-h1{font:300 clamp(30px,8vw,42px)/1.1 Fraunces,Georgia,serif;margin:0 0 12px}
-.lede{color:var(--muted);margin:0 0 14px}
-.lede em{color:var(--paper);font-style:normal}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 16px/1.55 var(--sans);overflow-x:hidden}
 a{color:var(--sea)}
-.links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 18px}
-.voices,.ig{background:none;border:0;padding:0;color:var(--sea);font:500 15px Inter,sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-.martin{display:block;width:100%;margin:0 0 30px;background:none;color:var(--paper);border:1px solid var(--line);border-radius:6px;padding:13px 14px;font:500 15px Inter,sans-serif;text-align:left;cursor:pointer}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+
+/* hero: the bench, full bleed, the headline on the photograph */
+.hero{position:relative;min-height:min(86svh,760px);display:flex;flex-direction:column;justify-content:space-between;padding:18px 16px 26px;isolation:isolate;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,11,9,.55) 0%,rgba(13,11,9,0) 22%,rgba(13,11,9,0) 42%,rgba(13,11,9,.82) 72%,var(--ink) 100%)}
+.hero .top{display:flex;justify-content:space-between;gap:12px;color:rgba(255,255,255,.86)}
+.hero .bottom{max-width:560px;width:100%;margin:0 auto}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--paper);margin:0 0 12px}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 0 rgba(210,138,82,.7);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(210,138,82,0)}100%{box-shadow:0 0 0 0 rgba(210,138,82,0)}}
+@media (prefers-reduced-motion:reduce){.kicker .dot{animation:none}html{scroll-behavior:auto}}
+h1{font:300 clamp(46px,13vw,76px)/.98 var(--serif);letter-spacing:-.01em;margin:0 0 14px}
+h1 em{font-style:italic;font-weight:300}
+.lede{font-size:17px;color:rgba(243,237,226,.86);margin:0 0 20px;max-width:30em}
+.tokyo{font-family:var(--serif);font-style:italic;font-size:1.15em;background:linear-gradient(100deg,var(--sea),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:2px}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:linear-gradient(100deg,var(--sea),var(--ember));border:0;border-radius:6px;padding:16px 22px;cursor:pointer}
+.cta:hover,.cta:focus-visible{background:var(--ember-soft);outline:none}
+
+main{max-width:560px;margin:0 auto;padding:0 16px 56px}
+section{padding:34px 0 0}
+.label{color:var(--softer);margin:0 0 16px;display:flex;justify-content:space-between;gap:10px}
+
+/* the week: three prints on the table, tap to open */
+.prints{position:relative;display:block;width:100%;height:clamp(250px,74vw,380px);background:none;border:0;padding:0;cursor:pointer;margin:0 0 6px}
+.prints figure{position:absolute;margin:0;background:#f6f1e7;padding:7px 7px 26px;border-radius:2px;box-shadow:0 14px 30px rgba(0,0,0,.55);width:50%;transition:transform .25s ease}
+.prints img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+.prints figcaption{position:absolute;left:9px;bottom:6px;font:italic 400 13px var(--serif);color:#3a332b}
+.prints .p1{left:0;top:16px;transform:rotate(-5deg)}
+.prints .p2{left:25%;top:0;transform:rotate(2deg);z-index:2}
+.prints .p3{right:0;top:22px;transform:rotate(6deg)}
+.prints .p3 figcaption{left:auto;right:9px}
+.prints:hover .p1,.prints:focus-visible .p1{transform:rotate(-7deg) translateX(-4px)}
+.prints:hover .p3,.prints:focus-visible .p3{transform:rotate(8deg) translateX(4px)}
+.prints:focus-visible{outline:2px solid var(--sea);outline-offset:6px}
+.see{display:inline-flex;gap:8px;align-items:center;background:none;border:0;padding:0;color:var(--sea);font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+
+/* one voice, then the room */
+blockquote{margin:0;font:italic 300 clamp(26px,7.4vw,36px)/1.2 var(--serif)}
+blockquote::before{content:"\201C";display:block;font:400 64px/0.6 var(--serif);color:var(--ember);margin:0 0 8px}
+.by{color:var(--muted);font-size:14px;margin:12px 0 18px}
+.room{display:flex;align-items:center;gap:14px;background:none;border:0;padding:0;color:var(--paper);cursor:pointer;text-align:left;font:inherit}
+.faces{display:flex;flex:none}
+.faces img,.faces .ini{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);margin-left:-11px;background:#221d17;display:grid;place-items:center;font:300 16px var(--serif);color:var(--muted)}
+.faces img:first-child{margin-left:0}
+.room .tx{font-size:14px;color:var(--muted);line-height:1.4}
+.room .tx u{color:var(--sea);text-underline-offset:3px}
+
+.martin{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;background:transparent;color:var(--paper);border:1px solid var(--sea);border-radius:8px;padding:15px 16px;font:500 15px var(--sans);text-align:left;cursor:pointer}
+.martin .tick{flex:none;width:22px;height:22px;border-radius:50%;border:1px solid var(--sea);display:grid;place-items:center;font-size:13px;color:var(--ink)}
 .martin[aria-pressed="true"]{border-color:var(--ember);background:rgba(210,138,82,.12)}
-.martin[aria-pressed="true"]::after{content:" · noted";color:var(--ember)}
+.martin[aria-pressed="true"] .tick{background:var(--ember);border-color:var(--ember)}
+.martin[aria-pressed="true"] .tick::before{content:"\2713"}
+.martin small{display:block;color:var(--muted);font-size:13px;font-weight:400;margin-top:2px}
+
+/* the form, on a card */
+.card{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:22px 18px 20px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(100deg,var(--sea),var(--ember))}
+.card h2{font:300 30px/1.1 var(--serif);margin:4px 0 6px}
+.card .sub2{color:var(--muted);font-size:14.5px;margin:0 0 18px}
 .steps{display:flex;gap:6px;margin:0 0 18px}
-.steps span{height:3px;flex:1;background:var(--line);border-radius:2px}
+.steps span{height:3px;flex:1;background:var(--line);border-radius:2px;transition:background .3s}
 .steps span.on{background:var(--ember)}
 form{display:grid;gap:18px}
-.step{display:grid;gap:18px}
+.step{display:grid;gap:16px}
 .step[hidden]{display:none}
-label{display:grid;gap:6px;font-size:14px;color:var(--muted)}
-input{font:inherit;color:var(--paper);background:rgba(243,237,226,.05);border:1px solid var(--line);border-radius:6px;padding:13px 12px;width:100%}
-input:focus{outline:2px solid var(--sea);outline-offset:1px}
-.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+label{display:grid;gap:7px;color:var(--softer)}
+label>span.mono{font-size:10.5px}
+input{font:inherit;color:var(--paper);background:rgba(243,237,226,.05);border:1px solid var(--line);border-radius:6px;padding:14px 12px;width:100%}
+input:focus{outline:2px solid var(--sea);outline-offset:1px;border-color:transparent}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted)}
 .consent input{width:auto;margin-top:4px}
-.go{font:600 16px Inter,sans-serif;background:var(--ember);color:#1a0f06;border:0;border-radius:6px;padding:15px 20px;cursor:pointer;width:100%}
+.go{width:100%}
 .go:disabled{opacity:.6;cursor:default}
-.back{background:none;border:0;color:var(--muted);font:400 14px Inter,sans-serif;padding:4px 0;justify-self:start;text-decoration:underline;cursor:pointer}
-.hello{font:italic 300 21px/1.35 Fraunces,Georgia,serif;margin:0}
+.back{background:none;border:0;color:var(--muted);font:400 14px var(--sans);padding:4px 0;justify-self:start;text-decoration:underline;cursor:pointer}
+.hello{font:italic 300 22px/1.3 var(--serif);margin:0}
 .err{color:#f0a38a;font-size:14px;display:none}
-.fine{font-size:13px;color:var(--muted);margin:0}
-#done{display:none}
-#done h2{font:300 28px/1.15 Fraunces,Georgia,serif;margin:0 0 12px}
+.fine{font-size:13px;color:var(--softer);margin:0}
+
+footer{text-align:center;padding:40px 16px 8px;color:var(--softer)}
+footer .sig{font:italic 300 20px/1.3 var(--serif);color:var(--muted);margin:0 0 10px}
+#done{display:none;padding-top:56px}
+#done h2{font:300 34px/1.1 var(--serif);margin:0 0 12px}
+@media (min-width:700px){.hero{padding:26px 32px 40px}}
 
 /* the chefs' notes, in a sheet over the form so nothing typed is lost */
 dialog{border:0;padding:0;background:var(--ink);color:var(--paper);width:min(520px,100vw);max-height:88vh;border-radius:12px 12px 0 0;margin:auto auto 0;border-top:1px solid var(--line)}
@@ -71,44 +129,82 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
 </style>
 </head>
 <body>
-<main>
-
-<div id="join">
-  <h1>More is bubbling.</h1>
-  <p class="lede">The week with Martin Lippo in Barcelona is done. Next, something is taking shape in <em>Tokyo</em>. Leave your name and you'll hear first.</p>
-  <div class="links">
-    <button type="button" class="voices" id="openv">What the chefs said about Barcelona</button>
-    <a class="ig" href="https://www.instagram.com/educatedtraveler.app/" target="_blank" rel="noopener">@educatedtraveler.app on Instagram</a>
+<header class="hero" id="join-hero">
+  <img src="/images/collab/lab-week-01/week/hero-nitrogen.jpg" alt="Martin Lippo and a chef at the bench, liquid nitrogen fog rolling over the steel" fetchpriority="high">
+  <div class="top mono"><span>EducatedTraveler</span><span>Collaboration 01</span></div>
+  <div class="bottom">
+    <p class="kicker mono"><span class="dot" aria-hidden="true"></span>Barcelona done &middot; next is taking shape</p>
+    <h1>More is <em>bubbling.</em></h1>
+    <p class="lede">Five days at Martin Lippo's bench, with a room of chefs who care about the craft. Next: <span class="tokyo">Tokyo</span>. Hear it first.</p>
+    <a class="cta" href="#signup">Hear it first <span aria-hidden="true">&darr;</span></a>
   </div>
-  <button type="button" class="martin" id="martin" aria-pressed="false">I'd come to another week with Martin</button>
+</header>
 
-  <div class="steps" aria-hidden="true"><span class="on" id="s1"></span><span id="s2"></span></div>
+<main>
+<div id="join">
 
-  <form id="f" novalidate>
-    <div class="step" id="step1">
-      <label>Your name
-        <input id="name" maxlength="60" autocomplete="name" required>
-      </label>
-      <label>Where are you working?
-        <input id="where" maxlength="80" placeholder="A boat, a restaurant, a city" autocomplete="organization" required>
-      </label>
-      <div class="err" id="err1" role="alert"></div>
-      <button type="button" class="go" id="next">Next</button>
+  <section aria-label="The week">
+    <p class="label mono"><span>22&ndash;26 Oct &middot; Vakuum, Barcelona</span><span>Tap to open</span></p>
+    <button type="button" class="prints" id="openv" aria-label="See the week: Martin's film, the photographs and what the chefs said">
+      <figure class="p1"><img src="/images/collab/lab-week-01/week/bench-spheres.jpg" alt=""><figcaption>In the lab</figcaption></figure>
+      <figure class="p2"><img src="/images/collab/lab-week-01/week/evening-paella.jpg" alt=""><figcaption>Paella night</figcaption></figure>
+      <figure class="p3"><img src="/images/collab/lab-week-01/week/bench-gels.jpg" alt=""><figcaption>Gels</figcaption></figure>
+    </button>
+    <button type="button" class="see" id="openv3">See the week <span aria-hidden="true">&rarr;</span></button>
+  </section>
+
+  <section aria-label="In their words">
+    <blockquote>I left the course viewing food completely differently.</blockquote>
+    <p class="by">Renata Sullivan, freelance yacht chef / private chef</p>
+    <button type="button" class="room" id="openv2">
+      <span class="faces"><img src="/images/collab/lab-week-01/renata.jpg" alt=""><img src="/images/collab/lab-week-01/paul.jpg" alt=""><img src="/images/collab/lab-week-01/mariola.jpg" alt=""><img src="/images/collab/lab-week-01/mykhailo.jpg" alt=""><img src="/images/collab/lab-week-01/luigi.jpg" alt=""><span class="ini">J</span></span>
+      <span class="tx">Six of the chefs who were there, in their words. <u>Read them</u></span>
+    </button>
+  </section>
+
+  <section>
+    <button type="button" class="martin" id="martin" aria-pressed="false"><span>I'd come to another week with Martin<small>Tap, and it's noted with your name below.</small></span><span class="tick" aria-hidden="true"></span></button>
+  </section>
+
+  <section id="signup">
+    <div class="card">
+      <p class="mono" style="color:var(--ember);margin:0">The Circle</p>
+      <h2>Be the first to hear.</h2>
+      <p class="sub2">Tokyo, and whatever comes next. Free, one click to leave.</p>
+      <div class="steps" aria-hidden="true"><span class="on" id="s1"></span><span id="s2"></span></div>
+
+      <form id="f" novalidate>
+        <div class="step" id="step1">
+          <label><span class="mono">Your name</span>
+            <input id="name" maxlength="60" autocomplete="name" required>
+          </label>
+          <label><span class="mono">Where are you working?</span>
+            <input id="where" maxlength="80" placeholder="A boat, a restaurant, a city" autocomplete="organization" required>
+          </label>
+          <div class="err" id="err1" role="alert"></div>
+          <button type="button" class="cta go" id="next">Next <span aria-hidden="true">&rarr;</span></button>
+        </div>
+
+        <div class="step" id="step2" hidden>
+          <p class="hello" id="hello">Thank you.</p>
+          <label><span class="mono">Your email</span>
+            <input id="email" type="email" placeholder="you@wherever.com" autocomplete="email" required>
+          </label>
+          <label class="consent"><input type="checkbox" id="consent">
+            <span>You may write to me at this address. One click to leave, any time.</span></label>
+          <div class="err" id="err2" role="alert"></div>
+          <button type="submit" class="cta go" id="go">Enlarge the Circle <span aria-hidden="true">&rarr;</span></button>
+          <button type="button" class="back" id="back">Back</button>
+          <p class="fine">I read every note myself.</p>
+        </div>
+      </form>
     </div>
+  </section>
 
-    <div class="step" id="step2" hidden>
-      <p class="hello" id="hello">Thank you.</p>
-      <label>Your email
-        <input id="email" type="email" placeholder="you@wherever.com" autocomplete="email" required>
-      </label>
-      <label class="consent"><input type="checkbox" id="consent">
-        <span>You may write to me at this address. One click to leave, any time.</span></label>
-      <div class="err" id="err2" role="alert"></div>
-      <button type="submit" class="go" id="go">Enlarge the Circle</button>
-      <button type="button" class="back" id="back">Back</button>
-      <p class="fine">Free. I read every note myself.</p>
-    </div>
-  </form>
+  <footer>
+    <p class="sig">A skill, a place, a person, your people.</p>
+    <p class="mono"><a href="https://www.instagram.com/educatedtraveler.app/" target="_blank" rel="noopener">@educatedtraveler.app</a></p>
+  </footer>
 </div>
 
 <div id="done" role="status">
@@ -161,8 +257,8 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
     <div class="v"><img src="/images/collab/lab-week-01/mariola.jpg" alt="" loading="lazy"><div><q>Everything amazing!! Best host best Master.</q><span class="who">Mariola Cid Acorral · Private jet catering chef · <a href="https://www.instagram.com/lolacidcorral/" target="_blank" rel="noopener">@lolacidcorral</a></span></div></div>
     <div class="v"><img src="/images/collab/lab-week-01/luigi.jpg" alt="" loading="lazy"><div><q>The good energy</q><span class="who">Luigi Fumarola · Yacht chef on 87m · <a href="https://www.instagram.com/yachtchef/" target="_blank" rel="noopener">@yachtchef</a></span></div></div>
 
-    <button type="button" class="martin" id="martin2" aria-pressed="false" style="margin:18px 0 0">I'd come to another week with Martin</button>
-    <button type="button" class="go back-to" id="backv">Back to sign up</button>
+    <button type="button" class="martin" id="martin2" aria-pressed="false" style="margin:18px 0 0"><span>I'd come to another week with Martin</span><span class="tick" aria-hidden="true"></span></button>
+    <button type="button" class="cta go back-to" id="backv">Back to sign up</button>
     <a class="more" href="/barcelona" target="_blank" rel="noopener">The whole week, with every note</a>
   </div>
 </dialog>
@@ -177,12 +273,13 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
   // The notes open over the form: nothing typed is lost, no page change.
   var dlg=$('voices');
   function closeV(){dlg.close()}
+  ['openv2','openv3'].forEach(function(id){$(id).addEventListener('click',function(){$('openv').click()})});
   $('openv').addEventListener('click',function(){
     if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
     if(window.plausible) window.plausible('FirstVoicesOpened');
   });
   $('closev').addEventListener('click',closeV);
-  $('backv').addEventListener('click',closeV);
+  $('backv').addEventListener('click',function(){closeV();$('signup').scrollIntoView({block:'start'})});
   dlg.addEventListener('click',function(e){if(e.target===dlg) closeV()});
 
   // "Another week with Martin": one toggle, mirrored in the page and the pop-up,
@@ -256,7 +353,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
     if(wantsMartin) $('donenews').textContent="When there is news on Tokyo, or another week with Martin, you'll hear it first.";
     $('doneemail').textContent=email;
     $('doneh').textContent="You're in the Circle, "+first(name)+".";
-    $('join').style.display='none'; $('done').style.display='block';
+    $('join').style.display='none'; $('join-hero').style.display='none'; $('done').style.display='block';
     window.scrollTo(0,0);
   });
 })();
